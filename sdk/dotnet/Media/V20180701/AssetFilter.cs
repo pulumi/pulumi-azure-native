@@ -11,6 +11,87 @@ namespace Pulumi.AzureRM.Media.V20180701
 {
     /// <summary>
     /// An Asset Filter.
+    /// 
+    /// ## Example Usage
+    /// ### Create an Asset Filter
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var assetFilter = new AzureRM.Media.V20180701.AssetFilter("assetFilter", new AzureRM.Media.V20180701.AssetFilterArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             AssetName = "ClimbingMountRainer",
+    ///             FilterName = "newAssetFilter",
+    ///             FirstQuality = new AzureRM.Media.V20180701.Inputs.FirstQualityArgs
+    ///             {
+    ///                 Bitrate = 128000,
+    ///             },
+    ///             PresentationTimeRange = new AzureRM.Media.V20180701.Inputs.PresentationTimeRangeArgs
+    ///             {
+    ///                 EndTimestamp = 170000000,
+    ///                 ForceEndTimestamp = false,
+    ///                 LiveBackoffDuration = 0,
+    ///                 PresentationWindowDuration = 9.223372036854776e+18,
+    ///                 StartTimestamp = 0,
+    ///                 Timescale = 10000000,
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///             Tracks = 
+    ///             {
+    ///                 new AzureRM.Media.V20180701.Inputs.FilterTrackSelectionArgs
+    ///                 {
+    ///                     TrackSelections = 
+    ///                     {
+    ///                         new AzureRM.Media.V20180701.Inputs.FilterTrackPropertyConditionArgs
+    ///                         {
+    ///                             Operation = "Equal",
+    ///                             Property = "Type",
+    ///                             Value = "Audio",
+    ///                         },
+    ///                         new AzureRM.Media.V20180701.Inputs.FilterTrackPropertyConditionArgs
+    ///                         {
+    ///                             Operation = "NotEqual",
+    ///                             Property = "Language",
+    ///                             Value = "en",
+    ///                         },
+    ///                         new AzureRM.Media.V20180701.Inputs.FilterTrackPropertyConditionArgs
+    ///                         {
+    ///                             Operation = "NotEqual",
+    ///                             Property = "FourCC",
+    ///                             Value = "EC-3",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureRM.Media.V20180701.Inputs.FilterTrackSelectionArgs
+    ///                 {
+    ///                     TrackSelections = 
+    ///                     {
+    ///                         new AzureRM.Media.V20180701.Inputs.FilterTrackPropertyConditionArgs
+    ///                         {
+    ///                             Operation = "Equal",
+    ///                             Property = "Type",
+    ///                             Value = "Video",
+    ///                         },
+    ///                         new AzureRM.Media.V20180701.Inputs.FilterTrackPropertyConditionArgs
+    ///                         {
+    ///                             Operation = "Equal",
+    ///                             Property = "Bitrate",
+    ///                             Value = "3000000-5000000",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AssetFilter : Pulumi.CustomResource
     {

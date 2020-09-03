@@ -11,6 +11,48 @@ namespace Pulumi.AzureRM.Automation.V20151031
 {
     /// <summary>
     /// Definition of the configuration type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Configuration
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dscConfiguration = new AzureRM.Automation.V20151031.DscConfiguration("dscConfiguration", new AzureRM.Automation.V20151031.DscConfigurationArgs
+    ///         {
+    ///             AutomationAccountName = "myAutomationAccount18",
+    ///             ConfigurationName = "SetupServer",
+    ///             Description = "sample configuration",
+    ///             Location = "East US 2",
+    ///             Name = "SetupServer",
+    ///             ResourceGroupName = "rg",
+    ///             Source = new AzureRM.Automation.V20151031.Inputs.ContentSourceArgs
+    ///             {
+    ///                 Hash = new AzureRM.Automation.V20151031.Inputs.ContentHashArgs
+    ///                 {
+    ///                     Algorithm = "sha256",
+    ///                     Value = "A9E5DB56BA21513F61E0B3868816FDC6D4DF5131F5617D7FF0D769674BD5072F",
+    ///                 },
+    ///                 Type = "embeddedContent",
+    ///                 Value = @"Configuration SetupServer {
+    ///     Node localhost {
+    ///                                WindowsFeature IIS {
+    ///                                Name = ""Web-Server"";
+    ///             Ensure = ""Present""
+    ///         }
+    ///     }
+    /// }",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DscConfiguration : Pulumi.CustomResource
     {

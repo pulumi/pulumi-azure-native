@@ -34,6 +34,27 @@ class VNetPeering(pulumi.CustomResource):
         """
         Peerings in a VirtualNetwork resource
 
+        ## Example Usage
+        ### Create vNet Peering for Workspace
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        v_net_peering = azurerm.databricks.v20180401.VNetPeering("vNetPeering",
+            allow_forwarded_traffic=False,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            peering_name="vNetPeeringTest",
+            remote_virtual_network={
+                "id": "/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
+            },
+            resource_group_name="rg",
+            use_remote_gateways=False,
+            workspace_name="myWorkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.

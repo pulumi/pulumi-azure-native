@@ -11,6 +11,66 @@ namespace Pulumi.AzureRM.Network.V20200501
 {
     /// <summary>
     /// Rule Collection Group resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create FirewallPolicyRuleCollectionGroup
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallPolicyRuleCollectionGroup = new AzureRM.Network.V20200501.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", new AzureRM.Network.V20200501.FirewallPolicyRuleCollectionGroupArgs
+    ///         {
+    ///             FirewallPolicyName = "firewallPolicy",
+    ///             Priority = 110,
+    ///             ResourceGroupName = "rg1",
+    ///             RuleCollectionGroupName = "ruleCollectionGroup1",
+    ///             RuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.V20200501.Inputs.FirewallPolicyRuleCollectionArgs
+    ///                 {
+    ///                     Name = "Example-Filter-Rule-Collection",
+    ///                     RuleCollectionType = "FirewallPolicyFilterRuleCollection",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create FirewallPolicyRuleCollectionGroup With IpGroups
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallPolicyRuleCollectionGroup = new AzureRM.Network.V20200501.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", new AzureRM.Network.V20200501.FirewallPolicyRuleCollectionGroupArgs
+    ///         {
+    ///             FirewallPolicyName = "firewallPolicy",
+    ///             Priority = 110,
+    ///             ResourceGroupName = "rg1",
+    ///             RuleCollectionGroupName = "ruleCollectionGroup1",
+    ///             RuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.V20200501.Inputs.FirewallPolicyRuleCollectionArgs
+    ///                 {
+    ///                     Name = "Example-Filter-Rule-Collection",
+    ///                     RuleCollectionType = "FirewallPolicyFilterRuleCollection",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FirewallPolicyRuleCollectionGroup : Pulumi.CustomResource
     {

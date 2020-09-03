@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in List or Get Migration Config operation
+ *
+ * ## Example Usage
+ * ### MigrationConfigurationsStartMigration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const migrationConfig = new azurerm.servicebus.v20170401.MigrationConfig("migrationConfig", {
+ *     configName: `$default`,
+ *     namespaceName: "sdk-Namespace-41",
+ *     postMigrationName: "sdk-PostMigration-5919",
+ *     resourceGroupName: "ResourceGroup",
+ *     targetNamespace: "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028",
+ * });
+ *
+ * ```
  */
 export class MigrationConfig extends pulumi.CustomResource {
     /**

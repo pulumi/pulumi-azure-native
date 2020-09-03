@@ -8,6 +8,55 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about a Cluster.
+ *
+ * ## Example Usage
+ * ### Create a cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cluster = new azurerm.batchai.latest.Cluster("cluster", {
+ *     clusterName: "demo_cluster",
+ *     nodeSetup: {
+ *         mountVolumes: {
+ *             azureFileShares: [{
+ *                 accountName: "storage_account_name",
+ *                 azureFileUrl: "https://storage_account_name.file.core.windows.net/azure_file_share_name",
+ *                 credentials: {
+ *                     accountKey: "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000==",
+ *                 },
+ *                 directoryMode: "0777",
+ *                 fileMode: "0777",
+ *                 relativeMountPath: "azfiles",
+ *             }],
+ *             fileServers: [{
+ *                 fileServer: {
+ *                     id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo_resource_group/providers/Microsoft.BatchAI/workspaces/demo_workspaces/fileservers/fileservercedd134b",
+ *                 },
+ *                 mountOptions: "rw",
+ *                 relativeMountPath: "nfs",
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "demo_resource_group",
+ *     scaleSettings: {
+ *         manual: {
+ *             nodeDeallocationOption: "requeue",
+ *             targetNodeCount: 1,
+ *         },
+ *     },
+ *     userAccountSettings: {
+ *         adminUserName: "admin_user_name",
+ *         adminUserPassword: "admin_user_password",
+ *         adminUserSshPublicKey: "ssh-rsa AAAAB3NzaC1yc...",
+ *     },
+ *     vmPriority: "dedicated",
+ *     vmSize: "STANDARD_NC6",
+ *     workspaceName: "demo_workspace",
+ * });
+ *
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

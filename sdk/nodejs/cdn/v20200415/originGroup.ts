@@ -8,6 +8,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+ *
+ * ## Example Usage
+ * ### OriginGroups_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const originGroup = new azurerm.cdn.v20200415.OriginGroup("originGroup", {
+ *     endpointName: "endpoint1",
+ *     healthProbeSettings: {
+ *         probeIntervalInSeconds: 120,
+ *         probePath: "/health.aspx",
+ *         probeProtocol: "Http",
+ *         probeRequestType: "GET",
+ *     },
+ *     originGroupName: "origingroup1",
+ *     origins: [{
+ *         id: "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+ *     }],
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     responseBasedOriginErrorDetectionSettings: {
+ *         responseBasedDetectedErrorTypes: "TcpErrorsOnly",
+ *         responseBasedFailoverThresholdPercentage: 10,
+ *     },
+ * });
+ *
+ * ```
  */
 export class OriginGroup extends pulumi.CustomResource {
     /**

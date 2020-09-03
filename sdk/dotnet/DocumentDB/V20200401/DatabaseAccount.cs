@@ -11,6 +11,116 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
 {
     /// <summary>
     /// An Azure Cosmos DB database account.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBDatabaseAccountCreateMax
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var databaseAccount = new AzureRM.DocumentDB.V20200401.DatabaseAccount("databaseAccount", new AzureRM.DocumentDB.V20200401.DatabaseAccountArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             ApiProperties = new AzureRM.DocumentDB.V20200401.Inputs.ApiPropertiesArgs
+    ///             {
+    ///                 ServerVersion = "3.2",
+    ///             },
+    ///             ConsistencyPolicy = new AzureRM.DocumentDB.V20200401.Inputs.ConsistencyPolicyArgs
+    ///             {
+    ///                 DefaultConsistencyLevel = "BoundedStaleness",
+    ///                 MaxIntervalInSeconds = 10,
+    ///                 MaxStalenessPrefix = 200,
+    ///             },
+    ///             Cors = 
+    ///             {
+    ///                 new AzureRM.DocumentDB.V20200401.Inputs.CorsPolicyArgs
+    ///                 {
+    ///                     AllowedOrigins = "https://test",
+    ///                 },
+    ///             },
+    ///             DatabaseAccountOfferType = "Standard",
+    ///             EnableAnalyticalStorage = true,
+    ///             EnableFreeTier = false,
+    ///             IpRules = 
+    ///             {
+    ///                 new AzureRM.DocumentDB.V20200401.Inputs.IpAddressOrRangeArgs
+    ///                 {
+    ///                     IpAddressOrRange = "23.43.230.120",
+    ///                 },
+    ///                 new AzureRM.DocumentDB.V20200401.Inputs.IpAddressOrRangeArgs
+    ///                 {
+    ///                     IpAddressOrRange = "110.12.240.0/12",
+    ///                 },
+    ///             },
+    ///             IsVirtualNetworkFilterEnabled = true,
+    ///             KeyVaultKeyUri = "https://myKeyVault.vault.azure.net",
+    ///             Kind = "MongoDB",
+    ///             Location = "westus",
+    ///             Locations = 
+    ///             {
+    ///                 new AzureRM.DocumentDB.V20200401.Inputs.LocationArgs
+    ///                 {
+    ///                     FailoverPriority = 0,
+    ///                     IsZoneRedundant = false,
+    ///                     LocationName = "southcentralus",
+    ///                 },
+    ///                 new AzureRM.DocumentDB.V20200401.Inputs.LocationArgs
+    ///                 {
+    ///                     FailoverPriority = 1,
+    ///                     IsZoneRedundant = false,
+    ///                     LocationName = "eastus",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
+    ///             VirtualNetworkRules = 
+    ///             {
+    ///                 new AzureRM.DocumentDB.V20200401.Inputs.VirtualNetworkRuleArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    ///                     IgnoreMissingVNetServiceEndpoint = false,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### CosmosDBDatabaseAccountCreateMin
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var databaseAccount = new AzureRM.DocumentDB.V20200401.DatabaseAccount("databaseAccount", new AzureRM.DocumentDB.V20200401.DatabaseAccountArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             DatabaseAccountOfferType = "Standard",
+    ///             Location = "westus",
+    ///             Locations = 
+    ///             {
+    ///                 new AzureRM.DocumentDB.V20200401.Inputs.LocationArgs
+    ///                 {
+    ///                     FailoverPriority = 0,
+    ///                     IsZoneRedundant = false,
+    ///                     LocationName = "southcentralus",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DatabaseAccount : Pulumi.CustomResource
     {

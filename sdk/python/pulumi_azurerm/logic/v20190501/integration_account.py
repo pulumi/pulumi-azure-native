@@ -30,6 +30,23 @@ class IntegrationAccount(pulumi.CustomResource):
         """
         The integration account.
 
+        ## Example Usage
+        ### Create or update an integration account
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        integration_account = azurerm.logic.v20190501.IntegrationAccount("integrationAccount",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            resource_group_name="testResourceGroup",
+            sku={
+                "name": "Standard",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] integration_account_name: The integration account name.

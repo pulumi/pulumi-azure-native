@@ -8,6 +8,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual machine model
+ *
+ * ## Example Usage
+ * ### CreateVirtualMachine
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualMachine = new azurerm.vmwarecloudsimple.latest.VirtualMachine("virtualMachine", {
+ *     amountOfRam: 4096,
+ *     disks: [{
+ *         controllerId: "1000",
+ *         independenceMode: "persistent",
+ *         totalSize: 10485760,
+ *         virtualDiskId: "2000",
+ *     }],
+ *     location: "westus2",
+ *     nics: [{
+ *         network: {
+ *             id: "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualNetworks/dvportgroup-19",
+ *         },
+ *         nicType: "E1000",
+ *         powerOnBoot: true,
+ *         virtualNicId: "4000",
+ *     }],
+ *     numberOfCores: 2,
+ *     privateCloudId: "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourcePool: {
+ *         id: "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/resourcePools/resgroup-26",
+ *     },
+ *     templateId: "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualMachineTemplates/vm-34",
+ *     virtualMachineName: "myVirtualMachine",
+ * });
+ *
+ * ```
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**

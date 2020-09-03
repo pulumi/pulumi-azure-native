@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 {
     /// <summary>
     /// Schema Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiSchema
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiSchema = new AzureRM.ApiManagement.V20170301.ApiSchema("apiSchema", new AzureRM.ApiManagement.V20170301.ApiSchemaArgs
+    ///         {
+    ///             ApiId = "59d6bb8f1f7fab13dc67ec9b",
+    ///             ContentType = "application/vnd.ms-azure-apim.xsd+xml",
+    ///             ResourceGroupName = "rg1",
+    ///             SchemaId = "ec12520d-9d48-4e7b-8f39-698ca2ac63f1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApiSchema : Pulumi.CustomResource
     {

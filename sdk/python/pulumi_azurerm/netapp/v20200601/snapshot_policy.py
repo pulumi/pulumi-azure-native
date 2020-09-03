@@ -31,6 +31,47 @@ class SnapshotPolicy(pulumi.CustomResource):
         """
         Snapshot policy information
 
+        ## Example Usage
+        ### SnapshotPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        snapshot_policy = azurerm.netapp.v20200601.SnapshotPolicy("snapshotPolicy",
+            account_name="account1",
+            daily_schedule={
+                "hour": 10,
+                "minute": 10,
+                "snapshots_to_keep": 10,
+                "used_bytes": 100000,
+            },
+            enabled=True,
+            hourly_schedule={
+                "minute": 10,
+                "snapshots_to_keep": 10,
+                "used_bytes": 100000,
+            },
+            location="eastus",
+            monthly_schedule={
+                "DaysOfMonth": "1,5,11",
+                "hour": 10,
+                "minute": 10,
+                "snapshots_to_keep": 10,
+                "used_bytes": 100000,
+            },
+            resource_group_name="myRG",
+            snapshot_policy_name="snapshotPolicyName",
+            weekly_schedule={
+                "day": "Monday",
+                "hour": 10,
+                "minute": 10,
+                "snapshots_to_keep": 10,
+                "used_bytes": 100000,
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account

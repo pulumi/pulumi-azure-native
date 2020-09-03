@@ -8,6 +8,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Contains information about the File Server.
+ *
+ * ## Example Usage
+ * ### Create or update file server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const fileServer = new azurerm.batchai.v20180301.FileServer("fileServer", {
+ *     dataDisks: {
+ *         diskCount: 2,
+ *         diskSizeInGB: 10,
+ *         storageAccountType: "Standard_LRS",
+ *     },
+ *     fileServerName: "demo_nfs",
+ *     location: "eastus",
+ *     resourceGroupName: "demo_resource_group",
+ *     sshConfiguration: {
+ *         userAccountSettings: {
+ *             adminUserName: "admin_user_name",
+ *             adminUserPassword: "admin_user_password",
+ *         },
+ *     },
+ *     vmSize: "STANDARD_NC6",
+ * });
+ *
+ * ```
  */
 export class FileServer extends pulumi.CustomResource {
     /**

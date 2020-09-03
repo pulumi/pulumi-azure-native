@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.RecoveryServices.V20161201
 {
     /// <summary>
     /// Base class for container with backup items. Containers with specific workloads are derived from this class.
+    /// 
+    /// ## Example Usage
+    /// ### RegisterAzure Storage ProtectionContainers
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var protectionContainer = new AzureRM.RecoveryServices.V20161201.ProtectionContainer("protectionContainer", new AzureRM.RecoveryServices.V20161201.ProtectionContainerArgs
+    ///         {
+    ///             ContainerName = "VMAppContainer;Compute;testRG;testSQL",
+    ///             FabricName = "Azure",
+    ///             ResourceGroupName = "test-rg",
+    ///             VaultName = "testvault",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ProtectionContainer : Pulumi.CustomResource
     {

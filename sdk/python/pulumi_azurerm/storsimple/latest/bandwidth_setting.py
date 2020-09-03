@@ -28,6 +28,37 @@ class BandwidthSetting(pulumi.CustomResource):
         """
         The bandwidth setting.
 
+        ## Example Usage
+        ### BandwidthSettingsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        bandwidth_setting = azurerm.storsimple.latest.BandwidthSetting("bandwidthSetting",
+            bandwidth_setting_name="BWSForTest",
+            manager_name="ManagerForSDKTest1",
+            resource_group_name="ResourceGroupForSDKTest",
+            schedules=[{
+                "days": [
+                    "Saturday",
+                    "Sunday",
+                ],
+                "rateInMbps": 10,
+                "start": {
+                    "hours": 10,
+                    "minutes": 0,
+                    "seconds": 0,
+                },
+                "stop": {
+                    "hours": 20,
+                    "minutes": 0,
+                    "seconds": 0,
+                },
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bandwidth_setting_name: The bandwidth setting name.

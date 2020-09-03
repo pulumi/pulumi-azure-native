@@ -28,6 +28,21 @@ class ReplicationvCenter(pulumi.CustomResource):
         """
         vCenter definition.
 
+        ## Example Usage
+        ### Add vCenter.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        replicationv_center = azurerm.recoveryservices.latest.ReplicationvCenter("replicationvCenter",
+            fabric_name="MadhaviFabric",
+            resource_group_name="MadhaviVRG",
+            resource_name="MadhaviVault",
+            v_center_name="esx-78")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.

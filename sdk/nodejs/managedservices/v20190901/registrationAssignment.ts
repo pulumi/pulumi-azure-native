@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Registration assignment.
+ *
+ * ## Example Usage
+ * ### Put Registration Assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const registrationAssignment = new azurerm.managedservices.v20190901.RegistrationAssignment("registrationAssignment", {
+ *     registrationAssignmentId: "26c128c2-fefa-4340-9bb1-6e081c90ada2",
+ *     scope: "subscription/0afefe50-734e-4610-8a82-a144ahf49dea",
+ * });
+ *
+ * ```
  */
 export class RegistrationAssignment extends pulumi.CustomResource {
     /**

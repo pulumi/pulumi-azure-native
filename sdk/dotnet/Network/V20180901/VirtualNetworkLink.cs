@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Network.V20180901
 {
     /// <summary>
     /// Describes a link to virtual network for a Private DNS zone.
+    /// 
+    /// ## Example Usage
+    /// ### PUT Private DNS Zone Virtual Network Link
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualNetworkLink = new AzureRM.Network.V20180901.VirtualNetworkLink("virtualNetworkLink", new AzureRM.Network.V20180901.VirtualNetworkLinkArgs
+    ///         {
+    ///             Location = "Global",
+    ///             PrivateZoneName = "privatezone1.com",
+    ///             RegistrationEnabled = false,
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             VirtualNetwork = new AzureRM.Network.V20180901.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/virtualNetworkSubscriptionId/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/virtualNetworkName",
+    ///             },
+    ///             VirtualNetworkLinkName = "virtualNetworkLink1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualNetworkLink : Pulumi.CustomResource
     {

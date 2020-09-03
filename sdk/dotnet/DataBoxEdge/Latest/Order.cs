@@ -11,6 +11,47 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
 {
     /// <summary>
     /// The order details.
+    /// 
+    /// ## Example Usage
+    /// ### OrderPut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var order = new AzureRM.DataBoxEdge.Latest.Order("order", new AzureRM.DataBoxEdge.Latest.OrderArgs
+    ///         {
+    ///             ContactInformation = new AzureRM.DataBoxEdge.Latest.Inputs.ContactDetailsArgs
+    ///             {
+    ///                 CompanyName = "Microsoft",
+    ///                 ContactPerson = "John Mcclane",
+    ///                 EmailList = 
+    ///                 {
+    ///                     "john@microsoft.com",
+    ///                 },
+    ///                 Phone = "(800) 426-9400",
+    ///             },
+    ///             DeviceName = "testedgedevice",
+    ///             ResourceGroupName = "GroupForEdgeAutomation",
+    ///             ShippingAddress = new AzureRM.DataBoxEdge.Latest.Inputs.AddressArgs
+    ///             {
+    ///                 AddressLine1 = "Microsoft Corporation",
+    ///                 AddressLine2 = "One Microsoft Way",
+    ///                 AddressLine3 = "Redmond",
+    ///                 City = "WA",
+    ///                 Country = "USA",
+    ///                 PostalCode = "98052",
+    ///                 State = "WA",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Order : Pulumi.CustomResource
     {

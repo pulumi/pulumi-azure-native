@@ -36,6 +36,27 @@ class MachineExtension(pulumi.CustomResource):
         """
         Describes a Machine Extension.
 
+        ## Example Usage
+        ### Create or Update a Machine Extension
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_extension = azurerm.hybridcompute.v20200802.MachineExtension("machineExtension",
+            extension_name="CustomScriptExtension",
+            location="eastus2euap",
+            name="myMachine",
+            publisher="Microsoft.Compute",
+            resource_group_name="myResourceGroup",
+            settings={
+                "commandToExecute": "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"",
+            },
+            type="CustomScriptExtension",
+            type_handler_version="1.10")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.

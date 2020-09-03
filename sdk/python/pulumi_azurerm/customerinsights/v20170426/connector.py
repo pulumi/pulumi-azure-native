@@ -29,6 +29,29 @@ class Connector(pulumi.CustomResource):
         """
         The connector resource format.
 
+        ## Example Usage
+        ### Connectors_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        connector = azurerm.customerinsights.v20170426.Connector("connector",
+            connector_name="testConnector",
+            connector_properties={
+                "connectionKeyVaultUrl": {
+                    "organizationId": "XXX",
+                    "organizationUrl": "https://XXX.crmlivetie.com/",
+                },
+            },
+            connector_type="AzureBlob",
+            description="Test connector",
+            display_name="testConnector",
+            hub_name="sdkTestHub",
+            resource_group_name="TestHubRG")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connector_name: Name of the connector.

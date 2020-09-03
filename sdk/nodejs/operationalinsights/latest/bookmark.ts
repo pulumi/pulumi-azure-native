@@ -8,6 +8,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a bookmark in Azure Security Insights.
+ *
+ * ## Example Usage
+ * ### Creates or updates a bookmark.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const bookmark = new azurerm.operationalinsights.latest.Bookmark("bookmark", {
+ *     bookmarkId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     created: "2019-01-01T13:15:30Z",
+ *     createdBy: {
+ *         objectId: "2046feea-040d-4a46-9e2b-91c2941bfa70",
+ *     },
+ *     displayName: "My bookmark",
+ *     etag: "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+ *     labels: [
+ *         "Tag1",
+ *         "Tag2",
+ *     ],
+ *     notes: "Found a suspicious activity",
+ *     query: "SecurityEvent | where TimeGenerated > ago(1d) and TimeGenerated < ago(2d)",
+ *     queryResult: "Security Event query result",
+ *     resourceGroupName: "myRg",
+ *     updated: "2019-01-01T13:15:30Z",
+ *     updatedBy: {
+ *         objectId: "2046feea-040d-4a46-9e2b-91c2941bfa70",
+ *     },
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
  */
 export class Bookmark extends pulumi.CustomResource {
     /**

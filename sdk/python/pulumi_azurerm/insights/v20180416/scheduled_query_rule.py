@@ -32,6 +32,87 @@ class ScheduledQueryRule(pulumi.CustomResource):
         """
         The Log Search Rule resource.
 
+        ## Example Usage
+        ### Create or Update rule - AlertingAction
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        scheduled_query_rule = azurerm.insights.v20180416.ScheduledQueryRule("scheduledQueryRule",
+            action={
+                "odataType": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+            },
+            description="log alert description",
+            enabled="true",
+            location="eastus",
+            resource_group_name="Rac46PostSwapRG",
+            rule_name="logalertfoo",
+            schedule={
+                "frequencyInMinutes": 15,
+                "timeWindowInMinutes": 15,
+            },
+            source={
+                "dataSourceId": "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
+                "query": "Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)",
+                "queryType": "ResultCount",
+            },
+            tags={})
+
+        ```
+        ### Create or Update rule - AlertingAction with Cross-Resource
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        scheduled_query_rule = azurerm.insights.v20180416.ScheduledQueryRule("scheduledQueryRule",
+            action={
+                "odataType": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+            },
+            description="Sample Cross Resource alert",
+            enabled="true",
+            location="eastus",
+            resource_group_name="Rac46PostSwapRG",
+            rule_name="SampleCrossResourceAlert",
+            schedule={
+                "frequencyInMinutes": 60,
+                "timeWindowInMinutes": 60,
+            },
+            source={
+                "authorizedResources": [
+                    "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
+                    "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
+                ],
+                "dataSourceId": "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
+                "query": "union requests, workspace(\"sampleWorkspace\").Update",
+                "queryType": "ResultCount",
+            },
+            tags={})
+
+        ```
+        ### Create or Update rule - LogToMetricAction
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        scheduled_query_rule = azurerm.insights.v20180416.ScheduledQueryRule("scheduledQueryRule",
+            action={
+                "odataType": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
+            },
+            description="log to metric description",
+            enabled="true",
+            location="West Europe",
+            resource_group_name="alertsweu",
+            rule_name="logtometricfoo",
+            source={
+                "dataSourceId": "/subscriptions/af52d502-a447-4bc6-8cb7-4780fbb00490/resourceGroups/alertsweu/providers/Microsoft.OperationalInsights/workspaces/alertsweu",
+            },
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ActionArgs']] action: Action needs to be taken on rule execution.

@@ -33,6 +33,58 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
         """
         HubVirtualNetworkConnection Resource.
 
+        ## Example Usage
+        ### HubVirtualNetworkConnectionPut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        hub_virtual_network_connection = azurerm.network.latest.HubVirtualNetworkConnection("hubVirtualNetworkConnection",
+            connection_name="connection1",
+            enable_internet_security=False,
+            remote_virtual_network={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/SpokeVnet1",
+            },
+            resource_group_name="rg1",
+            routing_configuration={
+                "associatedRouteTable": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+                },
+                "propagatedRouteTables": {
+                    "ids": [{
+                        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+                    }],
+                    "labels": [
+                        "label1",
+                        "label2",
+                    ],
+                },
+                "vnetRoutes": {
+                    "staticRoutes": [
+                        {
+                            "addressPrefixes": [
+                                "10.1.0.0/16",
+                                "10.2.0.0/16",
+                            ],
+                            "name": "route1",
+                            "nextHopIpAddress": "10.0.0.68",
+                        },
+                        {
+                            "addressPrefixes": [
+                                "10.3.0.0/16",
+                                "10.4.0.0/16",
+                            ],
+                            "name": "route2",
+                            "nextHopIpAddress": "10.0.0.65",
+                        },
+                    ],
+                },
+            },
+            virtual_hub_name="virtualHub1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_hub_to_remote_vnet_transit: Deprecated: VirtualHub to RemoteVnet transit to enabled or not.

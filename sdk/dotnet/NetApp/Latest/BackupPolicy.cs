@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.NetApp.Latest
 {
     /// <summary>
     /// Backup policy information
+    /// 
+    /// ## Example Usage
+    /// ### BackupPolicies_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var backupPolicy = new AzureRM.NetApp.Latest.BackupPolicy("backupPolicy", new AzureRM.NetApp.Latest.BackupPolicyArgs
+    ///         {
+    ///             AccountName = "account1",
+    ///             BackupPolicyName = "backupPolicyName",
+    ///             DailyBackupsToKeep = 10,
+    ///             Enabled = true,
+    ///             Location = "westus",
+    ///             MonthlyBackupsToKeep = 10,
+    ///             ResourceGroupName = "myRG",
+    ///             WeeklyBackupsToKeep = 10,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BackupPolicy : Pulumi.CustomResource
     {

@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// A DDoS custom policy in a resource group.
+    /// 
+    /// ## Example Usage
+    /// ### Create DDoS custom policy
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ddosCustomPolicy = new AzureRM.Network.Latest.DdosCustomPolicy("ddosCustomPolicy", new AzureRM.Network.Latest.DdosCustomPolicyArgs
+    ///         {
+    ///             DdosCustomPolicyName = "test-ddos-custom-policy",
+    ///             Location = "centraluseuap",
+    ///             ProtocolCustomSettings = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.ProtocolCustomSettingsFormatArgs
+    ///                 {
+    ///                     Protocol = "Tcp",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DdosCustomPolicy : Pulumi.CustomResource
     {

@@ -36,6 +36,41 @@ class LiveEvent(pulumi.CustomResource):
         """
         The Live Event.
 
+        ## Example Usage
+        ### Create a LiveEvent
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        live_event = azurerm.media.v20180701.LiveEvent("liveEvent",
+            account_name="slitestmedia10",
+            description="test event 1",
+            input={
+                "keyFrameIntervalDuration": "PT6S",
+                "streamingProtocol": "RTMP",
+            },
+            live_event_name="myLiveEvent1",
+            location="West US",
+            preview={
+                "accessControl": {
+                    "ip": {
+                        "allow": [{
+                            "address": "0.0.0.0",
+                            "name": "AllowAll",
+                            "subnetPrefixLength": 0,
+                        }],
+                    },
+                },
+            },
+            resource_group_name="mediaresources",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Cache.V20171001
 {
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+    /// 
+    /// ## Example Usage
+    /// ### RedisCacheFirewallRuleCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallRule = new AzureRM.Cache.V20171001.FirewallRule("firewallRule", new AzureRM.Cache.V20171001.FirewallRuleArgs
+    ///         {
+    ///             CacheName = "cache1",
+    ///             EndIP = "192.168.1.4",
+    ///             ResourceGroupName = "rg1",
+    ///             RuleName = "rule1",
+    ///             StartIP = "192.168.1.1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

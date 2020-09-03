@@ -8,6 +8,43 @@ import * as utilities from "../../utilities";
 
 /**
  * The KPI resource format.
+ *
+ * ## Example Usage
+ * ### Kpi_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const kpi = new azurerm.customerinsights.v20170426.Kpi("kpi", {
+ *     aliases: [{
+ *         aliasName: "alias",
+ *         expression: "Id+4",
+ *     }],
+ *     calculationWindow: "Day",
+ *     description: {
+ *         "en-us": "Kpi Description",
+ *     },
+ *     displayName: {
+ *         "en-us": "Kpi DisplayName",
+ *     },
+ *     entityType: "Profile",
+ *     entityTypeName: "testProfile2327128",
+ *     expression: "SavingAccountBalance",
+ *     "function": "Sum",
+ *     groupBy: ["SavingAccountBalance"],
+ *     hubName: "sdkTestHub",
+ *     kpiName: "kpiTest45453647",
+ *     resourceGroupName: "TestHubRG",
+ *     thresHolds: {
+ *         increasingKpi: true,
+ *         lowerLimit: 5,
+ *         upperLimit: 50,
+ *     },
+ *     unit: "unit",
+ * });
+ *
+ * ```
  */
 export class Kpi extends pulumi.CustomResource {
     /**

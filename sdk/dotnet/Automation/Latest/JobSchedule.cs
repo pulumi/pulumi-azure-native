@@ -11,6 +11,41 @@ namespace Pulumi.AzureRM.Automation.Latest
 {
     /// <summary>
     /// Definition of the job schedule.
+    /// 
+    /// ## Example Usage
+    /// ### Create a job schedule
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var jobSchedule = new AzureRM.Automation.Latest.JobSchedule("jobSchedule", new AzureRM.Automation.Latest.JobScheduleArgs
+    ///         {
+    ///             AutomationAccountName = "ContoseAutomationAccount",
+    ///             JobScheduleId = "0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc",
+    ///             Parameters = 
+    ///             {
+    ///                 { "jobscheduletag01", "jobschedulevalue01" },
+    ///                 { "jobscheduletag02", "jobschedulevalue02" },
+    ///             },
+    ///             ResourceGroupName = "rg",
+    ///             Runbook = new AzureRM.Automation.Latest.Inputs.RunbookAssociationPropertyArgs
+    ///             {
+    ///                 Name = "TestRunbook",
+    ///             },
+    ///             Schedule = new AzureRM.Automation.Latest.Inputs.ScheduleAssociationPropertyArgs
+    ///             {
+    ///                 Name = "ScheduleNameGoesHere332204b5-debe-4348-a5c7-6357457189f2",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class JobSchedule : Pulumi.CustomResource
     {

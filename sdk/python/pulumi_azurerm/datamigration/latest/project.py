@@ -33,6 +33,23 @@ class Project(pulumi.CustomResource):
         """
         A project resource
 
+        ## Example Usage
+        ### Projects_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        project = azurerm.datamigration.latest.Project("project",
+            group_name="DmsSdkRg",
+            location="southcentralus",
+            project_name="DmsSdkProject",
+            service_name="DmsSdkService",
+            source_platform="SQL",
+            target_platform="SQLDB")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DatabaseInfoArgs']]]] databases_info: List of DatabaseInfo

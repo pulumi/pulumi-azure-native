@@ -25,6 +25,26 @@ class TagAtScope(pulumi.CustomResource):
         """
         Wrapper resource for tags API requests and responses.
 
+        ## Example Usage
+        ### Update tags on a resource
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        tag_at_scope = azurerm.resources.latest.TagAtScope("tagAtScope", scope="subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/myPRNameSpace/VM/myVm")
+
+        ```
+        ### Update tags on a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        tag_at_scope = azurerm.resources.latest.TagAtScope("tagAtScope", scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TagsArgs']] properties: The set of tags.

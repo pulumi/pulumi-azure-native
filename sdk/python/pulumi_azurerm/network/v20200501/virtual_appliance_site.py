@@ -30,6 +30,28 @@ class VirtualApplianceSite(pulumi.CustomResource):
         """
         Virtual Appliance Site resource.
 
+        ## Example Usage
+        ### Create Network Virtual Appliance Site
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_appliance_site = azurerm.network.v20200501.VirtualApplianceSite("virtualApplianceSite",
+            address_prefix="192.168.1.0/24",
+            network_virtual_appliance_name="nva",
+            o365_policy={
+                "breakOutCategories": {
+                    "allow": True,
+                    "default": True,
+                    "optimize": True,
+                },
+            },
+            resource_group_name="rg1",
+            site_name="site1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: Address Prefix.

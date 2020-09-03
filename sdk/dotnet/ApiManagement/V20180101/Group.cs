@@ -11,6 +11,53 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 {
     /// <summary>
     /// Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGroup
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @group = new AzureRM.ApiManagement.V20180101.Group("group", new AzureRM.ApiManagement.V20180101.GroupArgs
+    ///         {
+    ///             DisplayName = "temp group",
+    ///             GroupId = "tempgroup",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### ApiManagementCreateGroupExternal
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @group = new AzureRM.ApiManagement.V20180101.Group("group", new AzureRM.ApiManagement.V20180101.GroupArgs
+    ///         {
+    ///             Description = "new group to test",
+    ///             DisplayName = "NewGroup (samiraad.onmicrosoft.com)",
+    ///             ExternalId = "aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d",
+    ///             GroupId = "aadGroup",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             Type = "external",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {

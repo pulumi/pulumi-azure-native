@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.HybridData.Latest
 {
     /// <summary>
     /// The DataManager resource.
+    /// 
+    /// ## Example Usage
+    /// ### DataManagers_CreatePUT41
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataManager = new AzureRM.HybridData.Latest.DataManager("dataManager", new AzureRM.HybridData.Latest.DataManagerArgs
+    ///         {
+    ///             DataManagerName = "TestAzureSDKOperations",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DataManager : Pulumi.CustomResource
     {

@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.Network.V20200601
 {
     /// <summary>
     /// Private dns zone group resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create private dns zone group
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateDnsZoneGroup = new AzureRM.Network.V20200601.PrivateDnsZoneGroup("privateDnsZoneGroup", new AzureRM.Network.V20200601.PrivateDnsZoneGroupArgs
+    ///         {
+    ///             PrivateDnsZoneConfigs = 
+    ///             {
+    ///                 ,
+    ///             },
+    ///             PrivateDnsZoneGroupName = "testPdnsgroup",
+    ///             PrivateEndpointName = "testPe",
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateDnsZoneGroup : Pulumi.CustomResource
     {

@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.Web.V20190801
 {
     /// <summary>
     /// SSL certificate for an app.
+    /// 
+    /// ## Example Usage
+    /// ### Create Or Update Certificate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var certificate = new AzureRM.Web.V20190801.Certificate("certificate", new AzureRM.Web.V20190801.CertificateArgs
+    ///         {
+    ///             HostNames = 
+    ///             {
+    ///                 "ServerCert",
+    ///             },
+    ///             Location = "East US",
+    ///             Name = "testc6282",
+    ///             Password = "SWsSsd__233$Sdsds#%Sd!",
+    ///             ResourceGroupName = "testrg123",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {

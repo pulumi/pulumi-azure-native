@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.DataLakeStore.Latest
 {
     /// <summary>
     /// Data Lake Store firewall rule information.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallRule = new AzureRM.DataLakeStore.Latest.FirewallRule("firewallRule", new AzureRM.DataLakeStore.Latest.FirewallRuleArgs
+    ///         {
+    ///             AccountName = "contosoadla",
+    ///             EndIpAddress = "2.2.2.2",
+    ///             FirewallRuleName = "test_rule",
+    ///             ResourceGroupName = "contosorg",
+    ///             StartIpAddress = "1.1.1.1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

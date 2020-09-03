@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.Automation.Latest
 {
     /// <summary>
     /// Definition of the schedule.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a schedule
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var schedule = new AzureRM.Automation.Latest.Schedule("schedule", new AzureRM.Automation.Latest.ScheduleArgs
+    ///         {
+    ///             AdvancedSchedule = ,
+    ///             AutomationAccountName = "myAutomationAccount33",
+    ///             Description = "my description of schedule goes here",
+    ///             ExpiryTime = "2017-04-01T17:28:57.2494819Z",
+    ///             Frequency = "Hour",
+    ///             Interval = 1,
+    ///             Name = "mySchedule",
+    ///             ResourceGroupName = "rg",
+    ///             ScheduleName = "mySchedule",
+    ///             StartTime = "2017-03-27T17:28:57.2494819Z",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Schedule : Pulumi.CustomResource
     {

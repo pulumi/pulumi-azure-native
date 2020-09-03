@@ -8,6 +8,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Kusto cluster.
+ *
+ * ## Example Usage
+ * ### KustoClustersCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cluster = new azurerm.kusto.v20191109.Cluster("cluster", {
+ *     clusterName: "KustoClusterRPTest4",
+ *     enableStreamingIngest: true,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     keyVaultProperties: {
+ *         keyName: "keyName",
+ *         keyVaultUri: "https://dummy.keyvault.com",
+ *         keyVersion: "keyVersion",
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "Standard_L8s",
+ *         tier: "Standard",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

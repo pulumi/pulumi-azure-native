@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Virtual Router Peering resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create Virtual Router Peering
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualRouterPeering = new AzureRM.Network.Latest.VirtualRouterPeering("virtualRouterPeering", new AzureRM.Network.Latest.VirtualRouterPeeringArgs
+    ///         {
+    ///             PeerAsn = 20000,
+    ///             PeerIp = "192.168.1.5",
+    ///             PeeringName = "peering1",
+    ///             ResourceGroupName = "rg1",
+    ///             VirtualRouterName = "virtualRouter",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualRouterPeering : Pulumi.CustomResource
     {

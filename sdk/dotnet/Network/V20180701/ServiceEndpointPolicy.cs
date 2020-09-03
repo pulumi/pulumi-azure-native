@@ -11,6 +11,53 @@ namespace Pulumi.AzureRM.Network.V20180701
 {
     /// <summary>
     /// Service End point policy resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create service endpoint policy
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceEndpointPolicy = new AzureRM.Network.V20180701.ServiceEndpointPolicy("serviceEndpointPolicy", new AzureRM.Network.V20180701.ServiceEndpointPolicyArgs
+    ///         {
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceEndpointPolicyName = "testPolicy",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create service endpoint policy with definition
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceEndpointPolicy = new AzureRM.Network.V20180701.ServiceEndpointPolicy("serviceEndpointPolicy", new AzureRM.Network.V20180701.ServiceEndpointPolicyArgs
+    ///         {
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceEndpointPolicyDefinitions = 
+    ///             {
+    ///                 new AzureRM.Network.V20180701.Inputs.ServiceEndpointPolicyDefinitionArgs
+    ///                 {
+    ///                     Name = "StorageServiceEndpointPolicyDefinition",
+    ///                 },
+    ///             },
+    ///             ServiceEndpointPolicyName = "testPolicy",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ServiceEndpointPolicy : Pulumi.CustomResource
     {

@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes an identity resource.
+ *
+ * ## Example Usage
+ * ### IdentityCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const userAssignedIdentity = new azurerm.managedidentity.v20181130.UserAssignedIdentity("userAssignedIdentity", {
+ *     location: "eastus",
+ *     resourceGroupName: "rgName",
+ *     resourceName: "resourceName",
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**

@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 {
     /// <summary>
     /// The file server.
+    /// 
+    /// ## Example Usage
+    /// ### FileServersCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fileServer = new AzureRM.StorSimple.V20161001.FileServer("fileServer", new AzureRM.StorSimple.V20161001.FileServerArgs
+    ///         {
+    ///             BackupScheduleGroupId = "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/backupScheduleGroups/BackupSchGroupForSDKTest",
+    ///             Description = "Demo FileServer for SDK Test",
+    ///             DeviceName = "HSDK-4XY4FI2IVG",
+    ///             DomainName = "fareast.corp.microsoft.com",
+    ///             FileServerName = "HSDK-4XY4FI2IVG",
+    ///             ManagerName = "hAzureSDKOperations",
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///             StorageDomainId = "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/sd-fs-HSDK-4XY4FI2IVG",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FileServer : Pulumi.CustomResource
     {

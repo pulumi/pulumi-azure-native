@@ -11,6 +11,65 @@ namespace Pulumi.AzureRM.Insights.V20170401
 {
     /// <summary>
     /// An activity log alert resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an activity log alert
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var activityLogAlert = new AzureRM.Insights.V20170401.ActivityLogAlert("activityLogAlert", new AzureRM.Insights.V20170401.ActivityLogAlertArgs
+    ///         {
+    ///             Actions = new AzureRM.Insights.V20170401.Inputs.ActivityLogAlertActionListArgs
+    ///             {
+    ///                 ActionGroups = 
+    ///                 {
+    ///                     new AzureRM.Insights.V20170401.Inputs.ActivityLogAlertActionGroupArgs
+    ///                     {
+    ///                         ActionGroupId = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActionGroups/providers/microsoft.insights/actionGroups/SampleActionGroup",
+    ///                         WebhookProperties = 
+    ///                         {
+    ///                             { "sampleWebhookProperty", "samplePropertyValue" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ActivityLogAlertName = "SampleActivityLogAlert",
+    ///             Condition = new AzureRM.Insights.V20170401.Inputs.ActivityLogAlertAllOfConditionArgs
+    ///             {
+    ///                 AllOf = 
+    ///                 {
+    ///                     new AzureRM.Insights.V20170401.Inputs.ActivityLogAlertLeafConditionArgs
+    ///                     {
+    ///                         Equals = "Administrative",
+    ///                         Field = "Category",
+    ///                     },
+    ///                     new AzureRM.Insights.V20170401.Inputs.ActivityLogAlertLeafConditionArgs
+    ///                     {
+    ///                         Equals = "Error",
+    ///                         Field = "Level",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Description = "Sample activity log alert description",
+    ///             Enabled = true,
+    ///             Location = "Global",
+    ///             ResourceGroupName = "Default-ActivityLogAlerts",
+    ///             Scopes = 
+    ///             {
+    ///                 "subscriptions/187f412d-1758-44d9-b052-169e2564721d",
+    ///             },
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ActivityLogAlert : Pulumi.CustomResource
     {

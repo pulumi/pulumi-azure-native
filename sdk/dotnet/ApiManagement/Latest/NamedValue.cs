@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
 {
     /// <summary>
     /// NamedValue details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateNamedValue
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var namedValue = new AzureRM.ApiManagement.Latest.NamedValue("namedValue", new AzureRM.ApiManagement.Latest.NamedValueArgs
+    ///         {
+    ///             DisplayName = "prop3name",
+    ///             NamedValueId = "testprop2",
+    ///             ResourceGroupName = "rg1",
+    ///             Secret = false,
+    ///             ServiceName = "apimService1",
+    ///             Tags = 
+    ///             {
+    ///                 "foo",
+    ///                 "bar",
+    ///             },
+    ///             Value = "propValue",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class NamedValue : Pulumi.CustomResource
     {

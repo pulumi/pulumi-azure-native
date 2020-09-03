@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * SSL certificate for an app.
+ *
+ * ## Example Usage
+ * ### Create Or Update Certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const certificate = new azurerm.web.v20190801.Certificate("certificate", {
+ *     hostNames: ["ServerCert"],
+ *     location: "East US",
+ *     name: "testc6282",
+ *     password: `SWsSsd__233$Sdsds#%Sd!`,
+ *     resourceGroupName: "testrg123",
+ * });
+ *
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

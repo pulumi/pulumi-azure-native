@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.Automation.V20180630
 {
     /// <summary>
     /// Definition of the module type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a python 2 package
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var python2Package = new AzureRM.Automation.V20180630.Python2Package("python2Package", new AzureRM.Automation.V20180630.Python2PackageArgs
+    ///         {
+    ///             AutomationAccountName = "myAutomationAccount33",
+    ///             ContentLink = new AzureRM.Automation.V20180630.Inputs.ContentLinkArgs
+    ///             {
+    ///                 ContentHash = new AzureRM.Automation.V20180630.Inputs.ContentHashArgs
+    ///                 {
+    ///                     Algorithm = "sha265",
+    ///                     Value = "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+    ///                 },
+    ///                 Uri = "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+    ///                 Version = "1.0.0.0",
+    ///             },
+    ///             PackageName = "OmsCompositeResources",
+    ///             ResourceGroupName = "rg",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Python2Package : Pulumi.CustomResource
     {

@@ -36,6 +36,112 @@ class Profile(pulumi.CustomResource):
         """
         Class representing a Traffic Manager profile.
 
+        ## Example Usage
+        ### Profile-PUT-NoEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        profile = azurerm.network.v20180301.Profile("profile",
+            dns_config={
+                "relativeName": "azsmnet6386",
+                "ttl": 35,
+            },
+            location="global",
+            monitor_config={
+                "path": "/testpath.aspx",
+                "port": 80,
+                "protocol": "HTTP",
+            },
+            profile_name="azsmnet6386",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            traffic_routing_method="Performance")
+
+        ```
+        ### Profile-PUT-WithCustomHeaders
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        profile = azurerm.network.v20180301.Profile("profile",
+            dns_config={
+                "relativeName": "azuresdkfornetautoresttrafficmanager6192",
+                "ttl": 35,
+            },
+            endpoints=[{
+                "name": "My external endpoint",
+                "type": "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+            }],
+            location="global",
+            monitor_config={
+                "customHeaders": [
+                    {
+                        "name": "header-1",
+                        "value": "value-1",
+                    },
+                    {
+                        "name": "header-2",
+                        "value": "value-2",
+                    },
+                ],
+                "expectedStatusCodeRanges": [
+                    {
+                        "max": 205,
+                        "min": 200,
+                    },
+                    {
+                        "max": 410,
+                        "min": 400,
+                    },
+                ],
+                "intervalInSeconds": 10,
+                "path": "/testpath.aspx",
+                "port": 80,
+                "protocol": "HTTP",
+                "timeoutInSeconds": 5,
+                "toleratedNumberOfFailures": 2,
+            },
+            profile_name="azuresdkfornetautoresttrafficmanager6192",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+            traffic_routing_method="Performance",
+            traffic_view_enrollment_status="Disabled")
+
+        ```
+        ### Profile-PUT-WithEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        profile = azurerm.network.v20180301.Profile("profile",
+            dns_config={
+                "relativeName": "azuresdkfornetautoresttrafficmanager6192",
+                "ttl": 35,
+            },
+            endpoints=[{
+                "name": "My external endpoint",
+                "type": "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+            }],
+            location="global",
+            monitor_config={
+                "intervalInSeconds": 10,
+                "path": "/testpath.aspx",
+                "port": 80,
+                "protocol": "HTTP",
+                "timeoutInSeconds": 5,
+                "toleratedNumberOfFailures": 2,
+            },
+            profile_name="azuresdkfornetautoresttrafficmanager6192",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+            traffic_routing_method="Performance")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DnsConfigArgs']] dns_config: The DNS settings of the Traffic Manager profile.

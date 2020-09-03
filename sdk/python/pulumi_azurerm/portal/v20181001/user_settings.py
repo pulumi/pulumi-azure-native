@@ -25,6 +25,17 @@ class UserSettings(pulumi.CustomResource):
         """
         Response to get user settings
 
+        ## Example Usage
+        ### PutUserSettings
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        user_settings = azurerm.portal.v20181001.UserSettings("userSettings", user_settings_name="cloudconsole")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['UserPropertiesArgs']] properties: The cloud shell user settings properties.

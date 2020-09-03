@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
 {
     /// <summary>
     /// Content type contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateContentItem
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var contentItem = new AzureRM.ApiManagement.V20191201.ContentItem("contentItem", new AzureRM.ApiManagement.V20191201.ContentItemArgs
+    ///         {
+    ///             ContentItemId = "4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8",
+    ///             ContentTypeId = "page",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ContentItem : Pulumi.CustomResource
     {

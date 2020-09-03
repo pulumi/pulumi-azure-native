@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Analytics firewall rule information.
+ *
+ * ## Example Usage
+ * ### Creates or updates the specified firewall rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const firewallRule = new azurerm.datalakeanalytics.v20161101.FirewallRule("firewallRule", {
+ *     accountName: "contosoadla",
+ *     endIpAddress: "2.2.2.2",
+ *     firewallRuleName: "test_rule",
+ *     resourceGroupName: "contosorg",
+ *     startIpAddress: "1.1.1.1",
+ * });
+ *
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

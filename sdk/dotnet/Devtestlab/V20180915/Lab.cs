@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
 {
     /// <summary>
     /// A lab.
+    /// 
+    /// ## Example Usage
+    /// ### Labs_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var lab = new AzureRM.DevTestLab.V20180915.Lab("lab", new AzureRM.DevTestLab.V20180915.LabArgs
+    ///         {
+    ///             LabStorageType = "{Standard|Premium}",
+    ///             Location = "{azure-location}",
+    ///             Name = "{devtestlab-name}",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Tags = 
+    ///             {
+    ///                 { "MyTag", "MyValue" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Lab : Pulumi.CustomResource
     {

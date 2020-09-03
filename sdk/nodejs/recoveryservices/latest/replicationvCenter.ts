@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * vCenter definition.
+ *
+ * ## Example Usage
+ * ### Add vCenter.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const replicationvCenter = new azurerm.recoveryservices.latest.ReplicationvCenter("replicationvCenter", {
+ *     fabricName: "MadhaviFabric",
+ *     resourceGroupName: "MadhaviVRG",
+ *     resourceName: "MadhaviVault",
+ *     vCenterName: "esx-78",
+ * });
+ *
+ * ```
  */
 export class ReplicationvCenter extends pulumi.CustomResource {
     /**

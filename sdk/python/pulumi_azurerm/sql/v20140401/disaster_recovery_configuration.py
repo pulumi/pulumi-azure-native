@@ -24,6 +24,20 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
         """
         Represents a disaster recovery configuration.
 
+        ## Example Usage
+        ### Update a disaster recovery configuration
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        disaster_recovery_configuration = azurerm.sql.v20140401.DisasterRecoveryConfiguration("disasterRecoveryConfiguration",
+            disaster_recovery_configuration_name="Default",
+            resource_group_name="sqlcrudtest-4799",
+            server_name="sqlcrudtest-5961")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disaster_recovery_configuration_name: The name of the disaster recovery configuration to be created/updated.

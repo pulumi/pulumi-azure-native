@@ -11,6 +11,43 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20191101
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
+    /// 
+    /// ## Example Usage
+    /// ### Create Workspace
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspace = new AzureRM.MachineLearningServices.V20191101.Workspace("workspace", new AzureRM.MachineLearningServices.V20191101.WorkspaceArgs
+    ///         {
+    ///             ApplicationInsights = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+    ///             ContainerRegistry = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+    ///             Description = "test description",
+    ///             FriendlyName = "HelloName",
+    ///             Identity = new AzureRM.MachineLearningServices.V20191101.Inputs.IdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             KeyVault = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+    ///             Location = "eastus2euap",
+    ///             ResourceGroupName = "workspace-1234",
+    ///             Sku = new AzureRM.MachineLearningServices.V20191101.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Basic",
+    ///                 Tier = "Basic",
+    ///             },
+    ///             StorageAccount = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+    ///             WorkspaceName = "testworkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

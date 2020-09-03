@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Sql.Latest
 {
     /// <summary>
     /// Represents a disaster recovery configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Update a disaster recovery configuration
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disasterRecoveryConfiguration = new AzureRM.Sql.Latest.DisasterRecoveryConfiguration("disasterRecoveryConfiguration", new AzureRM.Sql.Latest.DisasterRecoveryConfigurationArgs
+    ///         {
+    ///             DisasterRecoveryConfigurationName = "Default",
+    ///             ResourceGroupName = "sqlcrudtest-4799",
+    ///             ServerName = "sqlcrudtest-5961",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DisasterRecoveryConfiguration : Pulumi.CustomResource
     {

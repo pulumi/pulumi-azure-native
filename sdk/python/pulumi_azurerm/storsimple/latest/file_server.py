@@ -29,6 +29,25 @@ class FileServer(pulumi.CustomResource):
         """
         The file server.
 
+        ## Example Usage
+        ### FileServersCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        file_server = azurerm.storsimple.latest.FileServer("fileServer",
+            backup_schedule_group_id="/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/backupScheduleGroups/BackupSchGroupForSDKTest",
+            description="Demo FileServer for SDK Test",
+            device_name="HSDK-4XY4FI2IVG",
+            domain_name="fareast.corp.microsoft.com",
+            file_server_name="HSDK-4XY4FI2IVG",
+            manager_name="hAzureSDKOperations",
+            resource_group_name="ResourceGroupForSDKTest",
+            storage_domain_id="/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/sd-fs-HSDK-4XY4FI2IVG")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_schedule_group_id: The backup policy id.

@@ -11,6 +11,151 @@ namespace Pulumi.AzureRM.Search.V20200313
 {
     /// <summary>
     /// Describes an Azure Cognitive Search service and its current state.
+    /// 
+    /// ## Example Usage
+    /// ### SearchCreateOrUpdateService
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.Search.V20200313.Service("service", new AzureRM.Search.V20200313.ServiceArgs
+    ///         {
+    ///             HostingMode = "default",
+    ///             Location = "westus",
+    ///             PartitionCount = 1,
+    ///             ReplicaCount = 3,
+    ///             ResourceGroupName = "rg1",
+    ///             SearchServiceName = "mysearchservice",
+    ///             Sku = new AzureRM.Search.V20200313.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "app-name", "My e-commerce app" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### SearchCreateOrUpdateServiceToAllowAccessFromPrivateEndpoints
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.Search.V20200313.Service("service", new AzureRM.Search.V20200313.ServiceArgs
+    ///         {
+    ///             HostingMode = "default",
+    ///             Location = "westus",
+    ///             PartitionCount = 1,
+    ///             PublicNetworkAccess = "disabled",
+    ///             ReplicaCount = 3,
+    ///             ResourceGroupName = "rg1",
+    ///             SearchServiceName = "mysearchservice",
+    ///             Sku = new AzureRM.Search.V20200313.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "app-name", "My e-commerce app" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPs
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.Search.V20200313.Service("service", new AzureRM.Search.V20200313.ServiceArgs
+    ///         {
+    ///             HostingMode = "default",
+    ///             Location = "westus",
+    ///             NetworkRuleSet = new AzureRM.Search.V20200313.Inputs.NetworkRuleSetArgs
+    ///             {
+    ///                 IpRules = 
+    ///                 {
+    ///                     new AzureRM.Search.V20200313.Inputs.IpRuleArgs
+    ///                     {
+    ///                         Value = "123.4.5.6",
+    ///                     },
+    ///                     new AzureRM.Search.V20200313.Inputs.IpRuleArgs
+    ///                     {
+    ///                         Value = "123.4.6.0/18",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             PartitionCount = 1,
+    ///             ReplicaCount = 1,
+    ///             ResourceGroupName = "rg1",
+    ///             SearchServiceName = "mysearchservice",
+    ///             Sku = new AzureRM.Search.V20200313.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "app-name", "My e-commerce app" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### SearchCreateOrUpdateServiceWithIdentity
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.Search.V20200313.Service("service", new AzureRM.Search.V20200313.ServiceArgs
+    ///         {
+    ///             HostingMode = "default",
+    ///             Identity = new AzureRM.Search.V20200313.Inputs.IdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Location = "westus",
+    ///             PartitionCount = 1,
+    ///             ReplicaCount = 3,
+    ///             ResourceGroupName = "rg1",
+    ///             SearchServiceName = "mysearchservice",
+    ///             Sku = new AzureRM.Search.V20200313.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "app-name", "My e-commerce app" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

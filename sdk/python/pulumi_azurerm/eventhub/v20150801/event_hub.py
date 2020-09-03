@@ -30,6 +30,24 @@ class EventHub(pulumi.CustomResource):
         """
         Single item in List or Get Event Hub operation
 
+        ## Example Usage
+        ### EventHubCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        event_hub = azurerm.eventhub.v20150801.EventHub("eventHub",
+            event_hub_name="sdk-EventHub6448",
+            location="West US",
+            message_retention_in_days=7,
+            namespace_name="sdk-Namespace7834",
+            partition_count=4,
+            resource_group_name="Default-ServiceBus-WestUS",
+            status="Active")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_hub_name: The Event Hub name

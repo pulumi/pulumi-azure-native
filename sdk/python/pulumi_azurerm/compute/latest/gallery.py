@@ -27,6 +27,21 @@ class Gallery(pulumi.CustomResource):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
 
+        ## Example Usage
+        ### Create or update a simple gallery.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        gallery = azurerm.compute.latest.Gallery("gallery",
+            description="This is the gallery description.",
+            gallery_name="myGalleryName",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this Shared Image Gallery resource. This property is updatable.

@@ -23,7 +23,36 @@ class Queue(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a Queue resource with the given unique name, props, and options.
+        ## Example Usage
+        ### QueueOperationPut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        queue = azurerm.storage.latest.Queue("queue",
+            account_name="sto328",
+            queue_name="queue6185",
+            resource_group_name="res3376")
+
+        ```
+        ### QueueOperationPutWithMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        queue = azurerm.storage.latest.Queue("queue",
+            account_name="sto328",
+            metadata={
+                "sample1": "meta1",
+                "sample2": "meta2",
+            },
+            queue_name="queue6185",
+            resource_group_name="res3376")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

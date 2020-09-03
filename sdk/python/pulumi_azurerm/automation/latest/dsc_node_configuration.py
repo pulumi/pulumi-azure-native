@@ -31,6 +31,64 @@ class DscNodeConfiguration(pulumi.CustomResource):
         """
         Definition of the dsc node configuration.
 
+        ## Example Usage
+        ### Create node configuration
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        dsc_node_configuration = azurerm.automation.latest.DscNodeConfiguration("dscNodeConfiguration",
+            automation_account_name="myAutomationAccount20",
+            configuration={
+                "name": "configName",
+            },
+            increment_node_configuration_build=True,
+            name="configName.nodeConfigName",
+            node_configuration_name="configName.nodeConfigName",
+            resource_group_name="rg",
+            source={
+                "hash": {
+                    "algorithm": "sha256",
+                    "value": "6DE256A57F01BFA29B88696D5E77A383D6E61484C7686E8DB955FA10ACE9FFE5",
+                },
+                "type": "embeddedContent",
+                "value": \"\"\"
+        instance of MSFT_RoleResource as $MSFT_RoleResource1ref
+        {
+        ResourceID = "[WindowsFeature]IIS";
+         Ensure = "Present";
+         SourceInfo = "::3::32::WindowsFeature";
+         Name = "Web-Server";
+         ModuleName = "PsDesiredStateConfiguration";
+        
+        ModuleVersion = "1.0";
+         ConfigurationName = "configName";
+        };
+        instance of OMI_ConfigurationDocument
+        
+                            {
+         Version="2.0.0";
+         
+                                MinimumCompatibleVersion = "1.0.0";
+         
+                                CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+         
+                                Author="weijiel";
+         
+                                GenerationDate="03/30/2017 13:40:25";
+         
+                                GenerationHost="TEST-BACKEND";
+         
+                                Name="configName";
+        
+                            };
+        \"\"\",
+                "version": "1.0",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

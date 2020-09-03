@@ -8,6 +8,55 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes an Azure Cognitive Search service and its current state.
+ *
+ * ## Example Usage
+ * ### SearchCreateOrUpdateService
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const service = new azurerm.search.v20150819.Service("service", {
+ *     hostingMode: "default",
+ *     location: "westus",
+ *     partitionCount: 1,
+ *     replicaCount: 3,
+ *     resourceGroupName: "rg1",
+ *     searchServiceName: "mysearchservice",
+ *     sku: {
+ *         name: "standard",
+ *     },
+ *     tags: {
+ *         "app-name": "My e-commerce app",
+ *     },
+ * });
+ *
+ * ```
+ * ### SearchCreateOrUpdateServiceWithIdentity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const service = new azurerm.search.v20150819.Service("service", {
+ *     hostingMode: "default",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "westus",
+ *     partitionCount: 1,
+ *     replicaCount: 3,
+ *     resourceGroupName: "rg1",
+ *     searchServiceName: "mysearchservice",
+ *     sku: {
+ *         name: "standard",
+ *     },
+ *     tags: {
+ *         "app-name": "My e-commerce app",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

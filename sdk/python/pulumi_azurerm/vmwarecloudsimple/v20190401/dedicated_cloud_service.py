@@ -26,6 +26,21 @@ class DedicatedCloudService(pulumi.CustomResource):
         """
         Dedicated cloud service model
 
+        ## Example Usage
+        ### CreateDedicatedCloudService
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        dedicated_cloud_service = azurerm.vmwarecloudsimple.v20190401.DedicatedCloudService("dedicatedCloudService",
+            dedicated_cloud_service_name="myService",
+            gateway_subnet="10.0.0.0",
+            location="westus",
+            resource_group_name="myResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dedicated_cloud_service_name: dedicated cloud Service name

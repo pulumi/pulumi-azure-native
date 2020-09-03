@@ -11,6 +11,52 @@ namespace Pulumi.AzureRM.Sql.V20140401
 {
     /// <summary>
     /// Represents a server firewall rule.
+    /// 
+    /// ## Example Usage
+    /// ### Create a firewall rule max/min
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallRule = new AzureRM.Sql.V20140401.FirewallRule("firewallRule", new AzureRM.Sql.V20140401.FirewallRuleArgs
+    ///         {
+    ///             EndIpAddress = "0.0.0.3",
+    ///             FirewallRuleName = "firewallrulecrudtest-5370",
+    ///             ResourceGroupName = "firewallrulecrudtest-12",
+    ///             ServerName = "firewallrulecrudtest-6285",
+    ///             StartIpAddress = "0.0.0.3",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Update a firewall rule max/min
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var firewallRule = new AzureRM.Sql.V20140401.FirewallRule("firewallRule", new AzureRM.Sql.V20140401.FirewallRuleArgs
+    ///         {
+    ///             EndIpAddress = "0.0.0.1",
+    ///             FirewallRuleName = "firewallrulecrudtest-3927",
+    ///             ResourceGroupName = "firewallrulecrudtest-12",
+    ///             ServerName = "firewallrulecrudtest-6285",
+    ///             StartIpAddress = "0.0.0.1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

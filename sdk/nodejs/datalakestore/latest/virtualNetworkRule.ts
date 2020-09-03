@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Store virtual network rule information.
+ *
+ * ## Example Usage
+ * ### Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualNetworkRule = new azurerm.datalakestore.latest.VirtualNetworkRule("virtualNetworkRule", {
+ *     accountName: "contosoadla",
+ *     resourceGroupName: "contosorg",
+ *     subnetId: "test_subnetId",
+ *     virtualNetworkRuleName: "test_virtual_network_rules_name",
+ * });
+ *
+ * ```
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**

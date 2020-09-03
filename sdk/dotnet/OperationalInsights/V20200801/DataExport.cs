@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
 {
     /// <summary>
     /// The top level data export resource container.
+    /// 
+    /// ## Example Usage
+    /// ### DataExportCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataExport = new AzureRM.OperationalInsights.V20200801.DataExport("dataExport", new AzureRM.OperationalInsights.V20200801.DataExportArgs
+    ///         {
+    ///             DataExportName = "export1",
+    ///             ResourceGroupName = "RgTest1",
+    ///             TableNames = 
+    ///             {
+    ///                 "Heartbeat",
+    ///             },
+    ///             WorkspaceName = "DeWnTest1234",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DataExport : Pulumi.CustomResource
     {

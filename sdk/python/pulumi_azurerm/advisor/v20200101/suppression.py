@@ -26,6 +26,21 @@ class Suppression(pulumi.CustomResource):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 
+        ## Example Usage
+        ### CreateSuppression
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        suppression = azurerm.advisor.v20200101.Suppression("suppression",
+            name="suppressionName1",
+            recommendation_id="recommendationId",
+            resource_uri="resourceUri",
+            ttl="07:00:00:00")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the suppression.

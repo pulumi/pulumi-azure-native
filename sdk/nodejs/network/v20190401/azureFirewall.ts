@@ -8,6 +8,72 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Firewall resource.
+ *
+ * ## Example Usage
+ * ### Create Azure Firewall
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const azureFirewall = new azurerm.network.v20190401.AzureFirewall("azureFirewall", {
+ *     applicationRuleCollections: [{
+ *         name: "apprulecoll",
+ *     }],
+ *     azureFirewallName: "azurefirewall",
+ *     ipConfigurations: [{
+ *         name: "azureFirewallIpConfiguration",
+ *     }],
+ *     location: "West US",
+ *     natRuleCollections: [{
+ *         name: "natrulecoll",
+ *     }],
+ *     networkRuleCollections: [{
+ *         name: "netrulecoll",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     threatIntelMode: "Alert",
+ *     zones: [],
+ * });
+ *
+ * ```
+ * ### Create Azure Firewall With Zones
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const azureFirewall = new azurerm.network.v20190401.AzureFirewall("azureFirewall", {
+ *     applicationRuleCollections: [{
+ *         name: "apprulecoll",
+ *     }],
+ *     azureFirewallName: "azurefirewall",
+ *     ipConfigurations: [{
+ *         name: "azureFirewallIpConfiguration",
+ *     }],
+ *     location: "West US 2",
+ *     natRuleCollections: [{
+ *         name: "natrulecoll",
+ *     }],
+ *     networkRuleCollections: [{
+ *         name: "netrulecoll",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     threatIntelMode: "Alert",
+ *     zones: [
+ *         "1",
+ *         "2",
+ *         "3",
+ *     ],
+ * });
+ *
+ * ```
  */
 export class AzureFirewall extends pulumi.CustomResource {
     /**

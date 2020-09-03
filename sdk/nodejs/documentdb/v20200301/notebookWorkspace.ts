@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * A notebook workspace resource
+ *
+ * ## Example Usage
+ * ### CosmosDBNotebookWorkspaceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const notebookWorkspace = new azurerm.documentdb.v20200301.NotebookWorkspace("notebookWorkspace", {
+ *     accountName: "ddb1",
+ *     notebookWorkspaceName: "default",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class NotebookWorkspace extends pulumi.CustomResource {
     /**

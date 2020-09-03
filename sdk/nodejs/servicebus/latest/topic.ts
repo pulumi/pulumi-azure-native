@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of topic resource.
+ *
+ * ## Example Usage
+ * ### TopicCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const topic = new azurerm.servicebus.latest.Topic("topic", {
+ *     enableExpress: true,
+ *     namespaceName: "sdk-Namespace-1617",
+ *     resourceGroupName: "ArunMonocle",
+ *     topicName: "sdk-Topics-5488",
+ * });
+ *
+ * ```
  */
 export class Topic extends pulumi.CustomResource {
     /**

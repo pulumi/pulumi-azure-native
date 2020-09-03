@@ -25,6 +25,21 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
         """
         The properties of the EventHubConsumerGroupInfo object.
 
+        ## Example Usage
+        ### IotHubResource_CreateEventHubConsumerGroup
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        iot_hub_resource_event_hub_consumer_group = azurerm.devices.v20200401.IotHubResourceEventHubConsumerGroup("iotHubResourceEventHubConsumerGroup",
+            event_hub_endpoint_name="events",
+            name="test",
+            resource_group_name="myResourceGroup",
+            resource_name="testHub")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.

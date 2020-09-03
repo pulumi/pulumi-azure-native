@@ -11,6 +11,60 @@ namespace Pulumi.AzureRM.Network.V20190201
 {
     /// <summary>
     /// Azure Firewall resource
+    /// 
+    /// ## Example Usage
+    /// ### Create Azure Firewall
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var azureFirewall = new AzureRM.Network.V20190201.AzureFirewall("azureFirewall", new AzureRM.Network.V20190201.AzureFirewallArgs
+    ///         {
+    ///             ApplicationRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.V20190201.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///                 {
+    ///                     Name = "apprulecoll",
+    ///                 },
+    ///             },
+    ///             AzureFirewallName = "azurefirewall",
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.V20190201.Inputs.AzureFirewallIPConfigurationArgs
+    ///                 {
+    ///                     Name = "azureFirewallIpConfiguration",
+    ///                 },
+    ///             },
+    ///             NatRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.V20190201.Inputs.AzureFirewallNatRuleCollectionArgs
+    ///                 {
+    ///                     Name = "natrulecoll",
+    ///                 },
+    ///             },
+    ///             NetworkRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.V20190201.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///                 {
+    ///                     Name = "netrulecoll",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             ThreatIntelMode = "Alert",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AzureFirewall : Pulumi.CustomResource
     {

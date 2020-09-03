@@ -11,6 +11,119 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a specific Rules Engine Configuration
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rulesEngine = new AzureRM.Network.Latest.RulesEngine("rulesEngine", new AzureRM.Network.Latest.RulesEngineArgs
+    ///         {
+    ///             FrontDoorName = "frontDoor1",
+    ///             ResourceGroupName = "rg1",
+    ///             Rules = 
+    ///             {
+    ///                 new AzureRM.Network.Latest.Inputs.RulesEngineRuleArgs
+    ///                 {
+    ///                     Action = new AzureRM.Network.Latest.Inputs.RulesEngineActionArgs
+    ///                     {
+    ///                         RouteConfigurationOverride = new AzureRM.Network.Latest.Inputs.RouteConfigurationArgs
+    ///                         {
+    ///                             OdataType = "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration",
+    ///                         },
+    ///                     },
+    ///                     MatchConditions = 
+    ///                     {
+    ///                         new AzureRM.Network.Latest.Inputs.RulesEngineMatchConditionArgs
+    ///                         {
+    ///                             RulesEngineMatchValue = 
+    ///                             {
+    ///                                 "CH",
+    ///                             },
+    ///                             RulesEngineMatchVariable = "RemoteAddr",
+    ///                             RulesEngineOperator = "GeoMatch",
+    ///                         },
+    ///                     },
+    ///                     MatchProcessingBehavior = "Stop",
+    ///                     Name = "Rule1",
+    ///                     Priority = 1,
+    ///                 },
+    ///                 new AzureRM.Network.Latest.Inputs.RulesEngineRuleArgs
+    ///                 {
+    ///                     Action = new AzureRM.Network.Latest.Inputs.RulesEngineActionArgs
+    ///                     {
+    ///                         ResponseHeaderActions = 
+    ///                         {
+    ///                             new AzureRM.Network.Latest.Inputs.HeaderActionArgs
+    ///                             {
+    ///                                 HeaderActionType = "Overwrite",
+    ///                                 HeaderName = "Cache-Control",
+    ///                                 Value = "public, max-age=31536000",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     MatchConditions = 
+    ///                     {
+    ///                         new AzureRM.Network.Latest.Inputs.RulesEngineMatchConditionArgs
+    ///                         {
+    ///                             RulesEngineMatchValue = 
+    ///                             {
+    ///                                 "jpg",
+    ///                             },
+    ///                             RulesEngineMatchVariable = "RequestFilenameExtension",
+    ///                             RulesEngineOperator = "Equal",
+    ///                             Transforms = 
+    ///                             {
+    ///                                 "Lowercase",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Name = "Rule2",
+    ///                     Priority = 2,
+    ///                 },
+    ///                 new AzureRM.Network.Latest.Inputs.RulesEngineRuleArgs
+    ///                 {
+    ///                     Action = new AzureRM.Network.Latest.Inputs.RulesEngineActionArgs
+    ///                     {
+    ///                         RouteConfigurationOverride = new AzureRM.Network.Latest.Inputs.RouteConfigurationArgs
+    ///                         {
+    ///                             OdataType = "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
+    ///                         },
+    ///                     },
+    ///                     MatchConditions = 
+    ///                     {
+    ///                         new AzureRM.Network.Latest.Inputs.RulesEngineMatchConditionArgs
+    ///                         {
+    ///                             NegateCondition = false,
+    ///                             RulesEngineMatchValue = 
+    ///                             {
+    ///                                 "allowoverride",
+    ///                             },
+    ///                             RulesEngineMatchVariable = "RequestHeader",
+    ///                             RulesEngineOperator = "Equal",
+    ///                             Selector = "Rules-Engine-Route-Forward",
+    ///                             Transforms = 
+    ///                             {
+    ///                                 "Lowercase",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Name = "Rule3",
+    ///                     Priority = 3,
+    ///                 },
+    ///             },
+    ///             RulesEngineName = "rulesEngine1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RulesEngine : Pulumi.CustomResource
     {

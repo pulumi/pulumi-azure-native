@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.Network.V20181101
 {
     /// <summary>
     /// ExpressRoute gateway resource.
+    /// 
+    /// ## Example Usage
+    /// ### ExpressRouteGatewayCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var expressRouteGateway = new AzureRM.Network.V20181101.ExpressRouteGateway("expressRouteGateway", new AzureRM.Network.V20181101.ExpressRouteGatewayArgs
+    ///         {
+    ///             AutoScaleConfiguration = new AzureRM.Network.V20181101.Inputs.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs
+    ///             {
+    ///                 Bounds = new AzureRM.Network.V20181101.Inputs.ExpressRouteGatewayPropertiesBoundsArgs
+    ///                 {
+    ///                     Min = 3,
+    ///                 },
+    ///             },
+    ///             ExpressRouteGatewayName = "gateway-2",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "resourceGroupName",
+    ///             VirtualHub = new AzureRM.Network.V20181101.Inputs.VirtualHubIdArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/resourceGroupId/providers/Microsoft.Network/virtualHubs/virtualHubName",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ExpressRouteGateway : Pulumi.CustomResource
     {

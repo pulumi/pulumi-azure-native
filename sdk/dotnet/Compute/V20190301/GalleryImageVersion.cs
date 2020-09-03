@@ -11,6 +11,54 @@ namespace Pulumi.AzureRM.Compute.V20190301
 {
     /// <summary>
     /// Specifies information about the gallery Image Version that you want to create or update.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple Gallery Image Version.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var galleryImageVersion = new AzureRM.Compute.V20190301.GalleryImageVersion("galleryImageVersion", new AzureRM.Compute.V20190301.GalleryImageVersionArgs
+    ///         {
+    ///             GalleryImageName = "myGalleryImageName",
+    ///             GalleryImageVersionName = "1.0.0",
+    ///             GalleryName = "myGalleryName",
+    ///             Location = "West US",
+    ///             PublishingProfile = new AzureRM.Compute.V20190301.Inputs.GalleryImageVersionPublishingProfileArgs
+    ///             {
+    ///                 Source = new AzureRM.Compute.V20190301.Inputs.GalleryArtifactSourceArgs
+    ///                 {
+    ///                     ManagedImage = new AzureRM.Compute.V20190301.Inputs.ManagedArtifactArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+    ///                     },
+    ///                 },
+    ///                 TargetRegions = 
+    ///                 {
+    ///                     new AzureRM.Compute.V20190301.Inputs.TargetRegionArgs
+    ///                     {
+    ///                         Name = "West US",
+    ///                         RegionalReplicaCount = 1,
+    ///                     },
+    ///                     new AzureRM.Compute.V20190301.Inputs.TargetRegionArgs
+    ///                     {
+    ///                         Name = "East US",
+    ///                         RegionalReplicaCount = 2,
+    ///                         StorageAccountType = "Standard_ZRS",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class GalleryImageVersion : Pulumi.CustomResource
     {

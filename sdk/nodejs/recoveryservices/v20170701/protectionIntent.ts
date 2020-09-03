@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Base class for backup ProtectionIntent.
+ *
+ * ## Example Usage
+ * ### Create or Update Azure Vm Protection Intent
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const protectionIntent = new azurerm.recoveryservices.v20170701.ProtectionIntent("protectionIntent", {
+ *     fabricName: "Azure",
+ *     intentObjectName: "vm;iaasvmcontainerv2;chamsrgtest;chamscandel",
+ *     resourceGroupName: "myRG",
+ *     vaultName: "myVault",
+ * });
+ *
+ * ```
  */
 export class ProtectionIntent extends pulumi.CustomResource {
     /**

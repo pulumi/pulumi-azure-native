@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Sql.V20140401
 {
     /// <summary>
     /// Server communication link.
+    /// 
+    /// ## Example Usage
+    /// ### Create a server communication link
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serverCommunicationLink = new AzureRM.Sql.V20140401.ServerCommunicationLink("serverCommunicationLink", new AzureRM.Sql.V20140401.ServerCommunicationLinkArgs
+    ///         {
+    ///             CommunicationLinkName = "link1",
+    ///             PartnerServer = "sqldcrudtest-test",
+    ///             ResourceGroupName = "sqlcrudtest-7398",
+    ///             ServerName = "sqlcrudtest-4645",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ServerCommunicationLink : Pulumi.CustomResource
     {

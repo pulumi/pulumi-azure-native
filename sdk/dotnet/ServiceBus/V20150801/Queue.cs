@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
 {
     /// <summary>
     /// Description of queue Resource.
+    /// 
+    /// ## Example Usage
+    /// ### QueueCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var queue = new AzureRM.ServiceBus.V20150801.Queue("queue", new AzureRM.ServiceBus.V20150801.QueueArgs
+    ///         {
+    ///             EnableExpress = false,
+    ///             EnablePartitioning = false,
+    ///             Location = "West US",
+    ///             NamespaceName = "sdk-Namespace3082",
+    ///             QueueName = "sdk-Queues8544",
+    ///             ResourceGroupName = "Default-ServiceBus-WestUS",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Queue : Pulumi.CustomResource
     {

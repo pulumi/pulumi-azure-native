@@ -38,6 +38,99 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
+        ## Example Usage
+        ### ApiManagementCreateMultiRegionServiceWithCustomHostname
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_management_service = azurerm.apimanagement.v20170301.ApiManagementService("apiManagementService",
+            additional_locations=[{
+                "location": "West US",
+                "sku": {
+                    "capacity": 1,
+                    "name": "Premium",
+                },
+                "virtualNetworkConfiguration": {
+                    "subnetResourceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/westUsVirtualNetwork/subnets/apimSubnet",
+                },
+            }],
+            hostname_configurations=[
+                {
+                    "certificatePassword": "**************Password of the Certificate************************************************",
+                    "encodedCertificate": "************Base 64 Encoded Pfx Certificate************************",
+                    "hostName": "proxyhostname1.contoso.com",
+                    "type": "Proxy",
+                },
+                {
+                    "certificatePassword": "**************Password of the Certificate************************************************",
+                    "encodedCertificate": "************Base 64 Encoded Pfx Certificate************************",
+                    "hostName": "proxyhostname2.contoso.com",
+                    "negotiateClientCertificate": True,
+                    "type": "Proxy",
+                },
+                {
+                    "certificatePassword": "**************Password of the Certificate************************************************",
+                    "encodedCertificate": "************Base 64 Encoded Pfx Certificate************************",
+                    "hostName": "portalhostname1.contoso.com",
+                    "type": "Portal",
+                },
+            ],
+            location="Central US",
+            publisher_email="admin@live.com",
+            publisher_name="contoso",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku={
+                "capacity": 1,
+                "name": "Premium",
+            },
+            virtual_network_configuration={
+                "subnetResourceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/centralUsVirtualNetwork/subnets/apimSubnet",
+            },
+            virtual_network_type="External")
+
+        ```
+        ### ApiManagementCreateService
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_management_service = azurerm.apimanagement.v20170301.ApiManagementService("apiManagementService",
+            location="West US",
+            publisher_email="admin@live.com",
+            publisher_name="contoso",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku={
+                "capacity": 1,
+                "name": "Premium",
+            })
+
+        ```
+        ### ApiManagementCreateServiceHavingMsi
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_management_service = azurerm.apimanagement.v20170301.ApiManagementService("apiManagementService",
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="Japan East",
+            publisher_email="admin@contoso.com",
+            publisher_name="Contoso",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku={
+                "name": "Developer",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]] additional_locations: Additional datacenter locations of the API Management service.

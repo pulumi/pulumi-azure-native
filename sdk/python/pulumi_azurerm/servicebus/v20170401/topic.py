@@ -35,6 +35,21 @@ class Topic(pulumi.CustomResource):
         """
         Description of topic resource.
 
+        ## Example Usage
+        ### TopicCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        topic = azurerm.servicebus.v20170401.Topic("topic",
+            enable_express=True,
+            namespace_name="sdk-Namespace-1617",
+            resource_group_name="ArunMonocle",
+            topic_name="sdk-Topics-5488")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.

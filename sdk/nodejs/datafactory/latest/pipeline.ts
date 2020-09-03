@@ -8,6 +8,67 @@ import * as utilities from "../../utilities";
 
 /**
  * Pipeline resource type.
+ *
+ * ## Example Usage
+ * ### Pipelines_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const pipeline = new azurerm.datafactory.latest.Pipeline("pipeline", {
+ *     activities: [{
+ *         name: "ExampleForeachActivity",
+ *         type: "ForEach",
+ *     }],
+ *     factoryName: "exampleFactoryName",
+ *     parameters: {
+ *         JobId: {
+ *             type: "String",
+ *         },
+ *         OutputBlobNameList: {
+ *             type: "Array",
+ *         },
+ *     },
+ *     pipelineName: "examplePipeline",
+ *     resourceGroupName: "exampleResourceGroup",
+ *     runDimensions: {
+ *         JobId: {
+ *             type: "Expression",
+ *             value: "@pipeline().parameters.JobId",
+ *         },
+ *     },
+ *     variables: {
+ *         TestVariableArray: {
+ *             type: "Array",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Pipelines_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const pipeline = new azurerm.datafactory.latest.Pipeline("pipeline", {
+ *     activities: [{
+ *         name: "ExampleForeachActivity",
+ *         type: "ForEach",
+ *     }],
+ *     description: "Example description",
+ *     factoryName: "exampleFactoryName",
+ *     parameters: {
+ *         OutputBlobNameList: {
+ *             type: "Array",
+ *         },
+ *     },
+ *     pipelineName: "examplePipeline",
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

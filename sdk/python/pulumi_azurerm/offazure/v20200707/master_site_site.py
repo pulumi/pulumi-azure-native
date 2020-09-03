@@ -29,6 +29,20 @@ class MasterSiteSite(pulumi.CustomResource):
         """
         Site REST Resource.
 
+        ## Example Usage
+        ### Create Master site
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        master_site_site = azurerm.offazure.v20200707.MasterSiteSite("masterSiteSite",
+            location="eastus",
+            resource_group_name="poshukla",
+            site_name="masterSite1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: eTag for concurrency control.

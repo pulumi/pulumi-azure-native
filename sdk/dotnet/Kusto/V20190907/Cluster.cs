@@ -11,6 +11,45 @@ namespace Pulumi.AzureRM.Kusto.V20190907
 {
     /// <summary>
     /// Class representing a Kusto cluster.
+    /// 
+    /// ## Example Usage
+    /// ### KustoClustersCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cluster = new AzureRM.Kusto.V20190907.Cluster("cluster", new AzureRM.Kusto.V20190907.ClusterArgs
+    ///         {
+    ///             ClusterName = "KustoClusterRPTest4",
+    ///             EnableStreamingIngest = true,
+    ///             Identity = new AzureRM.Kusto.V20190907.Inputs.IdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             KeyVaultProperties = new AzureRM.Kusto.V20190907.Inputs.KeyVaultPropertiesArgs
+    ///             {
+    ///                 KeyName = "keyName",
+    ///                 KeyVaultUri = "https://dummy.keyvault.com",
+    ///                 KeyVersion = "keyVersion",
+    ///             },
+    ///             Location = "westus",
+    ///             ResourceGroupName = "kustorptest",
+    ///             Sku = new AzureRM.Kusto.V20190907.Inputs.AzureSkuArgs
+    ///             {
+    ///                 Capacity = 2,
+    ///                 Name = "Standard_L8s",
+    ///                 Tier = "Standard",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

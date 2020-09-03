@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * An HCX Enterprise Site resource
+ *
+ * ## Example Usage
+ * ### HcxEnterpriseSites_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const hcxEnterpriseSite = new azurerm.avs.v20200320.HcxEnterpriseSite("hcxEnterpriseSite", {
+ *     hcxEnterpriseSiteName: "site1",
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ * });
+ *
+ * ```
  */
 export class HcxEnterpriseSite extends pulumi.CustomResource {
     /**

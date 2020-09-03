@@ -11,6 +11,34 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
 {
     /// <summary>
     /// Description of a namespace authorization rule.
+    /// 
+    /// ## Example Usage
+    /// ### QueueAuthorizationRuleCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var queueAuthorizationRule = new AzureRM.ServiceBus.Latest.QueueAuthorizationRule("queueAuthorizationRule", new AzureRM.ServiceBus.Latest.QueueAuthorizationRuleArgs
+    ///         {
+    ///             AuthorizationRuleName = "sdk-AuthRules-5800",
+    ///             NamespaceName = "sdk-Namespace-7982",
+    ///             QueueName = "sdk-Queues-2317",
+    ///             ResourceGroupName = "ArunMonocle",
+    ///             Rights = 
+    ///             {
+    ///                 "Listen",
+    ///                 "Send",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class QueueAuthorizationRule : Pulumi.CustomResource
     {

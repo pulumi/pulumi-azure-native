@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines the properties of an Experiment
+ *
+ * ## Example Usage
+ * ### Creates an Experiment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const experiment = new azurerm.network.latest.Experiment("experiment", {
+ *     description: "this is my first experiment!",
+ *     enabledState: "Enabled",
+ *     endpointA: {
+ *         name: "endpoint A",
+ *     },
+ *     endpointB: {
+ *         name: "endpoint B",
+ *     },
+ *     experimentName: "MyExperiment",
+ *     profileName: "MyProfile",
+ *     resourceGroupName: "MyResourceGroup",
+ * });
+ *
+ * ```
  */
 export class Experiment extends pulumi.CustomResource {
     /**

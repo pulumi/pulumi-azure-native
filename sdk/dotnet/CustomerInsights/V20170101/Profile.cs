@@ -11,6 +11,92 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
 {
     /// <summary>
     /// The profile resource format.
+    /// 
+    /// ## Example Usage
+    /// ### Profiles_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var profile = new AzureRM.CustomerInsights.V20170101.Profile("profile", new AzureRM.CustomerInsights.V20170101.ProfileArgs
+    ///         {
+    ///             ApiEntitySetName = "TestProfileType396",
+    ///             Fields = 
+    ///             {
+    ///                 new AzureRM.CustomerInsights.V20170101.Inputs.PropertyDefinitionArgs
+    ///                 {
+    ///                     FieldName = "Id",
+    ///                     FieldType = "Edm.String",
+    ///                     IsArray = false,
+    ///                     IsRequired = true,
+    ///                 },
+    ///                 new AzureRM.CustomerInsights.V20170101.Inputs.PropertyDefinitionArgs
+    ///                 {
+    ///                     FieldName = "ProfileId",
+    ///                     FieldType = "Edm.String",
+    ///                     IsArray = false,
+    ///                     IsRequired = true,
+    ///                 },
+    ///                 new AzureRM.CustomerInsights.V20170101.Inputs.PropertyDefinitionArgs
+    ///                 {
+    ///                     FieldName = "LastName",
+    ///                     FieldType = "Edm.String",
+    ///                     IsArray = false,
+    ///                     IsRequired = true,
+    ///                 },
+    ///                 new AzureRM.CustomerInsights.V20170101.Inputs.PropertyDefinitionArgs
+    ///                 {
+    ///                     FieldName = "TestProfileType396",
+    ///                     FieldType = "Edm.String",
+    ///                     IsArray = false,
+    ///                     IsRequired = true,
+    ///                 },
+    ///                 new AzureRM.CustomerInsights.V20170101.Inputs.PropertyDefinitionArgs
+    ///                 {
+    ///                     FieldName = "SavingAccountBalance",
+    ///                     FieldType = "Edm.Int32",
+    ///                     IsArray = false,
+    ///                     IsRequired = true,
+    ///                 },
+    ///             },
+    ///             HubName = "sdkTestHub",
+    ///             LargeImage = "\\\\Images\\\\LargeImage",
+    ///             MediumImage = "\\\\Images\\\\MediumImage",
+    ///             ProfileName = "TestProfileType396",
+    ///             ResourceGroupName = "TestHubRG",
+    ///             SchemaItemTypeLink = "SchemaItemTypeLink",
+    ///             SmallImage = "\\\\Images\\\\smallImage",
+    ///             StrongIds = 
+    ///             {
+    ///                 new AzureRM.CustomerInsights.V20170101.Inputs.StrongIdArgs
+    ///                 {
+    ///                     KeyPropertyNames = 
+    ///                     {
+    ///                         "Id",
+    ///                         "SavingAccountBalance",
+    ///                     },
+    ///                     StrongIdName = "Id",
+    ///                 },
+    ///                 new AzureRM.CustomerInsights.V20170101.Inputs.StrongIdArgs
+    ///                 {
+    ///                     KeyPropertyNames = 
+    ///                     {
+    ///                         "ProfileId",
+    ///                         "LastName",
+    ///                     },
+    ///                     StrongIdName = "ProfileId",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Profile : Pulumi.CustomResource
     {

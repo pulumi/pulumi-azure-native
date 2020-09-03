@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Private Endpoint Connection Response Properties
+ *
+ * ## Example Usage
+ * ### Update PrivateEndpointConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateEndpointConnection = new azurerm.recoveryservices.latest.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b",
+ *     resourceGroupName: "gaallaRG",
+ *     vaultName: "gaallavaultbvtd2msi",
+ * });
+ *
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

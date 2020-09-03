@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Solutions.V20180601
 {
     /// <summary>
     /// Information about managed application.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update managed application
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var application = new AzureRM.Solutions.V20180601.Application("application", new AzureRM.Solutions.V20180601.ApplicationArgs
+    ///         {
+    ///             Kind = "ServiceCatalog",
+    ///             Location = "East US 2",
+    ///             ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///             ResourceGroupName = "rg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

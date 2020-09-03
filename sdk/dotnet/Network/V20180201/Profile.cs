@@ -11,6 +11,81 @@ namespace Pulumi.AzureRM.Network.V20180201
 {
     /// <summary>
     /// Class representing a Traffic Manager profile.
+    /// 
+    /// ## Example Usage
+    /// ### Profile-PUT-NoEndpoints
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var profile = new AzureRM.Network.V20180201.Profile("profile", new AzureRM.Network.V20180201.ProfileArgs
+    ///         {
+    ///             DnsConfig = new AzureRM.Network.V20180201.Inputs.DnsConfigArgs
+    ///             {
+    ///                 RelativeName = "azsmnet6386",
+    ///                 Ttl = 35,
+    ///             },
+    ///             Location = "global",
+    ///             MonitorConfig = new AzureRM.Network.V20180201.Inputs.MonitorConfigArgs
+    ///             {
+    ///                 Path = "/testpath.aspx",
+    ///                 Port = 80,
+    ///                 Protocol = "HTTP",
+    ///             },
+    ///             ProfileName = "azsmnet6386",
+    ///             ProfileStatus = "Enabled",
+    ///             ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///             TrafficRoutingMethod = "Performance",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Profile-PUT-WithEndpoints
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var profile = new AzureRM.Network.V20180201.Profile("profile", new AzureRM.Network.V20180201.ProfileArgs
+    ///         {
+    ///             DnsConfig = new AzureRM.Network.V20180201.Inputs.DnsConfigArgs
+    ///             {
+    ///                 RelativeName = "azuresdkfornetautoresttrafficmanager6192",
+    ///                 Ttl = 35,
+    ///             },
+    ///             Endpoints = 
+    ///             {
+    ///                 ,
+    ///             },
+    ///             Location = "global",
+    ///             MonitorConfig = new AzureRM.Network.V20180201.Inputs.MonitorConfigArgs
+    ///             {
+    ///                 IntervalInSeconds = 10,
+    ///                 Path = "/testpath.aspx",
+    ///                 Port = 80,
+    ///                 Protocol = "HTTP",
+    ///                 TimeoutInSeconds = 5,
+    ///                 ToleratedNumberOfFailures = 2,
+    ///             },
+    ///             ProfileName = "azuresdkfornetautoresttrafficmanager6192",
+    ///             ProfileStatus = "Enabled",
+    ///             ResourceGroupName = "azuresdkfornetautoresttrafficmanager2583",
+    ///             TrafficRoutingMethod = "Performance",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Profile : Pulumi.CustomResource
     {

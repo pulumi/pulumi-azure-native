@@ -8,6 +8,26 @@ import * as utilities from "../../utilities";
 
 /**
  * Private Endpoint Connection ARM resource.
+ *
+ * ## Example Usage
+ * ### Approves or rejects a private endpoint connection for a site.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const webAppPrivateEndpointConnection = new azurerm.web.latest.WebAppPrivateEndpointConnection("webAppPrivateEndpointConnection", {
+ *     name: "testSite",
+ *     privateEndpointConnectionName: "connection",
+ *     privateLinkServiceConnectionState: {
+ *         actionsRequired: "",
+ *         description: "Approved by admin.",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
  */
 export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
     /**

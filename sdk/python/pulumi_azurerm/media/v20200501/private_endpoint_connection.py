@@ -28,6 +28,24 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## Example Usage
+        ### Update private endpoint connection.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.media.v20200501.PrivateEndpointConnection("privateEndpointConnection",
+            account_name="contososports",
+            name="connectionName1",
+            private_link_service_connection_state={
+                "description": "Test description.",
+                "status": "Approved",
+            },
+            resource_group_name="contoso")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

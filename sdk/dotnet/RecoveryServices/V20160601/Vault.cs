@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
 {
     /// <summary>
     /// Resource information, as returned by the resource provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create of Update Recovery Services vault
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vault = new AzureRM.RecoveryServices.V20160601.Vault("vault", new AzureRM.RecoveryServices.V20160601.VaultArgs
+    ///         {
+    ///             Identity = new AzureRM.RecoveryServices.V20160601.Inputs.IdentityDataArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Location = "West US",
+    ///             ResourceGroupName = "Default-RecoveryServices-ResourceGroup",
+    ///             Sku = new AzureRM.RecoveryServices.V20160601.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///             VaultName = "swaggerExample",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Vault : Pulumi.CustomResource
     {

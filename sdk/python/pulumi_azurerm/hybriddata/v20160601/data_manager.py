@@ -29,6 +29,20 @@ class DataManager(pulumi.CustomResource):
         """
         The DataManager resource.
 
+        ## Example Usage
+        ### DataManagers_CreatePUT41
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        data_manager = azurerm.hybriddata.v20160601.DataManager("dataManager",
+            data_manager_name="TestAzureSDKOperations",
+            location="westus",
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only

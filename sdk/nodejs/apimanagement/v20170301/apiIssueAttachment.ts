@@ -6,6 +6,26 @@ import * as utilities from "../../utilities";
 
 /**
  * Issue Attachment Contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiIssueAttachment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiIssueAttachment = new azurerm.apimanagement.v20170301.ApiIssueAttachment("apiIssueAttachment", {
+ *     apiId: "57d1f7558aa04f15146d9d8a",
+ *     attachmentId: "57d2ef278aa04f0888cba3f3",
+ *     content: "IEJhc2U2NA==",
+ *     contentFormat: "image/jpeg",
+ *     issueId: "57d2ef278aa04f0ad01d6cdc",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     title: "Issue attachment.",
+ * });
+ *
+ * ```
  */
 export class ApiIssueAttachment extends pulumi.CustomResource {
     /**

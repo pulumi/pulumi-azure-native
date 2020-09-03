@@ -24,6 +24,20 @@ class HcxEnterpriseSite(pulumi.CustomResource):
         """
         An HCX Enterprise Site resource
 
+        ## Example Usage
+        ### HcxEnterpriseSites_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        hcx_enterprise_site = azurerm.avs.latest.HcxEnterpriseSite("hcxEnterpriseSite",
+            hcx_enterprise_site_name="site1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud

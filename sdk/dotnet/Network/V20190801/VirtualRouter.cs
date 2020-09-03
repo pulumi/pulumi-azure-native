@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.Network.V20190801
 {
     /// <summary>
     /// VirtualRouter Resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create VirtualRouter
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualRouter = new AzureRM.Network.V20190801.VirtualRouter("virtualRouter", new AzureRM.Network.V20190801.VirtualRouterArgs
+    ///         {
+    ///             HostedGateway = new AzureRM.Network.V20190801.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vnetGateway",
+    ///             },
+    ///             Location = "West US",
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             VirtualRouterName = "virtualRouter",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualRouter : Pulumi.CustomResource
     {

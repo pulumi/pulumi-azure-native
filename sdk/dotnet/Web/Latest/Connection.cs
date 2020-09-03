@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.Web.Latest
 {
     /// <summary>
     /// API connection
+    /// 
+    /// ## Example Usage
+    /// ### Replace a connection
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var connection = new AzureRM.Web.Latest.Connection("connection", new AzureRM.Web.Latest.ConnectionArgs
+    ///         {
+    ///             ConnectionName = "testManagedApi",
+    ///             ResourceGroupName = "testResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Connection : Pulumi.CustomResource
     {

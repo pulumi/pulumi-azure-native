@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.AVS.Latest
 {
     /// <summary>
     /// A private cloud resource
+    /// 
+    /// ## Example Usage
+    /// ### PrivateClouds_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateCloud = new AzureRM.AVS.Latest.PrivateCloud("privateCloud", new AzureRM.AVS.Latest.PrivateCloudArgs
+    ///         {
+    ///             Location = "eastus2",
+    ///             ManagementCluster = new AzureRM.AVS.Latest.Inputs.ManagementClusterArgs
+    ///             {
+    ///                 ClusterSize = 4,
+    ///             },
+    ///             NetworkBlock = "192.168.48.0/22",
+    ///             PrivateCloudName = "cloud1",
+    ///             ResourceGroupName = "group1",
+    ///             Sku = new AzureRM.AVS.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "AV36",
+    ///             },
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateCloud : Pulumi.CustomResource
     {

@@ -8,6 +8,40 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Cassandra table.
+ *
+ * ## Example Usage
+ * ### CosmosDBCassandraTableCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const databaseAccountCassandraTable = new azurerm.documentdb.v20150401.DatabaseAccountCassandraTable("databaseAccountCassandraTable", {
+ *     accountName: "ddb1",
+ *     keyspaceName: "tableName",
+ *     options: {},
+ *     resource: {
+ *         defaultTtl: 100,
+ *         id: "tableName",
+ *         schema: {
+ *             clusterKeys: [{
+ *                 name: "columnA",
+ *                 orderBy: "Asc",
+ *             }],
+ *             columns: [{
+ *                 name: "columnA",
+ *                 type: "Ascii",
+ *             }],
+ *             partitionKeys: [{
+ *                 name: "columnA",
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tableName: "tableName",
+ * });
+ *
+ * ```
  */
 export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
     /**

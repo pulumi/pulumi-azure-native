@@ -7,6 +7,7 @@ PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
 VERSION         := 0.1.0
 
+GOPATH          := $(shell go env GOPATH)
 WORKING_DIR     := $(shell pwd)
 
 VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azurerm/provider/pkg/version.Version=${VERSION}"
@@ -29,24 +30,30 @@ ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
-local_generate::
-	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,go,dotnet,python
+# Need to generate provider for example generation since program-gen causes the provider to be loaded
+local_generate:: codegen generate_schema provider generate_sdk_with_examples
 	echo "Finished generating schema."
 
-generate_schema::
+generate_schema:
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema
+	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -schema=true
 	echo "Finished generating schema."
+
+generate_sdk_with_examples::
+	echo "Generating Pulumi schema with examples..."
+	# not generating golang examples currently due to https://github.com/pulumi/pulumi-azurerm/issues/156
+	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -sdk=true "go"
+	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples=true -sdk=true "nodejs,dotnet,python"
+	echo "Finished generating schema with examples."
 
 codegen::
 	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN))
 
 provider::
-	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
+	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER) && cp $(WORKING_DIR)/bin/$(PROVIDER) $(GOPATH)/bin/)
 
 generate_nodejs::
-	$(WORKING_DIR)/bin/$(CODEGEN) nodejs
+	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples=true -sdk=true nodejs
 
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
@@ -56,7 +63,7 @@ build_nodejs::
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 generate_python::
-	$(WORKING_DIR)/bin/$(CODEGEN) python
+	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples=true -sdk=true python
 
 build_python::
 	cd sdk/python/ && \
@@ -68,7 +75,7 @@ build_python::
         cd ./bin && python3 setup.py build sdist
 
 generate_dotnet::
-	$(WORKING_DIR)/bin/$(CODEGEN) dotnet
+	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples=true -sdk=true dotnet
 
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
@@ -105,4 +112,4 @@ build:: init_submodules clean codegen local_generate provider build_sdks install
 build_sdks: build_nodejs build_dotnet build_python build_go
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 
-.PHONY: init_submodules update_submodules ensure generate_schema generate build_provider build
+.PHONY: init_submodules update_submodules ensure generate_schema local_generate generate_sdk_with_examples provider build

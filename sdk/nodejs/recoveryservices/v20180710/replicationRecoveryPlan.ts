@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Recovery plan details.
+ *
+ * ## Example Usage
+ * ### Creates a recovery plan with the given details.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const replicationRecoveryPlan = new azurerm.recoveryservices.v20180710.ReplicationRecoveryPlan("replicationRecoveryPlan", {
+ *     recoveryPlanName: "RPtest1",
+ *     resourceGroupName: "resourceGroupPS1",
+ *     resourceName: "vault1",
+ * });
+ *
+ * ```
  */
 export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     /**

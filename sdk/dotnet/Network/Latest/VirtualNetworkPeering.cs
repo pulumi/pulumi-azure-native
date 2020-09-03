@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Peerings in a virtual network resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create peering
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualNetworkPeering = new AzureRM.Network.Latest.VirtualNetworkPeering("virtualNetworkPeering", new AzureRM.Network.Latest.VirtualNetworkPeeringArgs
+    ///         {
+    ///             AllowForwardedTraffic = true,
+    ///             AllowGatewayTransit = false,
+    ///             AllowVirtualNetworkAccess = true,
+    ///             RemoteVirtualNetwork = new AzureRM.Network.Latest.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+    ///             },
+    ///             ResourceGroupName = "peerTest",
+    ///             UseRemoteGateways = false,
+    ///             VirtualNetworkName = "vnet1",
+    ///             VirtualNetworkPeeringName = "peer",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualNetworkPeering : Pulumi.CustomResource
     {

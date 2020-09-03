@@ -37,6 +37,227 @@ class Task(pulumi.CustomResource):
         The task that has the ARM resource and task properties.
         The task will have all information to schedule a run against it.
 
+        ## Example Usage
+        ### Tasks_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        task = azurerm.containerregistry.v20190401.Task("task",
+            agent_configuration={
+                "cpu": 2,
+            },
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="eastus",
+            platform={
+                "architecture": "amd64",
+                "os": "Linux",
+            },
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            status="Enabled",
+            step={
+                "contextPath": "src",
+            },
+            tags={
+                "testkey": "value",
+            },
+            task_name="mytTask",
+            trigger={
+                "baseImageTrigger": {
+                    "baseImageTriggerType": "Runtime",
+                    "name": "myBaseImageTrigger",
+                },
+                "sourceTriggers": [{
+                    "name": "mySourceTrigger",
+                    "sourceRepository": {
+                        "branch": "master",
+                        "repositoryUrl": "https://github.com/Azure/azure-rest-api-specs",
+                        "sourceControlAuthProperties": {
+                            "token": "xxxxx",
+                            "tokenType": "PAT",
+                        },
+                        "sourceControlType": "Github",
+                    },
+                    "sourceTriggerEvents": ["commit"],
+                }],
+                "timerTriggers": [{
+                    "name": "myTimerTrigger",
+                    "schedule": "30 9 * * 1-5",
+                }],
+            })
+
+        ```
+        ### Tasks_Create_WithSystemAndUserIdentities
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        task = azurerm.containerregistry.v20190401.Task("task",
+            agent_configuration={
+                "cpu": 2,
+            },
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+                "userAssignedIdentities": {
+                    "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
+                },
+            },
+            location="eastus",
+            platform={
+                "architecture": "amd64",
+                "os": "Linux",
+            },
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            status="Enabled",
+            step={
+                "contextPath": "src",
+            },
+            tags={
+                "testkey": "value",
+            },
+            task_name="mytTask",
+            trigger={
+                "baseImageTrigger": {
+                    "baseImageTriggerType": "Runtime",
+                    "name": "myBaseImageTrigger",
+                },
+                "sourceTriggers": [{
+                    "name": "mySourceTrigger",
+                    "sourceRepository": {
+                        "branch": "master",
+                        "repositoryUrl": "https://github.com/Azure/azure-rest-api-specs",
+                        "sourceControlAuthProperties": {
+                            "token": "xxxxx",
+                            "tokenType": "PAT",
+                        },
+                        "sourceControlType": "Github",
+                    },
+                    "sourceTriggerEvents": ["commit"],
+                }],
+                "timerTriggers": [{
+                    "name": "myTimerTrigger",
+                    "schedule": "30 9 * * 1-5",
+                }],
+            })
+
+        ```
+        ### Tasks_Create_WithUserIdentities
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        task = azurerm.containerregistry.v20190401.Task("task",
+            agent_configuration={
+                "cpu": 2,
+            },
+            identity={
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                    "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
+                },
+            },
+            location="eastus",
+            platform={
+                "architecture": "amd64",
+                "os": "Linux",
+            },
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            status="Enabled",
+            step={
+                "contextPath": "src",
+            },
+            tags={
+                "testkey": "value",
+            },
+            task_name="mytTask",
+            trigger={
+                "baseImageTrigger": {
+                    "baseImageTriggerType": "Runtime",
+                    "name": "myBaseImageTrigger",
+                },
+                "sourceTriggers": [{
+                    "name": "mySourceTrigger",
+                    "sourceRepository": {
+                        "branch": "master",
+                        "repositoryUrl": "https://github.com/Azure/azure-rest-api-specs",
+                        "sourceControlAuthProperties": {
+                            "token": "xxxxx",
+                            "tokenType": "PAT",
+                        },
+                        "sourceControlType": "Github",
+                    },
+                    "sourceTriggerEvents": ["commit"],
+                }],
+                "timerTriggers": [{
+                    "name": "myTimerTrigger",
+                    "schedule": "30 9 * * 1-5",
+                }],
+            })
+
+        ```
+        ### Tasks_Create_WithUserIdentities_WithSystemIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        task = azurerm.containerregistry.v20190401.Task("task",
+            agent_configuration={
+                "cpu": 2,
+            },
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="eastus",
+            platform={
+                "architecture": "amd64",
+                "os": "Linux",
+            },
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            status="Enabled",
+            step={
+                "contextPath": "src",
+            },
+            tags={
+                "testkey": "value",
+            },
+            task_name="mytTask",
+            trigger={
+                "baseImageTrigger": {
+                    "baseImageTriggerType": "Runtime",
+                    "name": "myBaseImageTrigger",
+                },
+                "sourceTriggers": [{
+                    "name": "mySourceTrigger",
+                    "sourceRepository": {
+                        "branch": "master",
+                        "repositoryUrl": "https://github.com/Azure/azure-rest-api-specs",
+                        "sourceControlAuthProperties": {
+                            "token": "xxxxx",
+                            "tokenType": "PAT",
+                        },
+                        "sourceControlType": "Github",
+                    },
+                    "sourceTriggerEvents": ["commit"],
+                }],
+                "timerTriggers": [{
+                    "name": "myTimerTrigger",
+                    "schedule": "30 9 * * 1-5",
+                }],
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AgentPropertiesArgs']] agent_configuration: The machine configuration of the run agent.

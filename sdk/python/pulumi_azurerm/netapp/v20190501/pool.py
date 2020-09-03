@@ -28,6 +28,23 @@ class Pool(pulumi.CustomResource):
         """
         Capacity pool resource
 
+        ## Example Usage
+        ### Pools_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        pool = azurerm.netapp.v20190501.Pool("pool",
+            account_name="accountName",
+            location="eastus",
+            pool_name="poolName",
+            resource_group_name="resourceGroup",
+            service_level="Premium",
+            size=4398046511104)
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account

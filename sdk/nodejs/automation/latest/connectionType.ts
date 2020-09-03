@@ -8,6 +8,40 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the connection type.
+ *
+ * ## Example Usage
+ * ### Create or update connection type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const connectionType = new azurerm.automation.latest.ConnectionType("connectionType", {
+ *     automationAccountName: "myAutomationAccount22",
+ *     connectionTypeName: "myCT",
+ *     fieldDefinitions: {
+ *         myBoolField: {
+ *             isEncrypted: false,
+ *             isOptional: false,
+ *             type: "bool",
+ *         },
+ *         myStringField: {
+ *             isEncrypted: false,
+ *             isOptional: false,
+ *             type: "string",
+ *         },
+ *         myStringFieldEncrypted: {
+ *             isEncrypted: true,
+ *             isOptional: false,
+ *             type: "string",
+ *         },
+ *     },
+ *     isGlobal: false,
+ *     name: "myCT",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
  */
 export class ConnectionType extends pulumi.CustomResource {
     /**

@@ -8,6 +8,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Linked service resource type.
+ *
+ * ## Example Usage
+ * ### LinkedServices_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const linkedService = new azurerm.datafactory.latest.LinkedService("linkedService", {
+ *     factoryName: "exampleFactoryName",
+ *     linkedServiceName: "exampleLinkedService",
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ * ### LinkedServices_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const linkedService = new azurerm.datafactory.latest.LinkedService("linkedService", {
+ *     factoryName: "exampleFactoryName",
+ *     linkedServiceName: "exampleLinkedService",
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

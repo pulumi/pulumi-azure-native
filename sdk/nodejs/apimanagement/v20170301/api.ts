@@ -8,6 +8,113 @@ import * as utilities from "../../utilities";
 
 /**
  * API details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApi
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const api = new azurerm.apimanagement.v20170301.Api("api", {
+ *     apiId: "tempgroup",
+ *     authenticationSettings: {
+ *         oAuth2: {
+ *             authorizationServerId: "authorizationServerId2283",
+ *             scope: "oauth2scope2580",
+ *         },
+ *     },
+ *     description: "apidescription5200",
+ *     displayName: "apiname1463",
+ *     path: "newapiPath",
+ *     protocols: [
+ *         "https",
+ *         "http",
+ *     ],
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     serviceUrl: "http://newechoapi.cloudapp.net/api",
+ *     subscriptionKeyParameterNames: {
+ *         header: "header4520",
+ *         query: "query3037",
+ *     },
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateApiRevision
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const api = new azurerm.apimanagement.v20170301.Api("api", {
+ *     apiId: "5a838fd48f33670ed070d77c;rev=4",
+ *     description: "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+ *     displayName: "Swagger Petstore V2",
+ *     path: "petstore2",
+ *     protocols: ["https"],
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     serviceUrl: "http://petstore.swagger.io/v4",
+ *     subscriptionKeyParameterNames: {
+ *         header: "Ocp-Apim-Subscription-Key",
+ *         query: "subscription-key",
+ *     },
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateApiUsingSwaggerImport
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const api = new azurerm.apimanagement.v20170301.Api("api", {
+ *     apiId: "petstore",
+ *     contentFormat: "swagger-link-json",
+ *     contentValue: "http://petstore.swagger.io/v2/swagger.json",
+ *     path: "petstore",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateApiUsingWadlImport
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const api = new azurerm.apimanagement.v20170301.Api("api", {
+ *     apiId: "petstore",
+ *     contentFormat: "wadl-link-json",
+ *     contentValue: "https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl",
+ *     path: "collector",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateApiUsingWsdlImport
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const api = new azurerm.apimanagement.v20170301.Api("api", {
+ *     apiId: "soapApi",
+ *     contentFormat: "wsdl-link",
+ *     contentValue: "http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+ *     path: "currency",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     wsdlSelector: {
+ *         wsdlEndpointName: "CurrencyConvertorSoap",
+ *         wsdlServiceName: "CurrencyConvertor",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Api extends pulumi.CustomResource {
     /**

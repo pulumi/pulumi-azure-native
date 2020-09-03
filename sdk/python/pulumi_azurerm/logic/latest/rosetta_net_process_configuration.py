@@ -36,6 +36,67 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
         """
         The integration account RosettaNet process configuration.
 
+        ## Example Usage
+        ### Create or update an RosettaNetProcessConfiguration
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        rosetta_net_process_configuration = azurerm.logic.latest.RosettaNetProcessConfiguration("rosettaNetProcessConfiguration",
+            activity_settings={
+                "acknowledgmentOfReceiptSettings": {
+                    "isNonRepudiationRequired": False,
+                    "timeToAcknowledgeInSeconds": 600,
+                },
+                "activityBehavior": {
+                    "actionType": "DoubleAction",
+                    "isAuthorizationRequired": False,
+                    "isSecuredTransportRequired": False,
+                    "nonRepudiationOfOriginAndContent": False,
+                    "persistentConfidentialityScope": "None",
+                    "responseType": "Async",
+                    "retryCount": 2,
+                    "timeToPerformInSeconds": 7200,
+                },
+                "activityType": "RequestResponse",
+            },
+            description="Test description",
+            initiator_role_settings={
+                "action": "Purchase Order Request",
+                "businessDocument": {
+                    "description": "A request to accept a purchase order for fulfillment..",
+                    "name": "Purchase Order Request",
+                    "version": "V02.02.00",
+                },
+                "description": "This partner role creates a demand for a product or service.",
+                "role": "Buyer",
+                "roleType": "Functional",
+                "service": "Buyer Service",
+                "serviceClassification": "Business Service",
+            },
+            integration_account_name="testia123",
+            process_code="3A4",
+            process_name="Request Purchase Order",
+            process_version="V02.02.00",
+            resource_group_name="testrg123",
+            responder_role_settings={
+                "action": "Purchase Order Confirmation Action",
+                "businessDocument": {
+                    "description": "Formally confirms the status of line item(s) in a Purchase Order. A Purchase Order line item may have one of the following states: accepted, rejected, or pending.",
+                    "name": "Purchase Order Confirmation",
+                    "version": "V02.02.00",
+                },
+                "description": "An organization that sells products to partners in the supply chain.",
+                "role": "Seller",
+                "roleType": "Organizational",
+                "service": "Seller Service",
+                "serviceClassification": "Business Service",
+            },
+            rosetta_net_process_configuration_name="3A4")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RosettaNetPipActivitySettingsArgs']] activity_settings: The RosettaNet process configuration activity settings.

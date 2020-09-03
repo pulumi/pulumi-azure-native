@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.Automation.Latest
 {
     /// <summary>
     /// Definition of the automation account type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update automation account
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var automationAccount = new AzureRM.Automation.Latest.AutomationAccount("automationAccount", new AzureRM.Automation.Latest.AutomationAccountArgs
+    ///         {
+    ///             AutomationAccountName = "myAutomationAccount9",
+    ///             Location = "East US 2",
+    ///             Name = "myAutomationAccount9",
+    ///             ResourceGroupName = "rg",
+    ///             Sku = new AzureRM.Automation.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Free",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AutomationAccount : Pulumi.CustomResource
     {

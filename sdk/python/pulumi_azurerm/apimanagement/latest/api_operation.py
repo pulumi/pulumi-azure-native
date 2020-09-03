@@ -35,6 +35,49 @@ class ApiOperation(pulumi.CustomResource):
         """
         Api Operation details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiOperation
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_operation = azurerm.apimanagement.latest.ApiOperation("apiOperation",
+            api_id="PetStoreTemplate2",
+            description="This can only be done by the logged in user.",
+            display_name="createUser2",
+            method="POST",
+            operation_id="newoperations",
+            request={
+                "description": "Created user object",
+                "headers": [],
+                "queryParameters": [],
+                "representations": [{
+                    "contentType": "application/json",
+                    "schemaId": "592f6c1d0af5840ca8897f0c",
+                    "typeName": "User",
+                }],
+            },
+            resource_group_name="rg1",
+            responses=[{
+                "description": "successful operation",
+                "headers": [],
+                "representations": [
+                    {
+                        "contentType": "application/xml",
+                    },
+                    {
+                        "contentType": "application/json",
+                    },
+                ],
+                "statusCode": 200,
+            }],
+            service_name="apimService1",
+            template_parameters=[],
+            url_template="/user1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

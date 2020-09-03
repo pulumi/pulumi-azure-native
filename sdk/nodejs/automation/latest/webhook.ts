@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the webhook type.
+ *
+ * ## Example Usage
+ * ### Create or update webhook
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const webhook = new azurerm.automation.latest.Webhook("webhook", {
+ *     automationAccountName: "myAutomationAccount33",
+ *     expiryTime: "2018-03-29T22:18:13.7002872Z",
+ *     isEnabled: true,
+ *     name: "TestWebhook",
+ *     resourceGroupName: "rg",
+ *     runbook: {
+ *         name: "TestRunbook",
+ *     },
+ *     uri: `https://s1events.azure-automation.net/webhooks?token=7u3KfQvM1vUPWaDMFRv2%2fAA4Jqx8QwS8aBuyO6Xsdcw%3d`,
+ *     webhookName: "TestWebhook",
+ * });
+ *
+ * ```
  */
 export class Webhook extends pulumi.CustomResource {
     /**

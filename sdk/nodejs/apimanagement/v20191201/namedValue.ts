@@ -6,6 +6,28 @@ import * as utilities from "../../utilities";
 
 /**
  * NamedValue details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateNamedValue
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const namedValue = new azurerm.apimanagement.v20191201.NamedValue("namedValue", {
+ *     displayName: "prop3name",
+ *     namedValueId: "testprop2",
+ *     resourceGroupName: "rg1",
+ *     secret: false,
+ *     serviceName: "apimService1",
+ *     tags: [
+ *         "foo",
+ *         "bar",
+ *     ],
+ *     value: "propValue",
+ * });
+ *
+ * ```
  */
 export class NamedValue extends pulumi.CustomResource {
     /**

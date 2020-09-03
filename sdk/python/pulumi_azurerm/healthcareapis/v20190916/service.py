@@ -31,6 +31,39 @@ class Service(pulumi.CustomResource):
         """
         The description of the service.
 
+        ## Example Usage
+        ### Create or Update a service with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        service = azurerm.healthcareapis.v20190916.Service("service",
+            identity={
+                "type": "SystemAssigned",
+            },
+            kind="fhir-R4",
+            location="westus2",
+            resource_group_name="rg1",
+            resource_name="service1",
+            tags={})
+
+        ```
+        ### Create or Update a service with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        service = azurerm.healthcareapis.v20190916.Service("service",
+            kind="fhir-R4",
+            location="westus2",
+            resource_group_name="rg1",
+            resource_name="service2",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.

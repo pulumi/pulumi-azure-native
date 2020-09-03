@@ -43,6 +43,28 @@ class ApplicationDefinition(pulumi.CustomResource):
         """
         Information about managed application definition.
 
+        ## Example Usage
+        ### Create or update managed application definition
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        application_definition = azurerm.solutions.v20190701.ApplicationDefinition("applicationDefinition",
+            application_definition_name="myManagedApplicationDef",
+            authorizations=[{
+                "principalId": "validprincipalguid",
+                "roleDefinitionId": "validroleguid",
+            }],
+            description="myManagedApplicationDef description",
+            display_name="myManagedApplicationDef",
+            location="East US 2",
+            lock_level="None",
+            package_file_uri="https://path/to/packagezipfile",
+            resource_group_name="rg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_definition_name: The name of the managed application definition.

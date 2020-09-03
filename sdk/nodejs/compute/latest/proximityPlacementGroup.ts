@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the proximity placement group.
+ *
+ * ## Example Usage
+ * ### Create or Update a proximity placement group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const proximityPlacementGroup = new azurerm.compute.latest.ProximityPlacementGroup("proximityPlacementGroup", {
+ *     location: "westus",
+ *     proximityPlacementGroupName: "myProximityPlacementGroup",
+ *     proximityPlacementGroupType: "Standard",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
  */
 export class ProximityPlacementGroup extends pulumi.CustomResource {
     /**

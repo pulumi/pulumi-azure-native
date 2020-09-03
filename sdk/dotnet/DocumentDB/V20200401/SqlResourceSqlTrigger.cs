@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
 {
     /// <summary>
     /// An Azure Cosmos DB trigger.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlTriggerCreateUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sqlResourceSqlTrigger = new AzureRM.DocumentDB.V20200401.SqlResourceSqlTrigger("sqlResourceSqlTrigger", new AzureRM.DocumentDB.V20200401.SqlResourceSqlTriggerArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             ContainerName = "containerName",
+    ///             DatabaseName = "databaseName",
+    ///             Options = ,
+    ///             Resource = new AzureRM.DocumentDB.V20200401.Inputs.SqlTriggerResourceArgs
+    ///             {
+    ///                 Body = "body",
+    ///                 Id = "triggerName",
+    ///                 TriggerOperation = "triggerOperation",
+    ///                 TriggerType = "triggerType",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             TriggerName = "triggerName",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SqlResourceSqlTrigger : Pulumi.CustomResource
     {

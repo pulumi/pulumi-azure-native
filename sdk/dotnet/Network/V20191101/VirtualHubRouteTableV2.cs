@@ -11,6 +11,62 @@ namespace Pulumi.AzureRM.Network.V20191101
 {
     /// <summary>
     /// VirtualHubRouteTableV2 Resource.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualHubRouteTableV2Put
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualHubRouteTableV2 = new AzureRM.Network.V20191101.VirtualHubRouteTableV2("virtualHubRouteTableV2", new AzureRM.Network.V20191101.VirtualHubRouteTableV2Args
+    ///         {
+    ///             AttachedConnections = 
+    ///             {
+    ///                 "All_Vnets",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             RouteTableName = "virtualHubRouteTable1a",
+    ///             Routes = 
+    ///             {
+    ///                 new AzureRM.Network.V20191101.Inputs.VirtualHubRouteV2Args
+    ///                 {
+    ///                     DestinationType = "CIDR",
+    ///                     Destinations = 
+    ///                     {
+    ///                         "20.10.0.0/16",
+    ///                         "20.20.0.0/16",
+    ///                     },
+    ///                     NextHopType = "IPAddress",
+    ///                     NextHops = 
+    ///                     {
+    ///                         "10.0.0.68",
+    ///                     },
+    ///                 },
+    ///                 new AzureRM.Network.V20191101.Inputs.VirtualHubRouteV2Args
+    ///                 {
+    ///                     DestinationType = "CIDR",
+    ///                     Destinations = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                     },
+    ///                     NextHopType = "IPAddress",
+    ///                     NextHops = 
+    ///                     {
+    ///                         "10.0.0.68",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VirtualHubName = "virtualHub1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualHubRouteTableV2 : Pulumi.CustomResource
     {

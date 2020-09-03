@@ -31,6 +31,40 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
         """
         An Azure Cosmos DB MongoDB collection.
 
+        ## Example Usage
+        ### CosmosDBMongoDBCollectionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        mongo_db_resource_mongo_db_collection = azurerm.documentdb.latest.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection",
+            account_name="ddb1",
+            collection_name="collectionName",
+            database_name="databaseName",
+            location="West US",
+            options={},
+            resource={
+                "analyticalStorageTtl": 500,
+                "id": "collectionName",
+                "indexes": [{
+                    "key": {
+                        "keys": ["testKey"],
+                    },
+                    "options": {
+                        "expireAfterSeconds": 100,
+                        "unique": True,
+                    },
+                }],
+                "shardKey": {
+                    "testKey": "Hash",
+                },
+            },
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

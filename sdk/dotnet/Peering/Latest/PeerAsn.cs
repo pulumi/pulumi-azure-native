@@ -11,6 +11,49 @@ namespace Pulumi.AzureRM.Peering.Latest
 {
     /// <summary>
     /// The essential information related to the peer's ASN.
+    /// 
+    /// ## Example Usage
+    /// ### Create a peer ASN
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var peerAsn = new AzureRM.Peering.Latest.PeerAsn("peerAsn", new AzureRM.Peering.Latest.PeerAsnArgs
+    ///         {
+    ///             PeerAsn = 65000,
+    ///             PeerAsnName = "peerAsnName",
+    ///             PeerContactDetail = 
+    ///             {
+    ///                 new AzureRM.Peering.Latest.Inputs.ContactDetailArgs
+    ///                 {
+    ///                     Email = "noc@contoso.com",
+    ///                     Phone = "+1 (234) 567-8999",
+    ///                     Role = "Noc",
+    ///                 },
+    ///                 new AzureRM.Peering.Latest.Inputs.ContactDetailArgs
+    ///                 {
+    ///                     Email = "abc@contoso.com",
+    ///                     Phone = "+1 (234) 567-8900",
+    ///                     Role = "Policy",
+    ///                 },
+    ///                 new AzureRM.Peering.Latest.Inputs.ContactDetailArgs
+    ///                 {
+    ///                     Email = "xyz@contoso.com",
+    ///                     Phone = "+1 (234) 567-8900",
+    ///                     Role = "Technical",
+    ///                 },
+    ///             },
+    ///             PeerName = "Contoso",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PeerAsn : Pulumi.CustomResource
     {

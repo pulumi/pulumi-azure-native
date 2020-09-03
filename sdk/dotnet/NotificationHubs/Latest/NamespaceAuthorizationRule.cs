@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.NotificationHubs.Latest
 {
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpaceAuthorizationRuleCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var namespaceAuthorizationRule = new AzureRM.NotificationHubs.Latest.NamespaceAuthorizationRule("namespaceAuthorizationRule", new AzureRM.NotificationHubs.Latest.NamespaceAuthorizationRuleArgs
+    ///         {
+    ///             AuthorizationRuleName = "sdk-AuthRules-1788",
+    ///             NamespaceName = "nh-sdk-ns",
+    ///             ResourceGroupName = "5ktrial",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {

@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Network security rule.
+ *
+ * ## Example Usage
+ * ### Create security rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const securityRule = new azurerm.network.v20191201.SecurityRule("securityRule", {
+ *     access: "Deny",
+ *     destinationAddressPrefix: "11.0.0.0/8",
+ *     destinationPortRange: "8080",
+ *     direction: "Outbound",
+ *     networkSecurityGroupName: "testnsg",
+ *     priority: 100,
+ *     protocol: "*",
+ *     resourceGroupName: "rg1",
+ *     securityRuleName: "rule1",
+ *     sourceAddressPrefix: "10.0.0.0/8",
+ *     sourcePortRange: "*",
+ * });
+ *
+ * ```
  */
 export class SecurityRule extends pulumi.CustomResource {
     /**

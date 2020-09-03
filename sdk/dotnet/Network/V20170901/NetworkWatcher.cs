@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Network.V20170901
 {
     /// <summary>
     /// Network watcher in a resource group.
+    /// 
+    /// ## Example Usage
+    /// ### Create network watcher
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var networkWatcher = new AzureRM.Network.V20170901.NetworkWatcher("networkWatcher", new AzureRM.Network.V20170901.NetworkWatcherArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             NetworkWatcherName = "nw1",
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class NetworkWatcher : Pulumi.CustomResource
     {

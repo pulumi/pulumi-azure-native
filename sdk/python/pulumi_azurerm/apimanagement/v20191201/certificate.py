@@ -26,6 +26,22 @@ class Certificate(pulumi.CustomResource):
         """
         Certificate details.
 
+        ## Example Usage
+        ### ApiManagementCreateCertificate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        certificate = azurerm.apimanagement.v20191201.Certificate("certificate",
+            certificate_id="tempcert",
+            data="****************Base 64 Encoded Certificate *******************************",
+            password="****Certificate Password******",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.

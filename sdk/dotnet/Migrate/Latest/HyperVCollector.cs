@@ -9,6 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.Migrate.Latest
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### HyperVCollectors_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hyperVCollector = new AzureRM.Migrate.Latest.HyperVCollector("hyperVCollector", new AzureRM.Migrate.Latest.HyperVCollectorArgs
+    ///         {
+    ///             ETag = "\"00000981-0000-0300-0000-5d74cd5f0000\"",
+    ///             HyperVCollectorName = "migrateprojectce73collector",
+    ///             ProjectName = "migrateprojectce73project",
+    ///             ResourceGroupName = "contosoithyperv",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// </summary>
     public partial class HyperVCollector : Pulumi.CustomResource
     {
         [Output("eTag")]

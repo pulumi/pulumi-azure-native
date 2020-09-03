@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Kusto.V20190121
 {
     /// <summary>
     /// Class representing a Kusto database.
+    /// 
+    /// ## Example Usage
+    /// ### KustoDatabasesCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var database = new AzureRM.Kusto.V20190121.Database("database", new AzureRM.Kusto.V20190121.DatabaseArgs
+    ///         {
+    ///             ClusterName = "KustoClusterRPTest4",
+    ///             DatabaseName = "KustoDatabase8",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "kustorptest",
+    ///             SoftDeletePeriod = "P1D",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Database : Pulumi.CustomResource
     {

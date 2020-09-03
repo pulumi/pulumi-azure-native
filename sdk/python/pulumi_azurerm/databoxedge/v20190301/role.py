@@ -25,6 +25,21 @@ class Role(pulumi.CustomResource):
         """
         Compute role.
 
+        ## Example Usage
+        ### RolePut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        role = azurerm.databoxedge.v20190301.Role("role",
+            device_name="testedgedevice",
+            kind="IOT",
+            name="IoTRole1",
+            resource_group_name="GroupForEdgeAutomation")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.

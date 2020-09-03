@@ -11,6 +11,280 @@ namespace Pulumi.AzureRM.Network.V20180901
 {
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
+    /// 
+    /// ## Example Usage
+    /// ### PUT Private DNS Zone A Record Set
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180901.RecordSet("recordSet", new AzureRM.Network.V20180901.RecordSetArgs
+    ///         {
+    ///             ARecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180901.Inputs.ARecordArgs
+    ///                 {
+    ///                     Ipv4Address = "1.2.3.4",
+    ///                 },
+    ///             },
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             PrivateZoneName = "privatezone1.com",
+    ///             RecordType = "A",
+    ///             RelativeRecordSetName = "recordA",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Ttl = 3600,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone AAAA Record Set
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180901.RecordSet("recordSet", new AzureRM.Network.V20180901.RecordSetArgs
+    ///         {
+    ///             AaaaRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180901.Inputs.AaaaRecordArgs
+    ///                 {
+    ///                     Ipv6Address = "::1",
+    ///                 },
+    ///             },
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             PrivateZoneName = "privatezone1.com",
+    ///             RecordType = "AAAA",
+    ///             RelativeRecordSetName = "recordAAAA",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Ttl = 3600,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone CNAME Record Set
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180901.RecordSet("recordSet", new AzureRM.Network.V20180901.RecordSetArgs
+    ///         {
+    ///             CnameRecord = new AzureRM.Network.V20180901.Inputs.CnameRecordArgs
+    ///             {
+    ///                 Cname = "contoso.com",
+    ///             },
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             PrivateZoneName = "privatezone1.com",
+    ///             RecordType = "CNAME",
+    ///             RelativeRecordSetName = "recordCNAME",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Ttl = 3600,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone MX Record Set
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180901.RecordSet("recordSet", new AzureRM.Network.V20180901.RecordSetArgs
+    ///         {
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             MxRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180901.Inputs.MxRecordArgs
+    ///                 {
+    ///                     Exchange = "mail.privatezone1.com",
+    ///                     Preference = 0,
+    ///                 },
+    ///             },
+    ///             PrivateZoneName = "privatezone1.com",
+    ///             RecordType = "MX",
+    ///             RelativeRecordSetName = "recordMX",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Ttl = 3600,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone PTR Record Set
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180901.RecordSet("recordSet", new AzureRM.Network.V20180901.RecordSetArgs
+    ///         {
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             PrivateZoneName = "0.0.127.in-addr.arpa",
+    ///             PtrRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180901.Inputs.PtrRecordArgs
+    ///                 {
+    ///                     Ptrdname = "localhost",
+    ///                 },
+    ///             },
+    ///             RecordType = "PTR",
+    ///             RelativeRecordSetName = "1",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Ttl = 3600,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone SOA Record Set
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180901.RecordSet("recordSet", new AzureRM.Network.V20180901.RecordSetArgs
+    ///         {
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             PrivateZoneName = "privatezone1.com",
+    ///             RecordType = "SOA",
+    ///             RelativeRecordSetName = "@",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             SoaRecord = new AzureRM.Network.V20180901.Inputs.SoaRecordArgs
+    ///             {
+    ///                 Email = "azureprivatedns-hostmaster.microsoft.com",
+    ///                 ExpireTime = 2419200,
+    ///                 Host = "azureprivatedns.net",
+    ///                 MinimumTtl = 300,
+    ///                 RefreshTime = 3600,
+    ///                 RetryTime = 300,
+    ///                 SerialNumber = 1,
+    ///             },
+    ///             Ttl = 3600,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone SRV Record Set
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180901.RecordSet("recordSet", new AzureRM.Network.V20180901.RecordSetArgs
+    ///         {
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             PrivateZoneName = "privatezone1.com",
+    ///             RecordType = "SRV",
+    ///             RelativeRecordSetName = "recordSRV",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             SrvRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180901.Inputs.SrvRecordArgs
+    ///                 {
+    ///                     Port = 80,
+    ///                     Priority = 0,
+    ///                     Target = "contoso.com",
+    ///                     Weight = 10,
+    ///                 },
+    ///             },
+    ///             Ttl = 3600,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone TXT Record Set
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var recordSet = new AzureRM.Network.V20180901.RecordSet("recordSet", new AzureRM.Network.V20180901.RecordSetArgs
+    ///         {
+    ///             Metadata = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             PrivateZoneName = "privatezone1.com",
+    ///             RecordType = "TXT",
+    ///             RelativeRecordSetName = "recordTXT",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Ttl = 3600,
+    ///             TxtRecords = 
+    ///             {
+    ///                 new AzureRM.Network.V20180901.Inputs.TxtRecordArgs
+    ///                 {
+    ///                     Value = 
+    ///                     {
+    ///                         "string1",
+    ///                         "string2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RecordSet : Pulumi.CustomResource
     {

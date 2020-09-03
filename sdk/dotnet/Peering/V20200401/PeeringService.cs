@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Peering.V20200401
 {
     /// <summary>
     /// Peering Service
+    /// 
+    /// ## Example Usage
+    /// ### Create a  peering service
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var peeringService = new AzureRM.Peering.V20200401.PeeringService("peeringService", new AzureRM.Peering.V20200401.PeeringServiceArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             PeeringServiceLocation = "state1",
+    ///             PeeringServiceName = "peeringServiceName",
+    ///             PeeringServiceProvider = "serviceProvider1",
+    ///             ResourceGroupName = "rgName",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PeeringService : Pulumi.CustomResource
     {

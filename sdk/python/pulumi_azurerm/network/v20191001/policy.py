@@ -31,6 +31,98 @@ class Policy(pulumi.CustomResource):
         """
         Defines web application firewall policy.
 
+        ## Example Usage
+        ### Creates specific policy
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        policy = azurerm.network.v20191001.Policy("policy",
+            custom_rules={
+                "rules": [
+                    {
+                        "action": "Block",
+                        "matchConditions": [{
+                            "matchValue": [
+                                "192.168.1.0/24",
+                                "10.0.0.0/24",
+                            ],
+                            "matchVariable": "RemoteAddr",
+                            "operator": "IPMatch",
+                        }],
+                        "name": "Rule1",
+                        "priority": 1,
+                        "rateLimitThreshold": 1000,
+                        "ruleType": "RateLimitRule",
+                    },
+                    {
+                        "action": "Block",
+                        "matchConditions": [
+                            {
+                                "matchValue": ["CH"],
+                                "matchVariable": "RemoteAddr",
+                                "operator": "GeoMatch",
+                            },
+                            {
+                                "matchValue": ["windows"],
+                                "matchVariable": "RequestHeader",
+                                "operator": "Contains",
+                                "selector": "UserAgent",
+                                "transforms": ["Lowercase"],
+                            },
+                        ],
+                        "name": "Rule2",
+                        "priority": 2,
+                        "ruleType": "MatchRule",
+                    },
+                ],
+            },
+            managed_rules={
+                "managedRuleSets": [{
+                    "exclusions": [{
+                        "matchVariable": "RequestHeaderNames",
+                        "selector": "User-Agent",
+                        "selectorMatchOperator": "Equals",
+                    }],
+                    "ruleGroupOverrides": [{
+                        "exclusions": [{
+                            "matchVariable": "RequestCookieNames",
+                            "selector": "token",
+                            "selectorMatchOperator": "StartsWith",
+                        }],
+                        "ruleGroupName": "SQLI",
+                        "rules": [
+                            {
+                                "action": "Redirect",
+                                "enabledState": "Enabled",
+                                "exclusions": [{
+                                    "matchVariable": "QueryStringArgNames",
+                                    "selector": "query",
+                                    "selectorMatchOperator": "Equals",
+                                }],
+                                "ruleId": "942100",
+                            },
+                            {
+                                "enabledState": "Disabled",
+                                "ruleId": "942110",
+                            },
+                        ],
+                    }],
+                    "ruleSetType": "DefaultRuleSet",
+                    "ruleSetVersion": "1.0",
+                }],
+            },
+            policy_name="Policy1",
+            policy_settings={
+                "customBlockResponseBody": "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+                "customBlockResponseStatusCode": 499,
+                "redirectUrl": "http://www.bing.com",
+            },
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CustomRuleListArgs']] custom_rules: Describes custom rules inside the policy.

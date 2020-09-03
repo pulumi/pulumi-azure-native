@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Virtual Appliance Site resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create Network Virtual Appliance Site
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualApplianceSite = new AzureRM.Network.Latest.VirtualApplianceSite("virtualApplianceSite", new AzureRM.Network.Latest.VirtualApplianceSiteArgs
+    ///         {
+    ///             AddressPrefix = "192.168.1.0/24",
+    ///             NetworkVirtualApplianceName = "nva",
+    ///             O365Policy = new AzureRM.Network.Latest.Inputs.Office365PolicyPropertiesArgs
+    ///             {
+    ///                 BreakOutCategories = new AzureRM.Network.Latest.Inputs.BreakOutCategoryPoliciesArgs
+    ///                 {
+    ///                     Allow = true,
+    ///                     Default = true,
+    ///                     Optimize = true,
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             SiteName = "site1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualApplianceSite : Pulumi.CustomResource
     {

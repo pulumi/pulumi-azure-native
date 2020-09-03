@@ -8,6 +8,131 @@ import * as utilities from "../../utilities";
 
 /**
  * A single API Management service resource in List or Get response.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateMultiRegionServiceWithCustomHostname
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiManagementService = new azurerm.apimanagement.v20180101.ApiManagementService("apiManagementService", {
+ *     additionalLocations: [{
+ *         location: "West US",
+ *         sku: {
+ *             capacity: 1,
+ *             name: "Premium",
+ *         },
+ *         virtualNetworkConfiguration: {
+ *             subnetResourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/westUsVirtualNetwork/subnets/apimSubnet",
+ *         },
+ *     }],
+ *     hostnameConfigurations: [
+ *         {
+ *             certificatePassword: "**************Password of the Certificate************************************************",
+ *             encodedCertificate: "************Base 64 Encoded Pfx Certificate************************",
+ *             hostName: "proxyhostname1.contoso.com",
+ *             type: "Proxy",
+ *         },
+ *         {
+ *             certificatePassword: "**************Password of the Certificate************************************************",
+ *             encodedCertificate: "************Base 64 Encoded Pfx Certificate************************",
+ *             hostName: "proxyhostname2.contoso.com",
+ *             negotiateClientCertificate: true,
+ *             type: "Proxy",
+ *         },
+ *         {
+ *             certificatePassword: "**************Password of the Certificate************************************************",
+ *             encodedCertificate: "************Base 64 Encoded Pfx Certificate************************",
+ *             hostName: "portalhostname1.contoso.com",
+ *             type: "Portal",
+ *         },
+ *     ],
+ *     location: "Central US",
+ *     publisherEmail: "admin@live.com",
+ *     publisherName: "contoso",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Premium",
+ *     },
+ *     virtualNetworkConfiguration: {
+ *         subnetResourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/centralUsVirtualNetwork/subnets/apimSubnet",
+ *     },
+ *     virtualNetworkType: "External",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateService
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiManagementService = new azurerm.apimanagement.v20180101.ApiManagementService("apiManagementService", {
+ *     location: "West US",
+ *     publisherEmail: "admin@live.com",
+ *     publisherName: "contoso",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Premium",
+ *     },
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateServiceHavingMsi
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiManagementService = new azurerm.apimanagement.v20180101.ApiManagementService("apiManagementService", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "Japan East",
+ *     publisherEmail: "admin@contoso.com",
+ *     publisherName: "Contoso",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         name: "Developer",
+ *     },
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateServiceWithSystemCertificates
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiManagementService = new azurerm.apimanagement.v20180101.ApiManagementService("apiManagementService", {
+ *     certificates: [{
+ *         certificatePassword: "**************Password of the Certificate************************************************",
+ *         encodedCertificate: "************Base 64 Encoded Pfx Certificate************************",
+ *         storeName: "CertificateAuthority",
+ *     }],
+ *     location: "Central US",
+ *     publisherEmail: "apim@autorestsdk.com",
+ *     publisherName: "autorestsdk",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Basic",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *         tag3: "value3",
+ *     },
+ * });
+ *
+ * ```
  */
 export class ApiManagementService extends pulumi.CustomResource {
     /**

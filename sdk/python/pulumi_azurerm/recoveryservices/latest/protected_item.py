@@ -32,6 +32,36 @@ class ProtectedItem(pulumi.CustomResource):
         """
         Base class for backup items.
 
+        ## Example Usage
+        ### Enable Protection on Azure IaasVm
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        protected_item = azurerm.recoveryservices.latest.ProtectedItem("protectedItem",
+            container_name="IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+            fabric_name="Azure",
+            protected_item_name="VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+            resource_group_name="SwaggerTestRg",
+            vault_name="NetSDKTestRsVault")
+
+        ```
+        ### Stop Protection with retain data on Azure IaasVm
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        protected_item = azurerm.recoveryservices.latest.ProtectedItem("protectedItem",
+            container_name="IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+            fabric_name="Azure",
+            protected_item_name="VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+            resource_group_name="SwaggerTestRg",
+            vault_name="NetSDKTestRsVault")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_name: Container name associated with the backup item.

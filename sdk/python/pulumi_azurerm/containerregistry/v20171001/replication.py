@@ -27,6 +27,24 @@ class Replication(pulumi.CustomResource):
         """
         An object that represents a replication for a container registry.
 
+        ## Example Usage
+        ### ReplicationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        replication = azurerm.containerregistry.v20171001.Replication("replication",
+            location="eastus",
+            registry_name="myRegistry",
+            replication_name="myReplication",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key": "value",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.

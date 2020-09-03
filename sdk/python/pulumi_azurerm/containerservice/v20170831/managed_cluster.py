@@ -32,6 +32,27 @@ class ManagedCluster(pulumi.CustomResource):
         """
         Managed cluster.
 
+        ## Example Usage
+        ### Create/Update Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_cluster = azurerm.containerservice.v20170831.ManagedCluster("managedCluster",
+            agent_pool_profiles=[{
+                "count": 1,
+                "name": "agentpool1",
+                "vmSize": "Standard_D2_v2",
+            }],
+            dns_prefix="dnsprefix1",
+            kubernetes_version="1.7.7",
+            location="location1",
+            resource_group_name="rg1",
+            resource_name="clustername1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.

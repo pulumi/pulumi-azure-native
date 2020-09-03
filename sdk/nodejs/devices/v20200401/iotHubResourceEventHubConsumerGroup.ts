@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of the EventHubConsumerGroupInfo object.
+ *
+ * ## Example Usage
+ * ### IotHubResource_CreateEventHubConsumerGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const iotHubResourceEventHubConsumerGroup = new azurerm.devices.v20200401.IotHubResourceEventHubConsumerGroup("iotHubResourceEventHubConsumerGroup", {
+ *     eventHubEndpointName: "events",
+ *     name: "test",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "testHub",
+ * });
+ *
+ * ```
  */
 export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
     /**

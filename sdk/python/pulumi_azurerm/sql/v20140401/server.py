@@ -28,6 +28,40 @@ class Server(pulumi.CustomResource):
         """
         Represents a server.
 
+        ## Example Usage
+        ### Create server max
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        server = azurerm.sql.v20140401.Server("server",
+            administrator_login="dummylogin",
+            administrator_login_password="Un53cuRE!",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645",
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            version="12.0")
+
+        ```
+        ### Create server min
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        server = azurerm.sql.v20140401.Server("server",
+            administrator_login="dummylogin",
+            administrator_login_password="Un53cuRE!",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the server. Can only be specified when the server is being created (and is required for creation).

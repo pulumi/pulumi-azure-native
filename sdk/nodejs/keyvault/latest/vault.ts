@@ -8,6 +8,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource information with extended details.
+ *
+ * ## Example Usage
+ * ### Create a new vault or update an existing vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const vault = new azurerm.keyvault.latest.Vault("vault", {
+ *     location: "westus",
+ *     resourceGroupName: "sample-resource-group",
+ *     vaultName: "sample-vault",
+ * });
+ *
+ * ```
+ * ### Create or update a vault with network acls
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const vault = new azurerm.keyvault.latest.Vault("vault", {
+ *     location: "westus",
+ *     resourceGroupName: "sample-resource-group",
+ *     vaultName: "sample-vault",
+ * });
+ *
+ * ```
  */
 export class Vault extends pulumi.CustomResource {
     /**

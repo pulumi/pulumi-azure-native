@@ -11,6 +11,54 @@ namespace Pulumi.AzureRM.AAD.V20170101
 {
     /// <summary>
     /// Domain service.
+    /// 
+    /// ## Example Usage
+    /// ### Create Domain Service
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var domainService = new AzureRM.AAD.V20170101.DomainService("domainService", new AzureRM.AAD.V20170101.DomainServiceArgs
+    ///         {
+    ///             DomainName = "zdomain.zforest.com",
+    ///             DomainSecuritySettings = new AzureRM.AAD.V20170101.Inputs.DomainSecuritySettingsArgs
+    ///             {
+    ///                 NtlmV1 = "Enabled",
+    ///                 SyncNtlmPasswords = "Enabled",
+    ///                 TlsV1 = "Disabled",
+    ///             },
+    ///             DomainServiceName = "zdomain.zforest.com",
+    ///             FilteredSync = "Enabled",
+    ///             LdapsSettings = new AzureRM.AAD.V20170101.Inputs.LdapsSettingsArgs
+    ///             {
+    ///                 ExternalAccess = "Enabled",
+    ///                 Ldaps = "Enabled",
+    ///                 PfxCertificate = "MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+    ///                 PfxCertificatePassword = "Password01",
+    ///             },
+    ///             Location = "westus",
+    ///             NotificationSettings = new AzureRM.AAD.V20170101.Inputs.NotificationSettingsArgs
+    ///             {
+    ///                 AdditionalRecipients = 
+    ///                 {
+    ///                     "jicha@microsoft.com",
+    ///                     "caalmont@microsoft.com",
+    ///                 },
+    ///                 NotifyDcAdmins = "Enabled",
+    ///                 NotifyGlobalAdmins = "Enabled",
+    ///             },
+    ///             ResourceGroupName = "sva-tt-WUS",
+    ///             SubnetId = "/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/DCIaasTmpWusNet/subnets/Subnet-1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DomainService : Pulumi.CustomResource
     {

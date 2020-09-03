@@ -27,6 +27,22 @@ class Application(pulumi.CustomResource):
         """
         Contains information about an application in a Batch account.
 
+        ## Example Usage
+        ### ApplicationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        application = azurerm.batch.v20200501.Application("application",
+            account_name="sampleacct",
+            allow_updates=False,
+            application_name="app1",
+            display_name="myAppName",
+            resource_group_name="default-azurebatch-japaneast")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.

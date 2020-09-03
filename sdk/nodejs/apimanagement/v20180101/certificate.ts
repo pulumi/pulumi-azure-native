@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Certificate details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateCertificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const certificate = new azurerm.apimanagement.v20180101.Certificate("certificate", {
+ *     certificateId: "tempcert",
+ *     data: "****************Base 64 Encoded Certificate *******************************",
+ *     password: "****Certificate Password******",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

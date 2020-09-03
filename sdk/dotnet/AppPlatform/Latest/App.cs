@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.AppPlatform.Latest
 {
     /// <summary>
     /// App resource payload
+    /// 
+    /// ## Example Usage
+    /// ### Apps_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var app = new AzureRM.AppPlatform.Latest.App("app", new AzureRM.AppPlatform.Latest.AppArgs
+    ///         {
+    ///             AppName = "myapp",
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ServiceName = "myservice",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class App : Pulumi.CustomResource
     {

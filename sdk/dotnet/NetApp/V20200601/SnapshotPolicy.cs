@@ -11,6 +11,59 @@ namespace Pulumi.AzureRM.NetApp.V20200601
 {
     /// <summary>
     /// Snapshot policy information
+    /// 
+    /// ## Example Usage
+    /// ### SnapshotPolicies_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var snapshotPolicy = new AzureRM.NetApp.V20200601.SnapshotPolicy("snapshotPolicy", new AzureRM.NetApp.V20200601.SnapshotPolicyArgs
+    ///         {
+    ///             AccountName = "account1",
+    ///             DailySchedule = 
+    ///             {
+    ///                 { "hour", 10 },
+    ///                 { "minute", 10 },
+    ///                 { "snapshotsToKeep", 10 },
+    ///                 { "usedBytes", 100000 },
+    ///             },
+    ///             Enabled = true,
+    ///             HourlySchedule = 
+    ///             {
+    ///                 { "minute", 10 },
+    ///                 { "snapshotsToKeep", 10 },
+    ///                 { "usedBytes", 100000 },
+    ///             },
+    ///             Location = "eastus",
+    ///             MonthlySchedule = 
+    ///             {
+    ///                 { "DaysOfMonth", "1,5,11" },
+    ///                 { "hour", 10 },
+    ///                 { "minute", 10 },
+    ///                 { "snapshotsToKeep", 10 },
+    ///                 { "usedBytes", 100000 },
+    ///             },
+    ///             ResourceGroupName = "myRG",
+    ///             SnapshotPolicyName = "snapshotPolicyName",
+    ///             WeeklySchedule = 
+    ///             {
+    ///                 { "day", "Monday" },
+    ///                 { "hour", 10 },
+    ///                 { "minute", 10 },
+    ///                 { "snapshotsToKeep", 10 },
+    ///                 { "usedBytes", 100000 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SnapshotPolicy : Pulumi.CustomResource
     {

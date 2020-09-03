@@ -26,6 +26,22 @@ class ApplicationType(pulumi.CustomResource):
         """
         The application type name resource
 
+        ## Example Usage
+        ### Put an application type
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        application_type = azurerm.servicefabric.v20190301.ApplicationType("applicationType",
+            application_type_name="myAppType",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_type_name: The name of the application type name resource.

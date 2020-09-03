@@ -35,6 +35,55 @@ class ApiDiagnostic(pulumi.CustomResource):
         """
         Diagnostic details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiDiagnostic
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_diagnostic = azurerm.apimanagement.v20191201.ApiDiagnostic("apiDiagnostic",
+            always_log="allErrors",
+            api_id="57d1f7558aa04f15146d9d8a",
+            backend={
+                "request": {
+                    "body": {
+                        "bytes": 512,
+                    },
+                    "headers": ["Content-type"],
+                },
+                "response": {
+                    "body": {
+                        "bytes": 512,
+                    },
+                    "headers": ["Content-type"],
+                },
+            },
+            diagnostic_id="applicationinsights",
+            frontend={
+                "request": {
+                    "body": {
+                        "bytes": 512,
+                    },
+                    "headers": ["Content-type"],
+                },
+                "response": {
+                    "body": {
+                        "bytes": 512,
+                    },
+                    "headers": ["Content-type"],
+                },
+            },
+            logger_id="/loggers/applicationinsights",
+            resource_group_name="rg1",
+            sampling={
+                "percentage": 50,
+                "samplingType": "fixed",
+            },
+            service_name="apimService1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] always_log: Specifies for what type of messages sampling settings should not apply.

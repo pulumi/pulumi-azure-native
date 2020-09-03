@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Tag Contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateTag
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const tag = new azurerm.apimanagement.v20180101.Tag("tag", {
+ *     displayName: "tag1",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     tagId: "tagId1",
+ * });
+ *
+ * ```
  */
 export class Tag extends pulumi.CustomResource {
     /**

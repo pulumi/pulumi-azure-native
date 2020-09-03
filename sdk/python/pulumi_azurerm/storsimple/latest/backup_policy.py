@@ -27,6 +27,26 @@ class BackupPolicy(pulumi.CustomResource):
         """
         The backup policy.
 
+        ## Example Usage
+        ### BackupPoliciesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        backup_policy = azurerm.storsimple.latest.BackupPolicy("backupPolicy",
+            backup_policy_name="BkUpPolicy01ForSDKTest",
+            device_name="Device05ForSDKTest",
+            kind="Series8000",
+            manager_name="ManagerForSDKTest1",
+            resource_group_name="ResourceGroupForSDKTest",
+            volume_ids=[
+                "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/volumeContainerForSDKTest/volumes/Clonedvolume1",
+                "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/volumeContainerForSDKTest/volumes/volume1",
+            ])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_name: The name of the backup policy to be created/updated.

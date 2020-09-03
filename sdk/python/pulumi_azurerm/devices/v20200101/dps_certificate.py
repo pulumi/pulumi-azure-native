@@ -26,6 +26,21 @@ class DpsCertificate(pulumi.CustomResource):
         """
         The X509 Certificate.
 
+        ## Example Usage
+        ### DPSCreateOrUpdateCertificate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        dps_certificate = azurerm.devices.v20200101.DpsCertificate("dpsCertificate",
+            certificate="############################################",
+            certificate_name="cert",
+            provisioning_service_name="myFirstProvisioningService",
+            resource_group_name="myResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.

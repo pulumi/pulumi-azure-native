@@ -36,6 +36,48 @@ class FrontDoor(pulumi.CustomResource):
         """
         Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 
+        ## Example Usage
+        ### Create or update specific Front Door
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        front_door = azurerm.network.v20190401.FrontDoor("frontDoor",
+            backend_pools=[{
+                "name": "backendPool1",
+            }],
+            backend_pools_settings={
+                "enforceCertificateNameCheck": "Enabled",
+            },
+            enabled_state="Enabled",
+            front_door_name="frontDoor1",
+            frontend_endpoints=[
+                {
+                    "name": "frontendEndpoint1",
+                },
+                {
+                    "name": "default",
+                },
+            ],
+            health_probe_settings=[{
+                "name": "healthProbeSettings1",
+            }],
+            load_balancing_settings=[{
+                "name": "loadBalancingSettings1",
+            }],
+            location="westus",
+            resource_group_name="rg1",
+            routing_rules=[{
+                "name": "routingRule1",
+            }],
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BackendPoolArgs']]]] backend_pools: Backend pools available to routing rules.

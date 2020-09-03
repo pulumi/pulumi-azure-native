@@ -6,6 +6,26 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace authorization rule.
+ *
+ * ## Example Usage
+ * ### RelayAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const wcfRelayAuthorizationRule = new azurerm.relay.latest.WCFRelayAuthorizationRule("wcfRelayAuthorizationRule", {
+ *     authorizationRuleName: "sdk-RelayAuthRules-01",
+ *     namespaceName: "sdk-RelayNamespace-01",
+ *     relayName: "sdk-Relay-wcf-01",
+ *     resourceGroupName: "RG-eg",
+ *     rights: [
+ *         "Listen",
+ *         "Send",
+ *     ],
+ * });
+ *
+ * ```
  */
 export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
     /**

@@ -35,6 +35,34 @@ class Share(pulumi.CustomResource):
         """
         Represents a share on the  Data Box Edge/Gateway device.
 
+        ## Example Usage
+        ### SharePut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        share = azurerm.databoxedge.latest.Share("share",
+            access_protocol="SMB",
+            azure_container_info={
+                "containerName": "testContainerSMB",
+                "dataFormat": "BlockBlob",
+                "storageAccountCredentialId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1",
+            },
+            data_policy="Cloud",
+            description="",
+            device_name="testedgedevice",
+            monitoring_status="Enabled",
+            name="smbshare",
+            resource_group_name="GroupForEdgeAutomation",
+            share_status="Online",
+            user_access_rights=[{
+                "accessType": "Change",
+                "userId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user2",
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_protocol: Access protocol to be used by the share.

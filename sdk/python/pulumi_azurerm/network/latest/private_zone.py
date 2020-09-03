@@ -26,6 +26,23 @@ class PrivateZone(pulumi.CustomResource):
         """
         Describes a Private DNS zone.
 
+        ## Example Usage
+        ### PUT Private DNS Zone
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_zone = azurerm.network.latest.PrivateZone("privateZone",
+            location="Global",
+            private_zone_name="privatezone1.com",
+            resource_group_name="resourceGroup1",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The ETag of the zone.

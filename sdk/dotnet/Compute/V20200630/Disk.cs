@@ -11,6 +11,274 @@ namespace Pulumi.AzureRM.Compute.V20200630
 {
     /// <summary>
     /// Disk resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create a managed disk and associate with disk access resource.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disk = new AzureRM.Compute.V20200630.Disk("disk", new AzureRM.Compute.V20200630.DiskArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20200630.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Empty",
+    ///             },
+    ///             DiskAccessId = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/{existing-diskAccess-name}",
+    ///             DiskName = "myDisk",
+    ///             DiskSizeGB = 200,
+    ///             Location = "West US",
+    ///             NetworkAccessPolicy = "AllowPrivate",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a managed disk and associate with disk encryption set.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disk = new AzureRM.Compute.V20200630.Disk("disk", new AzureRM.Compute.V20200630.DiskArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20200630.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Empty",
+    ///             },
+    ///             DiskName = "myDisk",
+    ///             DiskSizeGB = 200,
+    ///             Encryption = new AzureRM.Compute.V20200630.Inputs.EncryptionArgs
+    ///             {
+    ///                 DiskEncryptionSetId = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///             },
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a managed disk by copying a snapshot.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disk = new AzureRM.Compute.V20200630.Disk("disk", new AzureRM.Compute.V20200630.DiskArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20200630.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Copy",
+    ///                 SourceResourceId = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+    ///             },
+    ///             DiskName = "myDisk",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a managed disk by importing an unmanaged blob from a different subscription.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disk = new AzureRM.Compute.V20200630.Disk("disk", new AzureRM.Compute.V20200630.DiskArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20200630.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Import",
+    ///                 SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///                 StorageAccountId = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+    ///             },
+    ///             DiskName = "myDisk",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a managed disk by importing an unmanaged blob from the same subscription.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disk = new AzureRM.Compute.V20200630.Disk("disk", new AzureRM.Compute.V20200630.DiskArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20200630.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Import",
+    ///                 SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///             },
+    ///             DiskName = "myDisk",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a managed disk from a platform image.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disk = new AzureRM.Compute.V20200630.Disk("disk", new AzureRM.Compute.V20200630.DiskArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20200630.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "FromImage",
+    ///                 ImageReference = new AzureRM.Compute.V20200630.Inputs.ImageDiskReferenceArgs
+    ///                 {
+    ///                     Id = "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/uswest/Publishers/Microsoft/ArtifactTypes/VMImage/Offers/{offer}",
+    ///                 },
+    ///             },
+    ///             DiskName = "myDisk",
+    ///             Location = "West US",
+    ///             OsType = "Windows",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a managed disk from an existing managed disk in the same or different subscription.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disk = new AzureRM.Compute.V20200630.Disk("disk", new AzureRM.Compute.V20200630.DiskArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20200630.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Copy",
+    ///                 SourceResourceId = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myDisk1",
+    ///             },
+    ///             DiskName = "myDisk2",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a managed upload disk.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disk = new AzureRM.Compute.V20200630.Disk("disk", new AzureRM.Compute.V20200630.DiskArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20200630.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Upload",
+    ///                 UploadSizeBytes = 10737418752,
+    ///             },
+    ///             DiskName = "myDisk",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create an empty managed disk.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disk = new AzureRM.Compute.V20200630.Disk("disk", new AzureRM.Compute.V20200630.DiskArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20200630.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Empty",
+    ///             },
+    ///             DiskName = "myDisk",
+    ///             DiskSizeGB = 200,
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create an ultra managed disk with logicalSectorSize 512E
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var disk = new AzureRM.Compute.V20200630.Disk("disk", new AzureRM.Compute.V20200630.DiskArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20200630.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Empty",
+    ///                 LogicalSectorSize = 512,
+    ///             },
+    ///             DiskName = "myDisk",
+    ///             DiskSizeGB = 200,
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20200630.Inputs.DiskSkuArgs
+    ///             {
+    ///                 Name = "UltraSSD_LRS",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Disk : Pulumi.CustomResource
     {

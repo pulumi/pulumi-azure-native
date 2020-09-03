@@ -11,6 +11,59 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
 {
     /// <summary>
     /// Virtual machine model
+    /// 
+    /// ## Example Usage
+    /// ### CreateVirtualMachine
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.VMwareCloudSimple.Latest.VirtualMachine("virtualMachine", new AzureRM.VMwareCloudSimple.Latest.VirtualMachineArgs
+    ///         {
+    ///             AmountOfRam = 4096,
+    ///             Disks = 
+    ///             {
+    ///                 new AzureRM.VMwareCloudSimple.Latest.Inputs.VirtualDiskArgs
+    ///                 {
+    ///                     ControllerId = "1000",
+    ///                     IndependenceMode = "persistent",
+    ///                     TotalSize = 10485760,
+    ///                     VirtualDiskId = "2000",
+    ///                 },
+    ///             },
+    ///             Location = "westus2",
+    ///             Nics = 
+    ///             {
+    ///                 new AzureRM.VMwareCloudSimple.Latest.Inputs.VirtualNicArgs
+    ///                 {
+    ///                     Network = new AzureRM.VMwareCloudSimple.Latest.Inputs.VirtualNetworkArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualNetworks/dvportgroup-19",
+    ///                     },
+    ///                     NicType = "E1000",
+    ///                     PowerOnBoot = true,
+    ///                     VirtualNicId = "4000",
+    ///                 },
+    ///             },
+    ///             NumberOfCores = 2,
+    ///             PrivateCloudId = "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ResourcePool = new AzureRM.VMwareCloudSimple.Latest.Inputs.ResourcePoolArgs
+    ///             {
+    ///                 Id = "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/resourcePools/resgroup-26",
+    ///             },
+    ///             TemplateId = "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualMachineTemplates/vm-34",
+    ///             VirtualMachineName = "myVirtualMachine",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualMachine : Pulumi.CustomResource
     {

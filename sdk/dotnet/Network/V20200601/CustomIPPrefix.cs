@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Network.V20200601
 {
     /// <summary>
     /// Custom IP prefix resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create custom IP prefix allocation method
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var customIPPrefix = new AzureRM.Network.V20200601.CustomIPPrefix("customIPPrefix", new AzureRM.Network.V20200601.CustomIPPrefixArgs
+    ///         {
+    ///             Cidr = "0.0.0.0/24",
+    ///             CustomIpPrefixName = "test-customipprefix",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class CustomIPPrefix : Pulumi.CustomResource
     {

@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
 {
     /// <summary>
     /// Represents a Storage Account on the  Data Box Edge/Gateway device.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountPut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var storageAccount = new AzureRM.DataBoxEdge.V20190801.StorageAccount("storageAccount", new AzureRM.DataBoxEdge.V20190801.StorageAccountArgs
+    ///         {
+    ///             DataPolicy = "Cloud",
+    ///             Description = "It's an awesome storage account",
+    ///             DeviceName = "testedgedevice",
+    ///             ResourceGroupName = "GroupForEdgeAutomation",
+    ///             StorageAccountCredentialId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/cisbvt",
+    ///             StorageAccountName = "blobstorageaccount1",
+    ///             StorageAccountStatus = "OK",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StorageAccount : Pulumi.CustomResource
     {

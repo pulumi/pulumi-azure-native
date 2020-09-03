@@ -29,6 +29,19 @@ class CustomApi(pulumi.CustomResource):
         """
         A custom API
 
+        ## Example Usage
+        ### Replace a custom API
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        custom_api = azurerm.web.v20160601.CustomApi("customApi",
+            api_name="testCustomApi",
+            resource_group_name="testResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_name: API name

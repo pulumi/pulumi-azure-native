@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.Devices.Latest
 {
     /// <summary>
     /// The description of the IoT hub.
+    /// 
+    /// ## Example Usage
+    /// ### IotHubResource_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iotHubResource = new AzureRM.Devices.Latest.IotHubResource("iotHubResource", new AzureRM.Devices.Latest.IotHubResourceArgs
+    ///         {
+    ///             Etag = "AAAAAAFD6M4=",
+    ///             Location = "centraluseuap",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ResourceName = "testHub",
+    ///             Sku = new AzureRM.Devices.Latest.Inputs.IotHubSkuInfoArgs
+    ///             {
+    ///                 Capacity = 1,
+    ///                 Name = "S1",
+    ///             },
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IotHubResource : Pulumi.CustomResource
     {

@@ -11,6 +11,89 @@ namespace Pulumi.AzureRM.Cdn.V20190615
 {
     /// <summary>
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
+    /// 
+    /// ## Example Usage
+    /// ### Endpoints_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var endpoint = new AzureRM.Cdn.V20190615.Endpoint("endpoint", new AzureRM.Cdn.V20190615.EndpointArgs
+    ///         {
+    ///             ContentTypesToCompress = 
+    ///             {
+    ///                 "text/html",
+    ///                 "application/octet-stream",
+    ///             },
+    ///             DeliveryPolicy = new AzureRM.Cdn.V20190615.Inputs.EndpointPropertiesUpdateParametersDeliveryPolicyArgs
+    ///             {
+    ///                 Description = "Test description for a policy.",
+    ///                 Rules = 
+    ///                 {
+    ///                     new AzureRM.Cdn.V20190615.Inputs.DeliveryRuleArgs
+    ///                     {
+    ///                         Actions = 
+    ///                         {
+    ///                             new AzureRM.Cdn.V20190615.Inputs.DeliveryRuleActionArgs
+    ///                             {
+    ///                                 Name = "CacheExpiration",
+    ///                             },
+    ///                             new AzureRM.Cdn.V20190615.Inputs.DeliveryRuleActionArgs
+    ///                             {
+    ///                                 Name = "ModifyResponseHeader",
+    ///                             },
+    ///                             new AzureRM.Cdn.V20190615.Inputs.DeliveryRuleActionArgs
+    ///                             {
+    ///                                 Name = "ModifyRequestHeader",
+    ///                             },
+    ///                         },
+    ///                         Conditions = 
+    ///                         {
+    ///                             new AzureRM.Cdn.V20190615.Inputs.DeliveryRuleConditionArgs
+    ///                             {
+    ///                                 Name = "RemoteAddress",
+    ///                             },
+    ///                         },
+    ///                         Name = "rule1",
+    ///                         Order = 1,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             EndpointName = "endpoint1",
+    ///             IsCompressionEnabled = true,
+    ///             IsHttpAllowed = true,
+    ///             IsHttpsAllowed = true,
+    ///             Location = "WestUs",
+    ///             OriginHostHeader = "www.bing.com",
+    ///             OriginPath = "/photos",
+    ///             Origins = 
+    ///             {
+    ///                 new AzureRM.Cdn.V20190615.Inputs.DeepCreatedOriginArgs
+    ///                 {
+    ///                     Name = "origin1",
+    ///                 },
+    ///             },
+    ///             ProfileName = "profile1",
+    ///             QueryStringCachingBehavior = "BypassCaching",
+    ///             ResourceGroupName = "RG",
+    ///             Tags = 
+    ///             {
+    ///                 { "kay1", "value1" },
+    ///             },
+    ///             WebApplicationFirewallPolicyLink = new AzureRM.Cdn.V20190615.Inputs.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/CdnWebApplicationFirewallPolicies/cdnWafPolicy1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {

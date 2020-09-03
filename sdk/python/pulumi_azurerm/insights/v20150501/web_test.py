@@ -37,6 +37,62 @@ class WebTest(pulumi.CustomResource):
         """
         An Application Insights web test definition.
 
+        ## Example Usage
+        ### webTestCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        web_test = azurerm.insights.v20150501.WebTest("webTest",
+            configuration={
+                "webTest": "<WebTest Name=\"my-webtest\" Id=\"678ddf96-1ab8-44c8-9274-123456789abc\" Enabled=\"True\" CssProjectStructure=\"\" CssIteration=\"\" Timeout=\"120\" WorkItemIds=\"\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" Description=\"\" CredentialUserName=\"\" CredentialPassword=\"\" PreAuthenticate=\"True\" Proxy=\"default\" StopOnError=\"False\" RecordedResultFile=\"\" ResultsLocale=\"\" ><Items><Request Method=\"GET\" Guid=\"a4162485-9114-fcfc-e086-123456789abc\" Version=\"1.1\" Url=\"http://my-component.azurewebsites.net\" ThinkTime=\"0\" Timeout=\"120\" ParseDependentRequests=\"True\" FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\" ResponseTimeGoal=\"0\" Encoding=\"utf-8\" ExpectedHttpStatusCode=\"200\" ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" /></Items></WebTest>",
+            },
+            description="Ping web test alert for mytestwebapp",
+            enabled=True,
+            frequency=900,
+            kind="ping",
+            location="South Central US",
+            locations=[{
+                "location": "us-fl-mia-edge",
+            }],
+            resource_group_name="my-resource-group",
+            retry_enabled=True,
+            synthetic_monitor_id="my-webtest-my-component",
+            timeout=120,
+            web_test_kind="ping",
+            web_test_name="my-webtest-my-component")
+
+        ```
+        ### webTestUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        web_test = azurerm.insights.v20150501.WebTest("webTest",
+            configuration={
+                "webTest": "<WebTest Name=\"my-webtest\" Id=\"678ddf96-1ab8-44c8-9274-123456789abc\" Enabled=\"True\" CssProjectStructure=\"\" CssIteration=\"\" Timeout=\"30\" WorkItemIds=\"\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" Description=\"\" CredentialUserName=\"\" CredentialPassword=\"\" PreAuthenticate=\"True\" Proxy=\"default\" StopOnError=\"False\" RecordedResultFile=\"\" ResultsLocale=\"\" ><Items><Request Method=\"GET\" Guid=\"a4162485-9114-fcfc-e086-123456789abc\" Version=\"1.1\" Url=\"http://my-component.azurewebsites.net\" ThinkTime=\"0\" Timeout=\"30\" ParseDependentRequests=\"True\" FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\" ResponseTimeGoal=\"0\" Encoding=\"utf-8\" ExpectedHttpStatusCode=\"200\" ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" /></Items></WebTest>",
+            },
+            frequency=600,
+            kind="ping",
+            location="South Central US",
+            locations=[
+                {
+                    "location": "us-fl-mia-edge",
+                },
+                {
+                    "location": "apac-hk-hkn-azr",
+                },
+            ],
+            resource_group_name="my-resource-group",
+            synthetic_monitor_id="my-webtest-my-component",
+            timeout=30,
+            web_test_kind="ping",
+            web_test_name="my-webtest-my-component")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']] configuration: An XML configuration specification for a WebTest.

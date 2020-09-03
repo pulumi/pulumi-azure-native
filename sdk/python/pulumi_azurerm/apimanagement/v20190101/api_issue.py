@@ -30,6 +30,26 @@ class ApiIssue(pulumi.CustomResource):
         """
         Issue Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiIssue
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_issue = azurerm.apimanagement.v20190101.ApiIssue("apiIssue",
+            api_id="57d1f7558aa04f15146d9d8a",
+            created_date="2018-02-01T22:21:20.467Z",
+            description="New API issue description",
+            issue_id="57d2ef278aa04f0ad01d6cdc",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            state="open",
+            title="New API issue",
+            user_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: A resource identifier for the API the issue was created for.

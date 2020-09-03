@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnection_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateEndpointConnection = new azurerm.appconfiguration.latest.PrivateEndpointConnection("privateEndpointConnection", {
+ *     configStoreName: "contoso",
+ *     privateEndpointConnectionName: "myConnection",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Auto-Approved",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

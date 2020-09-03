@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * disk access resource.
+ *
+ * ## Example Usage
+ * ### Create a disk access resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const diskAccess = new azurerm.compute.v20200630.DiskAccess("diskAccess", {
+ *     diskAccessName: "myDiskAccess",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
  */
 export class DiskAccess extends pulumi.CustomResource {
     /**

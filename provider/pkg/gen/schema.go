@@ -18,6 +18,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"net/url"
+	"os"
+	"path/filepath"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -110,6 +114,30 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		}
 	}
 
+	const goBasePath = "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
+	golangImportAliases := map[string]string{}
+
+	re := regexp.MustCompile(`(?P<pkgName>.*):(?P<module>.*)/(?P<version>.*):(?P<type>.*)`)
+	for resName := range pkg.Resources {
+		subMatches := re.FindStringSubmatch(resName)
+		subMatchMap := map[string]string{}
+
+		if len(subMatches) != len(re.SubexpNames()) {
+			return nil, nil, fmt.Errorf("unexpected resource format: %s", resName)
+		}
+		for i, name := range re.SubexpNames() {
+			if i != 0 {
+				subMatchMap[name] = subMatches[i]
+			}
+		}
+		packageImport := filepath.Join(goBasePath, subMatchMap["module"], subMatchMap["version"])
+		golangImportAliases[packageImport] = subMatchMap["module"]
+	}
+
+	pkg.Language["go"] = rawMessage(map[string]interface{}{
+		"importBasePath":       goBasePath,
+		"packageImportAliases": golangImportAliases,
+	})
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"dependencies": map[string]string{
 			"@pulumi/pulumi": "^2.0.0",
@@ -241,6 +269,7 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 		Path:          key,
 		GetParameters: requestFunction.parameters,
 		PutParameters: resourceRequest.parameters,
+		Examples:      g.generateExampleReferences(prov, key, path, swagger),
 		Response:      resourceResponse.properties,
 	}
 	g.metadata.Resources[resourceTok] = r
@@ -252,6 +281,57 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 		Response:      responseFunction.properties,
 	}
 	g.metadata.Invokes[functionTok] = f
+}
+
+func (g *packageGenerator) generateExampleReferences(providerName, key string, path *spec.PathItem, swagger *openapi.Spec) []provider.AzureApiExample {
+	raw, ok := path.Put.Extensions["x-ms-examples"]
+	if !ok {
+		return nil
+	}
+
+	examples := raw.(map[string]interface{})
+
+	result := make([]provider.AzureApiExample, 0, len(examples))
+	for k, v := range examples {
+		resolved := v.(map[string]interface{})
+		if _, ok := resolved["$ref"]; !ok {
+			continue
+		}
+
+		relativePath := resolved["$ref"].(string)
+		relativeURL, err := url.Parse(relativePath)
+		if err != nil {
+			panic(err)
+		}
+		cwd, err := os.Getwd()
+		if err != nil {
+			panic(err)
+		}
+
+		url, err := swagger.ResolveReference(relativeURL.String())
+		if err != nil {
+			panic(err)
+		}
+
+		url, err = filepath.Rel(cwd, url)
+		if err != nil {
+			panic(err)
+		}
+		if _, err := os.Stat(url); err != nil {
+			panic(err)
+		}
+		result = append(result, provider.AzureApiExample{
+			Description: k,
+			Location:    url,
+		})
+	}
+
+	// Deterministic ordering of the examples.
+	sort.SliceStable(result, func(i, j int) bool {
+		return result[i].Description < result[j].Description
+	})
+
+	return result
 }
 
 // genListFunctions defines functions for list* (listKeys, listSecrets, etc.) POST endpoints.

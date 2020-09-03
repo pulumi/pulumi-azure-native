@@ -33,6 +33,34 @@ class ServerDetails(pulumi.CustomResource):
         """
         Represents an instance of an Analysis Services resource.
 
+        ## Example Usage
+        ### Create a server.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        server_details = azurerm.analysisservices.latest.ServerDetails("serverDetails",
+            as_administrators={
+                "members": [
+                    "azsdktest@microsoft.com",
+                    "azsdktest2@microsoft.com",
+                ],
+            },
+            location="West US",
+            resource_group_name="TestRG",
+            server_name="azsdktest",
+            sku={
+                "capacity": 1,
+                "name": "S1",
+                "tier": "Standard",
+            },
+            tags={
+                "testKey": "testValue",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServerAdministratorsArgs']] as_administrators: A collection of AS server administrators

@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Network.V20191101
 {
     /// <summary>
     /// VirtualHub Resource.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualHubPut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualHub = new AzureRM.Network.V20191101.VirtualHub("virtualHub", new AzureRM.Network.V20191101.VirtualHubArgs
+    ///         {
+    ///             AddressPrefix = "10.168.0.0/24",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = "Basic",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             VirtualHubName = "virtualHub2",
+    ///             VirtualWan = new AzureRM.Network.V20191101.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualHub : Pulumi.CustomResource
     {

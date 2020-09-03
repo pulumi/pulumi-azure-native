@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Security Partner Provider resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create Security Partner Provider
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var securityPartnerProvider = new AzureRM.Network.Latest.SecurityPartnerProvider("securityPartnerProvider", new AzureRM.Network.Latest.SecurityPartnerProviderArgs
+    ///         {
+    ///             Location = "West US",
+    ///             ResourceGroupName = "rg1",
+    ///             SecurityPartnerProviderName = "securityPartnerProvider",
+    ///             SecurityProviderName = "ZScaler",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///             VirtualHub = new AzureRM.Network.Latest.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SecurityPartnerProvider : Pulumi.CustomResource
     {

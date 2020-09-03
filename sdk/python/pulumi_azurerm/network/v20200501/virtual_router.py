@@ -32,6 +32,26 @@ class VirtualRouter(pulumi.CustomResource):
         """
         VirtualRouter Resource.
 
+        ## Example Usage
+        ### Create VirtualRouter
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_router = azurerm.network.v20200501.VirtualRouter("virtualRouter",
+            hosted_gateway={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vnetGateway",
+            },
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_router_name="virtualRouter")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] hosted_gateway: The Gateway on which VirtualRouter is hosted.

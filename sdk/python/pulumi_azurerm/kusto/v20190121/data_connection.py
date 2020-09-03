@@ -27,6 +27,23 @@ class DataConnection(pulumi.CustomResource):
         """
         Class representing an data connection.
 
+        ## Example Usage
+        ### KustoDataConnectionsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        data_connection = azurerm.kusto.v20190121.DataConnection("dataConnection",
+            cluster_name="KustoClusterRPTest4",
+            data_connection_name="DataConnections8",
+            database_name="KustoDatabase8",
+            kind="EventHub",
+            location="westus",
+            resource_group_name="kustorptest")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.

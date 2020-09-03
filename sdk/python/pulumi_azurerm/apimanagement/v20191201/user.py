@@ -36,6 +36,24 @@ class User(pulumi.CustomResource):
         """
         User details.
 
+        ## Example Usage
+        ### ApiManagementCreateUser
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        user = azurerm.apimanagement.v20191201.User("user",
+            confirmation="signup",
+            email="foobar@outlook.com",
+            first_name="foo",
+            last_name="bar",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            user_id="5931a75ae4bbd512288c680b")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_type: Determines the type of application which send the create user request. Default is legacy portal.

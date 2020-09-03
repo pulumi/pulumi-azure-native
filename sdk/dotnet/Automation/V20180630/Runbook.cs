@@ -11,6 +11,81 @@ namespace Pulumi.AzureRM.Automation.V20180630
 {
     /// <summary>
     /// Definition of the runbook type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update runbook and publish it
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var runbook = new AzureRM.Automation.V20180630.Runbook("runbook", new AzureRM.Automation.V20180630.RunbookArgs
+    ///         {
+    ///             AutomationAccountName = "ContoseAutomationAccount",
+    ///             Description = "Description of the Runbook",
+    ///             Location = "East US 2",
+    ///             LogActivityTrace = 1,
+    ///             LogProgress = true,
+    ///             LogVerbose = false,
+    ///             Name = "Get-AzureVMTutorial",
+    ///             PublishContentLink = new AzureRM.Automation.V20180630.Inputs.ContentLinkArgs
+    ///             {
+    ///                 ContentHash = new AzureRM.Automation.V20180630.Inputs.ContentHashArgs
+    ///                 {
+    ///                     Algorithm = "SHA256",
+    ///                     Value = "115775B8FF2BE672D8A946BD0B489918C724DDE15A440373CA54461D53010A80",
+    ///                 },
+    ///                 Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+    ///             },
+    ///             ResourceGroupName = "rg",
+    ///             RunbookName = "Get-AzureVMTutorial",
+    ///             RunbookType = "PowerShellWorkflow",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag01", "value01" },
+    ///                 { "tag02", "value02" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create runbook as draft
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var runbook = new AzureRM.Automation.V20180630.Runbook("runbook", new AzureRM.Automation.V20180630.RunbookArgs
+    ///         {
+    ///             AutomationAccountName = "ContoseAutomationAccount",
+    ///             Description = "Description of the Runbook",
+    ///             Draft = ,
+    ///             Location = "East US 2",
+    ///             LogProgress = false,
+    ///             LogVerbose = false,
+    ///             Name = "Get-AzureVMTutorial",
+    ///             ResourceGroupName = "rg",
+    ///             RunbookName = "Get-AzureVMTutorial",
+    ///             RunbookType = "PowerShellWorkflow",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag01", "value01" },
+    ///                 { "tag02", "value02" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Runbook : Pulumi.CustomResource
     {

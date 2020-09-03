@@ -11,6 +11,43 @@ namespace Pulumi.AzureRM.Aadiam.V20170401
 {
     /// <summary>
     /// The diagnostic setting resource.
+    /// 
+    /// ## Example Usage
+    /// ### BatchAccountDelete
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var diagnosticSetting = new AzureRM.Aadiam.V20170401.DiagnosticSetting("diagnosticSetting", new AzureRM.Aadiam.V20170401.DiagnosticSettingArgs
+    ///         {
+    ///             EventHubAuthorizationRuleId = "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
+    ///             EventHubName = "myeventhub",
+    ///             Logs = 
+    ///             {
+    ///                 new AzureRM.Aadiam.V20170401.Inputs.LogSettingsArgs
+    ///                 {
+    ///                     Category = "AuditLogs",
+    ///                     Enabled = true,
+    ///                     RetentionPolicy = new AzureRM.Aadiam.V20170401.Inputs.RetentionPolicyArgs
+    ///                     {
+    ///                         Days = 0,
+    ///                         Enabled = false,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Name = "mysetting",
+    ///             StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+    ///             WorkspaceId = "",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {

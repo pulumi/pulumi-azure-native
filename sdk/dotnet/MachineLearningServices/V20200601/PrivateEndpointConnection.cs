@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### WorkspacePutPrivateEndpointConnection
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.MachineLearningServices.V20200601.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.MachineLearningServices.V20200601.PrivateEndpointConnectionArgs
+    ///         {
+    ///             PrivateEndpointConnectionName = "{privateEndpointConnectionName}",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.MachineLearningServices.V20200601.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Auto-Approved",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "rg-1234",
+    ///             WorkspaceName = "testworkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

@@ -8,6 +8,68 @@ import * as utilities from "../../utilities";
 
 /**
  * Bot channel resource definition
+ *
+ * ## Example Usage
+ * ### Create Alexa Bot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const channel = new azurerm.botservice.latest.Channel("channel", {
+ *     channelName: "AlexaChannel",
+ *     location: "global",
+ *     properties: {},
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ * });
+ *
+ * ```
+ * ### Create Bot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const channel = new azurerm.botservice.latest.Channel("channel", {
+ *     channelName: "EmailChannel",
+ *     location: "global",
+ *     properties: {},
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ * });
+ *
+ * ```
+ * ### Create DirectLine Speech Bot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const channel = new azurerm.botservice.latest.Channel("channel", {
+ *     channelName: "DirectLineSpeechChannel",
+ *     location: "global",
+ *     properties: {},
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ * });
+ *
+ * ```
+ * ### Create Line Bot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const channel = new azurerm.botservice.latest.Channel("channel", {
+ *     channelName: "LineChannel",
+ *     location: "global",
+ *     properties: {},
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ * });
+ *
+ * ```
  */
 export class Channel extends pulumi.CustomResource {
     /**

@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of subscription resource.
+ *
+ * ## Example Usage
+ * ### SubscriptionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const subscription = new azurerm.servicebus.v20170401.Subscription("subscription", {
+ *     enableBatchedOperations: true,
+ *     namespaceName: "sdk-Namespace-1349",
+ *     resourceGroupName: "ResourceGroup",
+ *     subscriptionName: "sdk-Subscriptions-2178",
+ *     topicName: "sdk-Topics-8740",
+ * });
+ *
+ * ```
  */
 export class Subscription extends pulumi.CustomResource {
     /**

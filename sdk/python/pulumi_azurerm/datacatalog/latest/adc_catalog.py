@@ -34,6 +34,35 @@ class ADCCatalog(pulumi.CustomResource):
         """
         Azure Data Catalog.
 
+        ## Example Usage
+        ### Create Azure Data Catalog Service
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        adc_catalog = azurerm.datacatalog.latest.ADCCatalog("adcCatalog",
+            admins=[{
+                "objectId": "99999999-9999-9999-999999999999",
+                "upn": "myupn@microsoft.com",
+            }],
+            catalog_name="exampleCatalog",
+            enable_automatic_unit_adjustment=False,
+            location="North US",
+            resource_group_name="exampleResourceGroup",
+            sku="Standard",
+            tags={
+                "mykey": "myvalue",
+                "mykey2": "myvalue2",
+            },
+            units=1,
+            users=[{
+                "objectId": "99999999-9999-9999-999999999999",
+                "upn": "myupn@microsoft.com",
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] admins: Azure data catalog admin list.

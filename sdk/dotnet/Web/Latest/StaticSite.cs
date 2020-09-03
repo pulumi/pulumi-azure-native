@@ -11,6 +11,42 @@ namespace Pulumi.AzureRM.Web.Latest
 {
     /// <summary>
     /// Static Site ARM resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a static site
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var staticSite = new AzureRM.Web.Latest.StaticSite("staticSite", new AzureRM.Web.Latest.StaticSiteArgs
+    ///         {
+    ///             Branch = "master",
+    ///             BuildProperties = new AzureRM.Web.Latest.Inputs.StaticSiteBuildPropertiesArgs
+    ///             {
+    ///                 ApiLocation = "api",
+    ///                 AppArtifactLocation = "build",
+    ///                 AppLocation = "app",
+    ///             },
+    ///             Location = "West US 2",
+    ///             Name = "testStaticSite0",
+    ///             RepositoryToken = "repoToken123",
+    ///             RepositoryUrl = "https://github.com/username/RepoName",
+    ///             ResourceGroupName = "rg",
+    ///             Sku = new AzureRM.Web.Latest.Inputs.SkuDescriptionArgs
+    ///             {
+    ///                 Name = "Basic",
+    ///                 Tier = "Basic",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StaticSite : Pulumi.CustomResource
     {

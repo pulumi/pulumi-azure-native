@@ -26,6 +26,19 @@ class RegistrationAssignment(pulumi.CustomResource):
         """
         Registration assignment.
 
+        ## Example Usage
+        ### Put Registration Assignment
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        registration_assignment = azurerm.managedservices.v20190601.RegistrationAssignment("registrationAssignment",
+            registration_assignment_id="26c128c2-fefa-4340-9bb1-6e081c90ada2",
+            scope="subscription/0afefe50-734e-4610-8a82-a144ahf49dea")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RegistrationAssignmentPropertiesArgs']] properties: Properties of a registration assignment.

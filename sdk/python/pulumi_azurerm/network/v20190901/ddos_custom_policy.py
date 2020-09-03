@@ -29,6 +29,23 @@ class DdosCustomPolicy(pulumi.CustomResource):
         """
         A DDoS custom policy in a resource group.
 
+        ## Example Usage
+        ### Create DDoS custom policy
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        ddos_custom_policy = azurerm.network.v20190901.DdosCustomPolicy("ddosCustomPolicy",
+            ddos_custom_policy_name="test-ddos-custom-policy",
+            location="centraluseuap",
+            protocol_custom_settings=[{
+                "protocol": "Tcp",
+            }],
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ddos_custom_policy_name: The name of the DDoS custom policy.

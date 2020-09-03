@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.Automation.Latest
 {
     /// <summary>
     /// Definition of the watcher type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update watcher
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var watcher = new AzureRM.Automation.Latest.Watcher("watcher", new AzureRM.Automation.Latest.WatcherArgs
+    ///         {
+    ///             AutomationAccountName = "MyTestAutomationAccount",
+    ///             Description = "This is a test watcher.",
+    ///             ExecutionFrequencyInSeconds = 60,
+    ///             ResourceGroupName = "rg",
+    ///             ScriptName = "MyTestWatcherRunbook",
+    ///             ScriptRunOn = "MyTestHybridWorkerGroup",
+    ///             Tags = ,
+    ///             WatcherName = "MyTestWatcher",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Watcher : Pulumi.CustomResource
     {

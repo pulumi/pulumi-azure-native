@@ -27,6 +27,20 @@ class ReplicationFabric(pulumi.CustomResource):
         """
         Fabric definition.
 
+        ## Example Usage
+        ### Creates an Azure Site Recovery fabric.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        replication_fabric = azurerm.recoveryservices.v20180710.ReplicationFabric("replicationFabric",
+            fabric_name="cloud1",
+            resource_group_name="resourceGroupPS1",
+            resource_name="vault1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Name of the ASR fabric.

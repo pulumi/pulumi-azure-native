@@ -32,6 +32,28 @@ class FileShare(pulumi.CustomResource):
         """
         The File Share.
 
+        ## Example Usage
+        ### FileSharesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        file_share = azurerm.storsimple.v20161001.FileShare("fileShare",
+            admin_user="fareast\\idcdlslb",
+            data_policy="Tiered",
+            description="Demo FileShare for SDK Test Tiered",
+            device_name="HSDK-4XY4FI2IVG",
+            file_server_name="HSDK-4XY4FI2IVG",
+            manager_name="hAzureSDKOperations",
+            monitoring_status="Enabled",
+            provisioned_capacity_in_bytes=536870912000,
+            resource_group_name="ResourceGroupForSDKTest",
+            share_name="Auto-TestFileShare1",
+            share_status="Online")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_user: The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.

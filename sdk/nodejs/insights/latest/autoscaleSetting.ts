@@ -8,6 +8,147 @@ import * as utilities from "../../utilities";
 
 /**
  * The autoscale setting resource.
+ *
+ * ## Example Usage
+ * ### Create or update an autoscale setting
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const autoscaleSetting = new azurerm.insights.latest.AutoscaleSetting("autoscaleSetting", {
+ *     autoscaleSettingName: "MySetting",
+ *     enabled: true,
+ *     location: "West US",
+ *     notifications: [{
+ *         email: {
+ *             customEmails: [
+ *                 "gu@ms.com",
+ *                 "ge@ns.net",
+ *             ],
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrators: true,
+ *         },
+ *         operation: "Scale",
+ *         webhooks: [{
+ *             properties: {},
+ *             serviceUri: "http://myservice.com",
+ *         }],
+ *     }],
+ *     profiles: [
+ *         {
+ *             capacity: {
+ *                 "default": "1",
+ *                 maximum: "10",
+ *                 minimum: "1",
+ *             },
+ *             fixedDate: {
+ *                 end: "2015-03-05T14:30:00Z",
+ *                 start: "2015-03-05T14:00:00Z",
+ *                 timeZone: "UTC",
+ *             },
+ *             name: "adios",
+ *             rules: [
+ *                 {
+ *                     metricTrigger: {
+ *                         metricName: "Percentage CPU",
+ *                         metricResourceUri: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+ *                         operator: "GreaterThan",
+ *                         statistic: "Average",
+ *                         threshold: 10,
+ *                         timeAggregation: "Average",
+ *                         timeGrain: "PT1M",
+ *                         timeWindow: "PT5M",
+ *                     },
+ *                     scaleAction: {
+ *                         cooldown: "PT5M",
+ *                         direction: "Increase",
+ *                         type: "ChangeCount",
+ *                         value: "1",
+ *                     },
+ *                 },
+ *                 {
+ *                     metricTrigger: {
+ *                         metricName: "Percentage CPU",
+ *                         metricResourceUri: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+ *                         operator: "GreaterThan",
+ *                         statistic: "Average",
+ *                         threshold: 15,
+ *                         timeAggregation: "Average",
+ *                         timeGrain: "PT2M",
+ *                         timeWindow: "PT5M",
+ *                     },
+ *                     scaleAction: {
+ *                         cooldown: "PT6M",
+ *                         direction: "Decrease",
+ *                         type: "ChangeCount",
+ *                         value: "2",
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             capacity: {
+ *                 "default": "1",
+ *                 maximum: "10",
+ *                 minimum: "1",
+ *             },
+ *             name: "saludos",
+ *             recurrence: {
+ *                 frequency: "Week",
+ *                 schedule: {
+ *                     days: ["1"],
+ *                     hours: [5],
+ *                     minutes: [15],
+ *                     timeZone: "UTC",
+ *                 },
+ *             },
+ *             rules: [
+ *                 {
+ *                     metricTrigger: {
+ *                         metricName: "Percentage CPU",
+ *                         metricResourceUri: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+ *                         operator: "GreaterThan",
+ *                         statistic: "Average",
+ *                         threshold: 10,
+ *                         timeAggregation: "Average",
+ *                         timeGrain: "PT1M",
+ *                         timeWindow: "PT5M",
+ *                     },
+ *                     scaleAction: {
+ *                         cooldown: "PT5M",
+ *                         direction: "Increase",
+ *                         type: "ChangeCount",
+ *                         value: "1",
+ *                     },
+ *                 },
+ *                 {
+ *                     metricTrigger: {
+ *                         metricName: "Percentage CPU",
+ *                         metricResourceUri: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+ *                         operator: "GreaterThan",
+ *                         statistic: "Average",
+ *                         threshold: 15,
+ *                         timeAggregation: "Average",
+ *                         timeGrain: "PT2M",
+ *                         timeWindow: "PT5M",
+ *                     },
+ *                     scaleAction: {
+ *                         cooldown: "PT6M",
+ *                         direction: "Decrease",
+ *                         type: "ChangeCount",
+ *                         value: "2",
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ *     resourceGroupName: "TestingMetricsScaleSet",
+ *     tags: {},
+ *     targetResourceUri: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+ * });
+ *
+ * ```
  */
 export class AutoscaleSetting extends pulumi.CustomResource {
     /**

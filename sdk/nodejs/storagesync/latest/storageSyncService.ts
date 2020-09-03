@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Storage Sync Service object.
+ *
+ * ## Example Usage
+ * ### StorageSyncServices_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const storageSyncService = new azurerm.storagesync.latest.StorageSyncService("storageSyncService", {
+ *     incomingTrafficPolicy: "AllowAllTraffic",
+ *     location: "WestUS",
+ *     resourceGroupName: "SampleResourceGroup_1",
+ *     storageSyncServiceName: "SampleStorageSyncService_1",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class StorageSyncService extends pulumi.CustomResource {
     /**

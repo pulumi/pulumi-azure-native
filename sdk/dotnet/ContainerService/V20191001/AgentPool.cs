@@ -11,6 +11,71 @@ namespace Pulumi.AzureRM.ContainerService.V20191001
 {
     /// <summary>
     /// Agent Pool.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Agent Pool
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var agentPool = new AzureRM.ContainerService.V20191001.AgentPool("agentPool", new AzureRM.ContainerService.V20191001.AgentPoolArgs
+    ///         {
+    ///             AgentPoolName = "agentpool1",
+    ///             Count = 3,
+    ///             NodeTaints = 
+    ///             {
+    ///                 "Key1=Value1:NoSchedule",
+    ///             },
+    ///             OrchestratorVersion = "",
+    ///             OsType = "Linux",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///             ScaleSetEvictionPolicy = "Delete",
+    ///             ScaleSetPriority = "Low",
+    ///             VmSize = "Standard_DS1_v2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Update Agent Pool
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var agentPool = new AzureRM.ContainerService.V20191001.AgentPool("agentPool", new AzureRM.ContainerService.V20191001.AgentPoolArgs
+    ///         {
+    ///             AgentPoolName = "agentpool1",
+    ///             Count = 3,
+    ///             EnableAutoScaling = true,
+    ///             MaxCount = 2,
+    ///             MinCount = 2,
+    ///             NodeTaints = 
+    ///             {
+    ///                 "Key1=Value1:NoSchedule",
+    ///             },
+    ///             OrchestratorVersion = "",
+    ///             OsType = "Linux",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///             ScaleSetEvictionPolicy = "Delete",
+    ///             ScaleSetPriority = "Low",
+    ///             VmSize = "Standard_DS1_v2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AgentPool : Pulumi.CustomResource
     {

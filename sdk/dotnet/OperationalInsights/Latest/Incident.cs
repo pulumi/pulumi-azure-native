@@ -11,6 +11,42 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
 {
     /// <summary>
     /// Represents an incident in Azure Security Insights.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an incident.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var incident = new AzureRM.OperationalInsights.Latest.Incident("incident", new AzureRM.OperationalInsights.Latest.IncidentArgs
+    ///         {
+    ///             Classification = "FalsePositive",
+    ///             ClassificationComment = "Not a malicious activity",
+    ///             ClassificationReason = "IncorrectAlertLogic",
+    ///             Description = "This is a demo incident",
+    ///             Etag = "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+    ///             FirstActivityTimeUtc = "2019-01-01T13:00:30Z",
+    ///             IncidentId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///             LastActivityTimeUtc = "2019-01-01T13:05:30Z",
+    ///             Owner = new AzureRM.OperationalInsights.Latest.Inputs.IncidentOwnerInfoArgs
+    ///             {
+    ///                 ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
+    ///             },
+    ///             ResourceGroupName = "myRg",
+    ///             Severity = "High",
+    ///             Status = "Closed",
+    ///             Title = "My incident",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Incident : Pulumi.CustomResource
     {

@@ -28,6 +28,25 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
         """
         Private Endpoint Connection ARM resource.
 
+        ## Example Usage
+        ### Approves or rejects a private endpoint connection for a site.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        web_app_private_endpoint_connection = azurerm.web.v20200601.WebAppPrivateEndpointConnection("webAppPrivateEndpointConnection",
+            name="testSite",
+            private_endpoint_connection_name="connection",
+            private_link_service_connection_state={
+                "actionsRequired": "",
+                "description": "Approved by admin.",
+                "status": "Approved",
+            },
+            resource_group_name="rg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.

@@ -27,6 +27,23 @@ class AccessPolicy(pulumi.CustomResource):
         """
         An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
 
+        ## Example Usage
+        ### AccessPoliciesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        access_policy = azurerm.timeseriesinsights.v20171115.AccessPolicy("accessPolicy",
+            access_policy_name="ap1",
+            description="some description",
+            environment_name="env1",
+            principal_object_id="aGuid",
+            resource_group_name="rg1",
+            roles=["Reader"])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policy_name: Name of the access policy.

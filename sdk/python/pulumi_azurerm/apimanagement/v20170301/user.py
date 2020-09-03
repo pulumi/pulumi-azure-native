@@ -32,6 +32,24 @@ class User(pulumi.CustomResource):
         """
         User details.
 
+        ## Example Usage
+        ### ApiManagementCreateUserBasic
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        user = azurerm.apimanagement.v20170301.User("user",
+            confirmation="signup",
+            email="foobar@outlook.com",
+            first_name="foo",
+            last_name="bar",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            uid="5931a75ae4bbd512288c680b")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] confirmation: Determines the type of confirmation e-mail that will be sent to the newly created user.

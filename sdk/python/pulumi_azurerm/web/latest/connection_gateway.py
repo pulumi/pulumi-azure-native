@@ -29,6 +29,19 @@ class ConnectionGateway(pulumi.CustomResource):
         """
         The gateway definition
 
+        ## Example Usage
+        ### Replace a connection gateway definition
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        connection_gateway = azurerm.web.latest.ConnectionGateway("connectionGateway",
+            connection_gateway_name="test123",
+            resource_group_name="testResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_gateway_name: The connection gateway name

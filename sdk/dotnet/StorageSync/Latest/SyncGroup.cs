@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.StorageSync.Latest
 {
     /// <summary>
     /// Sync Group object.
+    /// 
+    /// ## Example Usage
+    /// ### SyncGroups_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var syncGroup = new AzureRM.StorageSync.Latest.SyncGroup("syncGroup", new AzureRM.StorageSync.Latest.SyncGroupArgs
+    ///         {
+    ///             ResourceGroupName = "SampleResourceGroup_1",
+    ///             StorageSyncServiceName = "SampleStorageSyncService_1",
+    ///             SyncGroupName = "SampleSyncGroup_1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SyncGroup : Pulumi.CustomResource
     {

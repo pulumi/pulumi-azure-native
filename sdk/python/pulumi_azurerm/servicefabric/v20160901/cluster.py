@@ -41,6 +41,138 @@ class Cluster(pulumi.CustomResource):
         """
         The cluster resource
 
+        ## Example Usage
+        ### Put a cluster with max parameter
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster = azurerm.servicefabric.v20160901.Cluster("cluster",
+            azure_active_directory={
+                "clientApplication": "00000000-0000-0000-0000-000000000000",
+                "clusterApplication": "00000000-0000-0000-0000-000000000000",
+                "tenantId": "00000000-0000-0000-0000-000000000000",
+            },
+            certificate={
+                "thumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "thumbprintSecondary": "361A93445450CC8F2FF747F74500E8044942DAFD",
+                "x509StoreName": "My",
+            },
+            client_certificate_common_names=[{
+                "certificateCommonName": "abc.com",
+                "certificateIssuerThumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "isAdmin": True,
+            }],
+            client_certificate_thumbprints=["5F3660C715EBBDA31DB1FFDCF508302348DE8E7A"],
+            cluster_code_version="5.5.149.9494",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config={
+                "blobEndpoint": "https://7623qfhwmnstw2.blob.core.windows.net/",
+                "protectedAccountKeyName": "StorageAccountKey1",
+                "queueEndpoint": "https://7623qfhwmnstw2.queue.core.windows.net/",
+                "storageAccountName": "7623qfhwmnstw2",
+                "tableEndpoint": "https://7623qfhwmnstw2.table.core.windows.net/",
+            },
+            fabric_settings=[{
+                "name": "Security",
+                "parameters": [{
+                    "name": "ClusterProtectionLevel",
+                    "value": "EncryptAndSign",
+                }],
+            }],
+            location="southcentralus",
+            management_endpoint="https://sfclust2.southcentralus.cloudapp.azure.com:19080",
+            node_types=[{
+                "applicationPorts": {
+                    "endPort": 30000,
+                    "startPort": 20000,
+                },
+                "clientConnectionEndpointPort": 19000,
+                "durabilityLevel": "Bronze",
+                "ephemeralPorts": {
+                    "endPort": 65534,
+                    "startPort": 49152,
+                },
+                "httpGatewayEndpointPort": 19080,
+                "isPrimary": True,
+                "name": "nt1vm",
+                "vmInstanceCount": 5,
+            }],
+            reliability_level="Silver",
+            resource_group_name="resRg",
+            tags={
+                "cluster_name": "myCluster",
+                "resource_type": "Service Fabric",
+            },
+            upgrade_description={
+                "deltaHealthPolicy": {
+                    "maxPercentDeltaUnhealthyApplications": 0,
+                    "maxPercentDeltaUnhealthyNodes": 0,
+                    "maxPercentUpgradeDomainDeltaUnhealthyNodes": 0,
+                },
+                "forceRestart": True,
+                "healthCheckRetryTimeout": "00:45:00",
+                "healthCheckStableDuration": "00:05:00",
+                "healthCheckWaitDuration": "00:05:00",
+                "healthPolicy": {
+                    "maxPercentUnhealthyApplications": 100,
+                    "maxPercentUnhealthyNodes": 100,
+                },
+                "overrideUserUpgradePolicy": False,
+                "upgradeDomainTimeout": "02:00:00",
+                "upgradeReplicaSetCheckTimeout": "10675199.02:48:05.4775807",
+                "upgradeTimeout": "12:00:00",
+            },
+            upgrade_mode="Automatic",
+            vm_image="Windows")
+
+        ```
+        ### Put a cluster with min parameter
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster = azurerm.servicefabric.v20160901.Cluster("cluster",
+            cluster_code_version="5.5.149.9494",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config={
+                "blobEndpoint": "https://7623qfhwmnstw2.blob.core.windows.net/",
+                "protectedAccountKeyName": "StorageAccountKey1",
+                "queueEndpoint": "https://7623qfhwmnstw2.queue.core.windows.net/",
+                "storageAccountName": "7623qfhwmnstw2",
+                "tableEndpoint": "https://7623qfhwmnstw2.table.core.windows.net/",
+            },
+            location="southcentralus",
+            management_endpoint="https://myCluster.southcentralus.cloudapp.azure.com:19080",
+            node_types=[{
+                "applicationPorts": {
+                    "endPort": 30000,
+                    "startPort": 20000,
+                },
+                "clientConnectionEndpointPort": 19000,
+                "durabilityLevel": "Bronze",
+                "ephemeralPorts": {
+                    "endPort": 65534,
+                    "startPort": 49152,
+                },
+                "httpGatewayEndpointPort": 19080,
+                "isPrimary": True,
+                "name": "nt1vm",
+                "vmInstanceCount": 5,
+            }],
+            reliability_level="Silver",
+            resource_group_name="resRg",
+            tags={
+                "cluster_name": "myCluster",
+                "resource_type": "Service Fabric",
+            },
+            upgrade_mode="Automatic",
+            vm_image="Windows")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']] azure_active_directory: The settings to enable AAD authentication on the cluster

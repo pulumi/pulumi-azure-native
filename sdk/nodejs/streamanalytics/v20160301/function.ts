@@ -8,6 +8,36 @@ import * as utilities from "../../utilities";
 
 /**
  * A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+ *
+ * ## Example Usage
+ * ### Create a JavaScript function
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const _function = new azurerm.streamanalytics.v20160301.Function("function", {
+ *     functionName: "function8197",
+ *     jobName: "sj8653",
+ *     properties: {},
+ *     resourceGroupName: "sjrg1637",
+ * });
+ *
+ * ```
+ * ### Create an Azure ML function
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const _function = new azurerm.streamanalytics.v20160301.Function("function", {
+ *     functionName: "function588",
+ *     jobName: "sj9093",
+ *     properties: {},
+ *     resourceGroupName: "sjrg7",
+ * });
+ *
+ * ```
  */
 export class Function extends pulumi.CustomResource {
     /**

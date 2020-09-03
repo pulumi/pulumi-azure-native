@@ -25,6 +25,21 @@ class Tag(pulumi.CustomResource):
         """
         Tag Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateTag
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        tag = azurerm.apimanagement.v20190101.Tag("tag",
+            display_name="tag1",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tag_id="tagId1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Tag name.

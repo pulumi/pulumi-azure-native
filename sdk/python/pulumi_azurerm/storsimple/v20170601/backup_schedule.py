@@ -34,6 +34,36 @@ class BackupSchedule(pulumi.CustomResource):
         """
         The backup schedule.
 
+        ## Example Usage
+        ### BackupSchedulesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        backup_schedule = azurerm.storsimple.v20170601.BackupSchedule("backupSchedule",
+            backup_policy_name="BkUpPolicy01ForSDKTest",
+            backup_schedule_name="schedule2",
+            backup_type="CloudSnapshot",
+            device_name="Device05ForSDKTest",
+            kind="Series8000",
+            manager_name="ManagerForSDKTest1",
+            resource_group_name="ResourceGroupForSDKTest",
+            retention_count=1,
+            schedule_recurrence={
+                "recurrenceType": "Weekly",
+                "recurrenceValue": 1,
+                "weeklyDaysList": [
+                    "Friday",
+                    "Thursday",
+                    "Monday",
+                ],
+            },
+            schedule_status="Enabled",
+            start_time="2017-06-24T01:00:00Z")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_name: The backup policy name.

@@ -8,6 +8,167 @@ import * as utilities from "../../utilities";
 
 /**
  * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+ *
+ * ## Example Usage
+ * ### Create a DocumentDB output
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const output = new azurerm.streamanalytics.latest.Output("output", {
+ *     datasource: {
+ *         type: "Microsoft.Storage/DocumentDB",
+ *     },
+ *     jobName: "sj2331",
+ *     outputName: "output3022",
+ *     resourceGroupName: "sjrg7983",
+ * });
+ *
+ * ```
+ * ### Create a Power BI output
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const output = new azurerm.streamanalytics.latest.Output("output", {
+ *     datasource: {
+ *         type: "PowerBI",
+ *     },
+ *     jobName: "sj2331",
+ *     outputName: "output3022",
+ *     resourceGroupName: "sjrg7983",
+ * });
+ *
+ * ```
+ * ### Create a Service Bus Queue output with Avro serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const output = new azurerm.streamanalytics.latest.Output("output", {
+ *     datasource: {
+ *         type: "Microsoft.ServiceBus/Queue",
+ *     },
+ *     jobName: "sj5095",
+ *     outputName: "output3456",
+ *     resourceGroupName: "sjrg3410",
+ *     serialization: {
+ *         type: "Avro",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a Service Bus Topic output with CSV serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const output = new azurerm.streamanalytics.latest.Output("output", {
+ *     datasource: {
+ *         type: "Microsoft.ServiceBus/Topic",
+ *     },
+ *     jobName: "sj7094",
+ *     outputName: "output7886",
+ *     resourceGroupName: "sjrg6450",
+ *     serialization: {
+ *         type: "Csv",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a blob output with CSV serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const output = new azurerm.streamanalytics.latest.Output("output", {
+ *     datasource: {
+ *         type: "Microsoft.Storage/Blob",
+ *     },
+ *     jobName: "sj900",
+ *     outputName: "output1623",
+ *     resourceGroupName: "sjrg5023",
+ *     serialization: {
+ *         type: "Csv",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create an Azure Data Lake Store output with JSON serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const output = new azurerm.streamanalytics.latest.Output("output", {
+ *     datasource: {
+ *         type: "Microsoft.DataLake/Accounts",
+ *     },
+ *     jobName: "sj3310",
+ *     outputName: "output5195",
+ *     resourceGroupName: "sjrg6912",
+ *     serialization: {
+ *         type: "Json",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create an Azure SQL database output
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const output = new azurerm.streamanalytics.latest.Output("output", {
+ *     datasource: {
+ *         type: "Microsoft.Sql/Server/Database",
+ *     },
+ *     jobName: "sj6458",
+ *     outputName: "output1755",
+ *     resourceGroupName: "sjrg2157",
+ * });
+ *
+ * ```
+ * ### Create an Azure Table output
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const output = new azurerm.streamanalytics.latest.Output("output", {
+ *     datasource: {
+ *         type: "Microsoft.Storage/Table",
+ *     },
+ *     jobName: "sj2790",
+ *     outputName: "output958",
+ *     resourceGroupName: "sjrg5176",
+ * });
+ *
+ * ```
+ * ### Create an Event Hub output with JSON serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const output = new azurerm.streamanalytics.latest.Output("output", {
+ *     datasource: {
+ *         type: "Microsoft.ServiceBus/EventHub",
+ *     },
+ *     jobName: "sj3310",
+ *     outputName: "output5195",
+ *     resourceGroupName: "sjrg6912",
+ *     serialization: {
+ *         type: "Json",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Output extends pulumi.CustomResource {
     /**

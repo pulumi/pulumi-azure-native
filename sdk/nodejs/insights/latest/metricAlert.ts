@@ -8,6 +8,243 @@ import * as utilities from "../../utilities";
 
 /**
  * The metric alert resource.
+ *
+ * ## Example Usage
+ * ### Create or update a dynamic alert rule for Multiple Resources
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const metricAlert = new azurerm.insights.latest.MetricAlert("metricAlert", {
+ *     actions: [{
+ *         actionGroupId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2",
+ *         webHookProperties: {
+ *             key11: "value11",
+ *             key12: "value12",
+ *         },
+ *     }],
+ *     autoMitigate: false,
+ *     criteria: {
+ *         odataType: "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+ *     },
+ *     description: "This is the description of the rule1",
+ *     enabled: true,
+ *     evaluationFrequency: "PT1M",
+ *     location: "global",
+ *     resourceGroupName: "gigtest",
+ *     ruleName: "MetricAlertOnMultipleResources",
+ *     scopes: [
+ *         "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+ *         "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+ *     ],
+ *     severity: 3,
+ *     tags: {},
+ *     targetResourceRegion: "southcentralus",
+ *     targetResourceType: "Microsoft.Compute/virtualMachines",
+ *     windowSize: "PT15M",
+ * });
+ *
+ * ```
+ * ### Create or update a dynamic alert rule for Single Resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const metricAlert = new azurerm.insights.latest.MetricAlert("metricAlert", {
+ *     actions: [{
+ *         actionGroupId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2",
+ *         webHookProperties: {
+ *             key11: "value11",
+ *             key12: "value12",
+ *         },
+ *     }],
+ *     autoMitigate: false,
+ *     criteria: {
+ *         odataType: "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+ *     },
+ *     description: "This is the description of the rule1",
+ *     enabled: true,
+ *     evaluationFrequency: "PT1M",
+ *     location: "global",
+ *     resourceGroupName: "gigtest",
+ *     ruleName: "chiricutin",
+ *     scopes: ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme"],
+ *     severity: 3,
+ *     tags: {},
+ *     targetResourceRegion: "southcentralus",
+ *     targetResourceType: "Microsoft.Compute/virtualMachines",
+ *     windowSize: "PT15M",
+ * });
+ *
+ * ```
+ * ### Create or update a web test alert rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const metricAlert = new azurerm.insights.latest.MetricAlert("metricAlert", {
+ *     actions: [],
+ *     criteria: {
+ *         odataType: "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+ *     },
+ *     description: "Automatically created alert rule for availability test \"component-example\" a",
+ *     enabled: true,
+ *     evaluationFrequency: "PT1M",
+ *     location: "global",
+ *     resourceGroupName: "rg-example",
+ *     ruleName: "webtest-name-example",
+ *     scopes: [
+ *         "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+ *         "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+ *     ],
+ *     severity: 4,
+ *     tags: {
+ *         "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example": "Resource",
+ *         "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example": "Resource",
+ *     },
+ *     windowSize: "PT15M",
+ * });
+ *
+ * ```
+ * ### Create or update an alert rule for Multiple Resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const metricAlert = new azurerm.insights.latest.MetricAlert("metricAlert", {
+ *     actions: [{
+ *         actionGroupId: "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2",
+ *         webHookProperties: {
+ *             key11: "value11",
+ *             key12: "value12",
+ *         },
+ *     }],
+ *     autoMitigate: false,
+ *     criteria: {
+ *         odataType: "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+ *     },
+ *     description: "This is the description of the rule1",
+ *     enabled: true,
+ *     evaluationFrequency: "PT1M",
+ *     location: "global",
+ *     resourceGroupName: "gigtest",
+ *     ruleName: "MetricAlertOnMultipleResources",
+ *     scopes: [
+ *         "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+ *         "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+ *     ],
+ *     severity: 3,
+ *     tags: {},
+ *     targetResourceRegion: "southcentralus",
+ *     targetResourceType: "Microsoft.Compute/virtualMachines",
+ *     windowSize: "PT15M",
+ * });
+ *
+ * ```
+ * ### Create or update an alert rule for Single Resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const metricAlert = new azurerm.insights.latest.MetricAlert("metricAlert", {
+ *     actions: [{
+ *         actionGroupId: "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2",
+ *         webHookProperties: {
+ *             key11: "value11",
+ *             key12: "value12",
+ *         },
+ *     }],
+ *     autoMitigate: false,
+ *     criteria: {
+ *         odataType: "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+ *     },
+ *     description: "This is the description of the rule1",
+ *     enabled: true,
+ *     evaluationFrequency: "Pt1m",
+ *     location: "global",
+ *     resourceGroupName: "gigtest",
+ *     ruleName: "chiricutin",
+ *     scopes: ["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme"],
+ *     severity: 3,
+ *     tags: {},
+ *     windowSize: "Pt15m",
+ * });
+ *
+ * ```
+ * ### Create or update an alert rule on Resource group(s)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const metricAlert = new azurerm.insights.latest.MetricAlert("metricAlert", {
+ *     actions: [{
+ *         actionGroupId: "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2",
+ *         webHookProperties: {
+ *             key11: "value11",
+ *             key12: "value12",
+ *         },
+ *     }],
+ *     autoMitigate: false,
+ *     criteria: {
+ *         odataType: "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+ *     },
+ *     description: "This is the description of the rule1",
+ *     enabled: true,
+ *     evaluationFrequency: "PT1M",
+ *     location: "global",
+ *     resourceGroupName: "gigtest1",
+ *     ruleName: "MetricAlertAtResourceGroupLevel",
+ *     scopes: [
+ *         "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest1",
+ *         "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest2",
+ *     ],
+ *     severity: 3,
+ *     tags: {},
+ *     targetResourceRegion: "southcentralus",
+ *     targetResourceType: "Microsoft.Compute/virtualMachines",
+ *     windowSize: "PT15M",
+ * });
+ *
+ * ```
+ * ### Create or update an alert rule on Subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const metricAlert = new azurerm.insights.latest.MetricAlert("metricAlert", {
+ *     actions: [{
+ *         actionGroupId: "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2",
+ *         webHookProperties: {
+ *             key11: "value11",
+ *             key12: "value12",
+ *         },
+ *     }],
+ *     autoMitigate: false,
+ *     criteria: {
+ *         odataType: "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+ *     },
+ *     description: "This is the description of the rule1",
+ *     enabled: true,
+ *     evaluationFrequency: "PT1M",
+ *     location: "global",
+ *     resourceGroupName: "gigtest",
+ *     ruleName: "MetricAlertAtSubscriptionLevel",
+ *     scopes: ["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7"],
+ *     severity: 3,
+ *     tags: {},
+ *     targetResourceRegion: "southcentralus",
+ *     targetResourceType: "Microsoft.Compute/virtualMachines",
+ *     windowSize: "PT15M",
+ * });
+ *
+ * ```
  */
 export class MetricAlert extends pulumi.CustomResource {
     /**

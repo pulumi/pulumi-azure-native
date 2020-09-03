@@ -11,6 +11,40 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 {
     /// <summary>
     /// The relationship resource format.
+    /// 
+    /// ## Example Usage
+    /// ### Relationships_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var relationship = new AzureRM.CustomerInsights.V20170426.Relationship("relationship", new AzureRM.CustomerInsights.V20170426.RelationshipArgs
+    ///         {
+    ///             Cardinality = "OneToOne",
+    ///             Description = 
+    ///             {
+    ///                 { "en-us", "Relationship Description" },
+    ///             },
+    ///             DisplayName = 
+    ///             {
+    ///                 { "en-us", "Relationship DisplayName" },
+    ///             },
+    ///             Fields = {},
+    ///             HubName = "sdkTestHub",
+    ///             ProfileType = "testProfile2326994",
+    ///             RelatedProfileType = "testProfile2326994",
+    ///             RelationshipName = "SomeRelationship",
+    ///             ResourceGroupName = "TestHubRG",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Relationship : Pulumi.CustomResource
     {

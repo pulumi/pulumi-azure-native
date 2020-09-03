@@ -8,6 +8,83 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines web application firewall policy.
+ *
+ * ## Example Usage
+ * ### Creates specific policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const policy = new azurerm.network.v20190301.Policy("policy", {
+ *     customRules: {
+ *         rules: [
+ *             {
+ *                 action: "Block",
+ *                 matchConditions: [{
+ *                     matchValue: [
+ *                         "192.168.1.0/24",
+ *                         "10.0.0.0/24",
+ *                     ],
+ *                     matchVariable: "RemoteAddr",
+ *                     operator: "IPMatch",
+ *                 }],
+ *                 name: "Rule1",
+ *                 priority: 1,
+ *                 rateLimitThreshold: 1000,
+ *                 ruleType: "RateLimitRule",
+ *             },
+ *             {
+ *                 action: "Block",
+ *                 matchConditions: [
+ *                     {
+ *                         matchValue: ["CH"],
+ *                         matchVariable: "RemoteAddr",
+ *                         operator: "GeoMatch",
+ *                     },
+ *                     {
+ *                         matchValue: ["windows"],
+ *                         matchVariable: "RequestHeader",
+ *                         operator: "Contains",
+ *                         selector: "UserAgent",
+ *                         transforms: ["Lowercase"],
+ *                     },
+ *                 ],
+ *                 name: "Rule2",
+ *                 priority: 2,
+ *                 ruleType: "MatchRule",
+ *             },
+ *         ],
+ *     },
+ *     managedRules: {
+ *         managedRuleSets: [{
+ *             ruleGroupOverrides: [{
+ *                 ruleGroupName: "Group1",
+ *                 rules: [
+ *                     {
+ *                         action: "Redirect",
+ *                         enabledState: "Enabled",
+ *                         ruleId: "GROUP1-0001",
+ *                     },
+ *                     {
+ *                         ruleId: "GROUP1-0002",
+ *                     },
+ *                 ],
+ *             }],
+ *             ruleSetType: "DefaultRuleSet",
+ *             ruleSetVersion: "preview-1.0",
+ *         }],
+ *     },
+ *     policyName: "Policy1",
+ *     policySettings: {
+ *         customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+ *         customBlockResponseStatusCode: 499,
+ *         redirectUrl: "http://www.bing.com",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

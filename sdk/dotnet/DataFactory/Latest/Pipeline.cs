@@ -11,6 +11,98 @@ namespace Pulumi.AzureRM.DataFactory.Latest
 {
     /// <summary>
     /// Pipeline resource type.
+    /// 
+    /// ## Example Usage
+    /// ### Pipelines_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pipeline = new AzureRM.DataFactory.Latest.Pipeline("pipeline", new AzureRM.DataFactory.Latest.PipelineArgs
+    ///         {
+    ///             Activities = 
+    ///             {
+    ///                 new AzureRM.DataFactory.Latest.Inputs.ActivityArgs
+    ///                 {
+    ///                     Name = "ExampleForeachActivity",
+    ///                     Type = "ForEach",
+    ///                 },
+    ///             },
+    ///             FactoryName = "exampleFactoryName",
+    ///             Parameters = 
+    ///             {
+    ///                 { "JobId", new AzureRM.DataFactory.Latest.Inputs.ParameterSpecificationArgs
+    ///                 {
+    ///                     Type = "String",
+    ///                 } },
+    ///                 { "OutputBlobNameList", new AzureRM.DataFactory.Latest.Inputs.ParameterSpecificationArgs
+    ///                 {
+    ///                     Type = "Array",
+    ///                 } },
+    ///             },
+    ///             PipelineName = "examplePipeline",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///             RunDimensions = 
+    ///             {
+    ///                 { "JobId", 
+    ///                 {
+    ///                     { "type", "Expression" },
+    ///                     { "value", "@pipeline().parameters.JobId" },
+    ///                 } },
+    ///             },
+    ///             Variables = 
+    ///             {
+    ///                 { "TestVariableArray", new AzureRM.DataFactory.Latest.Inputs.VariableSpecificationArgs
+    ///                 {
+    ///                     Type = "Array",
+    ///                 } },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Pipelines_Update
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pipeline = new AzureRM.DataFactory.Latest.Pipeline("pipeline", new AzureRM.DataFactory.Latest.PipelineArgs
+    ///         {
+    ///             Activities = 
+    ///             {
+    ///                 new AzureRM.DataFactory.Latest.Inputs.ActivityArgs
+    ///                 {
+    ///                     Name = "ExampleForeachActivity",
+    ///                     Type = "ForEach",
+    ///                 },
+    ///             },
+    ///             Description = "Example description",
+    ///             FactoryName = "exampleFactoryName",
+    ///             Parameters = 
+    ///             {
+    ///                 { "OutputBlobNameList", new AzureRM.DataFactory.Latest.Inputs.ParameterSpecificationArgs
+    ///                 {
+    ///                     Type = "Array",
+    ///                 } },
+    ///             },
+    ///             PipelineName = "examplePipeline",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Pipeline : Pulumi.CustomResource
     {

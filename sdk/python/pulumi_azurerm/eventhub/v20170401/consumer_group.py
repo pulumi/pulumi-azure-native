@@ -26,6 +26,22 @@ class ConsumerGroup(pulumi.CustomResource):
         """
         Single item in List or Get Consumer group operation
 
+        ## Example Usage
+        ### ConsumerGroupCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        consumer_group = azurerm.eventhub.v20170401.ConsumerGroup("consumerGroup",
+            consumer_group_name="sdk-ConsumerGroup-5563",
+            event_hub_name="sdk-EventHub-6681",
+            namespace_name="sdk-Namespace-2661",
+            resource_group_name="ArunMonocle",
+            user_metadata="New consumergroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] consumer_group_name: The consumer group name

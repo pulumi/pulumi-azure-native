@@ -26,6 +26,21 @@ class AccessControlRecord(pulumi.CustomResource):
         """
         The access control record.
 
+        ## Example Usage
+        ### AccessControlRecordsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        access_control_record = azurerm.storsimple.v20170601.AccessControlRecord("accessControlRecord",
+            access_control_record_name="ACRForTest",
+            initiator_name="iqn.2017-06.com.contoso:ForTest",
+            manager_name="ManagerForSDKTest1",
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_control_record_name: The name of the access control record.

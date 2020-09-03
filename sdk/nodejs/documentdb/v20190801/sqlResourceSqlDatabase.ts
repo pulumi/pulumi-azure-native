@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB SQL database.
+ *
+ * ## Example Usage
+ * ### CosmosDBSqlDatabaseCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const sqlResourceSqlDatabase = new azurerm.documentdb.v20190801.SqlResourceSqlDatabase("sqlResourceSqlDatabase", {
+ *     accountName: "ddb1",
+ *     databaseName: "databaseName",
+ *     location: "West US",
+ *     options: {},
+ *     resource: {
+ *         id: "databaseName",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class SqlResourceSqlDatabase extends pulumi.CustomResource {
     /**

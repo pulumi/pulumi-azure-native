@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Bastion Host resource.
+ *
+ * ## Example Usage
+ * ### Create Bastion Host
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const bastionHost = new azurerm.network.v20190801.BastionHost("bastionHost", {
+ *     bastionHostName: "bastionhosttenant'",
+ *     ipConfigurations: [{
+ *         name: "bastionHostIpConfiguration",
+ *     }],
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class BastionHost extends pulumi.CustomResource {
     /**

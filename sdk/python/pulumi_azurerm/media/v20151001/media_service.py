@@ -28,6 +28,24 @@ class MediaService(pulumi.CustomResource):
         """
         The properties of a Media Service resource.
 
+        ## Example Usage
+        ### MediaServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        media_service = azurerm.media.v20151001.MediaService("mediaService",
+            location="West US",
+            media_service_name="contosmedia",
+            resource_group_name="contosoresources",
+            storage_accounts=[{
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Storage/storageAccounts/contosostore",
+                "isPrimary": True,
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).

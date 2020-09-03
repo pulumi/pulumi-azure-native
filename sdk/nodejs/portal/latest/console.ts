@@ -8,6 +8,17 @@ import * as utilities from "../../utilities";
 
 /**
  * Cloud shell console
+ *
+ * ## Example Usage
+ * ### PutConsole
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const console = new azurerm.portal.latest.Console("console", {consoleName: "default"});
+ *
+ * ```
  */
 export class Console extends pulumi.CustomResource {
     /**

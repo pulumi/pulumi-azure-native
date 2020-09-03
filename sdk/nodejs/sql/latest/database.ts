@@ -8,6 +8,211 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a database.
+ *
+ * ## Example Usage
+ * ### Create a database as a copy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     createMode: "Copy",
+ *     databaseName: "testdb",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-4799",
+ *     serverName: "sqlcrudtest-6440",
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
+ * });
+ *
+ * ```
+ * ### Create a database as a dropped database restore to a specific point in time
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     createMode: "Restore",
+ *     databaseName: "testdb",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-8412",
+ *     restorePointInTime: "2017-05-20T21:24:37.467Z",
+ *     serverName: "sqlcrudtest-3584",
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/restorableDroppedDatabases/sourcedb,131403269876900000",
+ * });
+ *
+ * ```
+ * ### Create a database as a dropped database restore to deletion time
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     createMode: "Restore",
+ *     databaseName: "testdb",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-8412",
+ *     serverName: "sqlcrudtest-3584",
+ *     sourceDatabaseDeletionDate: "2017-05-27T02:49:47.69Z",
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/sourcedb",
+ * });
+ *
+ * ```
+ * ### Create a database as a geo restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     createMode: "Recovery",
+ *     databaseName: "testdb",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-8412",
+ *     serverName: "sqlcrudtest-3584",
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/recoverableDatabases/sourcedb",
+ * });
+ *
+ * ```
+ * ### Create a database as a non-readable secondary
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     createMode: "NonReadableSecondary",
+ *     databaseName: "testdb",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-4799",
+ *     serverName: "sqlcrudtest-6440",
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
+ * });
+ *
+ * ```
+ * ### Create a database as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     createMode: "PointInTimeRestore",
+ *     databaseName: "testdb",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-8412",
+ *     restorePointInTime: "2017-02-16T21:24:37.467Z",
+ *     serverName: "sqlcrudtest-3584",
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
+ * });
+ *
+ * ```
+ * ### Create a database as an online secondary
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     createMode: "OnlineSecondary",
+ *     databaseName: "testdb",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-4799",
+ *     serverName: "sqlcrudtest-6440",
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb",
+ * });
+ *
+ * ```
+ * ### Create a database from a long term retention backup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     createMode: "RestoreLongTermRetentionBackup",
+ *     databaseName: "testdb",
+ *     location: "Japan East",
+ *     recoveryServicesRecoveryPointResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/AzureSqlContainer;Sql;sqlcrudtest-8412;testsvr/protectedItems/AzureSqlDb;dsName;testdb;9dafcc99-7c84-4727-88ee-1a4fdb89afd7/RecoveryPoints/16043455089734",
+ *     resourceGroupName: "sqlcrudtest-8412",
+ *     serverName: "sqlcrudtest-3584",
+ * });
+ *
+ * ```
+ * ### Create a database max
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     createMode: "Default",
+ *     databaseName: "testdb",
+ *     edition: "Standard",
+ *     location: "Japan East",
+ *     maxSizeBytes: "268435456000",
+ *     readScale: "Disabled",
+ *     requestedServiceObjectiveId: "f1173c43-91bd-4aaa-973c-54e79e15235b",
+ *     requestedServiceObjectiveName: "S0",
+ *     resourceGroupName: "sqlcrudtest-4799",
+ *     sampleName: "AdventureWorksLT",
+ *     serverName: "sqlcrudtest-6440",
+ * });
+ *
+ * ```
+ * ### Create a database min
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     databaseName: "testdb",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-4799",
+ *     serverName: "sqlcrudtest-5961",
+ * });
+ *
+ * ```
+ * ### Update a database max
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     createMode: "Default",
+ *     databaseName: "testdb",
+ *     edition: "Standard",
+ *     location: "Japan East",
+ *     maxSizeBytes: "268435456000",
+ *     readScale: "Disabled",
+ *     requestedServiceObjectiveId: "f1173c43-91bd-4aaa-973c-54e79e15235b",
+ *     requestedServiceObjectiveName: "S0",
+ *     resourceGroupName: "sqlcrudtest-4799",
+ *     serverName: "sqlcrudtest-5961",
+ * });
+ *
+ * ```
+ * ### Update a database's elastic pool'
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const database = new azurerm.sql.latest.Database("database", {
+ *     databaseName: "testdb",
+ *     elasticPoolName: "7537",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-4799",
+ *     serverName: "sqlcrudtest-6440",
+ * });
+ *
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

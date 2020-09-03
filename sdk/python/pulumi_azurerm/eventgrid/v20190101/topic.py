@@ -25,6 +25,24 @@ class Topic(pulumi.CustomResource):
         """
         EventGrid Topic
 
+        ## Example Usage
+        ### Topics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        topic = azurerm.eventgrid.v20190101.Topic("topic",
+            location="westus2",
+            resource_group_name="examplerg",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            topic_name="exampletopic1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the resource

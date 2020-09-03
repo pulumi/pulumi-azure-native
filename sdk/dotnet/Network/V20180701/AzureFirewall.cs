@@ -11,6 +11,52 @@ namespace Pulumi.AzureRM.Network.V20180701
 {
     /// <summary>
     /// Azure Firewall resource
+    /// 
+    /// ## Example Usage
+    /// ### Create Azure Firewall
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var azureFirewall = new AzureRM.Network.V20180701.AzureFirewall("azureFirewall", new AzureRM.Network.V20180701.AzureFirewallArgs
+    ///         {
+    ///             ApplicationRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.V20180701.Inputs.AzureFirewallApplicationRuleCollectionArgs
+    ///                 {
+    ///                     Name = "apprulecoll",
+    ///                 },
+    ///             },
+    ///             AzureFirewallName = "azurefirewall",
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.V20180701.Inputs.AzureFirewallIPConfigurationArgs
+    ///                 {
+    ///                     Name = "azureFirewallIpConfiguration",
+    ///                 },
+    ///             },
+    ///             NetworkRuleCollections = 
+    ///             {
+    ///                 new AzureRM.Network.V20180701.Inputs.AzureFirewallNetworkRuleCollectionArgs
+    ///                 {
+    ///                     Name = "netrulecoll",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AzureFirewall : Pulumi.CustomResource
     {

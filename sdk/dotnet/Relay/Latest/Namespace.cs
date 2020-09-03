@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Relay.Latest
 {
     /// <summary>
     /// Description of a namespace resource.
+    /// 
+    /// ## Example Usage
+    /// ### RelayNamespaceCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @namespace = new AzureRM.Relay.Latest.Namespace("namespace", new AzureRM.Relay.Latest.NamespaceArgs
+    ///         {
+    ///             Location = "West US",
+    ///             NamespaceName = "sdk-RelayNamespace-01",
+    ///             ResourceGroupName = "RG-eg",
+    ///             Sku = new AzureRM.Relay.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Namespace : Pulumi.CustomResource
     {

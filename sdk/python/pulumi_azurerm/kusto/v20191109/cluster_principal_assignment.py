@@ -28,6 +28,24 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         """
         Class representing a cluster principal assignment.
 
+        ## Example Usage
+        ### KustoClusterPrincipalAssignmentsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster_principal_assignment = azurerm.kusto.v20191109.ClusterPrincipalAssignment("clusterPrincipalAssignment",
+            cluster_name="kustoclusterrptest4",
+            principal_assignment_name="kustoprincipal1",
+            principal_id="87654321-1234-1234-1234-123456789123",
+            principal_type="App",
+            resource_group_name="kustorptest",
+            role="Admin",
+            tenant_id="12345678-1234-1234-1234-123456789123")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.

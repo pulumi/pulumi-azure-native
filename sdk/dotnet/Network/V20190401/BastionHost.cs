@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.Network.V20190401
 {
     /// <summary>
     /// Bastion Host resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create Bastion Host
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var bastionHost = new AzureRM.Network.V20190401.BastionHost("bastionHost", new AzureRM.Network.V20190401.BastionHostArgs
+    ///         {
+    ///             BastionHostName = "bastionhosttenant'",
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.V20190401.Inputs.BastionHostIPConfigurationArgs
+    ///                 {
+    ///                     Name = "bastionHostIpConfiguration",
+    ///                 },
+    ///             },
+    ///             Location = "West US",
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BastionHost : Pulumi.CustomResource
     {

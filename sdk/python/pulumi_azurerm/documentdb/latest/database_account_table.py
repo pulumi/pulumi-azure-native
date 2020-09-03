@@ -27,6 +27,24 @@ class DatabaseAccountTable(pulumi.CustomResource):
         """
         An Azure Cosmos DB Table.
 
+        ## Example Usage
+        ### CosmosDBTableReplace
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database_account_table = azurerm.documentdb.latest.DatabaseAccountTable("databaseAccountTable",
+            account_name="ddb1",
+            options={},
+            resource={
+                "id": "tableName",
+            },
+            resource_group_name="rg1",
+            table_name="tableName")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

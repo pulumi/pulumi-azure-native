@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.Automation.V20151031
 {
     /// <summary>
     /// Definition of the variable.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a variable
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var variable = new AzureRM.Automation.V20151031.Variable("variable", new AzureRM.Automation.V20151031.VariableArgs
+    ///         {
+    ///             AutomationAccountName = "sampleAccount9",
+    ///             Description = "my description",
+    ///             IsEncrypted = false,
+    ///             Name = "sampleVariable",
+    ///             ResourceGroupName = "rg",
+    ///             Value = "\"ComputerName.domain.com\"",
+    ///             VariableName = "sampleVariable",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Variable : Pulumi.CustomResource
     {

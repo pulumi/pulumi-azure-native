@@ -37,6 +37,93 @@ class AzureFirewall(pulumi.CustomResource):
         """
         Azure Firewall resource.
 
+        ## Example Usage
+        ### Create Azure Firewall
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        azure_firewall = azurerm.network.v20190701.AzureFirewall("azureFirewall",
+            application_rule_collections=[{
+                "name": "apprulecoll",
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+            }],
+            location="West US",
+            nat_rule_collections=[{
+                "name": "natrulecoll",
+            }],
+            network_rule_collections=[{
+                "name": "netrulecoll",
+            }],
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode="Alert",
+            zones=[])
+
+        ```
+        ### Create Azure Firewall With Zones
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        azure_firewall = azurerm.network.v20190701.AzureFirewall("azureFirewall",
+            application_rule_collections=[{
+                "name": "apprulecoll",
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+            }],
+            location="West US 2",
+            nat_rule_collections=[{
+                "name": "natrulecoll",
+            }],
+            network_rule_collections=[{
+                "name": "netrulecoll",
+            }],
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode="Alert",
+            zones=[
+                "1",
+                "2",
+                "3",
+            ])
+
+        ```
+        ### Create Azure Firewall in virtual Hub
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        azure_firewall = azurerm.network.v20190701.AzureFirewall("azureFirewall",
+            azure_firewall_name="azurefirewall",
+            firewall_policy={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/policy1",
+            },
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode="Alert",
+            virtual_hub={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+            },
+            zones=[])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AzureFirewallApplicationRuleCollectionArgs']]]] application_rule_collections: Collection of application rule collections used by Azure Firewall.

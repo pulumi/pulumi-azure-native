@@ -29,6 +29,22 @@ class Project(pulumi.CustomResource):
         """
         Azure Migrate Project.
 
+        ## Example Usage
+        ### Projects_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        project = azurerm.migrate.v20191001.Project("project",
+            e_tag="",
+            location="West Europe",
+            project_name="abGoyalProject2",
+            resource_group_name="abgoyal-westEurope",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.

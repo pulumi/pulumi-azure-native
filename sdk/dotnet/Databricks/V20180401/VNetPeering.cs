@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.Databricks.V20180401
 {
     /// <summary>
     /// Peerings in a VirtualNetwork resource
+    /// 
+    /// ## Example Usage
+    /// ### Create vNet Peering for Workspace
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vNetPeering = new AzureRM.Databricks.V20180401.VNetPeering("vNetPeering", new AzureRM.Databricks.V20180401.VNetPeeringArgs
+    ///         {
+    ///             AllowForwardedTraffic = false,
+    ///             AllowGatewayTransit = false,
+    ///             AllowVirtualNetworkAccess = true,
+    ///             PeeringName = "vNetPeeringTest",
+    ///             RemoteVirtualNetwork = new AzureRM.Databricks.V20180401.Inputs.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs
+    ///             {
+    ///                 Id = "/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
+    ///             },
+    ///             ResourceGroupName = "rg",
+    ///             UseRemoteGateways = false,
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VNetPeering : Pulumi.CustomResource
     {

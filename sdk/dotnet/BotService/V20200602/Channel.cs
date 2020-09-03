@@ -11,6 +11,96 @@ namespace Pulumi.AzureRM.BotService.V20200602
 {
     /// <summary>
     /// Bot channel resource definition
+    /// 
+    /// ## Example Usage
+    /// ### Create Alexa Bot
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var channel = new AzureRM.BotService.V20200602.Channel("channel", new AzureRM.BotService.V20200602.ChannelArgs
+    ///         {
+    ///             ChannelName = "AlexaChannel",
+    ///             Location = "global",
+    ///             Properties = ,
+    ///             ResourceGroupName = "OneResourceGroupName",
+    ///             ResourceName = "samplebotname",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create Bot
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var channel = new AzureRM.BotService.V20200602.Channel("channel", new AzureRM.BotService.V20200602.ChannelArgs
+    ///         {
+    ///             ChannelName = "EmailChannel",
+    ///             Location = "global",
+    ///             Properties = ,
+    ///             ResourceGroupName = "OneResourceGroupName",
+    ///             ResourceName = "samplebotname",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create DirectLine Speech Bot
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var channel = new AzureRM.BotService.V20200602.Channel("channel", new AzureRM.BotService.V20200602.ChannelArgs
+    ///         {
+    ///             ChannelName = "DirectLineSpeechChannel",
+    ///             Location = "global",
+    ///             Properties = ,
+    ///             ResourceGroupName = "OneResourceGroupName",
+    ///             ResourceName = "samplebotname",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create Line Bot
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var channel = new AzureRM.BotService.V20200602.Channel("channel", new AzureRM.BotService.V20200602.ChannelArgs
+    ///         {
+    ///             ChannelName = "LineChannel",
+    ///             Location = "global",
+    ///             Properties = ,
+    ///             ResourceGroupName = "OneResourceGroupName",
+    ///             ResourceName = "samplebotname",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Channel : Pulumi.CustomResource
     {

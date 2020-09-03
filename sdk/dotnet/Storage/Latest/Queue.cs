@@ -9,6 +9,54 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.Storage.Latest
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### QueueOperationPut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var queue = new AzureRM.Storage.Latest.Queue("queue", new AzureRM.Storage.Latest.QueueArgs
+    ///         {
+    ///             AccountName = "sto328",
+    ///             QueueName = "queue6185",
+    ///             ResourceGroupName = "res3376",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### QueueOperationPutWithMetadata
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var queue = new AzureRM.Storage.Latest.Queue("queue", new AzureRM.Storage.Latest.QueueArgs
+    ///         {
+    ///             AccountName = "sto328",
+    ///             Metadata = 
+    ///             {
+    ///                 { "sample1", "meta1" },
+    ///                 { "sample2", "meta2" },
+    ///             },
+    ///             QueueName = "queue6185",
+    ///             ResourceGroupName = "res3376",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// </summary>
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

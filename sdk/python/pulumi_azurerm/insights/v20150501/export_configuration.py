@@ -33,6 +33,29 @@ class ExportConfiguration(pulumi.CustomResource):
         """
         Properties that define a Continuous Export configuration.
 
+        ## Example Usage
+        ### ExportConfigurationUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        export_configuration = azurerm.insights.v20150501.ExportConfiguration("exportConfiguration",
+            destination_account_id="/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.ClassicStorage/storageAccounts/mystorageblob",
+            destination_address="https://mystorageblob.blob.core.windows.net/fchentest?sv=2015-04-05&sr=c&sig=token",
+            destination_storage_location_id="eastus",
+            destination_storage_subscription_id="subid",
+            destination_type="Blob",
+            export_id="uGOoki0jQsyEs3IdQ83Q4QsNr4=",
+            is_enabled="true",
+            notification_queue_enabled="false",
+            notification_queue_uri="",
+            record_types="Requests, Event, Exceptions, Metrics, PageViews, PageViewPerformance, Rdd, PerformanceCounters, Availability",
+            resource_group_name="my-resource-group",
+            resource_name="my-component")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_account_id: The name of destination storage account.

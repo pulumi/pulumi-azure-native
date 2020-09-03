@@ -29,6 +29,25 @@ class ApiIssueAttachment(pulumi.CustomResource):
         """
         Issue Attachment Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiIssueAttachment
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_issue_attachment = azurerm.apimanagement.latest.ApiIssueAttachment("apiIssueAttachment",
+            api_id="57d1f7558aa04f15146d9d8a",
+            attachment_id="57d2ef278aa04f0888cba3f3",
+            content="IEJhc2U2NA==",
+            content_format="image/jpeg",
+            issue_id="57d2ef278aa04f0ad01d6cdc",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            title="Issue attachment.")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.

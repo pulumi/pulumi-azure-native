@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.Insights.Latest
 {
     /// <summary>
     /// Properties that define a Continuous Export configuration.
+    /// 
+    /// ## Example Usage
+    /// ### ExportConfigurationUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exportConfiguration = new AzureRM.Insights.Latest.ExportConfiguration("exportConfiguration", new AzureRM.Insights.Latest.ExportConfigurationArgs
+    ///         {
+    ///             DestinationAccountId = "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.ClassicStorage/storageAccounts/mystorageblob",
+    ///             DestinationAddress = "https://mystorageblob.blob.core.windows.net/fchentest?sv=2015-04-05&amp;sr=c&amp;sig=token",
+    ///             DestinationStorageLocationId = "eastus",
+    ///             DestinationStorageSubscriptionId = "subid",
+    ///             DestinationType = "Blob",
+    ///             ExportId = "uGOoki0jQsyEs3IdQ83Q4QsNr4=",
+    ///             IsEnabled = "true",
+    ///             NotificationQueueEnabled = "false",
+    ///             NotificationQueueUri = "",
+    ///             RecordTypes = "Requests, Event, Exceptions, Metrics, PageViews, PageViewPerformance, Rdd, PerformanceCounters, Availability",
+    ///             ResourceGroupName = "my-resource-group",
+    ///             ResourceName = "my-component",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ExportConfiguration : Pulumi.CustomResource
     {

@@ -8,6 +8,26 @@ import * as utilities from "../../utilities";
 
 /**
  * IpAllocation resource.
+ *
+ * ## Example Usage
+ * ### Create IpAllocation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const ipAllocation = new azurerm.network.latest.IpAllocation("ipAllocation", {
+ *     allocationTags: {
+ *         VNetID: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/HypernetVnet1",
+ *     },
+ *     ipAllocationName: "test-ipallocation",
+ *     location: "centraluseuap",
+ *     prefix: "3.2.5.0/24",
+ *     resourceGroupName: "rg1",
+ *     type: "Hypernet",
+ * });
+ *
+ * ```
  */
 export class IpAllocation extends pulumi.CustomResource {
     /**

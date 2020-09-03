@@ -28,6 +28,20 @@ class Job(pulumi.CustomResource):
         """
         Contains the job information.
 
+        ## Example Usage
+        ### Create job
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        job = azurerm.importexport.v20161101.Job("job",
+            job_name="myJob",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_name: The name of the import/export job.

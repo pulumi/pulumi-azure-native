@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.KeyVault.Latest
 {
     /// <summary>
     /// Private endpoint connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### KeyVaultPutPrivateEndpointConnection
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.KeyVault.Latest.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.KeyVault.Latest.PrivateEndpointConnectionArgs
+    ///         {
+    ///             PrivateEndpointConnectionName = "sample-pec",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.KeyVault.Latest.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "My name is Joe and I'm approving this.",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "sample-group",
+    ///             VaultName = "sample-vault",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

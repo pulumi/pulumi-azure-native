@@ -30,6 +30,26 @@ class IotHubResource(pulumi.CustomResource):
         """
         The description of the IoT hub.
 
+        ## Example Usage
+        ### IotHubResource_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        iot_hub_resource = azurerm.devices.latest.IotHubResource("iotHubResource",
+            etag="AAAAAAFD6M4=",
+            location="centraluseuap",
+            resource_group_name="myResourceGroup",
+            resource_name="testHub",
+            sku={
+                "capacity": 1,
+                "name": "S1",
+            },
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.

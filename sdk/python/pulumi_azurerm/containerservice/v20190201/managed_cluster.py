@@ -38,6 +38,47 @@ class ManagedCluster(pulumi.CustomResource):
         """
         Managed cluster.
 
+        ## Example Usage
+        ### Create/Update Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_cluster = azurerm.containerservice.v20190201.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "name": "nodepool1",
+                "osType": "Linux",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile={
+                "adminUsername": "azureuser",
+                "ssh": {
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            },
+            location="location1",
+            resource_group_name="rg1",
+            resource_name="clustername1",
+            service_principal_profile={
+                "clientId": "clientid",
+                "secret": "secret",
+            },
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']] aad_profile: Profile of Azure Active Directory configuration.

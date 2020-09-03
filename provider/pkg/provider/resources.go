@@ -50,12 +50,19 @@ type AzureApiType struct {
 	RequiredProperties []string                    `json:"required,omitempty"`
 }
 
+// AzureApiExample provides a pointer to examples relevant to a resource from the Azure REST API spec.
+type AzureApiExample struct {
+	Description string `json:"description"`
+	Location    string `json:"location"`
+}
+
 // AzureApiResource is a resource in Azure REST API.
 type AzureApiResource struct {
 	ApiVersion    string                      `json:"apiVersion"`
 	Path          string                      `json:"path"`
 	GetParameters []AzureApiParameter         `json:"GET"`
 	PutParameters []AzureApiParameter         `json:"PUT"`
+	Examples      []AzureApiExample           `json:"examples,omitempty"`
 	Response      map[string]AzureApiProperty `json:"response"`
 }
 

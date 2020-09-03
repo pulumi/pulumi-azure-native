@@ -34,6 +34,41 @@ class PublicIPPrefix(pulumi.CustomResource):
         """
         Public IP prefix resource.
 
+        ## Example Usage
+        ### Create public IP prefix allocation method
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        public_ip_prefix = azurerm.network.latest.PublicIPPrefix("publicIPPrefix",
+            location="westus",
+            prefix_length=30,
+            public_ip_address_version="IPv4",
+            public_ip_prefix_name="test-ipprefix",
+            resource_group_name="rg1",
+            sku={
+                "name": "Standard",
+            })
+
+        ```
+        ### Create public IP prefix defaults
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        public_ip_prefix = azurerm.network.latest.PublicIPPrefix("publicIPPrefix",
+            location="westus",
+            prefix_length=30,
+            public_ip_prefix_name="test-ipprefix",
+            resource_group_name="rg1",
+            sku={
+                "name": "Standard",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] custom_ip_prefix: The customIpPrefix that this prefix is associated with.

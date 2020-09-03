@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the IoT hub.
+ *
+ * ## Example Usage
+ * ### IotHubResource_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const iotHubResource = new azurerm.devices.latest.IotHubResource("iotHubResource", {
+ *     etag: "AAAAAAFD6M4=",
+ *     location: "centraluseuap",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "testHub",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "S1",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class IotHubResource extends pulumi.CustomResource {
     /**

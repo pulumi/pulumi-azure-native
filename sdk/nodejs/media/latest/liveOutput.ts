@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * The Live Output.
+ *
+ * ## Example Usage
+ * ### Create a LiveOutput
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const liveOutput = new azurerm.media.latest.LiveOutput("liveOutput", {
+ *     accountName: "slitestmedia10",
+ *     archiveWindowLength: "PT5M",
+ *     assetName: "6f3264f5-a189-48b4-a29a-a40f22575212",
+ *     description: "test live output 1",
+ *     hls: {
+ *         fragmentsPerTsSegment: 5,
+ *     },
+ *     liveEventName: "myLiveEvent1",
+ *     liveOutputName: "myLiveOutput1",
+ *     manifestName: "testmanifest",
+ *     resourceGroupName: "mediaresources",
+ * });
+ *
+ * ```
  */
 export class LiveOutput extends pulumi.CustomResource {
     /**

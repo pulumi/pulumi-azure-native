@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * ExpressRouteConnection resource.
+ *
+ * ## Example Usage
+ * ### ExpressRouteConnectionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const expressRouteConnection = new azurerm.network.v20180801.ExpressRouteConnection("expressRouteConnection", {
+ *     authorizationKey: "authorizationKey",
+ *     connectionName: "connectionName",
+ *     expressRouteCircuitPeering: {
+ *         id: "/subscriptions/subid2/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering",
+ *     },
+ *     expressRouteGatewayName: "expressRouteGatewayName",
+ *     id: "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/expressRouteGatewayName/expressRouteConnections/connectionName",
+ *     name: "connectionName",
+ *     resourceGroupName: "resourceGroupName",
+ *     routingWeight: 2,
+ * });
+ *
+ * ```
  */
 export class ExpressRouteConnection extends pulumi.CustomResource {
     /**

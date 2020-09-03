@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
 {
     /// <summary>
     /// The top level Workspace resource container.
+    /// 
+    /// ## Example Usage
+    /// ### WorkspacesCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspace = new AzureRM.OperationalInsights.Latest.Workspace("workspace", new AzureRM.OperationalInsights.Latest.WorkspaceArgs
+    ///         {
+    ///             Location = "australiasoutheast",
+    ///             ResourceGroupName = "oiautorest6685",
+    ///             RetentionInDays = 30,
+    ///             Sku = new AzureRM.OperationalInsights.Latest.Inputs.WorkspaceSkuArgs
+    ///             {
+    ///                 Name = "PerGB2018",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "val1" },
+    ///             },
+    ///             WorkspaceName = "oiautorest6685",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

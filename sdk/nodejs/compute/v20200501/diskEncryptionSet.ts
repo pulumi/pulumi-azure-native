@@ -8,6 +8,30 @@ import * as utilities from "../../utilities";
 
 /**
  * disk encryption set resource.
+ *
+ * ## Example Usage
+ * ### Create a disk encryption set.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const diskEncryptionSet = new azurerm.compute.v20200501.DiskEncryptionSet("diskEncryptionSet", {
+ *     activeKey: {
+ *         keyUrl: "https://myvmvault.vault-int.azure-int.net/keys/{key}",
+ *         sourceVault: {
+ *             id: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault",
+ *         },
+ *     },
+ *     diskEncryptionSetName: "myDiskEncryptionSet",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {
     /**

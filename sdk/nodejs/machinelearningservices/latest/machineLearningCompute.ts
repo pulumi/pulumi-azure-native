@@ -8,6 +8,117 @@ import * as utilities from "../../utilities";
 
 /**
  * Machine Learning compute object wrapped into ARM resource envelope.
+ *
+ * ## Example Usage
+ * ### Create AKS Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Create a AML Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     identity: {
+ *         type: "SystemAssigned, UserAssigned",
+ *     },
+ *     location: "eastus",
+ *     properties: {},
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Create a ComputeInstance Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {},
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Create a ComputeInstance Compute with minimal inputs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {},
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Create a DataFactory Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Update a AKS Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {},
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Update a AML Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const machineLearningCompute = new azurerm.machinelearningservices.latest.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     identity: {
+ *         type: "SystemAssigned, UserAssigned",
+ *     },
+ *     location: "eastus",
+ *     properties: {},
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
  */
 export class MachineLearningCompute extends pulumi.CustomResource {
     /**

@@ -8,6 +8,17 @@ import * as utilities from "../../utilities";
 
 /**
  * Response to get user settings
+ *
+ * ## Example Usage
+ * ### PutUserSettings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const userSettings = new azurerm.portal.latest.UserSettings("userSettings", {userSettingsName: "cloudconsole"});
+ *
+ * ```
  */
 export class UserSettings extends pulumi.CustomResource {
     /**

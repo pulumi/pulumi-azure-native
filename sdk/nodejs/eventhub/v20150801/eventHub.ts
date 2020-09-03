@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in List or Get Event Hub operation
+ *
+ * ## Example Usage
+ * ### EventHubCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const eventHub = new azurerm.eventhub.v20150801.EventHub("eventHub", {
+ *     eventHubName: "sdk-EventHub6448",
+ *     location: "West US",
+ *     messageRetentionInDays: 7,
+ *     namespaceName: "sdk-Namespace7834",
+ *     partitionCount: 4,
+ *     resourceGroupName: "Default-ServiceBus-WestUS",
+ *     status: "Active",
+ * });
+ *
+ * ```
  */
 export class EventHub extends pulumi.CustomResource {
     /**

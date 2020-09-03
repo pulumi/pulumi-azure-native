@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * OpenId Connect Provider details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateOpenIdConnectProvider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const openIdConnectProvider = new azurerm.apimanagement.v20191201.OpenIdConnectProvider("openIdConnectProvider", {
+ *     clientId: "oidprovidertemplate3",
+ *     clientSecret: "x",
+ *     displayName: "templateoidprovider3",
+ *     metadataEndpoint: "https://oidprovider-template3.net",
+ *     opid: "templateOpenIdConnect3",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
  */
 export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**

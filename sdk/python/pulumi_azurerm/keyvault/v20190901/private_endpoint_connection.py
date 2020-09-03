@@ -28,6 +28,24 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         Private endpoint connection resource.
 
+        ## Example Usage
+        ### KeyVaultPutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.keyvault.v20190901.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="sample-pec",
+            private_link_service_connection_state={
+                "description": "My name is Joe and I'm approving this.",
+                "status": "Approved",
+            },
+            resource_group_name="sample-group",
+            vault_name="sample-vault")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.

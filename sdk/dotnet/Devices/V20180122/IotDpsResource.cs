@@ -11,6 +11,34 @@ namespace Pulumi.AzureRM.Devices.V20180122
 {
     /// <summary>
     /// The description of the provisioning service.
+    /// 
+    /// ## Example Usage
+    /// ### DPSCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iotDpsResource = new AzureRM.Devices.V20180122.IotDpsResource("iotDpsResource", new AzureRM.Devices.V20180122.IotDpsResourceArgs
+    ///         {
+    ///             Location = "East US",
+    ///             ProvisioningServiceName = "myFirstProvisioningService",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Devices.V20180122.Inputs.IotDpsSkuInfoArgs
+    ///             {
+    ///                 Capacity = 1,
+    ///                 Name = "S1",
+    ///             },
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IotDpsResource : Pulumi.CustomResource
     {

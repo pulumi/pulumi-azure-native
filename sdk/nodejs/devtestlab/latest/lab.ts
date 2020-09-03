@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * A lab.
+ *
+ * ## Example Usage
+ * ### Labs_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const lab = new azurerm.devtestlab.latest.Lab("lab", {
+ *     labStorageType: "{Standard|Premium}",
+ *     location: "{azure-location}",
+ *     name: "{devtestlab-name}",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         MyTag: "MyValue",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Lab extends pulumi.CustomResource {
     /**

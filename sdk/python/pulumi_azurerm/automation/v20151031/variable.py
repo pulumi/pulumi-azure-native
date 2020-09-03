@@ -28,6 +28,24 @@ class Variable(pulumi.CustomResource):
         """
         Definition of the variable.
 
+        ## Example Usage
+        ### Create or update a variable
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        variable = azurerm.automation.v20151031.Variable("variable",
+            automation_account_name="sampleAccount9",
+            description="my description",
+            is_encrypted=False,
+            name="sampleVariable",
+            resource_group_name="rg",
+            value="\"ComputerName.domain.com\"",
+            variable_name="sampleVariable")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

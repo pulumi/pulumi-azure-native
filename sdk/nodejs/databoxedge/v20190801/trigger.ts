@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Trigger details.
+ *
+ * ## Example Usage
+ * ### TriggerPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const trigger = new azurerm.databoxedge.v20190801.Trigger("trigger", {
+ *     deviceName: "testedgedevice",
+ *     kind: "FileEvent",
+ *     name: "trigger1",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ * });
+ *
+ * ```
  */
 export class Trigger extends pulumi.CustomResource {
     /**

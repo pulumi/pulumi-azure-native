@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Defines an Network Experiment Profile and lists of Experiments
+    /// 
+    /// ## Example Usage
+    /// ### Creates an NetworkExperiment Profile in a Resource Group
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var networkExperimentProfile = new AzureRM.Network.Latest.NetworkExperimentProfile("networkExperimentProfile", new AzureRM.Network.Latest.NetworkExperimentProfileArgs
+    ///         {
+    ///             EnabledState = "Enabled",
+    ///             Location = "WestUs",
+    ///             ProfileName = "MyProfile",
+    ///             ResourceGroupName = "MyResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class NetworkExperimentProfile : Pulumi.CustomResource
     {

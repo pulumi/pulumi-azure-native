@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdateImmutabilityPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const blobContainerImmutabilityPolicy = new azurerm.storage.v20180201.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy", {
+ *     accountName: "sto7069",
+ *     containerName: "container6397",
+ *     immutabilityPeriodSinceCreationInDays: 3,
+ *     immutabilityPolicyName: "default",
+ *     resourceGroupName: "res1782",
+ * });
+ *
+ * ```
  */
 export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**

@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * The Backup Schedule Group
+ *
+ * ## Example Usage
+ * ### BackupScheduleGroupsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const backupScheduleGroup = new azurerm.storsimple.latest.BackupScheduleGroup("backupScheduleGroup", {
+ *     deviceName: "HSDK-4XY4FI2IVG",
+ *     managerName: "hAzureSDKOperations",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     scheduleGroupName: "BackupSchGroupForSDKTest",
+ *     startTime: {},
+ * });
+ *
+ * ```
  */
 export class BackupScheduleGroup extends pulumi.CustomResource {
     /**

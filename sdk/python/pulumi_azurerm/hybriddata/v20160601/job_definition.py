@@ -36,6 +36,36 @@ class JobDefinition(pulumi.CustomResource):
         """
         Job Definition.
 
+        ## Example Usage
+        ### JobDefinitions_CreateOrUpdatePUT83
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        job_definition = azurerm.hybriddata.v20160601.JobDefinition("jobDefinition",
+            data_manager_name="TestAzureSDKOperations",
+            data_service_input={
+                "AzureStorageType": "Blob",
+                "BackupChoice": "UseExistingLatest",
+                "ContainerName": "containerfromtest",
+                "DeviceName": "dmsdatasource",
+                "FileNameFilter": "*",
+                "IsDirectoryMode": False,
+                "RootDirectories": ["\\"],
+                "VolumeNames": ["dmsbvtvol"],
+            },
+            data_service_name="DataTransformation",
+            data_sink_id="/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestAzureStorage1",
+            data_source_id="/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestStorSimpleSource1",
+            job_definition_name="jobdeffromtestcode1",
+            resource_group_name="ResourceGroupForSDKTest",
+            run_location="westus",
+            state="Enabled",
+            user_confirmation="Required")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.

@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 {
     /// <summary>
     /// The iSCSI server.
+    /// 
+    /// ## Example Usage
+    /// ### IscsiServersCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iscsiServer = new AzureRM.StorSimple.V20161001.IscsiServer("iscsiServer", new AzureRM.StorSimple.V20161001.IscsiServerArgs
+    ///         {
+    ///             BackupScheduleGroupId = "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-WSJQERQW3F/backupScheduleGroups/Default-HSDK-WSJQERQW3F-BackupScheduleGroup",
+    ///             ChapId = "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-WSJQERQW3F/chapSettings/ChapSettingForSDK",
+    ///             DeviceName = "HSDK-WSJQERQW3F",
+    ///             IscsiServerName = "HSDK-WSJQERQW3F",
+    ///             ManagerName = "hAzureSDKOperations",
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///             ReverseChapId = "",
+    ///             StorageDomainId = "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/Default-HSDK-WSJQERQW3F-StorageDomain",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IscsiServer : Pulumi.CustomResource
     {

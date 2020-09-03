@@ -6,6 +6,23 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### VMwareCollectors_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const vMwareCollector = new azurerm.migrate.latest.VMwareCollector("vMwareCollector", {
+ *     eTag: "\"01003d32-0000-0d00-0000-5d74d2e50000\"",
+ *     projectName: "abgoyalWEselfhostb72bproject",
+ *     resourceGroupName: "abgoyal-westEurope",
+ *     vmWareCollectorName: "PortalvCenterbc2fcollector",
+ * });
+ *
+ * ```
+ */
 export class VMwareCollector extends pulumi.CustomResource {
     /**
      * Get an existing VMwareCollector resource's state with the given name, ID, and optional extra

@@ -26,6 +26,21 @@ class Group(pulumi.CustomResource):
         """
         A group created in a Migration project.
 
+        ## Example Usage
+        ### Groups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        group = azurerm.migrate.v20191001.Group("group",
+            e_tag="\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+            group_name="Group2",
+            project_name="abgoyalWEselfhostb72bproject",
+            resource_group_name="abgoyal-westEurope")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.

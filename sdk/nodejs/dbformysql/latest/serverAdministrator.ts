@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a and external administrator to be created.
+ *
+ * ## Example Usage
+ * ### ServerAdministratorCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const serverAdministrator = new azurerm.dbformysql.latest.ServerAdministrator("serverAdministrator", {
+ *     administratorType: "ActiveDirectory",
+ *     login: "bob@contoso.com",
+ *     resourceGroupName: "testrg",
+ *     serverName: "mysqltestsvc4",
+ *     sid: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+ *     tenantId: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+ * });
+ *
+ * ```
  */
 export class ServerAdministrator extends pulumi.CustomResource {
     /**

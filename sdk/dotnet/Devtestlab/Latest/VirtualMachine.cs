@@ -11,6 +11,50 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
 {
     /// <summary>
     /// A virtual machine.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualMachines_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachine = new AzureRM.DevTestLab.Latest.VirtualMachine("virtualMachine", new AzureRM.DevTestLab.Latest.VirtualMachineArgs
+    ///         {
+    ///             AllowClaim = true,
+    ///             DisallowPublicIpAddress = true,
+    ///             GalleryImageReference = new AzureRM.DevTestLab.Latest.Inputs.GalleryImageReferenceArgs
+    ///             {
+    ///                 Offer = "UbuntuServer",
+    ///                 OsType = "Linux",
+    ///                 Publisher = "Canonical",
+    ///                 Sku = "16.04-LTS",
+    ///                 Version = "Latest",
+    ///             },
+    ///             LabName = "{devtestlab-name}",
+    ///             LabSubnetName = "{virtualnetwork-name}Subnet",
+    ///             LabVirtualNetworkId = "/subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualnetworks/{virtualnetwork-name}",
+    ///             Location = "{azure-location}",
+    ///             Name = "{virtualmachine-name}",
+    ///             OsType = "Linux",
+    ///             Password = "{user-password}",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Size = "Standard_A2_v2",
+    ///             StorageType = "Standard",
+    ///             Tags = 
+    ///             {
+    ///                 { "MyTag", "MyValue" },
+    ///             },
+    ///             UserName = "{user-name}",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualMachine : Pulumi.CustomResource
     {

@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.Media.Latest
 {
     /// <summary>
     /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Transform
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var transform = new AzureRM.Media.Latest.Transform("transform", new AzureRM.Media.Latest.TransformArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             Description = "Example Transform to illustrate create and update.",
+    ///             Outputs = 
+    ///             {
+    ///                 new AzureRM.Media.Latest.Inputs.TransformOutputArgs
+    ///                 {
+    ///                     Preset = new AzureRM.Media.Latest.Inputs.PresetArgs
+    ///                     {
+    ///                         OdataType = "#Microsoft.Media.BuiltInStandardEncoderPreset",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contosoresources",
+    ///             TransformName = "createdTransform",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Transform : Pulumi.CustomResource
     {

@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+ *
+ * ## Example Usage
+ * ### SharedPrivateLinkResourceCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const sharedPrivateLinkResource = new azurerm.search.latest.SharedPrivateLinkResource("sharedPrivateLinkResource", {
+ *     resourceGroupName: "rg1",
+ *     searchServiceName: "mysearchservice",
+ *     sharedPrivateLinkResourceName: "testResource",
+ * });
+ *
+ * ```
  */
 export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**

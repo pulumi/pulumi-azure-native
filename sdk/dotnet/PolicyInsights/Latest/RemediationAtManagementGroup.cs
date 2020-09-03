@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.PolicyInsights.Latest
 {
     /// <summary>
     /// The remediation definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create remediation at management group scope
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var remediationAtManagementGroup = new AzureRM.PolicyInsights.Latest.RemediationAtManagementGroup("remediationAtManagementGroup", new AzureRM.PolicyInsights.Latest.RemediationAtManagementGroupArgs
+    ///         {
+    ///             ManagementGroupId = "financeMg",
+    ///             ManagementGroupsNamespace = "Microsoft.Management",
+    ///             PolicyAssignmentId = "/providers/microsoft.management/managementGroups/financeMg/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///             RemediationName = "storageRemediation",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RemediationAtManagementGroup : Pulumi.CustomResource
     {

@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.Network.V20190201
 {
     /// <summary>
     /// Network security rule.
+    /// 
+    /// ## Example Usage
+    /// ### Create security rule
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var securityRule = new AzureRM.Network.V20190201.SecurityRule("securityRule", new AzureRM.Network.V20190201.SecurityRuleArgs
+    ///         {
+    ///             Access = "Deny",
+    ///             DestinationAddressPrefix = "11.0.0.0/8",
+    ///             DestinationPortRange = "8080",
+    ///             Direction = "Outbound",
+    ///             NetworkSecurityGroupName = "testnsg",
+    ///             Priority = 100,
+    ///             Protocol = "*",
+    ///             ResourceGroupName = "rg1",
+    ///             SecurityRuleName = "rule1",
+    ///             SourceAddressPrefix = "10.0.0.0/8",
+    ///             SourcePortRange = "*",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SecurityRule : Pulumi.CustomResource
     {

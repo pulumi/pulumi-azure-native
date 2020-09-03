@@ -27,6 +27,32 @@ class DataFlow(pulumi.CustomResource):
         """
         Data flow resource type.
 
+        ## Example Usage
+        ### DataFlows_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        data_flow = azurerm.datafactory.v20180601.DataFlow("dataFlow",
+            data_flow_name="exampleDataFlow",
+            factory_name="exampleFactoryName",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+        ### DataFlows_Update
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        data_flow = azurerm.datafactory.v20180601.DataFlow("dataFlow",
+            data_flow_name="exampleDataFlow",
+            factory_name="exampleFactoryName",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_flow_name: The data flow name.

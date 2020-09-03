@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage domain.
+ *
+ * ## Example Usage
+ * ### StorageDomainsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const storageDomain = new azurerm.storsimple.latest.StorageDomain("storageDomain", {
+ *     encryptionStatus: "Disabled",
+ *     managerName: "hAzureSDKOperations",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     storageAccountCredentialIds: ["/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageAccountCredentials/sacforsdktest"],
+ *     storageDomainName: "sd-fs-HSDK-4XY4FI2IVG",
+ * });
+ *
+ * ```
  */
 export class StorageDomain extends pulumi.CustomResource {
     /**

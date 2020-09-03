@@ -35,6 +35,35 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         """
         The alert rule information
 
+        ## Example Usage
+        ### Create or update a Smart Detector alert rule
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        smart_detector_alert_rule = azurerm.alertsmanagement.v20190601.SmartDetectorAlertRule("smartDetectorAlertRule",
+            action_groups={
+                "customEmailSubject": "My custom email subject",
+                "customWebhookPayload": "{\"AlertRuleName\":\"#alertrulename\"}",
+                "groupIds": ["/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourcegroups/actionGroups/providers/microsoft.insights/actiongroups/MyActionGroup"],
+            },
+            alert_rule_name="MyAlertRule",
+            description="Sample smart detector alert rule description",
+            detector={
+                "id": "VMMemoryLeak",
+            },
+            frequency="PT5M",
+            resource_group_name="MyAlertRules",
+            scope=["/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/MyVms/providers/Microsoft.Compute/virtualMachines/vm1"],
+            severity="Sev3",
+            state="Enabled",
+            throttling={
+                "duration": "PT20M",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ActionGroupsInformationArgs']] action_groups: The alert rule actions.

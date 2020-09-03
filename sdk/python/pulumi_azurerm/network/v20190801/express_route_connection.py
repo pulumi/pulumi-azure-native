@@ -32,6 +32,27 @@ class ExpressRouteConnection(pulumi.CustomResource):
         """
         ExpressRouteConnection resource.
 
+        ## Example Usage
+        ### ExpressRouteConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        express_route_connection = azurerm.network.v20190801.ExpressRouteConnection("expressRouteConnection",
+            authorization_key="authorizationKey",
+            connection_name="connectionName",
+            express_route_circuit_peering={
+                "id": "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering",
+            },
+            express_route_gateway_name="gateway-2",
+            id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName",
+            name="connectionName",
+            resource_group_name="resourceGroupName",
+            routing_weight=2)
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: Authorization key to establish the connection.

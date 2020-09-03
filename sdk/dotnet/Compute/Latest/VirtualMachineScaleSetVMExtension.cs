@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Compute.Latest
 {
     /// <summary>
     /// Describes a Virtual Machine Extension.
+    /// 
+    /// ## Example Usage
+    /// ### Create VirtualMachineScaleSet VM extension.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualMachineScaleSetVMExtension = new AzureRM.Compute.Latest.VirtualMachineScaleSetVMExtension("virtualMachineScaleSetVMExtension", new AzureRM.Compute.Latest.VirtualMachineScaleSetVMExtensionArgs
+    ///         {
+    ///             AutoUpgradeMinorVersion = true,
+    ///             InstanceId = "0",
+    ///             Location = "westus",
+    ///             Publisher = "extPublisher",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Settings = 
+    ///             {
+    ///                 { "UserName", "xyz@microsoft.com" },
+    ///             },
+    ///             Type = "extType",
+    ///             TypeHandlerVersion = "1.2",
+    ///             VmExtensionName = "myVMExtension",
+    ///             VmScaleSetName = "myvmScaleSet",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualMachineScaleSetVMExtension : Pulumi.CustomResource
     {

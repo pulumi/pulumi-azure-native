@@ -26,6 +26,21 @@ class CustomerSubscription(pulumi.CustomResource):
         """
         Customer subscription.
 
+        ## Example Usage
+        ### Creates a new customer subscription under a registration.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        customer_subscription = azurerm.azurestack.v20170601.CustomerSubscription("customerSubscription",
+            customer_subscription_name="E09A4E93-29A7-4EBA-A6D4-76202383F07F",
+            registration_name="testregistration",
+            resource_group="azurestack",
+            tenant_id="dbab3982-796f-4d03-9908-044c08aef8a2")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_subscription_name: Name of the product.

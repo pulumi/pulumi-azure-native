@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing an data connection.
+ *
+ * ## Example Usage
+ * ### KustoDataConnectionsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataConnection = new azurerm.kusto.v20200614.DataConnection("dataConnection", {
+ *     clusterName: "kustoclusterrptest4",
+ *     dataConnectionName: "DataConnections8",
+ *     databaseName: "KustoDatabase8",
+ *     kind: "EventHub",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
  */
 export class DataConnection extends pulumi.CustomResource {
     /**

@@ -6,6 +6,27 @@ import * as utilities from "../../utilities";
 
 /**
  * The backup policy.
+ *
+ * ## Example Usage
+ * ### BackupPoliciesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const backupPolicy = new azurerm.storsimple.v20170601.BackupPolicy("backupPolicy", {
+ *     backupPolicyName: "BkUpPolicy01ForSDKTest",
+ *     deviceName: "Device05ForSDKTest",
+ *     kind: "Series8000",
+ *     managerName: "ManagerForSDKTest1",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     volumeIds: [
+ *         "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/volumeContainerForSDKTest/volumes/Clonedvolume1",
+ *         "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/volumeContainerForSDKTest/volumes/volume1",
+ *     ],
+ * });
+ *
+ * ```
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**

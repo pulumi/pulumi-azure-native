@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
 {
     /// <summary>
     /// An object that represents a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### RegistryCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var registry = new AzureRM.ContainerRegistry.Latest.Registry("registry", new AzureRM.ContainerRegistry.Latest.RegistryArgs
+    ///         {
+    ///             AdminUserEnabled = true,
+    ///             Location = "westus",
+    ///             RegistryName = "myRegistry",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.ContainerRegistry.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key", "value" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Registry : Pulumi.CustomResource
     {

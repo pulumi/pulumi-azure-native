@@ -29,6 +29,22 @@ class ReplicationProtectedItem(pulumi.CustomResource):
         """
         Replication protected item.
 
+        ## Example Usage
+        ### Enables protection.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        replication_protected_item = azurerm.recoveryservices.v20180110.ReplicationProtectedItem("replicationProtectedItem",
+            fabric_name="cloud1",
+            protection_container_name="cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+            replicated_protected_item_name="f8491e4f-817a-40dd-a90c-af773978c75b",
+            resource_group_name="resourceGroupPS1",
+            resource_name="vault1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Name of the fabric.

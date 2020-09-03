@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Site REST Resource.
+ *
+ * ## Example Usage
+ * ### Create VMware site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const site = new azurerm.offazure.latest.Site("site", {
+ *     location: "eastus",
+ *     resourceGroupName: "pajindTest",
+ *     siteName: "appliance1e39site",
+ * });
+ *
+ * ```
  */
 export class Site extends pulumi.CustomResource {
     /**

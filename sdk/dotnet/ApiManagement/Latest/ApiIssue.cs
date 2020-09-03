@@ -11,6 +11,34 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
 {
     /// <summary>
     /// Issue Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiIssue
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var apiIssue = new AzureRM.ApiManagement.Latest.ApiIssue("apiIssue", new AzureRM.ApiManagement.Latest.ApiIssueArgs
+    ///         {
+    ///             ApiId = "57d1f7558aa04f15146d9d8a",
+    ///             CreatedDate = "2018-02-01T22:21:20.467Z",
+    ///             Description = "New API issue description",
+    ///             IssueId = "57d2ef278aa04f0ad01d6cdc",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             State = "open",
+    ///             Title = "New API issue",
+    ///             UserId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ApiIssue : Pulumi.CustomResource
     {

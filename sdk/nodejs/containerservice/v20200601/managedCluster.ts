@@ -8,6 +8,224 @@ import * as utilities from "../../utilities";
 
 /**
  * Managed cluster.
+ *
+ * ## Example Usage
+ * ### Create Managed Cluster with PPG
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedCluster = new azurerm.containerservice.v20200601.ManagedCluster("managedCluster", {
+ *     addonProfiles: {},
+ *     agentPoolProfiles: [{
+ *         count: 3,
+ *         enableNodePublicIP: true,
+ *         mode: "System",
+ *         name: "nodepool1",
+ *         nodeImageVersion: "AKSUbuntu:1604:2020.03.11",
+ *         osType: "Linux",
+ *         proximityPlacementGroupID: "/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/proximityPlacementGroups/ppg1",
+ *         type: "VirtualMachineScaleSets",
+ *         vmSize: "Standard_DS2_v2",
+ *     }],
+ *     autoScalerProfile: {
+ *         scaleDownDelayAfterAdd: "15m",
+ *         scanInterval: "20s",
+ *     },
+ *     diskEncryptionSetID: "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+ *     dnsPrefix: "dnsprefix1",
+ *     enablePodSecurityPolicy: true,
+ *     enableRBAC: true,
+ *     kubernetesVersion: "",
+ *     linuxProfile: {
+ *         adminUsername: "azureuser",
+ *         ssh: {
+ *             publicKeys: [{
+ *                 keyData: "keydata",
+ *             }],
+ *         },
+ *     },
+ *     location: "location1",
+ *     networkProfile: {
+ *         loadBalancerProfile: {
+ *             managedOutboundIPs: {
+ *                 count: 2,
+ *             },
+ *         },
+ *         loadBalancerSku: "standard",
+ *         outboundType: "loadBalancer",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     servicePrincipalProfile: {
+ *         clientId: "clientid",
+ *         secret: "secret",
+ *     },
+ *     sku: {
+ *         name: "Basic",
+ *         tier: "Free",
+ *     },
+ *     tags: {
+ *         archv2: "",
+ *         tier: "production",
+ *     },
+ *     windowsProfile: {
+ *         adminPassword: `replacePassword1234$`,
+ *         adminUsername: "azureuser",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create/Update AAD Managed Cluster with EnableAzureRBAC
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedCluster = new azurerm.containerservice.v20200601.ManagedCluster("managedCluster", {
+ *     aadProfile: {
+ *         enableAzureRBAC: true,
+ *         managed: true,
+ *     },
+ *     addonProfiles: {},
+ *     agentPoolProfiles: [{
+ *         availabilityZones: [
+ *             "1",
+ *             "2",
+ *             "3",
+ *         ],
+ *         count: 3,
+ *         enableNodePublicIP: true,
+ *         mode: "System",
+ *         name: "nodepool1",
+ *         nodeImageVersion: "AKSUbuntu:1604:2020.03.11",
+ *         osType: "Linux",
+ *         type: "VirtualMachineScaleSets",
+ *         vmSize: "Standard_DS1_v2",
+ *     }],
+ *     autoScalerProfile: {
+ *         scaleDownDelayAfterAdd: "15m",
+ *         scanInterval: "20s",
+ *     },
+ *     diskEncryptionSetID: "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+ *     dnsPrefix: "dnsprefix1",
+ *     enablePodSecurityPolicy: true,
+ *     enableRBAC: true,
+ *     kubernetesVersion: "",
+ *     linuxProfile: {
+ *         adminUsername: "azureuser",
+ *         ssh: {
+ *             publicKeys: [{
+ *                 keyData: "keydata",
+ *             }],
+ *         },
+ *     },
+ *     location: "location1",
+ *     networkProfile: {
+ *         loadBalancerProfile: {
+ *             managedOutboundIPs: {
+ *                 count: 2,
+ *             },
+ *         },
+ *         loadBalancerSku: "standard",
+ *         outboundType: "loadBalancer",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     servicePrincipalProfile: {
+ *         clientId: "clientid",
+ *         secret: "secret",
+ *     },
+ *     sku: {
+ *         name: "Basic",
+ *         tier: "Free",
+ *     },
+ *     tags: {
+ *         archv2: "",
+ *         tier: "production",
+ *     },
+ *     windowsProfile: {
+ *         adminPassword: `replacePassword1234$`,
+ *         adminUsername: "azureuser",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create/Update Managed Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedCluster = new azurerm.containerservice.v20200601.ManagedCluster("managedCluster", {
+ *     addonProfiles: {},
+ *     agentPoolProfiles: [{
+ *         availabilityZones: [
+ *             "1",
+ *             "2",
+ *             "3",
+ *         ],
+ *         count: 3,
+ *         enableNodePublicIP: true,
+ *         mode: "System",
+ *         name: "nodepool1",
+ *         nodeImageVersion: "AKSUbuntu:1604:2020.03.11",
+ *         osType: "Linux",
+ *         type: "VirtualMachineScaleSets",
+ *         vmSize: "Standard_DS1_v2",
+ *     }],
+ *     autoScalerProfile: {
+ *         scaleDownDelayAfterAdd: "15m",
+ *         scanInterval: "20s",
+ *     },
+ *     diskEncryptionSetID: "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+ *     dnsPrefix: "dnsprefix1",
+ *     enablePodSecurityPolicy: true,
+ *     enableRBAC: true,
+ *     identity: {
+ *         type: "UserAssigned",
+ *     },
+ *     kubernetesVersion: "",
+ *     linuxProfile: {
+ *         adminUsername: "azureuser",
+ *         ssh: {
+ *             publicKeys: [{
+ *                 keyData: "keydata",
+ *             }],
+ *         },
+ *     },
+ *     location: "location1",
+ *     networkProfile: {
+ *         loadBalancerProfile: {
+ *             managedOutboundIPs: {
+ *                 count: 2,
+ *             },
+ *         },
+ *         loadBalancerSku: "standard",
+ *         outboundType: "loadBalancer",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     servicePrincipalProfile: {
+ *         clientId: "clientid",
+ *         secret: "secret",
+ *     },
+ *     sku: {
+ *         name: "Basic",
+ *         tier: "Free",
+ *     },
+ *     tags: {
+ *         archv2: "",
+ *         tier: "production",
+ *     },
+ *     windowsProfile: {
+ *         adminPassword: `replacePassword1234$`,
+ *         adminUsername: "azureuser",
+ *     },
+ * });
+ *
+ * ```
  */
 export class ManagedCluster extends pulumi.CustomResource {
     /**

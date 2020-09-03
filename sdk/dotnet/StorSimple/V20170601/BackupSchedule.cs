@@ -11,6 +11,46 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
 {
     /// <summary>
     /// The backup schedule.
+    /// 
+    /// ## Example Usage
+    /// ### BackupSchedulesCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var backupSchedule = new AzureRM.StorSimple.V20170601.BackupSchedule("backupSchedule", new AzureRM.StorSimple.V20170601.BackupScheduleArgs
+    ///         {
+    ///             BackupPolicyName = "BkUpPolicy01ForSDKTest",
+    ///             BackupScheduleName = "schedule2",
+    ///             BackupType = "CloudSnapshot",
+    ///             DeviceName = "Device05ForSDKTest",
+    ///             Kind = "Series8000",
+    ///             ManagerName = "ManagerForSDKTest1",
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///             RetentionCount = 1,
+    ///             ScheduleRecurrence = new AzureRM.StorSimple.V20170601.Inputs.ScheduleRecurrenceArgs
+    ///             {
+    ///                 RecurrenceType = "Weekly",
+    ///                 RecurrenceValue = 1,
+    ///                 WeeklyDaysList = 
+    ///                 {
+    ///                     "Friday",
+    ///                     "Thursday",
+    ///                     "Monday",
+    ///                 },
+    ///             },
+    ///             ScheduleStatus = "Enabled",
+    ///             StartTime = "2017-06-24T01:00:00Z",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BackupSchedule : Pulumi.CustomResource
     {

@@ -8,6 +8,39 @@ import * as utilities from "../../utilities";
 
 /**
  * VirtualHubRouteTableV2 Resource.
+ *
+ * ## Example Usage
+ * ### VirtualHubRouteTableV2Put
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualHubRouteTableV2 = new azurerm.network.v20190901.VirtualHubRouteTableV2("virtualHubRouteTableV2", {
+ *     attachedConnections: ["All_Vnets"],
+ *     resourceGroupName: "rg1",
+ *     routeTableName: "virtualHubRouteTable1a",
+ *     routes: [
+ *         {
+ *             destinationType: "CIDR",
+ *             destinations: [
+ *                 "20.10.0.0/16",
+ *                 "20.20.0.0/16",
+ *             ],
+ *             nextHopType: "IPAddress",
+ *             nextHops: ["10.0.0.68"],
+ *         },
+ *         {
+ *             destinationType: "CIDR",
+ *             destinations: ["0.0.0.0/0"],
+ *             nextHopType: "IPAddress",
+ *             nextHops: ["10.0.0.68"],
+ *         },
+ *     ],
+ *     virtualHubName: "virtualHub1",
+ * });
+ *
+ * ```
  */
 export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
     /**

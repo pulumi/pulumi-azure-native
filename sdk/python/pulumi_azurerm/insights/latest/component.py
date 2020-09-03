@@ -36,6 +36,41 @@ class Component(pulumi.CustomResource):
         """
         An Application Insights component definition.
 
+        ## Example Usage
+        ### ComponentCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        component = azurerm.insights.latest.Component("component",
+            application_type="web",
+            flow_type="Bluefield",
+            kind="web",
+            location="South Central US",
+            request_source="rest",
+            resource_group_name="my-resource-group",
+            resource_name="my-component")
+
+        ```
+        ### ComponentUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        component = azurerm.insights.latest.Component("component",
+            kind="web",
+            location="South Central US",
+            resource_group_name="my-resource-group",
+            resource_name="my-component",
+            tags={
+                "ApplicationGatewayType": "Internal-Only",
+                "BillingEntity": "Self",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_type: Type of application being monitored.

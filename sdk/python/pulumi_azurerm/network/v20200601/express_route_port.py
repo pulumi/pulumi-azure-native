@@ -33,6 +33,41 @@ class ExpressRoutePort(pulumi.CustomResource):
         """
         ExpressRoutePort resource definition.
 
+        ## Example Usage
+        ### ExpressRoutePortCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        express_route_port = azurerm.network.v20200601.ExpressRoutePort("expressRoutePort",
+            bandwidth_in_gbps=100,
+            encapsulation="QinQ",
+            express_route_port_name="portName",
+            location="westus",
+            peering_location="peeringLocationName",
+            resource_group_name="rg1")
+
+        ```
+        ### ExpressRoutePortUpdateLink
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        express_route_port = azurerm.network.v20200601.ExpressRoutePort("expressRoutePort",
+            bandwidth_in_gbps=100,
+            encapsulation="QinQ",
+            express_route_port_name="portName",
+            links=[{
+                "name": "link1",
+            }],
+            location="westus",
+            peering_location="peeringLocationName",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] bandwidth_in_gbps: Bandwidth of procured ports in Gbps.

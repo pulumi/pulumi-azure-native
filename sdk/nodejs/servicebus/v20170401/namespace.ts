@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace resource.
+ *
+ * ## Example Usage
+ * ### NameSpaceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const namespace = new azurerm.servicebus.v20170401.Namespace("namespace", {
+ *     location: "South Central US",
+ *     namespaceName: "sdk-Namespace2924",
+ *     resourceGroupName: "ArunMonocle",
+ *     sku: {
+ *         name: "Standard",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

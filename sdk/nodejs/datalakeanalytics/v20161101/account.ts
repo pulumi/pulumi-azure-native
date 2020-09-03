@@ -8,6 +8,45 @@ import * as utilities from "../../utilities";
 
 /**
  * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+ *
+ * ## Example Usage
+ * ### Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const account = new azurerm.datalakeanalytics.v20161101.Account("account", {
+ *     accountName: "contosoadla",
+ *     computePolicies: [{
+ *         name: "test_policy",
+ *     }],
+ *     dataLakeStoreAccounts: [{
+ *         name: "test_adls",
+ *     }],
+ *     defaultDataLakeStoreAccount: "test_adls",
+ *     firewallAllowAzureIps: "Enabled",
+ *     firewallRules: [{
+ *         name: "test_rule",
+ *     }],
+ *     firewallState: "Enabled",
+ *     location: "eastus2",
+ *     maxDegreeOfParallelism: 30,
+ *     maxDegreeOfParallelismPerJob: 1,
+ *     maxJobCount: 3,
+ *     minPriorityPerJob: 1,
+ *     newTier: "Consumption",
+ *     queryStoreRetention: 30,
+ *     resourceGroupName: "contosorg",
+ *     storageAccounts: [{
+ *         name: "test_storage",
+ *     }],
+ *     tags: {
+ *         test_key: "test_value",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

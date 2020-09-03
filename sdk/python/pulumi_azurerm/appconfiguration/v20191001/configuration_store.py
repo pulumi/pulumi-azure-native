@@ -29,6 +29,47 @@ class ConfigurationStore(pulumi.CustomResource):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 
+        ## Example Usage
+        ### ConfigurationStores_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        configuration_store = azurerm.appconfiguration.v20191001.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku={
+                "name": "Standard",
+            },
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+        ### ConfigurationStores_Create_WithIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        configuration_store = azurerm.appconfiguration.v20191001.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+            },
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku={
+                "name": "Standard",
+            },
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.

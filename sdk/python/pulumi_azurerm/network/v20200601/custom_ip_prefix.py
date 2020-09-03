@@ -30,6 +30,21 @@ class CustomIPPrefix(pulumi.CustomResource):
         """
         Custom IP prefix resource.
 
+        ## Example Usage
+        ### Create custom IP prefix allocation method
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        custom_ip_prefix = azurerm.network.v20200601.CustomIPPrefix("customIPPrefix",
+            cidr="0.0.0.0/24",
+            custom_ip_prefix_name="test-customipprefix",
+            location="westus",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: The prefix range in CIDR notation. Should include the start address and the prefix length.

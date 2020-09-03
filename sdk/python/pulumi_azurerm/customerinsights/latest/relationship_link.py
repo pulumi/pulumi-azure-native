@@ -33,6 +33,36 @@ class RelationshipLink(pulumi.CustomResource):
         """
         The relationship link resource format.
 
+        ## Example Usage
+        ### RelationshipLinks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        relationship_link = azurerm.customerinsights.latest.RelationshipLink("relationshipLink",
+            description={
+                "en-us": "Link Description",
+            },
+            display_name={
+                "en-us": "Link DisplayName",
+            },
+            hub_name="sdkTestHub",
+            interaction_type="testInteraction4332",
+            profile_property_references=[{
+                "interactionPropertyName": "profile1",
+                "profilePropertyName": "ProfileId",
+            }],
+            related_profile_property_references=[{
+                "interactionPropertyName": "profile1",
+                "profilePropertyName": "ProfileId",
+            }],
+            relationship_link_name="Somelink",
+            relationship_name="testProfile2326994",
+            resource_group_name="TestHubRG")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the Relationship Link.

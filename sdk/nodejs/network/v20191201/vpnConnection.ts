@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnConnection Resource.
+ *
+ * ## Example Usage
+ * ### VpnConnectionPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const vpnConnection = new azurerm.network.v20191201.VpnConnection("vpnConnection", {
+ *     connectionName: "vpnConnection1",
+ *     gatewayName: "gateway1",
+ *     remoteVpnSite: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     vpnLinkConnections: [{
+ *         name: "Connection-Link1",
+ *     }],
+ * });
+ *
+ * ```
  */
 export class VpnConnection extends pulumi.CustomResource {
     /**

@@ -11,6 +11,132 @@ namespace Pulumi.AzureRM.Storage.Latest
 {
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountSetManagementPolicies
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managementPolicy = new AzureRM.Storage.Latest.ManagementPolicy("managementPolicy", new AzureRM.Storage.Latest.ManagementPolicyArgs
+    ///         {
+    ///             AccountName = "sto9699",
+    ///             ManagementPolicyName = "default",
+    ///             Policy = new AzureRM.Storage.Latest.Inputs.ManagementPolicySchemaArgs
+    ///             {
+    ///                 Rules = 
+    ///                 {
+    ///                     new AzureRM.Storage.Latest.Inputs.ManagementPolicyRuleArgs
+    ///                     {
+    ///                         Definition = new AzureRM.Storage.Latest.Inputs.ManagementPolicyDefinitionArgs
+    ///                         {
+    ///                             Actions = new AzureRM.Storage.Latest.Inputs.ManagementPolicyActionArgs
+    ///                             {
+    ///                                 BaseBlob = new AzureRM.Storage.Latest.Inputs.ManagementPolicyBaseBlobArgs
+    ///                                 {
+    ///                                     Delete = new AzureRM.Storage.Latest.Inputs.DateAfterModificationArgs
+    ///                                     {
+    ///                                         DaysAfterModificationGreaterThan = 1000,
+    ///                                     },
+    ///                                     TierToArchive = new AzureRM.Storage.Latest.Inputs.DateAfterModificationArgs
+    ///                                     {
+    ///                                         DaysAfterModificationGreaterThan = 90,
+    ///                                     },
+    ///                                     TierToCool = new AzureRM.Storage.Latest.Inputs.DateAfterModificationArgs
+    ///                                     {
+    ///                                         DaysAfterModificationGreaterThan = 30,
+    ///                                     },
+    ///                                 },
+    ///                                 Snapshot = new AzureRM.Storage.Latest.Inputs.ManagementPolicySnapShotArgs
+    ///                                 {
+    ///                                     Delete = new AzureRM.Storage.Latest.Inputs.DateAfterCreationArgs
+    ///                                     {
+    ///                                         DaysAfterCreationGreaterThan = 30,
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             Filters = new AzureRM.Storage.Latest.Inputs.ManagementPolicyFilterArgs
+    ///                             {
+    ///                                 BlobTypes = 
+    ///                                 {
+    ///                                     "blockBlob",
+    ///                                 },
+    ///                                 PrefixMatch = 
+    ///                                 {
+    ///                                     "olcmtestcontainer1",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Enabled = true,
+    ///                         Name = "olcmtest1",
+    ///                         Type = "Lifecycle",
+    ///                     },
+    ///                     new AzureRM.Storage.Latest.Inputs.ManagementPolicyRuleArgs
+    ///                     {
+    ///                         Definition = new AzureRM.Storage.Latest.Inputs.ManagementPolicyDefinitionArgs
+    ///                         {
+    ///                             Actions = new AzureRM.Storage.Latest.Inputs.ManagementPolicyActionArgs
+    ///                             {
+    ///                                 BaseBlob = new AzureRM.Storage.Latest.Inputs.ManagementPolicyBaseBlobArgs
+    ///                                 {
+    ///                                     Delete = new AzureRM.Storage.Latest.Inputs.DateAfterModificationArgs
+    ///                                     {
+    ///                                         DaysAfterModificationGreaterThan = 1000,
+    ///                                     },
+    ///                                     TierToArchive = new AzureRM.Storage.Latest.Inputs.DateAfterModificationArgs
+    ///                                     {
+    ///                                         DaysAfterModificationGreaterThan = 90,
+    ///                                     },
+    ///                                     TierToCool = new AzureRM.Storage.Latest.Inputs.DateAfterModificationArgs
+    ///                                     {
+    ///                                         DaysAfterModificationGreaterThan = 30,
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             Filters = new AzureRM.Storage.Latest.Inputs.ManagementPolicyFilterArgs
+    ///                             {
+    ///                                 BlobIndexMatch = 
+    ///                                 {
+    ///                                     new AzureRM.Storage.Latest.Inputs.TagFilterArgs
+    ///                                     {
+    ///                                         Name = "tag1",
+    ///                                         Op = "==",
+    ///                                         Value = "val1",
+    ///                                     },
+    ///                                     new AzureRM.Storage.Latest.Inputs.TagFilterArgs
+    ///                                     {
+    ///                                         Name = "tag2",
+    ///                                         Op = "==",
+    ///                                         Value = "val2",
+    ///                                     },
+    ///                                 },
+    ///                                 BlobTypes = 
+    ///                                 {
+    ///                                     "blockBlob",
+    ///                                 },
+    ///                                 PrefixMatch = 
+    ///                                 {
+    ///                                     "olcmtestcontainer2",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Enabled = true,
+    ///                         Name = "olcmtest2",
+    ///                         Type = "Lifecycle",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "res7687",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagementPolicy : Pulumi.CustomResource
     {

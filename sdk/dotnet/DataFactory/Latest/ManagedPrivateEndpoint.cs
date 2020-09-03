@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.DataFactory.Latest
 {
     /// <summary>
     /// Managed private endpoint resource type.
+    /// 
+    /// ## Example Usage
+    /// ### ManagedVirtualNetworks_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managedPrivateEndpoint = new AzureRM.DataFactory.Latest.ManagedPrivateEndpoint("managedPrivateEndpoint", new AzureRM.DataFactory.Latest.ManagedPrivateEndpointArgs
+    ///         {
+    ///             FactoryName = "exampleFactoryName",
+    ///             ManagedPrivateEndpointName = "exampleManagedPrivateEndpointName",
+    ///             ManagedVirtualNetworkName = "exampleManagedVirtualNetworkName",
+    ///             ResourceGroupName = "exampleResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagedPrivateEndpoint : Pulumi.CustomResource
     {

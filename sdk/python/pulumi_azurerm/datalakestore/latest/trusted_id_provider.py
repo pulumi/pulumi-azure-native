@@ -25,6 +25,21 @@ class TrustedIdProvider(pulumi.CustomResource):
         """
         Data Lake Store trusted identity provider information.
 
+        ## Example Usage
+        ### Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        trusted_id_provider = azurerm.datalakestore.latest.TrustedIdProvider("trustedIdProvider",
+            account_name="contosoadla",
+            id_provider="https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+            resource_group_name="contosorg",
+            trusted_id_provider_name="test_trusted_id_provider_name")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.

@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Table.
+ *
+ * ## Example Usage
+ * ### CosmosDBTableReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const databaseAccountTable = new azurerm.documentdb.v20160331.DatabaseAccountTable("databaseAccountTable", {
+ *     accountName: "ddb1",
+ *     options: {},
+ *     resource: {
+ *         id: "tableName",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tableName: "tableName",
+ * });
+ *
+ * ```
  */
 export class DatabaseAccountTable extends pulumi.CustomResource {
     /**

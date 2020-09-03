@@ -11,6 +11,66 @@ namespace Pulumi.AzureRM.CognitiveServices.Latest
 {
     /// <summary>
     /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+    /// 
+    /// ## Example Usage
+    /// ### Create Account
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var account = new AzureRM.CognitiveServices.Latest.Account("account", new AzureRM.CognitiveServices.Latest.AccountArgs
+    ///         {
+    ///             AccountName = "testCreate1",
+    ///             Identity = new AzureRM.CognitiveServices.Latest.Inputs.IdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Kind = "Emotion",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.CognitiveServices.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create Account Min
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var account = new AzureRM.CognitiveServices.Latest.Account("account", new AzureRM.CognitiveServices.Latest.AccountArgs
+    ///         {
+    ///             AccountName = "testCreate1",
+    ///             Identity = new AzureRM.CognitiveServices.Latest.Inputs.IdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Kind = "CognitiveServices",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.CognitiveServices.Latest.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S0",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

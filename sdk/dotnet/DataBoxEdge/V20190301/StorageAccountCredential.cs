@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
 {
     /// <summary>
     /// The storage account credential.
+    /// 
+    /// ## Example Usage
+    /// ### SACPut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var storageAccountCredential = new AzureRM.DataBoxEdge.V20190301.StorageAccountCredential("storageAccountCredential", new AzureRM.DataBoxEdge.V20190301.StorageAccountCredentialArgs
+    ///         {
+    ///             AccountKey = new AzureRM.DataBoxEdge.V20190301.Inputs.AsymmetricEncryptedSecretArgs
+    ///             {
+    ///                 EncryptionAlgorithm = "AES256",
+    ///                 EncryptionCertThumbprint = "2A9D8D6BE51574B5461230AEF02F162C5F01AD31",
+    ///                 Value = "lAeZEYi6rNP1/EyNaVUYmTSZEYyaIaWmwUsGwek0+xiZj54GM9Ue9/UA2ed/ClC03wuSit2XzM/cLRU5eYiFBwks23rGwiQOr3sruEL2a74EjPD050xYjA6M1I2hu/w2yjVHhn5j+DbXS4Xzi+rHHNZK3DgfDO3PkbECjPck+PbpSBjy9+6Mrjcld5DIZhUAeMlMHrFlg+WKRKB14o/og56u5/xX6WKlrMLEQ+y6E18dUwvWs2elTNoVO8PBE8SM/CfooX4AMNvaNdSObNBPdP+F6Lzc556nFNWXrBLRt0vC7s9qTiVRO4x/qCNaK/B4y7IqXMllwQFf4Np9UQ2ECA==",
+    ///             },
+    ///             AccountType = "BlobStorage",
+    ///             Alias = "sac1",
+    ///             DeviceName = "testedgedevice",
+    ///             Name = "sac1",
+    ///             ResourceGroupName = "GroupForEdgeAutomation",
+    ///             SslStatus = "Disabled",
+    ///             UserName = "cisbvt",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {

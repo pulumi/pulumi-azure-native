@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.BatchAI.Latest
 {
     /// <summary>
     /// Batch AI Workspace information.
+    /// 
+    /// ## Example Usage
+    /// ### Create a workspace
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var workspace = new AzureRM.BatchAI.Latest.Workspace("workspace", new AzureRM.BatchAI.Latest.WorkspaceArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "demo_resource_group",
+    ///             WorkspaceName = "demo_workspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

@@ -11,6 +11,34 @@ namespace Pulumi.AzureRM.Compute.V20190701
 {
     /// <summary>
     /// Specifies information about the gallery Application Definition that you want to create or update.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery Application.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var galleryApplication = new AzureRM.Compute.V20190701.GalleryApplication("galleryApplication", new AzureRM.Compute.V20190701.GalleryApplicationArgs
+    ///         {
+    ///             Description = "This is the gallery application description.",
+    ///             Eula = "This is the gallery application EULA.",
+    ///             GalleryApplicationName = "myGalleryApplicationName",
+    ///             GalleryName = "myGalleryName",
+    ///             Location = "West US",
+    ///             PrivacyStatementUri = "myPrivacyStatementUri}",
+    ///             ReleaseNoteUri = "myReleaseNoteUri",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             SupportedOSType = "Windows",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class GalleryApplication : Pulumi.CustomResource
     {

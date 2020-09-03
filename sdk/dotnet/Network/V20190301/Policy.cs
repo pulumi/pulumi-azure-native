@@ -11,6 +11,124 @@ namespace Pulumi.AzureRM.Network.V20190301
 {
     /// <summary>
     /// Defines web application firewall policy.
+    /// 
+    /// ## Example Usage
+    /// ### Creates specific policy
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policy = new AzureRM.Network.V20190301.Policy("policy", new AzureRM.Network.V20190301.PolicyArgs
+    ///         {
+    ///             CustomRules = new AzureRM.Network.V20190301.Inputs.CustomRuleListArgs
+    ///             {
+    ///                 Rules = 
+    ///                 {
+    ///                     new AzureRM.Network.V20190301.Inputs.CustomRuleArgs
+    ///                     {
+    ///                         Action = "Block",
+    ///                         MatchConditions = 
+    ///                         {
+    ///                             new AzureRM.Network.V20190301.Inputs.MatchConditionArgs
+    ///                             {
+    ///                                 MatchValue = 
+    ///                                 {
+    ///                                     "192.168.1.0/24",
+    ///                                     "10.0.0.0/24",
+    ///                                 },
+    ///                                 MatchVariable = "RemoteAddr",
+    ///                                 Operator = "IPMatch",
+    ///                             },
+    ///                         },
+    ///                         Name = "Rule1",
+    ///                         Priority = 1,
+    ///                         RateLimitThreshold = 1000,
+    ///                         RuleType = "RateLimitRule",
+    ///                     },
+    ///                     new AzureRM.Network.V20190301.Inputs.CustomRuleArgs
+    ///                     {
+    ///                         Action = "Block",
+    ///                         MatchConditions = 
+    ///                         {
+    ///                             new AzureRM.Network.V20190301.Inputs.MatchConditionArgs
+    ///                             {
+    ///                                 MatchValue = 
+    ///                                 {
+    ///                                     "CH",
+    ///                                 },
+    ///                                 MatchVariable = "RemoteAddr",
+    ///                                 Operator = "GeoMatch",
+    ///                             },
+    ///                             new AzureRM.Network.V20190301.Inputs.MatchConditionArgs
+    ///                             {
+    ///                                 MatchValue = 
+    ///                                 {
+    ///                                     "windows",
+    ///                                 },
+    ///                                 MatchVariable = "RequestHeader",
+    ///                                 Operator = "Contains",
+    ///                                 Selector = "UserAgent",
+    ///                                 Transforms = 
+    ///                                 {
+    ///                                     "Lowercase",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Name = "Rule2",
+    ///                         Priority = 2,
+    ///                         RuleType = "MatchRule",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ManagedRules = new AzureRM.Network.V20190301.Inputs.ManagedRuleSetListArgs
+    ///             {
+    ///                 ManagedRuleSets = 
+    ///                 {
+    ///                     new AzureRM.Network.V20190301.Inputs.ManagedRuleSetArgs
+    ///                     {
+    ///                         RuleGroupOverrides = 
+    ///                         {
+    ///                             new AzureRM.Network.V20190301.Inputs.ManagedRuleGroupOverrideArgs
+    ///                             {
+    ///                                 RuleGroupName = "Group1",
+    ///                                 Rules = 
+    ///                                 {
+    ///                                     new AzureRM.Network.V20190301.Inputs.ManagedRuleOverrideArgs
+    ///                                     {
+    ///                                         Action = "Redirect",
+    ///                                         EnabledState = "Enabled",
+    ///                                         RuleId = "GROUP1-0001",
+    ///                                     },
+    ///                                     new AzureRM.Network.V20190301.Inputs.ManagedRuleOverrideArgs
+    ///                                     {
+    ///                                         RuleId = "GROUP1-0002",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         RuleSetType = "DefaultRuleSet",
+    ///                         RuleSetVersion = "preview-1.0",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             PolicyName = "Policy1",
+    ///             PolicySettings = new AzureRM.Network.V20190301.Inputs.PolicySettingsArgs
+    ///             {
+    ///                 CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+    ///                 CustomBlockResponseStatusCode = 499,
+    ///                 RedirectUrl = "http://www.bing.com",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Policy : Pulumi.CustomResource
     {

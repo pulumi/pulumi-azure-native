@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Batch AI Workspace information.
+ *
+ * ## Example Usage
+ * ### Create a workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const workspace = new azurerm.batchai.latest.Workspace("workspace", {
+ *     location: "eastus",
+ *     resourceGroupName: "demo_resource_group",
+ *     workspaceName: "demo_workspace",
+ * });
+ *
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
 {
     /// <summary>
     /// Description of subscription resource.
+    /// 
+    /// ## Example Usage
+    /// ### SubscriptionCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var subscription = new AzureRM.ServiceBus.V20170401.Subscription("subscription", new AzureRM.ServiceBus.V20170401.SubscriptionArgs
+    ///         {
+    ///             EnableBatchedOperations = true,
+    ///             NamespaceName = "sdk-Namespace-1349",
+    ///             ResourceGroupName = "ResourceGroup",
+    ///             SubscriptionName = "sdk-Subscriptions-2178",
+    ///             TopicName = "sdk-Topics-8740",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Subscription : Pulumi.CustomResource
     {

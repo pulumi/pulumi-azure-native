@@ -27,6 +27,51 @@ class ManagementPolicy(pulumi.CustomResource):
         """
         The Get Storage Account ManagementPolicies operation response.
 
+        ## Example Usage
+        ### StorageAccountSetManagementPolicies
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        management_policy = azurerm.storage.v20181101.ManagementPolicy("managementPolicy",
+            account_name="sto9699",
+            management_policy_name="default",
+            policy={
+                "rules": [{
+                    "definition": {
+                        "actions": {
+                            "baseBlob": {
+                                "delete": {
+                                    "daysAfterModificationGreaterThan": 1000,
+                                },
+                                "tierToArchive": {
+                                    "daysAfterModificationGreaterThan": 90,
+                                },
+                                "tierToCool": {
+                                    "daysAfterModificationGreaterThan": 30,
+                                },
+                            },
+                            "snapshot": {
+                                "delete": {
+                                    "daysAfterCreationGreaterThan": 30,
+                                },
+                            },
+                        },
+                        "filters": {
+                            "blobTypes": ["blockBlob"],
+                            "prefixMatch": ["olcmtestcontainer"],
+                        },
+                    },
+                    "enabled": True,
+                    "name": "olcmtest",
+                    "type": "Lifecycle",
+                }],
+            },
+            resource_group_name="res7687")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

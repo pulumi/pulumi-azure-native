@@ -8,6 +8,36 @@ import * as utilities from "../../utilities";
 
 /**
  * RouteTable resource in a virtual hub.
+ *
+ * ## Example Usage
+ * ### RouteTablePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const hubRouteTable = new azurerm.network.v20200601.HubRouteTable("hubRouteTable", {
+ *     labels: [
+ *         "label1",
+ *         "label2",
+ *     ],
+ *     resourceGroupName: "rg1",
+ *     routeTableName: "hubRouteTable1",
+ *     routes: [{
+ *         destinationType: "CIDR",
+ *         destinations: [
+ *             "10.0.0.0/8",
+ *             "20.0.0.0/8",
+ *             "30.0.0.0/8",
+ *         ],
+ *         name: "route1",
+ *         nextHop: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azureFirewall1",
+ *         nextHopType: "ResourceId",
+ *     }],
+ *     virtualHubName: "virtualHub1",
+ * });
+ *
+ * ```
  */
 export class HubRouteTable extends pulumi.CustomResource {
     /**

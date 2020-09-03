@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 {
     /// <summary>
     /// The extended info of the manager.
+    /// 
+    /// ## Example Usage
+    /// ### ManagersCreateExtendedInfo
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var managerExtendedInfo = new AzureRM.StorSimple.V20161001.ManagerExtendedInfo("managerExtendedInfo", new AzureRM.StorSimple.V20161001.ManagerExtendedInfoArgs
+    ///         {
+    ///             Algorithm = "SHA256",
+    ///             Etag = "6531d5d7-3ced-4f78-83b6-804368f2ca0c",
+    ///             IntegrityKey = "e6501980-7efe-4602-bb0e-3cb9a08a6003",
+    ///             ManagerName = "ManagerForSDKTest2",
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ManagerExtendedInfo : Pulumi.CustomResource
     {

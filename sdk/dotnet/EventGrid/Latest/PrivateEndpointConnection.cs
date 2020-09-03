@@ -9,6 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.EventGrid.Latest
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### PrivateEndpointConnections_Update
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.EventGrid.Latest.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.EventGrid.Latest.PrivateEndpointConnectionArgs
+    ///         {
+    ///             ParentName = "exampletopic1",
+    ///             ParentType = "topics",
+    ///             PrivateEndpointConnectionName = "BMTPE5.8A30D251-4C61-489D-A1AA-B37C4A329B8B",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.EventGrid.Latest.Inputs.ConnectionStateArgs
+    ///             {
+    ///                 ActionsRequired = "None",
+    ///                 Description = "approving connection",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "examplerg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>

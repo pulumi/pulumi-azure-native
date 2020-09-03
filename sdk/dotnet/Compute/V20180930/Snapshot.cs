@@ -11,6 +11,84 @@ namespace Pulumi.AzureRM.Compute.V20180930
 {
     /// <summary>
     /// Snapshot resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create a snapshot by importing an unmanaged blob from a different subscription.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var snapshot = new AzureRM.Compute.V20180930.Snapshot("snapshot", new AzureRM.Compute.V20180930.SnapshotArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20180930.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Import",
+    ///                 SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///                 StorageAccountId = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+    ///             },
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             SnapshotName = "mySnapshot1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a snapshot by importing an unmanaged blob from the same subscription.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var snapshot = new AzureRM.Compute.V20180930.Snapshot("snapshot", new AzureRM.Compute.V20180930.SnapshotArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20180930.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Import",
+    ///                 SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///             },
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             SnapshotName = "mySnapshot1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a snapshot from an existing snapshot in the same or a different subscription.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var snapshot = new AzureRM.Compute.V20180930.Snapshot("snapshot", new AzureRM.Compute.V20180930.SnapshotArgs
+    ///         {
+    ///             CreationData = new AzureRM.Compute.V20180930.Inputs.CreationDataArgs
+    ///             {
+    ///                 CreateOption = "Copy",
+    ///                 SourceResourceId = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+    ///             },
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             SnapshotName = "mySnapshot2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Snapshot : Pulumi.CustomResource
     {

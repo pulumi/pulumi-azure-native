@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Network.V20200601
 {
     /// <summary>
     /// The IpGroups resource information.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate_IpGroups
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ipGroup = new AzureRM.Network.V20200601.IpGroup("ipGroup", new AzureRM.Network.V20200601.IpGroupArgs
+    ///         {
+    ///             IpAddresses = 
+    ///             {
+    ///                 "13.64.39.16/32",
+    ///                 "40.74.146.80/31",
+    ///                 "40.74.147.32/28",
+    ///             },
+    ///             IpGroupsName = "ipGroups1",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IpGroup : Pulumi.CustomResource
     {

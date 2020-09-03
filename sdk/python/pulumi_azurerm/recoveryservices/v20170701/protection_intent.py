@@ -31,6 +31,21 @@ class ProtectionIntent(pulumi.CustomResource):
         """
         Base class for backup ProtectionIntent.
 
+        ## Example Usage
+        ### Create or Update Azure Vm Protection Intent
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        protection_intent = azurerm.recoveryservices.v20170701.ProtectionIntent("protectionIntent",
+            fabric_name="Azure",
+            intent_object_name="vm;iaasvmcontainerv2;chamsrgtest;chamscandel",
+            resource_group_name="myRG",
+            vault_name="myVault")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.

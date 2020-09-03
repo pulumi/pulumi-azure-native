@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.Devices.Latest
 {
     /// <summary>
     /// The X509 Certificate.
+    /// 
+    /// ## Example Usage
+    /// ### Certificates_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var certificate = new AzureRM.Devices.Latest.Certificate("certificate", new AzureRM.Devices.Latest.CertificateArgs
+    ///         {
+    ///             CertificateName = "cert",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             ResourceName = "iothub",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {

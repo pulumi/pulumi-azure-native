@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.Automation.Latest
 {
     /// <summary>
     /// Definition of the connection.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update connection
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var connection = new AzureRM.Automation.Latest.Connection("connection", new AzureRM.Automation.Latest.ConnectionArgs
+    ///         {
+    ///             AutomationAccountName = "myAutomationAccount28",
+    ///             ConnectionName = "mysConnection",
+    ///             ConnectionType = new AzureRM.Automation.Latest.Inputs.ConnectionTypeAssociationPropertyArgs
+    ///             {
+    ///                 Name = "Azure",
+    ///             },
+    ///             Description = "my description goes here",
+    ///             FieldDefinitionValues = 
+    ///             {
+    ///                 { "AutomationCertificateName", "mysCertificateName" },
+    ///                 { "SubscriptionID", "subid" },
+    ///             },
+    ///             Name = "mysConnection",
+    ///             ResourceGroupName = "rg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Connection : Pulumi.CustomResource
     {

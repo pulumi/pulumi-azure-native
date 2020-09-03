@@ -11,6 +11,60 @@ namespace Pulumi.AzureRM.Network.V20180201
 {
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
+    /// 
+    /// ## Example Usage
+    /// ### Endpoint-PUT-External-WithGeoMapping
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var endpoint = new AzureRM.Network.V20180201.Endpoint("endpoint", new AzureRM.Network.V20180201.EndpointArgs
+    ///         {
+    ///             EndpointName = "My%20external%20endpoint",
+    ///             EndpointStatus = "Enabled",
+    ///             EndpointType = "ExternalEndpoints",
+    ///             GeoMapping = 
+    ///             {
+    ///                 "GEO-AS",
+    ///                 "GEO-AF",
+    ///             },
+    ///             ProfileName = "azuresdkfornetautoresttrafficmanager8224",
+    ///             ResourceGroupName = "azuresdkfornetautoresttrafficmanager2191",
+    ///             Target = "foobar.contoso.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Endpoint-PUT-External-WithLocation
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var endpoint = new AzureRM.Network.V20180201.Endpoint("endpoint", new AzureRM.Network.V20180201.EndpointArgs
+    ///         {
+    ///             EndpointLocation = "North Europe",
+    ///             EndpointName = "azsmnet7187",
+    ///             EndpointStatus = "Enabled",
+    ///             EndpointType = "ExternalEndpoints",
+    ///             ProfileName = "azsmnet6386",
+    ///             ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///             Target = "foobar.contoso.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {

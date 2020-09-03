@@ -8,6 +8,106 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Traffic Manager endpoint.
+ *
+ * ## Example Usage
+ * ### Endpoint-PUT-External-WithCustomHeaders
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const endpoint = new azurerm.network.latest.Endpoint("endpoint", {
+ *     customHeaders: [
+ *         {
+ *             name: "header-1",
+ *             value: "value-1",
+ *         },
+ *         {
+ *             name: "header-2",
+ *             value: "value-2",
+ *         },
+ *     ],
+ *     endpointLocation: "North Europe",
+ *     endpointName: "azsmnet7187",
+ *     endpointStatus: "Enabled",
+ *     endpointType: "ExternalEndpoints",
+ *     name: "azsmnet7187",
+ *     profileName: "azsmnet6386",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager1421",
+ *     target: "foobar.contoso.com",
+ *     type: "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+ * });
+ *
+ * ```
+ * ### Endpoint-PUT-External-WithGeoMapping
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const endpoint = new azurerm.network.latest.Endpoint("endpoint", {
+ *     endpointName: `My%20external%20endpoint`,
+ *     endpointStatus: "Enabled",
+ *     endpointType: "ExternalEndpoints",
+ *     geoMapping: [
+ *         "GEO-AS",
+ *         "GEO-AF",
+ *     ],
+ *     name: "My external endpoint",
+ *     profileName: "azuresdkfornetautoresttrafficmanager8224",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager2191",
+ *     target: "foobar.contoso.com",
+ *     type: "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+ * });
+ *
+ * ```
+ * ### Endpoint-PUT-External-WithLocation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const endpoint = new azurerm.network.latest.Endpoint("endpoint", {
+ *     endpointLocation: "North Europe",
+ *     endpointName: "azsmnet7187",
+ *     endpointStatus: "Enabled",
+ *     endpointType: "ExternalEndpoints",
+ *     name: "azsmnet7187",
+ *     profileName: "azsmnet6386",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager1421",
+ *     target: "foobar.contoso.com",
+ *     type: "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+ * });
+ *
+ * ```
+ * ### Endpoint-PUT-External-WithSubnetMapping
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const endpoint = new azurerm.network.latest.Endpoint("endpoint", {
+ *     endpointName: `My%20external%20endpoint`,
+ *     endpointStatus: "Enabled",
+ *     endpointType: "ExternalEndpoints",
+ *     name: "My external endpoint",
+ *     profileName: "azuresdkfornetautoresttrafficmanager8224",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager2191",
+ *     subnets: [
+ *         {
+ *             first: "1.2.3.0",
+ *             scope: 24,
+ *         },
+ *         {
+ *             first: "25.26.27.28",
+ *             last: "29.30.31.32",
+ *         },
+ *     ],
+ *     target: "foobar.contoso.com",
+ *     type: "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+ * });
+ *
+ * ```
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

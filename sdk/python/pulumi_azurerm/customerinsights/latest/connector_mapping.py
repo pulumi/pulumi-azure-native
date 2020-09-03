@@ -33,6 +33,58 @@ class ConnectorMapping(pulumi.CustomResource):
         """
         The connector mapping resource format.
 
+        ## Example Usage
+        ### ConnectorMappings_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        connector_mapping = azurerm.customerinsights.latest.ConnectorMapping("connectorMapping",
+            connector_name="testConnector8858",
+            description="Test mapping",
+            display_name="testMapping12491",
+            entity_type="Interaction",
+            entity_type_name="TestInteractionType2967",
+            hub_name="sdkTestHub",
+            mapping_name="testMapping12491",
+            mapping_properties={
+                "availability": {
+                    "frequency": "Hour",
+                    "interval": 5,
+                },
+                "completeOperation": {
+                    "completionOperationType": "DeleteFile",
+                    "destinationFolder": "fakePath",
+                },
+                "errorManagement": {
+                    "errorLimit": 10,
+                    "errorManagementType": "StopImport",
+                },
+                "fileFilter": "unknown",
+                "folderPath": "http://sample.dne/file",
+                "format": {
+                    "columnDelimiter": "|",
+                    "formatType": "TextFormat",
+                },
+                "hasHeader": False,
+                "structure": [
+                    {
+                        "columnName": "unknown1",
+                        "isEncrypted": False,
+                        "propertyName": "unknwon1",
+                    },
+                    {
+                        "columnName": "unknown2",
+                        "isEncrypted": True,
+                        "propertyName": "unknwon2",
+                    },
+                ],
+            },
+            resource_group_name="TestHubRG")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connector_name: The name of the connector.

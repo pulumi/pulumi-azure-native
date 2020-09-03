@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Deployment information.
+ *
+ * ## Example Usage
+ * ### Create deployment at tenant scope.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const deploymentAtTenantScope = new azurerm.resources.v20190701.DeploymentAtTenantScope("deploymentAtTenantScope", {
+ *     deploymentName: "tenant-dep01",
+ *     location: "eastus",
+ * });
+ *
+ * ```
  */
 export class DeploymentAtTenantScope extends pulumi.CustomResource {
     /**

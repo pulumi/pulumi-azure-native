@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * The top level data export resource container.
+ *
+ * ## Example Usage
+ * ### DataExportCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataExport = new azurerm.operationalinsights.latest.DataExport("dataExport", {
+ *     dataExportName: "export1",
+ *     resourceGroupName: "RgTest1",
+ *     tableNames: ["Heartbeat"],
+ *     workspaceName: "DeWnTest1234",
+ * });
+ *
+ * ```
  */
 export class DataExport extends pulumi.CustomResource {
     /**

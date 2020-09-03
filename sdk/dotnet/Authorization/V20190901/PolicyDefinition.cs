@@ -11,6 +11,147 @@ namespace Pulumi.AzureRM.Authorization.V20190901
 {
     /// <summary>
     /// The policy definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy definition
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policyDefinition = new AzureRM.Authorization.V20190901.PolicyDefinition("policyDefinition", new AzureRM.Authorization.V20190901.PolicyDefinitionArgs
+    ///         {
+    ///             Description = "Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+    ///             DisplayName = "Enforce resource naming convention",
+    ///             Metadata = 
+    ///             {
+    ///                 { "category", "Naming" },
+    ///             },
+    ///             Mode = "All",
+    ///             Parameters = 
+    ///             {
+    ///                 { "prefix", new AzureRM.Authorization.V20190901.Inputs.ParameterDefinitionsValueArgs
+    ///                 {
+    ///                     Metadata = new AzureRM.Authorization.V20190901.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                     {
+    ///                         Description = "Resource name prefix",
+    ///                         DisplayName = "Prefix",
+    ///                     },
+    ///                     Type = "String",
+    ///                 } },
+    ///                 { "suffix", new AzureRM.Authorization.V20190901.Inputs.ParameterDefinitionsValueArgs
+    ///                 {
+    ///                     Metadata = new AzureRM.Authorization.V20190901.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                     {
+    ///                         Description = "Resource name suffix",
+    ///                         DisplayName = "Suffix",
+    ///                     },
+    ///                     Type = "String",
+    ///                 } },
+    ///             },
+    ///             PolicyDefinitionName = "ResourceNaming",
+    ///             PolicyRule = 
+    ///             {
+    ///                 { "if", 
+    ///                 {
+    ///                     { "not", 
+    ///                     {
+    ///                         { "field", "name" },
+    ///                         { "like", "[concat(parameters('prefix'), '*', parameters('suffix'))]" },
+    ///                     } },
+    ///                 } },
+    ///                 { "then", 
+    ///                 {
+    ///                     { "effect", "deny" },
+    ///                 } },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create or update a policy definition with advanced parameters
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policyDefinition = new AzureRM.Authorization.V20190901.PolicyDefinition("policyDefinition", new AzureRM.Authorization.V20190901.PolicyDefinitionArgs
+    ///         {
+    ///             Description = "Audit enabling of logs and retain them up to a year. This enables recreation of activity trails for investigation purposes when a security incident occurs or your network is compromised",
+    ///             DisplayName = "Event Hubs should have diagnostic logging enabled",
+    ///             Metadata = 
+    ///             {
+    ///                 { "category", "Event Hub" },
+    ///             },
+    ///             Mode = "Indexed",
+    ///             Parameters = 
+    ///             {
+    ///                 { "requiredRetentionDays", new AzureRM.Authorization.V20190901.Inputs.ParameterDefinitionsValueArgs
+    ///                 {
+    ///                     AllowedValues = 
+    ///                     {
+    ///                         0,
+    ///                         30,
+    ///                         90,
+    ///                         180,
+    ///                         365,
+    ///                     },
+    ///                     DefaultValue = 365,
+    ///                     Metadata = new AzureRM.Authorization.V20190901.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                     {
+    ///                         Description = "The required diagnostic logs retention in days",
+    ///                         DisplayName = "Required retention (days)",
+    ///                     },
+    ///                     Type = "Integer",
+    ///                 } },
+    ///             },
+    ///             PolicyDefinitionName = "EventHubDiagnosticLogs",
+    ///             PolicyRule = 
+    ///             {
+    ///                 { "if", 
+    ///                 {
+    ///                     { "equals", "Microsoft.EventHub/namespaces" },
+    ///                     { "field", "type" },
+    ///                 } },
+    ///                 { "then", 
+    ///                 {
+    ///                     { "details", 
+    ///                     {
+    ///                         { "existenceCondition", 
+    ///                         {
+    ///                             { "allOf", 
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "equals", "true" },
+    ///                                     { "field", "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.enabled" },
+    ///                                 },
+    ///                                 
+    ///                                 {
+    ///                                     { "equals", "[parameters('requiredRetentionDays')]" },
+    ///                                     { "field", "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.days" },
+    ///                                 },
+    ///                             } },
+    ///                         } },
+    ///                         { "type", "Microsoft.Insights/diagnosticSettings" },
+    ///                     } },
+    ///                     { "effect", "AuditIfNotExists" },
+    ///                 } },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PolicyDefinition : Pulumi.CustomResource
     {

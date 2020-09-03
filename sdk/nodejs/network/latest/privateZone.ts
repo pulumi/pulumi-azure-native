@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Private DNS zone.
+ *
+ * ## Example Usage
+ * ### PUT Private DNS Zone
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateZone = new azurerm.network.latest.PrivateZone("privateZone", {
+ *     location: "Global",
+ *     privateZoneName: "privatezone1.com",
+ *     resourceGroupName: "resourceGroup1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class PrivateZone extends pulumi.CustomResource {
     /**

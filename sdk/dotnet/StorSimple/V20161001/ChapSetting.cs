@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 {
     /// <summary>
     /// Challenge-Handshake Authentication Protocol (CHAP) setting
+    /// 
+    /// ## Example Usage
+    /// ### ChapSettingsCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var chapSetting = new AzureRM.StorSimple.V20161001.ChapSetting("chapSetting", new AzureRM.StorSimple.V20161001.ChapSettingArgs
+    ///         {
+    ///             ChapUserName = "ChapSettingForSDK",
+    ///             DeviceName = "HSDK-WSJQERQW3F",
+    ///             ManagerName = "hAzureSDKOperations",
+    ///             Password = new AzureRM.StorSimple.V20161001.Inputs.AsymmetricEncryptedSecretArgs
+    ///             {
+    ///                 EncryptionAlgorithm = "RSAES_PKCS1_v_1_5",
+    ///                 EncryptionCertificateThumbprint = "D73DB57C4CDD6761E159F8D1E8A7D759424983FD",
+    ///                 Value = "W4xL3maActbzoehB9Ny1nr16uyjZZfvuJ70f8yBQgtS3vU4SLrOpoggmutOsbcgOgmgNHZnKe73WRZxzJFxzUQqcFNrAV+dReDkO5I/L1GxDjT5rsWn+74dRl8ditTew4z6OcwrT6RXtjG0njkUNsxXuawuylXsdHdvgQtSWbXBSao6KVhSbGQ57/V++CXqBbG2zoGLlHMdZF9OQccvCgh7qwD4ua7FLwqvQ8vYYVXryKm+XDmmT+GYWDqxPly0M2mJl/GLB/c6rNem4oRHBsf/vKfEKm8WGLWNsRZGcbxZKGiGsKC8QsxDHou6Ci3rfphVJE2R/9TxL+/1lUu2poQ==",
+    ///             },
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ChapSetting : Pulumi.CustomResource
     {

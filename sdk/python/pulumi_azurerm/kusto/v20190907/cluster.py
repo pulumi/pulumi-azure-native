@@ -36,6 +36,34 @@ class Cluster(pulumi.CustomResource):
         """
         Class representing a Kusto cluster.
 
+        ## Example Usage
+        ### KustoClustersCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster = azurerm.kusto.v20190907.Cluster("cluster",
+            cluster_name="KustoClusterRPTest4",
+            enable_streaming_ingest=True,
+            identity={
+                "type": "SystemAssigned",
+            },
+            key_vault_properties={
+                "keyName": "keyName",
+                "keyVaultUri": "https://dummy.keyvault.com",
+                "keyVersion": "keyVersion",
+            },
+            location="westus",
+            resource_group_name="kustorptest",
+            sku={
+                "capacity": 2,
+                "name": "Standard_L8s",
+                "tier": "Standard",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.

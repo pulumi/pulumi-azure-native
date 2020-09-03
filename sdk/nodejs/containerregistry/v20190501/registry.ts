@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a container registry.
+ *
+ * ## Example Usage
+ * ### RegistryCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const registry = new azurerm.containerregistry.v20190501.Registry("registry", {
+ *     adminUserEnabled: true,
+ *     location: "westus",
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Registry extends pulumi.CustomResource {
     /**

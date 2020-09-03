@@ -6,6 +6,28 @@ import * as utilities from "../../utilities";
 
 /**
  * The volume.
+ *
+ * ## Example Usage
+ * ### VolumesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const volume = new azurerm.storsimple.latest.Volume("volume", {
+ *     accessControlRecordIds: ["/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACR2"],
+ *     deviceName: "Device05ForSDKTest",
+ *     managerName: "ManagerForSDKTest1",
+ *     monitoringStatus: "Enabled",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     sizeInBytes: 5368709120,
+ *     volumeContainerName: "VolumeContainerForSDKTest",
+ *     volumeName: "Volume1ForSDKTest",
+ *     volumeStatus: "Offline",
+ *     volumeType: "Tiered",
+ * });
+ *
+ * ```
  */
 export class Volume extends pulumi.CustomResource {
     /**

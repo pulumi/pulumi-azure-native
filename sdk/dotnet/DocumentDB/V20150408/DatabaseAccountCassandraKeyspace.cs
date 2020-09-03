@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.DocumentDB.V20150408
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra keyspace.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBCassandraKeyspaceCreateUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var databaseAccountCassandraKeyspace = new AzureRM.DocumentDB.V20150408.DatabaseAccountCassandraKeyspace("databaseAccountCassandraKeyspace", new AzureRM.DocumentDB.V20150408.DatabaseAccountCassandraKeyspaceArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             KeyspaceName = "keyspaceName",
+    ///             Options = ,
+    ///             Resource = new AzureRM.DocumentDB.V20150408.Inputs.CassandraKeyspaceResourceArgs
+    ///             {
+    ///                 Id = "keyspaceName",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DatabaseAccountCassandraKeyspace : Pulumi.CustomResource
     {

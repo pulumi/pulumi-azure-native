@@ -27,6 +27,20 @@ class DeploymentAtScope(pulumi.CustomResource):
         """
         Deployment information.
 
+        ## Example Usage
+        ### Create deployment at a given scope.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        deployment_at_scope = azurerm.resources.v20190701.DeploymentAtScope("deploymentAtScope",
+            deployment_name="mg-dep01",
+            location="eastus",
+            scope="providers/Microsoft.Management/managementGroups/tiano-group1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_name: The name of the deployment.

@@ -11,6 +11,175 @@ namespace Pulumi.AzureRM.Storage.V20190601
 {
     /// <summary>
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountCreateObjectReplicationPolicyOnDestination
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var objectReplicationPolicy = new AzureRM.Storage.V20190601.ObjectReplicationPolicy("objectReplicationPolicy", new AzureRM.Storage.V20190601.ObjectReplicationPolicyArgs
+    ///         {
+    ///             AccountName = "dst112",
+    ///             DestinationAccount = "dst112",
+    ///             ObjectReplicationPolicyId = "default",
+    ///             ResourceGroupName = "res7687",
+    ///             Rules = 
+    ///             {
+    ///                 new AzureRM.Storage.V20190601.Inputs.ObjectReplicationPolicyRuleArgs
+    ///                 {
+    ///                     DestinationContainer = "dcont139",
+    ///                     Filters = new AzureRM.Storage.V20190601.Inputs.ObjectReplicationPolicyFilterArgs
+    ///                     {
+    ///                         PrefixMatch = 
+    ///                         {
+    ///                             "blobA",
+    ///                             "blobB",
+    ///                         },
+    ///                     },
+    ///                     SourceContainer = "scont139",
+    ///                 },
+    ///             },
+    ///             SourceAccount = "src1122",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### StorageAccountCreateObjectReplicationPolicyOnSource
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var objectReplicationPolicy = new AzureRM.Storage.V20190601.ObjectReplicationPolicy("objectReplicationPolicy", new AzureRM.Storage.V20190601.ObjectReplicationPolicyArgs
+    ///         {
+    ///             AccountName = "src1122",
+    ///             DestinationAccount = "dst112",
+    ///             ObjectReplicationPolicyId = "2a20bb73-5717-4635-985a-5d4cf777438f",
+    ///             ResourceGroupName = "res7687",
+    ///             Rules = 
+    ///             {
+    ///                 new AzureRM.Storage.V20190601.Inputs.ObjectReplicationPolicyRuleArgs
+    ///                 {
+    ///                     DestinationContainer = "dcont139",
+    ///                     Filters = new AzureRM.Storage.V20190601.Inputs.ObjectReplicationPolicyFilterArgs
+    ///                     {
+    ///                         MinCreationTime = "2020-02-19T16:05:00Z",
+    ///                         PrefixMatch = 
+    ///                         {
+    ///                             "blobA",
+    ///                             "blobB",
+    ///                         },
+    ///                     },
+    ///                     RuleId = "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+    ///                     SourceContainer = "scont139",
+    ///                 },
+    ///             },
+    ///             SourceAccount = "src1122",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### StorageAccountUpdateObjectReplicationPolicyOnDestination
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var objectReplicationPolicy = new AzureRM.Storage.V20190601.ObjectReplicationPolicy("objectReplicationPolicy", new AzureRM.Storage.V20190601.ObjectReplicationPolicyArgs
+    ///         {
+    ///             AccountName = "dst112",
+    ///             DestinationAccount = "dst112",
+    ///             ObjectReplicationPolicyId = "2a20bb73-5717-4635-985a-5d4cf777438f",
+    ///             ResourceGroupName = "res7687",
+    ///             Rules = 
+    ///             {
+    ///                 new AzureRM.Storage.V20190601.Inputs.ObjectReplicationPolicyRuleArgs
+    ///                 {
+    ///                     DestinationContainer = "dcont139",
+    ///                     Filters = new AzureRM.Storage.V20190601.Inputs.ObjectReplicationPolicyFilterArgs
+    ///                     {
+    ///                         PrefixMatch = 
+    ///                         {
+    ///                             "blobA",
+    ///                             "blobB",
+    ///                         },
+    ///                     },
+    ///                     RuleId = "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+    ///                     SourceContainer = "scont139",
+    ///                 },
+    ///                 new AzureRM.Storage.V20190601.Inputs.ObjectReplicationPolicyRuleArgs
+    ///                 {
+    ///                     DestinationContainer = "dcont179",
+    ///                     SourceContainer = "scont179",
+    ///                 },
+    ///             },
+    ///             SourceAccount = "src1122",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### StorageAccountUpdateObjectReplicationPolicyOnSource
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var objectReplicationPolicy = new AzureRM.Storage.V20190601.ObjectReplicationPolicy("objectReplicationPolicy", new AzureRM.Storage.V20190601.ObjectReplicationPolicyArgs
+    ///         {
+    ///             AccountName = "src1122",
+    ///             DestinationAccount = "dst112",
+    ///             ObjectReplicationPolicyId = "2a20bb73-5717-4635-985a-5d4cf777438f",
+    ///             ResourceGroupName = "res7687",
+    ///             Rules = 
+    ///             {
+    ///                 new AzureRM.Storage.V20190601.Inputs.ObjectReplicationPolicyRuleArgs
+    ///                 {
+    ///                     DestinationContainer = "dcont139",
+    ///                     Filters = new AzureRM.Storage.V20190601.Inputs.ObjectReplicationPolicyFilterArgs
+    ///                     {
+    ///                         PrefixMatch = 
+    ///                         {
+    ///                             "blobA",
+    ///                             "blobB",
+    ///                         },
+    ///                     },
+    ///                     RuleId = "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+    ///                     SourceContainer = "scont139",
+    ///                 },
+    ///                 new AzureRM.Storage.V20190601.Inputs.ObjectReplicationPolicyRuleArgs
+    ///                 {
+    ///                     DestinationContainer = "dcont179",
+    ///                     RuleId = "cfbb4bc2-8b60-429f-b05a-d1e0942b33b2",
+    ///                     SourceContainer = "scont179",
+    ///                 },
+    ///             },
+    ///             SourceAccount = "src1122",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ObjectReplicationPolicy : Pulumi.CustomResource
     {

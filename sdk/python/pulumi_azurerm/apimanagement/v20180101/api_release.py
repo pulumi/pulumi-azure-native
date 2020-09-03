@@ -26,6 +26,22 @@ class ApiRelease(pulumi.CustomResource):
         """
         Api Release details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiRelease
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        api_release = azurerm.apimanagement.v20180101.ApiRelease("apiRelease",
+            api_id="a1",
+            notes="yahooagain",
+            release_id="testrev",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: Identifier of the API the release belongs to.

@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.AVS.V20200320
 {
     /// <summary>
     /// ExpressRoute Circuit Authorization
+    /// 
+    /// ## Example Usage
+    /// ### Authorizations_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var authorization = new AzureRM.AVS.V20200320.Authorization("authorization", new AzureRM.AVS.V20200320.AuthorizationArgs
+    ///         {
+    ///             AuthorizationName = "authorization1",
+    ///             PrivateCloudName = "cloud1",
+    ///             ResourceGroupName = "group1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Authorization : Pulumi.CustomResource
     {

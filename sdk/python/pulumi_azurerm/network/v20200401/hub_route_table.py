@@ -30,6 +30,35 @@ class HubRouteTable(pulumi.CustomResource):
         """
         RouteTable resource in a virtual hub.
 
+        ## Example Usage
+        ### RouteTablePut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        hub_route_table = azurerm.network.v20200401.HubRouteTable("hubRouteTable",
+            labels=[
+                "label1",
+                "label2",
+            ],
+            resource_group_name="rg1",
+            route_table_name="hubRouteTable1",
+            routes=[{
+                "destinationType": "CIDR",
+                "destinations": [
+                    "10.0.0.0/8",
+                    "20.0.0.0/8",
+                    "30.0.0.0/8",
+                ],
+                "name": "route1",
+                "nextHop": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azureFirewall1",
+                "nextHopType": "ResourceId",
+            }],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.

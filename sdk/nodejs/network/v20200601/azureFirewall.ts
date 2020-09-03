@@ -8,6 +8,223 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Firewall resource.
+ *
+ * ## Example Usage
+ * ### Create Azure Firewall
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const azureFirewall = new azurerm.network.v20200601.AzureFirewall("azureFirewall", {
+ *     applicationRuleCollections: [{
+ *         name: "apprulecoll",
+ *     }],
+ *     azureFirewallName: "azurefirewall",
+ *     ipConfigurations: [{
+ *         name: "azureFirewallIpConfiguration",
+ *     }],
+ *     location: "West US",
+ *     natRuleCollections: [{
+ *         name: "natrulecoll",
+ *     }],
+ *     networkRuleCollections: [{
+ *         name: "netrulecoll",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "AZFW_VNet",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     threatIntelMode: "Alert",
+ *     zones: [],
+ * });
+ *
+ * ```
+ * ### Create Azure Firewall With Additional Properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const azureFirewall = new azurerm.network.v20200601.AzureFirewall("azureFirewall", {
+ *     additionalProperties: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ *     applicationRuleCollections: [{
+ *         name: "apprulecoll",
+ *     }],
+ *     azureFirewallName: "azurefirewall",
+ *     ipConfigurations: [{
+ *         name: "azureFirewallIpConfiguration",
+ *     }],
+ *     location: "West US",
+ *     natRuleCollections: [{
+ *         name: "natrulecoll",
+ *     }],
+ *     networkRuleCollections: [{
+ *         name: "netrulecoll",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "AZFW_VNet",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     threatIntelMode: "Alert",
+ *     zones: [],
+ * });
+ *
+ * ```
+ * ### Create Azure Firewall With IpGroups
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const azureFirewall = new azurerm.network.v20200601.AzureFirewall("azureFirewall", {
+ *     applicationRuleCollections: [{
+ *         name: "apprulecoll",
+ *     }],
+ *     azureFirewallName: "azurefirewall",
+ *     ipConfigurations: [{
+ *         name: "azureFirewallIpConfiguration",
+ *     }],
+ *     location: "West US",
+ *     natRuleCollections: [{
+ *         name: "natrulecoll",
+ *     }],
+ *     networkRuleCollections: [{
+ *         name: "netrulecoll",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "AZFW_VNet",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     threatIntelMode: "Alert",
+ *     zones: [],
+ * });
+ *
+ * ```
+ * ### Create Azure Firewall With Zones
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const azureFirewall = new azurerm.network.v20200601.AzureFirewall("azureFirewall", {
+ *     applicationRuleCollections: [{
+ *         name: "apprulecoll",
+ *     }],
+ *     azureFirewallName: "azurefirewall",
+ *     ipConfigurations: [{
+ *         name: "azureFirewallIpConfiguration",
+ *     }],
+ *     location: "West US 2",
+ *     natRuleCollections: [{
+ *         name: "natrulecoll",
+ *     }],
+ *     networkRuleCollections: [{
+ *         name: "netrulecoll",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "AZFW_VNet",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     threatIntelMode: "Alert",
+ *     zones: [
+ *         "1",
+ *         "2",
+ *         "3",
+ *     ],
+ * });
+ *
+ * ```
+ * ### Create Azure Firewall With management subnet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const azureFirewall = new azurerm.network.v20200601.AzureFirewall("azureFirewall", {
+ *     applicationRuleCollections: [{
+ *         name: "apprulecoll",
+ *     }],
+ *     azureFirewallName: "azurefirewall",
+ *     ipConfigurations: [{
+ *         name: "azureFirewallIpConfiguration",
+ *     }],
+ *     location: "West US",
+ *     managementIpConfiguration: {
+ *         name: "azureFirewallMgmtIpConfiguration",
+ *     },
+ *     natRuleCollections: [{
+ *         name: "natrulecoll",
+ *     }],
+ *     networkRuleCollections: [{
+ *         name: "netrulecoll",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "AZFW_VNet",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     threatIntelMode: "Alert",
+ *     zones: [],
+ * });
+ *
+ * ```
+ * ### Create Azure Firewall in virtual Hub
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const azureFirewall = new azurerm.network.v20200601.AzureFirewall("azureFirewall", {
+ *     azureFirewallName: "azurefirewall",
+ *     firewallPolicy: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/policy1",
+ *     },
+ *     hubIPAddresses: {
+ *         publicIPs: {
+ *             addresses: [],
+ *             count: 1,
+ *         },
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "AZFW_Hub",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     threatIntelMode: "Alert",
+ *     virtualHub: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+ *     },
+ *     zones: [],
+ * });
+ *
+ * ```
  */
 export class AzureFirewall extends pulumi.CustomResource {
     /**

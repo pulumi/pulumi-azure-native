@@ -26,6 +26,50 @@ class AlertRule(pulumi.CustomResource):
         """
         Alert rule.
 
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        alert_rule = azurerm.operationalinsights.latest.AlertRule("alertRule",
+            etag="3d00c3ca-0000-0100-0000-5d42d5010000",
+            kind="Fusion",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        alert_rule = azurerm.operationalinsights.latest.AlertRule("alertRule",
+            etag="\"260097e0-0000-0d00-0000-5d6fa88f0000\"",
+            kind="MicrosoftSecurityIncidentCreation",
+            resource_group_name="myRg",
+            rule_id="microsoftSecurityIncidentCreationRuleExample",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Scheduled alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        alert_rule = azurerm.operationalinsights.latest.AlertRule("alertRule",
+            etag="\"0300bf09-0000-0000-0000-5c37296e0000\"",
+            kind="Scheduled",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            workspace_name="myWorkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Etag of the azure resource

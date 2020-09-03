@@ -28,6 +28,24 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## Example Usage
+        ### StorageAccountPutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.storage.v20190601.PrivateEndpointConnection("privateEndpointConnection",
+            account_name="sto9699",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            private_link_service_connection_state={
+                "description": "Auto-Approved",
+                "status": "Approved",
+            },
+            resource_group_name="res7687")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

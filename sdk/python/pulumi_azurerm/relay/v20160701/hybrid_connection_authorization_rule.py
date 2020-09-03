@@ -26,6 +26,25 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         """
         Description of a Namespace AuthorizationRules.
 
+        ## Example Usage
+        ### RelayHybridConnectionAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        hybrid_connection_authorization_rule = azurerm.relay.v20160701.HybridConnectionAuthorizationRule("hybridConnectionAuthorizationRule",
+            authorization_rule_name="sdk-RelayAuthRules-01",
+            hybrid_connection_name="sdk-Relay-Hybrid-01",
+            namespace_name="sdk-RelayNamespace-01",
+            resource_group_name="RG-eg",
+            rights=[
+                "Listen",
+                "Send",
+            ])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorizationRule name.

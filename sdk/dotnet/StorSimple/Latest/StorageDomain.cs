@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.StorSimple.Latest
 {
     /// <summary>
     /// The storage domain.
+    /// 
+    /// ## Example Usage
+    /// ### StorageDomainsCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var storageDomain = new AzureRM.StorSimple.Latest.StorageDomain("storageDomain", new AzureRM.StorSimple.Latest.StorageDomainArgs
+    ///         {
+    ///             EncryptionStatus = "Disabled",
+    ///             ManagerName = "hAzureSDKOperations",
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///             StorageAccountCredentialIds = 
+    ///             {
+    ///                 "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageAccountCredentials/sacforsdktest",
+    ///             },
+    ///             StorageDomainName = "sd-fs-HSDK-4XY4FI2IVG",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StorageDomain : Pulumi.CustomResource
     {

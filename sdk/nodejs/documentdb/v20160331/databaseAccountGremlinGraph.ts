@@ -8,6 +8,60 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Gremlin graph.
+ *
+ * ## Example Usage
+ * ### CosmosDBGremlinGraphCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const databaseAccountGremlinGraph = new azurerm.documentdb.v20160331.DatabaseAccountGremlinGraph("databaseAccountGremlinGraph", {
+ *     accountName: "ddb1",
+ *     databaseName: "databaseName",
+ *     graphName: "graphName",
+ *     options: {},
+ *     resource: {
+ *         conflictResolutionPolicy: {
+ *             conflictResolutionPath: "/path",
+ *             mode: "LastWriterWins",
+ *         },
+ *         defaultTtl: 100,
+ *         id: "graphName",
+ *         indexingPolicy: {
+ *             automatic: true,
+ *             excludedPaths: [],
+ *             includedPaths: [{
+ *                 indexes: [
+ *                     {
+ *                         dataType: "String",
+ *                         kind: "Range",
+ *                         precision: -1,
+ *                     },
+ *                     {
+ *                         dataType: "Number",
+ *                         kind: "Range",
+ *                         precision: -1,
+ *                     },
+ *                 ],
+ *                 path: "/*",
+ *             }],
+ *             indexingMode: "Consistent",
+ *         },
+ *         partitionKey: {
+ *             kind: "Hash",
+ *             paths: ["/AccountNumber"],
+ *         },
+ *         uniqueKeyPolicy: {
+ *             uniqueKeys: [{
+ *                 paths: ["/testPath"],
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
     /**

@@ -11,6 +11,49 @@ namespace Pulumi.AzureRM.Network.V20181101
 {
     /// <summary>
     /// A common class for general resource information
+    /// 
+    /// ## Example Usage
+    /// ### CreateVirtualNetworkGatewayConnection_S2S
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualNetworkGatewayConnection = new AzureRM.Network.V20181101.VirtualNetworkGatewayConnection("virtualNetworkGatewayConnection", new AzureRM.Network.V20181101.VirtualNetworkGatewayConnectionArgs
+    ///         {
+    ///             ConnectionProtocol = "IKEv2",
+    ///             ConnectionType = "IPsec",
+    ///             EnableBgp = false,
+    ///             IpsecPolicies = {},
+    ///             LocalNetworkGateway2 = new AzureRM.Network.V20181101.Inputs.LocalNetworkGatewayArgs
+    ///             {
+    ///                 Etag = "W/\"00000000-0000-0000-0000-000000000000\"",
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw",
+    ///                 Location = "centralus",
+    ///                 Tags = ,
+    ///             },
+    ///             Location = "centralus",
+    ///             ResourceGroupName = "rg1",
+    ///             RoutingWeight = 0,
+    ///             SharedKey = "Abc123",
+    ///             UsePolicyBasedTrafficSelectors = false,
+    ///             VirtualNetworkGateway1 = new AzureRM.Network.V20181101.Inputs.VirtualNetworkGatewayArgs
+    ///             {
+    ///                 Etag = "W/\"00000000-0000-0000-0000-000000000000\"",
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw",
+    ///                 Location = "centralus",
+    ///                 Tags = ,
+    ///             },
+    ///             VirtualNetworkGatewayConnectionName = "connS2S",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualNetworkGatewayConnection : Pulumi.CustomResource
     {

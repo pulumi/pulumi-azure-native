@@ -30,6 +30,22 @@ class BastionHost(pulumi.CustomResource):
         """
         Bastion Host resource.
 
+        ## Example Usage
+        ### Create Bastion Host
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        bastion_host = azurerm.network.v20191201.BastionHost("bastionHost",
+            bastion_host_name="bastionhosttenant'",
+            ip_configurations=[{
+                "name": "bastionHostIpConfiguration",
+            }],
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bastion_host_name: The name of the Bastion Host.

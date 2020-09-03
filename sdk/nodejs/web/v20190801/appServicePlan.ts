@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * App Service plan.
+ *
+ * ## Example Usage
+ * ### Create Or Update App Service plan
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const appServicePlan = new azurerm.web.v20190801.AppServicePlan("appServicePlan", {
+ *     kind: "app",
+ *     location: "East US",
+ *     name: "testsf6141",
+ *     resourceGroupName: "testrg123",
+ *     sku: {
+ *         capacity: 1,
+ *         family: "P",
+ *         name: "P1",
+ *         size: "P1",
+ *         tier: "Premium",
+ *     },
+ * });
+ *
+ * ```
  */
 export class AppServicePlan extends pulumi.CustomResource {
     /**

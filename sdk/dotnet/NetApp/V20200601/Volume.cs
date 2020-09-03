@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.NetApp.V20200601
 {
     /// <summary>
     /// Volume resource
+    /// 
+    /// ## Example Usage
+    /// ### Volumes_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var volume = new AzureRM.NetApp.V20200601.Volume("volume", new AzureRM.NetApp.V20200601.VolumeArgs
+    ///         {
+    ///             AccountName = "account1",
+    ///             CreationToken = "my-unique-file-path",
+    ///             Location = "eastus",
+    ///             PoolName = "pool1",
+    ///             ResourceGroupName = "myRG",
+    ///             ServiceLevel = "Premium",
+    ///             SubnetId = "/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+    ///             ThroughputMibps = 128,
+    ///             UsageThreshold = 107374182400,
+    ///             VolumeName = "volume1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {

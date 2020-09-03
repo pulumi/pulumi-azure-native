@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.EventGrid.Latest
 {
     /// <summary>
     /// Domain Topic.
+    /// 
+    /// ## Example Usage
+    /// ### DomainTopics_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var domainTopic = new AzureRM.EventGrid.Latest.DomainTopic("domainTopic", new AzureRM.EventGrid.Latest.DomainTopicArgs
+    ///         {
+    ///             DomainName = "exampledomain1",
+    ///             DomainTopicName = "exampledomaintopic1",
+    ///             ResourceGroupName = "examplerg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DomainTopic : Pulumi.CustomResource
     {

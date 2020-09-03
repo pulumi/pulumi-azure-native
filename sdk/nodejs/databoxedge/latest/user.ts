@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+ *
+ * ## Example Usage
+ * ### UserPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const user = new azurerm.databoxedge.latest.User("user", {
+ *     deviceName: "testedgedevice",
+ *     encryptedPassword: {
+ *         encryptionAlgorithm: "None",
+ *         encryptionCertThumbprint: "blah",
+ *         value: "Password@1",
+ *     },
+ *     name: "user1",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     shareAccessRights: [],
+ *     userType: "Share",
+ * });
+ *
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

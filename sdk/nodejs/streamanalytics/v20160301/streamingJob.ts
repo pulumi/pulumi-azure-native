@@ -8,6 +8,81 @@ import * as utilities from "../../utilities";
 
 /**
  * A streaming job object, containing all information associated with the named streaming job.
+ *
+ * ## Example Usage
+ * ### Create a complete streaming job (a streaming job with a transformation, at least 1 input and at least 1 output)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const streamingJob = new azurerm.streamanalytics.v20160301.StreamingJob("streamingJob", {
+ *     compatibilityLevel: "1.0",
+ *     dataLocale: "en-US",
+ *     eventsLateArrivalMaxDelayInSeconds: 5,
+ *     eventsOutOfOrderMaxDelayInSeconds: 0,
+ *     eventsOutOfOrderPolicy: "Drop",
+ *     functions: [],
+ *     inputs: [{
+ *         name: "inputtest",
+ *         properties: {
+ *             serialization: {
+ *                 type: "Json",
+ *             },
+ *             type: "Stream",
+ *         },
+ *     }],
+ *     jobName: "sj7804",
+ *     location: "West US",
+ *     outputErrorPolicy: "Drop",
+ *     outputs: [{
+ *         name: "outputtest",
+ *     }],
+ *     resourceGroupName: "sjrg3276",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key3: "value3",
+ *         randomKey: "randomValue",
+ *     },
+ *     transformation: {
+ *         name: "transformationtest",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a streaming job shell (a streaming job with no inputs, outputs, transformation, or functions)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const streamingJob = new azurerm.streamanalytics.v20160301.StreamingJob("streamingJob", {
+ *     compatibilityLevel: "1.0",
+ *     dataLocale: "en-US",
+ *     eventsLateArrivalMaxDelayInSeconds: 16,
+ *     eventsOutOfOrderMaxDelayInSeconds: 5,
+ *     eventsOutOfOrderPolicy: "Drop",
+ *     functions: [],
+ *     inputs: [],
+ *     jobName: "sj59",
+ *     location: "West US",
+ *     outputErrorPolicy: "Drop",
+ *     outputs: [],
+ *     resourceGroupName: "sjrg6936",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key3: "value3",
+ *         randomKey: "randomValue",
+ *     },
+ * });
+ *
+ * ```
  */
 export class StreamingJob extends pulumi.CustomResource {
     /**

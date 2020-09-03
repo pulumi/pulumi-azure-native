@@ -11,6 +11,37 @@ namespace Pulumi.AzureRM.DataShare.Latest
 {
     /// <summary>
     /// An account data transfer object.
+    /// 
+    /// ## Example Usage
+    /// ### Accounts_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var account = new AzureRM.DataShare.Latest.Account("account", new AzureRM.DataShare.Latest.AccountArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             Identity = new AzureRM.DataShare.Latest.Inputs.IdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Location = "West US 2",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "Red" },
+    ///                 { "tag2", "White" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

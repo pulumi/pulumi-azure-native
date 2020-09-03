@@ -24,6 +24,20 @@ class DomainTopic(pulumi.CustomResource):
         """
         Domain Topic.
 
+        ## Example Usage
+        ### DomainTopics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        domain_topic = azurerm.eventgrid.latest.DomainTopic("domainTopic",
+            domain_name="exampledomain1",
+            domain_topic_name="exampledomaintopic1",
+            resource_group_name="examplerg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: Name of the domain.

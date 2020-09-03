@@ -35,6 +35,172 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         """
         The integration account agreement.
 
+        ## Example Usage
+        ### Create or update an agreement
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        integration_account_agreement = azurerm.logic.v20190501.IntegrationAccountAgreement("integrationAccountAgreement",
+            agreement_name="testAgreement",
+            agreement_type="AS2",
+            content={
+                "aS2": {
+                    "receiveAgreement": {
+                        "protocolSettings": {
+                            "acknowledgementConnectionSettings": {
+                                "ignoreCertificateNameMismatch": True,
+                                "keepHttpConnectionAlive": True,
+                                "supportHttpStatusCodeContinue": True,
+                                "unfoldHttpHeaders": True,
+                            },
+                            "envelopeSettings": {
+                                "autogenerateFileName": True,
+                                "fileNameTemplate": "Test",
+                                "messageContentType": "text/plain",
+                                "suspendMessageOnFileNameGenerationError": True,
+                                "transmitFileNameInMimeHeader": True,
+                            },
+                            "errorSettings": {
+                                "resendIfMDNNotReceived": True,
+                                "suspendDuplicateMessage": True,
+                            },
+                            "mdnSettings": {
+                                "dispositionNotificationTo": "http://tempuri.org",
+                                "mdnText": "Sample",
+                                "micHashingAlgorithm": "SHA1",
+                                "needMDN": True,
+                                "receiptDeliveryUrl": "http://tempuri.org",
+                                "sendInboundMDNToMessageBox": True,
+                                "sendMDNAsynchronously": True,
+                                "signMDN": True,
+                                "signOutboundMDNIfOptional": True,
+                            },
+                            "messageConnectionSettings": {
+                                "ignoreCertificateNameMismatch": True,
+                                "keepHttpConnectionAlive": True,
+                                "supportHttpStatusCodeContinue": True,
+                                "unfoldHttpHeaders": True,
+                            },
+                            "securitySettings": {
+                                "enableNRRForInboundDecodedMessages": True,
+                                "enableNRRForInboundEncodedMessages": True,
+                                "enableNRRForInboundMDN": True,
+                                "enableNRRForOutboundDecodedMessages": True,
+                                "enableNRRForOutboundEncodedMessages": True,
+                                "enableNRRForOutboundMDN": True,
+                                "overrideGroupSigningCertificate": False,
+                            },
+                            "validationSettings": {
+                                "checkCertificateRevocationListOnReceive": True,
+                                "checkCertificateRevocationListOnSend": True,
+                                "checkDuplicateMessage": True,
+                                "compressMessage": True,
+                                "encryptMessage": False,
+                                "encryptionAlgorithm": "AES128",
+                                "interchangeDuplicatesValidityDays": 100,
+                                "overrideMessageProperties": True,
+                                "signMessage": False,
+                            },
+                        },
+                        "receiverBusinessIdentity": {
+                            "qualifier": "ZZ",
+                            "value": "ZZ",
+                        },
+                        "senderBusinessIdentity": {
+                            "qualifier": "AA",
+                            "value": "AA",
+                        },
+                    },
+                    "sendAgreement": {
+                        "protocolSettings": {
+                            "acknowledgementConnectionSettings": {
+                                "ignoreCertificateNameMismatch": True,
+                                "keepHttpConnectionAlive": True,
+                                "supportHttpStatusCodeContinue": True,
+                                "unfoldHttpHeaders": True,
+                            },
+                            "envelopeSettings": {
+                                "autogenerateFileName": True,
+                                "fileNameTemplate": "Test",
+                                "messageContentType": "text/plain",
+                                "suspendMessageOnFileNameGenerationError": True,
+                                "transmitFileNameInMimeHeader": True,
+                            },
+                            "errorSettings": {
+                                "resendIfMDNNotReceived": True,
+                                "suspendDuplicateMessage": True,
+                            },
+                            "mdnSettings": {
+                                "dispositionNotificationTo": "http://tempuri.org",
+                                "mdnText": "Sample",
+                                "micHashingAlgorithm": "SHA1",
+                                "needMDN": True,
+                                "receiptDeliveryUrl": "http://tempuri.org",
+                                "sendInboundMDNToMessageBox": True,
+                                "sendMDNAsynchronously": True,
+                                "signMDN": True,
+                                "signOutboundMDNIfOptional": True,
+                            },
+                            "messageConnectionSettings": {
+                                "ignoreCertificateNameMismatch": True,
+                                "keepHttpConnectionAlive": True,
+                                "supportHttpStatusCodeContinue": True,
+                                "unfoldHttpHeaders": True,
+                            },
+                            "securitySettings": {
+                                "enableNRRForInboundDecodedMessages": True,
+                                "enableNRRForInboundEncodedMessages": True,
+                                "enableNRRForInboundMDN": True,
+                                "enableNRRForOutboundDecodedMessages": True,
+                                "enableNRRForOutboundEncodedMessages": True,
+                                "enableNRRForOutboundMDN": True,
+                                "overrideGroupSigningCertificate": False,
+                            },
+                            "validationSettings": {
+                                "checkCertificateRevocationListOnReceive": True,
+                                "checkCertificateRevocationListOnSend": True,
+                                "checkDuplicateMessage": True,
+                                "compressMessage": True,
+                                "encryptMessage": False,
+                                "encryptionAlgorithm": "AES128",
+                                "interchangeDuplicatesValidityDays": 100,
+                                "overrideMessageProperties": True,
+                                "signMessage": False,
+                            },
+                        },
+                        "receiverBusinessIdentity": {
+                            "qualifier": "AA",
+                            "value": "AA",
+                        },
+                        "senderBusinessIdentity": {
+                            "qualifier": "ZZ",
+                            "value": "ZZ",
+                        },
+                    },
+                },
+            },
+            guest_identity={
+                "qualifier": "AA",
+                "value": "AA",
+            },
+            guest_partner="GuestPartner",
+            host_identity={
+                "qualifier": "ZZ",
+                "value": "ZZ",
+            },
+            host_partner="HostPartner",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            metadata={},
+            resource_group_name="testResourceGroup",
+            tags={
+                "IntegrationAccountAgreement": "<IntegrationAccountAgreementName>",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agreement_name: The integration account agreement name.

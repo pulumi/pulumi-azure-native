@@ -40,6 +40,44 @@ class Account(pulumi.CustomResource):
         """
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
 
+        ## Example Usage
+        ### Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        account = azurerm.datalakeanalytics.latest.Account("account",
+            account_name="contosoadla",
+            compute_policies=[{
+                "name": "test_policy",
+            }],
+            data_lake_store_accounts=[{
+                "name": "test_adls",
+            }],
+            default_data_lake_store_account="test_adls",
+            firewall_allow_azure_ips="Enabled",
+            firewall_rules=[{
+                "name": "test_rule",
+            }],
+            firewall_state="Enabled",
+            location="eastus2",
+            max_degree_of_parallelism=30,
+            max_degree_of_parallelism_per_job=1,
+            max_job_count=3,
+            min_priority_per_job=1,
+            new_tier="Consumption",
+            query_store_retention=30,
+            resource_group_name="contosorg",
+            storage_accounts=[{
+                "name": "test_storage",
+            }],
+            tags={
+                "test_key": "test_value",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Analytics account.

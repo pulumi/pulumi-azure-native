@@ -11,6 +11,35 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
 {
     /// <summary>
     /// An Azure Cosmos DB MongoDB database.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBMongoDBDatabaseCreateUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mongoDBResourceMongoDBDatabase = new AzureRM.DocumentDB.V20191212.MongoDBResourceMongoDBDatabase("mongoDBResourceMongoDBDatabase", new AzureRM.DocumentDB.V20191212.MongoDBResourceMongoDBDatabaseArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             DatabaseName = "databaseName",
+    ///             Location = "West US",
+    ///             Options = ,
+    ///             Resource = new AzureRM.DocumentDB.V20191212.Inputs.MongoDBDatabaseResourceArgs
+    ///             {
+    ///                 Id = "databaseName",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class MongoDBResourceMongoDBDatabase : Pulumi.CustomResource
     {

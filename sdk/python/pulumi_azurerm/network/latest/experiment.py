@@ -33,6 +33,28 @@ class Experiment(pulumi.CustomResource):
         """
         Defines the properties of an Experiment
 
+        ## Example Usage
+        ### Creates an Experiment
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        experiment = azurerm.network.latest.Experiment("experiment",
+            description="this is my first experiment!",
+            enabled_state="Enabled",
+            endpoint_a={
+                "name": "endpoint A",
+            },
+            endpoint_b={
+                "name": "endpoint B",
+            },
+            experiment_name="MyExperiment",
+            profile_name="MyProfile",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the details or intents of the Experiment

@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.Relay.Latest
 {
     /// <summary>
     /// Description of the WCF relay resource.
+    /// 
+    /// ## Example Usage
+    /// ### RelayCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var wcfRelay = new AzureRM.Relay.Latest.WCFRelay("wcfRelay", new AzureRM.Relay.Latest.WCFRelayArgs
+    ///         {
+    ///             NamespaceName = "sdk-RelayNamespace-9953",
+    ///             RelayName = "sdk-Relay-Wcf-1194",
+    ///             RelayType = "NetTcp",
+    ///             RequiresClientAuthorization = true,
+    ///             RequiresTransportSecurity = true,
+    ///             ResourceGroupName = "RG-eg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class WCFRelay : Pulumi.CustomResource
     {

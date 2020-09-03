@@ -11,6 +11,42 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
 {
     /// <summary>
     /// Value object for saved search results.
+    /// 
+    /// ## Example Usage
+    /// ### SavedSearchCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var savedSearch = new AzureRM.OperationalInsights.V20200801.SavedSearch("savedSearch", new AzureRM.OperationalInsights.V20200801.SavedSearchArgs
+    ///         {
+    ///             Category = "Saved Search Test Category",
+    ///             DisplayName = "Create or Update Saved Search Test",
+    ///             FunctionAlias = "heartbeat_func",
+    ///             FunctionParameters = "a:int=1",
+    ///             Query = "Heartbeat | summarize Count() by Computer | take a",
+    ///             ResourceGroupName = "TestRG",
+    ///             SavedSearchId = "00000000-0000-0000-0000-00000000000",
+    ///             Tags = 
+    ///             {
+    ///                 new AzureRM.OperationalInsights.V20200801.Inputs.TagArgs
+    ///                 {
+    ///                     Name = "Group",
+    ///                     Value = "Computer",
+    ///                 },
+    ///             },
+    ///             Version = 2,
+    ///             WorkspaceName = "TestWS",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SavedSearch : Pulumi.CustomResource
     {

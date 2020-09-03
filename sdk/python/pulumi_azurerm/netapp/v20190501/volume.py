@@ -37,6 +37,26 @@ class Volume(pulumi.CustomResource):
         """
         Volume resource
 
+        ## Example Usage
+        ### Volumes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        volume = azurerm.netapp.v20190501.Volume("volume",
+            account_name="accountName",
+            creation_token="my-unique-file-path",
+            location="eastus",
+            pool_name="poolName",
+            resource_group_name="resourceGroup",
+            service_level="Premium",
+            subnet_id="/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+            usage_threshold=107374182400,
+            volume_name="volumeName")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account

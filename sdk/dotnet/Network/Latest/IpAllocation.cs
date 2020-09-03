@@ -11,6 +11,34 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// IpAllocation resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create IpAllocation
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ipAllocation = new AzureRM.Network.Latest.IpAllocation("ipAllocation", new AzureRM.Network.Latest.IpAllocationArgs
+    ///         {
+    ///             AllocationTags = 
+    ///             {
+    ///                 { "VNetID", "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/HypernetVnet1" },
+    ///             },
+    ///             IpAllocationName = "test-ipallocation",
+    ///             Location = "centraluseuap",
+    ///             Prefix = "3.2.5.0/24",
+    ///             ResourceGroupName = "rg1",
+    ///             Type = "Hypernet",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class IpAllocation : Pulumi.CustomResource
     {

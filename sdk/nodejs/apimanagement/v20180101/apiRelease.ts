@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Api Release details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiRelease
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiRelease = new azurerm.apimanagement.v20180101.ApiRelease("apiRelease", {
+ *     apiId: "a1",
+ *     notes: "yahooagain",
+ *     releaseId: "testrev",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
  */
 export class ApiRelease extends pulumi.CustomResource {
     /**

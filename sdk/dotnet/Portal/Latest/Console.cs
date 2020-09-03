@@ -11,6 +11,26 @@ namespace Pulumi.AzureRM.Portal.Latest
 {
     /// <summary>
     /// Cloud shell console
+    /// 
+    /// ## Example Usage
+    /// ### PutConsole
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var console = new AzureRM.Portal.Latest.Console("console", new AzureRM.Portal.Latest.ConsoleArgs
+    ///         {
+    ///             ConsoleName = "default",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Console : Pulumi.CustomResource
     {

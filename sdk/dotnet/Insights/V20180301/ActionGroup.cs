@@ -11,6 +11,126 @@ namespace Pulumi.AzureRM.Insights.V20180301
 {
     /// <summary>
     /// An action group resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an action group
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var actionGroup = new AzureRM.Insights.V20180301.ActionGroup("actionGroup", new AzureRM.Insights.V20180301.ActionGroupArgs
+    ///         {
+    ///             ActionGroupName = "SampleActionGroup",
+    ///             AutomationRunbookReceivers = 
+    ///             {
+    ///                 new AzureRM.Insights.V20180301.Inputs.AutomationRunbookReceiverArgs
+    ///                 {
+    ///                     AutomationAccountId = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/runbookTest/providers/Microsoft.Automation/automationAccounts/runbooktest",
+    ///                     IsGlobalRunbook = false,
+    ///                     Name = "testRunbook",
+    ///                     RunbookName = "Sample runbook",
+    ///                     ServiceUri = "https://s13events.azure-automation.net/webhooks?token=iimE%2fD19Eg%2bvDy22yUMecIZY6Uiz%2bHfuQ67r8r1wY%2fI%3d",
+    ///                     WebhookResourceId = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/runbookTest/providers/Microsoft.Automation/automationAccounts/runbooktest/webhooks/Alert1510184037084",
+    ///                 },
+    ///             },
+    ///             AzureAppPushReceivers = 
+    ///             {
+    ///                 new AzureRM.Insights.V20180301.Inputs.AzureAppPushReceiverArgs
+    ///                 {
+    ///                     EmailAddress = "johndoe@email.com",
+    ///                     Name = "Sample azureAppPush",
+    ///                 },
+    ///             },
+    ///             AzureFunctionReceivers = 
+    ///             {
+    ///                 new AzureRM.Insights.V20180301.Inputs.AzureFunctionReceiverArgs
+    ///                 {
+    ///                     FunctionAppResourceId = "/subscriptions/5def922a-3ed4-49c1-b9fd-05ec533819a3/resourceGroups/aznsTest/providers/Microsoft.Web/sites/testFunctionApp",
+    ///                     FunctionName = "HttpTriggerCSharp1",
+    ///                     HttpTriggerUrl = "https://testfunctionapp.azurewebsites.net/api/HttpTriggerCSharp1?code=4CopFfiXqUQC8dvIM7F53J7tIU3Gy9QQIG/vKAXMe2avhHqK3/jVYw==",
+    ///                     Name = "Sample azureFunction",
+    ///                 },
+    ///             },
+    ///             EmailReceivers = 
+    ///             {
+    ///                 new AzureRM.Insights.V20180301.Inputs.EmailReceiverArgs
+    ///                 {
+    ///                     EmailAddress = "johndoe@email.com",
+    ///                     Name = "John Doe's email",
+    ///                 },
+    ///                 new AzureRM.Insights.V20180301.Inputs.EmailReceiverArgs
+    ///                 {
+    ///                     EmailAddress = "janesmith@email.com",
+    ///                     Name = "Jane Smith's email",
+    ///                 },
+    ///             },
+    ///             Enabled = true,
+    ///             GroupShortName = "sample",
+    ///             ItsmReceivers = 
+    ///             {
+    ///                 new AzureRM.Insights.V20180301.Inputs.ItsmReceiverArgs
+    ///                 {
+    ///                     ConnectionId = "a3b9076c-ce8e-434e-85b4-aff10cb3c8f1",
+    ///                     Name = "Sample itsm",
+    ///                     Region = "westcentralus",
+    ///                     TicketConfiguration = "{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{}\",\"CreateOneWIPerCI\":false}",
+    ///                     WorkspaceId = "5def922a-3ed4-49c1-b9fd-05ec533819a3|55dfd1f8-7e59-4f89-bf56-4c82f5ace23c",
+    ///                 },
+    ///             },
+    ///             Location = "Global",
+    ///             LogicAppReceivers = 
+    ///             {
+    ///                 new AzureRM.Insights.V20180301.Inputs.LogicAppReceiverArgs
+    ///                 {
+    ///                     CallbackUrl = "https://prod-27.northcentralus.logic.azure.com/workflows/68e572e818e5457ba898763b7db90877/triggers/manual/paths/invoke/azns/test?api-version=2016-10-01&amp;sp=%2Ftriggers%2Fmanual%2Frun&amp;sv=1.0&amp;sig=Abpsb72UYJxPPvmDo937uzofupO5r_vIeWEx7KVHo7w",
+    ///                     Name = "Sample logicApp",
+    ///                     ResourceId = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/LogicApp/providers/Microsoft.Logic/workflows/testLogicApp",
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "Default-NotificationRules",
+    ///             SmsReceivers = 
+    ///             {
+    ///                 new AzureRM.Insights.V20180301.Inputs.SmsReceiverArgs
+    ///                 {
+    ///                     CountryCode = "1",
+    ///                     Name = "John Doe's mobile",
+    ///                     PhoneNumber = "1234567890",
+    ///                 },
+    ///                 new AzureRM.Insights.V20180301.Inputs.SmsReceiverArgs
+    ///                 {
+    ///                     CountryCode = "1",
+    ///                     Name = "Jane Smith's mobile",
+    ///                     PhoneNumber = "0987654321",
+    ///                 },
+    ///             },
+    ///             Tags = ,
+    ///             VoiceReceivers = 
+    ///             {
+    ///                 new AzureRM.Insights.V20180301.Inputs.VoiceReceiverArgs
+    ///                 {
+    ///                     CountryCode = "1",
+    ///                     Name = "Sample voice",
+    ///                     PhoneNumber = "1234567890",
+    ///                 },
+    ///             },
+    ///             WebhookReceivers = 
+    ///             {
+    ///                 new AzureRM.Insights.V20180301.Inputs.WebhookReceiverArgs
+    ///                 {
+    ///                     Name = "Sample webhook",
+    ///                     ServiceUri = "http://www.example.com/webhook",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ActionGroup : Pulumi.CustomResource
     {

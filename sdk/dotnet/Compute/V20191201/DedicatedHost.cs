@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Compute.V20191201
 {
     /// <summary>
     /// Specifies information about the Dedicated host.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a dedicated host .
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dedicatedHost = new AzureRM.Compute.V20191201.DedicatedHost("dedicatedHost", new AzureRM.Compute.V20191201.DedicatedHostArgs
+    ///         {
+    ///             HostGroupName = "myDedicatedHostGroup",
+    ///             HostName = "myDedicatedHost",
+    ///             Location = "westus",
+    ///             PlatformFaultDomain = 1,
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.Compute.V20191201.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "DSv3-Type1",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "department", "HR" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DedicatedHost : Pulumi.CustomResource
     {

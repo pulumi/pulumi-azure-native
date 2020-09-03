@@ -31,6 +31,29 @@ class Environment(pulumi.CustomResource):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 
+        ## Example Usage
+        ### EnvironmentsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        environment = azurerm.timeseriesinsights.v20171115.Environment("environment",
+            data_retention_time="P31D",
+            environment_name="env1",
+            location="West US",
+            partition_key_properties=[{
+                "name": "DeviceId1",
+                "type": "String",
+            }],
+            resource_group_name="rg1",
+            sku={
+                "capacity": 1,
+                "name": "S1",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.

@@ -28,6 +28,24 @@ class AlertRuleAction(pulumi.CustomResource):
         """
         Action for alert rule.
 
+        ## Example Usage
+        ### Creates or updates an action of alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        alert_rule_action = azurerm.operationalinsights.latest.AlertRuleAction("alertRuleAction",
+            action_id="912bec42-cb66-4c03-ac63-1761b6898c3e",
+            etag="\"0300bf09-0000-0000-0000-5c37296e0000\"",
+            logic_app_resource_id="/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.Logic/workflows/MyAlerts",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            trigger_uri="https://prod-31.northcentralus.logic.azure.com:443/workflows/cd3765391efd48549fd7681ded1d48d7/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=signature",
+            workspace_name="myWorkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_id: Action ID

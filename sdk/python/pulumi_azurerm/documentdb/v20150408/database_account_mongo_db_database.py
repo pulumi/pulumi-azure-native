@@ -27,6 +27,24 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
         """
         An Azure Cosmos DB MongoDB database.
 
+        ## Example Usage
+        ### CosmosDBMongoDBDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database_account_mongo_db_database = azurerm.documentdb.v20150408.DatabaseAccountMongoDBDatabase("databaseAccountMongoDBDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            options={},
+            resource={
+                "id": "updatedDatabaseName",
+            },
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

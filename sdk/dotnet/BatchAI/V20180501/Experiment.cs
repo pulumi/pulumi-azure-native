@@ -11,6 +11,28 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
 {
     /// <summary>
     /// Experiment information.
+    /// 
+    /// ## Example Usage
+    /// ### Create an experiment
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var experiment = new AzureRM.BatchAI.V20180501.Experiment("experiment", new AzureRM.BatchAI.V20180501.ExperimentArgs
+    ///         {
+    ///             ExperimentName = "demo_experiment",
+    ///             ResourceGroupName = "demo_resource_group",
+    ///             WorkspaceName = "demo_workspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Experiment : Pulumi.CustomResource
     {

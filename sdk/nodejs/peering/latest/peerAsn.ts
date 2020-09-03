@@ -8,6 +8,38 @@ import * as utilities from "../../utilities";
 
 /**
  * The essential information related to the peer's ASN.
+ *
+ * ## Example Usage
+ * ### Create a peer ASN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const peerAsn = new azurerm.peering.latest.PeerAsn("peerAsn", {
+ *     peerAsn: 65000,
+ *     peerAsnName: "peerAsnName",
+ *     peerContactDetail: [
+ *         {
+ *             email: "noc@contoso.com",
+ *             phone: "+1 (234) 567-8999",
+ *             role: "Noc",
+ *         },
+ *         {
+ *             email: "abc@contoso.com",
+ *             phone: "+1 (234) 567-8900",
+ *             role: "Policy",
+ *         },
+ *         {
+ *             email: "xyz@contoso.com",
+ *             phone: "+1 (234) 567-8900",
+ *             role: "Technical",
+ *         },
+ *     ],
+ *     peerName: "Contoso",
+ * });
+ *
+ * ```
  */
 export class PeerAsn extends pulumi.CustomResource {
     /**

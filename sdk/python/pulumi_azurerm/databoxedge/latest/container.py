@@ -27,6 +27,22 @@ class Container(pulumi.CustomResource):
         """
         Represents a container on the  Data Box Edge/Gateway device.
 
+        ## Example Usage
+        ### ContainerPut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        container = azurerm.databoxedge.latest.Container("container",
+            container_name="blobcontainer1",
+            data_format="BlockBlob",
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            storage_account_name="storageaccount1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_name: The container name.

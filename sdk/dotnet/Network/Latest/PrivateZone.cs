@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.Network.Latest
 {
     /// <summary>
     /// Describes a Private DNS zone.
+    /// 
+    /// ## Example Usage
+    /// ### PUT Private DNS Zone
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateZone = new AzureRM.Network.Latest.PrivateZone("privateZone", new AzureRM.Network.Latest.PrivateZoneArgs
+    ///         {
+    ///             Location = "Global",
+    ///             PrivateZoneName = "privatezone1.com",
+    ///             ResourceGroupName = "resourceGroup1",
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateZone : Pulumi.CustomResource
     {

@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.DataShare.V20191101
 {
     /// <summary>
     /// A share data transfer object.
+    /// 
+    /// ## Example Usage
+    /// ### Shares_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var share = new AzureRM.DataShare.V20191101.Share("share", new AzureRM.DataShare.V20191101.ShareArgs
+    ///         {
+    ///             AccountName = "Account1",
+    ///             Description = "share description",
+    ///             ResourceGroupName = "SampleResourceGroup",
+    ///             ShareKind = "CopyBased",
+    ///             ShareName = "Share1",
+    ///             Terms = "Confidential",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Share : Pulumi.CustomResource
     {

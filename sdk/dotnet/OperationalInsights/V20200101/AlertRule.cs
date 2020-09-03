@@ -11,6 +11,74 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
 {
     /// <summary>
     /// Alert rule.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a Fusion alert rule.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var alertRule = new AzureRM.OperationalInsights.V20200101.AlertRule("alertRule", new AzureRM.OperationalInsights.V20200101.AlertRuleArgs
+    ///         {
+    ///             Etag = "3d00c3ca-0000-0100-0000-5d42d5010000",
+    ///             Kind = "Fusion",
+    ///             ResourceGroupName = "myRg",
+    ///             RuleId = "myFirstFusionRule",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var alertRule = new AzureRM.OperationalInsights.V20200101.AlertRule("alertRule", new AzureRM.OperationalInsights.V20200101.AlertRuleArgs
+    ///         {
+    ///             Etag = "\"260097e0-0000-0d00-0000-5d6fa88f0000\"",
+    ///             Kind = "MicrosoftSecurityIncidentCreation",
+    ///             ResourceGroupName = "myRg",
+    ///             RuleId = "microsoftSecurityIncidentCreationRuleExample",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates or updates a Scheduled alert rule.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var alertRule = new AzureRM.OperationalInsights.V20200101.AlertRule("alertRule", new AzureRM.OperationalInsights.V20200101.AlertRuleArgs
+    ///         {
+    ///             Etag = "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+    ///             Kind = "Scheduled",
+    ///             ResourceGroupName = "myRg",
+    ///             RuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AlertRule : Pulumi.CustomResource
     {

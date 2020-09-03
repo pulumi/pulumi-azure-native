@@ -38,6 +38,46 @@ class Account(pulumi.CustomResource):
         """
         Data Lake Store account information.
 
+        ## Example Usage
+        ### Creates the specified Data Lake Store account
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        account = azurerm.datalakestore.v20161101.Account("account",
+            account_name="contosoadla",
+            default_group="test_default_group",
+            encryption_config={
+                "keyVaultMetaInfo": {
+                    "encryptionKeyName": "test_encryption_key_name",
+                    "encryptionKeyVersion": "encryption_key_version",
+                    "keyVaultResourceId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+                },
+                "type": "UserManaged",
+            },
+            encryption_state="Enabled",
+            firewall_allow_azure_ips="Enabled",
+            firewall_rules=[{
+                "name": "test_rule",
+            }],
+            firewall_state="Enabled",
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="eastus2",
+            new_tier="Consumption",
+            resource_group_name="contosorg",
+            tags={
+                "test_key": "test_value",
+            },
+            trusted_id_provider_state="Enabled",
+            trusted_id_providers=[{
+                "name": "test_trusted_id_provider_name",
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.

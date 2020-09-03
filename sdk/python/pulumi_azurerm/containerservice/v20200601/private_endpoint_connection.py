@@ -28,6 +28,23 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection
 
+        ## Example Usage
+        ### Update Private Endpoint Connection
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.containerservice.v20200601.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="privateendpointconnection1",
+            private_link_service_connection_state={
+                "status": "Approved",
+            },
+            resource_group_name="rg1",
+            resource_name="clustername1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: The resource of private endpoint.

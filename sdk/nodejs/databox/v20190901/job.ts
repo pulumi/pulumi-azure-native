@@ -8,6 +8,46 @@ import * as utilities from "../../utilities";
 
 /**
  * Job Resource.
+ *
+ * ## Example Usage
+ * ### JobsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const job = new azurerm.databox.v20190901.Job("job", {
+ *     details: {
+ *         contactDetails: {
+ *             contactName: "Public SDK Test",
+ *             emailList: ["testing@microsoft.com"],
+ *             phone: "1234567890",
+ *             phoneExtension: "1234",
+ *         },
+ *         destinationAccountDetails: [{
+ *             dataDestinationType: "StorageAccount",
+ *         }],
+ *         jobDetailsType: "DataBox",
+ *         shippingAddress: {
+ *             addressType: "Commercial",
+ *             city: "San Francisco",
+ *             companyName: "Microsoft",
+ *             country: "US",
+ *             postalCode: "94107",
+ *             stateOrProvince: "CA",
+ *             streetAddress1: "16 TOWNSEND ST",
+ *             streetAddress2: "Unit 1",
+ *         },
+ *     },
+ *     jobName: "SdkJob3971",
+ *     location: "westus",
+ *     resourceGroupName: "SdkRg4981",
+ *     sku: {
+ *         name: "DataBox",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

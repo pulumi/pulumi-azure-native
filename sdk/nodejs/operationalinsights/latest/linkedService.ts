@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * The top level Linked service resource container.
+ *
+ * ## Example Usage
+ * ### LinkedServicesCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const linkedService = new azurerm.operationalinsights.latest.LinkedService("linkedService", {
+ *     linkedServiceName: "Cluster",
+ *     resourceGroupName: "mms-eus",
+ *     workspaceName: "TestLinkWS",
+ *     writeAccessResourceId: "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/clusters/testcluster",
+ * });
+ *
+ * ```
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

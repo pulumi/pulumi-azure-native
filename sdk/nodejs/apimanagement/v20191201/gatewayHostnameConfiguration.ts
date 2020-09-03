@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Gateway hostname configuration details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateGatewayHostnameConfiguration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const gatewayHostnameConfiguration = new azurerm.apimanagement.v20191201.GatewayHostnameConfiguration("gatewayHostnameConfiguration", {
+ *     certificateId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+ *     gatewayId: "gw1",
+ *     hcId: "default",
+ *     hostname: "*",
+ *     negotiateClientCertificate: false,
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
  */
 export class GatewayHostnameConfiguration extends pulumi.CustomResource {
     /**

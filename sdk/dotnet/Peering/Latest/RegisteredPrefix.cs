@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.Peering.Latest
 {
     /// <summary>
     /// The customer's prefix that is registered by the peering service provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a registered prefix for the peering
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var registeredPrefix = new AzureRM.Peering.Latest.RegisteredPrefix("registeredPrefix", new AzureRM.Peering.Latest.RegisteredPrefixArgs
+    ///         {
+    ///             PeeringName = "peeringName",
+    ///             Prefix = "10.22.20.0/24",
+    ///             RegisteredPrefixName = "registeredPrefixName",
+    ///             ResourceGroupName = "rgName",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class RegisteredPrefix : Pulumi.CustomResource
     {

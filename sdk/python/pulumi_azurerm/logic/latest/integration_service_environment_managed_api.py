@@ -25,6 +25,20 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
         """
         The managed api definition.
 
+        ## Example Usage
+        ### Gets the integration service environment managed Apis
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        integration_service_environment_managed_api = azurerm.logic.latest.IntegrationServiceEnvironmentManagedApi("integrationServiceEnvironmentManagedApi",
+            api_name="servicebus",
+            integration_service_environment_name="testIntegrationServiceEnvironment",
+            resource_group="testResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_name: The api name.

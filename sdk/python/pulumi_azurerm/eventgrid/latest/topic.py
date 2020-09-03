@@ -32,6 +32,35 @@ class Topic(pulumi.CustomResource):
         """
         EventGrid Topic
 
+        ## Example Usage
+        ### Topics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        topic = azurerm.eventgrid.latest.Topic("topic",
+            inbound_ip_rules=[
+                {
+                    "action": "Allow",
+                    "ipMask": "12.18.30.15",
+                },
+                {
+                    "action": "Allow",
+                    "ipMask": "12.18.176.1",
+                },
+            ],
+            location="westus2",
+            public_network_access="Enabled",
+            resource_group_name="examplerg",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            topic_name="exampletopic1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.

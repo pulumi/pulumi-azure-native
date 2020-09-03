@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
+ *
+ * ## Example Usage
+ * ### PutPrivateEndpointConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateEndpointConnection = new azurerm.cognitiveservices.v20170418.PrivateEndpointConnection("privateEndpointConnection", {
+ *     accountName: "sto9699",
+ *     privateEndpointConnectionName: "{privateEndpointConnectionName}",
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

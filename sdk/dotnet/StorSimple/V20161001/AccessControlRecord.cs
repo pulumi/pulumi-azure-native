@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 {
     /// <summary>
     /// The access control record
+    /// 
+    /// ## Example Usage
+    /// ### AccessControlRecordsCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var accessControlRecord = new AzureRM.StorSimple.V20161001.AccessControlRecord("accessControlRecord", new AzureRM.StorSimple.V20161001.AccessControlRecordArgs
+    ///         {
+    ///             AccessControlRecordName = "AcrForSDKTest",
+    ///             InitiatorName = "iqn.2017-06.com.contoso:ForTest",
+    ///             ManagerName = "hAzureSDKOperations",
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AccessControlRecord : Pulumi.CustomResource
     {

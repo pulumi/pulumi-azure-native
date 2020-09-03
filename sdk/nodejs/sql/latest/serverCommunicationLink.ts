@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Server communication link.
+ *
+ * ## Example Usage
+ * ### Create a server communication link
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const serverCommunicationLink = new azurerm.sql.latest.ServerCommunicationLink("serverCommunicationLink", {
+ *     communicationLinkName: "link1",
+ *     partnerServer: "sqldcrudtest-test",
+ *     resourceGroupName: "sqlcrudtest-7398",
+ *     serverName: "sqlcrudtest-4645",
+ * });
+ *
+ * ```
  */
 export class ServerCommunicationLink extends pulumi.CustomResource {
     /**

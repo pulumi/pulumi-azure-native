@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.EventHub.V20170401
 {
     /// <summary>
     /// Single item in List or Get Consumer group operation
+    /// 
+    /// ## Example Usage
+    /// ### ConsumerGroupCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var consumerGroup = new AzureRM.EventHub.V20170401.ConsumerGroup("consumerGroup", new AzureRM.EventHub.V20170401.ConsumerGroupArgs
+    ///         {
+    ///             ConsumerGroupName = "sdk-ConsumerGroup-5563",
+    ///             EventHubName = "sdk-EventHub-6681",
+    ///             NamespaceName = "sdk-Namespace-2661",
+    ///             ResourceGroupName = "ArunMonocle",
+    ///             UserMetadata = "New consumergroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ConsumerGroup : Pulumi.CustomResource
     {

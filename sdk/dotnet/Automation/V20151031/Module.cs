@@ -11,6 +11,38 @@ namespace Pulumi.AzureRM.Automation.V20151031
 {
     /// <summary>
     /// Definition of the module type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a module
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var module = new AzureRM.Automation.V20151031.Module("module", new AzureRM.Automation.V20151031.ModuleArgs
+    ///         {
+    ///             AutomationAccountName = "myAutomationAccount33",
+    ///             ContentLink = new AzureRM.Automation.V20151031.Inputs.ContentLinkArgs
+    ///             {
+    ///                 ContentHash = new AzureRM.Automation.V20151031.Inputs.ContentHashArgs
+    ///                 {
+    ///                     Algorithm = "sha265",
+    ///                     Value = "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+    ///                 },
+    ///                 Uri = "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+    ///                 Version = "1.0.0.0",
+    ///             },
+    ///             ModuleName = "OmsCompositeResources",
+    ///             ResourceGroupName = "rg",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Module : Pulumi.CustomResource
     {

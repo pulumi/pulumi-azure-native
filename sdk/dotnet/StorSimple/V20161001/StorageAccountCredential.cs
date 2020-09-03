@@ -11,6 +11,39 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 {
     /// <summary>
     /// The storage account credential
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountCredentialsCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var storageAccountCredential = new AzureRM.StorSimple.V20161001.StorageAccountCredential("storageAccountCredential", new AzureRM.StorSimple.V20161001.StorageAccountCredentialArgs
+    ///         {
+    ///             AccessKey = new AzureRM.StorSimple.V20161001.Inputs.AsymmetricEncryptedSecretArgs
+    ///             {
+    ///                 EncryptionAlgorithm = "RSAES_PKCS1_v_1_5",
+    ///                 EncryptionCertificateThumbprint = "D73DB57C4CDD6761E159F8D1E8A7D759424983FD",
+    ///                 Value = "Ev1tm0QBmpGGm4a58GkqLqx8veJEEgQtg5K3Jizpmy7JdSv9dlcRwk59THw6KIdMDlEHcS8mPyneBtOEQsh4wkcFB7qrmQz+KsRAyIhEm6bwPEm3qN8+aDDzNcXn/6vu/sqV0AP7zit9/s7SxXGxjKrz4zKnOy16/DbzRRmUHNO+HO6JUM0cUfHXTX0mEecbsXqBq0A8IEG8z+bJgXX1EhoGkzE6yVsObm4S1AcKrLiwWjqmSLji5Q8gGO+y4KTTmC3p45h5GHHXjJyOccHhySWDAffxnTzUD/sOoh+aD2VkAYrL3DdnkVzhAdfcZfVI4soONx7tYMloZIVsfW1M2Q==",
+    ///             },
+    ///             CloudType = "Azure",
+    ///             CredentialName = "DummySacForSDKTest",
+    ///             EnableSSL = "Enabled",
+    ///             EndPoint = "blob.core.windows.net",
+    ///             Location = "West US",
+    ///             Login = "SacForSDKTest",
+    ///             ManagerName = "hAzureSDKOperations",
+    ///             ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {

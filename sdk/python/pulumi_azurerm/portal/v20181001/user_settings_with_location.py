@@ -26,6 +26,19 @@ class UserSettingsWithLocation(pulumi.CustomResource):
         """
         Response to get user settings
 
+        ## Example Usage
+        ### PutUserSettings
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        user_settings_with_location = azurerm.portal.v20181001.UserSettingsWithLocation("userSettingsWithLocation",
+            location="eastus",
+            user_settings_name="cloudconsole")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The provider location

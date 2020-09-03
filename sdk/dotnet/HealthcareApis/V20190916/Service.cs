@@ -11,6 +11,56 @@ namespace Pulumi.AzureRM.HealthcareApis.V20190916
 {
     /// <summary>
     /// The description of the service.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a service with all parameters
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.HealthcareApis.V20190916.Service("service", new AzureRM.HealthcareApis.V20190916.ServiceArgs
+    ///         {
+    ///             Identity = new AzureRM.HealthcareApis.V20190916.Inputs.ResourceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Kind = "fhir-R4",
+    ///             Location = "westus2",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "service1",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create or Update a service with minimum parameters
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.HealthcareApis.V20190916.Service("service", new AzureRM.HealthcareApis.V20190916.ServiceArgs
+    ///         {
+    ///             Kind = "fhir-R4",
+    ///             Location = "westus2",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "service2",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

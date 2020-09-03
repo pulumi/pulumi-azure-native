@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.Network.V20171101
 {
     /// <summary>
     /// Route resource
+    /// 
+    /// ## Example Usage
+    /// ### Create route
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var route = new AzureRM.Network.V20171101.Route("route", new AzureRM.Network.V20171101.RouteArgs
+    ///         {
+    ///             AddressPrefix = "10.0.3.0/24",
+    ///             NextHopType = "VirtualNetworkGateway",
+    ///             ResourceGroupName = "rg1",
+    ///             RouteName = "route1",
+    ///             RouteTableName = "testrt",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Route : Pulumi.CustomResource
     {

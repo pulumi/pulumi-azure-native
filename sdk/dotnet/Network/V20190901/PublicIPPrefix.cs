@@ -11,6 +11,59 @@ namespace Pulumi.AzureRM.Network.V20190901
 {
     /// <summary>
     /// Public IP prefix resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create public IP prefix allocation method
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var publicIPPrefix = new AzureRM.Network.V20190901.PublicIPPrefix("publicIPPrefix", new AzureRM.Network.V20190901.PublicIPPrefixArgs
+    ///         {
+    ///             Location = "westus",
+    ///             PrefixLength = 30,
+    ///             PublicIPAddressVersion = "IPv4",
+    ///             PublicIpPrefixName = "test-ipprefix",
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = new AzureRM.Network.V20190901.Inputs.PublicIPPrefixSkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create public IP prefix defaults
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var publicIPPrefix = new AzureRM.Network.V20190901.PublicIPPrefix("publicIPPrefix", new AzureRM.Network.V20190901.PublicIPPrefixArgs
+    ///         {
+    ///             Location = "westus",
+    ///             PrefixLength = 30,
+    ///             PublicIpPrefixName = "test-ipprefix",
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = new AzureRM.Network.V20190901.Inputs.PublicIPPrefixSkuArgs
+    ///             {
+    ///                 Name = "Standard",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PublicIPPrefix : Pulumi.CustomResource
     {

@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Cloud Endpoint object.
+ *
+ * ## Example Usage
+ * ### CloudEndpoints_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cloudEndpoint = new azurerm.storagesync.v20181001.CloudEndpoint("cloudEndpoint", {
+ *     cloudEndpointName: "SampleCloudEndpoint_1",
+ *     resourceGroupName: "SampleResourceGroup_1",
+ *     storageAccountResourceId: "/subscriptions/744f4d70-6d17-4921-8970-a765d14f763f/resourceGroups/tminienv59svc/providers/Microsoft.Storage/storageAccounts/tminienv59storage",
+ *     storageAccountShareName: "cvcloud-afscv-0719-058-a94a1354-a1fd-4e9a-9a50-919fad8c4ba4",
+ *     storageAccountTenantId: "\"72f988bf-86f1-41af-91ab-2d7cd011db47\"",
+ *     storageSyncServiceName: "SampleStorageSyncService_1",
+ *     syncGroupName: "SampleSyncGroup_1",
+ * });
+ *
+ * ```
  */
 export class CloudEndpoint extends pulumi.CustomResource {
     /**

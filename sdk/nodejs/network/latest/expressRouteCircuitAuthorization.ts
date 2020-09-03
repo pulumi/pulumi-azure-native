@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Authorization in an ExpressRouteCircuit resource.
+ *
+ * ## Example Usage
+ * ### Create ExpressRouteCircuit Authorization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const expressRouteCircuitAuthorization = new azurerm.network.latest.ExpressRouteCircuitAuthorization("expressRouteCircuitAuthorization", {
+ *     authorizationName: "authorizatinName",
+ *     circuitName: "circuitName",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     /**

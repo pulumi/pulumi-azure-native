@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the schedule.
+ *
+ * ## Example Usage
+ * ### Create or update a schedule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const schedule = new azurerm.automation.latest.Schedule("schedule", {
+ *     advancedSchedule: {},
+ *     automationAccountName: "myAutomationAccount33",
+ *     description: "my description of schedule goes here",
+ *     expiryTime: "2017-04-01T17:28:57.2494819Z",
+ *     frequency: "Hour",
+ *     interval: 1,
+ *     name: "mySchedule",
+ *     resourceGroupName: "rg",
+ *     scheduleName: "mySchedule",
+ *     startTime: "2017-03-27T17:28:57.2494819Z",
+ * });
+ *
+ * ```
  */
 export class Schedule extends pulumi.CustomResource {
     /**

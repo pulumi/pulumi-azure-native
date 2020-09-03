@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties that define a Continuous Export configuration.
+ *
+ * ## Example Usage
+ * ### ExportConfigurationUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const exportConfiguration = new azurerm.insights.latest.ExportConfiguration("exportConfiguration", {
+ *     destinationAccountId: "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.ClassicStorage/storageAccounts/mystorageblob",
+ *     destinationAddress: "https://mystorageblob.blob.core.windows.net/fchentest?sv=2015-04-05&sr=c&sig=token",
+ *     destinationStorageLocationId: "eastus",
+ *     destinationStorageSubscriptionId: "subid",
+ *     destinationType: "Blob",
+ *     exportId: "uGOoki0jQsyEs3IdQ83Q4QsNr4=",
+ *     isEnabled: "true",
+ *     notificationQueueEnabled: "false",
+ *     notificationQueueUri: "",
+ *     recordTypes: "Requests, Event, Exceptions, Metrics, PageViews, PageViewPerformance, Rdd, PerformanceCounters, Availability",
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "my-component",
+ * });
+ *
+ * ```
  */
 export class ExportConfiguration extends pulumi.CustomResource {
     /**

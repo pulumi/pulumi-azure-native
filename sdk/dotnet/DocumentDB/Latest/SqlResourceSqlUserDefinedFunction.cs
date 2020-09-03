@@ -11,6 +11,36 @@ namespace Pulumi.AzureRM.DocumentDB.Latest
 {
     /// <summary>
     /// An Azure Cosmos DB userDefinedFunction.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlUserDefinedFunctionCreateUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sqlResourceSqlUserDefinedFunction = new AzureRM.DocumentDB.Latest.SqlResourceSqlUserDefinedFunction("sqlResourceSqlUserDefinedFunction", new AzureRM.DocumentDB.Latest.SqlResourceSqlUserDefinedFunctionArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             ContainerName = "containerName",
+    ///             DatabaseName = "databaseName",
+    ///             Options = ,
+    ///             Resource = new AzureRM.DocumentDB.Latest.Inputs.SqlUserDefinedFunctionResourceArgs
+    ///             {
+    ///                 Body = "body",
+    ///                 Id = "userDefinedFunctionName",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             UserDefinedFunctionName = "userDefinedFunctionName",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class SqlResourceSqlUserDefinedFunction : Pulumi.CustomResource
     {

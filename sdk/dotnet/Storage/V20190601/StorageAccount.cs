@@ -11,6 +11,65 @@ namespace Pulumi.AzureRM.Storage.V20190601
 {
     /// <summary>
     /// The storage account.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var storageAccount = new AzureRM.Storage.V20190601.StorageAccount("storageAccount", new AzureRM.Storage.V20190601.StorageAccountArgs
+    ///         {
+    ///             AccountName = "sto4445",
+    ///             AllowBlobPublicAccess = false,
+    ///             Encryption = new AzureRM.Storage.V20190601.Inputs.EncryptionArgs
+    ///             {
+    ///                 KeySource = "Microsoft.Storage",
+    ///                 RequireInfrastructureEncryption = false,
+    ///                 Services = new AzureRM.Storage.V20190601.Inputs.EncryptionServicesArgs
+    ///                 {
+    ///                     Blob = new AzureRM.Storage.V20190601.Inputs.EncryptionServiceArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         KeyType = "Account",
+    ///                     },
+    ///                     File = new AzureRM.Storage.V20190601.Inputs.EncryptionServiceArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         KeyType = "Account",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             IsHnsEnabled = true,
+    ///             Kind = "Storage",
+    ///             Location = "eastus",
+    ///             MinimumTlsVersion = "TLS1_2",
+    ///             ResourceGroupName = "res9101",
+    ///             RoutingPreference = new AzureRM.Storage.V20190601.Inputs.RoutingPreferenceArgs
+    ///             {
+    ///                 PublishInternetEndpoints = true,
+    ///                 PublishMicrosoftEndpoints = true,
+    ///                 RoutingChoice = "MicrosoftRouting",
+    ///             },
+    ///             Sku = new AzureRM.Storage.V20190601.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Standard_GRS",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///                 { "key2", "value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class StorageAccount : Pulumi.CustomResource
     {

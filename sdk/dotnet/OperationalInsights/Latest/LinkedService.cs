@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
 {
     /// <summary>
     /// The top level Linked service resource container.
+    /// 
+    /// ## Example Usage
+    /// ### LinkedServicesCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var linkedService = new AzureRM.OperationalInsights.Latest.LinkedService("linkedService", new AzureRM.OperationalInsights.Latest.LinkedServiceArgs
+    ///         {
+    ///             LinkedServiceName = "Cluster",
+    ///             ResourceGroupName = "mms-eus",
+    ///             WorkspaceName = "TestLinkWS",
+    ///             WriteAccessResourceId = "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/clusters/testcluster",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class LinkedService : Pulumi.CustomResource
     {

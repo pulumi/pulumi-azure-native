@@ -11,6 +11,62 @@ namespace Pulumi.AzureRM.DataBox.V20180101
 {
     /// <summary>
     /// Job Resource.
+    /// 
+    /// ## Example Usage
+    /// ### JobsCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var job = new AzureRM.DataBox.V20180101.Job("job", new AzureRM.DataBox.V20180101.JobArgs
+    ///         {
+    ///             Details = new AzureRM.DataBox.V20180101.Inputs.JobDetailsArgs
+    ///             {
+    ///                 ContactDetails = new AzureRM.DataBox.V20180101.Inputs.ContactDetailsArgs
+    ///                 {
+    ///                     ContactName = "Public SDK Test",
+    ///                     EmailList = 
+    ///                     {
+    ///                         "testing@microsoft.com",
+    ///                     },
+    ///                     Phone = "1234567890",
+    ///                     PhoneExtension = "1234",
+    ///                 },
+    ///                 DestinationAccountDetails = 
+    ///                 {
+    ///                     ,
+    ///                     ,
+    ///                 },
+    ///                 JobDetailsType = "DataBox",
+    ///                 ShippingAddress = new AzureRM.DataBox.V20180101.Inputs.ShippingAddressArgs
+    ///                 {
+    ///                     AddressType = "Commercial",
+    ///                     City = "San Francisco",
+    ///                     CompanyName = "Microsoft",
+    ///                     Country = "US",
+    ///                     PostalCode = "94107",
+    ///                     StateOrProvince = "CA",
+    ///                     StreetAddress1 = "16 TOWNSEND ST",
+    ///                     StreetAddress2 = "Unit 1",
+    ///                 },
+    ///             },
+    ///             JobName = "SdkJob8367",
+    ///             Location = "westus",
+    ///             ResourceGroupName = "SdkRg9836",
+    ///             Sku = new AzureRM.DataBox.V20180101.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "DataBox",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {

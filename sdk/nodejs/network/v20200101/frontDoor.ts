@@ -8,6 +8,50 @@ import * as utilities from "../../utilities";
 
 /**
  * Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+ *
+ * ## Example Usage
+ * ### Create or update specific Front Door
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const frontDoor = new azurerm.network.v20200101.FrontDoor("frontDoor", {
+ *     backendPools: [{
+ *         name: "backendPool1",
+ *     }],
+ *     backendPoolsSettings: {
+ *         enforceCertificateNameCheck: "Enabled",
+ *         sendRecvTimeoutSeconds: 60,
+ *     },
+ *     enabledState: "Enabled",
+ *     frontDoorName: "frontDoor1",
+ *     frontendEndpoints: [
+ *         {
+ *             name: "frontendEndpoint1",
+ *         },
+ *         {
+ *             name: "default",
+ *         },
+ *     ],
+ *     healthProbeSettings: [{
+ *         name: "healthProbeSettings1",
+ *     }],
+ *     loadBalancingSettings: [{
+ *         name: "loadBalancingSettings1",
+ *     }],
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ *     routingRules: [{
+ *         name: "routingRule1",
+ *     }],
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class FrontDoor extends pulumi.CustomResource {
     /**

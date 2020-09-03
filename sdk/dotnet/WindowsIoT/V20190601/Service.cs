@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.WindowsIoT.V20190601
 {
     /// <summary>
     /// The description of the Windows IoT Device Service.
+    /// 
+    /// ## Example Usage
+    /// ### Service_Create
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new AzureRM.WindowsIoT.V20190601.Service("service", new AzureRM.WindowsIoT.V20190601.ServiceArgs
+    ///         {
+    ///             AdminDomainName = "d.e.f",
+    ///             BillingDomainName = "a.b.c",
+    ///             DeviceName = "service4445",
+    ///             Notes = "blah",
+    ///             Quantity = 1000000,
+    ///             ResourceGroupName = "res9101",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

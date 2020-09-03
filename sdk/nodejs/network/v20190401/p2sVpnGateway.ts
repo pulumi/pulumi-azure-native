@@ -8,6 +8,37 @@ import * as utilities from "../../utilities";
 
 /**
  * P2SVpnGateway Resource.
+ *
+ * ## Example Usage
+ * ### P2SVpnGatewayPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const p2sVpnGateway = new azurerm.network.v20190401.P2sVpnGateway("p2sVpnGateway", {
+ *     customRoutes: {
+ *         addressPrefixes: ["101.168.0.6/32"],
+ *     },
+ *     gatewayName: "p2sVpnGateway1",
+ *     location: "West US",
+ *     p2SVpnServerConfiguration: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1/p2sVpnServerConfigurations/p2sVpnServerConfiguration1",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualHub: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+ *     },
+ *     vpnClientAddressPool: {
+ *         addressPrefixes: ["101.3.0.0/16"],
+ *     },
+ *     vpnGatewayScaleUnit: 1,
+ * });
+ *
+ * ```
  */
 export class P2sVpnGateway extends pulumi.CustomResource {
     /**

@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
 {
     /// <summary>
     /// A virtual network rule.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a virtual network rule
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualNetworkRule = new AzureRM.DBforPostgreSQL.Latest.VirtualNetworkRule("virtualNetworkRule", new AzureRM.DBforPostgreSQL.Latest.VirtualNetworkRuleArgs
+    ///         {
+    ///             IgnoreMissingVnetServiceEndpoint = false,
+    ///             ResourceGroupName = "TestGroup",
+    ///             ServerName = "vnet-test-svr",
+    ///             VirtualNetworkRuleName = "vnet-firewall-rule",
+    ///             VirtualNetworkSubnetId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {

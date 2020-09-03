@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
 {
     /// <summary>
     /// Data Lake Store virtual network rule information.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualNetworkRule = new AzureRM.DataLakeStore.V20161101.VirtualNetworkRule("virtualNetworkRule", new AzureRM.DataLakeStore.V20161101.VirtualNetworkRuleArgs
+    ///         {
+    ///             AccountName = "contosoadla",
+    ///             ResourceGroupName = "contosorg",
+    ///             SubnetId = "test_subnetId",
+    ///             VirtualNetworkRuleName = "test_virtual_network_rules_name",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {

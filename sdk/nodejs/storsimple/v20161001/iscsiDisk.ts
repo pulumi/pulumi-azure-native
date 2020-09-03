@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * The iSCSI disk.
+ *
+ * ## Example Usage
+ * ### IscsiDisksCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const iscsiDisk = new azurerm.storsimple.v20161001.IscsiDisk("iscsiDisk", {
+ *     accessControlRecords: [],
+ *     dataPolicy: "Tiered",
+ *     description: "Demo IscsiDisk for SDK Test Tiered",
+ *     deviceName: "HSDK-0NZI14MDTF",
+ *     diskName: "Auto-TestIscsiDisk1",
+ *     diskStatus: "Online",
+ *     iscsiServerName: "HSDK-0NZI14MDTF",
+ *     managerName: "hAzureSDKOperations",
+ *     monitoringStatus: "Enabled",
+ *     provisionedCapacityInBytes: 536870912000,
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ * });
+ *
+ * ```
  */
 export class IscsiDisk extends pulumi.CustomResource {
     /**

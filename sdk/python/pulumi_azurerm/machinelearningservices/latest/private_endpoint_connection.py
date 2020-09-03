@@ -32,6 +32,24 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## Example Usage
+        ### WorkspacePutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.machinelearningservices.latest.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            private_link_service_connection_state={
+                "description": "Auto-Approved",
+                "status": "Approved",
+            },
+            resource_group_name="rg-1234",
+            workspace_name="testworkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.

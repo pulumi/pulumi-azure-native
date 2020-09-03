@@ -11,6 +11,50 @@ namespace Pulumi.AzureRM.Network.V20180701
 {
     /// <summary>
     /// A common class for general resource information
+    /// 
+    /// ## Example Usage
+    /// ### UpdateVirtualNetworkGateway
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var virtualNetworkGateway = new AzureRM.Network.V20180701.VirtualNetworkGateway("virtualNetworkGateway", new AzureRM.Network.V20180701.VirtualNetworkGatewayArgs
+    ///         {
+    ///             ActiveActive = false,
+    ///             BgpSettings = new AzureRM.Network.V20180701.Inputs.BgpSettingsArgs
+    ///             {
+    ///                 Asn = 65515,
+    ///                 BgpPeeringAddress = "10.0.1.30",
+    ///                 PeerWeight = 0,
+    ///             },
+    ///             EnableBgp = false,
+    ///             GatewayType = "Vpn",
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new AzureRM.Network.V20180701.Inputs.VirtualNetworkGatewayIPConfigurationArgs
+    ///                 {
+    ///                     Name = "gwipconfig1",
+    ///                 },
+    ///             },
+    ///             Location = "centralus",
+    ///             ResourceGroupName = "rg1",
+    ///             Sku = new AzureRM.Network.V20180701.Inputs.VirtualNetworkGatewaySkuArgs
+    ///             {
+    ///                 Name = "VpnGw1",
+    ///                 Tier = "VpnGw1",
+    ///             },
+    ///             VirtualNetworkGatewayName = "vpngw",
+    ///             VpnType = "RouteBased",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class VirtualNetworkGateway : Pulumi.CustomResource
     {

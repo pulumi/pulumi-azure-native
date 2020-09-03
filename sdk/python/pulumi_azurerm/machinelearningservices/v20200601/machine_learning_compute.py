@@ -31,6 +31,110 @@ class MachineLearningCompute(pulumi.CustomResource):
         """
         Machine Learning compute object wrapped into ARM resource envelope.
 
+        ## Example Usage
+        ### Create AKS Compute
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_learning_compute = azurerm.machinelearningservices.v20200601.MachineLearningCompute("machineLearningCompute",
+            compute_name="compute123",
+            location="eastus",
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create a AML Compute
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_learning_compute = azurerm.machinelearningservices.v20200601.MachineLearningCompute("machineLearningCompute",
+            compute_name="compute123",
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+            },
+            location="eastus",
+            properties={},
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create a ComputeInstance Compute
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_learning_compute = azurerm.machinelearningservices.v20200601.MachineLearningCompute("machineLearningCompute",
+            compute_name="compute123",
+            location="eastus",
+            properties={},
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create a ComputeInstance Compute with minimal inputs
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_learning_compute = azurerm.machinelearningservices.v20200601.MachineLearningCompute("machineLearningCompute",
+            compute_name="compute123",
+            location="eastus",
+            properties={},
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Create a DataFactory Compute
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_learning_compute = azurerm.machinelearningservices.v20200601.MachineLearningCompute("machineLearningCompute",
+            compute_name="compute123",
+            location="eastus",
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Update a AKS Compute
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_learning_compute = azurerm.machinelearningservices.v20200601.MachineLearningCompute("machineLearningCompute",
+            compute_name="compute123",
+            location="eastus",
+            properties={},
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+        ### Update a AML Compute
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_learning_compute = azurerm.machinelearningservices.v20200601.MachineLearningCompute("machineLearningCompute",
+            compute_name="compute123",
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+            },
+            location="eastus",
+            properties={},
+            resource_group_name="testrg123",
+            workspace_name="workspaces123")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_name: Name of the Azure Machine Learning compute.

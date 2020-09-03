@@ -31,6 +31,29 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         """
         The integration account certificate.
 
+        ## Example Usage
+        ### Create or update a certificate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        integration_account_certificate = azurerm.logic.latest.IntegrationAccountCertificate("integrationAccountCertificate",
+            certificate_name="testCertificate",
+            integration_account_name="testIntegrationAccount",
+            key={
+                "keyName": "<keyName>",
+                "keyVault": {
+                    "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/<keyVaultName>",
+                },
+                "keyVersion": "87d9764197604449b9b8eb7bd8710868",
+            },
+            location="brazilsouth",
+            public_certificate="<publicCertificateValue>",
+            resource_group_name="testResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: The integration account certificate name.

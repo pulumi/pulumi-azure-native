@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the module type.
+ *
+ * ## Example Usage
+ * ### Create or update a module
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const module = new azurerm.automation.latest.Module("module", {
+ *     automationAccountName: "myAutomationAccount33",
+ *     contentLink: {
+ *         contentHash: {
+ *             algorithm: "sha265",
+ *             value: "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+ *         },
+ *         uri: "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+ *         version: "1.0.0.0",
+ *     },
+ *     moduleName: "OmsCompositeResources",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
  */
 export class Module extends pulumi.CustomResource {
     /**

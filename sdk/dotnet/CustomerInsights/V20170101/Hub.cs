@@ -11,6 +11,34 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
 {
     /// <summary>
     /// Hub resource.
+    /// 
+    /// ## Example Usage
+    /// ### Hubs_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hub = new AzureRM.CustomerInsights.V20170101.Hub("hub", new AzureRM.CustomerInsights.V20170101.HubArgs
+    ///         {
+    ///             HubBillingInfo = new AzureRM.CustomerInsights.V20170101.Inputs.HubBillingInfoFormatArgs
+    ///             {
+    ///                 MaxUnits = 5,
+    ///                 MinUnits = 1,
+    ///                 SkuName = "B0",
+    ///             },
+    ///             HubName = "sdkTestHub",
+    ///             Location = "West US",
+    ///             ResourceGroupName = "TestHubRG",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Hub : Pulumi.CustomResource
     {

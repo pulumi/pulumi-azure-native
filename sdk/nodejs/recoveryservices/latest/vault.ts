@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource information, as returned by the resource provider.
+ *
+ * ## Example Usage
+ * ### Create of Update Recovery Services vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const vault = new azurerm.recoveryservices.latest.Vault("vault", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "Default-RecoveryServices-ResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     vaultName: "swaggerExample",
+ * });
+ *
+ * ```
  */
 export class Vault extends pulumi.CustomResource {
     /**

@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.Resources.Latest
 {
     /// <summary>
     /// Resource group information.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a resource group
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var resourceGroup = new AzureRM.Resources.Latest.ResourceGroup("resourceGroup", new AzureRM.Resources.Latest.ResourceGroupArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "my-resource-group",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ResourceGroup : Pulumi.CustomResource
     {

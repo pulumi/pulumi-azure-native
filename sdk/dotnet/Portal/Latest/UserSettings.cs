@@ -11,6 +11,26 @@ namespace Pulumi.AzureRM.Portal.Latest
 {
     /// <summary>
     /// Response to get user settings
+    /// 
+    /// ## Example Usage
+    /// ### PutUserSettings
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var userSettings = new AzureRM.Portal.Latest.UserSettings("userSettings", new AzureRM.Portal.Latest.UserSettingsArgs
+    ///         {
+    ///             UserSettingsName = "cloudconsole",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class UserSettings : Pulumi.CustomResource
     {

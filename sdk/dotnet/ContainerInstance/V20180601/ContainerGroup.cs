@@ -11,6 +11,85 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180601
 {
     /// <summary>
     /// A container group.
+    /// 
+    /// ## Example Usage
+    /// ### ContainerGroupsCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var containerGroup = new AzureRM.ContainerInstance.V20180601.ContainerGroup("containerGroup", new AzureRM.ContainerInstance.V20180601.ContainerGroupArgs
+    ///         {
+    ///             ContainerGroupName = "demo1",
+    ///             Containers = 
+    ///             {
+    ///                 new AzureRM.ContainerInstance.V20180601.Inputs.ContainerArgs
+    ///                 {
+    ///                     Name = "demo1",
+    ///                 },
+    ///             },
+    ///             Diagnostics = new AzureRM.ContainerInstance.V20180601.Inputs.ContainerGroupDiagnosticsArgs
+    ///             {
+    ///                 LogAnalytics = new AzureRM.ContainerInstance.V20180601.Inputs.LogAnalyticsArgs
+    ///                 {
+    ///                     WorkspaceId = "workspaceid",
+    ///                     WorkspaceKey = "workspaceKey",
+    ///                 },
+    ///             },
+    ///             ImageRegistryCredentials = {},
+    ///             IpAddress = new AzureRM.ContainerInstance.V20180601.Inputs.IpAddressArgs
+    ///             {
+    ///                 DnsNameLabel = "dnsnamelabel1",
+    ///                 Ports = 
+    ///                 {
+    ///                     new AzureRM.ContainerInstance.V20180601.Inputs.PortArgs
+    ///                     {
+    ///                         Port = 80,
+    ///                         Protocol = "TCP",
+    ///                     },
+    ///                 },
+    ///                 Type = "Public",
+    ///             },
+    ///             Location = "west us",
+    ///             OsType = "Linux",
+    ///             ResourceGroupName = "demo",
+    ///             Volumes = 
+    ///             {
+    ///                 new AzureRM.ContainerInstance.V20180601.Inputs.VolumeArgs
+    ///                 {
+    ///                     AzureFile = new AzureRM.ContainerInstance.V20180601.Inputs.AzureFileVolumeArgs
+    ///                     {
+    ///                         ShareName = "shareName",
+    ///                         StorageAccountKey = "accountKey",
+    ///                         StorageAccountName = "accountName",
+    ///                     },
+    ///                     Name = "volume1",
+    ///                 },
+    ///                 new AzureRM.ContainerInstance.V20180601.Inputs.VolumeArgs
+    ///                 {
+    ///                     EmptyDir = ,
+    ///                     Name = "volume2",
+    ///                 },
+    ///                 new AzureRM.ContainerInstance.V20180601.Inputs.VolumeArgs
+    ///                 {
+    ///                     Name = "volume3",
+    ///                     Secret = 
+    ///                     {
+    ///                         { "secretKey1", "SecretValue1InBase64" },
+    ///                         { "secretKey2", "SecretValue2InBase64" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ContainerGroup : Pulumi.CustomResource
     {

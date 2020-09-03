@@ -11,6 +11,62 @@ namespace Pulumi.AzureRM.Batch.V20181201
 {
     /// <summary>
     /// Contains information about an Azure Batch account.
+    /// 
+    /// ## Example Usage
+    /// ### BatchAccountCreate_BYOS
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var batchAccount = new AzureRM.Batch.V20181201.BatchAccount("batchAccount", new AzureRM.Batch.V20181201.BatchAccountArgs
+    ///         {
+    ///             AccountName = "sampleacct",
+    ///             AutoStorage = new AzureRM.Batch.V20181201.Inputs.AutoStorageBasePropertiesArgs
+    ///             {
+    ///                 StorageAccountId = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+    ///             },
+    ///             KeyVaultReference = new AzureRM.Batch.V20181201.Inputs.KeyVaultReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+    ///                 Url = "http://sample.vault.azure.net/",
+    ///             },
+    ///             Location = "japaneast",
+    ///             PoolAllocationMode = "UserSubscription",
+    ///             ResourceGroupName = "default-azurebatch-japaneast",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### BatchAccountCreate_Default
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var batchAccount = new AzureRM.Batch.V20181201.BatchAccount("batchAccount", new AzureRM.Batch.V20181201.BatchAccountArgs
+    ///         {
+    ///             AccountName = "sampleacct",
+    ///             AutoStorage = new AzureRM.Batch.V20181201.Inputs.AutoStorageBasePropertiesArgs
+    ///             {
+    ///                 StorageAccountId = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+    ///             },
+    ///             Location = "japaneast",
+    ///             ResourceGroupName = "default-azurebatch-japaneast",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class BatchAccount : Pulumi.CustomResource
     {

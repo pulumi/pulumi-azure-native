@@ -11,6 +11,27 @@ namespace Pulumi.AzureRM.Web.Latest
 {
     /// <summary>
     /// The gateway definition
+    /// 
+    /// ## Example Usage
+    /// ### Replace a connection gateway definition
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var connectionGateway = new AzureRM.Web.Latest.ConnectionGateway("connectionGateway", new AzureRM.Web.Latest.ConnectionGatewayArgs
+    ///         {
+    ///             ConnectionGatewayName = "test123",
+    ///             ResourceGroupName = "testResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ConnectionGateway : Pulumi.CustomResource
     {

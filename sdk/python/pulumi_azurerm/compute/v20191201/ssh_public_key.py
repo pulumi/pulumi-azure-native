@@ -26,6 +26,21 @@ class SshPublicKey(pulumi.CustomResource):
         """
         Specifies information about the SSH public key.
 
+        ## Example Usage
+        ### Create a new SSH public key resource.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        ssh_public_key = azurerm.compute.v20191201.SshPublicKey("sshPublicKey",
+            location="westus",
+            public_key="{ssh-rsa public key}",
+            resource_group_name="myResourceGroup",
+            ssh_public_key_name="mySshPublicKeyName")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location

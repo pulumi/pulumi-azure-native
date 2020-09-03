@@ -40,6 +40,21 @@ class Queue(pulumi.CustomResource):
         """
         Description of queue Resource.
 
+        ## Example Usage
+        ### QueueCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        queue = azurerm.servicebus.latest.Queue("queue",
+            enable_partitioning=True,
+            namespace_name="sdk-Namespace-3174",
+            queue_name="sdk-Queues-5647",
+            resource_group_name="ArunMonocle")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.

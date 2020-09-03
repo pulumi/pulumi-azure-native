@@ -11,6 +11,157 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 {
     /// <summary>
     /// API details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApi
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var api = new AzureRM.ApiManagement.V20170301.Api("api", new AzureRM.ApiManagement.V20170301.ApiArgs
+    ///         {
+    ///             ApiId = "tempgroup",
+    ///             AuthenticationSettings = new AzureRM.ApiManagement.V20170301.Inputs.AuthenticationSettingsContractArgs
+    ///             {
+    ///                 OAuth2 = new AzureRM.ApiManagement.V20170301.Inputs.OAuth2AuthenticationSettingsContractArgs
+    ///                 {
+    ///                     AuthorizationServerId = "authorizationServerId2283",
+    ///                     Scope = "oauth2scope2580",
+    ///                 },
+    ///             },
+    ///             Description = "apidescription5200",
+    ///             DisplayName = "apiname1463",
+    ///             Path = "newapiPath",
+    ///             Protocols = 
+    ///             {
+    ///                 "https",
+    ///                 "http",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             ServiceUrl = "http://newechoapi.cloudapp.net/api",
+    ///             SubscriptionKeyParameterNames = new AzureRM.ApiManagement.V20170301.Inputs.SubscriptionKeyParameterNamesContractArgs
+    ///             {
+    ///                 Header = "header4520",
+    ///                 Query = "query3037",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiRevision
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var api = new AzureRM.ApiManagement.V20170301.Api("api", new AzureRM.ApiManagement.V20170301.ApiArgs
+    ///         {
+    ///             ApiId = "5a838fd48f33670ed070d77c;rev=4",
+    ///             Description = "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+    ///             DisplayName = "Swagger Petstore V2",
+    ///             Path = "petstore2",
+    ///             Protocols = 
+    ///             {
+    ///                 "https",
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             ServiceUrl = "http://petstore.swagger.io/v4",
+    ///             SubscriptionKeyParameterNames = new AzureRM.ApiManagement.V20170301.Inputs.SubscriptionKeyParameterNamesContractArgs
+    ///             {
+    ///                 Header = "Ocp-Apim-Subscription-Key",
+    ///                 Query = "subscription-key",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiUsingSwaggerImport
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var api = new AzureRM.ApiManagement.V20170301.Api("api", new AzureRM.ApiManagement.V20170301.ApiArgs
+    ///         {
+    ///             ApiId = "petstore",
+    ///             ContentFormat = "swagger-link-json",
+    ///             ContentValue = "http://petstore.swagger.io/v2/swagger.json",
+    ///             Path = "petstore",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiUsingWadlImport
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var api = new AzureRM.ApiManagement.V20170301.Api("api", new AzureRM.ApiManagement.V20170301.ApiArgs
+    ///         {
+    ///             ApiId = "petstore",
+    ///             ContentFormat = "wadl-link-json",
+    ///             ContentValue = "https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl",
+    ///             Path = "collector",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiUsingWsdlImport
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var api = new AzureRM.ApiManagement.V20170301.Api("api", new AzureRM.ApiManagement.V20170301.ApiArgs
+    ///         {
+    ///             ApiId = "soapApi",
+    ///             ContentFormat = "wsdl-link",
+    ///             ContentValue = "http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+    ///             Path = "currency",
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///             WsdlSelector = new AzureRM.ApiManagement.V20170301.Inputs.ApiCreateOrUpdatePropertiesWsdlSelectorArgs
+    ///             {
+    ///                 WsdlEndpointName = "CurrencyConvertorSoap",
+    ///                 WsdlServiceName = "CurrencyConvertor",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Api : Pulumi.CustomResource
     {

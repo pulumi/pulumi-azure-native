@@ -30,6 +30,47 @@ class PolicySetDefinition(pulumi.CustomResource):
         """
         The policy set definition.
 
+        ## Example Usage
+        ### Create or update a policy set definition
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        policy_set_definition = azurerm.authorization.v20180301.PolicySetDefinition("policySetDefinition",
+            description="Policies to enforce low cost storage SKUs",
+            display_name="Cost Management",
+            metadata={
+                "category": "Cost Management",
+            },
+            policy_definitions=[
+                {
+                    "parameters": {
+                        "listOfAllowedSKUs": {
+                            "value": [
+                                "Standard_GRS",
+                                "Standard_LRS",
+                            ],
+                        },
+                    },
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+                },
+                {
+                    "parameters": {
+                        "prefix": {
+                            "value": "DeptA",
+                        },
+                        "suffix": {
+                            "value": "-LC",
+                        },
+                    },
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+                },
+            ],
+            policy_set_definition_name="CostManagement")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The policy set definition description.

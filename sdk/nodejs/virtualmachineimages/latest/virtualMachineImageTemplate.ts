@@ -8,6 +8,104 @@ import * as utilities from "../../utilities";
 
 /**
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+ *
+ * ## Example Usage
+ * ### Create an Image Template for Linux.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualMachineImageTemplate = new azurerm.virtualmachineimages.latest.VirtualMachineImageTemplate("virtualMachineImageTemplate", {
+ *     customize: [{
+ *         name: "Shell Customizer Example",
+ *         type: "Shell",
+ *     }],
+ *     distribute: [{
+ *         artifactTags: {
+ *             tagName: "value",
+ *         },
+ *         runOutputName: "image_it_pir_1",
+ *         type: "ManagedImage",
+ *     }],
+ *     identity: {
+ *         type: "UserAssigned",
+ *     },
+ *     imageTemplateName: "myImageTemplate",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     source: {
+ *         type: "ManagedImage",
+ *     },
+ *     tags: {
+ *         imagetemplate_tag1: "IT_T1",
+ *         imagetemplate_tag2: "IT_T2",
+ *     },
+ *     vmProfile: {
+ *         osDiskSizeGB: 64,
+ *         vmSize: "Standard_D2s_v3",
+ *         vnetConfig: {
+ *             subnetId: "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create an Image Template for Windows.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const virtualMachineImageTemplate = new azurerm.virtualmachineimages.latest.VirtualMachineImageTemplate("virtualMachineImageTemplate", {
+ *     customize: [
+ *         {
+ *             name: "PowerShell (inline) Customizer Example",
+ *             type: "PowerShell",
+ *         },
+ *         {
+ *             name: "PowerShell (script) Customizer Example",
+ *             type: "PowerShell",
+ *         },
+ *         {
+ *             name: "Restart Customizer Example",
+ *             type: "WindowsRestart",
+ *         },
+ *         {
+ *             name: "Windows Update Customizer Example",
+ *             type: "WindowsUpdate",
+ *         },
+ *     ],
+ *     distribute: [{
+ *         artifactTags: {
+ *             tagName: "value",
+ *         },
+ *         runOutputName: "image_it_pir_1",
+ *         type: "ManagedImage",
+ *     }],
+ *     identity: {
+ *         type: "UserAssigned",
+ *     },
+ *     imageTemplateName: "myImageTemplate",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     source: {
+ *         type: "ManagedImage",
+ *     },
+ *     tags: {
+ *         imagetemplate_tag1: "IT_T1",
+ *         imagetemplate_tag2: "IT_T2",
+ *     },
+ *     vmProfile: {
+ *         osDiskSizeGB: 64,
+ *         vmSize: "Standard_D2s_v3",
+ *         vnetConfig: {
+ *             subnetId: "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name",
+ *         },
+ *     },
+ * });
+ *
+ * ```
  */
 export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**

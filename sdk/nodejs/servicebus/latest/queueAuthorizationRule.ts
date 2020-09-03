@@ -6,6 +6,26 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace authorization rule.
+ *
+ * ## Example Usage
+ * ### QueueAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const queueAuthorizationRule = new azurerm.servicebus.latest.QueueAuthorizationRule("queueAuthorizationRule", {
+ *     authorizationRuleName: "sdk-AuthRules-5800",
+ *     namespaceName: "sdk-Namespace-7982",
+ *     queueName: "sdk-Queues-2317",
+ *     resourceGroupName: "ArunMonocle",
+ *     rights: [
+ *         "Listen",
+ *         "Send",
+ *     ],
+ * });
+ *
+ * ```
  */
 export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**

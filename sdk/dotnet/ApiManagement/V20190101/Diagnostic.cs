@@ -11,6 +11,85 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
 {
     /// <summary>
     /// Diagnostic details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateDiagnostic
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var diagnostic = new AzureRM.ApiManagement.V20190101.Diagnostic("diagnostic", new AzureRM.ApiManagement.V20190101.DiagnosticArgs
+    ///         {
+    ///             AlwaysLog = "allErrors",
+    ///             Backend = new AzureRM.ApiManagement.V20190101.Inputs.PipelineDiagnosticSettingsArgs
+    ///             {
+    ///                 Request = new AzureRM.ApiManagement.V20190101.Inputs.HttpMessageDiagnosticArgs
+    ///                 {
+    ///                     Body = new AzureRM.ApiManagement.V20190101.Inputs.BodyDiagnosticSettingsArgs
+    ///                     {
+    ///                         Bytes = 512,
+    ///                     },
+    ///                     Headers = 
+    ///                     {
+    ///                         "Content-type",
+    ///                     },
+    ///                 },
+    ///                 Response = new AzureRM.ApiManagement.V20190101.Inputs.HttpMessageDiagnosticArgs
+    ///                 {
+    ///                     Body = new AzureRM.ApiManagement.V20190101.Inputs.BodyDiagnosticSettingsArgs
+    ///                     {
+    ///                         Bytes = 512,
+    ///                     },
+    ///                     Headers = 
+    ///                     {
+    ///                         "Content-type",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             DiagnosticId = "applicationinsights",
+    ///             Frontend = new AzureRM.ApiManagement.V20190101.Inputs.PipelineDiagnosticSettingsArgs
+    ///             {
+    ///                 Request = new AzureRM.ApiManagement.V20190101.Inputs.HttpMessageDiagnosticArgs
+    ///                 {
+    ///                     Body = new AzureRM.ApiManagement.V20190101.Inputs.BodyDiagnosticSettingsArgs
+    ///                     {
+    ///                         Bytes = 512,
+    ///                     },
+    ///                     Headers = 
+    ///                     {
+    ///                         "Content-type",
+    ///                     },
+    ///                 },
+    ///                 Response = new AzureRM.ApiManagement.V20190101.Inputs.HttpMessageDiagnosticArgs
+    ///                 {
+    ///                     Body = new AzureRM.ApiManagement.V20190101.Inputs.BodyDiagnosticSettingsArgs
+    ///                     {
+    ///                         Bytes = 512,
+    ///                     },
+    ///                     Headers = 
+    ///                     {
+    ///                         "Content-type",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             LoggerId = "/loggers/azuremonitor",
+    ///             ResourceGroupName = "rg1",
+    ///             Sampling = new AzureRM.ApiManagement.V20190101.Inputs.SamplingSettingsArgs
+    ///             {
+    ///                 Percentage = 50,
+    ///                 SamplingType = "fixed",
+    ///             },
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Diagnostic : Pulumi.CustomResource
     {

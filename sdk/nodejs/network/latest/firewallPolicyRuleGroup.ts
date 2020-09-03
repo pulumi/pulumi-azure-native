@@ -8,6 +8,44 @@ import * as utilities from "../../utilities";
 
 /**
  * Rule Group resource.
+ *
+ * ## Example Usage
+ * ### Create FirewallPolicyRuleGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const firewallPolicyRuleGroup = new azurerm.network.latest.FirewallPolicyRuleGroup("firewallPolicyRuleGroup", {
+ *     firewallPolicyName: "firewallPolicy",
+ *     priority: 110,
+ *     resourceGroupName: "rg1",
+ *     ruleGroupName: "ruleGroup1",
+ *     rules: [{
+ *         name: "Example-Filter-Rule",
+ *         ruleType: "FirewallPolicyFilterRule",
+ *     }],
+ * });
+ *
+ * ```
+ * ### Create FirewallPolicyRuleGroup With IpGroups
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const firewallPolicyRuleGroup = new azurerm.network.latest.FirewallPolicyRuleGroup("firewallPolicyRuleGroup", {
+ *     firewallPolicyName: "firewallPolicy",
+ *     priority: 110,
+ *     resourceGroupName: "rg1",
+ *     ruleGroupName: "ruleGroup1",
+ *     rules: [{
+ *         name: "Example-Filter-Rule",
+ *         ruleType: "FirewallPolicyFilterRule",
+ *     }],
+ * });
+ *
+ * ```
  */
 export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
     /**

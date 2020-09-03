@@ -11,6 +11,63 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra table.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBCassandraTableCreateUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cassandraResourceCassandraTable = new AzureRM.DocumentDB.V20190801.CassandraResourceCassandraTable("cassandraResourceCassandraTable", new AzureRM.DocumentDB.V20190801.CassandraResourceCassandraTableArgs
+    ///         {
+    ///             AccountName = "ddb1",
+    ///             KeyspaceName = "keyspaceName",
+    ///             Location = "West US",
+    ///             Options = ,
+    ///             Resource = new AzureRM.DocumentDB.V20190801.Inputs.CassandraTableResourceArgs
+    ///             {
+    ///                 DefaultTtl = 100,
+    ///                 Id = "tableName",
+    ///                 Schema = new AzureRM.DocumentDB.V20190801.Inputs.CassandraSchemaArgs
+    ///                 {
+    ///                     ClusterKeys = 
+    ///                     {
+    ///                         new AzureRM.DocumentDB.V20190801.Inputs.ClusterKeyArgs
+    ///                         {
+    ///                             Name = "columnA",
+    ///                             OrderBy = "Asc",
+    ///                         },
+    ///                     },
+    ///                     Columns = 
+    ///                     {
+    ///                         new AzureRM.DocumentDB.V20190801.Inputs.ColumnArgs
+    ///                         {
+    ///                             Name = "columnA",
+    ///                             Type = "Ascii",
+    ///                         },
+    ///                     },
+    ///                     PartitionKeys = 
+    ///                     {
+    ///                         new AzureRM.DocumentDB.V20190801.Inputs.CassandraPartitionKeyArgs
+    ///                         {
+    ///                             Name = "columnA",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "rg1",
+    ///             TableName = "tableName",
+    ///             Tags = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class CassandraResourceCassandraTable : Pulumi.CustomResource
     {

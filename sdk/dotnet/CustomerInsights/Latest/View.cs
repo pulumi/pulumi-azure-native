@@ -11,6 +11,34 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
 {
     /// <summary>
     /// The view resource format.
+    /// 
+    /// ## Example Usage
+    /// ### Views_CreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var view = new AzureRM.CustomerInsights.Latest.View("view", new AzureRM.CustomerInsights.Latest.ViewArgs
+    ///         {
+    ///             Definition = "{\\\"isProfileType\\\":false,\\\"profileTypes\\\":[],\\\"widgets\\\":[],\\\"style\\\":[]}",
+    ///             DisplayName = 
+    ///             {
+    ///                 { "en", "some name" },
+    ///             },
+    ///             HubName = "sdkTestHub",
+    ///             ResourceGroupName = "TestHubRG",
+    ///             UserId = "testUser",
+    ///             ViewName = "testView",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class View : Pulumi.CustomResource
     {

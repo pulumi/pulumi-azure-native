@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
 {
     /// <summary>
     /// Compute role.
+    /// 
+    /// ## Example Usage
+    /// ### RolePut
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var role = new AzureRM.DataBoxEdge.Latest.Role("role", new AzureRM.DataBoxEdge.Latest.RoleArgs
+    ///         {
+    ///             DeviceName = "testedgedevice",
+    ///             Kind = "IOT",
+    ///             Name = "IoTRole1",
+    ///             ResourceGroupName = "GroupForEdgeAutomation",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Role : Pulumi.CustomResource
     {

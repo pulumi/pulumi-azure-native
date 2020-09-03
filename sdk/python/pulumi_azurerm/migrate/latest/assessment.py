@@ -29,6 +29,22 @@ class Assessment(pulumi.CustomResource):
         """
         An assessment created for a group in the Migration project.
 
+        ## Example Usage
+        ### Assessments_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        assessment = azurerm.migrate.latest.Assessment("assessment",
+            assessment_name="assessment_5_14_2019_16_48_47",
+            e_tag="\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+            group_name="Group2",
+            project_name="abgoyalWEselfhostb72bproject",
+            resource_group_name="abgoyal-westEurope")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assessment_name: Unique name of an assessment within a project.

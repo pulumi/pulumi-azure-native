@@ -11,6 +11,244 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
 {
     /// <summary>
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+    /// 
+    /// ## Example Usage
+    /// ### Create a DocumentDB output
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var output = new AzureRM.StreamAnalytics.V20160301.Output("output", new AzureRM.StreamAnalytics.V20160301.OutputArgs
+    ///         {
+    ///             Datasource = new AzureRM.StreamAnalytics.V20160301.Inputs.OutputDataSourceArgs
+    ///             {
+    ///                 Type = "Microsoft.Storage/DocumentDB",
+    ///             },
+    ///             JobName = "sj2331",
+    ///             OutputName = "output3022",
+    ///             ResourceGroupName = "sjrg7983",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a Power BI output
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var output = new AzureRM.StreamAnalytics.V20160301.Output("output", new AzureRM.StreamAnalytics.V20160301.OutputArgs
+    ///         {
+    ///             Datasource = new AzureRM.StreamAnalytics.V20160301.Inputs.OutputDataSourceArgs
+    ///             {
+    ///                 Type = "PowerBI",
+    ///             },
+    ///             JobName = "sj2331",
+    ///             OutputName = "output3022",
+    ///             ResourceGroupName = "sjrg7983",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a Service Bus Queue output with Avro serialization
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var output = new AzureRM.StreamAnalytics.V20160301.Output("output", new AzureRM.StreamAnalytics.V20160301.OutputArgs
+    ///         {
+    ///             Datasource = new AzureRM.StreamAnalytics.V20160301.Inputs.OutputDataSourceArgs
+    ///             {
+    ///                 Type = "Microsoft.ServiceBus/Queue",
+    ///             },
+    ///             JobName = "sj5095",
+    ///             OutputName = "output3456",
+    ///             ResourceGroupName = "sjrg3410",
+    ///             Serialization = new AzureRM.StreamAnalytics.V20160301.Inputs.SerializationArgs
+    ///             {
+    ///                 Type = "Avro",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a Service Bus Topic output with CSV serialization
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var output = new AzureRM.StreamAnalytics.V20160301.Output("output", new AzureRM.StreamAnalytics.V20160301.OutputArgs
+    ///         {
+    ///             Datasource = new AzureRM.StreamAnalytics.V20160301.Inputs.OutputDataSourceArgs
+    ///             {
+    ///                 Type = "Microsoft.ServiceBus/Topic",
+    ///             },
+    ///             JobName = "sj7094",
+    ///             OutputName = "output7886",
+    ///             ResourceGroupName = "sjrg6450",
+    ///             Serialization = new AzureRM.StreamAnalytics.V20160301.Inputs.SerializationArgs
+    ///             {
+    ///                 Type = "Csv",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create a blob output with CSV serialization
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var output = new AzureRM.StreamAnalytics.V20160301.Output("output", new AzureRM.StreamAnalytics.V20160301.OutputArgs
+    ///         {
+    ///             Datasource = new AzureRM.StreamAnalytics.V20160301.Inputs.OutputDataSourceArgs
+    ///             {
+    ///                 Type = "Microsoft.Storage/Blob",
+    ///             },
+    ///             JobName = "sj900",
+    ///             OutputName = "output1623",
+    ///             ResourceGroupName = "sjrg5023",
+    ///             Serialization = new AzureRM.StreamAnalytics.V20160301.Inputs.SerializationArgs
+    ///             {
+    ///                 Type = "Csv",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create an Azure Data Lake Store output with JSON serialization
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var output = new AzureRM.StreamAnalytics.V20160301.Output("output", new AzureRM.StreamAnalytics.V20160301.OutputArgs
+    ///         {
+    ///             Datasource = new AzureRM.StreamAnalytics.V20160301.Inputs.OutputDataSourceArgs
+    ///             {
+    ///                 Type = "Microsoft.DataLake/Accounts",
+    ///             },
+    ///             JobName = "sj3310",
+    ///             OutputName = "output5195",
+    ///             ResourceGroupName = "sjrg6912",
+    ///             Serialization = new AzureRM.StreamAnalytics.V20160301.Inputs.SerializationArgs
+    ///             {
+    ///                 Type = "Json",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create an Azure SQL database output
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var output = new AzureRM.StreamAnalytics.V20160301.Output("output", new AzureRM.StreamAnalytics.V20160301.OutputArgs
+    ///         {
+    ///             Datasource = new AzureRM.StreamAnalytics.V20160301.Inputs.OutputDataSourceArgs
+    ///             {
+    ///                 Type = "Microsoft.Sql/Server/Database",
+    ///             },
+    ///             JobName = "sj6458",
+    ///             OutputName = "output1755",
+    ///             ResourceGroupName = "sjrg2157",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create an Azure Table output
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var output = new AzureRM.StreamAnalytics.V20160301.Output("output", new AzureRM.StreamAnalytics.V20160301.OutputArgs
+    ///         {
+    ///             Datasource = new AzureRM.StreamAnalytics.V20160301.Inputs.OutputDataSourceArgs
+    ///             {
+    ///                 Type = "Microsoft.Storage/Table",
+    ///             },
+    ///             JobName = "sj2790",
+    ///             OutputName = "output958",
+    ///             ResourceGroupName = "sjrg5176",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create an Event Hub output with JSON serialization
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var output = new AzureRM.StreamAnalytics.V20160301.Output("output", new AzureRM.StreamAnalytics.V20160301.OutputArgs
+    ///         {
+    ///             Datasource = new AzureRM.StreamAnalytics.V20160301.Inputs.OutputDataSourceArgs
+    ///             {
+    ///                 Type = "Microsoft.ServiceBus/EventHub",
+    ///             },
+    ///             JobName = "sj3310",
+    ///             OutputName = "output5195",
+    ///             ResourceGroupName = "sjrg6912",
+    ///             Serialization = new AzureRM.StreamAnalytics.V20160301.Inputs.SerializationArgs
+    ///             {
+    ///                 Type = "Json",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Output : Pulumi.CustomResource
     {

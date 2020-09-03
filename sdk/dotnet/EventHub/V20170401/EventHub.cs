@@ -11,6 +11,42 @@ namespace Pulumi.AzureRM.EventHub.V20170401
 {
     /// <summary>
     /// Single item in List or Get Event Hub operation
+    /// 
+    /// ## Example Usage
+    /// ### EventHubCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var eventHub = new AzureRM.EventHub.V20170401.EventHub("eventHub", new AzureRM.EventHub.V20170401.EventHubArgs
+    ///         {
+    ///             CaptureDescription = new AzureRM.EventHub.V20170401.Inputs.CaptureDescriptionArgs
+    ///             {
+    ///                 Destination = new AzureRM.EventHub.V20170401.Inputs.DestinationArgs
+    ///                 {
+    ///                     Name = "EventHubArchive.AzureBlockBlob",
+    ///                 },
+    ///                 Enabled = true,
+    ///                 Encoding = "Avro",
+    ///                 IntervalInSeconds = 120,
+    ///                 SizeLimitInBytes = 10485763,
+    ///             },
+    ///             EventHubName = "sdk-EventHub-6547",
+    ///             MessageRetentionInDays = 4,
+    ///             NamespaceName = "sdk-Namespace-5357",
+    ///             PartitionCount = 4,
+    ///             ResourceGroupName = "Default-NotificationHubs-AustraliaEast",
+    ///             Status = "Active",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class EventHub : Pulumi.CustomResource
     {

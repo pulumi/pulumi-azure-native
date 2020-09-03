@@ -11,6 +11,143 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
 {
     /// <summary>
     /// Agent Pool.
+    /// 
+    /// ## Example Usage
+    /// ### Create Agent Pool with PPG
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var agentPool = new AzureRM.ContainerService.V20200601.AgentPool("agentPool", new AzureRM.ContainerService.V20200601.AgentPoolArgs
+    ///         {
+    ///             AgentPoolName = "agentpool1",
+    ///             Count = 3,
+    ///             OrchestratorVersion = "",
+    ///             OsType = "Linux",
+    ///             ProximityPlacementGroupID = "/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/proximityPlacementGroups/ppg1",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///             VmSize = "Standard_DS2_v2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create Spot Agent Pool
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var agentPool = new AzureRM.ContainerService.V20200601.AgentPool("agentPool", new AzureRM.ContainerService.V20200601.AgentPoolArgs
+    ///         {
+    ///             AgentPoolName = "agentpool1",
+    ///             Count = 3,
+    ///             NodeLabels = 
+    ///             {
+    ///                 { "key1", "val1" },
+    ///             },
+    ///             NodeTaints = 
+    ///             {
+    ///                 "Key1=Value1:NoSchedule",
+    ///             },
+    ///             OrchestratorVersion = "",
+    ///             OsType = "Linux",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///             ScaleSetEvictionPolicy = "Delete",
+    ///             ScaleSetPriority = "Spot",
+    ///             Tags = 
+    ///             {
+    ///                 { "name1", "val1" },
+    ///             },
+    ///             VmSize = "Standard_DS1_v2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Create/Update Agent Pool
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var agentPool = new AzureRM.ContainerService.V20200601.AgentPool("agentPool", new AzureRM.ContainerService.V20200601.AgentPoolArgs
+    ///         {
+    ///             AgentPoolName = "agentpool1",
+    ///             Count = 3,
+    ///             Mode = "User",
+    ///             NodeLabels = 
+    ///             {
+    ///                 { "key1", "val1" },
+    ///             },
+    ///             NodeTaints = 
+    ///             {
+    ///                 "Key1=Value1:NoSchedule",
+    ///             },
+    ///             OrchestratorVersion = "",
+    ///             OsType = "Linux",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///             ScaleSetEvictionPolicy = "Delete",
+    ///             ScaleSetPriority = "Spot",
+    ///             Tags = 
+    ///             {
+    ///                 { "name1", "val1" },
+    ///             },
+    ///             VmSize = "Standard_DS1_v2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Update Agent Pool
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var agentPool = new AzureRM.ContainerService.V20200601.AgentPool("agentPool", new AzureRM.ContainerService.V20200601.AgentPoolArgs
+    ///         {
+    ///             AgentPoolName = "agentpool1",
+    ///             Count = 3,
+    ///             EnableAutoScaling = true,
+    ///             MaxCount = 2,
+    ///             MinCount = 2,
+    ///             NodeTaints = 
+    ///             {
+    ///                 "Key1=Value1:NoSchedule",
+    ///             },
+    ///             OrchestratorVersion = "",
+    ///             OsType = "Linux",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceName = "clustername1",
+    ///             ScaleSetEvictionPolicy = "Delete",
+    ///             ScaleSetPriority = "Spot",
+    ///             VmSize = "Standard_DS1_v2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AgentPool : Pulumi.CustomResource
     {

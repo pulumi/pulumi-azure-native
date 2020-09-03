@@ -32,6 +32,60 @@ class Rule(pulumi.CustomResource):
         """
         Description of Rule Resource.
 
+        ## Example Usage
+        ### RulesCreateCorrelationFilter
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        rule = azurerm.servicebus.latest.Rule("rule",
+            correlation_filter={
+                "properties": {
+                    "topicHint": "Crop",
+                },
+            },
+            filter_type="CorrelationFilter",
+            namespace_name="sdk-Namespace-1319",
+            resource_group_name="resourceGroupName",
+            rule_name="sdk-Rules-6571",
+            subscription_name="sdk-Subscriptions-8691",
+            topic_name="sdk-Topics-2081")
+
+        ```
+        ### RulesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        rule = azurerm.servicebus.latest.Rule("rule",
+            namespace_name="sdk-Namespace-1319",
+            resource_group_name="resourceGroupName",
+            rule_name="sdk-Rules-6571",
+            subscription_name="sdk-Subscriptions-8691",
+            topic_name="sdk-Topics-2081")
+
+        ```
+        ### RulesCreateSqlFilter
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        rule = azurerm.servicebus.latest.Rule("rule",
+            filter_type="SqlFilter",
+            namespace_name="sdk-Namespace-1319",
+            resource_group_name="resourceGroupName",
+            rule_name="sdk-Rules-6571",
+            sql_filter={
+                "sqlExpression": "myproperty=test",
+            },
+            subscription_name="sdk-Subscriptions-8691",
+            topic_name="sdk-Topics-2081")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ActionArgs']] action: Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.

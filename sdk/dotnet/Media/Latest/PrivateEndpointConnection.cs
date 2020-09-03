@@ -11,6 +11,33 @@ namespace Pulumi.AzureRM.Media.Latest
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### Update private endpoint connection.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var privateEndpointConnection = new AzureRM.Media.Latest.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.Media.Latest.PrivateEndpointConnectionArgs
+    ///         {
+    ///             AccountName = "contososports",
+    ///             Name = "connectionName1",
+    ///             PrivateLinkServiceConnectionState = new AzureRM.Media.Latest.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Test description.",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

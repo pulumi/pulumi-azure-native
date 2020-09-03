@@ -28,6 +28,34 @@ class Order(pulumi.CustomResource):
         """
         The order details.
 
+        ## Example Usage
+        ### OrderPut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        order = azurerm.databoxedge.v20190701.Order("order",
+            contact_information={
+                "companyName": "Microsoft",
+                "contactPerson": "John Mcclane",
+                "emailList": ["john@microsoft.com"],
+                "phone": "(800) 426-9400",
+            },
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            shipping_address={
+                "addressLine1": "Microsoft Corporation",
+                "addressLine2": "One Microsoft Way",
+                "addressLine3": "Redmond",
+                "city": "WA",
+                "country": "USA",
+                "postalCode": "98052",
+                "state": "WA",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ContactDetailsArgs']] contact_information: The contact details.

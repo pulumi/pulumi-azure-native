@@ -25,6 +25,21 @@ class Trigger(pulumi.CustomResource):
         """
         Trigger details.
 
+        ## Example Usage
+        ### TriggerPut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        trigger = azurerm.databoxedge.v20190301.Trigger("trigger",
+            device_name="testedgedevice",
+            kind="FileEvent",
+            name="trigger1",
+            resource_group_name="GroupForEdgeAutomation")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: Creates or updates a trigger

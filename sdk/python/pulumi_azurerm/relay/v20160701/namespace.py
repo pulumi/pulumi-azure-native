@@ -28,6 +28,28 @@ class Namespace(pulumi.CustomResource):
         """
         Description of a Namespace resource.
 
+        ## Example Usage
+        ### RelayNamespaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        namespace = azurerm.relay.v20160701.Namespace("namespace",
+            location="West US",
+            namespace_name="sdk-RelayNamespace-01",
+            resource_group_name="RG-eg",
+            sku={
+                "name": "Standard",
+                "tier": "Standard",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location

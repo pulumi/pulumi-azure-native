@@ -24,6 +24,20 @@ class NotebookWorkspace(pulumi.CustomResource):
         """
         A notebook workspace resource
 
+        ## Example Usage
+        ### CosmosDBNotebookWorkspaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        notebook_workspace = azurerm.documentdb.v20200301.NotebookWorkspace("notebookWorkspace",
+            account_name="ddb1",
+            notebook_workspace_name="default",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

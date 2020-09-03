@@ -34,6 +34,29 @@ class StorageAccountCredential(pulumi.CustomResource):
         """
         The storage account credential.
 
+        ## Example Usage
+        ### SACPut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        storage_account_credential = azurerm.databoxedge.latest.StorageAccountCredential("storageAccountCredential",
+            account_key={
+                "encryptionAlgorithm": "AES256",
+                "encryptionCertThumbprint": "2A9D8D6BE51574B5461230AEF02F162C5F01AD31",
+                "value": "lAeZEYi6rNP1/EyNaVUYmTSZEYyaIaWmwUsGwek0+xiZj54GM9Ue9/UA2ed/ClC03wuSit2XzM/cLRU5eYiFBwks23rGwiQOr3sruEL2a74EjPD050xYjA6M1I2hu/w2yjVHhn5j+DbXS4Xzi+rHHNZK3DgfDO3PkbECjPck+PbpSBjy9+6Mrjcld5DIZhUAeMlMHrFlg+WKRKB14o/og56u5/xX6WKlrMLEQ+y6E18dUwvWs2elTNoVO8PBE8SM/CfooX4AMNvaNdSObNBPdP+F6Lzc556nFNWXrBLRt0vC7s9qTiVRO4x/qCNaK/B4y7IqXMllwQFf4Np9UQ2ECA==",
+            },
+            account_type="BlobStorage",
+            alias="sac1",
+            device_name="testedgedevice",
+            name="sac1",
+            resource_group_name="GroupForEdgeAutomation",
+            ssl_status="Disabled",
+            user_name="cisbvt")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] account_key: Encrypted storage key.

@@ -11,6 +11,164 @@ namespace Pulumi.AzureRM.Media.Latest
 {
     /// <summary>
     /// A Content Key Policy resource.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a Content Key Policy with ClearKey option and Token Restriction
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var contentKeyPolicy = new AzureRM.Media.Latest.ContentKeyPolicy("contentKeyPolicy", new AzureRM.Media.Latest.ContentKeyPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             ContentKeyPolicyName = "PolicyWithClearKeyOptionAndSwtTokenRestriction",
+    ///             Description = "ArmPolicyDescription",
+    ///             Options = 
+    ///             {
+    ///                 new AzureRM.Media.Latest.Inputs.ContentKeyPolicyOptionArgs
+    ///                 {
+    ///                     Configuration = new AzureRM.Media.Latest.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     {
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+    ///                     },
+    ///                     Name = "ClearKeyOption",
+    ///                     Restriction = new AzureRM.Media.Latest.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                     {
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a Content Key Policy with PlayReady option and Open Restriction
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var contentKeyPolicy = new AzureRM.Media.Latest.ContentKeyPolicy("contentKeyPolicy", new AzureRM.Media.Latest.ContentKeyPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             ContentKeyPolicyName = "PolicyWithPlayReadyOptionAndOpenRestriction",
+    ///             Description = "ArmPolicyDescription",
+    ///             Options = 
+    ///             {
+    ///                 new AzureRM.Media.Latest.Inputs.ContentKeyPolicyOptionArgs
+    ///                 {
+    ///                     Configuration = new AzureRM.Media.Latest.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     {
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
+    ///                     },
+    ///                     Name = "ArmPolicyOptionName",
+    ///                     Restriction = new AzureRM.Media.Latest.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                     {
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a Content Key Policy with Widevine option and Token Restriction
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var contentKeyPolicy = new AzureRM.Media.Latest.ContentKeyPolicy("contentKeyPolicy", new AzureRM.Media.Latest.ContentKeyPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             ContentKeyPolicyName = "PolicyWithWidevineOptionAndJwtTokenRestriction",
+    ///             Description = "ArmPolicyDescription",
+    ///             Options = 
+    ///             {
+    ///                 new AzureRM.Media.Latest.Inputs.ContentKeyPolicyOptionArgs
+    ///                 {
+    ///                     Configuration = new AzureRM.Media.Latest.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     {
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+    ///                     },
+    ///                     Name = "widevineoption",
+    ///                     Restriction = new AzureRM.Media.Latest.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                     {
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### Creates a Content Key Policy with multiple options
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var contentKeyPolicy = new AzureRM.Media.Latest.ContentKeyPolicy("contentKeyPolicy", new AzureRM.Media.Latest.ContentKeyPolicyArgs
+    ///         {
+    ///             AccountName = "contosomedia",
+    ///             ContentKeyPolicyName = "PolicyCreatedWithMultipleOptions",
+    ///             Description = "ArmPolicyDescription",
+    ///             Options = 
+    ///             {
+    ///                 new AzureRM.Media.Latest.Inputs.ContentKeyPolicyOptionArgs
+    ///                 {
+    ///                     Configuration = new AzureRM.Media.Latest.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     {
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+    ///                     },
+    ///                     Name = "ClearKeyOption",
+    ///                     Restriction = new AzureRM.Media.Latest.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                     {
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+    ///                     },
+    ///                 },
+    ///                 new AzureRM.Media.Latest.Inputs.ContentKeyPolicyOptionArgs
+    ///                 {
+    ///                     Configuration = new AzureRM.Media.Latest.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     {
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+    ///                     },
+    ///                     Name = "widevineoption",
+    ///                     Restriction = new AzureRM.Media.Latest.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                     {
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class ContentKeyPolicy : Pulumi.CustomResource
     {

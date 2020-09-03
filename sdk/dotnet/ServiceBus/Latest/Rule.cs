@@ -11,6 +11,87 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
 {
     /// <summary>
     /// Description of Rule Resource.
+    /// 
+    /// ## Example Usage
+    /// ### RulesCreateCorrelationFilter
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rule = new AzureRM.ServiceBus.Latest.Rule("rule", new AzureRM.ServiceBus.Latest.RuleArgs
+    ///         {
+    ///             CorrelationFilter = new AzureRM.ServiceBus.Latest.Inputs.CorrelationFilterArgs
+    ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "topicHint", "Crop" },
+    ///                 },
+    ///             },
+    ///             FilterType = "CorrelationFilter",
+    ///             NamespaceName = "sdk-Namespace-1319",
+    ///             ResourceGroupName = "resourceGroupName",
+    ///             RuleName = "sdk-Rules-6571",
+    ///             SubscriptionName = "sdk-Subscriptions-8691",
+    ///             TopicName = "sdk-Topics-2081",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### RulesCreateOrUpdate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rule = new AzureRM.ServiceBus.Latest.Rule("rule", new AzureRM.ServiceBus.Latest.RuleArgs
+    ///         {
+    ///             NamespaceName = "sdk-Namespace-1319",
+    ///             ResourceGroupName = "resourceGroupName",
+    ///             RuleName = "sdk-Rules-6571",
+    ///             SubscriptionName = "sdk-Subscriptions-8691",
+    ///             TopicName = "sdk-Topics-2081",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// ### RulesCreateSqlFilter
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rule = new AzureRM.ServiceBus.Latest.Rule("rule", new AzureRM.ServiceBus.Latest.RuleArgs
+    ///         {
+    ///             FilterType = "SqlFilter",
+    ///             NamespaceName = "sdk-Namespace-1319",
+    ///             ResourceGroupName = "resourceGroupName",
+    ///             RuleName = "sdk-Rules-6571",
+    ///             SqlFilter = new AzureRM.ServiceBus.Latest.Inputs.SqlFilterArgs
+    ///             {
+    ///                 SqlExpression = "myproperty=test",
+    ///             },
+    ///             SubscriptionName = "sdk-Subscriptions-8691",
+    ///             TopicName = "sdk-Topics-2081",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Rule : Pulumi.CustomResource
     {

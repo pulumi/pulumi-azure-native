@@ -9,6 +9,37 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.DevSpaces.V20190401
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### ControllersCreate
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var controller = new AzureRM.DevSpaces.V20190401.Controller("controller", new AzureRM.DevSpaces.V20190401.ControllerArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             Name = "myControllerResource",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///             Sku = new AzureRM.DevSpaces.V20190401.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "S1",
+    ///                 Tier = "Standard",
+    ///             },
+    ///             Tags = ,
+    ///             TargetContainerHostCredentialsBase64 = "QmFzZTY0IEVuY29kZWQgVmFsdWUK",
+    ///             TargetContainerHostResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myCluster",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
+    /// </summary>
     public partial class Controller : Pulumi.CustomResource
     {
         /// <summary>

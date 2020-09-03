@@ -11,6 +11,30 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
 {
     /// <summary>
     /// Data connector.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an Office365 data connector.
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dataConnector = new AzureRM.OperationalInsights.V20200101.DataConnector("dataConnector", new AzureRM.OperationalInsights.V20200101.DataConnectorArgs
+    ///         {
+    ///             DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///             Etag = "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+    ///             Kind = "Office365",
+    ///             ResourceGroupName = "myRg",
+    ///             WorkspaceName = "myWorkspace",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class DataConnector : Pulumi.CustomResource
     {

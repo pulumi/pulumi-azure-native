@@ -29,6 +29,34 @@ class BlobContainer(pulumi.CustomResource):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
 
+        ## Example Usage
+        ### PutContainerWithDefaultEncryptionScope
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        blob_container = azurerm.storage.latest.BlobContainer("blobContainer",
+            account_name="sto328",
+            container_name="container6185",
+            default_encryption_scope="encryptionscope185",
+            deny_encryption_scope_override=True,
+            resource_group_name="res3376")
+
+        ```
+        ### PutContainers
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        blob_container = azurerm.storage.latest.BlobContainer("blobContainer",
+            account_name="sto328",
+            container_name="container6185",
+            resource_group_name="res3376")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

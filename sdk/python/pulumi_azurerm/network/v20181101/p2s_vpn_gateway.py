@@ -33,6 +33,33 @@ class P2sVpnGateway(pulumi.CustomResource):
         """
         P2SVpnGateway Resource.
 
+        ## Example Usage
+        ### P2SVpnGatewayPut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        p2s_vpn_gateway = azurerm.network.v20181101.P2sVpnGateway("p2sVpnGateway",
+            gateway_name="p2sVpnGateway1",
+            location="West US",
+            p2_s_vpn_server_configuration={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1/p2sVpnServerConfigurations/p2sVpnServerConfiguration1",
+            },
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+            },
+            vpn_client_address_pool={
+                "addressPrefixes": ["101.3.0.0/16"],
+            },
+            vpn_gateway_scale_unit=1)
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gateway_name: The name of the gateway.

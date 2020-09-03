@@ -6,6 +6,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Traffic Manager endpoint.
+ *
+ * ## Example Usage
+ * ### Endpoint-PUT-External-WithGeoMapping
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const endpoint = new azurerm.network.v20170501.Endpoint("endpoint", {
+ *     endpointName: `My%20external%20endpoint`,
+ *     endpointStatus: "Enabled",
+ *     endpointType: "ExternalEndpoints",
+ *     geoMapping: [
+ *         "GEO-AS",
+ *         "GEO-AF",
+ *     ],
+ *     profileName: "azuresdkfornetautoresttrafficmanager8224",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager2191",
+ *     target: "foobar.contoso.com",
+ * });
+ *
+ * ```
+ * ### Endpoint-PUT-External-WithLocation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const endpoint = new azurerm.network.v20170501.Endpoint("endpoint", {
+ *     endpointLocation: "North Europe",
+ *     endpointName: "azsmnet7187",
+ *     endpointStatus: "Enabled",
+ *     endpointType: "ExternalEndpoints",
+ *     profileName: "azsmnet6386",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager1421",
+ *     target: "foobar.contoso.com",
+ * });
+ *
+ * ```
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

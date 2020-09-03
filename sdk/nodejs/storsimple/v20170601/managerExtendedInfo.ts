@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * The extended info of the manager.
+ *
+ * ## Example Usage
+ * ### ManagersCreateExtendedInfo
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managerExtendedInfo = new azurerm.storsimple.v20170601.ManagerExtendedInfo("managerExtendedInfo", {
+ *     algorithm: "None",
+ *     integrityKey: "BIl+RHqO8PZ6DRvuXTTK7g==",
+ *     managerName: "ManagerForSDKTest2",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ * });
+ *
+ * ```
  */
 export class ManagerExtendedInfo extends pulumi.CustomResource {
     /**

@@ -11,6 +11,32 @@ namespace Pulumi.AzureRM.Automation.Latest
 {
     /// <summary>
     /// Definition of the credential.
+    /// 
+    /// ## Example Usage
+    /// ### Create a credential
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var credential = new AzureRM.Automation.Latest.Credential("credential", new AzureRM.Automation.Latest.CredentialArgs
+    ///         {
+    ///             AutomationAccountName = "myAutomationAccount18",
+    ///             CredentialName = "myCredential",
+    ///             Description = "my description goes here",
+    ///             Name = "myCredential",
+    ///             Password = "myPassw0rd",
+    ///             ResourceGroupName = "rg",
+    ///             UserName = "mylingaiah",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Credential : Pulumi.CustomResource
     {

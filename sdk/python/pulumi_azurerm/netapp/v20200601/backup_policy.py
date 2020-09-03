@@ -35,6 +35,25 @@ class BackupPolicy(pulumi.CustomResource):
         """
         Backup policy information
 
+        ## Example Usage
+        ### BackupPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        backup_policy = azurerm.netapp.v20200601.BackupPolicy("backupPolicy",
+            account_name="account1",
+            backup_policy_name="backupPolicyName",
+            daily_backups_to_keep=10,
+            enabled=True,
+            location="westus",
+            monthly_backups_to_keep=10,
+            resource_group_name="myRG",
+            weekly_backups_to_keep=10)
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account

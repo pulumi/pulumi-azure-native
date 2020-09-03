@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a Namespace AuthorizationRules.
+ *
+ * ## Example Usage
+ * ### NotificationHubAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const notificationHubAuthorizationRule = new azurerm.notificationhubs.v20170401.NotificationHubAuthorizationRule("notificationHubAuthorizationRule", {
+ *     authorizationRuleName: "DefaultListenSharedAccessSignature",
+ *     namespaceName: "nh-sdk-ns",
+ *     notificationHubName: "nh-sdk-hub",
+ *     resourceGroupName: "5ktrial",
+ * });
+ *
+ * ```
  */
 export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
     /**

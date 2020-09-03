@@ -11,6 +11,195 @@ namespace Pulumi.AzureRM.Insights.Latest
 {
     /// <summary>
     /// The autoscale setting resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an autoscale setting
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var autoscaleSetting = new AzureRM.Insights.Latest.AutoscaleSetting("autoscaleSetting", new AzureRM.Insights.Latest.AutoscaleSettingArgs
+    ///         {
+    ///             AutoscaleSettingName = "MySetting",
+    ///             Enabled = true,
+    ///             Location = "West US",
+    ///             Notifications = 
+    ///             {
+    ///                 new AzureRM.Insights.Latest.Inputs.AutoscaleNotificationArgs
+    ///                 {
+    ///                     Email = new AzureRM.Insights.Latest.Inputs.EmailNotificationArgs
+    ///                     {
+    ///                         CustomEmails = 
+    ///                         {
+    ///                             "gu@ms.com",
+    ///                             "ge@ns.net",
+    ///                         },
+    ///                         SendToSubscriptionAdministrator = true,
+    ///                         SendToSubscriptionCoAdministrators = true,
+    ///                     },
+    ///                     Operation = "Scale",
+    ///                     Webhooks = 
+    ///                     {
+    ///                         new AzureRM.Insights.Latest.Inputs.WebhookNotificationArgs
+    ///                         {
+    ///                             Properties = ,
+    ///                             ServiceUri = "http://myservice.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Profiles = 
+    ///             {
+    ///                 new AzureRM.Insights.Latest.Inputs.AutoscaleProfileArgs
+    ///                 {
+    ///                     Capacity = new AzureRM.Insights.Latest.Inputs.ScaleCapacityArgs
+    ///                     {
+    ///                         Default = "1",
+    ///                         Maximum = "10",
+    ///                         Minimum = "1",
+    ///                     },
+    ///                     FixedDate = new AzureRM.Insights.Latest.Inputs.TimeWindowArgs
+    ///                     {
+    ///                         End = "2015-03-05T14:30:00Z",
+    ///                         Start = "2015-03-05T14:00:00Z",
+    ///                         TimeZone = "UTC",
+    ///                     },
+    ///                     Name = "adios",
+    ///                     Rules = 
+    ///                     {
+    ///                         new AzureRM.Insights.Latest.Inputs.ScaleRuleArgs
+    ///                         {
+    ///                             MetricTrigger = new AzureRM.Insights.Latest.Inputs.MetricTriggerArgs
+    ///                             {
+    ///                                 MetricName = "Percentage CPU",
+    ///                                 MetricResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+    ///                                 Operator = "GreaterThan",
+    ///                                 Statistic = "Average",
+    ///                                 Threshold = 10,
+    ///                                 TimeAggregation = "Average",
+    ///                                 TimeGrain = "PT1M",
+    ///                                 TimeWindow = "PT5M",
+    ///                             },
+    ///                             ScaleAction = new AzureRM.Insights.Latest.Inputs.ScaleActionArgs
+    ///                             {
+    ///                                 Cooldown = "PT5M",
+    ///                                 Direction = "Increase",
+    ///                                 Type = "ChangeCount",
+    ///                                 Value = "1",
+    ///                             },
+    ///                         },
+    ///                         new AzureRM.Insights.Latest.Inputs.ScaleRuleArgs
+    ///                         {
+    ///                             MetricTrigger = new AzureRM.Insights.Latest.Inputs.MetricTriggerArgs
+    ///                             {
+    ///                                 MetricName = "Percentage CPU",
+    ///                                 MetricResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+    ///                                 Operator = "GreaterThan",
+    ///                                 Statistic = "Average",
+    ///                                 Threshold = 15,
+    ///                                 TimeAggregation = "Average",
+    ///                                 TimeGrain = "PT2M",
+    ///                                 TimeWindow = "PT5M",
+    ///                             },
+    ///                             ScaleAction = new AzureRM.Insights.Latest.Inputs.ScaleActionArgs
+    ///                             {
+    ///                                 Cooldown = "PT6M",
+    ///                                 Direction = "Decrease",
+    ///                                 Type = "ChangeCount",
+    ///                                 Value = "2",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureRM.Insights.Latest.Inputs.AutoscaleProfileArgs
+    ///                 {
+    ///                     Capacity = new AzureRM.Insights.Latest.Inputs.ScaleCapacityArgs
+    ///                     {
+    ///                         Default = "1",
+    ///                         Maximum = "10",
+    ///                         Minimum = "1",
+    ///                     },
+    ///                     Name = "saludos",
+    ///                     Recurrence = new AzureRM.Insights.Latest.Inputs.RecurrenceArgs
+    ///                     {
+    ///                         Frequency = "Week",
+    ///                         Schedule = new AzureRM.Insights.Latest.Inputs.RecurrentScheduleArgs
+    ///                         {
+    ///                             Days = 
+    ///                             {
+    ///                                 "1",
+    ///                             },
+    ///                             Hours = 
+    ///                             {
+    ///                                 5,
+    ///                             },
+    ///                             Minutes = 
+    ///                             {
+    ///                                 15,
+    ///                             },
+    ///                             TimeZone = "UTC",
+    ///                         },
+    ///                     },
+    ///                     Rules = 
+    ///                     {
+    ///                         new AzureRM.Insights.Latest.Inputs.ScaleRuleArgs
+    ///                         {
+    ///                             MetricTrigger = new AzureRM.Insights.Latest.Inputs.MetricTriggerArgs
+    ///                             {
+    ///                                 MetricName = "Percentage CPU",
+    ///                                 MetricResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+    ///                                 Operator = "GreaterThan",
+    ///                                 Statistic = "Average",
+    ///                                 Threshold = 10,
+    ///                                 TimeAggregation = "Average",
+    ///                                 TimeGrain = "PT1M",
+    ///                                 TimeWindow = "PT5M",
+    ///                             },
+    ///                             ScaleAction = new AzureRM.Insights.Latest.Inputs.ScaleActionArgs
+    ///                             {
+    ///                                 Cooldown = "PT5M",
+    ///                                 Direction = "Increase",
+    ///                                 Type = "ChangeCount",
+    ///                                 Value = "1",
+    ///                             },
+    ///                         },
+    ///                         new AzureRM.Insights.Latest.Inputs.ScaleRuleArgs
+    ///                         {
+    ///                             MetricTrigger = new AzureRM.Insights.Latest.Inputs.MetricTriggerArgs
+    ///                             {
+    ///                                 MetricName = "Percentage CPU",
+    ///                                 MetricResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+    ///                                 Operator = "GreaterThan",
+    ///                                 Statistic = "Average",
+    ///                                 Threshold = 15,
+    ///                                 TimeAggregation = "Average",
+    ///                                 TimeGrain = "PT2M",
+    ///                                 TimeWindow = "PT5M",
+    ///                             },
+    ///                             ScaleAction = new AzureRM.Insights.Latest.Inputs.ScaleActionArgs
+    ///                             {
+    ///                                 Cooldown = "PT6M",
+    ///                                 Direction = "Decrease",
+    ///                                 Type = "ChangeCount",
+    ///                                 Value = "2",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "TestingMetricsScaleSet",
+    ///             Tags = ,
+    ///             TargetResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class AutoscaleSetting : Pulumi.CustomResource
     {

@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * The IpGroups resource information.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate_IpGroups
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const ipGroup = new azurerm.network.v20200601.IpGroup("ipGroup", {
+ *     ipAddresses: [
+ *         "13.64.39.16/32",
+ *         "40.74.146.80/31",
+ *         "40.74.147.32/28",
+ *     ],
+ *     ipGroupsName: "ipGroups1",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class IpGroup extends pulumi.CustomResource {
     /**

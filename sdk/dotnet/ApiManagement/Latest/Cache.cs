@@ -11,6 +11,31 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
 {
     /// <summary>
     /// Cache details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateCache
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cache = new AzureRM.ApiManagement.Latest.Cache("cache", new AzureRM.ApiManagement.Latest.CacheArgs
+    ///         {
+    ///             CacheId = "westindia",
+    ///             ConnectionString = "contoso5.redis.cache.windows.net,ssl=true,password=...",
+    ///             Description = "Redis cache instances in West India",
+    ///             ResourceGroupName = "rg1",
+    ///             ResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/contoso5",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Cache : Pulumi.CustomResource
     {

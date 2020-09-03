@@ -6,6 +6,20 @@ import * as utilities from "../../utilities";
 
 /**
  * The privateStore offer data structure.
+ *
+ * ## Example Usage
+ * ### UpdatePrivateStoreOffer
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateStoreOffer = new azurerm.marketplace.latest.PrivateStoreOffer("privateStoreOffer", {
+ *     offerId: "marketplacetestthirdparty.md-test-third-party-2",
+ *     privateStoreId: "a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+ * });
+ *
+ * ```
  */
 export class PrivateStoreOffer extends pulumi.CustomResource {
     /**

@@ -29,6 +29,25 @@ class Hub(pulumi.CustomResource):
         """
         Hub resource.
 
+        ## Example Usage
+        ### Hubs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        hub = azurerm.customerinsights.latest.Hub("hub",
+            hub_billing_info={
+                "maxUnits": 5,
+                "minUnits": 1,
+                "skuName": "B0",
+            },
+            hub_name="sdkTestHub",
+            location="West US",
+            resource_group_name="TestHubRG")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['HubBillingInfoFormatArgs']] hub_billing_info: Billing settings of the hub.

@@ -38,6 +38,181 @@ class RecordSet(pulumi.CustomResource):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
 
+        ## Example Usage
+        ### PUT Private DNS Zone A Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        record_set = azurerm.network.v20180901.RecordSet("recordSet",
+            a_records=[{
+                "ipv4Address": "1.2.3.4",
+            }],
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="A",
+            relative_record_set_name="recordA",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone AAAA Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        record_set = azurerm.network.v20180901.RecordSet("recordSet",
+            aaaa_records=[{
+                "ipv6Address": "::1",
+            }],
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="AAAA",
+            relative_record_set_name="recordAAAA",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone CNAME Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        record_set = azurerm.network.v20180901.RecordSet("recordSet",
+            cname_record={
+                "cname": "contoso.com",
+            },
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="CNAME",
+            relative_record_set_name="recordCNAME",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone MX Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        record_set = azurerm.network.v20180901.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            mx_records=[{
+                "exchange": "mail.privatezone1.com",
+                "preference": 0,
+            }],
+            private_zone_name="privatezone1.com",
+            record_type="MX",
+            relative_record_set_name="recordMX",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone PTR Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        record_set = azurerm.network.v20180901.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="0.0.127.in-addr.arpa",
+            ptr_records=[{
+                "ptrdname": "localhost",
+            }],
+            record_type="PTR",
+            relative_record_set_name="1",
+            resource_group_name="resourceGroup1",
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone SOA Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        record_set = azurerm.network.v20180901.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="SOA",
+            relative_record_set_name="@",
+            resource_group_name="resourceGroup1",
+            soa_record={
+                "email": "azureprivatedns-hostmaster.microsoft.com",
+                "expireTime": 2419200,
+                "host": "azureprivatedns.net",
+                "minimumTtl": 300,
+                "refreshTime": 3600,
+                "retryTime": 300,
+                "serialNumber": 1,
+            },
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone SRV Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        record_set = azurerm.network.v20180901.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="SRV",
+            relative_record_set_name="recordSRV",
+            resource_group_name="resourceGroup1",
+            srv_records=[{
+                "port": 80,
+                "priority": 0,
+                "target": "contoso.com",
+                "weight": 10,
+            }],
+            ttl=3600)
+
+        ```
+        ### PUT Private DNS Zone TXT Record Set
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        record_set = azurerm.network.v20180901.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            private_zone_name="privatezone1.com",
+            record_type="TXT",
+            relative_record_set_name="recordTXT",
+            resource_group_name="resourceGroup1",
+            ttl=3600,
+            txt_records=[{
+                "value": [
+                    "string1",
+                    "string2",
+                ],
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ARecordArgs']]]] a_records: The list of A records in the record set.

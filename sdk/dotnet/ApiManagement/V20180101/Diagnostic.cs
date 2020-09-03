@@ -11,6 +11,29 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 {
     /// <summary>
     /// Diagnostic details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateDiagnostic
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var diagnostic = new AzureRM.ApiManagement.V20180101.Diagnostic("diagnostic", new AzureRM.ApiManagement.V20180101.DiagnosticArgs
+    ///         {
+    ///             DiagnosticId = "default",
+    ///             Enabled = true,
+    ///             ResourceGroupName = "rg1",
+    ///             ServiceName = "apimService1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// 
+    /// ```
     /// </summary>
     public partial class Diagnostic : Pulumi.CustomResource
     {

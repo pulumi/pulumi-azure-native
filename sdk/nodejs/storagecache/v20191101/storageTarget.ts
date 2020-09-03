@@ -8,6 +8,38 @@ import * as utilities from "../../utilities";
 
 /**
  * A storage system being cached by a Cache.
+ *
+ * ## Example Usage
+ * ### StorageTargets_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const storageTarget = new azurerm.storagecache.v20191101.StorageTarget("storageTarget", {
+ *     cacheName: "sc1",
+ *     junctions: [
+ *         {
+ *             namespacePath: "/path/on/cache",
+ *             nfsExport: "exp1",
+ *             targetPath: "/path/on/exp1",
+ *         },
+ *         {
+ *             namespacePath: "/path2/on/cache",
+ *             nfsExport: "exp2",
+ *             targetPath: "/path2/on/exp2",
+ *         },
+ *     ],
+ *     nfs3: {
+ *         target: "10.0.44.44",
+ *         usageModel: "READ_HEAVY_INFREQ",
+ *     },
+ *     resourceGroupName: "scgroup",
+ *     storageTargetName: "st1",
+ *     targetType: "nfs3",
+ * });
+ *
+ * ```
  */
 export class StorageTarget extends pulumi.CustomResource {
     /**

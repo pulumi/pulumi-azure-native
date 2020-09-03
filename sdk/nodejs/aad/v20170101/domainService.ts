@@ -8,6 +8,43 @@ import * as utilities from "../../utilities";
 
 /**
  * Domain service.
+ *
+ * ## Example Usage
+ * ### Create Domain Service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const domainService = new azurerm.aad.v20170101.DomainService("domainService", {
+ *     domainName: "zdomain.zforest.com",
+ *     domainSecuritySettings: {
+ *         ntlmV1: "Enabled",
+ *         syncNtlmPasswords: "Enabled",
+ *         tlsV1: "Disabled",
+ *     },
+ *     domainServiceName: "zdomain.zforest.com",
+ *     filteredSync: "Enabled",
+ *     ldapsSettings: {
+ *         externalAccess: "Enabled",
+ *         ldaps: "Enabled",
+ *         pfxCertificate: "MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+ *         pfxCertificatePassword: "Password01",
+ *     },
+ *     location: "westus",
+ *     notificationSettings: {
+ *         additionalRecipients: [
+ *             "jicha@microsoft.com",
+ *             "caalmont@microsoft.com",
+ *         ],
+ *         notifyDcAdmins: "Enabled",
+ *         notifyGlobalAdmins: "Enabled",
+ *     },
+ *     resourceGroupName: "sva-tt-WUS",
+ *     subnetId: "/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/DCIaasTmpWusNet/subnets/Subnet-1",
+ * });
+ *
+ * ```
  */
 export class DomainService extends pulumi.CustomResource {
     /**
