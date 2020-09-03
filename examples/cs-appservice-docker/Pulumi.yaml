@@ -1,0 +1,3 @@
+name: cs-appservice-docker
+runtime: dotnet
+description: An C# Pulumi program that deploys Docker images to Azure App Service.
