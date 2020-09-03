@@ -38,7 +38,7 @@ class GetIntegrationRuntimeResult:
     @pulumi.getter
     def etag(self) -> str:
         """
-        Etag identifies change in the resource.
+        Resource Etag.
         """
         return pulumi.get(self, "etag")
 
@@ -46,7 +46,7 @@ class GetIntegrationRuntimeResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -62,7 +62,7 @@ class GetIntegrationRuntimeResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 

@@ -3016,8 +3016,14 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultArmId() pulumi.StringPtrOut
 
 // LinkedService specific properties.
 type LinkedServiceProps struct {
+	// The creation time of the linked service.
+	CreatedTime *string `pulumi:"createdTime"`
+	// Type of the link target.
+	LinkType *string `pulumi:"linkType"`
 	// ResourceId of the link target of the linked service.
-	LinkedServiceResourceId *string `pulumi:"linkedServiceResourceId"`
+	LinkedServiceResourceId string `pulumi:"linkedServiceResourceId"`
+	// The last modified time of the linked service.
+	ModifiedTime *string `pulumi:"modifiedTime"`
 }
 
 // LinkedServicePropsInput is an input type that accepts LinkedServicePropsArgs and LinkedServicePropsOutput values.
@@ -3033,8 +3039,14 @@ type LinkedServicePropsInput interface {
 
 // LinkedService specific properties.
 type LinkedServicePropsArgs struct {
+	// The creation time of the linked service.
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	// Type of the link target.
+	LinkType pulumi.StringPtrInput `pulumi:"linkType"`
 	// ResourceId of the link target of the linked service.
-	LinkedServiceResourceId pulumi.StringPtrInput `pulumi:"linkedServiceResourceId"`
+	LinkedServiceResourceId pulumi.StringInput `pulumi:"linkedServiceResourceId"`
+	// The last modified time of the linked service.
+	ModifiedTime pulumi.StringPtrInput `pulumi:"modifiedTime"`
 }
 
 func (LinkedServicePropsArgs) ElementType() reflect.Type {
@@ -3115,9 +3127,24 @@ func (o LinkedServicePropsOutput) ToLinkedServicePropsPtrOutputWithContext(ctx c
 	}).(LinkedServicePropsPtrOutput)
 }
 
+// The creation time of the linked service.
+func (o LinkedServicePropsOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedServiceProps) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+// Type of the link target.
+func (o LinkedServicePropsOutput) LinkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedServiceProps) *string { return v.LinkType }).(pulumi.StringPtrOutput)
+}
+
 // ResourceId of the link target of the linked service.
-func (o LinkedServicePropsOutput) LinkedServiceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedServiceProps) *string { return v.LinkedServiceResourceId }).(pulumi.StringPtrOutput)
+func (o LinkedServicePropsOutput) LinkedServiceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceProps) string { return v.LinkedServiceResourceId }).(pulumi.StringOutput)
+}
+
+// The last modified time of the linked service.
+func (o LinkedServicePropsOutput) ModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedServiceProps) *string { return v.ModifiedTime }).(pulumi.StringPtrOutput)
 }
 
 type LinkedServicePropsPtrOutput struct{ *pulumi.OutputState }
@@ -3138,20 +3165,56 @@ func (o LinkedServicePropsPtrOutput) Elem() LinkedServicePropsOutput {
 	return o.ApplyT(func(v *LinkedServiceProps) LinkedServiceProps { return *v }).(LinkedServicePropsOutput)
 }
 
+// The creation time of the linked service.
+func (o LinkedServicePropsPtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceProps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the link target.
+func (o LinkedServicePropsPtrOutput) LinkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceProps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinkType
+	}).(pulumi.StringPtrOutput)
+}
+
 // ResourceId of the link target of the linked service.
 func (o LinkedServicePropsPtrOutput) LinkedServiceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceProps) *string {
 		if v == nil {
 			return nil
 		}
-		return v.LinkedServiceResourceId
+		return &v.LinkedServiceResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last modified time of the linked service.
+func (o LinkedServicePropsPtrOutput) ModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceProps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModifiedTime
 	}).(pulumi.StringPtrOutput)
 }
 
 // LinkedService specific properties.
 type LinkedServicePropsResponse struct {
+	// The creation time of the linked service.
+	CreatedTime *string `pulumi:"createdTime"`
+	// Type of the link target.
+	LinkType *string `pulumi:"linkType"`
 	// ResourceId of the link target of the linked service.
-	LinkedServiceResourceId *string `pulumi:"linkedServiceResourceId"`
+	LinkedServiceResourceId string `pulumi:"linkedServiceResourceId"`
+	// The last modified time of the linked service.
+	ModifiedTime *string `pulumi:"modifiedTime"`
 }
 
 // LinkedServicePropsResponseInput is an input type that accepts LinkedServicePropsResponseArgs and LinkedServicePropsResponseOutput values.
@@ -3167,8 +3230,14 @@ type LinkedServicePropsResponseInput interface {
 
 // LinkedService specific properties.
 type LinkedServicePropsResponseArgs struct {
+	// The creation time of the linked service.
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	// Type of the link target.
+	LinkType pulumi.StringPtrInput `pulumi:"linkType"`
 	// ResourceId of the link target of the linked service.
-	LinkedServiceResourceId pulumi.StringPtrInput `pulumi:"linkedServiceResourceId"`
+	LinkedServiceResourceId pulumi.StringInput `pulumi:"linkedServiceResourceId"`
+	// The last modified time of the linked service.
+	ModifiedTime pulumi.StringPtrInput `pulumi:"modifiedTime"`
 }
 
 func (LinkedServicePropsResponseArgs) ElementType() reflect.Type {
@@ -3249,9 +3318,24 @@ func (o LinkedServicePropsResponseOutput) ToLinkedServicePropsResponsePtrOutputW
 	}).(LinkedServicePropsResponsePtrOutput)
 }
 
+// The creation time of the linked service.
+func (o LinkedServicePropsResponseOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedServicePropsResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+// Type of the link target.
+func (o LinkedServicePropsResponseOutput) LinkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedServicePropsResponse) *string { return v.LinkType }).(pulumi.StringPtrOutput)
+}
+
 // ResourceId of the link target of the linked service.
-func (o LinkedServicePropsResponseOutput) LinkedServiceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedServicePropsResponse) *string { return v.LinkedServiceResourceId }).(pulumi.StringPtrOutput)
+func (o LinkedServicePropsResponseOutput) LinkedServiceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServicePropsResponse) string { return v.LinkedServiceResourceId }).(pulumi.StringOutput)
+}
+
+// The last modified time of the linked service.
+func (o LinkedServicePropsResponseOutput) ModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedServicePropsResponse) *string { return v.ModifiedTime }).(pulumi.StringPtrOutput)
 }
 
 type LinkedServicePropsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3272,13 +3356,43 @@ func (o LinkedServicePropsResponsePtrOutput) Elem() LinkedServicePropsResponseOu
 	return o.ApplyT(func(v *LinkedServicePropsResponse) LinkedServicePropsResponse { return *v }).(LinkedServicePropsResponseOutput)
 }
 
+// The creation time of the linked service.
+func (o LinkedServicePropsResponsePtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServicePropsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the link target.
+func (o LinkedServicePropsResponsePtrOutput) LinkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServicePropsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinkType
+	}).(pulumi.StringPtrOutput)
+}
+
 // ResourceId of the link target of the linked service.
 func (o LinkedServicePropsResponsePtrOutput) LinkedServiceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServicePropsResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.LinkedServiceResourceId
+		return &v.LinkedServiceResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last modified time of the linked service.
+func (o LinkedServicePropsResponsePtrOutput) ModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServicePropsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModifiedTime
 	}).(pulumi.StringPtrOutput)
 }
 

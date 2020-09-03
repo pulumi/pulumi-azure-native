@@ -81,33 +81,46 @@ class MachineExtensionInstanceViewResponse(dict):
     Describes the Machine Extension Instance View.
     """
     def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None,
-                 type: Optional[str] = None,
-                 type_handler_version: Optional[str] = None):
+                 name: str,
+                 type: str,
+                 type_handler_version: str,
+                 status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None):
         """
         Describes the Machine Extension Instance View.
         :param str name: The machine extension name.
-        :param 'MachineExtensionInstanceViewResponseStatusArgs' status: Instance view status.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
+        :param 'MachineExtensionInstanceViewResponseStatusArgs' status: Instance view status.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_handler_version", type_handler_version)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
         The machine extension name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> str:
+        """
+        Specifies the version of the script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
 
     @property
     @pulumi.getter
@@ -116,22 +129,6 @@ class MachineExtensionInstanceViewResponse(dict):
         Instance view status.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Specifies the type of the extension; an example is "CustomScriptExtension".
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[str]:
-        """
-        Specifies the version of the script handler.
-        """
-        return pulumi.get(self, "type_handler_version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -143,11 +140,11 @@ class MachineExtensionInstanceViewResponseStatus(dict):
     Instance view status.
     """
     def __init__(__self__, *,
-                 code: Optional[str] = None,
-                 display_status: Optional[str] = None,
-                 level: Optional[str] = None,
-                 message: Optional[str] = None,
-                 time: Optional[str] = None):
+                 code: str,
+                 display_status: str,
+                 level: str,
+                 message: str,
+                 time: str):
         """
         Instance view status.
         :param str code: The status code.
@@ -156,20 +153,15 @@ class MachineExtensionInstanceViewResponseStatus(dict):
         :param str message: The detailed status message, including for alerts and error messages.
         :param str time: The time of the status.
         """
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if display_status is not None:
-            pulumi.set(__self__, "display_status", display_status)
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "display_status", display_status)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[str]:
+    def code(self) -> str:
         """
         The status code.
         """
@@ -177,7 +169,7 @@ class MachineExtensionInstanceViewResponseStatus(dict):
 
     @property
     @pulumi.getter(name="displayStatus")
-    def display_status(self) -> Optional[str]:
+    def display_status(self) -> str:
         """
         The short localizable label for the status.
         """
@@ -185,7 +177,7 @@ class MachineExtensionInstanceViewResponseStatus(dict):
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[str]:
+    def level(self) -> str:
         """
         The level code.
         """
@@ -193,7 +185,7 @@ class MachineExtensionInstanceViewResponseStatus(dict):
 
     @property
     @pulumi.getter
-    def message(self) -> Optional[str]:
+    def message(self) -> str:
         """
         The detailed status message, including for alerts and error messages.
         """
@@ -201,7 +193,7 @@ class MachineExtensionInstanceViewResponseStatus(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional[str]:
+    def time(self) -> str:
         """
         The time of the status.
         """
@@ -217,33 +209,46 @@ class MachineExtensionPropertiesResponseInstanceView(dict):
     The machine extension instance view.
     """
     def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None,
-                 type: Optional[str] = None,
-                 type_handler_version: Optional[str] = None):
+                 name: str,
+                 type: str,
+                 type_handler_version: str,
+                 status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None):
         """
         The machine extension instance view.
         :param str name: The machine extension name.
-        :param 'MachineExtensionInstanceViewResponseStatusArgs' status: Instance view status.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
+        :param 'MachineExtensionInstanceViewResponseStatusArgs' status: Instance view status.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_handler_version", type_handler_version)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
         The machine extension name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> str:
+        """
+        Specifies the version of the script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
 
     @property
     @pulumi.getter
@@ -252,22 +257,6 @@ class MachineExtensionPropertiesResponseInstanceView(dict):
         Instance view status.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Specifies the type of the extension; an example is "CustomScriptExtension".
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[str]:
-        """
-        Specifies the version of the script handler.
-        """
-        return pulumi.get(self, "type_handler_version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

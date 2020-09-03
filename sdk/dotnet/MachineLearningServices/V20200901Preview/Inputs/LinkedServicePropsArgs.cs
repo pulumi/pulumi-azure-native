@@ -16,10 +16,28 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview.Inputs
     public sealed class LinkedServicePropsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The creation time of the linked service.
+        /// </summary>
+        [Input("createdTime")]
+        public Input<string>? CreatedTime { get; set; }
+
+        /// <summary>
+        /// Type of the link target.
+        /// </summary>
+        [Input("linkType")]
+        public Input<string>? LinkType { get; set; }
+
+        /// <summary>
         /// ResourceId of the link target of the linked service.
         /// </summary>
-        [Input("linkedServiceResourceId")]
-        public Input<string>? LinkedServiceResourceId { get; set; }
+        [Input("linkedServiceResourceId", required: true)]
+        public Input<string> LinkedServiceResourceId { get; set; } = null!;
+
+        /// <summary>
+        /// The last modified time of the linked service.
+        /// </summary>
+        [Input("modifiedTime")]
+        public Input<string>? ModifiedTime { get; set; }
 
         public LinkedServicePropsArgs()
         {

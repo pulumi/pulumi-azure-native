@@ -81,6 +81,9 @@ func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:devices/v20200710preview:IotHubResourceEventHubConsumerGroup"),
 		},
+		{
+			Type: pulumi.String("azurerm:devices/v20200801:IotHubResourceEventHubConsumerGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IotHubResourceEventHubConsumerGroup

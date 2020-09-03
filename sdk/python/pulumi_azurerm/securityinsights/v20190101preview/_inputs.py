@@ -13,6 +13,8 @@ __all__ = [
     'IncidentLabelArgs',
     'IncidentOwnerInfoArgs',
     'RelationNodeArgs',
+    'ThreatIntelligenceGranularMarkingModelArgs',
+    'ThreatIntelligenceKillChainPhaseArgs',
     'UserInfoArgs',
     'WatchlistItemArgs',
 ]
@@ -234,6 +236,102 @@ class RelationNodeArgs:
     @relation_node_id.setter
     def relation_node_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "relation_node_id", value)
+
+
+@pulumi.input_type
+class ThreatIntelligenceGranularMarkingModelArgs:
+    def __init__(__self__, *,
+                 language: Optional[pulumi.Input[str]] = None,
+                 marking_ref: Optional[pulumi.Input[float]] = None,
+                 selectors: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        Describes threat granular marking model entity
+        :param pulumi.Input[str] language: Language granular marking model
+        :param pulumi.Input[float] marking_ref: marking reference granular marking model
+        :param pulumi.Input[List[pulumi.Input[str]]] selectors: granular marking model selectors
+        """
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if marking_ref is not None:
+            pulumi.set(__self__, "marking_ref", marking_ref)
+        if selectors is not None:
+            pulumi.set(__self__, "selectors", selectors)
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[pulumi.Input[str]]:
+        """
+        Language granular marking model
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "language", value)
+
+    @property
+    @pulumi.getter(name="markingRef")
+    def marking_ref(self) -> Optional[pulumi.Input[float]]:
+        """
+        marking reference granular marking model
+        """
+        return pulumi.get(self, "marking_ref")
+
+    @marking_ref.setter
+    def marking_ref(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "marking_ref", value)
+
+    @property
+    @pulumi.getter
+    def selectors(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        granular marking model selectors
+        """
+        return pulumi.get(self, "selectors")
+
+    @selectors.setter
+    def selectors(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "selectors", value)
+
+
+@pulumi.input_type
+class ThreatIntelligenceKillChainPhaseArgs:
+    def __init__(__self__, *,
+                 kill_chain_name: Optional[pulumi.Input[str]] = None,
+                 phase_name: Optional[pulumi.Input[float]] = None):
+        """
+        Describes threat kill chain phase entity
+        :param pulumi.Input[str] kill_chain_name: Kill chainName name
+        :param pulumi.Input[float] phase_name: Phase name
+        """
+        if kill_chain_name is not None:
+            pulumi.set(__self__, "kill_chain_name", kill_chain_name)
+        if phase_name is not None:
+            pulumi.set(__self__, "phase_name", phase_name)
+
+    @property
+    @pulumi.getter(name="killChainName")
+    def kill_chain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kill chainName name
+        """
+        return pulumi.get(self, "kill_chain_name")
+
+    @kill_chain_name.setter
+    def kill_chain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kill_chain_name", value)
+
+    @property
+    @pulumi.getter(name="phaseName")
+    def phase_name(self) -> Optional[pulumi.Input[float]]:
+        """
+        Phase name
+        """
+        return pulumi.get(self, "phase_name")
+
+    @phase_name.setter
+    def phase_name(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "phase_name", value)
 
 
 @pulumi.input_type

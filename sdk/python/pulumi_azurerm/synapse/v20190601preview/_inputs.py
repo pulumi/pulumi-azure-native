@@ -328,17 +328,33 @@ class PrivateLinkServiceConnectionStateArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         SQL pool SKU
+        :param pulumi.Input[float] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[str] name: The SKU name
         :param pulumi.Input[str] tier: The service tier
         """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[float]]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "capacity", value)
 
     @property
     @pulumi.getter

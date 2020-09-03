@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview.Outputs
     public sealed class SkuResponseResult
     {
         /// <summary>
+        /// If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        /// </summary>
+        public readonly int? Capacity;
+        /// <summary>
         /// The SKU name
         /// </summary>
         public readonly string? Name;
@@ -24,10 +28,13 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview.Outputs
 
         [OutputConstructor]
         private SkuResponseResult(
+            int? capacity,
+
             string? name,
 
             string? tier)
         {
+            Capacity = capacity;
             Name = name;
             Tier = tier;
         }

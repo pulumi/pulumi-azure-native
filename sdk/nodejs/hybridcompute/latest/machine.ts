@@ -67,7 +67,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Machine Extensions information
      */
-    public readonly extensions!: pulumi.Output<outputs.hybridcompute.latest.MachineExtensionInstanceViewResponse[] | undefined>;
+    public /*out*/ readonly extensions!: pulumi.Output<outputs.hybridcompute.latest.MachineExtensionInstanceViewResponse[]>;
     public readonly identity!: pulumi.Output<outputs.hybridcompute.latest.MachineResponseIdentity | undefined>;
     /**
      * The time of the last status change.
@@ -153,7 +153,6 @@ export class Machine extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
-            inputs["extensions"] = args ? args.extensions : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["locationData"] = args ? args.locationData : undefined;
@@ -167,6 +166,7 @@ export class Machine extends pulumi.CustomResource {
             inputs["dnsFqdn"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["errorDetails"] = undefined /*out*/;
+            inputs["extensions"] = undefined /*out*/;
             inputs["lastStatusChange"] = undefined /*out*/;
             inputs["machineFqdn"] = undefined /*out*/;
             inputs["osName"] = undefined /*out*/;
@@ -199,10 +199,6 @@ export interface MachineArgs {
      * Public Key that the client provides to be used during initial resource onboarding
      */
     readonly clientPublicKey?: pulumi.Input<string>;
-    /**
-     * Machine Extensions information
-     */
-    readonly extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.latest.MachineExtensionInstanceView>[]>;
     readonly identity?: pulumi.Input<inputs.hybridcompute.latest.MachineIdentity>;
     /**
      * The geo-location where the resource lives

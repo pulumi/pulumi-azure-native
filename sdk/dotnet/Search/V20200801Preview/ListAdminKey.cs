@@ -40,11 +40,11 @@ namespace Pulumi.AzureRM.Search.V20200801Preview
     public sealed class ListAdminKeyResult
     {
         /// <summary>
-        /// The primary admin API key of the Search service.
+        /// The primary admin API key of the search service.
         /// </summary>
         public readonly string PrimaryKey;
         /// <summary>
-        /// The secondary admin API key of the Search service.
+        /// The secondary admin API key of the search service.
         /// </summary>
         public readonly string SecondaryKey;
 

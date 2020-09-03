@@ -215,18 +215,6 @@ namespace Pulumi.AzureRM.HybridCompute.V20200802
         [Input("clientPublicKey")]
         public Input<string>? ClientPublicKey { get; set; }
 
-        [Input("extensions")]
-        private InputList<Inputs.MachineExtensionInstanceViewArgs>? _extensions;
-
-        /// <summary>
-        /// Machine Extensions information
-        /// </summary>
-        public InputList<Inputs.MachineExtensionInstanceViewArgs> Extensions
-        {
-            get => _extensions ?? (_extensions = new InputList<Inputs.MachineExtensionInstanceViewArgs>());
-            set => _extensions = value;
-        }
-
         [Input("identity")]
         public Input<Inputs.MachineIdentityArgs>? Identity { get; set; }
 

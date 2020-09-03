@@ -36,11 +36,11 @@ export interface ListAdminKeyArgs {
  */
 export interface ListAdminKeyResult {
     /**
-     * The primary admin API key of the Search service.
+     * The primary admin API key of the search service.
      */
     readonly primaryKey: string;
     /**
-     * The secondary admin API key of the Search service.
+     * The secondary admin API key of the search service.
      */
     readonly secondaryKey: string;
 }

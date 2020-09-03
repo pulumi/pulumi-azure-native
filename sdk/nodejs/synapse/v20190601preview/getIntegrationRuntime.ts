@@ -41,11 +41,11 @@ export interface GetIntegrationRuntimeArgs {
  */
 export interface GetIntegrationRuntimeResult {
     /**
-     * Etag identifies change in the resource.
+     * Resource Etag.
      */
     readonly etag: string;
     /**
-     * The resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -53,7 +53,7 @@ export interface GetIntegrationRuntimeResult {
      */
     readonly properties: outputs.synapse.v20190601preview.IntegrationRuntimeResponse;
     /**
-     * The resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
 }

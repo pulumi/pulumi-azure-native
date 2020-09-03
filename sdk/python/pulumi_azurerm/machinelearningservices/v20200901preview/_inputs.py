@@ -727,25 +727,72 @@ class KeyVaultPropertiesArgs:
 @pulumi.input_type
 class LinkedServicePropsArgs:
     def __init__(__self__, *,
-                 linked_service_resource_id: Optional[pulumi.Input[str]] = None):
+                 linked_service_resource_id: pulumi.Input[str],
+                 created_time: Optional[pulumi.Input[str]] = None,
+                 link_type: Optional[pulumi.Input[str]] = None,
+                 modified_time: Optional[pulumi.Input[str]] = None):
         """
         LinkedService specific properties.
         :param pulumi.Input[str] linked_service_resource_id: ResourceId of the link target of the linked service.
+        :param pulumi.Input[str] created_time: The creation time of the linked service.
+        :param pulumi.Input[str] link_type: Type of the link target.
+        :param pulumi.Input[str] modified_time: The last modified time of the linked service.
         """
-        if linked_service_resource_id is not None:
-            pulumi.set(__self__, "linked_service_resource_id", linked_service_resource_id)
+        pulumi.set(__self__, "linked_service_resource_id", linked_service_resource_id)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if link_type is not None:
+            pulumi.set(__self__, "link_type", link_type)
+        if modified_time is not None:
+            pulumi.set(__self__, "modified_time", modified_time)
 
     @property
     @pulumi.getter(name="linkedServiceResourceId")
-    def linked_service_resource_id(self) -> Optional[pulumi.Input[str]]:
+    def linked_service_resource_id(self) -> pulumi.Input[str]:
         """
         ResourceId of the link target of the linked service.
         """
         return pulumi.get(self, "linked_service_resource_id")
 
     @linked_service_resource_id.setter
-    def linked_service_resource_id(self, value: Optional[pulumi.Input[str]]):
+    def linked_service_resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "linked_service_resource_id", value)
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation time of the linked service.
+        """
+        return pulumi.get(self, "created_time")
+
+    @created_time.setter
+    def created_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_time", value)
+
+    @property
+    @pulumi.getter(name="linkType")
+    def link_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the link target.
+        """
+        return pulumi.get(self, "link_type")
+
+    @link_type.setter
+    def link_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "link_type", value)
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last modified time of the linked service.
+        """
+        return pulumi.get(self, "modified_time")
+
+    @modified_time.setter
+    def modified_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "modified_time", value)
 
 
 @pulumi.input_type
