@@ -7,6 +7,9 @@ import (
 // excludeResources maintains a list of resources that we are skipping
 // generating examples for at the moment due to codegen issues.
 var excludeResources = codegen.NewStringSet(
+	"azurerm:attestation/v20180901preview:AttestationProvider",
+	"azurerm:billing/v20180801preview:ReportByBillingAccount",
+	"azurerm:billing/v20180801preview:ReportByDepartment",
 	"azurerm:batch/v20170901:Certificate",
 	"azurerm:batch/v20181201:Certificate",
 	"azurerm:batch/v20190401:Certificate",
@@ -21,6 +24,8 @@ var excludeResources = codegen.NewStringSet(
 	"azurerm:batch/v20200301:Pool",
 	"azurerm:batch/v20200501:Pool",
 	"azurerm:batch/latest:Pool",
+	"azurerm:batchai/v20180501:Workspace",
+	"azurerm:batchai/latest:Workspace",
 	"azurerm:costmanagement/v20180531:ReportConfig",
 	"azurerm:costmanagement/latest:ReportConfig",
 	"azurerm:costmanagement/v20190101:Export",
@@ -576,5 +581,5 @@ var excludeResources = codegen.NewStringSet(
 
 	"azurerm:hybridcompute/v20181120:GuestConfigurationHCRPAssignment",
 	"azurerm:hybridcompute/v20200625:GuestConfigurationHCRPAssignment", // python name mismatch
-	"azurerm:hybridcompute/latest:GuestConfigurationHCRPAssignment", // python name mismatch
+	"azurerm:hybridcompute/latest:GuestConfigurationHCRPAssignment",    // python name mismatch
 )

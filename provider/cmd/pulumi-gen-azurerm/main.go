@@ -53,7 +53,7 @@ func main() {
 
 	azureProviders := openapi.Providers()
 
-	pkgSpec, meta, err := gen.PulumiSchema(azureProviders)
+	pkgSpec, meta, examples, err := gen.PulumiSchema(azureProviders)
 	if err != nil {
 		panic(err)
 	}
@@ -73,7 +73,7 @@ func main() {
 
 	if *generateExamples {
 		// Note - Requires a provider executable in PATH
-		err = gen.Examples(pkgSpec, meta, langs)
+		err = gen.Examples(pkgSpec, meta, examples, langs)
 		if err != nil {
 			panic(err)
 		}

@@ -38,7 +38,7 @@ type resourceExamplesRenderData struct {
 }
 
 // Examples renders Azure API examples to the pkgSpec for the specified list of languages.
-func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureApiMetadata, languages []string) error {
+func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureApiMetadata, resExamples map[string][]provider.AzureApiExample, languages []string) error {
 	sortedKeys := codegen.SortedKeys(metadata.Resources) // To generate in deterministic order
 
 	pulumiOptions := []hcl2.BindOption{hcl2.Cache(hcl2.NewPackageCache())}
@@ -58,8 +58,12 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureApiMetadata, 
 		}
 		resourceName := pcl.Camel(split[len(split)-1])
 
+		resourceExamples, ok := resExamples[pulumiToken]
+		if !ok {
+			continue
+		}
 		examplesRenderData := resourceExamplesRenderData{}
-		for _, example := range resource.Examples {
+		for _, example := range resourceExamples {
 			var items []model.BodyItem
 			if seen.Has(example.Location) {
 				continue
@@ -86,13 +90,15 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureApiMetadata, 
 			}
 
 			if _, ok := exampleJSON["parameters"].(map[string]interface{}); !ok {
-				return fmt.Errorf("expect parameters to be a map, received: %T", exampleJSON["parameters"])
+				fmt.Printf("Expect parameters to be a map, received: %T for resource: %s, skipping.", exampleJSON["parameters"], pulumiToken)
+				continue
 			}
 			exampleParams := exampleJSON["parameters"].(map[string]interface{})
 
 			flattened, err := flattenInput(exampleParams, resourceParams, metadata.Types)
 			if err != nil {
-				return err
+				fmt.Printf("tranforming input for example %s for resource %s: %v", example.Description, pulumiToken, err)
+				continue
 			}
 
 			renderer := pcl.NewRenderContext()
@@ -191,8 +197,6 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureApiMetadata, 
 			}
 		}
 
-		// Don't need the example information in metadata anymore
-		resource.Examples = nil
 		metadata.Resources[pulumiToken] = resource
 	}
 
@@ -357,7 +361,9 @@ func transformProperty(prop *provider.AzureApiProperty, types map[string]provide
 		s := reflect.ValueOf(val)
 
 		for i := 0; i < s.Len(); i++ {
-			result = append(result, transformProperty(prop.Items, types, s.Index(i).Interface()))
+			if prop.Items != nil {
+				result = append(result, transformProperty(prop.Items, types, s.Index(i).Interface()))
+			}
 		}
 		return result
 	}
