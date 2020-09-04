@@ -90,17 +90,15 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureApiMetadata, 
 			}
 			exampleParams := exampleJSON["parameters"].(map[string]interface{})
 
-			flattened, err := flattenInput(exampleParams, resourceParams, metadata.Types)
+			flattened, err := FlattenInput(exampleParams, resourceParams, metadata.Types)
 			if err != nil {
 				return err
 			}
 
-			renderer := pcl.NewRenderContext()
-
 			keys := codegen.SortedKeys(flattened)
 			for _, k := range keys {
 				v := flattened[k]
-				val, err := renderer.RenderValue(v)
+				val, err := pcl.RenderValue(v)
 				if err != nil {
 					return err
 				}
@@ -249,12 +247,12 @@ func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string, exa
 	return nil
 }
 
-// flattenInput takes the parameters specified in Azure API specs and flattens them
+// FlattenInput takes the parameters specified in Azure API specs and flattens them
 // to match the desired format for the Pulumi schema. resourceParams is a mapping
 // of API parameter names to provider.AzureApiParameter and types is a mapping for
 // the API type names to provider.AzureApiType. The latter two can be derived from
 // the metadata generated during schema generation.
-func flattenInput(
+func FlattenInput(
 	input map[string]interface{},
 	resourceParams map[string]provider.AzureApiParameter,
 	types map[string]provider.AzureApiType,
@@ -283,7 +281,7 @@ func flattenInput(
 			if !ok {
 				return nil, fmt.Errorf("property %s is expected to be a map, recieved: %T", k, v)
 			}
-			flattened, err := flattenInput(contained, resourceParams, types)
+			flattened, err := FlattenInput(contained, resourceParams, types)
 			if err != nil {
 				return nil, err
 			}

@@ -9,28 +9,15 @@ import (
 	"github.com/zclconf/go-cty/cty"
 )
 
-type RenderContext struct {
-	parameters map[string]*model.Variable // Template parameters
-	mappings   map[string]*model.Variable // Template mappings
-	conditions map[string]*model.Variable // Template conditions
-	resources  map[string]*model.Variable // Template resources
-	outputs    map[string]*model.Variable // Template outputs
-}
-
 // null represents PCL's builtin `null` variable
 var null = &model.Variable{
 	Name:         "null",
 	VariableType: model.NoneType,
 }
 
-func NewRenderContext() *RenderContext {
-	return &RenderContext{ /* TODO initialize me */ }
-}
-
-// RenderValue renders an AST node that represents a YAML value as its equivalent PCL. Most nodes are rendered as one
-// would expect (e.g. sequences -> tuple construction, maps -> object construction, etc.). Function calls are the lone
-// exception; see renderFunction for more details.
-func (ctx *RenderContext) RenderValue(node interface{}) (model.Expression, error) {
+// RenderValue renders an object that represents a json value into PCL. Most nodes are rendered as one
+// would expect (e.g. sequences -> tuple construction, maps -> object construction, etc.).
+func RenderValue(node interface{}) (model.Expression, error) {
 	if node == nil {
 		return model.VariableReference(null), nil
 	}
@@ -41,7 +28,7 @@ func (ctx *RenderContext) RenderValue(node interface{}) (model.Expression, error
 	case reflect.Slice:
 		var expressions []model.Expression
 		for i := 0; i < val.Len(); i++ {
-			e, err := ctx.RenderValue(val.Index(i).Interface())
+			e, err := RenderValue(val.Index(i).Interface())
 			if err != nil {
 				return nil, err
 			}
@@ -80,7 +67,7 @@ func (ctx *RenderContext) RenderValue(node interface{}) (model.Expression, error
 		for iter.Next() {
 			k := iter.Key()
 			v := iter.Value()
-			rendered, err := ctx.RenderValue(v.Interface())
+			rendered, err := RenderValue(v.Interface())
 			if err != nil {
 				return nil, err
 			}
