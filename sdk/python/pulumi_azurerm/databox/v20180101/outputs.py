@@ -10,21 +10,113 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'AccountCredentialDetailsResponseResult',
+    'ApplianceNetworkConfigurationResponseResult',
     'ContactDetailsResponse',
-    'CopyLogDetailsResponse',
-    'DestinationAccountDetailsResponse',
+    'CopyProgressResponse',
+    'DataBoxAccountCopyLogDetailsResponse',
+    'DataBoxDiskCopyLogDetailsResponse',
+    'DataBoxDiskCopyProgressResponse',
+    'DataBoxDiskJobDetailsResponse',
+    'DataBoxDiskJobSecretsResponseResult',
+    'DataBoxHeavyAccountCopyLogDetailsResponse',
+    'DataBoxHeavyJobDetailsResponse',
+    'DataBoxHeavyJobSecretsResponseResult',
+    'DataBoxHeavySecretResponseResult',
+    'DataBoxJobDetailsResponse',
+    'DataBoxSecretResponseResult',
+    'DataboxJobSecretsResponseResult',
+    'DestinationManagedDiskDetailsResponse',
+    'DestinationStorageAccountDetailsResponse',
+    'DiskSecretResponseResult',
     'ErrorResponse',
-    'JobDetailsResponse',
     'JobErrorDetailsResponse',
-    'JobSecretsResponseResult',
     'JobStagesResponse',
     'NotificationPreferenceResponse',
     'PackageShippingDetailsResponse',
     'PreferencesResponse',
+    'ShareCredentialDetailsResponseResult',
     'ShippingAddressResponse',
     'SkuResponse',
     'UnencryptedCredentialsResponseResult',
 ]
+
+@pulumi.output_type
+class AccountCredentialDetailsResponseResult(dict):
+    """
+    Credential details of the account.
+    """
+    def __init__(__self__, *,
+                 account_connection_string: str,
+                 account_name: str,
+                 share_credential_details: List['outputs.ShareCredentialDetailsResponseResult']):
+        """
+        Credential details of the account.
+        :param str account_connection_string: Connection string of the account endpoint to use the account as a storage endpoint on the device.
+        :param str account_name: Name of the account.
+        :param List['ShareCredentialDetailsResponseArgs'] share_credential_details: Per share level unencrypted access credentials.
+        """
+        pulumi.set(__self__, "account_connection_string", account_connection_string)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "share_credential_details", share_credential_details)
+
+    @property
+    @pulumi.getter(name="accountConnectionString")
+    def account_connection_string(self) -> str:
+        """
+        Connection string of the account endpoint to use the account as a storage endpoint on the device.
+        """
+        return pulumi.get(self, "account_connection_string")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        Name of the account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="shareCredentialDetails")
+    def share_credential_details(self) -> List['outputs.ShareCredentialDetailsResponseResult']:
+        """
+        Per share level unencrypted access credentials.
+        """
+        return pulumi.get(self, "share_credential_details")
+
+
+@pulumi.output_type
+class ApplianceNetworkConfigurationResponseResult(dict):
+    """
+    The Network Adapter configuration of a DataBox.
+    """
+    def __init__(__self__, *,
+                 mac_address: str,
+                 name: str):
+        """
+        The Network Adapter configuration of a DataBox.
+        :param str mac_address: Mac Address.
+        :param str name: Name of the network.
+        """
+        pulumi.set(__self__, "mac_address", mac_address)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> str:
+        """
+        Mac Address.
+        """
+        return pulumi.get(self, "mac_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the network.
+        """
+        return pulumi.get(self, "name")
+
 
 @pulumi.output_type
 class ContactDetailsResponse(dict):
@@ -110,17 +202,111 @@ class ContactDetailsResponse(dict):
 
 
 @pulumi.output_type
-class CopyLogDetailsResponse(dict):
+class CopyProgressResponse(dict):
     """
-    Details for log generated during copy.
+    Copy progress.
     """
     def __init__(__self__, *,
-                 copy_log_details_type: str):
+                 account_id: str,
+                 bytes_sent_to_cloud: float,
+                 files_processed: float,
+                 storage_account_name: str,
+                 total_bytes_to_process: float,
+                 total_files_to_process: float):
         """
-        Details for log generated during copy.
+        Copy progress.
+        :param str account_id: Id of the account where the data needs to be uploaded.
+        :param float bytes_sent_to_cloud: Amount of data uploaded by the job as of now.
+        :param float files_processed: Number of files processed by the job as of now.
+        :param str storage_account_name: Name of the storage account where the data needs to be uploaded.
+        :param float total_bytes_to_process: Total amount of data to be processed by the job.
+        :param float total_files_to_process: Total number of files to be processed by the job.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "bytes_sent_to_cloud", bytes_sent_to_cloud)
+        pulumi.set(__self__, "files_processed", files_processed)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "total_bytes_to_process", total_bytes_to_process)
+        pulumi.set(__self__, "total_files_to_process", total_files_to_process)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        Id of the account where the data needs to be uploaded.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="bytesSentToCloud")
+    def bytes_sent_to_cloud(self) -> float:
+        """
+        Amount of data uploaded by the job as of now.
+        """
+        return pulumi.get(self, "bytes_sent_to_cloud")
+
+    @property
+    @pulumi.getter(name="filesProcessed")
+    def files_processed(self) -> float:
+        """
+        Number of files processed by the job as of now.
+        """
+        return pulumi.get(self, "files_processed")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        Name of the storage account where the data needs to be uploaded.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="totalBytesToProcess")
+    def total_bytes_to_process(self) -> float:
+        """
+        Total amount of data to be processed by the job.
+        """
+        return pulumi.get(self, "total_bytes_to_process")
+
+    @property
+    @pulumi.getter(name="totalFilesToProcess")
+    def total_files_to_process(self) -> float:
+        """
+        Total number of files to be processed by the job.
+        """
+        return pulumi.get(self, "total_files_to_process")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataBoxAccountCopyLogDetailsResponse(dict):
+    """
+    Copy log details for a storage account of a DataBox job
+    """
+    def __init__(__self__, *,
+                 account_name: str,
+                 copy_log_details_type: str,
+                 copy_log_link: str):
+        """
+        Copy log details for a storage account of a DataBox job
+        :param str account_name: Destination account name.
         :param str copy_log_details_type: Indicates the type of job details.
+        :param str copy_log_link: Link for copy logs.
         """
-        pulumi.set(__self__, "copy_log_details_type", copy_log_details_type)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "copy_log_details_type", 'DataBox')
+        pulumi.set(__self__, "copy_log_link", copy_log_link)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        Destination account name.
+        """
+        return pulumi.get(self, "account_name")
 
     @property
     @pulumi.getter(name="copyLogDetailsType")
@@ -130,94 +316,453 @@ class CopyLogDetailsResponse(dict):
         """
         return pulumi.get(self, "copy_log_details_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DestinationAccountDetailsResponse(dict):
-    """
-    Details of the destination of the data
-    """
-    def __init__(__self__, *,
-                 data_destination_type: str,
-                 account_id: Optional[str] = None):
-        """
-        Details of the destination of the data
-        :param str data_destination_type: Data Destination Type.
-        :param str account_id: Arm Id of the destination where the data has to be moved.
-        """
-        pulumi.set(__self__, "data_destination_type", data_destination_type)
-        if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
-
     @property
-    @pulumi.getter(name="dataDestinationType")
-    def data_destination_type(self) -> str:
+    @pulumi.getter(name="copyLogLink")
+    def copy_log_link(self) -> str:
         """
-        Data Destination Type.
+        Link for copy logs.
         """
-        return pulumi.get(self, "data_destination_type")
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[str]:
-        """
-        Arm Id of the destination where the data has to be moved.
-        """
-        return pulumi.get(self, "account_id")
+        return pulumi.get(self, "copy_log_link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
-class ErrorResponse(dict):
+class DataBoxDiskCopyLogDetailsResponse(dict):
     """
-    Top level error for the job.
+    Copy Log Details for a disk
     """
     def __init__(__self__, *,
-                 code: str,
-                 message: str):
+                 copy_log_details_type: str,
+                 disk_serial_number: str,
+                 error_log_link: str,
+                 verbose_log_link: str):
         """
-        Top level error for the job.
-        :param str code: Error code that can be used to programmatically identify the error.
-        :param str message: Describes the error in detail and provides debugging information.
+        Copy Log Details for a disk
+        :param str copy_log_details_type: Indicates the type of job details.
+        :param str disk_serial_number: Disk Serial Number.
+        :param str error_log_link: Link for copy error logs.
+        :param str verbose_log_link: Link for copy verbose logs.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "copy_log_details_type", 'DataBoxDisk')
+        pulumi.set(__self__, "disk_serial_number", disk_serial_number)
+        pulumi.set(__self__, "error_log_link", error_log_link)
+        pulumi.set(__self__, "verbose_log_link", verbose_log_link)
+
+    @property
+    @pulumi.getter(name="copyLogDetailsType")
+    def copy_log_details_type(self) -> str:
+        """
+        Indicates the type of job details.
+        """
+        return pulumi.get(self, "copy_log_details_type")
+
+    @property
+    @pulumi.getter(name="diskSerialNumber")
+    def disk_serial_number(self) -> str:
+        """
+        Disk Serial Number.
+        """
+        return pulumi.get(self, "disk_serial_number")
+
+    @property
+    @pulumi.getter(name="errorLogLink")
+    def error_log_link(self) -> str:
+        """
+        Link for copy error logs.
+        """
+        return pulumi.get(self, "error_log_link")
+
+    @property
+    @pulumi.getter(name="verboseLogLink")
+    def verbose_log_link(self) -> str:
+        """
+        Link for copy verbose logs.
+        """
+        return pulumi.get(self, "verbose_log_link")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataBoxDiskCopyProgressResponse(dict):
+    """
+    DataBox Disk Copy Progress
+    """
+    def __init__(__self__, *,
+                 bytes_copied: float,
+                 percent_complete: float,
+                 serial_number: str,
+                 status: str):
+        """
+        DataBox Disk Copy Progress
+        :param float bytes_copied: Bytes copied during the copy of disk.
+        :param float percent_complete: Indicates the percentage completed for the copy of the disk.
+        :param str serial_number: The serial number of the disk
+        :param str status: The Status of the copy
+        """
+        pulumi.set(__self__, "bytes_copied", bytes_copied)
+        pulumi.set(__self__, "percent_complete", percent_complete)
+        pulumi.set(__self__, "serial_number", serial_number)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="bytesCopied")
+    def bytes_copied(self) -> float:
+        """
+        Bytes copied during the copy of disk.
+        """
+        return pulumi.get(self, "bytes_copied")
+
+    @property
+    @pulumi.getter(name="percentComplete")
+    def percent_complete(self) -> float:
+        """
+        Indicates the percentage completed for the copy of the disk.
+        """
+        return pulumi.get(self, "percent_complete")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> str:
+        """
+        The serial number of the disk
+        """
+        return pulumi.get(self, "serial_number")
 
     @property
     @pulumi.getter
-    def code(self) -> str:
+    def status(self) -> str:
         """
-        Error code that can be used to programmatically identify the error.
+        The Status of the copy
         """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter
-    def message(self) -> str:
-        """
-        Describes the error in detail and provides debugging information.
-        """
-        return pulumi.get(self, "message")
+        return pulumi.get(self, "status")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
-class JobDetailsResponse(dict):
+class DataBoxDiskJobDetailsResponse(dict):
     """
-    Job details.
+    DataBox Disk Job Details.
     """
     def __init__(__self__, *,
                  chain_of_custody_sas_key: str,
                  contact_details: 'outputs.ContactDetailsResponse',
-                 copy_log_details: List['outputs.CopyLogDetailsResponse'],
+                 copy_log_details: List[Any],
+                 copy_progress: List['outputs.DataBoxDiskCopyProgressResponse'],
                  delivery_package: 'outputs.PackageShippingDetailsResponse',
-                 destination_account_details: List['outputs.DestinationAccountDetailsResponse'],
+                 destination_account_details: List[Any],
+                 disks_and_size_details: Mapping[str, float],
+                 error_details: List['outputs.JobErrorDetailsResponse'],
+                 job_details_type: str,
+                 job_stages: List['outputs.JobStagesResponse'],
+                 return_package: 'outputs.PackageShippingDetailsResponse',
+                 reverse_shipment_label_sas_key: str,
+                 shipping_address: 'outputs.ShippingAddressResponse',
+                 expected_data_size_in_tera_bytes: Optional[float] = None,
+                 passkey: Optional[str] = None,
+                 preferences: Optional['outputs.PreferencesResponse'] = None,
+                 preferred_disks: Optional[Mapping[str, float]] = None):
+        """
+        DataBox Disk Job Details.
+        :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
+        :param 'ContactDetailsResponseArgs' contact_details: Contact details for notification and shipping.
+        :param List[Union['DataBoxAccountCopyLogDetailsResponseArgs', 'DataBoxDiskCopyLogDetailsResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsResponseArgs']] copy_log_details: List of copy log details.
+        :param List['DataBoxDiskCopyProgressResponseArgs'] copy_progress: Copy progress per disk.
+        :param 'PackageShippingDetailsResponseArgs' delivery_package: Delivery package shipping details.
+        :param List[Union['DestinationManagedDiskDetailsResponseArgs', 'DestinationStorageAccountDetailsResponseArgs']] destination_account_details: Destination account details.
+        :param Mapping[str, float] disks_and_size_details: Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
+        :param List['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
+        :param str job_details_type: Indicates the type of job details.
+        :param List['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
+        :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
+        :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
+        :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
+        :param float expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param str passkey: User entered passkey for DataBox Disk job.
+        :param 'PreferencesResponseArgs' preferences: Preferences for the order.
+        :param Mapping[str, float] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+        """
+        pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
+        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "copy_log_details", copy_log_details)
+        pulumi.set(__self__, "copy_progress", copy_progress)
+        pulumi.set(__self__, "delivery_package", delivery_package)
+        pulumi.set(__self__, "destination_account_details", destination_account_details)
+        pulumi.set(__self__, "disks_and_size_details", disks_and_size_details)
+        pulumi.set(__self__, "error_details", error_details)
+        pulumi.set(__self__, "job_details_type", 'DataBoxDisk')
+        pulumi.set(__self__, "job_stages", job_stages)
+        pulumi.set(__self__, "return_package", return_package)
+        pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
+        pulumi.set(__self__, "shipping_address", shipping_address)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+        if passkey is not None:
+            pulumi.set(__self__, "passkey", passkey)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+        if preferred_disks is not None:
+            pulumi.set(__self__, "preferred_disks", preferred_disks)
+
+    @property
+    @pulumi.getter(name="chainOfCustodySasKey")
+    def chain_of_custody_sas_key(self) -> str:
+        """
+        Shared access key to download the chain of custody logs
+        """
+        return pulumi.get(self, "chain_of_custody_sas_key")
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> 'outputs.ContactDetailsResponse':
+        """
+        Contact details for notification and shipping.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @property
+    @pulumi.getter(name="copyLogDetails")
+    def copy_log_details(self) -> List[Any]:
+        """
+        List of copy log details.
+        """
+        return pulumi.get(self, "copy_log_details")
+
+    @property
+    @pulumi.getter(name="copyProgress")
+    def copy_progress(self) -> List['outputs.DataBoxDiskCopyProgressResponse']:
+        """
+        Copy progress per disk.
+        """
+        return pulumi.get(self, "copy_progress")
+
+    @property
+    @pulumi.getter(name="deliveryPackage")
+    def delivery_package(self) -> 'outputs.PackageShippingDetailsResponse':
+        """
+        Delivery package shipping details.
+        """
+        return pulumi.get(self, "delivery_package")
+
+    @property
+    @pulumi.getter(name="destinationAccountDetails")
+    def destination_account_details(self) -> List[Any]:
+        """
+        Destination account details.
+        """
+        return pulumi.get(self, "destination_account_details")
+
+    @property
+    @pulumi.getter(name="disksAndSizeDetails")
+    def disks_and_size_details(self) -> Mapping[str, float]:
+        """
+        Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
+        """
+        return pulumi.get(self, "disks_and_size_details")
+
+    @property
+    @pulumi.getter(name="errorDetails")
+    def error_details(self) -> List['outputs.JobErrorDetailsResponse']:
+        """
+        Error details for failure. This is optional.
+        """
+        return pulumi.get(self, "error_details")
+
+    @property
+    @pulumi.getter(name="jobDetailsType")
+    def job_details_type(self) -> str:
+        """
+        Indicates the type of job details.
+        """
+        return pulumi.get(self, "job_details_type")
+
+    @property
+    @pulumi.getter(name="jobStages")
+    def job_stages(self) -> List['outputs.JobStagesResponse']:
+        """
+        List of stages that run in the job.
+        """
+        return pulumi.get(self, "job_stages")
+
+    @property
+    @pulumi.getter(name="returnPackage")
+    def return_package(self) -> 'outputs.PackageShippingDetailsResponse':
+        """
+        Return package shipping details.
+        """
+        return pulumi.get(self, "return_package")
+
+    @property
+    @pulumi.getter(name="reverseShipmentLabelSasKey")
+    def reverse_shipment_label_sas_key(self) -> str:
+        """
+        Shared access key to download the return shipment label
+        """
+        return pulumi.get(self, "reverse_shipment_label_sas_key")
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> 'outputs.ShippingAddressResponse':
+        """
+        Shipping address of the customer.
+        """
+        return pulumi.get(self, "shipping_address")
+
+    @property
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[float]:
+        """
+        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        """
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
+
+    @property
+    @pulumi.getter
+    def passkey(self) -> Optional[str]:
+        """
+        User entered passkey for DataBox Disk job.
+        """
+        return pulumi.get(self, "passkey")
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional['outputs.PreferencesResponse']:
+        """
+        Preferences for the order.
+        """
+        return pulumi.get(self, "preferences")
+
+    @property
+    @pulumi.getter(name="preferredDisks")
+    def preferred_disks(self) -> Optional[Mapping[str, float]]:
+        """
+        User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+        """
+        return pulumi.get(self, "preferred_disks")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataBoxDiskJobSecretsResponseResult(dict):
+    """
+    The secrets related to disk job.
+    """
+    def __init__(__self__, *,
+                 disk_secrets: List['outputs.DiskSecretResponseResult'],
+                 is_passkey_user_defined: bool,
+                 job_secrets_type: str,
+                 pass_key: str):
+        """
+        The secrets related to disk job.
+        :param List['DiskSecretResponseArgs'] disk_secrets: Contains the list of secrets object for that device.
+        :param bool is_passkey_user_defined: Whether passkey was provided by user.
+        :param str job_secrets_type: Used to indicate what type of job secrets object.
+        :param str pass_key: PassKey for the disk Job.
+        """
+        pulumi.set(__self__, "disk_secrets", disk_secrets)
+        pulumi.set(__self__, "is_passkey_user_defined", is_passkey_user_defined)
+        pulumi.set(__self__, "job_secrets_type", 'DataBoxDisk')
+        pulumi.set(__self__, "pass_key", pass_key)
+
+    @property
+    @pulumi.getter(name="diskSecrets")
+    def disk_secrets(self) -> List['outputs.DiskSecretResponseResult']:
+        """
+        Contains the list of secrets object for that device.
+        """
+        return pulumi.get(self, "disk_secrets")
+
+    @property
+    @pulumi.getter(name="isPasskeyUserDefined")
+    def is_passkey_user_defined(self) -> bool:
+        """
+        Whether passkey was provided by user.
+        """
+        return pulumi.get(self, "is_passkey_user_defined")
+
+    @property
+    @pulumi.getter(name="jobSecretsType")
+    def job_secrets_type(self) -> str:
+        """
+        Used to indicate what type of job secrets object.
+        """
+        return pulumi.get(self, "job_secrets_type")
+
+    @property
+    @pulumi.getter(name="passKey")
+    def pass_key(self) -> str:
+        """
+        PassKey for the disk Job.
+        """
+        return pulumi.get(self, "pass_key")
+
+
+@pulumi.output_type
+class DataBoxHeavyAccountCopyLogDetailsResponse(dict):
+    """
+    Copy log details for a storage account for DataBoxHeavy
+    """
+    def __init__(__self__, *,
+                 account_name: str,
+                 copy_log_details_type: str,
+                 copy_log_link: List[str]):
+        """
+        Copy log details for a storage account for DataBoxHeavy
+        :param str account_name: Destination account name.
+        :param str copy_log_details_type: Indicates the type of job details.
+        :param List[str] copy_log_link: Link for copy logs.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "copy_log_details_type", 'DataBoxHeavy')
+        pulumi.set(__self__, "copy_log_link", copy_log_link)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        Destination account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="copyLogDetailsType")
+    def copy_log_details_type(self) -> str:
+        """
+        Indicates the type of job details.
+        """
+        return pulumi.get(self, "copy_log_details_type")
+
+    @property
+    @pulumi.getter(name="copyLogLink")
+    def copy_log_link(self) -> List[str]:
+        """
+        Link for copy logs.
+        """
+        return pulumi.get(self, "copy_log_link")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataBoxHeavyJobDetailsResponse(dict):
+    """
+    DataBoxHeavy Device Job Details
+    """
+    def __init__(__self__, *,
+                 chain_of_custody_sas_key: str,
+                 contact_details: 'outputs.ContactDetailsResponse',
+                 copy_log_details: List[Any],
+                 copy_progress: List['outputs.CopyProgressResponse'],
+                 delivery_package: 'outputs.PackageShippingDetailsResponse',
+                 destination_account_details: List[Any],
                  error_details: List['outputs.JobErrorDetailsResponse'],
                  job_details_type: str,
                  job_stages: List['outputs.JobStagesResponse'],
@@ -227,12 +772,13 @@ class JobDetailsResponse(dict):
                  expected_data_size_in_tera_bytes: Optional[float] = None,
                  preferences: Optional['outputs.PreferencesResponse'] = None):
         """
-        Job details.
+        DataBoxHeavy Device Job Details
         :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
         :param 'ContactDetailsResponseArgs' contact_details: Contact details for notification and shipping.
-        :param List['CopyLogDetailsResponseArgs'] copy_log_details: List of copy log details.
+        :param List[Union['DataBoxAccountCopyLogDetailsResponseArgs', 'DataBoxDiskCopyLogDetailsResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsResponseArgs']] copy_log_details: List of copy log details.
+        :param List['CopyProgressResponseArgs'] copy_progress: Copy progress per account.
         :param 'PackageShippingDetailsResponseArgs' delivery_package: Delivery package shipping details.
-        :param List['DestinationAccountDetailsResponseArgs'] destination_account_details: Destination account details.
+        :param List[Union['DestinationManagedDiskDetailsResponseArgs', 'DestinationStorageAccountDetailsResponseArgs']] destination_account_details: Destination account details.
         :param List['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
         :param str job_details_type: Indicates the type of job details.
         :param List['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
@@ -245,10 +791,11 @@ class JobDetailsResponse(dict):
         pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
         pulumi.set(__self__, "contact_details", contact_details)
         pulumi.set(__self__, "copy_log_details", copy_log_details)
+        pulumi.set(__self__, "copy_progress", copy_progress)
         pulumi.set(__self__, "delivery_package", delivery_package)
         pulumi.set(__self__, "destination_account_details", destination_account_details)
         pulumi.set(__self__, "error_details", error_details)
-        pulumi.set(__self__, "job_details_type", job_details_type)
+        pulumi.set(__self__, "job_details_type", 'DataBoxHeavy')
         pulumi.set(__self__, "job_stages", job_stages)
         pulumi.set(__self__, "return_package", return_package)
         pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
@@ -276,11 +823,19 @@ class JobDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="copyLogDetails")
-    def copy_log_details(self) -> List['outputs.CopyLogDetailsResponse']:
+    def copy_log_details(self) -> List[Any]:
         """
         List of copy log details.
         """
         return pulumi.get(self, "copy_log_details")
+
+    @property
+    @pulumi.getter(name="copyProgress")
+    def copy_progress(self) -> List['outputs.CopyProgressResponse']:
+        """
+        Copy progress per account.
+        """
+        return pulumi.get(self, "copy_progress")
 
     @property
     @pulumi.getter(name="deliveryPackage")
@@ -292,7 +847,7 @@ class JobDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="destinationAccountDetails")
-    def destination_account_details(self) -> List['outputs.DestinationAccountDetailsResponse']:
+    def destination_account_details(self) -> List[Any]:
         """
         Destination account details.
         """
@@ -367,6 +922,551 @@ class JobDetailsResponse(dict):
 
 
 @pulumi.output_type
+class DataBoxHeavyJobSecretsResponseResult(dict):
+    """
+    The secrets related to a DataBoxHeavy job.
+    """
+    def __init__(__self__, *,
+                 cabinet_pod_secrets: List['outputs.DataBoxHeavySecretResponseResult'],
+                 job_secrets_type: str):
+        """
+        The secrets related to a DataBoxHeavy job.
+        :param List['DataBoxHeavySecretResponseArgs'] cabinet_pod_secrets: Contains the list of secret objects for a DataBoxHeavy job.
+        :param str job_secrets_type: Used to indicate what type of job secrets object.
+        """
+        pulumi.set(__self__, "cabinet_pod_secrets", cabinet_pod_secrets)
+        pulumi.set(__self__, "job_secrets_type", 'DataBoxHeavy')
+
+    @property
+    @pulumi.getter(name="cabinetPodSecrets")
+    def cabinet_pod_secrets(self) -> List['outputs.DataBoxHeavySecretResponseResult']:
+        """
+        Contains the list of secret objects for a DataBoxHeavy job.
+        """
+        return pulumi.get(self, "cabinet_pod_secrets")
+
+    @property
+    @pulumi.getter(name="jobSecretsType")
+    def job_secrets_type(self) -> str:
+        """
+        Used to indicate what type of job secrets object.
+        """
+        return pulumi.get(self, "job_secrets_type")
+
+
+@pulumi.output_type
+class DataBoxHeavySecretResponseResult(dict):
+    """
+    The secrets related to a DataBoxHeavy.
+    """
+    def __init__(__self__, *,
+                 account_credential_details: List['outputs.AccountCredentialDetailsResponseResult'],
+                 device_password: str,
+                 device_serial_number: str,
+                 encoded_validation_cert_pub_key: str,
+                 network_configurations: List['outputs.ApplianceNetworkConfigurationResponseResult']):
+        """
+        The secrets related to a DataBoxHeavy.
+        :param List['AccountCredentialDetailsResponseArgs'] account_credential_details: Per account level access credentials.
+        :param str device_password: Password for out of the box experience on device.
+        :param str device_serial_number: Serial number of the assigned device.
+        :param str encoded_validation_cert_pub_key: The base 64 encoded public key to authenticate with the device
+        :param List['ApplianceNetworkConfigurationResponseArgs'] network_configurations: Network configuration of the appliance.
+        """
+        pulumi.set(__self__, "account_credential_details", account_credential_details)
+        pulumi.set(__self__, "device_password", device_password)
+        pulumi.set(__self__, "device_serial_number", device_serial_number)
+        pulumi.set(__self__, "encoded_validation_cert_pub_key", encoded_validation_cert_pub_key)
+        pulumi.set(__self__, "network_configurations", network_configurations)
+
+    @property
+    @pulumi.getter(name="accountCredentialDetails")
+    def account_credential_details(self) -> List['outputs.AccountCredentialDetailsResponseResult']:
+        """
+        Per account level access credentials.
+        """
+        return pulumi.get(self, "account_credential_details")
+
+    @property
+    @pulumi.getter(name="devicePassword")
+    def device_password(self) -> str:
+        """
+        Password for out of the box experience on device.
+        """
+        return pulumi.get(self, "device_password")
+
+    @property
+    @pulumi.getter(name="deviceSerialNumber")
+    def device_serial_number(self) -> str:
+        """
+        Serial number of the assigned device.
+        """
+        return pulumi.get(self, "device_serial_number")
+
+    @property
+    @pulumi.getter(name="encodedValidationCertPubKey")
+    def encoded_validation_cert_pub_key(self) -> str:
+        """
+        The base 64 encoded public key to authenticate with the device
+        """
+        return pulumi.get(self, "encoded_validation_cert_pub_key")
+
+    @property
+    @pulumi.getter(name="networkConfigurations")
+    def network_configurations(self) -> List['outputs.ApplianceNetworkConfigurationResponseResult']:
+        """
+        Network configuration of the appliance.
+        """
+        return pulumi.get(self, "network_configurations")
+
+
+@pulumi.output_type
+class DataBoxJobDetailsResponse(dict):
+    """
+    DataBox Job Details
+    """
+    def __init__(__self__, *,
+                 chain_of_custody_sas_key: str,
+                 contact_details: 'outputs.ContactDetailsResponse',
+                 copy_log_details: List[Any],
+                 copy_progress: List['outputs.CopyProgressResponse'],
+                 delivery_package: 'outputs.PackageShippingDetailsResponse',
+                 destination_account_details: List[Any],
+                 error_details: List['outputs.JobErrorDetailsResponse'],
+                 job_details_type: str,
+                 job_stages: List['outputs.JobStagesResponse'],
+                 return_package: 'outputs.PackageShippingDetailsResponse',
+                 reverse_shipment_label_sas_key: str,
+                 shipping_address: 'outputs.ShippingAddressResponse',
+                 expected_data_size_in_tera_bytes: Optional[float] = None,
+                 preferences: Optional['outputs.PreferencesResponse'] = None):
+        """
+        DataBox Job Details
+        :param str chain_of_custody_sas_key: Shared access key to download the chain of custody logs
+        :param 'ContactDetailsResponseArgs' contact_details: Contact details for notification and shipping.
+        :param List[Union['DataBoxAccountCopyLogDetailsResponseArgs', 'DataBoxDiskCopyLogDetailsResponseArgs', 'DataBoxHeavyAccountCopyLogDetailsResponseArgs']] copy_log_details: List of copy log details.
+        :param List['CopyProgressResponseArgs'] copy_progress: Copy progress per storage account.
+        :param 'PackageShippingDetailsResponseArgs' delivery_package: Delivery package shipping details.
+        :param List[Union['DestinationManagedDiskDetailsResponseArgs', 'DestinationStorageAccountDetailsResponseArgs']] destination_account_details: Destination account details.
+        :param List['JobErrorDetailsResponseArgs'] error_details: Error details for failure. This is optional.
+        :param str job_details_type: Indicates the type of job details.
+        :param List['JobStagesResponseArgs'] job_stages: List of stages that run in the job.
+        :param 'PackageShippingDetailsResponseArgs' return_package: Return package shipping details.
+        :param str reverse_shipment_label_sas_key: Shared access key to download the return shipment label
+        :param 'ShippingAddressResponseArgs' shipping_address: Shipping address of the customer.
+        :param float expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param 'PreferencesResponseArgs' preferences: Preferences for the order.
+        """
+        pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
+        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "copy_log_details", copy_log_details)
+        pulumi.set(__self__, "copy_progress", copy_progress)
+        pulumi.set(__self__, "delivery_package", delivery_package)
+        pulumi.set(__self__, "destination_account_details", destination_account_details)
+        pulumi.set(__self__, "error_details", error_details)
+        pulumi.set(__self__, "job_details_type", 'DataBox')
+        pulumi.set(__self__, "job_stages", job_stages)
+        pulumi.set(__self__, "return_package", return_package)
+        pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
+        pulumi.set(__self__, "shipping_address", shipping_address)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+
+    @property
+    @pulumi.getter(name="chainOfCustodySasKey")
+    def chain_of_custody_sas_key(self) -> str:
+        """
+        Shared access key to download the chain of custody logs
+        """
+        return pulumi.get(self, "chain_of_custody_sas_key")
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> 'outputs.ContactDetailsResponse':
+        """
+        Contact details for notification and shipping.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @property
+    @pulumi.getter(name="copyLogDetails")
+    def copy_log_details(self) -> List[Any]:
+        """
+        List of copy log details.
+        """
+        return pulumi.get(self, "copy_log_details")
+
+    @property
+    @pulumi.getter(name="copyProgress")
+    def copy_progress(self) -> List['outputs.CopyProgressResponse']:
+        """
+        Copy progress per storage account.
+        """
+        return pulumi.get(self, "copy_progress")
+
+    @property
+    @pulumi.getter(name="deliveryPackage")
+    def delivery_package(self) -> 'outputs.PackageShippingDetailsResponse':
+        """
+        Delivery package shipping details.
+        """
+        return pulumi.get(self, "delivery_package")
+
+    @property
+    @pulumi.getter(name="destinationAccountDetails")
+    def destination_account_details(self) -> List[Any]:
+        """
+        Destination account details.
+        """
+        return pulumi.get(self, "destination_account_details")
+
+    @property
+    @pulumi.getter(name="errorDetails")
+    def error_details(self) -> List['outputs.JobErrorDetailsResponse']:
+        """
+        Error details for failure. This is optional.
+        """
+        return pulumi.get(self, "error_details")
+
+    @property
+    @pulumi.getter(name="jobDetailsType")
+    def job_details_type(self) -> str:
+        """
+        Indicates the type of job details.
+        """
+        return pulumi.get(self, "job_details_type")
+
+    @property
+    @pulumi.getter(name="jobStages")
+    def job_stages(self) -> List['outputs.JobStagesResponse']:
+        """
+        List of stages that run in the job.
+        """
+        return pulumi.get(self, "job_stages")
+
+    @property
+    @pulumi.getter(name="returnPackage")
+    def return_package(self) -> 'outputs.PackageShippingDetailsResponse':
+        """
+        Return package shipping details.
+        """
+        return pulumi.get(self, "return_package")
+
+    @property
+    @pulumi.getter(name="reverseShipmentLabelSasKey")
+    def reverse_shipment_label_sas_key(self) -> str:
+        """
+        Shared access key to download the return shipment label
+        """
+        return pulumi.get(self, "reverse_shipment_label_sas_key")
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> 'outputs.ShippingAddressResponse':
+        """
+        Shipping address of the customer.
+        """
+        return pulumi.get(self, "shipping_address")
+
+    @property
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[float]:
+        """
+        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        """
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional['outputs.PreferencesResponse']:
+        """
+        Preferences for the order.
+        """
+        return pulumi.get(self, "preferences")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataBoxSecretResponseResult(dict):
+    """
+    The secrets related to a DataBox.
+    """
+    def __init__(__self__, *,
+                 account_credential_details: List['outputs.AccountCredentialDetailsResponseResult'],
+                 device_password: str,
+                 device_serial_number: str,
+                 encoded_validation_cert_pub_key: str,
+                 network_configurations: List['outputs.ApplianceNetworkConfigurationResponseResult']):
+        """
+        The secrets related to a DataBox.
+        :param List['AccountCredentialDetailsResponseArgs'] account_credential_details: Per account level access credentials.
+        :param str device_password: Password for out of the box experience on device.
+        :param str device_serial_number: Serial number of the assigned device.
+        :param str encoded_validation_cert_pub_key: The base 64 encoded public key to authenticate with the device
+        :param List['ApplianceNetworkConfigurationResponseArgs'] network_configurations: Network configuration of the appliance.
+        """
+        pulumi.set(__self__, "account_credential_details", account_credential_details)
+        pulumi.set(__self__, "device_password", device_password)
+        pulumi.set(__self__, "device_serial_number", device_serial_number)
+        pulumi.set(__self__, "encoded_validation_cert_pub_key", encoded_validation_cert_pub_key)
+        pulumi.set(__self__, "network_configurations", network_configurations)
+
+    @property
+    @pulumi.getter(name="accountCredentialDetails")
+    def account_credential_details(self) -> List['outputs.AccountCredentialDetailsResponseResult']:
+        """
+        Per account level access credentials.
+        """
+        return pulumi.get(self, "account_credential_details")
+
+    @property
+    @pulumi.getter(name="devicePassword")
+    def device_password(self) -> str:
+        """
+        Password for out of the box experience on device.
+        """
+        return pulumi.get(self, "device_password")
+
+    @property
+    @pulumi.getter(name="deviceSerialNumber")
+    def device_serial_number(self) -> str:
+        """
+        Serial number of the assigned device.
+        """
+        return pulumi.get(self, "device_serial_number")
+
+    @property
+    @pulumi.getter(name="encodedValidationCertPubKey")
+    def encoded_validation_cert_pub_key(self) -> str:
+        """
+        The base 64 encoded public key to authenticate with the device
+        """
+        return pulumi.get(self, "encoded_validation_cert_pub_key")
+
+    @property
+    @pulumi.getter(name="networkConfigurations")
+    def network_configurations(self) -> List['outputs.ApplianceNetworkConfigurationResponseResult']:
+        """
+        Network configuration of the appliance.
+        """
+        return pulumi.get(self, "network_configurations")
+
+
+@pulumi.output_type
+class DataboxJobSecretsResponseResult(dict):
+    """
+    The secrets related to a DataBox job.
+    """
+    def __init__(__self__, *,
+                 job_secrets_type: str,
+                 pod_secrets: Optional[List['outputs.DataBoxSecretResponseResult']] = None):
+        """
+        The secrets related to a DataBox job.
+        :param str job_secrets_type: Used to indicate what type of job secrets object.
+        :param List['DataBoxSecretResponseArgs'] pod_secrets: Contains the list of secret objects for a job.
+        """
+        pulumi.set(__self__, "job_secrets_type", 'DataBox')
+        if pod_secrets is not None:
+            pulumi.set(__self__, "pod_secrets", pod_secrets)
+
+    @property
+    @pulumi.getter(name="jobSecretsType")
+    def job_secrets_type(self) -> str:
+        """
+        Used to indicate what type of job secrets object.
+        """
+        return pulumi.get(self, "job_secrets_type")
+
+    @property
+    @pulumi.getter(name="podSecrets")
+    def pod_secrets(self) -> Optional[List['outputs.DataBoxSecretResponseResult']]:
+        """
+        Contains the list of secret objects for a job.
+        """
+        return pulumi.get(self, "pod_secrets")
+
+
+@pulumi.output_type
+class DestinationManagedDiskDetailsResponse(dict):
+    """
+    Details for the destination compute disks.
+    """
+    def __init__(__self__, *,
+                 data_destination_type: str,
+                 resource_group_id: str,
+                 staging_storage_account_id: str,
+                 account_id: Optional[str] = None):
+        """
+        Details for the destination compute disks.
+        :param str data_destination_type: Data Destination Type.
+        :param str resource_group_id: Destination Resource Group Id where the Compute disks should be created.
+        :param str staging_storage_account_id: Arm Id of the storage account that can be used to copy the vhd for staging.
+        :param str account_id: Arm Id of the destination where the data has to be moved.
+        """
+        pulumi.set(__self__, "data_destination_type", 'ManagedDisk')
+        pulumi.set(__self__, "resource_group_id", resource_group_id)
+        pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+
+    @property
+    @pulumi.getter(name="dataDestinationType")
+    def data_destination_type(self) -> str:
+        """
+        Data Destination Type.
+        """
+        return pulumi.get(self, "data_destination_type")
+
+    @property
+    @pulumi.getter(name="resourceGroupId")
+    def resource_group_id(self) -> str:
+        """
+        Destination Resource Group Id where the Compute disks should be created.
+        """
+        return pulumi.get(self, "resource_group_id")
+
+    @property
+    @pulumi.getter(name="stagingStorageAccountId")
+    def staging_storage_account_id(self) -> str:
+        """
+        Arm Id of the storage account that can be used to copy the vhd for staging.
+        """
+        return pulumi.get(self, "staging_storage_account_id")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[str]:
+        """
+        Arm Id of the destination where the data has to be moved.
+        """
+        return pulumi.get(self, "account_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DestinationStorageAccountDetailsResponse(dict):
+    """
+    Details for the destination storage account.
+    """
+    def __init__(__self__, *,
+                 data_destination_type: str,
+                 storage_account_id: str,
+                 account_id: Optional[str] = None):
+        """
+        Details for the destination storage account.
+        :param str data_destination_type: Data Destination Type.
+        :param str storage_account_id: Destination Storage Account Arm Id.
+        :param str account_id: Arm Id of the destination where the data has to be moved.
+        """
+        pulumi.set(__self__, "data_destination_type", 'StorageAccount')
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+
+    @property
+    @pulumi.getter(name="dataDestinationType")
+    def data_destination_type(self) -> str:
+        """
+        Data Destination Type.
+        """
+        return pulumi.get(self, "data_destination_type")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        Destination Storage Account Arm Id.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[str]:
+        """
+        Arm Id of the destination where the data has to be moved.
+        """
+        return pulumi.get(self, "account_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DiskSecretResponseResult(dict):
+    """
+    Contains all the secrets of a Disk.
+    """
+    def __init__(__self__, *,
+                 bit_locker_key: str,
+                 disk_serial_number: str):
+        """
+        Contains all the secrets of a Disk.
+        :param str bit_locker_key: Bit Locker key of the disk which can be used to unlock the disk to copy data.
+        :param str disk_serial_number: Serial number of the assigned disk.
+        """
+        pulumi.set(__self__, "bit_locker_key", bit_locker_key)
+        pulumi.set(__self__, "disk_serial_number", disk_serial_number)
+
+    @property
+    @pulumi.getter(name="bitLockerKey")
+    def bit_locker_key(self) -> str:
+        """
+        Bit Locker key of the disk which can be used to unlock the disk to copy data.
+        """
+        return pulumi.get(self, "bit_locker_key")
+
+    @property
+    @pulumi.getter(name="diskSerialNumber")
+    def disk_serial_number(self) -> str:
+        """
+        Serial number of the assigned disk.
+        """
+        return pulumi.get(self, "disk_serial_number")
+
+
+@pulumi.output_type
+class ErrorResponse(dict):
+    """
+    Top level error for the job.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 message: str):
+        """
+        Top level error for the job.
+        :param str code: Error code that can be used to programmatically identify the error.
+        :param str message: Describes the error in detail and provides debugging information.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Error code that can be used to programmatically identify the error.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Describes the error in detail and provides debugging information.
+        """
+        return pulumi.get(self, "message")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class JobErrorDetailsResponse(dict):
     """
     Job Error Details for providing the information and recommended action.
@@ -422,28 +1522,6 @@ class JobErrorDetailsResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class JobSecretsResponseResult(dict):
-    """
-    The base class for the secrets
-    """
-    def __init__(__self__, *,
-                 job_secrets_type: str):
-        """
-        The base class for the secrets
-        :param str job_secrets_type: Used to indicate what type of job secrets object.
-        """
-        pulumi.set(__self__, "job_secrets_type", job_secrets_type)
-
-    @property
-    @pulumi.getter(name="jobSecretsType")
-    def job_secrets_type(self) -> str:
-        """
-        Used to indicate what type of job secrets object.
-        """
-        return pulumi.get(self, "job_secrets_type")
 
 
 @pulumi.output_type
@@ -629,6 +1707,72 @@ class PreferencesResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ShareCredentialDetailsResponseResult(dict):
+    """
+    Credential details of the shares in account.
+    """
+    def __init__(__self__, *,
+                 password: str,
+                 share_name: str,
+                 share_type: str,
+                 supported_access_protocols: List[str],
+                 user_name: str):
+        """
+        Credential details of the shares in account.
+        :param str password: Password for the share.
+        :param str share_name: Name of the share.
+        :param str share_type: Type of the share.
+        :param List[str] supported_access_protocols: Access protocols supported on the device.
+        :param str user_name: User name for the share.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "share_type", share_type)
+        pulumi.set(__self__, "supported_access_protocols", supported_access_protocols)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Password for the share.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> str:
+        """
+        Name of the share.
+        """
+        return pulumi.get(self, "share_name")
+
+    @property
+    @pulumi.getter(name="shareType")
+    def share_type(self) -> str:
+        """
+        Type of the share.
+        """
+        return pulumi.get(self, "share_type")
+
+    @property
+    @pulumi.getter(name="supportedAccessProtocols")
+    def supported_access_protocols(self) -> List[str]:
+        """
+        Access protocols supported on the device.
+        """
+        return pulumi.get(self, "supported_access_protocols")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        User name for the share.
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
@@ -818,11 +1962,11 @@ class UnencryptedCredentialsResponseResult(dict):
     """
     def __init__(__self__, *,
                  job_name: str,
-                 job_secrets: 'outputs.JobSecretsResponseResult'):
+                 job_secrets: Any):
         """
         Unencrypted credentials for accessing device.
         :param str job_name: Name of the job.
-        :param 'JobSecretsResponseArgs' job_secrets: Secrets related to this job.
+        :param Union['DataBoxDiskJobSecretsResponseArgs', 'DataBoxHeavyJobSecretsResponseArgs', 'DataboxJobSecretsResponseArgs'] job_secrets: Secrets related to this job.
         """
         pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "job_secrets", job_secrets)
@@ -837,7 +1981,7 @@ class UnencryptedCredentialsResponseResult(dict):
 
     @property
     @pulumi.getter(name="jobSecrets")
-    def job_secrets(self) -> 'outputs.JobSecretsResponseResult':
+    def job_secrets(self) -> Any:
         """
         Secrets related to this job.
         """

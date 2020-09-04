@@ -12,7 +12,6 @@ from . import outputs
 __all__ = [
     'ApiPropertiesResponse',
     'AutoscaleSettingsResponse',
-    'BackupPolicyResponse',
     'CapabilityResponse',
     'CassandraKeyspaceGetPropertiesResponseOptions',
     'CassandraKeyspaceGetPropertiesResponseResource',
@@ -26,6 +25,7 @@ __all__ = [
     'ConflictResolutionPolicyResponse',
     'ConsistencyPolicyResponse',
     'ContainerPartitionKeyResponse',
+    'ContinuousModeBackupPolicyResponse',
     'CorsPolicyResponse',
     'DatabaseAccountConnectionStringResponseResult',
     'DatabaseRestoreResourceResponse',
@@ -49,6 +49,8 @@ __all__ = [
     'MongoIndexKeysResponse',
     'MongoIndexOptionsResponse',
     'MongoIndexResponse',
+    'PeriodicModeBackupPolicyResponse',
+    'PeriodicModePropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
@@ -108,31 +110,6 @@ class AutoscaleSettingsResponse(dict):
         Represents maximum throughput, the resource can scale up to.
         """
         return pulumi.get(self, "max_throughput")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class BackupPolicyResponse(dict):
-    """
-    The object representing the policy for taking backups on an account.
-    """
-    def __init__(__self__, *,
-                 type: str):
-        """
-        The object representing the policy for taking backups on an account.
-        :param str type: Describes the mode of backups.
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Describes the mode of backups.
-        """
-        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -706,6 +683,31 @@ class ContainerPartitionKeyResponse(dict):
         Indicates the version of the partition key definition
         """
         return pulumi.get(self, "version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContinuousModeBackupPolicyResponse(dict):
+    """
+    The object representing continuous mode backup policy.
+    """
+    def __init__(__self__, *,
+                 type: str):
+        """
+        The object representing continuous mode backup policy.
+        :param str type: Describes the mode of backups.
+        """
+        pulumi.set(__self__, "type", 'Continuous')
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Describes the mode of backups.
+        """
+        return pulumi.get(self, "type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1847,6 +1849,81 @@ class MongoIndexResponse(dict):
         Cosmos DB MongoDB collection index key options
         """
         return pulumi.get(self, "options")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PeriodicModeBackupPolicyResponse(dict):
+    """
+    The object representing periodic mode backup policy.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 periodic_mode_properties: Optional['outputs.PeriodicModePropertiesResponse'] = None):
+        """
+        The object representing periodic mode backup policy.
+        :param str type: Describes the mode of backups.
+        :param 'PeriodicModePropertiesResponseArgs' periodic_mode_properties: Configuration values for periodic mode backup
+        """
+        pulumi.set(__self__, "type", 'Periodic')
+        if periodic_mode_properties is not None:
+            pulumi.set(__self__, "periodic_mode_properties", periodic_mode_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Describes the mode of backups.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="periodicModeProperties")
+    def periodic_mode_properties(self) -> Optional['outputs.PeriodicModePropertiesResponse']:
+        """
+        Configuration values for periodic mode backup
+        """
+        return pulumi.get(self, "periodic_mode_properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PeriodicModePropertiesResponse(dict):
+    """
+    Configuration values for periodic mode backup
+    """
+    def __init__(__self__, *,
+                 backup_interval_in_minutes: Optional[float] = None,
+                 backup_retention_interval_in_hours: Optional[float] = None):
+        """
+        Configuration values for periodic mode backup
+        :param float backup_interval_in_minutes: An integer representing the interval in minutes between two backups
+        :param float backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
+        """
+        if backup_interval_in_minutes is not None:
+            pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
+        if backup_retention_interval_in_hours is not None:
+            pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+
+    @property
+    @pulumi.getter(name="backupIntervalInMinutes")
+    def backup_interval_in_minutes(self) -> Optional[float]:
+        """
+        An integer representing the interval in minutes between two backups
+        """
+        return pulumi.get(self, "backup_interval_in_minutes")
+
+    @property
+    @pulumi.getter(name="backupRetentionIntervalInHours")
+    def backup_retention_interval_in_hours(self) -> Optional[float]:
+        """
+        An integer representing the time (in hours) that each backup is retained
+        """
+        return pulumi.get(self, "backup_retention_interval_in_hours")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

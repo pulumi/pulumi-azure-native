@@ -139,7 +139,7 @@ class GetTaskResult:
 
     @property
     @pulumi.getter
-    def step(self) -> 'outputs.TaskStepPropertiesResponse':
+    def step(self) -> Any:
         """
         The properties of a task step.
         """

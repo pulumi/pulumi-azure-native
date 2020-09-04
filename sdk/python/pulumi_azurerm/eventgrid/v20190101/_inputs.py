@@ -9,44 +9,28 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'DeadLetterDestinationArgs',
-    'EventSubscriptionDestinationArgs',
+    'EventHubEventSubscriptionDestinationArgs',
     'EventSubscriptionFilterArgs',
+    'HybridConnectionEventSubscriptionDestinationArgs',
     'RetryPolicyArgs',
+    'StorageBlobDeadLetterDestinationArgs',
+    'StorageQueueEventSubscriptionDestinationArgs',
+    'WebHookEventSubscriptionDestinationArgs',
 ]
 
 @pulumi.input_type
-class DeadLetterDestinationArgs:
+class EventHubEventSubscriptionDestinationArgs:
     def __init__(__self__, *,
-                 endpoint_type: pulumi.Input[str]):
+                 endpoint_type: pulumi.Input[str],
+                 resource_id: Optional[pulumi.Input[str]] = None):
         """
-        Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the dead letter destination
-        """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-
-    @property
-    @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> pulumi.Input[str]:
-        """
-        Type of the endpoint for the dead letter destination
-        """
-        return pulumi.get(self, "endpoint_type")
-
-    @endpoint_type.setter
-    def endpoint_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "endpoint_type", value)
-
-
-@pulumi.input_type
-class EventSubscriptionDestinationArgs:
-    def __init__(__self__, *,
-                 endpoint_type: pulumi.Input[str]):
-        """
-        Information about the destination for an event subscription
+        Information about the event hub destination for an event subscription
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination
+        :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "endpoint_type", 'EventHub')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -59,6 +43,18 @@ class EventSubscriptionDestinationArgs:
     @endpoint_type.setter
     def endpoint_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -144,6 +140,45 @@ class EventSubscriptionFilterArgs:
 
 
 @pulumi.input_type
+class HybridConnectionEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the HybridConnection destination for an event subscription.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination
+        :param pulumi.Input[str] resource_id: The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'HybridConnection')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
 class RetryPolicyArgs:
     def __init__(__self__, *,
                  event_time_to_live_in_minutes: Optional[pulumi.Input[float]] = None,
@@ -181,5 +216,154 @@ class RetryPolicyArgs:
     @max_delivery_attempts.setter
     def max_delivery_attempts(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_delivery_attempts", value)
+
+
+@pulumi.input_type
+class StorageBlobDeadLetterDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 blob_container_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the storage blob based dead letter destination.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the dead letter destination
+        :param pulumi.Input[str] blob_container_name: The name of the Storage blob container that is the destination of the deadletter events
+        :param pulumi.Input[str] resource_id: The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageBlob')
+        if blob_container_name is not None:
+            pulumi.set(__self__, "blob_container_name", blob_container_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the dead letter destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="blobContainerName")
+    def blob_container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Storage blob container that is the destination of the deadletter events
+        """
+        return pulumi.get(self, "blob_container_name")
+
+    @blob_container_name.setter
+    def blob_container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_container_name", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class StorageQueueEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 queue_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the storage queue destination for an event subscription.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination
+        :param pulumi.Input[str] queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
+        :param pulumi.Input[str] resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageQueue')
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Storage queue under a storage account that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @queue_name.setter
+    def queue_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_name", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class WebHookEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 endpoint_url: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the webhook destination for an event subscription
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination
+        :param pulumi.Input[str] endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'WebHook')
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_url")
+
+    @endpoint_url.setter
+    def endpoint_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_url", value)
 
 

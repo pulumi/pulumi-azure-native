@@ -11,23 +11,23 @@ from . import outputs
 
 __all__ = [
     'ControllerConnectionDetailsResponseResult',
-    'OrchestratorSpecificConnectionDetailsResponseResult',
+    'KubernetesConnectionDetailsResponseResult',
     'SkuResponse',
 ]
 
 @pulumi.output_type
 class ControllerConnectionDetailsResponseResult(dict):
     def __init__(__self__, *,
-                 orchestrator_specific_connection_details: Optional['outputs.OrchestratorSpecificConnectionDetailsResponseResult'] = None):
+                 orchestrator_specific_connection_details: Optional['outputs.KubernetesConnectionDetailsResponseResult'] = None):
         """
-        :param 'OrchestratorSpecificConnectionDetailsResponseArgs' orchestrator_specific_connection_details: Base class for types that supply values used to connect to container orchestrators
+        :param 'KubernetesConnectionDetailsResponseArgs' orchestrator_specific_connection_details: Base class for types that supply values used to connect to container orchestrators
         """
         if orchestrator_specific_connection_details is not None:
             pulumi.set(__self__, "orchestrator_specific_connection_details", orchestrator_specific_connection_details)
 
     @property
     @pulumi.getter(name="orchestratorSpecificConnectionDetails")
-    def orchestrator_specific_connection_details(self) -> Optional['outputs.OrchestratorSpecificConnectionDetailsResponseResult']:
+    def orchestrator_specific_connection_details(self) -> Optional['outputs.KubernetesConnectionDetailsResponseResult']:
         """
         Base class for types that supply values used to connect to container orchestrators
         """
@@ -35,17 +35,21 @@ class ControllerConnectionDetailsResponseResult(dict):
 
 
 @pulumi.output_type
-class OrchestratorSpecificConnectionDetailsResponseResult(dict):
+class KubernetesConnectionDetailsResponseResult(dict):
     """
-    Base class for types that supply values used to connect to container orchestrators
+    Contains information used to connect to a Kubernetes cluster
     """
     def __init__(__self__, *,
-                 instance_type: str):
+                 instance_type: str,
+                 kube_config: Optional[str] = None):
         """
-        Base class for types that supply values used to connect to container orchestrators
+        Contains information used to connect to a Kubernetes cluster
         :param str instance_type: Gets the Instance type.
+        :param str kube_config: Gets the kubeconfig for the cluster.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "instance_type", 'Kubernetes')
+        if kube_config is not None:
+            pulumi.set(__self__, "kube_config", kube_config)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -54,6 +58,14 @@ class OrchestratorSpecificConnectionDetailsResponseResult(dict):
         Gets the Instance type.
         """
         return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="kubeConfig")
+    def kube_config(self) -> Optional[str]:
+        """
+        Gets the kubeconfig for the cluster.
+        """
+        return pulumi.get(self, "kube_config")
 
 
 @pulumi.output_type

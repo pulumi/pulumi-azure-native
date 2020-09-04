@@ -10,33 +10,61 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'AbsoluteClipTimeResponse',
     'AccountEncryptionResponse',
     'AkamaiAccessControlResponse',
     'AkamaiSignatureHeaderAuthenticationKeyResponse',
     'AssetStreamingLocatorResponseResult',
+    'AudioAnalyzerPresetResponse',
+    'AudioOverlayResponse',
+    'AudioResponse',
+    'BuiltInStandardEncoderPresetResponse',
     'CbcsDrmConfigurationResponse',
     'CencDrmConfigurationResponse',
     'CommonEncryptionCbcsResponse',
     'CommonEncryptionCencResponse',
-    'ContentKeyPolicyConfigurationResponse',
+    'ContentKeyPolicyClearKeyConfigurationResponse',
+    'ContentKeyPolicyFairPlayConfigurationResponse',
+    'ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse',
+    'ContentKeyPolicyOpenRestrictionResponse',
     'ContentKeyPolicyOptionResponse',
-    'ContentKeyPolicyRestrictionResponse',
+    'ContentKeyPolicyPlayReadyConfigurationResponse',
+    'ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse',
+    'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse',
+    'ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse',
+    'ContentKeyPolicyPlayReadyLicenseResponse',
+    'ContentKeyPolicyPlayReadyPlayRightResponse',
+    'ContentKeyPolicyRsaTokenKeyResponse',
+    'ContentKeyPolicySymmetricTokenKeyResponse',
+    'ContentKeyPolicyTokenClaimResponse',
+    'ContentKeyPolicyTokenRestrictionResponse',
+    'ContentKeyPolicyUnknownConfigurationResponse',
+    'ContentKeyPolicyUnknownRestrictionResponse',
+    'ContentKeyPolicyWidevineConfigurationResponse',
+    'ContentKeyPolicyX509CertificateTokenKeyResponse',
+    'CopyAudioResponse',
+    'CopyVideoResponse',
     'CrossSiteAccessPoliciesResponse',
     'DefaultKeyResponse',
+    'DeinterlaceResponse',
     'EdgeUsageDataCollectionPolicyResponseResult',
     'EdgeUsageDataEventHubResponseResult',
     'EnabledProtocolsResponse',
     'EnvelopeEncryptionResponse',
+    'FaceDetectorPresetResponse',
     'FilterTrackPropertyConditionResponse',
     'FilterTrackSelectionResponse',
+    'FiltersResponse',
     'FirstQualityResponse',
     'HlsResponse',
     'IPAccessControlResponse',
     'IPRangeResponse',
+    'ImageFormatResponse',
     'JobErrorDetailResponse',
     'JobErrorResponse',
-    'JobInputResponse',
-    'JobOutputResponse',
+    'JobInputClipResponse',
+    'JobInputsResponse',
+    'JobOutputAssetResponse',
     'KeyVaultPropertiesResponse',
     'LiveEventEncodingResponse',
     'LiveEventEndpointResponse',
@@ -45,11 +73,14 @@ __all__ = [
     'LiveEventPreviewAccessControlResponse',
     'LiveEventPreviewResponse',
     'MediaServiceIdentityResponse',
+    'MultiBitrateFormatResponse',
     'NoEncryptionResponse',
+    'OutputFileResponse',
     'PresentationTimeRangeResponse',
-    'PresetResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'RectangleResponse',
+    'StandardEncoderPresetResponse',
     'StorageAccountResponse',
     'StreamingEndpointAccessControlResponse',
     'StreamingLocatorContentKeyResponse',
@@ -62,7 +93,45 @@ __all__ = [
     'TrackPropertyConditionResponse',
     'TrackSelectionResponse',
     'TransformOutputResponse',
+    'VideoOverlayResponse',
+    'VideoResponse',
 ]
+
+@pulumi.output_type
+class AbsoluteClipTimeResponse(dict):
+    """
+    Specifies the clip time as an absolute time position in the media file.  The absolute time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 time: str):
+        """
+        Specifies the clip time as an absolute time position in the media file.  The absolute time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+        :param str odata_type: The discriminator for derived types.
+        :param str time: The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AbsoluteClipTime')
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
+        """
+        return pulumi.get(self, "time")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class AccountEncryptionResponse(dict):
@@ -270,6 +339,260 @@ class AssetStreamingLocatorResponseResult(dict):
         Name of the Streaming Policy used by this Streaming Locator.
         """
         return pulumi.get(self, "streaming_policy_name")
+
+
+@pulumi.output_type
+class AudioAnalyzerPresetResponse(dict):
+    """
+    The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 audio_language: Optional[str] = None,
+                 experimental_options: Optional[Mapping[str, str]] = None):
+        """
+        The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
+        :param str odata_type: The discriminator for derived types.
+        :param str audio_language: The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+        :param Mapping[str, str] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioAnalyzerPreset')
+        if audio_language is not None:
+            pulumi.set(__self__, "audio_language", audio_language)
+        if experimental_options is not None:
+            pulumi.set(__self__, "experimental_options", experimental_options)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="audioLanguage")
+    def audio_language(self) -> Optional[str]:
+        """
+        The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+        """
+        return pulumi.get(self, "audio_language")
+
+    @property
+    @pulumi.getter(name="experimentalOptions")
+    def experimental_options(self) -> Optional[Mapping[str, str]]:
+        """
+        Dictionary containing key value pairs for parameters not exposed in the preset itself
+        """
+        return pulumi.get(self, "experimental_options")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AudioOverlayResponse(dict):
+    """
+    Describes the properties of an audio overlay.
+    """
+    def __init__(__self__, *,
+                 input_label: str,
+                 odata_type: str,
+                 audio_gain_level: Optional[float] = None,
+                 end: Optional[str] = None,
+                 fade_in_duration: Optional[str] = None,
+                 fade_out_duration: Optional[str] = None,
+                 start: Optional[str] = None):
+        """
+        Describes the properties of an audio overlay.
+        :param str input_label: The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+        :param str odata_type: The discriminator for derived types.
+        :param float audio_gain_level: The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
+        :param str end: The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+        :param str fade_in_duration: The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
+        :param str fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
+        :param str start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+        """
+        pulumi.set(__self__, "input_label", input_label)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioOverlay')
+        if audio_gain_level is not None:
+            pulumi.set(__self__, "audio_gain_level", audio_gain_level)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if fade_in_duration is not None:
+            pulumi.set(__self__, "fade_in_duration", fade_in_duration)
+        if fade_out_duration is not None:
+            pulumi.set(__self__, "fade_out_duration", fade_out_duration)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="inputLabel")
+    def input_label(self) -> str:
+        """
+        The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+        """
+        return pulumi.get(self, "input_label")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="audioGainLevel")
+    def audio_gain_level(self) -> Optional[float]:
+        """
+        The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
+        """
+        return pulumi.get(self, "audio_gain_level")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter(name="fadeInDuration")
+    def fade_in_duration(self) -> Optional[str]:
+        """
+        The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
+        """
+        return pulumi.get(self, "fade_in_duration")
+
+    @property
+    @pulumi.getter(name="fadeOutDuration")
+    def fade_out_duration(self) -> Optional[str]:
+        """
+        The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
+        """
+        return pulumi.get(self, "fade_out_duration")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+        """
+        return pulumi.get(self, "start")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AudioResponse(dict):
+    """
+    Defines the common properties for all audio codecs.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 bitrate: Optional[float] = None,
+                 channels: Optional[float] = None,
+                 label: Optional[str] = None,
+                 sampling_rate: Optional[float] = None):
+        """
+        Defines the common properties for all audio codecs.
+        :param str odata_type: The discriminator for derived types.
+        :param float bitrate: The bitrate, in bits per second, of the output encoded audio.
+        :param float channels: The number of channels in the audio.
+        :param str label: An optional label for the codec. The label can be used to control muxing behavior.
+        :param float sampling_rate: The sampling rate to use for encoding in hertz.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Audio')
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if channels is not None:
+            pulumi.set(__self__, "channels", channels)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if sampling_rate is not None:
+            pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[float]:
+        """
+        The bitrate, in bits per second, of the output encoded audio.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter
+    def channels(self) -> Optional[float]:
+        """
+        The number of channels in the audio.
+        """
+        return pulumi.get(self, "channels")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> Optional[float]:
+        """
+        The sampling rate to use for encoding in hertz.
+        """
+        return pulumi.get(self, "sampling_rate")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BuiltInStandardEncoderPresetResponse(dict):
+    """
+    Describes a built-in preset for encoding the input video with the Standard Encoder.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 preset_name: str):
+        """
+        Describes a built-in preset for encoding the input video with the Standard Encoder.
+        :param str odata_type: The discriminator for derived types.
+        :param str preset_name: The built-in preset to be used for encoding videos.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.BuiltInStandardEncoderPreset')
+        pulumi.set(__self__, "preset_name", preset_name)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="presetName")
+    def preset_name(self) -> str:
+        """
+        The built-in preset to be used for encoding videos.
+        """
+        return pulumi.get(self, "preset_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -485,17 +808,166 @@ class CommonEncryptionCencResponse(dict):
 
 
 @pulumi.output_type
-class ContentKeyPolicyConfigurationResponse(dict):
+class ContentKeyPolicyClearKeyConfigurationResponse(dict):
     """
-    Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
+    Represents a configuration for non-DRM keys.
     """
     def __init__(__self__, *,
                  odata_type: str):
         """
-        Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
+        Represents a configuration for non-DRM keys.
         :param str odata_type: The discriminator for derived types.
         """
-        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration')
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyFairPlayConfigurationResponse(dict):
+    """
+    Specifies a configuration for FairPlay licenses.
+    """
+    def __init__(__self__, *,
+                 ask: str,
+                 fair_play_pfx: str,
+                 fair_play_pfx_password: str,
+                 odata_type: str,
+                 rental_and_lease_key_type: str,
+                 rental_duration: float,
+                 offline_rental_configuration: Optional['outputs.ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse'] = None):
+        """
+        Specifies a configuration for FairPlay licenses.
+        :param str ask: The key that must be used as FairPlay Application Secret key.
+        :param str fair_play_pfx: The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+        :param str fair_play_pfx_password: The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+        :param str odata_type: The discriminator for derived types.
+        :param str rental_and_lease_key_type: The rental and lease key type.
+        :param float rental_duration: The rental duration. Must be greater than or equal to 0.
+        :param 'ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseArgs' offline_rental_configuration: Offline rental policy
+        """
+        pulumi.set(__self__, "ask", ask)
+        pulumi.set(__self__, "fair_play_pfx", fair_play_pfx)
+        pulumi.set(__self__, "fair_play_pfx_password", fair_play_pfx_password)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration')
+        pulumi.set(__self__, "rental_and_lease_key_type", rental_and_lease_key_type)
+        pulumi.set(__self__, "rental_duration", rental_duration)
+        if offline_rental_configuration is not None:
+            pulumi.set(__self__, "offline_rental_configuration", offline_rental_configuration)
+
+    @property
+    @pulumi.getter
+    def ask(self) -> str:
+        """
+        The key that must be used as FairPlay Application Secret key.
+        """
+        return pulumi.get(self, "ask")
+
+    @property
+    @pulumi.getter(name="fairPlayPfx")
+    def fair_play_pfx(self) -> str:
+        """
+        The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+        """
+        return pulumi.get(self, "fair_play_pfx")
+
+    @property
+    @pulumi.getter(name="fairPlayPfxPassword")
+    def fair_play_pfx_password(self) -> str:
+        """
+        The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+        """
+        return pulumi.get(self, "fair_play_pfx_password")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="rentalAndLeaseKeyType")
+    def rental_and_lease_key_type(self) -> str:
+        """
+        The rental and lease key type.
+        """
+        return pulumi.get(self, "rental_and_lease_key_type")
+
+    @property
+    @pulumi.getter(name="rentalDuration")
+    def rental_duration(self) -> float:
+        """
+        The rental duration. Must be greater than or equal to 0.
+        """
+        return pulumi.get(self, "rental_duration")
+
+    @property
+    @pulumi.getter(name="offlineRentalConfiguration")
+    def offline_rental_configuration(self) -> Optional['outputs.ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse']:
+        """
+        Offline rental policy
+        """
+        return pulumi.get(self, "offline_rental_configuration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 playback_duration_seconds: float,
+                 storage_duration_seconds: float):
+        """
+        :param float playback_duration_seconds: Playback duration
+        :param float storage_duration_seconds: Storage duration
+        """
+        pulumi.set(__self__, "playback_duration_seconds", playback_duration_seconds)
+        pulumi.set(__self__, "storage_duration_seconds", storage_duration_seconds)
+
+    @property
+    @pulumi.getter(name="playbackDurationSeconds")
+    def playback_duration_seconds(self) -> float:
+        """
+        Playback duration
+        """
+        return pulumi.get(self, "playback_duration_seconds")
+
+    @property
+    @pulumi.getter(name="storageDurationSeconds")
+    def storage_duration_seconds(self) -> float:
+        """
+        Storage duration
+        """
+        return pulumi.get(self, "storage_duration_seconds")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyOpenRestrictionResponse(dict):
+    """
+    Represents an open restriction. License or key will be delivered on every request.
+    """
+    def __init__(__self__, *,
+                 odata_type: str):
+        """
+        Represents an open restriction. License or key will be delivered on every request.
+        :param str odata_type: The discriminator for derived types.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyOpenRestriction')
 
     @property
     @pulumi.getter(name="odataType")
@@ -515,15 +987,15 @@ class ContentKeyPolicyOptionResponse(dict):
     Represents a policy option.
     """
     def __init__(__self__, *,
-                 configuration: 'outputs.ContentKeyPolicyConfigurationResponse',
+                 configuration: Any,
                  policy_option_id: str,
-                 restriction: 'outputs.ContentKeyPolicyRestrictionResponse',
+                 restriction: Any,
                  name: Optional[str] = None):
         """
         Represents a policy option.
-        :param 'ContentKeyPolicyConfigurationResponseArgs' configuration: The key delivery configuration.
+        :param Union['ContentKeyPolicyClearKeyConfigurationResponseArgs', 'ContentKeyPolicyFairPlayConfigurationResponseArgs', 'ContentKeyPolicyPlayReadyConfigurationResponseArgs', 'ContentKeyPolicyUnknownConfigurationResponseArgs', 'ContentKeyPolicyWidevineConfigurationResponseArgs'] configuration: The key delivery configuration.
         :param str policy_option_id: The legacy Policy Option ID.
-        :param 'ContentKeyPolicyRestrictionResponseArgs' restriction: The requirements that must be met to deliver keys with this configuration
+        :param Union['ContentKeyPolicyOpenRestrictionResponseArgs', 'ContentKeyPolicyTokenRestrictionResponseArgs', 'ContentKeyPolicyUnknownRestrictionResponseArgs'] restriction: The requirements that must be met to deliver keys with this configuration
         :param str name: The Policy Option description.
         """
         pulumi.set(__self__, "configuration", configuration)
@@ -534,7 +1006,7 @@ class ContentKeyPolicyOptionResponse(dict):
 
     @property
     @pulumi.getter
-    def configuration(self) -> 'outputs.ContentKeyPolicyConfigurationResponse':
+    def configuration(self) -> Any:
         """
         The key delivery configuration.
         """
@@ -550,7 +1022,7 @@ class ContentKeyPolicyOptionResponse(dict):
 
     @property
     @pulumi.getter
-    def restriction(self) -> 'outputs.ContentKeyPolicyRestrictionResponse':
+    def restriction(self) -> Any:
         """
         The requirements that must be met to deliver keys with this configuration
         """
@@ -569,17 +1041,32 @@ class ContentKeyPolicyOptionResponse(dict):
 
 
 @pulumi.output_type
-class ContentKeyPolicyRestrictionResponse(dict):
+class ContentKeyPolicyPlayReadyConfigurationResponse(dict):
     """
-    Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
+    Specifies a configuration for PlayReady licenses.
     """
     def __init__(__self__, *,
-                 odata_type: str):
+                 licenses: List['outputs.ContentKeyPolicyPlayReadyLicenseResponse'],
+                 odata_type: str,
+                 response_custom_data: Optional[str] = None):
         """
-        Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
+        Specifies a configuration for PlayReady licenses.
+        :param List['ContentKeyPolicyPlayReadyLicenseResponseArgs'] licenses: The PlayReady licenses.
         :param str odata_type: The discriminator for derived types.
+        :param str response_custom_data: The custom response data.
         """
-        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "licenses", licenses)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration')
+        if response_custom_data is not None:
+            pulumi.set(__self__, "response_custom_data", response_custom_data)
+
+    @property
+    @pulumi.getter
+    def licenses(self) -> List['outputs.ContentKeyPolicyPlayReadyLicenseResponse']:
+        """
+        The PlayReady licenses.
+        """
+        return pulumi.get(self, "licenses")
 
     @property
     @pulumi.getter(name="odataType")
@@ -588,6 +1075,829 @@ class ContentKeyPolicyRestrictionResponse(dict):
         The discriminator for derived types.
         """
         return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="responseCustomData")
+    def response_custom_data(self) -> Optional[str]:
+        """
+        The custom response data.
+        """
+        return pulumi.get(self, "response_custom_data")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse(dict):
+    """
+    Specifies that the content key ID is in the PlayReady header.
+    """
+    def __init__(__self__, *,
+                 odata_type: str):
+        """
+        Specifies that the content key ID is in the PlayReady header.
+        :param str odata_type: The discriminator for derived types.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader')
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse(dict):
+    """
+    Specifies that the content key ID is specified in the PlayReady configuration.
+    """
+    def __init__(__self__, *,
+                 key_id: str,
+                 odata_type: str):
+        """
+        Specifies that the content key ID is specified in the PlayReady configuration.
+        :param str key_id: The content key ID.
+        :param str odata_type: The discriminator for derived types.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier')
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        The content key ID.
+        """
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse(dict):
+    """
+    Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
+    """
+    def __init__(__self__, *,
+                 best_effort: bool,
+                 configuration_data: float):
+        """
+        Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
+        :param bool best_effort: Indicates whether this restriction is enforced on a Best Effort basis.
+        :param float configuration_data: Configures the restriction control bits. Must be between 0 and 3 inclusive.
+        """
+        pulumi.set(__self__, "best_effort", best_effort)
+        pulumi.set(__self__, "configuration_data", configuration_data)
+
+    @property
+    @pulumi.getter(name="bestEffort")
+    def best_effort(self) -> bool:
+        """
+        Indicates whether this restriction is enforced on a Best Effort basis.
+        """
+        return pulumi.get(self, "best_effort")
+
+    @property
+    @pulumi.getter(name="configurationData")
+    def configuration_data(self) -> float:
+        """
+        Configures the restriction control bits. Must be between 0 and 3 inclusive.
+        """
+        return pulumi.get(self, "configuration_data")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyPlayReadyLicenseResponse(dict):
+    """
+    The PlayReady license
+    """
+    def __init__(__self__, *,
+                 allow_test_devices: bool,
+                 content_key_location: Any,
+                 content_type: str,
+                 license_type: str,
+                 begin_date: Optional[str] = None,
+                 expiration_date: Optional[str] = None,
+                 grace_period: Optional[str] = None,
+                 play_right: Optional['outputs.ContentKeyPolicyPlayReadyPlayRightResponse'] = None,
+                 relative_begin_date: Optional[str] = None,
+                 relative_expiration_date: Optional[str] = None):
+        """
+        The PlayReady license
+        :param bool allow_test_devices: A flag indicating whether test devices can use the license.
+        :param Union['ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseArgs', 'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseArgs'] content_key_location: The content key location.
+        :param str content_type: The PlayReady content type.
+        :param str license_type: The license type.
+        :param str begin_date: The begin date of license
+        :param str expiration_date: The expiration date of license.
+        :param str grace_period: The grace period of license.
+        :param 'ContentKeyPolicyPlayReadyPlayRightResponseArgs' play_right: The license PlayRight
+        :param str relative_begin_date: The relative begin date of license.
+        :param str relative_expiration_date: The relative expiration date of license.
+        """
+        pulumi.set(__self__, "allow_test_devices", allow_test_devices)
+        pulumi.set(__self__, "content_key_location", content_key_location)
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "license_type", license_type)
+        if begin_date is not None:
+            pulumi.set(__self__, "begin_date", begin_date)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if grace_period is not None:
+            pulumi.set(__self__, "grace_period", grace_period)
+        if play_right is not None:
+            pulumi.set(__self__, "play_right", play_right)
+        if relative_begin_date is not None:
+            pulumi.set(__self__, "relative_begin_date", relative_begin_date)
+        if relative_expiration_date is not None:
+            pulumi.set(__self__, "relative_expiration_date", relative_expiration_date)
+
+    @property
+    @pulumi.getter(name="allowTestDevices")
+    def allow_test_devices(self) -> bool:
+        """
+        A flag indicating whether test devices can use the license.
+        """
+        return pulumi.get(self, "allow_test_devices")
+
+    @property
+    @pulumi.getter(name="contentKeyLocation")
+    def content_key_location(self) -> Any:
+        """
+        The content key location.
+        """
+        return pulumi.get(self, "content_key_location")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
+        """
+        The PlayReady content type.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> str:
+        """
+        The license type.
+        """
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter(name="beginDate")
+    def begin_date(self) -> Optional[str]:
+        """
+        The begin date of license
+        """
+        return pulumi.get(self, "begin_date")
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[str]:
+        """
+        The expiration date of license.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="gracePeriod")
+    def grace_period(self) -> Optional[str]:
+        """
+        The grace period of license.
+        """
+        return pulumi.get(self, "grace_period")
+
+    @property
+    @pulumi.getter(name="playRight")
+    def play_right(self) -> Optional['outputs.ContentKeyPolicyPlayReadyPlayRightResponse']:
+        """
+        The license PlayRight
+        """
+        return pulumi.get(self, "play_right")
+
+    @property
+    @pulumi.getter(name="relativeBeginDate")
+    def relative_begin_date(self) -> Optional[str]:
+        """
+        The relative begin date of license.
+        """
+        return pulumi.get(self, "relative_begin_date")
+
+    @property
+    @pulumi.getter(name="relativeExpirationDate")
+    def relative_expiration_date(self) -> Optional[str]:
+        """
+        The relative expiration date of license.
+        """
+        return pulumi.get(self, "relative_expiration_date")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
+    """
+    Configures the Play Right in the PlayReady license.
+    """
+    def __init__(__self__, *,
+                 allow_passing_video_content_to_unknown_output: str,
+                 digital_video_only_content_restriction: bool,
+                 image_constraint_for_analog_component_video_restriction: bool,
+                 image_constraint_for_analog_computer_monitor_restriction: bool,
+                 agc_and_color_stripe_restriction: Optional[float] = None,
+                 analog_video_opl: Optional[float] = None,
+                 compressed_digital_audio_opl: Optional[float] = None,
+                 compressed_digital_video_opl: Optional[float] = None,
+                 explicit_analog_television_output_restriction: Optional['outputs.ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse'] = None,
+                 first_play_expiration: Optional[str] = None,
+                 scms_restriction: Optional[float] = None,
+                 uncompressed_digital_audio_opl: Optional[float] = None,
+                 uncompressed_digital_video_opl: Optional[float] = None):
+        """
+        Configures the Play Right in the PlayReady license.
+        :param str allow_passing_video_content_to_unknown_output: Configures Unknown output handling settings of the license.
+        :param bool digital_video_only_content_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
+        :param bool image_constraint_for_analog_component_video_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
+        :param bool image_constraint_for_analog_computer_monitor_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
+        :param float agc_and_color_stripe_restriction: Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+        :param float analog_video_opl: Specifies the output protection level for compressed digital audio.
+        :param float compressed_digital_audio_opl: Specifies the output protection level for compressed digital audio.
+        :param float compressed_digital_video_opl: Specifies the output protection level for compressed digital video.
+        :param 'ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseArgs' explicit_analog_television_output_restriction: Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
+        :param str first_play_expiration: The amount of time that the license is valid after the license is first used to play content.
+        :param float scms_restriction: Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+        :param float uncompressed_digital_audio_opl: Specifies the output protection level for uncompressed digital audio.
+        :param float uncompressed_digital_video_opl: Specifies the output protection level for uncompressed digital video.
+        """
+        pulumi.set(__self__, "allow_passing_video_content_to_unknown_output", allow_passing_video_content_to_unknown_output)
+        pulumi.set(__self__, "digital_video_only_content_restriction", digital_video_only_content_restriction)
+        pulumi.set(__self__, "image_constraint_for_analog_component_video_restriction", image_constraint_for_analog_component_video_restriction)
+        pulumi.set(__self__, "image_constraint_for_analog_computer_monitor_restriction", image_constraint_for_analog_computer_monitor_restriction)
+        if agc_and_color_stripe_restriction is not None:
+            pulumi.set(__self__, "agc_and_color_stripe_restriction", agc_and_color_stripe_restriction)
+        if analog_video_opl is not None:
+            pulumi.set(__self__, "analog_video_opl", analog_video_opl)
+        if compressed_digital_audio_opl is not None:
+            pulumi.set(__self__, "compressed_digital_audio_opl", compressed_digital_audio_opl)
+        if compressed_digital_video_opl is not None:
+            pulumi.set(__self__, "compressed_digital_video_opl", compressed_digital_video_opl)
+        if explicit_analog_television_output_restriction is not None:
+            pulumi.set(__self__, "explicit_analog_television_output_restriction", explicit_analog_television_output_restriction)
+        if first_play_expiration is not None:
+            pulumi.set(__self__, "first_play_expiration", first_play_expiration)
+        if scms_restriction is not None:
+            pulumi.set(__self__, "scms_restriction", scms_restriction)
+        if uncompressed_digital_audio_opl is not None:
+            pulumi.set(__self__, "uncompressed_digital_audio_opl", uncompressed_digital_audio_opl)
+        if uncompressed_digital_video_opl is not None:
+            pulumi.set(__self__, "uncompressed_digital_video_opl", uncompressed_digital_video_opl)
+
+    @property
+    @pulumi.getter(name="allowPassingVideoContentToUnknownOutput")
+    def allow_passing_video_content_to_unknown_output(self) -> str:
+        """
+        Configures Unknown output handling settings of the license.
+        """
+        return pulumi.get(self, "allow_passing_video_content_to_unknown_output")
+
+    @property
+    @pulumi.getter(name="digitalVideoOnlyContentRestriction")
+    def digital_video_only_content_restriction(self) -> bool:
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        return pulumi.get(self, "digital_video_only_content_restriction")
+
+    @property
+    @pulumi.getter(name="imageConstraintForAnalogComponentVideoRestriction")
+    def image_constraint_for_analog_component_video_restriction(self) -> bool:
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        return pulumi.get(self, "image_constraint_for_analog_component_video_restriction")
+
+    @property
+    @pulumi.getter(name="imageConstraintForAnalogComputerMonitorRestriction")
+    def image_constraint_for_analog_computer_monitor_restriction(self) -> bool:
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        return pulumi.get(self, "image_constraint_for_analog_computer_monitor_restriction")
+
+    @property
+    @pulumi.getter(name="agcAndColorStripeRestriction")
+    def agc_and_color_stripe_restriction(self) -> Optional[float]:
+        """
+        Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+        """
+        return pulumi.get(self, "agc_and_color_stripe_restriction")
+
+    @property
+    @pulumi.getter(name="analogVideoOpl")
+    def analog_video_opl(self) -> Optional[float]:
+        """
+        Specifies the output protection level for compressed digital audio.
+        """
+        return pulumi.get(self, "analog_video_opl")
+
+    @property
+    @pulumi.getter(name="compressedDigitalAudioOpl")
+    def compressed_digital_audio_opl(self) -> Optional[float]:
+        """
+        Specifies the output protection level for compressed digital audio.
+        """
+        return pulumi.get(self, "compressed_digital_audio_opl")
+
+    @property
+    @pulumi.getter(name="compressedDigitalVideoOpl")
+    def compressed_digital_video_opl(self) -> Optional[float]:
+        """
+        Specifies the output protection level for compressed digital video.
+        """
+        return pulumi.get(self, "compressed_digital_video_opl")
+
+    @property
+    @pulumi.getter(name="explicitAnalogTelevisionOutputRestriction")
+    def explicit_analog_television_output_restriction(self) -> Optional['outputs.ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse']:
+        """
+        Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
+        """
+        return pulumi.get(self, "explicit_analog_television_output_restriction")
+
+    @property
+    @pulumi.getter(name="firstPlayExpiration")
+    def first_play_expiration(self) -> Optional[str]:
+        """
+        The amount of time that the license is valid after the license is first used to play content.
+        """
+        return pulumi.get(self, "first_play_expiration")
+
+    @property
+    @pulumi.getter(name="scmsRestriction")
+    def scms_restriction(self) -> Optional[float]:
+        """
+        Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+        """
+        return pulumi.get(self, "scms_restriction")
+
+    @property
+    @pulumi.getter(name="uncompressedDigitalAudioOpl")
+    def uncompressed_digital_audio_opl(self) -> Optional[float]:
+        """
+        Specifies the output protection level for uncompressed digital audio.
+        """
+        return pulumi.get(self, "uncompressed_digital_audio_opl")
+
+    @property
+    @pulumi.getter(name="uncompressedDigitalVideoOpl")
+    def uncompressed_digital_video_opl(self) -> Optional[float]:
+        """
+        Specifies the output protection level for uncompressed digital video.
+        """
+        return pulumi.get(self, "uncompressed_digital_video_opl")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyRsaTokenKeyResponse(dict):
+    """
+    Specifies a RSA key for token validation
+    """
+    def __init__(__self__, *,
+                 exponent: str,
+                 modulus: str,
+                 odata_type: str):
+        """
+        Specifies a RSA key for token validation
+        :param str exponent: The RSA Parameter exponent
+        :param str modulus: The RSA Parameter modulus
+        :param str odata_type: The discriminator for derived types.
+        """
+        pulumi.set(__self__, "exponent", exponent)
+        pulumi.set(__self__, "modulus", modulus)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyRsaTokenKey')
+
+    @property
+    @pulumi.getter
+    def exponent(self) -> str:
+        """
+        The RSA Parameter exponent
+        """
+        return pulumi.get(self, "exponent")
+
+    @property
+    @pulumi.getter
+    def modulus(self) -> str:
+        """
+        The RSA Parameter modulus
+        """
+        return pulumi.get(self, "modulus")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicySymmetricTokenKeyResponse(dict):
+    """
+    Specifies a symmetric key for token validation.
+    """
+    def __init__(__self__, *,
+                 key_value: str,
+                 odata_type: str):
+        """
+        Specifies a symmetric key for token validation.
+        :param str key_value: The key value of the key
+        :param str odata_type: The discriminator for derived types.
+        """
+        pulumi.set(__self__, "key_value", key_value)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey')
+
+    @property
+    @pulumi.getter(name="keyValue")
+    def key_value(self) -> str:
+        """
+        The key value of the key
+        """
+        return pulumi.get(self, "key_value")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyTokenClaimResponse(dict):
+    """
+    Represents a token claim.
+    """
+    def __init__(__self__, *,
+                 claim_type: Optional[str] = None,
+                 claim_value: Optional[str] = None):
+        """
+        Represents a token claim.
+        :param str claim_type: Token claim type.
+        :param str claim_value: Token claim value.
+        """
+        if claim_type is not None:
+            pulumi.set(__self__, "claim_type", claim_type)
+        if claim_value is not None:
+            pulumi.set(__self__, "claim_value", claim_value)
+
+    @property
+    @pulumi.getter(name="claimType")
+    def claim_type(self) -> Optional[str]:
+        """
+        Token claim type.
+        """
+        return pulumi.get(self, "claim_type")
+
+    @property
+    @pulumi.getter(name="claimValue")
+    def claim_value(self) -> Optional[str]:
+        """
+        Token claim value.
+        """
+        return pulumi.get(self, "claim_value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyTokenRestrictionResponse(dict):
+    """
+    Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
+    """
+    def __init__(__self__, *,
+                 audience: str,
+                 issuer: str,
+                 odata_type: str,
+                 primary_verification_key: Any,
+                 restriction_token_type: str,
+                 alternate_verification_keys: Optional[List[Any]] = None,
+                 open_id_connect_discovery_document: Optional[str] = None,
+                 required_claims: Optional[List['outputs.ContentKeyPolicyTokenClaimResponse']] = None):
+        """
+        Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
+        :param str audience: The audience for the token.
+        :param str issuer: The token issuer.
+        :param str odata_type: The discriminator for derived types.
+        :param Union['ContentKeyPolicyRsaTokenKeyResponseArgs', 'ContentKeyPolicySymmetricTokenKeyResponseArgs', 'ContentKeyPolicyX509CertificateTokenKeyResponseArgs'] primary_verification_key: The primary verification key.
+        :param str restriction_token_type: The type of token.
+        :param List[Union['ContentKeyPolicyRsaTokenKeyResponseArgs', 'ContentKeyPolicySymmetricTokenKeyResponseArgs', 'ContentKeyPolicyX509CertificateTokenKeyResponseArgs']] alternate_verification_keys: A list of alternative verification keys.
+        :param str open_id_connect_discovery_document: The OpenID connect discovery document.
+        :param List['ContentKeyPolicyTokenClaimResponseArgs'] required_claims: A list of required token claims.
+        """
+        pulumi.set(__self__, "audience", audience)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyTokenRestriction')
+        pulumi.set(__self__, "primary_verification_key", primary_verification_key)
+        pulumi.set(__self__, "restriction_token_type", restriction_token_type)
+        if alternate_verification_keys is not None:
+            pulumi.set(__self__, "alternate_verification_keys", alternate_verification_keys)
+        if open_id_connect_discovery_document is not None:
+            pulumi.set(__self__, "open_id_connect_discovery_document", open_id_connect_discovery_document)
+        if required_claims is not None:
+            pulumi.set(__self__, "required_claims", required_claims)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> str:
+        """
+        The audience for the token.
+        """
+        return pulumi.get(self, "audience")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        """
+        The token issuer.
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="primaryVerificationKey")
+    def primary_verification_key(self) -> Any:
+        """
+        The primary verification key.
+        """
+        return pulumi.get(self, "primary_verification_key")
+
+    @property
+    @pulumi.getter(name="restrictionTokenType")
+    def restriction_token_type(self) -> str:
+        """
+        The type of token.
+        """
+        return pulumi.get(self, "restriction_token_type")
+
+    @property
+    @pulumi.getter(name="alternateVerificationKeys")
+    def alternate_verification_keys(self) -> Optional[List[Any]]:
+        """
+        A list of alternative verification keys.
+        """
+        return pulumi.get(self, "alternate_verification_keys")
+
+    @property
+    @pulumi.getter(name="openIdConnectDiscoveryDocument")
+    def open_id_connect_discovery_document(self) -> Optional[str]:
+        """
+        The OpenID connect discovery document.
+        """
+        return pulumi.get(self, "open_id_connect_discovery_document")
+
+    @property
+    @pulumi.getter(name="requiredClaims")
+    def required_claims(self) -> Optional[List['outputs.ContentKeyPolicyTokenClaimResponse']]:
+        """
+        A list of required token claims.
+        """
+        return pulumi.get(self, "required_claims")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyUnknownConfigurationResponse(dict):
+    """
+    Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
+    """
+    def __init__(__self__, *,
+                 odata_type: str):
+        """
+        Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
+        :param str odata_type: The discriminator for derived types.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration')
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyUnknownRestrictionResponse(dict):
+    """
+    Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
+    """
+    def __init__(__self__, *,
+                 odata_type: str):
+        """
+        Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
+        :param str odata_type: The discriminator for derived types.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownRestriction')
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyWidevineConfigurationResponse(dict):
+    """
+    Specifies a configuration for Widevine licenses.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 widevine_template: str):
+        """
+        Specifies a configuration for Widevine licenses.
+        :param str odata_type: The discriminator for derived types.
+        :param str widevine_template: The Widevine template.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration')
+        pulumi.set(__self__, "widevine_template", widevine_template)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="widevineTemplate")
+    def widevine_template(self) -> str:
+        """
+        The Widevine template.
+        """
+        return pulumi.get(self, "widevine_template")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ContentKeyPolicyX509CertificateTokenKeyResponse(dict):
+    """
+    Specifies a certificate for token validation.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 raw_body: str):
+        """
+        Specifies a certificate for token validation.
+        :param str odata_type: The discriminator for derived types.
+        :param str raw_body: The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey')
+        pulumi.set(__self__, "raw_body", raw_body)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="rawBody")
+    def raw_body(self) -> str:
+        """
+        The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
+        """
+        return pulumi.get(self, "raw_body")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CopyAudioResponse(dict):
+    """
+    A codec flag, which tells the encoder to copy the input audio bitstream.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 label: Optional[str] = None):
+        """
+        A codec flag, which tells the encoder to copy the input audio bitstream.
+        :param str odata_type: The discriminator for derived types.
+        :param str label: An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.CopyAudio')
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class CopyVideoResponse(dict):
+    """
+    A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 label: Optional[str] = None):
+        """
+        A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
+        :param str odata_type: The discriminator for derived types.
+        :param str label: An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.CopyVideo')
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -664,6 +1974,44 @@ class DefaultKeyResponse(dict):
         Policy used by Default Key
         """
         return pulumi.get(self, "policy_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeinterlaceResponse(dict):
+    """
+    Describes the de-interlacing settings.
+    """
+    def __init__(__self__, *,
+                 mode: Optional[str] = None,
+                 parity: Optional[str] = None):
+        """
+        Describes the de-interlacing settings.
+        :param str mode: The deinterlacing mode. Defaults to AutoPixelAdaptive.
+        :param str parity: The field parity for de-interlacing, defaults to Auto.
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if parity is not None:
+            pulumi.set(__self__, "parity", parity)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        The deinterlacing mode. Defaults to AutoPixelAdaptive.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def parity(self) -> Optional[str]:
+        """
+        The field parity for de-interlacing, defaults to Auto.
+        """
+        return pulumi.get(self, "parity")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -888,6 +2236,55 @@ class EnvelopeEncryptionResponse(dict):
 
 
 @pulumi.output_type
+class FaceDetectorPresetResponse(dict):
+    """
+    Describes all the settings to be used when analyzing a video in order to detect all the faces present.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 experimental_options: Optional[Mapping[str, str]] = None,
+                 resolution: Optional[str] = None):
+        """
+        Describes all the settings to be used when analyzing a video in order to detect all the faces present.
+        :param str odata_type: The discriminator for derived types.
+        :param Mapping[str, str] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself
+        :param str resolution: Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.FaceDetectorPreset')
+        if experimental_options is not None:
+            pulumi.set(__self__, "experimental_options", experimental_options)
+        if resolution is not None:
+            pulumi.set(__self__, "resolution", resolution)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="experimentalOptions")
+    def experimental_options(self) -> Optional[Mapping[str, str]]:
+        """
+        Dictionary containing key value pairs for parameters not exposed in the preset itself
+        """
+        return pulumi.get(self, "experimental_options")
+
+    @property
+    @pulumi.getter
+    def resolution(self) -> Optional[str]:
+        """
+        Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+        """
+        return pulumi.get(self, "resolution")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class FilterTrackPropertyConditionResponse(dict):
     """
     The class to specify one track property condition.
@@ -954,6 +2351,68 @@ class FilterTrackSelectionResponse(dict):
         The track selections.
         """
         return pulumi.get(self, "track_selections")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FiltersResponse(dict):
+    """
+    Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
+    """
+    def __init__(__self__, *,
+                 crop: Optional['outputs.RectangleResponse'] = None,
+                 deinterlace: Optional['outputs.DeinterlaceResponse'] = None,
+                 overlays: Optional[List[Any]] = None,
+                 rotation: Optional[str] = None):
+        """
+        Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
+        :param 'RectangleResponseArgs' crop: The parameters for the rectangular window with which to crop the input video.
+        :param 'DeinterlaceResponseArgs' deinterlace: The de-interlacing settings.
+        :param List[Union['AudioOverlayResponseArgs', 'VideoOverlayResponseArgs']] overlays: The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
+        :param str rotation: The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
+        """
+        if crop is not None:
+            pulumi.set(__self__, "crop", crop)
+        if deinterlace is not None:
+            pulumi.set(__self__, "deinterlace", deinterlace)
+        if overlays is not None:
+            pulumi.set(__self__, "overlays", overlays)
+        if rotation is not None:
+            pulumi.set(__self__, "rotation", rotation)
+
+    @property
+    @pulumi.getter
+    def crop(self) -> Optional['outputs.RectangleResponse']:
+        """
+        The parameters for the rectangular window with which to crop the input video.
+        """
+        return pulumi.get(self, "crop")
+
+    @property
+    @pulumi.getter
+    def deinterlace(self) -> Optional['outputs.DeinterlaceResponse']:
+        """
+        The de-interlacing settings.
+        """
+        return pulumi.get(self, "deinterlace")
+
+    @property
+    @pulumi.getter
+    def overlays(self) -> Optional[List[Any]]:
+        """
+        The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
+        """
+        return pulumi.get(self, "overlays")
+
+    @property
+    @pulumi.getter
+    def rotation(self) -> Optional[str]:
+        """
+        The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
+        """
+        return pulumi.get(self, "rotation")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1087,6 +2546,42 @@ class IPRangeResponse(dict):
 
 
 @pulumi.output_type
+class ImageFormatResponse(dict):
+    """
+    Describes the properties for an output image file.
+    """
+    def __init__(__self__, *,
+                 filename_pattern: str,
+                 odata_type: str):
+        """
+        Describes the properties for an output image file.
+        :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param str odata_type: The discriminator for derived types.
+        """
+        pulumi.set(__self__, "filename_pattern", filename_pattern)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ImageFormat')
+
+    @property
+    @pulumi.getter(name="filenamePattern")
+    def filename_pattern(self) -> str:
+        """
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        return pulumi.get(self, "filename_pattern")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class JobErrorDetailResponse(dict):
     """
     Details of JobOutput errors.
@@ -1192,17 +2687,33 @@ class JobErrorResponse(dict):
 
 
 @pulumi.output_type
-class JobInputResponse(dict):
+class JobInputClipResponse(dict):
     """
-    Base class for inputs to a Job.
+    Represents input files for a Job.
     """
     def __init__(__self__, *,
-                 odata_type: str):
+                 odata_type: str,
+                 end: Optional['outputs.AbsoluteClipTimeResponse'] = None,
+                 files: Optional[List[str]] = None,
+                 label: Optional[str] = None,
+                 start: Optional['outputs.AbsoluteClipTimeResponse'] = None):
         """
-        Base class for inputs to a Job.
+        Represents input files for a Job.
         :param str odata_type: The discriminator for derived types.
+        :param 'AbsoluteClipTimeResponseArgs' end: Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+        :param List[str] files: List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        :param str label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+        :param 'AbsoluteClipTimeResponseArgs' start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
-        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputClip')
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1212,16 +2723,86 @@ class JobInputResponse(dict):
         """
         return pulumi.get(self, "odata_type")
 
+    @property
+    @pulumi.getter
+    def end(self) -> Optional['outputs.AbsoluteClipTimeResponse']:
+        """
+        Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def files(self) -> Optional[List[str]]:
+        """
+        List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+        """
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional['outputs.AbsoluteClipTimeResponse']:
+        """
+        Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+        """
+        return pulumi.get(self, "start")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
-class JobOutputResponse(dict):
+class JobInputsResponse(dict):
     """
-    Describes all the properties of a JobOutput.
+    Describes a list of inputs to a Job.
     """
     def __init__(__self__, *,
+                 odata_type: str,
+                 inputs: Optional[List[Any]] = None):
+        """
+        Describes a list of inputs to a Job.
+        :param str odata_type: The discriminator for derived types.
+        :param List[Union['JobInputClipResponseArgs', 'JobInputsResponseArgs']] inputs: List of inputs to a Job.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputs')
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[List[Any]]:
+        """
+        List of inputs to a Job.
+        """
+        return pulumi.get(self, "inputs")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JobOutputAssetResponse(dict):
+    """
+    Represents an Asset used as a JobOutput.
+    """
+    def __init__(__self__, *,
+                 asset_name: str,
                  end_time: str,
                  error: 'outputs.JobErrorResponse',
                  odata_type: str,
@@ -1230,7 +2811,8 @@ class JobOutputResponse(dict):
                  state: str,
                  label: Optional[str] = None):
         """
-        Describes all the properties of a JobOutput.
+        Represents an Asset used as a JobOutput.
+        :param str asset_name: The name of the output Asset.
         :param str end_time: The UTC date and time at which this Job Output finished processing.
         :param 'JobErrorResponseArgs' error: If the JobOutput is in the Error state, it contains the details of the error.
         :param str odata_type: The discriminator for derived types.
@@ -1239,14 +2821,23 @@ class JobOutputResponse(dict):
         :param str state: Describes the state of the JobOutput.
         :param str label: A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
         """
+        pulumi.set(__self__, "asset_name", asset_name)
         pulumi.set(__self__, "end_time", end_time)
         pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobOutputAsset')
         pulumi.set(__self__, "progress", progress)
         pulumi.set(__self__, "start_time", start_time)
         pulumi.set(__self__, "state", state)
         if label is not None:
             pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> str:
+        """
+        The name of the output Asset.
+        """
+        return pulumi.get(self, "asset_name")
 
     @property
     @pulumi.getter(name="endTime")
@@ -1660,6 +3251,54 @@ class MediaServiceIdentityResponse(dict):
 
 
 @pulumi.output_type
+class MultiBitrateFormatResponse(dict):
+    """
+    Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
+    """
+    def __init__(__self__, *,
+                 filename_pattern: str,
+                 odata_type: str,
+                 output_files: Optional[List['outputs.OutputFileResponse']] = None):
+        """
+        Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
+        :param str filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param str odata_type: The discriminator for derived types.
+        :param List['OutputFileResponseArgs'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        """
+        pulumi.set(__self__, "filename_pattern", filename_pattern)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
+        if output_files is not None:
+            pulumi.set(__self__, "output_files", output_files)
+
+    @property
+    @pulumi.getter(name="filenamePattern")
+    def filename_pattern(self) -> str:
+        """
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        return pulumi.get(self, "filename_pattern")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="outputFiles")
+    def output_files(self) -> Optional[List['outputs.OutputFileResponse']]:
+        """
+        The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+        """
+        return pulumi.get(self, "output_files")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class NoEncryptionResponse(dict):
     """
     Class for NoEncryption scheme
@@ -1680,6 +3319,31 @@ class NoEncryptionResponse(dict):
         Representing supported protocols
         """
         return pulumi.get(self, "enabled_protocols")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OutputFileResponse(dict):
+    """
+    Represents an output file produced.
+    """
+    def __init__(__self__, *,
+                 labels: List[str]):
+        """
+        Represents an output file produced.
+        :param List[str] labels: The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
+        """
+        pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> List[str]:
+        """
+        The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
+        """
+        return pulumi.get(self, "labels")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1772,31 +3436,6 @@ class PresentationTimeRangeResponse(dict):
 
 
 @pulumi.output_type
-class PresetResponse(dict):
-    """
-    Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
-    """
-    def __init__(__self__, *,
-                 odata_type: str):
-        """
-        Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
-        :param str odata_type: The discriminator for derived types.
-        """
-        pulumi.set(__self__, "odata_type", odata_type)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> str:
-        """
-        The discriminator for derived types.
-        """
-        return pulumi.get(self, "odata_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     The Private Endpoint resource.
@@ -1866,6 +3505,127 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RectangleResponse(dict):
+    """
+    Describes the properties of a rectangular window applied to the input media before processing it.
+    """
+    def __init__(__self__, *,
+                 height: Optional[str] = None,
+                 left: Optional[str] = None,
+                 top: Optional[str] = None,
+                 width: Optional[str] = None):
+        """
+        Describes the properties of a rectangular window applied to the input media before processing it.
+        :param str height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+        :param str left: The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+        :param str top: The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+        :param str width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+        """
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if left is not None:
+            pulumi.set(__self__, "left", left)
+        if top is not None:
+            pulumi.set(__self__, "top", top)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def left(self) -> Optional[str]:
+        """
+        The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+        """
+        return pulumi.get(self, "left")
+
+    @property
+    @pulumi.getter
+    def top(self) -> Optional[str]:
+        """
+        The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+        """
+        return pulumi.get(self, "top")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+        """
+        return pulumi.get(self, "width")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StandardEncoderPresetResponse(dict):
+    """
+    Describes all the settings to be used when encoding the input video with the Standard Encoder.
+    """
+    def __init__(__self__, *,
+                 codecs: List[Any],
+                 formats: List[Any],
+                 odata_type: str,
+                 filters: Optional['outputs.FiltersResponse'] = None):
+        """
+        Describes all the settings to be used when encoding the input video with the Standard Encoder.
+        :param List[Union['AudioResponseArgs', 'CopyAudioResponseArgs', 'CopyVideoResponseArgs', 'VideoResponseArgs']] codecs: The list of codecs to be used when encoding the input video.
+        :param List[Union['ImageFormatResponseArgs', 'MultiBitrateFormatResponseArgs']] formats: The list of outputs to be produced by the encoder.
+        :param str odata_type: The discriminator for derived types.
+        :param 'FiltersResponseArgs' filters: One or more filtering operations that are applied to the input media before encoding.
+        """
+        pulumi.set(__self__, "codecs", codecs)
+        pulumi.set(__self__, "formats", formats)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.StandardEncoderPreset')
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def codecs(self) -> List[Any]:
+        """
+        The list of codecs to be used when encoding the input video.
+        """
+        return pulumi.get(self, "codecs")
+
+    @property
+    @pulumi.getter
+    def formats(self) -> List[Any]:
+        """
+        The list of outputs to be produced by the encoder.
+        """
+        return pulumi.get(self, "formats")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional['outputs.FiltersResponse']:
+        """
+        One or more filtering operations that are applied to the input media before encoding.
+        """
+        return pulumi.get(self, "filters")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2342,12 +4102,12 @@ class TransformOutputResponse(dict):
     Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
     """
     def __init__(__self__, *,
-                 preset: 'outputs.PresetResponse',
+                 preset: Any,
                  on_error: Optional[str] = None,
                  relative_priority: Optional[str] = None):
         """
         Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
-        :param 'PresetResponseArgs' preset: Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+        :param Union['AudioAnalyzerPresetResponseArgs', 'BuiltInStandardEncoderPresetResponseArgs', 'FaceDetectorPresetResponseArgs', 'StandardEncoderPresetResponseArgs'] preset: Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
         :param str on_error: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
         :param str relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
@@ -2359,7 +4119,7 @@ class TransformOutputResponse(dict):
 
     @property
     @pulumi.getter
-    def preset(self) -> 'outputs.PresetResponse':
+    def preset(self) -> Any:
         """
         Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
         """
@@ -2380,6 +4140,211 @@ class TransformOutputResponse(dict):
         Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
         return pulumi.get(self, "relative_priority")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VideoOverlayResponse(dict):
+    """
+    Describes the properties of a video overlay.
+    """
+    def __init__(__self__, *,
+                 input_label: str,
+                 odata_type: str,
+                 audio_gain_level: Optional[float] = None,
+                 crop_rectangle: Optional['outputs.RectangleResponse'] = None,
+                 end: Optional[str] = None,
+                 fade_in_duration: Optional[str] = None,
+                 fade_out_duration: Optional[str] = None,
+                 opacity: Optional[float] = None,
+                 position: Optional['outputs.RectangleResponse'] = None,
+                 start: Optional[str] = None):
+        """
+        Describes the properties of a video overlay.
+        :param str input_label: The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+        :param str odata_type: The discriminator for derived types.
+        :param float audio_gain_level: The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
+        :param 'RectangleResponseArgs' crop_rectangle: An optional rectangular window used to crop the overlay image or video.
+        :param str end: The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+        :param str fade_in_duration: The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
+        :param str fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
+        :param float opacity: The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
+        :param 'RectangleResponseArgs' position: The location in the input video where the overlay is applied.
+        :param str start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+        """
+        pulumi.set(__self__, "input_label", input_label)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoOverlay')
+        if audio_gain_level is not None:
+            pulumi.set(__self__, "audio_gain_level", audio_gain_level)
+        if crop_rectangle is not None:
+            pulumi.set(__self__, "crop_rectangle", crop_rectangle)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if fade_in_duration is not None:
+            pulumi.set(__self__, "fade_in_duration", fade_in_duration)
+        if fade_out_duration is not None:
+            pulumi.set(__self__, "fade_out_duration", fade_out_duration)
+        if opacity is not None:
+            pulumi.set(__self__, "opacity", opacity)
+        if position is not None:
+            pulumi.set(__self__, "position", position)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="inputLabel")
+    def input_label(self) -> str:
+        """
+        The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+        """
+        return pulumi.get(self, "input_label")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="audioGainLevel")
+    def audio_gain_level(self) -> Optional[float]:
+        """
+        The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
+        """
+        return pulumi.get(self, "audio_gain_level")
+
+    @property
+    @pulumi.getter(name="cropRectangle")
+    def crop_rectangle(self) -> Optional['outputs.RectangleResponse']:
+        """
+        An optional rectangular window used to crop the overlay image or video.
+        """
+        return pulumi.get(self, "crop_rectangle")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter(name="fadeInDuration")
+    def fade_in_duration(self) -> Optional[str]:
+        """
+        The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
+        """
+        return pulumi.get(self, "fade_in_duration")
+
+    @property
+    @pulumi.getter(name="fadeOutDuration")
+    def fade_out_duration(self) -> Optional[str]:
+        """
+        The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
+        """
+        return pulumi.get(self, "fade_out_duration")
+
+    @property
+    @pulumi.getter
+    def opacity(self) -> Optional[float]:
+        """
+        The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
+        """
+        return pulumi.get(self, "opacity")
+
+    @property
+    @pulumi.getter
+    def position(self) -> Optional['outputs.RectangleResponse']:
+        """
+        The location in the input video where the overlay is applied.
+        """
+        return pulumi.get(self, "position")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+        """
+        return pulumi.get(self, "start")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VideoResponse(dict):
+    """
+    Describes the basic properties for encoding the input video.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 key_frame_interval: Optional[str] = None,
+                 label: Optional[str] = None,
+                 stretch_mode: Optional[str] = None,
+                 sync_mode: Optional[str] = None):
+        """
+        Describes the basic properties for encoding the input video.
+        :param str odata_type: The discriminator for derived types.
+        :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
+        :param str label: An optional label for the codec. The label can be used to control muxing behavior.
+        :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        :param str sync_mode: The Video Sync Mode
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Video')
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+        if sync_mode is not None:
+            pulumi.set(__self__, "sync_mode", sync_mode)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        The discriminator for derived types.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[str]:
+        """
+        The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[str]:
+        """
+        The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    @property
+    @pulumi.getter(name="syncMode")
+    def sync_mode(self) -> Optional[str]:
+        """
+        The Video Sync Mode
+        """
+        return pulumi.get(self, "sync_mode")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

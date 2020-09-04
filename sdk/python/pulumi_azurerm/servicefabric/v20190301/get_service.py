@@ -109,7 +109,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="partitionDescription")
-    def partition_description(self) -> Optional['outputs.PartitionSchemeDescriptionResponse']:
+    def partition_description(self) -> Optional[Any]:
         """
         Describes how the service is partitioned.
         """

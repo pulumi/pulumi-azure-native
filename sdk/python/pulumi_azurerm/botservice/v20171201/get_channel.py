@@ -80,7 +80,7 @@ class GetChannelResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ChannelResponse':
+    def properties(self) -> Any:
         """
         The set of properties specific to bot channel resource
         """

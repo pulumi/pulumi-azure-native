@@ -137,7 +137,7 @@ class GetDatabaseAccountResult:
 
     @property
     @pulumi.getter(name="backupPolicy")
-    def backup_policy(self) -> Optional['outputs.BackupPolicyResponse']:
+    def backup_policy(self) -> Optional[Any]:
         """
         The object representing the policy for taking backups on an account.
         """

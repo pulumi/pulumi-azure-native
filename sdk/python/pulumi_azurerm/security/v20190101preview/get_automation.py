@@ -57,7 +57,7 @@ class GetAutomationResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List['outputs.AutomationActionResponse']]:
+    def actions(self) -> Optional[List[Any]]:
         """
         A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         """

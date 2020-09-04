@@ -42,7 +42,7 @@ class AllowlistCustomAlertRuleResponse(dict):
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ListCustomAlertRule')
         pulumi.set(__self__, "value_type", value_type)
 
     @property
@@ -122,7 +122,7 @@ class DenylistCustomAlertRuleResponse(dict):
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ListCustomAlertRule')
         pulumi.set(__self__, "value_type", value_type)
 
     @property
@@ -246,7 +246,7 @@ class ThresholdCustomAlertRuleResponse(dict):
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "max_threshold", max_threshold)
         pulumi.set(__self__, "min_threshold", min_threshold)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ThresholdCustomAlertRule')
 
     @property
     @pulumi.getter
@@ -328,7 +328,7 @@ class TimeWindowCustomAlertRuleResponse(dict):
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "max_threshold", max_threshold)
         pulumi.set(__self__, "min_threshold", min_threshold)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ThresholdCustomAlertRule')
         pulumi.set(__self__, "time_window_size", time_window_size)
 
     @property

@@ -17,7 +17,7 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_details: Optional[pulumi.Input[pulumi.InputType['AuthenticationDetailsPropertiesArgs']]] = None,
+                 authentication_details: Optional[pulumi.Input[Union[pulumi.InputType['AwAssumeRoleAuthenticationDetailsPropertiesArgs'], pulumi.InputType['AwsCredsAuthenticationDetailsPropertiesArgs'], pulumi.InputType['GcpCredentialsDetailsPropertiesArgs']]]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  hybrid_compute_settings: Optional[pulumi.Input[pulumi.InputType['HybridComputeSettingsPropertiesArgs']]] = None,
                  __props__=None,
@@ -28,7 +28,7 @@ class Connector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AuthenticationDetailsPropertiesArgs']] authentication_details: Settings for authentication management, these settings are relevant only for the cloud connector.
+        :param pulumi.Input[Union[pulumi.InputType['AwAssumeRoleAuthenticationDetailsPropertiesArgs'], pulumi.InputType['AwsCredsAuthenticationDetailsPropertiesArgs'], pulumi.InputType['GcpCredentialsDetailsPropertiesArgs']]] authentication_details: Settings for authentication management, these settings are relevant only for the cloud connector.
         :param pulumi.Input[str] connector_name: Name of the cloud account connector
         :param pulumi.Input[pulumi.InputType['HybridComputeSettingsPropertiesArgs']] hybrid_compute_settings: Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
         """
@@ -82,7 +82,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticationDetails")
-    def authentication_details(self) -> pulumi.Output[Optional['outputs.AuthenticationDetailsPropertiesResponse']]:
+    def authentication_details(self) -> pulumi.Output[Optional[Any]]:
         """
         Settings for authentication management, these settings are relevant only for the cloud connector.
         """

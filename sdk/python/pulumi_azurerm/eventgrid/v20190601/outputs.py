@@ -10,29 +10,48 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'AdvancedFilterResponse',
-    'DeadLetterDestinationResponse',
-    'EventSubscriptionDestinationResponse',
+    'BoolEqualsAdvancedFilterResponse',
+    'EventHubEventSubscriptionDestinationResponse',
     'EventSubscriptionFilterResponse',
+    'HybridConnectionEventSubscriptionDestinationResponse',
+    'NumberGreaterThanAdvancedFilterResponse',
+    'NumberGreaterThanOrEqualsAdvancedFilterResponse',
+    'NumberInAdvancedFilterResponse',
+    'NumberLessThanAdvancedFilterResponse',
+    'NumberLessThanOrEqualsAdvancedFilterResponse',
+    'NumberNotInAdvancedFilterResponse',
     'RetryPolicyResponse',
+    'ServiceBusQueueEventSubscriptionDestinationResponse',
+    'StorageBlobDeadLetterDestinationResponse',
+    'StorageQueueEventSubscriptionDestinationResponse',
+    'StringBeginsWithAdvancedFilterResponse',
+    'StringContainsAdvancedFilterResponse',
+    'StringEndsWithAdvancedFilterResponse',
+    'StringInAdvancedFilterResponse',
+    'StringNotInAdvancedFilterResponse',
+    'WebHookEventSubscriptionDestinationResponse',
 ]
 
 @pulumi.output_type
-class AdvancedFilterResponse(dict):
+class BoolEqualsAdvancedFilterResponse(dict):
     """
-    This is the base type that represents an advanced filter. To configure an advanced filter, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class such as BoolEqualsAdvancedFilter, NumberInAdvancedFilter, StringEqualsAdvancedFilter etc. depending on the type of the key based on which you want to filter.
+    BoolEquals Advanced Filter.
     """
     def __init__(__self__, *,
                  operator_type: str,
-                 key: Optional[str] = None):
+                 key: Optional[str] = None,
+                 value: Optional[bool] = None):
         """
-        This is the base type that represents an advanced filter. To configure an advanced filter, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class such as BoolEqualsAdvancedFilter, NumberInAdvancedFilter, StringEqualsAdvancedFilter etc. depending on the type of the key based on which you want to filter.
+        BoolEquals Advanced Filter.
         :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
         :param str key: The field/property in the event based on which you want to filter.
+        :param bool value: The boolean filter value.
         """
-        pulumi.set(__self__, "operator_type", operator_type)
+        pulumi.set(__self__, "operator_type", 'BoolEquals')
         if key is not None:
             pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -50,47 +69,34 @@ class AdvancedFilterResponse(dict):
         """
         return pulumi.get(self, "key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DeadLetterDestinationResponse(dict):
-    """
-    Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-    """
-    def __init__(__self__, *,
-                 endpoint_type: str):
-        """
-        Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-        :param str endpoint_type: Type of the endpoint for the dead letter destination
-        """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-
     @property
-    @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> str:
+    @pulumi.getter
+    def value(self) -> Optional[bool]:
         """
-        Type of the endpoint for the dead letter destination
+        The boolean filter value.
         """
-        return pulumi.get(self, "endpoint_type")
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
-class EventSubscriptionDestinationResponse(dict):
+class EventHubEventSubscriptionDestinationResponse(dict):
     """
-    Information about the destination for an event subscription
+    Information about the event hub destination for an event subscription
     """
     def __init__(__self__, *,
-                 endpoint_type: str):
+                 endpoint_type: str,
+                 resource_id: Optional[str] = None):
         """
-        Information about the destination for an event subscription
+        Information about the event hub destination for an event subscription
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "endpoint_type", 'EventHub')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -99,6 +105,14 @@ class EventSubscriptionDestinationResponse(dict):
         Type of the endpoint for the event subscription destination
         """
         return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -110,14 +124,14 @@ class EventSubscriptionFilterResponse(dict):
     Filter for the Event Subscription.
     """
     def __init__(__self__, *,
-                 advanced_filters: Optional[List['outputs.AdvancedFilterResponse']] = None,
+                 advanced_filters: Optional[List[Any]] = None,
                  included_event_types: Optional[List[str]] = None,
                  is_subject_case_sensitive: Optional[bool] = None,
                  subject_begins_with: Optional[str] = None,
                  subject_ends_with: Optional[str] = None):
         """
         Filter for the Event Subscription.
-        :param List['AdvancedFilterResponseArgs'] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
+        :param List[Union['BoolEqualsAdvancedFilterResponseArgs', 'NumberGreaterThanAdvancedFilterResponseArgs', 'NumberGreaterThanOrEqualsAdvancedFilterResponseArgs', 'NumberInAdvancedFilterResponseArgs', 'NumberLessThanAdvancedFilterResponseArgs', 'NumberLessThanOrEqualsAdvancedFilterResponseArgs', 'NumberNotInAdvancedFilterResponseArgs', 'StringBeginsWithAdvancedFilterResponseArgs', 'StringContainsAdvancedFilterResponseArgs', 'StringEndsWithAdvancedFilterResponseArgs', 'StringInAdvancedFilterResponseArgs', 'StringNotInAdvancedFilterResponseArgs']] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
         :param List[str] included_event_types: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
         :param bool is_subject_case_sensitive: Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
                should be compared in a case sensitive manner.
@@ -140,7 +154,7 @@ class EventSubscriptionFilterResponse(dict):
 
     @property
     @pulumi.getter(name="advancedFilters")
-    def advanced_filters(self) -> Optional[List['outputs.AdvancedFilterResponse']]:
+    def advanced_filters(self) -> Optional[List[Any]]:
         """
         An array of advanced filters that are used for filtering event subscriptions.
         """
@@ -187,6 +201,337 @@ class EventSubscriptionFilterResponse(dict):
 
 
 @pulumi.output_type
+class HybridConnectionEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the HybridConnection destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the HybridConnection destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str resource_id: The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'HybridConnection')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NumberGreaterThanAdvancedFilterResponse(dict):
+    """
+    NumberGreaterThan Advanced Filter.
+    """
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 value: Optional[float] = None):
+        """
+        NumberGreaterThan Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param float value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberGreaterThan')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[float]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NumberGreaterThanOrEqualsAdvancedFilterResponse(dict):
+    """
+    NumberGreaterThanOrEquals Advanced Filter.
+    """
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 value: Optional[float] = None):
+        """
+        NumberGreaterThanOrEquals Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param float value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberGreaterThanOrEquals')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[float]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NumberInAdvancedFilterResponse(dict):
+    """
+    NumberIn Advanced Filter.
+    """
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[List[float]] = None):
+        """
+        NumberIn Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param List[float] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[List[float]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NumberLessThanAdvancedFilterResponse(dict):
+    """
+    NumberLessThan Advanced Filter.
+    """
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 value: Optional[float] = None):
+        """
+        NumberLessThan Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param float value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberLessThan')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[float]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NumberLessThanOrEqualsAdvancedFilterResponse(dict):
+    """
+    NumberLessThanOrEquals Advanced Filter.
+    """
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 value: Optional[float] = None):
+        """
+        NumberLessThanOrEquals Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param float value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberLessThanOrEquals')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[float]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NumberNotInAdvancedFilterResponse(dict):
+    """
+    NumberNotIn Advanced Filter.
+    """
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[List[float]] = None):
+        """
+        NumberNotIn Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param List[float] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberNotIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[List[float]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RetryPolicyResponse(dict):
     """
     Information about the retry policy for an event subscription.
@@ -219,6 +564,434 @@ class RetryPolicyResponse(dict):
         Maximum number of delivery retry attempts for events.
         """
         return pulumi.get(self, "max_delivery_attempts")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceBusQueueEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the service bus destination for an event subscription
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the service bus destination for an event subscription
+        :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str resource_id: The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'ServiceBusQueue')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageBlobDeadLetterDestinationResponse(dict):
+    """
+    Information about the storage blob based dead letter destination.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 blob_container_name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the storage blob based dead letter destination.
+        :param str endpoint_type: Type of the endpoint for the dead letter destination
+        :param str blob_container_name: The name of the Storage blob container that is the destination of the deadletter events
+        :param str resource_id: The Azure Resource ID of the storage account that is the destination of the deadletter events
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageBlob')
+        if blob_container_name is not None:
+            pulumi.set(__self__, "blob_container_name", blob_container_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the dead letter destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="blobContainerName")
+    def blob_container_name(self) -> Optional[str]:
+        """
+        The name of the Storage blob container that is the destination of the deadletter events
+        """
+        return pulumi.get(self, "blob_container_name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of the storage account that is the destination of the deadletter events
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageQueueEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the storage queue destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 queue_name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the storage queue destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
+        :param str resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageQueue')
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[str]:
+        """
+        The name of the Storage queue under a storage account that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StringBeginsWithAdvancedFilterResponse(dict):
+    """
+    StringBeginsWith Advanced Filter.
+    """
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[List[str]] = None):
+        """
+        StringBeginsWith Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param List[str] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringBeginsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[List[str]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StringContainsAdvancedFilterResponse(dict):
+    """
+    StringContains Advanced Filter.
+    """
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[List[str]] = None):
+        """
+        StringContains Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param List[str] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringContains')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[List[str]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StringEndsWithAdvancedFilterResponse(dict):
+    """
+    StringEndsWith Advanced Filter.
+    """
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[List[str]] = None):
+        """
+        StringEndsWith Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param List[str] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringEndsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[List[str]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StringInAdvancedFilterResponse(dict):
+    """
+    StringIn Advanced Filter.
+    """
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[List[str]] = None):
+        """
+        StringIn Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param List[str] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[List[str]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StringNotInAdvancedFilterResponse(dict):
+    """
+    StringNotIn Advanced Filter.
+    """
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[List[str]] = None):
+        """
+        StringNotIn Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param List[str] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[List[str]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WebHookEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the webhook destination for an event subscription
+    """
+    def __init__(__self__, *,
+                 endpoint_base_url: str,
+                 endpoint_type: str,
+                 endpoint_url: Optional[str] = None):
+        """
+        Information about the webhook destination for an event subscription
+        :param str endpoint_base_url: The base URL that represents the endpoint of the destination of an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
+        pulumi.set(__self__, "endpoint_type", 'WebHook')
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+
+    @property
+    @pulumi.getter(name="endpointBaseUrl")
+    def endpoint_base_url(self) -> str:
+        """
+        The base URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_base_url")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[str]:
+        """
+        The URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_url")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

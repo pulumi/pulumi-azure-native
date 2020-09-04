@@ -18,7 +18,7 @@ class Topic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
-                 input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['InputSchemaMappingArgs']]] = None,
+                 input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,7 +32,7 @@ class Topic(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] input_schema: This determines the format that Event Grid should expect for incoming events published to the topic.
-        :param pulumi.Input[pulumi.InputType['InputSchemaMappingArgs']] input_schema_mapping: This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
+        :param pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']] input_schema_mapping: This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         :param pulumi.Input[str] location: Location of the resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource
@@ -115,7 +115,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputSchemaMapping")
-    def input_schema_mapping(self) -> pulumi.Output[Optional['outputs.InputSchemaMappingResponse']]:
+    def input_schema_mapping(self) -> pulumi.Output[Optional['outputs.JsonInputSchemaMappingResponse']]:
         """
         This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         """

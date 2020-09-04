@@ -24,7 +24,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallPolicyRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleArgs'], pulumi.InputType['FirewallPolicyNatRuleArgs']]]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,7 +40,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] provisioning_state: The provisioning state of the firewall policy rule group resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_group_name: The name of the FirewallPolicyRuleGroup.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallPolicyRuleArgs']]]] rules: Group of Firewall Policy rules.
+        :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleArgs'], pulumi.InputType['FirewallPolicyNatRuleArgs']]]]] rules: Group of Firewall Policy rules.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -135,7 +135,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Output[Optional[List['outputs.FirewallPolicyRuleResponse']]]:
+    def rules(self) -> pulumi.Output[Optional[List[Any]]]:
         """
         Group of Firewall Policy rules.
         """

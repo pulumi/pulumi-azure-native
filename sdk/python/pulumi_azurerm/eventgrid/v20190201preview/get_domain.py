@@ -64,7 +64,7 @@ class GetDomainResult:
 
     @property
     @pulumi.getter(name="inputSchemaMapping")
-    def input_schema_mapping(self) -> Optional['outputs.InputSchemaMappingResponse']:
+    def input_schema_mapping(self) -> Optional['outputs.JsonInputSchemaMappingResponse']:
         """
         Information about the InputSchemaMapping which specified the info about mapping event payload.
         """

@@ -12,12 +12,14 @@ __all__ = [
     'BackendArgs',
     'BackendPoolArgs',
     'BackendPoolsSettingsArgs',
+    'CacheConfigurationArgs',
+    'ForwardingConfigurationArgs',
     'FrontendEndpointArgs',
     'FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs',
     'HeaderActionArgs',
     'HealthProbeSettingsModelArgs',
     'LoadBalancingSettingsModelArgs',
-    'RouteConfigurationArgs',
+    'RedirectConfigurationArgs',
     'RoutingRuleArgs',
     'RulesEngineActionArgs',
     'RulesEngineMatchConditionArgs',
@@ -319,6 +321,161 @@ class BackendPoolsSettingsArgs:
     @send_recv_timeout_seconds.setter
     def send_recv_timeout_seconds(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "send_recv_timeout_seconds", value)
+
+
+@pulumi.input_type
+class CacheConfigurationArgs:
+    def __init__(__self__, *,
+                 cache_duration: Optional[pulumi.Input[str]] = None,
+                 dynamic_compression: Optional[pulumi.Input[str]] = None,
+                 query_parameter_strip_directive: Optional[pulumi.Input[str]] = None,
+                 query_parameters: Optional[pulumi.Input[str]] = None):
+        """
+        Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
+        :param pulumi.Input[str] cache_duration: The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
+        :param pulumi.Input[str] dynamic_compression: Whether to use dynamic compression for cached content
+        :param pulumi.Input[str] query_parameter_strip_directive: Treatment of URL query terms when forming the cache key.
+        :param pulumi.Input[str] query_parameters: query parameters to include or exclude (comma separated).
+        """
+        if cache_duration is not None:
+            pulumi.set(__self__, "cache_duration", cache_duration)
+        if dynamic_compression is not None:
+            pulumi.set(__self__, "dynamic_compression", dynamic_compression)
+        if query_parameter_strip_directive is not None:
+            pulumi.set(__self__, "query_parameter_strip_directive", query_parameter_strip_directive)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
+
+    @property
+    @pulumi.getter(name="cacheDuration")
+    def cache_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
+        """
+        return pulumi.get(self, "cache_duration")
+
+    @cache_duration.setter
+    def cache_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_duration", value)
+
+    @property
+    @pulumi.getter(name="dynamicCompression")
+    def dynamic_compression(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to use dynamic compression for cached content
+        """
+        return pulumi.get(self, "dynamic_compression")
+
+    @dynamic_compression.setter
+    def dynamic_compression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dynamic_compression", value)
+
+    @property
+    @pulumi.getter(name="queryParameterStripDirective")
+    def query_parameter_strip_directive(self) -> Optional[pulumi.Input[str]]:
+        """
+        Treatment of URL query terms when forming the cache key.
+        """
+        return pulumi.get(self, "query_parameter_strip_directive")
+
+    @query_parameter_strip_directive.setter
+    def query_parameter_strip_directive(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_parameter_strip_directive", value)
+
+    @property
+    @pulumi.getter(name="queryParameters")
+    def query_parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        query parameters to include or exclude (comma separated).
+        """
+        return pulumi.get(self, "query_parameters")
+
+    @query_parameters.setter
+    def query_parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_parameters", value)
+
+
+@pulumi.input_type
+class ForwardingConfigurationArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 backend_pool: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 cache_configuration: Optional[pulumi.Input['CacheConfigurationArgs']] = None,
+                 custom_forwarding_path: Optional[pulumi.Input[str]] = None,
+                 forwarding_protocol: Optional[pulumi.Input[str]] = None):
+        """
+        Describes Forwarding Route.
+        :param pulumi.Input['SubResourceArgs'] backend_pool: A reference to the BackendPool which this rule routes to.
+        :param pulumi.Input['CacheConfigurationArgs'] cache_configuration: The caching configuration associated with this rule.
+        :param pulumi.Input[str] custom_forwarding_path: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
+        :param pulumi.Input[str] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration')
+        if backend_pool is not None:
+            pulumi.set(__self__, "backend_pool", backend_pool)
+        if cache_configuration is not None:
+            pulumi.set(__self__, "cache_configuration", cache_configuration)
+        if custom_forwarding_path is not None:
+            pulumi.set(__self__, "custom_forwarding_path", custom_forwarding_path)
+        if forwarding_protocol is not None:
+            pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="backendPool")
+    def backend_pool(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        A reference to the BackendPool which this rule routes to.
+        """
+        return pulumi.get(self, "backend_pool")
+
+    @backend_pool.setter
+    def backend_pool(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "backend_pool", value)
+
+    @property
+    @pulumi.getter(name="cacheConfiguration")
+    def cache_configuration(self) -> Optional[pulumi.Input['CacheConfigurationArgs']]:
+        """
+        The caching configuration associated with this rule.
+        """
+        return pulumi.get(self, "cache_configuration")
+
+    @cache_configuration.setter
+    def cache_configuration(self, value: Optional[pulumi.Input['CacheConfigurationArgs']]):
+        pulumi.set(self, "cache_configuration", value)
+
+    @property
+    @pulumi.getter(name="customForwardingPath")
+    def custom_forwarding_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
+        """
+        return pulumi.get(self, "custom_forwarding_path")
+
+    @custom_forwarding_path.setter
+    def custom_forwarding_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_forwarding_path", value)
+
+    @property
+    @pulumi.getter(name="forwardingProtocol")
+    def forwarding_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protocol this rule will use when forwarding traffic to backends.
+        """
+        return pulumi.get(self, "forwarding_protocol")
+
+    @forwarding_protocol.setter
+    def forwarding_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forwarding_protocol", value)
 
 
 @pulumi.input_type
@@ -760,13 +917,37 @@ class LoadBalancingSettingsModelArgs:
 
 
 @pulumi.input_type
-class RouteConfigurationArgs:
+class RedirectConfigurationArgs:
     def __init__(__self__, *,
-                 odata_type: pulumi.Input[str]):
+                 odata_type: pulumi.Input[str],
+                 custom_fragment: Optional[pulumi.Input[str]] = None,
+                 custom_host: Optional[pulumi.Input[str]] = None,
+                 custom_path: Optional[pulumi.Input[str]] = None,
+                 custom_query_string: Optional[pulumi.Input[str]] = None,
+                 redirect_protocol: Optional[pulumi.Input[str]] = None,
+                 redirect_type: Optional[pulumi.Input[str]] = None):
         """
-        Base class for all types of Route.
+        Describes Redirect Route.
+        :param pulumi.Input[str] custom_fragment: Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+        :param pulumi.Input[str] custom_host: Host to redirect. Leave empty to use the incoming host as the destination host.
+        :param pulumi.Input[str] custom_path: The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+        :param pulumi.Input[str] custom_query_string: The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
+        :param pulumi.Input[str] redirect_protocol: The protocol of the destination to where the traffic is redirected
+        :param pulumi.Input[str] redirect_type: The redirect type the rule will use when redirecting traffic.
         """
-        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration')
+        if custom_fragment is not None:
+            pulumi.set(__self__, "custom_fragment", custom_fragment)
+        if custom_host is not None:
+            pulumi.set(__self__, "custom_host", custom_host)
+        if custom_path is not None:
+            pulumi.set(__self__, "custom_path", custom_path)
+        if custom_query_string is not None:
+            pulumi.set(__self__, "custom_query_string", custom_query_string)
+        if redirect_protocol is not None:
+            pulumi.set(__self__, "redirect_protocol", redirect_protocol)
+        if redirect_type is not None:
+            pulumi.set(__self__, "redirect_type", redirect_type)
 
     @property
     @pulumi.getter(name="odataType")
@@ -776,6 +957,78 @@ class RouteConfigurationArgs:
     @odata_type.setter
     def odata_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="customFragment")
+    def custom_fragment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+        """
+        return pulumi.get(self, "custom_fragment")
+
+    @custom_fragment.setter
+    def custom_fragment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_fragment", value)
+
+    @property
+    @pulumi.getter(name="customHost")
+    def custom_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        Host to redirect. Leave empty to use the incoming host as the destination host.
+        """
+        return pulumi.get(self, "custom_host")
+
+    @custom_host.setter
+    def custom_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_host", value)
+
+    @property
+    @pulumi.getter(name="customPath")
+    def custom_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+        """
+        return pulumi.get(self, "custom_path")
+
+    @custom_path.setter
+    def custom_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_path", value)
+
+    @property
+    @pulumi.getter(name="customQueryString")
+    def custom_query_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
+        """
+        return pulumi.get(self, "custom_query_string")
+
+    @custom_query_string.setter
+    def custom_query_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_query_string", value)
+
+    @property
+    @pulumi.getter(name="redirectProtocol")
+    def redirect_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protocol of the destination to where the traffic is redirected
+        """
+        return pulumi.get(self, "redirect_protocol")
+
+    @redirect_protocol.setter
+    def redirect_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redirect_protocol", value)
+
+    @property
+    @pulumi.getter(name="redirectType")
+    def redirect_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The redirect type the rule will use when redirecting traffic.
+        """
+        return pulumi.get(self, "redirect_type")
+
+    @redirect_type.setter
+    def redirect_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redirect_type", value)
 
 
 @pulumi.input_type
@@ -788,7 +1041,7 @@ class RoutingRuleArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  patterns_to_match: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  resource_state: Optional[pulumi.Input[str]] = None,
-                 route_configuration: Optional[pulumi.Input['RouteConfigurationArgs']] = None,
+                 route_configuration: Optional[pulumi.Input[Union['ForwardingConfigurationArgs', 'RedirectConfigurationArgs']]] = None,
                  rules_engine: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
@@ -799,7 +1052,7 @@ class RoutingRuleArgs:
         :param pulumi.Input[str] name: Resource name.
         :param pulumi.Input[List[pulumi.Input[str]]] patterns_to_match: The route patterns of the rule.
         :param pulumi.Input[str] resource_state: Resource status.
-        :param pulumi.Input['RouteConfigurationArgs'] route_configuration: A reference to the routing configuration.
+        :param pulumi.Input[Union['ForwardingConfigurationArgs', 'RedirectConfigurationArgs']] route_configuration: A reference to the routing configuration.
         :param pulumi.Input['SubResourceArgs'] rules_engine: A reference to a specific Rules Engine Configuration to apply to this route.
         """
         if accepted_protocols is not None:
@@ -907,14 +1160,14 @@ class RoutingRuleArgs:
 
     @property
     @pulumi.getter(name="routeConfiguration")
-    def route_configuration(self) -> Optional[pulumi.Input['RouteConfigurationArgs']]:
+    def route_configuration(self) -> Optional[pulumi.Input[Union['ForwardingConfigurationArgs', 'RedirectConfigurationArgs']]]:
         """
         A reference to the routing configuration.
         """
         return pulumi.get(self, "route_configuration")
 
     @route_configuration.setter
-    def route_configuration(self, value: Optional[pulumi.Input['RouteConfigurationArgs']]):
+    def route_configuration(self, value: Optional[pulumi.Input[Union['ForwardingConfigurationArgs', 'RedirectConfigurationArgs']]]):
         pulumi.set(self, "route_configuration", value)
 
     @property
@@ -935,12 +1188,12 @@ class RulesEngineActionArgs:
     def __init__(__self__, *,
                  request_header_actions: Optional[pulumi.Input[List[pulumi.Input['HeaderActionArgs']]]] = None,
                  response_header_actions: Optional[pulumi.Input[List[pulumi.Input['HeaderActionArgs']]]] = None,
-                 route_configuration_override: Optional[pulumi.Input['RouteConfigurationArgs']] = None):
+                 route_configuration_override: Optional[pulumi.Input[Union['ForwardingConfigurationArgs', 'RedirectConfigurationArgs']]] = None):
         """
         One or more actions that will execute, modifying the request and/or response.
         :param pulumi.Input[List[pulumi.Input['HeaderActionArgs']]] request_header_actions: A list of header actions to apply from the request from AFD to the origin.
         :param pulumi.Input[List[pulumi.Input['HeaderActionArgs']]] response_header_actions: A list of header actions to apply from the response from AFD to the client.
-        :param pulumi.Input['RouteConfigurationArgs'] route_configuration_override: Override the route configuration.
+        :param pulumi.Input[Union['ForwardingConfigurationArgs', 'RedirectConfigurationArgs']] route_configuration_override: Override the route configuration.
         """
         if request_header_actions is not None:
             pulumi.set(__self__, "request_header_actions", request_header_actions)
@@ -975,14 +1228,14 @@ class RulesEngineActionArgs:
 
     @property
     @pulumi.getter(name="routeConfigurationOverride")
-    def route_configuration_override(self) -> Optional[pulumi.Input['RouteConfigurationArgs']]:
+    def route_configuration_override(self) -> Optional[pulumi.Input[Union['ForwardingConfigurationArgs', 'RedirectConfigurationArgs']]]:
         """
         Override the route configuration.
         """
         return pulumi.get(self, "route_configuration_override")
 
     @route_configuration_override.setter
-    def route_configuration_override(self, value: Optional[pulumi.Input['RouteConfigurationArgs']]):
+    def route_configuration_override(self, value: Optional[pulumi.Input[Union['ForwardingConfigurationArgs', 'RedirectConfigurationArgs']]]):
         pulumi.set(self, "route_configuration_override", value)
 
 

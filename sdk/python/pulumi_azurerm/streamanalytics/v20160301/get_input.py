@@ -41,7 +41,7 @@ class GetInputResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.InputPropertiesResponse':
+    def properties(self) -> Any:
         """
         The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         """

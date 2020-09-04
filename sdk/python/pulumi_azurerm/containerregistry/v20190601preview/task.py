@@ -26,7 +26,7 @@ class Task(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 step: Optional[pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']]] = None,
+                 step: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[float]] = None,
@@ -49,7 +49,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[str] status: The current status of task.
-        :param pulumi.Input[pulumi.InputType['TaskStepPropertiesArgs']] step: The properties of a task step.
+        :param pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]] step: The properties of a task step.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] task_name: The name of the container registry task.
         :param pulumi.Input[float] timeout: Run timeout in seconds.
@@ -210,7 +210,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def step(self) -> pulumi.Output['outputs.TaskStepPropertiesResponse']:
+    def step(self) -> pulumi.Output[Any]:
         """
         The properties of a task step.
         """

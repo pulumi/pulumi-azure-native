@@ -11,18 +11,22 @@ from . import outputs
 
 __all__ = [
     'AgentPropertiesResponse',
+    'ArgumentResponse',
     'AuthInfoResponse',
     'BaseImageDependencyResponse',
     'BaseImageTriggerResponse',
     'CredentialsResponse',
     'CustomRegistryCredentialsResponse',
+    'DockerBuildStepResponse',
+    'EncodedTaskStepResponse',
+    'FileTaskStepResponse',
     'IdentityPropertiesResponse',
     'PlatformPropertiesResponse',
     'SecretObjectResponse',
+    'SetValueResponse',
     'SourcePropertiesResponse',
     'SourceRegistryCredentialsResponse',
     'SourceTriggerResponse',
-    'TaskStepPropertiesResponse',
     'TimerTriggerResponse',
     'TriggerPropertiesResponse',
     'UserIdentityPropertiesResponse',
@@ -49,6 +53,54 @@ class AgentPropertiesResponse(dict):
         The CPU configuration in terms of number of cores required for the run.
         """
         return pulumi.get(self, "cpu")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ArgumentResponse(dict):
+    """
+    The properties of a run argument.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 is_secret: Optional[bool] = None):
+        """
+        The properties of a run argument.
+        :param str name: The name of the argument.
+        :param str value: The value of the argument.
+        :param bool is_secret: Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if is_secret is not None:
+            pulumi.set(__self__, "is_secret", is_secret)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the argument.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the argument.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="isSecret")
+    def is_secret(self) -> Optional[bool]:
+        """
+        Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+        """
+        return pulumi.get(self, "is_secret")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -351,6 +403,327 @@ class CustomRegistryCredentialsResponse(dict):
 
 
 @pulumi.output_type
+class DockerBuildStepResponse(dict):
+    """
+    The Docker build step.
+    """
+    def __init__(__self__, *,
+                 base_image_dependencies: List['outputs.BaseImageDependencyResponse'],
+                 docker_file_path: str,
+                 type: str,
+                 arguments: Optional[List['outputs.ArgumentResponse']] = None,
+                 context_access_token: Optional[str] = None,
+                 context_path: Optional[str] = None,
+                 image_names: Optional[List[str]] = None,
+                 is_push_enabled: Optional[bool] = None,
+                 no_cache: Optional[bool] = None,
+                 target: Optional[str] = None):
+        """
+        The Docker build step.
+        :param List['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param str docker_file_path: The Docker file path relative to the source context.
+        :param str type: The type of the step.
+        :param List['ArgumentResponseArgs'] arguments: The collection of override arguments to be used when executing this build step.
+        :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param str context_path: The URL(absolute or relative) of the source context for the task step.
+        :param List[str] image_names: The fully qualified image names including the repository and tag.
+        :param bool is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
+        :param bool no_cache: The value of this property indicates whether the image cache is enabled or not.
+        :param str target: The name of the target build stage for the docker build.
+        """
+        pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
+        pulumi.set(__self__, "docker_file_path", docker_file_path)
+        pulumi.set(__self__, "type", 'Docker')
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if image_names is not None:
+            pulumi.set(__self__, "image_names", image_names)
+        if is_push_enabled is not None:
+            pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if no_cache is not None:
+            pulumi.set(__self__, "no_cache", no_cache)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="baseImageDependencies")
+    def base_image_dependencies(self) -> List['outputs.BaseImageDependencyResponse']:
+        """
+        List of base image dependencies for a step.
+        """
+        return pulumi.get(self, "base_image_dependencies")
+
+    @property
+    @pulumi.getter(name="dockerFilePath")
+    def docker_file_path(self) -> str:
+        """
+        The Docker file path relative to the source context.
+        """
+        return pulumi.get(self, "docker_file_path")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the step.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[List['outputs.ArgumentResponse']]:
+        """
+        The collection of override arguments to be used when executing this build step.
+        """
+        return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[str]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[str]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @property
+    @pulumi.getter(name="imageNames")
+    def image_names(self) -> Optional[List[str]]:
+        """
+        The fully qualified image names including the repository and tag.
+        """
+        return pulumi.get(self, "image_names")
+
+    @property
+    @pulumi.getter(name="isPushEnabled")
+    def is_push_enabled(self) -> Optional[bool]:
+        """
+        The value of this property indicates whether the image built should be pushed to the registry or not.
+        """
+        return pulumi.get(self, "is_push_enabled")
+
+    @property
+    @pulumi.getter(name="noCache")
+    def no_cache(self) -> Optional[bool]:
+        """
+        The value of this property indicates whether the image cache is enabled or not.
+        """
+        return pulumi.get(self, "no_cache")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The name of the target build stage for the docker build.
+        """
+        return pulumi.get(self, "target")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncodedTaskStepResponse(dict):
+    """
+    The properties of a encoded task step.
+    """
+    def __init__(__self__, *,
+                 base_image_dependencies: List['outputs.BaseImageDependencyResponse'],
+                 encoded_task_content: str,
+                 type: str,
+                 context_access_token: Optional[str] = None,
+                 context_path: Optional[str] = None,
+                 encoded_values_content: Optional[str] = None,
+                 values: Optional[List['outputs.SetValueResponse']] = None):
+        """
+        The properties of a encoded task step.
+        :param List['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param str encoded_task_content: Base64 encoded value of the template/definition file content.
+        :param str type: The type of the step.
+        :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param str context_path: The URL(absolute or relative) of the source context for the task step.
+        :param str encoded_values_content: Base64 encoded value of the parameters/values file content.
+        :param List['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        """
+        pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
+        pulumi.set(__self__, "encoded_task_content", encoded_task_content)
+        pulumi.set(__self__, "type", 'EncodedTask')
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if encoded_values_content is not None:
+            pulumi.set(__self__, "encoded_values_content", encoded_values_content)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="baseImageDependencies")
+    def base_image_dependencies(self) -> List['outputs.BaseImageDependencyResponse']:
+        """
+        List of base image dependencies for a step.
+        """
+        return pulumi.get(self, "base_image_dependencies")
+
+    @property
+    @pulumi.getter(name="encodedTaskContent")
+    def encoded_task_content(self) -> str:
+        """
+        Base64 encoded value of the template/definition file content.
+        """
+        return pulumi.get(self, "encoded_task_content")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the step.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[str]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[str]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @property
+    @pulumi.getter(name="encodedValuesContent")
+    def encoded_values_content(self) -> Optional[str]:
+        """
+        Base64 encoded value of the parameters/values file content.
+        """
+        return pulumi.get(self, "encoded_values_content")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[List['outputs.SetValueResponse']]:
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FileTaskStepResponse(dict):
+    """
+    The properties of a task step.
+    """
+    def __init__(__self__, *,
+                 base_image_dependencies: List['outputs.BaseImageDependencyResponse'],
+                 task_file_path: str,
+                 type: str,
+                 context_access_token: Optional[str] = None,
+                 context_path: Optional[str] = None,
+                 values: Optional[List['outputs.SetValueResponse']] = None,
+                 values_file_path: Optional[str] = None):
+        """
+        The properties of a task step.
+        :param List['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param str task_file_path: The task template/definition file path relative to the source context.
+        :param str type: The type of the step.
+        :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        :param str context_path: The URL(absolute or relative) of the source context for the task step.
+        :param List['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param str values_file_path: The task values/parameters file path relative to the source context.
+        """
+        pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
+        pulumi.set(__self__, "task_file_path", task_file_path)
+        pulumi.set(__self__, "type", 'FileTask')
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+        if values_file_path is not None:
+            pulumi.set(__self__, "values_file_path", values_file_path)
+
+    @property
+    @pulumi.getter(name="baseImageDependencies")
+    def base_image_dependencies(self) -> List['outputs.BaseImageDependencyResponse']:
+        """
+        List of base image dependencies for a step.
+        """
+        return pulumi.get(self, "base_image_dependencies")
+
+    @property
+    @pulumi.getter(name="taskFilePath")
+    def task_file_path(self) -> str:
+        """
+        The task template/definition file path relative to the source context.
+        """
+        return pulumi.get(self, "task_file_path")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the step.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[str]:
+        """
+        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[str]:
+        """
+        The URL(absolute or relative) of the source context for the task step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[List['outputs.SetValueResponse']]:
+        """
+        The collection of overridable values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter(name="valuesFilePath")
+    def values_file_path(self) -> Optional[str]:
+        """
+        The task values/parameters file path relative to the source context.
+        """
+        return pulumi.get(self, "values_file_path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class IdentityPropertiesResponse(dict):
     """
     Managed identity for the resource.
@@ -512,6 +885,54 @@ class SecretObjectResponse(dict):
 
 
 @pulumi.output_type
+class SetValueResponse(dict):
+    """
+    The properties of a overridable value that can be passed to a task template.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 is_secret: Optional[bool] = None):
+        """
+        The properties of a overridable value that can be passed to a task template.
+        :param str name: The name of the overridable value.
+        :param str value: The overridable value.
+        :param bool is_secret: Flag to indicate whether the value represents a secret or not.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if is_secret is not None:
+            pulumi.set(__self__, "is_secret", is_secret)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the overridable value.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The overridable value.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="isSecret")
+    def is_secret(self) -> Optional[bool]:
+        """
+        Flag to indicate whether the value represents a secret or not.
+        """
+        return pulumi.get(self, "is_secret")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class SourcePropertiesResponse(dict):
     """
     The properties of the source code repository.
@@ -657,66 +1078,6 @@ class SourceTriggerResponse(dict):
         The current status of trigger.
         """
         return pulumi.get(self, "status")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class TaskStepPropertiesResponse(dict):
-    """
-    Base properties for any task step.
-    """
-    def __init__(__self__, *,
-                 base_image_dependencies: List['outputs.BaseImageDependencyResponse'],
-                 type: str,
-                 context_access_token: Optional[str] = None,
-                 context_path: Optional[str] = None):
-        """
-        Base properties for any task step.
-        :param List['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
-        :param str type: The type of the step.
-        :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-        :param str context_path: The URL(absolute or relative) of the source context for the task step.
-        """
-        pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
-        pulumi.set(__self__, "type", type)
-        if context_access_token is not None:
-            pulumi.set(__self__, "context_access_token", context_access_token)
-        if context_path is not None:
-            pulumi.set(__self__, "context_path", context_path)
-
-    @property
-    @pulumi.getter(name="baseImageDependencies")
-    def base_image_dependencies(self) -> List['outputs.BaseImageDependencyResponse']:
-        """
-        List of base image dependencies for a step.
-        """
-        return pulumi.get(self, "base_image_dependencies")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the step.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="contextAccessToken")
-    def context_access_token(self) -> Optional[str]:
-        """
-        The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-        """
-        return pulumi.get(self, "context_access_token")
-
-    @property
-    @pulumi.getter(name="contextPath")
-    def context_path(self) -> Optional[str]:
-        """
-        The URL(absolute or relative) of the source context for the task step.
-        """
-        return pulumi.get(self, "context_path")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

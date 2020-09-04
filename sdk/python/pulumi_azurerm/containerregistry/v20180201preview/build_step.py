@@ -99,7 +99,7 @@ class BuildStep(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.BuildStepPropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.DockerBuildStepResponse']:
         """
         The properties of a build step.
         """

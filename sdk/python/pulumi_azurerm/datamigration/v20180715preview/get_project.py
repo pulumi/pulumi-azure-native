@@ -97,7 +97,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
-    def source_connection_info(self) -> Optional['outputs.ConnectionInfoResponse']:
+    def source_connection_info(self) -> Optional[Any]:
         """
         Information for connecting to source
         """
@@ -121,7 +121,7 @@ class GetProjectResult:
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
-    def target_connection_info(self) -> Optional['outputs.ConnectionInfoResponse']:
+    def target_connection_info(self) -> Optional[Any]:
         """
         Information for connecting to target
         """

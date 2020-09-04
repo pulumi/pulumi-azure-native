@@ -10,6 +10,7 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'AzureInternalMonitoringPipelineSinkDescriptionResponse',
     'ContainerCodePackagePropertiesResponse',
     'ContainerEventResponse',
     'ContainerInstanceViewResponse',
@@ -18,7 +19,6 @@ __all__ = [
     'ContainerVolumeResponse',
     'DiagnosticsDescriptionResponse',
     'DiagnosticsRefResponse',
-    'DiagnosticsSinkPropertiesResponse',
     'EndpointPropertiesResponse',
     'EnvironmentVariableResponse',
     'ImageRegistryCredentialResponse',
@@ -32,6 +32,115 @@ __all__ = [
     'SettingResponse',
     'VolumeProviderParametersAzureFileResponse',
 ]
+
+@pulumi.output_type
+class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
+    """
+    Diagnostics settings for Geneva.
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 account_name: Optional[str] = None,
+                 auto_key_config_url: Optional[str] = None,
+                 description: Optional[str] = None,
+                 fluentd_config_url: Optional[Mapping[str, Any]] = None,
+                 ma_config_url: Optional[str] = None,
+                 name: Optional[str] = None,
+                 namespace: Optional[str] = None):
+        """
+        Diagnostics settings for Geneva.
+        :param str kind: The kind of DiagnosticsSink.
+        :param str account_name: Azure Internal monitoring pipeline account.
+        :param str auto_key_config_url: Azure Internal monitoring pipeline autokey associated with the certificate.
+        :param str description: A description of the sink.
+        :param Mapping[str, Any] fluentd_config_url: Azure Internal monitoring agent fluentd configuration.
+        :param str ma_config_url: Azure Internal monitoring agent configuration.
+        :param str name: Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+        :param str namespace: Azure Internal monitoring pipeline account namespace.
+        """
+        pulumi.set(__self__, "kind", 'AzureInternalMonitoringPipeline')
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if auto_key_config_url is not None:
+            pulumi.set(__self__, "auto_key_config_url", auto_key_config_url)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if fluentd_config_url is not None:
+            pulumi.set(__self__, "fluentd_config_url", fluentd_config_url)
+        if ma_config_url is not None:
+            pulumi.set(__self__, "ma_config_url", ma_config_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of DiagnosticsSink.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[str]:
+        """
+        Azure Internal monitoring pipeline account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="autoKeyConfigUrl")
+    def auto_key_config_url(self) -> Optional[str]:
+        """
+        Azure Internal monitoring pipeline autokey associated with the certificate.
+        """
+        return pulumi.get(self, "auto_key_config_url")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the sink.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="fluentdConfigUrl")
+    def fluentd_config_url(self) -> Optional[Mapping[str, Any]]:
+        """
+        Azure Internal monitoring agent fluentd configuration.
+        """
+        return pulumi.get(self, "fluentd_config_url")
+
+    @property
+    @pulumi.getter(name="maConfigUrl")
+    def ma_config_url(self) -> Optional[str]:
+        """
+        Azure Internal monitoring agent configuration.
+        """
+        return pulumi.get(self, "ma_config_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Azure Internal monitoring pipeline account namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class ContainerCodePackagePropertiesResponse(dict):
@@ -513,12 +622,12 @@ class DiagnosticsDescriptionResponse(dict):
     def __init__(__self__, *,
                  default_sink_refs: Optional[List[str]] = None,
                  enabled: Optional[bool] = None,
-                 sinks: Optional[List['outputs.DiagnosticsSinkPropertiesResponse']] = None):
+                 sinks: Optional[List['outputs.AzureInternalMonitoringPipelineSinkDescriptionResponse']] = None):
         """
         Describes the diagnostics options available
         :param List[str] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         :param bool enabled: Status of whether or not sinks are enabled.
-        :param List['DiagnosticsSinkPropertiesResponseArgs'] sinks: List of supported sinks that can be referenced.
+        :param List['AzureInternalMonitoringPipelineSinkDescriptionResponseArgs'] sinks: List of supported sinks that can be referenced.
         """
         if default_sink_refs is not None:
             pulumi.set(__self__, "default_sink_refs", default_sink_refs)
@@ -545,7 +654,7 @@ class DiagnosticsDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def sinks(self) -> Optional[List['outputs.DiagnosticsSinkPropertiesResponse']]:
+    def sinks(self) -> Optional[List['outputs.AzureInternalMonitoringPipelineSinkDescriptionResponse']]:
         """
         List of supported sinks that can be referenced.
         """
@@ -588,55 +697,6 @@ class DiagnosticsRefResponse(dict):
         List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
         return pulumi.get(self, "sink_refs")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DiagnosticsSinkPropertiesResponse(dict):
-    """
-    Properties of a DiagnosticsSink.
-    """
-    def __init__(__self__, *,
-                 kind: str,
-                 description: Optional[str] = None,
-                 name: Optional[str] = None):
-        """
-        Properties of a DiagnosticsSink.
-        :param str kind: The kind of DiagnosticsSink.
-        :param str description: A description of the sink.
-        :param str name: Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-        """
-        pulumi.set(__self__, "kind", kind)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> str:
-        """
-        The kind of DiagnosticsSink.
-        """
-        return pulumi.get(self, "kind")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        A description of the sink.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-        """
-        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -9,40 +9,134 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'AdvancedFilterArgs',
+    'AzureFunctionEventSubscriptionDestinationArgs',
+    'BoolEqualsAdvancedFilterArgs',
     'ConnectionStateArgs',
-    'DeadLetterDestinationArgs',
     'DeadLetterWithResourceIdentityArgs',
     'DeliveryWithResourceIdentityArgs',
     'EventChannelDestinationArgs',
     'EventChannelFilterArgs',
     'EventChannelSourceArgs',
-    'EventSubscriptionDestinationArgs',
+    'EventHubEventSubscriptionDestinationArgs',
     'EventSubscriptionFilterArgs',
     'EventSubscriptionIdentityArgs',
+    'HybridConnectionEventSubscriptionDestinationArgs',
     'IdentityInfoArgs',
     'InboundIpRuleArgs',
-    'InputSchemaMappingArgs',
+    'JsonFieldArgs',
+    'JsonFieldWithDefaultArgs',
+    'JsonInputSchemaMappingArgs',
+    'NumberGreaterThanAdvancedFilterArgs',
+    'NumberGreaterThanOrEqualsAdvancedFilterArgs',
+    'NumberInAdvancedFilterArgs',
+    'NumberLessThanAdvancedFilterArgs',
+    'NumberLessThanOrEqualsAdvancedFilterArgs',
+    'NumberNotInAdvancedFilterArgs',
     'PrivateEndpointArgs',
     'PrivateEndpointConnectionArgs',
     'ResourceSkuArgs',
     'RetryPolicyArgs',
+    'ServiceBusQueueEventSubscriptionDestinationArgs',
+    'ServiceBusTopicEventSubscriptionDestinationArgs',
+    'StorageBlobDeadLetterDestinationArgs',
+    'StorageQueueEventSubscriptionDestinationArgs',
+    'StringBeginsWithAdvancedFilterArgs',
+    'StringContainsAdvancedFilterArgs',
+    'StringEndsWithAdvancedFilterArgs',
+    'StringInAdvancedFilterArgs',
+    'StringNotInAdvancedFilterArgs',
     'UserIdentityPropertiesArgs',
+    'WebHookEventSubscriptionDestinationArgs',
 ]
 
 @pulumi.input_type
-class AdvancedFilterArgs:
+class AzureFunctionEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 max_events_per_batch: Optional[pulumi.Input[float]] = None,
+                 preferred_batch_size_in_kilobytes: Optional[pulumi.Input[float]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the azure function destination for an event subscription.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+        :param pulumi.Input[float] max_events_per_batch: Maximum number of events per batch.
+        :param pulumi.Input[float] preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
+        :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'AzureFunction')
+        if max_events_per_batch is not None:
+            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is not None:
+            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="maxEventsPerBatch")
+    def max_events_per_batch(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum number of events per batch.
+        """
+        return pulumi.get(self, "max_events_per_batch")
+
+    @max_events_per_batch.setter
+    def max_events_per_batch(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_events_per_batch", value)
+
+    @property
+    @pulumi.getter(name="preferredBatchSizeInKilobytes")
+    def preferred_batch_size_in_kilobytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        Preferred batch size in Kilobytes.
+        """
+        return pulumi.get(self, "preferred_batch_size_in_kilobytes")
+
+    @preferred_batch_size_in_kilobytes.setter
+    def preferred_batch_size_in_kilobytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "preferred_batch_size_in_kilobytes", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class BoolEqualsAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
-                 key: Optional[pulumi.Input[str]] = None):
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[bool]] = None):
         """
-        This is the base type that represents an advanced filter. To configure an advanced filter, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class such as BoolEqualsAdvancedFilter, NumberInAdvancedFilter, StringEqualsAdvancedFilter etc. depending on the type of the key based on which you want to filter.
+        BoolEquals Advanced Filter.
         :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
         :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[bool] value: The boolean filter value.
         """
-        pulumi.set(__self__, "operator_type", operator_type)
+        pulumi.set(__self__, "operator_type", 'BoolEquals')
         if key is not None:
             pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -67,6 +161,18 @@ class AdvancedFilterArgs:
     @key.setter
     def key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The boolean filter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -126,36 +232,13 @@ class ConnectionStateArgs:
 
 
 @pulumi.input_type
-class DeadLetterDestinationArgs:
-    def __init__(__self__, *,
-                 endpoint_type: pulumi.Input[str]):
-        """
-        Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the dead letter destination
-        """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-
-    @property
-    @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> pulumi.Input[str]:
-        """
-        Type of the endpoint for the dead letter destination
-        """
-        return pulumi.get(self, "endpoint_type")
-
-    @endpoint_type.setter
-    def endpoint_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "endpoint_type", value)
-
-
-@pulumi.input_type
 class DeadLetterWithResourceIdentityArgs:
     def __init__(__self__, *,
-                 dead_letter_destination: Optional[pulumi.Input['DeadLetterDestinationArgs']] = None,
+                 dead_letter_destination: Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']] = None,
                  identity: Optional[pulumi.Input['EventSubscriptionIdentityArgs']] = None):
         """
         Information about the deadletter destination with resource identity.
-        :param pulumi.Input['DeadLetterDestinationArgs'] dead_letter_destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input['StorageBlobDeadLetterDestinationArgs'] dead_letter_destination: Information about the destination where events have to be delivered for the event subscription.
                Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input['EventSubscriptionIdentityArgs'] identity: The identity to use when dead-lettering events.
         """
@@ -166,7 +249,7 @@ class DeadLetterWithResourceIdentityArgs:
 
     @property
     @pulumi.getter(name="deadLetterDestination")
-    def dead_letter_destination(self) -> Optional[pulumi.Input['DeadLetterDestinationArgs']]:
+    def dead_letter_destination(self) -> Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']]:
         """
         Information about the destination where events have to be delivered for the event subscription.
         Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -174,7 +257,7 @@ class DeadLetterWithResourceIdentityArgs:
         return pulumi.get(self, "dead_letter_destination")
 
     @dead_letter_destination.setter
-    def dead_letter_destination(self, value: Optional[pulumi.Input['DeadLetterDestinationArgs']]):
+    def dead_letter_destination(self, value: Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']]):
         pulumi.set(self, "dead_letter_destination", value)
 
     @property
@@ -193,11 +276,11 @@ class DeadLetterWithResourceIdentityArgs:
 @pulumi.input_type
 class DeliveryWithResourceIdentityArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input['EventSubscriptionDestinationArgs']] = None,
+                 destination: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
                  identity: Optional[pulumi.Input['EventSubscriptionIdentityArgs']] = None):
         """
         Information about the delivery for an event subscription with resource identity.
-        :param pulumi.Input['EventSubscriptionDestinationArgs'] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
                Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input['EventSubscriptionIdentityArgs'] identity: The identity to use when delivering events.
         """
@@ -208,7 +291,7 @@ class DeliveryWithResourceIdentityArgs:
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input['EventSubscriptionDestinationArgs']]:
+    def destination(self) -> Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]:
         """
         Information about the destination where events have to be delivered for the event subscription.
         Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -216,7 +299,7 @@ class DeliveryWithResourceIdentityArgs:
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input['EventSubscriptionDestinationArgs']]):
+    def destination(self, value: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]):
         pulumi.set(self, "destination", value)
 
     @property
@@ -295,24 +378,24 @@ class EventChannelDestinationArgs:
 @pulumi.input_type
 class EventChannelFilterArgs:
     def __init__(__self__, *,
-                 advanced_filters: Optional[pulumi.Input[List[pulumi.Input['AdvancedFilterArgs']]]] = None):
+                 advanced_filters: Optional[pulumi.Input[List[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]] = None):
         """
         Filter for the Event Channel.
-        :param pulumi.Input[List[pulumi.Input['AdvancedFilterArgs']]] advanced_filters: An array of advanced filters that are used for filtering event channels.
+        :param pulumi.Input[List[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]] advanced_filters: An array of advanced filters that are used for filtering event channels.
         """
         if advanced_filters is not None:
             pulumi.set(__self__, "advanced_filters", advanced_filters)
 
     @property
     @pulumi.getter(name="advancedFilters")
-    def advanced_filters(self) -> Optional[pulumi.Input[List[pulumi.Input['AdvancedFilterArgs']]]]:
+    def advanced_filters(self) -> Optional[pulumi.Input[List[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]:
         """
         An array of advanced filters that are used for filtering event channels.
         """
         return pulumi.get(self, "advanced_filters")
 
     @advanced_filters.setter
-    def advanced_filters(self, value: Optional[pulumi.Input[List[pulumi.Input['AdvancedFilterArgs']]]]):
+    def advanced_filters(self, value: Optional[pulumi.Input[List[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]):
         pulumi.set(self, "advanced_filters", value)
 
 
@@ -343,14 +426,18 @@ class EventChannelSourceArgs:
 
 
 @pulumi.input_type
-class EventSubscriptionDestinationArgs:
+class EventHubEventSubscriptionDestinationArgs:
     def __init__(__self__, *,
-                 endpoint_type: pulumi.Input[str]):
+                 endpoint_type: pulumi.Input[str],
+                 resource_id: Optional[pulumi.Input[str]] = None):
         """
-        Information about the destination for an event subscription.
+        Information about the event hub destination for an event subscription.
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+        :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "endpoint_type", 'EventHub')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -364,18 +451,30 @@ class EventSubscriptionDestinationArgs:
     def endpoint_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "endpoint_type", value)
 
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
 
 @pulumi.input_type
 class EventSubscriptionFilterArgs:
     def __init__(__self__, *,
-                 advanced_filters: Optional[pulumi.Input[List[pulumi.Input['AdvancedFilterArgs']]]] = None,
+                 advanced_filters: Optional[pulumi.Input[List[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]] = None,
                  included_event_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  is_subject_case_sensitive: Optional[pulumi.Input[bool]] = None,
                  subject_begins_with: Optional[pulumi.Input[str]] = None,
                  subject_ends_with: Optional[pulumi.Input[str]] = None):
         """
         Filter for the Event Subscription.
-        :param pulumi.Input[List[pulumi.Input['AdvancedFilterArgs']]] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
+        :param pulumi.Input[List[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
         :param pulumi.Input[List[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
         :param pulumi.Input[bool] is_subject_case_sensitive: Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
                should be compared in a case sensitive manner.
@@ -398,14 +497,14 @@ class EventSubscriptionFilterArgs:
 
     @property
     @pulumi.getter(name="advancedFilters")
-    def advanced_filters(self) -> Optional[pulumi.Input[List[pulumi.Input['AdvancedFilterArgs']]]]:
+    def advanced_filters(self) -> Optional[pulumi.Input[List[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]:
         """
         An array of advanced filters that are used for filtering event subscriptions.
         """
         return pulumi.get(self, "advanced_filters")
 
     @advanced_filters.setter
-    def advanced_filters(self, value: Optional[pulumi.Input[List[pulumi.Input['AdvancedFilterArgs']]]]):
+    def advanced_filters(self, value: Optional[pulumi.Input[List[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]):
         pulumi.set(self, "advanced_filters", value)
 
     @property
@@ -499,6 +598,45 @@ class EventSubscriptionIdentityArgs:
     @user_assigned_identity.setter
     def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity", value)
+
+
+@pulumi.input_type
+class HybridConnectionEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the HybridConnection destination for an event subscription.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+        :param pulumi.Input[str] resource_id: The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'HybridConnection')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -617,14 +755,105 @@ class InboundIpRuleArgs:
 
 
 @pulumi.input_type
-class InputSchemaMappingArgs:
+class JsonFieldArgs:
     def __init__(__self__, *,
-                 input_schema_mapping_type: pulumi.Input[str]):
+                 source_field: Optional[pulumi.Input[str]] = None):
         """
-        By default, Event Grid expects events to be in the Event Grid event schema. Specifying an input schema mapping enables publishing to Event Grid using a custom input schema. Currently, the only supported type of InputSchemaMapping is 'JsonInputSchemaMapping'.
+        This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
+        :param pulumi.Input[str] source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        return pulumi.get(self, "source_field")
+
+    @source_field.setter
+    def source_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_field", value)
+
+
+@pulumi.input_type
+class JsonFieldWithDefaultArgs:
+    def __init__(__self__, *,
+                 default_value: Optional[pulumi.Input[str]] = None,
+                 source_field: Optional[pulumi.Input[str]] = None):
+        """
+        This is used to express the source of an input schema mapping for a single target field
+        in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
+        'eventtype' and 'dataversion' properties. This represents a field in the input event schema
+        along with a default value to be used, and at least one of these two properties should be provided.
+        :param pulumi.Input[str] default_value: The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
+        :param pulumi.Input[str] source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
+        """
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        return pulumi.get(self, "source_field")
+
+    @source_field.setter
+    def source_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_field", value)
+
+
+@pulumi.input_type
+class JsonInputSchemaMappingArgs:
+    def __init__(__self__, *,
+                 input_schema_mapping_type: pulumi.Input[str],
+                 data_version: Optional[pulumi.Input['JsonFieldWithDefaultArgs']] = None,
+                 event_time: Optional[pulumi.Input['JsonFieldArgs']] = None,
+                 event_type: Optional[pulumi.Input['JsonFieldWithDefaultArgs']] = None,
+                 id: Optional[pulumi.Input['JsonFieldArgs']] = None,
+                 subject: Optional[pulumi.Input['JsonFieldWithDefaultArgs']] = None,
+                 topic: Optional[pulumi.Input['JsonFieldArgs']] = None):
+        """
+        This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
         :param pulumi.Input[str] input_schema_mapping_type: Type of the custom mapping
+        :param pulumi.Input['JsonFieldWithDefaultArgs'] data_version: The mapping information for the DataVersion property of the Event Grid Event.
+        :param pulumi.Input['JsonFieldArgs'] event_time: The mapping information for the EventTime property of the Event Grid Event.
+        :param pulumi.Input['JsonFieldWithDefaultArgs'] event_type: The mapping information for the EventType property of the Event Grid Event.
+        :param pulumi.Input['JsonFieldArgs'] id: The mapping information for the Id property of the Event Grid Event.
+        :param pulumi.Input['JsonFieldWithDefaultArgs'] subject: The mapping information for the Subject property of the Event Grid Event.
+        :param pulumi.Input['JsonFieldArgs'] topic: The mapping information for the Topic property of the Event Grid Event.
         """
-        pulumi.set(__self__, "input_schema_mapping_type", input_schema_mapping_type)
+        pulumi.set(__self__, "input_schema_mapping_type", 'Json')
+        if data_version is not None:
+            pulumi.set(__self__, "data_version", data_version)
+        if event_time is not None:
+            pulumi.set(__self__, "event_time", event_time)
+        if event_type is not None:
+            pulumi.set(__self__, "event_type", event_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
 
     @property
     @pulumi.getter(name="inputSchemaMappingType")
@@ -637,6 +866,408 @@ class InputSchemaMappingArgs:
     @input_schema_mapping_type.setter
     def input_schema_mapping_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "input_schema_mapping_type", value)
+
+    @property
+    @pulumi.getter(name="dataVersion")
+    def data_version(self) -> Optional[pulumi.Input['JsonFieldWithDefaultArgs']]:
+        """
+        The mapping information for the DataVersion property of the Event Grid Event.
+        """
+        return pulumi.get(self, "data_version")
+
+    @data_version.setter
+    def data_version(self, value: Optional[pulumi.Input['JsonFieldWithDefaultArgs']]):
+        pulumi.set(self, "data_version", value)
+
+    @property
+    @pulumi.getter(name="eventTime")
+    def event_time(self) -> Optional[pulumi.Input['JsonFieldArgs']]:
+        """
+        The mapping information for the EventTime property of the Event Grid Event.
+        """
+        return pulumi.get(self, "event_time")
+
+    @event_time.setter
+    def event_time(self, value: Optional[pulumi.Input['JsonFieldArgs']]):
+        pulumi.set(self, "event_time", value)
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> Optional[pulumi.Input['JsonFieldWithDefaultArgs']]:
+        """
+        The mapping information for the EventType property of the Event Grid Event.
+        """
+        return pulumi.get(self, "event_type")
+
+    @event_type.setter
+    def event_type(self, value: Optional[pulumi.Input['JsonFieldWithDefaultArgs']]):
+        pulumi.set(self, "event_type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input['JsonFieldArgs']]:
+        """
+        The mapping information for the Id property of the Event Grid Event.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input['JsonFieldArgs']]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[pulumi.Input['JsonFieldWithDefaultArgs']]:
+        """
+        The mapping information for the Subject property of the Event Grid Event.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: Optional[pulumi.Input['JsonFieldWithDefaultArgs']]):
+        pulumi.set(self, "subject", value)
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[pulumi.Input['JsonFieldArgs']]:
+        """
+        The mapping information for the Topic property of the Event Grid Event.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: Optional[pulumi.Input['JsonFieldArgs']]):
+        pulumi.set(self, "topic", value)
+
+
+@pulumi.input_type
+class NumberGreaterThanAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        NumberGreaterThan Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[float] value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberGreaterThan')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NumberGreaterThanOrEqualsAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        NumberGreaterThanOrEquals Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[float] value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberGreaterThanOrEquals')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NumberInAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None):
+        """
+        NumberIn Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[List[pulumi.Input[float]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class NumberLessThanAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        NumberLessThan Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[float] value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberLessThan')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NumberLessThanOrEqualsAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        NumberLessThanOrEquals Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[float] value: The filter value.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberLessThanOrEquals')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NumberNotInAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None):
+        """
+        NumberNotIn Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[List[pulumi.Input[float]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberNotIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
@@ -799,6 +1430,469 @@ class RetryPolicyArgs:
 
 
 @pulumi.input_type
+class ServiceBusQueueEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the service bus destination for an event subscription.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+        :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'ServiceBusQueue')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource Id that represents the endpoint of the Service Bus destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class ServiceBusTopicEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the service bus topic destination for an event subscription.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+        :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of the Service Bus Topic destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'ServiceBusTopic')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource Id that represents the endpoint of the Service Bus Topic destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class StorageBlobDeadLetterDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 blob_container_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the storage blob based dead letter destination.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the dead letter destination
+        :param pulumi.Input[str] blob_container_name: The name of the Storage blob container that is the destination of the deadletter events
+        :param pulumi.Input[str] resource_id: The Azure Resource ID of the storage account that is the destination of the deadletter events
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageBlob')
+        if blob_container_name is not None:
+            pulumi.set(__self__, "blob_container_name", blob_container_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the dead letter destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="blobContainerName")
+    def blob_container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Storage blob container that is the destination of the deadletter events
+        """
+        return pulumi.get(self, "blob_container_name")
+
+    @blob_container_name.setter
+    def blob_container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_container_name", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource ID of the storage account that is the destination of the deadletter events
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class StorageQueueEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 queue_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the storage queue destination for an event subscription.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+        :param pulumi.Input[str] queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
+        :param pulumi.Input[str] resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageQueue')
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Storage queue under a storage account that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @queue_name.setter
+    def queue_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_name", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class StringBeginsWithAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        StringBeginsWith Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[List[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringBeginsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class StringContainsAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        StringContains Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[List[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringContains')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class StringEndsWithAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        StringEndsWith Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[List[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringEndsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class StringInAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        StringIn Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[List[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class StringNotInAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        StringNotIn Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[List[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotIn')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class UserIdentityPropertiesArgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -836,5 +1930,108 @@ class UserIdentityPropertiesArgs:
     @principal_id.setter
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
+
+
+@pulumi.input_type
+class WebHookEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 azure_active_directory_application_id_or_uri: Optional[pulumi.Input[str]] = None,
+                 azure_active_directory_tenant_id: Optional[pulumi.Input[str]] = None,
+                 endpoint_url: Optional[pulumi.Input[str]] = None,
+                 max_events_per_batch: Optional[pulumi.Input[float]] = None,
+                 preferred_batch_size_in_kilobytes: Optional[pulumi.Input[float]] = None):
+        """
+        Information about the webhook destination for an event subscription.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+        :param pulumi.Input[str] azure_active_directory_application_id_or_uri: The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+        :param pulumi.Input[str] azure_active_directory_tenant_id: The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+        :param pulumi.Input[str] endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
+        :param pulumi.Input[float] max_events_per_batch: Maximum number of events per batch.
+        :param pulumi.Input[float] preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
+        """
+        pulumi.set(__self__, "endpoint_type", 'WebHook')
+        if azure_active_directory_application_id_or_uri is not None:
+            pulumi.set(__self__, "azure_active_directory_application_id_or_uri", azure_active_directory_application_id_or_uri)
+        if azure_active_directory_tenant_id is not None:
+            pulumi.set(__self__, "azure_active_directory_tenant_id", azure_active_directory_tenant_id)
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if max_events_per_batch is not None:
+            pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if preferred_batch_size_in_kilobytes is not None:
+            pulumi.set(__self__, "preferred_batch_size_in_kilobytes", preferred_batch_size_in_kilobytes)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryApplicationIdOrUri")
+    def azure_active_directory_application_id_or_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+        """
+        return pulumi.get(self, "azure_active_directory_application_id_or_uri")
+
+    @azure_active_directory_application_id_or_uri.setter
+    def azure_active_directory_application_id_or_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_active_directory_application_id_or_uri", value)
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryTenantId")
+    def azure_active_directory_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+        """
+        return pulumi.get(self, "azure_active_directory_tenant_id")
+
+    @azure_active_directory_tenant_id.setter
+    def azure_active_directory_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azure_active_directory_tenant_id", value)
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_url")
+
+    @endpoint_url.setter
+    def endpoint_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_url", value)
+
+    @property
+    @pulumi.getter(name="maxEventsPerBatch")
+    def max_events_per_batch(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum number of events per batch.
+        """
+        return pulumi.get(self, "max_events_per_batch")
+
+    @max_events_per_batch.setter
+    def max_events_per_batch(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_events_per_batch", value)
+
+    @property
+    @pulumi.getter(name="preferredBatchSizeInKilobytes")
+    def preferred_batch_size_in_kilobytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        Preferred batch size in Kilobytes.
+        """
+        return pulumi.get(self, "preferred_batch_size_in_kilobytes")
+
+    @preferred_batch_size_in_kilobytes.setter
+    def preferred_batch_size_in_kilobytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "preferred_batch_size_in_kilobytes", value)
 
 

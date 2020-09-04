@@ -45,6 +45,8 @@ __all__ = [
     'AzureFirewallNetworkRuleArgs',
     'AzureFirewallNetworkRuleCollectionArgs',
     'AzureFirewallRCActionArgs',
+    'AzureManagedOverrideRuleGroupArgs',
+    'AzureManagedRuleSetArgs',
     'BackendArgs',
     'BackendAddressPoolArgs',
     'BackendPoolArgs',
@@ -88,7 +90,6 @@ __all__ = [
     'LoadBalancingRuleArgs',
     'LoadBalancingSettingsModelArgs',
     'LocalNetworkGatewayArgs',
-    'ManagedRuleSetArgs',
     'ManagedRuleSetsArgs',
     'MatchConditionArgs',
     'NetworkInterfaceDnsSettingsArgs',
@@ -3903,6 +3904,115 @@ class AzureFirewallRCActionArgs:
 
 
 @pulumi.input_type
+class AzureManagedOverrideRuleGroupArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 rule_group_override: pulumi.Input[str]):
+        """
+        Defines contents of a web application rule
+        :param pulumi.Input[str] action: Type of Actions
+        :param pulumi.Input[str] rule_group_override: Describes override rule group
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "rule_group_override", rule_group_override)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        Type of Actions
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="ruleGroupOverride")
+    def rule_group_override(self) -> pulumi.Input[str]:
+        """
+        Describes override rule group
+        """
+        return pulumi.get(self, "rule_group_override")
+
+    @rule_group_override.setter
+    def rule_group_override(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_group_override", value)
+
+
+@pulumi.input_type
+class AzureManagedRuleSetArgs:
+    def __init__(__self__, *,
+                 rule_set_type: pulumi.Input[str],
+                 priority: Optional[pulumi.Input[float]] = None,
+                 rule_group_overrides: Optional[pulumi.Input[List[pulumi.Input['AzureManagedOverrideRuleGroupArgs']]]] = None,
+                 version: Optional[pulumi.Input[float]] = None):
+        """
+        Describes azure managed provider.
+        :param pulumi.Input[str] rule_set_type: RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+        :param pulumi.Input[float] priority: Describes priority of the rule
+        :param pulumi.Input[List[pulumi.Input['AzureManagedOverrideRuleGroupArgs']]] rule_group_overrides: List of azure managed provider override configuration (optional)
+        :param pulumi.Input[float] version: defines version of the rule set
+        """
+        pulumi.set(__self__, "rule_set_type", 'AzureManagedRuleSet')
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if rule_group_overrides is not None:
+            pulumi.set(__self__, "rule_group_overrides", rule_group_overrides)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="ruleSetType")
+    def rule_set_type(self) -> pulumi.Input[str]:
+        """
+        RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+        """
+        return pulumi.get(self, "rule_set_type")
+
+    @rule_set_type.setter
+    def rule_set_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_set_type", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[float]]:
+        """
+        Describes priority of the rule
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="ruleGroupOverrides")
+    def rule_group_overrides(self) -> Optional[pulumi.Input[List[pulumi.Input['AzureManagedOverrideRuleGroupArgs']]]]:
+        """
+        List of azure managed provider override configuration (optional)
+        """
+        return pulumi.get(self, "rule_group_overrides")
+
+    @rule_group_overrides.setter
+    def rule_group_overrides(self, value: Optional[pulumi.Input[List[pulumi.Input['AzureManagedOverrideRuleGroupArgs']]]]):
+        pulumi.set(self, "rule_group_overrides", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[float]]:
+        """
+        defines version of the rule set
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
 class BackendArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
@@ -7700,81 +7810,26 @@ class LocalNetworkGatewayArgs:
 
 
 @pulumi.input_type
-class ManagedRuleSetArgs:
-    def __init__(__self__, *,
-                 rule_set_type: pulumi.Input[str],
-                 priority: Optional[pulumi.Input[float]] = None,
-                 version: Optional[pulumi.Input[float]] = None):
-        """
-        Base class for all types of ManagedRuleSet.
-        :param pulumi.Input[str] rule_set_type: RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
-        :param pulumi.Input[float] priority: Describes priority of the rule
-        :param pulumi.Input[float] version: defines version of the rule set
-        """
-        pulumi.set(__self__, "rule_set_type", rule_set_type)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="ruleSetType")
-    def rule_set_type(self) -> pulumi.Input[str]:
-        """
-        RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
-        """
-        return pulumi.get(self, "rule_set_type")
-
-    @rule_set_type.setter
-    def rule_set_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "rule_set_type", value)
-
-    @property
-    @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
-        """
-        Describes priority of the rule
-        """
-        return pulumi.get(self, "priority")
-
-    @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "priority", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[float]]:
-        """
-        defines version of the rule set
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
 class ManagedRuleSetsArgs:
     def __init__(__self__, *,
-                 rule_sets: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]]] = None):
+                 rule_sets: Optional[pulumi.Input[List[pulumi.Input['AzureManagedRuleSetArgs']]]] = None):
         """
         Defines ManagedRuleSets - array of managedRuleSet
-        :param pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]] rule_sets: List of rules
+        :param pulumi.Input[List[pulumi.Input['AzureManagedRuleSetArgs']]] rule_sets: List of rules
         """
         if rule_sets is not None:
             pulumi.set(__self__, "rule_sets", rule_sets)
 
     @property
     @pulumi.getter(name="ruleSets")
-    def rule_sets(self) -> Optional[pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]]]:
+    def rule_sets(self) -> Optional[pulumi.Input[List[pulumi.Input['AzureManagedRuleSetArgs']]]]:
         """
         List of rules
         """
         return pulumi.get(self, "rule_sets")
 
     @rule_sets.setter
-    def rule_sets(self, value: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]]]):
+    def rule_sets(self, value: Optional[pulumi.Input[List[pulumi.Input['AzureManagedRuleSetArgs']]]]):
         pulumi.set(self, "rule_sets", value)
 
 

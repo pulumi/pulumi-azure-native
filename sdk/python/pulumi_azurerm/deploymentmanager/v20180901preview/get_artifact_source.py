@@ -53,7 +53,7 @@ class GetArtifactSourceResult:
 
     @property
     @pulumi.getter
-    def authentication(self) -> 'outputs.AuthenticationResponse':
+    def authentication(self) -> 'outputs.SasAuthenticationResponse':
         """
         The authentication method to use to access the artifact source.
         """

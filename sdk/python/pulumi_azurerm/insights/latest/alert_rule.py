@@ -17,8 +17,8 @@ class AlertRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleActionArgs']]]]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['RuleConditionArgs']]] = None,
+                 actions: Optional[pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]]]]] = None,
+                 condition: Optional[pulumi.Input[Union[pulumi.InputType['LocationThresholdRuleConditionArgs'], pulumi.InputType['ManagementEventRuleConditionArgs'], pulumi.InputType['ThresholdRuleConditionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -34,8 +34,8 @@ class AlertRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-        :param pulumi.Input[pulumi.InputType['RuleConditionArgs']] condition: the condition that results in the alert rule being activated.
+        :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[Union[pulumi.InputType['LocationThresholdRuleConditionArgs'], pulumi.InputType['ManagementEventRuleConditionArgs'], pulumi.InputType['ThresholdRuleConditionArgs']]] condition: the condition that results in the alert rule being activated.
         :param pulumi.Input[str] description: the description of the alert rule that will be included in the alert email.
         :param pulumi.Input[bool] is_enabled: the flag that indicates whether the alert rule is enabled.
         :param pulumi.Input[str] location: Resource location
@@ -112,7 +112,7 @@ class AlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Optional[List['outputs.RuleActionResponse']]]:
+    def actions(self) -> pulumi.Output[Optional[List[Any]]]:
         """
         the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         """
@@ -120,7 +120,7 @@ class AlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def condition(self) -> pulumi.Output['outputs.RuleConditionResponse']:
+    def condition(self) -> pulumi.Output[Any]:
         """
         the condition that results in the alert rule being activated.
         """

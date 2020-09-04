@@ -51,7 +51,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter
-    def customize(self) -> Optional[List['outputs.ImageTemplateCustomizerResponse']]:
+    def customize(self) -> Optional[List['outputs.ImageTemplateShellCustomizerResponse']]:
         """
         Specifies the properties used to describe the customization steps of the image, like Image source etc
         """
@@ -59,7 +59,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter
-    def distribute(self) -> List['outputs.ImageTemplateDistributorResponse']:
+    def distribute(self) -> List[Any]:
         """
         The distribution targets where the image output needs to go to.
         """
@@ -107,7 +107,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter
-    def source(self) -> 'outputs.ImageTemplateSourceResponse':
+    def source(self) -> Any:
         """
         Specifies the properties used to describe the source image.
         """

@@ -22,7 +22,7 @@ class TaskRun(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 run_request: Optional[pulumi.Input[pulumi.InputType['RunRequestArgs']]] = None,
+                 run_request: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildRequestArgs'], pulumi.InputType['EncodedTaskRunRequestArgs'], pulumi.InputType['FileTaskRunRequestArgs'], pulumi.InputType['TaskRunRequestArgs']]]] = None,
                  task_run_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -38,7 +38,7 @@ class TaskRun(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the resource
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
-        :param pulumi.Input[pulumi.InputType['RunRequestArgs']] run_request: The request (parameters) for the run
+        :param pulumi.Input[Union[pulumi.InputType['DockerBuildRequestArgs'], pulumi.InputType['EncodedTaskRunRequestArgs'], pulumi.InputType['FileTaskRunRequestArgs'], pulumi.InputType['TaskRunRequestArgs']]] run_request: The request (parameters) for the run
         :param pulumi.Input[str] task_run_name: The name of the task run.
         """
         if __name__ is not None:
@@ -141,7 +141,7 @@ class TaskRun(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runRequest")
-    def run_request(self) -> pulumi.Output[Optional['outputs.RunRequestResponse']]:
+    def run_request(self) -> pulumi.Output[Optional[Any]]:
         """
         The request (parameters) for the run
         """

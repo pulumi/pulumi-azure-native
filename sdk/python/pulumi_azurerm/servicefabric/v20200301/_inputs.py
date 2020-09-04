@@ -28,8 +28,8 @@ __all__ = [
     'DiagnosticsStorageAccountConfigArgs',
     'EndpointRangeDescriptionArgs',
     'ManagedIdentityArgs',
+    'NamedPartitionSchemeDescriptionArgs',
     'NodeTypeDescriptionArgs',
-    'PartitionSchemeDescriptionArgs',
     'ServerCertificateCommonNameArgs',
     'ServerCertificateCommonNamesArgs',
     'ServiceCorrelationDescriptionArgs',
@@ -39,6 +39,8 @@ __all__ = [
     'ServiceTypeHealthPolicyArgs',
     'SettingsParameterDescriptionArgs',
     'SettingsSectionDescriptionArgs',
+    'SingletonPartitionSchemeDescriptionArgs',
+    'UniformInt64RangePartitionSchemeDescriptionArgs',
 ]
 
 @pulumi.input_type
@@ -1274,6 +1276,59 @@ class ManagedIdentityArgs:
 
 
 @pulumi.input_type
+class NamedPartitionSchemeDescriptionArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[float],
+                 names: pulumi.Input[List[pulumi.Input[str]]],
+                 partition_scheme: pulumi.Input[str]):
+        """
+        Describes the named partition scheme of the service.
+        :param pulumi.Input[float] count: The number of partitions.
+        :param pulumi.Input[List[pulumi.Input[str]]] names: Array of size specified by the ‘count’ parameter, for the names of the partitions.
+        :param pulumi.Input[str] partition_scheme: Specifies how the service is partitioned.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "names", names)
+        pulumi.set(__self__, "partition_scheme", 'Named')
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[float]:
+        """
+        The number of partitions.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def names(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        Array of size specified by the ‘count’ parameter, for the names of the partitions.
+        """
+        return pulumi.get(self, "names")
+
+    @names.setter
+    def names(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "names", value)
+
+    @property
+    @pulumi.getter(name="partitionScheme")
+    def partition_scheme(self) -> pulumi.Input[str]:
+        """
+        Specifies how the service is partitioned.
+        """
+        return pulumi.get(self, "partition_scheme")
+
+    @partition_scheme.setter
+    def partition_scheme(self, value: pulumi.Input[str]):
+        pulumi.set(self, "partition_scheme", value)
+
+
+@pulumi.input_type
 class NodeTypeDescriptionArgs:
     def __init__(__self__, *,
                  client_connection_endpoint_port: pulumi.Input[float],
@@ -1458,29 +1513,6 @@ class NodeTypeDescriptionArgs:
     @reverse_proxy_endpoint_port.setter
     def reverse_proxy_endpoint_port(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "reverse_proxy_endpoint_port", value)
-
-
-@pulumi.input_type
-class PartitionSchemeDescriptionArgs:
-    def __init__(__self__, *,
-                 partition_scheme: pulumi.Input[str]):
-        """
-        Describes how the service is partitioned.
-        :param pulumi.Input[str] partition_scheme: Specifies how the service is partitioned.
-        """
-        pulumi.set(__self__, "partition_scheme", partition_scheme)
-
-    @property
-    @pulumi.getter(name="partitionScheme")
-    def partition_scheme(self) -> pulumi.Input[str]:
-        """
-        Specifies how the service is partitioned.
-        """
-        return pulumi.get(self, "partition_scheme")
-
-    @partition_scheme.setter
-    def partition_scheme(self, value: pulumi.Input[str]):
-        pulumi.set(self, "partition_scheme", value)
 
 
 @pulumi.input_type
@@ -1837,5 +1869,100 @@ class SettingsSectionDescriptionArgs:
     @parameters.setter
     def parameters(self, value: pulumi.Input[List[pulumi.Input['SettingsParameterDescriptionArgs']]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class SingletonPartitionSchemeDescriptionArgs:
+    def __init__(__self__, *,
+                 partition_scheme: pulumi.Input[str]):
+        """
+        Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+        :param pulumi.Input[str] partition_scheme: Specifies how the service is partitioned.
+        """
+        pulumi.set(__self__, "partition_scheme", 'Singleton')
+
+    @property
+    @pulumi.getter(name="partitionScheme")
+    def partition_scheme(self) -> pulumi.Input[str]:
+        """
+        Specifies how the service is partitioned.
+        """
+        return pulumi.get(self, "partition_scheme")
+
+    @partition_scheme.setter
+    def partition_scheme(self, value: pulumi.Input[str]):
+        pulumi.set(self, "partition_scheme", value)
+
+
+@pulumi.input_type
+class UniformInt64RangePartitionSchemeDescriptionArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[float],
+                 high_key: pulumi.Input[str],
+                 low_key: pulumi.Input[str],
+                 partition_scheme: pulumi.Input[str]):
+        """
+        Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+        :param pulumi.Input[float] count: The number of partitions.
+        :param pulumi.Input[str] high_key: String indicating the upper bound of the partition key range that
+               should be split between the partition ‘count’
+        :param pulumi.Input[str] low_key: String indicating the lower bound of the partition key range that
+               should be split between the partition ‘count’
+        :param pulumi.Input[str] partition_scheme: Specifies how the service is partitioned.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "high_key", high_key)
+        pulumi.set(__self__, "low_key", low_key)
+        pulumi.set(__self__, "partition_scheme", 'UniformInt64Range')
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[float]:
+        """
+        The number of partitions.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter(name="highKey")
+    def high_key(self) -> pulumi.Input[str]:
+        """
+        String indicating the upper bound of the partition key range that
+        should be split between the partition ‘count’
+        """
+        return pulumi.get(self, "high_key")
+
+    @high_key.setter
+    def high_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "high_key", value)
+
+    @property
+    @pulumi.getter(name="lowKey")
+    def low_key(self) -> pulumi.Input[str]:
+        """
+        String indicating the lower bound of the partition key range that
+        should be split between the partition ‘count’
+        """
+        return pulumi.get(self, "low_key")
+
+    @low_key.setter
+    def low_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "low_key", value)
+
+    @property
+    @pulumi.getter(name="partitionScheme")
+    def partition_scheme(self) -> pulumi.Input[str]:
+        """
+        Specifies how the service is partitioned.
+        """
+        return pulumi.get(self, "partition_scheme")
+
+    @partition_scheme.setter
+    def partition_scheme(self, value: pulumi.Input[str]):
+        pulumi.set(self, "partition_scheme", value)
 
 

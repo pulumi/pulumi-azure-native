@@ -48,7 +48,7 @@ class GetTemplateSpecVersionResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[List['outputs.TemplateSpecArtifactResponse']]:
+    def artifacts(self) -> Optional[List['outputs.TemplateSpecTemplateArtifactResponse']]:
         """
         An array of Template Spec artifacts.
         """

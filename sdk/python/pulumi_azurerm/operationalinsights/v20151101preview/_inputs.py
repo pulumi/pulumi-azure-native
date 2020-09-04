@@ -24,7 +24,7 @@ class MachineReferenceWithHintsArgs:
         :param pulumi.Input[str] kind: Specifies the sub-class of the reference.
         """
         pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "kind", 'ref:machinewithhints')
 
     @property
     @pulumi.getter

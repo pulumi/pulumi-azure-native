@@ -20,7 +20,7 @@ class MachineLearningCompute(pulumi.CustomResource):
                  compute_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ComputeArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AKSArgs'], pulumi.InputType['BatchAIArgs'], pulumi.InputType['DataFactoryArgs'], pulumi.InputType['HDInsightArgs'], pulumi.InputType['VirtualMachineArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class MachineLearningCompute(pulumi.CustomResource):
         :param pulumi.Input[str] compute_name: Name of the Azure Machine Learning compute.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[pulumi.InputType['ComputeArgs']] properties: Compute properties
+        :param pulumi.Input[Union[pulumi.InputType['AKSArgs'], pulumi.InputType['BatchAIArgs'], pulumi.InputType['DataFactoryArgs'], pulumi.InputType['HDInsightArgs'], pulumi.InputType['VirtualMachineArgs']]] properties: Compute properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
@@ -124,7 +124,7 @@ class MachineLearningCompute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ComputeResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         Compute properties
         """

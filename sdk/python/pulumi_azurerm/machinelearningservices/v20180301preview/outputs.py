@@ -10,19 +10,389 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'ComputeResponse',
+    'AKSResponse',
+    'AKSResponseProperties',
+    'BatchAIResponse',
+    'BatchAIResponseProperties',
+    'DataFactoryResponse',
     'ErrorDetailResponse',
     'ErrorResponseResponse',
+    'HDInsightResponse',
+    'HDInsightResponseProperties',
     'IdentityResponse',
     'MachineLearningServiceErrorResponse',
     'PasswordResponseResult',
     'RegistryListCredentialsResultResponseResult',
+    'ScaleSettingsResponse',
+    'SslConfigurationResponse',
+    'SystemServiceResponse',
+    'VirtualMachineResponse',
+    'VirtualMachineResponseProperties',
+    'VirtualMachineSshCredentialsResponse',
 ]
 
 @pulumi.output_type
-class ComputeResponse(dict):
+class AKSResponse(dict):
     """
-    Machine Learning compute object.
+    A Machine Learning compute based on AKS.
+    """
+    def __init__(__self__, *,
+                 compute_type: str,
+                 created_on: str,
+                 modified_on: str,
+                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_state: str,
+                 compute_location: Optional[str] = None,
+                 description: Optional[str] = None,
+                 properties: Optional['outputs.AKSResponseProperties'] = None,
+                 resource_id: Optional[str] = None):
+        """
+        A Machine Learning compute based on AKS.
+        :param str compute_type: The type of compute
+        :param str created_on: The date and time when the compute was created.
+        :param str modified_on: The date and time when the compute was last modified.
+        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
+        :param str description: The description of the Machine Learning compute.
+        :param 'AKSResponsePropertiesArgs' properties: AKS properties
+        :param str resource_id: ARM resource id of the compute
+        """
+        pulumi.set(__self__, "compute_type", 'AKS')
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "modified_on", modified_on)
+        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
+        """
+        The type of compute
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        The date and time when the compute was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="modifiedOn")
+    def modified_on(self) -> str:
+        """
+        The date and time when the compute was last modified.
+        """
+        return pulumi.get(self, "modified_on")
+
+    @property
+    @pulumi.getter(name="provisioningErrors")
+    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+        """
+        Errors during provisioning
+        """
+        return pulumi.get(self, "provisioning_errors")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.AKSResponseProperties']:
+        """
+        AKS properties
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        ARM resource id of the compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AKSResponseProperties(dict):
+    """
+    AKS properties
+    """
+    def __init__(__self__, *,
+                 agent_count: Optional[float] = None,
+                 agent_vm_size: Optional[str] = None,
+                 cluster_fqdn: Optional[str] = None,
+                 ssl_configuration: Optional['outputs.SslConfigurationResponse'] = None,
+                 system_services: Optional[List['outputs.SystemServiceResponse']] = None):
+        """
+        AKS properties
+        :param float agent_count: Number of agents
+        :param str agent_vm_size: Agent virtual machine size
+        :param str cluster_fqdn: Cluster full qualified domain name
+        :param 'SslConfigurationResponseArgs' ssl_configuration: SSL configuration
+        :param List['SystemServiceResponseArgs'] system_services: System services
+        """
+        if agent_count is not None:
+            pulumi.set(__self__, "agent_count", agent_count)
+        if agent_vm_size is not None:
+            pulumi.set(__self__, "agent_vm_size", agent_vm_size)
+        if cluster_fqdn is not None:
+            pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
+        if ssl_configuration is not None:
+            pulumi.set(__self__, "ssl_configuration", ssl_configuration)
+        if system_services is not None:
+            pulumi.set(__self__, "system_services", system_services)
+
+    @property
+    @pulumi.getter(name="agentCount")
+    def agent_count(self) -> Optional[float]:
+        """
+        Number of agents
+        """
+        return pulumi.get(self, "agent_count")
+
+    @property
+    @pulumi.getter(name="agentVMSize")
+    def agent_vm_size(self) -> Optional[str]:
+        """
+        Agent virtual machine size
+        """
+        return pulumi.get(self, "agent_vm_size")
+
+    @property
+    @pulumi.getter(name="clusterFqdn")
+    def cluster_fqdn(self) -> Optional[str]:
+        """
+        Cluster full qualified domain name
+        """
+        return pulumi.get(self, "cluster_fqdn")
+
+    @property
+    @pulumi.getter(name="sslConfiguration")
+    def ssl_configuration(self) -> Optional['outputs.SslConfigurationResponse']:
+        """
+        SSL configuration
+        """
+        return pulumi.get(self, "ssl_configuration")
+
+    @property
+    @pulumi.getter(name="systemServices")
+    def system_services(self) -> Optional[List['outputs.SystemServiceResponse']]:
+        """
+        System services
+        """
+        return pulumi.get(self, "system_services")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BatchAIResponse(dict):
+    """
+    A Machine Learning compute based on Azure BatchAI.
+    """
+    def __init__(__self__, *,
+                 compute_type: str,
+                 created_on: str,
+                 modified_on: str,
+                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_state: str,
+                 compute_location: Optional[str] = None,
+                 description: Optional[str] = None,
+                 properties: Optional['outputs.BatchAIResponseProperties'] = None,
+                 resource_id: Optional[str] = None):
+        """
+        A Machine Learning compute based on Azure BatchAI.
+        :param str compute_type: The type of compute
+        :param str created_on: The date and time when the compute was created.
+        :param str modified_on: The date and time when the compute was last modified.
+        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
+        :param str description: The description of the Machine Learning compute.
+        :param 'BatchAIResponsePropertiesArgs' properties: BatchAI properties
+        :param str resource_id: ARM resource id of the compute
+        """
+        pulumi.set(__self__, "compute_type", 'BatchAI')
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "modified_on", modified_on)
+        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
+        """
+        The type of compute
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        The date and time when the compute was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="modifiedOn")
+    def modified_on(self) -> str:
+        """
+        The date and time when the compute was last modified.
+        """
+        return pulumi.get(self, "modified_on")
+
+    @property
+    @pulumi.getter(name="provisioningErrors")
+    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+        """
+        Errors during provisioning
+        """
+        return pulumi.get(self, "provisioning_errors")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.BatchAIResponseProperties']:
+        """
+        BatchAI properties
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        ARM resource id of the compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BatchAIResponseProperties(dict):
+    """
+    BatchAI properties
+    """
+    def __init__(__self__, *,
+                 scale_settings: Optional['outputs.ScaleSettingsResponse'] = None,
+                 vm_priority: Optional[str] = None,
+                 vm_size: Optional[str] = None):
+        """
+        BatchAI properties
+        :param 'ScaleSettingsResponseArgs' scale_settings: Scale settings for BatchAI
+        :param str vm_priority: Virtual Machine priority
+        :param str vm_size: Virtual Machine Size
+        """
+        if scale_settings is not None:
+            pulumi.set(__self__, "scale_settings", scale_settings)
+        if vm_priority is not None:
+            pulumi.set(__self__, "vm_priority", vm_priority)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="scaleSettings")
+    def scale_settings(self) -> Optional['outputs.ScaleSettingsResponse']:
+        """
+        Scale settings for BatchAI
+        """
+        return pulumi.get(self, "scale_settings")
+
+    @property
+    @pulumi.getter(name="vmPriority")
+    def vm_priority(self) -> Optional[str]:
+        """
+        Virtual Machine priority
+        """
+        return pulumi.get(self, "vm_priority")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[str]:
+        """
+        Virtual Machine Size
+        """
+        return pulumi.get(self, "vm_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DataFactoryResponse(dict):
+    """
+    A DataFactory compute.
     """
     def __init__(__self__, *,
                  compute_type: str,
@@ -34,7 +404,7 @@ class ComputeResponse(dict):
                  description: Optional[str] = None,
                  resource_id: Optional[str] = None):
         """
-        Machine Learning compute object.
+        A DataFactory compute.
         :param str compute_type: The type of compute
         :param str created_on: The date and time when the compute was created.
         :param str modified_on: The date and time when the compute was last modified.
@@ -44,7 +414,7 @@ class ComputeResponse(dict):
         :param str description: The description of the Machine Learning compute.
         :param str resource_id: ARM resource id of the compute
         """
-        pulumi.set(__self__, "compute_type", compute_type)
+        pulumi.set(__self__, "compute_type", 'DataFactory')
         pulumi.set(__self__, "created_on", created_on)
         pulumi.set(__self__, "modified_on", modified_on)
         pulumi.set(__self__, "provisioning_errors", provisioning_errors)
@@ -209,6 +579,165 @@ class ErrorResponseResponse(dict):
 
 
 @pulumi.output_type
+class HDInsightResponse(dict):
+    """
+    A HDInsight compute.
+    """
+    def __init__(__self__, *,
+                 compute_type: str,
+                 created_on: str,
+                 modified_on: str,
+                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_state: str,
+                 compute_location: Optional[str] = None,
+                 description: Optional[str] = None,
+                 properties: Optional['outputs.HDInsightResponseProperties'] = None,
+                 resource_id: Optional[str] = None):
+        """
+        A HDInsight compute.
+        :param str compute_type: The type of compute
+        :param str created_on: The date and time when the compute was created.
+        :param str modified_on: The date and time when the compute was last modified.
+        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
+        :param str description: The description of the Machine Learning compute.
+        :param str resource_id: ARM resource id of the compute
+        """
+        pulumi.set(__self__, "compute_type", 'HDInsight')
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "modified_on", modified_on)
+        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
+        """
+        The type of compute
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        The date and time when the compute was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="modifiedOn")
+    def modified_on(self) -> str:
+        """
+        The date and time when the compute was last modified.
+        """
+        return pulumi.get(self, "modified_on")
+
+    @property
+    @pulumi.getter(name="provisioningErrors")
+    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+        """
+        Errors during provisioning
+        """
+        return pulumi.get(self, "provisioning_errors")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.HDInsightResponseProperties']:
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        ARM resource id of the compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class HDInsightResponseProperties(dict):
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
+                 ssh_port: Optional[float] = None):
+        """
+        :param str address: Public IP address of the master node of the cluster.
+        :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for master node of the cluster
+        :param float ssh_port: Port open for ssh connections on the master node of the cluster.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if administrator_account is not None:
+            pulumi.set(__self__, "administrator_account", administrator_account)
+        if ssh_port is not None:
+            pulumi.set(__self__, "ssh_port", ssh_port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        Public IP address of the master node of the cluster.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter(name="administratorAccount")
+    def administrator_account(self) -> Optional['outputs.VirtualMachineSshCredentialsResponse']:
+        """
+        Admin credentials for master node of the cluster
+        """
+        return pulumi.get(self, "administrator_account")
+
+    @property
+    @pulumi.getter(name="sshPort")
+    def ssh_port(self) -> Optional[float]:
+        """
+        Port open for ssh connections on the master node of the cluster.
+        """
+        return pulumi.get(self, "ssh_port")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class IdentityResponse(dict):
     """
     Identity for the resource.
@@ -326,5 +855,397 @@ class RegistryListCredentialsResultResponseResult(dict):
     @pulumi.getter
     def passwords(self) -> Optional[List['outputs.PasswordResponseResult']]:
         return pulumi.get(self, "passwords")
+
+
+@pulumi.output_type
+class ScaleSettingsResponse(dict):
+    """
+    scale settings for BatchAI Compute
+    """
+    def __init__(__self__, *,
+                 auto_scale_enabled: Optional[bool] = None,
+                 max_node_count: Optional[float] = None,
+                 min_node_count: Optional[float] = None):
+        """
+        scale settings for BatchAI Compute
+        :param bool auto_scale_enabled: Enable or disable auto scale
+        :param float max_node_count: Max number of nodes to use
+        :param float min_node_count: Min number of nodes to use
+        """
+        if auto_scale_enabled is not None:
+            pulumi.set(__self__, "auto_scale_enabled", auto_scale_enabled)
+        if max_node_count is not None:
+            pulumi.set(__self__, "max_node_count", max_node_count)
+        if min_node_count is not None:
+            pulumi.set(__self__, "min_node_count", min_node_count)
+
+    @property
+    @pulumi.getter(name="autoScaleEnabled")
+    def auto_scale_enabled(self) -> Optional[bool]:
+        """
+        Enable or disable auto scale
+        """
+        return pulumi.get(self, "auto_scale_enabled")
+
+    @property
+    @pulumi.getter(name="maxNodeCount")
+    def max_node_count(self) -> Optional[float]:
+        """
+        Max number of nodes to use
+        """
+        return pulumi.get(self, "max_node_count")
+
+    @property
+    @pulumi.getter(name="minNodeCount")
+    def min_node_count(self) -> Optional[float]:
+        """
+        Min number of nodes to use
+        """
+        return pulumi.get(self, "min_node_count")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SslConfigurationResponse(dict):
+    """
+    The SSL configuration for scoring
+    """
+    def __init__(__self__, *,
+                 cert: Optional[str] = None,
+                 cname: Optional[str] = None,
+                 key: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        The SSL configuration for scoring
+        :param str cert: Cert data
+        :param str cname: CNAME of the cert
+        :param str key: Key data
+        :param str status: Enable or disable SSL for scoring
+        """
+        if cert is not None:
+            pulumi.set(__self__, "cert", cert)
+        if cname is not None:
+            pulumi.set(__self__, "cname", cname)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def cert(self) -> Optional[str]:
+        """
+        Cert data
+        """
+        return pulumi.get(self, "cert")
+
+    @property
+    @pulumi.getter
+    def cname(self) -> Optional[str]:
+        """
+        CNAME of the cert
+        """
+        return pulumi.get(self, "cname")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Key data
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Enable or disable SSL for scoring
+        """
+        return pulumi.get(self, "status")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SystemServiceResponse(dict):
+    """
+    A system service running on a compute.
+    """
+    def __init__(__self__, *,
+                 public_ip_address: str,
+                 system_service_type: str,
+                 version: str):
+        """
+        A system service running on a compute.
+        :param str public_ip_address: Public IP address
+        :param str system_service_type: The type of this system service.
+        :param str version: The version for this type.
+        """
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        pulumi.set(__self__, "system_service_type", system_service_type)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> str:
+        """
+        Public IP address
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter(name="systemServiceType")
+    def system_service_type(self) -> str:
+        """
+        The type of this system service.
+        """
+        return pulumi.get(self, "system_service_type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version for this type.
+        """
+        return pulumi.get(self, "version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineResponse(dict):
+    """
+    A Machine Learning compute based on Azure Virtual Machines.
+    """
+    def __init__(__self__, *,
+                 compute_type: str,
+                 created_on: str,
+                 modified_on: str,
+                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_state: str,
+                 compute_location: Optional[str] = None,
+                 description: Optional[str] = None,
+                 properties: Optional['outputs.VirtualMachineResponseProperties'] = None,
+                 resource_id: Optional[str] = None):
+        """
+        A Machine Learning compute based on Azure Virtual Machines.
+        :param str compute_type: The type of compute
+        :param str created_on: The date and time when the compute was created.
+        :param str modified_on: The date and time when the compute was last modified.
+        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
+        :param str description: The description of the Machine Learning compute.
+        :param str resource_id: ARM resource id of the compute
+        """
+        pulumi.set(__self__, "compute_type", 'VirtualMachine')
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "modified_on", modified_on)
+        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
+        """
+        The type of compute
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        The date and time when the compute was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="modifiedOn")
+    def modified_on(self) -> str:
+        """
+        The date and time when the compute was last modified.
+        """
+        return pulumi.get(self, "modified_on")
+
+    @property
+    @pulumi.getter(name="provisioningErrors")
+    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+        """
+        Errors during provisioning
+        """
+        return pulumi.get(self, "provisioning_errors")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.VirtualMachineResponseProperties']:
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        ARM resource id of the compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineResponseProperties(dict):
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
+                 ssh_port: Optional[float] = None,
+                 virtual_machine_size: Optional[str] = None):
+        """
+        :param str address: Public IP address of the virtual machine.
+        :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for virtual machine
+        :param float ssh_port: Port open for ssh connections.
+        :param str virtual_machine_size: Virtual Machine size
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if administrator_account is not None:
+            pulumi.set(__self__, "administrator_account", administrator_account)
+        if ssh_port is not None:
+            pulumi.set(__self__, "ssh_port", ssh_port)
+        if virtual_machine_size is not None:
+            pulumi.set(__self__, "virtual_machine_size", virtual_machine_size)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        Public IP address of the virtual machine.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter(name="administratorAccount")
+    def administrator_account(self) -> Optional['outputs.VirtualMachineSshCredentialsResponse']:
+        """
+        Admin credentials for virtual machine
+        """
+        return pulumi.get(self, "administrator_account")
+
+    @property
+    @pulumi.getter(name="sshPort")
+    def ssh_port(self) -> Optional[float]:
+        """
+        Port open for ssh connections.
+        """
+        return pulumi.get(self, "ssh_port")
+
+    @property
+    @pulumi.getter(name="virtualMachineSize")
+    def virtual_machine_size(self) -> Optional[str]:
+        """
+        Virtual Machine size
+        """
+        return pulumi.get(self, "virtual_machine_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineSshCredentialsResponse(dict):
+    """
+    Admin credentials for virtual machine
+    """
+    def __init__(__self__, *,
+                 password: Optional[str] = None,
+                 private_key_data: Optional[str] = None,
+                 public_key_data: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        Admin credentials for virtual machine
+        :param str password: Password of admin account
+        :param str private_key_data: Private key data
+        :param str public_key_data: Public key data
+        :param str username: Username of admin account
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if private_key_data is not None:
+            pulumi.set(__self__, "private_key_data", private_key_data)
+        if public_key_data is not None:
+            pulumi.set(__self__, "public_key_data", public_key_data)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Password of admin account
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="privateKeyData")
+    def private_key_data(self) -> Optional[str]:
+        """
+        Private key data
+        """
+        return pulumi.get(self, "private_key_data")
+
+    @property
+    @pulumi.getter(name="publicKeyData")
+    def public_key_data(self) -> Optional[str]:
+        """
+        Public key data
+        """
+        return pulumi.get(self, "public_key_data")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Username of admin account
+        """
+        return pulumi.get(self, "username")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

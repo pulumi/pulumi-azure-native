@@ -9,49 +9,31 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'DeadLetterDestinationResponse',
-    'EventSubscriptionDestinationResponse',
+    'EventHubEventSubscriptionDestinationResponse',
     'EventSubscriptionFilterResponse',
+    'HybridConnectionEventSubscriptionDestinationResponse',
     'RetryPolicyResponse',
+    'StorageBlobDeadLetterDestinationResponse',
+    'StorageQueueEventSubscriptionDestinationResponse',
+    'WebHookEventSubscriptionDestinationResponse',
 ]
 
 @pulumi.output_type
-class DeadLetterDestinationResponse(dict):
+class EventHubEventSubscriptionDestinationResponse(dict):
     """
-    Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-    """
-    def __init__(__self__, *,
-                 endpoint_type: str):
-        """
-        Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-        :param str endpoint_type: Type of the endpoint for the dead letter destination
-        """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-
-    @property
-    @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> str:
-        """
-        Type of the endpoint for the dead letter destination
-        """
-        return pulumi.get(self, "endpoint_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class EventSubscriptionDestinationResponse(dict):
-    """
-    Information about the destination for an event subscription
+    Information about the event hub destination for an event subscription
     """
     def __init__(__self__, *,
-                 endpoint_type: str):
+                 endpoint_type: str,
+                 resource_id: Optional[str] = None):
         """
-        Information about the destination for an event subscription
+        Information about the event hub destination for an event subscription
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "endpoint_type", 'EventHub')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -60,6 +42,14 @@ class EventSubscriptionDestinationResponse(dict):
         Type of the endpoint for the event subscription destination
         """
         return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -138,6 +128,43 @@ class EventSubscriptionFilterResponse(dict):
 
 
 @pulumi.output_type
+class HybridConnectionEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the HybridConnection destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the HybridConnection destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str resource_id: The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'HybridConnection')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RetryPolicyResponse(dict):
     """
     Information about the retry policy for an event subscription
@@ -170,6 +197,152 @@ class RetryPolicyResponse(dict):
         Maximum number of delivery retry attempts for events.
         """
         return pulumi.get(self, "max_delivery_attempts")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageBlobDeadLetterDestinationResponse(dict):
+    """
+    Information about the storage blob based dead letter destination.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 blob_container_name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the storage blob based dead letter destination.
+        :param str endpoint_type: Type of the endpoint for the dead letter destination
+        :param str blob_container_name: The name of the Storage blob container that is the destination of the deadletter events
+        :param str resource_id: The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageBlob')
+        if blob_container_name is not None:
+            pulumi.set(__self__, "blob_container_name", blob_container_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the dead letter destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="blobContainerName")
+    def blob_container_name(self) -> Optional[str]:
+        """
+        The name of the Storage blob container that is the destination of the deadletter events
+        """
+        return pulumi.get(self, "blob_container_name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageQueueEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the storage queue destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 queue_name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the storage queue destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
+        :param str resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageQueue')
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[str]:
+        """
+        The name of the Storage queue under a storage account that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WebHookEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the webhook destination for an event subscription
+    """
+    def __init__(__self__, *,
+                 endpoint_base_url: str,
+                 endpoint_type: str,
+                 endpoint_url: Optional[str] = None):
+        """
+        Information about the webhook destination for an event subscription
+        :param str endpoint_base_url: The base URL that represents the endpoint of the destination of an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
+        pulumi.set(__self__, "endpoint_type", 'WebHook')
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+
+    @property
+    @pulumi.getter(name="endpointBaseUrl")
+    def endpoint_base_url(self) -> str:
+        """
+        The base URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_base_url")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[str]:
+        """
+        The URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_url")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

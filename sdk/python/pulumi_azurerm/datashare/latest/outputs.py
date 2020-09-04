@@ -10,9 +10,9 @@ from ... import _utilities, _tables
 
 __all__ = [
     'IdentityResponse',
+    'ScheduledSourceSynchronizationSettingResponseResult',
     'ShareSubscriptionSynchronizationResponseResult',
     'ShareSynchronizationResponseResult',
-    'SourceShareSynchronizationSettingResponseResult',
     'SynchronizationDetailsResponseResult',
 ]
 
@@ -62,6 +62,52 @@ class IdentityResponse(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ScheduledSourceSynchronizationSettingResponseResult(dict):
+    """
+    A type of synchronization setting based on schedule
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 recurrence_interval: Optional[str] = None,
+                 synchronization_time: Optional[str] = None):
+        """
+        A type of synchronization setting based on schedule
+        :param str kind: Kind of synchronization
+        :param str recurrence_interval: Recurrence Interval
+        :param str synchronization_time: Synchronization time
+        """
+        pulumi.set(__self__, "kind", 'ScheduleBased')
+        if recurrence_interval is not None:
+            pulumi.set(__self__, "recurrence_interval", recurrence_interval)
+        if synchronization_time is not None:
+            pulumi.set(__self__, "synchronization_time", synchronization_time)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Kind of synchronization
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="recurrenceInterval")
+    def recurrence_interval(self) -> Optional[str]:
+        """
+        Recurrence Interval
+        """
+        return pulumi.get(self, "recurrence_interval")
+
+    @property
+    @pulumi.getter(name="synchronizationTime")
+    def synchronization_time(self) -> Optional[str]:
+        """
+        Synchronization time
+        """
+        return pulumi.get(self, "synchronization_time")
 
 
 @pulumi.output_type
@@ -280,28 +326,6 @@ class ShareSynchronizationResponseResult(dict):
         Synchronization id
         """
         return pulumi.get(self, "synchronization_id")
-
-
-@pulumi.output_type
-class SourceShareSynchronizationSettingResponseResult(dict):
-    """
-    A view of synchronization setting added by the provider
-    """
-    def __init__(__self__, *,
-                 kind: str):
-        """
-        A view of synchronization setting added by the provider
-        :param str kind: Kind of synchronization
-        """
-        pulumi.set(__self__, "kind", kind)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> str:
-        """
-        Kind of synchronization
-        """
-        return pulumi.get(self, "kind")
 
 
 @pulumi.output_type

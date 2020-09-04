@@ -36,7 +36,7 @@ class MachineReferenceWithHintsResponse(dict):
         """
         pulumi.set(__self__, "display_name_hint", display_name_hint)
         pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "kind", 'ref:machinewithhints')
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "os_family_hint", os_family_hint)
         pulumi.set(__self__, "type", type)

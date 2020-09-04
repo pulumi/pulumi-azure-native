@@ -11,17 +11,18 @@ from ... import _utilities, _tables
 __all__ = [
     'AllowlistCustomAlertRuleArgs',
     'AssessmentStatusArgs',
+    'AzureResourceDetailsArgs',
     'DenylistCustomAlertRuleArgs',
     'JitNetworkAccessPolicyVirtualMachineArgs',
     'JitNetworkAccessPortRuleArgs',
     'JitNetworkAccessRequestArgs',
     'JitNetworkAccessRequestPortArgs',
     'JitNetworkAccessRequestVirtualMachineArgs',
+    'OnPremiseResourceDetailsArgs',
     'PathRecommendationArgs',
     'ProtectionModeArgs',
     'PublisherInfoArgs',
     'RecommendationConfigurationPropertiesArgs',
-    'ResourceDetailsArgs',
     'SecurityAssessmentMetadataPartnerDataArgs',
     'SecurityAssessmentMetadataPropertiesArgs',
     'SecurityAssessmentPartnerDataArgs',
@@ -46,7 +47,7 @@ class AllowlistCustomAlertRuleArgs:
         """
         pulumi.set(__self__, "allowlist_values", allowlist_values)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ListCustomAlertRule')
 
     @property
     @pulumi.getter(name="allowlistValues")
@@ -141,6 +142,29 @@ class AssessmentStatusArgs:
 
 
 @pulumi.input_type
+class AzureResourceDetailsArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[str]):
+        """
+        Details of the Azure resource that was assessed
+        :param pulumi.Input[str] source: The platform where the assessed resource resides
+        """
+        pulumi.set(__self__, "source", 'Azure')
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        """
+        The platform where the assessed resource resides
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
+
+
+@pulumi.input_type
 class DenylistCustomAlertRuleArgs:
     def __init__(__self__, *,
                  denylist_values: pulumi.Input[List[pulumi.Input[str]]],
@@ -154,7 +178,7 @@ class DenylistCustomAlertRuleArgs:
         """
         pulumi.set(__self__, "denylist_values", denylist_values)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ListCustomAlertRule')
 
     @property
     @pulumi.getter(name="denylistValues")
@@ -535,6 +559,89 @@ class JitNetworkAccessRequestVirtualMachineArgs:
 
 
 @pulumi.input_type
+class OnPremiseResourceDetailsArgs:
+    def __init__(__self__, *,
+                 machine_name: pulumi.Input[str],
+                 source: pulumi.Input[str],
+                 source_computer_id: pulumi.Input[str],
+                 vmuuid: pulumi.Input[str],
+                 workspace_id: pulumi.Input[str]):
+        """
+        Details of the On Premise resource that was assessed
+        :param pulumi.Input[str] machine_name: The name of the machine
+        :param pulumi.Input[str] source: The platform where the assessed resource resides
+        :param pulumi.Input[str] source_computer_id: The oms agent Id installed on the machine
+        :param pulumi.Input[str] vmuuid: The unique Id of the machine
+        :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
+        """
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "source", 'OnPremise')
+        pulumi.set(__self__, "source_computer_id", source_computer_id)
+        pulumi.set(__self__, "vmuuid", vmuuid)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> pulumi.Input[str]:
+        """
+        The name of the machine
+        """
+        return pulumi.get(self, "machine_name")
+
+    @machine_name.setter
+    def machine_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        """
+        The platform where the assessed resource resides
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="sourceComputerId")
+    def source_computer_id(self) -> pulumi.Input[str]:
+        """
+        The oms agent Id installed on the machine
+        """
+        return pulumi.get(self, "source_computer_id")
+
+    @source_computer_id.setter
+    def source_computer_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_computer_id", value)
+
+    @property
+    @pulumi.getter
+    def vmuuid(self) -> pulumi.Input[str]:
+        """
+        The unique Id of the machine
+        """
+        return pulumi.get(self, "vmuuid")
+
+    @vmuuid.setter
+    def vmuuid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vmuuid", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Input[str]:
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_id", value)
+
+
+@pulumi.input_type
 class PathRecommendationArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
@@ -861,29 +968,6 @@ class RecommendationConfigurationPropertiesArgs:
 
 
 @pulumi.input_type
-class ResourceDetailsArgs:
-    def __init__(__self__, *,
-                 source: pulumi.Input[str]):
-        """
-        Details of the resource that was assessed
-        :param pulumi.Input[str] source: The platform where the assessed resource resides
-        """
-        pulumi.set(__self__, "source", source)
-
-    @property
-    @pulumi.getter
-    def source(self) -> pulumi.Input[str]:
-        """
-        The platform where the assessed resource resides
-        """
-        return pulumi.get(self, "source")
-
-    @source.setter
-    def source(self, value: pulumi.Input[str]):
-        pulumi.set(self, "source", value)
-
-
-@pulumi.input_type
 class SecurityAssessmentMetadataPartnerDataArgs:
     def __init__(__self__, *,
                  partner_name: pulumi.Input[str],
@@ -1165,7 +1249,7 @@ class ThresholdCustomAlertRuleArgs:
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "max_threshold", max_threshold)
         pulumi.set(__self__, "min_threshold", min_threshold)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ThresholdCustomAlertRule')
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -1235,7 +1319,7 @@ class TimeWindowCustomAlertRuleArgs:
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "max_threshold", max_threshold)
         pulumi.set(__self__, "min_threshold", min_threshold)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ThresholdCustomAlertRule')
         pulumi.set(__self__, "time_window_size", time_window_size)
 
     @property
