@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// Information about the InputSchemaMapping which specified the info about mapping event payload.
         /// </summary>
         [Output("inputSchemaMapping")]
-        public Output<Outputs.InputSchemaMappingResponseResult?> InputSchemaMapping { get; private set; } = null!;
+        public Output<Outputs.JsonInputSchemaMappingResponseResult?> InputSchemaMapping { get; private set; } = null!;
 
         /// <summary>
         /// Location of the resource.
@@ -187,7 +187,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// Information about the InputSchemaMapping which specified the info about mapping event payload.
         /// </summary>
         [Input("inputSchemaMapping")]
-        public Input<Inputs.InputSchemaMappingArgs>? InputSchemaMapping { get; set; }
+        public Input<Inputs.JsonInputSchemaMappingArgs>? InputSchemaMapping { get; set; }
 
         /// <summary>
         /// Location of the resource.

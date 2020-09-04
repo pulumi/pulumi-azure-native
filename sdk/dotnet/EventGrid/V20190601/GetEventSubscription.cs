@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
         /// <summary>
         /// The DeadLetter destination of the event subscription.
         /// </summary>
-        public readonly Outputs.DeadLetterDestinationResponseResult? DeadLetterDestination;
+        public readonly Outputs.StorageBlobDeadLetterDestinationResponseResult? DeadLetterDestination;
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
-        public readonly Outputs.EventSubscriptionDestinationResponseResult? Destination;
+        public readonly Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>>? Destination;
         /// <summary>
         /// Expiration time of the event subscription.
         /// </summary>
@@ -82,9 +82,9 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
-            Outputs.DeadLetterDestinationResponseResult? deadLetterDestination,
+            Outputs.StorageBlobDeadLetterDestinationResponseResult? deadLetterDestination,
 
-            Outputs.EventSubscriptionDestinationResponseResult? destination,
+            Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>>? destination,
 
             string? expirationTimeUtc,
 

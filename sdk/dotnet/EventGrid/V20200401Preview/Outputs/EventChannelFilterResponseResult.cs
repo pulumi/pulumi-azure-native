@@ -16,10 +16,10 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview.Outputs
         /// <summary>
         /// An array of advanced filters that are used for filtering event channels.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AdvancedFilterResponseResult> AdvancedFilters;
+        public readonly ImmutableArray<Union<Outputs.BoolEqualsAdvancedFilterResponseResult, Union<Outputs.NumberGreaterThanAdvancedFilterResponseResult, Union<Outputs.NumberGreaterThanOrEqualsAdvancedFilterResponseResult, Union<Outputs.NumberInAdvancedFilterResponseResult, Union<Outputs.NumberLessThanAdvancedFilterResponseResult, Union<Outputs.NumberLessThanOrEqualsAdvancedFilterResponseResult, Union<Outputs.NumberNotInAdvancedFilterResponseResult, Union<Outputs.StringBeginsWithAdvancedFilterResponseResult, Union<Outputs.StringContainsAdvancedFilterResponseResult, Union<Outputs.StringEndsWithAdvancedFilterResponseResult, Union<Outputs.StringInAdvancedFilterResponseResult, Outputs.StringNotInAdvancedFilterResponseResult>>>>>>>>>>>> AdvancedFilters;
 
         [OutputConstructor]
-        private EventChannelFilterResponseResult(ImmutableArray<Outputs.AdvancedFilterResponseResult> advancedFilters)
+        private EventChannelFilterResponseResult(ImmutableArray<Union<Outputs.BoolEqualsAdvancedFilterResponseResult, Union<Outputs.NumberGreaterThanAdvancedFilterResponseResult, Union<Outputs.NumberGreaterThanOrEqualsAdvancedFilterResponseResult, Union<Outputs.NumberInAdvancedFilterResponseResult, Union<Outputs.NumberLessThanAdvancedFilterResponseResult, Union<Outputs.NumberLessThanOrEqualsAdvancedFilterResponseResult, Union<Outputs.NumberNotInAdvancedFilterResponseResult, Union<Outputs.StringBeginsWithAdvancedFilterResponseResult, Union<Outputs.StringContainsAdvancedFilterResponseResult, Union<Outputs.StringEndsWithAdvancedFilterResponseResult, Union<Outputs.StringInAdvancedFilterResponseResult, Outputs.StringNotInAdvancedFilterResponseResult>>>>>>>>>>>> advancedFilters)
         {
             AdvancedFilters = advancedFilters;
         }

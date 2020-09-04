@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Migrate.V20180901Preview.Outputs
         /// <summary>
         /// Gets the summary of the migrate project.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ProjectSummaryResponseResult> Summary;
+        public readonly ImmutableDictionary<string, Union<Outputs.DatabaseProjectSummaryResponseResult, Outputs.ServersProjectSummaryResponseResult>> Summary;
 
         [OutputConstructor]
         private MigrateProjectPropertiesResponseResult(
@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Migrate.V20180901Preview.Outputs
 
             ImmutableArray<string> registeredTools,
 
-            ImmutableDictionary<string, Outputs.ProjectSummaryResponseResult> summary)
+            ImmutableDictionary<string, Union<Outputs.DatabaseProjectSummaryResponseResult, Outputs.ServersProjectSummaryResponseResult>> summary)
         {
             LastSummaryRefreshedTime = lastSummaryRefreshedTime;
             ProvisioningState = provisioningState;

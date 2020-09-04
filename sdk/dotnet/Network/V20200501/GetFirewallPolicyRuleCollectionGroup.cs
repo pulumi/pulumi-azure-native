@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// Group of Firewall Policy rule collections.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FirewallPolicyRuleCollectionResponseResult> RuleCollections;
+        public readonly ImmutableArray<Union<Outputs.FirewallPolicyFilterRuleCollectionResponseResult, Outputs.FirewallPolicyNatRuleCollectionResponseResult>> RuleCollections;
         /// <summary>
         /// Rule Group type.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Network.V20200501
 
             string provisioningState,
 
-            ImmutableArray<Outputs.FirewallPolicyRuleCollectionResponseResult> ruleCollections,
+            ImmutableArray<Union<Outputs.FirewallPolicyFilterRuleCollectionResponseResult, Outputs.FirewallPolicyNatRuleCollectionResponseResult>> ruleCollections,
 
             string type)
         {

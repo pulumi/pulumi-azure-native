@@ -15,13 +15,13 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
         /// </summary>
         [Output("customize")]
-        public Output<ImmutableArray<Outputs.ImageTemplateCustomizerResponseResult>> Customize { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ImageTemplateShellCustomizerResponseResult>> Customize { get; private set; } = null!;
 
         /// <summary>
         /// The distribution targets where the image output needs to go to.
         /// </summary>
         [Output("distribute")]
-        public Output<ImmutableArray<Outputs.ImageTemplateDistributorResponseResult>> Distribute { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponseResult, Outputs.ImageTemplateSharedImageDistributorResponseResult>>> Distribute { get; private set; } = null!;
 
         /// <summary>
         /// State of 'run' that is currently executing or was last executed.
@@ -57,7 +57,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
         /// Specifies the properties used to describe the source image.
         /// </summary>
         [Output("source")]
-        public Output<Outputs.ImageTemplateSourceResponseResult> Source { get; private set; } = null!;
+        public Output<Union<Outputs.ImageTemplateIsoSourceResponseResult, Outputs.ImageTemplatePlatformImageSourceResponseResult>> Source { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -124,26 +124,26 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
     public sealed class VirtualMachineImageTemplateArgs : Pulumi.ResourceArgs
     {
         [Input("customize")]
-        private InputList<Inputs.ImageTemplateCustomizerArgs>? _customize;
+        private InputList<Inputs.ImageTemplateShellCustomizerArgs>? _customize;
 
         /// <summary>
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
         /// </summary>
-        public InputList<Inputs.ImageTemplateCustomizerArgs> Customize
+        public InputList<Inputs.ImageTemplateShellCustomizerArgs> Customize
         {
-            get => _customize ?? (_customize = new InputList<Inputs.ImageTemplateCustomizerArgs>());
+            get => _customize ?? (_customize = new InputList<Inputs.ImageTemplateShellCustomizerArgs>());
             set => _customize = value;
         }
 
         [Input("distribute", required: true)]
-        private InputList<Inputs.ImageTemplateDistributorArgs>? _distribute;
+        private InputList<Union<Inputs.ImageTemplateManagedImageDistributorArgs, Inputs.ImageTemplateSharedImageDistributorArgs>>? _distribute;
 
         /// <summary>
         /// The distribution targets where the image output needs to go to.
         /// </summary>
-        public InputList<Inputs.ImageTemplateDistributorArgs> Distribute
+        public InputList<Union<Inputs.ImageTemplateManagedImageDistributorArgs, Inputs.ImageTemplateSharedImageDistributorArgs>> Distribute
         {
-            get => _distribute ?? (_distribute = new InputList<Inputs.ImageTemplateDistributorArgs>());
+            get => _distribute ?? (_distribute = new InputList<Union<Inputs.ImageTemplateManagedImageDistributorArgs, Inputs.ImageTemplateSharedImageDistributorArgs>>());
             set => _distribute = value;
         }
 
@@ -169,7 +169,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
         /// Specifies the properties used to describe the source image.
         /// </summary>
         [Input("source", required: true)]
-        public Input<Inputs.ImageTemplateSourceArgs> Source { get; set; } = null!;
+        public InputUnion<Inputs.ImageTemplateIsoSourceArgs, Inputs.ImageTemplatePlatformImageSourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

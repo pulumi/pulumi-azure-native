@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.MachineLearning.V20160501Preview
         /// <summary>
         /// Contains the property payload that describes the web service.
         /// </summary>
-        public readonly Outputs.WebServicePropertiesResponseResult Properties;
+        public readonly Outputs.WebServicePropertiesForGraphResponseResult Properties;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.MachineLearning.V20160501Preview
 
             string? name,
 
-            Outputs.WebServicePropertiesResponseResult properties,
+            Outputs.WebServicePropertiesForGraphResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

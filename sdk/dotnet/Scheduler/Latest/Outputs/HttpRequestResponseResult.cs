@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.Scheduler.Latest.Outputs
         /// <summary>
         /// Gets or sets the authentication method of the request.
         /// </summary>
-        public readonly Outputs.HttpAuthenticationResponseResult? Authentication;
+        public readonly Union<Outputs.BasicAuthenticationResponseResult, Union<Outputs.ClientCertAuthenticationResponseResult, Outputs.OAuthAuthenticationResponseResult>>? Authentication;
         /// <summary>
         /// Gets or sets the request body.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Scheduler.Latest.Outputs
 
         [OutputConstructor]
         private HttpRequestResponseResult(
-            Outputs.HttpAuthenticationResponseResult? authentication,
+            Union<Outputs.BasicAuthenticationResponseResult, Union<Outputs.ClientCertAuthenticationResponseResult, Outputs.OAuthAuthenticationResponseResult>>? authentication,
 
             string? body,
 

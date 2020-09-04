@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// <summary>
         /// Git repo information of the factory.
         /// </summary>
-        public readonly Outputs.FactoryRepoConfigurationResponseResult? RepoConfiguration;
+        public readonly Union<Outputs.FactoryGitHubConfigurationResponseResult, Outputs.FactoryVSTSConfigurationResponseResult>? RepoConfiguration;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
 
             string provisioningState,
 
-            Outputs.FactoryRepoConfigurationResponseResult? repoConfiguration,
+            Union<Outputs.FactoryGitHubConfigurationResponseResult, Outputs.FactoryVSTSConfigurationResponseResult>? repoConfiguration,
 
             ImmutableDictionary<string, string>? tags,
 

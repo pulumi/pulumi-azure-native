@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180715Preview
         /// <summary>
         /// Information for connecting to source
         /// </summary>
-        public readonly Outputs.ConnectionInfoResponseResult? SourceConnectionInfo;
+        public readonly Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MongoDbConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.OracleConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>>>? SourceConnectionInfo;
         /// <summary>
         /// Source platform for the project
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180715Preview
         /// <summary>
         /// Information for connecting to target
         /// </summary>
-        public readonly Outputs.ConnectionInfoResponseResult? TargetConnectionInfo;
+        public readonly Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MongoDbConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.OracleConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>>>? TargetConnectionInfo;
         /// <summary>
         /// Target platform for the project
         /// </summary>
@@ -102,13 +102,13 @@ namespace Pulumi.AzureRM.DataMigration.V20180715Preview
 
             string provisioningState,
 
-            Outputs.ConnectionInfoResponseResult? sourceConnectionInfo,
+            Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MongoDbConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.OracleConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>>>? sourceConnectionInfo,
 
             string sourcePlatform,
 
             ImmutableDictionary<string, string>? tags,
 
-            Outputs.ConnectionInfoResponseResult? targetConnectionInfo,
+            Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MongoDbConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.OracleConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>>>? targetConnectionInfo,
 
             string targetPlatform,
 

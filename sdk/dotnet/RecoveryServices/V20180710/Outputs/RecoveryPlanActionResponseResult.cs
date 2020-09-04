@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The custom details.
         /// </summary>
-        public readonly Outputs.RecoveryPlanActionDetailsResponseResult CustomDetails;
+        public readonly Union<Outputs.RecoveryPlanAutomationRunbookActionDetailsResponseResult, Union<Outputs.RecoveryPlanManualActionDetailsResponseResult, Outputs.RecoveryPlanScriptActionDetailsResponseResult>> CustomDetails;
         /// <summary>
         /// The list of failover directions.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710.Outputs
         private RecoveryPlanActionResponseResult(
             string actionName,
 
-            Outputs.RecoveryPlanActionDetailsResponseResult customDetails,
+            Union<Outputs.RecoveryPlanAutomationRunbookActionDetailsResponseResult, Union<Outputs.RecoveryPlanManualActionDetailsResponseResult, Outputs.RecoveryPlanScriptActionDetailsResponseResult>> customDetails,
 
             ImmutableArray<string> failoverDirections,
 

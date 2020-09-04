@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
         /// DigitalTwinsInstance endpoint resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DigitalTwinsEndpointResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.EventGridResponseResult, Union<Outputs.EventHubResponseResult, Outputs.ServiceBusResponseResult>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
         /// DigitalTwinsInstance endpoint resource properties.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.DigitalTwinsEndpointResourcePropertiesArgs>? Properties { get; set; }
+        public InputUnion<Inputs.EventGridArgs, InputUnion<Inputs.EventHubArgs, Inputs.ServiceBusArgs>>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.

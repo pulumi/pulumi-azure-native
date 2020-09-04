@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
         /// </summary>
         [Output("customize")]
-        public Output<ImmutableArray<Outputs.ImageTemplateCustomizerResponseResult>> Customize { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.ImageTemplateFileCustomizerResponseResult, Union<Outputs.ImageTemplatePowerShellCustomizerResponseResult, Union<Outputs.ImageTemplateRestartCustomizerResponseResult, Union<Outputs.ImageTemplateShellCustomizerResponseResult, Outputs.ImageTemplateWindowsUpdateCustomizerResponseResult>>>>>> Customize { get; private set; } = null!;
 
         /// <summary>
         /// The distribution targets where the image output needs to go to.
         /// </summary>
         [Output("distribute")]
-        public Output<ImmutableArray<Outputs.ImageTemplateDistributorResponseResult>> Distribute { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponseResult, Union<Outputs.ImageTemplateSharedImageDistributorResponseResult, Outputs.ImageTemplateVhdDistributorResponseResult>>>> Distribute { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the image template, if configured.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
         /// Specifies the properties used to describe the source image.
         /// </summary>
         [Output("source")]
-        public Output<Outputs.ImageTemplateSourceResponseResult> Source { get; private set; } = null!;
+        public Output<Union<Outputs.ImageTemplateManagedImageSourceResponseResult, Union<Outputs.ImageTemplatePlatformImageSourceResponseResult, Outputs.ImageTemplateSharedImageVersionSourceResponseResult>>> Source { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -151,26 +151,26 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
         public Input<int>? BuildTimeoutInMinutes { get; set; }
 
         [Input("customize")]
-        private InputList<Inputs.ImageTemplateCustomizerArgs>? _customize;
+        private InputList<Union<Inputs.ImageTemplateFileCustomizerArgs, Union<Inputs.ImageTemplatePowerShellCustomizerArgs, Union<Inputs.ImageTemplateRestartCustomizerArgs, Union<Inputs.ImageTemplateShellCustomizerArgs, Inputs.ImageTemplateWindowsUpdateCustomizerArgs>>>>>? _customize;
 
         /// <summary>
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
         /// </summary>
-        public InputList<Inputs.ImageTemplateCustomizerArgs> Customize
+        public InputList<Union<Inputs.ImageTemplateFileCustomizerArgs, Union<Inputs.ImageTemplatePowerShellCustomizerArgs, Union<Inputs.ImageTemplateRestartCustomizerArgs, Union<Inputs.ImageTemplateShellCustomizerArgs, Inputs.ImageTemplateWindowsUpdateCustomizerArgs>>>>> Customize
         {
-            get => _customize ?? (_customize = new InputList<Inputs.ImageTemplateCustomizerArgs>());
+            get => _customize ?? (_customize = new InputList<Union<Inputs.ImageTemplateFileCustomizerArgs, Union<Inputs.ImageTemplatePowerShellCustomizerArgs, Union<Inputs.ImageTemplateRestartCustomizerArgs, Union<Inputs.ImageTemplateShellCustomizerArgs, Inputs.ImageTemplateWindowsUpdateCustomizerArgs>>>>>());
             set => _customize = value;
         }
 
         [Input("distribute", required: true)]
-        private InputList<Inputs.ImageTemplateDistributorArgs>? _distribute;
+        private InputList<Union<Inputs.ImageTemplateManagedImageDistributorArgs, Union<Inputs.ImageTemplateSharedImageDistributorArgs, Inputs.ImageTemplateVhdDistributorArgs>>>? _distribute;
 
         /// <summary>
         /// The distribution targets where the image output needs to go to.
         /// </summary>
-        public InputList<Inputs.ImageTemplateDistributorArgs> Distribute
+        public InputList<Union<Inputs.ImageTemplateManagedImageDistributorArgs, Union<Inputs.ImageTemplateSharedImageDistributorArgs, Inputs.ImageTemplateVhdDistributorArgs>>> Distribute
         {
-            get => _distribute ?? (_distribute = new InputList<Inputs.ImageTemplateDistributorArgs>());
+            get => _distribute ?? (_distribute = new InputList<Union<Inputs.ImageTemplateManagedImageDistributorArgs, Union<Inputs.ImageTemplateSharedImageDistributorArgs, Inputs.ImageTemplateVhdDistributorArgs>>>());
             set => _distribute = value;
         }
 
@@ -202,7 +202,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.Latest
         /// Specifies the properties used to describe the source image.
         /// </summary>
         [Input("source", required: true)]
-        public Input<Inputs.ImageTemplateSourceArgs> Source { get; set; } = null!;
+        public InputUnion<Inputs.ImageTemplateManagedImageSourceArgs, InputUnion<Inputs.ImageTemplatePlatformImageSourceArgs, Inputs.ImageTemplateSharedImageVersionSourceArgs>> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

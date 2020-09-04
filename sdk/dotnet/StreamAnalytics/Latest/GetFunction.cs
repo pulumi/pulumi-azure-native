@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
         /// <summary>
         /// The properties that are associated with a function.
         /// </summary>
-        public readonly Outputs.FunctionPropertiesResponseResult Properties;
+        public readonly Outputs.ScalarFunctionPropertiesResponseResult Properties;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
         private GetFunctionResult(
             string? name,
 
-            Outputs.FunctionPropertiesResponseResult properties,
+            Outputs.ScalarFunctionPropertiesResponseResult properties,
 
             string type)
         {

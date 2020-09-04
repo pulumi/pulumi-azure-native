@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// <summary>
         /// The object representing the policy for taking backups on an account.
         /// </summary>
-        public readonly Outputs.BackupPolicyResponseResult? BackupPolicy;
+        public readonly Union<Outputs.ContinuousModeBackupPolicyResponseResult, Outputs.PeriodicModeBackupPolicyResponseResult>? BackupPolicy;
         /// <summary>
         /// List of Cosmos DB capabilities for the account
         /// </summary>
@@ -184,7 +184,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         private GetDatabaseAccountResult(
             Outputs.ApiPropertiesResponseResult? apiProperties,
 
-            Outputs.BackupPolicyResponseResult? backupPolicy,
+            Union<Outputs.ContinuousModeBackupPolicyResponseResult, Outputs.PeriodicModeBackupPolicyResponseResult>? backupPolicy,
 
             ImmutableArray<Outputs.CapabilityResponseResult> capabilities,
 

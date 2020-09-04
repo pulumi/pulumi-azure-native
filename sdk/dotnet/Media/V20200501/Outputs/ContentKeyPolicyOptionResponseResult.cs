@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.Media.V20200501.Outputs
         /// <summary>
         /// The key delivery configuration.
         /// </summary>
-        public readonly Outputs.ContentKeyPolicyConfigurationResponseResult Configuration;
+        public readonly Union<Outputs.ContentKeyPolicyClearKeyConfigurationResponseResult, Union<Outputs.ContentKeyPolicyFairPlayConfigurationResponseResult, Union<Outputs.ContentKeyPolicyPlayReadyConfigurationResponseResult, Union<Outputs.ContentKeyPolicyUnknownConfigurationResponseResult, Outputs.ContentKeyPolicyWidevineConfigurationResponseResult>>>> Configuration;
         /// <summary>
         /// The Policy Option description.
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.AzureRM.Media.V20200501.Outputs
         /// <summary>
         /// The requirements that must be met to deliver keys with this configuration
         /// </summary>
-        public readonly Outputs.ContentKeyPolicyRestrictionResponseResult Restriction;
+        public readonly Union<Outputs.ContentKeyPolicyOpenRestrictionResponseResult, Union<Outputs.ContentKeyPolicyTokenRestrictionResponseResult, Outputs.ContentKeyPolicyUnknownRestrictionResponseResult>> Restriction;
 
         [OutputConstructor]
         private ContentKeyPolicyOptionResponseResult(
-            Outputs.ContentKeyPolicyConfigurationResponseResult configuration,
+            Union<Outputs.ContentKeyPolicyClearKeyConfigurationResponseResult, Union<Outputs.ContentKeyPolicyFairPlayConfigurationResponseResult, Union<Outputs.ContentKeyPolicyPlayReadyConfigurationResponseResult, Union<Outputs.ContentKeyPolicyUnknownConfigurationResponseResult, Outputs.ContentKeyPolicyWidevineConfigurationResponseResult>>>> configuration,
 
             string? name,
 
             string policyOptionId,
 
-            Outputs.ContentKeyPolicyRestrictionResponseResult restriction)
+            Union<Outputs.ContentKeyPolicyOpenRestrictionResponseResult, Union<Outputs.ContentKeyPolicyTokenRestrictionResponseResult, Outputs.ContentKeyPolicyUnknownRestrictionResponseResult>> restriction)
         {
             Configuration = configuration;
             Name = name;

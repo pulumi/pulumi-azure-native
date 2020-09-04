@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810.Inputs
         /// The ReplicationProviderSettings.
         /// </summary>
         [Input("providerSpecificInput")]
-        public Input<Inputs.PolicyProviderSpecificInputArgs>? ProviderSpecificInput { get; set; }
+        public InputUnion<Inputs.A2APolicyCreationInputArgs, InputUnion<Inputs.HyperVReplicaAzurePolicyInputArgs, InputUnion<Inputs.HyperVReplicaBluePolicyInputArgs, InputUnion<Inputs.HyperVReplicaPolicyInputArgs, InputUnion<Inputs.InMageAzureV2PolicyInputArgs, InputUnion<Inputs.InMagePolicyInputArgs, Inputs.VMwareCbtPolicyCreationInputArgs>>>>>>? ProviderSpecificInput { get; set; }
 
         public CreatePolicyInputPropertiesArgs()
         {

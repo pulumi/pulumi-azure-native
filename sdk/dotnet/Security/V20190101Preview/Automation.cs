@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Outputs.AutomationActionResponseResult>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.AutomationActionEventHubResponseResult, Union<Outputs.AutomationActionLogicAppResponseResult, Outputs.AutomationActionWorkspaceResponseResult>>>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// The security automation description.
@@ -126,14 +126,14 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
     public sealed class AutomationArgs : Pulumi.ResourceArgs
     {
         [Input("actions")]
-        private InputList<Inputs.AutomationActionArgs>? _actions;
+        private InputList<Union<Inputs.AutomationActionEventHubArgs, Union<Inputs.AutomationActionLogicAppArgs, Inputs.AutomationActionWorkspaceArgs>>>? _actions;
 
         /// <summary>
         /// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         /// </summary>
-        public InputList<Inputs.AutomationActionArgs> Actions
+        public InputList<Union<Inputs.AutomationActionEventHubArgs, Union<Inputs.AutomationActionLogicAppArgs, Inputs.AutomationActionWorkspaceArgs>>> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.AutomationActionArgs>());
+            get => _actions ?? (_actions = new InputList<Union<Inputs.AutomationActionEventHubArgs, Union<Inputs.AutomationActionLogicAppArgs, Inputs.AutomationActionWorkspaceArgs>>>());
             set => _actions = value;
         }
 

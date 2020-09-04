@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
         /// <summary>
         /// DigitalTwinsInstance endpoint resource properties.
         /// </summary>
-        public readonly Outputs.DigitalTwinsEndpointResourcePropertiesResponseResult Properties;
+        public readonly Union<Outputs.EventGridResponseResult, Union<Outputs.EventHubResponseResult, Outputs.ServiceBusResponseResult>> Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
         private GetDigitalTwinsEndpointResult(
             string name,
 
-            Outputs.DigitalTwinsEndpointResourcePropertiesResponseResult properties,
+            Union<Outputs.EventGridResponseResult, Union<Outputs.EventHubResponseResult, Outputs.ServiceBusResponseResult>> properties,
 
             string type)
         {

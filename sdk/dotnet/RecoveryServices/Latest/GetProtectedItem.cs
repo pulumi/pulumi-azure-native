@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// <summary>
         /// ProtectedItemResource properties
         /// </summary>
-        public readonly Outputs.ProtectedItemResponseResult Properties;
+        public readonly Union<Outputs.AzureFileshareProtectedItemResponseResult, Union<Outputs.AzureIaaSVMProtectedItemResponseResult, Union<Outputs.AzureSqlProtectedItemResponseResult, Union<Outputs.AzureVmWorkloadProtectedItemResponseResult, Union<Outputs.DPMProtectedItemResponseResult, Union<Outputs.GenericProtectedItemResponseResult, Outputs.MabFileFolderProtectedItemResponseResult>>>>>> Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
 
             string name,
 
-            Outputs.ProtectedItemResponseResult properties,
+            Union<Outputs.AzureFileshareProtectedItemResponseResult, Union<Outputs.AzureIaaSVMProtectedItemResponseResult, Union<Outputs.AzureSqlProtectedItemResponseResult, Union<Outputs.AzureVmWorkloadProtectedItemResponseResult, Union<Outputs.DPMProtectedItemResponseResult, Union<Outputs.GenericProtectedItemResponseResult, Outputs.MabFileFolderProtectedItemResponseResult>>>>>> properties,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101
         /// Contains the property payload that describes the web service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WebServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.WebServicePropertiesForGraphResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101
         /// Contains the property payload that describes the web service.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.WebServicePropertiesArgs> Properties { get; set; } = null!;
+        public Input<Inputs.WebServicePropertiesForGraphArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group in which the web service is located.

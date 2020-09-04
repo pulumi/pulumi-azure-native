@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview.Inputs
         /// Describes parameters for creating application-scoped volumes.
         /// </summary>
         [Input("creationParameters", required: true)]
-        public Input<Inputs.ApplicationScopedVolumeCreationParametersArgs> CreationParameters { get; set; } = null!;
+        public Input<Inputs.ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs> CreationParameters { get; set; } = null!;
 
         /// <summary>
         /// The path within the container at which the volume should be mounted. Only valid path characters are allowed.

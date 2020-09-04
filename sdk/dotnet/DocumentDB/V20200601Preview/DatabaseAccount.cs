@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// The object representing the policy for taking backups on an account.
         /// </summary>
         [Output("backupPolicy")]
-        public Output<Outputs.BackupPolicyResponseResult?> BackupPolicy { get; private set; } = null!;
+        public Output<Union<Outputs.ContinuousModeBackupPolicyResponseResult, Outputs.PeriodicModeBackupPolicyResponseResult>?> BackupPolicy { get; private set; } = null!;
 
         /// <summary>
         /// List of Cosmos DB capabilities for the account
@@ -310,7 +310,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// Properties to create and update Azure Cosmos DB database accounts.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.DatabaseAccountCreateUpdatePropertiesArgs> Properties { get; set; } = null!;
+        public InputUnion<Inputs.DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs, Inputs.RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

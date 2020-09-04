@@ -16,11 +16,11 @@ namespace Pulumi.AzureRM.Cdn.V20171012.Outputs
         /// <summary>
         /// A list of actions that are executed when all the conditions of a rule are satisfied.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeliveryRuleActionResponseResult> Actions;
+        public readonly ImmutableArray<Outputs.DeliveryRuleCacheExpirationActionResponseResult> Actions;
         /// <summary>
         /// A list of conditions that must be matched for the actions to be executed
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeliveryRuleConditionResponseResult> Conditions;
+        public readonly ImmutableArray<Union<Outputs.DeliveryRuleUrlFileExtensionConditionResponseResult, Outputs.DeliveryRuleUrlPathConditionResponseResult>> Conditions;
         /// <summary>
         /// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
         /// </summary>
@@ -28,9 +28,9 @@ namespace Pulumi.AzureRM.Cdn.V20171012.Outputs
 
         [OutputConstructor]
         private DeliveryRuleResponseResult(
-            ImmutableArray<Outputs.DeliveryRuleActionResponseResult> actions,
+            ImmutableArray<Outputs.DeliveryRuleCacheExpirationActionResponseResult> actions,
 
-            ImmutableArray<Outputs.DeliveryRuleConditionResponseResult> conditions,
+            ImmutableArray<Union<Outputs.DeliveryRuleUrlFileExtensionConditionResponseResult, Outputs.DeliveryRuleUrlPathConditionResponseResult>> conditions,
 
             int order)
         {

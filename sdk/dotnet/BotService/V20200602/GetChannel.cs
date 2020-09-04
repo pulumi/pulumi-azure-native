@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.BotService.V20200602
         /// <summary>
         /// The set of properties specific to bot channel resource
         /// </summary>
-        public readonly Outputs.ChannelResponseResult Properties;
+        public readonly Union<Outputs.AlexaChannelResponseResult, Union<Outputs.DirectLineChannelResponseResult, Union<Outputs.DirectLineSpeechChannelResponseResult, Union<Outputs.EmailChannelResponseResult, Union<Outputs.FacebookChannelResponseResult, Union<Outputs.KikChannelResponseResult, Union<Outputs.LineChannelResponseResult, Union<Outputs.MsTeamsChannelResponseResult, Union<Outputs.SkypeChannelResponseResult, Union<Outputs.SlackChannelResponseResult, Union<Outputs.SmsChannelResponseResult, Union<Outputs.TelegramChannelResponseResult, Outputs.WebChatChannelResponseResult>>>>>>>>>>>> Properties;
         /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.BotService.V20200602
 
             string name,
 
-            Outputs.ChannelResponseResult properties,
+            Union<Outputs.AlexaChannelResponseResult, Union<Outputs.DirectLineChannelResponseResult, Union<Outputs.DirectLineSpeechChannelResponseResult, Union<Outputs.EmailChannelResponseResult, Union<Outputs.FacebookChannelResponseResult, Union<Outputs.KikChannelResponseResult, Union<Outputs.LineChannelResponseResult, Union<Outputs.MsTeamsChannelResponseResult, Union<Outputs.SkypeChannelResponseResult, Union<Outputs.SlackChannelResponseResult, Union<Outputs.SmsChannelResponseResult, Union<Outputs.TelegramChannelResponseResult, Outputs.WebChatChannelResponseResult>>>>>>>>>>>> properties,
 
             Outputs.SkuResponseResult? sku,
 

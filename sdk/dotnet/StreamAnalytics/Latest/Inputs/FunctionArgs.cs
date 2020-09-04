@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest.Inputs
         /// The properties that are associated with a function.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.FunctionPropertiesArgs>? Properties { get; set; }
+        public Input<Inputs.ScalarFunctionPropertiesArgs>? Properties { get; set; }
 
         public FunctionArgs()
         {

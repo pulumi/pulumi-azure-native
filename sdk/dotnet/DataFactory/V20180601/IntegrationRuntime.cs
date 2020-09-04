@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// Integration runtime properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IntegrationRuntimeResponseResult> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.ManagedIntegrationRuntimeResponseResult, Outputs.SelfHostedIntegrationRuntimeResponseResult>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// Integration runtime properties.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.IntegrationRuntimeArgs> Properties { get; set; } = null!;
+        public InputUnion<Inputs.ManagedIntegrationRuntimeArgs, Inputs.SelfHostedIntegrationRuntimeArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

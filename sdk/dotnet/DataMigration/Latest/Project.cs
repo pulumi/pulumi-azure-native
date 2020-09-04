@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest
         /// Information for connecting to source
         /// </summary>
         [Output("sourceConnectionInfo")]
-        public Output<Outputs.ConnectionInfoResponseResult?> SourceConnectionInfo { get; private set; } = null!;
+        public Output<Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>?> SourceConnectionInfo { get; private set; } = null!;
 
         /// <summary>
         /// Source platform for the project
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest
         /// Information for connecting to target
         /// </summary>
         [Output("targetConnectionInfo")]
-        public Output<Outputs.ConnectionInfoResponseResult?> TargetConnectionInfo { get; private set; } = null!;
+        public Output<Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>?> TargetConnectionInfo { get; private set; } = null!;
 
         /// <summary>
         /// Target platform for the project
@@ -173,7 +173,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest
         /// Information for connecting to source
         /// </summary>
         [Input("sourceConnectionInfo")]
-        public Input<Inputs.ConnectionInfoArgs>? SourceConnectionInfo { get; set; }
+        public InputUnion<Inputs.MiSqlConnectionInfoArgs, InputUnion<Inputs.MySqlConnectionInfoArgs, InputUnion<Inputs.PostgreSqlConnectionInfoArgs, Inputs.SqlConnectionInfoArgs>>>? SourceConnectionInfo { get; set; }
 
         /// <summary>
         /// Source platform for the project
@@ -197,7 +197,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest
         /// Information for connecting to target
         /// </summary>
         [Input("targetConnectionInfo")]
-        public Input<Inputs.ConnectionInfoArgs>? TargetConnectionInfo { get; set; }
+        public InputUnion<Inputs.MiSqlConnectionInfoArgs, InputUnion<Inputs.MySqlConnectionInfoArgs, InputUnion<Inputs.PostgreSqlConnectionInfoArgs, Inputs.SqlConnectionInfoArgs>>>? TargetConnectionInfo { get; set; }
 
         /// <summary>
         /// Target platform for the project

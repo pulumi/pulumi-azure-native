@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network.Latest.Outputs
         /// <summary>
         /// Override the route configuration.
         /// </summary>
-        public readonly Outputs.RouteConfigurationResponseResult? RouteConfigurationOverride;
+        public readonly Union<Outputs.ForwardingConfigurationResponseResult, Outputs.RedirectConfigurationResponseResult>? RouteConfigurationOverride;
 
         [OutputConstructor]
         private RulesEngineActionResponseResult(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Network.Latest.Outputs
 
             ImmutableArray<Outputs.HeaderActionResponseResult> responseHeaderActions,
 
-            Outputs.RouteConfigurationResponseResult? routeConfigurationOverride)
+            Union<Outputs.ForwardingConfigurationResponseResult, Outputs.RedirectConfigurationResponseResult>? routeConfigurationOverride)
         {
             RequestHeaderActions = requestHeaderActions;
             ResponseHeaderActions = responseHeaderActions;

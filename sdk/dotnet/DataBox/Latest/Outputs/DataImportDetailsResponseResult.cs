@@ -16,10 +16,10 @@ namespace Pulumi.AzureRM.DataBox.Latest.Outputs
         /// <summary>
         /// Account details of the data to be transferred
         /// </summary>
-        public readonly Outputs.DataAccountDetailsResponseResult AccountDetails;
+        public readonly Union<Outputs.ManagedDiskDetailsResponseResult, Outputs.StorageAccountDetailsResponseResult> AccountDetails;
 
         [OutputConstructor]
-        private DataImportDetailsResponseResult(Outputs.DataAccountDetailsResponseResult accountDetails)
+        private DataImportDetailsResponseResult(Union<Outputs.ManagedDiskDetailsResponseResult, Outputs.StorageAccountDetailsResponseResult> accountDetails)
         {
             AccountDetails = accountDetails;
         }

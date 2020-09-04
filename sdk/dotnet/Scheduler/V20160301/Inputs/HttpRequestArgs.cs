@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.Scheduler.V20160301.Inputs
         /// Gets or sets the authentication method of the request.
         /// </summary>
         [Input("authentication")]
-        public Input<Inputs.HttpAuthenticationArgs>? Authentication { get; set; }
+        public InputUnion<Inputs.BasicAuthenticationArgs, InputUnion<Inputs.ClientCertAuthenticationArgs, Inputs.OAuthAuthenticationArgs>>? Authentication { get; set; }
 
         /// <summary>
         /// Gets or sets the request body.

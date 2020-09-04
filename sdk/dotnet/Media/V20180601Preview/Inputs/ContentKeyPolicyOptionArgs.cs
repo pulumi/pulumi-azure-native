@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Media.V20180601Preview.Inputs
         /// The key delivery configuration.
         /// </summary>
         [Input("configuration", required: true)]
-        public Input<Inputs.ContentKeyPolicyConfigurationArgs> Configuration { get; set; } = null!;
+        public InputUnion<Inputs.ContentKeyPolicyClearKeyConfigurationArgs, InputUnion<Inputs.ContentKeyPolicyFairPlayConfigurationArgs, InputUnion<Inputs.ContentKeyPolicyPlayReadyConfigurationArgs, InputUnion<Inputs.ContentKeyPolicyUnknownConfigurationArgs, Inputs.ContentKeyPolicyWidevineConfigurationArgs>>>> Configuration { get; set; } = null!;
 
         /// <summary>
         /// The Policy Option description.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureRM.Media.V20180601Preview.Inputs
         /// The requirements that must be met to deliver keys with this configuration
         /// </summary>
         [Input("restriction", required: true)]
-        public Input<Inputs.ContentKeyPolicyRestrictionArgs> Restriction { get; set; } = null!;
+        public InputUnion<Inputs.ContentKeyPolicyOpenRestrictionArgs, InputUnion<Inputs.ContentKeyPolicyTokenRestrictionArgs, Inputs.ContentKeyPolicyUnknownRestrictionArgs>> Restriction { get; set; } = null!;
 
         public ContentKeyPolicyOptionArgs()
         {

@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
         /// <summary>
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Outputs.OutputDataSourceResponseResult? Datasource;
+        public readonly Union<Outputs.AzureDataLakeStoreOutputDataSourceResponseResult, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponseResult, Union<Outputs.AzureTableOutputDataSourceResponseResult, Union<Outputs.BlobOutputDataSourceResponseResult, Union<Outputs.DocumentDbOutputDataSourceResponseResult, Union<Outputs.EventHubOutputDataSourceResponseResult, Union<Outputs.PowerBIOutputDataSourceResponseResult, Union<Outputs.ServiceBusQueueOutputDataSourceResponseResult, Outputs.ServiceBusTopicOutputDataSourceResponseResult>>>>>>>>? Datasource;
         /// <summary>
         /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
         /// <summary>
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Outputs.SerializationResponseResult? Serialization;
+        public readonly Union<Outputs.AvroSerializationResponseResult, Union<Outputs.CsvSerializationResponseResult, Outputs.JsonSerializationResponseResult>>? Serialization;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
 
         [OutputConstructor]
         private OutputResponseResult(
-            Outputs.OutputDataSourceResponseResult? datasource,
+            Union<Outputs.AzureDataLakeStoreOutputDataSourceResponseResult, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponseResult, Union<Outputs.AzureTableOutputDataSourceResponseResult, Union<Outputs.BlobOutputDataSourceResponseResult, Union<Outputs.DocumentDbOutputDataSourceResponseResult, Union<Outputs.EventHubOutputDataSourceResponseResult, Union<Outputs.PowerBIOutputDataSourceResponseResult, Union<Outputs.ServiceBusQueueOutputDataSourceResponseResult, Outputs.ServiceBusTopicOutputDataSourceResponseResult>>>>>>>>? datasource,
 
             Outputs.DiagnosticsResponseResult diagnostics,
 
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
 
             string? name,
 
-            Outputs.SerializationResponseResult? serialization,
+            Union<Outputs.AvroSerializationResponseResult, Union<Outputs.CsvSerializationResponseResult, Outputs.JsonSerializationResponseResult>>? serialization,
 
             string type)
         {

@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview.Inputs
         /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
         [Input("destination")]
-        public Input<Inputs.EventSubscriptionDestinationArgs>? Destination { get; set; }
+        public InputUnion<Inputs.AzureFunctionEventSubscriptionDestinationArgs, InputUnion<Inputs.EventHubEventSubscriptionDestinationArgs, InputUnion<Inputs.HybridConnectionEventSubscriptionDestinationArgs, InputUnion<Inputs.ServiceBusQueueEventSubscriptionDestinationArgs, InputUnion<Inputs.ServiceBusTopicEventSubscriptionDestinationArgs, InputUnion<Inputs.StorageQueueEventSubscriptionDestinationArgs, Inputs.WebHookEventSubscriptionDestinationArgs>>>>>>? Destination { get; set; }
 
         /// <summary>
         /// The identity to use when delivering events.

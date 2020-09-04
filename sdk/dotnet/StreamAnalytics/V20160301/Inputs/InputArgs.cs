@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Inputs
         /// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.InputPropertiesArgs>? Properties { get; set; }
+        public InputUnion<Inputs.ReferenceInputPropertiesArgs, Inputs.StreamInputPropertiesArgs>? Properties { get; set; }
 
         public InputArgs()
         {

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180315Preview
         /// Custom task properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ProjectTaskPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponseResult, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponseResult, Union<Outputs.ConnectToTargetSqlMITaskPropertiesResponseResult, Union<Outputs.GetUserTablesSqlTaskPropertiesResponseResult, Union<Outputs.MigrateSqlServerSqlDbTaskPropertiesResponseResult, Union<Outputs.MigrateSqlServerSqlMITaskPropertiesResponseResult, Outputs.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseResult>>>>>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -113,7 +113,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180315Preview
         /// Custom task properties
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.ProjectTaskPropertiesArgs>? Properties { get; set; }
+        public InputUnion<Inputs.ConnectToSourceSqlServerTaskPropertiesArgs, InputUnion<Inputs.ConnectToTargetSqlDbTaskPropertiesArgs, InputUnion<Inputs.ConnectToTargetSqlMITaskPropertiesArgs, InputUnion<Inputs.GetUserTablesSqlTaskPropertiesArgs, InputUnion<Inputs.MigrateSqlServerSqlDbTaskPropertiesArgs, InputUnion<Inputs.MigrateSqlServerSqlMITaskPropertiesArgs, Inputs.ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs>>>>>>? Properties { get; set; }
 
         /// <summary>
         /// Name of the service

@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.EventGrid.V20180915Preview.Inputs
     public sealed class EventSubscriptionFilterArgs : Pulumi.ResourceArgs
     {
         [Input("advancedFilters")]
-        private InputList<Inputs.AdvancedFilterArgs>? _advancedFilters;
+        private InputList<Union<Inputs.BoolEqualsAdvancedFilterArgs, Union<Inputs.NumberGreaterThanAdvancedFilterArgs, Union<Inputs.NumberGreaterThanOrEqualsAdvancedFilterArgs, Union<Inputs.NumberInAdvancedFilterArgs, Union<Inputs.NumberLessThanAdvancedFilterArgs, Union<Inputs.NumberLessThanOrEqualsAdvancedFilterArgs, Union<Inputs.NumberNotInAdvancedFilterArgs, Union<Inputs.StringBeginsWithAdvancedFilterArgs, Union<Inputs.StringContainsAdvancedFilterArgs, Union<Inputs.StringEndsWithAdvancedFilterArgs, Union<Inputs.StringInAdvancedFilterArgs, Inputs.StringNotInAdvancedFilterArgs>>>>>>>>>>>>? _advancedFilters;
 
         /// <summary>
         /// A list of advanced filters.
         /// </summary>
-        public InputList<Inputs.AdvancedFilterArgs> AdvancedFilters
+        public InputList<Union<Inputs.BoolEqualsAdvancedFilterArgs, Union<Inputs.NumberGreaterThanAdvancedFilterArgs, Union<Inputs.NumberGreaterThanOrEqualsAdvancedFilterArgs, Union<Inputs.NumberInAdvancedFilterArgs, Union<Inputs.NumberLessThanAdvancedFilterArgs, Union<Inputs.NumberLessThanOrEqualsAdvancedFilterArgs, Union<Inputs.NumberNotInAdvancedFilterArgs, Union<Inputs.StringBeginsWithAdvancedFilterArgs, Union<Inputs.StringContainsAdvancedFilterArgs, Union<Inputs.StringEndsWithAdvancedFilterArgs, Union<Inputs.StringInAdvancedFilterArgs, Inputs.StringNotInAdvancedFilterArgs>>>>>>>>>>>> AdvancedFilters
         {
-            get => _advancedFilters ?? (_advancedFilters = new InputList<Inputs.AdvancedFilterArgs>());
+            get => _advancedFilters ?? (_advancedFilters = new InputList<Union<Inputs.BoolEqualsAdvancedFilterArgs, Union<Inputs.NumberGreaterThanAdvancedFilterArgs, Union<Inputs.NumberGreaterThanOrEqualsAdvancedFilterArgs, Union<Inputs.NumberInAdvancedFilterArgs, Union<Inputs.NumberLessThanAdvancedFilterArgs, Union<Inputs.NumberLessThanOrEqualsAdvancedFilterArgs, Union<Inputs.NumberNotInAdvancedFilterArgs, Union<Inputs.StringBeginsWithAdvancedFilterArgs, Union<Inputs.StringContainsAdvancedFilterArgs, Union<Inputs.StringEndsWithAdvancedFilterArgs, Union<Inputs.StringInAdvancedFilterArgs, Inputs.StringNotInAdvancedFilterArgs>>>>>>>>>>>>());
             set => _advancedFilters = value;
         }
 

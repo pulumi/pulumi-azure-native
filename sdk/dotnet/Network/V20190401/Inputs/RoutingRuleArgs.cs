@@ -79,7 +79,7 @@ namespace Pulumi.AzureRM.Network.V20190401.Inputs
         /// A reference to the routing configuration.
         /// </summary>
         [Input("routeConfiguration")]
-        public Input<Inputs.RouteConfigurationArgs>? RouteConfiguration { get; set; }
+        public InputUnion<Inputs.ForwardingConfigurationArgs, Inputs.RedirectConfigurationArgs>? RouteConfiguration { get; set; }
 
         public RoutingRuleArgs()
         {

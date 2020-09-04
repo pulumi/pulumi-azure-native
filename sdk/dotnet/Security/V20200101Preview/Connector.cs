@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
         /// Settings for authentication management, these settings are relevant only for the cloud connector.
         /// </summary>
         [Output("authenticationDetails")]
-        public Output<Outputs.AuthenticationDetailsPropertiesResponseResult?> AuthenticationDetails { get; private set; } = null!;
+        public Output<Union<Outputs.AwAssumeRoleAuthenticationDetailsPropertiesResponseResult, Union<Outputs.AwsCredsAuthenticationDetailsPropertiesResponseResult, Outputs.GcpCredentialsDetailsPropertiesResponseResult>>?> AuthenticationDetails { get; private set; } = null!;
 
         /// <summary>
         /// Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
         /// Settings for authentication management, these settings are relevant only for the cloud connector.
         /// </summary>
         [Input("authenticationDetails")]
-        public Input<Inputs.AuthenticationDetailsPropertiesArgs>? AuthenticationDetails { get; set; }
+        public InputUnion<Inputs.AwAssumeRoleAuthenticationDetailsPropertiesArgs, InputUnion<Inputs.AwsCredsAuthenticationDetailsPropertiesArgs, Inputs.GcpCredentialsDetailsPropertiesArgs>>? AuthenticationDetails { get; set; }
 
         /// <summary>
         /// Name of the cloud account connector
