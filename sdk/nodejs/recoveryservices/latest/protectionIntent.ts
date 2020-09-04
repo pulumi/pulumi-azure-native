@@ -51,7 +51,7 @@ export class ProtectionIntent extends pulumi.CustomResource {
     /**
      * ProtectionIntentResource properties
      */
-    public readonly properties!: pulumi.Output<outputs.recoveryservices.latest.ProtectionIntentResponse>;
+    public readonly properties!: pulumi.Output<outputs.recoveryservices.latest.AzureRecoveryServiceVaultProtectionIntentResponse | outputs.recoveryservices.latest.AzureResourceProtectionIntentResponse>;
     /**
      * Resource tags.
      */
@@ -137,7 +137,7 @@ export interface ProtectionIntentArgs {
     /**
      * ProtectionIntentResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.latest.ProtectionIntent>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.latest.AzureRecoveryServiceVaultProtectionIntent | inputs.recoveryservices.latest.AzureResourceProtectionIntent>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

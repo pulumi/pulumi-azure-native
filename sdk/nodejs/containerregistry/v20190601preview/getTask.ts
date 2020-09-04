@@ -84,7 +84,7 @@ export interface GetTaskResult {
     /**
      * The properties of a task step.
      */
-    readonly step: outputs.containerregistry.v20190601preview.TaskStepPropertiesResponse;
+    readonly step: outputs.containerregistry.v20190601preview.DockerBuildStepResponse | outputs.containerregistry.v20190601preview.EncodedTaskStepResponse | outputs.containerregistry.v20190601preview.FileTaskStepResponse;
     /**
      * The tags of the resource.
      */

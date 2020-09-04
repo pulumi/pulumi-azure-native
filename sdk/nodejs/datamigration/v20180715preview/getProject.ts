@@ -63,7 +63,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: outputs.datamigration.v20180715preview.ConnectionInfoResponse;
+    readonly sourceConnectionInfo?: outputs.datamigration.v20180715preview.MiSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.MongoDbConnectionInfoResponse | outputs.datamigration.v20180715preview.MySqlConnectionInfoResponse | outputs.datamigration.v20180715preview.OracleConnectionInfoResponse | outputs.datamigration.v20180715preview.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.SqlConnectionInfoResponse;
     /**
      * Source platform for the project
      */
@@ -75,7 +75,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: outputs.datamigration.v20180715preview.ConnectionInfoResponse;
+    readonly targetConnectionInfo?: outputs.datamigration.v20180715preview.MiSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.MongoDbConnectionInfoResponse | outputs.datamigration.v20180715preview.MySqlConnectionInfoResponse | outputs.datamigration.v20180715preview.OracleConnectionInfoResponse | outputs.datamigration.v20180715preview.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.SqlConnectionInfoResponse;
     /**
      * Target platform for the project
      */

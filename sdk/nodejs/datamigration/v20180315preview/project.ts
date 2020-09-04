@@ -59,7 +59,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information for connecting to source
      */
-    public readonly sourceConnectionInfo!: pulumi.Output<outputs.datamigration.v20180315preview.ConnectionInfoResponse | undefined>;
+    public readonly sourceConnectionInfo!: pulumi.Output<outputs.datamigration.v20180315preview.SqlConnectionInfoResponse | undefined>;
     /**
      * Source platform for the project
      */
@@ -71,7 +71,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information for connecting to target
      */
-    public readonly targetConnectionInfo!: pulumi.Output<outputs.datamigration.v20180315preview.ConnectionInfoResponse | undefined>;
+    public readonly targetConnectionInfo!: pulumi.Output<outputs.datamigration.v20180315preview.SqlConnectionInfoResponse | undefined>;
     /**
      * Target platform for the project
      */
@@ -176,7 +176,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180315preview.ConnectionInfo>;
+    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180315preview.SqlConnectionInfo>;
     /**
      * Source platform for the project
      */
@@ -188,7 +188,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180315preview.ConnectionInfo>;
+    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180315preview.SqlConnectionInfo>;
     /**
      * Target platform for the project
      */

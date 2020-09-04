@@ -55,7 +55,7 @@ export class MachineGroup extends pulumi.CustomResource {
     /**
      * Additional resource type qualifier.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<"machineGroup">;
     /**
      * References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
      */
@@ -98,7 +98,7 @@ export class MachineGroup extends pulumi.CustomResource {
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["groupType"] = args ? args.groupType : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
+            inputs["kind"] = "machineGroup";
             inputs["machineGroupName"] = args ? args.machineGroupName : undefined;
             inputs["machines"] = args ? args.machines : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -149,7 +149,7 @@ export interface MachineGroupArgs {
     /**
      * Additional resource type qualifier.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<"machineGroup">;
     /**
      * Machine Group resource name.
      */

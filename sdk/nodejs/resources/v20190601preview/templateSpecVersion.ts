@@ -39,7 +39,7 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
     /**
      * An array of Template Spec artifacts.
      */
-    public readonly artifacts!: pulumi.Output<outputs.resources.v20190601preview.TemplateSpecArtifactResponse[] | undefined>;
+    public readonly artifacts!: pulumi.Output<outputs.resources.v20190601preview.TemplateSpecTemplateArtifactResponse[] | undefined>;
     /**
      * Template Spec version description.
      */
@@ -130,7 +130,7 @@ export interface TemplateSpecVersionArgs {
     /**
      * An array of Template Spec artifacts.
      */
-    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.resources.v20190601preview.TemplateSpecArtifact>[]>;
+    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.resources.v20190601preview.TemplateSpecTemplateArtifact>[]>;
     /**
      * Template Spec version description.
      */

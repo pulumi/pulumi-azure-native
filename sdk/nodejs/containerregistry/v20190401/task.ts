@@ -76,7 +76,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * The properties of a task step.
      */
-    public readonly step!: pulumi.Output<outputs.containerregistry.v20190401.TaskStepPropertiesResponse>;
+    public readonly step!: pulumi.Output<outputs.containerregistry.v20190401.DockerBuildStepResponse | outputs.containerregistry.v20190401.EncodedTaskStepResponse | outputs.containerregistry.v20190401.FileTaskStepResponse>;
     /**
      * The tags of the resource.
      */

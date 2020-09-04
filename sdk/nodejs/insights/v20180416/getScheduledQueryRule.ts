@@ -38,7 +38,7 @@ export interface GetScheduledQueryRuleResult {
     /**
      * Action needs to be taken on rule execution.
      */
-    readonly action: outputs.insights.v20180416.ActionResponse;
+    readonly action: outputs.insights.v20180416.AlertingActionResponse | outputs.insights.v20180416.LogToMetricActionResponse;
     /**
      * The description of the Log Search rule.
      */

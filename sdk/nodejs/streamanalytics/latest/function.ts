@@ -43,7 +43,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * The properties that are associated with a function.
      */
-    public readonly properties!: pulumi.Output<outputs.streamanalytics.latest.FunctionPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.streamanalytics.latest.ScalarFunctionPropertiesResponse>;
     /**
      * Resource type
      */
@@ -111,7 +111,7 @@ export interface FunctionArgs {
     /**
      * The properties that are associated with a function.
      */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.latest.FunctionProperties>;
+    readonly properties?: pulumi.Input<inputs.streamanalytics.latest.ScalarFunctionProperties>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

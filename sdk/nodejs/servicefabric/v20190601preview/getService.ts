@@ -68,7 +68,7 @@ export interface GetServiceResult {
     /**
      * Describes how the service is partitioned.
      */
-    readonly partitionDescription?: outputs.servicefabric.v20190601preview.PartitionSchemeDescriptionResponse;
+    readonly partitionDescription?: outputs.servicefabric.v20190601preview.NamedPartitionSchemeDescriptionResponse | outputs.servicefabric.v20190601preview.SingletonPartitionSchemeDescriptionResponse | outputs.servicefabric.v20190601preview.UniformInt64RangePartitionSchemeDescriptionResponse;
     /**
      * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
      */

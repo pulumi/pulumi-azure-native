@@ -39,11 +39,11 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.latest.DeadLetterDestinationResponse | undefined>;
+    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.latest.StorageBlobDeadLetterDestinationResponse | undefined>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    public readonly destination!: pulumi.Output<outputs.eventgrid.latest.EventSubscriptionDestinationResponse | undefined>;
+    public readonly destination!: pulumi.Output<outputs.eventgrid.latest.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.latest.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.latest.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.latest.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.latest.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.latest.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.latest.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -143,11 +143,11 @@ export interface EventSubscriptionArgs {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.latest.DeadLetterDestination>;
+    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.latest.StorageBlobDeadLetterDestination>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.latest.EventSubscriptionDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.latest.AzureFunctionEventSubscriptionDestination | inputs.eventgrid.latest.EventHubEventSubscriptionDestination | inputs.eventgrid.latest.HybridConnectionEventSubscriptionDestination | inputs.eventgrid.latest.ServiceBusQueueEventSubscriptionDestination | inputs.eventgrid.latest.ServiceBusTopicEventSubscriptionDestination | inputs.eventgrid.latest.StorageQueueEventSubscriptionDestination | inputs.eventgrid.latest.WebHookEventSubscriptionDestination>;
     /**
      * The event delivery schema for the event subscription.
      */

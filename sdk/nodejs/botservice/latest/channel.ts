@@ -55,7 +55,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The set of properties specific to bot channel resource
      */
-    public readonly properties!: pulumi.Output<outputs.botservice.latest.ChannelResponse>;
+    public readonly properties!: pulumi.Output<outputs.botservice.latest.AlexaChannelResponse | outputs.botservice.latest.DirectLineChannelResponse | outputs.botservice.latest.DirectLineSpeechChannelResponse | outputs.botservice.latest.EmailChannelResponse | outputs.botservice.latest.FacebookChannelResponse | outputs.botservice.latest.KikChannelResponse | outputs.botservice.latest.LineChannelResponse | outputs.botservice.latest.MsTeamsChannelResponse | outputs.botservice.latest.SkypeChannelResponse | outputs.botservice.latest.SlackChannelResponse | outputs.botservice.latest.SmsChannelResponse | outputs.botservice.latest.TelegramChannelResponse | outputs.botservice.latest.WebChatChannelResponse>;
     /**
      * Gets or sets the SKU of the resource.
      */
@@ -145,7 +145,7 @@ export interface ChannelArgs {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties?: pulumi.Input<inputs.botservice.latest.Channel>;
+    readonly properties?: pulumi.Input<inputs.botservice.latest.AlexaChannel | inputs.botservice.latest.DirectLineChannel | inputs.botservice.latest.DirectLineSpeechChannel | inputs.botservice.latest.EmailChannel | inputs.botservice.latest.FacebookChannel | inputs.botservice.latest.KikChannel | inputs.botservice.latest.LineChannel | inputs.botservice.latest.MsTeamsChannel | inputs.botservice.latest.SkypeChannel | inputs.botservice.latest.SlackChannel | inputs.botservice.latest.SmsChannel | inputs.botservice.latest.TelegramChannel | inputs.botservice.latest.WebChatChannel>;
     /**
      * The name of the Bot resource group in the user subscription.
      */

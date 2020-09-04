@@ -43,7 +43,7 @@ export interface GetTemplateSpecVersionResult {
     /**
      * An array of Template Spec artifacts.
      */
-    readonly artifacts?: outputs.resources.v20190601preview.TemplateSpecArtifactResponse[];
+    readonly artifacts?: outputs.resources.v20190601preview.TemplateSpecTemplateArtifactResponse[];
     /**
      * Template Spec version description.
      */

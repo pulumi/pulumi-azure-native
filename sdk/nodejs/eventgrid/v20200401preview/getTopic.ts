@@ -54,7 +54,7 @@ export interface GetTopicResult {
     /**
      * This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
      */
-    readonly inputSchemaMapping?: outputs.eventgrid.v20200401preview.InputSchemaMappingResponse;
+    readonly inputSchemaMapping?: outputs.eventgrid.v20200401preview.JsonInputSchemaMappingResponse;
     /**
      * Location of the resource.
      */

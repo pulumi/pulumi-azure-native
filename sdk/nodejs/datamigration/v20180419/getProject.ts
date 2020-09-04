@@ -63,7 +63,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: outputs.datamigration.v20180419.ConnectionInfoResponse;
+    readonly sourceConnectionInfo?: outputs.datamigration.v20180419.MiSqlConnectionInfoResponse | outputs.datamigration.v20180419.MySqlConnectionInfoResponse | outputs.datamigration.v20180419.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180419.SqlConnectionInfoResponse;
     /**
      * Source platform for the project
      */
@@ -75,7 +75,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: outputs.datamigration.v20180419.ConnectionInfoResponse;
+    readonly targetConnectionInfo?: outputs.datamigration.v20180419.MiSqlConnectionInfoResponse | outputs.datamigration.v20180419.MySqlConnectionInfoResponse | outputs.datamigration.v20180419.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180419.SqlConnectionInfoResponse;
     /**
      * Target platform for the project
      */

@@ -190,7 +190,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbformariadb.v20180601.ServerPropertiesForCreate>;
+    readonly properties: pulumi.Input<inputs.dbformariadb.v20180601.ServerPropertiesForDefaultCreate | inputs.dbformariadb.v20180601.ServerPropertiesForGeoRestore | inputs.dbformariadb.v20180601.ServerPropertiesForReplica | inputs.dbformariadb.v20180601.ServerPropertiesForRestore>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

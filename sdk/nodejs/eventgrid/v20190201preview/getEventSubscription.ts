@@ -38,11 +38,11 @@ export interface GetEventSubscriptionResult {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: outputs.eventgrid.v20190201preview.DeadLetterDestinationResponse;
+    readonly deadLetterDestination?: outputs.eventgrid.v20190201preview.StorageBlobDeadLetterDestinationResponse;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: outputs.eventgrid.v20190201preview.EventSubscriptionDestinationResponse;
+    readonly destination?: outputs.eventgrid.v20190201preview.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20190201preview.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20190201preview.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20190201preview.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20190201preview.WebHookEventSubscriptionDestinationResponse;
     /**
      * The event delivery schema for the event subscription.
      */

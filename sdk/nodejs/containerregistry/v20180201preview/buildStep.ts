@@ -43,7 +43,7 @@ export class BuildStep extends pulumi.CustomResource {
     /**
      * The properties of a build step.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.containerregistry.v20180201preview.BuildStepPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.containerregistry.v20180201preview.DockerBuildStepResponse>;
     /**
      * The type of the resource.
      */

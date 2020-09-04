@@ -38,7 +38,7 @@ export interface GetEventSubscriptionResult {
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: outputs.eventgrid.v20180101.EventSubscriptionDestinationResponse;
+    readonly destination?: outputs.eventgrid.v20180101.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20180101.WebHookEventSubscriptionDestinationResponse;
     /**
      * Information about the filter for the event subscription.
      */

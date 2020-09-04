@@ -51,7 +51,7 @@ export interface GetIntegrationRuntimeResult {
     /**
      * Integration runtime properties.
      */
-    readonly properties: outputs.datafactory.latest.IntegrationRuntimeResponse;
+    readonly properties: outputs.datafactory.latest.ManagedIntegrationRuntimeResponse | outputs.datafactory.latest.SelfHostedIntegrationRuntimeResponse;
     /**
      * The resource type.
      */

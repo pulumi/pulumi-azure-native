@@ -46,7 +46,7 @@ export interface GetDomainResult {
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    readonly inputSchemaMapping?: outputs.eventgrid.v20180915preview.InputSchemaMappingResponse;
+    readonly inputSchemaMapping?: outputs.eventgrid.v20180915preview.JsonInputSchemaMappingResponse;
     /**
      * Location of the resource
      */

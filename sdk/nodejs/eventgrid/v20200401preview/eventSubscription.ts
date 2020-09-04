@@ -40,7 +40,7 @@ export class EventSubscription extends pulumi.CustomResource {
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20200401preview.DeadLetterDestinationResponse | undefined>;
+    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20200401preview.StorageBlobDeadLetterDestinationResponse | undefined>;
     /**
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -55,7 +55,7 @@ export class EventSubscription extends pulumi.CustomResource {
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    public readonly destination!: pulumi.Output<outputs.eventgrid.v20200401preview.EventSubscriptionDestinationResponse | undefined>;
+    public readonly destination!: pulumi.Output<outputs.eventgrid.v20200401preview.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -160,7 +160,7 @@ export interface EventSubscriptionArgs {
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20200401preview.DeadLetterDestination>;
+    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20200401preview.StorageBlobDeadLetterDestination>;
     /**
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -175,7 +175,7 @@ export interface EventSubscriptionArgs {
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20200401preview.EventSubscriptionDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.v20200401preview.AzureFunctionEventSubscriptionDestination | inputs.eventgrid.v20200401preview.EventHubEventSubscriptionDestination | inputs.eventgrid.v20200401preview.HybridConnectionEventSubscriptionDestination | inputs.eventgrid.v20200401preview.ServiceBusQueueEventSubscriptionDestination | inputs.eventgrid.v20200401preview.ServiceBusTopicEventSubscriptionDestination | inputs.eventgrid.v20200401preview.StorageQueueEventSubscriptionDestination | inputs.eventgrid.v20200401preview.WebHookEventSubscriptionDestination>;
     /**
      * The event delivery schema for the event subscription.
      */

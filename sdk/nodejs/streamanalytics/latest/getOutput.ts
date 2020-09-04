@@ -43,7 +43,7 @@ export interface GetOutputResult {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    readonly datasource?: outputs.streamanalytics.latest.OutputDataSourceResponse;
+    readonly datasource?: outputs.streamanalytics.latest.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.latest.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.latest.AzureTableOutputDataSourceResponse | outputs.streamanalytics.latest.BlobOutputDataSourceResponse | outputs.streamanalytics.latest.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.latest.EventHubOutputDataSourceResponse | outputs.streamanalytics.latest.PowerBIOutputDataSourceResponse | outputs.streamanalytics.latest.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.latest.ServiceBusTopicOutputDataSourceResponse;
     /**
      * Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
      */
@@ -59,7 +59,7 @@ export interface GetOutputResult {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    readonly serialization?: outputs.streamanalytics.latest.SerializationResponse;
+    readonly serialization?: outputs.streamanalytics.latest.AvroSerializationResponse | outputs.streamanalytics.latest.CsvSerializationResponse | outputs.streamanalytics.latest.JsonSerializationResponse;
     /**
      * Resource type
      */

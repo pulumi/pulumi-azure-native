@@ -43,11 +43,11 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    public readonly customize!: pulumi.Output<outputs.virtualmachineimages.v20190501preview.ImageTemplateCustomizerResponse[] | undefined>;
+    public readonly customize!: pulumi.Output<outputs.virtualmachineimages.v20190501preview.ImageTemplateFileCustomizerResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplatePowerShellCustomizerResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateRestartCustomizerResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateShellCustomizerResponse[] | undefined>;
     /**
      * The distribution targets where the image output needs to go to.
      */
-    public readonly distribute!: pulumi.Output<outputs.virtualmachineimages.v20190501preview.ImageTemplateDistributorResponse[]>;
+    public readonly distribute!: pulumi.Output<outputs.virtualmachineimages.v20190501preview.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateVhdDistributorResponse[]>;
     /**
      * The identity of the image template, if configured.
      */
@@ -75,7 +75,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
      * Specifies the properties used to describe the source image.
      */
-    public readonly source!: pulumi.Output<outputs.virtualmachineimages.v20190501preview.ImageTemplateSourceResponse>;
+    public readonly source!: pulumi.Output<outputs.virtualmachineimages.v20190501preview.ImageTemplateIsoSourceResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateManagedImageSourceResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplatePlatformImageSourceResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateSharedImageVersionSourceResponse>;
     /**
      * Resource tags
      */
@@ -168,11 +168,11 @@ export interface VirtualMachineImageTemplateArgs {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    readonly customize?: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateCustomizer>[]>;
+    readonly customize?: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateFileCustomizer | inputs.virtualmachineimages.v20190501preview.ImageTemplatePowerShellCustomizer | inputs.virtualmachineimages.v20190501preview.ImageTemplateRestartCustomizer | inputs.virtualmachineimages.v20190501preview.ImageTemplateShellCustomizer>[]>;
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateDistributor>[]>;
+    readonly distribute: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateManagedImageDistributor | inputs.virtualmachineimages.v20190501preview.ImageTemplateSharedImageDistributor | inputs.virtualmachineimages.v20190501preview.ImageTemplateVhdDistributor>[]>;
     /**
      * The identity of the image template, if configured.
      */
@@ -192,7 +192,7 @@ export interface VirtualMachineImageTemplateArgs {
     /**
      * Specifies the properties used to describe the source image.
      */
-    readonly source: pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateSource>;
+    readonly source: pulumi.Input<inputs.virtualmachineimages.v20190501preview.ImageTemplateIsoSource | inputs.virtualmachineimages.v20190501preview.ImageTemplateManagedImageSource | inputs.virtualmachineimages.v20190501preview.ImageTemplatePlatformImageSource | inputs.virtualmachineimages.v20190501preview.ImageTemplateSharedImageVersionSource>;
     /**
      * Resource tags
      */

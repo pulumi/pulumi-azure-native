@@ -39,7 +39,7 @@ export interface GetEventSubscriptionResult {
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly deadLetterDestination?: outputs.eventgrid.v20200401preview.DeadLetterDestinationResponse;
+    readonly deadLetterDestination?: outputs.eventgrid.v20200401preview.StorageBlobDeadLetterDestinationResponse;
     /**
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -54,7 +54,7 @@ export interface GetEventSubscriptionResult {
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly destination?: outputs.eventgrid.v20200401preview.EventSubscriptionDestinationResponse;
+    readonly destination?: outputs.eventgrid.v20200401preview.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20200401preview.WebHookEventSubscriptionDestinationResponse;
     /**
      * The event delivery schema for the event subscription.
      */

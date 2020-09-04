@@ -47,7 +47,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
     /**
      * Integration runtime properties.
      */
-    public readonly properties!: pulumi.Output<outputs.datafactory.latest.IntegrationRuntimeResponse>;
+    public readonly properties!: pulumi.Output<outputs.datafactory.latest.ManagedIntegrationRuntimeResponse | outputs.datafactory.latest.SelfHostedIntegrationRuntimeResponse>;
     /**
      * The resource type.
      */
@@ -116,7 +116,7 @@ export interface IntegrationRuntimeArgs {
     /**
      * Integration runtime properties.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.latest.IntegrationRuntime>;
+    readonly properties: pulumi.Input<inputs.datafactory.latest.ManagedIntegrationRuntime | inputs.datafactory.latest.SelfHostedIntegrationRuntime>;
     /**
      * The resource group name.
      */

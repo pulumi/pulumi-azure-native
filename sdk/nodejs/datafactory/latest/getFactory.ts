@@ -66,7 +66,7 @@ export interface GetFactoryResult {
     /**
      * Git repo information of the factory.
      */
-    readonly repoConfiguration?: outputs.datafactory.latest.FactoryRepoConfigurationResponse;
+    readonly repoConfiguration?: outputs.datafactory.latest.FactoryGitHubConfigurationResponse | outputs.datafactory.latest.FactoryVSTSConfigurationResponse;
     /**
      * The resource tags.
      */

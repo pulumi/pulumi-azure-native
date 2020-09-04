@@ -80,7 +80,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * The properties of a task step.
      */
-    public readonly step!: pulumi.Output<outputs.containerregistry.v20190601preview.TaskStepPropertiesResponse>;
+    public readonly step!: pulumi.Output<outputs.containerregistry.v20190601preview.DockerBuildStepResponse | outputs.containerregistry.v20190601preview.EncodedTaskStepResponse | outputs.containerregistry.v20190601preview.FileTaskStepResponse>;
     /**
      * The tags of the resource.
      */
@@ -217,7 +217,7 @@ export interface TaskArgs {
     /**
      * The properties of a task step.
      */
-    readonly step: pulumi.Input<inputs.containerregistry.v20190601preview.TaskStepProperties>;
+    readonly step: pulumi.Input<inputs.containerregistry.v20190601preview.DockerBuildStep | inputs.containerregistry.v20190601preview.EncodedTaskStep | inputs.containerregistry.v20190601preview.FileTaskStep>;
     /**
      * The tags of the resource.
      */

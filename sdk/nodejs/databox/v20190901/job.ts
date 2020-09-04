@@ -51,7 +51,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    public readonly details!: pulumi.Output<outputs.databox.v20190901.JobDetailsResponse | undefined>;
+    public readonly details!: pulumi.Output<outputs.databox.v20190901.DataBoxDiskJobDetailsResponse | outputs.databox.v20190901.DataBoxHeavyJobDetailsResponse | outputs.databox.v20190901.DataBoxJobDetailsResponse | undefined>;
     /**
      * Top level error for the job.
      */
@@ -187,7 +187,7 @@ export interface JobArgs {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    readonly details?: pulumi.Input<inputs.databox.v20190901.JobDetails>;
+    readonly details?: pulumi.Input<inputs.databox.v20190901.DataBoxDiskJobDetails | inputs.databox.v20190901.DataBoxHeavyJobDetails | inputs.databox.v20190901.DataBoxJobDetails>;
     /**
      * The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */

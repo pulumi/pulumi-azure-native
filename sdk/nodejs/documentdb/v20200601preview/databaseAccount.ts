@@ -43,7 +43,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * The object representing the policy for taking backups on an account.
      */
-    public /*out*/ readonly backupPolicy!: pulumi.Output<outputs.documentdb.v20200601preview.BackupPolicyResponse | undefined>;
+    public /*out*/ readonly backupPolicy!: pulumi.Output<outputs.documentdb.v20200601preview.ContinuousModeBackupPolicyResponse | outputs.documentdb.v20200601preview.PeriodicModeBackupPolicyResponse | undefined>;
     /**
      * List of Cosmos DB capabilities for the account
      */
@@ -307,7 +307,7 @@ export interface DatabaseAccountArgs {
     /**
      * Properties to create and update Azure Cosmos DB database accounts.
      */
-    readonly properties: pulumi.Input<inputs.documentdb.v20200601preview.DatabaseAccountCreateUpdateProperties>;
+    readonly properties: pulumi.Input<inputs.documentdb.v20200601preview.DefaultRequestDatabaseAccountCreateUpdateProperties | inputs.documentdb.v20200601preview.RestoreReqeustDatabaseAccountCreateUpdateProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
