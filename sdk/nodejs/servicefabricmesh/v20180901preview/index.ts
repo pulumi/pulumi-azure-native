@@ -10,7 +10,7 @@ export * from "./getNetwork";
 export * from "./getSecret";
 export * from "./getSecretValue";
 export * from "./getVolume";
-export * from "./listSecretValueValue";
+export * from "./listSecretValue";
 export * from "./network";
 export * from "./secret";
 export * from "./secretValue";

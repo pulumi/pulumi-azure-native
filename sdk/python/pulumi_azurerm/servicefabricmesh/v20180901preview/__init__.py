@@ -11,7 +11,7 @@ from .get_network import *
 from .get_secret import *
 from .get_secret_value import *
 from .get_volume import *
-from .list_secret_value_value import *
+from .list_secret_value import *
 from .network import *
 from .secret import *
 from .secret_value import *

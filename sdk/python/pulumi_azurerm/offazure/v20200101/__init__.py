@@ -3,9 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .get_hyper_v_site_site import *
+from .get_hyper_v_site import *
 from .get_site import *
-from .hyper_v_site_site import *
+from .hyper_v_site import *
 from .site import *
 from ._inputs import *
 from . import outputs

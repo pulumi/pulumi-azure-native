@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getHyperVSiteSite";
-export * from "./getMasterSiteSite";
+export * from "./getHyperVSite";
+export * from "./getMasterSite";
 export * from "./getSite";
-export * from "./hyperVSiteSite";
-export * from "./masterSiteSite";
+export * from "./hyperVSite";
+export * from "./masterSite";
 export * from "./site";

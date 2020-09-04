@@ -4,4 +4,4 @@
 // Export members:
 export * from "./connectedCluster";
 export * from "./getConnectedCluster";
-export * from "./listConnectedClusterClusterUserCredentials";
+export * from "./listConnectedClusterUserCredentials";

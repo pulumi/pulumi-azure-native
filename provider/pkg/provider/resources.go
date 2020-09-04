@@ -127,11 +127,7 @@ func ResourceName(operationId string) string {
 	subName := verbReplacer.Replace(verb)
 
 	// Sometimes, name or its part is included in the operation name. We want to eliminate obvious duplication
-	// in the resulting resource name. Examples:
-	// OPERATION ID                         RESOURCE NAME
-	// WebSite_CreateWebSite                WebSite
-	// ManagedCluster_ClusterUserCreate     ManagedClusterUser
-	// BlobService_ServicePropertiesUpdate  BlobServiceProperties
+	// in the resulting resource name.
 	nameParts := splitCamelCase(name)
 	for i := 0; i < len(nameParts); i++ {
 		namePrefix := strings.Join(nameParts[:i], "")

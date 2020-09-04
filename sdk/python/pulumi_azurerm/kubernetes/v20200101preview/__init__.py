@@ -5,6 +5,6 @@
 # Export this package's modules as members:
 from .connected_cluster import *
 from .get_connected_cluster import *
-from .list_connected_cluster_cluster_user_credentials import *
+from .list_connected_cluster_user_credentials import *
 from ._inputs import *
 from . import outputs
