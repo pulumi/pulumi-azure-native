@@ -40,7 +40,7 @@ export class Policy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Policy {
-        return new Policy(name, undefined, { ...opts, id: id });
+        return new Policy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -81,12 +81,9 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PolicyArgs | undefined;
             if (!args || args.policyId === undefined) {
                 throw new Error("Missing required property 'policyId'");
             }
@@ -106,6 +103,11 @@ export class Policy extends pulumi.CustomResource {
             inputs["value"] = args ? args.value : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["format"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["value"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -114,7 +116,7 @@ export class Policy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:Policy" }, { type: "azurerm:apimanagement/v20180101:Policy" }, { type: "azurerm:apimanagement/v20190101:Policy" }, { type: "azurerm:apimanagement/v20191201:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:Policy" }, { type: "azurerm:apimanagement/v20180101:Policy" }, { type: "azurerm:apimanagement/v20180601preview:Policy" }, { type: "azurerm:apimanagement/v20190101:Policy" }, { type: "azurerm:apimanagement/v20191201:Policy" }, { type: "azurerm:apimanagement/v20191201preview:Policy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Policy.__pulumiType, name, inputs, opts);
     }

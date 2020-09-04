@@ -68,7 +68,13 @@ func NewApiDiagnostic(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiDiagnostic"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:ApiDiagnostic"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:ApiDiagnostic"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:ApiDiagnostic"),
 		},
 	})
 	opts = append(opts, aliases)

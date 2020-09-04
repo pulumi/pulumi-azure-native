@@ -34,7 +34,7 @@ export class ApiRelease extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiRelease {
-        return new ApiRelease(name, undefined, { ...opts, id: id });
+        return new ApiRelease(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -83,12 +83,9 @@ export class ApiRelease extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApiReleaseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApiReleaseArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApiReleaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApiReleaseArgs | undefined;
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
@@ -110,6 +107,13 @@ export class ApiRelease extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedDateTime"] = undefined /*out*/;
+        } else {
+            inputs["apiId"] = undefined /*out*/;
+            inputs["createdDateTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notes"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["updatedDateTime"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -118,7 +122,7 @@ export class ApiRelease extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:ApiRelease" }, { type: "azurerm:apimanagement/v20180101:ApiRelease" }, { type: "azurerm:apimanagement/v20190101:ApiRelease" }, { type: "azurerm:apimanagement/v20191201:ApiRelease" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:ApiRelease" }, { type: "azurerm:apimanagement/v20180101:ApiRelease" }, { type: "azurerm:apimanagement/v20180601preview:ApiRelease" }, { type: "azurerm:apimanagement/v20190101:ApiRelease" }, { type: "azurerm:apimanagement/v20191201:ApiRelease" }, { type: "azurerm:apimanagement/v20191201preview:ApiRelease" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiRelease.__pulumiType, name, inputs, opts);
     }

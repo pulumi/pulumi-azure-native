@@ -46,7 +46,7 @@ export class Partner extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Partner {
-        return new Partner(name, undefined, { ...opts, id: id });
+        return new Partner(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -107,12 +107,9 @@ export class Partner extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PartnerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PartnerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PartnerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PartnerArgs | undefined;
             if (!args || args.content === undefined) {
                 throw new Error("Missing required property 'content'");
             }
@@ -140,6 +137,16 @@ export class Partner extends pulumi.CustomResource {
             inputs["createdTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["content"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["partnerType"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -148,7 +155,7 @@ export class Partner extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:Partner" }, { type: "azurerm:logic/v20190501:Partner" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:Partner" }, { type: "azurerm:logic/v20150801preview:Partner" }, { type: "azurerm:logic/v20180701preview:Partner" }, { type: "azurerm:logic/v20190501:Partner" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Partner.__pulumiType, name, inputs, opts);
     }

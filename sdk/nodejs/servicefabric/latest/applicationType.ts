@@ -32,7 +32,7 @@ export class ApplicationType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationType {
-        return new ApplicationType(name, undefined, { ...opts, id: id });
+        return new ApplicationType(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -81,12 +81,9 @@ export class ApplicationType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationTypeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationTypeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationTypeArgs | undefined;
             if (!args || args.applicationTypeName === undefined) {
                 throw new Error("Missing required property 'applicationTypeName'");
             }
@@ -105,6 +102,13 @@ export class ApplicationType extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -113,7 +117,7 @@ export class ApplicationType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/v20190301:ApplicationType" }, { type: "azurerm:servicefabric/v20200301:ApplicationType" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/v20170701preview:ApplicationType" }, { type: "azurerm:servicefabric/v20190301:ApplicationType" }, { type: "azurerm:servicefabric/v20190301preview:ApplicationType" }, { type: "azurerm:servicefabric/v20190601preview:ApplicationType" }, { type: "azurerm:servicefabric/v20191101preview:ApplicationType" }, { type: "azurerm:servicefabric/v20200301:ApplicationType" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationType.__pulumiType, name, inputs, opts);
     }

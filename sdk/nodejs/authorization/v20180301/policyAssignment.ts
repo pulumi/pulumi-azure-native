@@ -47,7 +47,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PolicyAssignment {
-        return new PolicyAssignment(name, undefined, { ...opts, id: id });
+        return new PolicyAssignment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -112,12 +112,9 @@ export class PolicyAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PolicyAssignmentArgs | undefined;
             if (!args || args.policyAssignmentName === undefined) {
                 throw new Error("Missing required property 'policyAssignmentName'");
             }
@@ -135,6 +132,17 @@ export class PolicyAssignment extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notScopes"] = undefined /*out*/;
+            inputs["parameters"] = undefined /*out*/;
+            inputs["policyDefinitionId"] = undefined /*out*/;
+            inputs["scope"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -143,7 +151,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:PolicyAssignment" }, { type: "azurerm:authorization/v20151101:PolicyAssignment" }, { type: "azurerm:authorization/v20160401:PolicyAssignment" }, { type: "azurerm:authorization/v20161201:PolicyAssignment" }, { type: "azurerm:authorization/v20180501:PolicyAssignment" }, { type: "azurerm:authorization/v20190101:PolicyAssignment" }, { type: "azurerm:authorization/v20190601:PolicyAssignment" }, { type: "azurerm:authorization/v20190901:PolicyAssignment" }, { type: "azurerm:authorization/v20200301:PolicyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:PolicyAssignment" }, { type: "azurerm:authorization/v20151001preview:PolicyAssignment" }, { type: "azurerm:authorization/v20151101:PolicyAssignment" }, { type: "azurerm:authorization/v20160401:PolicyAssignment" }, { type: "azurerm:authorization/v20161201:PolicyAssignment" }, { type: "azurerm:authorization/v20170601preview:PolicyAssignment" }, { type: "azurerm:authorization/v20180501:PolicyAssignment" }, { type: "azurerm:authorization/v20190101:PolicyAssignment" }, { type: "azurerm:authorization/v20190601:PolicyAssignment" }, { type: "azurerm:authorization/v20190901:PolicyAssignment" }, { type: "azurerm:authorization/v20200301:PolicyAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyAssignment.__pulumiType, name, inputs, opts);
     }

@@ -41,7 +41,7 @@ export class VNetPeering extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VNetPeering {
-        return new VNetPeering(name, undefined, { ...opts, id: id });
+        return new VNetPeering(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -114,12 +114,9 @@ export class VNetPeering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VNetPeeringArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VNetPeeringArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VNetPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VNetPeeringArgs | undefined;
             if (!args || args.peeringName === undefined) {
                 throw new Error("Missing required property 'peeringName'");
             }
@@ -147,6 +144,19 @@ export class VNetPeering extends pulumi.CustomResource {
             inputs["peeringState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["allowForwardedTraffic"] = undefined /*out*/;
+            inputs["allowGatewayTransit"] = undefined /*out*/;
+            inputs["allowVirtualNetworkAccess"] = undefined /*out*/;
+            inputs["databricksAddressSpace"] = undefined /*out*/;
+            inputs["databricksVirtualNetwork"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["peeringState"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["remoteAddressSpace"] = undefined /*out*/;
+            inputs["remoteVirtualNetwork"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["useRemoteGateways"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

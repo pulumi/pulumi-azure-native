@@ -89,7 +89,7 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContainerGroup {
-        return new ContainerGroup(name, undefined, { ...opts, id: id });
+        return new ContainerGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -193,12 +193,9 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ContainerGroupArgs | undefined;
             if (!args || args.containerGroupName === undefined) {
                 throw new Error("Missing required property 'containerGroupName'");
             }
@@ -232,6 +229,26 @@ export class ContainerGroup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["containers"] = undefined /*out*/;
+            inputs["diagnostics"] = undefined /*out*/;
+            inputs["dnsConfig"] = undefined /*out*/;
+            inputs["encryptionProperties"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["imageRegistryCredentials"] = undefined /*out*/;
+            inputs["initContainers"] = undefined /*out*/;
+            inputs["instanceView"] = undefined /*out*/;
+            inputs["ipAddress"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkProfile"] = undefined /*out*/;
+            inputs["osType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["restartPolicy"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["volumes"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -240,7 +257,7 @@ export class ContainerGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerinstance/latest:ContainerGroup" }, { type: "azurerm:containerinstance/v20180401:ContainerGroup" }, { type: "azurerm:containerinstance/v20180601:ContainerGroup" }, { type: "azurerm:containerinstance/v20180901:ContainerGroup" }, { type: "azurerm:containerinstance/v20181001:ContainerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:containerinstance/latest:ContainerGroup" }, { type: "azurerm:containerinstance/v20170801preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20171001preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20171201preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20180201preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20180401:ContainerGroup" }, { type: "azurerm:containerinstance/v20180601:ContainerGroup" }, { type: "azurerm:containerinstance/v20180901:ContainerGroup" }, { type: "azurerm:containerinstance/v20181001:ContainerGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContainerGroup.__pulumiType, name, inputs, opts);
     }

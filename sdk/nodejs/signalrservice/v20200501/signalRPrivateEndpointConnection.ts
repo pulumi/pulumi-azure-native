@@ -41,7 +41,7 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SignalRPrivateEndpointConnection {
-        return new SignalRPrivateEndpointConnection(name, undefined, { ...opts, id: id });
+        return new SignalRPrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -86,12 +86,9 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SignalRPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SignalRPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SignalRPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SignalRPrivateEndpointConnectionArgs | undefined;
             if (!args || args.privateEndpointConnectionName === undefined) {
                 throw new Error("Missing required property 'privateEndpointConnectionName'");
             }
@@ -109,6 +106,12 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["name"] = undefined /*out*/;
+            inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,7 +120,7 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:signalrservice/latest:SignalRPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:signalrservice/latest:SignalRPrivateEndpointConnection" }, { type: "azurerm:signalrservice/v20200701preview:SignalRPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SignalRPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

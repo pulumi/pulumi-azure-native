@@ -36,7 +36,7 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationTypeVersion {
-        return new ApplicationTypeVersion(name, undefined, { ...opts, id: id });
+        return new ApplicationTypeVersion(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -93,12 +93,9 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationTypeVersionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationTypeVersionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationTypeVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationTypeVersionArgs | undefined;
             if (!args || args.appPackageUrl === undefined) {
                 throw new Error("Missing required property 'appPackageUrl'");
             }
@@ -126,6 +123,15 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["appPackageUrl"] = undefined /*out*/;
+            inputs["defaultParameterList"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -134,7 +140,7 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/latest:ApplicationTypeVersion" }, { type: "azurerm:servicefabric/v20200301:ApplicationTypeVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/latest:ApplicationTypeVersion" }, { type: "azurerm:servicefabric/v20170701preview:ApplicationTypeVersion" }, { type: "azurerm:servicefabric/v20190301preview:ApplicationTypeVersion" }, { type: "azurerm:servicefabric/v20190601preview:ApplicationTypeVersion" }, { type: "azurerm:servicefabric/v20191101preview:ApplicationTypeVersion" }, { type: "azurerm:servicefabric/v20200301:ApplicationTypeVersion" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationTypeVersion.__pulumiType, name, inputs, opts);
     }

@@ -142,7 +142,10 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/latest:MachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20190802preview:MachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200730preview:MachineExtension"},
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200802:MachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200815preview:MachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

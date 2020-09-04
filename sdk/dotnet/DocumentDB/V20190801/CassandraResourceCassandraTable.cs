@@ -127,6 +127,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:CassandraResourceCassandraTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:CassandraResourceCassandraTable"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:CassandraResourceCassandraTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

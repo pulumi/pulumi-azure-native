@@ -149,6 +149,7 @@ namespace Pulumi.AzureRM.Security.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:security/v20150601preview:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azurerm:security/v20200101:JitNetworkAccessPolicy"},
                 },
             };

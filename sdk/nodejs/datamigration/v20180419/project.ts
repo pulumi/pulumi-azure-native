@@ -37,7 +37,7 @@ export class Project extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Project {
-        return new Project(name, undefined, { ...opts, id: id });
+        return new Project(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -106,12 +106,9 @@ export class Project extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ProjectArgs | undefined;
             if (!args || args.groupName === undefined) {
                 throw new Error("Missing required property 'groupName'");
             }
@@ -144,6 +141,18 @@ export class Project extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["databasesInfo"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sourceConnectionInfo"] = undefined /*out*/;
+            inputs["sourcePlatform"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["targetConnectionInfo"] = undefined /*out*/;
+            inputs["targetPlatform"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -152,7 +161,7 @@ export class Project extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datamigration/latest:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datamigration/latest:Project" }, { type: "azurerm:datamigration/v20171115preview:Project" }, { type: "azurerm:datamigration/v20180315preview:Project" }, { type: "azurerm:datamigration/v20180331preview:Project" }, { type: "azurerm:datamigration/v20180715preview:Project" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Project.__pulumiType, name, inputs, opts);
     }

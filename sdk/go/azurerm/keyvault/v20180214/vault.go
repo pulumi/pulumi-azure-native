@@ -55,7 +55,13 @@ func NewVault(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:keyvault/v20161001:Vault"),
 		},
 		{
+			Type: pulumi.String("azurerm:keyvault/v20180214preview:Vault"),
+		},
+		{
 			Type: pulumi.String("azurerm:keyvault/v20190901:Vault"),
+		},
+		{
+			Type: pulumi.String("azurerm:keyvault/v20200401preview:Vault"),
 		},
 	})
 	opts = append(opts, aliases)

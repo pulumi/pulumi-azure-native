@@ -63,6 +63,9 @@ func NewArtifactSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devtestlab/v20150521preview:ArtifactSource"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:ArtifactSource"),
 		},
 		{

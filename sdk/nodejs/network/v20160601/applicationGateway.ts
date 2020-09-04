@@ -19,7 +19,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationGateway {
-        return new ApplicationGateway(name, undefined, { ...opts, id: id });
+        return new ApplicationGateway(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -128,12 +128,9 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationGatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationGatewayArgs | undefined;
             if (!args || args.applicationGatewayName === undefined) {
                 throw new Error("Missing required property 'applicationGatewayName'");
             }
@@ -164,6 +161,28 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["operationalState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["authenticationCertificates"] = undefined /*out*/;
+            inputs["backendAddressPools"] = undefined /*out*/;
+            inputs["backendHttpSettingsCollection"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["frontendIPConfigurations"] = undefined /*out*/;
+            inputs["frontendPorts"] = undefined /*out*/;
+            inputs["gatewayIPConfigurations"] = undefined /*out*/;
+            inputs["httpListeners"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["operationalState"] = undefined /*out*/;
+            inputs["probes"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["requestRoutingRules"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["sslCertificates"] = undefined /*out*/;
+            inputs["sslPolicy"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["urlPathMaps"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -172,7 +191,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:ApplicationGateway" }, { type: "azurerm:network/v20150615:ApplicationGateway" }, { type: "azurerm:network/v20160330:ApplicationGateway" }, { type: "azurerm:network/v20160901:ApplicationGateway" }, { type: "azurerm:network/v20161201:ApplicationGateway" }, { type: "azurerm:network/v20170301:ApplicationGateway" }, { type: "azurerm:network/v20170601:ApplicationGateway" }, { type: "azurerm:network/v20170801:ApplicationGateway" }, { type: "azurerm:network/v20170901:ApplicationGateway" }, { type: "azurerm:network/v20171001:ApplicationGateway" }, { type: "azurerm:network/v20171101:ApplicationGateway" }, { type: "azurerm:network/v20180101:ApplicationGateway" }, { type: "azurerm:network/v20180201:ApplicationGateway" }, { type: "azurerm:network/v20180401:ApplicationGateway" }, { type: "azurerm:network/v20180601:ApplicationGateway" }, { type: "azurerm:network/v20180701:ApplicationGateway" }, { type: "azurerm:network/v20180801:ApplicationGateway" }, { type: "azurerm:network/v20181001:ApplicationGateway" }, { type: "azurerm:network/v20181101:ApplicationGateway" }, { type: "azurerm:network/v20181201:ApplicationGateway" }, { type: "azurerm:network/v20190201:ApplicationGateway" }, { type: "azurerm:network/v20190401:ApplicationGateway" }, { type: "azurerm:network/v20190601:ApplicationGateway" }, { type: "azurerm:network/v20190701:ApplicationGateway" }, { type: "azurerm:network/v20190801:ApplicationGateway" }, { type: "azurerm:network/v20190901:ApplicationGateway" }, { type: "azurerm:network/v20191101:ApplicationGateway" }, { type: "azurerm:network/v20191201:ApplicationGateway" }, { type: "azurerm:network/v20200301:ApplicationGateway" }, { type: "azurerm:network/v20200401:ApplicationGateway" }, { type: "azurerm:network/v20200501:ApplicationGateway" }, { type: "azurerm:network/v20200601:ApplicationGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:ApplicationGateway" }, { type: "azurerm:network/v20150501preview:ApplicationGateway" }, { type: "azurerm:network/v20150615:ApplicationGateway" }, { type: "azurerm:network/v20160330:ApplicationGateway" }, { type: "azurerm:network/v20160901:ApplicationGateway" }, { type: "azurerm:network/v20161201:ApplicationGateway" }, { type: "azurerm:network/v20170301:ApplicationGateway" }, { type: "azurerm:network/v20170601:ApplicationGateway" }, { type: "azurerm:network/v20170801:ApplicationGateway" }, { type: "azurerm:network/v20170901:ApplicationGateway" }, { type: "azurerm:network/v20171001:ApplicationGateway" }, { type: "azurerm:network/v20171101:ApplicationGateway" }, { type: "azurerm:network/v20180101:ApplicationGateway" }, { type: "azurerm:network/v20180201:ApplicationGateway" }, { type: "azurerm:network/v20180401:ApplicationGateway" }, { type: "azurerm:network/v20180601:ApplicationGateway" }, { type: "azurerm:network/v20180701:ApplicationGateway" }, { type: "azurerm:network/v20180801:ApplicationGateway" }, { type: "azurerm:network/v20181001:ApplicationGateway" }, { type: "azurerm:network/v20181101:ApplicationGateway" }, { type: "azurerm:network/v20181201:ApplicationGateway" }, { type: "azurerm:network/v20190201:ApplicationGateway" }, { type: "azurerm:network/v20190401:ApplicationGateway" }, { type: "azurerm:network/v20190601:ApplicationGateway" }, { type: "azurerm:network/v20190701:ApplicationGateway" }, { type: "azurerm:network/v20190801:ApplicationGateway" }, { type: "azurerm:network/v20190901:ApplicationGateway" }, { type: "azurerm:network/v20191101:ApplicationGateway" }, { type: "azurerm:network/v20191201:ApplicationGateway" }, { type: "azurerm:network/v20200301:ApplicationGateway" }, { type: "azurerm:network/v20200401:ApplicationGateway" }, { type: "azurerm:network/v20200501:ApplicationGateway" }, { type: "azurerm:network/v20200601:ApplicationGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationGateway.__pulumiType, name, inputs, opts);
     }

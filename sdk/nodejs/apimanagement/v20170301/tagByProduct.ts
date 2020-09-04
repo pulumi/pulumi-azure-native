@@ -33,7 +33,7 @@ export class TagByProduct extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TagByProduct {
-        return new TagByProduct(name, undefined, { ...opts, id: id });
+        return new TagByProduct(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -70,12 +70,9 @@ export class TagByProduct extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TagByProductArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TagByProductArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TagByProductArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as TagByProductArgs | undefined;
             if (!args || args.productId === undefined) {
                 throw new Error("Missing required property 'productId'");
             }
@@ -95,6 +92,10 @@ export class TagByProduct extends pulumi.CustomResource {
             inputs["displayName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["displayName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -103,7 +104,7 @@ export class TagByProduct extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:TagByProduct" }, { type: "azurerm:apimanagement/v20180101:TagByProduct" }, { type: "azurerm:apimanagement/v20190101:TagByProduct" }, { type: "azurerm:apimanagement/v20191201:TagByProduct" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:TagByProduct" }, { type: "azurerm:apimanagement/v20180101:TagByProduct" }, { type: "azurerm:apimanagement/v20180601preview:TagByProduct" }, { type: "azurerm:apimanagement/v20190101:TagByProduct" }, { type: "azurerm:apimanagement/v20191201:TagByProduct" }, { type: "azurerm:apimanagement/v20191201preview:TagByProduct" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagByProduct.__pulumiType, name, inputs, opts);
     }

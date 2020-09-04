@@ -122,6 +122,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:MongoDBResourceMongoDBCollection"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:MongoDBResourceMongoDBCollection"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:MongoDBResourceMongoDBCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

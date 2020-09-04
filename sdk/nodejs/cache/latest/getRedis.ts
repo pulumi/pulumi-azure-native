@@ -48,6 +48,10 @@ export interface GetRedisResult {
      */
     readonly hostName: string;
     /**
+     * List of the Redis instances associated with the cache
+     */
+    readonly instances: outputs.cache.latest.RedisInstanceDetailsResponse[];
+    /**
      * List of the linked servers associated with the cache
      */
     readonly linkedServers: outputs.cache.latest.RedisLinkedServerResponse[];
@@ -79,6 +83,10 @@ export interface GetRedisResult {
      * Redis version.
      */
     readonly redisVersion: string;
+    /**
+     * The number of replicas to be created per master.
+     */
+    readonly replicasPerMaster?: number;
     /**
      * The number of shards to be created on a Premium Cluster Cache.
      */

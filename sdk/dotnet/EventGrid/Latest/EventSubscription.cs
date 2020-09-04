@@ -320,9 +320,16 @@ namespace Pulumi.AzureRM.EventGrid.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20170615preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20170915preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20180101:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20180501preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20180915preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20190101:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190201preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20190601:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200101preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200401preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20200601:EventSubscription"},
                 },
             };

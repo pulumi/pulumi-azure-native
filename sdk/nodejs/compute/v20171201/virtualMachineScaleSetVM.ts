@@ -19,7 +19,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineScaleSetVM {
-        return new VirtualMachineScaleSetVM(name, undefined, { ...opts, id: id });
+        return new VirtualMachineScaleSetVM(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -120,12 +120,9 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualMachineScaleSetVMArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualMachineScaleSetVMArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualMachineScaleSetVMArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualMachineScaleSetVMArgs | undefined;
             if (!args || args.instanceId === undefined) {
                 throw new Error("Missing required property 'instanceId'");
             }
@@ -157,6 +154,26 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resources"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vmId"] = undefined /*out*/;
+        } else {
+            inputs["availabilitySet"] = undefined /*out*/;
+            inputs["diagnosticsProfile"] = undefined /*out*/;
+            inputs["hardwareProfile"] = undefined /*out*/;
+            inputs["instanceId"] = undefined /*out*/;
+            inputs["instanceView"] = undefined /*out*/;
+            inputs["latestModelApplied"] = undefined /*out*/;
+            inputs["licenseType"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkProfile"] = undefined /*out*/;
+            inputs["osProfile"] = undefined /*out*/;
+            inputs["plan"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resources"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["storageProfile"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["vmId"] = undefined /*out*/;
         }

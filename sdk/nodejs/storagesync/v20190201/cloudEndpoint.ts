@@ -36,7 +36,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CloudEndpoint {
-        return new CloudEndpoint(name, undefined, { ...opts, id: id });
+        return new CloudEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -105,12 +105,9 @@ export class CloudEndpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CloudEndpointArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CloudEndpointArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CloudEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as CloudEndpointArgs | undefined;
             if (!args || args.cloudEndpointName === undefined) {
                 throw new Error("Missing required property 'cloudEndpointName'");
             }
@@ -138,6 +135,18 @@ export class CloudEndpoint extends pulumi.CustomResource {
             inputs["partnershipId"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["azureFileShareName"] = undefined /*out*/;
+            inputs["backupEnabled"] = undefined /*out*/;
+            inputs["friendlyName"] = undefined /*out*/;
+            inputs["lastOperationName"] = undefined /*out*/;
+            inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["partnershipId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["storageAccountResourceId"] = undefined /*out*/;
+            inputs["storageAccountTenantId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -146,7 +155,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:CloudEndpoint" }, { type: "azurerm:storagesync/v20180402:CloudEndpoint" }, { type: "azurerm:storagesync/v20180701:CloudEndpoint" }, { type: "azurerm:storagesync/v20181001:CloudEndpoint" }, { type: "azurerm:storagesync/v20190301:CloudEndpoint" }, { type: "azurerm:storagesync/v20190601:CloudEndpoint" }, { type: "azurerm:storagesync/v20191001:CloudEndpoint" }, { type: "azurerm:storagesync/v20200301:CloudEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:CloudEndpoint" }, { type: "azurerm:storagesync/v20170605preview:CloudEndpoint" }, { type: "azurerm:storagesync/v20180402:CloudEndpoint" }, { type: "azurerm:storagesync/v20180701:CloudEndpoint" }, { type: "azurerm:storagesync/v20181001:CloudEndpoint" }, { type: "azurerm:storagesync/v20190301:CloudEndpoint" }, { type: "azurerm:storagesync/v20190601:CloudEndpoint" }, { type: "azurerm:storagesync/v20191001:CloudEndpoint" }, { type: "azurerm:storagesync/v20200301:CloudEndpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CloudEndpoint.__pulumiType, name, inputs, opts);
     }

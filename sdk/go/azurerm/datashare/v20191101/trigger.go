@@ -47,6 +47,9 @@ func NewTrigger(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datashare/latest:Trigger"),
 		},
+		{
+			Type: pulumi.String("azurerm:datashare/v20181101preview:Trigger"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Trigger

@@ -51,7 +51,13 @@ func NewReplication(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:containerregistry/latest:Replication"),
 		},
 		{
+			Type: pulumi.String("azurerm:containerregistry/v20170601preview:Replication"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerregistry/v20190501:Replication"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerregistry/v20191201preview:Replication"),
 		},
 	})
 	opts = append(opts, aliases)

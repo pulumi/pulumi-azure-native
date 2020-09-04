@@ -58,6 +58,18 @@ func NewService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datamigration/latest:Service"),
 		},
+		{
+			Type: pulumi.String("azurerm:datamigration/v20171115preview:Service"),
+		},
+		{
+			Type: pulumi.String("azurerm:datamigration/v20180315preview:Service"),
+		},
+		{
+			Type: pulumi.String("azurerm:datamigration/v20180331preview:Service"),
+		},
+		{
+			Type: pulumi.String("azurerm:datamigration/v20180715preview:Service"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Service

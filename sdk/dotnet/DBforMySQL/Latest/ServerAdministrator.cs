@@ -101,6 +101,7 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:ServerAdministrator"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201preview:ServerAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

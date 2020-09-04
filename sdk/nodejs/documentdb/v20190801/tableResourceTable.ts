@@ -40,7 +40,7 @@ export class TableResourceTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TableResourceTable {
-        return new TableResourceTable(name, undefined, { ...opts, id: id });
+        return new TableResourceTable(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -82,12 +82,9 @@ export class TableResourceTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TableResourceTableArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TableResourceTableArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TableResourceTableArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as TableResourceTableArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -112,6 +109,12 @@ export class TableResourceTable extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["resource"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -120,7 +123,7 @@ export class TableResourceTable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:TableResourceTable" }, { type: "azurerm:documentdb/v20191212:TableResourceTable" }, { type: "azurerm:documentdb/v20200301:TableResourceTable" }, { type: "azurerm:documentdb/v20200401:TableResourceTable" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:TableResourceTable" }, { type: "azurerm:documentdb/v20191212:TableResourceTable" }, { type: "azurerm:documentdb/v20200301:TableResourceTable" }, { type: "azurerm:documentdb/v20200401:TableResourceTable" }, { type: "azurerm:documentdb/v20200601preview:TableResourceTable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TableResourceTable.__pulumiType, name, inputs, opts);
     }

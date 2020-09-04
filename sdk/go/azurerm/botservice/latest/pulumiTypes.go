@@ -1640,6 +1640,575 @@ func (o ConnectionSettingPropertiesResponsePtrOutput) SettingId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The properties specific to an Enterprise Channel Node.
+type EnterpriseChannelNode struct {
+	// The location of the Enterprise Channel Node.
+	AzureLocation string `pulumi:"azureLocation"`
+	// The sku of the Enterprise Channel Node.
+	AzureSku string `pulumi:"azureSku"`
+	// The name of the Enterprise Channel Node.
+	Name string `pulumi:"name"`
+	// The current state of the Enterprise Channel Node.
+	State *string `pulumi:"state"`
+}
+
+// EnterpriseChannelNodeInput is an input type that accepts EnterpriseChannelNodeArgs and EnterpriseChannelNodeOutput values.
+// You can construct a concrete instance of `EnterpriseChannelNodeInput` via:
+//
+//          EnterpriseChannelNodeArgs{...}
+type EnterpriseChannelNodeInput interface {
+	pulumi.Input
+
+	ToEnterpriseChannelNodeOutput() EnterpriseChannelNodeOutput
+	ToEnterpriseChannelNodeOutputWithContext(context.Context) EnterpriseChannelNodeOutput
+}
+
+// The properties specific to an Enterprise Channel Node.
+type EnterpriseChannelNodeArgs struct {
+	// The location of the Enterprise Channel Node.
+	AzureLocation pulumi.StringInput `pulumi:"azureLocation"`
+	// The sku of the Enterprise Channel Node.
+	AzureSku pulumi.StringInput `pulumi:"azureSku"`
+	// The name of the Enterprise Channel Node.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The current state of the Enterprise Channel Node.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (EnterpriseChannelNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseChannelNode)(nil)).Elem()
+}
+
+func (i EnterpriseChannelNodeArgs) ToEnterpriseChannelNodeOutput() EnterpriseChannelNodeOutput {
+	return i.ToEnterpriseChannelNodeOutputWithContext(context.Background())
+}
+
+func (i EnterpriseChannelNodeArgs) ToEnterpriseChannelNodeOutputWithContext(ctx context.Context) EnterpriseChannelNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelNodeOutput)
+}
+
+// EnterpriseChannelNodeArrayInput is an input type that accepts EnterpriseChannelNodeArray and EnterpriseChannelNodeArrayOutput values.
+// You can construct a concrete instance of `EnterpriseChannelNodeArrayInput` via:
+//
+//          EnterpriseChannelNodeArray{ EnterpriseChannelNodeArgs{...} }
+type EnterpriseChannelNodeArrayInput interface {
+	pulumi.Input
+
+	ToEnterpriseChannelNodeArrayOutput() EnterpriseChannelNodeArrayOutput
+	ToEnterpriseChannelNodeArrayOutputWithContext(context.Context) EnterpriseChannelNodeArrayOutput
+}
+
+type EnterpriseChannelNodeArray []EnterpriseChannelNodeInput
+
+func (EnterpriseChannelNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnterpriseChannelNode)(nil)).Elem()
+}
+
+func (i EnterpriseChannelNodeArray) ToEnterpriseChannelNodeArrayOutput() EnterpriseChannelNodeArrayOutput {
+	return i.ToEnterpriseChannelNodeArrayOutputWithContext(context.Background())
+}
+
+func (i EnterpriseChannelNodeArray) ToEnterpriseChannelNodeArrayOutputWithContext(ctx context.Context) EnterpriseChannelNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelNodeArrayOutput)
+}
+
+// The properties specific to an Enterprise Channel Node.
+type EnterpriseChannelNodeOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseChannelNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseChannelNode)(nil)).Elem()
+}
+
+func (o EnterpriseChannelNodeOutput) ToEnterpriseChannelNodeOutput() EnterpriseChannelNodeOutput {
+	return o
+}
+
+func (o EnterpriseChannelNodeOutput) ToEnterpriseChannelNodeOutputWithContext(ctx context.Context) EnterpriseChannelNodeOutput {
+	return o
+}
+
+// The location of the Enterprise Channel Node.
+func (o EnterpriseChannelNodeOutput) AzureLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v EnterpriseChannelNode) string { return v.AzureLocation }).(pulumi.StringOutput)
+}
+
+// The sku of the Enterprise Channel Node.
+func (o EnterpriseChannelNodeOutput) AzureSku() pulumi.StringOutput {
+	return o.ApplyT(func(v EnterpriseChannelNode) string { return v.AzureSku }).(pulumi.StringOutput)
+}
+
+// The name of the Enterprise Channel Node.
+func (o EnterpriseChannelNodeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnterpriseChannelNode) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current state of the Enterprise Channel Node.
+func (o EnterpriseChannelNodeOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnterpriseChannelNode) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type EnterpriseChannelNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseChannelNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnterpriseChannelNode)(nil)).Elem()
+}
+
+func (o EnterpriseChannelNodeArrayOutput) ToEnterpriseChannelNodeArrayOutput() EnterpriseChannelNodeArrayOutput {
+	return o
+}
+
+func (o EnterpriseChannelNodeArrayOutput) ToEnterpriseChannelNodeArrayOutputWithContext(ctx context.Context) EnterpriseChannelNodeArrayOutput {
+	return o
+}
+
+func (o EnterpriseChannelNodeArrayOutput) Index(i pulumi.IntInput) EnterpriseChannelNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnterpriseChannelNode {
+		return vs[0].([]EnterpriseChannelNode)[vs[1].(int)]
+	}).(EnterpriseChannelNodeOutput)
+}
+
+// The properties specific to an Enterprise Channel Node.
+type EnterpriseChannelNodeResponse struct {
+	// The location of the Enterprise Channel Node.
+	AzureLocation string `pulumi:"azureLocation"`
+	// The sku of the Enterprise Channel Node.
+	AzureSku string `pulumi:"azureSku"`
+	// Id of Enterprise Channel Node. This is generated by the Bot Framework.
+	Id string `pulumi:"id"`
+	// The name of the Enterprise Channel Node.
+	Name string `pulumi:"name"`
+	// The current state of the Enterprise Channel Node.
+	State *string `pulumi:"state"`
+}
+
+// EnterpriseChannelNodeResponseInput is an input type that accepts EnterpriseChannelNodeResponseArgs and EnterpriseChannelNodeResponseOutput values.
+// You can construct a concrete instance of `EnterpriseChannelNodeResponseInput` via:
+//
+//          EnterpriseChannelNodeResponseArgs{...}
+type EnterpriseChannelNodeResponseInput interface {
+	pulumi.Input
+
+	ToEnterpriseChannelNodeResponseOutput() EnterpriseChannelNodeResponseOutput
+	ToEnterpriseChannelNodeResponseOutputWithContext(context.Context) EnterpriseChannelNodeResponseOutput
+}
+
+// The properties specific to an Enterprise Channel Node.
+type EnterpriseChannelNodeResponseArgs struct {
+	// The location of the Enterprise Channel Node.
+	AzureLocation pulumi.StringInput `pulumi:"azureLocation"`
+	// The sku of the Enterprise Channel Node.
+	AzureSku pulumi.StringInput `pulumi:"azureSku"`
+	// Id of Enterprise Channel Node. This is generated by the Bot Framework.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Enterprise Channel Node.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The current state of the Enterprise Channel Node.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (EnterpriseChannelNodeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseChannelNodeResponse)(nil)).Elem()
+}
+
+func (i EnterpriseChannelNodeResponseArgs) ToEnterpriseChannelNodeResponseOutput() EnterpriseChannelNodeResponseOutput {
+	return i.ToEnterpriseChannelNodeResponseOutputWithContext(context.Background())
+}
+
+func (i EnterpriseChannelNodeResponseArgs) ToEnterpriseChannelNodeResponseOutputWithContext(ctx context.Context) EnterpriseChannelNodeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelNodeResponseOutput)
+}
+
+// EnterpriseChannelNodeResponseArrayInput is an input type that accepts EnterpriseChannelNodeResponseArray and EnterpriseChannelNodeResponseArrayOutput values.
+// You can construct a concrete instance of `EnterpriseChannelNodeResponseArrayInput` via:
+//
+//          EnterpriseChannelNodeResponseArray{ EnterpriseChannelNodeResponseArgs{...} }
+type EnterpriseChannelNodeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEnterpriseChannelNodeResponseArrayOutput() EnterpriseChannelNodeResponseArrayOutput
+	ToEnterpriseChannelNodeResponseArrayOutputWithContext(context.Context) EnterpriseChannelNodeResponseArrayOutput
+}
+
+type EnterpriseChannelNodeResponseArray []EnterpriseChannelNodeResponseInput
+
+func (EnterpriseChannelNodeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnterpriseChannelNodeResponse)(nil)).Elem()
+}
+
+func (i EnterpriseChannelNodeResponseArray) ToEnterpriseChannelNodeResponseArrayOutput() EnterpriseChannelNodeResponseArrayOutput {
+	return i.ToEnterpriseChannelNodeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EnterpriseChannelNodeResponseArray) ToEnterpriseChannelNodeResponseArrayOutputWithContext(ctx context.Context) EnterpriseChannelNodeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelNodeResponseArrayOutput)
+}
+
+// The properties specific to an Enterprise Channel Node.
+type EnterpriseChannelNodeResponseOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseChannelNodeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseChannelNodeResponse)(nil)).Elem()
+}
+
+func (o EnterpriseChannelNodeResponseOutput) ToEnterpriseChannelNodeResponseOutput() EnterpriseChannelNodeResponseOutput {
+	return o
+}
+
+func (o EnterpriseChannelNodeResponseOutput) ToEnterpriseChannelNodeResponseOutputWithContext(ctx context.Context) EnterpriseChannelNodeResponseOutput {
+	return o
+}
+
+// The location of the Enterprise Channel Node.
+func (o EnterpriseChannelNodeResponseOutput) AzureLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v EnterpriseChannelNodeResponse) string { return v.AzureLocation }).(pulumi.StringOutput)
+}
+
+// The sku of the Enterprise Channel Node.
+func (o EnterpriseChannelNodeResponseOutput) AzureSku() pulumi.StringOutput {
+	return o.ApplyT(func(v EnterpriseChannelNodeResponse) string { return v.AzureSku }).(pulumi.StringOutput)
+}
+
+// Id of Enterprise Channel Node. This is generated by the Bot Framework.
+func (o EnterpriseChannelNodeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EnterpriseChannelNodeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the Enterprise Channel Node.
+func (o EnterpriseChannelNodeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnterpriseChannelNodeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current state of the Enterprise Channel Node.
+func (o EnterpriseChannelNodeResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnterpriseChannelNodeResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type EnterpriseChannelNodeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseChannelNodeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnterpriseChannelNodeResponse)(nil)).Elem()
+}
+
+func (o EnterpriseChannelNodeResponseArrayOutput) ToEnterpriseChannelNodeResponseArrayOutput() EnterpriseChannelNodeResponseArrayOutput {
+	return o
+}
+
+func (o EnterpriseChannelNodeResponseArrayOutput) ToEnterpriseChannelNodeResponseArrayOutputWithContext(ctx context.Context) EnterpriseChannelNodeResponseArrayOutput {
+	return o
+}
+
+func (o EnterpriseChannelNodeResponseArrayOutput) Index(i pulumi.IntInput) EnterpriseChannelNodeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnterpriseChannelNodeResponse {
+		return vs[0].([]EnterpriseChannelNodeResponse)[vs[1].(int)]
+	}).(EnterpriseChannelNodeResponseOutput)
+}
+
+// The parameters to provide for the Enterprise Channel.
+type EnterpriseChannelProperties struct {
+	// The nodes associated with the Enterprise Channel.
+	Nodes []EnterpriseChannelNode `pulumi:"nodes"`
+	// The current state of the Enterprise Channel.
+	State *string `pulumi:"state"`
+}
+
+// EnterpriseChannelPropertiesInput is an input type that accepts EnterpriseChannelPropertiesArgs and EnterpriseChannelPropertiesOutput values.
+// You can construct a concrete instance of `EnterpriseChannelPropertiesInput` via:
+//
+//          EnterpriseChannelPropertiesArgs{...}
+type EnterpriseChannelPropertiesInput interface {
+	pulumi.Input
+
+	ToEnterpriseChannelPropertiesOutput() EnterpriseChannelPropertiesOutput
+	ToEnterpriseChannelPropertiesOutputWithContext(context.Context) EnterpriseChannelPropertiesOutput
+}
+
+// The parameters to provide for the Enterprise Channel.
+type EnterpriseChannelPropertiesArgs struct {
+	// The nodes associated with the Enterprise Channel.
+	Nodes EnterpriseChannelNodeArrayInput `pulumi:"nodes"`
+	// The current state of the Enterprise Channel.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (EnterpriseChannelPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseChannelProperties)(nil)).Elem()
+}
+
+func (i EnterpriseChannelPropertiesArgs) ToEnterpriseChannelPropertiesOutput() EnterpriseChannelPropertiesOutput {
+	return i.ToEnterpriseChannelPropertiesOutputWithContext(context.Background())
+}
+
+func (i EnterpriseChannelPropertiesArgs) ToEnterpriseChannelPropertiesOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelPropertiesOutput)
+}
+
+func (i EnterpriseChannelPropertiesArgs) ToEnterpriseChannelPropertiesPtrOutput() EnterpriseChannelPropertiesPtrOutput {
+	return i.ToEnterpriseChannelPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i EnterpriseChannelPropertiesArgs) ToEnterpriseChannelPropertiesPtrOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelPropertiesOutput).ToEnterpriseChannelPropertiesPtrOutputWithContext(ctx)
+}
+
+// EnterpriseChannelPropertiesPtrInput is an input type that accepts EnterpriseChannelPropertiesArgs, EnterpriseChannelPropertiesPtr and EnterpriseChannelPropertiesPtrOutput values.
+// You can construct a concrete instance of `EnterpriseChannelPropertiesPtrInput` via:
+//
+//          EnterpriseChannelPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type EnterpriseChannelPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToEnterpriseChannelPropertiesPtrOutput() EnterpriseChannelPropertiesPtrOutput
+	ToEnterpriseChannelPropertiesPtrOutputWithContext(context.Context) EnterpriseChannelPropertiesPtrOutput
+}
+
+type enterpriseChannelPropertiesPtrType EnterpriseChannelPropertiesArgs
+
+func EnterpriseChannelPropertiesPtr(v *EnterpriseChannelPropertiesArgs) EnterpriseChannelPropertiesPtrInput {
+	return (*enterpriseChannelPropertiesPtrType)(v)
+}
+
+func (*enterpriseChannelPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseChannelProperties)(nil)).Elem()
+}
+
+func (i *enterpriseChannelPropertiesPtrType) ToEnterpriseChannelPropertiesPtrOutput() EnterpriseChannelPropertiesPtrOutput {
+	return i.ToEnterpriseChannelPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *enterpriseChannelPropertiesPtrType) ToEnterpriseChannelPropertiesPtrOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelPropertiesPtrOutput)
+}
+
+// The parameters to provide for the Enterprise Channel.
+type EnterpriseChannelPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseChannelPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseChannelProperties)(nil)).Elem()
+}
+
+func (o EnterpriseChannelPropertiesOutput) ToEnterpriseChannelPropertiesOutput() EnterpriseChannelPropertiesOutput {
+	return o
+}
+
+func (o EnterpriseChannelPropertiesOutput) ToEnterpriseChannelPropertiesOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesOutput {
+	return o
+}
+
+func (o EnterpriseChannelPropertiesOutput) ToEnterpriseChannelPropertiesPtrOutput() EnterpriseChannelPropertiesPtrOutput {
+	return o.ToEnterpriseChannelPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o EnterpriseChannelPropertiesOutput) ToEnterpriseChannelPropertiesPtrOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesPtrOutput {
+	return o.ApplyT(func(v EnterpriseChannelProperties) *EnterpriseChannelProperties {
+		return &v
+	}).(EnterpriseChannelPropertiesPtrOutput)
+}
+
+// The nodes associated with the Enterprise Channel.
+func (o EnterpriseChannelPropertiesOutput) Nodes() EnterpriseChannelNodeArrayOutput {
+	return o.ApplyT(func(v EnterpriseChannelProperties) []EnterpriseChannelNode { return v.Nodes }).(EnterpriseChannelNodeArrayOutput)
+}
+
+// The current state of the Enterprise Channel.
+func (o EnterpriseChannelPropertiesOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnterpriseChannelProperties) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type EnterpriseChannelPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseChannelPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseChannelProperties)(nil)).Elem()
+}
+
+func (o EnterpriseChannelPropertiesPtrOutput) ToEnterpriseChannelPropertiesPtrOutput() EnterpriseChannelPropertiesPtrOutput {
+	return o
+}
+
+func (o EnterpriseChannelPropertiesPtrOutput) ToEnterpriseChannelPropertiesPtrOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesPtrOutput {
+	return o
+}
+
+func (o EnterpriseChannelPropertiesPtrOutput) Elem() EnterpriseChannelPropertiesOutput {
+	return o.ApplyT(func(v *EnterpriseChannelProperties) EnterpriseChannelProperties { return *v }).(EnterpriseChannelPropertiesOutput)
+}
+
+// The nodes associated with the Enterprise Channel.
+func (o EnterpriseChannelPropertiesPtrOutput) Nodes() EnterpriseChannelNodeArrayOutput {
+	return o.ApplyT(func(v *EnterpriseChannelProperties) []EnterpriseChannelNode {
+		if v == nil {
+			return nil
+		}
+		return v.Nodes
+	}).(EnterpriseChannelNodeArrayOutput)
+}
+
+// The current state of the Enterprise Channel.
+func (o EnterpriseChannelPropertiesPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnterpriseChannelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The parameters to provide for the Enterprise Channel.
+type EnterpriseChannelPropertiesResponse struct {
+	// The nodes associated with the Enterprise Channel.
+	Nodes []EnterpriseChannelNodeResponse `pulumi:"nodes"`
+	// The current state of the Enterprise Channel.
+	State *string `pulumi:"state"`
+}
+
+// EnterpriseChannelPropertiesResponseInput is an input type that accepts EnterpriseChannelPropertiesResponseArgs and EnterpriseChannelPropertiesResponseOutput values.
+// You can construct a concrete instance of `EnterpriseChannelPropertiesResponseInput` via:
+//
+//          EnterpriseChannelPropertiesResponseArgs{...}
+type EnterpriseChannelPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToEnterpriseChannelPropertiesResponseOutput() EnterpriseChannelPropertiesResponseOutput
+	ToEnterpriseChannelPropertiesResponseOutputWithContext(context.Context) EnterpriseChannelPropertiesResponseOutput
+}
+
+// The parameters to provide for the Enterprise Channel.
+type EnterpriseChannelPropertiesResponseArgs struct {
+	// The nodes associated with the Enterprise Channel.
+	Nodes EnterpriseChannelNodeResponseArrayInput `pulumi:"nodes"`
+	// The current state of the Enterprise Channel.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (EnterpriseChannelPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseChannelPropertiesResponse)(nil)).Elem()
+}
+
+func (i EnterpriseChannelPropertiesResponseArgs) ToEnterpriseChannelPropertiesResponseOutput() EnterpriseChannelPropertiesResponseOutput {
+	return i.ToEnterpriseChannelPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i EnterpriseChannelPropertiesResponseArgs) ToEnterpriseChannelPropertiesResponseOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelPropertiesResponseOutput)
+}
+
+func (i EnterpriseChannelPropertiesResponseArgs) ToEnterpriseChannelPropertiesResponsePtrOutput() EnterpriseChannelPropertiesResponsePtrOutput {
+	return i.ToEnterpriseChannelPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EnterpriseChannelPropertiesResponseArgs) ToEnterpriseChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelPropertiesResponseOutput).ToEnterpriseChannelPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// EnterpriseChannelPropertiesResponsePtrInput is an input type that accepts EnterpriseChannelPropertiesResponseArgs, EnterpriseChannelPropertiesResponsePtr and EnterpriseChannelPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `EnterpriseChannelPropertiesResponsePtrInput` via:
+//
+//          EnterpriseChannelPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EnterpriseChannelPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToEnterpriseChannelPropertiesResponsePtrOutput() EnterpriseChannelPropertiesResponsePtrOutput
+	ToEnterpriseChannelPropertiesResponsePtrOutputWithContext(context.Context) EnterpriseChannelPropertiesResponsePtrOutput
+}
+
+type enterpriseChannelPropertiesResponsePtrType EnterpriseChannelPropertiesResponseArgs
+
+func EnterpriseChannelPropertiesResponsePtr(v *EnterpriseChannelPropertiesResponseArgs) EnterpriseChannelPropertiesResponsePtrInput {
+	return (*enterpriseChannelPropertiesResponsePtrType)(v)
+}
+
+func (*enterpriseChannelPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseChannelPropertiesResponse)(nil)).Elem()
+}
+
+func (i *enterpriseChannelPropertiesResponsePtrType) ToEnterpriseChannelPropertiesResponsePtrOutput() EnterpriseChannelPropertiesResponsePtrOutput {
+	return i.ToEnterpriseChannelPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *enterpriseChannelPropertiesResponsePtrType) ToEnterpriseChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseChannelPropertiesResponsePtrOutput)
+}
+
+// The parameters to provide for the Enterprise Channel.
+type EnterpriseChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseChannelPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseChannelPropertiesResponse)(nil)).Elem()
+}
+
+func (o EnterpriseChannelPropertiesResponseOutput) ToEnterpriseChannelPropertiesResponseOutput() EnterpriseChannelPropertiesResponseOutput {
+	return o
+}
+
+func (o EnterpriseChannelPropertiesResponseOutput) ToEnterpriseChannelPropertiesResponseOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesResponseOutput {
+	return o
+}
+
+func (o EnterpriseChannelPropertiesResponseOutput) ToEnterpriseChannelPropertiesResponsePtrOutput() EnterpriseChannelPropertiesResponsePtrOutput {
+	return o.ToEnterpriseChannelPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EnterpriseChannelPropertiesResponseOutput) ToEnterpriseChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v EnterpriseChannelPropertiesResponse) *EnterpriseChannelPropertiesResponse {
+		return &v
+	}).(EnterpriseChannelPropertiesResponsePtrOutput)
+}
+
+// The nodes associated with the Enterprise Channel.
+func (o EnterpriseChannelPropertiesResponseOutput) Nodes() EnterpriseChannelNodeResponseArrayOutput {
+	return o.ApplyT(func(v EnterpriseChannelPropertiesResponse) []EnterpriseChannelNodeResponse { return v.Nodes }).(EnterpriseChannelNodeResponseArrayOutput)
+}
+
+// The current state of the Enterprise Channel.
+func (o EnterpriseChannelPropertiesResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnterpriseChannelPropertiesResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type EnterpriseChannelPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseChannelPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnterpriseChannelPropertiesResponse)(nil)).Elem()
+}
+
+func (o EnterpriseChannelPropertiesResponsePtrOutput) ToEnterpriseChannelPropertiesResponsePtrOutput() EnterpriseChannelPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o EnterpriseChannelPropertiesResponsePtrOutput) ToEnterpriseChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) EnterpriseChannelPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o EnterpriseChannelPropertiesResponsePtrOutput) Elem() EnterpriseChannelPropertiesResponseOutput {
+	return o.ApplyT(func(v *EnterpriseChannelPropertiesResponse) EnterpriseChannelPropertiesResponse { return *v }).(EnterpriseChannelPropertiesResponseOutput)
+}
+
+// The nodes associated with the Enterprise Channel.
+func (o EnterpriseChannelPropertiesResponsePtrOutput) Nodes() EnterpriseChannelNodeResponseArrayOutput {
+	return o.ApplyT(func(v *EnterpriseChannelPropertiesResponse) []EnterpriseChannelNodeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Nodes
+	}).(EnterpriseChannelNodeResponseArrayOutput)
+}
+
+// The current state of the Enterprise Channel.
+func (o EnterpriseChannelPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnterpriseChannelPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
 // Extra Parameters specific to each Service Provider
 type ServiceProviderParameterResponse struct {
 	// Default Name for the Service Provider
@@ -2418,6 +2987,14 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EnterpriseChannelNodeOutput{})
+	pulumi.RegisterOutputType(EnterpriseChannelNodeArrayOutput{})
+	pulumi.RegisterOutputType(EnterpriseChannelNodeResponseOutput{})
+	pulumi.RegisterOutputType(EnterpriseChannelNodeResponseArrayOutput{})
+	pulumi.RegisterOutputType(EnterpriseChannelPropertiesOutput{})
+	pulumi.RegisterOutputType(EnterpriseChannelPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EnterpriseChannelPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(EnterpriseChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceProviderParameterResponseOutput{})
 	pulumi.RegisterOutputType(ServiceProviderParameterResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServiceProviderPropertiesResponseOutput{})

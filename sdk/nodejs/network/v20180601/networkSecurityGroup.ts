@@ -19,7 +19,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkSecurityGroup {
-        return new NetworkSecurityGroup(name, undefined, { ...opts, id: id });
+        return new NetworkSecurityGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -88,12 +88,9 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkSecurityGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkSecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NetworkSecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as NetworkSecurityGroupArgs | undefined;
             if (!args || args.networkSecurityGroupName === undefined) {
                 throw new Error("Missing required property 'networkSecurityGroupName'");
             }
@@ -114,6 +111,18 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             inputs["networkInterfaces"] = undefined /*out*/;
             inputs["subnets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["defaultSecurityRules"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkInterfaces"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["securityRules"] = undefined /*out*/;
+            inputs["subnets"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -122,7 +131,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:NetworkSecurityGroup" }, { type: "azurerm:network/v20150615:NetworkSecurityGroup" }, { type: "azurerm:network/v20160330:NetworkSecurityGroup" }, { type: "azurerm:network/v20160601:NetworkSecurityGroup" }, { type: "azurerm:network/v20160901:NetworkSecurityGroup" }, { type: "azurerm:network/v20161201:NetworkSecurityGroup" }, { type: "azurerm:network/v20170301:NetworkSecurityGroup" }, { type: "azurerm:network/v20170601:NetworkSecurityGroup" }, { type: "azurerm:network/v20170801:NetworkSecurityGroup" }, { type: "azurerm:network/v20170901:NetworkSecurityGroup" }, { type: "azurerm:network/v20171001:NetworkSecurityGroup" }, { type: "azurerm:network/v20171101:NetworkSecurityGroup" }, { type: "azurerm:network/v20180101:NetworkSecurityGroup" }, { type: "azurerm:network/v20180201:NetworkSecurityGroup" }, { type: "azurerm:network/v20180401:NetworkSecurityGroup" }, { type: "azurerm:network/v20180701:NetworkSecurityGroup" }, { type: "azurerm:network/v20180801:NetworkSecurityGroup" }, { type: "azurerm:network/v20181001:NetworkSecurityGroup" }, { type: "azurerm:network/v20181101:NetworkSecurityGroup" }, { type: "azurerm:network/v20181201:NetworkSecurityGroup" }, { type: "azurerm:network/v20190201:NetworkSecurityGroup" }, { type: "azurerm:network/v20190401:NetworkSecurityGroup" }, { type: "azurerm:network/v20190601:NetworkSecurityGroup" }, { type: "azurerm:network/v20190701:NetworkSecurityGroup" }, { type: "azurerm:network/v20190801:NetworkSecurityGroup" }, { type: "azurerm:network/v20190901:NetworkSecurityGroup" }, { type: "azurerm:network/v20191101:NetworkSecurityGroup" }, { type: "azurerm:network/v20191201:NetworkSecurityGroup" }, { type: "azurerm:network/v20200301:NetworkSecurityGroup" }, { type: "azurerm:network/v20200401:NetworkSecurityGroup" }, { type: "azurerm:network/v20200501:NetworkSecurityGroup" }, { type: "azurerm:network/v20200601:NetworkSecurityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:NetworkSecurityGroup" }, { type: "azurerm:network/v20150501preview:NetworkSecurityGroup" }, { type: "azurerm:network/v20150615:NetworkSecurityGroup" }, { type: "azurerm:network/v20160330:NetworkSecurityGroup" }, { type: "azurerm:network/v20160601:NetworkSecurityGroup" }, { type: "azurerm:network/v20160901:NetworkSecurityGroup" }, { type: "azurerm:network/v20161201:NetworkSecurityGroup" }, { type: "azurerm:network/v20170301:NetworkSecurityGroup" }, { type: "azurerm:network/v20170601:NetworkSecurityGroup" }, { type: "azurerm:network/v20170801:NetworkSecurityGroup" }, { type: "azurerm:network/v20170901:NetworkSecurityGroup" }, { type: "azurerm:network/v20171001:NetworkSecurityGroup" }, { type: "azurerm:network/v20171101:NetworkSecurityGroup" }, { type: "azurerm:network/v20180101:NetworkSecurityGroup" }, { type: "azurerm:network/v20180201:NetworkSecurityGroup" }, { type: "azurerm:network/v20180401:NetworkSecurityGroup" }, { type: "azurerm:network/v20180701:NetworkSecurityGroup" }, { type: "azurerm:network/v20180801:NetworkSecurityGroup" }, { type: "azurerm:network/v20181001:NetworkSecurityGroup" }, { type: "azurerm:network/v20181101:NetworkSecurityGroup" }, { type: "azurerm:network/v20181201:NetworkSecurityGroup" }, { type: "azurerm:network/v20190201:NetworkSecurityGroup" }, { type: "azurerm:network/v20190401:NetworkSecurityGroup" }, { type: "azurerm:network/v20190601:NetworkSecurityGroup" }, { type: "azurerm:network/v20190701:NetworkSecurityGroup" }, { type: "azurerm:network/v20190801:NetworkSecurityGroup" }, { type: "azurerm:network/v20190901:NetworkSecurityGroup" }, { type: "azurerm:network/v20191101:NetworkSecurityGroup" }, { type: "azurerm:network/v20191201:NetworkSecurityGroup" }, { type: "azurerm:network/v20200301:NetworkSecurityGroup" }, { type: "azurerm:network/v20200401:NetworkSecurityGroup" }, { type: "azurerm:network/v20200501:NetworkSecurityGroup" }, { type: "azurerm:network/v20200601:NetworkSecurityGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkSecurityGroup.__pulumiType, name, inputs, opts);
     }

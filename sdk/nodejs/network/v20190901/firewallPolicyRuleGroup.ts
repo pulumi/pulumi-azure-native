@@ -39,7 +39,7 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FirewallPolicyRuleGroup {
-        return new FirewallPolicyRuleGroup(name, undefined, { ...opts, id: id });
+        return new FirewallPolicyRuleGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -88,12 +88,9 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FirewallPolicyRuleGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FirewallPolicyRuleGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: FirewallPolicyRuleGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as FirewallPolicyRuleGroupArgs | undefined;
             if (!args || args.firewallPolicyName === undefined) {
                 throw new Error("Missing required property 'firewallPolicyName'");
             }
@@ -112,6 +109,13 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
             inputs["rules"] = args ? args.rules : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["priority"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["rules"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

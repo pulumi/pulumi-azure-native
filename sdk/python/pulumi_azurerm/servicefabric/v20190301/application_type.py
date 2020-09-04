@@ -82,7 +82,7 @@ class ApplicationType(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabric/latest:ApplicationType"), pulumi.Alias(type_="azurerm:servicefabric/v20200301:ApplicationType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabric/latest:ApplicationType"), pulumi.Alias(type_="azurerm:servicefabric/v20170701preview:ApplicationType"), pulumi.Alias(type_="azurerm:servicefabric/v20190301preview:ApplicationType"), pulumi.Alias(type_="azurerm:servicefabric/v20190601preview:ApplicationType"), pulumi.Alias(type_="azurerm:servicefabric/v20191101preview:ApplicationType"), pulumi.Alias(type_="azurerm:servicefabric/v20200301:ApplicationType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationType, __self__).__init__(
             'azurerm:servicefabric/v20190301:ApplicationType',

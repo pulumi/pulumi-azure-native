@@ -36,7 +36,7 @@ export class HybridUseBenefit extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HybridUseBenefit {
-        return new HybridUseBenefit(name, undefined, { ...opts, id: id });
+        return new HybridUseBenefit(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -89,12 +89,9 @@ export class HybridUseBenefit extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HybridUseBenefitArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HybridUseBenefitArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: HybridUseBenefitArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as HybridUseBenefitArgs | undefined;
             if (!args || args.planId === undefined) {
                 throw new Error("Missing required property 'planId'");
             }
@@ -113,6 +110,14 @@ export class HybridUseBenefit extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["lastUpdatedDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -121,7 +126,7 @@ export class HybridUseBenefit extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:softwareplan/v20191201:HybridUseBenefit" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:softwareplan/v20190601preview:HybridUseBenefit" }, { type: "azurerm:softwareplan/v20191201:HybridUseBenefit" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(HybridUseBenefit.__pulumiType, name, inputs, opts);
     }

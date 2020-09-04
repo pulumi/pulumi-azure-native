@@ -83,8 +83,10 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:TagByOperation"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:TagByOperation"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:TagByOperation"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:TagByOperation"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:TagByOperation"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:TagByOperation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

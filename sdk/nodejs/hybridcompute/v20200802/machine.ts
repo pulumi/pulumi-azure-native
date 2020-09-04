@@ -19,7 +19,7 @@ export class Machine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Machine {
-        return new Machine(name, undefined, { ...opts, id: id });
+        return new Machine(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -67,7 +67,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Machine Extensions information
      */
-    public readonly extensions!: pulumi.Output<outputs.hybridcompute.v20200802.MachineExtensionInstanceViewResponse[] | undefined>;
+    public /*out*/ readonly extensions!: pulumi.Output<outputs.hybridcompute.v20200802.MachineExtensionInstanceViewResponse[]>;
     public readonly identity!: pulumi.Output<outputs.hybridcompute.v20200802.MachineResponseIdentity | undefined>;
     /**
      * The time of the last status change.
@@ -137,12 +137,9 @@ export class Machine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MachineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MachineArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as MachineArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -153,7 +150,6 @@ export class Machine extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
-            inputs["extensions"] = args ? args.extensions : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["locationData"] = args ? args.locationData : undefined;
@@ -167,6 +163,7 @@ export class Machine extends pulumi.CustomResource {
             inputs["dnsFqdn"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["errorDetails"] = undefined /*out*/;
+            inputs["extensions"] = undefined /*out*/;
             inputs["lastStatusChange"] = undefined /*out*/;
             inputs["machineFqdn"] = undefined /*out*/;
             inputs["osName"] = undefined /*out*/;
@@ -177,6 +174,31 @@ export class Machine extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["vmUuid"] = undefined /*out*/;
+        } else {
+            inputs["adFqdn"] = undefined /*out*/;
+            inputs["agentVersion"] = undefined /*out*/;
+            inputs["clientPublicKey"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["dnsFqdn"] = undefined /*out*/;
+            inputs["domainName"] = undefined /*out*/;
+            inputs["errorDetails"] = undefined /*out*/;
+            inputs["extensions"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["lastStatusChange"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["locationData"] = undefined /*out*/;
+            inputs["machineFqdn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["osName"] = undefined /*out*/;
+            inputs["osProfile"] = undefined /*out*/;
+            inputs["osSku"] = undefined /*out*/;
+            inputs["osVersion"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vmId"] = undefined /*out*/;
+            inputs["vmUuid"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -185,7 +207,7 @@ export class Machine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/latest:Machine" }, { type: "azurerm:hybridcompute/v20191212:Machine" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/latest:Machine" }, { type: "azurerm:hybridcompute/v20190318preview:Machine" }, { type: "azurerm:hybridcompute/v20190802preview:Machine" }, { type: "azurerm:hybridcompute/v20191212:Machine" }, { type: "azurerm:hybridcompute/v20200730preview:Machine" }, { type: "azurerm:hybridcompute/v20200815preview:Machine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Machine.__pulumiType, name, inputs, opts);
     }
@@ -199,10 +221,6 @@ export interface MachineArgs {
      * Public Key that the client provides to be used during initial resource onboarding
      */
     readonly clientPublicKey?: pulumi.Input<string>;
-    /**
-     * Machine Extensions information
-     */
-    readonly extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.v20200802.MachineExtensionInstanceView>[]>;
     readonly identity?: pulumi.Input<inputs.hybridcompute.v20200802.MachineIdentity>;
     /**
      * The geo-location where the resource lives

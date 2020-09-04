@@ -97,6 +97,7 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:appconfiguration/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:appconfiguration/v20191101preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

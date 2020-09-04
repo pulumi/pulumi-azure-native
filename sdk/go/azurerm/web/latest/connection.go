@@ -41,6 +41,9 @@ func NewConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/v20150801preview:Connection"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20160601:Connection"),
 		},
 	})

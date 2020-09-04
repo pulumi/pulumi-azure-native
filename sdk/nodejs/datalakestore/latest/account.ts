@@ -60,7 +60,7 @@ export class Account extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Account {
-        return new Account(name, undefined, { ...opts, id: id });
+        return new Account(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -177,12 +177,9 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AccountArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -217,6 +214,30 @@ export class Account extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["accountId"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["currentTier"] = undefined /*out*/;
+            inputs["defaultGroup"] = undefined /*out*/;
+            inputs["encryptionConfig"] = undefined /*out*/;
+            inputs["encryptionProvisioningState"] = undefined /*out*/;
+            inputs["encryptionState"] = undefined /*out*/;
+            inputs["endpoint"] = undefined /*out*/;
+            inputs["firewallAllowAzureIps"] = undefined /*out*/;
+            inputs["firewallRules"] = undefined /*out*/;
+            inputs["firewallState"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["newTier"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["trustedIdProviderState"] = undefined /*out*/;
+            inputs["trustedIdProviders"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualNetworkRules"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

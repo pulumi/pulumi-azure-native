@@ -109,6 +109,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Property"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Property"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Property"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Property"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Property"},
                 },
             };

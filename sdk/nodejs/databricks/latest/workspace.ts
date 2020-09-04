@@ -127,7 +127,7 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workspace {
-        return new Workspace(name, undefined, { ...opts, id: id });
+        return new Workspace(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -216,12 +216,9 @@ export class Workspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WorkspaceArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -249,6 +246,23 @@ export class Workspace extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["storageAccountIdentity"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedBy"] = undefined /*out*/;
+            inputs["workspaceId"] = undefined /*out*/;
+            inputs["workspaceUrl"] = undefined /*out*/;
+        } else {
+            inputs["authorizations"] = undefined /*out*/;
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["createdDateTime"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["managedResourceGroupId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["parameters"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["storageAccountIdentity"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uiDefinitionUri"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
             inputs["workspaceUrl"] = undefined /*out*/;

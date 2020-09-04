@@ -19,7 +19,7 @@ export class CertificateOrder extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CertificateOrder {
-        return new CertificateOrder(name, undefined, { ...opts, id: id });
+        return new CertificateOrder(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -128,12 +128,9 @@ export class CertificateOrder extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CertificateOrderArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CertificateOrderArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CertificateOrderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as CertificateOrderArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -166,6 +163,28 @@ export class CertificateOrder extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["validityInYears"] = args ? args.validityInYears : undefined;
+        } else {
+            inputs["autoRenew"] = undefined /*out*/;
+            inputs["certificates"] = undefined /*out*/;
+            inputs["csr"] = undefined /*out*/;
+            inputs["distinguishedName"] = undefined /*out*/;
+            inputs["domainVerificationToken"] = undefined /*out*/;
+            inputs["expirationTime"] = undefined /*out*/;
+            inputs["intermediate"] = undefined /*out*/;
+            inputs["keySize"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["lastCertificateIssuanceTime"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["productType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["root"] = undefined /*out*/;
+            inputs["serialNumber"] = undefined /*out*/;
+            inputs["signedCertificate"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["validityInYears"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

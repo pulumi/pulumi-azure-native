@@ -34,7 +34,7 @@ export class Route extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Route {
-        return new Route(name, undefined, { ...opts, id: id });
+        return new Route(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -83,12 +83,9 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RouteArgs | undefined;
             if (!args || args.nextHopType === undefined) {
                 throw new Error("Missing required property 'nextHopType'");
             }
@@ -111,6 +108,13 @@ export class Route extends pulumi.CustomResource {
             inputs["routeTableName"] = args ? args.routeTableName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["addressPrefix"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["nextHopIpAddress"] = undefined /*out*/;
+            inputs["nextHopType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -119,7 +123,7 @@ export class Route extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:Route" }, { type: "azurerm:network/v20150615:Route" }, { type: "azurerm:network/v20160330:Route" }, { type: "azurerm:network/v20160601:Route" }, { type: "azurerm:network/v20160901:Route" }, { type: "azurerm:network/v20161201:Route" }, { type: "azurerm:network/v20170301:Route" }, { type: "azurerm:network/v20170601:Route" }, { type: "azurerm:network/v20170801:Route" }, { type: "azurerm:network/v20170901:Route" }, { type: "azurerm:network/v20171001:Route" }, { type: "azurerm:network/v20171101:Route" }, { type: "azurerm:network/v20180101:Route" }, { type: "azurerm:network/v20180201:Route" }, { type: "azurerm:network/v20180401:Route" }, { type: "azurerm:network/v20180601:Route" }, { type: "azurerm:network/v20180701:Route" }, { type: "azurerm:network/v20180801:Route" }, { type: "azurerm:network/v20181001:Route" }, { type: "azurerm:network/v20181101:Route" }, { type: "azurerm:network/v20181201:Route" }, { type: "azurerm:network/v20190201:Route" }, { type: "azurerm:network/v20190401:Route" }, { type: "azurerm:network/v20190601:Route" }, { type: "azurerm:network/v20190701:Route" }, { type: "azurerm:network/v20190801:Route" }, { type: "azurerm:network/v20190901:Route" }, { type: "azurerm:network/v20191101:Route" }, { type: "azurerm:network/v20200301:Route" }, { type: "azurerm:network/v20200401:Route" }, { type: "azurerm:network/v20200501:Route" }, { type: "azurerm:network/v20200601:Route" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:Route" }, { type: "azurerm:network/v20150501preview:Route" }, { type: "azurerm:network/v20150615:Route" }, { type: "azurerm:network/v20160330:Route" }, { type: "azurerm:network/v20160601:Route" }, { type: "azurerm:network/v20160901:Route" }, { type: "azurerm:network/v20161201:Route" }, { type: "azurerm:network/v20170301:Route" }, { type: "azurerm:network/v20170601:Route" }, { type: "azurerm:network/v20170801:Route" }, { type: "azurerm:network/v20170901:Route" }, { type: "azurerm:network/v20171001:Route" }, { type: "azurerm:network/v20171101:Route" }, { type: "azurerm:network/v20180101:Route" }, { type: "azurerm:network/v20180201:Route" }, { type: "azurerm:network/v20180401:Route" }, { type: "azurerm:network/v20180601:Route" }, { type: "azurerm:network/v20180701:Route" }, { type: "azurerm:network/v20180801:Route" }, { type: "azurerm:network/v20181001:Route" }, { type: "azurerm:network/v20181101:Route" }, { type: "azurerm:network/v20181201:Route" }, { type: "azurerm:network/v20190201:Route" }, { type: "azurerm:network/v20190401:Route" }, { type: "azurerm:network/v20190601:Route" }, { type: "azurerm:network/v20190701:Route" }, { type: "azurerm:network/v20190801:Route" }, { type: "azurerm:network/v20190901:Route" }, { type: "azurerm:network/v20191101:Route" }, { type: "azurerm:network/v20200301:Route" }, { type: "azurerm:network/v20200401:Route" }, { type: "azurerm:network/v20200501:Route" }, { type: "azurerm:network/v20200601:Route" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Route.__pulumiType, name, inputs, opts);
     }

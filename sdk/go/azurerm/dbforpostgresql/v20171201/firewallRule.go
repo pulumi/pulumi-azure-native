@@ -49,6 +49,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:dbforpostgresql/latest:FirewallRule"),
 		},
+		{
+			Type: pulumi.String("azurerm:dbforpostgresql/v20171201preview:FirewallRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule

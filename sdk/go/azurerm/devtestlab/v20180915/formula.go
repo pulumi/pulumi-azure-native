@@ -60,6 +60,9 @@ func NewFormula(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:Formula"),
 		},
 		{
+			Type: pulumi.String("azurerm:devtestlab/v20150521preview:Formula"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:Formula"),
 		},
 	})

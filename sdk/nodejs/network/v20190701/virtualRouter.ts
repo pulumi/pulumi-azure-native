@@ -40,7 +40,7 @@ export class VirtualRouter extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualRouter {
-        return new VirtualRouter(name, undefined, { ...opts, id: id });
+        return new VirtualRouter(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -109,12 +109,9 @@ export class VirtualRouter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualRouterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualRouterArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualRouterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualRouterArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -135,6 +132,18 @@ export class VirtualRouter extends pulumi.CustomResource {
             inputs["peerings"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["hostedGateway"] = undefined /*out*/;
+            inputs["hostedSubnet"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["peerings"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualRouterAsn"] = undefined /*out*/;
+            inputs["virtualRouterIps"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

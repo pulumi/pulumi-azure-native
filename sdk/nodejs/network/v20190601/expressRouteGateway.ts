@@ -42,7 +42,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ExpressRouteGateway {
-        return new ExpressRouteGateway(name, undefined, { ...opts, id: id });
+        return new ExpressRouteGateway(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -103,12 +103,9 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ExpressRouteGatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ExpressRouteGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ExpressRouteGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ExpressRouteGatewayArgs | undefined;
             if (!args || args.expressRouteGatewayName === undefined) {
                 throw new Error("Missing required property 'expressRouteGatewayName'");
             }
@@ -130,6 +127,16 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             inputs["expressRouteConnections"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["autoScaleConfiguration"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["expressRouteConnections"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualHub"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

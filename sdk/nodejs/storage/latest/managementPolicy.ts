@@ -103,7 +103,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementPolicy {
-        return new ManagementPolicy(name, undefined, { ...opts, id: id });
+        return new ManagementPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -144,12 +144,9 @@ export class ManagementPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagementPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagementPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ManagementPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ManagementPolicyArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -169,6 +166,11 @@ export class ManagementPolicy extends pulumi.CustomResource {
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["policy"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -177,7 +179,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/v20181101:ManagementPolicy" }, { type: "azurerm:storage/v20190401:ManagementPolicy" }, { type: "azurerm:storage/v20190601:ManagementPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storage/v20180301preview:ManagementPolicy" }, { type: "azurerm:storage/v20181101:ManagementPolicy" }, { type: "azurerm:storage/v20190401:ManagementPolicy" }, { type: "azurerm:storage/v20190601:ManagementPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementPolicy.__pulumiType, name, inputs, opts);
     }

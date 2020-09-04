@@ -41,7 +41,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetworkPeering {
-        return new VirtualNetworkPeering(name, undefined, { ...opts, id: id });
+        return new VirtualNetworkPeering(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -102,12 +102,9 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualNetworkPeeringArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualNetworkPeeringArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualNetworkPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualNetworkPeeringArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -130,6 +127,16 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["virtualNetworkPeeringName"] = args ? args.virtualNetworkPeeringName : undefined;
+        } else {
+            inputs["allowForwardedTraffic"] = undefined /*out*/;
+            inputs["allowGatewayTransit"] = undefined /*out*/;
+            inputs["allowVirtualNetworkAccess"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["peeringState"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["remoteVirtualNetwork"] = undefined /*out*/;
+            inputs["useRemoteGateways"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

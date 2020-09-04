@@ -52,6 +52,12 @@ func NewStreamingPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:media/latest:StreamingPolicy"),
 		},
 		{
+			Type: pulumi.String("azurerm:media/v20180330preview:StreamingPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180601preview:StreamingPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180701:StreamingPolicy"),
 		},
 	})

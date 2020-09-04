@@ -86,6 +86,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datafactory/latest:IntegrationRuntime"},
+                    new Pulumi.Alias { Type = "azurerm:datafactory/v20170901preview:IntegrationRuntime"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

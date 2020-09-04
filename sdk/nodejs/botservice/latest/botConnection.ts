@@ -36,7 +36,7 @@ export class BotConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BotConnection {
-        return new BotConnection(name, undefined, { ...opts, id: id });
+        return new BotConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -93,12 +93,9 @@ export class BotConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BotConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BotConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BotConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BotConnectionArgs | undefined;
             if (!args || args.connectionName === undefined) {
                 throw new Error("Missing required property 'connectionName'");
             }
@@ -119,6 +116,15 @@ export class BotConnection extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -127,7 +133,7 @@ export class BotConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:botservice/v20200602:BotConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:botservice/v20171201:BotConnection" }, { type: "azurerm:botservice/v20180712:BotConnection" }, { type: "azurerm:botservice/v20200602:BotConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BotConnection.__pulumiType, name, inputs, opts);
     }

@@ -50,6 +50,9 @@ func NewRemediationAtResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:policyinsights/v20180701preview:RemediationAtResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:policyinsights/v20190701:RemediationAtResource"),
 		},
 	})

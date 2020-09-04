@@ -51,7 +51,7 @@ export class PeerAsn extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PeerAsn {
-        return new PeerAsn(name, undefined, { ...opts, id: id });
+        return new PeerAsn(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class PeerAsn extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PeerAsnArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PeerAsnArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PeerAsnArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PeerAsnArgs | undefined;
             if (!args || args.peerAsnName === undefined) {
                 throw new Error("Missing required property 'peerAsnName'");
             }
@@ -121,6 +118,14 @@ export class PeerAsn extends pulumi.CustomResource {
             inputs["errorMessage"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["errorMessage"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["peerAsn"] = undefined /*out*/;
+            inputs["peerContactDetail"] = undefined /*out*/;
+            inputs["peerName"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["validationState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -129,7 +134,7 @@ export class PeerAsn extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:peering/v20200401:PeerAsn" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:peering/v20190801preview:PeerAsn" }, { type: "azurerm:peering/v20190901preview:PeerAsn" }, { type: "azurerm:peering/v20200101preview:PeerAsn" }, { type: "azurerm:peering/v20200401:PeerAsn" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PeerAsn.__pulumiType, name, inputs, opts);
     }

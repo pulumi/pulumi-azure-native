@@ -90,7 +90,7 @@ export class Map extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Map {
-        return new Map(name, undefined, { ...opts, id: id });
+        return new Map(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -163,12 +163,9 @@ export class Map extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MapArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MapArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MapArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as MapArgs | undefined;
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
@@ -196,6 +193,19 @@ export class Map extends pulumi.CustomResource {
             inputs["createdTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["content"] = undefined /*out*/;
+            inputs["contentLink"] = undefined /*out*/;
+            inputs["contentType"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["mapType"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["parametersSchema"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -204,7 +214,7 @@ export class Map extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:Map" }, { type: "azurerm:logic/v20190501:Map" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:Map" }, { type: "azurerm:logic/v20150801preview:Map" }, { type: "azurerm:logic/v20180701preview:Map" }, { type: "azurerm:logic/v20190501:Map" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Map.__pulumiType, name, inputs, opts);
     }

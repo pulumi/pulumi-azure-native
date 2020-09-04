@@ -92,7 +92,7 @@ export class Backend extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Backend {
-        return new Backend(name, undefined, { ...opts, id: id });
+        return new Backend(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -161,12 +161,9 @@ export class Backend extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BackendArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BackendArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BackendArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BackendArgs | undefined;
             if (!args || args.backendid === undefined) {
                 throw new Error("Missing required property 'backendid'");
             }
@@ -196,6 +193,18 @@ export class Backend extends pulumi.CustomResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["credentials"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["protocol"] = undefined /*out*/;
+            inputs["proxy"] = undefined /*out*/;
+            inputs["resourceId"] = undefined /*out*/;
+            inputs["title"] = undefined /*out*/;
+            inputs["tls"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["url"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -204,7 +213,7 @@ export class Backend extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Backend" }, { type: "azurerm:apimanagement/v20160707:Backend" }, { type: "azurerm:apimanagement/v20161010:Backend" }, { type: "azurerm:apimanagement/v20170301:Backend" }, { type: "azurerm:apimanagement/v20190101:Backend" }, { type: "azurerm:apimanagement/v20191201:Backend" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Backend" }, { type: "azurerm:apimanagement/v20160707:Backend" }, { type: "azurerm:apimanagement/v20161010:Backend" }, { type: "azurerm:apimanagement/v20170301:Backend" }, { type: "azurerm:apimanagement/v20180601preview:Backend" }, { type: "azurerm:apimanagement/v20190101:Backend" }, { type: "azurerm:apimanagement/v20191201:Backend" }, { type: "azurerm:apimanagement/v20191201preview:Backend" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backend.__pulumiType, name, inputs, opts);
     }

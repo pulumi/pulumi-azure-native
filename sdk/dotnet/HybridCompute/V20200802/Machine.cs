@@ -181,7 +181,11 @@ namespace Pulumi.AzureRM.HybridCompute.V20200802
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/latest:Machine"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20190318preview:Machine"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20190802preview:Machine"},
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/v20191212:Machine"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200730preview:Machine"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200815preview:Machine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -210,18 +214,6 @@ namespace Pulumi.AzureRM.HybridCompute.V20200802
         /// </summary>
         [Input("clientPublicKey")]
         public Input<string>? ClientPublicKey { get; set; }
-
-        [Input("extensions")]
-        private InputList<Inputs.MachineExtensionInstanceViewArgs>? _extensions;
-
-        /// <summary>
-        /// Machine Extensions information
-        /// </summary>
-        public InputList<Inputs.MachineExtensionInstanceViewArgs> Extensions
-        {
-            get => _extensions ?? (_extensions = new InputList<Inputs.MachineExtensionInstanceViewArgs>());
-            set => _extensions = value;
-        }
 
         [Input("identity")]
         public Input<Inputs.MachineIdentityArgs>? Identity { get; set; }

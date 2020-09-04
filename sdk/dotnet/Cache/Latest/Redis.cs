@@ -74,6 +74,12 @@ namespace Pulumi.AzureRM.Cache.Latest
         public Output<string> HostName { get; private set; } = null!;
 
         /// <summary>
+        /// List of the Redis instances associated with the cache
+        /// </summary>
+        [Output("instances")]
+        public Output<ImmutableArray<Outputs.RedisInstanceDetailsResponseResult>> Instances { get; private set; } = null!;
+
+        /// <summary>
         /// List of the linked servers associated with the cache
         /// </summary>
         [Output("linkedServers")]
@@ -120,6 +126,12 @@ namespace Pulumi.AzureRM.Cache.Latest
         /// </summary>
         [Output("redisVersion")]
         public Output<string> RedisVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of replicas to be created per master.
+        /// </summary>
+        [Output("replicasPerMaster")]
+        public Output<int?> ReplicasPerMaster { get; private set; } = null!;
 
         /// <summary>
         /// The number of shards to be created on a Premium Cluster Cache.
@@ -205,6 +217,7 @@ namespace Pulumi.AzureRM.Cache.Latest
                     new Pulumi.Alias { Type = "azurerm:cache/v20170201:Redis"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20171001:Redis"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20180301:Redis"},
+                    new Pulumi.Alias { Type = "azurerm:cache/v20190701:Redis"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -263,6 +276,12 @@ namespace Pulumi.AzureRM.Cache.Latest
             get => _redisConfiguration ?? (_redisConfiguration = new InputMap<string>());
             set => _redisConfiguration = value;
         }
+
+        /// <summary>
+        /// The number of replicas to be created per master.
+        /// </summary>
+        [Input("replicasPerMaster")]
+        public Input<int>? ReplicasPerMaster { get; set; }
 
         /// <summary>
         /// The name of the resource group.

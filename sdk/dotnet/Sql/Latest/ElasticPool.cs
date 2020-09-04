@@ -167,6 +167,7 @@ namespace Pulumi.AzureRM.Sql.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:sql/v20140401:ElasticPool"},
+                    new Pulumi.Alias { Type = "azurerm:sql/v20171001preview:ElasticPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

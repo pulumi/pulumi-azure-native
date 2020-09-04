@@ -88,7 +88,7 @@ class Factory(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datafactory/v20180601:Factory")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datafactory/v20170901preview:Factory"), pulumi.Alias(type_="azurerm:datafactory/v20180601:Factory")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Factory, __self__).__init__(
             'azurerm:datafactory/latest:Factory',

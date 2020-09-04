@@ -41,7 +41,7 @@ export class Favorite extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Favorite {
-        return new Favorite(name, undefined, { ...opts, id: id });
+        return new Favorite(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -110,12 +110,9 @@ export class Favorite extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FavoriteArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FavoriteArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: FavoriteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as FavoriteArgs | undefined;
             if (!args || args.favoriteId === undefined) {
                 throw new Error("Missing required property 'favoriteId'");
             }
@@ -138,6 +135,18 @@ export class Favorite extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["timeModified"] = undefined /*out*/;
             inputs["userId"] = undefined /*out*/;
+        } else {
+            inputs["category"] = undefined /*out*/;
+            inputs["config"] = undefined /*out*/;
+            inputs["favoriteId"] = undefined /*out*/;
+            inputs["favoriteType"] = undefined /*out*/;
+            inputs["isGeneratedFromTemplate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["sourceType"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["timeModified"] = undefined /*out*/;
+            inputs["userId"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

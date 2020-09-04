@@ -80,7 +80,7 @@ class ServerDetails(pulumi.CustomResource):
             __props__['server_full_name'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:analysisservices/latest:ServerDetails"), pulumi.Alias(type_="azurerm:analysisservices/v20160516:ServerDetails"), pulumi.Alias(type_="azurerm:analysisservices/v20170801:ServerDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:analysisservices/latest:ServerDetails"), pulumi.Alias(type_="azurerm:analysisservices/v20160516:ServerDetails"), pulumi.Alias(type_="azurerm:analysisservices/v20170801:ServerDetails"), pulumi.Alias(type_="azurerm:analysisservices/v20170801beta:ServerDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerDetails, __self__).__init__(
             'azurerm:analysisservices/v20170714:ServerDetails',

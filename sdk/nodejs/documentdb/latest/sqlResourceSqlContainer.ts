@@ -75,7 +75,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlContainer {
-        return new SqlResourceSqlContainer(name, undefined, { ...opts, id: id });
+        return new SqlResourceSqlContainer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -118,12 +118,9 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SqlResourceSqlContainerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SqlResourceSqlContainerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SqlResourceSqlContainerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SqlResourceSqlContainerArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -152,6 +149,13 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["options"] = undefined /*out*/;
+            inputs["resource"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -160,7 +164,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20190801:SqlResourceSqlContainer" }, { type: "azurerm:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azurerm:documentdb/v20200301:SqlResourceSqlContainer" }, { type: "azurerm:documentdb/v20200401:SqlResourceSqlContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20190801:SqlResourceSqlContainer" }, { type: "azurerm:documentdb/v20191212:SqlResourceSqlContainer" }, { type: "azurerm:documentdb/v20200301:SqlResourceSqlContainer" }, { type: "azurerm:documentdb/v20200401:SqlResourceSqlContainer" }, { type: "azurerm:documentdb/v20200601preview:SqlResourceSqlContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlContainer.__pulumiType, name, inputs, opts);
     }

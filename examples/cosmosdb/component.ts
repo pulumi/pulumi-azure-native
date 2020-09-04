@@ -1,5 +1,8 @@
-import * as azurerm from "../../sdk/nodejs";
 import * as pulumi from "@pulumi/pulumi";
+
+import * as documentdb from "@pulumi/azurerm/documentdb/latest";
+import * as resources from "@pulumi/azurerm/resources/latest";
+import { documentdb as documentdbInputs } from "@pulumi/azurerm/types/input";
 
 export type Location =
     "eastasia"           |
@@ -66,7 +69,7 @@ type MultipleLocations = {
 type Locationable = SingleLocation | MultipleLocations;
 
 interface MyDatabaseAccountArgs {
-    resourceGroup: azurerm.resources.latest.ResourceGroup;
+    resourceGroup: resources.ResourceGroup;
     api: Api;
     consisencyPolicy: ConsistencyPolicy;
     location: Locationable;
@@ -75,10 +78,10 @@ interface MyDatabaseAccountArgs {
 export class DatabaseAccount {
     public id: pulumi.Output<string>;
 
-    constructor(name: string, args: MyDatabaseAccountArgs) {
+    constructor(name: pulumi.Output<string>, args: MyDatabaseAccountArgs) {
 
         let kind = "GlobalDocumentDB";
-        let capabilities: azurerm.types.input.documentdb.latest.Capability[] = [];
+        let capabilities: documentdbInputs.latest.Capability[] | undefined = undefined;
         if (args.api === "MongoDB") {
             kind = "MongoDB";
         } else if (args.api === "Cassandra") {
@@ -93,7 +96,7 @@ export class DatabaseAccount {
         const enableMultipleWriteLocations = args.location.type === "single" ? false : args.location.enableMultipleWriteLocations;
         const enableAutomaticFailover = args.location.type === "single" ? false : args.location.enableAutomaticFailover;
 
-        const cosmosdbAccount = new azurerm.documentdb.latest.DatabaseAccount(name, {
+        const cosmosdbAccount = new documentdb.DatabaseAccount("dbaccount", {
             resourceGroupName: args.resourceGroup.name,
             accountName: name,
             location: locations[0],

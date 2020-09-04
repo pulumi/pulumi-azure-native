@@ -155,6 +155,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:Share"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:Share"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:Share"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:Share"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -19,7 +19,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkInterface {
-        return new NetworkInterface(name, undefined, { ...opts, id: id });
+        return new NetworkInterface(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class NetworkInterface extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as NetworkInterfaceArgs | undefined;
             if (!args || args.networkInterfaceName === undefined) {
                 throw new Error("Missing required property 'networkInterfaceName'");
             }
@@ -134,6 +131,22 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["virtualMachine"] = args ? args.virtualMachine : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["dnsSettings"] = undefined /*out*/;
+            inputs["enableAcceleratedNetworking"] = undefined /*out*/;
+            inputs["enableIPForwarding"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["ipConfigurations"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["macAddress"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkSecurityGroup"] = undefined /*out*/;
+            inputs["primary"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualMachine"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -142,7 +155,7 @@ export class NetworkInterface extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:NetworkInterface" }, { type: "azurerm:network/v20150615:NetworkInterface" }, { type: "azurerm:network/v20160330:NetworkInterface" }, { type: "azurerm:network/v20160601:NetworkInterface" }, { type: "azurerm:network/v20160901:NetworkInterface" }, { type: "azurerm:network/v20161201:NetworkInterface" }, { type: "azurerm:network/v20170301:NetworkInterface" }, { type: "azurerm:network/v20170601:NetworkInterface" }, { type: "azurerm:network/v20170801:NetworkInterface" }, { type: "azurerm:network/v20171001:NetworkInterface" }, { type: "azurerm:network/v20171101:NetworkInterface" }, { type: "azurerm:network/v20180101:NetworkInterface" }, { type: "azurerm:network/v20180201:NetworkInterface" }, { type: "azurerm:network/v20180401:NetworkInterface" }, { type: "azurerm:network/v20180601:NetworkInterface" }, { type: "azurerm:network/v20180701:NetworkInterface" }, { type: "azurerm:network/v20180801:NetworkInterface" }, { type: "azurerm:network/v20181001:NetworkInterface" }, { type: "azurerm:network/v20181101:NetworkInterface" }, { type: "azurerm:network/v20181201:NetworkInterface" }, { type: "azurerm:network/v20190201:NetworkInterface" }, { type: "azurerm:network/v20190401:NetworkInterface" }, { type: "azurerm:network/v20190601:NetworkInterface" }, { type: "azurerm:network/v20190701:NetworkInterface" }, { type: "azurerm:network/v20190801:NetworkInterface" }, { type: "azurerm:network/v20190901:NetworkInterface" }, { type: "azurerm:network/v20191101:NetworkInterface" }, { type: "azurerm:network/v20191201:NetworkInterface" }, { type: "azurerm:network/v20200301:NetworkInterface" }, { type: "azurerm:network/v20200401:NetworkInterface" }, { type: "azurerm:network/v20200501:NetworkInterface" }, { type: "azurerm:network/v20200601:NetworkInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:NetworkInterface" }, { type: "azurerm:network/v20150501preview:NetworkInterface" }, { type: "azurerm:network/v20150615:NetworkInterface" }, { type: "azurerm:network/v20160330:NetworkInterface" }, { type: "azurerm:network/v20160601:NetworkInterface" }, { type: "azurerm:network/v20160901:NetworkInterface" }, { type: "azurerm:network/v20161201:NetworkInterface" }, { type: "azurerm:network/v20170301:NetworkInterface" }, { type: "azurerm:network/v20170601:NetworkInterface" }, { type: "azurerm:network/v20170801:NetworkInterface" }, { type: "azurerm:network/v20171001:NetworkInterface" }, { type: "azurerm:network/v20171101:NetworkInterface" }, { type: "azurerm:network/v20180101:NetworkInterface" }, { type: "azurerm:network/v20180201:NetworkInterface" }, { type: "azurerm:network/v20180401:NetworkInterface" }, { type: "azurerm:network/v20180601:NetworkInterface" }, { type: "azurerm:network/v20180701:NetworkInterface" }, { type: "azurerm:network/v20180801:NetworkInterface" }, { type: "azurerm:network/v20181001:NetworkInterface" }, { type: "azurerm:network/v20181101:NetworkInterface" }, { type: "azurerm:network/v20181201:NetworkInterface" }, { type: "azurerm:network/v20190201:NetworkInterface" }, { type: "azurerm:network/v20190401:NetworkInterface" }, { type: "azurerm:network/v20190601:NetworkInterface" }, { type: "azurerm:network/v20190701:NetworkInterface" }, { type: "azurerm:network/v20190801:NetworkInterface" }, { type: "azurerm:network/v20190901:NetworkInterface" }, { type: "azurerm:network/v20191101:NetworkInterface" }, { type: "azurerm:network/v20191201:NetworkInterface" }, { type: "azurerm:network/v20200301:NetworkInterface" }, { type: "azurerm:network/v20200401:NetworkInterface" }, { type: "azurerm:network/v20200501:NetworkInterface" }, { type: "azurerm:network/v20200601:NetworkInterface" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkInterface.__pulumiType, name, inputs, opts);
     }

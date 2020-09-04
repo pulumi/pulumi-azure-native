@@ -48,7 +48,7 @@ export class PacketCapture extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PacketCapture {
-        return new PacketCapture(name, undefined, { ...opts, id: id });
+        return new PacketCapture(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -103,12 +103,9 @@ export class PacketCapture extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PacketCaptureArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PacketCaptureArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PacketCaptureArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PacketCaptureArgs | undefined;
             if (!args || args.networkWatcherName === undefined) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
@@ -136,6 +133,16 @@ export class PacketCapture extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["bytesToCapturePerPacket"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["filters"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["storageLocation"] = undefined /*out*/;
+            inputs["target"] = undefined /*out*/;
+            inputs["timeLimitInSeconds"] = undefined /*out*/;
+            inputs["totalBytesPerSession"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

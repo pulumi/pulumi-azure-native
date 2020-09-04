@@ -36,7 +36,7 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageAccount {
-        return new StorageAccount(name, undefined, { ...opts, id: id });
+        return new StorageAccount(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -93,12 +93,9 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as StorageAccountArgs | undefined;
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -119,6 +116,15 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["containerCount"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["blobEndpoint"] = undefined /*out*/;
+            inputs["containerCount"] = undefined /*out*/;
+            inputs["dataPolicy"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["storageAccountCredentialId"] = undefined /*out*/;
+            inputs["storageAccountStatus"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -127,7 +133,7 @@ export class StorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:StorageAccount" }, { type: "azurerm:databoxedge/v20200501preview:StorageAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccount.__pulumiType, name, inputs, opts);
     }

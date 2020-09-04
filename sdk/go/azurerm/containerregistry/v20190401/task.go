@@ -76,6 +76,9 @@ func NewTask(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:containerregistry/v20180901:Task"),
 		},
+		{
+			Type: pulumi.String("azurerm:containerregistry/v20190601preview:Task"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Task

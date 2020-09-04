@@ -37,7 +37,7 @@ export class RegisteredServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegisteredServer {
-        return new RegisteredServer(name, undefined, { ...opts, id: id });
+        return new RegisteredServer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -142,12 +142,9 @@ export class RegisteredServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RegisteredServerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RegisteredServerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RegisteredServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RegisteredServerArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -181,6 +178,27 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["serviceLocation"] = undefined /*out*/;
             inputs["storageSyncServiceUid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["agentVersion"] = undefined /*out*/;
+            inputs["clusterId"] = undefined /*out*/;
+            inputs["clusterName"] = undefined /*out*/;
+            inputs["discoveryEndpointUri"] = undefined /*out*/;
+            inputs["friendlyName"] = undefined /*out*/;
+            inputs["lastHeartBeat"] = undefined /*out*/;
+            inputs["lastOperationName"] = undefined /*out*/;
+            inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["managementEndpointUri"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceLocation"] = undefined /*out*/;
+            inputs["serverCertificate"] = undefined /*out*/;
+            inputs["serverId"] = undefined /*out*/;
+            inputs["serverManagementtErrorCode"] = undefined /*out*/;
+            inputs["serverOSVersion"] = undefined /*out*/;
+            inputs["serverRole"] = undefined /*out*/;
+            inputs["serviceLocation"] = undefined /*out*/;
+            inputs["storageSyncServiceUid"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -189,7 +207,7 @@ export class RegisteredServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:RegisteredServer" }, { type: "azurerm:storagesync/v20180701:RegisteredServer" }, { type: "azurerm:storagesync/v20181001:RegisteredServer" }, { type: "azurerm:storagesync/v20190201:RegisteredServer" }, { type: "azurerm:storagesync/v20190301:RegisteredServer" }, { type: "azurerm:storagesync/v20190601:RegisteredServer" }, { type: "azurerm:storagesync/v20191001:RegisteredServer" }, { type: "azurerm:storagesync/v20200301:RegisteredServer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:RegisteredServer" }, { type: "azurerm:storagesync/v20170605preview:RegisteredServer" }, { type: "azurerm:storagesync/v20180701:RegisteredServer" }, { type: "azurerm:storagesync/v20181001:RegisteredServer" }, { type: "azurerm:storagesync/v20190201:RegisteredServer" }, { type: "azurerm:storagesync/v20190301:RegisteredServer" }, { type: "azurerm:storagesync/v20190601:RegisteredServer" }, { type: "azurerm:storagesync/v20191001:RegisteredServer" }, { type: "azurerm:storagesync/v20200301:RegisteredServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegisteredServer.__pulumiType, name, inputs, opts);
     }

@@ -65,6 +65,9 @@ func NewSnapshot(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:Snapshot"),
 		},
 		{
+			Type: pulumi.String("azurerm:compute/v20160430preview:Snapshot"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20170330:Snapshot"),
 		},
 		{

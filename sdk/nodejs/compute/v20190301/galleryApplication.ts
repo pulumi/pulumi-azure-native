@@ -38,7 +38,7 @@ export class GalleryApplication extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GalleryApplication {
-        return new GalleryApplication(name, undefined, { ...opts, id: id });
+        return new GalleryApplication(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -103,12 +103,9 @@ export class GalleryApplication extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GalleryApplicationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GalleryApplicationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: GalleryApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as GalleryApplicationArgs | undefined;
             if (!args || args.galleryApplicationName === undefined) {
                 throw new Error("Missing required property 'galleryApplicationName'");
             }
@@ -136,6 +133,17 @@ export class GalleryApplication extends pulumi.CustomResource {
             inputs["supportedOSType"] = args ? args.supportedOSType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["endOfLifeDate"] = undefined /*out*/;
+            inputs["eula"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["privacyStatementUri"] = undefined /*out*/;
+            inputs["releaseNoteUri"] = undefined /*out*/;
+            inputs["supportedOSType"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

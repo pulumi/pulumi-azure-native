@@ -19,7 +19,7 @@ export class Application extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Application {
-        return new Application(name, undefined, { ...opts, id: id });
+        return new Application(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -60,12 +60,9 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -81,6 +78,11 @@ export class Application extends pulumi.CustomResource {
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["defaultVersion"] = undefined /*out*/;
+            inputs["packages"] = undefined /*out*/;
+        } else {
+            inputs["allowUpdates"] = undefined /*out*/;
+            inputs["defaultVersion"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
             inputs["packages"] = undefined /*out*/;
         }
         if (!opts) {

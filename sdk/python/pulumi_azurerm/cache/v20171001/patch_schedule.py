@@ -89,7 +89,7 @@ class PatchSchedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schedule_entries'")
             __props__['schedule_entries'] = schedule_entries
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/latest:PatchSchedule"), pulumi.Alias(type_="azurerm:cache/v20180301:PatchSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:cache/latest:PatchSchedule"), pulumi.Alias(type_="azurerm:cache/v20180301:PatchSchedule"), pulumi.Alias(type_="azurerm:cache/v20190701:PatchSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PatchSchedule, __self__).__init__(
             'azurerm:cache/v20171001:PatchSchedule',

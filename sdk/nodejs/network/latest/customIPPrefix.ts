@@ -35,7 +35,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomIPPrefix {
-        return new CustomIPPrefix(name, undefined, { ...opts, id: id });
+        return new CustomIPPrefix(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CustomIPPrefixArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CustomIPPrefixArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CustomIPPrefixArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as CustomIPPrefixArgs | undefined;
             if (!args || args.customIpPrefixName === undefined) {
                 throw new Error("Missing required property 'customIpPrefixName'");
             }
@@ -130,6 +127,18 @@ export class CustomIPPrefix extends pulumi.CustomResource {
             inputs["publicIpPrefixes"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["cidr"] = undefined /*out*/;
+            inputs["commissionedState"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicIpPrefixes"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["zones"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

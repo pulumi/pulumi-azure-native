@@ -43,7 +43,7 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ExpressRouteCircuitConnection {
-        return new ExpressRouteCircuitConnection(name, undefined, { ...opts, id: id });
+        return new ExpressRouteCircuitConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ExpressRouteCircuitConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ExpressRouteCircuitConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ExpressRouteCircuitConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ExpressRouteCircuitConnectionArgs | undefined;
             if (!args || args.circuitName === undefined) {
                 throw new Error("Missing required property 'circuitName'");
             }
@@ -134,6 +131,16 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["addressPrefix"] = undefined /*out*/;
+            inputs["authorizationKey"] = undefined /*out*/;
+            inputs["circuitConnectionStatus"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["expressRouteCircuitPeering"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["peerExpressRouteCircuitPeering"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

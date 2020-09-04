@@ -1,6 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
+import * as random from "@pulumi/random";
 import * as fs from "fs";
-import * as azurerm from "../../sdk/nodejs";
+import * as resources from "@pulumi/azurerm/resources/latest";
 
 interface TemplateResourceArgs {
     resourceGroupName: string;
@@ -14,7 +15,7 @@ class TemplateResource extends pulumi.CustomResource {
 }
 
 interface TemplateArgs {
-    resourceGroupName: string;
+    resourceGroupName: pulumi.Output<string>;
     fileName: string;
 }
 
@@ -97,9 +98,14 @@ class Template extends pulumi.ComponentResource {
     }
 }
 
-const resourceGroupName = "azurermtemplates";
+const randomString = new random.RandomString("random", {
+    length: 12,
+    special: false,
+    upper: false,
+});
+const resourceGroupName = randomString.result;
 
-const resourceGroup = new azurerm.resources.latest.ResourceGroup("azurerm", {
+const resourceGroup = new resources.ResourceGroup("azurerm", {
     resourceGroupName,
     location: "westus2",
     tags: {

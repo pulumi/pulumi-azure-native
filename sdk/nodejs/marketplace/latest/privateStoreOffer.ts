@@ -31,7 +31,7 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateStoreOffer {
-        return new PrivateStoreOffer(name, undefined, { ...opts, id: id });
+        return new PrivateStoreOffer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -96,12 +96,9 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PrivateStoreOfferArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PrivateStoreOfferArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PrivateStoreOfferArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PrivateStoreOfferArgs | undefined;
             if (!args || args.offerId === undefined) {
                 throw new Error("Missing required property 'offerId'");
             }
@@ -117,6 +114,17 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["offerDisplayName"] = undefined /*out*/;
             inputs["publisherDisplayName"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueOfferId"] = undefined /*out*/;
+        } else {
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["eTag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["offerDisplayName"] = undefined /*out*/;
+            inputs["privateStoreId"] = undefined /*out*/;
+            inputs["publisherDisplayName"] = undefined /*out*/;
+            inputs["specificPlanIdsLimitation"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueOfferId"] = undefined /*out*/;
         }

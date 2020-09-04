@@ -120,8 +120,10 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ApiPolicy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ApiPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:ApiPolicy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:ApiPolicy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:ApiPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:ApiPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

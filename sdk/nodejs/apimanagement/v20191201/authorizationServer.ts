@@ -51,7 +51,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AuthorizationServer {
-        return new AuthorizationServer(name, undefined, { ...opts, id: id });
+        return new AuthorizationServer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -148,12 +148,9 @@ export class AuthorizationServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AuthorizationServerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AuthorizationServerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AuthorizationServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AuthorizationServerArgs | undefined;
             if (!args || args.authorizationEndpoint === undefined) {
                 throw new Error("Missing required property 'authorizationEndpoint'");
             }
@@ -199,6 +196,25 @@ export class AuthorizationServer extends pulumi.CustomResource {
             inputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["authorizationEndpoint"] = undefined /*out*/;
+            inputs["authorizationMethods"] = undefined /*out*/;
+            inputs["bearerTokenSendingMethods"] = undefined /*out*/;
+            inputs["clientAuthenticationMethod"] = undefined /*out*/;
+            inputs["clientId"] = undefined /*out*/;
+            inputs["clientRegistrationEndpoint"] = undefined /*out*/;
+            inputs["clientSecret"] = undefined /*out*/;
+            inputs["defaultScope"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["grantTypes"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["resourceOwnerPassword"] = undefined /*out*/;
+            inputs["resourceOwnerUsername"] = undefined /*out*/;
+            inputs["supportState"] = undefined /*out*/;
+            inputs["tokenBodyParameters"] = undefined /*out*/;
+            inputs["tokenEndpoint"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -207,7 +223,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:AuthorizationServer" }, { type: "azurerm:apimanagement/v20160707:AuthorizationServer" }, { type: "azurerm:apimanagement/v20161010:AuthorizationServer" }, { type: "azurerm:apimanagement/v20170301:AuthorizationServer" }, { type: "azurerm:apimanagement/v20180101:AuthorizationServer" }, { type: "azurerm:apimanagement/v20190101:AuthorizationServer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:AuthorizationServer" }, { type: "azurerm:apimanagement/v20160707:AuthorizationServer" }, { type: "azurerm:apimanagement/v20161010:AuthorizationServer" }, { type: "azurerm:apimanagement/v20170301:AuthorizationServer" }, { type: "azurerm:apimanagement/v20180101:AuthorizationServer" }, { type: "azurerm:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azurerm:apimanagement/v20190101:AuthorizationServer" }, { type: "azurerm:apimanagement/v20191201preview:AuthorizationServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AuthorizationServer.__pulumiType, name, inputs, opts);
     }

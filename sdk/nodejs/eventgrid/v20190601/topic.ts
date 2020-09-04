@@ -36,7 +36,7 @@ export class Topic extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Topic {
-        return new Topic(name, undefined, { ...opts, id: id });
+        return new Topic(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -85,12 +85,9 @@ export class Topic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TopicArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as TopicArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -108,6 +105,13 @@ export class Topic extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["endpoint"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -116,7 +120,7 @@ export class Topic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/latest:Topic" }, { type: "azurerm:eventgrid/v20180101:Topic" }, { type: "azurerm:eventgrid/v20190101:Topic" }, { type: "azurerm:eventgrid/v20200601:Topic" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/latest:Topic" }, { type: "azurerm:eventgrid/v20170615preview:Topic" }, { type: "azurerm:eventgrid/v20170915preview:Topic" }, { type: "azurerm:eventgrid/v20180101:Topic" }, { type: "azurerm:eventgrid/v20180501preview:Topic" }, { type: "azurerm:eventgrid/v20180915preview:Topic" }, { type: "azurerm:eventgrid/v20190101:Topic" }, { type: "azurerm:eventgrid/v20190201preview:Topic" }, { type: "azurerm:eventgrid/v20200101preview:Topic" }, { type: "azurerm:eventgrid/v20200401preview:Topic" }, { type: "azurerm:eventgrid/v20200601:Topic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Topic.__pulumiType, name, inputs, opts);
     }

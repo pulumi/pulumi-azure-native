@@ -55,7 +55,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachine {
-        return new VirtualMachine(name, undefined, { ...opts, id: id });
+        return new VirtualMachine(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -184,12 +184,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualMachineArgs | undefined;
             if (!args || args.amountOfRam === undefined) {
                 throw new Error("Missing required property 'amountOfRam'");
             }
@@ -234,6 +231,33 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["publicIP"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["vmId"] = undefined /*out*/;
+            inputs["vmwaretools"] = undefined /*out*/;
+        } else {
+            inputs["amountOfRam"] = undefined /*out*/;
+            inputs["controllers"] = undefined /*out*/;
+            inputs["customization"] = undefined /*out*/;
+            inputs["disks"] = undefined /*out*/;
+            inputs["dnsname"] = undefined /*out*/;
+            inputs["exposeToGuestVM"] = undefined /*out*/;
+            inputs["folder"] = undefined /*out*/;
+            inputs["guestOS"] = undefined /*out*/;
+            inputs["guestOSType"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["nics"] = undefined /*out*/;
+            inputs["numberOfCores"] = undefined /*out*/;
+            inputs["password"] = undefined /*out*/;
+            inputs["privateCloudId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicIP"] = undefined /*out*/;
+            inputs["resourcePool"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["templateId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["username"] = undefined /*out*/;
+            inputs["vSphereNetworks"] = undefined /*out*/;
             inputs["vmId"] = undefined /*out*/;
             inputs["vmwaretools"] = undefined /*out*/;
         }

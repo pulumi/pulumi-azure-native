@@ -34,7 +34,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ExpressRouteCircuitAuthorization {
-        return new ExpressRouteCircuitAuthorization(name, undefined, { ...opts, id: id });
+        return new ExpressRouteCircuitAuthorization(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -79,12 +79,9 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ExpressRouteCircuitAuthorizationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ExpressRouteCircuitAuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ExpressRouteCircuitAuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ExpressRouteCircuitAuthorizationArgs | undefined;
             if (!args || args.authorizationName === undefined) {
                 throw new Error("Missing required property 'authorizationName'");
             }
@@ -103,6 +100,12 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+        } else {
+            inputs["authorizationKey"] = undefined /*out*/;
+            inputs["authorizationUseStatus"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -111,7 +114,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20150615:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20160330:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20160601:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20160901:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20161201:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20170301:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20170601:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20170801:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20170901:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20171001:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20171101:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180101:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180201:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180401:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180601:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180701:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180801:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20181001:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20181201:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190201:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190401:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190601:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190701:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190801:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190901:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20191101:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20191201:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20200301:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20200401:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20200501:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20200601:ExpressRouteCircuitAuthorization" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20150501preview:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20150615:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20160330:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20160601:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20160901:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20161201:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20170301:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20170601:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20170801:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20170901:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20171001:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20171101:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180101:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180201:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180401:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180601:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180701:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20180801:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20181001:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20181201:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190201:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190401:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190601:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190701:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190801:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20190901:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20191101:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20191201:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20200301:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20200401:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20200501:ExpressRouteCircuitAuthorization" }, { type: "azurerm:network/v20200601:ExpressRouteCircuitAuthorization" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ExpressRouteCircuitAuthorization.__pulumiType, name, inputs, opts);
     }

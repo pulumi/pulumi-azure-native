@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbformariadb/v20180601:Database"},
+                    new Pulumi.Alias { Type = "azurerm:dbformariadb/v20180601preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -51,6 +51,9 @@ func NewRoute(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:Route"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/v20150501preview:Route"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20160330:Route"),
 		},
 		{

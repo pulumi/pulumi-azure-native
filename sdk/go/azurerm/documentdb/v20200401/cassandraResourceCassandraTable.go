@@ -63,6 +63,9 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200301:CassandraResourceCassandraTable"),
 		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:CassandraResourceCassandraTable"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CassandraResourceCassandraTable

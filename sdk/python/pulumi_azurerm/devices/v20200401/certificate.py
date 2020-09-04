@@ -79,7 +79,7 @@ class Certificate(pulumi.CustomResource):
             __props__['name'] = None
             __props__['properties'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devices/latest:Certificate"), pulumi.Alias(type_="azurerm:devices/v20170701:Certificate"), pulumi.Alias(type_="azurerm:devices/v20180122:Certificate"), pulumi.Alias(type_="azurerm:devices/v20180401:Certificate"), pulumi.Alias(type_="azurerm:devices/v20190322:Certificate"), pulumi.Alias(type_="azurerm:devices/v20191104:Certificate"), pulumi.Alias(type_="azurerm:devices/v20200301:Certificate"), pulumi.Alias(type_="azurerm:devices/v20200615:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devices/latest:Certificate"), pulumi.Alias(type_="azurerm:devices/v20170701:Certificate"), pulumi.Alias(type_="azurerm:devices/v20180122:Certificate"), pulumi.Alias(type_="azurerm:devices/v20180401:Certificate"), pulumi.Alias(type_="azurerm:devices/v20181201preview:Certificate"), pulumi.Alias(type_="azurerm:devices/v20190322:Certificate"), pulumi.Alias(type_="azurerm:devices/v20190322preview:Certificate"), pulumi.Alias(type_="azurerm:devices/v20190701preview:Certificate"), pulumi.Alias(type_="azurerm:devices/v20191104:Certificate"), pulumi.Alias(type_="azurerm:devices/v20200301:Certificate"), pulumi.Alias(type_="azurerm:devices/v20200615:Certificate"), pulumi.Alias(type_="azurerm:devices/v20200710preview:Certificate"), pulumi.Alias(type_="azurerm:devices/v20200801:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azurerm:devices/v20200401:Certificate',

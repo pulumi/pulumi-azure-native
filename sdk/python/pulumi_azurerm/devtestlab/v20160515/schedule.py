@@ -96,7 +96,7 @@ class Schedule(pulumi.CustomResource):
             __props__['weekly_recurrence'] = weekly_recurrence
             __props__['created_date'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:Schedule"), pulumi.Alias(type_="azurerm:devtestlab/v20180915:Schedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:Schedule"), pulumi.Alias(type_="azurerm:devtestlab/v20150521preview:Schedule"), pulumi.Alias(type_="azurerm:devtestlab/v20180915:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
             'azurerm:devtestlab/v20160515:Schedule',

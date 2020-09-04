@@ -82,7 +82,7 @@ export class ManagedCluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedCluster {
-        return new ManagedCluster(name, undefined, { ...opts, id: id });
+        return new ManagedCluster(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -203,12 +203,9 @@ export class ManagedCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ManagedClusterArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -244,6 +241,31 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["privateFQDN"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["aadProfile"] = undefined /*out*/;
+            inputs["addonProfiles"] = undefined /*out*/;
+            inputs["agentPoolProfiles"] = undefined /*out*/;
+            inputs["apiServerAccessProfile"] = undefined /*out*/;
+            inputs["diskEncryptionSetID"] = undefined /*out*/;
+            inputs["dnsPrefix"] = undefined /*out*/;
+            inputs["enablePodSecurityPolicy"] = undefined /*out*/;
+            inputs["enableRBAC"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["identityProfile"] = undefined /*out*/;
+            inputs["kubernetesVersion"] = undefined /*out*/;
+            inputs["linuxProfile"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["maxAgentPools"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkProfile"] = undefined /*out*/;
+            inputs["nodeResourceGroup"] = undefined /*out*/;
+            inputs["privateFQDN"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["servicePrincipalProfile"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["windowsProfile"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -252,7 +274,7 @@ export class ManagedCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerservice/latest:ManagedCluster" }, { type: "azurerm:containerservice/v20170831:ManagedCluster" }, { type: "azurerm:containerservice/v20180331:ManagedCluster" }, { type: "azurerm:containerservice/v20190201:ManagedCluster" }, { type: "azurerm:containerservice/v20190401:ManagedCluster" }, { type: "azurerm:containerservice/v20190601:ManagedCluster" }, { type: "azurerm:containerservice/v20190801:ManagedCluster" }, { type: "azurerm:containerservice/v20191001:ManagedCluster" }, { type: "azurerm:containerservice/v20191101:ManagedCluster" }, { type: "azurerm:containerservice/v20200201:ManagedCluster" }, { type: "azurerm:containerservice/v20200301:ManagedCluster" }, { type: "azurerm:containerservice/v20200401:ManagedCluster" }, { type: "azurerm:containerservice/v20200601:ManagedCluster" }, { type: "azurerm:containerservice/v20200701:ManagedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:containerservice/latest:ManagedCluster" }, { type: "azurerm:containerservice/v20170831:ManagedCluster" }, { type: "azurerm:containerservice/v20180331:ManagedCluster" }, { type: "azurerm:containerservice/v20180801preview:ManagedCluster" }, { type: "azurerm:containerservice/v20190201:ManagedCluster" }, { type: "azurerm:containerservice/v20190401:ManagedCluster" }, { type: "azurerm:containerservice/v20190601:ManagedCluster" }, { type: "azurerm:containerservice/v20190801:ManagedCluster" }, { type: "azurerm:containerservice/v20191001:ManagedCluster" }, { type: "azurerm:containerservice/v20191101:ManagedCluster" }, { type: "azurerm:containerservice/v20200201:ManagedCluster" }, { type: "azurerm:containerservice/v20200301:ManagedCluster" }, { type: "azurerm:containerservice/v20200401:ManagedCluster" }, { type: "azurerm:containerservice/v20200601:ManagedCluster" }, { type: "azurerm:containerservice/v20200701:ManagedCluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedCluster.__pulumiType, name, inputs, opts);
     }

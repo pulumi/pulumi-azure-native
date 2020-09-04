@@ -69,6 +69,9 @@ func NewViewByScope(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:costmanagement/latest:ViewByScope"),
 		},
 		{
+			Type: pulumi.String("azurerm:costmanagement/v20190401preview:ViewByScope"),
+		},
+		{
 			Type: pulumi.String("azurerm:costmanagement/v20191101:ViewByScope"),
 		},
 	})

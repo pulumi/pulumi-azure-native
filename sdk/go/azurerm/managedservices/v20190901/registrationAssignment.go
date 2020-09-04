@@ -39,7 +39,16 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:managedservices/latest:RegistrationAssignment"),
 		},
 		{
+			Type: pulumi.String("azurerm:managedservices/v20180601preview:RegistrationAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:managedservices/v20190401preview:RegistrationAssignment"),
+		},
+		{
 			Type: pulumi.String("azurerm:managedservices/v20190601:RegistrationAssignment"),
+		},
+		{
+			Type: pulumi.String("azurerm:managedservices/v20200201preview:RegistrationAssignment"),
 		},
 	})
 	opts = append(opts, aliases)

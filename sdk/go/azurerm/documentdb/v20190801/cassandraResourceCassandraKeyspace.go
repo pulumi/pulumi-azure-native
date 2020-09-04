@@ -59,6 +59,9 @@ func NewCassandraResourceCassandraKeyspace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200401:CassandraResourceCassandraKeyspace"),
 		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:CassandraResourceCassandraKeyspace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CassandraResourceCassandraKeyspace

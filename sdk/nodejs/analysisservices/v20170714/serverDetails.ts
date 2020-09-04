@@ -19,7 +19,7 @@ export class ServerDetails extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerDetails {
-        return new ServerDetails(name, undefined, { ...opts, id: id });
+        return new ServerDetails(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -88,12 +88,9 @@ export class ServerDetails extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerDetailsArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerDetailsArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServerDetailsArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServerDetailsArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -119,6 +116,18 @@ export class ServerDetails extends pulumi.CustomResource {
             inputs["serverFullName"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["asAdministrators"] = undefined /*out*/;
+            inputs["backupBlobContainerUri"] = undefined /*out*/;
+            inputs["gatewayDetails"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["serverFullName"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -127,7 +136,7 @@ export class ServerDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:analysisservices/latest:ServerDetails" }, { type: "azurerm:analysisservices/v20160516:ServerDetails" }, { type: "azurerm:analysisservices/v20170801:ServerDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:analysisservices/latest:ServerDetails" }, { type: "azurerm:analysisservices/v20160516:ServerDetails" }, { type: "azurerm:analysisservices/v20170801:ServerDetails" }, { type: "azurerm:analysisservices/v20170801beta:ServerDetails" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerDetails.__pulumiType, name, inputs, opts);
     }

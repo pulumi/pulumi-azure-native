@@ -79,7 +79,10 @@ namespace Pulumi.AzureRM.ManagedServices.V20190601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:managedservices/latest:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:managedservices/v20180601preview:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:managedservices/v20190401preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azurerm:managedservices/v20190901:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:managedservices/v20200201preview:RegistrationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

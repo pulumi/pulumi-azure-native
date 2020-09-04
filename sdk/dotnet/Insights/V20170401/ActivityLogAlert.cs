@@ -153,6 +153,7 @@ namespace Pulumi.AzureRM.Insights.V20170401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/latest:ActivityLogAlert"},
+                    new Pulumi.Alias { Type = "azurerm:insights/v20170301preview:ActivityLogAlert"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

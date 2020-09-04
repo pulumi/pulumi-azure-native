@@ -123,6 +123,7 @@ namespace Pulumi.AzureRM.Security.V20200101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:security/latest:Assessment"},
+                    new Pulumi.Alias { Type = "azurerm:security/v20190101preview:Assessment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -122,7 +122,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:ActivityLogAlert")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:ActivityLogAlert"), pulumi.Alias(type_="azurerm:insights/v20170301preview:ActivityLogAlert")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ActivityLogAlert, __self__).__init__(
             'azurerm:insights/v20170401:ActivityLogAlert',

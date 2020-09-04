@@ -45,7 +45,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AssessmentMetadataInSubscription {
-        return new AssessmentMetadataInSubscription(name, undefined, { ...opts, id: id });
+        return new AssessmentMetadataInSubscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -120,12 +120,9 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AssessmentMetadataInSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AssessmentMetadataInSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AssessmentMetadataInSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AssessmentMetadataInSubscriptionArgs | undefined;
             if (!args || args.assessmentMetadataName === undefined) {
                 throw new Error("Missing required property 'assessmentMetadataName'");
             }
@@ -153,6 +150,21 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["policyDefinitionId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["assessmentType"] = undefined /*out*/;
+            inputs["category"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["implementationEffort"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["partnerData"] = undefined /*out*/;
+            inputs["policyDefinitionId"] = undefined /*out*/;
+            inputs["preview"] = undefined /*out*/;
+            inputs["remediationDescription"] = undefined /*out*/;
+            inputs["severity"] = undefined /*out*/;
+            inputs["threats"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userImpact"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -161,7 +173,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:security/latest:AssessmentMetadataInSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:security/latest:AssessmentMetadataInSubscription" }, { type: "azurerm:security/v20190101preview:AssessmentMetadataInSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AssessmentMetadataInSubscription.__pulumiType, name, inputs, opts);
     }

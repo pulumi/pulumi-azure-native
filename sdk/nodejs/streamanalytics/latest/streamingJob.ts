@@ -94,7 +94,7 @@ export class StreamingJob extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StreamingJob {
-        return new StreamingJob(name, undefined, { ...opts, id: id });
+        return new StreamingJob(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -211,12 +211,9 @@ export class StreamingJob extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StreamingJobArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StreamingJobArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StreamingJobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as StreamingJobArgs | undefined;
             if (!args || args.jobName === undefined) {
                 throw new Error("Missing required property 'jobName'");
             }
@@ -247,6 +244,30 @@ export class StreamingJob extends pulumi.CustomResource {
             inputs["lastOutputEventTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["compatibilityLevel"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["dataLocale"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["eventsLateArrivalMaxDelayInSeconds"] = undefined /*out*/;
+            inputs["eventsOutOfOrderMaxDelayInSeconds"] = undefined /*out*/;
+            inputs["eventsOutOfOrderPolicy"] = undefined /*out*/;
+            inputs["functions"] = undefined /*out*/;
+            inputs["inputs"] = undefined /*out*/;
+            inputs["jobId"] = undefined /*out*/;
+            inputs["jobState"] = undefined /*out*/;
+            inputs["lastOutputEventTime"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["outputErrorPolicy"] = undefined /*out*/;
+            inputs["outputStartMode"] = undefined /*out*/;
+            inputs["outputStartTime"] = undefined /*out*/;
+            inputs["outputs"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["transformation"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

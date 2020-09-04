@@ -42,7 +42,7 @@ export class DedicatedHost extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DedicatedHost {
-        return new DedicatedHost(name, undefined, { ...opts, id: id });
+        return new DedicatedHost(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -119,12 +119,9 @@ export class DedicatedHost extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DedicatedHostArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DedicatedHostArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DedicatedHostArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DedicatedHostArgs | undefined;
             if (!args || args.hostGroupName === undefined) {
                 throw new Error("Missing required property 'hostGroupName'");
             }
@@ -154,6 +151,20 @@ export class DedicatedHost extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["provisioningTime"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualMachines"] = undefined /*out*/;
+        } else {
+            inputs["autoReplaceOnFailure"] = undefined /*out*/;
+            inputs["hostId"] = undefined /*out*/;
+            inputs["instanceView"] = undefined /*out*/;
+            inputs["licenseType"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["platformFaultDomain"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["provisioningTime"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualMachines"] = undefined /*out*/;
         }

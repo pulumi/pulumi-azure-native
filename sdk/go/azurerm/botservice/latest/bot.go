@@ -46,6 +46,12 @@ func NewBot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:botservice/v20171201:Bot"),
+		},
+		{
+			Type: pulumi.String("azurerm:botservice/v20180712:Bot"),
+		},
+		{
 			Type: pulumi.String("azurerm:botservice/v20200602:Bot"),
 		},
 	})

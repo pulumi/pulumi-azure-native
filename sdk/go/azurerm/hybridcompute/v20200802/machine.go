@@ -83,7 +83,19 @@ func NewMachine(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:hybridcompute/latest:Machine"),
 		},
 		{
+			Type: pulumi.String("azurerm:hybridcompute/v20190318preview:Machine"),
+		},
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20190802preview:Machine"),
+		},
+		{
 			Type: pulumi.String("azurerm:hybridcompute/v20191212:Machine"),
+		},
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20200730preview:Machine"),
+		},
+		{
+			Type: pulumi.String("azurerm:hybridcompute/v20200815preview:Machine"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -214,10 +226,8 @@ func (MachineState) ElementType() reflect.Type {
 
 type machineArgs struct {
 	// Public Key that the client provides to be used during initial resource onboarding
-	ClientPublicKey *string `pulumi:"clientPublicKey"`
-	// Machine Extensions information
-	Extensions []MachineExtensionInstanceView `pulumi:"extensions"`
-	Identity   *MachineIdentity               `pulumi:"identity"`
+	ClientPublicKey *string          `pulumi:"clientPublicKey"`
+	Identity        *MachineIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Metadata pertaining to the geographic location of the resource.
@@ -236,9 +246,7 @@ type machineArgs struct {
 type MachineArgs struct {
 	// Public Key that the client provides to be used during initial resource onboarding
 	ClientPublicKey pulumi.StringPtrInput
-	// Machine Extensions information
-	Extensions MachineExtensionInstanceViewArrayInput
-	Identity   MachineIdentityPtrInput
+	Identity        MachineIdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// Metadata pertaining to the geographic location of the resource.

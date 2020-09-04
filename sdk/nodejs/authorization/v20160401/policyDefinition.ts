@@ -17,7 +17,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PolicyDefinition {
-        return new PolicyDefinition(name, undefined, { ...opts, id: id });
+        return new PolicyDefinition(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -62,12 +62,9 @@ export class PolicyDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PolicyDefinitionArgs | undefined;
             if (!args || args.policyDefinitionName === undefined) {
                 throw new Error("Missing required property 'policyDefinitionName'");
             }
@@ -77,6 +74,12 @@ export class PolicyDefinition extends pulumi.CustomResource {
             inputs["policyDefinitionName"] = args ? args.policyDefinitionName : undefined;
             inputs["policyRule"] = args ? args.policyRule : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["policyRule"] = undefined /*out*/;
+            inputs["policyType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -85,7 +88,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:PolicyDefinition" }, { type: "azurerm:authorization/v20151101:PolicyDefinition" }, { type: "azurerm:authorization/v20161201:PolicyDefinition" }, { type: "azurerm:authorization/v20180301:PolicyDefinition" }, { type: "azurerm:authorization/v20180501:PolicyDefinition" }, { type: "azurerm:authorization/v20190101:PolicyDefinition" }, { type: "azurerm:authorization/v20190601:PolicyDefinition" }, { type: "azurerm:authorization/v20190901:PolicyDefinition" }, { type: "azurerm:authorization/v20200301:PolicyDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:PolicyDefinition" }, { type: "azurerm:authorization/v20151001preview:PolicyDefinition" }, { type: "azurerm:authorization/v20151101:PolicyDefinition" }, { type: "azurerm:authorization/v20161201:PolicyDefinition" }, { type: "azurerm:authorization/v20180301:PolicyDefinition" }, { type: "azurerm:authorization/v20180501:PolicyDefinition" }, { type: "azurerm:authorization/v20190101:PolicyDefinition" }, { type: "azurerm:authorization/v20190601:PolicyDefinition" }, { type: "azurerm:authorization/v20190901:PolicyDefinition" }, { type: "azurerm:authorization/v20200301:PolicyDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PolicyDefinition.__pulumiType, name, inputs, opts);
     }

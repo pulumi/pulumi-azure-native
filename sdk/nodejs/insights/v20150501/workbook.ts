@@ -43,7 +43,7 @@ export class Workbook extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workbook {
-        return new Workbook(name, undefined, { ...opts, id: id });
+        return new Workbook(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -120,12 +120,9 @@ export class Workbook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WorkbookArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WorkbookArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WorkbookArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WorkbookArgs | undefined;
             if (!args || args.category === undefined) {
                 throw new Error("Missing required property 'category'");
             }
@@ -165,6 +162,20 @@ export class Workbook extends pulumi.CustomResource {
             inputs["workbookId"] = args ? args.workbookId : undefined;
             inputs["timeModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["category"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["serializedData"] = undefined /*out*/;
+            inputs["sharedTypeKind"] = undefined /*out*/;
+            inputs["sourceResourceId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["timeModified"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userId"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
+            inputs["workbookId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -173,7 +184,7 @@ export class Workbook extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:Workbook" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/latest:Workbook" }, { type: "azurerm:insights/v20180617preview:Workbook" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Workbook.__pulumiType, name, inputs, opts);
     }

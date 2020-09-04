@@ -32,7 +32,7 @@ export class DomainTopic extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DomainTopic {
-        return new DomainTopic(name, undefined, { ...opts, id: id });
+        return new DomainTopic(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,12 +69,9 @@ export class DomainTopic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainTopicArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainTopicArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DomainTopicArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DomainTopicArgs | undefined;
             if (!args || args.domainName === undefined) {
                 throw new Error("Missing required property 'domainName'");
             }
@@ -90,6 +87,10 @@ export class DomainTopic extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -98,7 +99,7 @@ export class DomainTopic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/latest:DomainTopic" }, { type: "azurerm:eventgrid/v20200601:DomainTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/latest:DomainTopic" }, { type: "azurerm:eventgrid/v20190201preview:DomainTopic" }, { type: "azurerm:eventgrid/v20200101preview:DomainTopic" }, { type: "azurerm:eventgrid/v20200401preview:DomainTopic" }, { type: "azurerm:eventgrid/v20200601:DomainTopic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainTopic.__pulumiType, name, inputs, opts);
     }

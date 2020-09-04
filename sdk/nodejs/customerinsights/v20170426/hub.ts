@@ -39,7 +39,7 @@ export class Hub extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Hub {
-        return new Hub(name, undefined, { ...opts, id: id });
+        return new Hub(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -100,12 +100,9 @@ export class Hub extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HubArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HubArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: HubArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as HubArgs | undefined;
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
@@ -121,6 +118,16 @@ export class Hub extends pulumi.CustomResource {
             inputs["apiEndpoint"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["webEndpoint"] = undefined /*out*/;
+        } else {
+            inputs["apiEndpoint"] = undefined /*out*/;
+            inputs["hubBillingInfo"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["tenantFeatures"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["webEndpoint"] = undefined /*out*/;
         }

@@ -80,7 +80,10 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:eventgrid/latest:DomainTopic"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20190201preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20190601:DomainTopic"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200101preview:DomainTopic"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/v20200401preview:DomainTopic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

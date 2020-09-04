@@ -95,7 +95,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccount {
-        return new DatabaseAccount(name, undefined, { ...opts, id: id });
+        return new DatabaseAccount(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -236,12 +236,9 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DatabaseAccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DatabaseAccountArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DatabaseAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DatabaseAccountArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -285,6 +282,36 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["readLocations"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["writeLocations"] = undefined /*out*/;
+        } else {
+            inputs["apiProperties"] = undefined /*out*/;
+            inputs["capabilities"] = undefined /*out*/;
+            inputs["connectorOffer"] = undefined /*out*/;
+            inputs["consistencyPolicy"] = undefined /*out*/;
+            inputs["cors"] = undefined /*out*/;
+            inputs["databaseAccountOfferType"] = undefined /*out*/;
+            inputs["disableKeyBasedMetadataWriteAccess"] = undefined /*out*/;
+            inputs["documentEndpoint"] = undefined /*out*/;
+            inputs["enableAnalyticalStorage"] = undefined /*out*/;
+            inputs["enableAutomaticFailover"] = undefined /*out*/;
+            inputs["enableCassandraConnector"] = undefined /*out*/;
+            inputs["enableFreeTier"] = undefined /*out*/;
+            inputs["enableMultipleWriteLocations"] = undefined /*out*/;
+            inputs["failoverPolicies"] = undefined /*out*/;
+            inputs["ipRules"] = undefined /*out*/;
+            inputs["isVirtualNetworkFilterEnabled"] = undefined /*out*/;
+            inputs["keyVaultKeyUri"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["locations"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
+            inputs["readLocations"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualNetworkRules"] = undefined /*out*/;
+            inputs["writeLocations"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -293,7 +320,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20150401:DatabaseAccount" }, { type: "azurerm:documentdb/v20150408:DatabaseAccount" }, { type: "azurerm:documentdb/v20151106:DatabaseAccount" }, { type: "azurerm:documentdb/v20160319:DatabaseAccount" }, { type: "azurerm:documentdb/v20160331:DatabaseAccount" }, { type: "azurerm:documentdb/v20190801:DatabaseAccount" }, { type: "azurerm:documentdb/v20191212:DatabaseAccount" }, { type: "azurerm:documentdb/v20200301:DatabaseAccount" }, { type: "azurerm:documentdb/v20200401:DatabaseAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/v20150401:DatabaseAccount" }, { type: "azurerm:documentdb/v20150408:DatabaseAccount" }, { type: "azurerm:documentdb/v20151106:DatabaseAccount" }, { type: "azurerm:documentdb/v20160319:DatabaseAccount" }, { type: "azurerm:documentdb/v20160331:DatabaseAccount" }, { type: "azurerm:documentdb/v20190801:DatabaseAccount" }, { type: "azurerm:documentdb/v20191212:DatabaseAccount" }, { type: "azurerm:documentdb/v20200301:DatabaseAccount" }, { type: "azurerm:documentdb/v20200401:DatabaseAccount" }, { type: "azurerm:documentdb/v20200601preview:DatabaseAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DatabaseAccount.__pulumiType, name, inputs, opts);
     }

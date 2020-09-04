@@ -42,7 +42,7 @@ export class SecurityRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SecurityRule {
-        return new SecurityRule(name, undefined, { ...opts, id: id });
+        return new SecurityRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -139,12 +139,9 @@ export class SecurityRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SecurityRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SecurityRuleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SecurityRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SecurityRuleArgs | undefined;
             if (!args || args.access === undefined) {
                 throw new Error("Missing required property 'access'");
             }
@@ -185,6 +182,25 @@ export class SecurityRule extends pulumi.CustomResource {
             inputs["sourceApplicationSecurityGroups"] = args ? args.sourceApplicationSecurityGroups : undefined;
             inputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
             inputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
+        } else {
+            inputs["access"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["destinationAddressPrefix"] = undefined /*out*/;
+            inputs["destinationAddressPrefixes"] = undefined /*out*/;
+            inputs["destinationApplicationSecurityGroups"] = undefined /*out*/;
+            inputs["destinationPortRange"] = undefined /*out*/;
+            inputs["destinationPortRanges"] = undefined /*out*/;
+            inputs["direction"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["priority"] = undefined /*out*/;
+            inputs["protocol"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sourceAddressPrefix"] = undefined /*out*/;
+            inputs["sourceAddressPrefixes"] = undefined /*out*/;
+            inputs["sourceApplicationSecurityGroups"] = undefined /*out*/;
+            inputs["sourcePortRange"] = undefined /*out*/;
+            inputs["sourcePortRanges"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -193,7 +209,7 @@ export class SecurityRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:SecurityRule" }, { type: "azurerm:network/v20150615:SecurityRule" }, { type: "azurerm:network/v20160330:SecurityRule" }, { type: "azurerm:network/v20160601:SecurityRule" }, { type: "azurerm:network/v20160901:SecurityRule" }, { type: "azurerm:network/v20161201:SecurityRule" }, { type: "azurerm:network/v20170301:SecurityRule" }, { type: "azurerm:network/v20170601:SecurityRule" }, { type: "azurerm:network/v20170801:SecurityRule" }, { type: "azurerm:network/v20170901:SecurityRule" }, { type: "azurerm:network/v20171101:SecurityRule" }, { type: "azurerm:network/v20180101:SecurityRule" }, { type: "azurerm:network/v20180201:SecurityRule" }, { type: "azurerm:network/v20180401:SecurityRule" }, { type: "azurerm:network/v20180601:SecurityRule" }, { type: "azurerm:network/v20180701:SecurityRule" }, { type: "azurerm:network/v20180801:SecurityRule" }, { type: "azurerm:network/v20181001:SecurityRule" }, { type: "azurerm:network/v20181101:SecurityRule" }, { type: "azurerm:network/v20181201:SecurityRule" }, { type: "azurerm:network/v20190201:SecurityRule" }, { type: "azurerm:network/v20190401:SecurityRule" }, { type: "azurerm:network/v20190601:SecurityRule" }, { type: "azurerm:network/v20190701:SecurityRule" }, { type: "azurerm:network/v20190801:SecurityRule" }, { type: "azurerm:network/v20190901:SecurityRule" }, { type: "azurerm:network/v20191101:SecurityRule" }, { type: "azurerm:network/v20191201:SecurityRule" }, { type: "azurerm:network/v20200301:SecurityRule" }, { type: "azurerm:network/v20200401:SecurityRule" }, { type: "azurerm:network/v20200501:SecurityRule" }, { type: "azurerm:network/v20200601:SecurityRule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:SecurityRule" }, { type: "azurerm:network/v20150501preview:SecurityRule" }, { type: "azurerm:network/v20150615:SecurityRule" }, { type: "azurerm:network/v20160330:SecurityRule" }, { type: "azurerm:network/v20160601:SecurityRule" }, { type: "azurerm:network/v20160901:SecurityRule" }, { type: "azurerm:network/v20161201:SecurityRule" }, { type: "azurerm:network/v20170301:SecurityRule" }, { type: "azurerm:network/v20170601:SecurityRule" }, { type: "azurerm:network/v20170801:SecurityRule" }, { type: "azurerm:network/v20170901:SecurityRule" }, { type: "azurerm:network/v20171101:SecurityRule" }, { type: "azurerm:network/v20180101:SecurityRule" }, { type: "azurerm:network/v20180201:SecurityRule" }, { type: "azurerm:network/v20180401:SecurityRule" }, { type: "azurerm:network/v20180601:SecurityRule" }, { type: "azurerm:network/v20180701:SecurityRule" }, { type: "azurerm:network/v20180801:SecurityRule" }, { type: "azurerm:network/v20181001:SecurityRule" }, { type: "azurerm:network/v20181101:SecurityRule" }, { type: "azurerm:network/v20181201:SecurityRule" }, { type: "azurerm:network/v20190201:SecurityRule" }, { type: "azurerm:network/v20190401:SecurityRule" }, { type: "azurerm:network/v20190601:SecurityRule" }, { type: "azurerm:network/v20190701:SecurityRule" }, { type: "azurerm:network/v20190801:SecurityRule" }, { type: "azurerm:network/v20190901:SecurityRule" }, { type: "azurerm:network/v20191101:SecurityRule" }, { type: "azurerm:network/v20191201:SecurityRule" }, { type: "azurerm:network/v20200301:SecurityRule" }, { type: "azurerm:network/v20200401:SecurityRule" }, { type: "azurerm:network/v20200501:SecurityRule" }, { type: "azurerm:network/v20200601:SecurityRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SecurityRule.__pulumiType, name, inputs, opts);
     }

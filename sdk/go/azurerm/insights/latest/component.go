@@ -87,6 +87,12 @@ func NewComponent(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:insights/v20150501:Component"),
 		},
+		{
+			Type: pulumi.String("azurerm:insights/v20180501preview:Component"),
+		},
+		{
+			Type: pulumi.String("azurerm:insights/v20200202preview:Component"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Component

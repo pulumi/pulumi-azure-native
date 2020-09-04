@@ -19,7 +19,7 @@ export class JitRequest extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): JitRequest {
-        return new JitRequest(name, undefined, { ...opts, id: id });
+        return new JitRequest(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -92,12 +92,9 @@ export class JitRequest extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JitRequestArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: JitRequestArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: JitRequestArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as JitRequestArgs | undefined;
             if (!args || args.applicationResourceId === undefined) {
                 throw new Error("Missing required property 'applicationResourceId'");
             }
@@ -127,6 +124,19 @@ export class JitRequest extends pulumi.CustomResource {
             inputs["publisherTenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
+        } else {
+            inputs["applicationResourceId"] = undefined /*out*/;
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["jitAuthorizationPolicies"] = undefined /*out*/;
+            inputs["jitRequestState"] = undefined /*out*/;
+            inputs["jitSchedulingPolicy"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publisherTenantId"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["updatedBy"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -135,7 +145,7 @@ export class JitRequest extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:solutions/latest:JitRequest" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:solutions/latest:JitRequest" }, { type: "azurerm:solutions/v20200821preview:JitRequest" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JitRequest.__pulumiType, name, inputs, opts);
     }

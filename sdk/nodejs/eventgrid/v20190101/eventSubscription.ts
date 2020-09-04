@@ -171,7 +171,7 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventSubscription {
-        return new EventSubscription(name, undefined, { ...opts, id: id });
+        return new EventSubscription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -232,12 +232,9 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as EventSubscriptionArgs | undefined;
             if (!args || args.eventSubscriptionName === undefined) {
                 throw new Error("Missing required property 'eventSubscriptionName'");
             }
@@ -255,6 +252,16 @@ export class EventSubscription extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["topic"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["deadLetterDestination"] = undefined /*out*/;
+            inputs["destination"] = undefined /*out*/;
+            inputs["filter"] = undefined /*out*/;
+            inputs["labels"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["retryPolicy"] = undefined /*out*/;
+            inputs["topic"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -263,7 +270,7 @@ export class EventSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/latest:EventSubscription" }, { type: "azurerm:eventgrid/v20180101:EventSubscription" }, { type: "azurerm:eventgrid/v20190601:EventSubscription" }, { type: "azurerm:eventgrid/v20200601:EventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/latest:EventSubscription" }, { type: "azurerm:eventgrid/v20170615preview:EventSubscription" }, { type: "azurerm:eventgrid/v20170915preview:EventSubscription" }, { type: "azurerm:eventgrid/v20180101:EventSubscription" }, { type: "azurerm:eventgrid/v20180501preview:EventSubscription" }, { type: "azurerm:eventgrid/v20180915preview:EventSubscription" }, { type: "azurerm:eventgrid/v20190201preview:EventSubscription" }, { type: "azurerm:eventgrid/v20190601:EventSubscription" }, { type: "azurerm:eventgrid/v20200101preview:EventSubscription" }, { type: "azurerm:eventgrid/v20200401preview:EventSubscription" }, { type: "azurerm:eventgrid/v20200601:EventSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EventSubscription.__pulumiType, name, inputs, opts);
     }

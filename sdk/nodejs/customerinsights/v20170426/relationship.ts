@@ -44,7 +44,7 @@ export class Relationship extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Relationship {
-        return new Relationship(name, undefined, { ...opts, id: id });
+        return new Relationship(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -125,12 +125,9 @@ export class Relationship extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RelationshipArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RelationshipArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RelationshipArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RelationshipArgs | undefined;
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
@@ -160,6 +157,21 @@ export class Relationship extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["relationshipGuidId"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["cardinality"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["expiryDateTimeUtc"] = undefined /*out*/;
+            inputs["fields"] = undefined /*out*/;
+            inputs["lookupMappings"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["profileType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["relatedProfileType"] = undefined /*out*/;
+            inputs["relationshipGuidId"] = undefined /*out*/;
+            inputs["relationshipName"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

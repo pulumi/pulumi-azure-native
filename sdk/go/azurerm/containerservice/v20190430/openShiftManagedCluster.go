@@ -68,6 +68,15 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:containerservice/latest:OpenShiftManagedCluster"),
 		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20180930preview:OpenShiftManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20190930preview:OpenShiftManagedCluster"),
+		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20191027preview:OpenShiftManagedCluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource OpenShiftManagedCluster

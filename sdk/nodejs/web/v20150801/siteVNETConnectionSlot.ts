@@ -19,7 +19,7 @@ export class SiteVNETConnectionSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SiteVNETConnectionSlot {
-        return new SiteVNETConnectionSlot(name, undefined, { ...opts, id: id });
+        return new SiteVNETConnectionSlot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -89,12 +89,9 @@ export class SiteVNETConnectionSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SiteVNETConnectionSlotArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SiteVNETConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SiteVNETConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SiteVNETConnectionSlotArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -125,6 +122,18 @@ export class SiteVNETConnectionSlot extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["vnetName"] = args ? args.vnetName : undefined;
             inputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
+        } else {
+            inputs["certBlob"] = undefined /*out*/;
+            inputs["certThumbprint"] = undefined /*out*/;
+            inputs["dnsServers"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["resyncRequired"] = undefined /*out*/;
+            inputs["routes"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vnetResourceId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

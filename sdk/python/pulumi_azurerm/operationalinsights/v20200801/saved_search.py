@@ -114,7 +114,7 @@ class SavedSearch(pulumi.CustomResource):
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/latest:SavedSearch"), pulumi.Alias(type_="azurerm:operationalinsights/v20150320:SavedSearch")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:operationalinsights/latest:SavedSearch"), pulumi.Alias(type_="azurerm:operationalinsights/v20150320:SavedSearch"), pulumi.Alias(type_="azurerm:operationalinsights/v20200301preview:SavedSearch")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SavedSearch, __self__).__init__(
             'azurerm:operationalinsights/v20200801:SavedSearch',

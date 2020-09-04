@@ -51,7 +51,7 @@ export class Bookmark extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Bookmark {
-        return new Bookmark(name, undefined, { ...opts, id: id });
+        return new Bookmark(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -128,12 +128,9 @@ export class Bookmark extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BookmarkArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BookmarkArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BookmarkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BookmarkArgs | undefined;
             if (!args || args.bookmarkId === undefined) {
                 throw new Error("Missing required property 'bookmarkId'");
             }
@@ -165,6 +162,20 @@ export class Bookmark extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["created"] = undefined /*out*/;
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["incidentInfo"] = undefined /*out*/;
+            inputs["labels"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notes"] = undefined /*out*/;
+            inputs["query"] = undefined /*out*/;
+            inputs["queryResult"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["updated"] = undefined /*out*/;
+            inputs["updatedBy"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

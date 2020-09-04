@@ -220,6 +220,7 @@ namespace Pulumi.AzureRM.Insights.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/v20180416:ScheduledQueryRule"},
+                    new Pulumi.Alias { Type = "azurerm:insights/v20200501preview:ScheduledQueryRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -32,7 +32,7 @@ export class ContentType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContentType {
-        return new ContentType(name, undefined, { ...opts, id: id });
+        return new ContentType(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -77,12 +77,9 @@ export class ContentType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ContentTypeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ContentTypeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ContentTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ContentTypeArgs | undefined;
             if (!args || args.contentTypeId === undefined) {
                 throw new Error("Missing required property 'contentTypeId'");
             }
@@ -95,6 +92,12 @@ export class ContentType extends pulumi.CustomResource {
             inputs["contentTypeId"] = args ? args.contentTypeId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["description"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["schema"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
+        } else {
             inputs["description"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["schema"] = undefined /*out*/;

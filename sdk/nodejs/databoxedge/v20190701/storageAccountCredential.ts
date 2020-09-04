@@ -43,7 +43,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageAccountCredential {
-        return new StorageAccountCredential(name, undefined, { ...opts, id: id });
+        return new StorageAccountCredential(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -108,12 +108,9 @@ export class StorageAccountCredential extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StorageAccountCredentialArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StorageAccountCredentialArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StorageAccountCredentialArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as StorageAccountCredentialArgs | undefined;
             if (!args || args.accountType === undefined) {
                 throw new Error("Missing required property 'accountType'");
             }
@@ -144,6 +141,17 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["userName"] = args ? args.userName : undefined;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["accountKey"] = undefined /*out*/;
+            inputs["accountType"] = undefined /*out*/;
+            inputs["alias"] = undefined /*out*/;
+            inputs["blobDomainName"] = undefined /*out*/;
+            inputs["connectionString"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["sslStatus"] = undefined /*out*/;
+            inputs["storageAccountId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -152,7 +160,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:StorageAccountCredential" }, { type: "azurerm:databoxedge/v20190301:StorageAccountCredential" }, { type: "azurerm:databoxedge/v20190801:StorageAccountCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:StorageAccountCredential" }, { type: "azurerm:databoxedge/v20190301:StorageAccountCredential" }, { type: "azurerm:databoxedge/v20190801:StorageAccountCredential" }, { type: "azurerm:databoxedge/v20200501preview:StorageAccountCredential" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccountCredential.__pulumiType, name, inputs, opts);
     }

@@ -45,7 +45,7 @@ export class PatchSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PatchSchedule {
-        return new PatchSchedule(name, undefined, { ...opts, id: id });
+        return new PatchSchedule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -82,12 +82,9 @@ export class PatchSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PatchScheduleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PatchScheduleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PatchScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PatchScheduleArgs | undefined;
             if (!args || args.default === undefined) {
                 throw new Error("Missing required property 'default'");
             }
@@ -105,6 +102,10 @@ export class PatchSchedule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scheduleEntries"] = args ? args.scheduleEntries : undefined;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["name"] = undefined /*out*/;
+            inputs["scheduleEntries"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -113,7 +114,7 @@ export class PatchSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cache/v20171001:PatchSchedule" }, { type: "azurerm:cache/v20180301:PatchSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:cache/v20171001:PatchSchedule" }, { type: "azurerm:cache/v20180301:PatchSchedule" }, { type: "azurerm:cache/v20190701:PatchSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PatchSchedule.__pulumiType, name, inputs, opts);
     }

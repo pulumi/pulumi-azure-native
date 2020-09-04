@@ -114,6 +114,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -35,7 +35,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProximityPlacementGroup {
-        return new ProximityPlacementGroup(name, undefined, { ...opts, id: id });
+        return new ProximityPlacementGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -92,12 +92,9 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProximityPlacementGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProximityPlacementGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProximityPlacementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ProximityPlacementGroupArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -114,6 +111,15 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["availabilitySets"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["virtualMachineScaleSets"] = undefined /*out*/;
+            inputs["virtualMachines"] = undefined /*out*/;
+        } else {
+            inputs["availabilitySets"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["proximityPlacementGroupType"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualMachineScaleSets"] = undefined /*out*/;
             inputs["virtualMachines"] = undefined /*out*/;

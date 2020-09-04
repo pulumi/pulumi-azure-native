@@ -42,7 +42,7 @@ export class Cache extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cache {
-        return new Cache(name, undefined, { ...opts, id: id });
+        return new Cache(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -111,12 +111,9 @@ export class Cache extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CacheArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as CacheArgs | undefined;
             if (!args || args.cacheName === undefined) {
                 throw new Error("Missing required property 'cacheName'");
             }
@@ -136,6 +133,18 @@ export class Cache extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["upgradeStatus"] = undefined /*out*/;
+        } else {
+            inputs["cacheSizeGB"] = undefined /*out*/;
+            inputs["health"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["mountAddresses"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["subnet"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["upgradeStatus"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -144,7 +153,7 @@ export class Cache extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagecache/latest:Cache" }, { type: "azurerm:storagecache/v20200301:Cache" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storagecache/latest:Cache" }, { type: "azurerm:storagecache/v20190801preview:Cache" }, { type: "azurerm:storagecache/v20200301:Cache" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cache.__pulumiType, name, inputs, opts);
     }

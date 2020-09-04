@@ -63,7 +63,7 @@ export class ApiOperation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiOperation {
-        return new ApiOperation(name, undefined, { ...opts, id: id });
+        return new ApiOperation(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -128,12 +128,9 @@ export class ApiOperation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApiOperationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApiOperationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApiOperationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApiOperationArgs | undefined;
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
@@ -169,6 +166,17 @@ export class ApiOperation extends pulumi.CustomResource {
             inputs["urlTemplate"] = args ? args.urlTemplate : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["method"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["policies"] = undefined /*out*/;
+            inputs["request"] = undefined /*out*/;
+            inputs["responses"] = undefined /*out*/;
+            inputs["templateParameters"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["urlTemplate"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -177,7 +185,7 @@ export class ApiOperation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiOperation" }, { type: "azurerm:apimanagement/v20160707:ApiOperation" }, { type: "azurerm:apimanagement/v20161010:ApiOperation" }, { type: "azurerm:apimanagement/v20170301:ApiOperation" }, { type: "azurerm:apimanagement/v20180101:ApiOperation" }, { type: "azurerm:apimanagement/v20191201:ApiOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiOperation" }, { type: "azurerm:apimanagement/v20160707:ApiOperation" }, { type: "azurerm:apimanagement/v20161010:ApiOperation" }, { type: "azurerm:apimanagement/v20170301:ApiOperation" }, { type: "azurerm:apimanagement/v20180101:ApiOperation" }, { type: "azurerm:apimanagement/v20180601preview:ApiOperation" }, { type: "azurerm:apimanagement/v20191201:ApiOperation" }, { type: "azurerm:apimanagement/v20191201preview:ApiOperation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiOperation.__pulumiType, name, inputs, opts);
     }

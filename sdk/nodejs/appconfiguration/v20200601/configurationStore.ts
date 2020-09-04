@@ -62,7 +62,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConfigurationStore {
-        return new ConfigurationStore(name, undefined, { ...opts, id: id });
+        return new ConfigurationStore(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -135,12 +135,9 @@ export class ConfigurationStore extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ConfigurationStoreArgs | undefined;
             if (!args || args.configStoreName === undefined) {
                 throw new Error("Missing required property 'configStoreName'");
             }
@@ -167,6 +164,19 @@ export class ConfigurationStore extends pulumi.CustomResource {
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
+            inputs["endpoint"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -175,7 +185,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:appconfiguration/latest:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20191001:ConfigurationStore" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:appconfiguration/latest:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20191001:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20191101preview:ConfigurationStore" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConfigurationStore.__pulumiType, name, inputs, opts);
     }

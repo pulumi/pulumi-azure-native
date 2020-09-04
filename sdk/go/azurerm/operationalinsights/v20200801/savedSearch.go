@@ -67,6 +67,9 @@ func NewSavedSearch(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:operationalinsights/v20150320:SavedSearch"),
 		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/v20200301preview:SavedSearch"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SavedSearch

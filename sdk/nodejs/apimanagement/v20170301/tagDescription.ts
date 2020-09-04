@@ -36,7 +36,7 @@ export class TagDescription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TagDescription {
-        return new TagDescription(name, undefined, { ...opts, id: id });
+        return new TagDescription(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -85,12 +85,9 @@ export class TagDescription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TagDescriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TagDescriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TagDescriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as TagDescriptionArgs | undefined;
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
@@ -113,6 +110,13 @@ export class TagDescription extends pulumi.CustomResource {
             inputs["displayName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["externalDocsDescription"] = undefined /*out*/;
+            inputs["externalDocsUrl"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -121,7 +125,7 @@ export class TagDescription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:TagDescription" }, { type: "azurerm:apimanagement/v20180101:TagDescription" }, { type: "azurerm:apimanagement/v20190101:TagDescription" }, { type: "azurerm:apimanagement/v20191201:TagDescription" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:TagDescription" }, { type: "azurerm:apimanagement/v20180101:TagDescription" }, { type: "azurerm:apimanagement/v20180601preview:TagDescription" }, { type: "azurerm:apimanagement/v20190101:TagDescription" }, { type: "azurerm:apimanagement/v20191201:TagDescription" }, { type: "azurerm:apimanagement/v20191201preview:TagDescription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagDescription.__pulumiType, name, inputs, opts);
     }

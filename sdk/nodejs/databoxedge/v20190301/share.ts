@@ -48,7 +48,7 @@ export class Share extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Share {
-        return new Share(name, undefined, { ...opts, id: id });
+        return new Share(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -121,12 +121,9 @@ export class Share extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ShareArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ShareArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ShareArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ShareArgs | undefined;
             if (!args || args.accessProtocol === undefined) {
                 throw new Error("Missing required property 'accessProtocol'");
             }
@@ -159,6 +156,19 @@ export class Share extends pulumi.CustomResource {
             inputs["userAccessRights"] = args ? args.userAccessRights : undefined;
             inputs["shareMappings"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["accessProtocol"] = undefined /*out*/;
+            inputs["azureContainerInfo"] = undefined /*out*/;
+            inputs["clientAccessRights"] = undefined /*out*/;
+            inputs["dataPolicy"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["monitoringStatus"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["refreshDetails"] = undefined /*out*/;
+            inputs["shareMappings"] = undefined /*out*/;
+            inputs["shareStatus"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userAccessRights"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -167,7 +177,7 @@ export class Share extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:Share" }, { type: "azurerm:databoxedge/v20190701:Share" }, { type: "azurerm:databoxedge/v20190801:Share" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:Share" }, { type: "azurerm:databoxedge/v20190701:Share" }, { type: "azurerm:databoxedge/v20190801:Share" }, { type: "azurerm:databoxedge/v20200501preview:Share" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Share.__pulumiType, name, inputs, opts);
     }

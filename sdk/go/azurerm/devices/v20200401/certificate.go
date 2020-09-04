@@ -53,7 +53,16 @@ func NewCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devices/v20180401:Certificate"),
 		},
 		{
+			Type: pulumi.String("azurerm:devices/v20181201preview:Certificate"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20190322:Certificate"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20190322preview:Certificate"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20190701preview:Certificate"),
 		},
 		{
 			Type: pulumi.String("azurerm:devices/v20191104:Certificate"),
@@ -63,6 +72,12 @@ func NewCertificate(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:devices/v20200615:Certificate"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20200710preview:Certificate"),
+		},
+		{
+			Type: pulumi.String("azurerm:devices/v20200801:Certificate"),
 		},
 	})
 	opts = append(opts, aliases)

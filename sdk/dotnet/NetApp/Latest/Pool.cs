@@ -131,6 +131,7 @@ namespace Pulumi.AzureRM.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:netapp/v20170815:Pool"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190501:Pool"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Pool"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190701:Pool"},

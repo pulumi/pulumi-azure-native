@@ -50,7 +50,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): P2sVpnServerConfiguration {
-        return new P2sVpnServerConfiguration(name, undefined, { ...opts, id: id });
+        return new P2sVpnServerConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -123,12 +123,9 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: P2sVpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: P2sVpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: P2sVpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as P2sVpnServerConfigurationArgs | undefined;
             if (!args || args.p2SVpnServerConfigurationName === undefined) {
                 throw new Error("Missing required property 'p2SVpnServerConfigurationName'");
             }
@@ -154,6 +151,19 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
             inputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
             inputs["p2SVpnGateways"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["p2SVpnGateways"] = undefined /*out*/;
+            inputs["p2SVpnServerConfigRadiusClientRootCertificates"] = undefined /*out*/;
+            inputs["p2SVpnServerConfigRadiusServerRootCertificates"] = undefined /*out*/;
+            inputs["p2SVpnServerConfigVpnClientRevokedCertificates"] = undefined /*out*/;
+            inputs["p2SVpnServerConfigVpnClientRootCertificates"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["radiusServerAddress"] = undefined /*out*/;
+            inputs["radiusServerSecret"] = undefined /*out*/;
+            inputs["vpnClientIpsecPolicies"] = undefined /*out*/;
+            inputs["vpnProtocols"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

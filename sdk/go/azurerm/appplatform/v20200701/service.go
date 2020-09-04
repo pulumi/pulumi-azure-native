@@ -44,6 +44,9 @@ func NewService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:appplatform/latest:Service"),
 		},
+		{
+			Type: pulumi.String("azurerm:appplatform/v20190501preview:Service"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Service

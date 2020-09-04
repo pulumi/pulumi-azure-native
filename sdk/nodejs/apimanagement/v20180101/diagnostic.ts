@@ -33,7 +33,7 @@ export class Diagnostic extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Diagnostic {
-        return new Diagnostic(name, undefined, { ...opts, id: id });
+        return new Diagnostic(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -70,12 +70,9 @@ export class Diagnostic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DiagnosticArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DiagnosticArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DiagnosticArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DiagnosticArgs | undefined;
             if (!args || args.diagnosticId === undefined) {
                 throw new Error("Missing required property 'diagnosticId'");
             }
@@ -94,6 +91,10 @@ export class Diagnostic extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["enabled"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,7 +103,7 @@ export class Diagnostic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Diagnostic" }, { type: "azurerm:apimanagement/v20170301:Diagnostic" }, { type: "azurerm:apimanagement/v20190101:Diagnostic" }, { type: "azurerm:apimanagement/v20191201:Diagnostic" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Diagnostic" }, { type: "azurerm:apimanagement/v20170301:Diagnostic" }, { type: "azurerm:apimanagement/v20180601preview:Diagnostic" }, { type: "azurerm:apimanagement/v20190101:Diagnostic" }, { type: "azurerm:apimanagement/v20191201:Diagnostic" }, { type: "azurerm:apimanagement/v20191201preview:Diagnostic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Diagnostic.__pulumiType, name, inputs, opts);
     }

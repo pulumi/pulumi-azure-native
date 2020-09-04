@@ -34,7 +34,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BlobContainerImmutabilityPolicy {
-        return new BlobContainerImmutabilityPolicy(name, undefined, { ...opts, id: id });
+        return new BlobContainerImmutabilityPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -79,12 +79,9 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BlobContainerImmutabilityPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BlobContainerImmutabilityPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BlobContainerImmutabilityPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BlobContainerImmutabilityPolicyArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -109,6 +106,12 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["immutabilityPeriodSinceCreationInDays"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,7 +120,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20181101:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20190601:BlobContainerImmutabilityPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20180301preview:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20181101:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azurerm:storage/v20190601:BlobContainerImmutabilityPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobContainerImmutabilityPolicy.__pulumiType, name, inputs, opts);
     }

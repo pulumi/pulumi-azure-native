@@ -37,7 +37,7 @@ export class Application extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Application {
-        return new Application(name, undefined, { ...opts, id: id });
+        return new Application(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -158,12 +158,9 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationArgs | undefined;
             if (!args || args.applicationName === undefined) {
                 throw new Error("Missing required property 'applicationName'");
             }
@@ -199,6 +196,31 @@ export class Application extends pulumi.CustomResource {
             inputs["supportUrls"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
+        } else {
+            inputs["applicationDefinitionId"] = undefined /*out*/;
+            inputs["artifacts"] = undefined /*out*/;
+            inputs["authorizations"] = undefined /*out*/;
+            inputs["billingDetails"] = undefined /*out*/;
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["customerSupport"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["jitAccessPolicy"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
+            inputs["managedResourceGroupId"] = undefined /*out*/;
+            inputs["managementMode"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["outputs"] = undefined /*out*/;
+            inputs["parameters"] = undefined /*out*/;
+            inputs["plan"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publisherTenantId"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["supportUrls"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["updatedBy"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -207,7 +229,7 @@ export class Application extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:solutions/v20170901:Application" }, { type: "azurerm:solutions/v20180601:Application" }, { type: "azurerm:solutions/v20190701:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:solutions/v20170901:Application" }, { type: "azurerm:solutions/v20180601:Application" }, { type: "azurerm:solutions/v20190701:Application" }, { type: "azurerm:solutions/v20200821preview:Application" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Application.__pulumiType, name, inputs, opts);
     }

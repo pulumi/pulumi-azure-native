@@ -53,6 +53,9 @@ func NewShare(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datashare/latest:Share"),
 		},
+		{
+			Type: pulumi.String("azurerm:datashare/v20181101preview:Share"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Share

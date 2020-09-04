@@ -62,6 +62,9 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200401:GremlinResourceGremlinGraph"),
 		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:GremlinResourceGremlinGraph"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GremlinResourceGremlinGraph

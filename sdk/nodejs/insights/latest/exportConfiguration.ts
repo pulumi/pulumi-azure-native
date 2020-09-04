@@ -41,7 +41,7 @@ export class ExportConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ExportConfiguration {
-        return new ExportConfiguration(name, undefined, { ...opts, id: id });
+        return new ExportConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -142,12 +142,9 @@ export class ExportConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ExportConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ExportConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ExportConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ExportConfigurationArgs | undefined;
             if (!args || args.exportId === undefined) {
                 throw new Error("Missing required property 'exportId'");
             }
@@ -178,6 +175,26 @@ export class ExportConfiguration extends pulumi.CustomResource {
             inputs["lastSuccessTime"] = undefined /*out*/;
             inputs["lastUserUpdate"] = undefined /*out*/;
             inputs["permanentErrorReason"] = undefined /*out*/;
+            inputs["resourceGroup"] = undefined /*out*/;
+            inputs["storageName"] = undefined /*out*/;
+            inputs["subscriptionId"] = undefined /*out*/;
+        } else {
+            inputs["applicationName"] = undefined /*out*/;
+            inputs["containerName"] = undefined /*out*/;
+            inputs["destinationAccountId"] = undefined /*out*/;
+            inputs["destinationStorageLocationId"] = undefined /*out*/;
+            inputs["destinationStorageSubscriptionId"] = undefined /*out*/;
+            inputs["destinationType"] = undefined /*out*/;
+            inputs["exportId"] = undefined /*out*/;
+            inputs["exportStatus"] = undefined /*out*/;
+            inputs["instrumentationKey"] = undefined /*out*/;
+            inputs["isUserEnabled"] = undefined /*out*/;
+            inputs["lastGapTime"] = undefined /*out*/;
+            inputs["lastSuccessTime"] = undefined /*out*/;
+            inputs["lastUserUpdate"] = undefined /*out*/;
+            inputs["notificationQueueEnabled"] = undefined /*out*/;
+            inputs["permanentErrorReason"] = undefined /*out*/;
+            inputs["recordTypes"] = undefined /*out*/;
             inputs["resourceGroup"] = undefined /*out*/;
             inputs["storageName"] = undefined /*out*/;
             inputs["subscriptionId"] = undefined /*out*/;

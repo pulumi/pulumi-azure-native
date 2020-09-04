@@ -34,7 +34,7 @@ export class Factory extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Factory {
-        return new Factory(name, undefined, { ...opts, id: id });
+        return new Factory(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -103,12 +103,9 @@ export class Factory extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FactoryArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FactoryArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: FactoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as FactoryArgs | undefined;
             if (!args || args.factoryName === undefined) {
                 throw new Error("Missing required property 'factoryName'");
             }
@@ -128,6 +125,18 @@ export class Factory extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
+        } else {
+            inputs["createTime"] = undefined /*out*/;
+            inputs["eTag"] = undefined /*out*/;
+            inputs["globalParameters"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["repoConfiguration"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -136,7 +145,7 @@ export class Factory extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/v20180601:Factory" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datafactory/v20170901preview:Factory" }, { type: "azurerm:datafactory/v20180601:Factory" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Factory.__pulumiType, name, inputs, opts);
     }

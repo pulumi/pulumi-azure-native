@@ -1,18 +1,26 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as azurerm from "../../sdk/nodejs";
+import * as random from "@pulumi/random";
 
-const resourceGroup = new azurerm.resources.latest.ResourceGroup("rg", {
-    resourceGroupName: "azurerm-appservice",
-    location: "westus2",
-    tags: {
-        Owner: "mikhailshilkov",
-        Env: "prod2",
-    },
+import * as insights from "@pulumi/azurerm/insights/latest";
+import * as resources from "@pulumi/azurerm/resources/latest";
+import * as sql from "@pulumi/azurerm/sql/latest";
+import * as storage from "@pulumi/azurerm/storage/latest";
+import * as web from "@pulumi/azurerm/web/latest";
+
+const randomString = new random.RandomString("random", {
+    length: 12,
+    special: false,
+    upper: false,
 });
 
-const storageAccount = new azurerm.storage.latest.StorageAccount("sa", {
+const resourceGroup = new resources.ResourceGroup("rg", {
+    resourceGroupName: randomString.result,
+    location: "westus2",
+});
+
+const storageAccount = new storage.StorageAccount("sa", {
     resourceGroupName: resourceGroup.name,
-    accountName: "pulumiassa",
+    accountName: randomString.result,
     location: "westus2",
     sku: {
         name: "Standard_LRS",
@@ -21,9 +29,9 @@ const storageAccount = new azurerm.storage.latest.StorageAccount("sa", {
     kind: "StorageV2",
 });
 
-const appServicePlan  = new azurerm.web.latest.AppServicePlan("asp", {
+const appServicePlan  = new web.AppServicePlan("asp", {
     resourceGroupName: resourceGroup.name,
-    name: "appservice-plan",
+    name: randomString.result,
     location: "westus2",
     kind: "App",
     sku: {
@@ -32,7 +40,7 @@ const appServicePlan  = new azurerm.web.latest.AppServicePlan("asp", {
     },
 });
 
-const storageContainer = new azurerm.storage.latest.BlobContainer("c", {
+const storageContainer = new storage.BlobContainer("c", {
     resourceGroupName: resourceGroup.name,
     accountName: storageAccount.name,
     containerName: "files",
@@ -51,10 +59,10 @@ const storageContainer = new azurerm.storage.latest.BlobContainer("c", {
 // TODO: invokes are not supported yet
 // const codeBlobUrl = azure.storage.signedBlobReadUrl(blob, storageAccount);
 
-const appInsights = new azurerm.insights.latest.Component("ai", {
+const appInsights = new insights.Component("ai", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
-    resourceName: "pulumi-as-ai",
+    resourceName: randomString.result,
     kind: "web",
     applicationType: "web",
 });
@@ -62,16 +70,16 @@ const appInsights = new azurerm.insights.latest.Component("ai", {
 const username = "pulumi";
 const pwd = "Not2S3cure!?";
 
-const sqlServer = new azurerm.sql.latest.Server("sql", {
+const sqlServer = new sql.Server("sql", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
-    serverName: "pulumi-as-sql",
+    serverName: randomString.result,
     administratorLogin: username,
     administratorLoginPassword: pwd,
     version: "12.0",
 });
 
-const database = new azurerm.sql.latest.Database("db", {
+const database = new sql.Database("db", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
     serverName: sqlServer.name,
@@ -79,10 +87,10 @@ const database = new azurerm.sql.latest.Database("db", {
     requestedServiceObjectiveName: "S0",
 });
 
-const app = new azurerm.web.latest.WebApp("as", {
+const app = new web.WebApp("as", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
-    name: "pulumi-rm-as",
+    name: randomString.result,
 
     serverFarmId: appServicePlan.id,
     siteConfig: {

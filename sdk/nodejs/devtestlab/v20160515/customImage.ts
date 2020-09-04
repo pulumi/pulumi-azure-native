@@ -19,7 +19,7 @@ export class CustomImage extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomImage {
-        return new CustomImage(name, undefined, { ...opts, id: id });
+        return new CustomImage(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -92,12 +92,9 @@ export class CustomImage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CustomImageArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CustomImageArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CustomImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as CustomImageArgs | undefined;
             if (!args || args.labName === undefined) {
                 throw new Error("Missing required property 'labName'");
             }
@@ -121,6 +118,19 @@ export class CustomImage extends pulumi.CustomResource {
             inputs["vm"] = args ? args.vm : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["author"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["managedImageId"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
+            inputs["vhd"] = undefined /*out*/;
+            inputs["vm"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -129,7 +139,7 @@ export class CustomImage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:CustomImage" }, { type: "azurerm:devtestlab/v20180915:CustomImage" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:CustomImage" }, { type: "azurerm:devtestlab/v20150521preview:CustomImage" }, { type: "azurerm:devtestlab/v20180915:CustomImage" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomImage.__pulumiType, name, inputs, opts);
     }

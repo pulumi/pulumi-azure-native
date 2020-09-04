@@ -118,6 +118,9 @@ namespace Pulumi.AzureRM.Peering.V20200401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:peering/latest:Prefix"},
+                    new Pulumi.Alias { Type = "azurerm:peering/v20190801preview:Prefix"},
+                    new Pulumi.Alias { Type = "azurerm:peering/v20190901preview:Prefix"},
+                    new Pulumi.Alias { Type = "azurerm:peering/v20200101preview:Prefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

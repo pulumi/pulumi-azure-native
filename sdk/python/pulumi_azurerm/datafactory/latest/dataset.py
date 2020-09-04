@@ -92,7 +92,7 @@ class Dataset(pulumi.CustomResource):
             __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datafactory/v20180601:Dataset")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datafactory/v20170901preview:Dataset"), pulumi.Alias(type_="azurerm:datafactory/v20180601:Dataset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Dataset, __self__).__init__(
             'azurerm:datafactory/latest:Dataset',

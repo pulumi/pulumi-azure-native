@@ -35,7 +35,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OpenIdConnectProvider {
-        return new OpenIdConnectProvider(name, undefined, { ...opts, id: id });
+        return new OpenIdConnectProvider(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -88,12 +88,9 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as OpenIdConnectProviderArgs | undefined;
             if (!args || args.clientId === undefined) {
                 throw new Error("Missing required property 'clientId'");
             }
@@ -122,6 +119,14 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["clientId"] = undefined /*out*/;
+            inputs["clientSecret"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["metadataEndpoint"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -130,7 +135,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20170301:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20190101:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20191201:OpenIdConnectProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20170301:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20180601preview:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20190101:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20191201:OpenIdConnectProvider" }, { type: "azurerm:apimanagement/v20191201preview:OpenIdConnectProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(OpenIdConnectProvider.__pulumiType, name, inputs, opts);
     }

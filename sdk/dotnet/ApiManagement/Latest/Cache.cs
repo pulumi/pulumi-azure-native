@@ -94,8 +94,10 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Cache"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:Cache"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:Cache"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

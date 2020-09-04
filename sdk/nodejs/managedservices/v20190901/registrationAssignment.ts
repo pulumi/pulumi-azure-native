@@ -33,7 +33,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegistrationAssignment {
-        return new RegistrationAssignment(name, undefined, { ...opts, id: id });
+        return new RegistrationAssignment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -70,12 +70,9 @@ export class RegistrationAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RegistrationAssignmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RegistrationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RegistrationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RegistrationAssignmentArgs | undefined;
             if (!args || args.registrationAssignmentId === undefined) {
                 throw new Error("Missing required property 'registrationAssignmentId'");
             }
@@ -87,6 +84,10 @@ export class RegistrationAssignment extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -95,7 +96,7 @@ export class RegistrationAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:managedservices/latest:RegistrationAssignment" }, { type: "azurerm:managedservices/v20190601:RegistrationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:managedservices/latest:RegistrationAssignment" }, { type: "azurerm:managedservices/v20180601preview:RegistrationAssignment" }, { type: "azurerm:managedservices/v20190401preview:RegistrationAssignment" }, { type: "azurerm:managedservices/v20190601:RegistrationAssignment" }, { type: "azurerm:managedservices/v20200201preview:RegistrationAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegistrationAssignment.__pulumiType, name, inputs, opts);
     }

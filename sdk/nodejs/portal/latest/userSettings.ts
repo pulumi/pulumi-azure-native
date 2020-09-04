@@ -30,7 +30,7 @@ export class UserSettings extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): UserSettings {
-        return new UserSettings(name, undefined, { ...opts, id: id });
+        return new UserSettings(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -59,12 +59,9 @@ export class UserSettings extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserSettingsArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: UserSettingsArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: UserSettingsArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as UserSettingsArgs | undefined;
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -73,6 +70,8 @@ export class UserSettings extends pulumi.CustomResource {
             }
             inputs["properties"] = args ? args.properties : undefined;
             inputs["userSettingsName"] = args ? args.userSettingsName : undefined;
+        } else {
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

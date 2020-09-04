@@ -155,6 +155,7 @@ namespace Pulumi.AzureRM.Solutions.V20170901
                     new Pulumi.Alias { Type = "azurerm:solutions/latest:Application"},
                     new Pulumi.Alias { Type = "azurerm:solutions/v20180601:Application"},
                     new Pulumi.Alias { Type = "azurerm:solutions/v20190701:Application"},
+                    new Pulumi.Alias { Type = "azurerm:solutions/v20200821preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

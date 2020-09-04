@@ -36,7 +36,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GuestConfigurationAssignment {
-        return new GuestConfigurationAssignment(name, undefined, { ...opts, id: id });
+        return new GuestConfigurationAssignment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -77,12 +77,9 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: GuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as GuestConfigurationAssignmentArgs | undefined;
             if (!args || args.guestConfigurationAssignmentName === undefined) {
                 throw new Error("Missing required property 'guestConfigurationAssignmentName'");
             }
@@ -99,6 +96,11 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["vmName"] = args ? args.vmName : undefined;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -107,7 +109,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:GuestConfigurationAssignment" }, { type: "azurerm:compute/v20200625:GuestConfigurationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:GuestConfigurationAssignment" }, { type: "azurerm:compute/v20180630preview:GuestConfigurationAssignment" }, { type: "azurerm:compute/v20200625:GuestConfigurationAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GuestConfigurationAssignment.__pulumiType, name, inputs, opts);
     }

@@ -39,7 +39,7 @@ export class Device extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Device {
-        return new Device(name, undefined, { ...opts, id: id });
+        return new Device(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -144,12 +144,9 @@ export class Device extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DeviceArgs | undefined;
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -181,6 +178,27 @@ export class Device extends pulumi.CustomResource {
             inputs["serialNumber"] = undefined /*out*/;
             inputs["timeZone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["configuredRoleTypes"] = undefined /*out*/;
+            inputs["culture"] = undefined /*out*/;
+            inputs["dataBoxEdgeDeviceStatus"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["deviceHcsVersion"] = undefined /*out*/;
+            inputs["deviceLocalCapacity"] = undefined /*out*/;
+            inputs["deviceModel"] = undefined /*out*/;
+            inputs["deviceSoftwareVersion"] = undefined /*out*/;
+            inputs["deviceType"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["friendlyName"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["modelDescription"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["nodeCount"] = undefined /*out*/;
+            inputs["serialNumber"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["timeZone"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -189,7 +207,7 @@ export class Device extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:Device" }, { type: "azurerm:databoxedge/v20190301:Device" }, { type: "azurerm:databoxedge/v20190701:Device" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:Device" }, { type: "azurerm:databoxedge/v20190301:Device" }, { type: "azurerm:databoxedge/v20190701:Device" }, { type: "azurerm:databoxedge/v20200501preview:Device" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Device.__pulumiType, name, inputs, opts);
     }

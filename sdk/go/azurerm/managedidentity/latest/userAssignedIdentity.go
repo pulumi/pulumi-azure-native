@@ -47,6 +47,9 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:managedidentity/v20150831preview:UserAssignedIdentity"),
+		},
+		{
 			Type: pulumi.String("azurerm:managedidentity/v20181130:UserAssignedIdentity"),
 		},
 	})

@@ -134,7 +134,7 @@ class Budget(pulumi.CustomResource):
             __props__['current_spend'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:consumption/v20180131:Budget"), pulumi.Alias(type_="azurerm:consumption/v20180331:Budget"), pulumi.Alias(type_="azurerm:consumption/v20180630:Budget"), pulumi.Alias(type_="azurerm:consumption/v20181001:Budget")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:consumption/v20171230preview:Budget"), pulumi.Alias(type_="azurerm:consumption/v20180131:Budget"), pulumi.Alias(type_="azurerm:consumption/v20180331:Budget"), pulumi.Alias(type_="azurerm:consumption/v20180630:Budget"), pulumi.Alias(type_="azurerm:consumption/v20181001:Budget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Budget, __self__).__init__(
             'azurerm:consumption/v20180831:Budget',

@@ -17,7 +17,7 @@ export class Policy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Policy {
-        return new Policy(name, undefined, { ...opts, id: id });
+        return new Policy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -94,12 +94,9 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PolicyArgs | undefined;
             if (!args || args.labName === undefined) {
                 throw new Error("Missing required property 'labName'");
             }
@@ -128,6 +125,20 @@ export class Policy extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
+        } else {
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["evaluatorType"] = undefined /*out*/;
+            inputs["factData"] = undefined /*out*/;
+            inputs["factName"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["threshold"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -136,7 +147,7 @@ export class Policy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/v20160515:Policy" }, { type: "azurerm:devtestlab/v20180915:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/v20150521preview:Policy" }, { type: "azurerm:devtestlab/v20160515:Policy" }, { type: "azurerm:devtestlab/v20180915:Policy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Policy.__pulumiType, name, inputs, opts);
     }

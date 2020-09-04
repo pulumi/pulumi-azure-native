@@ -74,7 +74,7 @@ export class Budget extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Budget {
-        return new Budget(name, undefined, { ...opts, id: id });
+        return new Budget(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -139,12 +139,9 @@ export class Budget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BudgetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BudgetArgs | undefined;
             if (!args || args.amount === undefined) {
                 throw new Error("Missing required property 'amount'");
             }
@@ -171,6 +168,17 @@ export class Budget extends pulumi.CustomResource {
             inputs["currentSpend"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["amount"] = undefined /*out*/;
+            inputs["category"] = undefined /*out*/;
+            inputs["currentSpend"] = undefined /*out*/;
+            inputs["eTag"] = undefined /*out*/;
+            inputs["filters"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notifications"] = undefined /*out*/;
+            inputs["timeGrain"] = undefined /*out*/;
+            inputs["timePeriod"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -179,7 +187,7 @@ export class Budget extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:consumption/v20180131:Budget" }, { type: "azurerm:consumption/v20180630:Budget" }, { type: "azurerm:consumption/v20180831:Budget" }, { type: "azurerm:consumption/v20181001:Budget" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:consumption/v20171230preview:Budget" }, { type: "azurerm:consumption/v20180131:Budget" }, { type: "azurerm:consumption/v20180630:Budget" }, { type: "azurerm:consumption/v20180831:Budget" }, { type: "azurerm:consumption/v20181001:Budget" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Budget.__pulumiType, name, inputs, opts);
     }

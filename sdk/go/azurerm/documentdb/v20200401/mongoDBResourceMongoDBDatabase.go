@@ -60,6 +60,9 @@ func NewMongoDBResourceMongoDBDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200301:MongoDBResourceMongoDBDatabase"),
 		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:MongoDBResourceMongoDBDatabase"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MongoDBResourceMongoDBDatabase

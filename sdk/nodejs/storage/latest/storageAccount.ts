@@ -64,7 +64,7 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageAccount {
-        return new StorageAccount(name, undefined, { ...opts, id: id });
+        return new StorageAccount(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -213,12 +213,9 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as StorageAccountArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -267,6 +264,38 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["statusOfPrimary"] = undefined /*out*/;
             inputs["statusOfSecondary"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["accessTier"] = undefined /*out*/;
+            inputs["allowBlobPublicAccess"] = undefined /*out*/;
+            inputs["azureFilesIdentityBasedAuthentication"] = undefined /*out*/;
+            inputs["blobRestoreStatus"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["customDomain"] = undefined /*out*/;
+            inputs["enableHttpsTrafficOnly"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
+            inputs["failoverInProgress"] = undefined /*out*/;
+            inputs["geoReplicationStats"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["isHnsEnabled"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["largeFileSharesState"] = undefined /*out*/;
+            inputs["lastGeoFailoverTime"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["minimumTlsVersion"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkRuleSet"] = undefined /*out*/;
+            inputs["primaryEndpoints"] = undefined /*out*/;
+            inputs["primaryLocation"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["routingPreference"] = undefined /*out*/;
+            inputs["secondaryEndpoints"] = undefined /*out*/;
+            inputs["secondaryLocation"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["statusOfPrimary"] = undefined /*out*/;
+            inputs["statusOfSecondary"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -275,7 +304,7 @@ export class StorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/v20150615:StorageAccount" }, { type: "azurerm:storage/v20160101:StorageAccount" }, { type: "azurerm:storage/v20160501:StorageAccount" }, { type: "azurerm:storage/v20161201:StorageAccount" }, { type: "azurerm:storage/v20170601:StorageAccount" }, { type: "azurerm:storage/v20171001:StorageAccount" }, { type: "azurerm:storage/v20180201:StorageAccount" }, { type: "azurerm:storage/v20180701:StorageAccount" }, { type: "azurerm:storage/v20181101:StorageAccount" }, { type: "azurerm:storage/v20190401:StorageAccount" }, { type: "azurerm:storage/v20190601:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storage/v20150501preview:StorageAccount" }, { type: "azurerm:storage/v20150615:StorageAccount" }, { type: "azurerm:storage/v20160101:StorageAccount" }, { type: "azurerm:storage/v20160501:StorageAccount" }, { type: "azurerm:storage/v20161201:StorageAccount" }, { type: "azurerm:storage/v20170601:StorageAccount" }, { type: "azurerm:storage/v20171001:StorageAccount" }, { type: "azurerm:storage/v20180201:StorageAccount" }, { type: "azurerm:storage/v20180301preview:StorageAccount" }, { type: "azurerm:storage/v20180701:StorageAccount" }, { type: "azurerm:storage/v20181101:StorageAccount" }, { type: "azurerm:storage/v20190401:StorageAccount" }, { type: "azurerm:storage/v20190601:StorageAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageAccount.__pulumiType, name, inputs, opts);
     }

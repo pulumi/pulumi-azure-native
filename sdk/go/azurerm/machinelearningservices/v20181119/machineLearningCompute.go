@@ -48,6 +48,9 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:machinelearningservices/latest:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20180301preview:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20190501:MachineLearningCompute"),
 		},
 		{
@@ -60,13 +63,25 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:machinelearningservices/v20200101:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200218preview:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20200301:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20200401:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200501preview:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200515preview:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20200601:MachineLearningCompute"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200901preview:MachineLearningCompute"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -30,7 +30,7 @@ export class Alias extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Alias {
-        return new Alias(name, undefined, { ...opts, id: id });
+        return new Alias(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -67,12 +67,9 @@ export class Alias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AliasArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AliasArgs | undefined;
             if (!args || args.aliasName === undefined) {
                 throw new Error("Missing required property 'aliasName'");
             }
@@ -83,6 +80,10 @@ export class Alias extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -91,7 +92,7 @@ export class Alias extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:subscription/v20200901:Alias" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:subscription/v20191001preview:Alias" }, { type: "azurerm:subscription/v20200901:Alias" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Alias.__pulumiType, name, inputs, opts);
     }

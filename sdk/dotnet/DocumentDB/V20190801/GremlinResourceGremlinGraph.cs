@@ -155,6 +155,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:GremlinResourceGremlinGraph"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:GremlinResourceGremlinGraph"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:GremlinResourceGremlinGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

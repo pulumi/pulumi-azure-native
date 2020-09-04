@@ -162,6 +162,7 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storagecache/latest:Cache"},
+                    new Pulumi.Alias { Type = "azurerm:storagecache/v20190801preview:Cache"},
                     new Pulumi.Alias { Type = "azurerm:storagecache/v20191101:Cache"},
                 },
             };

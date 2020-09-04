@@ -142,7 +142,10 @@ namespace Pulumi.AzureRM.HybridCompute.V20200802
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/latest:MachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20190802preview:MachineExtension"},
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/v20191212:MachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200730preview:MachineExtension"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200815preview:MachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,12 +186,6 @@ namespace Pulumi.AzureRM.HybridCompute.V20200802
         /// </summary>
         [Input("forceUpdateTag")]
         public Input<string>? ForceUpdateTag { get; set; }
-
-        /// <summary>
-        /// The machine extension instance view.
-        /// </summary>
-        [Input("instanceView")]
-        public Input<Inputs.MachineExtensionPropertiesInstanceViewArgs>? InstanceView { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

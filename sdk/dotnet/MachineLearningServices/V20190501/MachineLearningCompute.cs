@@ -186,13 +186,18 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/latest:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20180301preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20181119:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20190601:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20191101:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200101:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200218preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200301:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200401:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200501preview:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200515preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200601:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200901preview:MachineLearningCompute"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

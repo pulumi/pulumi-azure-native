@@ -54,7 +54,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachine {
-        return new VirtualMachine(name, undefined, { ...opts, id: id });
+        return new VirtualMachine(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -235,12 +235,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualMachineArgs | undefined;
             if (!args || args.labName === undefined) {
                 throw new Error("Missing required property 'labName'");
             }
@@ -291,6 +288,46 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
+        } else {
+            inputs["allowClaim"] = undefined /*out*/;
+            inputs["applicableSchedule"] = undefined /*out*/;
+            inputs["artifactDeploymentStatus"] = undefined /*out*/;
+            inputs["artifacts"] = undefined /*out*/;
+            inputs["computeId"] = undefined /*out*/;
+            inputs["computeVm"] = undefined /*out*/;
+            inputs["createdByUser"] = undefined /*out*/;
+            inputs["createdByUserId"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["customImageId"] = undefined /*out*/;
+            inputs["dataDiskParameters"] = undefined /*out*/;
+            inputs["disallowPublicIpAddress"] = undefined /*out*/;
+            inputs["environmentId"] = undefined /*out*/;
+            inputs["expirationDate"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
+            inputs["galleryImageReference"] = undefined /*out*/;
+            inputs["isAuthenticationWithSshKey"] = undefined /*out*/;
+            inputs["labSubnetName"] = undefined /*out*/;
+            inputs["labVirtualNetworkId"] = undefined /*out*/;
+            inputs["lastKnownPowerState"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkInterface"] = undefined /*out*/;
+            inputs["notes"] = undefined /*out*/;
+            inputs["osType"] = undefined /*out*/;
+            inputs["ownerObjectId"] = undefined /*out*/;
+            inputs["ownerUserPrincipalName"] = undefined /*out*/;
+            inputs["password"] = undefined /*out*/;
+            inputs["planId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["scheduleParameters"] = undefined /*out*/;
+            inputs["size"] = undefined /*out*/;
+            inputs["sshKey"] = undefined /*out*/;
+            inputs["storageType"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
+            inputs["userName"] = undefined /*out*/;
+            inputs["virtualMachineCreationSource"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -299,7 +336,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/v20160515:VirtualMachine" }, { type: "azurerm:devtestlab/v20180915:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/v20150521preview:VirtualMachine" }, { type: "azurerm:devtestlab/v20160515:VirtualMachine" }, { type: "azurerm:devtestlab/v20180915:VirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }

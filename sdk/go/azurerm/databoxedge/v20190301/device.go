@@ -79,6 +79,9 @@ func NewDevice(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:databoxedge/v20190801:Device"),
 		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20200501preview:Device"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Device

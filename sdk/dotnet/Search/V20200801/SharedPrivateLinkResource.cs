@@ -80,6 +80,7 @@ namespace Pulumi.AzureRM.Search.V20200801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:search/latest:SharedPrivateLinkResource"},
+                    new Pulumi.Alias { Type = "azurerm:search/v20200801preview:SharedPrivateLinkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

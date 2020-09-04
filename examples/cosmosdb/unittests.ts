@@ -1,7 +1,6 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
 
-import * as azurerm from "../../sdk/nodejs";
-import * as pulumi from "../../sdk/nodejs/node_modules/@pulumi/pulumi";
+import * as pulumi from "@pulumi/pulumi";
 import "mocha";
 import { distanceBetweenRegions } from "./distance";
 

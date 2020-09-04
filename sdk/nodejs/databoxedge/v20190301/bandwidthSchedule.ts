@@ -39,7 +39,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BandwidthSchedule {
-        return new BandwidthSchedule(name, undefined, { ...opts, id: id });
+        return new BandwidthSchedule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -88,12 +88,9 @@ export class BandwidthSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BandwidthScheduleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BandwidthScheduleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BandwidthScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BandwidthScheduleArgs | undefined;
             if (!args || args.days === undefined) {
                 throw new Error("Missing required property 'days'");
             }
@@ -123,6 +120,13 @@ export class BandwidthSchedule extends pulumi.CustomResource {
             inputs["start"] = args ? args.start : undefined;
             inputs["stop"] = args ? args.stop : undefined;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["days"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["rateInMbps"] = undefined /*out*/;
+            inputs["start"] = undefined /*out*/;
+            inputs["stop"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -131,7 +135,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:BandwidthSchedule" }, { type: "azurerm:databoxedge/v20190701:BandwidthSchedule" }, { type: "azurerm:databoxedge/v20190801:BandwidthSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:BandwidthSchedule" }, { type: "azurerm:databoxedge/v20190701:BandwidthSchedule" }, { type: "azurerm:databoxedge/v20190801:BandwidthSchedule" }, { type: "azurerm:databoxedge/v20200501preview:BandwidthSchedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BandwidthSchedule.__pulumiType, name, inputs, opts);
     }

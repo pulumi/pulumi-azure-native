@@ -46,6 +46,9 @@ func NewLinkedService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datafactory/latest:LinkedService"),
 		},
+		{
+			Type: pulumi.String("azurerm:datafactory/v20170901preview:LinkedService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LinkedService

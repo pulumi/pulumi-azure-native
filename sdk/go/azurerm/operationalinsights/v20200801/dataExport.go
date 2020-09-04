@@ -58,6 +58,12 @@ func NewDataExport(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:operationalinsights/latest:DataExport"),
 		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/v20190801preview:DataExport"),
+		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/v20200301preview:DataExport"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DataExport

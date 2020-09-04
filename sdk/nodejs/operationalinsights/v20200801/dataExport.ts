@@ -33,7 +33,7 @@ export class DataExport extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataExport {
-        return new DataExport(name, undefined, { ...opts, id: id });
+        return new DataExport(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -98,12 +98,9 @@ export class DataExport extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DataExportArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DataExportArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DataExportArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DataExportArgs | undefined;
             if (!args || args.dataExportName === undefined) {
                 throw new Error("Missing required property 'dataExportName'");
             }
@@ -129,6 +126,17 @@ export class DataExport extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["allTables"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["dataExportId"] = undefined /*out*/;
+            inputs["enable"] = undefined /*out*/;
+            inputs["eventHubName"] = undefined /*out*/;
+            inputs["lastModifiedDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["resourceId"] = undefined /*out*/;
+            inputs["tableNames"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -137,7 +145,7 @@ export class DataExport extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/latest:DataExport" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/latest:DataExport" }, { type: "azurerm:operationalinsights/v20190801preview:DataExport" }, { type: "azurerm:operationalinsights/v20200301preview:DataExport" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataExport.__pulumiType, name, inputs, opts);
     }

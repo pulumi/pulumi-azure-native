@@ -1,20 +1,26 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as azurerm from "../../sdk/nodejs";
+import * as random from "@pulumi/random";
 import { URL } from "url";
 
-const resourceGroup = new azurerm.resources.latest.ResourceGroup("rg", {
-    resourceGroupName: "azurerm-static-website",
+import * as cdn from "@pulumi/azurerm/cdn/latest";
+import * as resources from "@pulumi/azurerm/resources/latest";
+import * as storage from "@pulumi/azurerm/storage/latest";
+
+const randomString = new random.RandomString("random", {
+    length: 12,
+    special: false,
+    upper: false,
+});
+
+const resourceGroup = new resources.ResourceGroup("rg", {
+    resourceGroupName: randomString.result,
     location: "westus2",
-    tags: {
-        Owner: "mikhailshilkov",
-        Env: "prod2",
-    },
 });
 
 // Create a Storage Account for our static website
-const storageAccount = new azurerm.storage.latest.StorageAccount("websitesa", {
+const storageAccount = new storage.StorageAccount("websitesa", {
     resourceGroupName: resourceGroup.name,
-    accountName: "pulumiswsa",
+    accountName: randomString.result,
     location: "westus2",
     sku: {
         name: "Standard_LRS",
@@ -46,19 +52,19 @@ export const staticEndpoint = storageAccount.primaryEndpoints.web;
 const staticHostname = staticEndpoint.apply(url => url ? new URL(url).hostname : "<preview>");
 
 // We can add a CDN in front of the website
-const cdn =  new azurerm.cdn.latest.Profile("website-cdn", {
+const profile =  new cdn.Profile("website-cdn", {
     resourceGroupName: resourceGroup.name,
-    profileName: "pulumi-static-website",
+    profileName: randomString.result,
     location: "global",
     sku: {
           name: "Standard_Microsoft",
     },
 });
 
-const endpoint = new azurerm.cdn.latest.Endpoint("website-cdn-ep", {
+const endpoint = new cdn.Endpoint("website-cdn-ep", {
     resourceGroupName: resourceGroup.name,
-    profileName: cdn.name,
-    endpointName: "pulumi-static-website-ep",
+    profileName: profile.name,
+    endpointName: randomString.result,
     location: "westus",
     originHostHeader: staticHostname,
     origins: [{

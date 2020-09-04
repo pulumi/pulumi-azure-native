@@ -40,7 +40,7 @@ export class App extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): App {
-        return new App(name, undefined, { ...opts, id: id });
+        return new App(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -101,12 +101,9 @@ export class App extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AppArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AppArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -130,6 +127,16 @@ export class App extends pulumi.CustomResource {
             inputs["applicationId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["applicationId"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["subdomain"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["template"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -138,7 +145,7 @@ export class App extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:iotcentral/v20180901:App" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:iotcentral/v20170701privatepreview:App" }, { type: "azurerm:iotcentral/v20180901:App" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(App.__pulumiType, name, inputs, opts);
     }

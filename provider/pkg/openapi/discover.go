@@ -1,16 +1,4 @@
 // Copyright 2016-2020, Pulumi Corporation.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
 
 package openapi
 
@@ -72,9 +60,9 @@ func Providers() AzureProviders {
 	}
 
 	for _, versionMap := range providers {
-		// Add a `latest` version for each resource and invoke.
-		latestResources := calculateLatestVersions(versionMap, false)
-		latestInvokes := calculateLatestVersions(versionMap, true)
+		// Add a `latest` (stable) version for each resource and invoke.
+		latestResources := calculateLatestVersions(versionMap, false /* invokes */, false /* preview */)
+		latestInvokes := calculateLatestVersions(versionMap, true /* invokes */, false /* preview */)
 		versionMap["latest"] = VersionResources {
 			Resources: latestResources,
 			Invokes:   latestInvokes,
@@ -105,7 +93,7 @@ func swaggerLocations() ([]string, error) {
 		return nil, err
 	}
 
-	pattern := filepath.Join(dir, "/azure-rest-api-specs/specification/**/resource-manager/Microsoft.*/stable/*/*.json")
+	pattern := filepath.Join(dir, "/azure-rest-api-specs/specification/**/resource-manager/Microsoft.*/*/*/*.json")
 	files, err := filepath.Glob(pattern)
 	if err != nil {
 		return nil, err
@@ -177,10 +165,12 @@ func addApiPath(providers AzureProviders, path string, spec *Spec) {
 
 // calculateLatestVersions builds a map of latest versions per API paths from a map of all versions of a resource
 // provider. The result is a map from a resource type name to resource specs.
-func calculateLatestVersions(versionMap ProviderVersions, invokes bool) (latestResources map[string]*ResourceSpec)  {
+func calculateLatestVersions(versionMap ProviderVersions, invokes, preview bool) (latestResources map[string]*ResourceSpec)  {
 	var versions []string
 	for version := range versionMap {
-		versions = append(versions, version)
+		if preview || !strings.Contains(version, "preview") {
+			versions = append(versions, version)
+		}
 	}
 	sort.Strings(versions)
 
@@ -228,7 +218,7 @@ func calculatePathVersions(versionMap ProviderVersions) (pathVersions map[string
 // normalizePath converts an API path to its canonical form (lowercase, with all placeholders removed). The paths that
 // convert to the same canonical path are considered to represent the same resource.
 func normalizePath(path string) string {
-	lowerPath := strings.ReplaceAll(strings.ToLower(path), "-", "")
+	lowerPath := strings.ReplaceAll(strings.ToLower(strings.TrimSuffix(path, "/")), "-", "")
 	parts := strings.Split(lowerPath, "/")
 	newParts := make([]string, len(parts))
 	for i, part := range parts {

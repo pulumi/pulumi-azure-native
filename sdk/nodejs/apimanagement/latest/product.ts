@@ -33,7 +33,7 @@ export class Product extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Product {
-        return new Product(name, undefined, { ...opts, id: id });
+        return new Product(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -94,12 +94,9 @@ export class Product extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProductArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProductArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProductArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ProductArgs | undefined;
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -124,6 +121,16 @@ export class Product extends pulumi.CustomResource {
             inputs["terms"] = args ? args.terms : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["approvalRequired"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["subscriptionRequired"] = undefined /*out*/;
+            inputs["subscriptionsLimit"] = undefined /*out*/;
+            inputs["terms"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -132,7 +139,7 @@ export class Product extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:Product" }, { type: "azurerm:apimanagement/v20161010:Product" }, { type: "azurerm:apimanagement/v20170301:Product" }, { type: "azurerm:apimanagement/v20180101:Product" }, { type: "azurerm:apimanagement/v20190101:Product" }, { type: "azurerm:apimanagement/v20191201:Product" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20160707:Product" }, { type: "azurerm:apimanagement/v20161010:Product" }, { type: "azurerm:apimanagement/v20170301:Product" }, { type: "azurerm:apimanagement/v20180101:Product" }, { type: "azurerm:apimanagement/v20180601preview:Product" }, { type: "azurerm:apimanagement/v20190101:Product" }, { type: "azurerm:apimanagement/v20191201:Product" }, { type: "azurerm:apimanagement/v20191201preview:Product" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Product.__pulumiType, name, inputs, opts);
     }

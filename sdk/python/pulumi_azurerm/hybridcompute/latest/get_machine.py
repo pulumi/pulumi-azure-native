@@ -152,7 +152,7 @@ class GetMachineResult:
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[List['outputs.MachineExtensionInstanceViewResponse']]:
+    def extensions(self) -> List['outputs.MachineExtensionInstanceViewResponse']:
         """
         Machine Extensions information
         """

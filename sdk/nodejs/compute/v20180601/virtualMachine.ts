@@ -538,7 +538,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachine {
-        return new VirtualMachine(name, undefined, { ...opts, id: id });
+        return new VirtualMachine(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -643,12 +643,9 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualMachineArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -680,6 +677,27 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["resources"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["vmId"] = undefined /*out*/;
+        } else {
+            inputs["additionalCapabilities"] = undefined /*out*/;
+            inputs["availabilitySet"] = undefined /*out*/;
+            inputs["diagnosticsProfile"] = undefined /*out*/;
+            inputs["hardwareProfile"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["instanceView"] = undefined /*out*/;
+            inputs["licenseType"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkProfile"] = undefined /*out*/;
+            inputs["osProfile"] = undefined /*out*/;
+            inputs["plan"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["proximityPlacementGroup"] = undefined /*out*/;
+            inputs["resources"] = undefined /*out*/;
+            inputs["storageProfile"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vmId"] = undefined /*out*/;
+            inputs["zones"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -688,7 +706,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:VirtualMachine" }, { type: "azurerm:compute/v20150615:VirtualMachine" }, { type: "azurerm:compute/v20160330:VirtualMachine" }, { type: "azurerm:compute/v20170330:VirtualMachine" }, { type: "azurerm:compute/v20171201:VirtualMachine" }, { type: "azurerm:compute/v20180401:VirtualMachine" }, { type: "azurerm:compute/v20181001:VirtualMachine" }, { type: "azurerm:compute/v20190301:VirtualMachine" }, { type: "azurerm:compute/v20190701:VirtualMachine" }, { type: "azurerm:compute/v20191201:VirtualMachine" }, { type: "azurerm:compute/v20200601:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:VirtualMachine" }, { type: "azurerm:compute/v20150615:VirtualMachine" }, { type: "azurerm:compute/v20160330:VirtualMachine" }, { type: "azurerm:compute/v20160430preview:VirtualMachine" }, { type: "azurerm:compute/v20170330:VirtualMachine" }, { type: "azurerm:compute/v20171201:VirtualMachine" }, { type: "azurerm:compute/v20180401:VirtualMachine" }, { type: "azurerm:compute/v20181001:VirtualMachine" }, { type: "azurerm:compute/v20190301:VirtualMachine" }, { type: "azurerm:compute/v20190701:VirtualMachine" }, { type: "azurerm:compute/v20191201:VirtualMachine" }, { type: "azurerm:compute/v20200601:VirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }

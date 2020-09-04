@@ -34,7 +34,7 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagerExtendedInfo {
-        return new ManagerExtendedInfo(name, undefined, { ...opts, id: id });
+        return new ManagerExtendedInfo(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -95,12 +95,9 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagerExtendedInfoArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagerExtendedInfoArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ManagerExtendedInfoArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ManagerExtendedInfoArgs | undefined;
             if (!args || args.algorithm === undefined) {
                 throw new Error("Missing required property 'algorithm'");
             }
@@ -124,6 +121,16 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["algorithm"] = undefined /*out*/;
+            inputs["encryptionKey"] = undefined /*out*/;
+            inputs["encryptionKeyThumbprint"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["integrityKey"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["portalCertificateThumbprint"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

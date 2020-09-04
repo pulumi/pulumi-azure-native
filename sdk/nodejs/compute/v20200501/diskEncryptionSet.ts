@@ -43,7 +43,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DiskEncryptionSet {
-        return new DiskEncryptionSet(name, undefined, { ...opts, id: id });
+        return new DiskEncryptionSet(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DiskEncryptionSetArgs | undefined;
             if (!args || args.diskEncryptionSetName === undefined) {
                 throw new Error("Missing required property 'diskEncryptionSetName'");
             }
@@ -129,6 +126,16 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["previousKeys"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["activeKey"] = undefined /*out*/;
+            inputs["encryptionType"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["previousKeys"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

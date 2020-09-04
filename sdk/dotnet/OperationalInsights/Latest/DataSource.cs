@@ -98,6 +98,8 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20151101preview:DataSource"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:DataSource"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200801:DataSource"},
                 },
             };

@@ -56,6 +56,9 @@ func NewIotDpsResource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devices/latest:IotDpsResource"),
 		},
 		{
+			Type: pulumi.String("azurerm:devices/v20170821preview:IotDpsResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20171115:IotDpsResource"),
 		},
 		{

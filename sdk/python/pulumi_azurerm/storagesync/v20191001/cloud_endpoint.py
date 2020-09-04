@@ -99,7 +99,7 @@ class CloudEndpoint(pulumi.CustomResource):
             __props__['partnership_id'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storagesync/latest:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20180402:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20180701:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20181001:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20190201:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20190301:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20190601:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20200301:CloudEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storagesync/latest:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20170605preview:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20180402:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20180701:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20181001:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20190201:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20190301:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20190601:CloudEndpoint"), pulumi.Alias(type_="azurerm:storagesync/v20200301:CloudEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudEndpoint, __self__).__init__(
             'azurerm:storagesync/v20191001:CloudEndpoint',

@@ -19,7 +19,7 @@ export class GlobalSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GlobalSchedule {
-        return new GlobalSchedule(name, undefined, { ...opts, id: id });
+        return new GlobalSchedule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class GlobalSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GlobalScheduleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GlobalScheduleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: GlobalScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as GlobalScheduleArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -132,6 +129,22 @@ export class GlobalSchedule extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
+        } else {
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["dailyRecurrence"] = undefined /*out*/;
+            inputs["hourlyRecurrence"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notificationSettings"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["targetResourceId"] = undefined /*out*/;
+            inputs["taskType"] = undefined /*out*/;
+            inputs["timeZoneId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
+            inputs["weeklyRecurrence"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -59,6 +59,9 @@ func NewSqlResourceSqlDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:documentdb/v20200401:SqlResourceSqlDatabase"),
 		},
+		{
+			Type: pulumi.String("azurerm:documentdb/v20200601preview:SqlResourceSqlDatabase"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlResourceSqlDatabase

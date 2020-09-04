@@ -3,6 +3,7 @@
 
 // Export sub-modules:
 import * as latest from "./latest";
+import * as v20170815 from "./v20170815";
 import * as v20190501 from "./v20190501";
 import * as v20190601 from "./v20190601";
 import * as v20190701 from "./v20190701";
@@ -11,4 +12,4 @@ import * as v20191001 from "./v20191001";
 import * as v20191101 from "./v20191101";
 import * as v20200201 from "./v20200201";
 import * as v20200601 from "./v20200601";
-export {latest, v20190501, v20190601, v20190701, v20190801, v20191001, v20191101, v20200201, v20200601};
+export {latest, v20170815, v20190501, v20190601, v20190701, v20190801, v20191001, v20191101, v20200201, v20200601};

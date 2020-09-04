@@ -41,7 +41,7 @@ export class MachineExtension extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MachineExtension {
-        return new MachineExtension(name, undefined, { ...opts, id: id });
+        return new MachineExtension(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,7 +69,7 @@ export class MachineExtension extends pulumi.CustomResource {
     /**
      * The machine extension instance view.
      */
-    public readonly instanceView!: pulumi.Output<outputs.hybridcompute.v20200802.MachineExtensionPropertiesResponseInstanceView | undefined>;
+    public /*out*/ readonly instanceView!: pulumi.Output<outputs.hybridcompute.v20200802.MachineExtensionPropertiesResponseInstanceView | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -114,12 +114,9 @@ export class MachineExtension extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MachineExtensionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MachineExtensionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MachineExtensionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as MachineExtensionArgs | undefined;
             if (!args || args.extensionName === undefined) {
                 throw new Error("Missing required property 'extensionName'");
             }
@@ -135,7 +132,6 @@ export class MachineExtension extends pulumi.CustomResource {
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
             inputs["extensionName"] = args ? args.extensionName : undefined;
             inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            inputs["instanceView"] = args ? args.instanceView : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
@@ -145,7 +141,21 @@ export class MachineExtension extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            inputs["instanceView"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["autoUpgradeMinorVersion"] = undefined /*out*/;
+            inputs["forceUpdateTag"] = undefined /*out*/;
+            inputs["instanceView"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["protectedSettings"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publisher"] = undefined /*out*/;
+            inputs["settings"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["typeHandlerVersion"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -154,7 +164,7 @@ export class MachineExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/latest:MachineExtension" }, { type: "azurerm:hybridcompute/v20191212:MachineExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:hybridcompute/latest:MachineExtension" }, { type: "azurerm:hybridcompute/v20190802preview:MachineExtension" }, { type: "azurerm:hybridcompute/v20191212:MachineExtension" }, { type: "azurerm:hybridcompute/v20200730preview:MachineExtension" }, { type: "azurerm:hybridcompute/v20200815preview:MachineExtension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineExtension.__pulumiType, name, inputs, opts);
     }
@@ -176,10 +186,6 @@ export interface MachineExtensionArgs {
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
     readonly forceUpdateTag?: pulumi.Input<string>;
-    /**
-     * The machine extension instance view.
-     */
-    readonly instanceView?: pulumi.Input<inputs.hybridcompute.v20200802.MachineExtensionPropertiesInstanceView>;
     /**
      * The geo-location where the resource lives
      */

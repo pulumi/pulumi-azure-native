@@ -124,6 +124,9 @@ namespace Pulumi.AzureRM.Peering.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:peering/v20190801preview:PeerAsn"},
+                    new Pulumi.Alias { Type = "azurerm:peering/v20190901preview:PeerAsn"},
+                    new Pulumi.Alias { Type = "azurerm:peering/v20200101preview:PeerAsn"},
                     new Pulumi.Alias { Type = "azurerm:peering/v20200401:PeerAsn"},
                 },
             };

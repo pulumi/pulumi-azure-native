@@ -63,7 +63,7 @@ export class FrontDoor extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FrontDoor {
-        return new FrontDoor(name, undefined, { ...opts, id: id });
+        return new FrontDoor(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -156,12 +156,9 @@ export class FrontDoor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FrontDoorArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FrontDoorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: FrontDoorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as FrontDoorArgs | undefined;
             if (!args || args.frontDoorName === undefined) {
                 throw new Error("Missing required property 'frontDoorName'");
             }
@@ -187,6 +184,24 @@ export class FrontDoor extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["rulesEngines"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["backendPools"] = undefined /*out*/;
+            inputs["backendPoolsSettings"] = undefined /*out*/;
+            inputs["cname"] = undefined /*out*/;
+            inputs["enabledState"] = undefined /*out*/;
+            inputs["friendlyName"] = undefined /*out*/;
+            inputs["frontdoorId"] = undefined /*out*/;
+            inputs["frontendEndpoints"] = undefined /*out*/;
+            inputs["healthProbeSettings"] = undefined /*out*/;
+            inputs["loadBalancingSettings"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
+            inputs["routingRules"] = undefined /*out*/;
+            inputs["rulesEngines"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -195,7 +210,7 @@ export class FrontDoor extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:FrontDoor" }, { type: "azurerm:network/v20190401:FrontDoor" }, { type: "azurerm:network/v20190501:FrontDoor" }, { type: "azurerm:network/v20200101:FrontDoor" }, { type: "azurerm:network/v20200501:FrontDoor" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:FrontDoor" }, { type: "azurerm:network/v20180801:FrontDoor" }, { type: "azurerm:network/v20190401:FrontDoor" }, { type: "azurerm:network/v20190501:FrontDoor" }, { type: "azurerm:network/v20200101:FrontDoor" }, { type: "azurerm:network/v20200501:FrontDoor" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FrontDoor.__pulumiType, name, inputs, opts);
     }

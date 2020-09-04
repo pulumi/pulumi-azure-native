@@ -34,7 +34,7 @@ export class CustomDomain extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomDomain {
-        return new CustomDomain(name, undefined, { ...opts, id: id });
+        return new CustomDomain(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -91,12 +91,9 @@ export class CustomDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CustomDomainArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as CustomDomainArgs | undefined;
             if (!args || args.customDomainName === undefined) {
                 throw new Error("Missing required property 'customDomainName'");
             }
@@ -124,6 +121,15 @@ export class CustomDomain extends pulumi.CustomResource {
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["validationData"] = undefined /*out*/;
+        } else {
+            inputs["customHttpsProvisioningState"] = undefined /*out*/;
+            inputs["customHttpsProvisioningSubstate"] = undefined /*out*/;
+            inputs["hostName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["validationData"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -132,7 +138,7 @@ export class CustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cdn/v20150601:CustomDomain" }, { type: "azurerm:cdn/v20160402:CustomDomain" }, { type: "azurerm:cdn/v20161002:CustomDomain" }, { type: "azurerm:cdn/v20170402:CustomDomain" }, { type: "azurerm:cdn/v20171012:CustomDomain" }, { type: "azurerm:cdn/v20190415:CustomDomain" }, { type: "azurerm:cdn/v20190615:CustomDomain" }, { type: "azurerm:cdn/v20191231:CustomDomain" }, { type: "azurerm:cdn/v20200331:CustomDomain" }, { type: "azurerm:cdn/v20200415:CustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:cdn/v20150601:CustomDomain" }, { type: "azurerm:cdn/v20160402:CustomDomain" }, { type: "azurerm:cdn/v20161002:CustomDomain" }, { type: "azurerm:cdn/v20170402:CustomDomain" }, { type: "azurerm:cdn/v20171012:CustomDomain" }, { type: "azurerm:cdn/v20190415:CustomDomain" }, { type: "azurerm:cdn/v20190615:CustomDomain" }, { type: "azurerm:cdn/v20190615preview:CustomDomain" }, { type: "azurerm:cdn/v20191231:CustomDomain" }, { type: "azurerm:cdn/v20200331:CustomDomain" }, { type: "azurerm:cdn/v20200415:CustomDomain" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomDomain.__pulumiType, name, inputs, opts);
     }

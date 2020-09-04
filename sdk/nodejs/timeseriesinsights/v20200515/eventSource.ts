@@ -36,7 +36,7 @@ export class EventSource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventSource {
-        return new EventSource(name, undefined, { ...opts, id: id });
+        return new EventSource(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -81,12 +81,9 @@ export class EventSource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventSourceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventSourceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: EventSourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as EventSourceArgs | undefined;
             if (!args || args.environmentName === undefined) {
                 throw new Error("Missing required property 'environmentName'");
             }
@@ -111,6 +108,12 @@ export class EventSource extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -119,7 +122,7 @@ export class EventSource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:timeseriesinsights/latest:EventSource" }, { type: "azurerm:timeseriesinsights/v20171115:EventSource" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:timeseriesinsights/latest:EventSource" }, { type: "azurerm:timeseriesinsights/v20170228preview:EventSource" }, { type: "azurerm:timeseriesinsights/v20171115:EventSource" }, { type: "azurerm:timeseriesinsights/v20180815preview:EventSource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EventSource.__pulumiType, name, inputs, opts);
     }

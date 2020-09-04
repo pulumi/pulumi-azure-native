@@ -19,7 +19,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetwork {
-        return new VirtualNetwork(name, undefined, { ...opts, id: id });
+        return new VirtualNetwork(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -92,12 +92,9 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as VirtualNetworkArgs | undefined;
             if (!args || args.labName === undefined) {
                 throw new Error("Missing required property 'labName'");
             }
@@ -121,6 +118,19 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
             inputs["createdDate"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["allowedSubnets"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["externalProviderResourceId"] = undefined /*out*/;
+            inputs["externalSubnets"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["subnetOverrides"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -129,7 +139,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:VirtualNetwork" }, { type: "azurerm:devtestlab/v20180915:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:VirtualNetwork" }, { type: "azurerm:devtestlab/v20150521preview:VirtualNetwork" }, { type: "azurerm:devtestlab/v20180915:VirtualNetwork" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetwork.__pulumiType, name, inputs, opts);
     }

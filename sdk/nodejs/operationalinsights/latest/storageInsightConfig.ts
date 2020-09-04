@@ -43,7 +43,7 @@ export class StorageInsightConfig extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageInsightConfig {
-        return new StorageInsightConfig(name, undefined, { ...opts, id: id });
+        return new StorageInsightConfig(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -100,12 +100,9 @@ export class StorageInsightConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StorageInsightConfigArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StorageInsightConfigArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StorageInsightConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as StorageInsightConfigArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,6 +126,15 @@ export class StorageInsightConfig extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["containers"] = undefined /*out*/;
+            inputs["eTag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["storageAccount"] = undefined /*out*/;
+            inputs["tables"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -137,7 +143,7 @@ export class StorageInsightConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azurerm:operationalinsights/v20200801:StorageInsightConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azurerm:operationalinsights/v20200301preview:StorageInsightConfig" }, { type: "azurerm:operationalinsights/v20200801:StorageInsightConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageInsightConfig.__pulumiType, name, inputs, opts);
     }

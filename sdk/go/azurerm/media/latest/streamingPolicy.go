@@ -49,6 +49,12 @@ func NewStreamingPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:media/v20180330preview:StreamingPolicy"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180601preview:StreamingPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180701:StreamingPolicy"),
 		},
 		{

@@ -83,6 +83,9 @@ func NewWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:machinelearningservices/latest:Workspace"),
 		},
 		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20180301preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20181119:Workspace"),
 		},
 		{
@@ -98,10 +101,22 @@ func NewWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:machinelearningservices/v20200101:Workspace"),
 		},
 		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200218preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20200301:Workspace"),
 		},
 		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20200401:Workspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200501preview:Workspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200515preview:Workspace"),
+		},
+		{
+			Type: pulumi.String("azurerm:machinelearningservices/v20200901preview:Workspace"),
 		},
 	})
 	opts = append(opts, aliases)

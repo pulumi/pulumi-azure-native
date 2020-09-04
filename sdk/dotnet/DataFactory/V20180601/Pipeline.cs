@@ -198,6 +198,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datafactory/latest:Pipeline"},
+                    new Pulumi.Alias { Type = "azurerm:datafactory/v20170901preview:Pipeline"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -24,6 +24,7 @@ export * from "./getMyWorkbook";
 export * from "./getScheduledQueryRule";
 export * from "./getWebTest";
 export * from "./getWorkbook";
+export * from "./listEASubscriptionListMigrationDatePost";
 export * from "./logProfile";
 export * from "./metricAlert";
 export * from "./myWorkbook";

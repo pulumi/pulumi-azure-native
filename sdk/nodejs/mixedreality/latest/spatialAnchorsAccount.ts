@@ -32,7 +32,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SpatialAnchorsAccount {
-        return new SpatialAnchorsAccount(name, undefined, { ...opts, id: id });
+        return new SpatialAnchorsAccount(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -81,12 +81,9 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SpatialAnchorsAccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SpatialAnchorsAccountArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SpatialAnchorsAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SpatialAnchorsAccountArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -104,6 +101,13 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             inputs["accountId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["accountDomain"] = undefined /*out*/;
+            inputs["accountId"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -112,7 +116,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:mixedreality/v20200501:SpatialAnchorsAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:mixedreality/v20190228preview:SpatialAnchorsAccount" }, { type: "azurerm:mixedreality/v20191202preview:SpatialAnchorsAccount" }, { type: "azurerm:mixedreality/v20200501:SpatialAnchorsAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SpatialAnchorsAccount.__pulumiType, name, inputs, opts);
     }

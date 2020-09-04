@@ -102,6 +102,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:SqlResourceSqlTrigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

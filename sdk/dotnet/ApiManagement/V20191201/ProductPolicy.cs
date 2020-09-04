@@ -106,7 +106,9 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:ProductPolicy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:ProductPolicy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:ProductPolicy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:ProductPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201preview:ProductPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

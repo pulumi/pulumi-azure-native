@@ -92,7 +92,7 @@ class Environment(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:timeseriesinsights/latest:Environment"), pulumi.Alias(type_="azurerm:timeseriesinsights/v20171115:Environment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:timeseriesinsights/latest:Environment"), pulumi.Alias(type_="azurerm:timeseriesinsights/v20170228preview:Environment"), pulumi.Alias(type_="azurerm:timeseriesinsights/v20171115:Environment"), pulumi.Alias(type_="azurerm:timeseriesinsights/v20180815preview:Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Environment, __self__).__init__(
             'azurerm:timeseriesinsights/v20200515:Environment',

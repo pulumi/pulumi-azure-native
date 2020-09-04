@@ -94,7 +94,9 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/latest:EventSource"},
+                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20170228preview:EventSource"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20171115:EventSource"},
+                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20180815preview:EventSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

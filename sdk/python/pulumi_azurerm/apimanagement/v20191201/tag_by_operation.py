@@ -85,7 +85,7 @@ class TagByOperation(pulumi.CustomResource):
             __props__['display_name'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:TagByOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:TagByOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:TagByOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:TagByOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:TagByOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:TagByOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:TagByOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:TagByOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:TagByOperation"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:TagByOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagByOperation, __self__).__init__(
             'azurerm:apimanagement/v20191201:TagByOperation',

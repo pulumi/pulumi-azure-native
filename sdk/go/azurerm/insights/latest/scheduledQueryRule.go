@@ -63,6 +63,9 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:insights/v20180416:ScheduledQueryRule"),
 		},
+		{
+			Type: pulumi.String("azurerm:insights/v20200501preview:ScheduledQueryRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ScheduledQueryRule

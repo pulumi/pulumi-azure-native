@@ -32,7 +32,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HcxEnterpriseSite {
-        return new HcxEnterpriseSite(name, undefined, { ...opts, id: id });
+        return new HcxEnterpriseSite(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -73,12 +73,9 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: HcxEnterpriseSiteArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: HcxEnterpriseSiteArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: HcxEnterpriseSiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as HcxEnterpriseSiteArgs | undefined;
             if (!args || args.hcxEnterpriseSiteName === undefined) {
                 throw new Error("Missing required property 'hcxEnterpriseSiteName'");
             }
@@ -91,6 +88,11 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
             inputs["hcxEnterpriseSiteName"] = args ? args.hcxEnterpriseSiteName : undefined;
             inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["activationKey"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
             inputs["activationKey"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;

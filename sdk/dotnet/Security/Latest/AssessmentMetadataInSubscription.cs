@@ -154,6 +154,7 @@ namespace Pulumi.AzureRM.Security.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:security/v20190101preview:AssessmentMetadataInSubscription"},
                     new Pulumi.Alias { Type = "azurerm:security/v20200101:AssessmentMetadataInSubscription"},
                 },
             };

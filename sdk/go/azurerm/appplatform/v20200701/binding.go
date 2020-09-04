@@ -44,6 +44,9 @@ func NewBinding(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:appplatform/latest:Binding"),
 		},
+		{
+			Type: pulumi.String("azurerm:appplatform/v20190501preview:Binding"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Binding

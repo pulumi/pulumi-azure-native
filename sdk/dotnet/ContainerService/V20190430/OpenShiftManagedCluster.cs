@@ -212,6 +212,9 @@ namespace Pulumi.AzureRM.ContainerService.V20190430
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:containerservice/latest:OpenShiftManagedCluster"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20180930preview:OpenShiftManagedCluster"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20190930preview:OpenShiftManagedCluster"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20191027preview:OpenShiftManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

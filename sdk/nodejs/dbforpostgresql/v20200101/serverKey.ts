@@ -34,7 +34,7 @@ export class ServerKey extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerKey {
-        return new ServerKey(name, undefined, { ...opts, id: id });
+        return new ServerKey(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -83,12 +83,9 @@ export class ServerKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerKeyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerKeyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServerKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServerKeyArgs | undefined;
             if (!args || args.keyName === undefined) {
                 throw new Error("Missing required property 'keyName'");
             }
@@ -110,6 +107,13 @@ export class ServerKey extends pulumi.CustomResource {
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["serverKeyType"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uri"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -118,7 +122,7 @@ export class ServerKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbforpostgresql/latest:ServerKey" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:dbforpostgresql/latest:ServerKey" }, { type: "azurerm:dbforpostgresql/v20200101privatepreview:ServerKey" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerKey.__pulumiType, name, inputs, opts);
     }

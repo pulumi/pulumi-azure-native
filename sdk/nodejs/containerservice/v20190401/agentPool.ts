@@ -36,7 +36,7 @@ export class AgentPool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AgentPool {
-        return new AgentPool(name, undefined, { ...opts, id: id });
+        return new AgentPool(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -117,12 +117,9 @@ export class AgentPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AgentPoolArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AgentPoolArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AgentPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AgentPoolArgs | undefined;
             if (!args || args.agentPoolName === undefined) {
                 throw new Error("Missing required property 'agentPoolName'");
             }
@@ -155,6 +152,21 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["availabilityZones"] = undefined /*out*/;
+            inputs["count"] = undefined /*out*/;
+            inputs["enableAutoScaling"] = undefined /*out*/;
+            inputs["maxCount"] = undefined /*out*/;
+            inputs["maxPods"] = undefined /*out*/;
+            inputs["minCount"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["orchestratorVersion"] = undefined /*out*/;
+            inputs["osDiskSizeGB"] = undefined /*out*/;
+            inputs["osType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vmSize"] = undefined /*out*/;
+            inputs["vnetSubnetID"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

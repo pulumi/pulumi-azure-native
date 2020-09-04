@@ -89,10 +89,15 @@ namespace Pulumi.AzureRM.Devices.V20200615
                     new Pulumi.Alias { Type = "azurerm:devices/v20170701:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20180122:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20180401:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20181201preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20190322:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20190322preview:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20190701preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20191104:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200301:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200401:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20200710preview:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20200801:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

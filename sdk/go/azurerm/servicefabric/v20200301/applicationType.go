@@ -48,7 +48,19 @@ func NewApplicationType(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicefabric/latest:ApplicationType"),
 		},
 		{
+			Type: pulumi.String("azurerm:servicefabric/v20170701preview:ApplicationType"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicefabric/v20190301:ApplicationType"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20190301preview:ApplicationType"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20190601preview:ApplicationType"),
+		},
+		{
+			Type: pulumi.String("azurerm:servicefabric/v20191101preview:ApplicationType"),
 		},
 	})
 	opts = append(opts, aliases)

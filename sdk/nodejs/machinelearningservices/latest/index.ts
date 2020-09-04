@@ -2,10 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getLinkedWorkspace";
 export * from "./getMachineLearningCompute";
 export * from "./getPrivateEndpointConnection";
 export * from "./getWorkspace";
 export * from "./getWorkspaceConnection";
+export * from "./linkedWorkspace";
 export * from "./listMachineLearningComputeKeys";
 export * from "./listMachineLearningComputeNodes";
 export * from "./listWorkspaceKeys";

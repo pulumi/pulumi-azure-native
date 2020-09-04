@@ -73,7 +73,7 @@ export class Profile extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Profile {
-        return new Profile(name, undefined, { ...opts, id: id });
+        return new Profile(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -138,12 +138,9 @@ export class Profile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ProfileArgs | undefined;
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -161,6 +158,17 @@ export class Profile extends pulumi.CustomResource {
             inputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
             inputs["trafficViewEnrollmentStatus"] = args ? args.trafficViewEnrollmentStatus : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["dnsConfig"] = undefined /*out*/;
+            inputs["endpoints"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["monitorConfig"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["profileStatus"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["trafficRoutingMethod"] = undefined /*out*/;
+            inputs["trafficViewEnrollmentStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

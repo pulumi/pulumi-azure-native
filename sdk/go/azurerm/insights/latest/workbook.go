@@ -76,6 +76,9 @@ func NewWorkbook(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:insights/v20150501:Workbook"),
 		},
+		{
+			Type: pulumi.String("azurerm:insights/v20180617preview:Workbook"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Workbook

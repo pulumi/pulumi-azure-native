@@ -19,7 +19,7 @@ export class Subnet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Subnet {
-        return new Subnet(name, undefined, { ...opts, id: id });
+        return new Subnet(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -76,12 +76,9 @@ export class Subnet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SubnetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SubnetArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -103,6 +100,15 @@ export class Subnet extends pulumi.CustomResource {
             inputs["subnetName"] = args ? args.subnetName : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["ipConfigurations"] = undefined /*out*/;
+        } else {
+            inputs["addressPrefix"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["ipConfigurations"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkSecurityGroup"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceNavigationLinks"] = undefined /*out*/;
+            inputs["routeTable"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -111,7 +117,7 @@ export class Subnet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:Subnet" }, { type: "azurerm:network/v20150615:Subnet" }, { type: "azurerm:network/v20160330:Subnet" }, { type: "azurerm:network/v20160601:Subnet" }, { type: "azurerm:network/v20160901:Subnet" }, { type: "azurerm:network/v20161201:Subnet" }, { type: "azurerm:network/v20170601:Subnet" }, { type: "azurerm:network/v20170801:Subnet" }, { type: "azurerm:network/v20170901:Subnet" }, { type: "azurerm:network/v20171001:Subnet" }, { type: "azurerm:network/v20171101:Subnet" }, { type: "azurerm:network/v20180101:Subnet" }, { type: "azurerm:network/v20180201:Subnet" }, { type: "azurerm:network/v20180401:Subnet" }, { type: "azurerm:network/v20180601:Subnet" }, { type: "azurerm:network/v20180701:Subnet" }, { type: "azurerm:network/v20180801:Subnet" }, { type: "azurerm:network/v20181001:Subnet" }, { type: "azurerm:network/v20181101:Subnet" }, { type: "azurerm:network/v20181201:Subnet" }, { type: "azurerm:network/v20190201:Subnet" }, { type: "azurerm:network/v20190401:Subnet" }, { type: "azurerm:network/v20190601:Subnet" }, { type: "azurerm:network/v20190701:Subnet" }, { type: "azurerm:network/v20190801:Subnet" }, { type: "azurerm:network/v20190901:Subnet" }, { type: "azurerm:network/v20191101:Subnet" }, { type: "azurerm:network/v20191201:Subnet" }, { type: "azurerm:network/v20200301:Subnet" }, { type: "azurerm:network/v20200401:Subnet" }, { type: "azurerm:network/v20200501:Subnet" }, { type: "azurerm:network/v20200601:Subnet" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:Subnet" }, { type: "azurerm:network/v20150501preview:Subnet" }, { type: "azurerm:network/v20150615:Subnet" }, { type: "azurerm:network/v20160330:Subnet" }, { type: "azurerm:network/v20160601:Subnet" }, { type: "azurerm:network/v20160901:Subnet" }, { type: "azurerm:network/v20161201:Subnet" }, { type: "azurerm:network/v20170601:Subnet" }, { type: "azurerm:network/v20170801:Subnet" }, { type: "azurerm:network/v20170901:Subnet" }, { type: "azurerm:network/v20171001:Subnet" }, { type: "azurerm:network/v20171101:Subnet" }, { type: "azurerm:network/v20180101:Subnet" }, { type: "azurerm:network/v20180201:Subnet" }, { type: "azurerm:network/v20180401:Subnet" }, { type: "azurerm:network/v20180601:Subnet" }, { type: "azurerm:network/v20180701:Subnet" }, { type: "azurerm:network/v20180801:Subnet" }, { type: "azurerm:network/v20181001:Subnet" }, { type: "azurerm:network/v20181101:Subnet" }, { type: "azurerm:network/v20181201:Subnet" }, { type: "azurerm:network/v20190201:Subnet" }, { type: "azurerm:network/v20190401:Subnet" }, { type: "azurerm:network/v20190601:Subnet" }, { type: "azurerm:network/v20190701:Subnet" }, { type: "azurerm:network/v20190801:Subnet" }, { type: "azurerm:network/v20190901:Subnet" }, { type: "azurerm:network/v20191101:Subnet" }, { type: "azurerm:network/v20191201:Subnet" }, { type: "azurerm:network/v20200301:Subnet" }, { type: "azurerm:network/v20200401:Subnet" }, { type: "azurerm:network/v20200501:Subnet" }, { type: "azurerm:network/v20200601:Subnet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Subnet.__pulumiType, name, inputs, opts);
     }

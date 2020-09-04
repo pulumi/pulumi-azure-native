@@ -49,7 +49,7 @@ export class BlobContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BlobContainer {
-        return new BlobContainer(name, undefined, { ...opts, id: id });
+        return new BlobContainer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -150,12 +150,9 @@ export class BlobContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BlobContainerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BlobContainerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BlobContainerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BlobContainerArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -187,6 +184,26 @@ export class BlobContainer extends pulumi.CustomResource {
             inputs["remainingRetentionDays"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
+        } else {
+            inputs["defaultEncryptionScope"] = undefined /*out*/;
+            inputs["deleted"] = undefined /*out*/;
+            inputs["deletedTime"] = undefined /*out*/;
+            inputs["denyEncryptionScopeOverride"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["hasImmutabilityPolicy"] = undefined /*out*/;
+            inputs["hasLegalHold"] = undefined /*out*/;
+            inputs["immutabilityPolicy"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["leaseDuration"] = undefined /*out*/;
+            inputs["leaseState"] = undefined /*out*/;
+            inputs["leaseStatus"] = undefined /*out*/;
+            inputs["legalHold"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["publicAccess"] = undefined /*out*/;
+            inputs["remainingRetentionDays"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -195,7 +212,7 @@ export class BlobContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:BlobContainer" }, { type: "azurerm:storage/v20180201:BlobContainer" }, { type: "azurerm:storage/v20180701:BlobContainer" }, { type: "azurerm:storage/v20181101:BlobContainer" }, { type: "azurerm:storage/v20190401:BlobContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storage/latest:BlobContainer" }, { type: "azurerm:storage/v20180201:BlobContainer" }, { type: "azurerm:storage/v20180301preview:BlobContainer" }, { type: "azurerm:storage/v20180701:BlobContainer" }, { type: "azurerm:storage/v20181101:BlobContainer" }, { type: "azurerm:storage/v20190401:BlobContainer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BlobContainer.__pulumiType, name, inputs, opts);
     }

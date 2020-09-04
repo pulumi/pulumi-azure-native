@@ -181,7 +181,7 @@ export class Image extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Image {
-        return new Image(name, undefined, { ...opts, id: id });
+        return new Image(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -234,12 +234,9 @@ export class Image extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ImageArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ImageArgs | undefined;
             if (!args || args.imageName === undefined) {
                 throw new Error("Missing required property 'imageName'");
             }
@@ -258,6 +255,14 @@ export class Image extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sourceVirtualMachine"] = undefined /*out*/;
+            inputs["storageProfile"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -266,7 +271,7 @@ export class Image extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:Image" }, { type: "azurerm:compute/v20170330:Image" }, { type: "azurerm:compute/v20171201:Image" }, { type: "azurerm:compute/v20180401:Image" }, { type: "azurerm:compute/v20180601:Image" }, { type: "azurerm:compute/v20190301:Image" }, { type: "azurerm:compute/v20190701:Image" }, { type: "azurerm:compute/v20191201:Image" }, { type: "azurerm:compute/v20200601:Image" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:Image" }, { type: "azurerm:compute/v20160430preview:Image" }, { type: "azurerm:compute/v20170330:Image" }, { type: "azurerm:compute/v20171201:Image" }, { type: "azurerm:compute/v20180401:Image" }, { type: "azurerm:compute/v20180601:Image" }, { type: "azurerm:compute/v20190301:Image" }, { type: "azurerm:compute/v20190701:Image" }, { type: "azurerm:compute/v20191201:Image" }, { type: "azurerm:compute/v20200601:Image" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Image.__pulumiType, name, inputs, opts);
     }

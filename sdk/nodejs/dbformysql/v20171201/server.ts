@@ -100,7 +100,7 @@ export class Server extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Server {
-        return new Server(name, undefined, { ...opts, id: id });
+        return new Server(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -209,12 +209,9 @@ export class Server extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServerArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -251,6 +248,28 @@ export class Server extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["userVisibleState"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
+        } else {
+            inputs["administratorLogin"] = undefined /*out*/;
+            inputs["byokEnforcement"] = undefined /*out*/;
+            inputs["earliestRestoreDate"] = undefined /*out*/;
+            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["infrastructureEncryption"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["masterServerId"] = undefined /*out*/;
+            inputs["minimalTlsVersion"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
+            inputs["replicaCapacity"] = undefined /*out*/;
+            inputs["replicationRole"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["sslEnforcement"] = undefined /*out*/;
+            inputs["storageProfile"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userVisibleState"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -259,7 +278,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/latest:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/latest:Server" }, { type: "azurerm:dbformysql/v20171201preview:Server" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Server.__pulumiType, name, inputs, opts);
     }

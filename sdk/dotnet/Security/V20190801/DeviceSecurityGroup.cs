@@ -108,6 +108,7 @@ namespace Pulumi.AzureRM.Security.V20190801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:security/latest:DeviceSecurityGroup"},
+                    new Pulumi.Alias { Type = "azurerm:security/v20170801preview:DeviceSecurityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

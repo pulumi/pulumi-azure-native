@@ -138,7 +138,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ObjectReplicationPolicy {
-        return new ObjectReplicationPolicy(name, undefined, { ...opts, id: id });
+        return new ObjectReplicationPolicy(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -191,12 +191,9 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ObjectReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ObjectReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ObjectReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ObjectReplicationPolicyArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -221,6 +218,14 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
             inputs["enabledTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["policyId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["destinationAccount"] = undefined /*out*/;
+            inputs["enabledTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["policyId"] = undefined /*out*/;
+            inputs["rules"] = undefined /*out*/;
+            inputs["sourceAccount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

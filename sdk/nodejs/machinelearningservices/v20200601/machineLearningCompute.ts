@@ -130,7 +130,7 @@ export class MachineLearningCompute extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MachineLearningCompute {
-        return new MachineLearningCompute(name, undefined, { ...opts, id: id });
+        return new MachineLearningCompute(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -183,12 +183,9 @@ export class MachineLearningCompute extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MachineLearningComputeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MachineLearningComputeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MachineLearningComputeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as MachineLearningComputeArgs | undefined;
             if (!args || args.computeName === undefined) {
                 throw new Error("Missing required property 'computeName'");
             }
@@ -208,6 +205,14 @@ export class MachineLearningCompute extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -216,7 +221,7 @@ export class MachineLearningCompute extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/latest:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20181119:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20190501:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20190601:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20191101:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200101:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200301:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200401:MachineLearningCompute" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/latest:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20180301preview:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20181119:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20190501:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20190601:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20191101:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200101:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200218preview:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200301:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200401:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200501preview:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200515preview:MachineLearningCompute" }, { type: "azurerm:machinelearningservices/v20200901preview:MachineLearningCompute" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineLearningCompute.__pulumiType, name, inputs, opts);
     }

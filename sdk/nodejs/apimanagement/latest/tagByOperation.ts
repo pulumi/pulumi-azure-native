@@ -34,7 +34,7 @@ export class TagByOperation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TagByOperation {
-        return new TagByOperation(name, undefined, { ...opts, id: id });
+        return new TagByOperation(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -71,12 +71,9 @@ export class TagByOperation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TagByOperationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TagByOperationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TagByOperationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as TagByOperationArgs | undefined;
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
@@ -100,6 +97,10 @@ export class TagByOperation extends pulumi.CustomResource {
             inputs["displayName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["displayName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -108,7 +109,7 @@ export class TagByOperation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:TagByOperation" }, { type: "azurerm:apimanagement/v20180101:TagByOperation" }, { type: "azurerm:apimanagement/v20190101:TagByOperation" }, { type: "azurerm:apimanagement/v20191201:TagByOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/v20170301:TagByOperation" }, { type: "azurerm:apimanagement/v20180101:TagByOperation" }, { type: "azurerm:apimanagement/v20180601preview:TagByOperation" }, { type: "azurerm:apimanagement/v20190101:TagByOperation" }, { type: "azurerm:apimanagement/v20191201:TagByOperation" }, { type: "azurerm:apimanagement/v20191201preview:TagByOperation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagByOperation.__pulumiType, name, inputs, opts);
     }

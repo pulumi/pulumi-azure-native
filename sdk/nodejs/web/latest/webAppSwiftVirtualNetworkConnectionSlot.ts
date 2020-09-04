@@ -17,7 +17,7 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebAppSwiftVirtualNetworkConnectionSlot {
-        return new WebAppSwiftVirtualNetworkConnectionSlot(name, undefined, { ...opts, id: id });
+        return new WebAppSwiftVirtualNetworkConnectionSlot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -62,12 +62,9 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebAppSwiftVirtualNetworkConnectionSlotArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WebAppSwiftVirtualNetworkConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: WebAppSwiftVirtualNetworkConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as WebAppSwiftVirtualNetworkConnectionSlotArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -83,6 +80,12 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
             inputs["slot"] = args ? args.slot : undefined;
             inputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
             inputs["swiftSupported"] = args ? args.swiftSupported : undefined;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["kind"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["subnetResourceId"] = undefined /*out*/;
+            inputs["swiftSupported"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

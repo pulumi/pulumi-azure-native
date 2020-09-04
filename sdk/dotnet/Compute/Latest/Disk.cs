@@ -475,6 +475,7 @@ namespace Pulumi.AzureRM.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:Disk"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20170330:Disk"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180401:Disk"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180601:Disk"},

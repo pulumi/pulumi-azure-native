@@ -47,6 +47,9 @@ func NewDataSetMapping(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datashare/latest:DataSetMapping"),
 		},
+		{
+			Type: pulumi.String("azurerm:datashare/v20181101preview:DataSetMapping"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DataSetMapping

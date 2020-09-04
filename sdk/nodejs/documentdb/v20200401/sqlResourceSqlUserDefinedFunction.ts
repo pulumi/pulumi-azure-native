@@ -41,7 +41,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlUserDefinedFunction {
-        return new SqlResourceSqlUserDefinedFunction(name, undefined, { ...opts, id: id });
+        return new SqlResourceSqlUserDefinedFunction(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -83,12 +83,9 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SqlResourceSqlUserDefinedFunctionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SqlResourceSqlUserDefinedFunctionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SqlResourceSqlUserDefinedFunctionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SqlResourceSqlUserDefinedFunctionArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -121,6 +118,12 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
             inputs["userDefinedFunctionName"] = args ? args.userDefinedFunctionName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["resource"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -129,7 +132,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" }, { type: "azurerm:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlResourceSqlUserDefinedFunction.__pulumiType, name, inputs, opts);
     }

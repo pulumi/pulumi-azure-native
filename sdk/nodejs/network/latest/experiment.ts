@@ -42,7 +42,7 @@ export class Experiment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Experiment {
-        return new Experiment(name, undefined, { ...opts, id: id });
+        return new Experiment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -111,12 +111,9 @@ export class Experiment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ExperimentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ExperimentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ExperimentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ExperimentArgs | undefined;
             if (!args || args.experimentName === undefined) {
                 throw new Error("Missing required property 'experimentName'");
             }
@@ -139,6 +136,18 @@ export class Experiment extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["scriptFileUri"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["description"] = undefined /*out*/;
+            inputs["enabledState"] = undefined /*out*/;
+            inputs["endpointA"] = undefined /*out*/;
+            inputs["endpointB"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
+            inputs["scriptFileUri"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

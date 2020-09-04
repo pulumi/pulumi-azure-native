@@ -19,7 +19,7 @@ export class Pool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Pool {
-        return new Pool(name, undefined, { ...opts, id: id });
+        return new Pool(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -135,12 +135,9 @@ export class Pool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PoolArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PoolArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -180,6 +177,34 @@ export class Pool extends pulumi.CustomResource {
             inputs["provisioningStateTransitionTime"] = undefined /*out*/;
             inputs["resizeOperationStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["allocationState"] = undefined /*out*/;
+            inputs["allocationStateTransitionTime"] = undefined /*out*/;
+            inputs["applicationLicenses"] = undefined /*out*/;
+            inputs["applicationPackages"] = undefined /*out*/;
+            inputs["autoScaleRun"] = undefined /*out*/;
+            inputs["certificates"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["currentDedicatedNodes"] = undefined /*out*/;
+            inputs["currentLowPriorityNodes"] = undefined /*out*/;
+            inputs["deploymentConfiguration"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["interNodeCommunication"] = undefined /*out*/;
+            inputs["lastModified"] = undefined /*out*/;
+            inputs["maxTasksPerNode"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkConfiguration"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["provisioningStateTransitionTime"] = undefined /*out*/;
+            inputs["resizeOperationStatus"] = undefined /*out*/;
+            inputs["scaleSettings"] = undefined /*out*/;
+            inputs["startTask"] = undefined /*out*/;
+            inputs["taskSchedulingPolicy"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userAccounts"] = undefined /*out*/;
+            inputs["vmSize"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -35,7 +35,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationAccountBatchConfiguration {
-        return new IntegrationAccountBatchConfiguration(name, undefined, { ...opts, id: id });
+        return new IntegrationAccountBatchConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -80,12 +80,9 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IntegrationAccountBatchConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IntegrationAccountBatchConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IntegrationAccountBatchConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as IntegrationAccountBatchConfigurationArgs | undefined;
             if (!args || args.batchConfigurationName === undefined) {
                 throw new Error("Missing required property 'batchConfigurationName'");
             }
@@ -106,6 +103,12 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -114,7 +117,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:IntegrationAccountBatchConfiguration" }, { type: "azurerm:logic/v20160601:IntegrationAccountBatchConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:IntegrationAccountBatchConfiguration" }, { type: "azurerm:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azurerm:logic/v20180701preview:IntegrationAccountBatchConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountBatchConfiguration.__pulumiType, name, inputs, opts);
     }

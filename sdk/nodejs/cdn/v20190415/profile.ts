@@ -37,7 +37,7 @@ export class Profile extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Profile {
-        return new Profile(name, undefined, { ...opts, id: id });
+        return new Profile(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -90,12 +90,9 @@ export class Profile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ProfileArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -117,6 +114,14 @@ export class Profile extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -125,7 +130,7 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:Profile" }, { type: "azurerm:cdn/v20150601:Profile" }, { type: "azurerm:cdn/v20160402:Profile" }, { type: "azurerm:cdn/v20161002:Profile" }, { type: "azurerm:cdn/v20170402:Profile" }, { type: "azurerm:cdn/v20171012:Profile" }, { type: "azurerm:cdn/v20190615:Profile" }, { type: "azurerm:cdn/v20191231:Profile" }, { type: "azurerm:cdn/v20200331:Profile" }, { type: "azurerm:cdn/v20200415:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:Profile" }, { type: "azurerm:cdn/v20150601:Profile" }, { type: "azurerm:cdn/v20160402:Profile" }, { type: "azurerm:cdn/v20161002:Profile" }, { type: "azurerm:cdn/v20170402:Profile" }, { type: "azurerm:cdn/v20171012:Profile" }, { type: "azurerm:cdn/v20190615:Profile" }, { type: "azurerm:cdn/v20190615preview:Profile" }, { type: "azurerm:cdn/v20191231:Profile" }, { type: "azurerm:cdn/v20200331:Profile" }, { type: "azurerm:cdn/v20200415:Profile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Profile.__pulumiType, name, inputs, opts);
     }

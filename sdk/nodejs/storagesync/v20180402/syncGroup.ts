@@ -32,7 +32,7 @@ export class SyncGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SyncGroup {
-        return new SyncGroup(name, undefined, { ...opts, id: id });
+        return new SyncGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -73,12 +73,9 @@ export class SyncGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SyncGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SyncGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SyncGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SyncGroupArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -97,6 +94,11 @@ export class SyncGroup extends pulumi.CustomResource {
             inputs["syncGroupStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
+        } else {
+            inputs["name"] = undefined /*out*/;
+            inputs["syncGroupStatus"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,7 +107,7 @@ export class SyncGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:SyncGroup" }, { type: "azurerm:storagesync/v20180701:SyncGroup" }, { type: "azurerm:storagesync/v20181001:SyncGroup" }, { type: "azurerm:storagesync/v20190201:SyncGroup" }, { type: "azurerm:storagesync/v20190301:SyncGroup" }, { type: "azurerm:storagesync/v20190601:SyncGroup" }, { type: "azurerm:storagesync/v20191001:SyncGroup" }, { type: "azurerm:storagesync/v20200301:SyncGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:SyncGroup" }, { type: "azurerm:storagesync/v20170605preview:SyncGroup" }, { type: "azurerm:storagesync/v20180701:SyncGroup" }, { type: "azurerm:storagesync/v20181001:SyncGroup" }, { type: "azurerm:storagesync/v20190201:SyncGroup" }, { type: "azurerm:storagesync/v20190301:SyncGroup" }, { type: "azurerm:storagesync/v20190601:SyncGroup" }, { type: "azurerm:storagesync/v20191001:SyncGroup" }, { type: "azurerm:storagesync/v20200301:SyncGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SyncGroup.__pulumiType, name, inputs, opts);
     }

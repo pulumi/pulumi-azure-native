@@ -111,7 +111,7 @@ class StorageTarget(pulumi.CustomResource):
             __props__['unknown'] = unknown
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storagecache/v20191101:StorageTarget"), pulumi.Alias(type_="azurerm:storagecache/v20200301:StorageTarget")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storagecache/v20190801preview:StorageTarget"), pulumi.Alias(type_="azurerm:storagecache/v20191101:StorageTarget"), pulumi.Alias(type_="azurerm:storagecache/v20200301:StorageTarget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageTarget, __self__).__init__(
             'azurerm:storagecache/latest:StorageTarget',

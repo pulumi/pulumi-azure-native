@@ -76,7 +76,13 @@ func NewBackend(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20180101:Backend"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:Backend"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:Backend"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:Backend"),
 		},
 	})
 	opts = append(opts, aliases)

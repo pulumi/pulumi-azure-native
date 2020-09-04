@@ -46,6 +46,15 @@ func NewManagementGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:management/latest:ManagementGroup"),
 		},
 		{
+			Type: pulumi.String("azurerm:management/v20171101preview:ManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:management/v20180101preview:ManagementGroup"),
+		},
+		{
+			Type: pulumi.String("azurerm:management/v20180301preview:ManagementGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:management/v20200201:ManagementGroup"),
 		},
 		{

@@ -75,7 +75,13 @@ func NewSignalR(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:signalrservice/latest:SignalR"),
 		},
 		{
+			Type: pulumi.String("azurerm:signalrservice/v20180301preview:SignalR"),
+		},
+		{
 			Type: pulumi.String("azurerm:signalrservice/v20181001:SignalR"),
+		},
+		{
+			Type: pulumi.String("azurerm:signalrservice/v20200701preview:SignalR"),
 		},
 	})
 	opts = append(opts, aliases)

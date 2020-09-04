@@ -36,7 +36,7 @@ export class Database extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Database {
-        return new Database(name, undefined, { ...opts, id: id });
+        return new Database(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -89,12 +89,9 @@ export class Database extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DatabaseArgs | undefined;
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -114,6 +111,14 @@ export class Database extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["hotCachePeriod"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["softDeletePeriod"] = undefined /*out*/;
+            inputs["statistics"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -122,7 +127,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:kusto/latest:Database" }, { type: "azurerm:kusto/v20190121:Database" }, { type: "azurerm:kusto/v20190907:Database" }, { type: "azurerm:kusto/v20191109:Database" }, { type: "azurerm:kusto/v20200215:Database" }, { type: "azurerm:kusto/v20200614:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:kusto/latest:Database" }, { type: "azurerm:kusto/v20170907privatepreview:Database" }, { type: "azurerm:kusto/v20180907preview:Database" }, { type: "azurerm:kusto/v20190121:Database" }, { type: "azurerm:kusto/v20190907:Database" }, { type: "azurerm:kusto/v20191109:Database" }, { type: "azurerm:kusto/v20200215:Database" }, { type: "azurerm:kusto/v20200614:Database" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Database.__pulumiType, name, inputs, opts);
     }

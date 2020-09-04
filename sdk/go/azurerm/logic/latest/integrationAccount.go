@@ -44,7 +44,13 @@ func NewIntegrationAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:logic/v20150801preview:IntegrationAccount"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccount"),
+		},
+		{
+			Type: pulumi.String("azurerm:logic/v20180701preview:IntegrationAccount"),
 		},
 		{
 			Type: pulumi.String("azurerm:logic/v20190501:IntegrationAccount"),

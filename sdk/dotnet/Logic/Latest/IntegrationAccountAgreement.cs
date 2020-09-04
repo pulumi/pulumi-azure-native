@@ -318,7 +318,9 @@ namespace Pulumi.AzureRM.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:logic/v20150801preview:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20160601:IntegrationAccountAgreement"},
+                    new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:IntegrationAccountAgreement"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20190501:IntegrationAccountAgreement"},
                 },
             };

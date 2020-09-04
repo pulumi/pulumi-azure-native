@@ -31,6 +31,8 @@ type LookupRedisResult struct {
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// Redis host name.
 	HostName string `pulumi:"hostName"`
+	// List of the Redis instances associated with the cache
+	Instances []RedisInstanceDetailsResponse `pulumi:"instances"`
 	// List of the linked servers associated with the cache
 	LinkedServers []RedisLinkedServerResponse `pulumi:"linkedServers"`
 	// The geo-location where the resource lives
@@ -47,6 +49,8 @@ type LookupRedisResult struct {
 	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
 	// Redis version.
 	RedisVersion string `pulumi:"redisVersion"`
+	// The number of replicas to be created per master.
+	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
 	// The number of shards to be created on a Premium Cluster Cache.
 	ShardCount *int `pulumi:"shardCount"`
 	// The SKU of the Redis cache to deploy.

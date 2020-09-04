@@ -47,6 +47,9 @@ func NewPatchSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:cache/v20180301:PatchSchedule"),
 		},
+		{
+			Type: pulumi.String("azurerm:cache/v20190701:PatchSchedule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PatchSchedule

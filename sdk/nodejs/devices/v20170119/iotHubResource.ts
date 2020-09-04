@@ -19,7 +19,7 @@ export class IotHubResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IotHubResource {
-        return new IotHubResource(name, undefined, { ...opts, id: id });
+        return new IotHubResource(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -80,12 +80,9 @@ export class IotHubResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IotHubResourceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IotHubResourceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IotHubResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as IotHubResourceArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -115,6 +112,16 @@ export class IotHubResource extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["resourcegroup"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["subscriptionid"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -123,7 +130,7 @@ export class IotHubResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devices/latest:IotHubResource" }, { type: "azurerm:devices/v20160203:IotHubResource" }, { type: "azurerm:devices/v20170701:IotHubResource" }, { type: "azurerm:devices/v20180122:IotHubResource" }, { type: "azurerm:devices/v20180401:IotHubResource" }, { type: "azurerm:devices/v20190322:IotHubResource" }, { type: "azurerm:devices/v20191104:IotHubResource" }, { type: "azurerm:devices/v20200301:IotHubResource" }, { type: "azurerm:devices/v20200401:IotHubResource" }, { type: "azurerm:devices/v20200615:IotHubResource" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devices/latest:IotHubResource" }, { type: "azurerm:devices/v20160203:IotHubResource" }, { type: "azurerm:devices/v20170701:IotHubResource" }, { type: "azurerm:devices/v20180122:IotHubResource" }, { type: "azurerm:devices/v20180401:IotHubResource" }, { type: "azurerm:devices/v20181201preview:IotHubResource" }, { type: "azurerm:devices/v20190322:IotHubResource" }, { type: "azurerm:devices/v20190322preview:IotHubResource" }, { type: "azurerm:devices/v20190701preview:IotHubResource" }, { type: "azurerm:devices/v20191104:IotHubResource" }, { type: "azurerm:devices/v20200301:IotHubResource" }, { type: "azurerm:devices/v20200401:IotHubResource" }, { type: "azurerm:devices/v20200615:IotHubResource" }, { type: "azurerm:devices/v20200710preview:IotHubResource" }, { type: "azurerm:devices/v20200801:IotHubResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotHubResource.__pulumiType, name, inputs, opts);
     }

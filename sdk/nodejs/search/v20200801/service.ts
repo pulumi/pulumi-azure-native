@@ -123,7 +123,7 @@ export class Service extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Service {
-        return new Service(name, undefined, { ...opts, id: id });
+        return new Service(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -161,7 +161,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly networkRuleSet!: pulumi.Output<outputs.search.v20200801.NetworkRuleSetResponse | undefined>;
     /**
-     * The number of partitions in the Search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
+     * The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
      */
     public readonly partitionCount!: pulumi.Output<number | undefined>;
     /**
@@ -169,7 +169,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.search.v20200801.PrivateEndpointConnectionResponse[]>;
     /**
-     * The state of the last provisioning operation performed on the Search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create Search service. This is because the free service uses capacity that is already set up.
+     * The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
-     * The number of replicas in the Search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+     * The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
      */
     public readonly replicaCount!: pulumi.Output<number | undefined>;
     /**
@@ -189,11 +189,11 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.search.v20200801.SkuResponse | undefined>;
     /**
-     * The status of the Search service. Possible values include: 'running': The Search service is running and no provisioning operations are underway. 'provisioning': The Search service is being provisioned or scaled up or down. 'deleting': The Search service is being deleted. 'degraded': The Search service is degraded. This can occur when the underlying search units are not healthy. The Search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The Search service is disabled. In this state, the service will reject all API requests. 'error': The Search service is in an error state. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
+     * The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The details of the Search service status.
+     * The details of the search service status.
      */
     public /*out*/ readonly statusDetails!: pulumi.Output<string>;
     /**
@@ -212,12 +212,9 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ServiceArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -245,6 +242,23 @@ export class Service extends pulumi.CustomResource {
             inputs["status"] = undefined /*out*/;
             inputs["statusDetails"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["hostingMode"] = undefined /*out*/;
+            inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkRuleSet"] = undefined /*out*/;
+            inputs["partitionCount"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
+            inputs["replicaCount"] = undefined /*out*/;
+            inputs["sharedPrivateLinkResources"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["statusDetails"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -253,7 +267,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:search/latest:Service" }, { type: "azurerm:search/v20150819:Service" }, { type: "azurerm:search/v20200313:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:search/latest:Service" }, { type: "azurerm:search/v20150819:Service" }, { type: "azurerm:search/v20191001preview:Service" }, { type: "azurerm:search/v20200313:Service" }, { type: "azurerm:search/v20200801preview:Service" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Service.__pulumiType, name, inputs, opts);
     }
@@ -280,7 +294,7 @@ export interface ServiceArgs {
      */
     readonly networkRuleSet?: pulumi.Input<inputs.search.v20200801.NetworkRuleSet>;
     /**
-     * The number of partitions in the Search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
+     * The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
      */
     readonly partitionCount?: pulumi.Input<number>;
     /**
@@ -288,7 +302,7 @@ export interface ServiceArgs {
      */
     readonly publicNetworkAccess?: pulumi.Input<string>;
     /**
-     * The number of replicas in the Search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+     * The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
      */
     readonly replicaCount?: pulumi.Input<number>;
     /**

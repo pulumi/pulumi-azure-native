@@ -33,7 +33,7 @@ export class StorageSyncService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageSyncService {
-        return new StorageSyncService(name, undefined, { ...opts, id: id });
+        return new StorageSyncService(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -82,12 +82,9 @@ export class StorageSyncService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StorageSyncServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StorageSyncServiceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StorageSyncServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as StorageSyncServiceArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -106,6 +103,13 @@ export class StorageSyncService extends pulumi.CustomResource {
             inputs["storageSyncServiceStatus"] = undefined /*out*/;
             inputs["storageSyncServiceUid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["storageSyncServiceStatus"] = undefined /*out*/;
+            inputs["storageSyncServiceUid"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -114,7 +118,7 @@ export class StorageSyncService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:StorageSyncService" }, { type: "azurerm:storagesync/v20180402:StorageSyncService" }, { type: "azurerm:storagesync/v20180701:StorageSyncService" }, { type: "azurerm:storagesync/v20181001:StorageSyncService" }, { type: "azurerm:storagesync/v20190201:StorageSyncService" }, { type: "azurerm:storagesync/v20190601:StorageSyncService" }, { type: "azurerm:storagesync/v20191001:StorageSyncService" }, { type: "azurerm:storagesync/v20200301:StorageSyncService" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:StorageSyncService" }, { type: "azurerm:storagesync/v20170605preview:StorageSyncService" }, { type: "azurerm:storagesync/v20180402:StorageSyncService" }, { type: "azurerm:storagesync/v20180701:StorageSyncService" }, { type: "azurerm:storagesync/v20181001:StorageSyncService" }, { type: "azurerm:storagesync/v20190201:StorageSyncService" }, { type: "azurerm:storagesync/v20190601:StorageSyncService" }, { type: "azurerm:storagesync/v20191001:StorageSyncService" }, { type: "azurerm:storagesync/v20200301:StorageSyncService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageSyncService.__pulumiType, name, inputs, opts);
     }

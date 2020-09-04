@@ -73,7 +73,7 @@ export class Snapshot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Snapshot {
-        return new Snapshot(name, undefined, { ...opts, id: id });
+        return new Snapshot(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -166,12 +166,9 @@ export class Snapshot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SnapshotArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SnapshotArgs | undefined;
             if (!args || args.creationData === undefined) {
                 throw new Error("Missing required property 'creationData'");
             }
@@ -203,6 +200,24 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
+        } else {
+            inputs["creationData"] = undefined /*out*/;
+            inputs["diskSizeBytes"] = undefined /*out*/;
+            inputs["diskSizeGB"] = undefined /*out*/;
+            inputs["encryption"] = undefined /*out*/;
+            inputs["encryptionSettingsCollection"] = undefined /*out*/;
+            inputs["hyperVGeneration"] = undefined /*out*/;
+            inputs["incremental"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["managedBy"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["osType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["timeCreated"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["uniqueId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -211,7 +226,7 @@ export class Snapshot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:Snapshot" }, { type: "azurerm:compute/v20170330:Snapshot" }, { type: "azurerm:compute/v20180401:Snapshot" }, { type: "azurerm:compute/v20180601:Snapshot" }, { type: "azurerm:compute/v20180930:Snapshot" }, { type: "azurerm:compute/v20190301:Snapshot" }, { type: "azurerm:compute/v20191101:Snapshot" }, { type: "azurerm:compute/v20200501:Snapshot" }, { type: "azurerm:compute/v20200630:Snapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:Snapshot" }, { type: "azurerm:compute/v20160430preview:Snapshot" }, { type: "azurerm:compute/v20170330:Snapshot" }, { type: "azurerm:compute/v20180401:Snapshot" }, { type: "azurerm:compute/v20180601:Snapshot" }, { type: "azurerm:compute/v20180930:Snapshot" }, { type: "azurerm:compute/v20190301:Snapshot" }, { type: "azurerm:compute/v20191101:Snapshot" }, { type: "azurerm:compute/v20200501:Snapshot" }, { type: "azurerm:compute/v20200630:Snapshot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Snapshot.__pulumiType, name, inputs, opts);
     }

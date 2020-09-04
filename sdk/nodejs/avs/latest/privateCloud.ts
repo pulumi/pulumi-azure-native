@@ -42,7 +42,7 @@ export class PrivateCloud extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateCloud {
-        return new PrivateCloud(name, undefined, { ...opts, id: id });
+        return new PrivateCloud(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -143,12 +143,9 @@ export class PrivateCloud extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PrivateCloudArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PrivateCloudArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PrivateCloudArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PrivateCloudArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -188,6 +185,26 @@ export class PrivateCloud extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
             inputs["vcenterCertificateThumbprint"] = undefined /*out*/;
             inputs["vmotionNetwork"] = undefined /*out*/;
+        } else {
+            inputs["circuit"] = undefined /*out*/;
+            inputs["endpoints"] = undefined /*out*/;
+            inputs["identitySources"] = undefined /*out*/;
+            inputs["internet"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["managementCluster"] = undefined /*out*/;
+            inputs["managementNetwork"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["networkBlock"] = undefined /*out*/;
+            inputs["nsxtCertificateThumbprint"] = undefined /*out*/;
+            inputs["nsxtPassword"] = undefined /*out*/;
+            inputs["provisioningNetwork"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["vcenterCertificateThumbprint"] = undefined /*out*/;
+            inputs["vcenterPassword"] = undefined /*out*/;
+            inputs["vmotionNetwork"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -196,7 +213,7 @@ export class PrivateCloud extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:avs/v20200320:PrivateCloud" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:avs/v20190809preview:PrivateCloud" }, { type: "azurerm:avs/v20200320:PrivateCloud" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateCloud.__pulumiType, name, inputs, opts);
     }

@@ -56,7 +56,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PublicIPPrefix {
-        return new PublicIPPrefix(name, undefined, { ...opts, id: id });
+        return new PublicIPPrefix(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -141,12 +141,9 @@ export class PublicIPPrefix extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PublicIPPrefixArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PublicIPPrefixArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PublicIPPrefixArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PublicIPPrefixArgs | undefined;
             if (!args || args.publicIpPrefixName === undefined) {
                 throw new Error("Missing required property 'publicIpPrefixName'");
             }
@@ -171,6 +168,22 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             inputs["loadBalancerFrontendIpConfiguration"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["ipPrefix"] = undefined /*out*/;
+            inputs["ipTags"] = undefined /*out*/;
+            inputs["loadBalancerFrontendIpConfiguration"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["prefixLength"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicIPAddressVersion"] = undefined /*out*/;
+            inputs["publicIPAddresses"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["zones"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

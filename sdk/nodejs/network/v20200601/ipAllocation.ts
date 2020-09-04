@@ -39,7 +39,7 @@ export class IpAllocation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IpAllocation {
-        return new IpAllocation(name, undefined, { ...opts, id: id });
+        return new IpAllocation(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -112,12 +112,9 @@ export class IpAllocation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IpAllocationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IpAllocationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IpAllocationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as IpAllocationArgs | undefined;
             if (!args || args.ipAllocationName === undefined) {
                 throw new Error("Missing required property 'ipAllocationName'");
             }
@@ -138,6 +135,19 @@ export class IpAllocation extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["subnet"] = undefined /*out*/;
+            inputs["virtualNetwork"] = undefined /*out*/;
+        } else {
+            inputs["allocationTags"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["ipamAllocationId"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["prefix"] = undefined /*out*/;
+            inputs["prefixLength"] = undefined /*out*/;
+            inputs["prefixType"] = undefined /*out*/;
+            inputs["subnet"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
             inputs["virtualNetwork"] = undefined /*out*/;
         }
         if (!opts) {

@@ -44,7 +44,7 @@ export class RecordSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RecordSet {
-        return new RecordSet(name, undefined, { ...opts, id: id });
+        return new RecordSet(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -133,12 +133,9 @@ export class RecordSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RecordSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RecordSetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RecordSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RecordSetArgs | undefined;
             if (!args || args.recordType === undefined) {
                 throw new Error("Missing required property 'recordType'");
             }
@@ -171,6 +168,23 @@ export class RecordSet extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["aRecords"] = undefined /*out*/;
+            inputs["aaaaRecords"] = undefined /*out*/;
+            inputs["caaRecords"] = undefined /*out*/;
+            inputs["cnameRecord"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
+            inputs["mxRecords"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["nsRecords"] = undefined /*out*/;
+            inputs["ptrRecords"] = undefined /*out*/;
+            inputs["soaRecord"] = undefined /*out*/;
+            inputs["srvRecords"] = undefined /*out*/;
+            inputs["ttl"] = undefined /*out*/;
+            inputs["txtRecords"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -179,7 +193,7 @@ export class RecordSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20160401:RecordSet" }, { type: "azurerm:network/v20171001:RecordSet" }, { type: "azurerm:network/v20180501:RecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/v20150504preview:RecordSet" }, { type: "azurerm:network/v20160401:RecordSet" }, { type: "azurerm:network/v20171001:RecordSet" }, { type: "azurerm:network/v20180301preview:RecordSet" }, { type: "azurerm:network/v20180501:RecordSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RecordSet.__pulumiType, name, inputs, opts);
     }

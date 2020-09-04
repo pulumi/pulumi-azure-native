@@ -55,7 +55,7 @@ export class Prediction extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Prediction {
-        return new Prediction(name, undefined, { ...opts, id: id });
+        return new Prediction(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -156,12 +156,9 @@ export class Prediction extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PredictionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PredictionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PredictionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PredictionArgs | undefined;
             if (!args || args.autoAnalyze === undefined) {
                 throw new Error("Missing required property 'autoAnalyze'");
             }
@@ -210,6 +207,26 @@ export class Prediction extends pulumi.CustomResource {
             inputs["scoreLabel"] = args ? args.scoreLabel : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["systemGeneratedEntities"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["autoAnalyze"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["grades"] = undefined /*out*/;
+            inputs["involvedInteractionTypes"] = undefined /*out*/;
+            inputs["involvedKpiTypes"] = undefined /*out*/;
+            inputs["involvedRelationships"] = undefined /*out*/;
+            inputs["mappings"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["negativeOutcomeExpression"] = undefined /*out*/;
+            inputs["positiveOutcomeExpression"] = undefined /*out*/;
+            inputs["predictionName"] = undefined /*out*/;
+            inputs["primaryProfileType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["scopeExpression"] = undefined /*out*/;
+            inputs["scoreLabel"] = undefined /*out*/;
             inputs["systemGeneratedEntities"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

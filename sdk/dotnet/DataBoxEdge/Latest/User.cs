@@ -102,6 +102,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:User"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:User"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:User"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

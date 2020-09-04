@@ -198,7 +198,7 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationAccountSchema {
-        return new IntegrationAccountSchema(name, undefined, { ...opts, id: id });
+        return new IntegrationAccountSchema(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -279,12 +279,9 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IntegrationAccountSchemaArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IntegrationAccountSchemaArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IntegrationAccountSchemaArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as IntegrationAccountSchemaArgs | undefined;
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
@@ -314,6 +311,21 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
             inputs["createdTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["content"] = undefined /*out*/;
+            inputs["contentLink"] = undefined /*out*/;
+            inputs["contentType"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["documentName"] = undefined /*out*/;
+            inputs["fileName"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["schemaType"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["targetNamespace"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -322,7 +334,7 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:IntegrationAccountSchema" }, { type: "azurerm:logic/v20160601:IntegrationAccountSchema" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:IntegrationAccountSchema" }, { type: "azurerm:logic/v20150801preview:IntegrationAccountSchema" }, { type: "azurerm:logic/v20160601:IntegrationAccountSchema" }, { type: "azurerm:logic/v20180701preview:IntegrationAccountSchema" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountSchema.__pulumiType, name, inputs, opts);
     }

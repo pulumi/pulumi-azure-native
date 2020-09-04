@@ -55,6 +55,9 @@ func NewCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:avs/latest:Cluster"),
 		},
+		{
+			Type: pulumi.String("azurerm:avs/v20190809preview:Cluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Cluster

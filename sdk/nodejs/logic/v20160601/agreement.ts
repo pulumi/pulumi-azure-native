@@ -186,7 +186,7 @@ export class Agreement extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Agreement {
-        return new Agreement(name, undefined, { ...opts, id: id });
+        return new Agreement(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -263,12 +263,9 @@ export class Agreement extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AgreementArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AgreementArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AgreementArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as AgreementArgs | undefined;
             if (!args || args.agreementName === undefined) {
                 throw new Error("Missing required property 'agreementName'");
             }
@@ -312,6 +309,20 @@ export class Agreement extends pulumi.CustomResource {
             inputs["createdTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["agreementType"] = undefined /*out*/;
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["content"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["guestIdentity"] = undefined /*out*/;
+            inputs["guestPartner"] = undefined /*out*/;
+            inputs["hostIdentity"] = undefined /*out*/;
+            inputs["hostPartner"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["metadata"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -320,7 +331,7 @@ export class Agreement extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:Agreement" }, { type: "azurerm:logic/v20190501:Agreement" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/latest:Agreement" }, { type: "azurerm:logic/v20150801preview:Agreement" }, { type: "azurerm:logic/v20180701preview:Agreement" }, { type: "azurerm:logic/v20190501:Agreement" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Agreement.__pulumiType, name, inputs, opts);
     }

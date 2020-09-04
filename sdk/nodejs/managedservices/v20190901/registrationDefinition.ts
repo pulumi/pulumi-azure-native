@@ -39,7 +39,7 @@ export class RegistrationDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegistrationDefinition {
-        return new RegistrationDefinition(name, undefined, { ...opts, id: id });
+        return new RegistrationDefinition(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -80,12 +80,9 @@ export class RegistrationDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RegistrationDefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RegistrationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RegistrationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RegistrationDefinitionArgs | undefined;
             if (!args || args.registrationDefinitionId === undefined) {
                 throw new Error("Missing required property 'registrationDefinitionId'");
             }
@@ -98,6 +95,11 @@ export class RegistrationDefinition extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["name"] = undefined /*out*/;
+            inputs["plan"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -106,7 +108,7 @@ export class RegistrationDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:managedservices/latest:RegistrationDefinition" }, { type: "azurerm:managedservices/v20190601:RegistrationDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:managedservices/latest:RegistrationDefinition" }, { type: "azurerm:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azurerm:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azurerm:managedservices/v20190601:RegistrationDefinition" }, { type: "azurerm:managedservices/v20200201preview:RegistrationDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegistrationDefinition.__pulumiType, name, inputs, opts);
     }

@@ -362,8 +362,12 @@ namespace Pulumi.AzureRM.ServiceFabric.V20160901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:servicefabric/latest:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20170701preview:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20180201:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301preview:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20190601preview:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:servicefabric/v20191101preview:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20200301:Cluster"},
                 },
             };

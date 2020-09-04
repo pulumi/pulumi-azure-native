@@ -19,7 +19,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PublicIPAddress {
-        return new PublicIPAddress(name, undefined, { ...opts, id: id });
+        return new PublicIPAddress(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -116,12 +116,9 @@ export class PublicIPAddress extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PublicIPAddressArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PublicIPAddressArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PublicIPAddressArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PublicIPAddressArgs | undefined;
             if (!args || args.publicIpAddressName === undefined) {
                 throw new Error("Missing required property 'publicIpAddressName'");
             }
@@ -149,6 +146,25 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["ipConfiguration"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["ddosSettings"] = undefined /*out*/;
+            inputs["dnsSettings"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["idleTimeoutInMinutes"] = undefined /*out*/;
+            inputs["ipAddress"] = undefined /*out*/;
+            inputs["ipConfiguration"] = undefined /*out*/;
+            inputs["ipTags"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicIPAddressVersion"] = undefined /*out*/;
+            inputs["publicIPAllocationMethod"] = undefined /*out*/;
+            inputs["publicIPPrefix"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["zones"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -157,7 +173,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:PublicIPAddress" }, { type: "azurerm:network/v20150615:PublicIPAddress" }, { type: "azurerm:network/v20160330:PublicIPAddress" }, { type: "azurerm:network/v20160601:PublicIPAddress" }, { type: "azurerm:network/v20160901:PublicIPAddress" }, { type: "azurerm:network/v20161201:PublicIPAddress" }, { type: "azurerm:network/v20170301:PublicIPAddress" }, { type: "azurerm:network/v20170601:PublicIPAddress" }, { type: "azurerm:network/v20170801:PublicIPAddress" }, { type: "azurerm:network/v20170901:PublicIPAddress" }, { type: "azurerm:network/v20171001:PublicIPAddress" }, { type: "azurerm:network/v20171101:PublicIPAddress" }, { type: "azurerm:network/v20180101:PublicIPAddress" }, { type: "azurerm:network/v20180201:PublicIPAddress" }, { type: "azurerm:network/v20180401:PublicIPAddress" }, { type: "azurerm:network/v20180601:PublicIPAddress" }, { type: "azurerm:network/v20180701:PublicIPAddress" }, { type: "azurerm:network/v20180801:PublicIPAddress" }, { type: "azurerm:network/v20181001:PublicIPAddress" }, { type: "azurerm:network/v20181101:PublicIPAddress" }, { type: "azurerm:network/v20190201:PublicIPAddress" }, { type: "azurerm:network/v20190401:PublicIPAddress" }, { type: "azurerm:network/v20190601:PublicIPAddress" }, { type: "azurerm:network/v20190701:PublicIPAddress" }, { type: "azurerm:network/v20190801:PublicIPAddress" }, { type: "azurerm:network/v20190901:PublicIPAddress" }, { type: "azurerm:network/v20191101:PublicIPAddress" }, { type: "azurerm:network/v20191201:PublicIPAddress" }, { type: "azurerm:network/v20200301:PublicIPAddress" }, { type: "azurerm:network/v20200401:PublicIPAddress" }, { type: "azurerm:network/v20200501:PublicIPAddress" }, { type: "azurerm:network/v20200601:PublicIPAddress" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:PublicIPAddress" }, { type: "azurerm:network/v20150501preview:PublicIPAddress" }, { type: "azurerm:network/v20150615:PublicIPAddress" }, { type: "azurerm:network/v20160330:PublicIPAddress" }, { type: "azurerm:network/v20160601:PublicIPAddress" }, { type: "azurerm:network/v20160901:PublicIPAddress" }, { type: "azurerm:network/v20161201:PublicIPAddress" }, { type: "azurerm:network/v20170301:PublicIPAddress" }, { type: "azurerm:network/v20170601:PublicIPAddress" }, { type: "azurerm:network/v20170801:PublicIPAddress" }, { type: "azurerm:network/v20170901:PublicIPAddress" }, { type: "azurerm:network/v20171001:PublicIPAddress" }, { type: "azurerm:network/v20171101:PublicIPAddress" }, { type: "azurerm:network/v20180101:PublicIPAddress" }, { type: "azurerm:network/v20180201:PublicIPAddress" }, { type: "azurerm:network/v20180401:PublicIPAddress" }, { type: "azurerm:network/v20180601:PublicIPAddress" }, { type: "azurerm:network/v20180701:PublicIPAddress" }, { type: "azurerm:network/v20180801:PublicIPAddress" }, { type: "azurerm:network/v20181001:PublicIPAddress" }, { type: "azurerm:network/v20181101:PublicIPAddress" }, { type: "azurerm:network/v20190201:PublicIPAddress" }, { type: "azurerm:network/v20190401:PublicIPAddress" }, { type: "azurerm:network/v20190601:PublicIPAddress" }, { type: "azurerm:network/v20190701:PublicIPAddress" }, { type: "azurerm:network/v20190801:PublicIPAddress" }, { type: "azurerm:network/v20190901:PublicIPAddress" }, { type: "azurerm:network/v20191101:PublicIPAddress" }, { type: "azurerm:network/v20191201:PublicIPAddress" }, { type: "azurerm:network/v20200301:PublicIPAddress" }, { type: "azurerm:network/v20200401:PublicIPAddress" }, { type: "azurerm:network/v20200501:PublicIPAddress" }, { type: "azurerm:network/v20200601:PublicIPAddress" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PublicIPAddress.__pulumiType, name, inputs, opts);
     }

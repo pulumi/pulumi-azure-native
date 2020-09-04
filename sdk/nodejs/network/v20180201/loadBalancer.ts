@@ -19,7 +19,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LoadBalancer {
-        return new LoadBalancer(name, undefined, { ...opts, id: id });
+        return new LoadBalancer(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as LoadBalancerArgs | undefined;
             if (!args || args.loadBalancerName === undefined) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
@@ -134,6 +131,22 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["backendAddressPools"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["frontendIPConfigurations"] = undefined /*out*/;
+            inputs["inboundNatPools"] = undefined /*out*/;
+            inputs["inboundNatRules"] = undefined /*out*/;
+            inputs["loadBalancingRules"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["outboundNatRules"] = undefined /*out*/;
+            inputs["probes"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -142,7 +155,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:LoadBalancer" }, { type: "azurerm:network/v20150615:LoadBalancer" }, { type: "azurerm:network/v20160330:LoadBalancer" }, { type: "azurerm:network/v20160601:LoadBalancer" }, { type: "azurerm:network/v20160901:LoadBalancer" }, { type: "azurerm:network/v20161201:LoadBalancer" }, { type: "azurerm:network/v20170301:LoadBalancer" }, { type: "azurerm:network/v20170601:LoadBalancer" }, { type: "azurerm:network/v20170801:LoadBalancer" }, { type: "azurerm:network/v20170901:LoadBalancer" }, { type: "azurerm:network/v20171001:LoadBalancer" }, { type: "azurerm:network/v20171101:LoadBalancer" }, { type: "azurerm:network/v20180101:LoadBalancer" }, { type: "azurerm:network/v20180401:LoadBalancer" }, { type: "azurerm:network/v20180601:LoadBalancer" }, { type: "azurerm:network/v20180701:LoadBalancer" }, { type: "azurerm:network/v20180801:LoadBalancer" }, { type: "azurerm:network/v20181001:LoadBalancer" }, { type: "azurerm:network/v20181101:LoadBalancer" }, { type: "azurerm:network/v20181201:LoadBalancer" }, { type: "azurerm:network/v20190201:LoadBalancer" }, { type: "azurerm:network/v20190401:LoadBalancer" }, { type: "azurerm:network/v20190601:LoadBalancer" }, { type: "azurerm:network/v20190701:LoadBalancer" }, { type: "azurerm:network/v20190801:LoadBalancer" }, { type: "azurerm:network/v20190901:LoadBalancer" }, { type: "azurerm:network/v20191101:LoadBalancer" }, { type: "azurerm:network/v20191201:LoadBalancer" }, { type: "azurerm:network/v20200301:LoadBalancer" }, { type: "azurerm:network/v20200401:LoadBalancer" }, { type: "azurerm:network/v20200501:LoadBalancer" }, { type: "azurerm:network/v20200601:LoadBalancer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:LoadBalancer" }, { type: "azurerm:network/v20150501preview:LoadBalancer" }, { type: "azurerm:network/v20150615:LoadBalancer" }, { type: "azurerm:network/v20160330:LoadBalancer" }, { type: "azurerm:network/v20160601:LoadBalancer" }, { type: "azurerm:network/v20160901:LoadBalancer" }, { type: "azurerm:network/v20161201:LoadBalancer" }, { type: "azurerm:network/v20170301:LoadBalancer" }, { type: "azurerm:network/v20170601:LoadBalancer" }, { type: "azurerm:network/v20170801:LoadBalancer" }, { type: "azurerm:network/v20170901:LoadBalancer" }, { type: "azurerm:network/v20171001:LoadBalancer" }, { type: "azurerm:network/v20171101:LoadBalancer" }, { type: "azurerm:network/v20180101:LoadBalancer" }, { type: "azurerm:network/v20180401:LoadBalancer" }, { type: "azurerm:network/v20180601:LoadBalancer" }, { type: "azurerm:network/v20180701:LoadBalancer" }, { type: "azurerm:network/v20180801:LoadBalancer" }, { type: "azurerm:network/v20181001:LoadBalancer" }, { type: "azurerm:network/v20181101:LoadBalancer" }, { type: "azurerm:network/v20181201:LoadBalancer" }, { type: "azurerm:network/v20190201:LoadBalancer" }, { type: "azurerm:network/v20190401:LoadBalancer" }, { type: "azurerm:network/v20190601:LoadBalancer" }, { type: "azurerm:network/v20190701:LoadBalancer" }, { type: "azurerm:network/v20190801:LoadBalancer" }, { type: "azurerm:network/v20190901:LoadBalancer" }, { type: "azurerm:network/v20191101:LoadBalancer" }, { type: "azurerm:network/v20191201:LoadBalancer" }, { type: "azurerm:network/v20200301:LoadBalancer" }, { type: "azurerm:network/v20200401:LoadBalancer" }, { type: "azurerm:network/v20200501:LoadBalancer" }, { type: "azurerm:network/v20200601:LoadBalancer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(LoadBalancer.__pulumiType, name, inputs, opts);
     }

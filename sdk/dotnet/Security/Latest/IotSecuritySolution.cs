@@ -177,6 +177,7 @@ namespace Pulumi.AzureRM.Security.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:security/v20170801preview:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azurerm:security/v20190801:IotSecuritySolution"},
                 },
             };

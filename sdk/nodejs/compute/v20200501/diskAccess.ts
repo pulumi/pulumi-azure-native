@@ -34,7 +34,7 @@ export class DiskAccess extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DiskAccess {
-        return new DiskAccess(name, undefined, { ...opts, id: id });
+        return new DiskAccess(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -87,12 +87,9 @@ export class DiskAccess extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DiskAccessArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DiskAccessArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DiskAccessArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DiskAccessArgs | undefined;
             if (!args || args.diskAccessName === undefined) {
                 throw new Error("Missing required property 'diskAccessName'");
             }
@@ -109,6 +106,14 @@ export class DiskAccess extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["timeCreated"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

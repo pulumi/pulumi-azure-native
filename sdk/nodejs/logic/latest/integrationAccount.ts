@@ -37,7 +37,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationAccount {
-        return new IntegrationAccount(name, undefined, { ...opts, id: id });
+        return new IntegrationAccount(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -90,12 +90,9 @@ export class IntegrationAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IntegrationAccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IntegrationAccountArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IntegrationAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as IntegrationAccountArgs | undefined;
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
@@ -111,6 +108,14 @@ export class IntegrationAccount extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["integrationServiceEnvironment"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -119,7 +124,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20160601:IntegrationAccount" }, { type: "azurerm:logic/v20190501:IntegrationAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20150801preview:IntegrationAccount" }, { type: "azurerm:logic/v20160601:IntegrationAccount" }, { type: "azurerm:logic/v20180701preview:IntegrationAccount" }, { type: "azurerm:logic/v20190501:IntegrationAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccount.__pulumiType, name, inputs, opts);
     }

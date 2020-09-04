@@ -59,7 +59,7 @@ export class DomainService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DomainService {
-        return new DomainService(name, undefined, { ...opts, id: id });
+        return new DomainService(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -148,12 +148,9 @@ export class DomainService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DomainServiceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DomainServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DomainServiceArgs | undefined;
             if (!args || args.domainServiceName === undefined) {
                 throw new Error("Missing required property 'domainServiceName'");
             }
@@ -175,6 +172,23 @@ export class DomainService extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["syncOwner"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
+        } else {
+            inputs["deploymentId"] = undefined /*out*/;
+            inputs["domainName"] = undefined /*out*/;
+            inputs["domainSecuritySettings"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["filteredSync"] = undefined /*out*/;
+            inputs["ldapsSettings"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["notificationSettings"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["replicaSets"] = undefined /*out*/;
+            inputs["syncOwner"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;

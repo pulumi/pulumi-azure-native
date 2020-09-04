@@ -39,7 +39,7 @@ export class IotDpsResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IotDpsResource {
-        return new IotDpsResource(name, undefined, { ...opts, id: id });
+        return new IotDpsResource(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -92,12 +92,9 @@ export class IotDpsResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IotDpsResourceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IotDpsResourceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IotDpsResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as IotDpsResourceArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -122,6 +119,14 @@ export class IotDpsResource extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -130,7 +135,7 @@ export class IotDpsResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devices/latest:IotDpsResource" }, { type: "azurerm:devices/v20171115:IotDpsResource" }, { type: "azurerm:devices/v20200101:IotDpsResource" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devices/latest:IotDpsResource" }, { type: "azurerm:devices/v20170821preview:IotDpsResource" }, { type: "azurerm:devices/v20171115:IotDpsResource" }, { type: "azurerm:devices/v20200101:IotDpsResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotDpsResource.__pulumiType, name, inputs, opts);
     }

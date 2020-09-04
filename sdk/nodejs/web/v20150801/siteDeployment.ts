@@ -17,7 +17,7 @@ export class SiteDeployment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SiteDeployment {
-        return new SiteDeployment(name, undefined, { ...opts, id: id });
+        return new SiteDeployment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -98,12 +98,9 @@ export class SiteDeployment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SiteDeploymentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SiteDeploymentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SiteDeploymentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SiteDeploymentArgs | undefined;
             if (!args || args.id === undefined) {
                 throw new Error("Missing required property 'id'");
             }
@@ -132,6 +129,21 @@ export class SiteDeployment extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+        } else {
+            inputs["active"] = undefined /*out*/;
+            inputs["author"] = undefined /*out*/;
+            inputs["authorEmail"] = undefined /*out*/;
+            inputs["deployer"] = undefined /*out*/;
+            inputs["details"] = undefined /*out*/;
+            inputs["endTime"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["message"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["startTime"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -107,7 +107,7 @@ class IdentityProvider(pulumi.CustomResource):
             __props__['signup_policy_name'] = signup_policy_name
             __props__['type'] = type
             __props__['name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20160707:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:IdentityProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20160707:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20161010:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:IdentityProvider"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:IdentityProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IdentityProvider, __self__).__init__(
             'azurerm:apimanagement/v20191201:IdentityProvider',

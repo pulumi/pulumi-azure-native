@@ -35,7 +35,7 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateDnsZoneGroup {
-        return new PrivateDnsZoneGroup(name, undefined, { ...opts, id: id });
+        return new PrivateDnsZoneGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -76,12 +76,9 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PrivateDnsZoneGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PrivateDnsZoneGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PrivateDnsZoneGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PrivateDnsZoneGroupArgs | undefined;
             if (!args || args.privateDnsZoneGroupName === undefined) {
                 throw new Error("Missing required property 'privateDnsZoneGroupName'");
             }
@@ -98,6 +95,11 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
             inputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["privateDnsZoneConfigs"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {

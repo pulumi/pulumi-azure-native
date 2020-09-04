@@ -125,8 +125,10 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20170601preview:Webhook"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20171001:Webhook"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20190501:Webhook"},
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/v20191201preview:Webhook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

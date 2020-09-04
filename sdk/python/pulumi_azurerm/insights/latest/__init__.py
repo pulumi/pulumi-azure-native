@@ -25,6 +25,7 @@ from .get_my_workbook import *
 from .get_scheduled_query_rule import *
 from .get_web_test import *
 from .get_workbook import *
+from .list_ea_subscription_list_migration_date_post import *
 from .log_profile import *
 from .metric_alert import *
 from .my_workbook import *

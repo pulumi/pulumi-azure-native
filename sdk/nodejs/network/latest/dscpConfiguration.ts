@@ -19,7 +19,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DscpConfiguration {
-        return new DscpConfiguration(name, undefined, { ...opts, id: id });
+        return new DscpConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -104,12 +104,9 @@ export class DscpConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DscpConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DscpConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DscpConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DscpConfigurationArgs | undefined;
             if (!args || args.dscpConfigurationName === undefined) {
                 throw new Error("Missing required property 'dscpConfigurationName'");
             }
@@ -133,6 +130,22 @@ export class DscpConfiguration extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["qosCollectionId"] = undefined /*out*/;
             inputs["resourceGuid"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["associatedNetworkInterfaces"] = undefined /*out*/;
+            inputs["destinationIpRanges"] = undefined /*out*/;
+            inputs["destinationPortRanges"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["markings"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["protocol"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["qosCollectionId"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["sourceIpRanges"] = undefined /*out*/;
+            inputs["sourcePortRanges"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

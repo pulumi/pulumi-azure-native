@@ -38,7 +38,7 @@ export class Replication extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Replication {
-        return new Replication(name, undefined, { ...opts, id: id });
+        return new Replication(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -87,12 +87,9 @@ export class Replication extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReplicationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ReplicationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ReplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ReplicationArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -114,6 +111,13 @@ export class Replication extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -122,7 +126,7 @@ export class Replication extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/latest:Replication" }, { type: "azurerm:containerregistry/v20171001:Replication" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/latest:Replication" }, { type: "azurerm:containerregistry/v20170601preview:Replication" }, { type: "azurerm:containerregistry/v20171001:Replication" }, { type: "azurerm:containerregistry/v20191201preview:Replication" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Replication.__pulumiType, name, inputs, opts);
     }

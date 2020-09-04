@@ -51,6 +51,12 @@ func NewTransform(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:media/latest:Transform"),
 		},
 		{
+			Type: pulumi.String("azurerm:media/v20180330preview:Transform"),
+		},
+		{
+			Type: pulumi.String("azurerm:media/v20180601preview:Transform"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20200501:Transform"),
 		},
 	})

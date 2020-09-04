@@ -34,7 +34,7 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RemediationAtResourceGroup {
-        return new RemediationAtResourceGroup(name, undefined, { ...opts, id: id });
+        return new RemediationAtResourceGroup(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -99,12 +99,9 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RemediationAtResourceGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RemediationAtResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RemediationAtResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RemediationAtResourceGroupArgs | undefined;
             if (!args || args.remediationName === undefined) {
                 throw new Error("Missing required property 'remediationName'");
             }
@@ -123,6 +120,17 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["createdOn"] = undefined /*out*/;
+            inputs["deploymentStatus"] = undefined /*out*/;
+            inputs["filters"] = undefined /*out*/;
+            inputs["lastUpdatedOn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["policyAssignmentId"] = undefined /*out*/;
+            inputs["policyDefinitionReferenceId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceDiscoveryMode"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -131,7 +139,7 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:policyinsights/v20190701:RemediationAtResourceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:policyinsights/v20180701preview:RemediationAtResourceGroup" }, { type: "azurerm:policyinsights/v20190701:RemediationAtResourceGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RemediationAtResourceGroup.__pulumiType, name, inputs, opts);
     }

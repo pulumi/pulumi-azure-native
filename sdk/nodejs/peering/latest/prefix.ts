@@ -36,7 +36,7 @@ export class Prefix extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Prefix {
-        return new Prefix(name, undefined, { ...opts, id: id });
+        return new Prefix(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -97,12 +97,9 @@ export class Prefix extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PrefixArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PrefixArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PrefixArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PrefixArgs | undefined;
             if (!args || args.peeringServiceName === undefined) {
                 throw new Error("Missing required property 'peeringServiceName'");
             }
@@ -124,6 +121,16 @@ export class Prefix extends pulumi.CustomResource {
             inputs["prefixValidationState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["errorMessage"] = undefined /*out*/;
+            inputs["events"] = undefined /*out*/;
+            inputs["learnedType"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["peeringServicePrefixKey"] = undefined /*out*/;
+            inputs["prefix"] = undefined /*out*/;
+            inputs["prefixValidationState"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -132,7 +139,7 @@ export class Prefix extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:peering/v20200401:Prefix" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:peering/v20190801preview:Prefix" }, { type: "azurerm:peering/v20190901preview:Prefix" }, { type: "azurerm:peering/v20200101preview:Prefix" }, { type: "azurerm:peering/v20200401:Prefix" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Prefix.__pulumiType, name, inputs, opts);
     }

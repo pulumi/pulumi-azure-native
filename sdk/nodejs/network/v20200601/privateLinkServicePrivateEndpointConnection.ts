@@ -19,7 +19,7 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateLinkServicePrivateEndpointConnection {
-        return new PrivateLinkServicePrivateEndpointConnection(name, undefined, { ...opts, id: id });
+        return new PrivateLinkServicePrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -72,12 +72,9 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PrivateLinkServicePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PrivateLinkServicePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PrivateLinkServicePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as PrivateLinkServicePrivateEndpointConnectionArgs | undefined;
             if (!args || args.peConnectionName === undefined) {
                 throw new Error("Missing required property 'peConnectionName'");
             }
@@ -96,6 +93,14 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
             inputs["etag"] = undefined /*out*/;
             inputs["linkIdentifier"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["linkIdentifier"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

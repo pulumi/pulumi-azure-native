@@ -42,7 +42,7 @@ export class SignalR extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SignalR {
-        return new SignalR(name, undefined, { ...opts, id: id });
+        return new SignalR(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -129,12 +129,9 @@ export class SignalR extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SignalRArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SignalRArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SignalRArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as SignalRArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -161,6 +158,21 @@ export class SignalR extends pulumi.CustomResource {
             inputs["serverPort"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
+        } else {
+            inputs["cors"] = undefined /*out*/;
+            inputs["externalIP"] = undefined /*out*/;
+            inputs["features"] = undefined /*out*/;
+            inputs["hostName"] = undefined /*out*/;
+            inputs["hostNamePrefix"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicPort"] = undefined /*out*/;
+            inputs["serverPort"] = undefined /*out*/;
+            inputs["sku"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -169,7 +181,7 @@ export class SignalR extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:signalrservice/latest:SignalR" }, { type: "azurerm:signalrservice/v20200501:SignalR" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:signalrservice/latest:SignalR" }, { type: "azurerm:signalrservice/v20180301preview:SignalR" }, { type: "azurerm:signalrservice/v20200501:SignalR" }, { type: "azurerm:signalrservice/v20200701preview:SignalR" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SignalR.__pulumiType, name, inputs, opts);
     }

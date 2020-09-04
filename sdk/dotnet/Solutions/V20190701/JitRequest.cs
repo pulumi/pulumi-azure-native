@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.Solutions.V20190701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:solutions/latest:JitRequest"},
+                    new Pulumi.Alias { Type = "azurerm:solutions/v20200821preview:JitRequest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

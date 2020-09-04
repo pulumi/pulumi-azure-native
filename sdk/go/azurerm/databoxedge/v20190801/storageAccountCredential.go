@@ -70,6 +70,9 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:databoxedge/v20190701:StorageAccountCredential"),
 		},
+		{
+			Type: pulumi.String("azurerm:databoxedge/v20200501preview:StorageAccountCredential"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StorageAccountCredential

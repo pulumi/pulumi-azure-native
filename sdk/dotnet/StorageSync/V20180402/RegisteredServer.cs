@@ -187,6 +187,7 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storagesync/latest:RegisteredServer"},
+                    new Pulumi.Alias { Type = "azurerm:storagesync/v20170605preview:RegisteredServer"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20180701:RegisteredServer"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20181001:RegisteredServer"},
                     new Pulumi.Alias { Type = "azurerm:storagesync/v20190201:RegisteredServer"},

@@ -33,7 +33,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationPackage {
-        return new ApplicationPackage(name, undefined, { ...opts, id: id });
+        return new ApplicationPackage(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -90,12 +90,9 @@ export class ApplicationPackage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApplicationPackageArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApplicationPackageArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApplicationPackageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApplicationPackageArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -112,6 +109,15 @@ export class ApplicationPackage extends pulumi.CustomResource {
             inputs["applicationName"] = args ? args.applicationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["versionName"] = args ? args.versionName : undefined;
+            inputs["etag"] = undefined /*out*/;
+            inputs["format"] = undefined /*out*/;
+            inputs["lastActivationTime"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["storageUrl"] = undefined /*out*/;
+            inputs["storageUrlExpiry"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
             inputs["etag"] = undefined /*out*/;
             inputs["format"] = undefined /*out*/;
             inputs["lastActivationTime"] = undefined /*out*/;

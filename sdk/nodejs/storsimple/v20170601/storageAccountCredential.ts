@@ -41,7 +41,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageAccountCredential {
-        return new StorageAccountCredential(name, undefined, { ...opts, id: id });
+        return new StorageAccountCredential(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -94,12 +94,9 @@ export class StorageAccountCredential extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StorageAccountCredentialArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StorageAccountCredentialArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StorageAccountCredentialArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as StorageAccountCredentialArgs | undefined;
             if (!args || args.endPoint === undefined) {
                 throw new Error("Missing required property 'endPoint'");
             }
@@ -123,6 +120,14 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             inputs["sslStatus"] = args ? args.sslStatus : undefined;
             inputs["storageAccountCredentialName"] = args ? args.storageAccountCredentialName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["volumesCount"] = undefined /*out*/;
+        } else {
+            inputs["accessKey"] = undefined /*out*/;
+            inputs["endPoint"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["sslStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["volumesCount"] = undefined /*out*/;
         }

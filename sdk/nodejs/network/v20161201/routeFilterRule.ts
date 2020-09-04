@@ -41,7 +41,7 @@ export class RouteFilterRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RouteFilterRule {
-        return new RouteFilterRule(name, undefined, { ...opts, id: id });
+        return new RouteFilterRule(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -98,12 +98,9 @@ export class RouteFilterRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteFilterRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteFilterRuleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RouteFilterRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RouteFilterRuleArgs | undefined;
             if (!args || args.access === undefined) {
                 throw new Error("Missing required property 'access'");
             }
@@ -134,6 +131,15 @@ export class RouteFilterRule extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+        } else {
+            inputs["access"] = undefined /*out*/;
+            inputs["communities"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["routeFilterRuleType"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

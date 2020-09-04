@@ -33,7 +33,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DisasterRecoveryConfig {
-        return new DisasterRecoveryConfig(name, undefined, { ...opts, id: id });
+        return new DisasterRecoveryConfig(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -86,12 +86,9 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DisasterRecoveryConfigArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DisasterRecoveryConfigArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DisasterRecoveryConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as DisasterRecoveryConfigArgs | undefined;
             if (!args || args.alias === undefined) {
                 throw new Error("Missing required property 'alias'");
             }
@@ -107,6 +104,14 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             inputs["partnerNamespace"] = args ? args.partnerNamespace : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["pendingReplicationOperationsCount"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["role"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["alternateName"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["partnerNamespace"] = undefined /*out*/;
             inputs["pendingReplicationOperationsCount"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["role"] = undefined /*out*/;

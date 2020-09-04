@@ -76,7 +76,13 @@ func NewIdentityProvider(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/v20180101:IdentityProvider"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/v20180601preview:IdentityProvider"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20190101:IdentityProvider"),
+		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/v20191201preview:IdentityProvider"),
 		},
 	})
 	opts = append(opts, aliases)

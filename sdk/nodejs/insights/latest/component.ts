@@ -56,7 +56,7 @@ export class Component extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Component {
-        return new Component(name, undefined, { ...opts, id: id });
+        return new Component(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -173,12 +173,9 @@ export class Component extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ComponentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ComponentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ComponentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ComponentArgs | undefined;
             if (!args || args.applicationType === undefined) {
                 throw new Error("Missing required property 'applicationType'");
             }
@@ -219,6 +216,30 @@ export class Component extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["appId"] = undefined /*out*/;
+            inputs["applicationId"] = undefined /*out*/;
+            inputs["applicationType"] = undefined /*out*/;
+            inputs["connectionString"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["disableIpMasking"] = undefined /*out*/;
+            inputs["flowType"] = undefined /*out*/;
+            inputs["hockeyAppId"] = undefined /*out*/;
+            inputs["hockeyAppToken"] = undefined /*out*/;
+            inputs["immediatePurgeDataOn30Days"] = undefined /*out*/;
+            inputs["ingestionMode"] = undefined /*out*/;
+            inputs["instrumentationKey"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["privateLinkScopedResources"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["requestSource"] = undefined /*out*/;
+            inputs["retentionInDays"] = undefined /*out*/;
+            inputs["samplingPercentage"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -227,7 +248,7 @@ export class Component extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/v20150501:Component" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/v20150501:Component" }, { type: "azurerm:insights/v20180501preview:Component" }, { type: "azurerm:insights/v20200202preview:Component" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Component.__pulumiType, name, inputs, opts);
     }

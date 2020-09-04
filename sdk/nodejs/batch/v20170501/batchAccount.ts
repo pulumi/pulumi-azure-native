@@ -58,7 +58,7 @@ export class BatchAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BatchAccount {
-        return new BatchAccount(name, undefined, { ...opts, id: id });
+        return new BatchAccount(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -123,12 +123,9 @@ export class BatchAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BatchAccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BatchAccountArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: BatchAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as BatchAccountArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -152,6 +149,20 @@ export class BatchAccount extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["poolQuota"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["accountEndpoint"] = undefined /*out*/;
+            inputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
+            inputs["autoStorage"] = undefined /*out*/;
+            inputs["dedicatedCoreQuota"] = undefined /*out*/;
+            inputs["keyVaultReference"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["lowPriorityCoreQuota"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["poolAllocationMode"] = undefined /*out*/;
+            inputs["poolQuota"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

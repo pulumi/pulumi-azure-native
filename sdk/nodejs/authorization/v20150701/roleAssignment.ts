@@ -33,7 +33,7 @@ export class RoleAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RoleAssignment {
-        return new RoleAssignment(name, undefined, { ...opts, id: id });
+        return new RoleAssignment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -70,12 +70,9 @@ export class RoleAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as RoleAssignmentArgs | undefined;
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -90,6 +87,10 @@ export class RoleAssignment extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -98,7 +99,7 @@ export class RoleAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:RoleAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:RoleAssignment" }, { type: "azurerm:authorization/v20171001preview:RoleAssignment" }, { type: "azurerm:authorization/v20180101preview:RoleAssignment" }, { type: "azurerm:authorization/v20180901preview:RoleAssignment" }, { type: "azurerm:authorization/v20200401preview:RoleAssignment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RoleAssignment.__pulumiType, name, inputs, opts);
     }

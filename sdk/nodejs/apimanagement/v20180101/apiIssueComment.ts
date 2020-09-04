@@ -37,7 +37,7 @@ export class ApiIssueComment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiIssueComment {
-        return new ApiIssueComment(name, undefined, { ...opts, id: id });
+        return new ApiIssueComment(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -82,12 +82,9 @@ export class ApiIssueComment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ApiIssueCommentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ApiIssueCommentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ApiIssueCommentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as ApiIssueCommentArgs | undefined;
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
@@ -119,6 +116,12 @@ export class ApiIssueComment extends pulumi.CustomResource {
             inputs["userId"] = args ? args.userId : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["text"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["userId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -127,7 +130,7 @@ export class ApiIssueComment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiIssueComment" }, { type: "azurerm:apimanagement/v20170301:ApiIssueComment" }, { type: "azurerm:apimanagement/v20190101:ApiIssueComment" }, { type: "azurerm:apimanagement/v20191201:ApiIssueComment" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiIssueComment" }, { type: "azurerm:apimanagement/v20170301:ApiIssueComment" }, { type: "azurerm:apimanagement/v20180601preview:ApiIssueComment" }, { type: "azurerm:apimanagement/v20190101:ApiIssueComment" }, { type: "azurerm:apimanagement/v20191201:ApiIssueComment" }, { type: "azurerm:apimanagement/v20191201preview:ApiIssueComment" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiIssueComment.__pulumiType, name, inputs, opts);
     }

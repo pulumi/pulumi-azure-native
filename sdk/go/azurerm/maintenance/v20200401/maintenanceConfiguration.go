@@ -46,6 +46,12 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:maintenance/latest:MaintenanceConfiguration"),
 		},
+		{
+			Type: pulumi.String("azurerm:maintenance/v20180601preview:MaintenanceConfiguration"),
+		},
+		{
+			Type: pulumi.String("azurerm:maintenance/v20200701preview:MaintenanceConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MaintenanceConfiguration

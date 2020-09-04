@@ -31,7 +31,7 @@ class ListAdminKeyResult:
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> str:
         """
-        The primary admin API key of the Search service.
+        The primary admin API key of the search service.
         """
         return pulumi.get(self, "primary_key")
 
@@ -39,7 +39,7 @@ class ListAdminKeyResult:
     @pulumi.getter(name="secondaryKey")
     def secondary_key(self) -> str:
         """
-        The secondary admin API key of the Search service.
+        The secondary admin API key of the search service.
         """
         return pulumi.get(self, "secondary_key")
 

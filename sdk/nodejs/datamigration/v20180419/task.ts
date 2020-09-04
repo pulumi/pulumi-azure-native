@@ -19,7 +19,7 @@ export class Task extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Task {
-        return new Task(name, undefined, { ...opts, id: id });
+        return new Task(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -60,12 +60,9 @@ export class Task extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: TaskArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as TaskArgs | undefined;
             if (!args || args.groupName === undefined) {
                 throw new Error("Missing required property 'groupName'");
             }
@@ -86,6 +83,11 @@ export class Task extends pulumi.CustomResource {
             inputs["taskName"] = args ? args.taskName : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["etag"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -94,7 +96,7 @@ export class Task extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datamigration/latest:Task" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datamigration/latest:Task" }, { type: "azurerm:datamigration/v20171115preview:Task" }, { type: "azurerm:datamigration/v20180315preview:Task" }, { type: "azurerm:datamigration/v20180331preview:Task" }, { type: "azurerm:datamigration/v20180715preview:Task" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Task.__pulumiType, name, inputs, opts);
     }

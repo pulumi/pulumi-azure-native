@@ -32,7 +32,7 @@ export class NotebookWorkspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NotebookWorkspace {
-        return new NotebookWorkspace(name, undefined, { ...opts, id: id });
+        return new NotebookWorkspace(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -73,12 +73,9 @@ export class NotebookWorkspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NotebookWorkspaceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NotebookWorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NotebookWorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as NotebookWorkspaceArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -95,6 +92,11 @@ export class NotebookWorkspace extends pulumi.CustomResource {
             inputs["notebookServerEndpoint"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["name"] = undefined /*out*/;
+            inputs["notebookServerEndpoint"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -103,7 +105,7 @@ export class NotebookWorkspace extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:NotebookWorkspace" }, { type: "azurerm:documentdb/v20190801:NotebookWorkspace" }, { type: "azurerm:documentdb/v20200301:NotebookWorkspace" }, { type: "azurerm:documentdb/v20200401:NotebookWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:NotebookWorkspace" }, { type: "azurerm:documentdb/v20190801:NotebookWorkspace" }, { type: "azurerm:documentdb/v20200301:NotebookWorkspace" }, { type: "azurerm:documentdb/v20200401:NotebookWorkspace" }, { type: "azurerm:documentdb/v20200601preview:NotebookWorkspace" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NotebookWorkspace.__pulumiType, name, inputs, opts);
     }

@@ -48,7 +48,7 @@ export class Order extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Order {
-        return new Order(name, undefined, { ...opts, id: id });
+        return new Order(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -109,12 +109,9 @@ export class Order extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OrderArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OrderArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: OrderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as OrderArgs | undefined;
             if (!args || args.contactInformation === undefined) {
                 throw new Error("Missing required property 'contactInformation'");
             }
@@ -138,6 +135,16 @@ export class Order extends pulumi.CustomResource {
             inputs["returnTrackingInfo"] = undefined /*out*/;
             inputs["serialNumber"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["contactInformation"] = undefined /*out*/;
+            inputs["currentStatus"] = undefined /*out*/;
+            inputs["deliveryTrackingInfo"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["orderHistory"] = undefined /*out*/;
+            inputs["returnTrackingInfo"] = undefined /*out*/;
+            inputs["serialNumber"] = undefined /*out*/;
+            inputs["shippingAddress"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -146,7 +153,7 @@ export class Order extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:Order" }, { type: "azurerm:databoxedge/v20190701:Order" }, { type: "azurerm:databoxedge/v20190801:Order" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:Order" }, { type: "azurerm:databoxedge/v20190701:Order" }, { type: "azurerm:databoxedge/v20190801:Order" }, { type: "azurerm:databoxedge/v20200501preview:Order" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Order.__pulumiType, name, inputs, opts);
     }

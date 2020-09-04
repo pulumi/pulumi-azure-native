@@ -19,7 +19,7 @@ export class Endpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Endpoint {
-        return new Endpoint(name, undefined, { ...opts, id: id });
+        return new Endpoint(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -112,12 +112,9 @@ export class Endpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as EndpointArgs | undefined;
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
             }
@@ -153,6 +150,24 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["contentTypesToCompress"] = undefined /*out*/;
+            inputs["geoFilters"] = undefined /*out*/;
+            inputs["hostName"] = undefined /*out*/;
+            inputs["isCompressionEnabled"] = undefined /*out*/;
+            inputs["isHttpAllowed"] = undefined /*out*/;
+            inputs["isHttpsAllowed"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["optimizationType"] = undefined /*out*/;
+            inputs["originHostHeader"] = undefined /*out*/;
+            inputs["originPath"] = undefined /*out*/;
+            inputs["origins"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["queryStringCachingBehavior"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -161,7 +176,7 @@ export class Endpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:Endpoint" }, { type: "azurerm:cdn/v20150601:Endpoint" }, { type: "azurerm:cdn/v20160402:Endpoint" }, { type: "azurerm:cdn/v20170402:Endpoint" }, { type: "azurerm:cdn/v20171012:Endpoint" }, { type: "azurerm:cdn/v20190415:Endpoint" }, { type: "azurerm:cdn/v20190615:Endpoint" }, { type: "azurerm:cdn/v20191231:Endpoint" }, { type: "azurerm:cdn/v20200331:Endpoint" }, { type: "azurerm:cdn/v20200415:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:Endpoint" }, { type: "azurerm:cdn/v20150601:Endpoint" }, { type: "azurerm:cdn/v20160402:Endpoint" }, { type: "azurerm:cdn/v20170402:Endpoint" }, { type: "azurerm:cdn/v20171012:Endpoint" }, { type: "azurerm:cdn/v20190415:Endpoint" }, { type: "azurerm:cdn/v20190615:Endpoint" }, { type: "azurerm:cdn/v20190615preview:Endpoint" }, { type: "azurerm:cdn/v20191231:Endpoint" }, { type: "azurerm:cdn/v20200331:Endpoint" }, { type: "azurerm:cdn/v20200415:Endpoint" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Endpoint.__pulumiType, name, inputs, opts);
     }

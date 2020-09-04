@@ -158,6 +158,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlContainer"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:SqlResourceSqlContainer"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/v20200601preview:SqlResourceSqlContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

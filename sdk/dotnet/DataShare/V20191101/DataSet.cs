@@ -170,6 +170,7 @@ namespace Pulumi.AzureRM.DataShare.V20191101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datashare/latest:DataSet"},
+                    new Pulumi.Alias { Type = "azurerm:datashare/v20181101preview:DataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

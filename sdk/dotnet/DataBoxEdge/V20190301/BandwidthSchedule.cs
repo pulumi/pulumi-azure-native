@@ -108,6 +108,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:BandwidthSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

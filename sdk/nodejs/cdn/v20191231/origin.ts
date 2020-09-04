@@ -40,7 +40,7 @@ export class Origin extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Origin {
-        return new Origin(name, undefined, { ...opts, id: id });
+        return new Origin(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
@@ -109,12 +109,9 @@ export class Origin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: OriginArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: OriginArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: OriginArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as OriginArgs | undefined;
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
             }
@@ -145,6 +142,18 @@ export class Origin extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+        } else {
+            inputs["enabled"] = undefined /*out*/;
+            inputs["hostName"] = undefined /*out*/;
+            inputs["httpPort"] = undefined /*out*/;
+            inputs["httpsPort"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
+            inputs["originHostHeader"] = undefined /*out*/;
+            inputs["priority"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+            inputs["weight"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

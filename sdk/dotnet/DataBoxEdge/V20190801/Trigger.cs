@@ -83,6 +83,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:Trigger"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190301:Trigger"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:Trigger"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
