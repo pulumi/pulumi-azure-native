@@ -24,7 +24,7 @@ func calculateDetailedDiff(resource *AzureApiResource, diff *resource.ObjectDiff
 		}
 
 		// Force New on resource properties also cause a replacement.
-		if p.Location == "body" {
+		if p.Location == "body" && p.Body != nil {
 			for propName, prop := range p.Body.Properties {
 				if prop.ForceNew {
 					name := propName

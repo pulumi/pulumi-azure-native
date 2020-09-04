@@ -70,7 +70,7 @@ from .list_authorization_server_secrets import *
 from .list_delegation_setting_secrets import *
 from .list_gateway_keys import *
 from .list_identity_provider_secrets import *
-from .list_named_value_value import *
+from .list_named_value import *
 from .list_open_id_connect_provider_secrets import *
 from .list_subscription_secrets import *
 from .list_tenant_access_git_secrets import *
