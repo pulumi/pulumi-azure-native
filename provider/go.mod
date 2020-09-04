@@ -5,6 +5,7 @@ go 1.13
 require (
 	github.com/Azure/go-autorest/autorest v0.10.0
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813
+	github.com/go-openapi/jsonreference v0.19.2
 	github.com/go-openapi/spec v0.19.7
 	github.com/go-openapi/swag v0.19.9
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b

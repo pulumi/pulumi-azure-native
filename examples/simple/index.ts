@@ -3,6 +3,7 @@ import * as random from "@pulumi/random";
 
 import * as compute from "@pulumi/azurerm/compute/latest";
 import * as containerinstance from "@pulumi/azurerm/containerinstance/latest";
+import * as eventgrid from "@pulumi/azurerm/eventgrid/latest";
 import * as network from "@pulumi/azurerm/network/latest";
 import * as resources from "@pulumi/azurerm/resources/latest";
 import * as storage from "@pulumi/azurerm/storage/latest";
@@ -143,6 +144,25 @@ const storageAccount = new storage.StorageAccount("sa", {
     },
     kind: "StorageV2",
     enableHttpsTrafficOnly: true,
+});
+
+var queue = new storage.Queue("queue", {
+    resourceGroupName: resourceGroup.name,
+    accountName: storageAccount.name,
+    queueName: "event-grid-dest",
+});
+
+export const eventGridSub = new eventgrid.EventSubscription("egsub", {
+    eventSubscriptionName: randomString.result,
+    scope: resourceGroup.id,
+    destination: {        
+        endpointType: "StorageQueue",
+        queueName: queue.name,
+        resourceId: storageAccount.id,
+    },
+    filter: {
+        isSubjectCaseSensitive: true,
+    }
 });
 
 export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.defaultHostname}`;

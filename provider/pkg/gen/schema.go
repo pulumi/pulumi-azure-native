@@ -550,7 +550,8 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				result.requiredSpecs.Add(sdkName)
 			}
 			apiProperty = provider.AzureApiProperty{
-				Ref: propertySpec.Ref,
+				OneOf: m.getOneOfValues(propertySpec),
+				Ref:   propertySpec.Ref,
 			}
 		} else {
 			resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
@@ -560,6 +561,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			apiProperty = provider.AzureApiProperty{
 				Type:      propertySpec.Type,
 				Enum:      m.getEnumValues(&property),
+				OneOf:     m.getOneOfValues(propertySpec),
 				Ref:       propertySpec.Ref,
 				Minimum:   resolvedProperty.Minimum,
 				Maximum:   resolvedProperty.Maximum,
@@ -605,6 +607,25 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			return nil, err
 		}
 
+		// For a derived type, set the discriminator property to the const value, if any.
+		if allOfSchema.Discriminator != "" {
+			discriminator := allOfSchema.Discriminator
+			prop := allOfProperties.properties[discriminator]
+			if prop.SdkName != "" {
+				discriminator = prop.SdkName
+			}
+
+			propSpec := allOfProperties.specs[discriminator]
+			discriminatorValue := resolvedSchema.ReferenceContext.ReferenceName
+			if v, ok := resolvedSchema.Extensions.GetString("x-ms-discriminator-value"); ok {
+				discriminatorValue = v
+			}
+			propSpec.Const = discriminatorValue
+			allOfProperties.specs[discriminator] = propSpec
+			prop.Const = discriminatorValue
+			allOfProperties.properties[discriminator] = prop
+		}
+
 		result.merge(allOfProperties)
 	}
 
@@ -641,6 +662,13 @@ func (m *moduleGenerator) getEnumValues(property *spec.Schema) (enum []string) {
 				enum = append(enum, s)
 			}
 		}
+	}
+	return
+}
+
+func (m *moduleGenerator) getOneOfValues(property *pschema.PropertySpec) (values []string) {
+	for _, value := range property.OneOf {
+		values = append(values, value.Ref)
 	}
 	return
 }
@@ -699,6 +727,14 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 	// If an object type is referenced, add its definition to the type map.
 	if tok != "" {
+		discriminatedType, ok, err := m.genDiscriminatedType(resolvedSchema, isOutput)
+		if err != nil {
+			return nil, err
+		}
+		if ok {
+			return discriminatedType, nil
+		}
+
 		referencedTypeName = fmt.Sprintf("#/types/%s", tok)
 
 		if _, ok := m.visitedTypes[tok]; !ok {
@@ -771,6 +807,45 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 	}
 
 	return &result, nil
+}
+
+// genDiscriminatedType generates polymorphic types (base type and subtypes) if the schema specifies a discriminator property.
+func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, isOutput bool) (*pschema.TypeSpec, bool, error) {
+	if resolvedSchema.Discriminator == "" {
+		return nil, false, nil
+	}
+
+	discriminator := resolvedSchema.Discriminator
+	if _, ok := resolvedSchema.Properties[discriminator]; !ok {
+		return nil, false, nil
+	}
+
+	prop := resolvedSchema.Properties[discriminator]
+	if prop.ReadOnly && !isOutput {
+		return nil, false, nil
+	}
+
+	var oneOf []pschema.TypeSpec
+	subtypes := resolvedSchema.FindSubtypes()
+	for _, subtype := range subtypes {
+		typ, err := m.genTypeSpec("", subtype, resolvedSchema.ReferenceContext, isOutput)
+		if err != nil {
+			return nil, false, err
+		}
+		oneOf = append(oneOf, *typ)
+	}
+
+	switch len(oneOf) {
+	case 0:
+		// Type specifies a discriminator but doesn't have actual subtypes. Ignore the discriminator in this case.
+		return nil, false, nil
+	case 1:
+		// There is just one subtype specified: use it as a definite type.
+		return &oneOf[0], true, nil
+	default:
+		// Union type for two or more types.
+		return &pschema.TypeSpec{OneOf: oneOf}, true, nil
+	}
 }
 
 func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool) string {

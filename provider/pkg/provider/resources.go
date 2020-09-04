@@ -28,7 +28,9 @@ type AzureApiProperty struct {
 	Type      string            `json:"type,omitempty"`
 	Items     *AzureApiProperty `json:"items,omitempty"`
 	Enum      []string          `json:"enum,omitempty"`
+	OneOf     []string          `json:"oneOf,omitempty"`
 	Ref       string            `json:"$ref,omitempty"`
+	Const     interface{}       `json:"const,omitempty"`
 	Minimum   *float64          `json:"minimum,omitempty"`
 	Maximum   *float64          `json:"maximum,omitempty"`
 	MinLength *int64            `json:"minLength,omitempty"`
