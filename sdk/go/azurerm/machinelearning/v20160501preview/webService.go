@@ -19,7 +19,7 @@ type WebService struct {
 	// Specifies the name of the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Contains the property payload that describes the web service.
-	Properties WebServicePropertiesResponseOutput `pulumi:"properties"`
+	Properties WebServicePropertiesForGraphResponseOutput `pulumi:"properties"`
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the type of the resource.
@@ -80,7 +80,7 @@ type webServiceState struct {
 	// Specifies the name of the resource.
 	Name *string `pulumi:"name"`
 	// Contains the property payload that describes the web service.
-	Properties *WebServicePropertiesResponse `pulumi:"properties"`
+	Properties *WebServicePropertiesForGraphResponse `pulumi:"properties"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.
@@ -93,7 +93,7 @@ type WebServiceState struct {
 	// Specifies the name of the resource.
 	Name pulumi.StringPtrInput
 	// Contains the property payload that describes the web service.
-	Properties WebServicePropertiesResponsePtrInput
+	Properties WebServicePropertiesForGraphResponsePtrInput
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapInput
 	// Specifies the type of the resource.
@@ -110,7 +110,7 @@ type webServiceArgs struct {
 	// Specifies the name of the resource.
 	Name *string `pulumi:"name"`
 	// Contains the property payload that describes the web service.
-	Properties WebServiceProperties `pulumi:"properties"`
+	Properties WebServicePropertiesForGraph `pulumi:"properties"`
 	// Name of the resource group in which the web service is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Contains resource tags defined as key/value pairs.
@@ -126,7 +126,7 @@ type WebServiceArgs struct {
 	// Specifies the name of the resource.
 	Name pulumi.StringPtrInput
 	// Contains the property payload that describes the web service.
-	Properties WebServicePropertiesInput
+	Properties WebServicePropertiesForGraphInput
 	// Name of the resource group in which the web service is located.
 	ResourceGroupName pulumi.StringInput
 	// Contains resource tags defined as key/value pairs.

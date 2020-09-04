@@ -23,13 +23,13 @@ type Job struct {
 	// The UTC date and time at which this Job finished processing.
 	EndTime pulumi.StringOutput `pulumi:"endTime"`
 	// The inputs for the Job.
-	Input JobInputResponseOutput `pulumi:"input"`
+	Input pulumi.AnyOutput `pulumi:"input"`
 	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The outputs for the Job.
-	Outputs JobOutputResponseArrayOutput `pulumi:"outputs"`
+	Outputs JobOutputAssetResponseArrayOutput `pulumi:"outputs"`
 	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
 	// The UTC date and time at which this Job began processing.
@@ -110,13 +110,13 @@ type jobState struct {
 	// The UTC date and time at which this Job finished processing.
 	EndTime *string `pulumi:"endTime"`
 	// The inputs for the Job.
-	Input *JobInputResponse `pulumi:"input"`
+	Input interface{} `pulumi:"input"`
 	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified *string `pulumi:"lastModified"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
 	// The outputs for the Job.
-	Outputs []JobOutputResponse `pulumi:"outputs"`
+	Outputs []JobOutputAssetResponse `pulumi:"outputs"`
 	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
 	Priority *string `pulumi:"priority"`
 	// The UTC date and time at which this Job began processing.
@@ -137,13 +137,13 @@ type JobState struct {
 	// The UTC date and time at which this Job finished processing.
 	EndTime pulumi.StringPtrInput
 	// The inputs for the Job.
-	Input JobInputResponsePtrInput
+	Input pulumi.Input
 	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
 	// The outputs for the Job.
-	Outputs JobOutputResponseArrayInput
+	Outputs JobOutputAssetResponseArrayInput
 	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
 	Priority pulumi.StringPtrInput
 	// The UTC date and time at which this Job began processing.
@@ -166,11 +166,11 @@ type jobArgs struct {
 	// Optional customer supplied description of the Job.
 	Description *string `pulumi:"description"`
 	// The inputs for the Job.
-	Input JobInput `pulumi:"input"`
+	Input interface{} `pulumi:"input"`
 	// The Job name.
 	JobName string `pulumi:"jobName"`
 	// The outputs for the Job.
-	Outputs []JobOutput `pulumi:"outputs"`
+	Outputs []JobOutputAsset `pulumi:"outputs"`
 	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
 	Priority *string `pulumi:"priority"`
 	// The name of the resource group within the Azure subscription.
@@ -188,11 +188,11 @@ type JobArgs struct {
 	// Optional customer supplied description of the Job.
 	Description pulumi.StringPtrInput
 	// The inputs for the Job.
-	Input JobInputInput
+	Input pulumi.Input
 	// The Job name.
 	JobName pulumi.StringInput
 	// The outputs for the Job.
-	Outputs JobOutputArrayInput
+	Outputs JobOutputAssetArrayInput
 	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
 	Priority pulumi.StringPtrInput
 	// The name of the resource group within the Azure subscription.

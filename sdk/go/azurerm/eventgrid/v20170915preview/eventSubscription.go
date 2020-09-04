@@ -15,7 +15,7 @@ type EventSubscription struct {
 	pulumi.CustomResourceState
 
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination EventSubscriptionDestinationResponsePtrOutput `pulumi:"destination"`
+	Destination pulumi.AnyOutput `pulumi:"destination"`
 	// Information about the filter for the event subscription.
 	Filter EventSubscriptionFilterResponsePtrOutput `pulumi:"filter"`
 	// List of user defined labels.
@@ -101,7 +101,7 @@ func GetEventSubscription(ctx *pulumi.Context,
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination *EventSubscriptionDestinationResponse `pulumi:"destination"`
+	Destination interface{} `pulumi:"destination"`
 	// Information about the filter for the event subscription.
 	Filter *EventSubscriptionFilterResponse `pulumi:"filter"`
 	// List of user defined labels.
@@ -118,7 +118,7 @@ type eventSubscriptionState struct {
 
 type EventSubscriptionState struct {
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination EventSubscriptionDestinationResponsePtrInput
+	Destination pulumi.Input
 	// Information about the filter for the event subscription.
 	Filter EventSubscriptionFilterResponsePtrInput
 	// List of user defined labels.
@@ -139,7 +139,7 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 
 type eventSubscriptionArgs struct {
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination *EventSubscriptionDestination `pulumi:"destination"`
+	Destination interface{} `pulumi:"destination"`
 	// Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
 	EventSubscriptionName string `pulumi:"eventSubscriptionName"`
 	// Information about the filter for the event subscription.
@@ -153,7 +153,7 @@ type eventSubscriptionArgs struct {
 // The set of arguments for constructing a EventSubscription resource.
 type EventSubscriptionArgs struct {
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination EventSubscriptionDestinationPtrInput
+	Destination pulumi.Input
 	// Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
 	EventSubscriptionName pulumi.StringInput
 	// Information about the filter for the event subscription.

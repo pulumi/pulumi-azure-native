@@ -29,7 +29,7 @@ type Factory struct {
 	// Factory provisioning state, example Succeeded.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Git repo information of the factory.
-	RepoConfiguration FactoryRepoConfigurationResponsePtrOutput `pulumi:"repoConfiguration"`
+	RepoConfiguration pulumi.AnyOutput `pulumi:"repoConfiguration"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The resource type.
@@ -96,7 +96,7 @@ type factoryState struct {
 	// Factory provisioning state, example Succeeded.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Git repo information of the factory.
-	RepoConfiguration *FactoryRepoConfigurationResponse `pulumi:"repoConfiguration"`
+	RepoConfiguration interface{} `pulumi:"repoConfiguration"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
@@ -121,7 +121,7 @@ type FactoryState struct {
 	// Factory provisioning state, example Succeeded.
 	ProvisioningState pulumi.StringPtrInput
 	// Git repo information of the factory.
-	RepoConfiguration FactoryRepoConfigurationResponsePtrInput
+	RepoConfiguration pulumi.Input
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The resource type.
@@ -144,7 +144,7 @@ type factoryArgs struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// Git repo information of the factory.
-	RepoConfiguration *FactoryRepoConfiguration `pulumi:"repoConfiguration"`
+	RepoConfiguration interface{} `pulumi:"repoConfiguration"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -162,7 +162,7 @@ type FactoryArgs struct {
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// Git repo information of the factory.
-	RepoConfiguration FactoryRepoConfigurationPtrInput
+	RepoConfiguration pulumi.Input
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

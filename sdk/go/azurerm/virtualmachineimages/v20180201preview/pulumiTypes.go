@@ -10,452 +10,150 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type ImageTemplateCustomizer struct {
-	// Friendly Name to provide context on what this customization step does
-	Name *string `pulumi:"name"`
-	// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+// Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
+type ImageTemplateIsoSource struct {
+	// SHA256 Checksum of the ISO image.
+	Sha256Checksum string `pulumi:"sha256Checksum"`
+	// URL to get the ISO image. This URL has to be accessible to the resource provider at the time of the imageTemplate creation.
+	SourceURI string `pulumi:"sourceURI"`
+	// Specifies the type of source image you want to start with.
 	Type string `pulumi:"type"`
 }
 
-// ImageTemplateCustomizerInput is an input type that accepts ImageTemplateCustomizerArgs and ImageTemplateCustomizerOutput values.
-// You can construct a concrete instance of `ImageTemplateCustomizerInput` via:
+// ImageTemplateIsoSourceInput is an input type that accepts ImageTemplateIsoSourceArgs and ImageTemplateIsoSourceOutput values.
+// You can construct a concrete instance of `ImageTemplateIsoSourceInput` via:
 //
-//          ImageTemplateCustomizerArgs{...}
-type ImageTemplateCustomizerInput interface {
+//          ImageTemplateIsoSourceArgs{...}
+type ImageTemplateIsoSourceInput interface {
 	pulumi.Input
 
-	ToImageTemplateCustomizerOutput() ImageTemplateCustomizerOutput
-	ToImageTemplateCustomizerOutputWithContext(context.Context) ImageTemplateCustomizerOutput
+	ToImageTemplateIsoSourceOutput() ImageTemplateIsoSourceOutput
+	ToImageTemplateIsoSourceOutputWithContext(context.Context) ImageTemplateIsoSourceOutput
 }
 
-type ImageTemplateCustomizerArgs struct {
-	// Friendly Name to provide context on what this customization step does
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+// Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
+type ImageTemplateIsoSourceArgs struct {
+	// SHA256 Checksum of the ISO image.
+	Sha256Checksum pulumi.StringInput `pulumi:"sha256Checksum"`
+	// URL to get the ISO image. This URL has to be accessible to the resource provider at the time of the imageTemplate creation.
+	SourceURI pulumi.StringInput `pulumi:"sourceURI"`
+	// Specifies the type of source image you want to start with.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (ImageTemplateCustomizerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateCustomizer)(nil)).Elem()
+func (ImageTemplateIsoSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateIsoSource)(nil)).Elem()
 }
 
-func (i ImageTemplateCustomizerArgs) ToImageTemplateCustomizerOutput() ImageTemplateCustomizerOutput {
-	return i.ToImageTemplateCustomizerOutputWithContext(context.Background())
+func (i ImageTemplateIsoSourceArgs) ToImageTemplateIsoSourceOutput() ImageTemplateIsoSourceOutput {
+	return i.ToImageTemplateIsoSourceOutputWithContext(context.Background())
 }
 
-func (i ImageTemplateCustomizerArgs) ToImageTemplateCustomizerOutputWithContext(ctx context.Context) ImageTemplateCustomizerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateCustomizerOutput)
+func (i ImageTemplateIsoSourceArgs) ToImageTemplateIsoSourceOutputWithContext(ctx context.Context) ImageTemplateIsoSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateIsoSourceOutput)
 }
 
-// ImageTemplateCustomizerArrayInput is an input type that accepts ImageTemplateCustomizerArray and ImageTemplateCustomizerArrayOutput values.
-// You can construct a concrete instance of `ImageTemplateCustomizerArrayInput` via:
-//
-//          ImageTemplateCustomizerArray{ ImageTemplateCustomizerArgs{...} }
-type ImageTemplateCustomizerArrayInput interface {
-	pulumi.Input
+// Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
+type ImageTemplateIsoSourceOutput struct{ *pulumi.OutputState }
 
-	ToImageTemplateCustomizerArrayOutput() ImageTemplateCustomizerArrayOutput
-	ToImageTemplateCustomizerArrayOutputWithContext(context.Context) ImageTemplateCustomizerArrayOutput
+func (ImageTemplateIsoSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateIsoSource)(nil)).Elem()
 }
 
-type ImageTemplateCustomizerArray []ImageTemplateCustomizerInput
-
-func (ImageTemplateCustomizerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageTemplateCustomizer)(nil)).Elem()
-}
-
-func (i ImageTemplateCustomizerArray) ToImageTemplateCustomizerArrayOutput() ImageTemplateCustomizerArrayOutput {
-	return i.ToImageTemplateCustomizerArrayOutputWithContext(context.Background())
-}
-
-func (i ImageTemplateCustomizerArray) ToImageTemplateCustomizerArrayOutputWithContext(ctx context.Context) ImageTemplateCustomizerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateCustomizerArrayOutput)
-}
-
-type ImageTemplateCustomizerOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateCustomizerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateCustomizer)(nil)).Elem()
-}
-
-func (o ImageTemplateCustomizerOutput) ToImageTemplateCustomizerOutput() ImageTemplateCustomizerOutput {
+func (o ImageTemplateIsoSourceOutput) ToImageTemplateIsoSourceOutput() ImageTemplateIsoSourceOutput {
 	return o
 }
 
-func (o ImageTemplateCustomizerOutput) ToImageTemplateCustomizerOutputWithContext(ctx context.Context) ImageTemplateCustomizerOutput {
+func (o ImageTemplateIsoSourceOutput) ToImageTemplateIsoSourceOutputWithContext(ctx context.Context) ImageTemplateIsoSourceOutput {
 	return o
 }
 
-// Friendly Name to provide context on what this customization step does
-func (o ImageTemplateCustomizerOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageTemplateCustomizer) *string { return v.Name }).(pulumi.StringPtrOutput)
+// SHA256 Checksum of the ISO image.
+func (o ImageTemplateIsoSourceOutput) Sha256Checksum() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSource) string { return v.Sha256Checksum }).(pulumi.StringOutput)
 }
 
-// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
-func (o ImageTemplateCustomizerOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateCustomizer) string { return v.Type }).(pulumi.StringOutput)
+// URL to get the ISO image. This URL has to be accessible to the resource provider at the time of the imageTemplate creation.
+func (o ImageTemplateIsoSourceOutput) SourceURI() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSource) string { return v.SourceURI }).(pulumi.StringOutput)
 }
 
-type ImageTemplateCustomizerArrayOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateCustomizerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageTemplateCustomizer)(nil)).Elem()
+// Specifies the type of source image you want to start with.
+func (o ImageTemplateIsoSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-func (o ImageTemplateCustomizerArrayOutput) ToImageTemplateCustomizerArrayOutput() ImageTemplateCustomizerArrayOutput {
-	return o
-}
-
-func (o ImageTemplateCustomizerArrayOutput) ToImageTemplateCustomizerArrayOutputWithContext(ctx context.Context) ImageTemplateCustomizerArrayOutput {
-	return o
-}
-
-func (o ImageTemplateCustomizerArrayOutput) Index(i pulumi.IntInput) ImageTemplateCustomizerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageTemplateCustomizer {
-		return vs[0].([]ImageTemplateCustomizer)[vs[1].(int)]
-	}).(ImageTemplateCustomizerOutput)
-}
-
-type ImageTemplateCustomizerResponse struct {
-	// Friendly Name to provide context on what this customization step does
-	Name *string `pulumi:"name"`
-	// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+// Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
+type ImageTemplateIsoSourceResponse struct {
+	// SHA256 Checksum of the ISO image.
+	Sha256Checksum string `pulumi:"sha256Checksum"`
+	// URL to get the ISO image. This URL has to be accessible to the resource provider at the time of the imageTemplate creation.
+	SourceURI string `pulumi:"sourceURI"`
+	// Specifies the type of source image you want to start with.
 	Type string `pulumi:"type"`
 }
 
-// ImageTemplateCustomizerResponseInput is an input type that accepts ImageTemplateCustomizerResponseArgs and ImageTemplateCustomizerResponseOutput values.
-// You can construct a concrete instance of `ImageTemplateCustomizerResponseInput` via:
+// ImageTemplateIsoSourceResponseInput is an input type that accepts ImageTemplateIsoSourceResponseArgs and ImageTemplateIsoSourceResponseOutput values.
+// You can construct a concrete instance of `ImageTemplateIsoSourceResponseInput` via:
 //
-//          ImageTemplateCustomizerResponseArgs{...}
-type ImageTemplateCustomizerResponseInput interface {
+//          ImageTemplateIsoSourceResponseArgs{...}
+type ImageTemplateIsoSourceResponseInput interface {
 	pulumi.Input
 
-	ToImageTemplateCustomizerResponseOutput() ImageTemplateCustomizerResponseOutput
-	ToImageTemplateCustomizerResponseOutputWithContext(context.Context) ImageTemplateCustomizerResponseOutput
+	ToImageTemplateIsoSourceResponseOutput() ImageTemplateIsoSourceResponseOutput
+	ToImageTemplateIsoSourceResponseOutputWithContext(context.Context) ImageTemplateIsoSourceResponseOutput
 }
 
-type ImageTemplateCustomizerResponseArgs struct {
-	// Friendly Name to provide context on what this customization step does
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+// Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
+type ImageTemplateIsoSourceResponseArgs struct {
+	// SHA256 Checksum of the ISO image.
+	Sha256Checksum pulumi.StringInput `pulumi:"sha256Checksum"`
+	// URL to get the ISO image. This URL has to be accessible to the resource provider at the time of the imageTemplate creation.
+	SourceURI pulumi.StringInput `pulumi:"sourceURI"`
+	// Specifies the type of source image you want to start with.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (ImageTemplateCustomizerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateCustomizerResponse)(nil)).Elem()
+func (ImageTemplateIsoSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateIsoSourceResponse)(nil)).Elem()
 }
 
-func (i ImageTemplateCustomizerResponseArgs) ToImageTemplateCustomizerResponseOutput() ImageTemplateCustomizerResponseOutput {
-	return i.ToImageTemplateCustomizerResponseOutputWithContext(context.Background())
+func (i ImageTemplateIsoSourceResponseArgs) ToImageTemplateIsoSourceResponseOutput() ImageTemplateIsoSourceResponseOutput {
+	return i.ToImageTemplateIsoSourceResponseOutputWithContext(context.Background())
 }
 
-func (i ImageTemplateCustomizerResponseArgs) ToImageTemplateCustomizerResponseOutputWithContext(ctx context.Context) ImageTemplateCustomizerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateCustomizerResponseOutput)
+func (i ImageTemplateIsoSourceResponseArgs) ToImageTemplateIsoSourceResponseOutputWithContext(ctx context.Context) ImageTemplateIsoSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateIsoSourceResponseOutput)
 }
 
-// ImageTemplateCustomizerResponseArrayInput is an input type that accepts ImageTemplateCustomizerResponseArray and ImageTemplateCustomizerResponseArrayOutput values.
-// You can construct a concrete instance of `ImageTemplateCustomizerResponseArrayInput` via:
-//
-//          ImageTemplateCustomizerResponseArray{ ImageTemplateCustomizerResponseArgs{...} }
-type ImageTemplateCustomizerResponseArrayInput interface {
-	pulumi.Input
+// Describes an image source that is an installation ISO. Currently only supports Red Hat Enterprise Linux 7.2-7.5 ISO's.
+type ImageTemplateIsoSourceResponseOutput struct{ *pulumi.OutputState }
 
-	ToImageTemplateCustomizerResponseArrayOutput() ImageTemplateCustomizerResponseArrayOutput
-	ToImageTemplateCustomizerResponseArrayOutputWithContext(context.Context) ImageTemplateCustomizerResponseArrayOutput
+func (ImageTemplateIsoSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateIsoSourceResponse)(nil)).Elem()
 }
 
-type ImageTemplateCustomizerResponseArray []ImageTemplateCustomizerResponseInput
-
-func (ImageTemplateCustomizerResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageTemplateCustomizerResponse)(nil)).Elem()
-}
-
-func (i ImageTemplateCustomizerResponseArray) ToImageTemplateCustomizerResponseArrayOutput() ImageTemplateCustomizerResponseArrayOutput {
-	return i.ToImageTemplateCustomizerResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ImageTemplateCustomizerResponseArray) ToImageTemplateCustomizerResponseArrayOutputWithContext(ctx context.Context) ImageTemplateCustomizerResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateCustomizerResponseArrayOutput)
-}
-
-type ImageTemplateCustomizerResponseOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateCustomizerResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateCustomizerResponse)(nil)).Elem()
-}
-
-func (o ImageTemplateCustomizerResponseOutput) ToImageTemplateCustomizerResponseOutput() ImageTemplateCustomizerResponseOutput {
+func (o ImageTemplateIsoSourceResponseOutput) ToImageTemplateIsoSourceResponseOutput() ImageTemplateIsoSourceResponseOutput {
 	return o
 }
 
-func (o ImageTemplateCustomizerResponseOutput) ToImageTemplateCustomizerResponseOutputWithContext(ctx context.Context) ImageTemplateCustomizerResponseOutput {
+func (o ImageTemplateIsoSourceResponseOutput) ToImageTemplateIsoSourceResponseOutputWithContext(ctx context.Context) ImageTemplateIsoSourceResponseOutput {
 	return o
 }
 
-// Friendly Name to provide context on what this customization step does
-func (o ImageTemplateCustomizerResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageTemplateCustomizerResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+// SHA256 Checksum of the ISO image.
+func (o ImageTemplateIsoSourceResponseOutput) Sha256Checksum() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSourceResponse) string { return v.Sha256Checksum }).(pulumi.StringOutput)
 }
 
-// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
-func (o ImageTemplateCustomizerResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateCustomizerResponse) string { return v.Type }).(pulumi.StringOutput)
+// URL to get the ISO image. This URL has to be accessible to the resource provider at the time of the imageTemplate creation.
+func (o ImageTemplateIsoSourceResponseOutput) SourceURI() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSourceResponse) string { return v.SourceURI }).(pulumi.StringOutput)
 }
 
-type ImageTemplateCustomizerResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateCustomizerResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageTemplateCustomizerResponse)(nil)).Elem()
-}
-
-func (o ImageTemplateCustomizerResponseArrayOutput) ToImageTemplateCustomizerResponseArrayOutput() ImageTemplateCustomizerResponseArrayOutput {
-	return o
-}
-
-func (o ImageTemplateCustomizerResponseArrayOutput) ToImageTemplateCustomizerResponseArrayOutputWithContext(ctx context.Context) ImageTemplateCustomizerResponseArrayOutput {
-	return o
-}
-
-func (o ImageTemplateCustomizerResponseArrayOutput) Index(i pulumi.IntInput) ImageTemplateCustomizerResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageTemplateCustomizerResponse {
-		return vs[0].([]ImageTemplateCustomizerResponse)[vs[1].(int)]
-	}).(ImageTemplateCustomizerResponseOutput)
-}
-
-// Generic distribution object
-type ImageTemplateDistributor struct {
-	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
-	ArtifactTags map[string]string `pulumi:"artifactTags"`
-	// The name to be used for the associated RunOutput.
-	RunOutputName string `pulumi:"runOutputName"`
-	// Type of distribution.
-	Type string `pulumi:"type"`
-}
-
-// ImageTemplateDistributorInput is an input type that accepts ImageTemplateDistributorArgs and ImageTemplateDistributorOutput values.
-// You can construct a concrete instance of `ImageTemplateDistributorInput` via:
-//
-//          ImageTemplateDistributorArgs{...}
-type ImageTemplateDistributorInput interface {
-	pulumi.Input
-
-	ToImageTemplateDistributorOutput() ImageTemplateDistributorOutput
-	ToImageTemplateDistributorOutputWithContext(context.Context) ImageTemplateDistributorOutput
-}
-
-// Generic distribution object
-type ImageTemplateDistributorArgs struct {
-	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
-	ArtifactTags pulumi.StringMapInput `pulumi:"artifactTags"`
-	// The name to be used for the associated RunOutput.
-	RunOutputName pulumi.StringInput `pulumi:"runOutputName"`
-	// Type of distribution.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ImageTemplateDistributorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateDistributor)(nil)).Elem()
-}
-
-func (i ImageTemplateDistributorArgs) ToImageTemplateDistributorOutput() ImageTemplateDistributorOutput {
-	return i.ToImageTemplateDistributorOutputWithContext(context.Background())
-}
-
-func (i ImageTemplateDistributorArgs) ToImageTemplateDistributorOutputWithContext(ctx context.Context) ImageTemplateDistributorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateDistributorOutput)
-}
-
-// ImageTemplateDistributorArrayInput is an input type that accepts ImageTemplateDistributorArray and ImageTemplateDistributorArrayOutput values.
-// You can construct a concrete instance of `ImageTemplateDistributorArrayInput` via:
-//
-//          ImageTemplateDistributorArray{ ImageTemplateDistributorArgs{...} }
-type ImageTemplateDistributorArrayInput interface {
-	pulumi.Input
-
-	ToImageTemplateDistributorArrayOutput() ImageTemplateDistributorArrayOutput
-	ToImageTemplateDistributorArrayOutputWithContext(context.Context) ImageTemplateDistributorArrayOutput
-}
-
-type ImageTemplateDistributorArray []ImageTemplateDistributorInput
-
-func (ImageTemplateDistributorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageTemplateDistributor)(nil)).Elem()
-}
-
-func (i ImageTemplateDistributorArray) ToImageTemplateDistributorArrayOutput() ImageTemplateDistributorArrayOutput {
-	return i.ToImageTemplateDistributorArrayOutputWithContext(context.Background())
-}
-
-func (i ImageTemplateDistributorArray) ToImageTemplateDistributorArrayOutputWithContext(ctx context.Context) ImageTemplateDistributorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateDistributorArrayOutput)
-}
-
-// Generic distribution object
-type ImageTemplateDistributorOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateDistributorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateDistributor)(nil)).Elem()
-}
-
-func (o ImageTemplateDistributorOutput) ToImageTemplateDistributorOutput() ImageTemplateDistributorOutput {
-	return o
-}
-
-func (o ImageTemplateDistributorOutput) ToImageTemplateDistributorOutputWithContext(ctx context.Context) ImageTemplateDistributorOutput {
-	return o
-}
-
-// Tags that will be applied to the artifact once it has been created/updated by the distributor.
-func (o ImageTemplateDistributorOutput) ArtifactTags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ImageTemplateDistributor) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
-}
-
-// The name to be used for the associated RunOutput.
-func (o ImageTemplateDistributorOutput) RunOutputName() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateDistributor) string { return v.RunOutputName }).(pulumi.StringOutput)
-}
-
-// Type of distribution.
-func (o ImageTemplateDistributorOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateDistributor) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ImageTemplateDistributorArrayOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateDistributorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageTemplateDistributor)(nil)).Elem()
-}
-
-func (o ImageTemplateDistributorArrayOutput) ToImageTemplateDistributorArrayOutput() ImageTemplateDistributorArrayOutput {
-	return o
-}
-
-func (o ImageTemplateDistributorArrayOutput) ToImageTemplateDistributorArrayOutputWithContext(ctx context.Context) ImageTemplateDistributorArrayOutput {
-	return o
-}
-
-func (o ImageTemplateDistributorArrayOutput) Index(i pulumi.IntInput) ImageTemplateDistributorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageTemplateDistributor {
-		return vs[0].([]ImageTemplateDistributor)[vs[1].(int)]
-	}).(ImageTemplateDistributorOutput)
-}
-
-// Generic distribution object
-type ImageTemplateDistributorResponse struct {
-	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
-	ArtifactTags map[string]string `pulumi:"artifactTags"`
-	// The name to be used for the associated RunOutput.
-	RunOutputName string `pulumi:"runOutputName"`
-	// Type of distribution.
-	Type string `pulumi:"type"`
-}
-
-// ImageTemplateDistributorResponseInput is an input type that accepts ImageTemplateDistributorResponseArgs and ImageTemplateDistributorResponseOutput values.
-// You can construct a concrete instance of `ImageTemplateDistributorResponseInput` via:
-//
-//          ImageTemplateDistributorResponseArgs{...}
-type ImageTemplateDistributorResponseInput interface {
-	pulumi.Input
-
-	ToImageTemplateDistributorResponseOutput() ImageTemplateDistributorResponseOutput
-	ToImageTemplateDistributorResponseOutputWithContext(context.Context) ImageTemplateDistributorResponseOutput
-}
-
-// Generic distribution object
-type ImageTemplateDistributorResponseArgs struct {
-	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
-	ArtifactTags pulumi.StringMapInput `pulumi:"artifactTags"`
-	// The name to be used for the associated RunOutput.
-	RunOutputName pulumi.StringInput `pulumi:"runOutputName"`
-	// Type of distribution.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ImageTemplateDistributorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateDistributorResponse)(nil)).Elem()
-}
-
-func (i ImageTemplateDistributorResponseArgs) ToImageTemplateDistributorResponseOutput() ImageTemplateDistributorResponseOutput {
-	return i.ToImageTemplateDistributorResponseOutputWithContext(context.Background())
-}
-
-func (i ImageTemplateDistributorResponseArgs) ToImageTemplateDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateDistributorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateDistributorResponseOutput)
-}
-
-// ImageTemplateDistributorResponseArrayInput is an input type that accepts ImageTemplateDistributorResponseArray and ImageTemplateDistributorResponseArrayOutput values.
-// You can construct a concrete instance of `ImageTemplateDistributorResponseArrayInput` via:
-//
-//          ImageTemplateDistributorResponseArray{ ImageTemplateDistributorResponseArgs{...} }
-type ImageTemplateDistributorResponseArrayInput interface {
-	pulumi.Input
-
-	ToImageTemplateDistributorResponseArrayOutput() ImageTemplateDistributorResponseArrayOutput
-	ToImageTemplateDistributorResponseArrayOutputWithContext(context.Context) ImageTemplateDistributorResponseArrayOutput
-}
-
-type ImageTemplateDistributorResponseArray []ImageTemplateDistributorResponseInput
-
-func (ImageTemplateDistributorResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageTemplateDistributorResponse)(nil)).Elem()
-}
-
-func (i ImageTemplateDistributorResponseArray) ToImageTemplateDistributorResponseArrayOutput() ImageTemplateDistributorResponseArrayOutput {
-	return i.ToImageTemplateDistributorResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ImageTemplateDistributorResponseArray) ToImageTemplateDistributorResponseArrayOutputWithContext(ctx context.Context) ImageTemplateDistributorResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateDistributorResponseArrayOutput)
-}
-
-// Generic distribution object
-type ImageTemplateDistributorResponseOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateDistributorResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateDistributorResponse)(nil)).Elem()
-}
-
-func (o ImageTemplateDistributorResponseOutput) ToImageTemplateDistributorResponseOutput() ImageTemplateDistributorResponseOutput {
-	return o
-}
-
-func (o ImageTemplateDistributorResponseOutput) ToImageTemplateDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateDistributorResponseOutput {
-	return o
-}
-
-// Tags that will be applied to the artifact once it has been created/updated by the distributor.
-func (o ImageTemplateDistributorResponseOutput) ArtifactTags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ImageTemplateDistributorResponse) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
-}
-
-// The name to be used for the associated RunOutput.
-func (o ImageTemplateDistributorResponseOutput) RunOutputName() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateDistributorResponse) string { return v.RunOutputName }).(pulumi.StringOutput)
-}
-
-// Type of distribution.
-func (o ImageTemplateDistributorResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateDistributorResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ImageTemplateDistributorResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateDistributorResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageTemplateDistributorResponse)(nil)).Elem()
-}
-
-func (o ImageTemplateDistributorResponseArrayOutput) ToImageTemplateDistributorResponseArrayOutput() ImageTemplateDistributorResponseArrayOutput {
-	return o
-}
-
-func (o ImageTemplateDistributorResponseArrayOutput) ToImageTemplateDistributorResponseArrayOutputWithContext(ctx context.Context) ImageTemplateDistributorResponseArrayOutput {
-	return o
-}
-
-func (o ImageTemplateDistributorResponseArrayOutput) Index(i pulumi.IntInput) ImageTemplateDistributorResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageTemplateDistributorResponse {
-		return vs[0].([]ImageTemplateDistributorResponse)[vs[1].(int)]
-	}).(ImageTemplateDistributorResponseOutput)
+// Specifies the type of source image you want to start with.
+func (o ImageTemplateIsoSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIsoSourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ImageTemplateLastRunStatusResponse struct {
@@ -665,266 +363,780 @@ func (o ImageTemplateLastRunStatusResponsePtrOutput) StartTime() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-type ImageTemplateSource struct {
-	// Specifies the type of source image you want to start with.
+// Distribute as a Managed Disk Image.
+type ImageTemplateManagedImageDistributor struct {
+	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+	ArtifactTags map[string]string `pulumi:"artifactTags"`
+	// Resource Id of the Managed Disk Image
+	ImageId string `pulumi:"imageId"`
+	// Azure location for the image, should match if image already exists
+	Location string `pulumi:"location"`
+	// The name to be used for the associated RunOutput.
+	RunOutputName string `pulumi:"runOutputName"`
+	// Type of distribution.
 	Type string `pulumi:"type"`
 }
 
-// ImageTemplateSourceInput is an input type that accepts ImageTemplateSourceArgs and ImageTemplateSourceOutput values.
-// You can construct a concrete instance of `ImageTemplateSourceInput` via:
+// ImageTemplateManagedImageDistributorInput is an input type that accepts ImageTemplateManagedImageDistributorArgs and ImageTemplateManagedImageDistributorOutput values.
+// You can construct a concrete instance of `ImageTemplateManagedImageDistributorInput` via:
 //
-//          ImageTemplateSourceArgs{...}
-type ImageTemplateSourceInput interface {
+//          ImageTemplateManagedImageDistributorArgs{...}
+type ImageTemplateManagedImageDistributorInput interface {
 	pulumi.Input
 
-	ToImageTemplateSourceOutput() ImageTemplateSourceOutput
-	ToImageTemplateSourceOutputWithContext(context.Context) ImageTemplateSourceOutput
+	ToImageTemplateManagedImageDistributorOutput() ImageTemplateManagedImageDistributorOutput
+	ToImageTemplateManagedImageDistributorOutputWithContext(context.Context) ImageTemplateManagedImageDistributorOutput
 }
 
-type ImageTemplateSourceArgs struct {
-	// Specifies the type of source image you want to start with.
+// Distribute as a Managed Disk Image.
+type ImageTemplateManagedImageDistributorArgs struct {
+	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+	ArtifactTags pulumi.StringMapInput `pulumi:"artifactTags"`
+	// Resource Id of the Managed Disk Image
+	ImageId pulumi.StringInput `pulumi:"imageId"`
+	// Azure location for the image, should match if image already exists
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name to be used for the associated RunOutput.
+	RunOutputName pulumi.StringInput `pulumi:"runOutputName"`
+	// Type of distribution.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (ImageTemplateSourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateSource)(nil)).Elem()
+func (ImageTemplateManagedImageDistributorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageDistributor)(nil)).Elem()
 }
 
-func (i ImageTemplateSourceArgs) ToImageTemplateSourceOutput() ImageTemplateSourceOutput {
-	return i.ToImageTemplateSourceOutputWithContext(context.Background())
+func (i ImageTemplateManagedImageDistributorArgs) ToImageTemplateManagedImageDistributorOutput() ImageTemplateManagedImageDistributorOutput {
+	return i.ToImageTemplateManagedImageDistributorOutputWithContext(context.Background())
 }
 
-func (i ImageTemplateSourceArgs) ToImageTemplateSourceOutputWithContext(ctx context.Context) ImageTemplateSourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateSourceOutput)
+func (i ImageTemplateManagedImageDistributorArgs) ToImageTemplateManagedImageDistributorOutputWithContext(ctx context.Context) ImageTemplateManagedImageDistributorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateManagedImageDistributorOutput)
 }
 
-func (i ImageTemplateSourceArgs) ToImageTemplateSourcePtrOutput() ImageTemplateSourcePtrOutput {
-	return i.ToImageTemplateSourcePtrOutputWithContext(context.Background())
+// Distribute as a Managed Disk Image.
+type ImageTemplateManagedImageDistributorOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateManagedImageDistributorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageDistributor)(nil)).Elem()
 }
 
-func (i ImageTemplateSourceArgs) ToImageTemplateSourcePtrOutputWithContext(ctx context.Context) ImageTemplateSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateSourceOutput).ToImageTemplateSourcePtrOutputWithContext(ctx)
-}
-
-// ImageTemplateSourcePtrInput is an input type that accepts ImageTemplateSourceArgs, ImageTemplateSourcePtr and ImageTemplateSourcePtrOutput values.
-// You can construct a concrete instance of `ImageTemplateSourcePtrInput` via:
-//
-//          ImageTemplateSourceArgs{...}
-//
-//  or:
-//
-//          nil
-type ImageTemplateSourcePtrInput interface {
-	pulumi.Input
-
-	ToImageTemplateSourcePtrOutput() ImageTemplateSourcePtrOutput
-	ToImageTemplateSourcePtrOutputWithContext(context.Context) ImageTemplateSourcePtrOutput
-}
-
-type imageTemplateSourcePtrType ImageTemplateSourceArgs
-
-func ImageTemplateSourcePtr(v *ImageTemplateSourceArgs) ImageTemplateSourcePtrInput {
-	return (*imageTemplateSourcePtrType)(v)
-}
-
-func (*imageTemplateSourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageTemplateSource)(nil)).Elem()
-}
-
-func (i *imageTemplateSourcePtrType) ToImageTemplateSourcePtrOutput() ImageTemplateSourcePtrOutput {
-	return i.ToImageTemplateSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *imageTemplateSourcePtrType) ToImageTemplateSourcePtrOutputWithContext(ctx context.Context) ImageTemplateSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateSourcePtrOutput)
-}
-
-type ImageTemplateSourceOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateSource)(nil)).Elem()
-}
-
-func (o ImageTemplateSourceOutput) ToImageTemplateSourceOutput() ImageTemplateSourceOutput {
+func (o ImageTemplateManagedImageDistributorOutput) ToImageTemplateManagedImageDistributorOutput() ImageTemplateManagedImageDistributorOutput {
 	return o
 }
 
-func (o ImageTemplateSourceOutput) ToImageTemplateSourceOutputWithContext(ctx context.Context) ImageTemplateSourceOutput {
+func (o ImageTemplateManagedImageDistributorOutput) ToImageTemplateManagedImageDistributorOutputWithContext(ctx context.Context) ImageTemplateManagedImageDistributorOutput {
 	return o
 }
 
-func (o ImageTemplateSourceOutput) ToImageTemplateSourcePtrOutput() ImageTemplateSourcePtrOutput {
-	return o.ToImageTemplateSourcePtrOutputWithContext(context.Background())
+// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+func (o ImageTemplateManagedImageDistributorOutput) ArtifactTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributor) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
 }
 
-func (o ImageTemplateSourceOutput) ToImageTemplateSourcePtrOutputWithContext(ctx context.Context) ImageTemplateSourcePtrOutput {
-	return o.ApplyT(func(v ImageTemplateSource) *ImageTemplateSource {
-		return &v
-	}).(ImageTemplateSourcePtrOutput)
+// Resource Id of the Managed Disk Image
+func (o ImageTemplateManagedImageDistributorOutput) ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributor) string { return v.ImageId }).(pulumi.StringOutput)
 }
 
-// Specifies the type of source image you want to start with.
-func (o ImageTemplateSourceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateSource) string { return v.Type }).(pulumi.StringOutput)
+// Azure location for the image, should match if image already exists
+func (o ImageTemplateManagedImageDistributorOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributor) string { return v.Location }).(pulumi.StringOutput)
 }
 
-type ImageTemplateSourcePtrOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateSourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageTemplateSource)(nil)).Elem()
+// The name to be used for the associated RunOutput.
+func (o ImageTemplateManagedImageDistributorOutput) RunOutputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributor) string { return v.RunOutputName }).(pulumi.StringOutput)
 }
 
-func (o ImageTemplateSourcePtrOutput) ToImageTemplateSourcePtrOutput() ImageTemplateSourcePtrOutput {
-	return o
+// Type of distribution.
+func (o ImageTemplateManagedImageDistributorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributor) string { return v.Type }).(pulumi.StringOutput)
 }
 
-func (o ImageTemplateSourcePtrOutput) ToImageTemplateSourcePtrOutputWithContext(ctx context.Context) ImageTemplateSourcePtrOutput {
-	return o
-}
-
-func (o ImageTemplateSourcePtrOutput) Elem() ImageTemplateSourceOutput {
-	return o.ApplyT(func(v *ImageTemplateSource) ImageTemplateSource { return *v }).(ImageTemplateSourceOutput)
-}
-
-// Specifies the type of source image you want to start with.
-func (o ImageTemplateSourcePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImageTemplateSource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-type ImageTemplateSourceResponse struct {
-	// Specifies the type of source image you want to start with.
+// Distribute as a Managed Disk Image.
+type ImageTemplateManagedImageDistributorResponse struct {
+	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+	ArtifactTags map[string]string `pulumi:"artifactTags"`
+	// Resource Id of the Managed Disk Image
+	ImageId string `pulumi:"imageId"`
+	// Azure location for the image, should match if image already exists
+	Location string `pulumi:"location"`
+	// The name to be used for the associated RunOutput.
+	RunOutputName string `pulumi:"runOutputName"`
+	// Type of distribution.
 	Type string `pulumi:"type"`
 }
 
-// ImageTemplateSourceResponseInput is an input type that accepts ImageTemplateSourceResponseArgs and ImageTemplateSourceResponseOutput values.
-// You can construct a concrete instance of `ImageTemplateSourceResponseInput` via:
+// ImageTemplateManagedImageDistributorResponseInput is an input type that accepts ImageTemplateManagedImageDistributorResponseArgs and ImageTemplateManagedImageDistributorResponseOutput values.
+// You can construct a concrete instance of `ImageTemplateManagedImageDistributorResponseInput` via:
 //
-//          ImageTemplateSourceResponseArgs{...}
-type ImageTemplateSourceResponseInput interface {
+//          ImageTemplateManagedImageDistributorResponseArgs{...}
+type ImageTemplateManagedImageDistributorResponseInput interface {
 	pulumi.Input
 
-	ToImageTemplateSourceResponseOutput() ImageTemplateSourceResponseOutput
-	ToImageTemplateSourceResponseOutputWithContext(context.Context) ImageTemplateSourceResponseOutput
+	ToImageTemplateManagedImageDistributorResponseOutput() ImageTemplateManagedImageDistributorResponseOutput
+	ToImageTemplateManagedImageDistributorResponseOutputWithContext(context.Context) ImageTemplateManagedImageDistributorResponseOutput
 }
 
-type ImageTemplateSourceResponseArgs struct {
-	// Specifies the type of source image you want to start with.
+// Distribute as a Managed Disk Image.
+type ImageTemplateManagedImageDistributorResponseArgs struct {
+	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+	ArtifactTags pulumi.StringMapInput `pulumi:"artifactTags"`
+	// Resource Id of the Managed Disk Image
+	ImageId pulumi.StringInput `pulumi:"imageId"`
+	// Azure location for the image, should match if image already exists
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name to be used for the associated RunOutput.
+	RunOutputName pulumi.StringInput `pulumi:"runOutputName"`
+	// Type of distribution.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (ImageTemplateSourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateSourceResponse)(nil)).Elem()
+func (ImageTemplateManagedImageDistributorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageDistributorResponse)(nil)).Elem()
 }
 
-func (i ImageTemplateSourceResponseArgs) ToImageTemplateSourceResponseOutput() ImageTemplateSourceResponseOutput {
-	return i.ToImageTemplateSourceResponseOutputWithContext(context.Background())
+func (i ImageTemplateManagedImageDistributorResponseArgs) ToImageTemplateManagedImageDistributorResponseOutput() ImageTemplateManagedImageDistributorResponseOutput {
+	return i.ToImageTemplateManagedImageDistributorResponseOutputWithContext(context.Background())
 }
 
-func (i ImageTemplateSourceResponseArgs) ToImageTemplateSourceResponseOutputWithContext(ctx context.Context) ImageTemplateSourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateSourceResponseOutput)
+func (i ImageTemplateManagedImageDistributorResponseArgs) ToImageTemplateManagedImageDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateManagedImageDistributorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateManagedImageDistributorResponseOutput)
 }
 
-func (i ImageTemplateSourceResponseArgs) ToImageTemplateSourceResponsePtrOutput() ImageTemplateSourceResponsePtrOutput {
-	return i.ToImageTemplateSourceResponsePtrOutputWithContext(context.Background())
+// Distribute as a Managed Disk Image.
+type ImageTemplateManagedImageDistributorResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateManagedImageDistributorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateManagedImageDistributorResponse)(nil)).Elem()
 }
 
-func (i ImageTemplateSourceResponseArgs) ToImageTemplateSourceResponsePtrOutputWithContext(ctx context.Context) ImageTemplateSourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateSourceResponseOutput).ToImageTemplateSourceResponsePtrOutputWithContext(ctx)
+func (o ImageTemplateManagedImageDistributorResponseOutput) ToImageTemplateManagedImageDistributorResponseOutput() ImageTemplateManagedImageDistributorResponseOutput {
+	return o
 }
 
-// ImageTemplateSourceResponsePtrInput is an input type that accepts ImageTemplateSourceResponseArgs, ImageTemplateSourceResponsePtr and ImageTemplateSourceResponsePtrOutput values.
-// You can construct a concrete instance of `ImageTemplateSourceResponsePtrInput` via:
+func (o ImageTemplateManagedImageDistributorResponseOutput) ToImageTemplateManagedImageDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateManagedImageDistributorResponseOutput {
+	return o
+}
+
+// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+func (o ImageTemplateManagedImageDistributorResponseOutput) ArtifactTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributorResponse) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
+}
+
+// Resource Id of the Managed Disk Image
+func (o ImageTemplateManagedImageDistributorResponseOutput) ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributorResponse) string { return v.ImageId }).(pulumi.StringOutput)
+}
+
+// Azure location for the image, should match if image already exists
+func (o ImageTemplateManagedImageDistributorResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributorResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name to be used for the associated RunOutput.
+func (o ImageTemplateManagedImageDistributorResponseOutput) RunOutputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributorResponse) string { return v.RunOutputName }).(pulumi.StringOutput)
+}
+
+// Type of distribution.
+func (o ImageTemplateManagedImageDistributorResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateManagedImageDistributorResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+type ImageTemplatePlatformImageSource struct {
+	// Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Offer *string `pulumi:"offer"`
+	// Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Publisher *string `pulumi:"publisher"`
+	// Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Sku *string `pulumi:"sku"`
+	// Specifies the type of source image you want to start with.
+	Type string `pulumi:"type"`
+	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Version *string `pulumi:"version"`
+}
+
+// ImageTemplatePlatformImageSourceInput is an input type that accepts ImageTemplatePlatformImageSourceArgs and ImageTemplatePlatformImageSourceOutput values.
+// You can construct a concrete instance of `ImageTemplatePlatformImageSourceInput` via:
 //
-//          ImageTemplateSourceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ImageTemplateSourceResponsePtrInput interface {
+//          ImageTemplatePlatformImageSourceArgs{...}
+type ImageTemplatePlatformImageSourceInput interface {
 	pulumi.Input
 
-	ToImageTemplateSourceResponsePtrOutput() ImageTemplateSourceResponsePtrOutput
-	ToImageTemplateSourceResponsePtrOutputWithContext(context.Context) ImageTemplateSourceResponsePtrOutput
+	ToImageTemplatePlatformImageSourceOutput() ImageTemplatePlatformImageSourceOutput
+	ToImageTemplatePlatformImageSourceOutputWithContext(context.Context) ImageTemplatePlatformImageSourceOutput
 }
 
-type imageTemplateSourceResponsePtrType ImageTemplateSourceResponseArgs
-
-func ImageTemplateSourceResponsePtr(v *ImageTemplateSourceResponseArgs) ImageTemplateSourceResponsePtrInput {
-	return (*imageTemplateSourceResponsePtrType)(v)
+// Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+type ImageTemplatePlatformImageSourceArgs struct {
+	// Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	// Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Sku pulumi.StringPtrInput `pulumi:"sku"`
+	// Specifies the type of source image you want to start with.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
-func (*imageTemplateSourceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageTemplateSourceResponse)(nil)).Elem()
+func (ImageTemplatePlatformImageSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePlatformImageSource)(nil)).Elem()
 }
 
-func (i *imageTemplateSourceResponsePtrType) ToImageTemplateSourceResponsePtrOutput() ImageTemplateSourceResponsePtrOutput {
-	return i.ToImageTemplateSourceResponsePtrOutputWithContext(context.Background())
+func (i ImageTemplatePlatformImageSourceArgs) ToImageTemplatePlatformImageSourceOutput() ImageTemplatePlatformImageSourceOutput {
+	return i.ToImageTemplatePlatformImageSourceOutputWithContext(context.Background())
 }
 
-func (i *imageTemplateSourceResponsePtrType) ToImageTemplateSourceResponsePtrOutputWithContext(ctx context.Context) ImageTemplateSourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateSourceResponsePtrOutput)
+func (i ImageTemplatePlatformImageSourceArgs) ToImageTemplatePlatformImageSourceOutputWithContext(ctx context.Context) ImageTemplatePlatformImageSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplatePlatformImageSourceOutput)
 }
 
-type ImageTemplateSourceResponseOutput struct{ *pulumi.OutputState }
+// Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+type ImageTemplatePlatformImageSourceOutput struct{ *pulumi.OutputState }
 
-func (ImageTemplateSourceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateSourceResponse)(nil)).Elem()
+func (ImageTemplatePlatformImageSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePlatformImageSource)(nil)).Elem()
 }
 
-func (o ImageTemplateSourceResponseOutput) ToImageTemplateSourceResponseOutput() ImageTemplateSourceResponseOutput {
+func (o ImageTemplatePlatformImageSourceOutput) ToImageTemplatePlatformImageSourceOutput() ImageTemplatePlatformImageSourceOutput {
 	return o
 }
 
-func (o ImageTemplateSourceResponseOutput) ToImageTemplateSourceResponseOutputWithContext(ctx context.Context) ImageTemplateSourceResponseOutput {
+func (o ImageTemplatePlatformImageSourceOutput) ToImageTemplatePlatformImageSourceOutputWithContext(ctx context.Context) ImageTemplatePlatformImageSourceOutput {
 	return o
 }
 
-func (o ImageTemplateSourceResponseOutput) ToImageTemplateSourceResponsePtrOutput() ImageTemplateSourceResponsePtrOutput {
-	return o.ToImageTemplateSourceResponsePtrOutputWithContext(context.Background())
+// Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+func (o ImageTemplatePlatformImageSourceOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSource) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
-func (o ImageTemplateSourceResponseOutput) ToImageTemplateSourceResponsePtrOutputWithContext(ctx context.Context) ImageTemplateSourceResponsePtrOutput {
-	return o.ApplyT(func(v ImageTemplateSourceResponse) *ImageTemplateSourceResponse {
-		return &v
-	}).(ImageTemplateSourceResponsePtrOutput)
+// Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+func (o ImageTemplatePlatformImageSourceOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSource) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+func (o ImageTemplatePlatformImageSourceOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSource) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of source image you want to start with.
-func (o ImageTemplateSourceResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateSourceResponse) string { return v.Type }).(pulumi.StringOutput)
+func (o ImageTemplatePlatformImageSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ImageTemplateSourceResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateSourceResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageTemplateSourceResponse)(nil)).Elem()
+// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+func (o ImageTemplatePlatformImageSourceOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSource) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-func (o ImageTemplateSourceResponsePtrOutput) ToImageTemplateSourceResponsePtrOutput() ImageTemplateSourceResponsePtrOutput {
+// Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+type ImageTemplatePlatformImageSourceResponse struct {
+	// Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Offer *string `pulumi:"offer"`
+	// Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Publisher *string `pulumi:"publisher"`
+	// Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Sku *string `pulumi:"sku"`
+	// Specifies the type of source image you want to start with.
+	Type string `pulumi:"type"`
+	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Version *string `pulumi:"version"`
+}
+
+// ImageTemplatePlatformImageSourceResponseInput is an input type that accepts ImageTemplatePlatformImageSourceResponseArgs and ImageTemplatePlatformImageSourceResponseOutput values.
+// You can construct a concrete instance of `ImageTemplatePlatformImageSourceResponseInput` via:
+//
+//          ImageTemplatePlatformImageSourceResponseArgs{...}
+type ImageTemplatePlatformImageSourceResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplatePlatformImageSourceResponseOutput() ImageTemplatePlatformImageSourceResponseOutput
+	ToImageTemplatePlatformImageSourceResponseOutputWithContext(context.Context) ImageTemplatePlatformImageSourceResponseOutput
+}
+
+// Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+type ImageTemplatePlatformImageSourceResponseArgs struct {
+	// Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	// Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Sku pulumi.StringPtrInput `pulumi:"sku"`
+	// Specifies the type of source image you want to start with.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ImageTemplatePlatformImageSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePlatformImageSourceResponse)(nil)).Elem()
+}
+
+func (i ImageTemplatePlatformImageSourceResponseArgs) ToImageTemplatePlatformImageSourceResponseOutput() ImageTemplatePlatformImageSourceResponseOutput {
+	return i.ToImageTemplatePlatformImageSourceResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplatePlatformImageSourceResponseArgs) ToImageTemplatePlatformImageSourceResponseOutputWithContext(ctx context.Context) ImageTemplatePlatformImageSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplatePlatformImageSourceResponseOutput)
+}
+
+// Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+type ImageTemplatePlatformImageSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplatePlatformImageSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplatePlatformImageSourceResponse)(nil)).Elem()
+}
+
+func (o ImageTemplatePlatformImageSourceResponseOutput) ToImageTemplatePlatformImageSourceResponseOutput() ImageTemplatePlatformImageSourceResponseOutput {
 	return o
 }
 
-func (o ImageTemplateSourceResponsePtrOutput) ToImageTemplateSourceResponsePtrOutputWithContext(ctx context.Context) ImageTemplateSourceResponsePtrOutput {
+func (o ImageTemplatePlatformImageSourceResponseOutput) ToImageTemplatePlatformImageSourceResponseOutputWithContext(ctx context.Context) ImageTemplatePlatformImageSourceResponseOutput {
 	return o
 }
 
-func (o ImageTemplateSourceResponsePtrOutput) Elem() ImageTemplateSourceResponseOutput {
-	return o.ApplyT(func(v *ImageTemplateSourceResponse) ImageTemplateSourceResponse { return *v }).(ImageTemplateSourceResponseOutput)
+// Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+func (o ImageTemplatePlatformImageSourceResponseOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
+}
+
+// Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+func (o ImageTemplatePlatformImageSourceResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+func (o ImageTemplatePlatformImageSourceResponseOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of source image you want to start with.
-func (o ImageTemplateSourceResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImageTemplateSourceResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
+func (o ImageTemplatePlatformImageSourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+func (o ImageTemplatePlatformImageSourceResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// Distribute via Shared Image Gallery.
+type ImageTemplateSharedImageDistributor struct {
+	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+	ArtifactTags map[string]string `pulumi:"artifactTags"`
+	// Resource Id of the Shared Image Gallery image
+	GalleryImageId     string   `pulumi:"galleryImageId"`
+	ReplicationRegions []string `pulumi:"replicationRegions"`
+	// The name to be used for the associated RunOutput.
+	RunOutputName string `pulumi:"runOutputName"`
+	// Type of distribution.
+	Type string `pulumi:"type"`
+}
+
+// ImageTemplateSharedImageDistributorInput is an input type that accepts ImageTemplateSharedImageDistributorArgs and ImageTemplateSharedImageDistributorOutput values.
+// You can construct a concrete instance of `ImageTemplateSharedImageDistributorInput` via:
+//
+//          ImageTemplateSharedImageDistributorArgs{...}
+type ImageTemplateSharedImageDistributorInput interface {
+	pulumi.Input
+
+	ToImageTemplateSharedImageDistributorOutput() ImageTemplateSharedImageDistributorOutput
+	ToImageTemplateSharedImageDistributorOutputWithContext(context.Context) ImageTemplateSharedImageDistributorOutput
+}
+
+// Distribute via Shared Image Gallery.
+type ImageTemplateSharedImageDistributorArgs struct {
+	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+	ArtifactTags pulumi.StringMapInput `pulumi:"artifactTags"`
+	// Resource Id of the Shared Image Gallery image
+	GalleryImageId     pulumi.StringInput      `pulumi:"galleryImageId"`
+	ReplicationRegions pulumi.StringArrayInput `pulumi:"replicationRegions"`
+	// The name to be used for the associated RunOutput.
+	RunOutputName pulumi.StringInput `pulumi:"runOutputName"`
+	// Type of distribution.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ImageTemplateSharedImageDistributorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateSharedImageDistributor)(nil)).Elem()
+}
+
+func (i ImageTemplateSharedImageDistributorArgs) ToImageTemplateSharedImageDistributorOutput() ImageTemplateSharedImageDistributorOutput {
+	return i.ToImageTemplateSharedImageDistributorOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateSharedImageDistributorArgs) ToImageTemplateSharedImageDistributorOutputWithContext(ctx context.Context) ImageTemplateSharedImageDistributorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateSharedImageDistributorOutput)
+}
+
+// Distribute via Shared Image Gallery.
+type ImageTemplateSharedImageDistributorOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateSharedImageDistributorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateSharedImageDistributor)(nil)).Elem()
+}
+
+func (o ImageTemplateSharedImageDistributorOutput) ToImageTemplateSharedImageDistributorOutput() ImageTemplateSharedImageDistributorOutput {
+	return o
+}
+
+func (o ImageTemplateSharedImageDistributorOutput) ToImageTemplateSharedImageDistributorOutputWithContext(ctx context.Context) ImageTemplateSharedImageDistributorOutput {
+	return o
+}
+
+// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+func (o ImageTemplateSharedImageDistributorOutput) ArtifactTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributor) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
+}
+
+// Resource Id of the Shared Image Gallery image
+func (o ImageTemplateSharedImageDistributorOutput) GalleryImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributor) string { return v.GalleryImageId }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateSharedImageDistributorOutput) ReplicationRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributor) []string { return v.ReplicationRegions }).(pulumi.StringArrayOutput)
+}
+
+// The name to be used for the associated RunOutput.
+func (o ImageTemplateSharedImageDistributorOutput) RunOutputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributor) string { return v.RunOutputName }).(pulumi.StringOutput)
+}
+
+// Type of distribution.
+func (o ImageTemplateSharedImageDistributorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributor) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Distribute via Shared Image Gallery.
+type ImageTemplateSharedImageDistributorResponse struct {
+	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+	ArtifactTags map[string]string `pulumi:"artifactTags"`
+	// Resource Id of the Shared Image Gallery image
+	GalleryImageId     string   `pulumi:"galleryImageId"`
+	ReplicationRegions []string `pulumi:"replicationRegions"`
+	// The name to be used for the associated RunOutput.
+	RunOutputName string `pulumi:"runOutputName"`
+	// Type of distribution.
+	Type string `pulumi:"type"`
+}
+
+// ImageTemplateSharedImageDistributorResponseInput is an input type that accepts ImageTemplateSharedImageDistributorResponseArgs and ImageTemplateSharedImageDistributorResponseOutput values.
+// You can construct a concrete instance of `ImageTemplateSharedImageDistributorResponseInput` via:
+//
+//          ImageTemplateSharedImageDistributorResponseArgs{...}
+type ImageTemplateSharedImageDistributorResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplateSharedImageDistributorResponseOutput() ImageTemplateSharedImageDistributorResponseOutput
+	ToImageTemplateSharedImageDistributorResponseOutputWithContext(context.Context) ImageTemplateSharedImageDistributorResponseOutput
+}
+
+// Distribute via Shared Image Gallery.
+type ImageTemplateSharedImageDistributorResponseArgs struct {
+	// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+	ArtifactTags pulumi.StringMapInput `pulumi:"artifactTags"`
+	// Resource Id of the Shared Image Gallery image
+	GalleryImageId     pulumi.StringInput      `pulumi:"galleryImageId"`
+	ReplicationRegions pulumi.StringArrayInput `pulumi:"replicationRegions"`
+	// The name to be used for the associated RunOutput.
+	RunOutputName pulumi.StringInput `pulumi:"runOutputName"`
+	// Type of distribution.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ImageTemplateSharedImageDistributorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateSharedImageDistributorResponse)(nil)).Elem()
+}
+
+func (i ImageTemplateSharedImageDistributorResponseArgs) ToImageTemplateSharedImageDistributorResponseOutput() ImageTemplateSharedImageDistributorResponseOutput {
+	return i.ToImageTemplateSharedImageDistributorResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateSharedImageDistributorResponseArgs) ToImageTemplateSharedImageDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateSharedImageDistributorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateSharedImageDistributorResponseOutput)
+}
+
+// Distribute via Shared Image Gallery.
+type ImageTemplateSharedImageDistributorResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateSharedImageDistributorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateSharedImageDistributorResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateSharedImageDistributorResponseOutput) ToImageTemplateSharedImageDistributorResponseOutput() ImageTemplateSharedImageDistributorResponseOutput {
+	return o
+}
+
+func (o ImageTemplateSharedImageDistributorResponseOutput) ToImageTemplateSharedImageDistributorResponseOutputWithContext(ctx context.Context) ImageTemplateSharedImageDistributorResponseOutput {
+	return o
+}
+
+// Tags that will be applied to the artifact once it has been created/updated by the distributor.
+func (o ImageTemplateSharedImageDistributorResponseOutput) ArtifactTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributorResponse) map[string]string { return v.ArtifactTags }).(pulumi.StringMapOutput)
+}
+
+// Resource Id of the Shared Image Gallery image
+func (o ImageTemplateSharedImageDistributorResponseOutput) GalleryImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributorResponse) string { return v.GalleryImageId }).(pulumi.StringOutput)
+}
+
+func (o ImageTemplateSharedImageDistributorResponseOutput) ReplicationRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributorResponse) []string { return v.ReplicationRegions }).(pulumi.StringArrayOutput)
+}
+
+// The name to be used for the associated RunOutput.
+func (o ImageTemplateSharedImageDistributorResponseOutput) RunOutputName() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributorResponse) string { return v.RunOutputName }).(pulumi.StringOutput)
+}
+
+// Type of distribution.
+func (o ImageTemplateSharedImageDistributorResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateSharedImageDistributorResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Runs a shell script during the customization phase
+type ImageTemplateShellCustomizer struct {
+	// Friendly Name to provide context on what this customization step does
+	Name *string `pulumi:"name"`
+	// The shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+	Script *string `pulumi:"script"`
+	// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+	Type string `pulumi:"type"`
+}
+
+// ImageTemplateShellCustomizerInput is an input type that accepts ImageTemplateShellCustomizerArgs and ImageTemplateShellCustomizerOutput values.
+// You can construct a concrete instance of `ImageTemplateShellCustomizerInput` via:
+//
+//          ImageTemplateShellCustomizerArgs{...}
+type ImageTemplateShellCustomizerInput interface {
+	pulumi.Input
+
+	ToImageTemplateShellCustomizerOutput() ImageTemplateShellCustomizerOutput
+	ToImageTemplateShellCustomizerOutputWithContext(context.Context) ImageTemplateShellCustomizerOutput
+}
+
+// Runs a shell script during the customization phase
+type ImageTemplateShellCustomizerArgs struct {
+	// Friendly Name to provide context on what this customization step does
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+	Script pulumi.StringPtrInput `pulumi:"script"`
+	// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ImageTemplateShellCustomizerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateShellCustomizer)(nil)).Elem()
+}
+
+func (i ImageTemplateShellCustomizerArgs) ToImageTemplateShellCustomizerOutput() ImageTemplateShellCustomizerOutput {
+	return i.ToImageTemplateShellCustomizerOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateShellCustomizerArgs) ToImageTemplateShellCustomizerOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateShellCustomizerOutput)
+}
+
+// ImageTemplateShellCustomizerArrayInput is an input type that accepts ImageTemplateShellCustomizerArray and ImageTemplateShellCustomizerArrayOutput values.
+// You can construct a concrete instance of `ImageTemplateShellCustomizerArrayInput` via:
+//
+//          ImageTemplateShellCustomizerArray{ ImageTemplateShellCustomizerArgs{...} }
+type ImageTemplateShellCustomizerArrayInput interface {
+	pulumi.Input
+
+	ToImageTemplateShellCustomizerArrayOutput() ImageTemplateShellCustomizerArrayOutput
+	ToImageTemplateShellCustomizerArrayOutputWithContext(context.Context) ImageTemplateShellCustomizerArrayOutput
+}
+
+type ImageTemplateShellCustomizerArray []ImageTemplateShellCustomizerInput
+
+func (ImageTemplateShellCustomizerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageTemplateShellCustomizer)(nil)).Elem()
+}
+
+func (i ImageTemplateShellCustomizerArray) ToImageTemplateShellCustomizerArrayOutput() ImageTemplateShellCustomizerArrayOutput {
+	return i.ToImageTemplateShellCustomizerArrayOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateShellCustomizerArray) ToImageTemplateShellCustomizerArrayOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateShellCustomizerArrayOutput)
+}
+
+// Runs a shell script during the customization phase
+type ImageTemplateShellCustomizerOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateShellCustomizerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateShellCustomizer)(nil)).Elem()
+}
+
+func (o ImageTemplateShellCustomizerOutput) ToImageTemplateShellCustomizerOutput() ImageTemplateShellCustomizerOutput {
+	return o
+}
+
+func (o ImageTemplateShellCustomizerOutput) ToImageTemplateShellCustomizerOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerOutput {
+	return o
+}
+
+// Friendly Name to provide context on what this customization step does
+func (o ImageTemplateShellCustomizerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizer) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+func (o ImageTemplateShellCustomizerOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizer) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+func (o ImageTemplateShellCustomizerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizer) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateShellCustomizerArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateShellCustomizerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageTemplateShellCustomizer)(nil)).Elem()
+}
+
+func (o ImageTemplateShellCustomizerArrayOutput) ToImageTemplateShellCustomizerArrayOutput() ImageTemplateShellCustomizerArrayOutput {
+	return o
+}
+
+func (o ImageTemplateShellCustomizerArrayOutput) ToImageTemplateShellCustomizerArrayOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerArrayOutput {
+	return o
+}
+
+func (o ImageTemplateShellCustomizerArrayOutput) Index(i pulumi.IntInput) ImageTemplateShellCustomizerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageTemplateShellCustomizer {
+		return vs[0].([]ImageTemplateShellCustomizer)[vs[1].(int)]
+	}).(ImageTemplateShellCustomizerOutput)
+}
+
+// Runs a shell script during the customization phase
+type ImageTemplateShellCustomizerResponse struct {
+	// Friendly Name to provide context on what this customization step does
+	Name *string `pulumi:"name"`
+	// The shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+	Script *string `pulumi:"script"`
+	// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+	Type string `pulumi:"type"`
+}
+
+// ImageTemplateShellCustomizerResponseInput is an input type that accepts ImageTemplateShellCustomizerResponseArgs and ImageTemplateShellCustomizerResponseOutput values.
+// You can construct a concrete instance of `ImageTemplateShellCustomizerResponseInput` via:
+//
+//          ImageTemplateShellCustomizerResponseArgs{...}
+type ImageTemplateShellCustomizerResponseInput interface {
+	pulumi.Input
+
+	ToImageTemplateShellCustomizerResponseOutput() ImageTemplateShellCustomizerResponseOutput
+	ToImageTemplateShellCustomizerResponseOutputWithContext(context.Context) ImageTemplateShellCustomizerResponseOutput
+}
+
+// Runs a shell script during the customization phase
+type ImageTemplateShellCustomizerResponseArgs struct {
+	// Friendly Name to provide context on what this customization step does
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+	Script pulumi.StringPtrInput `pulumi:"script"`
+	// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ImageTemplateShellCustomizerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateShellCustomizerResponse)(nil)).Elem()
+}
+
+func (i ImageTemplateShellCustomizerResponseArgs) ToImageTemplateShellCustomizerResponseOutput() ImageTemplateShellCustomizerResponseOutput {
+	return i.ToImageTemplateShellCustomizerResponseOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateShellCustomizerResponseArgs) ToImageTemplateShellCustomizerResponseOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateShellCustomizerResponseOutput)
+}
+
+// ImageTemplateShellCustomizerResponseArrayInput is an input type that accepts ImageTemplateShellCustomizerResponseArray and ImageTemplateShellCustomizerResponseArrayOutput values.
+// You can construct a concrete instance of `ImageTemplateShellCustomizerResponseArrayInput` via:
+//
+//          ImageTemplateShellCustomizerResponseArray{ ImageTemplateShellCustomizerResponseArgs{...} }
+type ImageTemplateShellCustomizerResponseArrayInput interface {
+	pulumi.Input
+
+	ToImageTemplateShellCustomizerResponseArrayOutput() ImageTemplateShellCustomizerResponseArrayOutput
+	ToImageTemplateShellCustomizerResponseArrayOutputWithContext(context.Context) ImageTemplateShellCustomizerResponseArrayOutput
+}
+
+type ImageTemplateShellCustomizerResponseArray []ImageTemplateShellCustomizerResponseInput
+
+func (ImageTemplateShellCustomizerResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageTemplateShellCustomizerResponse)(nil)).Elem()
+}
+
+func (i ImageTemplateShellCustomizerResponseArray) ToImageTemplateShellCustomizerResponseArrayOutput() ImageTemplateShellCustomizerResponseArrayOutput {
+	return i.ToImageTemplateShellCustomizerResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ImageTemplateShellCustomizerResponseArray) ToImageTemplateShellCustomizerResponseArrayOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateShellCustomizerResponseArrayOutput)
+}
+
+// Runs a shell script during the customization phase
+type ImageTemplateShellCustomizerResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateShellCustomizerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateShellCustomizerResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateShellCustomizerResponseOutput) ToImageTemplateShellCustomizerResponseOutput() ImageTemplateShellCustomizerResponseOutput {
+	return o
+}
+
+func (o ImageTemplateShellCustomizerResponseOutput) ToImageTemplateShellCustomizerResponseOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerResponseOutput {
+	return o
+}
+
+// Friendly Name to provide context on what this customization step does
+func (o ImageTemplateShellCustomizerResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizerResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
+func (o ImageTemplateShellCustomizerResponseOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizerResponse) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+// The type of customization tool you want to use on the Image. For example, "shell" can be shellCustomizer
+func (o ImageTemplateShellCustomizerResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateShellCustomizerResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ImageTemplateShellCustomizerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageTemplateShellCustomizerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageTemplateShellCustomizerResponse)(nil)).Elem()
+}
+
+func (o ImageTemplateShellCustomizerResponseArrayOutput) ToImageTemplateShellCustomizerResponseArrayOutput() ImageTemplateShellCustomizerResponseArrayOutput {
+	return o
+}
+
+func (o ImageTemplateShellCustomizerResponseArrayOutput) ToImageTemplateShellCustomizerResponseArrayOutputWithContext(ctx context.Context) ImageTemplateShellCustomizerResponseArrayOutput {
+	return o
+}
+
+func (o ImageTemplateShellCustomizerResponseArrayOutput) Index(i pulumi.IntInput) ImageTemplateShellCustomizerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageTemplateShellCustomizerResponse {
+		return vs[0].([]ImageTemplateShellCustomizerResponse)[vs[1].(int)]
+	}).(ImageTemplateShellCustomizerResponseOutput)
 }
 
 type ProvisioningErrorResponse struct {
@@ -1078,20 +1290,20 @@ func (o ProvisioningErrorResponsePtrOutput) ProvisioningErrorCode() pulumi.Strin
 }
 
 func init() {
-	pulumi.RegisterOutputType(ImageTemplateCustomizerOutput{})
-	pulumi.RegisterOutputType(ImageTemplateCustomizerArrayOutput{})
-	pulumi.RegisterOutputType(ImageTemplateCustomizerResponseOutput{})
-	pulumi.RegisterOutputType(ImageTemplateCustomizerResponseArrayOutput{})
-	pulumi.RegisterOutputType(ImageTemplateDistributorOutput{})
-	pulumi.RegisterOutputType(ImageTemplateDistributorArrayOutput{})
-	pulumi.RegisterOutputType(ImageTemplateDistributorResponseOutput{})
-	pulumi.RegisterOutputType(ImageTemplateDistributorResponseArrayOutput{})
+	pulumi.RegisterOutputType(ImageTemplateIsoSourceOutput{})
+	pulumi.RegisterOutputType(ImageTemplateIsoSourceResponseOutput{})
 	pulumi.RegisterOutputType(ImageTemplateLastRunStatusResponseOutput{})
 	pulumi.RegisterOutputType(ImageTemplateLastRunStatusResponsePtrOutput{})
-	pulumi.RegisterOutputType(ImageTemplateSourceOutput{})
-	pulumi.RegisterOutputType(ImageTemplateSourcePtrOutput{})
-	pulumi.RegisterOutputType(ImageTemplateSourceResponseOutput{})
-	pulumi.RegisterOutputType(ImageTemplateSourceResponsePtrOutput{})
+	pulumi.RegisterOutputType(ImageTemplateManagedImageDistributorOutput{})
+	pulumi.RegisterOutputType(ImageTemplateManagedImageDistributorResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplatePlatformImageSourceOutput{})
+	pulumi.RegisterOutputType(ImageTemplatePlatformImageSourceResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplateSharedImageDistributorOutput{})
+	pulumi.RegisterOutputType(ImageTemplateSharedImageDistributorResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplateShellCustomizerOutput{})
+	pulumi.RegisterOutputType(ImageTemplateShellCustomizerArrayOutput{})
+	pulumi.RegisterOutputType(ImageTemplateShellCustomizerResponseOutput{})
+	pulumi.RegisterOutputType(ImageTemplateShellCustomizerResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProvisioningErrorResponseOutput{})
 	pulumi.RegisterOutputType(ProvisioningErrorResponsePtrOutput{})
 }

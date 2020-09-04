@@ -10,6 +10,336 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescription struct {
+	// Azure Internal monitoring pipeline account.
+	AccountName *string `pulumi:"accountName"`
+	// Azure Internal monitoring pipeline autokey associated with the certificate.
+	AutoKeyConfigUrl *string `pulumi:"autoKeyConfigUrl"`
+	// A description of the sink.
+	Description *string `pulumi:"description"`
+	// Azure Internal monitoring agent fluentd configuration.
+	FluentdConfigUrl map[string]interface{} `pulumi:"fluentdConfigUrl"`
+	// The kind of DiagnosticsSink.
+	Kind string `pulumi:"kind"`
+	// Azure Internal monitoring agent configuration.
+	MaConfigUrl *string `pulumi:"maConfigUrl"`
+	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+	Name *string `pulumi:"name"`
+	// Azure Internal monitoring pipeline account namespace.
+	Namespace *string `pulumi:"namespace"`
+}
+
+// AzureInternalMonitoringPipelineSinkDescriptionInput is an input type that accepts AzureInternalMonitoringPipelineSinkDescriptionArgs and AzureInternalMonitoringPipelineSinkDescriptionOutput values.
+// You can construct a concrete instance of `AzureInternalMonitoringPipelineSinkDescriptionInput` via:
+//
+//          AzureInternalMonitoringPipelineSinkDescriptionArgs{...}
+type AzureInternalMonitoringPipelineSinkDescriptionInput interface {
+	pulumi.Input
+
+	ToAzureInternalMonitoringPipelineSinkDescriptionOutput() AzureInternalMonitoringPipelineSinkDescriptionOutput
+	ToAzureInternalMonitoringPipelineSinkDescriptionOutputWithContext(context.Context) AzureInternalMonitoringPipelineSinkDescriptionOutput
+}
+
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescriptionArgs struct {
+	// Azure Internal monitoring pipeline account.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Azure Internal monitoring pipeline autokey associated with the certificate.
+	AutoKeyConfigUrl pulumi.StringPtrInput `pulumi:"autoKeyConfigUrl"`
+	// A description of the sink.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Azure Internal monitoring agent fluentd configuration.
+	FluentdConfigUrl pulumi.MapInput `pulumi:"fluentdConfigUrl"`
+	// The kind of DiagnosticsSink.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Azure Internal monitoring agent configuration.
+	MaConfigUrl pulumi.StringPtrInput `pulumi:"maConfigUrl"`
+	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Azure Internal monitoring pipeline account namespace.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (AzureInternalMonitoringPipelineSinkDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureInternalMonitoringPipelineSinkDescription)(nil)).Elem()
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionArgs) ToAzureInternalMonitoringPipelineSinkDescriptionOutput() AzureInternalMonitoringPipelineSinkDescriptionOutput {
+	return i.ToAzureInternalMonitoringPipelineSinkDescriptionOutputWithContext(context.Background())
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionArgs) ToAzureInternalMonitoringPipelineSinkDescriptionOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureInternalMonitoringPipelineSinkDescriptionOutput)
+}
+
+// AzureInternalMonitoringPipelineSinkDescriptionArrayInput is an input type that accepts AzureInternalMonitoringPipelineSinkDescriptionArray and AzureInternalMonitoringPipelineSinkDescriptionArrayOutput values.
+// You can construct a concrete instance of `AzureInternalMonitoringPipelineSinkDescriptionArrayInput` via:
+//
+//          AzureInternalMonitoringPipelineSinkDescriptionArray{ AzureInternalMonitoringPipelineSinkDescriptionArgs{...} }
+type AzureInternalMonitoringPipelineSinkDescriptionArrayInput interface {
+	pulumi.Input
+
+	ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput
+	ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutputWithContext(context.Context) AzureInternalMonitoringPipelineSinkDescriptionArrayOutput
+}
+
+type AzureInternalMonitoringPipelineSinkDescriptionArray []AzureInternalMonitoringPipelineSinkDescriptionInput
+
+func (AzureInternalMonitoringPipelineSinkDescriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureInternalMonitoringPipelineSinkDescription)(nil)).Elem()
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionArray) ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return i.ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutputWithContext(context.Background())
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionArray) ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureInternalMonitoringPipelineSinkDescriptionArrayOutput)
+}
+
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescriptionOutput struct{ *pulumi.OutputState }
+
+func (AzureInternalMonitoringPipelineSinkDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureInternalMonitoringPipelineSinkDescription)(nil)).Elem()
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) ToAzureInternalMonitoringPipelineSinkDescriptionOutput() AzureInternalMonitoringPipelineSinkDescriptionOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) ToAzureInternalMonitoringPipelineSinkDescriptionOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionOutput {
+	return o
+}
+
+// Azure Internal monitoring pipeline account.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring pipeline autokey associated with the certificate.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) AutoKeyConfigUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.AutoKeyConfigUrl }).(pulumi.StringPtrOutput)
+}
+
+// A description of the sink.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring agent fluentd configuration.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) FluentdConfigUrl() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) map[string]interface{} {
+		return v.FluentdConfigUrl
+	}).(pulumi.MapOutput)
+}
+
+// The kind of DiagnosticsSink.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure Internal monitoring agent configuration.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) MaConfigUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.MaConfigUrl }).(pulumi.StringPtrOutput)
+}
+
+// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring pipeline account namespace.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type AzureInternalMonitoringPipelineSinkDescriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureInternalMonitoringPipelineSinkDescriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureInternalMonitoringPipelineSinkDescription)(nil)).Elem()
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionArrayOutput) ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionArrayOutput) ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionArrayOutput) Index(i pulumi.IntInput) AzureInternalMonitoringPipelineSinkDescriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureInternalMonitoringPipelineSinkDescription {
+		return vs[0].([]AzureInternalMonitoringPipelineSinkDescription)[vs[1].(int)]
+	}).(AzureInternalMonitoringPipelineSinkDescriptionOutput)
+}
+
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescriptionResponse struct {
+	// Azure Internal monitoring pipeline account.
+	AccountName *string `pulumi:"accountName"`
+	// Azure Internal monitoring pipeline autokey associated with the certificate.
+	AutoKeyConfigUrl *string `pulumi:"autoKeyConfigUrl"`
+	// A description of the sink.
+	Description *string `pulumi:"description"`
+	// Azure Internal monitoring agent fluentd configuration.
+	FluentdConfigUrl map[string]interface{} `pulumi:"fluentdConfigUrl"`
+	// The kind of DiagnosticsSink.
+	Kind string `pulumi:"kind"`
+	// Azure Internal monitoring agent configuration.
+	MaConfigUrl *string `pulumi:"maConfigUrl"`
+	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+	Name *string `pulumi:"name"`
+	// Azure Internal monitoring pipeline account namespace.
+	Namespace *string `pulumi:"namespace"`
+}
+
+// AzureInternalMonitoringPipelineSinkDescriptionResponseInput is an input type that accepts AzureInternalMonitoringPipelineSinkDescriptionResponseArgs and AzureInternalMonitoringPipelineSinkDescriptionResponseOutput values.
+// You can construct a concrete instance of `AzureInternalMonitoringPipelineSinkDescriptionResponseInput` via:
+//
+//          AzureInternalMonitoringPipelineSinkDescriptionResponseArgs{...}
+type AzureInternalMonitoringPipelineSinkDescriptionResponseInput interface {
+	pulumi.Input
+
+	ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseOutput
+	ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutputWithContext(context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseOutput
+}
+
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescriptionResponseArgs struct {
+	// Azure Internal monitoring pipeline account.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Azure Internal monitoring pipeline autokey associated with the certificate.
+	AutoKeyConfigUrl pulumi.StringPtrInput `pulumi:"autoKeyConfigUrl"`
+	// A description of the sink.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Azure Internal monitoring agent fluentd configuration.
+	FluentdConfigUrl pulumi.MapInput `pulumi:"fluentdConfigUrl"`
+	// The kind of DiagnosticsSink.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Azure Internal monitoring agent configuration.
+	MaConfigUrl pulumi.StringPtrInput `pulumi:"maConfigUrl"`
+	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Azure Internal monitoring pipeline account namespace.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (AzureInternalMonitoringPipelineSinkDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureInternalMonitoringPipelineSinkDescriptionResponse)(nil)).Elem()
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionResponseArgs) ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseOutput {
+	return i.ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutputWithContext(context.Background())
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionResponseArgs) ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureInternalMonitoringPipelineSinkDescriptionResponseOutput)
+}
+
+// AzureInternalMonitoringPipelineSinkDescriptionResponseArrayInput is an input type that accepts AzureInternalMonitoringPipelineSinkDescriptionResponseArray and AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput values.
+// You can construct a concrete instance of `AzureInternalMonitoringPipelineSinkDescriptionResponseArrayInput` via:
+//
+//          AzureInternalMonitoringPipelineSinkDescriptionResponseArray{ AzureInternalMonitoringPipelineSinkDescriptionResponseArgs{...} }
+type AzureInternalMonitoringPipelineSinkDescriptionResponseArrayInput interface {
+	pulumi.Input
+
+	ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput
+	ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutputWithContext(context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput
+}
+
+type AzureInternalMonitoringPipelineSinkDescriptionResponseArray []AzureInternalMonitoringPipelineSinkDescriptionResponseInput
+
+func (AzureInternalMonitoringPipelineSinkDescriptionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureInternalMonitoringPipelineSinkDescriptionResponse)(nil)).Elem()
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionResponseArray) ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return i.ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionResponseArray) ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput)
+}
+
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureInternalMonitoringPipelineSinkDescriptionResponse)(nil)).Elem()
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseOutput {
+	return o
+}
+
+// Azure Internal monitoring pipeline account.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring pipeline autokey associated with the certificate.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) AutoKeyConfigUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.AutoKeyConfigUrl }).(pulumi.StringPtrOutput)
+}
+
+// A description of the sink.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring agent fluentd configuration.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) FluentdConfigUrl() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) map[string]interface{} {
+		return v.FluentdConfigUrl
+	}).(pulumi.MapOutput)
+}
+
+// The kind of DiagnosticsSink.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure Internal monitoring agent configuration.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) MaConfigUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.MaConfigUrl }).(pulumi.StringPtrOutput)
+}
+
+// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring pipeline account namespace.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureInternalMonitoringPipelineSinkDescriptionResponse)(nil)).Elem()
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput) ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput) ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput) Index(i pulumi.IntInput) AzureInternalMonitoringPipelineSinkDescriptionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureInternalMonitoringPipelineSinkDescriptionResponse {
+		return vs[0].([]AzureInternalMonitoringPipelineSinkDescriptionResponse)[vs[1].(int)]
+	}).(AzureInternalMonitoringPipelineSinkDescriptionResponseOutput)
+}
+
 // Describes a container and its runtime properties.
 type ContainerCodePackageProperties struct {
 	// Command array to execute within the container in exec form.
@@ -1319,7 +1649,7 @@ type DiagnosticsDescription struct {
 	// Status of whether or not sinks are enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// List of supported sinks that can be referenced.
-	Sinks []DiagnosticsSinkProperties `pulumi:"sinks"`
+	Sinks []AzureInternalMonitoringPipelineSinkDescription `pulumi:"sinks"`
 }
 
 // DiagnosticsDescriptionInput is an input type that accepts DiagnosticsDescriptionArgs and DiagnosticsDescriptionOutput values.
@@ -1340,7 +1670,7 @@ type DiagnosticsDescriptionArgs struct {
 	// Status of whether or not sinks are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of supported sinks that can be referenced.
-	Sinks DiagnosticsSinkPropertiesArrayInput `pulumi:"sinks"`
+	Sinks AzureInternalMonitoringPipelineSinkDescriptionArrayInput `pulumi:"sinks"`
 }
 
 func (DiagnosticsDescriptionArgs) ElementType() reflect.Type {
@@ -1432,8 +1762,8 @@ func (o DiagnosticsDescriptionOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // List of supported sinks that can be referenced.
-func (o DiagnosticsDescriptionOutput) Sinks() DiagnosticsSinkPropertiesArrayOutput {
-	return o.ApplyT(func(v DiagnosticsDescription) []DiagnosticsSinkProperties { return v.Sinks }).(DiagnosticsSinkPropertiesArrayOutput)
+func (o DiagnosticsDescriptionOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return o.ApplyT(func(v DiagnosticsDescription) []AzureInternalMonitoringPipelineSinkDescription { return v.Sinks }).(AzureInternalMonitoringPipelineSinkDescriptionArrayOutput)
 }
 
 type DiagnosticsDescriptionPtrOutput struct{ *pulumi.OutputState }
@@ -1475,13 +1805,13 @@ func (o DiagnosticsDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // List of supported sinks that can be referenced.
-func (o DiagnosticsDescriptionPtrOutput) Sinks() DiagnosticsSinkPropertiesArrayOutput {
-	return o.ApplyT(func(v *DiagnosticsDescription) []DiagnosticsSinkProperties {
+func (o DiagnosticsDescriptionPtrOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return o.ApplyT(func(v *DiagnosticsDescription) []AzureInternalMonitoringPipelineSinkDescription {
 		if v == nil {
 			return nil
 		}
 		return v.Sinks
-	}).(DiagnosticsSinkPropertiesArrayOutput)
+	}).(AzureInternalMonitoringPipelineSinkDescriptionArrayOutput)
 }
 
 // Describes the diagnostics options available
@@ -1491,7 +1821,7 @@ type DiagnosticsDescriptionResponse struct {
 	// Status of whether or not sinks are enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// List of supported sinks that can be referenced.
-	Sinks []DiagnosticsSinkPropertiesResponse `pulumi:"sinks"`
+	Sinks []AzureInternalMonitoringPipelineSinkDescriptionResponse `pulumi:"sinks"`
 }
 
 // DiagnosticsDescriptionResponseInput is an input type that accepts DiagnosticsDescriptionResponseArgs and DiagnosticsDescriptionResponseOutput values.
@@ -1512,7 +1842,7 @@ type DiagnosticsDescriptionResponseArgs struct {
 	// Status of whether or not sinks are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of supported sinks that can be referenced.
-	Sinks DiagnosticsSinkPropertiesResponseArrayInput `pulumi:"sinks"`
+	Sinks AzureInternalMonitoringPipelineSinkDescriptionResponseArrayInput `pulumi:"sinks"`
 }
 
 func (DiagnosticsDescriptionResponseArgs) ElementType() reflect.Type {
@@ -1604,8 +1934,10 @@ func (o DiagnosticsDescriptionResponseOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // List of supported sinks that can be referenced.
-func (o DiagnosticsDescriptionResponseOutput) Sinks() DiagnosticsSinkPropertiesResponseArrayOutput {
-	return o.ApplyT(func(v DiagnosticsDescriptionResponse) []DiagnosticsSinkPropertiesResponse { return v.Sinks }).(DiagnosticsSinkPropertiesResponseArrayOutput)
+func (o DiagnosticsDescriptionResponseOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v DiagnosticsDescriptionResponse) []AzureInternalMonitoringPipelineSinkDescriptionResponse {
+		return v.Sinks
+	}).(AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput)
 }
 
 type DiagnosticsDescriptionResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1647,13 +1979,13 @@ func (o DiagnosticsDescriptionResponsePtrOutput) Enabled() pulumi.BoolPtrOutput 
 }
 
 // List of supported sinks that can be referenced.
-func (o DiagnosticsDescriptionResponsePtrOutput) Sinks() DiagnosticsSinkPropertiesResponseArrayOutput {
-	return o.ApplyT(func(v *DiagnosticsDescriptionResponse) []DiagnosticsSinkPropertiesResponse {
+func (o DiagnosticsDescriptionResponsePtrOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *DiagnosticsDescriptionResponse) []AzureInternalMonitoringPipelineSinkDescriptionResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Sinks
-	}).(DiagnosticsSinkPropertiesResponseArrayOutput)
+	}).(AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput)
 }
 
 // Reference to sinks in DiagnosticsDescription.
@@ -1960,242 +2292,6 @@ func (o DiagnosticsRefResponsePtrOutput) SinkRefs() pulumi.StringArrayOutput {
 		}
 		return v.SinkRefs
 	}).(pulumi.StringArrayOutput)
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkProperties struct {
-	// A description of the sink.
-	Description *string `pulumi:"description"`
-	// The kind of DiagnosticsSink.
-	Kind string `pulumi:"kind"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name *string `pulumi:"name"`
-}
-
-// DiagnosticsSinkPropertiesInput is an input type that accepts DiagnosticsSinkPropertiesArgs and DiagnosticsSinkPropertiesOutput values.
-// You can construct a concrete instance of `DiagnosticsSinkPropertiesInput` via:
-//
-//          DiagnosticsSinkPropertiesArgs{...}
-type DiagnosticsSinkPropertiesInput interface {
-	pulumi.Input
-
-	ToDiagnosticsSinkPropertiesOutput() DiagnosticsSinkPropertiesOutput
-	ToDiagnosticsSinkPropertiesOutputWithContext(context.Context) DiagnosticsSinkPropertiesOutput
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkPropertiesArgs struct {
-	// A description of the sink.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The kind of DiagnosticsSink.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (DiagnosticsSinkPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsSinkProperties)(nil)).Elem()
-}
-
-func (i DiagnosticsSinkPropertiesArgs) ToDiagnosticsSinkPropertiesOutput() DiagnosticsSinkPropertiesOutput {
-	return i.ToDiagnosticsSinkPropertiesOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsSinkPropertiesArgs) ToDiagnosticsSinkPropertiesOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsSinkPropertiesOutput)
-}
-
-// DiagnosticsSinkPropertiesArrayInput is an input type that accepts DiagnosticsSinkPropertiesArray and DiagnosticsSinkPropertiesArrayOutput values.
-// You can construct a concrete instance of `DiagnosticsSinkPropertiesArrayInput` via:
-//
-//          DiagnosticsSinkPropertiesArray{ DiagnosticsSinkPropertiesArgs{...} }
-type DiagnosticsSinkPropertiesArrayInput interface {
-	pulumi.Input
-
-	ToDiagnosticsSinkPropertiesArrayOutput() DiagnosticsSinkPropertiesArrayOutput
-	ToDiagnosticsSinkPropertiesArrayOutputWithContext(context.Context) DiagnosticsSinkPropertiesArrayOutput
-}
-
-type DiagnosticsSinkPropertiesArray []DiagnosticsSinkPropertiesInput
-
-func (DiagnosticsSinkPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiagnosticsSinkProperties)(nil)).Elem()
-}
-
-func (i DiagnosticsSinkPropertiesArray) ToDiagnosticsSinkPropertiesArrayOutput() DiagnosticsSinkPropertiesArrayOutput {
-	return i.ToDiagnosticsSinkPropertiesArrayOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsSinkPropertiesArray) ToDiagnosticsSinkPropertiesArrayOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsSinkPropertiesArrayOutput)
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkPropertiesOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsSinkPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsSinkProperties)(nil)).Elem()
-}
-
-func (o DiagnosticsSinkPropertiesOutput) ToDiagnosticsSinkPropertiesOutput() DiagnosticsSinkPropertiesOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesOutput) ToDiagnosticsSinkPropertiesOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesOutput {
-	return o
-}
-
-// A description of the sink.
-func (o DiagnosticsSinkPropertiesOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticsSinkProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The kind of DiagnosticsSink.
-func (o DiagnosticsSinkPropertiesOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsSinkProperties) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-func (o DiagnosticsSinkPropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticsSinkProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type DiagnosticsSinkPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsSinkPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiagnosticsSinkProperties)(nil)).Elem()
-}
-
-func (o DiagnosticsSinkPropertiesArrayOutput) ToDiagnosticsSinkPropertiesArrayOutput() DiagnosticsSinkPropertiesArrayOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesArrayOutput) ToDiagnosticsSinkPropertiesArrayOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesArrayOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesArrayOutput) Index(i pulumi.IntInput) DiagnosticsSinkPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticsSinkProperties {
-		return vs[0].([]DiagnosticsSinkProperties)[vs[1].(int)]
-	}).(DiagnosticsSinkPropertiesOutput)
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkPropertiesResponse struct {
-	// A description of the sink.
-	Description *string `pulumi:"description"`
-	// The kind of DiagnosticsSink.
-	Kind string `pulumi:"kind"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name *string `pulumi:"name"`
-}
-
-// DiagnosticsSinkPropertiesResponseInput is an input type that accepts DiagnosticsSinkPropertiesResponseArgs and DiagnosticsSinkPropertiesResponseOutput values.
-// You can construct a concrete instance of `DiagnosticsSinkPropertiesResponseInput` via:
-//
-//          DiagnosticsSinkPropertiesResponseArgs{...}
-type DiagnosticsSinkPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDiagnosticsSinkPropertiesResponseOutput() DiagnosticsSinkPropertiesResponseOutput
-	ToDiagnosticsSinkPropertiesResponseOutputWithContext(context.Context) DiagnosticsSinkPropertiesResponseOutput
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkPropertiesResponseArgs struct {
-	// A description of the sink.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The kind of DiagnosticsSink.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (DiagnosticsSinkPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsSinkPropertiesResponse)(nil)).Elem()
-}
-
-func (i DiagnosticsSinkPropertiesResponseArgs) ToDiagnosticsSinkPropertiesResponseOutput() DiagnosticsSinkPropertiesResponseOutput {
-	return i.ToDiagnosticsSinkPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsSinkPropertiesResponseArgs) ToDiagnosticsSinkPropertiesResponseOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsSinkPropertiesResponseOutput)
-}
-
-// DiagnosticsSinkPropertiesResponseArrayInput is an input type that accepts DiagnosticsSinkPropertiesResponseArray and DiagnosticsSinkPropertiesResponseArrayOutput values.
-// You can construct a concrete instance of `DiagnosticsSinkPropertiesResponseArrayInput` via:
-//
-//          DiagnosticsSinkPropertiesResponseArray{ DiagnosticsSinkPropertiesResponseArgs{...} }
-type DiagnosticsSinkPropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToDiagnosticsSinkPropertiesResponseArrayOutput() DiagnosticsSinkPropertiesResponseArrayOutput
-	ToDiagnosticsSinkPropertiesResponseArrayOutputWithContext(context.Context) DiagnosticsSinkPropertiesResponseArrayOutput
-}
-
-type DiagnosticsSinkPropertiesResponseArray []DiagnosticsSinkPropertiesResponseInput
-
-func (DiagnosticsSinkPropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiagnosticsSinkPropertiesResponse)(nil)).Elem()
-}
-
-func (i DiagnosticsSinkPropertiesResponseArray) ToDiagnosticsSinkPropertiesResponseArrayOutput() DiagnosticsSinkPropertiesResponseArrayOutput {
-	return i.ToDiagnosticsSinkPropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsSinkPropertiesResponseArray) ToDiagnosticsSinkPropertiesResponseArrayOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsSinkPropertiesResponseArrayOutput)
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsSinkPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsSinkPropertiesResponse)(nil)).Elem()
-}
-
-func (o DiagnosticsSinkPropertiesResponseOutput) ToDiagnosticsSinkPropertiesResponseOutput() DiagnosticsSinkPropertiesResponseOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesResponseOutput) ToDiagnosticsSinkPropertiesResponseOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesResponseOutput {
-	return o
-}
-
-// A description of the sink.
-func (o DiagnosticsSinkPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticsSinkPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The kind of DiagnosticsSink.
-func (o DiagnosticsSinkPropertiesResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsSinkPropertiesResponse) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-func (o DiagnosticsSinkPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticsSinkPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type DiagnosticsSinkPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsSinkPropertiesResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiagnosticsSinkPropertiesResponse)(nil)).Elem()
-}
-
-func (o DiagnosticsSinkPropertiesResponseArrayOutput) ToDiagnosticsSinkPropertiesResponseArrayOutput() DiagnosticsSinkPropertiesResponseArrayOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesResponseArrayOutput) ToDiagnosticsSinkPropertiesResponseArrayOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesResponseArrayOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesResponseArrayOutput) Index(i pulumi.IntInput) DiagnosticsSinkPropertiesResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticsSinkPropertiesResponse {
-		return vs[0].([]DiagnosticsSinkPropertiesResponse)[vs[1].(int)]
-	}).(DiagnosticsSinkPropertiesResponseOutput)
 }
 
 // Describes a container endpoint.
@@ -5257,6 +5353,10 @@ func (o VolumeProviderParametersAzureFileResponsePtrOutput) ShareName() pulumi.S
 }
 
 func init() {
+	pulumi.RegisterOutputType(AzureInternalMonitoringPipelineSinkDescriptionOutput{})
+	pulumi.RegisterOutputType(AzureInternalMonitoringPipelineSinkDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(AzureInternalMonitoringPipelineSinkDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerCodePackagePropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerCodePackagePropertiesArrayOutput{})
 	pulumi.RegisterOutputType(ContainerCodePackagePropertiesResponseOutput{})
@@ -5282,10 +5382,6 @@ func init() {
 	pulumi.RegisterOutputType(DiagnosticsRefPtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticsRefResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticsRefResponsePtrOutput{})
-	pulumi.RegisterOutputType(DiagnosticsSinkPropertiesOutput{})
-	pulumi.RegisterOutputType(DiagnosticsSinkPropertiesArrayOutput{})
-	pulumi.RegisterOutputType(DiagnosticsSinkPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(DiagnosticsSinkPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesResponseOutput{})

@@ -10,272 +10,132 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Information about the destination for an event subscription
-type EventSubscriptionDestination struct {
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination
 	EndpointType string `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
-// EventSubscriptionDestinationInput is an input type that accepts EventSubscriptionDestinationArgs and EventSubscriptionDestinationOutput values.
-// You can construct a concrete instance of `EventSubscriptionDestinationInput` via:
+// EventHubEventSubscriptionDestinationInput is an input type that accepts EventHubEventSubscriptionDestinationArgs and EventHubEventSubscriptionDestinationOutput values.
+// You can construct a concrete instance of `EventHubEventSubscriptionDestinationInput` via:
 //
-//          EventSubscriptionDestinationArgs{...}
-type EventSubscriptionDestinationInput interface {
+//          EventHubEventSubscriptionDestinationArgs{...}
+type EventHubEventSubscriptionDestinationInput interface {
 	pulumi.Input
 
-	ToEventSubscriptionDestinationOutput() EventSubscriptionDestinationOutput
-	ToEventSubscriptionDestinationOutputWithContext(context.Context) EventSubscriptionDestinationOutput
+	ToEventHubEventSubscriptionDestinationOutput() EventHubEventSubscriptionDestinationOutput
+	ToEventHubEventSubscriptionDestinationOutputWithContext(context.Context) EventHubEventSubscriptionDestinationOutput
 }
 
-// Information about the destination for an event subscription
-type EventSubscriptionDestinationArgs struct {
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationArgs struct {
 	// Type of the endpoint for the event subscription destination
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
-func (EventSubscriptionDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionDestination)(nil)).Elem()
+func (EventHubEventSubscriptionDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubEventSubscriptionDestination)(nil)).Elem()
 }
 
-func (i EventSubscriptionDestinationArgs) ToEventSubscriptionDestinationOutput() EventSubscriptionDestinationOutput {
-	return i.ToEventSubscriptionDestinationOutputWithContext(context.Background())
+func (i EventHubEventSubscriptionDestinationArgs) ToEventHubEventSubscriptionDestinationOutput() EventHubEventSubscriptionDestinationOutput {
+	return i.ToEventHubEventSubscriptionDestinationOutputWithContext(context.Background())
 }
 
-func (i EventSubscriptionDestinationArgs) ToEventSubscriptionDestinationOutputWithContext(ctx context.Context) EventSubscriptionDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationOutput)
+func (i EventHubEventSubscriptionDestinationArgs) ToEventHubEventSubscriptionDestinationOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationOutput)
 }
 
-func (i EventSubscriptionDestinationArgs) ToEventSubscriptionDestinationPtrOutput() EventSubscriptionDestinationPtrOutput {
-	return i.ToEventSubscriptionDestinationPtrOutputWithContext(context.Background())
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
+
+func (EventHubEventSubscriptionDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubEventSubscriptionDestination)(nil)).Elem()
 }
 
-func (i EventSubscriptionDestinationArgs) ToEventSubscriptionDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationOutput).ToEventSubscriptionDestinationPtrOutputWithContext(ctx)
-}
-
-// EventSubscriptionDestinationPtrInput is an input type that accepts EventSubscriptionDestinationArgs, EventSubscriptionDestinationPtr and EventSubscriptionDestinationPtrOutput values.
-// You can construct a concrete instance of `EventSubscriptionDestinationPtrInput` via:
-//
-//          EventSubscriptionDestinationArgs{...}
-//
-//  or:
-//
-//          nil
-type EventSubscriptionDestinationPtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionDestinationPtrOutput() EventSubscriptionDestinationPtrOutput
-	ToEventSubscriptionDestinationPtrOutputWithContext(context.Context) EventSubscriptionDestinationPtrOutput
-}
-
-type eventSubscriptionDestinationPtrType EventSubscriptionDestinationArgs
-
-func EventSubscriptionDestinationPtr(v *EventSubscriptionDestinationArgs) EventSubscriptionDestinationPtrInput {
-	return (*eventSubscriptionDestinationPtrType)(v)
-}
-
-func (*eventSubscriptionDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionDestination)(nil)).Elem()
-}
-
-func (i *eventSubscriptionDestinationPtrType) ToEventSubscriptionDestinationPtrOutput() EventSubscriptionDestinationPtrOutput {
-	return i.ToEventSubscriptionDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *eventSubscriptionDestinationPtrType) ToEventSubscriptionDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationPtrOutput)
-}
-
-// Information about the destination for an event subscription
-type EventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionDestination)(nil)).Elem()
-}
-
-func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationOutput() EventSubscriptionDestinationOutput {
+func (o EventHubEventSubscriptionDestinationOutput) ToEventHubEventSubscriptionDestinationOutput() EventHubEventSubscriptionDestinationOutput {
 	return o
 }
 
-func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationOutputWithContext(ctx context.Context) EventSubscriptionDestinationOutput {
+func (o EventHubEventSubscriptionDestinationOutput) ToEventHubEventSubscriptionDestinationOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationOutput {
 	return o
-}
-
-func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationPtrOutput() EventSubscriptionDestinationPtrOutput {
-	return o.ToEventSubscriptionDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionDestination) *EventSubscriptionDestination {
-		return &v
-	}).(EventSubscriptionDestinationPtrOutput)
 }
 
 // Type of the endpoint for the event subscription destination
-func (o EventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
+func (o EventHubEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-type EventSubscriptionDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionDestination)(nil)).Elem()
+// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+func (o EventHubEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-func (o EventSubscriptionDestinationPtrOutput) ToEventSubscriptionDestinationPtrOutput() EventSubscriptionDestinationPtrOutput {
-	return o
-}
-
-func (o EventSubscriptionDestinationPtrOutput) ToEventSubscriptionDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationPtrOutput {
-	return o
-}
-
-func (o EventSubscriptionDestinationPtrOutput) Elem() EventSubscriptionDestinationOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestination) EventSubscriptionDestination { return *v }).(EventSubscriptionDestinationOutput)
-}
-
-// Type of the endpoint for the event subscription destination
-func (o EventSubscriptionDestinationPtrOutput) EndpointType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Information about the destination for an event subscription
-type EventSubscriptionDestinationResponse struct {
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationResponse struct {
 	// Type of the endpoint for the event subscription destination
 	EndpointType string `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
-// EventSubscriptionDestinationResponseInput is an input type that accepts EventSubscriptionDestinationResponseArgs and EventSubscriptionDestinationResponseOutput values.
-// You can construct a concrete instance of `EventSubscriptionDestinationResponseInput` via:
+// EventHubEventSubscriptionDestinationResponseInput is an input type that accepts EventHubEventSubscriptionDestinationResponseArgs and EventHubEventSubscriptionDestinationResponseOutput values.
+// You can construct a concrete instance of `EventHubEventSubscriptionDestinationResponseInput` via:
 //
-//          EventSubscriptionDestinationResponseArgs{...}
-type EventSubscriptionDestinationResponseInput interface {
+//          EventHubEventSubscriptionDestinationResponseArgs{...}
+type EventHubEventSubscriptionDestinationResponseInput interface {
 	pulumi.Input
 
-	ToEventSubscriptionDestinationResponseOutput() EventSubscriptionDestinationResponseOutput
-	ToEventSubscriptionDestinationResponseOutputWithContext(context.Context) EventSubscriptionDestinationResponseOutput
+	ToEventHubEventSubscriptionDestinationResponseOutput() EventHubEventSubscriptionDestinationResponseOutput
+	ToEventHubEventSubscriptionDestinationResponseOutputWithContext(context.Context) EventHubEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the destination for an event subscription
-type EventSubscriptionDestinationResponseArgs struct {
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationResponseArgs struct {
 	// Type of the endpoint for the event subscription destination
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
-func (EventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionDestinationResponse)(nil)).Elem()
+func (EventHubEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubEventSubscriptionDestinationResponse)(nil)).Elem()
 }
 
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponseOutput() EventSubscriptionDestinationResponseOutput {
-	return i.ToEventSubscriptionDestinationResponseOutputWithContext(context.Background())
+func (i EventHubEventSubscriptionDestinationResponseArgs) ToEventHubEventSubscriptionDestinationResponseOutput() EventHubEventSubscriptionDestinationResponseOutput {
+	return i.ToEventHubEventSubscriptionDestinationResponseOutputWithContext(context.Background())
 }
 
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationResponseOutput)
+func (i EventHubEventSubscriptionDestinationResponseArgs) ToEventHubEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationResponseOutput)
 }
 
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput {
-	return i.ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Background())
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHubEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubEventSubscriptionDestinationResponse)(nil)).Elem()
 }
 
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationResponseOutput).ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx)
-}
-
-// EventSubscriptionDestinationResponsePtrInput is an input type that accepts EventSubscriptionDestinationResponseArgs, EventSubscriptionDestinationResponsePtr and EventSubscriptionDestinationResponsePtrOutput values.
-// You can construct a concrete instance of `EventSubscriptionDestinationResponsePtrInput` via:
-//
-//          EventSubscriptionDestinationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type EventSubscriptionDestinationResponsePtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput
-	ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Context) EventSubscriptionDestinationResponsePtrOutput
-}
-
-type eventSubscriptionDestinationResponsePtrType EventSubscriptionDestinationResponseArgs
-
-func EventSubscriptionDestinationResponsePtr(v *EventSubscriptionDestinationResponseArgs) EventSubscriptionDestinationResponsePtrInput {
-	return (*eventSubscriptionDestinationResponsePtrType)(v)
-}
-
-func (*eventSubscriptionDestinationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (i *eventSubscriptionDestinationResponsePtrType) ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput {
-	return i.ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *eventSubscriptionDestinationResponsePtrType) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationResponsePtrOutput)
-}
-
-// Information about the destination for an event subscription
-type EventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponseOutput() EventSubscriptionDestinationResponseOutput {
+func (o EventHubEventSubscriptionDestinationResponseOutput) ToEventHubEventSubscriptionDestinationResponseOutput() EventHubEventSubscriptionDestinationResponseOutput {
 	return o
 }
 
-func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponseOutput {
+func (o EventHubEventSubscriptionDestinationResponseOutput) ToEventHubEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationResponseOutput {
 	return o
-}
-
-func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput {
-	return o.ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return o.ApplyT(func(v EventSubscriptionDestinationResponse) *EventSubscriptionDestinationResponse {
-		return &v
-	}).(EventSubscriptionDestinationResponsePtrOutput)
 }
 
 // Type of the endpoint for the event subscription destination
-func (o EventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+func (o EventHubEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-type EventSubscriptionDestinationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionDestinationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (o EventSubscriptionDestinationResponsePtrOutput) ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput {
-	return o
-}
-
-func (o EventSubscriptionDestinationResponsePtrOutput) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return o
-}
-
-func (o EventSubscriptionDestinationResponsePtrOutput) Elem() EventSubscriptionDestinationResponseOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestinationResponse) EventSubscriptionDestinationResponse { return *v }).(EventSubscriptionDestinationResponseOutput)
-}
-
-// Type of the endpoint for the event subscription destination
-func (o EventSubscriptionDestinationResponsePtrOutput) EndpointType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestinationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointType
-	}).(pulumi.StringPtrOutput)
+// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+func (o EventHubEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Filter for the Event Subscription
@@ -700,13 +560,150 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestination struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType string `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the destination of an event subscription.
+	EndpointUrl *string `pulumi:"endpointUrl"`
+}
+
+// WebHookEventSubscriptionDestinationInput is an input type that accepts WebHookEventSubscriptionDestinationArgs and WebHookEventSubscriptionDestinationOutput values.
+// You can construct a concrete instance of `WebHookEventSubscriptionDestinationInput` via:
+//
+//          WebHookEventSubscriptionDestinationArgs{...}
+type WebHookEventSubscriptionDestinationInput interface {
+	pulumi.Input
+
+	ToWebHookEventSubscriptionDestinationOutput() WebHookEventSubscriptionDestinationOutput
+	ToWebHookEventSubscriptionDestinationOutputWithContext(context.Context) WebHookEventSubscriptionDestinationOutput
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationArgs struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the destination of an event subscription.
+	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+}
+
+func (WebHookEventSubscriptionDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebHookEventSubscriptionDestination)(nil)).Elem()
+}
+
+func (i WebHookEventSubscriptionDestinationArgs) ToWebHookEventSubscriptionDestinationOutput() WebHookEventSubscriptionDestinationOutput {
+	return i.ToWebHookEventSubscriptionDestinationOutputWithContext(context.Background())
+}
+
+func (i WebHookEventSubscriptionDestinationArgs) ToWebHookEventSubscriptionDestinationOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationOutput)
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
+
+func (WebHookEventSubscriptionDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebHookEventSubscriptionDestination)(nil)).Elem()
+}
+
+func (o WebHookEventSubscriptionDestinationOutput) ToWebHookEventSubscriptionDestinationOutput() WebHookEventSubscriptionDestinationOutput {
+	return o
+}
+
+func (o WebHookEventSubscriptionDestinationOutput) ToWebHookEventSubscriptionDestinationOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationOutput {
+	return o
+}
+
+// Type of the endpoint for the event subscription destination
+func (o WebHookEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The URL that represents the endpoint of the destination of an event subscription.
+func (o WebHookEventSubscriptionDestinationOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestination) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationResponse struct {
+	// The base URL that represents the endpoint of the destination of an event subscription.
+	EndpointBaseUrl string `pulumi:"endpointBaseUrl"`
+	// Type of the endpoint for the event subscription destination
+	EndpointType string `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the destination of an event subscription.
+	EndpointUrl *string `pulumi:"endpointUrl"`
+}
+
+// WebHookEventSubscriptionDestinationResponseInput is an input type that accepts WebHookEventSubscriptionDestinationResponseArgs and WebHookEventSubscriptionDestinationResponseOutput values.
+// You can construct a concrete instance of `WebHookEventSubscriptionDestinationResponseInput` via:
+//
+//          WebHookEventSubscriptionDestinationResponseArgs{...}
+type WebHookEventSubscriptionDestinationResponseInput interface {
+	pulumi.Input
+
+	ToWebHookEventSubscriptionDestinationResponseOutput() WebHookEventSubscriptionDestinationResponseOutput
+	ToWebHookEventSubscriptionDestinationResponseOutputWithContext(context.Context) WebHookEventSubscriptionDestinationResponseOutput
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationResponseArgs struct {
+	// The base URL that represents the endpoint of the destination of an event subscription.
+	EndpointBaseUrl pulumi.StringInput `pulumi:"endpointBaseUrl"`
+	// Type of the endpoint for the event subscription destination
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the destination of an event subscription.
+	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+}
+
+func (WebHookEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebHookEventSubscriptionDestinationResponse)(nil)).Elem()
+}
+
+func (i WebHookEventSubscriptionDestinationResponseArgs) ToWebHookEventSubscriptionDestinationResponseOutput() WebHookEventSubscriptionDestinationResponseOutput {
+	return i.ToWebHookEventSubscriptionDestinationResponseOutputWithContext(context.Background())
+}
+
+func (i WebHookEventSubscriptionDestinationResponseArgs) ToWebHookEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationResponseOutput)
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
+
+func (WebHookEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebHookEventSubscriptionDestinationResponse)(nil)).Elem()
+}
+
+func (o WebHookEventSubscriptionDestinationResponseOutput) ToWebHookEventSubscriptionDestinationResponseOutput() WebHookEventSubscriptionDestinationResponseOutput {
+	return o
+}
+
+func (o WebHookEventSubscriptionDestinationResponseOutput) ToWebHookEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationResponseOutput {
+	return o
+}
+
+// The base URL that represents the endpoint of the destination of an event subscription.
+func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointBaseUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) string { return v.EndpointBaseUrl }).(pulumi.StringOutput)
+}
+
+// Type of the endpoint for the event subscription destination
+func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The URL that represents the endpoint of the destination of an event subscription.
+func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(EventSubscriptionDestinationOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionDestinationPtrOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionDestinationResponseOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionDestinationResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationOutput{})
+	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponsePtrOutput{})
+	pulumi.RegisterOutputType(WebHookEventSubscriptionDestinationOutput{})
+	pulumi.RegisterOutputType(WebHookEventSubscriptionDestinationResponseOutput{})
 }

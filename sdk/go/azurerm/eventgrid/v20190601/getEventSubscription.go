@@ -26,9 +26,9 @@ type LookupEventSubscriptionArgs struct {
 // Event Subscription
 type LookupEventSubscriptionResult struct {
 	// The DeadLetter destination of the event subscription.
-	DeadLetterDestination *DeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination *EventSubscriptionDestinationResponse `pulumi:"destination"`
+	Destination interface{} `pulumi:"destination"`
 	// Expiration time of the event subscription.
 	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
 	// Information about the filter for the event subscription.

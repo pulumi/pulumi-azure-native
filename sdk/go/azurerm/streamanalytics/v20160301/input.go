@@ -17,7 +17,7 @@ type Input struct {
 	// Resource name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties InputPropertiesResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -68,7 +68,7 @@ type inputState struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties *InputPropertiesResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -77,7 +77,7 @@ type InputState struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties InputPropertiesResponsePtrInput
+	Properties pulumi.Input
 	// Resource type
 	Type pulumi.StringPtrInput
 }
@@ -94,7 +94,7 @@ type inputArgs struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties *InputProperties `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -108,7 +108,7 @@ type InputArgs struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties InputPropertiesPtrInput
+	Properties pulumi.Input
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 }

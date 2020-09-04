@@ -16,7 +16,7 @@ type EventSubscription struct {
 
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination DeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
+	DeadLetterDestination StorageBlobDeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
 	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityResponsePtrOutput `pulumi:"deadLetterWithResourceIdentity"`
@@ -25,7 +25,7 @@ type EventSubscription struct {
 	DeliveryWithResourceIdentity DeliveryWithResourceIdentityResponsePtrOutput `pulumi:"deliveryWithResourceIdentity"`
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	Destination EventSubscriptionDestinationResponsePtrOutput `pulumi:"destination"`
+	Destination pulumi.AnyOutput `pulumi:"destination"`
 	// The event delivery schema for the event subscription.
 	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
 	// Expiration time of the event subscription.
@@ -118,7 +118,7 @@ func GetEventSubscription(ctx *pulumi.Context,
 type eventSubscriptionState struct {
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination *DeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
 	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentityResponse `pulumi:"deadLetterWithResourceIdentity"`
@@ -127,7 +127,7 @@ type eventSubscriptionState struct {
 	DeliveryWithResourceIdentity *DeliveryWithResourceIdentityResponse `pulumi:"deliveryWithResourceIdentity"`
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	Destination *EventSubscriptionDestinationResponse `pulumi:"destination"`
+	Destination interface{} `pulumi:"destination"`
 	// The event delivery schema for the event subscription.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// Expiration time of the event subscription.
@@ -151,7 +151,7 @@ type eventSubscriptionState struct {
 type EventSubscriptionState struct {
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination DeadLetterDestinationResponsePtrInput
+	DeadLetterDestination StorageBlobDeadLetterDestinationResponsePtrInput
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
 	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityResponsePtrInput
@@ -160,7 +160,7 @@ type EventSubscriptionState struct {
 	DeliveryWithResourceIdentity DeliveryWithResourceIdentityResponsePtrInput
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	Destination EventSubscriptionDestinationResponsePtrInput
+	Destination pulumi.Input
 	// The event delivery schema for the event subscription.
 	EventDeliverySchema pulumi.StringPtrInput
 	// Expiration time of the event subscription.
@@ -188,7 +188,7 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 type eventSubscriptionArgs struct {
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination *DeadLetterDestination `pulumi:"deadLetterDestination"`
+	DeadLetterDestination *StorageBlobDeadLetterDestination `pulumi:"deadLetterDestination"`
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
 	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentity `pulumi:"deadLetterWithResourceIdentity"`
@@ -197,7 +197,7 @@ type eventSubscriptionArgs struct {
 	DeliveryWithResourceIdentity *DeliveryWithResourceIdentity `pulumi:"deliveryWithResourceIdentity"`
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	Destination *EventSubscriptionDestination `pulumi:"destination"`
+	Destination interface{} `pulumi:"destination"`
 	// The event delivery schema for the event subscription.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
@@ -218,7 +218,7 @@ type eventSubscriptionArgs struct {
 type EventSubscriptionArgs struct {
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination DeadLetterDestinationPtrInput
+	DeadLetterDestination StorageBlobDeadLetterDestinationPtrInput
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
 	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityPtrInput
@@ -227,7 +227,7 @@ type EventSubscriptionArgs struct {
 	DeliveryWithResourceIdentity DeliveryWithResourceIdentityPtrInput
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	Destination EventSubscriptionDestinationPtrInput
+	Destination pulumi.Input
 	// The event delivery schema for the event subscription.
 	EventDeliverySchema pulumi.StringPtrInput
 	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.

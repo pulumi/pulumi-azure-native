@@ -10,6 +10,142 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Properties that describe a base image dependency.
+type BaseImageDependencyResponse struct {
+	// The sha256-based digest of the image manifest.
+	Digest *string `pulumi:"digest"`
+	// The registry login server.
+	Registry *string `pulumi:"registry"`
+	// The repository name.
+	Repository *string `pulumi:"repository"`
+	// The tag name.
+	Tag *string `pulumi:"tag"`
+	// The type of the base image dependency.
+	Type *string `pulumi:"type"`
+}
+
+// BaseImageDependencyResponseInput is an input type that accepts BaseImageDependencyResponseArgs and BaseImageDependencyResponseOutput values.
+// You can construct a concrete instance of `BaseImageDependencyResponseInput` via:
+//
+//          BaseImageDependencyResponseArgs{...}
+type BaseImageDependencyResponseInput interface {
+	pulumi.Input
+
+	ToBaseImageDependencyResponseOutput() BaseImageDependencyResponseOutput
+	ToBaseImageDependencyResponseOutputWithContext(context.Context) BaseImageDependencyResponseOutput
+}
+
+// Properties that describe a base image dependency.
+type BaseImageDependencyResponseArgs struct {
+	// The sha256-based digest of the image manifest.
+	Digest pulumi.StringPtrInput `pulumi:"digest"`
+	// The registry login server.
+	Registry pulumi.StringPtrInput `pulumi:"registry"`
+	// The repository name.
+	Repository pulumi.StringPtrInput `pulumi:"repository"`
+	// The tag name.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// The type of the base image dependency.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (BaseImageDependencyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaseImageDependencyResponse)(nil)).Elem()
+}
+
+func (i BaseImageDependencyResponseArgs) ToBaseImageDependencyResponseOutput() BaseImageDependencyResponseOutput {
+	return i.ToBaseImageDependencyResponseOutputWithContext(context.Background())
+}
+
+func (i BaseImageDependencyResponseArgs) ToBaseImageDependencyResponseOutputWithContext(ctx context.Context) BaseImageDependencyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaseImageDependencyResponseOutput)
+}
+
+// BaseImageDependencyResponseArrayInput is an input type that accepts BaseImageDependencyResponseArray and BaseImageDependencyResponseArrayOutput values.
+// You can construct a concrete instance of `BaseImageDependencyResponseArrayInput` via:
+//
+//          BaseImageDependencyResponseArray{ BaseImageDependencyResponseArgs{...} }
+type BaseImageDependencyResponseArrayInput interface {
+	pulumi.Input
+
+	ToBaseImageDependencyResponseArrayOutput() BaseImageDependencyResponseArrayOutput
+	ToBaseImageDependencyResponseArrayOutputWithContext(context.Context) BaseImageDependencyResponseArrayOutput
+}
+
+type BaseImageDependencyResponseArray []BaseImageDependencyResponseInput
+
+func (BaseImageDependencyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BaseImageDependencyResponse)(nil)).Elem()
+}
+
+func (i BaseImageDependencyResponseArray) ToBaseImageDependencyResponseArrayOutput() BaseImageDependencyResponseArrayOutput {
+	return i.ToBaseImageDependencyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BaseImageDependencyResponseArray) ToBaseImageDependencyResponseArrayOutputWithContext(ctx context.Context) BaseImageDependencyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaseImageDependencyResponseArrayOutput)
+}
+
+// Properties that describe a base image dependency.
+type BaseImageDependencyResponseOutput struct{ *pulumi.OutputState }
+
+func (BaseImageDependencyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaseImageDependencyResponse)(nil)).Elem()
+}
+
+func (o BaseImageDependencyResponseOutput) ToBaseImageDependencyResponseOutput() BaseImageDependencyResponseOutput {
+	return o
+}
+
+func (o BaseImageDependencyResponseOutput) ToBaseImageDependencyResponseOutputWithContext(ctx context.Context) BaseImageDependencyResponseOutput {
+	return o
+}
+
+// The sha256-based digest of the image manifest.
+func (o BaseImageDependencyResponseOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Digest }).(pulumi.StringPtrOutput)
+}
+
+// The registry login server.
+func (o BaseImageDependencyResponseOutput) Registry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Registry }).(pulumi.StringPtrOutput)
+}
+
+// The repository name.
+func (o BaseImageDependencyResponseOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Repository }).(pulumi.StringPtrOutput)
+}
+
+// The tag name.
+func (o BaseImageDependencyResponseOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// The type of the base image dependency.
+func (o BaseImageDependencyResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type BaseImageDependencyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BaseImageDependencyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BaseImageDependencyResponse)(nil)).Elem()
+}
+
+func (o BaseImageDependencyResponseArrayOutput) ToBaseImageDependencyResponseArrayOutput() BaseImageDependencyResponseArrayOutput {
+	return o
+}
+
+func (o BaseImageDependencyResponseArrayOutput) ToBaseImageDependencyResponseArrayOutputWithContext(ctx context.Context) BaseImageDependencyResponseArrayOutput {
+	return o
+}
+
+func (o BaseImageDependencyResponseArrayOutput) Index(i pulumi.IntInput) BaseImageDependencyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BaseImageDependencyResponse {
+		return vs[0].([]BaseImageDependencyResponse)[vs[1].(int)]
+	}).(BaseImageDependencyResponseOutput)
+}
+
 // Properties of a build argument.
 type BuildArgumentResponse struct {
 	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
@@ -137,142 +273,313 @@ func (o BuildArgumentResponseArrayOutput) Index(i pulumi.IntInput) BuildArgument
 	}).(BuildArgumentResponseOutput)
 }
 
-// Base properties for any build step.
-type BuildStepPropertiesResponse struct {
+// The Docker build step.
+type DockerBuildStepResponse struct {
+	// List of base image dependencies for a step.
+	BaseImageDependencies []BaseImageDependencyResponse `pulumi:"baseImageDependencies"`
+	// The type of the auto trigger for base image dependency updates.
+	BaseImageTrigger *string `pulumi:"baseImageTrigger"`
+	// The repository branch name.
+	Branch *string `pulumi:"branch"`
+	// The custom arguments for building this build step.
+	BuildArguments []BuildArgumentResponse `pulumi:"buildArguments"`
+	// The relative context path for a docker build in the source.
+	ContextPath *string `pulumi:"contextPath"`
+	// The Docker file path relative to the source control root.
+	DockerFilePath *string `pulumi:"dockerFilePath"`
+	// The fully qualified image names including the repository and tag.
+	ImageNames []string `pulumi:"imageNames"`
+	// The value of this property indicates whether the image built should be pushed to the registry or not.
+	IsPushEnabled *bool `pulumi:"isPushEnabled"`
+	// The value of this property indicates whether the image cache is enabled or not.
+	NoCache *bool `pulumi:"noCache"`
 	// The provisioning state of the build step.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the step.
 	Type string `pulumi:"type"`
 }
 
-// BuildStepPropertiesResponseInput is an input type that accepts BuildStepPropertiesResponseArgs and BuildStepPropertiesResponseOutput values.
-// You can construct a concrete instance of `BuildStepPropertiesResponseInput` via:
+// DockerBuildStepResponseInput is an input type that accepts DockerBuildStepResponseArgs and DockerBuildStepResponseOutput values.
+// You can construct a concrete instance of `DockerBuildStepResponseInput` via:
 //
-//          BuildStepPropertiesResponseArgs{...}
-type BuildStepPropertiesResponseInput interface {
+//          DockerBuildStepResponseArgs{...}
+type DockerBuildStepResponseInput interface {
 	pulumi.Input
 
-	ToBuildStepPropertiesResponseOutput() BuildStepPropertiesResponseOutput
-	ToBuildStepPropertiesResponseOutputWithContext(context.Context) BuildStepPropertiesResponseOutput
+	ToDockerBuildStepResponseOutput() DockerBuildStepResponseOutput
+	ToDockerBuildStepResponseOutputWithContext(context.Context) DockerBuildStepResponseOutput
 }
 
-// Base properties for any build step.
-type BuildStepPropertiesResponseArgs struct {
+// The Docker build step.
+type DockerBuildStepResponseArgs struct {
+	// List of base image dependencies for a step.
+	BaseImageDependencies BaseImageDependencyResponseArrayInput `pulumi:"baseImageDependencies"`
+	// The type of the auto trigger for base image dependency updates.
+	BaseImageTrigger pulumi.StringPtrInput `pulumi:"baseImageTrigger"`
+	// The repository branch name.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// The custom arguments for building this build step.
+	BuildArguments BuildArgumentResponseArrayInput `pulumi:"buildArguments"`
+	// The relative context path for a docker build in the source.
+	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
+	// The Docker file path relative to the source control root.
+	DockerFilePath pulumi.StringPtrInput `pulumi:"dockerFilePath"`
+	// The fully qualified image names including the repository and tag.
+	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
+	// The value of this property indicates whether the image built should be pushed to the registry or not.
+	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
+	// The value of this property indicates whether the image cache is enabled or not.
+	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
 	// The provisioning state of the build step.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The type of the step.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (BuildStepPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildStepPropertiesResponse)(nil)).Elem()
+func (DockerBuildStepResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerBuildStepResponse)(nil)).Elem()
 }
 
-func (i BuildStepPropertiesResponseArgs) ToBuildStepPropertiesResponseOutput() BuildStepPropertiesResponseOutput {
-	return i.ToBuildStepPropertiesResponseOutputWithContext(context.Background())
+func (i DockerBuildStepResponseArgs) ToDockerBuildStepResponseOutput() DockerBuildStepResponseOutput {
+	return i.ToDockerBuildStepResponseOutputWithContext(context.Background())
 }
 
-func (i BuildStepPropertiesResponseArgs) ToBuildStepPropertiesResponseOutputWithContext(ctx context.Context) BuildStepPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildStepPropertiesResponseOutput)
+func (i DockerBuildStepResponseArgs) ToDockerBuildStepResponseOutputWithContext(ctx context.Context) DockerBuildStepResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepResponseOutput)
 }
 
-func (i BuildStepPropertiesResponseArgs) ToBuildStepPropertiesResponsePtrOutput() BuildStepPropertiesResponsePtrOutput {
-	return i.ToBuildStepPropertiesResponsePtrOutputWithContext(context.Background())
+func (i DockerBuildStepResponseArgs) ToDockerBuildStepResponsePtrOutput() DockerBuildStepResponsePtrOutput {
+	return i.ToDockerBuildStepResponsePtrOutputWithContext(context.Background())
 }
 
-func (i BuildStepPropertiesResponseArgs) ToBuildStepPropertiesResponsePtrOutputWithContext(ctx context.Context) BuildStepPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildStepPropertiesResponseOutput).ToBuildStepPropertiesResponsePtrOutputWithContext(ctx)
+func (i DockerBuildStepResponseArgs) ToDockerBuildStepResponsePtrOutputWithContext(ctx context.Context) DockerBuildStepResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepResponseOutput).ToDockerBuildStepResponsePtrOutputWithContext(ctx)
 }
 
-// BuildStepPropertiesResponsePtrInput is an input type that accepts BuildStepPropertiesResponseArgs, BuildStepPropertiesResponsePtr and BuildStepPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `BuildStepPropertiesResponsePtrInput` via:
+// DockerBuildStepResponsePtrInput is an input type that accepts DockerBuildStepResponseArgs, DockerBuildStepResponsePtr and DockerBuildStepResponsePtrOutput values.
+// You can construct a concrete instance of `DockerBuildStepResponsePtrInput` via:
 //
-//          BuildStepPropertiesResponseArgs{...}
+//          DockerBuildStepResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type BuildStepPropertiesResponsePtrInput interface {
+type DockerBuildStepResponsePtrInput interface {
 	pulumi.Input
 
-	ToBuildStepPropertiesResponsePtrOutput() BuildStepPropertiesResponsePtrOutput
-	ToBuildStepPropertiesResponsePtrOutputWithContext(context.Context) BuildStepPropertiesResponsePtrOutput
+	ToDockerBuildStepResponsePtrOutput() DockerBuildStepResponsePtrOutput
+	ToDockerBuildStepResponsePtrOutputWithContext(context.Context) DockerBuildStepResponsePtrOutput
 }
 
-type buildStepPropertiesResponsePtrType BuildStepPropertiesResponseArgs
+type dockerBuildStepResponsePtrType DockerBuildStepResponseArgs
 
-func BuildStepPropertiesResponsePtr(v *BuildStepPropertiesResponseArgs) BuildStepPropertiesResponsePtrInput {
-	return (*buildStepPropertiesResponsePtrType)(v)
+func DockerBuildStepResponsePtr(v *DockerBuildStepResponseArgs) DockerBuildStepResponsePtrInput {
+	return (*dockerBuildStepResponsePtrType)(v)
 }
 
-func (*buildStepPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BuildStepPropertiesResponse)(nil)).Elem()
+func (*dockerBuildStepResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DockerBuildStepResponse)(nil)).Elem()
 }
 
-func (i *buildStepPropertiesResponsePtrType) ToBuildStepPropertiesResponsePtrOutput() BuildStepPropertiesResponsePtrOutput {
-	return i.ToBuildStepPropertiesResponsePtrOutputWithContext(context.Background())
+func (i *dockerBuildStepResponsePtrType) ToDockerBuildStepResponsePtrOutput() DockerBuildStepResponsePtrOutput {
+	return i.ToDockerBuildStepResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *buildStepPropertiesResponsePtrType) ToBuildStepPropertiesResponsePtrOutputWithContext(ctx context.Context) BuildStepPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildStepPropertiesResponsePtrOutput)
+func (i *dockerBuildStepResponsePtrType) ToDockerBuildStepResponsePtrOutputWithContext(ctx context.Context) DockerBuildStepResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepResponsePtrOutput)
 }
 
-// Base properties for any build step.
-type BuildStepPropertiesResponseOutput struct{ *pulumi.OutputState }
+// The Docker build step.
+type DockerBuildStepResponseOutput struct{ *pulumi.OutputState }
 
-func (BuildStepPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildStepPropertiesResponse)(nil)).Elem()
+func (DockerBuildStepResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerBuildStepResponse)(nil)).Elem()
 }
 
-func (o BuildStepPropertiesResponseOutput) ToBuildStepPropertiesResponseOutput() BuildStepPropertiesResponseOutput {
+func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponseOutput() DockerBuildStepResponseOutput {
 	return o
 }
 
-func (o BuildStepPropertiesResponseOutput) ToBuildStepPropertiesResponseOutputWithContext(ctx context.Context) BuildStepPropertiesResponseOutput {
+func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponseOutputWithContext(ctx context.Context) DockerBuildStepResponseOutput {
 	return o
 }
 
-func (o BuildStepPropertiesResponseOutput) ToBuildStepPropertiesResponsePtrOutput() BuildStepPropertiesResponsePtrOutput {
-	return o.ToBuildStepPropertiesResponsePtrOutputWithContext(context.Background())
+func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponsePtrOutput() DockerBuildStepResponsePtrOutput {
+	return o.ToDockerBuildStepResponsePtrOutputWithContext(context.Background())
 }
 
-func (o BuildStepPropertiesResponseOutput) ToBuildStepPropertiesResponsePtrOutputWithContext(ctx context.Context) BuildStepPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BuildStepPropertiesResponse) *BuildStepPropertiesResponse {
+func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponsePtrOutputWithContext(ctx context.Context) DockerBuildStepResponsePtrOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) *DockerBuildStepResponse {
 		return &v
-	}).(BuildStepPropertiesResponsePtrOutput)
+	}).(DockerBuildStepResponsePtrOutput)
+}
+
+// List of base image dependencies for a step.
+func (o DockerBuildStepResponseOutput) BaseImageDependencies() BaseImageDependencyResponseArrayOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) []BaseImageDependencyResponse { return v.BaseImageDependencies }).(BaseImageDependencyResponseArrayOutput)
+}
+
+// The type of the auto trigger for base image dependency updates.
+func (o DockerBuildStepResponseOutput) BaseImageTrigger() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) *string { return v.BaseImageTrigger }).(pulumi.StringPtrOutput)
+}
+
+// The repository branch name.
+func (o DockerBuildStepResponseOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// The custom arguments for building this build step.
+func (o DockerBuildStepResponseOutput) BuildArguments() BuildArgumentResponseArrayOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) []BuildArgumentResponse { return v.BuildArguments }).(BuildArgumentResponseArrayOutput)
+}
+
+// The relative context path for a docker build in the source.
+func (o DockerBuildStepResponseOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+}
+
+// The Docker file path relative to the source control root.
+func (o DockerBuildStepResponseOutput) DockerFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) *string { return v.DockerFilePath }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified image names including the repository and tag.
+func (o DockerBuildStepResponseOutput) ImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
+}
+
+// The value of this property indicates whether the image built should be pushed to the registry or not.
+func (o DockerBuildStepResponseOutput) IsPushEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The value of this property indicates whether the image cache is enabled or not.
+func (o DockerBuildStepResponseOutput) NoCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) *bool { return v.NoCache }).(pulumi.BoolPtrOutput)
 }
 
 // The provisioning state of the build step.
-func (o BuildStepPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildStepPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+func (o DockerBuildStepResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // The type of the step.
-func (o BuildStepPropertiesResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildStepPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
+func (o DockerBuildStepResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DockerBuildStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type BuildStepPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+type DockerBuildStepResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (BuildStepPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BuildStepPropertiesResponse)(nil)).Elem()
+func (DockerBuildStepResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DockerBuildStepResponse)(nil)).Elem()
 }
 
-func (o BuildStepPropertiesResponsePtrOutput) ToBuildStepPropertiesResponsePtrOutput() BuildStepPropertiesResponsePtrOutput {
+func (o DockerBuildStepResponsePtrOutput) ToDockerBuildStepResponsePtrOutput() DockerBuildStepResponsePtrOutput {
 	return o
 }
 
-func (o BuildStepPropertiesResponsePtrOutput) ToBuildStepPropertiesResponsePtrOutputWithContext(ctx context.Context) BuildStepPropertiesResponsePtrOutput {
+func (o DockerBuildStepResponsePtrOutput) ToDockerBuildStepResponsePtrOutputWithContext(ctx context.Context) DockerBuildStepResponsePtrOutput {
 	return o
 }
 
-func (o BuildStepPropertiesResponsePtrOutput) Elem() BuildStepPropertiesResponseOutput {
-	return o.ApplyT(func(v *BuildStepPropertiesResponse) BuildStepPropertiesResponse { return *v }).(BuildStepPropertiesResponseOutput)
+func (o DockerBuildStepResponsePtrOutput) Elem() DockerBuildStepResponseOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) DockerBuildStepResponse { return *v }).(DockerBuildStepResponseOutput)
+}
+
+// List of base image dependencies for a step.
+func (o DockerBuildStepResponsePtrOutput) BaseImageDependencies() BaseImageDependencyResponseArrayOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) []BaseImageDependencyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BaseImageDependencies
+	}).(BaseImageDependencyResponseArrayOutput)
+}
+
+// The type of the auto trigger for base image dependency updates.
+func (o DockerBuildStepResponsePtrOutput) BaseImageTrigger() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseImageTrigger
+	}).(pulumi.StringPtrOutput)
+}
+
+// The repository branch name.
+func (o DockerBuildStepResponsePtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// The custom arguments for building this build step.
+func (o DockerBuildStepResponsePtrOutput) BuildArguments() BuildArgumentResponseArrayOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) []BuildArgumentResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BuildArguments
+	}).(BuildArgumentResponseArrayOutput)
+}
+
+// The relative context path for a docker build in the source.
+func (o DockerBuildStepResponsePtrOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContextPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Docker file path relative to the source control root.
+func (o DockerBuildStepResponsePtrOutput) DockerFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DockerFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified image names including the repository and tag.
+func (o DockerBuildStepResponsePtrOutput) ImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// The value of this property indicates whether the image built should be pushed to the registry or not.
+func (o DockerBuildStepResponsePtrOutput) IsPushEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsPushEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value of this property indicates whether the image cache is enabled or not.
+func (o DockerBuildStepResponsePtrOutput) NoCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoCache
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The provisioning state of the build step.
-func (o BuildStepPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BuildStepPropertiesResponse) *string {
+func (o DockerBuildStepResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -281,8 +588,8 @@ func (o BuildStepPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringP
 }
 
 // The type of the step.
-func (o BuildStepPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BuildStepPropertiesResponse) *string {
+func (o DockerBuildStepResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1401,10 +1708,12 @@ func (o SourceRepositoryPropertiesResponsePtrOutput) SourceControlType() pulumi.
 }
 
 func init() {
+	pulumi.RegisterOutputType(BaseImageDependencyResponseOutput{})
+	pulumi.RegisterOutputType(BaseImageDependencyResponseArrayOutput{})
 	pulumi.RegisterOutputType(BuildArgumentResponseOutput{})
 	pulumi.RegisterOutputType(BuildArgumentResponseArrayOutput{})
-	pulumi.RegisterOutputType(BuildStepPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(BuildStepPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(DockerBuildStepResponseOutput{})
+	pulumi.RegisterOutputType(DockerBuildStepResponsePtrOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesResponseOutput{})

@@ -30,7 +30,7 @@ type LookupWebServiceResult struct {
 	// Specifies the name of the resource.
 	Name *string `pulumi:"name"`
 	// Contains the property payload that describes the web service.
-	Properties WebServicePropertiesResponse `pulumi:"properties"`
+	Properties WebServicePropertiesForGraphResponse `pulumi:"properties"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.

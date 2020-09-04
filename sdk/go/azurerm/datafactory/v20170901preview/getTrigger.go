@@ -32,7 +32,7 @@ type LookupTriggerResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// Properties of the trigger.
-	Properties TriggerResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

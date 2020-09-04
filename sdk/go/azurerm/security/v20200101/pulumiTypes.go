@@ -597,6 +597,125 @@ func (o AssessmentStatusResponsePtrOutput) Description() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Details of the Azure resource that was assessed
+type AzureResourceDetails struct {
+	// The platform where the assessed resource resides
+	Source string `pulumi:"source"`
+}
+
+// AzureResourceDetailsInput is an input type that accepts AzureResourceDetailsArgs and AzureResourceDetailsOutput values.
+// You can construct a concrete instance of `AzureResourceDetailsInput` via:
+//
+//          AzureResourceDetailsArgs{...}
+type AzureResourceDetailsInput interface {
+	pulumi.Input
+
+	ToAzureResourceDetailsOutput() AzureResourceDetailsOutput
+	ToAzureResourceDetailsOutputWithContext(context.Context) AzureResourceDetailsOutput
+}
+
+// Details of the Azure resource that was assessed
+type AzureResourceDetailsArgs struct {
+	// The platform where the assessed resource resides
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (AzureResourceDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureResourceDetails)(nil)).Elem()
+}
+
+func (i AzureResourceDetailsArgs) ToAzureResourceDetailsOutput() AzureResourceDetailsOutput {
+	return i.ToAzureResourceDetailsOutputWithContext(context.Background())
+}
+
+func (i AzureResourceDetailsArgs) ToAzureResourceDetailsOutputWithContext(ctx context.Context) AzureResourceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceDetailsOutput)
+}
+
+// Details of the Azure resource that was assessed
+type AzureResourceDetailsOutput struct{ *pulumi.OutputState }
+
+func (AzureResourceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureResourceDetails)(nil)).Elem()
+}
+
+func (o AzureResourceDetailsOutput) ToAzureResourceDetailsOutput() AzureResourceDetailsOutput {
+	return o
+}
+
+func (o AzureResourceDetailsOutput) ToAzureResourceDetailsOutputWithContext(ctx context.Context) AzureResourceDetailsOutput {
+	return o
+}
+
+// The platform where the assessed resource resides
+func (o AzureResourceDetailsOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureResourceDetails) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// Details of the Azure resource that was assessed
+type AzureResourceDetailsResponse struct {
+	// Azure resource Id of the assessed resource
+	Id string `pulumi:"id"`
+	// The platform where the assessed resource resides
+	Source string `pulumi:"source"`
+}
+
+// AzureResourceDetailsResponseInput is an input type that accepts AzureResourceDetailsResponseArgs and AzureResourceDetailsResponseOutput values.
+// You can construct a concrete instance of `AzureResourceDetailsResponseInput` via:
+//
+//          AzureResourceDetailsResponseArgs{...}
+type AzureResourceDetailsResponseInput interface {
+	pulumi.Input
+
+	ToAzureResourceDetailsResponseOutput() AzureResourceDetailsResponseOutput
+	ToAzureResourceDetailsResponseOutputWithContext(context.Context) AzureResourceDetailsResponseOutput
+}
+
+// Details of the Azure resource that was assessed
+type AzureResourceDetailsResponseArgs struct {
+	// Azure resource Id of the assessed resource
+	Id pulumi.StringInput `pulumi:"id"`
+	// The platform where the assessed resource resides
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (AzureResourceDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureResourceDetailsResponse)(nil)).Elem()
+}
+
+func (i AzureResourceDetailsResponseArgs) ToAzureResourceDetailsResponseOutput() AzureResourceDetailsResponseOutput {
+	return i.ToAzureResourceDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i AzureResourceDetailsResponseArgs) ToAzureResourceDetailsResponseOutputWithContext(ctx context.Context) AzureResourceDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceDetailsResponseOutput)
+}
+
+// Details of the Azure resource that was assessed
+type AzureResourceDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureResourceDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureResourceDetailsResponse)(nil)).Elem()
+}
+
+func (o AzureResourceDetailsResponseOutput) ToAzureResourceDetailsResponseOutput() AzureResourceDetailsResponseOutput {
+	return o
+}
+
+func (o AzureResourceDetailsResponseOutput) ToAzureResourceDetailsResponseOutputWithContext(ctx context.Context) AzureResourceDetailsResponseOutput {
+	return o
+}
+
+// Azure resource Id of the assessed resource
+func (o AzureResourceDetailsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureResourceDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The platform where the assessed resource resides
+func (o AzureResourceDetailsResponseOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
+}
+
 type JitNetworkAccessPolicyVirtualMachine struct {
 	// Resource ID of the virtual machine that is linked to this policy
 	Id string `pulumi:"id"`
@@ -1837,6 +1956,188 @@ func (o JitNetworkAccessRequestVirtualMachineResponseArrayOutput) Index(i pulumi
 	}).(JitNetworkAccessRequestVirtualMachineResponseOutput)
 }
 
+// Details of the On Premise resource that was assessed
+type OnPremiseResourceDetails struct {
+	// The name of the machine
+	MachineName string `pulumi:"machineName"`
+	// The platform where the assessed resource resides
+	Source string `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId string `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid string `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId string `pulumi:"workspaceId"`
+}
+
+// OnPremiseResourceDetailsInput is an input type that accepts OnPremiseResourceDetailsArgs and OnPremiseResourceDetailsOutput values.
+// You can construct a concrete instance of `OnPremiseResourceDetailsInput` via:
+//
+//          OnPremiseResourceDetailsArgs{...}
+type OnPremiseResourceDetailsInput interface {
+	pulumi.Input
+
+	ToOnPremiseResourceDetailsOutput() OnPremiseResourceDetailsOutput
+	ToOnPremiseResourceDetailsOutputWithContext(context.Context) OnPremiseResourceDetailsOutput
+}
+
+// Details of the On Premise resource that was assessed
+type OnPremiseResourceDetailsArgs struct {
+	// The name of the machine
+	MachineName pulumi.StringInput `pulumi:"machineName"`
+	// The platform where the assessed resource resides
+	Source pulumi.StringInput `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid pulumi.StringInput `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+}
+
+func (OnPremiseResourceDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseResourceDetails)(nil)).Elem()
+}
+
+func (i OnPremiseResourceDetailsArgs) ToOnPremiseResourceDetailsOutput() OnPremiseResourceDetailsOutput {
+	return i.ToOnPremiseResourceDetailsOutputWithContext(context.Background())
+}
+
+func (i OnPremiseResourceDetailsArgs) ToOnPremiseResourceDetailsOutputWithContext(ctx context.Context) OnPremiseResourceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseResourceDetailsOutput)
+}
+
+// Details of the On Premise resource that was assessed
+type OnPremiseResourceDetailsOutput struct{ *pulumi.OutputState }
+
+func (OnPremiseResourceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseResourceDetails)(nil)).Elem()
+}
+
+func (o OnPremiseResourceDetailsOutput) ToOnPremiseResourceDetailsOutput() OnPremiseResourceDetailsOutput {
+	return o
+}
+
+func (o OnPremiseResourceDetailsOutput) ToOnPremiseResourceDetailsOutputWithContext(ctx context.Context) OnPremiseResourceDetailsOutput {
+	return o
+}
+
+// The name of the machine
+func (o OnPremiseResourceDetailsOutput) MachineName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.MachineName }).(pulumi.StringOutput)
+}
+
+// The platform where the assessed resource resides
+func (o OnPremiseResourceDetailsOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The oms agent Id installed on the machine
+func (o OnPremiseResourceDetailsOutput) SourceComputerId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.SourceComputerId }).(pulumi.StringOutput)
+}
+
+// The unique Id of the machine
+func (o OnPremiseResourceDetailsOutput) Vmuuid() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.Vmuuid }).(pulumi.StringOutput)
+}
+
+// Azure resource Id of the workspace the machine is attached to
+func (o OnPremiseResourceDetailsOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+// Details of the On Premise resource that was assessed
+type OnPremiseResourceDetailsResponse struct {
+	// The name of the machine
+	MachineName string `pulumi:"machineName"`
+	// The platform where the assessed resource resides
+	Source string `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId string `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid string `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId string `pulumi:"workspaceId"`
+}
+
+// OnPremiseResourceDetailsResponseInput is an input type that accepts OnPremiseResourceDetailsResponseArgs and OnPremiseResourceDetailsResponseOutput values.
+// You can construct a concrete instance of `OnPremiseResourceDetailsResponseInput` via:
+//
+//          OnPremiseResourceDetailsResponseArgs{...}
+type OnPremiseResourceDetailsResponseInput interface {
+	pulumi.Input
+
+	ToOnPremiseResourceDetailsResponseOutput() OnPremiseResourceDetailsResponseOutput
+	ToOnPremiseResourceDetailsResponseOutputWithContext(context.Context) OnPremiseResourceDetailsResponseOutput
+}
+
+// Details of the On Premise resource that was assessed
+type OnPremiseResourceDetailsResponseArgs struct {
+	// The name of the machine
+	MachineName pulumi.StringInput `pulumi:"machineName"`
+	// The platform where the assessed resource resides
+	Source pulumi.StringInput `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid pulumi.StringInput `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+}
+
+func (OnPremiseResourceDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseResourceDetailsResponse)(nil)).Elem()
+}
+
+func (i OnPremiseResourceDetailsResponseArgs) ToOnPremiseResourceDetailsResponseOutput() OnPremiseResourceDetailsResponseOutput {
+	return i.ToOnPremiseResourceDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i OnPremiseResourceDetailsResponseArgs) ToOnPremiseResourceDetailsResponseOutputWithContext(ctx context.Context) OnPremiseResourceDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseResourceDetailsResponseOutput)
+}
+
+// Details of the On Premise resource that was assessed
+type OnPremiseResourceDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (OnPremiseResourceDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseResourceDetailsResponse)(nil)).Elem()
+}
+
+func (o OnPremiseResourceDetailsResponseOutput) ToOnPremiseResourceDetailsResponseOutput() OnPremiseResourceDetailsResponseOutput {
+	return o
+}
+
+func (o OnPremiseResourceDetailsResponseOutput) ToOnPremiseResourceDetailsResponseOutputWithContext(ctx context.Context) OnPremiseResourceDetailsResponseOutput {
+	return o
+}
+
+// The name of the machine
+func (o OnPremiseResourceDetailsResponseOutput) MachineName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.MachineName }).(pulumi.StringOutput)
+}
+
+// The platform where the assessed resource resides
+func (o OnPremiseResourceDetailsResponseOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The oms agent Id installed on the machine
+func (o OnPremiseResourceDetailsResponseOutput) SourceComputerId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.SourceComputerId }).(pulumi.StringOutput)
+}
+
+// The unique Id of the machine
+func (o OnPremiseResourceDetailsResponseOutput) Vmuuid() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.Vmuuid }).(pulumi.StringOutput)
+}
+
+// Azure resource Id of the workspace the machine is attached to
+func (o OnPremiseResourceDetailsResponseOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 // Represents a path that is recommended to be allowed and its properties
 type PathRecommendation struct {
 	// The recommendation action of the machine or rule
@@ -2930,274 +3231,6 @@ func (o PublisherInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
-// Details of the resource that was assessed
-type ResourceDetails struct {
-	// The platform where the assessed resource resides
-	Source string `pulumi:"source"`
-}
-
-// ResourceDetailsInput is an input type that accepts ResourceDetailsArgs and ResourceDetailsOutput values.
-// You can construct a concrete instance of `ResourceDetailsInput` via:
-//
-//          ResourceDetailsArgs{...}
-type ResourceDetailsInput interface {
-	pulumi.Input
-
-	ToResourceDetailsOutput() ResourceDetailsOutput
-	ToResourceDetailsOutputWithContext(context.Context) ResourceDetailsOutput
-}
-
-// Details of the resource that was assessed
-type ResourceDetailsArgs struct {
-	// The platform where the assessed resource resides
-	Source pulumi.StringInput `pulumi:"source"`
-}
-
-func (ResourceDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDetails)(nil)).Elem()
-}
-
-func (i ResourceDetailsArgs) ToResourceDetailsOutput() ResourceDetailsOutput {
-	return i.ToResourceDetailsOutputWithContext(context.Background())
-}
-
-func (i ResourceDetailsArgs) ToResourceDetailsOutputWithContext(ctx context.Context) ResourceDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsOutput)
-}
-
-func (i ResourceDetailsArgs) ToResourceDetailsPtrOutput() ResourceDetailsPtrOutput {
-	return i.ToResourceDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i ResourceDetailsArgs) ToResourceDetailsPtrOutputWithContext(ctx context.Context) ResourceDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsOutput).ToResourceDetailsPtrOutputWithContext(ctx)
-}
-
-// ResourceDetailsPtrInput is an input type that accepts ResourceDetailsArgs, ResourceDetailsPtr and ResourceDetailsPtrOutput values.
-// You can construct a concrete instance of `ResourceDetailsPtrInput` via:
-//
-//          ResourceDetailsArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceDetailsPtrInput interface {
-	pulumi.Input
-
-	ToResourceDetailsPtrOutput() ResourceDetailsPtrOutput
-	ToResourceDetailsPtrOutputWithContext(context.Context) ResourceDetailsPtrOutput
-}
-
-type resourceDetailsPtrType ResourceDetailsArgs
-
-func ResourceDetailsPtr(v *ResourceDetailsArgs) ResourceDetailsPtrInput {
-	return (*resourceDetailsPtrType)(v)
-}
-
-func (*resourceDetailsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceDetails)(nil)).Elem()
-}
-
-func (i *resourceDetailsPtrType) ToResourceDetailsPtrOutput() ResourceDetailsPtrOutput {
-	return i.ToResourceDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceDetailsPtrType) ToResourceDetailsPtrOutputWithContext(ctx context.Context) ResourceDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsPtrOutput)
-}
-
-// Details of the resource that was assessed
-type ResourceDetailsOutput struct{ *pulumi.OutputState }
-
-func (ResourceDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDetails)(nil)).Elem()
-}
-
-func (o ResourceDetailsOutput) ToResourceDetailsOutput() ResourceDetailsOutput {
-	return o
-}
-
-func (o ResourceDetailsOutput) ToResourceDetailsOutputWithContext(ctx context.Context) ResourceDetailsOutput {
-	return o
-}
-
-func (o ResourceDetailsOutput) ToResourceDetailsPtrOutput() ResourceDetailsPtrOutput {
-	return o.ToResourceDetailsPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceDetailsOutput) ToResourceDetailsPtrOutputWithContext(ctx context.Context) ResourceDetailsPtrOutput {
-	return o.ApplyT(func(v ResourceDetails) *ResourceDetails {
-		return &v
-	}).(ResourceDetailsPtrOutput)
-}
-
-// The platform where the assessed resource resides
-func (o ResourceDetailsOutput) Source() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceDetails) string { return v.Source }).(pulumi.StringOutput)
-}
-
-type ResourceDetailsPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceDetailsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceDetails)(nil)).Elem()
-}
-
-func (o ResourceDetailsPtrOutput) ToResourceDetailsPtrOutput() ResourceDetailsPtrOutput {
-	return o
-}
-
-func (o ResourceDetailsPtrOutput) ToResourceDetailsPtrOutputWithContext(ctx context.Context) ResourceDetailsPtrOutput {
-	return o
-}
-
-func (o ResourceDetailsPtrOutput) Elem() ResourceDetailsOutput {
-	return o.ApplyT(func(v *ResourceDetails) ResourceDetails { return *v }).(ResourceDetailsOutput)
-}
-
-// The platform where the assessed resource resides
-func (o ResourceDetailsPtrOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceDetails) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Source
-	}).(pulumi.StringPtrOutput)
-}
-
-// Details of the resource that was assessed
-type ResourceDetailsResponse struct {
-	// The platform where the assessed resource resides
-	Source string `pulumi:"source"`
-}
-
-// ResourceDetailsResponseInput is an input type that accepts ResourceDetailsResponseArgs and ResourceDetailsResponseOutput values.
-// You can construct a concrete instance of `ResourceDetailsResponseInput` via:
-//
-//          ResourceDetailsResponseArgs{...}
-type ResourceDetailsResponseInput interface {
-	pulumi.Input
-
-	ToResourceDetailsResponseOutput() ResourceDetailsResponseOutput
-	ToResourceDetailsResponseOutputWithContext(context.Context) ResourceDetailsResponseOutput
-}
-
-// Details of the resource that was assessed
-type ResourceDetailsResponseArgs struct {
-	// The platform where the assessed resource resides
-	Source pulumi.StringInput `pulumi:"source"`
-}
-
-func (ResourceDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDetailsResponse)(nil)).Elem()
-}
-
-func (i ResourceDetailsResponseArgs) ToResourceDetailsResponseOutput() ResourceDetailsResponseOutput {
-	return i.ToResourceDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i ResourceDetailsResponseArgs) ToResourceDetailsResponseOutputWithContext(ctx context.Context) ResourceDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsResponseOutput)
-}
-
-func (i ResourceDetailsResponseArgs) ToResourceDetailsResponsePtrOutput() ResourceDetailsResponsePtrOutput {
-	return i.ToResourceDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ResourceDetailsResponseArgs) ToResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsResponseOutput).ToResourceDetailsResponsePtrOutputWithContext(ctx)
-}
-
-// ResourceDetailsResponsePtrInput is an input type that accepts ResourceDetailsResponseArgs, ResourceDetailsResponsePtr and ResourceDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `ResourceDetailsResponsePtrInput` via:
-//
-//          ResourceDetailsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToResourceDetailsResponsePtrOutput() ResourceDetailsResponsePtrOutput
-	ToResourceDetailsResponsePtrOutputWithContext(context.Context) ResourceDetailsResponsePtrOutput
-}
-
-type resourceDetailsResponsePtrType ResourceDetailsResponseArgs
-
-func ResourceDetailsResponsePtr(v *ResourceDetailsResponseArgs) ResourceDetailsResponsePtrInput {
-	return (*resourceDetailsResponsePtrType)(v)
-}
-
-func (*resourceDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceDetailsResponse)(nil)).Elem()
-}
-
-func (i *resourceDetailsResponsePtrType) ToResourceDetailsResponsePtrOutput() ResourceDetailsResponsePtrOutput {
-	return i.ToResourceDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *resourceDetailsResponsePtrType) ToResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsResponsePtrOutput)
-}
-
-// Details of the resource that was assessed
-type ResourceDetailsResponseOutput struct{ *pulumi.OutputState }
-
-func (ResourceDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDetailsResponse)(nil)).Elem()
-}
-
-func (o ResourceDetailsResponseOutput) ToResourceDetailsResponseOutput() ResourceDetailsResponseOutput {
-	return o
-}
-
-func (o ResourceDetailsResponseOutput) ToResourceDetailsResponseOutputWithContext(ctx context.Context) ResourceDetailsResponseOutput {
-	return o
-}
-
-func (o ResourceDetailsResponseOutput) ToResourceDetailsResponsePtrOutput() ResourceDetailsResponsePtrOutput {
-	return o.ToResourceDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ResourceDetailsResponseOutput) ToResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceDetailsResponsePtrOutput {
-	return o.ApplyT(func(v ResourceDetailsResponse) *ResourceDetailsResponse {
-		return &v
-	}).(ResourceDetailsResponsePtrOutput)
-}
-
-// The platform where the assessed resource resides
-func (o ResourceDetailsResponseOutput) Source() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
-}
-
-type ResourceDetailsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceDetailsResponse)(nil)).Elem()
-}
-
-func (o ResourceDetailsResponsePtrOutput) ToResourceDetailsResponsePtrOutput() ResourceDetailsResponsePtrOutput {
-	return o
-}
-
-func (o ResourceDetailsResponsePtrOutput) ToResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceDetailsResponsePtrOutput {
-	return o
-}
-
-func (o ResourceDetailsResponsePtrOutput) Elem() ResourceDetailsResponseOutput {
-	return o.ApplyT(func(v *ResourceDetailsResponse) ResourceDetailsResponse { return *v }).(ResourceDetailsResponseOutput)
-}
-
-// The platform where the assessed resource resides
-func (o ResourceDetailsResponsePtrOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Source
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4991,6 +5024,8 @@ func init() {
 	pulumi.RegisterOutputType(AssessmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureResourceDetailsOutput{})
+	pulumi.RegisterOutputType(AzureResourceDetailsResponseOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineResponseOutput{})
@@ -5011,6 +5046,8 @@ func init() {
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineResponseOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineResponseArrayOutput{})
+	pulumi.RegisterOutputType(OnPremiseResourceDetailsOutput{})
+	pulumi.RegisterOutputType(OnPremiseResourceDetailsResponseOutput{})
 	pulumi.RegisterOutputType(PathRecommendationOutput{})
 	pulumi.RegisterOutputType(PathRecommendationArrayOutput{})
 	pulumi.RegisterOutputType(PathRecommendationResponseOutput{})
@@ -5023,10 +5060,6 @@ func init() {
 	pulumi.RegisterOutputType(PublisherInfoPtrOutput{})
 	pulumi.RegisterOutputType(PublisherInfoResponseOutput{})
 	pulumi.RegisterOutputType(PublisherInfoResponsePtrOutput{})
-	pulumi.RegisterOutputType(ResourceDetailsOutput{})
-	pulumi.RegisterOutputType(ResourceDetailsPtrOutput{})
-	pulumi.RegisterOutputType(ResourceDetailsResponseOutput{})
-	pulumi.RegisterOutputType(ResourceDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentMetadataPartnerDataOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentMetadataPartnerDataPtrOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentMetadataPartnerDataResponseOutput{})

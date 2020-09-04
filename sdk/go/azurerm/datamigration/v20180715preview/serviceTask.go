@@ -19,7 +19,7 @@ type ServiceTask struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Custom task properties
-	Properties ProjectTaskPropertiesResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -66,7 +66,7 @@ type serviceTaskState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Custom task properties
-	Properties *ProjectTaskPropertiesResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -77,7 +77,7 @@ type ServiceTaskState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Custom task properties
-	Properties ProjectTaskPropertiesResponsePtrInput
+	Properties pulumi.Input
 	// Resource type.
 	Type pulumi.StringPtrInput
 }
@@ -92,7 +92,7 @@ type serviceTaskArgs struct {
 	// Name of the resource group
 	GroupName string `pulumi:"groupName"`
 	// Custom task properties
-	Properties *ProjectTaskProperties `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Name of the service
 	ServiceName string `pulumi:"serviceName"`
 	// Name of the Task
@@ -106,7 +106,7 @@ type ServiceTaskArgs struct {
 	// Name of the resource group
 	GroupName pulumi.StringInput
 	// Custom task properties
-	Properties ProjectTaskPropertiesPtrInput
+	Properties pulumi.Input
 	// Name of the service
 	ServiceName pulumi.StringInput
 	// Name of the Task

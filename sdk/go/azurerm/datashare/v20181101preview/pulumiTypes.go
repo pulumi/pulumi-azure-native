@@ -316,6 +316,124 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A type of synchronization setting based on schedule
+type ScheduledSourceSynchronizationSettingResponse struct {
+	// Kind of synchronization
+	Kind string `pulumi:"kind"`
+	// Recurrence Interval
+	RecurrenceInterval *string `pulumi:"recurrenceInterval"`
+	// Synchronization time
+	SynchronizationTime *string `pulumi:"synchronizationTime"`
+}
+
+// ScheduledSourceSynchronizationSettingResponseInput is an input type that accepts ScheduledSourceSynchronizationSettingResponseArgs and ScheduledSourceSynchronizationSettingResponseOutput values.
+// You can construct a concrete instance of `ScheduledSourceSynchronizationSettingResponseInput` via:
+//
+//          ScheduledSourceSynchronizationSettingResponseArgs{...}
+type ScheduledSourceSynchronizationSettingResponseInput interface {
+	pulumi.Input
+
+	ToScheduledSourceSynchronizationSettingResponseOutput() ScheduledSourceSynchronizationSettingResponseOutput
+	ToScheduledSourceSynchronizationSettingResponseOutputWithContext(context.Context) ScheduledSourceSynchronizationSettingResponseOutput
+}
+
+// A type of synchronization setting based on schedule
+type ScheduledSourceSynchronizationSettingResponseArgs struct {
+	// Kind of synchronization
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Recurrence Interval
+	RecurrenceInterval pulumi.StringPtrInput `pulumi:"recurrenceInterval"`
+	// Synchronization time
+	SynchronizationTime pulumi.StringPtrInput `pulumi:"synchronizationTime"`
+}
+
+func (ScheduledSourceSynchronizationSettingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledSourceSynchronizationSettingResponse)(nil)).Elem()
+}
+
+func (i ScheduledSourceSynchronizationSettingResponseArgs) ToScheduledSourceSynchronizationSettingResponseOutput() ScheduledSourceSynchronizationSettingResponseOutput {
+	return i.ToScheduledSourceSynchronizationSettingResponseOutputWithContext(context.Background())
+}
+
+func (i ScheduledSourceSynchronizationSettingResponseArgs) ToScheduledSourceSynchronizationSettingResponseOutputWithContext(ctx context.Context) ScheduledSourceSynchronizationSettingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledSourceSynchronizationSettingResponseOutput)
+}
+
+// ScheduledSourceSynchronizationSettingResponseArrayInput is an input type that accepts ScheduledSourceSynchronizationSettingResponseArray and ScheduledSourceSynchronizationSettingResponseArrayOutput values.
+// You can construct a concrete instance of `ScheduledSourceSynchronizationSettingResponseArrayInput` via:
+//
+//          ScheduledSourceSynchronizationSettingResponseArray{ ScheduledSourceSynchronizationSettingResponseArgs{...} }
+type ScheduledSourceSynchronizationSettingResponseArrayInput interface {
+	pulumi.Input
+
+	ToScheduledSourceSynchronizationSettingResponseArrayOutput() ScheduledSourceSynchronizationSettingResponseArrayOutput
+	ToScheduledSourceSynchronizationSettingResponseArrayOutputWithContext(context.Context) ScheduledSourceSynchronizationSettingResponseArrayOutput
+}
+
+type ScheduledSourceSynchronizationSettingResponseArray []ScheduledSourceSynchronizationSettingResponseInput
+
+func (ScheduledSourceSynchronizationSettingResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledSourceSynchronizationSettingResponse)(nil)).Elem()
+}
+
+func (i ScheduledSourceSynchronizationSettingResponseArray) ToScheduledSourceSynchronizationSettingResponseArrayOutput() ScheduledSourceSynchronizationSettingResponseArrayOutput {
+	return i.ToScheduledSourceSynchronizationSettingResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduledSourceSynchronizationSettingResponseArray) ToScheduledSourceSynchronizationSettingResponseArrayOutputWithContext(ctx context.Context) ScheduledSourceSynchronizationSettingResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledSourceSynchronizationSettingResponseArrayOutput)
+}
+
+// A type of synchronization setting based on schedule
+type ScheduledSourceSynchronizationSettingResponseOutput struct{ *pulumi.OutputState }
+
+func (ScheduledSourceSynchronizationSettingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledSourceSynchronizationSettingResponse)(nil)).Elem()
+}
+
+func (o ScheduledSourceSynchronizationSettingResponseOutput) ToScheduledSourceSynchronizationSettingResponseOutput() ScheduledSourceSynchronizationSettingResponseOutput {
+	return o
+}
+
+func (o ScheduledSourceSynchronizationSettingResponseOutput) ToScheduledSourceSynchronizationSettingResponseOutputWithContext(ctx context.Context) ScheduledSourceSynchronizationSettingResponseOutput {
+	return o
+}
+
+// Kind of synchronization
+func (o ScheduledSourceSynchronizationSettingResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledSourceSynchronizationSettingResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Recurrence Interval
+func (o ScheduledSourceSynchronizationSettingResponseOutput) RecurrenceInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledSourceSynchronizationSettingResponse) *string { return v.RecurrenceInterval }).(pulumi.StringPtrOutput)
+}
+
+// Synchronization time
+func (o ScheduledSourceSynchronizationSettingResponseOutput) SynchronizationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledSourceSynchronizationSettingResponse) *string { return v.SynchronizationTime }).(pulumi.StringPtrOutput)
+}
+
+type ScheduledSourceSynchronizationSettingResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledSourceSynchronizationSettingResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledSourceSynchronizationSettingResponse)(nil)).Elem()
+}
+
+func (o ScheduledSourceSynchronizationSettingResponseArrayOutput) ToScheduledSourceSynchronizationSettingResponseArrayOutput() ScheduledSourceSynchronizationSettingResponseArrayOutput {
+	return o
+}
+
+func (o ScheduledSourceSynchronizationSettingResponseArrayOutput) ToScheduledSourceSynchronizationSettingResponseArrayOutputWithContext(ctx context.Context) ScheduledSourceSynchronizationSettingResponseArrayOutput {
+	return o
+}
+
+func (o ScheduledSourceSynchronizationSettingResponseArrayOutput) Index(i pulumi.IntInput) ScheduledSourceSynchronizationSettingResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledSourceSynchronizationSettingResponse {
+		return vs[0].([]ScheduledSourceSynchronizationSettingResponse)[vs[1].(int)]
+	}).(ScheduledSourceSynchronizationSettingResponseOutput)
+}
+
 // A ShareSubscriptionSynchronization data transfer object.
 type ShareSubscriptionSynchronizationResponse struct {
 	// Synchronization duration
@@ -651,106 +769,6 @@ func (o ShareSynchronizationResponseArrayOutput) Index(i pulumi.IntInput) ShareS
 	}).(ShareSynchronizationResponseOutput)
 }
 
-// A view of synchronization setting added by the provider
-type SourceShareSynchronizationSettingResponse struct {
-	// Kind of synchronization
-	Kind string `pulumi:"kind"`
-}
-
-// SourceShareSynchronizationSettingResponseInput is an input type that accepts SourceShareSynchronizationSettingResponseArgs and SourceShareSynchronizationSettingResponseOutput values.
-// You can construct a concrete instance of `SourceShareSynchronizationSettingResponseInput` via:
-//
-//          SourceShareSynchronizationSettingResponseArgs{...}
-type SourceShareSynchronizationSettingResponseInput interface {
-	pulumi.Input
-
-	ToSourceShareSynchronizationSettingResponseOutput() SourceShareSynchronizationSettingResponseOutput
-	ToSourceShareSynchronizationSettingResponseOutputWithContext(context.Context) SourceShareSynchronizationSettingResponseOutput
-}
-
-// A view of synchronization setting added by the provider
-type SourceShareSynchronizationSettingResponseArgs struct {
-	// Kind of synchronization
-	Kind pulumi.StringInput `pulumi:"kind"`
-}
-
-func (SourceShareSynchronizationSettingResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceShareSynchronizationSettingResponse)(nil)).Elem()
-}
-
-func (i SourceShareSynchronizationSettingResponseArgs) ToSourceShareSynchronizationSettingResponseOutput() SourceShareSynchronizationSettingResponseOutput {
-	return i.ToSourceShareSynchronizationSettingResponseOutputWithContext(context.Background())
-}
-
-func (i SourceShareSynchronizationSettingResponseArgs) ToSourceShareSynchronizationSettingResponseOutputWithContext(ctx context.Context) SourceShareSynchronizationSettingResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceShareSynchronizationSettingResponseOutput)
-}
-
-// SourceShareSynchronizationSettingResponseArrayInput is an input type that accepts SourceShareSynchronizationSettingResponseArray and SourceShareSynchronizationSettingResponseArrayOutput values.
-// You can construct a concrete instance of `SourceShareSynchronizationSettingResponseArrayInput` via:
-//
-//          SourceShareSynchronizationSettingResponseArray{ SourceShareSynchronizationSettingResponseArgs{...} }
-type SourceShareSynchronizationSettingResponseArrayInput interface {
-	pulumi.Input
-
-	ToSourceShareSynchronizationSettingResponseArrayOutput() SourceShareSynchronizationSettingResponseArrayOutput
-	ToSourceShareSynchronizationSettingResponseArrayOutputWithContext(context.Context) SourceShareSynchronizationSettingResponseArrayOutput
-}
-
-type SourceShareSynchronizationSettingResponseArray []SourceShareSynchronizationSettingResponseInput
-
-func (SourceShareSynchronizationSettingResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SourceShareSynchronizationSettingResponse)(nil)).Elem()
-}
-
-func (i SourceShareSynchronizationSettingResponseArray) ToSourceShareSynchronizationSettingResponseArrayOutput() SourceShareSynchronizationSettingResponseArrayOutput {
-	return i.ToSourceShareSynchronizationSettingResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SourceShareSynchronizationSettingResponseArray) ToSourceShareSynchronizationSettingResponseArrayOutputWithContext(ctx context.Context) SourceShareSynchronizationSettingResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceShareSynchronizationSettingResponseArrayOutput)
-}
-
-// A view of synchronization setting added by the provider
-type SourceShareSynchronizationSettingResponseOutput struct{ *pulumi.OutputState }
-
-func (SourceShareSynchronizationSettingResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceShareSynchronizationSettingResponse)(nil)).Elem()
-}
-
-func (o SourceShareSynchronizationSettingResponseOutput) ToSourceShareSynchronizationSettingResponseOutput() SourceShareSynchronizationSettingResponseOutput {
-	return o
-}
-
-func (o SourceShareSynchronizationSettingResponseOutput) ToSourceShareSynchronizationSettingResponseOutputWithContext(ctx context.Context) SourceShareSynchronizationSettingResponseOutput {
-	return o
-}
-
-// Kind of synchronization
-func (o SourceShareSynchronizationSettingResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v SourceShareSynchronizationSettingResponse) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-type SourceShareSynchronizationSettingResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (SourceShareSynchronizationSettingResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SourceShareSynchronizationSettingResponse)(nil)).Elem()
-}
-
-func (o SourceShareSynchronizationSettingResponseArrayOutput) ToSourceShareSynchronizationSettingResponseArrayOutput() SourceShareSynchronizationSettingResponseArrayOutput {
-	return o
-}
-
-func (o SourceShareSynchronizationSettingResponseArrayOutput) ToSourceShareSynchronizationSettingResponseArrayOutputWithContext(ctx context.Context) SourceShareSynchronizationSettingResponseArrayOutput {
-	return o
-}
-
-func (o SourceShareSynchronizationSettingResponseArrayOutput) Index(i pulumi.IntInput) SourceShareSynchronizationSettingResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceShareSynchronizationSettingResponse {
-		return vs[0].([]SourceShareSynchronizationSettingResponse)[vs[1].(int)]
-	}).(SourceShareSynchronizationSettingResponseOutput)
-}
-
 // Synchronization details at data set level
 type SynchronizationDetailsResponse struct {
 	// Id of data set
@@ -982,12 +1000,12 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ScheduledSourceSynchronizationSettingResponseOutput{})
+	pulumi.RegisterOutputType(ScheduledSourceSynchronizationSettingResponseArrayOutput{})
 	pulumi.RegisterOutputType(ShareSubscriptionSynchronizationResponseOutput{})
 	pulumi.RegisterOutputType(ShareSubscriptionSynchronizationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ShareSynchronizationResponseOutput{})
 	pulumi.RegisterOutputType(ShareSynchronizationResponseArrayOutput{})
-	pulumi.RegisterOutputType(SourceShareSynchronizationSettingResponseOutput{})
-	pulumi.RegisterOutputType(SourceShareSynchronizationSettingResponseArrayOutput{})
 	pulumi.RegisterOutputType(SynchronizationDetailsResponseOutput{})
 	pulumi.RegisterOutputType(SynchronizationDetailsResponseArrayOutput{})
 }

@@ -17,7 +17,7 @@ type DatabaseAccount struct {
 	// API specific properties.
 	ApiProperties ApiPropertiesResponsePtrOutput `pulumi:"apiProperties"`
 	// The object representing the policy for taking backups on an account.
-	BackupPolicy BackupPolicyResponsePtrOutput `pulumi:"backupPolicy"`
+	BackupPolicy pulumi.AnyOutput `pulumi:"backupPolicy"`
 	// List of Cosmos DB capabilities for the account
 	Capabilities CapabilityResponseArrayOutput `pulumi:"capabilities"`
 	// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -159,7 +159,7 @@ type databaseAccountState struct {
 	// API specific properties.
 	ApiProperties *ApiPropertiesResponse `pulumi:"apiProperties"`
 	// The object representing the policy for taking backups on an account.
-	BackupPolicy *BackupPolicyResponse `pulumi:"backupPolicy"`
+	BackupPolicy interface{} `pulumi:"backupPolicy"`
 	// List of Cosmos DB capabilities for the account
 	Capabilities []CapabilityResponse `pulumi:"capabilities"`
 	// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -232,7 +232,7 @@ type DatabaseAccountState struct {
 	// API specific properties.
 	ApiProperties ApiPropertiesResponsePtrInput
 	// The object representing the policy for taking backups on an account.
-	BackupPolicy BackupPolicyResponsePtrInput
+	BackupPolicy pulumi.Input
 	// List of Cosmos DB capabilities for the account
 	Capabilities CapabilityResponseArrayInput
 	// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -315,7 +315,7 @@ type databaseAccountArgs struct {
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// Properties to create and update Azure Cosmos DB database accounts.
-	Properties DatabaseAccountCreateUpdateProperties `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -333,7 +333,7 @@ type DatabaseAccountArgs struct {
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// Properties to create and update Azure Cosmos DB database accounts.
-	Properties DatabaseAccountCreateUpdatePropertiesInput
+	Properties pulumi.Input
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".

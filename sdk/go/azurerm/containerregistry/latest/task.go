@@ -34,7 +34,7 @@ type Task struct {
 	// The current status of task.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The properties of a task step.
-	Step TaskStepPropertiesResponseOutput `pulumi:"step"`
+	Step pulumi.AnyOutput `pulumi:"step"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Run timeout in seconds.
@@ -122,7 +122,7 @@ type taskState struct {
 	// The current status of task.
 	Status *string `pulumi:"status"`
 	// The properties of a task step.
-	Step *TaskStepPropertiesResponse `pulumi:"step"`
+	Step interface{} `pulumi:"step"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Run timeout in seconds.
@@ -153,7 +153,7 @@ type TaskState struct {
 	// The current status of task.
 	Status pulumi.StringPtrInput
 	// The properties of a task step.
-	Step TaskStepPropertiesResponsePtrInput
+	Step pulumi.Input
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// Run timeout in seconds.

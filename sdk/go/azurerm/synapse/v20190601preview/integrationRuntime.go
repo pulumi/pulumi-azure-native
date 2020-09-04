@@ -19,7 +19,7 @@ type IntegrationRuntime struct {
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Integration runtime properties.
-	Properties IntegrationRuntimeResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -69,7 +69,7 @@ type integrationRuntimeState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Integration runtime properties.
-	Properties *IntegrationRuntimeResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
@@ -80,7 +80,7 @@ type IntegrationRuntimeState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Integration runtime properties.
-	Properties IntegrationRuntimeResponsePtrInput
+	Properties pulumi.Input
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }
@@ -93,7 +93,7 @@ type integrationRuntimeArgs struct {
 	// Integration runtime name
 	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
 	// Integration runtime properties.
-	Properties IntegrationRuntimeType `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the workspace
@@ -105,7 +105,7 @@ type IntegrationRuntimeArgs struct {
 	// Integration runtime name
 	IntegrationRuntimeName pulumi.StringInput
 	// Integration runtime properties.
-	Properties IntegrationRuntimeTypeInput
+	Properties pulumi.Input
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the workspace

@@ -204,7 +204,7 @@ type serverArgs struct {
 	// The location the resource resides in.
 	Location string `pulumi:"location"`
 	// Properties of the server.
-	Properties ServerPropertiesForCreate `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -220,7 +220,7 @@ type ServerArgs struct {
 	// The location the resource resides in.
 	Location pulumi.StringInput
 	// Properties of the server.
-	Properties ServerPropertiesForCreateInput
+	Properties pulumi.Input
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

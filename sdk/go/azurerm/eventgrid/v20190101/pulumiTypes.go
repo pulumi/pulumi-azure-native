@@ -10,540 +10,132 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-type DeadLetterDestination struct {
-	// Type of the endpoint for the dead letter destination
-	EndpointType string `pulumi:"endpointType"`
-}
-
-// DeadLetterDestinationInput is an input type that accepts DeadLetterDestinationArgs and DeadLetterDestinationOutput values.
-// You can construct a concrete instance of `DeadLetterDestinationInput` via:
-//
-//          DeadLetterDestinationArgs{...}
-type DeadLetterDestinationInput interface {
-	pulumi.Input
-
-	ToDeadLetterDestinationOutput() DeadLetterDestinationOutput
-	ToDeadLetterDestinationOutputWithContext(context.Context) DeadLetterDestinationOutput
-}
-
-// Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-type DeadLetterDestinationArgs struct {
-	// Type of the endpoint for the dead letter destination
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-}
-
-func (DeadLetterDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeadLetterDestination)(nil)).Elem()
-}
-
-func (i DeadLetterDestinationArgs) ToDeadLetterDestinationOutput() DeadLetterDestinationOutput {
-	return i.ToDeadLetterDestinationOutputWithContext(context.Background())
-}
-
-func (i DeadLetterDestinationArgs) ToDeadLetterDestinationOutputWithContext(ctx context.Context) DeadLetterDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterDestinationOutput)
-}
-
-func (i DeadLetterDestinationArgs) ToDeadLetterDestinationPtrOutput() DeadLetterDestinationPtrOutput {
-	return i.ToDeadLetterDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i DeadLetterDestinationArgs) ToDeadLetterDestinationPtrOutputWithContext(ctx context.Context) DeadLetterDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterDestinationOutput).ToDeadLetterDestinationPtrOutputWithContext(ctx)
-}
-
-// DeadLetterDestinationPtrInput is an input type that accepts DeadLetterDestinationArgs, DeadLetterDestinationPtr and DeadLetterDestinationPtrOutput values.
-// You can construct a concrete instance of `DeadLetterDestinationPtrInput` via:
-//
-//          DeadLetterDestinationArgs{...}
-//
-//  or:
-//
-//          nil
-type DeadLetterDestinationPtrInput interface {
-	pulumi.Input
-
-	ToDeadLetterDestinationPtrOutput() DeadLetterDestinationPtrOutput
-	ToDeadLetterDestinationPtrOutputWithContext(context.Context) DeadLetterDestinationPtrOutput
-}
-
-type deadLetterDestinationPtrType DeadLetterDestinationArgs
-
-func DeadLetterDestinationPtr(v *DeadLetterDestinationArgs) DeadLetterDestinationPtrInput {
-	return (*deadLetterDestinationPtrType)(v)
-}
-
-func (*deadLetterDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeadLetterDestination)(nil)).Elem()
-}
-
-func (i *deadLetterDestinationPtrType) ToDeadLetterDestinationPtrOutput() DeadLetterDestinationPtrOutput {
-	return i.ToDeadLetterDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *deadLetterDestinationPtrType) ToDeadLetterDestinationPtrOutputWithContext(ctx context.Context) DeadLetterDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterDestinationPtrOutput)
-}
-
-// Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-type DeadLetterDestinationOutput struct{ *pulumi.OutputState }
-
-func (DeadLetterDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeadLetterDestination)(nil)).Elem()
-}
-
-func (o DeadLetterDestinationOutput) ToDeadLetterDestinationOutput() DeadLetterDestinationOutput {
-	return o
-}
-
-func (o DeadLetterDestinationOutput) ToDeadLetterDestinationOutputWithContext(ctx context.Context) DeadLetterDestinationOutput {
-	return o
-}
-
-func (o DeadLetterDestinationOutput) ToDeadLetterDestinationPtrOutput() DeadLetterDestinationPtrOutput {
-	return o.ToDeadLetterDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o DeadLetterDestinationOutput) ToDeadLetterDestinationPtrOutputWithContext(ctx context.Context) DeadLetterDestinationPtrOutput {
-	return o.ApplyT(func(v DeadLetterDestination) *DeadLetterDestination {
-		return &v
-	}).(DeadLetterDestinationPtrOutput)
-}
-
-// Type of the endpoint for the dead letter destination
-func (o DeadLetterDestinationOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v DeadLetterDestination) string { return v.EndpointType }).(pulumi.StringOutput)
-}
-
-type DeadLetterDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (DeadLetterDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeadLetterDestination)(nil)).Elem()
-}
-
-func (o DeadLetterDestinationPtrOutput) ToDeadLetterDestinationPtrOutput() DeadLetterDestinationPtrOutput {
-	return o
-}
-
-func (o DeadLetterDestinationPtrOutput) ToDeadLetterDestinationPtrOutputWithContext(ctx context.Context) DeadLetterDestinationPtrOutput {
-	return o
-}
-
-func (o DeadLetterDestinationPtrOutput) Elem() DeadLetterDestinationOutput {
-	return o.ApplyT(func(v *DeadLetterDestination) DeadLetterDestination { return *v }).(DeadLetterDestinationOutput)
-}
-
-// Type of the endpoint for the dead letter destination
-func (o DeadLetterDestinationPtrOutput) EndpointType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeadLetterDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-type DeadLetterDestinationResponse struct {
-	// Type of the endpoint for the dead letter destination
-	EndpointType string `pulumi:"endpointType"`
-}
-
-// DeadLetterDestinationResponseInput is an input type that accepts DeadLetterDestinationResponseArgs and DeadLetterDestinationResponseOutput values.
-// You can construct a concrete instance of `DeadLetterDestinationResponseInput` via:
-//
-//          DeadLetterDestinationResponseArgs{...}
-type DeadLetterDestinationResponseInput interface {
-	pulumi.Input
-
-	ToDeadLetterDestinationResponseOutput() DeadLetterDestinationResponseOutput
-	ToDeadLetterDestinationResponseOutputWithContext(context.Context) DeadLetterDestinationResponseOutput
-}
-
-// Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-type DeadLetterDestinationResponseArgs struct {
-	// Type of the endpoint for the dead letter destination
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-}
-
-func (DeadLetterDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeadLetterDestinationResponse)(nil)).Elem()
-}
-
-func (i DeadLetterDestinationResponseArgs) ToDeadLetterDestinationResponseOutput() DeadLetterDestinationResponseOutput {
-	return i.ToDeadLetterDestinationResponseOutputWithContext(context.Background())
-}
-
-func (i DeadLetterDestinationResponseArgs) ToDeadLetterDestinationResponseOutputWithContext(ctx context.Context) DeadLetterDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterDestinationResponseOutput)
-}
-
-func (i DeadLetterDestinationResponseArgs) ToDeadLetterDestinationResponsePtrOutput() DeadLetterDestinationResponsePtrOutput {
-	return i.ToDeadLetterDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DeadLetterDestinationResponseArgs) ToDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) DeadLetterDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterDestinationResponseOutput).ToDeadLetterDestinationResponsePtrOutputWithContext(ctx)
-}
-
-// DeadLetterDestinationResponsePtrInput is an input type that accepts DeadLetterDestinationResponseArgs, DeadLetterDestinationResponsePtr and DeadLetterDestinationResponsePtrOutput values.
-// You can construct a concrete instance of `DeadLetterDestinationResponsePtrInput` via:
-//
-//          DeadLetterDestinationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DeadLetterDestinationResponsePtrInput interface {
-	pulumi.Input
-
-	ToDeadLetterDestinationResponsePtrOutput() DeadLetterDestinationResponsePtrOutput
-	ToDeadLetterDestinationResponsePtrOutputWithContext(context.Context) DeadLetterDestinationResponsePtrOutput
-}
-
-type deadLetterDestinationResponsePtrType DeadLetterDestinationResponseArgs
-
-func DeadLetterDestinationResponsePtr(v *DeadLetterDestinationResponseArgs) DeadLetterDestinationResponsePtrInput {
-	return (*deadLetterDestinationResponsePtrType)(v)
-}
-
-func (*deadLetterDestinationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeadLetterDestinationResponse)(nil)).Elem()
-}
-
-func (i *deadLetterDestinationResponsePtrType) ToDeadLetterDestinationResponsePtrOutput() DeadLetterDestinationResponsePtrOutput {
-	return i.ToDeadLetterDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *deadLetterDestinationResponsePtrType) ToDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) DeadLetterDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeadLetterDestinationResponsePtrOutput)
-}
-
-// Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-type DeadLetterDestinationResponseOutput struct{ *pulumi.OutputState }
-
-func (DeadLetterDestinationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeadLetterDestinationResponse)(nil)).Elem()
-}
-
-func (o DeadLetterDestinationResponseOutput) ToDeadLetterDestinationResponseOutput() DeadLetterDestinationResponseOutput {
-	return o
-}
-
-func (o DeadLetterDestinationResponseOutput) ToDeadLetterDestinationResponseOutputWithContext(ctx context.Context) DeadLetterDestinationResponseOutput {
-	return o
-}
-
-func (o DeadLetterDestinationResponseOutput) ToDeadLetterDestinationResponsePtrOutput() DeadLetterDestinationResponsePtrOutput {
-	return o.ToDeadLetterDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DeadLetterDestinationResponseOutput) ToDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) DeadLetterDestinationResponsePtrOutput {
-	return o.ApplyT(func(v DeadLetterDestinationResponse) *DeadLetterDestinationResponse {
-		return &v
-	}).(DeadLetterDestinationResponsePtrOutput)
-}
-
-// Type of the endpoint for the dead letter destination
-func (o DeadLetterDestinationResponseOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v DeadLetterDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
-}
-
-type DeadLetterDestinationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DeadLetterDestinationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeadLetterDestinationResponse)(nil)).Elem()
-}
-
-func (o DeadLetterDestinationResponsePtrOutput) ToDeadLetterDestinationResponsePtrOutput() DeadLetterDestinationResponsePtrOutput {
-	return o
-}
-
-func (o DeadLetterDestinationResponsePtrOutput) ToDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) DeadLetterDestinationResponsePtrOutput {
-	return o
-}
-
-func (o DeadLetterDestinationResponsePtrOutput) Elem() DeadLetterDestinationResponseOutput {
-	return o.ApplyT(func(v *DeadLetterDestinationResponse) DeadLetterDestinationResponse { return *v }).(DeadLetterDestinationResponseOutput)
-}
-
-// Type of the endpoint for the dead letter destination
-func (o DeadLetterDestinationResponsePtrOutput) EndpointType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeadLetterDestinationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Information about the destination for an event subscription
-type EventSubscriptionDestination struct {
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination
 	EndpointType string `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
-// EventSubscriptionDestinationInput is an input type that accepts EventSubscriptionDestinationArgs and EventSubscriptionDestinationOutput values.
-// You can construct a concrete instance of `EventSubscriptionDestinationInput` via:
+// EventHubEventSubscriptionDestinationInput is an input type that accepts EventHubEventSubscriptionDestinationArgs and EventHubEventSubscriptionDestinationOutput values.
+// You can construct a concrete instance of `EventHubEventSubscriptionDestinationInput` via:
 //
-//          EventSubscriptionDestinationArgs{...}
-type EventSubscriptionDestinationInput interface {
+//          EventHubEventSubscriptionDestinationArgs{...}
+type EventHubEventSubscriptionDestinationInput interface {
 	pulumi.Input
 
-	ToEventSubscriptionDestinationOutput() EventSubscriptionDestinationOutput
-	ToEventSubscriptionDestinationOutputWithContext(context.Context) EventSubscriptionDestinationOutput
+	ToEventHubEventSubscriptionDestinationOutput() EventHubEventSubscriptionDestinationOutput
+	ToEventHubEventSubscriptionDestinationOutputWithContext(context.Context) EventHubEventSubscriptionDestinationOutput
 }
 
-// Information about the destination for an event subscription
-type EventSubscriptionDestinationArgs struct {
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationArgs struct {
 	// Type of the endpoint for the event subscription destination
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
-func (EventSubscriptionDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionDestination)(nil)).Elem()
+func (EventHubEventSubscriptionDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubEventSubscriptionDestination)(nil)).Elem()
 }
 
-func (i EventSubscriptionDestinationArgs) ToEventSubscriptionDestinationOutput() EventSubscriptionDestinationOutput {
-	return i.ToEventSubscriptionDestinationOutputWithContext(context.Background())
+func (i EventHubEventSubscriptionDestinationArgs) ToEventHubEventSubscriptionDestinationOutput() EventHubEventSubscriptionDestinationOutput {
+	return i.ToEventHubEventSubscriptionDestinationOutputWithContext(context.Background())
 }
 
-func (i EventSubscriptionDestinationArgs) ToEventSubscriptionDestinationOutputWithContext(ctx context.Context) EventSubscriptionDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationOutput)
+func (i EventHubEventSubscriptionDestinationArgs) ToEventHubEventSubscriptionDestinationOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationOutput)
 }
 
-func (i EventSubscriptionDestinationArgs) ToEventSubscriptionDestinationPtrOutput() EventSubscriptionDestinationPtrOutput {
-	return i.ToEventSubscriptionDestinationPtrOutputWithContext(context.Background())
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
+
+func (EventHubEventSubscriptionDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubEventSubscriptionDestination)(nil)).Elem()
 }
 
-func (i EventSubscriptionDestinationArgs) ToEventSubscriptionDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationOutput).ToEventSubscriptionDestinationPtrOutputWithContext(ctx)
-}
-
-// EventSubscriptionDestinationPtrInput is an input type that accepts EventSubscriptionDestinationArgs, EventSubscriptionDestinationPtr and EventSubscriptionDestinationPtrOutput values.
-// You can construct a concrete instance of `EventSubscriptionDestinationPtrInput` via:
-//
-//          EventSubscriptionDestinationArgs{...}
-//
-//  or:
-//
-//          nil
-type EventSubscriptionDestinationPtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionDestinationPtrOutput() EventSubscriptionDestinationPtrOutput
-	ToEventSubscriptionDestinationPtrOutputWithContext(context.Context) EventSubscriptionDestinationPtrOutput
-}
-
-type eventSubscriptionDestinationPtrType EventSubscriptionDestinationArgs
-
-func EventSubscriptionDestinationPtr(v *EventSubscriptionDestinationArgs) EventSubscriptionDestinationPtrInput {
-	return (*eventSubscriptionDestinationPtrType)(v)
-}
-
-func (*eventSubscriptionDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionDestination)(nil)).Elem()
-}
-
-func (i *eventSubscriptionDestinationPtrType) ToEventSubscriptionDestinationPtrOutput() EventSubscriptionDestinationPtrOutput {
-	return i.ToEventSubscriptionDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *eventSubscriptionDestinationPtrType) ToEventSubscriptionDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationPtrOutput)
-}
-
-// Information about the destination for an event subscription
-type EventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionDestination)(nil)).Elem()
-}
-
-func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationOutput() EventSubscriptionDestinationOutput {
+func (o EventHubEventSubscriptionDestinationOutput) ToEventHubEventSubscriptionDestinationOutput() EventHubEventSubscriptionDestinationOutput {
 	return o
 }
 
-func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationOutputWithContext(ctx context.Context) EventSubscriptionDestinationOutput {
+func (o EventHubEventSubscriptionDestinationOutput) ToEventHubEventSubscriptionDestinationOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationOutput {
 	return o
-}
-
-func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationPtrOutput() EventSubscriptionDestinationPtrOutput {
-	return o.ToEventSubscriptionDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionDestination) *EventSubscriptionDestination {
-		return &v
-	}).(EventSubscriptionDestinationPtrOutput)
 }
 
 // Type of the endpoint for the event subscription destination
-func (o EventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
+func (o EventHubEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-type EventSubscriptionDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionDestination)(nil)).Elem()
+// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+func (o EventHubEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-func (o EventSubscriptionDestinationPtrOutput) ToEventSubscriptionDestinationPtrOutput() EventSubscriptionDestinationPtrOutput {
-	return o
-}
-
-func (o EventSubscriptionDestinationPtrOutput) ToEventSubscriptionDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationPtrOutput {
-	return o
-}
-
-func (o EventSubscriptionDestinationPtrOutput) Elem() EventSubscriptionDestinationOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestination) EventSubscriptionDestination { return *v }).(EventSubscriptionDestinationOutput)
-}
-
-// Type of the endpoint for the event subscription destination
-func (o EventSubscriptionDestinationPtrOutput) EndpointType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Information about the destination for an event subscription
-type EventSubscriptionDestinationResponse struct {
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationResponse struct {
 	// Type of the endpoint for the event subscription destination
 	EndpointType string `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
-// EventSubscriptionDestinationResponseInput is an input type that accepts EventSubscriptionDestinationResponseArgs and EventSubscriptionDestinationResponseOutput values.
-// You can construct a concrete instance of `EventSubscriptionDestinationResponseInput` via:
+// EventHubEventSubscriptionDestinationResponseInput is an input type that accepts EventHubEventSubscriptionDestinationResponseArgs and EventHubEventSubscriptionDestinationResponseOutput values.
+// You can construct a concrete instance of `EventHubEventSubscriptionDestinationResponseInput` via:
 //
-//          EventSubscriptionDestinationResponseArgs{...}
-type EventSubscriptionDestinationResponseInput interface {
+//          EventHubEventSubscriptionDestinationResponseArgs{...}
+type EventHubEventSubscriptionDestinationResponseInput interface {
 	pulumi.Input
 
-	ToEventSubscriptionDestinationResponseOutput() EventSubscriptionDestinationResponseOutput
-	ToEventSubscriptionDestinationResponseOutputWithContext(context.Context) EventSubscriptionDestinationResponseOutput
+	ToEventHubEventSubscriptionDestinationResponseOutput() EventHubEventSubscriptionDestinationResponseOutput
+	ToEventHubEventSubscriptionDestinationResponseOutputWithContext(context.Context) EventHubEventSubscriptionDestinationResponseOutput
 }
 
-// Information about the destination for an event subscription
-type EventSubscriptionDestinationResponseArgs struct {
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationResponseArgs struct {
 	// Type of the endpoint for the event subscription destination
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
-func (EventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionDestinationResponse)(nil)).Elem()
+func (EventHubEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubEventSubscriptionDestinationResponse)(nil)).Elem()
 }
 
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponseOutput() EventSubscriptionDestinationResponseOutput {
-	return i.ToEventSubscriptionDestinationResponseOutputWithContext(context.Background())
+func (i EventHubEventSubscriptionDestinationResponseArgs) ToEventHubEventSubscriptionDestinationResponseOutput() EventHubEventSubscriptionDestinationResponseOutput {
+	return i.ToEventHubEventSubscriptionDestinationResponseOutputWithContext(context.Background())
 }
 
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationResponseOutput)
+func (i EventHubEventSubscriptionDestinationResponseArgs) ToEventHubEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationResponseOutput)
 }
 
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput {
-	return i.ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Background())
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHubEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubEventSubscriptionDestinationResponse)(nil)).Elem()
 }
 
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationResponseOutput).ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx)
-}
-
-// EventSubscriptionDestinationResponsePtrInput is an input type that accepts EventSubscriptionDestinationResponseArgs, EventSubscriptionDestinationResponsePtr and EventSubscriptionDestinationResponsePtrOutput values.
-// You can construct a concrete instance of `EventSubscriptionDestinationResponsePtrInput` via:
-//
-//          EventSubscriptionDestinationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type EventSubscriptionDestinationResponsePtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput
-	ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Context) EventSubscriptionDestinationResponsePtrOutput
-}
-
-type eventSubscriptionDestinationResponsePtrType EventSubscriptionDestinationResponseArgs
-
-func EventSubscriptionDestinationResponsePtr(v *EventSubscriptionDestinationResponseArgs) EventSubscriptionDestinationResponsePtrInput {
-	return (*eventSubscriptionDestinationResponsePtrType)(v)
-}
-
-func (*eventSubscriptionDestinationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (i *eventSubscriptionDestinationResponsePtrType) ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput {
-	return i.ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *eventSubscriptionDestinationResponsePtrType) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationResponsePtrOutput)
-}
-
-// Information about the destination for an event subscription
-type EventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponseOutput() EventSubscriptionDestinationResponseOutput {
+func (o EventHubEventSubscriptionDestinationResponseOutput) ToEventHubEventSubscriptionDestinationResponseOutput() EventHubEventSubscriptionDestinationResponseOutput {
 	return o
 }
 
-func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponseOutput {
+func (o EventHubEventSubscriptionDestinationResponseOutput) ToEventHubEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationResponseOutput {
 	return o
-}
-
-func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput {
-	return o.ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return o.ApplyT(func(v EventSubscriptionDestinationResponse) *EventSubscriptionDestinationResponse {
-		return &v
-	}).(EventSubscriptionDestinationResponsePtrOutput)
 }
 
 // Type of the endpoint for the event subscription destination
-func (o EventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+func (o EventHubEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-type EventSubscriptionDestinationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionDestinationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (o EventSubscriptionDestinationResponsePtrOutput) ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput {
-	return o
-}
-
-func (o EventSubscriptionDestinationResponsePtrOutput) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return o
-}
-
-func (o EventSubscriptionDestinationResponsePtrOutput) Elem() EventSubscriptionDestinationResponseOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestinationResponse) EventSubscriptionDestinationResponse { return *v }).(EventSubscriptionDestinationResponseOutput)
-}
-
-// Type of the endpoint for the event subscription destination
-func (o EventSubscriptionDestinationResponsePtrOutput) EndpointType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestinationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointType
-	}).(pulumi.StringPtrOutput)
+// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+func (o EventHubEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Filter for the Event Subscription
@@ -968,6 +560,134 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information about the HybridConnection destination for an event subscription.
+type HybridConnectionEventSubscriptionDestination struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType string `pulumi:"endpointType"`
+	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// HybridConnectionEventSubscriptionDestinationInput is an input type that accepts HybridConnectionEventSubscriptionDestinationArgs and HybridConnectionEventSubscriptionDestinationOutput values.
+// You can construct a concrete instance of `HybridConnectionEventSubscriptionDestinationInput` via:
+//
+//          HybridConnectionEventSubscriptionDestinationArgs{...}
+type HybridConnectionEventSubscriptionDestinationInput interface {
+	pulumi.Input
+
+	ToHybridConnectionEventSubscriptionDestinationOutput() HybridConnectionEventSubscriptionDestinationOutput
+	ToHybridConnectionEventSubscriptionDestinationOutputWithContext(context.Context) HybridConnectionEventSubscriptionDestinationOutput
+}
+
+// Information about the HybridConnection destination for an event subscription.
+type HybridConnectionEventSubscriptionDestinationArgs struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (HybridConnectionEventSubscriptionDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionEventSubscriptionDestination)(nil)).Elem()
+}
+
+func (i HybridConnectionEventSubscriptionDestinationArgs) ToHybridConnectionEventSubscriptionDestinationOutput() HybridConnectionEventSubscriptionDestinationOutput {
+	return i.ToHybridConnectionEventSubscriptionDestinationOutputWithContext(context.Background())
+}
+
+func (i HybridConnectionEventSubscriptionDestinationArgs) ToHybridConnectionEventSubscriptionDestinationOutputWithContext(ctx context.Context) HybridConnectionEventSubscriptionDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionEventSubscriptionDestinationOutput)
+}
+
+// Information about the HybridConnection destination for an event subscription.
+type HybridConnectionEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
+
+func (HybridConnectionEventSubscriptionDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionEventSubscriptionDestination)(nil)).Elem()
+}
+
+func (o HybridConnectionEventSubscriptionDestinationOutput) ToHybridConnectionEventSubscriptionDestinationOutput() HybridConnectionEventSubscriptionDestinationOutput {
+	return o
+}
+
+func (o HybridConnectionEventSubscriptionDestinationOutput) ToHybridConnectionEventSubscriptionDestinationOutputWithContext(ctx context.Context) HybridConnectionEventSubscriptionDestinationOutput {
+	return o
+}
+
+// Type of the endpoint for the event subscription destination
+func (o HybridConnectionEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+func (o HybridConnectionEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Information about the HybridConnection destination for an event subscription.
+type HybridConnectionEventSubscriptionDestinationResponse struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType string `pulumi:"endpointType"`
+	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// HybridConnectionEventSubscriptionDestinationResponseInput is an input type that accepts HybridConnectionEventSubscriptionDestinationResponseArgs and HybridConnectionEventSubscriptionDestinationResponseOutput values.
+// You can construct a concrete instance of `HybridConnectionEventSubscriptionDestinationResponseInput` via:
+//
+//          HybridConnectionEventSubscriptionDestinationResponseArgs{...}
+type HybridConnectionEventSubscriptionDestinationResponseInput interface {
+	pulumi.Input
+
+	ToHybridConnectionEventSubscriptionDestinationResponseOutput() HybridConnectionEventSubscriptionDestinationResponseOutput
+	ToHybridConnectionEventSubscriptionDestinationResponseOutputWithContext(context.Context) HybridConnectionEventSubscriptionDestinationResponseOutput
+}
+
+// Information about the HybridConnection destination for an event subscription.
+type HybridConnectionEventSubscriptionDestinationResponseArgs struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (HybridConnectionEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionEventSubscriptionDestinationResponse)(nil)).Elem()
+}
+
+func (i HybridConnectionEventSubscriptionDestinationResponseArgs) ToHybridConnectionEventSubscriptionDestinationResponseOutput() HybridConnectionEventSubscriptionDestinationResponseOutput {
+	return i.ToHybridConnectionEventSubscriptionDestinationResponseOutputWithContext(context.Background())
+}
+
+func (i HybridConnectionEventSubscriptionDestinationResponseArgs) ToHybridConnectionEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) HybridConnectionEventSubscriptionDestinationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionEventSubscriptionDestinationResponseOutput)
+}
+
+// Information about the HybridConnection destination for an event subscription.
+type HybridConnectionEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
+
+func (HybridConnectionEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionEventSubscriptionDestinationResponse)(nil)).Elem()
+}
+
+func (o HybridConnectionEventSubscriptionDestinationResponseOutput) ToHybridConnectionEventSubscriptionDestinationResponseOutput() HybridConnectionEventSubscriptionDestinationResponseOutput {
+	return o
+}
+
+func (o HybridConnectionEventSubscriptionDestinationResponseOutput) ToHybridConnectionEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) HybridConnectionEventSubscriptionDestinationResponseOutput {
+	return o
+}
+
+// Type of the endpoint for the event subscription destination
+func (o HybridConnectionEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+func (o HybridConnectionEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridConnectionEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
 // Information about the retry policy for an event subscription
 type RetryPolicy struct {
 	// Time To Live (in minutes) for events.
@@ -1274,21 +994,652 @@ func (o RetryPolicyResponsePtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// Information about the storage blob based dead letter destination.
+type StorageBlobDeadLetterDestination struct {
+	// The name of the Storage blob container that is the destination of the deadletter events
+	BlobContainerName *string `pulumi:"blobContainerName"`
+	// Type of the endpoint for the dead letter destination
+	EndpointType string `pulumi:"endpointType"`
+	// The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// StorageBlobDeadLetterDestinationInput is an input type that accepts StorageBlobDeadLetterDestinationArgs and StorageBlobDeadLetterDestinationOutput values.
+// You can construct a concrete instance of `StorageBlobDeadLetterDestinationInput` via:
+//
+//          StorageBlobDeadLetterDestinationArgs{...}
+type StorageBlobDeadLetterDestinationInput interface {
+	pulumi.Input
+
+	ToStorageBlobDeadLetterDestinationOutput() StorageBlobDeadLetterDestinationOutput
+	ToStorageBlobDeadLetterDestinationOutputWithContext(context.Context) StorageBlobDeadLetterDestinationOutput
+}
+
+// Information about the storage blob based dead letter destination.
+type StorageBlobDeadLetterDestinationArgs struct {
+	// The name of the Storage blob container that is the destination of the deadletter events
+	BlobContainerName pulumi.StringPtrInput `pulumi:"blobContainerName"`
+	// Type of the endpoint for the dead letter destination
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (StorageBlobDeadLetterDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageBlobDeadLetterDestination)(nil)).Elem()
+}
+
+func (i StorageBlobDeadLetterDestinationArgs) ToStorageBlobDeadLetterDestinationOutput() StorageBlobDeadLetterDestinationOutput {
+	return i.ToStorageBlobDeadLetterDestinationOutputWithContext(context.Background())
+}
+
+func (i StorageBlobDeadLetterDestinationArgs) ToStorageBlobDeadLetterDestinationOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationOutput)
+}
+
+func (i StorageBlobDeadLetterDestinationArgs) ToStorageBlobDeadLetterDestinationPtrOutput() StorageBlobDeadLetterDestinationPtrOutput {
+	return i.ToStorageBlobDeadLetterDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageBlobDeadLetterDestinationArgs) ToStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationOutput).ToStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx)
+}
+
+// StorageBlobDeadLetterDestinationPtrInput is an input type that accepts StorageBlobDeadLetterDestinationArgs, StorageBlobDeadLetterDestinationPtr and StorageBlobDeadLetterDestinationPtrOutput values.
+// You can construct a concrete instance of `StorageBlobDeadLetterDestinationPtrInput` via:
+//
+//          StorageBlobDeadLetterDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageBlobDeadLetterDestinationPtrInput interface {
+	pulumi.Input
+
+	ToStorageBlobDeadLetterDestinationPtrOutput() StorageBlobDeadLetterDestinationPtrOutput
+	ToStorageBlobDeadLetterDestinationPtrOutputWithContext(context.Context) StorageBlobDeadLetterDestinationPtrOutput
+}
+
+type storageBlobDeadLetterDestinationPtrType StorageBlobDeadLetterDestinationArgs
+
+func StorageBlobDeadLetterDestinationPtr(v *StorageBlobDeadLetterDestinationArgs) StorageBlobDeadLetterDestinationPtrInput {
+	return (*storageBlobDeadLetterDestinationPtrType)(v)
+}
+
+func (*storageBlobDeadLetterDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageBlobDeadLetterDestination)(nil)).Elem()
+}
+
+func (i *storageBlobDeadLetterDestinationPtrType) ToStorageBlobDeadLetterDestinationPtrOutput() StorageBlobDeadLetterDestinationPtrOutput {
+	return i.ToStorageBlobDeadLetterDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageBlobDeadLetterDestinationPtrType) ToStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationPtrOutput)
+}
+
+// Information about the storage blob based dead letter destination.
+type StorageBlobDeadLetterDestinationOutput struct{ *pulumi.OutputState }
+
+func (StorageBlobDeadLetterDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageBlobDeadLetterDestination)(nil)).Elem()
+}
+
+func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinationOutput() StorageBlobDeadLetterDestinationOutput {
+	return o
+}
+
+func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinationOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationOutput {
+	return o
+}
+
+func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinationPtrOutput() StorageBlobDeadLetterDestinationPtrOutput {
+	return o.ToStorageBlobDeadLetterDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationPtrOutput {
+	return o.ApplyT(func(v StorageBlobDeadLetterDestination) *StorageBlobDeadLetterDestination {
+		return &v
+	}).(StorageBlobDeadLetterDestinationPtrOutput)
+}
+
+// The name of the Storage blob container that is the destination of the deadletter events
+func (o StorageBlobDeadLetterDestinationOutput) BlobContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageBlobDeadLetterDestination) *string { return v.BlobContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Type of the endpoint for the dead letter destination
+func (o StorageBlobDeadLetterDestinationOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageBlobDeadLetterDestination) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+func (o StorageBlobDeadLetterDestinationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageBlobDeadLetterDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type StorageBlobDeadLetterDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageBlobDeadLetterDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageBlobDeadLetterDestination)(nil)).Elem()
+}
+
+func (o StorageBlobDeadLetterDestinationPtrOutput) ToStorageBlobDeadLetterDestinationPtrOutput() StorageBlobDeadLetterDestinationPtrOutput {
+	return o
+}
+
+func (o StorageBlobDeadLetterDestinationPtrOutput) ToStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationPtrOutput {
+	return o
+}
+
+func (o StorageBlobDeadLetterDestinationPtrOutput) Elem() StorageBlobDeadLetterDestinationOutput {
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) StorageBlobDeadLetterDestination { return *v }).(StorageBlobDeadLetterDestinationOutput)
+}
+
+// The name of the Storage blob container that is the destination of the deadletter events
+func (o StorageBlobDeadLetterDestinationPtrOutput) BlobContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the endpoint for the dead letter destination
+func (o StorageBlobDeadLetterDestinationPtrOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+func (o StorageBlobDeadLetterDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the storage blob based dead letter destination.
+type StorageBlobDeadLetterDestinationResponse struct {
+	// The name of the Storage blob container that is the destination of the deadletter events
+	BlobContainerName *string `pulumi:"blobContainerName"`
+	// Type of the endpoint for the dead letter destination
+	EndpointType string `pulumi:"endpointType"`
+	// The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// StorageBlobDeadLetterDestinationResponseInput is an input type that accepts StorageBlobDeadLetterDestinationResponseArgs and StorageBlobDeadLetterDestinationResponseOutput values.
+// You can construct a concrete instance of `StorageBlobDeadLetterDestinationResponseInput` via:
+//
+//          StorageBlobDeadLetterDestinationResponseArgs{...}
+type StorageBlobDeadLetterDestinationResponseInput interface {
+	pulumi.Input
+
+	ToStorageBlobDeadLetterDestinationResponseOutput() StorageBlobDeadLetterDestinationResponseOutput
+	ToStorageBlobDeadLetterDestinationResponseOutputWithContext(context.Context) StorageBlobDeadLetterDestinationResponseOutput
+}
+
+// Information about the storage blob based dead letter destination.
+type StorageBlobDeadLetterDestinationResponseArgs struct {
+	// The name of the Storage blob container that is the destination of the deadletter events
+	BlobContainerName pulumi.StringPtrInput `pulumi:"blobContainerName"`
+	// Type of the endpoint for the dead letter destination
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (StorageBlobDeadLetterDestinationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageBlobDeadLetterDestinationResponse)(nil)).Elem()
+}
+
+func (i StorageBlobDeadLetterDestinationResponseArgs) ToStorageBlobDeadLetterDestinationResponseOutput() StorageBlobDeadLetterDestinationResponseOutput {
+	return i.ToStorageBlobDeadLetterDestinationResponseOutputWithContext(context.Background())
+}
+
+func (i StorageBlobDeadLetterDestinationResponseArgs) ToStorageBlobDeadLetterDestinationResponseOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationResponseOutput)
+}
+
+func (i StorageBlobDeadLetterDestinationResponseArgs) ToStorageBlobDeadLetterDestinationResponsePtrOutput() StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return i.ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StorageBlobDeadLetterDestinationResponseArgs) ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationResponseOutput).ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx)
+}
+
+// StorageBlobDeadLetterDestinationResponsePtrInput is an input type that accepts StorageBlobDeadLetterDestinationResponseArgs, StorageBlobDeadLetterDestinationResponsePtr and StorageBlobDeadLetterDestinationResponsePtrOutput values.
+// You can construct a concrete instance of `StorageBlobDeadLetterDestinationResponsePtrInput` via:
+//
+//          StorageBlobDeadLetterDestinationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageBlobDeadLetterDestinationResponsePtrInput interface {
+	pulumi.Input
+
+	ToStorageBlobDeadLetterDestinationResponsePtrOutput() StorageBlobDeadLetterDestinationResponsePtrOutput
+	ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput
+}
+
+type storageBlobDeadLetterDestinationResponsePtrType StorageBlobDeadLetterDestinationResponseArgs
+
+func StorageBlobDeadLetterDestinationResponsePtr(v *StorageBlobDeadLetterDestinationResponseArgs) StorageBlobDeadLetterDestinationResponsePtrInput {
+	return (*storageBlobDeadLetterDestinationResponsePtrType)(v)
+}
+
+func (*storageBlobDeadLetterDestinationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageBlobDeadLetterDestinationResponse)(nil)).Elem()
+}
+
+func (i *storageBlobDeadLetterDestinationResponsePtrType) ToStorageBlobDeadLetterDestinationResponsePtrOutput() StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return i.ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *storageBlobDeadLetterDestinationResponsePtrType) ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageBlobDeadLetterDestinationResponsePtrOutput)
+}
+
+// Information about the storage blob based dead letter destination.
+type StorageBlobDeadLetterDestinationResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageBlobDeadLetterDestinationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageBlobDeadLetterDestinationResponse)(nil)).Elem()
+}
+
+func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterDestinationResponseOutput() StorageBlobDeadLetterDestinationResponseOutput {
+	return o
+}
+
+func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterDestinationResponseOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponseOutput {
+	return o
+}
+
+func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterDestinationResponsePtrOutput() StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return o.ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) *StorageBlobDeadLetterDestinationResponse {
+		return &v
+	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
+}
+
+// The name of the Storage blob container that is the destination of the deadletter events
+func (o StorageBlobDeadLetterDestinationResponseOutput) BlobContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) *string { return v.BlobContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Type of the endpoint for the dead letter destination
+func (o StorageBlobDeadLetterDestinationResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+func (o StorageBlobDeadLetterDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type StorageBlobDeadLetterDestinationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageBlobDeadLetterDestinationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageBlobDeadLetterDestinationResponse)(nil)).Elem()
+}
+
+func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ToStorageBlobDeadLetterDestinationResponsePtrOutput() StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return o
+}
+
+func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return o
+}
+
+func (o StorageBlobDeadLetterDestinationResponsePtrOutput) Elem() StorageBlobDeadLetterDestinationResponseOutput {
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) StorageBlobDeadLetterDestinationResponse { return *v }).(StorageBlobDeadLetterDestinationResponseOutput)
+}
+
+// The name of the Storage blob container that is the destination of the deadletter events
+func (o StorageBlobDeadLetterDestinationResponsePtrOutput) BlobContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the endpoint for the dead letter destination
+func (o StorageBlobDeadLetterDestinationResponsePtrOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource ID of the storage account that is the destination of the deadletter events. For example: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/microsoft.Storage/storageAccounts/{StorageAccountName}
+func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the storage queue destination for an event subscription.
+type StorageQueueEventSubscriptionDestination struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType string `pulumi:"endpointType"`
+	// The name of the Storage queue under a storage account that is the destination of an event subscription.
+	QueueName *string `pulumi:"queueName"`
+	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// StorageQueueEventSubscriptionDestinationInput is an input type that accepts StorageQueueEventSubscriptionDestinationArgs and StorageQueueEventSubscriptionDestinationOutput values.
+// You can construct a concrete instance of `StorageQueueEventSubscriptionDestinationInput` via:
+//
+//          StorageQueueEventSubscriptionDestinationArgs{...}
+type StorageQueueEventSubscriptionDestinationInput interface {
+	pulumi.Input
+
+	ToStorageQueueEventSubscriptionDestinationOutput() StorageQueueEventSubscriptionDestinationOutput
+	ToStorageQueueEventSubscriptionDestinationOutputWithContext(context.Context) StorageQueueEventSubscriptionDestinationOutput
+}
+
+// Information about the storage queue destination for an event subscription.
+type StorageQueueEventSubscriptionDestinationArgs struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The name of the Storage queue under a storage account that is the destination of an event subscription.
+	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
+	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (StorageQueueEventSubscriptionDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageQueueEventSubscriptionDestination)(nil)).Elem()
+}
+
+func (i StorageQueueEventSubscriptionDestinationArgs) ToStorageQueueEventSubscriptionDestinationOutput() StorageQueueEventSubscriptionDestinationOutput {
+	return i.ToStorageQueueEventSubscriptionDestinationOutputWithContext(context.Background())
+}
+
+func (i StorageQueueEventSubscriptionDestinationArgs) ToStorageQueueEventSubscriptionDestinationOutputWithContext(ctx context.Context) StorageQueueEventSubscriptionDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueEventSubscriptionDestinationOutput)
+}
+
+// Information about the storage queue destination for an event subscription.
+type StorageQueueEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
+
+func (StorageQueueEventSubscriptionDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageQueueEventSubscriptionDestination)(nil)).Elem()
+}
+
+func (o StorageQueueEventSubscriptionDestinationOutput) ToStorageQueueEventSubscriptionDestinationOutput() StorageQueueEventSubscriptionDestinationOutput {
+	return o
+}
+
+func (o StorageQueueEventSubscriptionDestinationOutput) ToStorageQueueEventSubscriptionDestinationOutputWithContext(ctx context.Context) StorageQueueEventSubscriptionDestinationOutput {
+	return o
+}
+
+// Type of the endpoint for the event subscription destination
+func (o StorageQueueEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The name of the Storage queue under a storage account that is the destination of an event subscription.
+func (o StorageQueueEventSubscriptionDestinationOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) *string { return v.QueueName }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+func (o StorageQueueEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageQueueEventSubscriptionDestination) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Information about the storage queue destination for an event subscription.
+type StorageQueueEventSubscriptionDestinationResponse struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType string `pulumi:"endpointType"`
+	// The name of the Storage queue under a storage account that is the destination of an event subscription.
+	QueueName *string `pulumi:"queueName"`
+	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// StorageQueueEventSubscriptionDestinationResponseInput is an input type that accepts StorageQueueEventSubscriptionDestinationResponseArgs and StorageQueueEventSubscriptionDestinationResponseOutput values.
+// You can construct a concrete instance of `StorageQueueEventSubscriptionDestinationResponseInput` via:
+//
+//          StorageQueueEventSubscriptionDestinationResponseArgs{...}
+type StorageQueueEventSubscriptionDestinationResponseInput interface {
+	pulumi.Input
+
+	ToStorageQueueEventSubscriptionDestinationResponseOutput() StorageQueueEventSubscriptionDestinationResponseOutput
+	ToStorageQueueEventSubscriptionDestinationResponseOutputWithContext(context.Context) StorageQueueEventSubscriptionDestinationResponseOutput
+}
+
+// Information about the storage queue destination for an event subscription.
+type StorageQueueEventSubscriptionDestinationResponseArgs struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The name of the Storage queue under a storage account that is the destination of an event subscription.
+	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
+	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (StorageQueueEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageQueueEventSubscriptionDestinationResponse)(nil)).Elem()
+}
+
+func (i StorageQueueEventSubscriptionDestinationResponseArgs) ToStorageQueueEventSubscriptionDestinationResponseOutput() StorageQueueEventSubscriptionDestinationResponseOutput {
+	return i.ToStorageQueueEventSubscriptionDestinationResponseOutputWithContext(context.Background())
+}
+
+func (i StorageQueueEventSubscriptionDestinationResponseArgs) ToStorageQueueEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) StorageQueueEventSubscriptionDestinationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueEventSubscriptionDestinationResponseOutput)
+}
+
+// Information about the storage queue destination for an event subscription.
+type StorageQueueEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageQueueEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageQueueEventSubscriptionDestinationResponse)(nil)).Elem()
+}
+
+func (o StorageQueueEventSubscriptionDestinationResponseOutput) ToStorageQueueEventSubscriptionDestinationResponseOutput() StorageQueueEventSubscriptionDestinationResponseOutput {
+	return o
+}
+
+func (o StorageQueueEventSubscriptionDestinationResponseOutput) ToStorageQueueEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) StorageQueueEventSubscriptionDestinationResponseOutput {
+	return o
+}
+
+// Type of the endpoint for the event subscription destination
+func (o StorageQueueEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The name of the Storage queue under a storage account that is the destination of an event subscription.
+func (o StorageQueueEventSubscriptionDestinationResponseOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) *string { return v.QueueName }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+func (o StorageQueueEventSubscriptionDestinationResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageQueueEventSubscriptionDestinationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestination struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType string `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the destination of an event subscription.
+	EndpointUrl *string `pulumi:"endpointUrl"`
+}
+
+// WebHookEventSubscriptionDestinationInput is an input type that accepts WebHookEventSubscriptionDestinationArgs and WebHookEventSubscriptionDestinationOutput values.
+// You can construct a concrete instance of `WebHookEventSubscriptionDestinationInput` via:
+//
+//          WebHookEventSubscriptionDestinationArgs{...}
+type WebHookEventSubscriptionDestinationInput interface {
+	pulumi.Input
+
+	ToWebHookEventSubscriptionDestinationOutput() WebHookEventSubscriptionDestinationOutput
+	ToWebHookEventSubscriptionDestinationOutputWithContext(context.Context) WebHookEventSubscriptionDestinationOutput
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationArgs struct {
+	// Type of the endpoint for the event subscription destination
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the destination of an event subscription.
+	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+}
+
+func (WebHookEventSubscriptionDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebHookEventSubscriptionDestination)(nil)).Elem()
+}
+
+func (i WebHookEventSubscriptionDestinationArgs) ToWebHookEventSubscriptionDestinationOutput() WebHookEventSubscriptionDestinationOutput {
+	return i.ToWebHookEventSubscriptionDestinationOutputWithContext(context.Background())
+}
+
+func (i WebHookEventSubscriptionDestinationArgs) ToWebHookEventSubscriptionDestinationOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationOutput)
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
+
+func (WebHookEventSubscriptionDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebHookEventSubscriptionDestination)(nil)).Elem()
+}
+
+func (o WebHookEventSubscriptionDestinationOutput) ToWebHookEventSubscriptionDestinationOutput() WebHookEventSubscriptionDestinationOutput {
+	return o
+}
+
+func (o WebHookEventSubscriptionDestinationOutput) ToWebHookEventSubscriptionDestinationOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationOutput {
+	return o
+}
+
+// Type of the endpoint for the event subscription destination
+func (o WebHookEventSubscriptionDestinationOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestination) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The URL that represents the endpoint of the destination of an event subscription.
+func (o WebHookEventSubscriptionDestinationOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestination) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationResponse struct {
+	// The base URL that represents the endpoint of the destination of an event subscription.
+	EndpointBaseUrl string `pulumi:"endpointBaseUrl"`
+	// Type of the endpoint for the event subscription destination
+	EndpointType string `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the destination of an event subscription.
+	EndpointUrl *string `pulumi:"endpointUrl"`
+}
+
+// WebHookEventSubscriptionDestinationResponseInput is an input type that accepts WebHookEventSubscriptionDestinationResponseArgs and WebHookEventSubscriptionDestinationResponseOutput values.
+// You can construct a concrete instance of `WebHookEventSubscriptionDestinationResponseInput` via:
+//
+//          WebHookEventSubscriptionDestinationResponseArgs{...}
+type WebHookEventSubscriptionDestinationResponseInput interface {
+	pulumi.Input
+
+	ToWebHookEventSubscriptionDestinationResponseOutput() WebHookEventSubscriptionDestinationResponseOutput
+	ToWebHookEventSubscriptionDestinationResponseOutputWithContext(context.Context) WebHookEventSubscriptionDestinationResponseOutput
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationResponseArgs struct {
+	// The base URL that represents the endpoint of the destination of an event subscription.
+	EndpointBaseUrl pulumi.StringInput `pulumi:"endpointBaseUrl"`
+	// Type of the endpoint for the event subscription destination
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the destination of an event subscription.
+	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+}
+
+func (WebHookEventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebHookEventSubscriptionDestinationResponse)(nil)).Elem()
+}
+
+func (i WebHookEventSubscriptionDestinationResponseArgs) ToWebHookEventSubscriptionDestinationResponseOutput() WebHookEventSubscriptionDestinationResponseOutput {
+	return i.ToWebHookEventSubscriptionDestinationResponseOutputWithContext(context.Background())
+}
+
+func (i WebHookEventSubscriptionDestinationResponseArgs) ToWebHookEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationResponseOutput)
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
+
+func (WebHookEventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebHookEventSubscriptionDestinationResponse)(nil)).Elem()
+}
+
+func (o WebHookEventSubscriptionDestinationResponseOutput) ToWebHookEventSubscriptionDestinationResponseOutput() WebHookEventSubscriptionDestinationResponseOutput {
+	return o
+}
+
+func (o WebHookEventSubscriptionDestinationResponseOutput) ToWebHookEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationResponseOutput {
+	return o
+}
+
+// The base URL that represents the endpoint of the destination of an event subscription.
+func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointBaseUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) string { return v.EndpointBaseUrl }).(pulumi.StringOutput)
+}
+
+// Type of the endpoint for the event subscription destination
+func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The URL that represents the endpoint of the destination of an event subscription.
+func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestinationResponse) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(DeadLetterDestinationOutput{})
-	pulumi.RegisterOutputType(DeadLetterDestinationPtrOutput{})
-	pulumi.RegisterOutputType(DeadLetterDestinationResponseOutput{})
-	pulumi.RegisterOutputType(DeadLetterDestinationResponsePtrOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionDestinationOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionDestinationPtrOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionDestinationResponseOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionDestinationResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationOutput{})
+	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponsePtrOutput{})
+	pulumi.RegisterOutputType(HybridConnectionEventSubscriptionDestinationOutput{})
+	pulumi.RegisterOutputType(HybridConnectionEventSubscriptionDestinationResponseOutput{})
 	pulumi.RegisterOutputType(RetryPolicyOutput{})
 	pulumi.RegisterOutputType(RetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RetryPolicyResponseOutput{})
 	pulumi.RegisterOutputType(RetryPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageBlobDeadLetterDestinationOutput{})
+	pulumi.RegisterOutputType(StorageBlobDeadLetterDestinationPtrOutput{})
+	pulumi.RegisterOutputType(StorageBlobDeadLetterDestinationResponseOutput{})
+	pulumi.RegisterOutputType(StorageBlobDeadLetterDestinationResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageQueueEventSubscriptionDestinationOutput{})
+	pulumi.RegisterOutputType(StorageQueueEventSubscriptionDestinationResponseOutput{})
+	pulumi.RegisterOutputType(WebHookEventSubscriptionDestinationOutput{})
+	pulumi.RegisterOutputType(WebHookEventSubscriptionDestinationResponseOutput{})
 }

@@ -10,222 +10,240 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents a Template Spec artifact.
-type TemplateSpecArtifact struct {
+// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+type TemplateSpecTemplateArtifact struct {
 	// The kind of artifact.
 	Kind string `pulumi:"kind"`
 	// A filesystem safe relative path of the artifact.
 	Path string `pulumi:"path"`
+	// The Azure Resource Manager template.
+	Template map[string]interface{} `pulumi:"template"`
 }
 
-// TemplateSpecArtifactInput is an input type that accepts TemplateSpecArtifactArgs and TemplateSpecArtifactOutput values.
-// You can construct a concrete instance of `TemplateSpecArtifactInput` via:
+// TemplateSpecTemplateArtifactInput is an input type that accepts TemplateSpecTemplateArtifactArgs and TemplateSpecTemplateArtifactOutput values.
+// You can construct a concrete instance of `TemplateSpecTemplateArtifactInput` via:
 //
-//          TemplateSpecArtifactArgs{...}
-type TemplateSpecArtifactInput interface {
+//          TemplateSpecTemplateArtifactArgs{...}
+type TemplateSpecTemplateArtifactInput interface {
 	pulumi.Input
 
-	ToTemplateSpecArtifactOutput() TemplateSpecArtifactOutput
-	ToTemplateSpecArtifactOutputWithContext(context.Context) TemplateSpecArtifactOutput
+	ToTemplateSpecTemplateArtifactOutput() TemplateSpecTemplateArtifactOutput
+	ToTemplateSpecTemplateArtifactOutputWithContext(context.Context) TemplateSpecTemplateArtifactOutput
 }
 
-// Represents a Template Spec artifact.
-type TemplateSpecArtifactArgs struct {
+// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+type TemplateSpecTemplateArtifactArgs struct {
 	// The kind of artifact.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// A filesystem safe relative path of the artifact.
 	Path pulumi.StringInput `pulumi:"path"`
+	// The Azure Resource Manager template.
+	Template pulumi.MapInput `pulumi:"template"`
 }
 
-func (TemplateSpecArtifactArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecArtifact)(nil)).Elem()
+func (TemplateSpecTemplateArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecTemplateArtifact)(nil)).Elem()
 }
 
-func (i TemplateSpecArtifactArgs) ToTemplateSpecArtifactOutput() TemplateSpecArtifactOutput {
-	return i.ToTemplateSpecArtifactOutputWithContext(context.Background())
+func (i TemplateSpecTemplateArtifactArgs) ToTemplateSpecTemplateArtifactOutput() TemplateSpecTemplateArtifactOutput {
+	return i.ToTemplateSpecTemplateArtifactOutputWithContext(context.Background())
 }
 
-func (i TemplateSpecArtifactArgs) ToTemplateSpecArtifactOutputWithContext(ctx context.Context) TemplateSpecArtifactOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecArtifactOutput)
+func (i TemplateSpecTemplateArtifactArgs) ToTemplateSpecTemplateArtifactOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecTemplateArtifactOutput)
 }
 
-// TemplateSpecArtifactArrayInput is an input type that accepts TemplateSpecArtifactArray and TemplateSpecArtifactArrayOutput values.
-// You can construct a concrete instance of `TemplateSpecArtifactArrayInput` via:
+// TemplateSpecTemplateArtifactArrayInput is an input type that accepts TemplateSpecTemplateArtifactArray and TemplateSpecTemplateArtifactArrayOutput values.
+// You can construct a concrete instance of `TemplateSpecTemplateArtifactArrayInput` via:
 //
-//          TemplateSpecArtifactArray{ TemplateSpecArtifactArgs{...} }
-type TemplateSpecArtifactArrayInput interface {
+//          TemplateSpecTemplateArtifactArray{ TemplateSpecTemplateArtifactArgs{...} }
+type TemplateSpecTemplateArtifactArrayInput interface {
 	pulumi.Input
 
-	ToTemplateSpecArtifactArrayOutput() TemplateSpecArtifactArrayOutput
-	ToTemplateSpecArtifactArrayOutputWithContext(context.Context) TemplateSpecArtifactArrayOutput
+	ToTemplateSpecTemplateArtifactArrayOutput() TemplateSpecTemplateArtifactArrayOutput
+	ToTemplateSpecTemplateArtifactArrayOutputWithContext(context.Context) TemplateSpecTemplateArtifactArrayOutput
 }
 
-type TemplateSpecArtifactArray []TemplateSpecArtifactInput
+type TemplateSpecTemplateArtifactArray []TemplateSpecTemplateArtifactInput
 
-func (TemplateSpecArtifactArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateSpecArtifact)(nil)).Elem()
+func (TemplateSpecTemplateArtifactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateSpecTemplateArtifact)(nil)).Elem()
 }
 
-func (i TemplateSpecArtifactArray) ToTemplateSpecArtifactArrayOutput() TemplateSpecArtifactArrayOutput {
-	return i.ToTemplateSpecArtifactArrayOutputWithContext(context.Background())
+func (i TemplateSpecTemplateArtifactArray) ToTemplateSpecTemplateArtifactArrayOutput() TemplateSpecTemplateArtifactArrayOutput {
+	return i.ToTemplateSpecTemplateArtifactArrayOutputWithContext(context.Background())
 }
 
-func (i TemplateSpecArtifactArray) ToTemplateSpecArtifactArrayOutputWithContext(ctx context.Context) TemplateSpecArtifactArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecArtifactArrayOutput)
+func (i TemplateSpecTemplateArtifactArray) ToTemplateSpecTemplateArtifactArrayOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecTemplateArtifactArrayOutput)
 }
 
-// Represents a Template Spec artifact.
-type TemplateSpecArtifactOutput struct{ *pulumi.OutputState }
+// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+type TemplateSpecTemplateArtifactOutput struct{ *pulumi.OutputState }
 
-func (TemplateSpecArtifactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecArtifact)(nil)).Elem()
+func (TemplateSpecTemplateArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecTemplateArtifact)(nil)).Elem()
 }
 
-func (o TemplateSpecArtifactOutput) ToTemplateSpecArtifactOutput() TemplateSpecArtifactOutput {
+func (o TemplateSpecTemplateArtifactOutput) ToTemplateSpecTemplateArtifactOutput() TemplateSpecTemplateArtifactOutput {
 	return o
 }
 
-func (o TemplateSpecArtifactOutput) ToTemplateSpecArtifactOutputWithContext(ctx context.Context) TemplateSpecArtifactOutput {
+func (o TemplateSpecTemplateArtifactOutput) ToTemplateSpecTemplateArtifactOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactOutput {
 	return o
 }
 
 // The kind of artifact.
-func (o TemplateSpecArtifactOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateSpecArtifact) string { return v.Kind }).(pulumi.StringOutput)
+func (o TemplateSpecTemplateArtifactOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecTemplateArtifact) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // A filesystem safe relative path of the artifact.
-func (o TemplateSpecArtifactOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateSpecArtifact) string { return v.Path }).(pulumi.StringOutput)
+func (o TemplateSpecTemplateArtifactOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecTemplateArtifact) string { return v.Path }).(pulumi.StringOutput)
 }
 
-type TemplateSpecArtifactArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateSpecArtifactArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateSpecArtifact)(nil)).Elem()
+// The Azure Resource Manager template.
+func (o TemplateSpecTemplateArtifactOutput) Template() pulumi.MapOutput {
+	return o.ApplyT(func(v TemplateSpecTemplateArtifact) map[string]interface{} { return v.Template }).(pulumi.MapOutput)
 }
 
-func (o TemplateSpecArtifactArrayOutput) ToTemplateSpecArtifactArrayOutput() TemplateSpecArtifactArrayOutput {
+type TemplateSpecTemplateArtifactArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateSpecTemplateArtifactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateSpecTemplateArtifact)(nil)).Elem()
+}
+
+func (o TemplateSpecTemplateArtifactArrayOutput) ToTemplateSpecTemplateArtifactArrayOutput() TemplateSpecTemplateArtifactArrayOutput {
 	return o
 }
 
-func (o TemplateSpecArtifactArrayOutput) ToTemplateSpecArtifactArrayOutputWithContext(ctx context.Context) TemplateSpecArtifactArrayOutput {
+func (o TemplateSpecTemplateArtifactArrayOutput) ToTemplateSpecTemplateArtifactArrayOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactArrayOutput {
 	return o
 }
 
-func (o TemplateSpecArtifactArrayOutput) Index(i pulumi.IntInput) TemplateSpecArtifactOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateSpecArtifact {
-		return vs[0].([]TemplateSpecArtifact)[vs[1].(int)]
-	}).(TemplateSpecArtifactOutput)
+func (o TemplateSpecTemplateArtifactArrayOutput) Index(i pulumi.IntInput) TemplateSpecTemplateArtifactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateSpecTemplateArtifact {
+		return vs[0].([]TemplateSpecTemplateArtifact)[vs[1].(int)]
+	}).(TemplateSpecTemplateArtifactOutput)
 }
 
-// Represents a Template Spec artifact.
-type TemplateSpecArtifactResponse struct {
+// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+type TemplateSpecTemplateArtifactResponse struct {
 	// The kind of artifact.
 	Kind string `pulumi:"kind"`
 	// A filesystem safe relative path of the artifact.
 	Path string `pulumi:"path"`
+	// The Azure Resource Manager template.
+	Template map[string]interface{} `pulumi:"template"`
 }
 
-// TemplateSpecArtifactResponseInput is an input type that accepts TemplateSpecArtifactResponseArgs and TemplateSpecArtifactResponseOutput values.
-// You can construct a concrete instance of `TemplateSpecArtifactResponseInput` via:
+// TemplateSpecTemplateArtifactResponseInput is an input type that accepts TemplateSpecTemplateArtifactResponseArgs and TemplateSpecTemplateArtifactResponseOutput values.
+// You can construct a concrete instance of `TemplateSpecTemplateArtifactResponseInput` via:
 //
-//          TemplateSpecArtifactResponseArgs{...}
-type TemplateSpecArtifactResponseInput interface {
+//          TemplateSpecTemplateArtifactResponseArgs{...}
+type TemplateSpecTemplateArtifactResponseInput interface {
 	pulumi.Input
 
-	ToTemplateSpecArtifactResponseOutput() TemplateSpecArtifactResponseOutput
-	ToTemplateSpecArtifactResponseOutputWithContext(context.Context) TemplateSpecArtifactResponseOutput
+	ToTemplateSpecTemplateArtifactResponseOutput() TemplateSpecTemplateArtifactResponseOutput
+	ToTemplateSpecTemplateArtifactResponseOutputWithContext(context.Context) TemplateSpecTemplateArtifactResponseOutput
 }
 
-// Represents a Template Spec artifact.
-type TemplateSpecArtifactResponseArgs struct {
+// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+type TemplateSpecTemplateArtifactResponseArgs struct {
 	// The kind of artifact.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// A filesystem safe relative path of the artifact.
 	Path pulumi.StringInput `pulumi:"path"`
+	// The Azure Resource Manager template.
+	Template pulumi.MapInput `pulumi:"template"`
 }
 
-func (TemplateSpecArtifactResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecArtifactResponse)(nil)).Elem()
+func (TemplateSpecTemplateArtifactResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecTemplateArtifactResponse)(nil)).Elem()
 }
 
-func (i TemplateSpecArtifactResponseArgs) ToTemplateSpecArtifactResponseOutput() TemplateSpecArtifactResponseOutput {
-	return i.ToTemplateSpecArtifactResponseOutputWithContext(context.Background())
+func (i TemplateSpecTemplateArtifactResponseArgs) ToTemplateSpecTemplateArtifactResponseOutput() TemplateSpecTemplateArtifactResponseOutput {
+	return i.ToTemplateSpecTemplateArtifactResponseOutputWithContext(context.Background())
 }
 
-func (i TemplateSpecArtifactResponseArgs) ToTemplateSpecArtifactResponseOutputWithContext(ctx context.Context) TemplateSpecArtifactResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecArtifactResponseOutput)
+func (i TemplateSpecTemplateArtifactResponseArgs) ToTemplateSpecTemplateArtifactResponseOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecTemplateArtifactResponseOutput)
 }
 
-// TemplateSpecArtifactResponseArrayInput is an input type that accepts TemplateSpecArtifactResponseArray and TemplateSpecArtifactResponseArrayOutput values.
-// You can construct a concrete instance of `TemplateSpecArtifactResponseArrayInput` via:
+// TemplateSpecTemplateArtifactResponseArrayInput is an input type that accepts TemplateSpecTemplateArtifactResponseArray and TemplateSpecTemplateArtifactResponseArrayOutput values.
+// You can construct a concrete instance of `TemplateSpecTemplateArtifactResponseArrayInput` via:
 //
-//          TemplateSpecArtifactResponseArray{ TemplateSpecArtifactResponseArgs{...} }
-type TemplateSpecArtifactResponseArrayInput interface {
+//          TemplateSpecTemplateArtifactResponseArray{ TemplateSpecTemplateArtifactResponseArgs{...} }
+type TemplateSpecTemplateArtifactResponseArrayInput interface {
 	pulumi.Input
 
-	ToTemplateSpecArtifactResponseArrayOutput() TemplateSpecArtifactResponseArrayOutput
-	ToTemplateSpecArtifactResponseArrayOutputWithContext(context.Context) TemplateSpecArtifactResponseArrayOutput
+	ToTemplateSpecTemplateArtifactResponseArrayOutput() TemplateSpecTemplateArtifactResponseArrayOutput
+	ToTemplateSpecTemplateArtifactResponseArrayOutputWithContext(context.Context) TemplateSpecTemplateArtifactResponseArrayOutput
 }
 
-type TemplateSpecArtifactResponseArray []TemplateSpecArtifactResponseInput
+type TemplateSpecTemplateArtifactResponseArray []TemplateSpecTemplateArtifactResponseInput
 
-func (TemplateSpecArtifactResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateSpecArtifactResponse)(nil)).Elem()
+func (TemplateSpecTemplateArtifactResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateSpecTemplateArtifactResponse)(nil)).Elem()
 }
 
-func (i TemplateSpecArtifactResponseArray) ToTemplateSpecArtifactResponseArrayOutput() TemplateSpecArtifactResponseArrayOutput {
-	return i.ToTemplateSpecArtifactResponseArrayOutputWithContext(context.Background())
+func (i TemplateSpecTemplateArtifactResponseArray) ToTemplateSpecTemplateArtifactResponseArrayOutput() TemplateSpecTemplateArtifactResponseArrayOutput {
+	return i.ToTemplateSpecTemplateArtifactResponseArrayOutputWithContext(context.Background())
 }
 
-func (i TemplateSpecArtifactResponseArray) ToTemplateSpecArtifactResponseArrayOutputWithContext(ctx context.Context) TemplateSpecArtifactResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecArtifactResponseArrayOutput)
+func (i TemplateSpecTemplateArtifactResponseArray) ToTemplateSpecTemplateArtifactResponseArrayOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecTemplateArtifactResponseArrayOutput)
 }
 
-// Represents a Template Spec artifact.
-type TemplateSpecArtifactResponseOutput struct{ *pulumi.OutputState }
+// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+type TemplateSpecTemplateArtifactResponseOutput struct{ *pulumi.OutputState }
 
-func (TemplateSpecArtifactResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecArtifactResponse)(nil)).Elem()
+func (TemplateSpecTemplateArtifactResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecTemplateArtifactResponse)(nil)).Elem()
 }
 
-func (o TemplateSpecArtifactResponseOutput) ToTemplateSpecArtifactResponseOutput() TemplateSpecArtifactResponseOutput {
+func (o TemplateSpecTemplateArtifactResponseOutput) ToTemplateSpecTemplateArtifactResponseOutput() TemplateSpecTemplateArtifactResponseOutput {
 	return o
 }
 
-func (o TemplateSpecArtifactResponseOutput) ToTemplateSpecArtifactResponseOutputWithContext(ctx context.Context) TemplateSpecArtifactResponseOutput {
+func (o TemplateSpecTemplateArtifactResponseOutput) ToTemplateSpecTemplateArtifactResponseOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactResponseOutput {
 	return o
 }
 
 // The kind of artifact.
-func (o TemplateSpecArtifactResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateSpecArtifactResponse) string { return v.Kind }).(pulumi.StringOutput)
+func (o TemplateSpecTemplateArtifactResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecTemplateArtifactResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // A filesystem safe relative path of the artifact.
-func (o TemplateSpecArtifactResponseOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateSpecArtifactResponse) string { return v.Path }).(pulumi.StringOutput)
+func (o TemplateSpecTemplateArtifactResponseOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecTemplateArtifactResponse) string { return v.Path }).(pulumi.StringOutput)
 }
 
-type TemplateSpecArtifactResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateSpecArtifactResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateSpecArtifactResponse)(nil)).Elem()
+// The Azure Resource Manager template.
+func (o TemplateSpecTemplateArtifactResponseOutput) Template() pulumi.MapOutput {
+	return o.ApplyT(func(v TemplateSpecTemplateArtifactResponse) map[string]interface{} { return v.Template }).(pulumi.MapOutput)
 }
 
-func (o TemplateSpecArtifactResponseArrayOutput) ToTemplateSpecArtifactResponseArrayOutput() TemplateSpecArtifactResponseArrayOutput {
+type TemplateSpecTemplateArtifactResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateSpecTemplateArtifactResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateSpecTemplateArtifactResponse)(nil)).Elem()
+}
+
+func (o TemplateSpecTemplateArtifactResponseArrayOutput) ToTemplateSpecTemplateArtifactResponseArrayOutput() TemplateSpecTemplateArtifactResponseArrayOutput {
 	return o
 }
 
-func (o TemplateSpecArtifactResponseArrayOutput) ToTemplateSpecArtifactResponseArrayOutputWithContext(ctx context.Context) TemplateSpecArtifactResponseArrayOutput {
+func (o TemplateSpecTemplateArtifactResponseArrayOutput) ToTemplateSpecTemplateArtifactResponseArrayOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactResponseArrayOutput {
 	return o
 }
 
-func (o TemplateSpecArtifactResponseArrayOutput) Index(i pulumi.IntInput) TemplateSpecArtifactResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateSpecArtifactResponse {
-		return vs[0].([]TemplateSpecArtifactResponse)[vs[1].(int)]
-	}).(TemplateSpecArtifactResponseOutput)
+func (o TemplateSpecTemplateArtifactResponseArrayOutput) Index(i pulumi.IntInput) TemplateSpecTemplateArtifactResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateSpecTemplateArtifactResponse {
+		return vs[0].([]TemplateSpecTemplateArtifactResponse)[vs[1].(int)]
+	}).(TemplateSpecTemplateArtifactResponseOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -458,10 +476,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterOutputType(TemplateSpecArtifactOutput{})
-	pulumi.RegisterOutputType(TemplateSpecArtifactArrayOutput{})
-	pulumi.RegisterOutputType(TemplateSpecArtifactResponseOutput{})
-	pulumi.RegisterOutputType(TemplateSpecArtifactResponseArrayOutput{})
+	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactOutput{})
+	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactArrayOutput{})
+	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactResponseOutput{})
+	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

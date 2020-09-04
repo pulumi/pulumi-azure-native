@@ -26,9 +26,9 @@ type LookupEventSubscriptionArgs struct {
 // Event Subscription
 type LookupEventSubscriptionResult struct {
 	// The DeadLetter destination of the event subscription.
-	DeadLetterDestination *DeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination *EventSubscriptionDestinationResponse `pulumi:"destination"`
+	Destination interface{} `pulumi:"destination"`
 	// The event delivery schema for the event subscription.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// Information about the filter for the event subscription.

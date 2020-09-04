@@ -40,7 +40,7 @@ type LookupServiceResult struct {
 	// Azure resource name.
 	Name string `pulumi:"name"`
 	// Describes how the service is partitioned.
-	PartitionDescription *PartitionSchemeDescriptionResponse `pulumi:"partitionDescription"`
+	PartitionDescription interface{} `pulumi:"partitionDescription"`
 	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
 	PlacementConstraints *string `pulumi:"placementConstraints"`
 	// The current deployment or provisioning state, which only appears in the response

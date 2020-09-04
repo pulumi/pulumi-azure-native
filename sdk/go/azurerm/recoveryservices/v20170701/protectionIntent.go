@@ -21,7 +21,7 @@ type ProtectionIntent struct {
 	// Resource name associated with the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ProtectionIntentResource properties
-	Properties ProtectionIntentResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -81,7 +81,7 @@ type protectionIntentState struct {
 	// Resource name associated with the resource.
 	Name *string `pulumi:"name"`
 	// ProtectionIntentResource properties
-	Properties *ProtectionIntentResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -96,7 +96,7 @@ type ProtectionIntentState struct {
 	// Resource name associated with the resource.
 	Name pulumi.StringPtrInput
 	// ProtectionIntentResource properties
-	Properties ProtectionIntentResponsePtrInput
+	Properties pulumi.Input
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -117,7 +117,7 @@ type protectionIntentArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// ProtectionIntentResource properties
-	Properties *ProtectionIntentType `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -137,7 +137,7 @@ type ProtectionIntentArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// ProtectionIntentResource properties
-	Properties ProtectionIntentTypePtrInput
+	Properties pulumi.Input
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

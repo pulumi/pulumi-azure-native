@@ -25,13 +25,13 @@ type Project struct {
 	// The project's provisioning state
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Information for connecting to source
-	SourceConnectionInfo ConnectionInfoResponsePtrOutput `pulumi:"sourceConnectionInfo"`
+	SourceConnectionInfo pulumi.AnyOutput `pulumi:"sourceConnectionInfo"`
 	// Source platform for the project
 	SourcePlatform pulumi.StringOutput `pulumi:"sourcePlatform"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Information for connecting to target
-	TargetConnectionInfo ConnectionInfoResponsePtrOutput `pulumi:"targetConnectionInfo"`
+	TargetConnectionInfo pulumi.AnyOutput `pulumi:"targetConnectionInfo"`
 	// Target platform for the project
 	TargetPlatform pulumi.StringOutput `pulumi:"targetPlatform"`
 	// Resource type.
@@ -113,13 +113,13 @@ type projectState struct {
 	// The project's provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Information for connecting to source
-	SourceConnectionInfo *ConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+	SourceConnectionInfo interface{} `pulumi:"sourceConnectionInfo"`
 	// Source platform for the project
 	SourcePlatform *string `pulumi:"sourcePlatform"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Information for connecting to target
-	TargetConnectionInfo *ConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+	TargetConnectionInfo interface{} `pulumi:"targetConnectionInfo"`
 	// Target platform for the project
 	TargetPlatform *string `pulumi:"targetPlatform"`
 	// Resource type.
@@ -138,13 +138,13 @@ type ProjectState struct {
 	// The project's provisioning state
 	ProvisioningState pulumi.StringPtrInput
 	// Information for connecting to source
-	SourceConnectionInfo ConnectionInfoResponsePtrInput
+	SourceConnectionInfo pulumi.Input
 	// Source platform for the project
 	SourcePlatform pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Information for connecting to target
-	TargetConnectionInfo ConnectionInfoResponsePtrInput
+	TargetConnectionInfo pulumi.Input
 	// Target platform for the project
 	TargetPlatform pulumi.StringPtrInput
 	// Resource type.
@@ -167,13 +167,13 @@ type projectArgs struct {
 	// Name of the service
 	ServiceName string `pulumi:"serviceName"`
 	// Information for connecting to source
-	SourceConnectionInfo *ConnectionInfo `pulumi:"sourceConnectionInfo"`
+	SourceConnectionInfo interface{} `pulumi:"sourceConnectionInfo"`
 	// Source platform for the project
 	SourcePlatform string `pulumi:"sourcePlatform"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Information for connecting to target
-	TargetConnectionInfo *ConnectionInfo `pulumi:"targetConnectionInfo"`
+	TargetConnectionInfo interface{} `pulumi:"targetConnectionInfo"`
 	// Target platform for the project
 	TargetPlatform string `pulumi:"targetPlatform"`
 }
@@ -191,13 +191,13 @@ type ProjectArgs struct {
 	// Name of the service
 	ServiceName pulumi.StringInput
 	// Information for connecting to source
-	SourceConnectionInfo ConnectionInfoPtrInput
+	SourceConnectionInfo pulumi.Input
 	// Source platform for the project
 	SourcePlatform pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Information for connecting to target
-	TargetConnectionInfo ConnectionInfoPtrInput
+	TargetConnectionInfo pulumi.Input
 	// Target platform for the project
 	TargetPlatform pulumi.StringInput
 }

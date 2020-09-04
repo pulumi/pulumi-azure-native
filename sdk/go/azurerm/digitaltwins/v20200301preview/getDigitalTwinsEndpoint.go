@@ -30,7 +30,7 @@ type LookupDigitalTwinsEndpointResult struct {
 	// Extension resource name.
 	Name string `pulumi:"name"`
 	// DigitalTwinsInstance endpoint resource properties.
-	Properties DigitalTwinsEndpointResourcePropertiesResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

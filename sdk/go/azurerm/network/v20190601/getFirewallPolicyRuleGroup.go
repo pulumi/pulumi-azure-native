@@ -36,7 +36,7 @@ type LookupFirewallPolicyRuleGroupResult struct {
 	// The provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Group of Firewall Policy rules.
-	Rules []FirewallPolicyRuleResponse `pulumi:"rules"`
+	Rules []interface{} `pulumi:"rules"`
 	// Rule Group type.
 	Type string `pulumi:"type"`
 }

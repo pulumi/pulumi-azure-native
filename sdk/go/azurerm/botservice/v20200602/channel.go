@@ -23,7 +23,7 @@ type Channel struct {
 	// Specifies the name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The set of properties specific to bot channel resource
-	Properties ChannelResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Gets or sets the SKU of the resource.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
@@ -90,7 +90,7 @@ type channelState struct {
 	// Specifies the name of the resource.
 	Name *string `pulumi:"name"`
 	// The set of properties specific to bot channel resource
-	Properties *ChannelResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Gets or sets the SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
@@ -109,7 +109,7 @@ type ChannelState struct {
 	// Specifies the name of the resource.
 	Name pulumi.StringPtrInput
 	// The set of properties specific to bot channel resource
-	Properties ChannelResponsePtrInput
+	Properties pulumi.Input
 	// Gets or sets the SKU of the resource.
 	Sku SkuResponsePtrInput
 	// Contains resource tags defined as key/value pairs.
@@ -132,7 +132,7 @@ type channelArgs struct {
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
 	// The set of properties specific to bot channel resource
-	Properties *ChannelType `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Bot resource.
@@ -154,7 +154,7 @@ type ChannelArgs struct {
 	// Specifies the location of the resource.
 	Location pulumi.StringPtrInput
 	// The set of properties specific to bot channel resource
-	Properties ChannelTypePtrInput
+	Properties pulumi.Input
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Bot resource.

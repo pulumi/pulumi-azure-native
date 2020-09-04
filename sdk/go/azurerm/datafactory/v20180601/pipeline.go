@@ -15,7 +15,7 @@ type Pipeline struct {
 	pulumi.CustomResourceState
 
 	// List of activities in pipeline.
-	Activities ActivityResponseArrayOutput `pulumi:"activities"`
+	Activities pulumi.ArrayOutput `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
 	Annotations pulumi.MapArrayOutput `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
@@ -85,7 +85,7 @@ func GetPipeline(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
 	// List of activities in pipeline.
-	Activities []ActivityResponse `pulumi:"activities"`
+	Activities []interface{} `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
@@ -110,7 +110,7 @@ type pipelineState struct {
 
 type PipelineState struct {
 	// List of activities in pipeline.
-	Activities ActivityResponseArrayInput
+	Activities pulumi.ArrayInput
 	// List of tags that can be used for describing the Pipeline.
 	Annotations pulumi.MapArrayInput
 	// The max number of concurrent runs for the pipeline.
@@ -139,7 +139,7 @@ func (PipelineState) ElementType() reflect.Type {
 
 type pipelineArgs struct {
 	// List of activities in pipeline.
-	Activities []Activity `pulumi:"activities"`
+	Activities []interface{} `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
@@ -165,7 +165,7 @@ type pipelineArgs struct {
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
 	// List of activities in pipeline.
-	Activities ActivityArrayInput
+	Activities pulumi.ArrayInput
 	// List of tags that can be used for describing the Pipeline.
 	Annotations pulumi.MapArrayInput
 	// The max number of concurrent runs for the pipeline.

@@ -19,7 +19,7 @@ type MetricAlert struct {
 	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
 	AutoMitigate pulumi.BoolPtrOutput `pulumi:"autoMitigate"`
 	// defines the specific alert criteria information.
-	Criteria MetricAlertCriteriaResponseOutput `pulumi:"criteria"`
+	Criteria pulumi.AnyOutput `pulumi:"criteria"`
 	// the description of the metric alert that will be included in the alert email.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// the flag that indicates whether the metric alert is enabled.
@@ -114,7 +114,7 @@ type metricAlertState struct {
 	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// defines the specific alert criteria information.
-	Criteria *MetricAlertCriteriaResponse `pulumi:"criteria"`
+	Criteria interface{} `pulumi:"criteria"`
 	// the description of the metric alert that will be included in the alert email.
 	Description *string `pulumi:"description"`
 	// the flag that indicates whether the metric alert is enabled.
@@ -149,7 +149,7 @@ type MetricAlertState struct {
 	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
 	AutoMitigate pulumi.BoolPtrInput
 	// defines the specific alert criteria information.
-	Criteria MetricAlertCriteriaResponsePtrInput
+	Criteria pulumi.Input
 	// the description of the metric alert that will be included in the alert email.
 	Description pulumi.StringPtrInput
 	// the flag that indicates whether the metric alert is enabled.
@@ -188,7 +188,7 @@ type metricAlertArgs struct {
 	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// defines the specific alert criteria information.
-	Criteria MetricAlertCriteria `pulumi:"criteria"`
+	Criteria interface{} `pulumi:"criteria"`
 	// the description of the metric alert that will be included in the alert email.
 	Description string `pulumi:"description"`
 	// the flag that indicates whether the metric alert is enabled.
@@ -222,7 +222,7 @@ type MetricAlertArgs struct {
 	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
 	AutoMitigate pulumi.BoolPtrInput
 	// defines the specific alert criteria information.
-	Criteria MetricAlertCriteriaInput
+	Criteria pulumi.Input
 	// the description of the metric alert that will be included in the alert email.
 	Description pulumi.StringInput
 	// the flag that indicates whether the metric alert is enabled.

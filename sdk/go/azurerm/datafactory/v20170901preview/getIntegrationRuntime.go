@@ -32,7 +32,7 @@ type LookupIntegrationRuntimeResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// Integration runtime properties.
-	Properties IntegrationRuntimeResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

@@ -10,271 +10,343 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type HttpAuthentication struct {
+type BasicAuthentication struct {
+	// Gets or sets the password, return value will always be empty.
+	Password *string `pulumi:"password"`
+	// Gets or sets the HTTP authentication type.
+	Type string `pulumi:"type"`
+	// Gets or sets the username.
+	Username *string `pulumi:"username"`
+}
+
+// BasicAuthenticationInput is an input type that accepts BasicAuthenticationArgs and BasicAuthenticationOutput values.
+// You can construct a concrete instance of `BasicAuthenticationInput` via:
+//
+//          BasicAuthenticationArgs{...}
+type BasicAuthenticationInput interface {
+	pulumi.Input
+
+	ToBasicAuthenticationOutput() BasicAuthenticationOutput
+	ToBasicAuthenticationOutputWithContext(context.Context) BasicAuthenticationOutput
+}
+
+type BasicAuthenticationArgs struct {
+	// Gets or sets the password, return value will always be empty.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Gets or sets the HTTP authentication type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Gets or sets the username.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (BasicAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasicAuthentication)(nil)).Elem()
+}
+
+func (i BasicAuthenticationArgs) ToBasicAuthenticationOutput() BasicAuthenticationOutput {
+	return i.ToBasicAuthenticationOutputWithContext(context.Background())
+}
+
+func (i BasicAuthenticationArgs) ToBasicAuthenticationOutputWithContext(ctx context.Context) BasicAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthenticationOutput)
+}
+
+type BasicAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (BasicAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasicAuthentication)(nil)).Elem()
+}
+
+func (o BasicAuthenticationOutput) ToBasicAuthenticationOutput() BasicAuthenticationOutput {
+	return o
+}
+
+func (o BasicAuthenticationOutput) ToBasicAuthenticationOutputWithContext(ctx context.Context) BasicAuthenticationOutput {
+	return o
+}
+
+// Gets or sets the password, return value will always be empty.
+func (o BasicAuthenticationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BasicAuthentication) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the HTTP authentication type.
+func (o BasicAuthenticationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BasicAuthentication) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the username.
+func (o BasicAuthenticationOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BasicAuthentication) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type BasicAuthenticationResponse struct {
+	// Gets or sets the password, return value will always be empty.
+	Password *string `pulumi:"password"`
+	// Gets or sets the HTTP authentication type.
+	Type string `pulumi:"type"`
+	// Gets or sets the username.
+	Username *string `pulumi:"username"`
+}
+
+// BasicAuthenticationResponseInput is an input type that accepts BasicAuthenticationResponseArgs and BasicAuthenticationResponseOutput values.
+// You can construct a concrete instance of `BasicAuthenticationResponseInput` via:
+//
+//          BasicAuthenticationResponseArgs{...}
+type BasicAuthenticationResponseInput interface {
+	pulumi.Input
+
+	ToBasicAuthenticationResponseOutput() BasicAuthenticationResponseOutput
+	ToBasicAuthenticationResponseOutputWithContext(context.Context) BasicAuthenticationResponseOutput
+}
+
+type BasicAuthenticationResponseArgs struct {
+	// Gets or sets the password, return value will always be empty.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Gets or sets the HTTP authentication type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Gets or sets the username.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (BasicAuthenticationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasicAuthenticationResponse)(nil)).Elem()
+}
+
+func (i BasicAuthenticationResponseArgs) ToBasicAuthenticationResponseOutput() BasicAuthenticationResponseOutput {
+	return i.ToBasicAuthenticationResponseOutputWithContext(context.Background())
+}
+
+func (i BasicAuthenticationResponseArgs) ToBasicAuthenticationResponseOutputWithContext(ctx context.Context) BasicAuthenticationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthenticationResponseOutput)
+}
+
+type BasicAuthenticationResponseOutput struct{ *pulumi.OutputState }
+
+func (BasicAuthenticationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasicAuthenticationResponse)(nil)).Elem()
+}
+
+func (o BasicAuthenticationResponseOutput) ToBasicAuthenticationResponseOutput() BasicAuthenticationResponseOutput {
+	return o
+}
+
+func (o BasicAuthenticationResponseOutput) ToBasicAuthenticationResponseOutputWithContext(ctx context.Context) BasicAuthenticationResponseOutput {
+	return o
+}
+
+// Gets or sets the password, return value will always be empty.
+func (o BasicAuthenticationResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BasicAuthenticationResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the HTTP authentication type.
+func (o BasicAuthenticationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BasicAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the username.
+func (o BasicAuthenticationResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BasicAuthenticationResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type ClientCertAuthentication struct {
+	// Gets or sets the certificate expiration date.
+	CertificateExpirationDate *string `pulumi:"certificateExpirationDate"`
+	// Gets or sets the certificate subject name.
+	CertificateSubjectName *string `pulumi:"certificateSubjectName"`
+	// Gets or sets the certificate thumbprint.
+	CertificateThumbprint *string `pulumi:"certificateThumbprint"`
+	// Gets or sets the certificate password, return value will always be empty.
+	Password *string `pulumi:"password"`
+	// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+	Pfx *string `pulumi:"pfx"`
 	// Gets or sets the HTTP authentication type.
 	Type string `pulumi:"type"`
 }
 
-// HttpAuthenticationInput is an input type that accepts HttpAuthenticationArgs and HttpAuthenticationOutput values.
-// You can construct a concrete instance of `HttpAuthenticationInput` via:
+// ClientCertAuthenticationInput is an input type that accepts ClientCertAuthenticationArgs and ClientCertAuthenticationOutput values.
+// You can construct a concrete instance of `ClientCertAuthenticationInput` via:
 //
-//          HttpAuthenticationArgs{...}
-type HttpAuthenticationInput interface {
+//          ClientCertAuthenticationArgs{...}
+type ClientCertAuthenticationInput interface {
 	pulumi.Input
 
-	ToHttpAuthenticationOutput() HttpAuthenticationOutput
-	ToHttpAuthenticationOutputWithContext(context.Context) HttpAuthenticationOutput
+	ToClientCertAuthenticationOutput() ClientCertAuthenticationOutput
+	ToClientCertAuthenticationOutputWithContext(context.Context) ClientCertAuthenticationOutput
 }
 
-type HttpAuthenticationArgs struct {
+type ClientCertAuthenticationArgs struct {
+	// Gets or sets the certificate expiration date.
+	CertificateExpirationDate pulumi.StringPtrInput `pulumi:"certificateExpirationDate"`
+	// Gets or sets the certificate subject name.
+	CertificateSubjectName pulumi.StringPtrInput `pulumi:"certificateSubjectName"`
+	// Gets or sets the certificate thumbprint.
+	CertificateThumbprint pulumi.StringPtrInput `pulumi:"certificateThumbprint"`
+	// Gets or sets the certificate password, return value will always be empty.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+	Pfx pulumi.StringPtrInput `pulumi:"pfx"`
 	// Gets or sets the HTTP authentication type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (HttpAuthenticationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpAuthentication)(nil)).Elem()
+func (ClientCertAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertAuthentication)(nil)).Elem()
 }
 
-func (i HttpAuthenticationArgs) ToHttpAuthenticationOutput() HttpAuthenticationOutput {
-	return i.ToHttpAuthenticationOutputWithContext(context.Background())
+func (i ClientCertAuthenticationArgs) ToClientCertAuthenticationOutput() ClientCertAuthenticationOutput {
+	return i.ToClientCertAuthenticationOutputWithContext(context.Background())
 }
 
-func (i HttpAuthenticationArgs) ToHttpAuthenticationOutputWithContext(ctx context.Context) HttpAuthenticationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpAuthenticationOutput)
+func (i ClientCertAuthenticationArgs) ToClientCertAuthenticationOutputWithContext(ctx context.Context) ClientCertAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertAuthenticationOutput)
 }
 
-func (i HttpAuthenticationArgs) ToHttpAuthenticationPtrOutput() HttpAuthenticationPtrOutput {
-	return i.ToHttpAuthenticationPtrOutputWithContext(context.Background())
+type ClientCertAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ClientCertAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertAuthentication)(nil)).Elem()
 }
 
-func (i HttpAuthenticationArgs) ToHttpAuthenticationPtrOutputWithContext(ctx context.Context) HttpAuthenticationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpAuthenticationOutput).ToHttpAuthenticationPtrOutputWithContext(ctx)
-}
-
-// HttpAuthenticationPtrInput is an input type that accepts HttpAuthenticationArgs, HttpAuthenticationPtr and HttpAuthenticationPtrOutput values.
-// You can construct a concrete instance of `HttpAuthenticationPtrInput` via:
-//
-//          HttpAuthenticationArgs{...}
-//
-//  or:
-//
-//          nil
-type HttpAuthenticationPtrInput interface {
-	pulumi.Input
-
-	ToHttpAuthenticationPtrOutput() HttpAuthenticationPtrOutput
-	ToHttpAuthenticationPtrOutputWithContext(context.Context) HttpAuthenticationPtrOutput
-}
-
-type httpAuthenticationPtrType HttpAuthenticationArgs
-
-func HttpAuthenticationPtr(v *HttpAuthenticationArgs) HttpAuthenticationPtrInput {
-	return (*httpAuthenticationPtrType)(v)
-}
-
-func (*httpAuthenticationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HttpAuthentication)(nil)).Elem()
-}
-
-func (i *httpAuthenticationPtrType) ToHttpAuthenticationPtrOutput() HttpAuthenticationPtrOutput {
-	return i.ToHttpAuthenticationPtrOutputWithContext(context.Background())
-}
-
-func (i *httpAuthenticationPtrType) ToHttpAuthenticationPtrOutputWithContext(ctx context.Context) HttpAuthenticationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpAuthenticationPtrOutput)
-}
-
-type HttpAuthenticationOutput struct{ *pulumi.OutputState }
-
-func (HttpAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpAuthentication)(nil)).Elem()
-}
-
-func (o HttpAuthenticationOutput) ToHttpAuthenticationOutput() HttpAuthenticationOutput {
+func (o ClientCertAuthenticationOutput) ToClientCertAuthenticationOutput() ClientCertAuthenticationOutput {
 	return o
 }
 
-func (o HttpAuthenticationOutput) ToHttpAuthenticationOutputWithContext(ctx context.Context) HttpAuthenticationOutput {
+func (o ClientCertAuthenticationOutput) ToClientCertAuthenticationOutputWithContext(ctx context.Context) ClientCertAuthenticationOutput {
 	return o
 }
 
-func (o HttpAuthenticationOutput) ToHttpAuthenticationPtrOutput() HttpAuthenticationPtrOutput {
-	return o.ToHttpAuthenticationPtrOutputWithContext(context.Background())
+// Gets or sets the certificate expiration date.
+func (o ClientCertAuthenticationOutput) CertificateExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthentication) *string { return v.CertificateExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-func (o HttpAuthenticationOutput) ToHttpAuthenticationPtrOutputWithContext(ctx context.Context) HttpAuthenticationPtrOutput {
-	return o.ApplyT(func(v HttpAuthentication) *HttpAuthentication {
-		return &v
-	}).(HttpAuthenticationPtrOutput)
+// Gets or sets the certificate subject name.
+func (o ClientCertAuthenticationOutput) CertificateSubjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthentication) *string { return v.CertificateSubjectName }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the certificate thumbprint.
+func (o ClientCertAuthenticationOutput) CertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthentication) *string { return v.CertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the certificate password, return value will always be empty.
+func (o ClientCertAuthenticationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthentication) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+func (o ClientCertAuthenticationOutput) Pfx() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthentication) *string { return v.Pfx }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the HTTP authentication type.
-func (o HttpAuthenticationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HttpAuthentication) string { return v.Type }).(pulumi.StringOutput)
+func (o ClientCertAuthenticationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientCertAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type HttpAuthenticationPtrOutput struct{ *pulumi.OutputState }
-
-func (HttpAuthenticationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HttpAuthentication)(nil)).Elem()
-}
-
-func (o HttpAuthenticationPtrOutput) ToHttpAuthenticationPtrOutput() HttpAuthenticationPtrOutput {
-	return o
-}
-
-func (o HttpAuthenticationPtrOutput) ToHttpAuthenticationPtrOutputWithContext(ctx context.Context) HttpAuthenticationPtrOutput {
-	return o
-}
-
-func (o HttpAuthenticationPtrOutput) Elem() HttpAuthenticationOutput {
-	return o.ApplyT(func(v *HttpAuthentication) HttpAuthentication { return *v }).(HttpAuthenticationOutput)
-}
-
-// Gets or sets the HTTP authentication type.
-func (o HttpAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HttpAuthentication) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-type HttpAuthenticationResponse struct {
+type ClientCertAuthenticationResponse struct {
+	// Gets or sets the certificate expiration date.
+	CertificateExpirationDate *string `pulumi:"certificateExpirationDate"`
+	// Gets or sets the certificate subject name.
+	CertificateSubjectName *string `pulumi:"certificateSubjectName"`
+	// Gets or sets the certificate thumbprint.
+	CertificateThumbprint *string `pulumi:"certificateThumbprint"`
+	// Gets or sets the certificate password, return value will always be empty.
+	Password *string `pulumi:"password"`
+	// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+	Pfx *string `pulumi:"pfx"`
 	// Gets or sets the HTTP authentication type.
 	Type string `pulumi:"type"`
 }
 
-// HttpAuthenticationResponseInput is an input type that accepts HttpAuthenticationResponseArgs and HttpAuthenticationResponseOutput values.
-// You can construct a concrete instance of `HttpAuthenticationResponseInput` via:
+// ClientCertAuthenticationResponseInput is an input type that accepts ClientCertAuthenticationResponseArgs and ClientCertAuthenticationResponseOutput values.
+// You can construct a concrete instance of `ClientCertAuthenticationResponseInput` via:
 //
-//          HttpAuthenticationResponseArgs{...}
-type HttpAuthenticationResponseInput interface {
+//          ClientCertAuthenticationResponseArgs{...}
+type ClientCertAuthenticationResponseInput interface {
 	pulumi.Input
 
-	ToHttpAuthenticationResponseOutput() HttpAuthenticationResponseOutput
-	ToHttpAuthenticationResponseOutputWithContext(context.Context) HttpAuthenticationResponseOutput
+	ToClientCertAuthenticationResponseOutput() ClientCertAuthenticationResponseOutput
+	ToClientCertAuthenticationResponseOutputWithContext(context.Context) ClientCertAuthenticationResponseOutput
 }
 
-type HttpAuthenticationResponseArgs struct {
+type ClientCertAuthenticationResponseArgs struct {
+	// Gets or sets the certificate expiration date.
+	CertificateExpirationDate pulumi.StringPtrInput `pulumi:"certificateExpirationDate"`
+	// Gets or sets the certificate subject name.
+	CertificateSubjectName pulumi.StringPtrInput `pulumi:"certificateSubjectName"`
+	// Gets or sets the certificate thumbprint.
+	CertificateThumbprint pulumi.StringPtrInput `pulumi:"certificateThumbprint"`
+	// Gets or sets the certificate password, return value will always be empty.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+	Pfx pulumi.StringPtrInput `pulumi:"pfx"`
 	// Gets or sets the HTTP authentication type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (HttpAuthenticationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpAuthenticationResponse)(nil)).Elem()
+func (ClientCertAuthenticationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertAuthenticationResponse)(nil)).Elem()
 }
 
-func (i HttpAuthenticationResponseArgs) ToHttpAuthenticationResponseOutput() HttpAuthenticationResponseOutput {
-	return i.ToHttpAuthenticationResponseOutputWithContext(context.Background())
+func (i ClientCertAuthenticationResponseArgs) ToClientCertAuthenticationResponseOutput() ClientCertAuthenticationResponseOutput {
+	return i.ToClientCertAuthenticationResponseOutputWithContext(context.Background())
 }
 
-func (i HttpAuthenticationResponseArgs) ToHttpAuthenticationResponseOutputWithContext(ctx context.Context) HttpAuthenticationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpAuthenticationResponseOutput)
+func (i ClientCertAuthenticationResponseArgs) ToClientCertAuthenticationResponseOutputWithContext(ctx context.Context) ClientCertAuthenticationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertAuthenticationResponseOutput)
 }
 
-func (i HttpAuthenticationResponseArgs) ToHttpAuthenticationResponsePtrOutput() HttpAuthenticationResponsePtrOutput {
-	return i.ToHttpAuthenticationResponsePtrOutputWithContext(context.Background())
+type ClientCertAuthenticationResponseOutput struct{ *pulumi.OutputState }
+
+func (ClientCertAuthenticationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertAuthenticationResponse)(nil)).Elem()
 }
 
-func (i HttpAuthenticationResponseArgs) ToHttpAuthenticationResponsePtrOutputWithContext(ctx context.Context) HttpAuthenticationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpAuthenticationResponseOutput).ToHttpAuthenticationResponsePtrOutputWithContext(ctx)
-}
-
-// HttpAuthenticationResponsePtrInput is an input type that accepts HttpAuthenticationResponseArgs, HttpAuthenticationResponsePtr and HttpAuthenticationResponsePtrOutput values.
-// You can construct a concrete instance of `HttpAuthenticationResponsePtrInput` via:
-//
-//          HttpAuthenticationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type HttpAuthenticationResponsePtrInput interface {
-	pulumi.Input
-
-	ToHttpAuthenticationResponsePtrOutput() HttpAuthenticationResponsePtrOutput
-	ToHttpAuthenticationResponsePtrOutputWithContext(context.Context) HttpAuthenticationResponsePtrOutput
-}
-
-type httpAuthenticationResponsePtrType HttpAuthenticationResponseArgs
-
-func HttpAuthenticationResponsePtr(v *HttpAuthenticationResponseArgs) HttpAuthenticationResponsePtrInput {
-	return (*httpAuthenticationResponsePtrType)(v)
-}
-
-func (*httpAuthenticationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HttpAuthenticationResponse)(nil)).Elem()
-}
-
-func (i *httpAuthenticationResponsePtrType) ToHttpAuthenticationResponsePtrOutput() HttpAuthenticationResponsePtrOutput {
-	return i.ToHttpAuthenticationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *httpAuthenticationResponsePtrType) ToHttpAuthenticationResponsePtrOutputWithContext(ctx context.Context) HttpAuthenticationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpAuthenticationResponsePtrOutput)
-}
-
-type HttpAuthenticationResponseOutput struct{ *pulumi.OutputState }
-
-func (HttpAuthenticationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpAuthenticationResponse)(nil)).Elem()
-}
-
-func (o HttpAuthenticationResponseOutput) ToHttpAuthenticationResponseOutput() HttpAuthenticationResponseOutput {
+func (o ClientCertAuthenticationResponseOutput) ToClientCertAuthenticationResponseOutput() ClientCertAuthenticationResponseOutput {
 	return o
 }
 
-func (o HttpAuthenticationResponseOutput) ToHttpAuthenticationResponseOutputWithContext(ctx context.Context) HttpAuthenticationResponseOutput {
+func (o ClientCertAuthenticationResponseOutput) ToClientCertAuthenticationResponseOutputWithContext(ctx context.Context) ClientCertAuthenticationResponseOutput {
 	return o
 }
 
-func (o HttpAuthenticationResponseOutput) ToHttpAuthenticationResponsePtrOutput() HttpAuthenticationResponsePtrOutput {
-	return o.ToHttpAuthenticationResponsePtrOutputWithContext(context.Background())
+// Gets or sets the certificate expiration date.
+func (o ClientCertAuthenticationResponseOutput) CertificateExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationResponse) *string { return v.CertificateExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-func (o HttpAuthenticationResponseOutput) ToHttpAuthenticationResponsePtrOutputWithContext(ctx context.Context) HttpAuthenticationResponsePtrOutput {
-	return o.ApplyT(func(v HttpAuthenticationResponse) *HttpAuthenticationResponse {
-		return &v
-	}).(HttpAuthenticationResponsePtrOutput)
+// Gets or sets the certificate subject name.
+func (o ClientCertAuthenticationResponseOutput) CertificateSubjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationResponse) *string { return v.CertificateSubjectName }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the certificate thumbprint.
+func (o ClientCertAuthenticationResponseOutput) CertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationResponse) *string { return v.CertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the certificate password, return value will always be empty.
+func (o ClientCertAuthenticationResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+func (o ClientCertAuthenticationResponseOutput) Pfx() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationResponse) *string { return v.Pfx }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the HTTP authentication type.
-func (o HttpAuthenticationResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HttpAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type HttpAuthenticationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (HttpAuthenticationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HttpAuthenticationResponse)(nil)).Elem()
-}
-
-func (o HttpAuthenticationResponsePtrOutput) ToHttpAuthenticationResponsePtrOutput() HttpAuthenticationResponsePtrOutput {
-	return o
-}
-
-func (o HttpAuthenticationResponsePtrOutput) ToHttpAuthenticationResponsePtrOutputWithContext(ctx context.Context) HttpAuthenticationResponsePtrOutput {
-	return o
-}
-
-func (o HttpAuthenticationResponsePtrOutput) Elem() HttpAuthenticationResponseOutput {
-	return o.ApplyT(func(v *HttpAuthenticationResponse) HttpAuthenticationResponse { return *v }).(HttpAuthenticationResponseOutput)
-}
-
-// Gets or sets the HTTP authentication type.
-func (o HttpAuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HttpAuthenticationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
+func (o ClientCertAuthenticationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type HttpRequest struct {
 	// Gets or sets the authentication method of the request.
-	Authentication *HttpAuthentication `pulumi:"authentication"`
+	Authentication interface{} `pulumi:"authentication"`
 	// Gets or sets the request body.
 	Body *string `pulumi:"body"`
 	// Gets or sets the headers.
@@ -298,7 +370,7 @@ type HttpRequestInput interface {
 
 type HttpRequestArgs struct {
 	// Gets or sets the authentication method of the request.
-	Authentication HttpAuthenticationPtrInput `pulumi:"authentication"`
+	Authentication pulumi.Input `pulumi:"authentication"`
 	// Gets or sets the request body.
 	Body pulumi.StringPtrInput `pulumi:"body"`
 	// Gets or sets the headers.
@@ -387,8 +459,8 @@ func (o HttpRequestOutput) ToHttpRequestPtrOutputWithContext(ctx context.Context
 }
 
 // Gets or sets the authentication method of the request.
-func (o HttpRequestOutput) Authentication() HttpAuthenticationPtrOutput {
-	return o.ApplyT(func(v HttpRequest) *HttpAuthentication { return v.Authentication }).(HttpAuthenticationPtrOutput)
+func (o HttpRequestOutput) Authentication() pulumi.AnyOutput {
+	return o.ApplyT(func(v HttpRequest) interface{} { return v.Authentication }).(pulumi.AnyOutput)
 }
 
 // Gets or sets the request body.
@@ -430,13 +502,13 @@ func (o HttpRequestPtrOutput) Elem() HttpRequestOutput {
 }
 
 // Gets or sets the authentication method of the request.
-func (o HttpRequestPtrOutput) Authentication() HttpAuthenticationPtrOutput {
-	return o.ApplyT(func(v *HttpRequest) *HttpAuthentication {
+func (o HttpRequestPtrOutput) Authentication() pulumi.AnyOutput {
+	return o.ApplyT(func(v *HttpRequest) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Authentication
-	}).(HttpAuthenticationPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Gets or sets the request body.
@@ -481,7 +553,7 @@ func (o HttpRequestPtrOutput) Uri() pulumi.StringPtrOutput {
 
 type HttpRequestResponse struct {
 	// Gets or sets the authentication method of the request.
-	Authentication *HttpAuthenticationResponse `pulumi:"authentication"`
+	Authentication interface{} `pulumi:"authentication"`
 	// Gets or sets the request body.
 	Body *string `pulumi:"body"`
 	// Gets or sets the headers.
@@ -505,7 +577,7 @@ type HttpRequestResponseInput interface {
 
 type HttpRequestResponseArgs struct {
 	// Gets or sets the authentication method of the request.
-	Authentication HttpAuthenticationResponsePtrInput `pulumi:"authentication"`
+	Authentication pulumi.Input `pulumi:"authentication"`
 	// Gets or sets the request body.
 	Body pulumi.StringPtrInput `pulumi:"body"`
 	// Gets or sets the headers.
@@ -594,8 +666,8 @@ func (o HttpRequestResponseOutput) ToHttpRequestResponsePtrOutputWithContext(ctx
 }
 
 // Gets or sets the authentication method of the request.
-func (o HttpRequestResponseOutput) Authentication() HttpAuthenticationResponsePtrOutput {
-	return o.ApplyT(func(v HttpRequestResponse) *HttpAuthenticationResponse { return v.Authentication }).(HttpAuthenticationResponsePtrOutput)
+func (o HttpRequestResponseOutput) Authentication() pulumi.AnyOutput {
+	return o.ApplyT(func(v HttpRequestResponse) interface{} { return v.Authentication }).(pulumi.AnyOutput)
 }
 
 // Gets or sets the request body.
@@ -637,13 +709,13 @@ func (o HttpRequestResponsePtrOutput) Elem() HttpRequestResponseOutput {
 }
 
 // Gets or sets the authentication method of the request.
-func (o HttpRequestResponsePtrOutput) Authentication() HttpAuthenticationResponsePtrOutput {
-	return o.ApplyT(func(v *HttpRequestResponse) *HttpAuthenticationResponse {
+func (o HttpRequestResponsePtrOutput) Authentication() pulumi.AnyOutput {
+	return o.ApplyT(func(v *HttpRequestResponse) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Authentication
-	}).(HttpAuthenticationResponsePtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Gets or sets the request body.
@@ -4240,6 +4312,182 @@ func (o JobStatusResponsePtrOutput) NextExecutionTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type OAuthAuthentication struct {
+	// Gets or sets the audience.
+	Audience *string `pulumi:"audience"`
+	// Gets or sets the client identifier.
+	ClientId *string `pulumi:"clientId"`
+	// Gets or sets the secret, return value will always be empty.
+	Secret *string `pulumi:"secret"`
+	// Gets or sets the tenant.
+	Tenant *string `pulumi:"tenant"`
+	// Gets or sets the HTTP authentication type.
+	Type string `pulumi:"type"`
+}
+
+// OAuthAuthenticationInput is an input type that accepts OAuthAuthenticationArgs and OAuthAuthenticationOutput values.
+// You can construct a concrete instance of `OAuthAuthenticationInput` via:
+//
+//          OAuthAuthenticationArgs{...}
+type OAuthAuthenticationInput interface {
+	pulumi.Input
+
+	ToOAuthAuthenticationOutput() OAuthAuthenticationOutput
+	ToOAuthAuthenticationOutputWithContext(context.Context) OAuthAuthenticationOutput
+}
+
+type OAuthAuthenticationArgs struct {
+	// Gets or sets the audience.
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// Gets or sets the client identifier.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Gets or sets the secret, return value will always be empty.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// Gets or sets the tenant.
+	Tenant pulumi.StringPtrInput `pulumi:"tenant"`
+	// Gets or sets the HTTP authentication type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OAuthAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthAuthentication)(nil)).Elem()
+}
+
+func (i OAuthAuthenticationArgs) ToOAuthAuthenticationOutput() OAuthAuthenticationOutput {
+	return i.ToOAuthAuthenticationOutputWithContext(context.Background())
+}
+
+func (i OAuthAuthenticationArgs) ToOAuthAuthenticationOutputWithContext(ctx context.Context) OAuthAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthAuthenticationOutput)
+}
+
+type OAuthAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (OAuthAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthAuthentication)(nil)).Elem()
+}
+
+func (o OAuthAuthenticationOutput) ToOAuthAuthenticationOutput() OAuthAuthenticationOutput {
+	return o
+}
+
+func (o OAuthAuthenticationOutput) ToOAuthAuthenticationOutputWithContext(ctx context.Context) OAuthAuthenticationOutput {
+	return o
+}
+
+// Gets or sets the audience.
+func (o OAuthAuthenticationOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthentication) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the client identifier.
+func (o OAuthAuthenticationOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthentication) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the secret, return value will always be empty.
+func (o OAuthAuthenticationOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthentication) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the tenant.
+func (o OAuthAuthenticationOutput) Tenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthentication) *string { return v.Tenant }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the HTTP authentication type.
+func (o OAuthAuthenticationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuthAuthentication) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OAuthAuthenticationResponse struct {
+	// Gets or sets the audience.
+	Audience *string `pulumi:"audience"`
+	// Gets or sets the client identifier.
+	ClientId *string `pulumi:"clientId"`
+	// Gets or sets the secret, return value will always be empty.
+	Secret *string `pulumi:"secret"`
+	// Gets or sets the tenant.
+	Tenant *string `pulumi:"tenant"`
+	// Gets or sets the HTTP authentication type.
+	Type string `pulumi:"type"`
+}
+
+// OAuthAuthenticationResponseInput is an input type that accepts OAuthAuthenticationResponseArgs and OAuthAuthenticationResponseOutput values.
+// You can construct a concrete instance of `OAuthAuthenticationResponseInput` via:
+//
+//          OAuthAuthenticationResponseArgs{...}
+type OAuthAuthenticationResponseInput interface {
+	pulumi.Input
+
+	ToOAuthAuthenticationResponseOutput() OAuthAuthenticationResponseOutput
+	ToOAuthAuthenticationResponseOutputWithContext(context.Context) OAuthAuthenticationResponseOutput
+}
+
+type OAuthAuthenticationResponseArgs struct {
+	// Gets or sets the audience.
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// Gets or sets the client identifier.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Gets or sets the secret, return value will always be empty.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// Gets or sets the tenant.
+	Tenant pulumi.StringPtrInput `pulumi:"tenant"`
+	// Gets or sets the HTTP authentication type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OAuthAuthenticationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthAuthenticationResponse)(nil)).Elem()
+}
+
+func (i OAuthAuthenticationResponseArgs) ToOAuthAuthenticationResponseOutput() OAuthAuthenticationResponseOutput {
+	return i.ToOAuthAuthenticationResponseOutputWithContext(context.Background())
+}
+
+func (i OAuthAuthenticationResponseArgs) ToOAuthAuthenticationResponseOutputWithContext(ctx context.Context) OAuthAuthenticationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthAuthenticationResponseOutput)
+}
+
+type OAuthAuthenticationResponseOutput struct{ *pulumi.OutputState }
+
+func (OAuthAuthenticationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthAuthenticationResponse)(nil)).Elem()
+}
+
+func (o OAuthAuthenticationResponseOutput) ToOAuthAuthenticationResponseOutput() OAuthAuthenticationResponseOutput {
+	return o
+}
+
+func (o OAuthAuthenticationResponseOutput) ToOAuthAuthenticationResponseOutputWithContext(ctx context.Context) OAuthAuthenticationResponseOutput {
+	return o
+}
+
+// Gets or sets the audience.
+func (o OAuthAuthenticationResponseOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthenticationResponse) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the client identifier.
+func (o OAuthAuthenticationResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthenticationResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the secret, return value will always be empty.
+func (o OAuthAuthenticationResponseOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthenticationResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the tenant.
+func (o OAuthAuthenticationResponseOutput) Tenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthenticationResponse) *string { return v.Tenant }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the HTTP authentication type.
+func (o OAuthAuthenticationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuthAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 type RetryPolicy struct {
 	// Gets or sets the number of times a retry should be attempted.
 	RetryCount *int `pulumi:"retryCount"`
@@ -7263,10 +7511,10 @@ func (o StorageQueueMessageResponsePtrOutput) StorageAccount() pulumi.StringPtrO
 }
 
 func init() {
-	pulumi.RegisterOutputType(HttpAuthenticationOutput{})
-	pulumi.RegisterOutputType(HttpAuthenticationPtrOutput{})
-	pulumi.RegisterOutputType(HttpAuthenticationResponseOutput{})
-	pulumi.RegisterOutputType(HttpAuthenticationResponsePtrOutput{})
+	pulumi.RegisterOutputType(BasicAuthenticationOutput{})
+	pulumi.RegisterOutputType(BasicAuthenticationResponseOutput{})
+	pulumi.RegisterOutputType(ClientCertAuthenticationOutput{})
+	pulumi.RegisterOutputType(ClientCertAuthenticationResponseOutput{})
 	pulumi.RegisterOutputType(HttpRequestOutput{})
 	pulumi.RegisterOutputType(HttpRequestPtrOutput{})
 	pulumi.RegisterOutputType(HttpRequestResponseOutput{})
@@ -7309,6 +7557,8 @@ func init() {
 	pulumi.RegisterOutputType(JobRecurrenceScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobStatusResponseOutput{})
 	pulumi.RegisterOutputType(JobStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(OAuthAuthenticationOutput{})
+	pulumi.RegisterOutputType(OAuthAuthenticationResponseOutput{})
 	pulumi.RegisterOutputType(RetryPolicyOutput{})
 	pulumi.RegisterOutputType(RetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RetryPolicyResponseOutput{})

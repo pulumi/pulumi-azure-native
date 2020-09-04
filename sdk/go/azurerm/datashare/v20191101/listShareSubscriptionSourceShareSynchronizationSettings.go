@@ -32,5 +32,5 @@ type ListShareSubscriptionSourceShareSynchronizationSettingsResult struct {
 	// The Url of next result page.
 	NextLink *string `pulumi:"nextLink"`
 	// Collection of items of type DataTransferObjects.
-	Value []SourceShareSynchronizationSettingResponse `pulumi:"value"`
+	Value []ScheduledSourceSynchronizationSettingResponse `pulumi:"value"`
 }

@@ -34,7 +34,7 @@ type LookupProtectionPolicyResult struct {
 	// Resource name associated with the resource.
 	Name *string `pulumi:"name"`
 	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
-	Properties ProtectionPolicyResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...

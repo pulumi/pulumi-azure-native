@@ -10,6 +10,498 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParameters struct {
+	// Caching behavior for the requests
+	CacheBehavior string `pulumi:"cacheBehavior"`
+	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheDuration *string `pulumi:"cacheDuration"`
+	// The level at which the content needs to be cached.
+	CacheType string `pulumi:"cacheType"`
+	OdataType string `pulumi:"odataType"`
+}
+
+// CacheExpirationActionParametersInput is an input type that accepts CacheExpirationActionParametersArgs and CacheExpirationActionParametersOutput values.
+// You can construct a concrete instance of `CacheExpirationActionParametersInput` via:
+//
+//          CacheExpirationActionParametersArgs{...}
+type CacheExpirationActionParametersInput interface {
+	pulumi.Input
+
+	ToCacheExpirationActionParametersOutput() CacheExpirationActionParametersOutput
+	ToCacheExpirationActionParametersOutputWithContext(context.Context) CacheExpirationActionParametersOutput
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersArgs struct {
+	// Caching behavior for the requests
+	CacheBehavior pulumi.StringInput `pulumi:"cacheBehavior"`
+	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
+	// The level at which the content needs to be cached.
+	CacheType pulumi.StringInput `pulumi:"cacheType"`
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (CacheExpirationActionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheExpirationActionParameters)(nil)).Elem()
+}
+
+func (i CacheExpirationActionParametersArgs) ToCacheExpirationActionParametersOutput() CacheExpirationActionParametersOutput {
+	return i.ToCacheExpirationActionParametersOutputWithContext(context.Background())
+}
+
+func (i CacheExpirationActionParametersArgs) ToCacheExpirationActionParametersOutputWithContext(ctx context.Context) CacheExpirationActionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheExpirationActionParametersOutput)
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersOutput struct{ *pulumi.OutputState }
+
+func (CacheExpirationActionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheExpirationActionParameters)(nil)).Elem()
+}
+
+func (o CacheExpirationActionParametersOutput) ToCacheExpirationActionParametersOutput() CacheExpirationActionParametersOutput {
+	return o
+}
+
+func (o CacheExpirationActionParametersOutput) ToCacheExpirationActionParametersOutputWithContext(ctx context.Context) CacheExpirationActionParametersOutput {
+	return o
+}
+
+// Caching behavior for the requests
+func (o CacheExpirationActionParametersOutput) CacheBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParameters) string { return v.CacheBehavior }).(pulumi.StringOutput)
+}
+
+// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+func (o CacheExpirationActionParametersOutput) CacheDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheExpirationActionParameters) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
+}
+
+// The level at which the content needs to be cached.
+func (o CacheExpirationActionParametersOutput) CacheType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParameters) string { return v.CacheType }).(pulumi.StringOutput)
+}
+
+func (o CacheExpirationActionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersResponse struct {
+	// Caching behavior for the requests
+	CacheBehavior string `pulumi:"cacheBehavior"`
+	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheDuration *string `pulumi:"cacheDuration"`
+	// The level at which the content needs to be cached.
+	CacheType string `pulumi:"cacheType"`
+	OdataType string `pulumi:"odataType"`
+}
+
+// CacheExpirationActionParametersResponseInput is an input type that accepts CacheExpirationActionParametersResponseArgs and CacheExpirationActionParametersResponseOutput values.
+// You can construct a concrete instance of `CacheExpirationActionParametersResponseInput` via:
+//
+//          CacheExpirationActionParametersResponseArgs{...}
+type CacheExpirationActionParametersResponseInput interface {
+	pulumi.Input
+
+	ToCacheExpirationActionParametersResponseOutput() CacheExpirationActionParametersResponseOutput
+	ToCacheExpirationActionParametersResponseOutputWithContext(context.Context) CacheExpirationActionParametersResponseOutput
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersResponseArgs struct {
+	// Caching behavior for the requests
+	CacheBehavior pulumi.StringInput `pulumi:"cacheBehavior"`
+	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
+	// The level at which the content needs to be cached.
+	CacheType pulumi.StringInput `pulumi:"cacheType"`
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (CacheExpirationActionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheExpirationActionParametersResponse)(nil)).Elem()
+}
+
+func (i CacheExpirationActionParametersResponseArgs) ToCacheExpirationActionParametersResponseOutput() CacheExpirationActionParametersResponseOutput {
+	return i.ToCacheExpirationActionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i CacheExpirationActionParametersResponseArgs) ToCacheExpirationActionParametersResponseOutputWithContext(ctx context.Context) CacheExpirationActionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheExpirationActionParametersResponseOutput)
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheExpirationActionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheExpirationActionParametersResponse)(nil)).Elem()
+}
+
+func (o CacheExpirationActionParametersResponseOutput) ToCacheExpirationActionParametersResponseOutput() CacheExpirationActionParametersResponseOutput {
+	return o
+}
+
+func (o CacheExpirationActionParametersResponseOutput) ToCacheExpirationActionParametersResponseOutputWithContext(ctx context.Context) CacheExpirationActionParametersResponseOutput {
+	return o
+}
+
+// Caching behavior for the requests
+func (o CacheExpirationActionParametersResponseOutput) CacheBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersResponse) string { return v.CacheBehavior }).(pulumi.StringOutput)
+}
+
+// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+func (o CacheExpirationActionParametersResponseOutput) CacheDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersResponse) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
+}
+
+// The level at which the content needs to be cached.
+func (o CacheExpirationActionParametersResponseOutput) CacheType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersResponse) string { return v.CacheType }).(pulumi.StringOutput)
+}
+
+func (o CacheExpirationActionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the cache-key query string action.
+type CacheKeyQueryStringActionParameters struct {
+	OdataType string `pulumi:"odataType"`
+	// query parameters to include or exclude (comma separated).
+	QueryParameters *string `pulumi:"queryParameters"`
+	// Caching behavior for the requests
+	QueryStringBehavior string `pulumi:"queryStringBehavior"`
+}
+
+// CacheKeyQueryStringActionParametersInput is an input type that accepts CacheKeyQueryStringActionParametersArgs and CacheKeyQueryStringActionParametersOutput values.
+// You can construct a concrete instance of `CacheKeyQueryStringActionParametersInput` via:
+//
+//          CacheKeyQueryStringActionParametersArgs{...}
+type CacheKeyQueryStringActionParametersInput interface {
+	pulumi.Input
+
+	ToCacheKeyQueryStringActionParametersOutput() CacheKeyQueryStringActionParametersOutput
+	ToCacheKeyQueryStringActionParametersOutputWithContext(context.Context) CacheKeyQueryStringActionParametersOutput
+}
+
+// Defines the parameters for the cache-key query string action.
+type CacheKeyQueryStringActionParametersArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// query parameters to include or exclude (comma separated).
+	QueryParameters pulumi.StringPtrInput `pulumi:"queryParameters"`
+	// Caching behavior for the requests
+	QueryStringBehavior pulumi.StringInput `pulumi:"queryStringBehavior"`
+}
+
+func (CacheKeyQueryStringActionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheKeyQueryStringActionParameters)(nil)).Elem()
+}
+
+func (i CacheKeyQueryStringActionParametersArgs) ToCacheKeyQueryStringActionParametersOutput() CacheKeyQueryStringActionParametersOutput {
+	return i.ToCacheKeyQueryStringActionParametersOutputWithContext(context.Background())
+}
+
+func (i CacheKeyQueryStringActionParametersArgs) ToCacheKeyQueryStringActionParametersOutputWithContext(ctx context.Context) CacheKeyQueryStringActionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheKeyQueryStringActionParametersOutput)
+}
+
+// Defines the parameters for the cache-key query string action.
+type CacheKeyQueryStringActionParametersOutput struct{ *pulumi.OutputState }
+
+func (CacheKeyQueryStringActionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheKeyQueryStringActionParameters)(nil)).Elem()
+}
+
+func (o CacheKeyQueryStringActionParametersOutput) ToCacheKeyQueryStringActionParametersOutput() CacheKeyQueryStringActionParametersOutput {
+	return o
+}
+
+func (o CacheKeyQueryStringActionParametersOutput) ToCacheKeyQueryStringActionParametersOutputWithContext(ctx context.Context) CacheKeyQueryStringActionParametersOutput {
+	return o
+}
+
+func (o CacheKeyQueryStringActionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheKeyQueryStringActionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// query parameters to include or exclude (comma separated).
+func (o CacheKeyQueryStringActionParametersOutput) QueryParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheKeyQueryStringActionParameters) *string { return v.QueryParameters }).(pulumi.StringPtrOutput)
+}
+
+// Caching behavior for the requests
+func (o CacheKeyQueryStringActionParametersOutput) QueryStringBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheKeyQueryStringActionParameters) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the cache-key query string action.
+type CacheKeyQueryStringActionParametersResponse struct {
+	OdataType string `pulumi:"odataType"`
+	// query parameters to include or exclude (comma separated).
+	QueryParameters *string `pulumi:"queryParameters"`
+	// Caching behavior for the requests
+	QueryStringBehavior string `pulumi:"queryStringBehavior"`
+}
+
+// CacheKeyQueryStringActionParametersResponseInput is an input type that accepts CacheKeyQueryStringActionParametersResponseArgs and CacheKeyQueryStringActionParametersResponseOutput values.
+// You can construct a concrete instance of `CacheKeyQueryStringActionParametersResponseInput` via:
+//
+//          CacheKeyQueryStringActionParametersResponseArgs{...}
+type CacheKeyQueryStringActionParametersResponseInput interface {
+	pulumi.Input
+
+	ToCacheKeyQueryStringActionParametersResponseOutput() CacheKeyQueryStringActionParametersResponseOutput
+	ToCacheKeyQueryStringActionParametersResponseOutputWithContext(context.Context) CacheKeyQueryStringActionParametersResponseOutput
+}
+
+// Defines the parameters for the cache-key query string action.
+type CacheKeyQueryStringActionParametersResponseArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// query parameters to include or exclude (comma separated).
+	QueryParameters pulumi.StringPtrInput `pulumi:"queryParameters"`
+	// Caching behavior for the requests
+	QueryStringBehavior pulumi.StringInput `pulumi:"queryStringBehavior"`
+}
+
+func (CacheKeyQueryStringActionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheKeyQueryStringActionParametersResponse)(nil)).Elem()
+}
+
+func (i CacheKeyQueryStringActionParametersResponseArgs) ToCacheKeyQueryStringActionParametersResponseOutput() CacheKeyQueryStringActionParametersResponseOutput {
+	return i.ToCacheKeyQueryStringActionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i CacheKeyQueryStringActionParametersResponseArgs) ToCacheKeyQueryStringActionParametersResponseOutputWithContext(ctx context.Context) CacheKeyQueryStringActionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheKeyQueryStringActionParametersResponseOutput)
+}
+
+// Defines the parameters for the cache-key query string action.
+type CacheKeyQueryStringActionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheKeyQueryStringActionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheKeyQueryStringActionParametersResponse)(nil)).Elem()
+}
+
+func (o CacheKeyQueryStringActionParametersResponseOutput) ToCacheKeyQueryStringActionParametersResponseOutput() CacheKeyQueryStringActionParametersResponseOutput {
+	return o
+}
+
+func (o CacheKeyQueryStringActionParametersResponseOutput) ToCacheKeyQueryStringActionParametersResponseOutputWithContext(ctx context.Context) CacheKeyQueryStringActionParametersResponseOutput {
+	return o
+}
+
+func (o CacheKeyQueryStringActionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheKeyQueryStringActionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// query parameters to include or exclude (comma separated).
+func (o CacheKeyQueryStringActionParametersResponseOutput) QueryParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheKeyQueryStringActionParametersResponse) *string { return v.QueryParameters }).(pulumi.StringPtrOutput)
+}
+
+// Caching behavior for the requests
+func (o CacheKeyQueryStringActionParametersResponseOutput) QueryStringBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheKeyQueryStringActionParametersResponse) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for Cookies match conditions
+type CookiesMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// Name of Cookies to be matched
+	Selector string `pulumi:"selector"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// CookiesMatchConditionParametersInput is an input type that accepts CookiesMatchConditionParametersArgs and CookiesMatchConditionParametersOutput values.
+// You can construct a concrete instance of `CookiesMatchConditionParametersInput` via:
+//
+//          CookiesMatchConditionParametersArgs{...}
+type CookiesMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToCookiesMatchConditionParametersOutput() CookiesMatchConditionParametersOutput
+	ToCookiesMatchConditionParametersOutputWithContext(context.Context) CookiesMatchConditionParametersOutput
+}
+
+// Defines the parameters for Cookies match conditions
+type CookiesMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Name of Cookies to be matched
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (CookiesMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CookiesMatchConditionParameters)(nil)).Elem()
+}
+
+func (i CookiesMatchConditionParametersArgs) ToCookiesMatchConditionParametersOutput() CookiesMatchConditionParametersOutput {
+	return i.ToCookiesMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i CookiesMatchConditionParametersArgs) ToCookiesMatchConditionParametersOutputWithContext(ctx context.Context) CookiesMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CookiesMatchConditionParametersOutput)
+}
+
+// Defines the parameters for Cookies match conditions
+type CookiesMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (CookiesMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CookiesMatchConditionParameters)(nil)).Elem()
+}
+
+func (o CookiesMatchConditionParametersOutput) ToCookiesMatchConditionParametersOutput() CookiesMatchConditionParametersOutput {
+	return o
+}
+
+func (o CookiesMatchConditionParametersOutput) ToCookiesMatchConditionParametersOutputWithContext(ctx context.Context) CookiesMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o CookiesMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o CookiesMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o CookiesMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o CookiesMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Name of Cookies to be matched
+func (o CookiesMatchConditionParametersOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParameters) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o CookiesMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for Cookies match conditions
+type CookiesMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// Name of Cookies to be matched
+	Selector string `pulumi:"selector"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// CookiesMatchConditionParametersResponseInput is an input type that accepts CookiesMatchConditionParametersResponseArgs and CookiesMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `CookiesMatchConditionParametersResponseInput` via:
+//
+//          CookiesMatchConditionParametersResponseArgs{...}
+type CookiesMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToCookiesMatchConditionParametersResponseOutput() CookiesMatchConditionParametersResponseOutput
+	ToCookiesMatchConditionParametersResponseOutputWithContext(context.Context) CookiesMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for Cookies match conditions
+type CookiesMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Name of Cookies to be matched
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (CookiesMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CookiesMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i CookiesMatchConditionParametersResponseArgs) ToCookiesMatchConditionParametersResponseOutput() CookiesMatchConditionParametersResponseOutput {
+	return i.ToCookiesMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i CookiesMatchConditionParametersResponseArgs) ToCookiesMatchConditionParametersResponseOutputWithContext(ctx context.Context) CookiesMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CookiesMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for Cookies match conditions
+type CookiesMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (CookiesMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CookiesMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o CookiesMatchConditionParametersResponseOutput) ToCookiesMatchConditionParametersResponseOutput() CookiesMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o CookiesMatchConditionParametersResponseOutput) ToCookiesMatchConditionParametersResponseOutputWithContext(ctx context.Context) CookiesMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o CookiesMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o CookiesMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o CookiesMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o CookiesMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Name of Cookies to be matched
+func (o CookiesMatchConditionParametersResponseOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersResponse) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o CookiesMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
 // The main origin of CDN content which is added when creating a CDN endpoint.
 type DeepCreatedOrigin struct {
 	// Origin is enabled for load balancing or not. By default, origin is always enabled.
@@ -617,9 +1109,9 @@ func (o DeepCreatedOriginResponseArrayOutput) Index(i pulumi.IntInput) DeepCreat
 // A rule that specifies a set of actions and conditions
 type DeliveryRule struct {
 	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions []DeliveryRuleAction `pulumi:"actions"`
+	Actions []interface{} `pulumi:"actions"`
 	// A list of conditions that must be matched for the actions to be executed
-	Conditions []DeliveryRuleCondition `pulumi:"conditions"`
+	Conditions []interface{} `pulumi:"conditions"`
 	// Name of the rule
 	Name *string `pulumi:"name"`
 	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
@@ -640,9 +1132,9 @@ type DeliveryRuleInput interface {
 // A rule that specifies a set of actions and conditions
 type DeliveryRuleArgs struct {
 	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions DeliveryRuleActionArrayInput `pulumi:"actions"`
+	Actions pulumi.ArrayInput `pulumi:"actions"`
 	// A list of conditions that must be matched for the actions to be executed
-	Conditions DeliveryRuleConditionArrayInput `pulumi:"conditions"`
+	Conditions pulumi.ArrayInput `pulumi:"conditions"`
 	// Name of the rule
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
@@ -702,13 +1194,13 @@ func (o DeliveryRuleOutput) ToDeliveryRuleOutputWithContext(ctx context.Context)
 }
 
 // A list of actions that are executed when all the conditions of a rule are satisfied.
-func (o DeliveryRuleOutput) Actions() DeliveryRuleActionArrayOutput {
-	return o.ApplyT(func(v DeliveryRule) []DeliveryRuleAction { return v.Actions }).(DeliveryRuleActionArrayOutput)
+func (o DeliveryRuleOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DeliveryRule) []interface{} { return v.Actions }).(pulumi.ArrayOutput)
 }
 
 // A list of conditions that must be matched for the actions to be executed
-func (o DeliveryRuleOutput) Conditions() DeliveryRuleConditionArrayOutput {
-	return o.ApplyT(func(v DeliveryRule) []DeliveryRuleCondition { return v.Conditions }).(DeliveryRuleConditionArrayOutput)
+func (o DeliveryRuleOutput) Conditions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DeliveryRule) []interface{} { return v.Conditions }).(pulumi.ArrayOutput)
 }
 
 // Name of the rule
@@ -741,412 +1233,1830 @@ func (o DeliveryRuleArrayOutput) Index(i pulumi.IntInput) DeliveryRuleOutput {
 	}).(DeliveryRuleOutput)
 }
 
-// An action for the delivery rule.
-type DeliveryRuleAction struct {
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationAction struct {
 	// The name of the action for the delivery rule.
 	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheExpirationActionParameters `pulumi:"parameters"`
 }
 
-// DeliveryRuleActionInput is an input type that accepts DeliveryRuleActionArgs and DeliveryRuleActionOutput values.
-// You can construct a concrete instance of `DeliveryRuleActionInput` via:
+// DeliveryRuleCacheExpirationActionInput is an input type that accepts DeliveryRuleCacheExpirationActionArgs and DeliveryRuleCacheExpirationActionOutput values.
+// You can construct a concrete instance of `DeliveryRuleCacheExpirationActionInput` via:
 //
-//          DeliveryRuleActionArgs{...}
-type DeliveryRuleActionInput interface {
+//          DeliveryRuleCacheExpirationActionArgs{...}
+type DeliveryRuleCacheExpirationActionInput interface {
 	pulumi.Input
 
-	ToDeliveryRuleActionOutput() DeliveryRuleActionOutput
-	ToDeliveryRuleActionOutputWithContext(context.Context) DeliveryRuleActionOutput
+	ToDeliveryRuleCacheExpirationActionOutput() DeliveryRuleCacheExpirationActionOutput
+	ToDeliveryRuleCacheExpirationActionOutputWithContext(context.Context) DeliveryRuleCacheExpirationActionOutput
 }
 
-// An action for the delivery rule.
-type DeliveryRuleActionArgs struct {
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionArgs struct {
 	// The name of the action for the delivery rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheExpirationActionParametersInput `pulumi:"parameters"`
 }
 
-func (DeliveryRuleActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleAction)(nil)).Elem()
+func (DeliveryRuleCacheExpirationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheExpirationAction)(nil)).Elem()
 }
 
-func (i DeliveryRuleActionArgs) ToDeliveryRuleActionOutput() DeliveryRuleActionOutput {
-	return i.ToDeliveryRuleActionOutputWithContext(context.Background())
+func (i DeliveryRuleCacheExpirationActionArgs) ToDeliveryRuleCacheExpirationActionOutput() DeliveryRuleCacheExpirationActionOutput {
+	return i.ToDeliveryRuleCacheExpirationActionOutputWithContext(context.Background())
 }
 
-func (i DeliveryRuleActionArgs) ToDeliveryRuleActionOutputWithContext(ctx context.Context) DeliveryRuleActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleActionOutput)
+func (i DeliveryRuleCacheExpirationActionArgs) ToDeliveryRuleCacheExpirationActionOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheExpirationActionOutput)
 }
 
-// DeliveryRuleActionArrayInput is an input type that accepts DeliveryRuleActionArray and DeliveryRuleActionArrayOutput values.
-// You can construct a concrete instance of `DeliveryRuleActionArrayInput` via:
-//
-//          DeliveryRuleActionArray{ DeliveryRuleActionArgs{...} }
-type DeliveryRuleActionArrayInput interface {
-	pulumi.Input
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionOutput struct{ *pulumi.OutputState }
 
-	ToDeliveryRuleActionArrayOutput() DeliveryRuleActionArrayOutput
-	ToDeliveryRuleActionArrayOutputWithContext(context.Context) DeliveryRuleActionArrayOutput
+func (DeliveryRuleCacheExpirationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheExpirationAction)(nil)).Elem()
 }
 
-type DeliveryRuleActionArray []DeliveryRuleActionInput
-
-func (DeliveryRuleActionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleAction)(nil)).Elem()
-}
-
-func (i DeliveryRuleActionArray) ToDeliveryRuleActionArrayOutput() DeliveryRuleActionArrayOutput {
-	return i.ToDeliveryRuleActionArrayOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleActionArray) ToDeliveryRuleActionArrayOutputWithContext(ctx context.Context) DeliveryRuleActionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleActionArrayOutput)
-}
-
-// An action for the delivery rule.
-type DeliveryRuleActionOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleAction)(nil)).Elem()
-}
-
-func (o DeliveryRuleActionOutput) ToDeliveryRuleActionOutput() DeliveryRuleActionOutput {
+func (o DeliveryRuleCacheExpirationActionOutput) ToDeliveryRuleCacheExpirationActionOutput() DeliveryRuleCacheExpirationActionOutput {
 	return o
 }
 
-func (o DeliveryRuleActionOutput) ToDeliveryRuleActionOutputWithContext(ctx context.Context) DeliveryRuleActionOutput {
+func (o DeliveryRuleCacheExpirationActionOutput) ToDeliveryRuleCacheExpirationActionOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionOutput {
 	return o
 }
 
 // The name of the action for the delivery rule.
-func (o DeliveryRuleActionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleAction) string { return v.Name }).(pulumi.StringOutput)
+func (o DeliveryRuleCacheExpirationActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheExpirationAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type DeliveryRuleActionArrayOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleAction)(nil)).Elem()
+// Defines the parameters for the action.
+func (o DeliveryRuleCacheExpirationActionOutput) Parameters() CacheExpirationActionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheExpirationAction) CacheExpirationActionParameters { return v.Parameters }).(CacheExpirationActionParametersOutput)
 }
 
-func (o DeliveryRuleActionArrayOutput) ToDeliveryRuleActionArrayOutput() DeliveryRuleActionArrayOutput {
-	return o
-}
-
-func (o DeliveryRuleActionArrayOutput) ToDeliveryRuleActionArrayOutputWithContext(ctx context.Context) DeliveryRuleActionArrayOutput {
-	return o
-}
-
-func (o DeliveryRuleActionArrayOutput) Index(i pulumi.IntInput) DeliveryRuleActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleAction {
-		return vs[0].([]DeliveryRuleAction)[vs[1].(int)]
-	}).(DeliveryRuleActionOutput)
-}
-
-// An action for the delivery rule.
-type DeliveryRuleActionResponse struct {
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionResponse struct {
 	// The name of the action for the delivery rule.
 	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheExpirationActionParametersResponse `pulumi:"parameters"`
 }
 
-// DeliveryRuleActionResponseInput is an input type that accepts DeliveryRuleActionResponseArgs and DeliveryRuleActionResponseOutput values.
-// You can construct a concrete instance of `DeliveryRuleActionResponseInput` via:
+// DeliveryRuleCacheExpirationActionResponseInput is an input type that accepts DeliveryRuleCacheExpirationActionResponseArgs and DeliveryRuleCacheExpirationActionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleCacheExpirationActionResponseInput` via:
 //
-//          DeliveryRuleActionResponseArgs{...}
-type DeliveryRuleActionResponseInput interface {
+//          DeliveryRuleCacheExpirationActionResponseArgs{...}
+type DeliveryRuleCacheExpirationActionResponseInput interface {
 	pulumi.Input
 
-	ToDeliveryRuleActionResponseOutput() DeliveryRuleActionResponseOutput
-	ToDeliveryRuleActionResponseOutputWithContext(context.Context) DeliveryRuleActionResponseOutput
+	ToDeliveryRuleCacheExpirationActionResponseOutput() DeliveryRuleCacheExpirationActionResponseOutput
+	ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(context.Context) DeliveryRuleCacheExpirationActionResponseOutput
 }
 
-// An action for the delivery rule.
-type DeliveryRuleActionResponseArgs struct {
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionResponseArgs struct {
 	// The name of the action for the delivery rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheExpirationActionParametersResponseInput `pulumi:"parameters"`
 }
 
-func (DeliveryRuleActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleActionResponse)(nil)).Elem()
+func (DeliveryRuleCacheExpirationActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheExpirationActionResponse)(nil)).Elem()
 }
 
-func (i DeliveryRuleActionResponseArgs) ToDeliveryRuleActionResponseOutput() DeliveryRuleActionResponseOutput {
-	return i.ToDeliveryRuleActionResponseOutputWithContext(context.Background())
+func (i DeliveryRuleCacheExpirationActionResponseArgs) ToDeliveryRuleCacheExpirationActionResponseOutput() DeliveryRuleCacheExpirationActionResponseOutput {
+	return i.ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(context.Background())
 }
 
-func (i DeliveryRuleActionResponseArgs) ToDeliveryRuleActionResponseOutputWithContext(ctx context.Context) DeliveryRuleActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleActionResponseOutput)
+func (i DeliveryRuleCacheExpirationActionResponseArgs) ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheExpirationActionResponseOutput)
 }
 
-// DeliveryRuleActionResponseArrayInput is an input type that accepts DeliveryRuleActionResponseArray and DeliveryRuleActionResponseArrayOutput values.
-// You can construct a concrete instance of `DeliveryRuleActionResponseArrayInput` via:
-//
-//          DeliveryRuleActionResponseArray{ DeliveryRuleActionResponseArgs{...} }
-type DeliveryRuleActionResponseArrayInput interface {
-	pulumi.Input
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionResponseOutput struct{ *pulumi.OutputState }
 
-	ToDeliveryRuleActionResponseArrayOutput() DeliveryRuleActionResponseArrayOutput
-	ToDeliveryRuleActionResponseArrayOutputWithContext(context.Context) DeliveryRuleActionResponseArrayOutput
+func (DeliveryRuleCacheExpirationActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheExpirationActionResponse)(nil)).Elem()
 }
 
-type DeliveryRuleActionResponseArray []DeliveryRuleActionResponseInput
-
-func (DeliveryRuleActionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleActionResponse)(nil)).Elem()
-}
-
-func (i DeliveryRuleActionResponseArray) ToDeliveryRuleActionResponseArrayOutput() DeliveryRuleActionResponseArrayOutput {
-	return i.ToDeliveryRuleActionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleActionResponseArray) ToDeliveryRuleActionResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleActionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleActionResponseArrayOutput)
-}
-
-// An action for the delivery rule.
-type DeliveryRuleActionResponseOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleActionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleActionResponse)(nil)).Elem()
-}
-
-func (o DeliveryRuleActionResponseOutput) ToDeliveryRuleActionResponseOutput() DeliveryRuleActionResponseOutput {
+func (o DeliveryRuleCacheExpirationActionResponseOutput) ToDeliveryRuleCacheExpirationActionResponseOutput() DeliveryRuleCacheExpirationActionResponseOutput {
 	return o
 }
 
-func (o DeliveryRuleActionResponseOutput) ToDeliveryRuleActionResponseOutputWithContext(ctx context.Context) DeliveryRuleActionResponseOutput {
+func (o DeliveryRuleCacheExpirationActionResponseOutput) ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionResponseOutput {
 	return o
 }
 
 // The name of the action for the delivery rule.
-func (o DeliveryRuleActionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleActionResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o DeliveryRuleCacheExpirationActionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheExpirationActionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type DeliveryRuleActionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleActionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleActionResponse)(nil)).Elem()
+// Defines the parameters for the action.
+func (o DeliveryRuleCacheExpirationActionResponseOutput) Parameters() CacheExpirationActionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheExpirationActionResponse) CacheExpirationActionParametersResponse {
+		return v.Parameters
+	}).(CacheExpirationActionParametersResponseOutput)
 }
 
-func (o DeliveryRuleActionResponseArrayOutput) ToDeliveryRuleActionResponseArrayOutput() DeliveryRuleActionResponseArrayOutput {
+// Defines the cache-key query string action for the delivery rule.
+type DeliveryRuleCacheKeyQueryStringAction struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheKeyQueryStringActionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleCacheKeyQueryStringActionInput is an input type that accepts DeliveryRuleCacheKeyQueryStringActionArgs and DeliveryRuleCacheKeyQueryStringActionOutput values.
+// You can construct a concrete instance of `DeliveryRuleCacheKeyQueryStringActionInput` via:
+//
+//          DeliveryRuleCacheKeyQueryStringActionArgs{...}
+type DeliveryRuleCacheKeyQueryStringActionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleCacheKeyQueryStringActionOutput() DeliveryRuleCacheKeyQueryStringActionOutput
+	ToDeliveryRuleCacheKeyQueryStringActionOutputWithContext(context.Context) DeliveryRuleCacheKeyQueryStringActionOutput
+}
+
+// Defines the cache-key query string action for the delivery rule.
+type DeliveryRuleCacheKeyQueryStringActionArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheKeyQueryStringActionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleCacheKeyQueryStringActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheKeyQueryStringAction)(nil)).Elem()
+}
+
+func (i DeliveryRuleCacheKeyQueryStringActionArgs) ToDeliveryRuleCacheKeyQueryStringActionOutput() DeliveryRuleCacheKeyQueryStringActionOutput {
+	return i.ToDeliveryRuleCacheKeyQueryStringActionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleCacheKeyQueryStringActionArgs) ToDeliveryRuleCacheKeyQueryStringActionOutputWithContext(ctx context.Context) DeliveryRuleCacheKeyQueryStringActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheKeyQueryStringActionOutput)
+}
+
+// Defines the cache-key query string action for the delivery rule.
+type DeliveryRuleCacheKeyQueryStringActionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleCacheKeyQueryStringActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheKeyQueryStringAction)(nil)).Elem()
+}
+
+func (o DeliveryRuleCacheKeyQueryStringActionOutput) ToDeliveryRuleCacheKeyQueryStringActionOutput() DeliveryRuleCacheKeyQueryStringActionOutput {
 	return o
 }
 
-func (o DeliveryRuleActionResponseArrayOutput) ToDeliveryRuleActionResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleActionResponseArrayOutput {
+func (o DeliveryRuleCacheKeyQueryStringActionOutput) ToDeliveryRuleCacheKeyQueryStringActionOutputWithContext(ctx context.Context) DeliveryRuleCacheKeyQueryStringActionOutput {
 	return o
 }
 
-func (o DeliveryRuleActionResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleActionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleActionResponse {
-		return vs[0].([]DeliveryRuleActionResponse)[vs[1].(int)]
-	}).(DeliveryRuleActionResponseOutput)
+// The name of the action for the delivery rule.
+func (o DeliveryRuleCacheKeyQueryStringActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheKeyQueryStringAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A condition for the delivery rule.
-type DeliveryRuleCondition struct {
+// Defines the parameters for the action.
+func (o DeliveryRuleCacheKeyQueryStringActionOutput) Parameters() CacheKeyQueryStringActionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheKeyQueryStringAction) CacheKeyQueryStringActionParameters { return v.Parameters }).(CacheKeyQueryStringActionParametersOutput)
+}
+
+// Defines the cache-key query string action for the delivery rule.
+type DeliveryRuleCacheKeyQueryStringActionResponse struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheKeyQueryStringActionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleCacheKeyQueryStringActionResponseInput is an input type that accepts DeliveryRuleCacheKeyQueryStringActionResponseArgs and DeliveryRuleCacheKeyQueryStringActionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleCacheKeyQueryStringActionResponseInput` via:
+//
+//          DeliveryRuleCacheKeyQueryStringActionResponseArgs{...}
+type DeliveryRuleCacheKeyQueryStringActionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleCacheKeyQueryStringActionResponseOutput() DeliveryRuleCacheKeyQueryStringActionResponseOutput
+	ToDeliveryRuleCacheKeyQueryStringActionResponseOutputWithContext(context.Context) DeliveryRuleCacheKeyQueryStringActionResponseOutput
+}
+
+// Defines the cache-key query string action for the delivery rule.
+type DeliveryRuleCacheKeyQueryStringActionResponseArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheKeyQueryStringActionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleCacheKeyQueryStringActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheKeyQueryStringActionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleCacheKeyQueryStringActionResponseArgs) ToDeliveryRuleCacheKeyQueryStringActionResponseOutput() DeliveryRuleCacheKeyQueryStringActionResponseOutput {
+	return i.ToDeliveryRuleCacheKeyQueryStringActionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleCacheKeyQueryStringActionResponseArgs) ToDeliveryRuleCacheKeyQueryStringActionResponseOutputWithContext(ctx context.Context) DeliveryRuleCacheKeyQueryStringActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheKeyQueryStringActionResponseOutput)
+}
+
+// Defines the cache-key query string action for the delivery rule.
+type DeliveryRuleCacheKeyQueryStringActionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleCacheKeyQueryStringActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheKeyQueryStringActionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleCacheKeyQueryStringActionResponseOutput) ToDeliveryRuleCacheKeyQueryStringActionResponseOutput() DeliveryRuleCacheKeyQueryStringActionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleCacheKeyQueryStringActionResponseOutput) ToDeliveryRuleCacheKeyQueryStringActionResponseOutputWithContext(ctx context.Context) DeliveryRuleCacheKeyQueryStringActionResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o DeliveryRuleCacheKeyQueryStringActionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheKeyQueryStringActionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o DeliveryRuleCacheKeyQueryStringActionResponseOutput) Parameters() CacheKeyQueryStringActionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheKeyQueryStringActionResponse) CacheKeyQueryStringActionParametersResponse {
+		return v.Parameters
+	}).(CacheKeyQueryStringActionParametersResponseOutput)
+}
+
+// Defines the Cookies condition for the delivery rule.
+type DeliveryRuleCookiesCondition struct {
 	// The name of the condition for the delivery rule.
 	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters CookiesMatchConditionParameters `pulumi:"parameters"`
 }
 
-// DeliveryRuleConditionInput is an input type that accepts DeliveryRuleConditionArgs and DeliveryRuleConditionOutput values.
-// You can construct a concrete instance of `DeliveryRuleConditionInput` via:
+// DeliveryRuleCookiesConditionInput is an input type that accepts DeliveryRuleCookiesConditionArgs and DeliveryRuleCookiesConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleCookiesConditionInput` via:
 //
-//          DeliveryRuleConditionArgs{...}
-type DeliveryRuleConditionInput interface {
+//          DeliveryRuleCookiesConditionArgs{...}
+type DeliveryRuleCookiesConditionInput interface {
 	pulumi.Input
 
-	ToDeliveryRuleConditionOutput() DeliveryRuleConditionOutput
-	ToDeliveryRuleConditionOutputWithContext(context.Context) DeliveryRuleConditionOutput
+	ToDeliveryRuleCookiesConditionOutput() DeliveryRuleCookiesConditionOutput
+	ToDeliveryRuleCookiesConditionOutputWithContext(context.Context) DeliveryRuleCookiesConditionOutput
 }
 
-// A condition for the delivery rule.
-type DeliveryRuleConditionArgs struct {
+// Defines the Cookies condition for the delivery rule.
+type DeliveryRuleCookiesConditionArgs struct {
 	// The name of the condition for the delivery rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters CookiesMatchConditionParametersInput `pulumi:"parameters"`
 }
 
-func (DeliveryRuleConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleCondition)(nil)).Elem()
+func (DeliveryRuleCookiesConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCookiesCondition)(nil)).Elem()
 }
 
-func (i DeliveryRuleConditionArgs) ToDeliveryRuleConditionOutput() DeliveryRuleConditionOutput {
-	return i.ToDeliveryRuleConditionOutputWithContext(context.Background())
+func (i DeliveryRuleCookiesConditionArgs) ToDeliveryRuleCookiesConditionOutput() DeliveryRuleCookiesConditionOutput {
+	return i.ToDeliveryRuleCookiesConditionOutputWithContext(context.Background())
 }
 
-func (i DeliveryRuleConditionArgs) ToDeliveryRuleConditionOutputWithContext(ctx context.Context) DeliveryRuleConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleConditionOutput)
+func (i DeliveryRuleCookiesConditionArgs) ToDeliveryRuleCookiesConditionOutputWithContext(ctx context.Context) DeliveryRuleCookiesConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCookiesConditionOutput)
 }
 
-// DeliveryRuleConditionArrayInput is an input type that accepts DeliveryRuleConditionArray and DeliveryRuleConditionArrayOutput values.
-// You can construct a concrete instance of `DeliveryRuleConditionArrayInput` via:
-//
-//          DeliveryRuleConditionArray{ DeliveryRuleConditionArgs{...} }
-type DeliveryRuleConditionArrayInput interface {
-	pulumi.Input
+// Defines the Cookies condition for the delivery rule.
+type DeliveryRuleCookiesConditionOutput struct{ *pulumi.OutputState }
 
-	ToDeliveryRuleConditionArrayOutput() DeliveryRuleConditionArrayOutput
-	ToDeliveryRuleConditionArrayOutputWithContext(context.Context) DeliveryRuleConditionArrayOutput
+func (DeliveryRuleCookiesConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCookiesCondition)(nil)).Elem()
 }
 
-type DeliveryRuleConditionArray []DeliveryRuleConditionInput
-
-func (DeliveryRuleConditionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleCondition)(nil)).Elem()
-}
-
-func (i DeliveryRuleConditionArray) ToDeliveryRuleConditionArrayOutput() DeliveryRuleConditionArrayOutput {
-	return i.ToDeliveryRuleConditionArrayOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleConditionArray) ToDeliveryRuleConditionArrayOutputWithContext(ctx context.Context) DeliveryRuleConditionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleConditionArrayOutput)
-}
-
-// A condition for the delivery rule.
-type DeliveryRuleConditionOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleCondition)(nil)).Elem()
-}
-
-func (o DeliveryRuleConditionOutput) ToDeliveryRuleConditionOutput() DeliveryRuleConditionOutput {
+func (o DeliveryRuleCookiesConditionOutput) ToDeliveryRuleCookiesConditionOutput() DeliveryRuleCookiesConditionOutput {
 	return o
 }
 
-func (o DeliveryRuleConditionOutput) ToDeliveryRuleConditionOutputWithContext(ctx context.Context) DeliveryRuleConditionOutput {
+func (o DeliveryRuleCookiesConditionOutput) ToDeliveryRuleCookiesConditionOutputWithContext(ctx context.Context) DeliveryRuleCookiesConditionOutput {
 	return o
 }
 
 // The name of the condition for the delivery rule.
-func (o DeliveryRuleConditionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleCondition) string { return v.Name }).(pulumi.StringOutput)
+func (o DeliveryRuleCookiesConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleCookiesCondition) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type DeliveryRuleConditionArrayOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleConditionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleCondition)(nil)).Elem()
+// Defines the parameters for the condition.
+func (o DeliveryRuleCookiesConditionOutput) Parameters() CookiesMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleCookiesCondition) CookiesMatchConditionParameters { return v.Parameters }).(CookiesMatchConditionParametersOutput)
 }
 
-func (o DeliveryRuleConditionArrayOutput) ToDeliveryRuleConditionArrayOutput() DeliveryRuleConditionArrayOutput {
-	return o
-}
-
-func (o DeliveryRuleConditionArrayOutput) ToDeliveryRuleConditionArrayOutputWithContext(ctx context.Context) DeliveryRuleConditionArrayOutput {
-	return o
-}
-
-func (o DeliveryRuleConditionArrayOutput) Index(i pulumi.IntInput) DeliveryRuleConditionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleCondition {
-		return vs[0].([]DeliveryRuleCondition)[vs[1].(int)]
-	}).(DeliveryRuleConditionOutput)
-}
-
-// A condition for the delivery rule.
-type DeliveryRuleConditionResponse struct {
+// Defines the Cookies condition for the delivery rule.
+type DeliveryRuleCookiesConditionResponse struct {
 	// The name of the condition for the delivery rule.
 	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters CookiesMatchConditionParametersResponse `pulumi:"parameters"`
 }
 
-// DeliveryRuleConditionResponseInput is an input type that accepts DeliveryRuleConditionResponseArgs and DeliveryRuleConditionResponseOutput values.
-// You can construct a concrete instance of `DeliveryRuleConditionResponseInput` via:
+// DeliveryRuleCookiesConditionResponseInput is an input type that accepts DeliveryRuleCookiesConditionResponseArgs and DeliveryRuleCookiesConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleCookiesConditionResponseInput` via:
 //
-//          DeliveryRuleConditionResponseArgs{...}
-type DeliveryRuleConditionResponseInput interface {
+//          DeliveryRuleCookiesConditionResponseArgs{...}
+type DeliveryRuleCookiesConditionResponseInput interface {
 	pulumi.Input
 
-	ToDeliveryRuleConditionResponseOutput() DeliveryRuleConditionResponseOutput
-	ToDeliveryRuleConditionResponseOutputWithContext(context.Context) DeliveryRuleConditionResponseOutput
+	ToDeliveryRuleCookiesConditionResponseOutput() DeliveryRuleCookiesConditionResponseOutput
+	ToDeliveryRuleCookiesConditionResponseOutputWithContext(context.Context) DeliveryRuleCookiesConditionResponseOutput
 }
 
-// A condition for the delivery rule.
-type DeliveryRuleConditionResponseArgs struct {
+// Defines the Cookies condition for the delivery rule.
+type DeliveryRuleCookiesConditionResponseArgs struct {
 	// The name of the condition for the delivery rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters CookiesMatchConditionParametersResponseInput `pulumi:"parameters"`
 }
 
-func (DeliveryRuleConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleConditionResponse)(nil)).Elem()
+func (DeliveryRuleCookiesConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCookiesConditionResponse)(nil)).Elem()
 }
 
-func (i DeliveryRuleConditionResponseArgs) ToDeliveryRuleConditionResponseOutput() DeliveryRuleConditionResponseOutput {
-	return i.ToDeliveryRuleConditionResponseOutputWithContext(context.Background())
+func (i DeliveryRuleCookiesConditionResponseArgs) ToDeliveryRuleCookiesConditionResponseOutput() DeliveryRuleCookiesConditionResponseOutput {
+	return i.ToDeliveryRuleCookiesConditionResponseOutputWithContext(context.Background())
 }
 
-func (i DeliveryRuleConditionResponseArgs) ToDeliveryRuleConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleConditionResponseOutput)
+func (i DeliveryRuleCookiesConditionResponseArgs) ToDeliveryRuleCookiesConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleCookiesConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCookiesConditionResponseOutput)
 }
 
-// DeliveryRuleConditionResponseArrayInput is an input type that accepts DeliveryRuleConditionResponseArray and DeliveryRuleConditionResponseArrayOutput values.
-// You can construct a concrete instance of `DeliveryRuleConditionResponseArrayInput` via:
-//
-//          DeliveryRuleConditionResponseArray{ DeliveryRuleConditionResponseArgs{...} }
-type DeliveryRuleConditionResponseArrayInput interface {
-	pulumi.Input
+// Defines the Cookies condition for the delivery rule.
+type DeliveryRuleCookiesConditionResponseOutput struct{ *pulumi.OutputState }
 
-	ToDeliveryRuleConditionResponseArrayOutput() DeliveryRuleConditionResponseArrayOutput
-	ToDeliveryRuleConditionResponseArrayOutputWithContext(context.Context) DeliveryRuleConditionResponseArrayOutput
+func (DeliveryRuleCookiesConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCookiesConditionResponse)(nil)).Elem()
 }
 
-type DeliveryRuleConditionResponseArray []DeliveryRuleConditionResponseInput
-
-func (DeliveryRuleConditionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleConditionResponse)(nil)).Elem()
-}
-
-func (i DeliveryRuleConditionResponseArray) ToDeliveryRuleConditionResponseArrayOutput() DeliveryRuleConditionResponseArrayOutput {
-	return i.ToDeliveryRuleConditionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleConditionResponseArray) ToDeliveryRuleConditionResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleConditionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleConditionResponseArrayOutput)
-}
-
-// A condition for the delivery rule.
-type DeliveryRuleConditionResponseOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleConditionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleConditionResponse)(nil)).Elem()
-}
-
-func (o DeliveryRuleConditionResponseOutput) ToDeliveryRuleConditionResponseOutput() DeliveryRuleConditionResponseOutput {
+func (o DeliveryRuleCookiesConditionResponseOutput) ToDeliveryRuleCookiesConditionResponseOutput() DeliveryRuleCookiesConditionResponseOutput {
 	return o
 }
 
-func (o DeliveryRuleConditionResponseOutput) ToDeliveryRuleConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleConditionResponseOutput {
+func (o DeliveryRuleCookiesConditionResponseOutput) ToDeliveryRuleCookiesConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleCookiesConditionResponseOutput {
 	return o
 }
 
 // The name of the condition for the delivery rule.
-func (o DeliveryRuleConditionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o DeliveryRuleCookiesConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleCookiesConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type DeliveryRuleConditionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleConditionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleConditionResponse)(nil)).Elem()
+// Defines the parameters for the condition.
+func (o DeliveryRuleCookiesConditionResponseOutput) Parameters() CookiesMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleCookiesConditionResponse) CookiesMatchConditionParametersResponse {
+		return v.Parameters
+	}).(CookiesMatchConditionParametersResponseOutput)
 }
 
-func (o DeliveryRuleConditionResponseArrayOutput) ToDeliveryRuleConditionResponseArrayOutput() DeliveryRuleConditionResponseArrayOutput {
+// Defines the HttpVersion condition for the delivery rule.
+type DeliveryRuleHttpVersionCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters HttpVersionMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleHttpVersionConditionInput is an input type that accepts DeliveryRuleHttpVersionConditionArgs and DeliveryRuleHttpVersionConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleHttpVersionConditionInput` via:
+//
+//          DeliveryRuleHttpVersionConditionArgs{...}
+type DeliveryRuleHttpVersionConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleHttpVersionConditionOutput() DeliveryRuleHttpVersionConditionOutput
+	ToDeliveryRuleHttpVersionConditionOutputWithContext(context.Context) DeliveryRuleHttpVersionConditionOutput
+}
+
+// Defines the HttpVersion condition for the delivery rule.
+type DeliveryRuleHttpVersionConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters HttpVersionMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleHttpVersionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleHttpVersionCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleHttpVersionConditionArgs) ToDeliveryRuleHttpVersionConditionOutput() DeliveryRuleHttpVersionConditionOutput {
+	return i.ToDeliveryRuleHttpVersionConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleHttpVersionConditionArgs) ToDeliveryRuleHttpVersionConditionOutputWithContext(ctx context.Context) DeliveryRuleHttpVersionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleHttpVersionConditionOutput)
+}
+
+// Defines the HttpVersion condition for the delivery rule.
+type DeliveryRuleHttpVersionConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleHttpVersionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleHttpVersionCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleHttpVersionConditionOutput) ToDeliveryRuleHttpVersionConditionOutput() DeliveryRuleHttpVersionConditionOutput {
 	return o
 }
 
-func (o DeliveryRuleConditionResponseArrayOutput) ToDeliveryRuleConditionResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleConditionResponseArrayOutput {
+func (o DeliveryRuleHttpVersionConditionOutput) ToDeliveryRuleHttpVersionConditionOutputWithContext(ctx context.Context) DeliveryRuleHttpVersionConditionOutput {
 	return o
 }
 
-func (o DeliveryRuleConditionResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleConditionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleConditionResponse {
-		return vs[0].([]DeliveryRuleConditionResponse)[vs[1].(int)]
-	}).(DeliveryRuleConditionResponseOutput)
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleHttpVersionConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleHttpVersionCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleHttpVersionConditionOutput) Parameters() HttpVersionMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleHttpVersionCondition) HttpVersionMatchConditionParameters { return v.Parameters }).(HttpVersionMatchConditionParametersOutput)
+}
+
+// Defines the HttpVersion condition for the delivery rule.
+type DeliveryRuleHttpVersionConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters HttpVersionMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleHttpVersionConditionResponseInput is an input type that accepts DeliveryRuleHttpVersionConditionResponseArgs and DeliveryRuleHttpVersionConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleHttpVersionConditionResponseInput` via:
+//
+//          DeliveryRuleHttpVersionConditionResponseArgs{...}
+type DeliveryRuleHttpVersionConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleHttpVersionConditionResponseOutput() DeliveryRuleHttpVersionConditionResponseOutput
+	ToDeliveryRuleHttpVersionConditionResponseOutputWithContext(context.Context) DeliveryRuleHttpVersionConditionResponseOutput
+}
+
+// Defines the HttpVersion condition for the delivery rule.
+type DeliveryRuleHttpVersionConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters HttpVersionMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleHttpVersionConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleHttpVersionConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleHttpVersionConditionResponseArgs) ToDeliveryRuleHttpVersionConditionResponseOutput() DeliveryRuleHttpVersionConditionResponseOutput {
+	return i.ToDeliveryRuleHttpVersionConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleHttpVersionConditionResponseArgs) ToDeliveryRuleHttpVersionConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleHttpVersionConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleHttpVersionConditionResponseOutput)
+}
+
+// Defines the HttpVersion condition for the delivery rule.
+type DeliveryRuleHttpVersionConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleHttpVersionConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleHttpVersionConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleHttpVersionConditionResponseOutput) ToDeliveryRuleHttpVersionConditionResponseOutput() DeliveryRuleHttpVersionConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleHttpVersionConditionResponseOutput) ToDeliveryRuleHttpVersionConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleHttpVersionConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleHttpVersionConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleHttpVersionConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleHttpVersionConditionResponseOutput) Parameters() HttpVersionMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleHttpVersionConditionResponse) HttpVersionMatchConditionParametersResponse {
+		return v.Parameters
+	}).(HttpVersionMatchConditionParametersResponseOutput)
+}
+
+// Defines the IsDevice condition for the delivery rule.
+type DeliveryRuleIsDeviceCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters IsDeviceMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleIsDeviceConditionInput is an input type that accepts DeliveryRuleIsDeviceConditionArgs and DeliveryRuleIsDeviceConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleIsDeviceConditionInput` via:
+//
+//          DeliveryRuleIsDeviceConditionArgs{...}
+type DeliveryRuleIsDeviceConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleIsDeviceConditionOutput() DeliveryRuleIsDeviceConditionOutput
+	ToDeliveryRuleIsDeviceConditionOutputWithContext(context.Context) DeliveryRuleIsDeviceConditionOutput
+}
+
+// Defines the IsDevice condition for the delivery rule.
+type DeliveryRuleIsDeviceConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters IsDeviceMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleIsDeviceConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleIsDeviceCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleIsDeviceConditionArgs) ToDeliveryRuleIsDeviceConditionOutput() DeliveryRuleIsDeviceConditionOutput {
+	return i.ToDeliveryRuleIsDeviceConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleIsDeviceConditionArgs) ToDeliveryRuleIsDeviceConditionOutputWithContext(ctx context.Context) DeliveryRuleIsDeviceConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleIsDeviceConditionOutput)
+}
+
+// Defines the IsDevice condition for the delivery rule.
+type DeliveryRuleIsDeviceConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleIsDeviceConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleIsDeviceCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleIsDeviceConditionOutput) ToDeliveryRuleIsDeviceConditionOutput() DeliveryRuleIsDeviceConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleIsDeviceConditionOutput) ToDeliveryRuleIsDeviceConditionOutputWithContext(ctx context.Context) DeliveryRuleIsDeviceConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleIsDeviceConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleIsDeviceCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleIsDeviceConditionOutput) Parameters() IsDeviceMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleIsDeviceCondition) IsDeviceMatchConditionParameters { return v.Parameters }).(IsDeviceMatchConditionParametersOutput)
+}
+
+// Defines the IsDevice condition for the delivery rule.
+type DeliveryRuleIsDeviceConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters IsDeviceMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleIsDeviceConditionResponseInput is an input type that accepts DeliveryRuleIsDeviceConditionResponseArgs and DeliveryRuleIsDeviceConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleIsDeviceConditionResponseInput` via:
+//
+//          DeliveryRuleIsDeviceConditionResponseArgs{...}
+type DeliveryRuleIsDeviceConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleIsDeviceConditionResponseOutput() DeliveryRuleIsDeviceConditionResponseOutput
+	ToDeliveryRuleIsDeviceConditionResponseOutputWithContext(context.Context) DeliveryRuleIsDeviceConditionResponseOutput
+}
+
+// Defines the IsDevice condition for the delivery rule.
+type DeliveryRuleIsDeviceConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters IsDeviceMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleIsDeviceConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleIsDeviceConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleIsDeviceConditionResponseArgs) ToDeliveryRuleIsDeviceConditionResponseOutput() DeliveryRuleIsDeviceConditionResponseOutput {
+	return i.ToDeliveryRuleIsDeviceConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleIsDeviceConditionResponseArgs) ToDeliveryRuleIsDeviceConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleIsDeviceConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleIsDeviceConditionResponseOutput)
+}
+
+// Defines the IsDevice condition for the delivery rule.
+type DeliveryRuleIsDeviceConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleIsDeviceConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleIsDeviceConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleIsDeviceConditionResponseOutput) ToDeliveryRuleIsDeviceConditionResponseOutput() DeliveryRuleIsDeviceConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleIsDeviceConditionResponseOutput) ToDeliveryRuleIsDeviceConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleIsDeviceConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleIsDeviceConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleIsDeviceConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleIsDeviceConditionResponseOutput) Parameters() IsDeviceMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleIsDeviceConditionResponse) IsDeviceMatchConditionParametersResponse {
+		return v.Parameters
+	}).(IsDeviceMatchConditionParametersResponseOutput)
+}
+
+// Defines the PostArgs condition for the delivery rule.
+type DeliveryRulePostArgsCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters PostArgsMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRulePostArgsConditionInput is an input type that accepts DeliveryRulePostArgsConditionArgs and DeliveryRulePostArgsConditionOutput values.
+// You can construct a concrete instance of `DeliveryRulePostArgsConditionInput` via:
+//
+//          DeliveryRulePostArgsConditionArgs{...}
+type DeliveryRulePostArgsConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRulePostArgsConditionOutput() DeliveryRulePostArgsConditionOutput
+	ToDeliveryRulePostArgsConditionOutputWithContext(context.Context) DeliveryRulePostArgsConditionOutput
+}
+
+// Defines the PostArgs condition for the delivery rule.
+type DeliveryRulePostArgsConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters PostArgsMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRulePostArgsConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRulePostArgsCondition)(nil)).Elem()
+}
+
+func (i DeliveryRulePostArgsConditionArgs) ToDeliveryRulePostArgsConditionOutput() DeliveryRulePostArgsConditionOutput {
+	return i.ToDeliveryRulePostArgsConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRulePostArgsConditionArgs) ToDeliveryRulePostArgsConditionOutputWithContext(ctx context.Context) DeliveryRulePostArgsConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRulePostArgsConditionOutput)
+}
+
+// Defines the PostArgs condition for the delivery rule.
+type DeliveryRulePostArgsConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRulePostArgsConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRulePostArgsCondition)(nil)).Elem()
+}
+
+func (o DeliveryRulePostArgsConditionOutput) ToDeliveryRulePostArgsConditionOutput() DeliveryRulePostArgsConditionOutput {
+	return o
+}
+
+func (o DeliveryRulePostArgsConditionOutput) ToDeliveryRulePostArgsConditionOutputWithContext(ctx context.Context) DeliveryRulePostArgsConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRulePostArgsConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRulePostArgsCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRulePostArgsConditionOutput) Parameters() PostArgsMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRulePostArgsCondition) PostArgsMatchConditionParameters { return v.Parameters }).(PostArgsMatchConditionParametersOutput)
+}
+
+// Defines the PostArgs condition for the delivery rule.
+type DeliveryRulePostArgsConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters PostArgsMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRulePostArgsConditionResponseInput is an input type that accepts DeliveryRulePostArgsConditionResponseArgs and DeliveryRulePostArgsConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRulePostArgsConditionResponseInput` via:
+//
+//          DeliveryRulePostArgsConditionResponseArgs{...}
+type DeliveryRulePostArgsConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRulePostArgsConditionResponseOutput() DeliveryRulePostArgsConditionResponseOutput
+	ToDeliveryRulePostArgsConditionResponseOutputWithContext(context.Context) DeliveryRulePostArgsConditionResponseOutput
+}
+
+// Defines the PostArgs condition for the delivery rule.
+type DeliveryRulePostArgsConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters PostArgsMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRulePostArgsConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRulePostArgsConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRulePostArgsConditionResponseArgs) ToDeliveryRulePostArgsConditionResponseOutput() DeliveryRulePostArgsConditionResponseOutput {
+	return i.ToDeliveryRulePostArgsConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRulePostArgsConditionResponseArgs) ToDeliveryRulePostArgsConditionResponseOutputWithContext(ctx context.Context) DeliveryRulePostArgsConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRulePostArgsConditionResponseOutput)
+}
+
+// Defines the PostArgs condition for the delivery rule.
+type DeliveryRulePostArgsConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRulePostArgsConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRulePostArgsConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRulePostArgsConditionResponseOutput) ToDeliveryRulePostArgsConditionResponseOutput() DeliveryRulePostArgsConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRulePostArgsConditionResponseOutput) ToDeliveryRulePostArgsConditionResponseOutputWithContext(ctx context.Context) DeliveryRulePostArgsConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRulePostArgsConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRulePostArgsConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRulePostArgsConditionResponseOutput) Parameters() PostArgsMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRulePostArgsConditionResponse) PostArgsMatchConditionParametersResponse {
+		return v.Parameters
+	}).(PostArgsMatchConditionParametersResponseOutput)
+}
+
+// Defines the QueryString condition for the delivery rule.
+type DeliveryRuleQueryStringCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters QueryStringMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleQueryStringConditionInput is an input type that accepts DeliveryRuleQueryStringConditionArgs and DeliveryRuleQueryStringConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleQueryStringConditionInput` via:
+//
+//          DeliveryRuleQueryStringConditionArgs{...}
+type DeliveryRuleQueryStringConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleQueryStringConditionOutput() DeliveryRuleQueryStringConditionOutput
+	ToDeliveryRuleQueryStringConditionOutputWithContext(context.Context) DeliveryRuleQueryStringConditionOutput
+}
+
+// Defines the QueryString condition for the delivery rule.
+type DeliveryRuleQueryStringConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters QueryStringMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleQueryStringConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleQueryStringCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleQueryStringConditionArgs) ToDeliveryRuleQueryStringConditionOutput() DeliveryRuleQueryStringConditionOutput {
+	return i.ToDeliveryRuleQueryStringConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleQueryStringConditionArgs) ToDeliveryRuleQueryStringConditionOutputWithContext(ctx context.Context) DeliveryRuleQueryStringConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleQueryStringConditionOutput)
+}
+
+// Defines the QueryString condition for the delivery rule.
+type DeliveryRuleQueryStringConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleQueryStringConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleQueryStringCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleQueryStringConditionOutput) ToDeliveryRuleQueryStringConditionOutput() DeliveryRuleQueryStringConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleQueryStringConditionOutput) ToDeliveryRuleQueryStringConditionOutputWithContext(ctx context.Context) DeliveryRuleQueryStringConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleQueryStringConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleQueryStringCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleQueryStringConditionOutput) Parameters() QueryStringMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleQueryStringCondition) QueryStringMatchConditionParameters { return v.Parameters }).(QueryStringMatchConditionParametersOutput)
+}
+
+// Defines the QueryString condition for the delivery rule.
+type DeliveryRuleQueryStringConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters QueryStringMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleQueryStringConditionResponseInput is an input type that accepts DeliveryRuleQueryStringConditionResponseArgs and DeliveryRuleQueryStringConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleQueryStringConditionResponseInput` via:
+//
+//          DeliveryRuleQueryStringConditionResponseArgs{...}
+type DeliveryRuleQueryStringConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleQueryStringConditionResponseOutput() DeliveryRuleQueryStringConditionResponseOutput
+	ToDeliveryRuleQueryStringConditionResponseOutputWithContext(context.Context) DeliveryRuleQueryStringConditionResponseOutput
+}
+
+// Defines the QueryString condition for the delivery rule.
+type DeliveryRuleQueryStringConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters QueryStringMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleQueryStringConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleQueryStringConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleQueryStringConditionResponseArgs) ToDeliveryRuleQueryStringConditionResponseOutput() DeliveryRuleQueryStringConditionResponseOutput {
+	return i.ToDeliveryRuleQueryStringConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleQueryStringConditionResponseArgs) ToDeliveryRuleQueryStringConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleQueryStringConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleQueryStringConditionResponseOutput)
+}
+
+// Defines the QueryString condition for the delivery rule.
+type DeliveryRuleQueryStringConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleQueryStringConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleQueryStringConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleQueryStringConditionResponseOutput) ToDeliveryRuleQueryStringConditionResponseOutput() DeliveryRuleQueryStringConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleQueryStringConditionResponseOutput) ToDeliveryRuleQueryStringConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleQueryStringConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleQueryStringConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleQueryStringConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleQueryStringConditionResponseOutput) Parameters() QueryStringMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleQueryStringConditionResponse) QueryStringMatchConditionParametersResponse {
+		return v.Parameters
+	}).(QueryStringMatchConditionParametersResponseOutput)
+}
+
+// Defines the RemoteAddress condition for the delivery rule.
+type DeliveryRuleRemoteAddressCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RemoteAddressMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleRemoteAddressConditionInput is an input type that accepts DeliveryRuleRemoteAddressConditionArgs and DeliveryRuleRemoteAddressConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleRemoteAddressConditionInput` via:
+//
+//          DeliveryRuleRemoteAddressConditionArgs{...}
+type DeliveryRuleRemoteAddressConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRemoteAddressConditionOutput() DeliveryRuleRemoteAddressConditionOutput
+	ToDeliveryRuleRemoteAddressConditionOutputWithContext(context.Context) DeliveryRuleRemoteAddressConditionOutput
+}
+
+// Defines the RemoteAddress condition for the delivery rule.
+type DeliveryRuleRemoteAddressConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RemoteAddressMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRemoteAddressConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRemoteAddressCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleRemoteAddressConditionArgs) ToDeliveryRuleRemoteAddressConditionOutput() DeliveryRuleRemoteAddressConditionOutput {
+	return i.ToDeliveryRuleRemoteAddressConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRemoteAddressConditionArgs) ToDeliveryRuleRemoteAddressConditionOutputWithContext(ctx context.Context) DeliveryRuleRemoteAddressConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRemoteAddressConditionOutput)
+}
+
+// Defines the RemoteAddress condition for the delivery rule.
+type DeliveryRuleRemoteAddressConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRemoteAddressConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRemoteAddressCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleRemoteAddressConditionOutput) ToDeliveryRuleRemoteAddressConditionOutput() DeliveryRuleRemoteAddressConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleRemoteAddressConditionOutput) ToDeliveryRuleRemoteAddressConditionOutputWithContext(ctx context.Context) DeliveryRuleRemoteAddressConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRemoteAddressConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRemoteAddressCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRemoteAddressConditionOutput) Parameters() RemoteAddressMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleRemoteAddressCondition) RemoteAddressMatchConditionParameters { return v.Parameters }).(RemoteAddressMatchConditionParametersOutput)
+}
+
+// Defines the RemoteAddress condition for the delivery rule.
+type DeliveryRuleRemoteAddressConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RemoteAddressMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRemoteAddressConditionResponseInput is an input type that accepts DeliveryRuleRemoteAddressConditionResponseArgs and DeliveryRuleRemoteAddressConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRemoteAddressConditionResponseInput` via:
+//
+//          DeliveryRuleRemoteAddressConditionResponseArgs{...}
+type DeliveryRuleRemoteAddressConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRemoteAddressConditionResponseOutput() DeliveryRuleRemoteAddressConditionResponseOutput
+	ToDeliveryRuleRemoteAddressConditionResponseOutputWithContext(context.Context) DeliveryRuleRemoteAddressConditionResponseOutput
+}
+
+// Defines the RemoteAddress condition for the delivery rule.
+type DeliveryRuleRemoteAddressConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RemoteAddressMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRemoteAddressConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRemoteAddressConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRemoteAddressConditionResponseArgs) ToDeliveryRuleRemoteAddressConditionResponseOutput() DeliveryRuleRemoteAddressConditionResponseOutput {
+	return i.ToDeliveryRuleRemoteAddressConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRemoteAddressConditionResponseArgs) ToDeliveryRuleRemoteAddressConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRemoteAddressConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRemoteAddressConditionResponseOutput)
+}
+
+// Defines the RemoteAddress condition for the delivery rule.
+type DeliveryRuleRemoteAddressConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRemoteAddressConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRemoteAddressConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRemoteAddressConditionResponseOutput) ToDeliveryRuleRemoteAddressConditionResponseOutput() DeliveryRuleRemoteAddressConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRemoteAddressConditionResponseOutput) ToDeliveryRuleRemoteAddressConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRemoteAddressConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRemoteAddressConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRemoteAddressConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRemoteAddressConditionResponseOutput) Parameters() RemoteAddressMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRemoteAddressConditionResponse) RemoteAddressMatchConditionParametersResponse {
+		return v.Parameters
+	}).(RemoteAddressMatchConditionParametersResponseOutput)
+}
+
+// Defines the RequestBody condition for the delivery rule.
+type DeliveryRuleRequestBodyCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestBodyMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestBodyConditionInput is an input type that accepts DeliveryRuleRequestBodyConditionArgs and DeliveryRuleRequestBodyConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestBodyConditionInput` via:
+//
+//          DeliveryRuleRequestBodyConditionArgs{...}
+type DeliveryRuleRequestBodyConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestBodyConditionOutput() DeliveryRuleRequestBodyConditionOutput
+	ToDeliveryRuleRequestBodyConditionOutputWithContext(context.Context) DeliveryRuleRequestBodyConditionOutput
+}
+
+// Defines the RequestBody condition for the delivery rule.
+type DeliveryRuleRequestBodyConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestBodyMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestBodyConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestBodyCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestBodyConditionArgs) ToDeliveryRuleRequestBodyConditionOutput() DeliveryRuleRequestBodyConditionOutput {
+	return i.ToDeliveryRuleRequestBodyConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestBodyConditionArgs) ToDeliveryRuleRequestBodyConditionOutputWithContext(ctx context.Context) DeliveryRuleRequestBodyConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestBodyConditionOutput)
+}
+
+// Defines the RequestBody condition for the delivery rule.
+type DeliveryRuleRequestBodyConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestBodyConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestBodyCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestBodyConditionOutput) ToDeliveryRuleRequestBodyConditionOutput() DeliveryRuleRequestBodyConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestBodyConditionOutput) ToDeliveryRuleRequestBodyConditionOutputWithContext(ctx context.Context) DeliveryRuleRequestBodyConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRequestBodyConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestBodyCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestBodyConditionOutput) Parameters() RequestBodyMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestBodyCondition) RequestBodyMatchConditionParameters { return v.Parameters }).(RequestBodyMatchConditionParametersOutput)
+}
+
+// Defines the RequestBody condition for the delivery rule.
+type DeliveryRuleRequestBodyConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestBodyMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestBodyConditionResponseInput is an input type that accepts DeliveryRuleRequestBodyConditionResponseArgs and DeliveryRuleRequestBodyConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestBodyConditionResponseInput` via:
+//
+//          DeliveryRuleRequestBodyConditionResponseArgs{...}
+type DeliveryRuleRequestBodyConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestBodyConditionResponseOutput() DeliveryRuleRequestBodyConditionResponseOutput
+	ToDeliveryRuleRequestBodyConditionResponseOutputWithContext(context.Context) DeliveryRuleRequestBodyConditionResponseOutput
+}
+
+// Defines the RequestBody condition for the delivery rule.
+type DeliveryRuleRequestBodyConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestBodyMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestBodyConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestBodyConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestBodyConditionResponseArgs) ToDeliveryRuleRequestBodyConditionResponseOutput() DeliveryRuleRequestBodyConditionResponseOutput {
+	return i.ToDeliveryRuleRequestBodyConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestBodyConditionResponseArgs) ToDeliveryRuleRequestBodyConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestBodyConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestBodyConditionResponseOutput)
+}
+
+// Defines the RequestBody condition for the delivery rule.
+type DeliveryRuleRequestBodyConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestBodyConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestBodyConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestBodyConditionResponseOutput) ToDeliveryRuleRequestBodyConditionResponseOutput() DeliveryRuleRequestBodyConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestBodyConditionResponseOutput) ToDeliveryRuleRequestBodyConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestBodyConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRequestBodyConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestBodyConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestBodyConditionResponseOutput) Parameters() RequestBodyMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestBodyConditionResponse) RequestBodyMatchConditionParametersResponse {
+		return v.Parameters
+	}).(RequestBodyMatchConditionParametersResponseOutput)
+}
+
+// Defines the request header action for the delivery rule.
+type DeliveryRuleRequestHeaderAction struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestHeaderActionInput is an input type that accepts DeliveryRuleRequestHeaderActionArgs and DeliveryRuleRequestHeaderActionOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestHeaderActionInput` via:
+//
+//          DeliveryRuleRequestHeaderActionArgs{...}
+type DeliveryRuleRequestHeaderActionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestHeaderActionOutput() DeliveryRuleRequestHeaderActionOutput
+	ToDeliveryRuleRequestHeaderActionOutputWithContext(context.Context) DeliveryRuleRequestHeaderActionOutput
+}
+
+// Defines the request header action for the delivery rule.
+type DeliveryRuleRequestHeaderActionArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestHeaderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderAction)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestHeaderActionArgs) ToDeliveryRuleRequestHeaderActionOutput() DeliveryRuleRequestHeaderActionOutput {
+	return i.ToDeliveryRuleRequestHeaderActionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestHeaderActionArgs) ToDeliveryRuleRequestHeaderActionOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestHeaderActionOutput)
+}
+
+// Defines the request header action for the delivery rule.
+type DeliveryRuleRequestHeaderActionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestHeaderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderAction)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestHeaderActionOutput) ToDeliveryRuleRequestHeaderActionOutput() DeliveryRuleRequestHeaderActionOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestHeaderActionOutput) ToDeliveryRuleRequestHeaderActionOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderActionOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o DeliveryRuleRequestHeaderActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o DeliveryRuleRequestHeaderActionOutput) Parameters() HeaderActionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderAction) HeaderActionParameters { return v.Parameters }).(HeaderActionParametersOutput)
+}
+
+// Defines the request header action for the delivery rule.
+type DeliveryRuleRequestHeaderActionResponse struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestHeaderActionResponseInput is an input type that accepts DeliveryRuleRequestHeaderActionResponseArgs and DeliveryRuleRequestHeaderActionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestHeaderActionResponseInput` via:
+//
+//          DeliveryRuleRequestHeaderActionResponseArgs{...}
+type DeliveryRuleRequestHeaderActionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestHeaderActionResponseOutput() DeliveryRuleRequestHeaderActionResponseOutput
+	ToDeliveryRuleRequestHeaderActionResponseOutputWithContext(context.Context) DeliveryRuleRequestHeaderActionResponseOutput
+}
+
+// Defines the request header action for the delivery rule.
+type DeliveryRuleRequestHeaderActionResponseArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestHeaderActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderActionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestHeaderActionResponseArgs) ToDeliveryRuleRequestHeaderActionResponseOutput() DeliveryRuleRequestHeaderActionResponseOutput {
+	return i.ToDeliveryRuleRequestHeaderActionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestHeaderActionResponseArgs) ToDeliveryRuleRequestHeaderActionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestHeaderActionResponseOutput)
+}
+
+// Defines the request header action for the delivery rule.
+type DeliveryRuleRequestHeaderActionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestHeaderActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderActionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestHeaderActionResponseOutput) ToDeliveryRuleRequestHeaderActionResponseOutput() DeliveryRuleRequestHeaderActionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestHeaderActionResponseOutput) ToDeliveryRuleRequestHeaderActionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderActionResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o DeliveryRuleRequestHeaderActionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderActionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o DeliveryRuleRequestHeaderActionResponseOutput) Parameters() HeaderActionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderActionResponse) HeaderActionParametersResponse { return v.Parameters }).(HeaderActionParametersResponseOutput)
+}
+
+// Defines the RequestHeader condition for the delivery rule.
+type DeliveryRuleRequestHeaderCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestHeaderMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestHeaderConditionInput is an input type that accepts DeliveryRuleRequestHeaderConditionArgs and DeliveryRuleRequestHeaderConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestHeaderConditionInput` via:
+//
+//          DeliveryRuleRequestHeaderConditionArgs{...}
+type DeliveryRuleRequestHeaderConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestHeaderConditionOutput() DeliveryRuleRequestHeaderConditionOutput
+	ToDeliveryRuleRequestHeaderConditionOutputWithContext(context.Context) DeliveryRuleRequestHeaderConditionOutput
+}
+
+// Defines the RequestHeader condition for the delivery rule.
+type DeliveryRuleRequestHeaderConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestHeaderMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestHeaderConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestHeaderConditionArgs) ToDeliveryRuleRequestHeaderConditionOutput() DeliveryRuleRequestHeaderConditionOutput {
+	return i.ToDeliveryRuleRequestHeaderConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestHeaderConditionArgs) ToDeliveryRuleRequestHeaderConditionOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestHeaderConditionOutput)
+}
+
+// Defines the RequestHeader condition for the delivery rule.
+type DeliveryRuleRequestHeaderConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestHeaderConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestHeaderConditionOutput) ToDeliveryRuleRequestHeaderConditionOutput() DeliveryRuleRequestHeaderConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestHeaderConditionOutput) ToDeliveryRuleRequestHeaderConditionOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRequestHeaderConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestHeaderConditionOutput) Parameters() RequestHeaderMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderCondition) RequestHeaderMatchConditionParameters { return v.Parameters }).(RequestHeaderMatchConditionParametersOutput)
+}
+
+// Defines the RequestHeader condition for the delivery rule.
+type DeliveryRuleRequestHeaderConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestHeaderMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestHeaderConditionResponseInput is an input type that accepts DeliveryRuleRequestHeaderConditionResponseArgs and DeliveryRuleRequestHeaderConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestHeaderConditionResponseInput` via:
+//
+//          DeliveryRuleRequestHeaderConditionResponseArgs{...}
+type DeliveryRuleRequestHeaderConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestHeaderConditionResponseOutput() DeliveryRuleRequestHeaderConditionResponseOutput
+	ToDeliveryRuleRequestHeaderConditionResponseOutputWithContext(context.Context) DeliveryRuleRequestHeaderConditionResponseOutput
+}
+
+// Defines the RequestHeader condition for the delivery rule.
+type DeliveryRuleRequestHeaderConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestHeaderMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestHeaderConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestHeaderConditionResponseArgs) ToDeliveryRuleRequestHeaderConditionResponseOutput() DeliveryRuleRequestHeaderConditionResponseOutput {
+	return i.ToDeliveryRuleRequestHeaderConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestHeaderConditionResponseArgs) ToDeliveryRuleRequestHeaderConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestHeaderConditionResponseOutput)
+}
+
+// Defines the RequestHeader condition for the delivery rule.
+type DeliveryRuleRequestHeaderConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestHeaderConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestHeaderConditionResponseOutput) ToDeliveryRuleRequestHeaderConditionResponseOutput() DeliveryRuleRequestHeaderConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestHeaderConditionResponseOutput) ToDeliveryRuleRequestHeaderConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRequestHeaderConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestHeaderConditionResponseOutput) Parameters() RequestHeaderMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderConditionResponse) RequestHeaderMatchConditionParametersResponse {
+		return v.Parameters
+	}).(RequestHeaderMatchConditionParametersResponseOutput)
+}
+
+// Defines the RequestMethod condition for the delivery rule.
+type DeliveryRuleRequestMethodCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestMethodMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestMethodConditionInput is an input type that accepts DeliveryRuleRequestMethodConditionArgs and DeliveryRuleRequestMethodConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestMethodConditionInput` via:
+//
+//          DeliveryRuleRequestMethodConditionArgs{...}
+type DeliveryRuleRequestMethodConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestMethodConditionOutput() DeliveryRuleRequestMethodConditionOutput
+	ToDeliveryRuleRequestMethodConditionOutputWithContext(context.Context) DeliveryRuleRequestMethodConditionOutput
+}
+
+// Defines the RequestMethod condition for the delivery rule.
+type DeliveryRuleRequestMethodConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestMethodMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestMethodConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestMethodCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestMethodConditionArgs) ToDeliveryRuleRequestMethodConditionOutput() DeliveryRuleRequestMethodConditionOutput {
+	return i.ToDeliveryRuleRequestMethodConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestMethodConditionArgs) ToDeliveryRuleRequestMethodConditionOutputWithContext(ctx context.Context) DeliveryRuleRequestMethodConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestMethodConditionOutput)
+}
+
+// Defines the RequestMethod condition for the delivery rule.
+type DeliveryRuleRequestMethodConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestMethodConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestMethodCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestMethodConditionOutput) ToDeliveryRuleRequestMethodConditionOutput() DeliveryRuleRequestMethodConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestMethodConditionOutput) ToDeliveryRuleRequestMethodConditionOutputWithContext(ctx context.Context) DeliveryRuleRequestMethodConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRequestMethodConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestMethodCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestMethodConditionOutput) Parameters() RequestMethodMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestMethodCondition) RequestMethodMatchConditionParameters { return v.Parameters }).(RequestMethodMatchConditionParametersOutput)
+}
+
+// Defines the RequestMethod condition for the delivery rule.
+type DeliveryRuleRequestMethodConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestMethodMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestMethodConditionResponseInput is an input type that accepts DeliveryRuleRequestMethodConditionResponseArgs and DeliveryRuleRequestMethodConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestMethodConditionResponseInput` via:
+//
+//          DeliveryRuleRequestMethodConditionResponseArgs{...}
+type DeliveryRuleRequestMethodConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestMethodConditionResponseOutput() DeliveryRuleRequestMethodConditionResponseOutput
+	ToDeliveryRuleRequestMethodConditionResponseOutputWithContext(context.Context) DeliveryRuleRequestMethodConditionResponseOutput
+}
+
+// Defines the RequestMethod condition for the delivery rule.
+type DeliveryRuleRequestMethodConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestMethodMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestMethodConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestMethodConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestMethodConditionResponseArgs) ToDeliveryRuleRequestMethodConditionResponseOutput() DeliveryRuleRequestMethodConditionResponseOutput {
+	return i.ToDeliveryRuleRequestMethodConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestMethodConditionResponseArgs) ToDeliveryRuleRequestMethodConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestMethodConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestMethodConditionResponseOutput)
+}
+
+// Defines the RequestMethod condition for the delivery rule.
+type DeliveryRuleRequestMethodConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestMethodConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestMethodConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestMethodConditionResponseOutput) ToDeliveryRuleRequestMethodConditionResponseOutput() DeliveryRuleRequestMethodConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestMethodConditionResponseOutput) ToDeliveryRuleRequestMethodConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestMethodConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRequestMethodConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestMethodConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestMethodConditionResponseOutput) Parameters() RequestMethodMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestMethodConditionResponse) RequestMethodMatchConditionParametersResponse {
+		return v.Parameters
+	}).(RequestMethodMatchConditionParametersResponseOutput)
+}
+
+// Defines the RequestScheme condition for the delivery rule.
+type DeliveryRuleRequestSchemeCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestSchemeMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestSchemeConditionInput is an input type that accepts DeliveryRuleRequestSchemeConditionArgs and DeliveryRuleRequestSchemeConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestSchemeConditionInput` via:
+//
+//          DeliveryRuleRequestSchemeConditionArgs{...}
+type DeliveryRuleRequestSchemeConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestSchemeConditionOutput() DeliveryRuleRequestSchemeConditionOutput
+	ToDeliveryRuleRequestSchemeConditionOutputWithContext(context.Context) DeliveryRuleRequestSchemeConditionOutput
+}
+
+// Defines the RequestScheme condition for the delivery rule.
+type DeliveryRuleRequestSchemeConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestSchemeMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestSchemeConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestSchemeCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestSchemeConditionArgs) ToDeliveryRuleRequestSchemeConditionOutput() DeliveryRuleRequestSchemeConditionOutput {
+	return i.ToDeliveryRuleRequestSchemeConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestSchemeConditionArgs) ToDeliveryRuleRequestSchemeConditionOutputWithContext(ctx context.Context) DeliveryRuleRequestSchemeConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestSchemeConditionOutput)
+}
+
+// Defines the RequestScheme condition for the delivery rule.
+type DeliveryRuleRequestSchemeConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestSchemeConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestSchemeCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestSchemeConditionOutput) ToDeliveryRuleRequestSchemeConditionOutput() DeliveryRuleRequestSchemeConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestSchemeConditionOutput) ToDeliveryRuleRequestSchemeConditionOutputWithContext(ctx context.Context) DeliveryRuleRequestSchemeConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRequestSchemeConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestSchemeCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestSchemeConditionOutput) Parameters() RequestSchemeMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestSchemeCondition) RequestSchemeMatchConditionParameters { return v.Parameters }).(RequestSchemeMatchConditionParametersOutput)
+}
+
+// Defines the RequestScheme condition for the delivery rule.
+type DeliveryRuleRequestSchemeConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestSchemeMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestSchemeConditionResponseInput is an input type that accepts DeliveryRuleRequestSchemeConditionResponseArgs and DeliveryRuleRequestSchemeConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestSchemeConditionResponseInput` via:
+//
+//          DeliveryRuleRequestSchemeConditionResponseArgs{...}
+type DeliveryRuleRequestSchemeConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestSchemeConditionResponseOutput() DeliveryRuleRequestSchemeConditionResponseOutput
+	ToDeliveryRuleRequestSchemeConditionResponseOutputWithContext(context.Context) DeliveryRuleRequestSchemeConditionResponseOutput
+}
+
+// Defines the RequestScheme condition for the delivery rule.
+type DeliveryRuleRequestSchemeConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestSchemeMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestSchemeConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestSchemeConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestSchemeConditionResponseArgs) ToDeliveryRuleRequestSchemeConditionResponseOutput() DeliveryRuleRequestSchemeConditionResponseOutput {
+	return i.ToDeliveryRuleRequestSchemeConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestSchemeConditionResponseArgs) ToDeliveryRuleRequestSchemeConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestSchemeConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestSchemeConditionResponseOutput)
+}
+
+// Defines the RequestScheme condition for the delivery rule.
+type DeliveryRuleRequestSchemeConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestSchemeConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestSchemeConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestSchemeConditionResponseOutput) ToDeliveryRuleRequestSchemeConditionResponseOutput() DeliveryRuleRequestSchemeConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestSchemeConditionResponseOutput) ToDeliveryRuleRequestSchemeConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestSchemeConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRequestSchemeConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestSchemeConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestSchemeConditionResponseOutput) Parameters() RequestSchemeMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestSchemeConditionResponse) RequestSchemeMatchConditionParametersResponse {
+		return v.Parameters
+	}).(RequestSchemeMatchConditionParametersResponseOutput)
+}
+
+// Defines the RequestUri condition for the delivery rule.
+type DeliveryRuleRequestUriCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestUriMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestUriConditionInput is an input type that accepts DeliveryRuleRequestUriConditionArgs and DeliveryRuleRequestUriConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestUriConditionInput` via:
+//
+//          DeliveryRuleRequestUriConditionArgs{...}
+type DeliveryRuleRequestUriConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestUriConditionOutput() DeliveryRuleRequestUriConditionOutput
+	ToDeliveryRuleRequestUriConditionOutputWithContext(context.Context) DeliveryRuleRequestUriConditionOutput
+}
+
+// Defines the RequestUri condition for the delivery rule.
+type DeliveryRuleRequestUriConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestUriMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestUriConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestUriCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestUriConditionArgs) ToDeliveryRuleRequestUriConditionOutput() DeliveryRuleRequestUriConditionOutput {
+	return i.ToDeliveryRuleRequestUriConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestUriConditionArgs) ToDeliveryRuleRequestUriConditionOutputWithContext(ctx context.Context) DeliveryRuleRequestUriConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestUriConditionOutput)
+}
+
+// Defines the RequestUri condition for the delivery rule.
+type DeliveryRuleRequestUriConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestUriConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestUriCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestUriConditionOutput) ToDeliveryRuleRequestUriConditionOutput() DeliveryRuleRequestUriConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestUriConditionOutput) ToDeliveryRuleRequestUriConditionOutputWithContext(ctx context.Context) DeliveryRuleRequestUriConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRequestUriConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestUriCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestUriConditionOutput) Parameters() RequestUriMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestUriCondition) RequestUriMatchConditionParameters { return v.Parameters }).(RequestUriMatchConditionParametersOutput)
+}
+
+// Defines the RequestUri condition for the delivery rule.
+type DeliveryRuleRequestUriConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestUriMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestUriConditionResponseInput is an input type that accepts DeliveryRuleRequestUriConditionResponseArgs and DeliveryRuleRequestUriConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestUriConditionResponseInput` via:
+//
+//          DeliveryRuleRequestUriConditionResponseArgs{...}
+type DeliveryRuleRequestUriConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestUriConditionResponseOutput() DeliveryRuleRequestUriConditionResponseOutput
+	ToDeliveryRuleRequestUriConditionResponseOutputWithContext(context.Context) DeliveryRuleRequestUriConditionResponseOutput
+}
+
+// Defines the RequestUri condition for the delivery rule.
+type DeliveryRuleRequestUriConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestUriMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestUriConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestUriConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestUriConditionResponseArgs) ToDeliveryRuleRequestUriConditionResponseOutput() DeliveryRuleRequestUriConditionResponseOutput {
+	return i.ToDeliveryRuleRequestUriConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestUriConditionResponseArgs) ToDeliveryRuleRequestUriConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestUriConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestUriConditionResponseOutput)
+}
+
+// Defines the RequestUri condition for the delivery rule.
+type DeliveryRuleRequestUriConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestUriConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestUriConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestUriConditionResponseOutput) ToDeliveryRuleRequestUriConditionResponseOutput() DeliveryRuleRequestUriConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestUriConditionResponseOutput) ToDeliveryRuleRequestUriConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestUriConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleRequestUriConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestUriConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestUriConditionResponseOutput) Parameters() RequestUriMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestUriConditionResponse) RequestUriMatchConditionParametersResponse {
+		return v.Parameters
+	}).(RequestUriMatchConditionParametersResponseOutput)
 }
 
 // A rule that specifies a set of actions and conditions
 type DeliveryRuleResponse struct {
 	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions []DeliveryRuleActionResponse `pulumi:"actions"`
+	Actions []interface{} `pulumi:"actions"`
 	// A list of conditions that must be matched for the actions to be executed
-	Conditions []DeliveryRuleConditionResponse `pulumi:"conditions"`
+	Conditions []interface{} `pulumi:"conditions"`
 	// Name of the rule
 	Name *string `pulumi:"name"`
 	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
@@ -1167,9 +3077,9 @@ type DeliveryRuleResponseInput interface {
 // A rule that specifies a set of actions and conditions
 type DeliveryRuleResponseArgs struct {
 	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions DeliveryRuleActionResponseArrayInput `pulumi:"actions"`
+	Actions pulumi.ArrayInput `pulumi:"actions"`
 	// A list of conditions that must be matched for the actions to be executed
-	Conditions DeliveryRuleConditionResponseArrayInput `pulumi:"conditions"`
+	Conditions pulumi.ArrayInput `pulumi:"conditions"`
 	// Name of the rule
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
@@ -1229,13 +3139,13 @@ func (o DeliveryRuleResponseOutput) ToDeliveryRuleResponseOutputWithContext(ctx 
 }
 
 // A list of actions that are executed when all the conditions of a rule are satisfied.
-func (o DeliveryRuleResponseOutput) Actions() DeliveryRuleActionResponseArrayOutput {
-	return o.ApplyT(func(v DeliveryRuleResponse) []DeliveryRuleActionResponse { return v.Actions }).(DeliveryRuleActionResponseArrayOutput)
+func (o DeliveryRuleResponseOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DeliveryRuleResponse) []interface{} { return v.Actions }).(pulumi.ArrayOutput)
 }
 
 // A list of conditions that must be matched for the actions to be executed
-func (o DeliveryRuleResponseOutput) Conditions() DeliveryRuleConditionResponseArrayOutput {
-	return o.ApplyT(func(v DeliveryRuleResponse) []DeliveryRuleConditionResponse { return v.Conditions }).(DeliveryRuleConditionResponseArrayOutput)
+func (o DeliveryRuleResponseOutput) Conditions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DeliveryRuleResponse) []interface{} { return v.Conditions }).(pulumi.ArrayOutput)
 }
 
 // Name of the rule
@@ -1266,6 +3176,526 @@ func (o DeliveryRuleResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleResponse {
 		return vs[0].([]DeliveryRuleResponse)[vs[1].(int)]
 	}).(DeliveryRuleResponseOutput)
+}
+
+// Defines the response header action for the delivery rule.
+type DeliveryRuleResponseHeaderAction struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleResponseHeaderActionInput is an input type that accepts DeliveryRuleResponseHeaderActionArgs and DeliveryRuleResponseHeaderActionOutput values.
+// You can construct a concrete instance of `DeliveryRuleResponseHeaderActionInput` via:
+//
+//          DeliveryRuleResponseHeaderActionArgs{...}
+type DeliveryRuleResponseHeaderActionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleResponseHeaderActionOutput() DeliveryRuleResponseHeaderActionOutput
+	ToDeliveryRuleResponseHeaderActionOutputWithContext(context.Context) DeliveryRuleResponseHeaderActionOutput
+}
+
+// Defines the response header action for the delivery rule.
+type DeliveryRuleResponseHeaderActionArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleResponseHeaderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleResponseHeaderAction)(nil)).Elem()
+}
+
+func (i DeliveryRuleResponseHeaderActionArgs) ToDeliveryRuleResponseHeaderActionOutput() DeliveryRuleResponseHeaderActionOutput {
+	return i.ToDeliveryRuleResponseHeaderActionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleResponseHeaderActionArgs) ToDeliveryRuleResponseHeaderActionOutputWithContext(ctx context.Context) DeliveryRuleResponseHeaderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleResponseHeaderActionOutput)
+}
+
+// Defines the response header action for the delivery rule.
+type DeliveryRuleResponseHeaderActionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleResponseHeaderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleResponseHeaderAction)(nil)).Elem()
+}
+
+func (o DeliveryRuleResponseHeaderActionOutput) ToDeliveryRuleResponseHeaderActionOutput() DeliveryRuleResponseHeaderActionOutput {
+	return o
+}
+
+func (o DeliveryRuleResponseHeaderActionOutput) ToDeliveryRuleResponseHeaderActionOutputWithContext(ctx context.Context) DeliveryRuleResponseHeaderActionOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o DeliveryRuleResponseHeaderActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleResponseHeaderAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o DeliveryRuleResponseHeaderActionOutput) Parameters() HeaderActionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleResponseHeaderAction) HeaderActionParameters { return v.Parameters }).(HeaderActionParametersOutput)
+}
+
+// Defines the response header action for the delivery rule.
+type DeliveryRuleResponseHeaderActionResponse struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleResponseHeaderActionResponseInput is an input type that accepts DeliveryRuleResponseHeaderActionResponseArgs and DeliveryRuleResponseHeaderActionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleResponseHeaderActionResponseInput` via:
+//
+//          DeliveryRuleResponseHeaderActionResponseArgs{...}
+type DeliveryRuleResponseHeaderActionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleResponseHeaderActionResponseOutput() DeliveryRuleResponseHeaderActionResponseOutput
+	ToDeliveryRuleResponseHeaderActionResponseOutputWithContext(context.Context) DeliveryRuleResponseHeaderActionResponseOutput
+}
+
+// Defines the response header action for the delivery rule.
+type DeliveryRuleResponseHeaderActionResponseArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleResponseHeaderActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleResponseHeaderActionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleResponseHeaderActionResponseArgs) ToDeliveryRuleResponseHeaderActionResponseOutput() DeliveryRuleResponseHeaderActionResponseOutput {
+	return i.ToDeliveryRuleResponseHeaderActionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleResponseHeaderActionResponseArgs) ToDeliveryRuleResponseHeaderActionResponseOutputWithContext(ctx context.Context) DeliveryRuleResponseHeaderActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleResponseHeaderActionResponseOutput)
+}
+
+// Defines the response header action for the delivery rule.
+type DeliveryRuleResponseHeaderActionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleResponseHeaderActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleResponseHeaderActionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleResponseHeaderActionResponseOutput) ToDeliveryRuleResponseHeaderActionResponseOutput() DeliveryRuleResponseHeaderActionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleResponseHeaderActionResponseOutput) ToDeliveryRuleResponseHeaderActionResponseOutputWithContext(ctx context.Context) DeliveryRuleResponseHeaderActionResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o DeliveryRuleResponseHeaderActionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleResponseHeaderActionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o DeliveryRuleResponseHeaderActionResponseOutput) Parameters() HeaderActionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleResponseHeaderActionResponse) HeaderActionParametersResponse { return v.Parameters }).(HeaderActionParametersResponseOutput)
+}
+
+// Defines the UrlFileExtension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileExtensionMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlFileExtensionConditionInput is an input type that accepts DeliveryRuleUrlFileExtensionConditionArgs and DeliveryRuleUrlFileExtensionConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlFileExtensionConditionInput` via:
+//
+//          DeliveryRuleUrlFileExtensionConditionArgs{...}
+type DeliveryRuleUrlFileExtensionConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlFileExtensionConditionOutput() DeliveryRuleUrlFileExtensionConditionOutput
+	ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(context.Context) DeliveryRuleUrlFileExtensionConditionOutput
+}
+
+// Defines the UrlFileExtension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileExtensionMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlFileExtensionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlFileExtensionConditionArgs) ToDeliveryRuleUrlFileExtensionConditionOutput() DeliveryRuleUrlFileExtensionConditionOutput {
+	return i.ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlFileExtensionConditionArgs) ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileExtensionConditionOutput)
+}
+
+// Defines the UrlFileExtension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlFileExtensionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlFileExtensionConditionOutput) ToDeliveryRuleUrlFileExtensionConditionOutput() DeliveryRuleUrlFileExtensionConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlFileExtensionConditionOutput) ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleUrlFileExtensionConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlFileExtensionConditionOutput) Parameters() UrlFileExtensionMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionCondition) UrlFileExtensionMatchConditionParameters {
+		return v.Parameters
+	}).(UrlFileExtensionMatchConditionParametersOutput)
+}
+
+// Defines the UrlFileExtension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileExtensionMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlFileExtensionConditionResponseInput is an input type that accepts DeliveryRuleUrlFileExtensionConditionResponseArgs and DeliveryRuleUrlFileExtensionConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlFileExtensionConditionResponseInput` via:
+//
+//          DeliveryRuleUrlFileExtensionConditionResponseArgs{...}
+type DeliveryRuleUrlFileExtensionConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlFileExtensionConditionResponseOutput() DeliveryRuleUrlFileExtensionConditionResponseOutput
+	ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(context.Context) DeliveryRuleUrlFileExtensionConditionResponseOutput
+}
+
+// Defines the UrlFileExtension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileExtensionMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlFileExtensionConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlFileExtensionConditionResponseArgs) ToDeliveryRuleUrlFileExtensionConditionResponseOutput() DeliveryRuleUrlFileExtensionConditionResponseOutput {
+	return i.ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlFileExtensionConditionResponseArgs) ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileExtensionConditionResponseOutput)
+}
+
+// Defines the UrlFileExtension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlFileExtensionConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) ToDeliveryRuleUrlFileExtensionConditionResponseOutput() DeliveryRuleUrlFileExtensionConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) Parameters() UrlFileExtensionMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionConditionResponse) UrlFileExtensionMatchConditionParametersResponse {
+		return v.Parameters
+	}).(UrlFileExtensionMatchConditionParametersResponseOutput)
+}
+
+// Defines the UrlFileName condition for the delivery rule.
+type DeliveryRuleUrlFileNameCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileNameMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlFileNameConditionInput is an input type that accepts DeliveryRuleUrlFileNameConditionArgs and DeliveryRuleUrlFileNameConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlFileNameConditionInput` via:
+//
+//          DeliveryRuleUrlFileNameConditionArgs{...}
+type DeliveryRuleUrlFileNameConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlFileNameConditionOutput() DeliveryRuleUrlFileNameConditionOutput
+	ToDeliveryRuleUrlFileNameConditionOutputWithContext(context.Context) DeliveryRuleUrlFileNameConditionOutput
+}
+
+// Defines the UrlFileName condition for the delivery rule.
+type DeliveryRuleUrlFileNameConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileNameMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlFileNameConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileNameCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlFileNameConditionArgs) ToDeliveryRuleUrlFileNameConditionOutput() DeliveryRuleUrlFileNameConditionOutput {
+	return i.ToDeliveryRuleUrlFileNameConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlFileNameConditionArgs) ToDeliveryRuleUrlFileNameConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlFileNameConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileNameConditionOutput)
+}
+
+// Defines the UrlFileName condition for the delivery rule.
+type DeliveryRuleUrlFileNameConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlFileNameConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileNameCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlFileNameConditionOutput) ToDeliveryRuleUrlFileNameConditionOutput() DeliveryRuleUrlFileNameConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlFileNameConditionOutput) ToDeliveryRuleUrlFileNameConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlFileNameConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleUrlFileNameConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileNameCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlFileNameConditionOutput) Parameters() UrlFileNameMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileNameCondition) UrlFileNameMatchConditionParameters { return v.Parameters }).(UrlFileNameMatchConditionParametersOutput)
+}
+
+// Defines the UrlFileName condition for the delivery rule.
+type DeliveryRuleUrlFileNameConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileNameMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlFileNameConditionResponseInput is an input type that accepts DeliveryRuleUrlFileNameConditionResponseArgs and DeliveryRuleUrlFileNameConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlFileNameConditionResponseInput` via:
+//
+//          DeliveryRuleUrlFileNameConditionResponseArgs{...}
+type DeliveryRuleUrlFileNameConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlFileNameConditionResponseOutput() DeliveryRuleUrlFileNameConditionResponseOutput
+	ToDeliveryRuleUrlFileNameConditionResponseOutputWithContext(context.Context) DeliveryRuleUrlFileNameConditionResponseOutput
+}
+
+// Defines the UrlFileName condition for the delivery rule.
+type DeliveryRuleUrlFileNameConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileNameMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlFileNameConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileNameConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlFileNameConditionResponseArgs) ToDeliveryRuleUrlFileNameConditionResponseOutput() DeliveryRuleUrlFileNameConditionResponseOutput {
+	return i.ToDeliveryRuleUrlFileNameConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlFileNameConditionResponseArgs) ToDeliveryRuleUrlFileNameConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileNameConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileNameConditionResponseOutput)
+}
+
+// Defines the UrlFileName condition for the delivery rule.
+type DeliveryRuleUrlFileNameConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlFileNameConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileNameConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlFileNameConditionResponseOutput) ToDeliveryRuleUrlFileNameConditionResponseOutput() DeliveryRuleUrlFileNameConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlFileNameConditionResponseOutput) ToDeliveryRuleUrlFileNameConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileNameConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleUrlFileNameConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileNameConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlFileNameConditionResponseOutput) Parameters() UrlFileNameMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileNameConditionResponse) UrlFileNameMatchConditionParametersResponse {
+		return v.Parameters
+	}).(UrlFileNameMatchConditionParametersResponseOutput)
+}
+
+// Defines the UrlPath condition for the delivery rule.
+type DeliveryRuleUrlPathCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlPathMatchConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlPathConditionInput is an input type that accepts DeliveryRuleUrlPathConditionArgs and DeliveryRuleUrlPathConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlPathConditionInput` via:
+//
+//          DeliveryRuleUrlPathConditionArgs{...}
+type DeliveryRuleUrlPathConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlPathConditionOutput() DeliveryRuleUrlPathConditionOutput
+	ToDeliveryRuleUrlPathConditionOutputWithContext(context.Context) DeliveryRuleUrlPathConditionOutput
+}
+
+// Defines the UrlPath condition for the delivery rule.
+type DeliveryRuleUrlPathConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlPathMatchConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlPathConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlPathCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlPathConditionArgs) ToDeliveryRuleUrlPathConditionOutput() DeliveryRuleUrlPathConditionOutput {
+	return i.ToDeliveryRuleUrlPathConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlPathConditionArgs) ToDeliveryRuleUrlPathConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlPathConditionOutput)
+}
+
+// Defines the UrlPath condition for the delivery rule.
+type DeliveryRuleUrlPathConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlPathConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlPathCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlPathConditionOutput) ToDeliveryRuleUrlPathConditionOutput() DeliveryRuleUrlPathConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlPathConditionOutput) ToDeliveryRuleUrlPathConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleUrlPathConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlPathCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlPathConditionOutput) Parameters() UrlPathMatchConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlPathCondition) UrlPathMatchConditionParameters { return v.Parameters }).(UrlPathMatchConditionParametersOutput)
+}
+
+// Defines the UrlPath condition for the delivery rule.
+type DeliveryRuleUrlPathConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlPathMatchConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlPathConditionResponseInput is an input type that accepts DeliveryRuleUrlPathConditionResponseArgs and DeliveryRuleUrlPathConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlPathConditionResponseInput` via:
+//
+//          DeliveryRuleUrlPathConditionResponseArgs{...}
+type DeliveryRuleUrlPathConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlPathConditionResponseOutput() DeliveryRuleUrlPathConditionResponseOutput
+	ToDeliveryRuleUrlPathConditionResponseOutputWithContext(context.Context) DeliveryRuleUrlPathConditionResponseOutput
+}
+
+// Defines the UrlPath condition for the delivery rule.
+type DeliveryRuleUrlPathConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlPathMatchConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlPathConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlPathConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlPathConditionResponseArgs) ToDeliveryRuleUrlPathConditionResponseOutput() DeliveryRuleUrlPathConditionResponseOutput {
+	return i.ToDeliveryRuleUrlPathConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlPathConditionResponseArgs) ToDeliveryRuleUrlPathConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlPathConditionResponseOutput)
+}
+
+// Defines the UrlPath condition for the delivery rule.
+type DeliveryRuleUrlPathConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlPathConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlPathConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlPathConditionResponseOutput) ToDeliveryRuleUrlPathConditionResponseOutput() DeliveryRuleUrlPathConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlPathConditionResponseOutput) ToDeliveryRuleUrlPathConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleUrlPathConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlPathConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlPathConditionResponseOutput) Parameters() UrlPathMatchConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlPathConditionResponse) UrlPathMatchConditionParametersResponse {
+		return v.Parameters
+	}).(UrlPathMatchConditionParametersResponseOutput)
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
@@ -1814,6 +4244,164 @@ func (o GeoFilterResponseArrayOutput) Index(i pulumi.IntInput) GeoFilterResponse
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GeoFilterResponse {
 		return vs[0].([]GeoFilterResponse)[vs[1].(int)]
 	}).(GeoFilterResponseOutput)
+}
+
+// Defines the parameters for the request header action.
+type HeaderActionParameters struct {
+	// Action to perform
+	HeaderAction string `pulumi:"headerAction"`
+	// Name of the header to modify
+	HeaderName string `pulumi:"headerName"`
+	OdataType  string `pulumi:"odataType"`
+	// Value for the specified action
+	Value *string `pulumi:"value"`
+}
+
+// HeaderActionParametersInput is an input type that accepts HeaderActionParametersArgs and HeaderActionParametersOutput values.
+// You can construct a concrete instance of `HeaderActionParametersInput` via:
+//
+//          HeaderActionParametersArgs{...}
+type HeaderActionParametersInput interface {
+	pulumi.Input
+
+	ToHeaderActionParametersOutput() HeaderActionParametersOutput
+	ToHeaderActionParametersOutputWithContext(context.Context) HeaderActionParametersOutput
+}
+
+// Defines the parameters for the request header action.
+type HeaderActionParametersArgs struct {
+	// Action to perform
+	HeaderAction pulumi.StringInput `pulumi:"headerAction"`
+	// Name of the header to modify
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	OdataType  pulumi.StringInput `pulumi:"odataType"`
+	// Value for the specified action
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (HeaderActionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HeaderActionParameters)(nil)).Elem()
+}
+
+func (i HeaderActionParametersArgs) ToHeaderActionParametersOutput() HeaderActionParametersOutput {
+	return i.ToHeaderActionParametersOutputWithContext(context.Background())
+}
+
+func (i HeaderActionParametersArgs) ToHeaderActionParametersOutputWithContext(ctx context.Context) HeaderActionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HeaderActionParametersOutput)
+}
+
+// Defines the parameters for the request header action.
+type HeaderActionParametersOutput struct{ *pulumi.OutputState }
+
+func (HeaderActionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HeaderActionParameters)(nil)).Elem()
+}
+
+func (o HeaderActionParametersOutput) ToHeaderActionParametersOutput() HeaderActionParametersOutput {
+	return o
+}
+
+func (o HeaderActionParametersOutput) ToHeaderActionParametersOutputWithContext(ctx context.Context) HeaderActionParametersOutput {
+	return o
+}
+
+// Action to perform
+func (o HeaderActionParametersOutput) HeaderAction() pulumi.StringOutput {
+	return o.ApplyT(func(v HeaderActionParameters) string { return v.HeaderAction }).(pulumi.StringOutput)
+}
+
+// Name of the header to modify
+func (o HeaderActionParametersOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v HeaderActionParameters) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+func (o HeaderActionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v HeaderActionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Value for the specified action
+func (o HeaderActionParametersOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HeaderActionParameters) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// Defines the parameters for the request header action.
+type HeaderActionParametersResponse struct {
+	// Action to perform
+	HeaderAction string `pulumi:"headerAction"`
+	// Name of the header to modify
+	HeaderName string `pulumi:"headerName"`
+	OdataType  string `pulumi:"odataType"`
+	// Value for the specified action
+	Value *string `pulumi:"value"`
+}
+
+// HeaderActionParametersResponseInput is an input type that accepts HeaderActionParametersResponseArgs and HeaderActionParametersResponseOutput values.
+// You can construct a concrete instance of `HeaderActionParametersResponseInput` via:
+//
+//          HeaderActionParametersResponseArgs{...}
+type HeaderActionParametersResponseInput interface {
+	pulumi.Input
+
+	ToHeaderActionParametersResponseOutput() HeaderActionParametersResponseOutput
+	ToHeaderActionParametersResponseOutputWithContext(context.Context) HeaderActionParametersResponseOutput
+}
+
+// Defines the parameters for the request header action.
+type HeaderActionParametersResponseArgs struct {
+	// Action to perform
+	HeaderAction pulumi.StringInput `pulumi:"headerAction"`
+	// Name of the header to modify
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	OdataType  pulumi.StringInput `pulumi:"odataType"`
+	// Value for the specified action
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (HeaderActionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HeaderActionParametersResponse)(nil)).Elem()
+}
+
+func (i HeaderActionParametersResponseArgs) ToHeaderActionParametersResponseOutput() HeaderActionParametersResponseOutput {
+	return i.ToHeaderActionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i HeaderActionParametersResponseArgs) ToHeaderActionParametersResponseOutputWithContext(ctx context.Context) HeaderActionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HeaderActionParametersResponseOutput)
+}
+
+// Defines the parameters for the request header action.
+type HeaderActionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (HeaderActionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HeaderActionParametersResponse)(nil)).Elem()
+}
+
+func (o HeaderActionParametersResponseOutput) ToHeaderActionParametersResponseOutput() HeaderActionParametersResponseOutput {
+	return o
+}
+
+func (o HeaderActionParametersResponseOutput) ToHeaderActionParametersResponseOutputWithContext(ctx context.Context) HeaderActionParametersResponseOutput {
+	return o
+}
+
+// Action to perform
+func (o HeaderActionParametersResponseOutput) HeaderAction() pulumi.StringOutput {
+	return o.ApplyT(func(v HeaderActionParametersResponse) string { return v.HeaderAction }).(pulumi.StringOutput)
+}
+
+// Name of the header to modify
+func (o HeaderActionParametersResponseOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v HeaderActionParametersResponse) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+func (o HeaderActionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v HeaderActionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Value for the specified action
+func (o HeaderActionParametersResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HeaderActionParametersResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 // The JSON object that contains the properties to send health probes to origin.
@@ -2414,6 +5002,2000 @@ func (o HttpErrorRangeParametersResponseArrayOutput) Index(i pulumi.IntInput) Ht
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HttpErrorRangeParametersResponse {
 		return vs[0].([]HttpErrorRangeParametersResponse)[vs[1].(int)]
 	}).(HttpErrorRangeParametersResponseOutput)
+}
+
+// Defines the parameters for HttpVersion match conditions
+type HttpVersionMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+}
+
+// HttpVersionMatchConditionParametersInput is an input type that accepts HttpVersionMatchConditionParametersArgs and HttpVersionMatchConditionParametersOutput values.
+// You can construct a concrete instance of `HttpVersionMatchConditionParametersInput` via:
+//
+//          HttpVersionMatchConditionParametersArgs{...}
+type HttpVersionMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToHttpVersionMatchConditionParametersOutput() HttpVersionMatchConditionParametersOutput
+	ToHttpVersionMatchConditionParametersOutputWithContext(context.Context) HttpVersionMatchConditionParametersOutput
+}
+
+// Defines the parameters for HttpVersion match conditions
+type HttpVersionMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (HttpVersionMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpVersionMatchConditionParameters)(nil)).Elem()
+}
+
+func (i HttpVersionMatchConditionParametersArgs) ToHttpVersionMatchConditionParametersOutput() HttpVersionMatchConditionParametersOutput {
+	return i.ToHttpVersionMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i HttpVersionMatchConditionParametersArgs) ToHttpVersionMatchConditionParametersOutputWithContext(ctx context.Context) HttpVersionMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpVersionMatchConditionParametersOutput)
+}
+
+// Defines the parameters for HttpVersion match conditions
+type HttpVersionMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (HttpVersionMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpVersionMatchConditionParameters)(nil)).Elem()
+}
+
+func (o HttpVersionMatchConditionParametersOutput) ToHttpVersionMatchConditionParametersOutput() HttpVersionMatchConditionParametersOutput {
+	return o
+}
+
+func (o HttpVersionMatchConditionParametersOutput) ToHttpVersionMatchConditionParametersOutputWithContext(ctx context.Context) HttpVersionMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o HttpVersionMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o HttpVersionMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o HttpVersionMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o HttpVersionMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for HttpVersion match conditions
+type HttpVersionMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+}
+
+// HttpVersionMatchConditionParametersResponseInput is an input type that accepts HttpVersionMatchConditionParametersResponseArgs and HttpVersionMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `HttpVersionMatchConditionParametersResponseInput` via:
+//
+//          HttpVersionMatchConditionParametersResponseArgs{...}
+type HttpVersionMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToHttpVersionMatchConditionParametersResponseOutput() HttpVersionMatchConditionParametersResponseOutput
+	ToHttpVersionMatchConditionParametersResponseOutputWithContext(context.Context) HttpVersionMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for HttpVersion match conditions
+type HttpVersionMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (HttpVersionMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpVersionMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i HttpVersionMatchConditionParametersResponseArgs) ToHttpVersionMatchConditionParametersResponseOutput() HttpVersionMatchConditionParametersResponseOutput {
+	return i.ToHttpVersionMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i HttpVersionMatchConditionParametersResponseArgs) ToHttpVersionMatchConditionParametersResponseOutputWithContext(ctx context.Context) HttpVersionMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpVersionMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for HttpVersion match conditions
+type HttpVersionMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (HttpVersionMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpVersionMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o HttpVersionMatchConditionParametersResponseOutput) ToHttpVersionMatchConditionParametersResponseOutput() HttpVersionMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o HttpVersionMatchConditionParametersResponseOutput) ToHttpVersionMatchConditionParametersResponseOutputWithContext(ctx context.Context) HttpVersionMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o HttpVersionMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o HttpVersionMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o HttpVersionMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o HttpVersionMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for IsDevice match conditions
+type IsDeviceMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// IsDeviceMatchConditionParametersInput is an input type that accepts IsDeviceMatchConditionParametersArgs and IsDeviceMatchConditionParametersOutput values.
+// You can construct a concrete instance of `IsDeviceMatchConditionParametersInput` via:
+//
+//          IsDeviceMatchConditionParametersArgs{...}
+type IsDeviceMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToIsDeviceMatchConditionParametersOutput() IsDeviceMatchConditionParametersOutput
+	ToIsDeviceMatchConditionParametersOutputWithContext(context.Context) IsDeviceMatchConditionParametersOutput
+}
+
+// Defines the parameters for IsDevice match conditions
+type IsDeviceMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (IsDeviceMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsDeviceMatchConditionParameters)(nil)).Elem()
+}
+
+func (i IsDeviceMatchConditionParametersArgs) ToIsDeviceMatchConditionParametersOutput() IsDeviceMatchConditionParametersOutput {
+	return i.ToIsDeviceMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i IsDeviceMatchConditionParametersArgs) ToIsDeviceMatchConditionParametersOutputWithContext(ctx context.Context) IsDeviceMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IsDeviceMatchConditionParametersOutput)
+}
+
+// Defines the parameters for IsDevice match conditions
+type IsDeviceMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (IsDeviceMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsDeviceMatchConditionParameters)(nil)).Elem()
+}
+
+func (o IsDeviceMatchConditionParametersOutput) ToIsDeviceMatchConditionParametersOutput() IsDeviceMatchConditionParametersOutput {
+	return o
+}
+
+func (o IsDeviceMatchConditionParametersOutput) ToIsDeviceMatchConditionParametersOutputWithContext(ctx context.Context) IsDeviceMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o IsDeviceMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o IsDeviceMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o IsDeviceMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o IsDeviceMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o IsDeviceMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for IsDevice match conditions
+type IsDeviceMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// IsDeviceMatchConditionParametersResponseInput is an input type that accepts IsDeviceMatchConditionParametersResponseArgs and IsDeviceMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `IsDeviceMatchConditionParametersResponseInput` via:
+//
+//          IsDeviceMatchConditionParametersResponseArgs{...}
+type IsDeviceMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToIsDeviceMatchConditionParametersResponseOutput() IsDeviceMatchConditionParametersResponseOutput
+	ToIsDeviceMatchConditionParametersResponseOutputWithContext(context.Context) IsDeviceMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for IsDevice match conditions
+type IsDeviceMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (IsDeviceMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsDeviceMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i IsDeviceMatchConditionParametersResponseArgs) ToIsDeviceMatchConditionParametersResponseOutput() IsDeviceMatchConditionParametersResponseOutput {
+	return i.ToIsDeviceMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i IsDeviceMatchConditionParametersResponseArgs) ToIsDeviceMatchConditionParametersResponseOutputWithContext(ctx context.Context) IsDeviceMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IsDeviceMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for IsDevice match conditions
+type IsDeviceMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (IsDeviceMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsDeviceMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o IsDeviceMatchConditionParametersResponseOutput) ToIsDeviceMatchConditionParametersResponseOutput() IsDeviceMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o IsDeviceMatchConditionParametersResponseOutput) ToIsDeviceMatchConditionParametersResponseOutputWithContext(ctx context.Context) IsDeviceMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o IsDeviceMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o IsDeviceMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o IsDeviceMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o IsDeviceMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o IsDeviceMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the Origin Group override action for the delivery rule.
+type OriginGroupOverrideAction struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters OriginGroupOverrideActionParameters `pulumi:"parameters"`
+}
+
+// OriginGroupOverrideActionInput is an input type that accepts OriginGroupOverrideActionArgs and OriginGroupOverrideActionOutput values.
+// You can construct a concrete instance of `OriginGroupOverrideActionInput` via:
+//
+//          OriginGroupOverrideActionArgs{...}
+type OriginGroupOverrideActionInput interface {
+	pulumi.Input
+
+	ToOriginGroupOverrideActionOutput() OriginGroupOverrideActionOutput
+	ToOriginGroupOverrideActionOutputWithContext(context.Context) OriginGroupOverrideActionOutput
+}
+
+// Defines the Origin Group override action for the delivery rule.
+type OriginGroupOverrideActionArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters OriginGroupOverrideActionParametersInput `pulumi:"parameters"`
+}
+
+func (OriginGroupOverrideActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideAction)(nil)).Elem()
+}
+
+func (i OriginGroupOverrideActionArgs) ToOriginGroupOverrideActionOutput() OriginGroupOverrideActionOutput {
+	return i.ToOriginGroupOverrideActionOutputWithContext(context.Background())
+}
+
+func (i OriginGroupOverrideActionArgs) ToOriginGroupOverrideActionOutputWithContext(ctx context.Context) OriginGroupOverrideActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOverrideActionOutput)
+}
+
+// Defines the Origin Group override action for the delivery rule.
+type OriginGroupOverrideActionOutput struct{ *pulumi.OutputState }
+
+func (OriginGroupOverrideActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideAction)(nil)).Elem()
+}
+
+func (o OriginGroupOverrideActionOutput) ToOriginGroupOverrideActionOutput() OriginGroupOverrideActionOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionOutput) ToOriginGroupOverrideActionOutputWithContext(ctx context.Context) OriginGroupOverrideActionOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o OriginGroupOverrideActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginGroupOverrideAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o OriginGroupOverrideActionOutput) Parameters() OriginGroupOverrideActionParametersOutput {
+	return o.ApplyT(func(v OriginGroupOverrideAction) OriginGroupOverrideActionParameters { return v.Parameters }).(OriginGroupOverrideActionParametersOutput)
+}
+
+// Defines the parameters for the Origin Group override action.
+type OriginGroupOverrideActionParameters struct {
+	OdataType string `pulumi:"odataType"`
+	// A reference to the origin group from where the content will be fetched from when CDN does not have it
+	OriginGroup ResourceReference `pulumi:"originGroup"`
+}
+
+// OriginGroupOverrideActionParametersInput is an input type that accepts OriginGroupOverrideActionParametersArgs and OriginGroupOverrideActionParametersOutput values.
+// You can construct a concrete instance of `OriginGroupOverrideActionParametersInput` via:
+//
+//          OriginGroupOverrideActionParametersArgs{...}
+type OriginGroupOverrideActionParametersInput interface {
+	pulumi.Input
+
+	ToOriginGroupOverrideActionParametersOutput() OriginGroupOverrideActionParametersOutput
+	ToOriginGroupOverrideActionParametersOutputWithContext(context.Context) OriginGroupOverrideActionParametersOutput
+}
+
+// Defines the parameters for the Origin Group override action.
+type OriginGroupOverrideActionParametersArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// A reference to the origin group from where the content will be fetched from when CDN does not have it
+	OriginGroup ResourceReferenceInput `pulumi:"originGroup"`
+}
+
+func (OriginGroupOverrideActionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionParameters)(nil)).Elem()
+}
+
+func (i OriginGroupOverrideActionParametersArgs) ToOriginGroupOverrideActionParametersOutput() OriginGroupOverrideActionParametersOutput {
+	return i.ToOriginGroupOverrideActionParametersOutputWithContext(context.Background())
+}
+
+func (i OriginGroupOverrideActionParametersArgs) ToOriginGroupOverrideActionParametersOutputWithContext(ctx context.Context) OriginGroupOverrideActionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOverrideActionParametersOutput)
+}
+
+// Defines the parameters for the Origin Group override action.
+type OriginGroupOverrideActionParametersOutput struct{ *pulumi.OutputState }
+
+func (OriginGroupOverrideActionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionParameters)(nil)).Elem()
+}
+
+func (o OriginGroupOverrideActionParametersOutput) ToOriginGroupOverrideActionParametersOutput() OriginGroupOverrideActionParametersOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionParametersOutput) ToOriginGroupOverrideActionParametersOutputWithContext(ctx context.Context) OriginGroupOverrideActionParametersOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// A reference to the origin group from where the content will be fetched from when CDN does not have it
+func (o OriginGroupOverrideActionParametersOutput) OriginGroup() ResourceReferenceOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionParameters) ResourceReference { return v.OriginGroup }).(ResourceReferenceOutput)
+}
+
+// Defines the parameters for the Origin Group override action.
+type OriginGroupOverrideActionParametersResponse struct {
+	OdataType string `pulumi:"odataType"`
+	// A reference to the origin group from where the content will be fetched from when CDN does not have it
+	OriginGroup ResourceReferenceResponse `pulumi:"originGroup"`
+}
+
+// OriginGroupOverrideActionParametersResponseInput is an input type that accepts OriginGroupOverrideActionParametersResponseArgs and OriginGroupOverrideActionParametersResponseOutput values.
+// You can construct a concrete instance of `OriginGroupOverrideActionParametersResponseInput` via:
+//
+//          OriginGroupOverrideActionParametersResponseArgs{...}
+type OriginGroupOverrideActionParametersResponseInput interface {
+	pulumi.Input
+
+	ToOriginGroupOverrideActionParametersResponseOutput() OriginGroupOverrideActionParametersResponseOutput
+	ToOriginGroupOverrideActionParametersResponseOutputWithContext(context.Context) OriginGroupOverrideActionParametersResponseOutput
+}
+
+// Defines the parameters for the Origin Group override action.
+type OriginGroupOverrideActionParametersResponseArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// A reference to the origin group from where the content will be fetched from when CDN does not have it
+	OriginGroup ResourceReferenceResponseInput `pulumi:"originGroup"`
+}
+
+func (OriginGroupOverrideActionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionParametersResponse)(nil)).Elem()
+}
+
+func (i OriginGroupOverrideActionParametersResponseArgs) ToOriginGroupOverrideActionParametersResponseOutput() OriginGroupOverrideActionParametersResponseOutput {
+	return i.ToOriginGroupOverrideActionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i OriginGroupOverrideActionParametersResponseArgs) ToOriginGroupOverrideActionParametersResponseOutputWithContext(ctx context.Context) OriginGroupOverrideActionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOverrideActionParametersResponseOutput)
+}
+
+// Defines the parameters for the Origin Group override action.
+type OriginGroupOverrideActionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (OriginGroupOverrideActionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionParametersResponse)(nil)).Elem()
+}
+
+func (o OriginGroupOverrideActionParametersResponseOutput) ToOriginGroupOverrideActionParametersResponseOutput() OriginGroupOverrideActionParametersResponseOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionParametersResponseOutput) ToOriginGroupOverrideActionParametersResponseOutputWithContext(ctx context.Context) OriginGroupOverrideActionParametersResponseOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// A reference to the origin group from where the content will be fetched from when CDN does not have it
+func (o OriginGroupOverrideActionParametersResponseOutput) OriginGroup() ResourceReferenceResponseOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionParametersResponse) ResourceReferenceResponse { return v.OriginGroup }).(ResourceReferenceResponseOutput)
+}
+
+// Defines the Origin Group override action for the delivery rule.
+type OriginGroupOverrideActionResponse struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters OriginGroupOverrideActionParametersResponse `pulumi:"parameters"`
+}
+
+// OriginGroupOverrideActionResponseInput is an input type that accepts OriginGroupOverrideActionResponseArgs and OriginGroupOverrideActionResponseOutput values.
+// You can construct a concrete instance of `OriginGroupOverrideActionResponseInput` via:
+//
+//          OriginGroupOverrideActionResponseArgs{...}
+type OriginGroupOverrideActionResponseInput interface {
+	pulumi.Input
+
+	ToOriginGroupOverrideActionResponseOutput() OriginGroupOverrideActionResponseOutput
+	ToOriginGroupOverrideActionResponseOutputWithContext(context.Context) OriginGroupOverrideActionResponseOutput
+}
+
+// Defines the Origin Group override action for the delivery rule.
+type OriginGroupOverrideActionResponseArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters OriginGroupOverrideActionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (OriginGroupOverrideActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionResponse)(nil)).Elem()
+}
+
+func (i OriginGroupOverrideActionResponseArgs) ToOriginGroupOverrideActionResponseOutput() OriginGroupOverrideActionResponseOutput {
+	return i.ToOriginGroupOverrideActionResponseOutputWithContext(context.Background())
+}
+
+func (i OriginGroupOverrideActionResponseArgs) ToOriginGroupOverrideActionResponseOutputWithContext(ctx context.Context) OriginGroupOverrideActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupOverrideActionResponseOutput)
+}
+
+// Defines the Origin Group override action for the delivery rule.
+type OriginGroupOverrideActionResponseOutput struct{ *pulumi.OutputState }
+
+func (OriginGroupOverrideActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginGroupOverrideActionResponse)(nil)).Elem()
+}
+
+func (o OriginGroupOverrideActionResponseOutput) ToOriginGroupOverrideActionResponseOutput() OriginGroupOverrideActionResponseOutput {
+	return o
+}
+
+func (o OriginGroupOverrideActionResponseOutput) ToOriginGroupOverrideActionResponseOutputWithContext(ctx context.Context) OriginGroupOverrideActionResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o OriginGroupOverrideActionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o OriginGroupOverrideActionResponseOutput) Parameters() OriginGroupOverrideActionParametersResponseOutput {
+	return o.ApplyT(func(v OriginGroupOverrideActionResponse) OriginGroupOverrideActionParametersResponse {
+		return v.Parameters
+	}).(OriginGroupOverrideActionParametersResponseOutput)
+}
+
+// Defines the parameters for PostArgs match conditions
+type PostArgsMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// Name of PostArg to be matched
+	Selector string `pulumi:"selector"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// PostArgsMatchConditionParametersInput is an input type that accepts PostArgsMatchConditionParametersArgs and PostArgsMatchConditionParametersOutput values.
+// You can construct a concrete instance of `PostArgsMatchConditionParametersInput` via:
+//
+//          PostArgsMatchConditionParametersArgs{...}
+type PostArgsMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToPostArgsMatchConditionParametersOutput() PostArgsMatchConditionParametersOutput
+	ToPostArgsMatchConditionParametersOutputWithContext(context.Context) PostArgsMatchConditionParametersOutput
+}
+
+// Defines the parameters for PostArgs match conditions
+type PostArgsMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Name of PostArg to be matched
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (PostArgsMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostArgsMatchConditionParameters)(nil)).Elem()
+}
+
+func (i PostArgsMatchConditionParametersArgs) ToPostArgsMatchConditionParametersOutput() PostArgsMatchConditionParametersOutput {
+	return i.ToPostArgsMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i PostArgsMatchConditionParametersArgs) ToPostArgsMatchConditionParametersOutputWithContext(ctx context.Context) PostArgsMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostArgsMatchConditionParametersOutput)
+}
+
+// Defines the parameters for PostArgs match conditions
+type PostArgsMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (PostArgsMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostArgsMatchConditionParameters)(nil)).Elem()
+}
+
+func (o PostArgsMatchConditionParametersOutput) ToPostArgsMatchConditionParametersOutput() PostArgsMatchConditionParametersOutput {
+	return o
+}
+
+func (o PostArgsMatchConditionParametersOutput) ToPostArgsMatchConditionParametersOutputWithContext(ctx context.Context) PostArgsMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o PostArgsMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o PostArgsMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o PostArgsMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o PostArgsMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Name of PostArg to be matched
+func (o PostArgsMatchConditionParametersOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParameters) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o PostArgsMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for PostArgs match conditions
+type PostArgsMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// Name of PostArg to be matched
+	Selector string `pulumi:"selector"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// PostArgsMatchConditionParametersResponseInput is an input type that accepts PostArgsMatchConditionParametersResponseArgs and PostArgsMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `PostArgsMatchConditionParametersResponseInput` via:
+//
+//          PostArgsMatchConditionParametersResponseArgs{...}
+type PostArgsMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToPostArgsMatchConditionParametersResponseOutput() PostArgsMatchConditionParametersResponseOutput
+	ToPostArgsMatchConditionParametersResponseOutputWithContext(context.Context) PostArgsMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for PostArgs match conditions
+type PostArgsMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Name of PostArg to be matched
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (PostArgsMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostArgsMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i PostArgsMatchConditionParametersResponseArgs) ToPostArgsMatchConditionParametersResponseOutput() PostArgsMatchConditionParametersResponseOutput {
+	return i.ToPostArgsMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i PostArgsMatchConditionParametersResponseArgs) ToPostArgsMatchConditionParametersResponseOutputWithContext(ctx context.Context) PostArgsMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostArgsMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for PostArgs match conditions
+type PostArgsMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (PostArgsMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostArgsMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o PostArgsMatchConditionParametersResponseOutput) ToPostArgsMatchConditionParametersResponseOutput() PostArgsMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o PostArgsMatchConditionParametersResponseOutput) ToPostArgsMatchConditionParametersResponseOutputWithContext(ctx context.Context) PostArgsMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o PostArgsMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o PostArgsMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o PostArgsMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o PostArgsMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Name of PostArg to be matched
+func (o PostArgsMatchConditionParametersResponseOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersResponse) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o PostArgsMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for QueryString match conditions
+type QueryStringMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// QueryStringMatchConditionParametersInput is an input type that accepts QueryStringMatchConditionParametersArgs and QueryStringMatchConditionParametersOutput values.
+// You can construct a concrete instance of `QueryStringMatchConditionParametersInput` via:
+//
+//          QueryStringMatchConditionParametersArgs{...}
+type QueryStringMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToQueryStringMatchConditionParametersOutput() QueryStringMatchConditionParametersOutput
+	ToQueryStringMatchConditionParametersOutputWithContext(context.Context) QueryStringMatchConditionParametersOutput
+}
+
+// Defines the parameters for QueryString match conditions
+type QueryStringMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (QueryStringMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryStringMatchConditionParameters)(nil)).Elem()
+}
+
+func (i QueryStringMatchConditionParametersArgs) ToQueryStringMatchConditionParametersOutput() QueryStringMatchConditionParametersOutput {
+	return i.ToQueryStringMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i QueryStringMatchConditionParametersArgs) ToQueryStringMatchConditionParametersOutputWithContext(ctx context.Context) QueryStringMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryStringMatchConditionParametersOutput)
+}
+
+// Defines the parameters for QueryString match conditions
+type QueryStringMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (QueryStringMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryStringMatchConditionParameters)(nil)).Elem()
+}
+
+func (o QueryStringMatchConditionParametersOutput) ToQueryStringMatchConditionParametersOutput() QueryStringMatchConditionParametersOutput {
+	return o
+}
+
+func (o QueryStringMatchConditionParametersOutput) ToQueryStringMatchConditionParametersOutputWithContext(ctx context.Context) QueryStringMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o QueryStringMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o QueryStringMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o QueryStringMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o QueryStringMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o QueryStringMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for QueryString match conditions
+type QueryStringMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// QueryStringMatchConditionParametersResponseInput is an input type that accepts QueryStringMatchConditionParametersResponseArgs and QueryStringMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `QueryStringMatchConditionParametersResponseInput` via:
+//
+//          QueryStringMatchConditionParametersResponseArgs{...}
+type QueryStringMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToQueryStringMatchConditionParametersResponseOutput() QueryStringMatchConditionParametersResponseOutput
+	ToQueryStringMatchConditionParametersResponseOutputWithContext(context.Context) QueryStringMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for QueryString match conditions
+type QueryStringMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (QueryStringMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryStringMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i QueryStringMatchConditionParametersResponseArgs) ToQueryStringMatchConditionParametersResponseOutput() QueryStringMatchConditionParametersResponseOutput {
+	return i.ToQueryStringMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i QueryStringMatchConditionParametersResponseArgs) ToQueryStringMatchConditionParametersResponseOutputWithContext(ctx context.Context) QueryStringMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryStringMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for QueryString match conditions
+type QueryStringMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (QueryStringMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryStringMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o QueryStringMatchConditionParametersResponseOutput) ToQueryStringMatchConditionParametersResponseOutput() QueryStringMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o QueryStringMatchConditionParametersResponseOutput) ToQueryStringMatchConditionParametersResponseOutputWithContext(ctx context.Context) QueryStringMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o QueryStringMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o QueryStringMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o QueryStringMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o QueryStringMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o QueryStringMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RemoteAddress match conditions
+type RemoteAddressMatchConditionParameters struct {
+	// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RemoteAddressMatchConditionParametersInput is an input type that accepts RemoteAddressMatchConditionParametersArgs and RemoteAddressMatchConditionParametersOutput values.
+// You can construct a concrete instance of `RemoteAddressMatchConditionParametersInput` via:
+//
+//          RemoteAddressMatchConditionParametersArgs{...}
+type RemoteAddressMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToRemoteAddressMatchConditionParametersOutput() RemoteAddressMatchConditionParametersOutput
+	ToRemoteAddressMatchConditionParametersOutputWithContext(context.Context) RemoteAddressMatchConditionParametersOutput
+}
+
+// Defines the parameters for RemoteAddress match conditions
+type RemoteAddressMatchConditionParametersArgs struct {
+	// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RemoteAddressMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAddressMatchConditionParameters)(nil)).Elem()
+}
+
+func (i RemoteAddressMatchConditionParametersArgs) ToRemoteAddressMatchConditionParametersOutput() RemoteAddressMatchConditionParametersOutput {
+	return i.ToRemoteAddressMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i RemoteAddressMatchConditionParametersArgs) ToRemoteAddressMatchConditionParametersOutputWithContext(ctx context.Context) RemoteAddressMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAddressMatchConditionParametersOutput)
+}
+
+// Defines the parameters for RemoteAddress match conditions
+type RemoteAddressMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (RemoteAddressMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAddressMatchConditionParameters)(nil)).Elem()
+}
+
+func (o RemoteAddressMatchConditionParametersOutput) ToRemoteAddressMatchConditionParametersOutput() RemoteAddressMatchConditionParametersOutput {
+	return o
+}
+
+func (o RemoteAddressMatchConditionParametersOutput) ToRemoteAddressMatchConditionParametersOutputWithContext(ctx context.Context) RemoteAddressMatchConditionParametersOutput {
+	return o
+}
+
+// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+func (o RemoteAddressMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RemoteAddressMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteAddressMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RemoteAddressMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o RemoteAddressMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RemoteAddress match conditions
+type RemoteAddressMatchConditionParametersResponse struct {
+	// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RemoteAddressMatchConditionParametersResponseInput is an input type that accepts RemoteAddressMatchConditionParametersResponseArgs and RemoteAddressMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `RemoteAddressMatchConditionParametersResponseInput` via:
+//
+//          RemoteAddressMatchConditionParametersResponseArgs{...}
+type RemoteAddressMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToRemoteAddressMatchConditionParametersResponseOutput() RemoteAddressMatchConditionParametersResponseOutput
+	ToRemoteAddressMatchConditionParametersResponseOutputWithContext(context.Context) RemoteAddressMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for RemoteAddress match conditions
+type RemoteAddressMatchConditionParametersResponseArgs struct {
+	// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RemoteAddressMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAddressMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i RemoteAddressMatchConditionParametersResponseArgs) ToRemoteAddressMatchConditionParametersResponseOutput() RemoteAddressMatchConditionParametersResponseOutput {
+	return i.ToRemoteAddressMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i RemoteAddressMatchConditionParametersResponseArgs) ToRemoteAddressMatchConditionParametersResponseOutputWithContext(ctx context.Context) RemoteAddressMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAddressMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for RemoteAddress match conditions
+type RemoteAddressMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (RemoteAddressMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAddressMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o RemoteAddressMatchConditionParametersResponseOutput) ToRemoteAddressMatchConditionParametersResponseOutput() RemoteAddressMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o RemoteAddressMatchConditionParametersResponseOutput) ToRemoteAddressMatchConditionParametersResponseOutputWithContext(ctx context.Context) RemoteAddressMatchConditionParametersResponseOutput {
+	return o
+}
+
+// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+func (o RemoteAddressMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RemoteAddressMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteAddressMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RemoteAddressMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o RemoteAddressMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RequestBody match conditions
+type RequestBodyMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RequestBodyMatchConditionParametersInput is an input type that accepts RequestBodyMatchConditionParametersArgs and RequestBodyMatchConditionParametersOutput values.
+// You can construct a concrete instance of `RequestBodyMatchConditionParametersInput` via:
+//
+//          RequestBodyMatchConditionParametersArgs{...}
+type RequestBodyMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToRequestBodyMatchConditionParametersOutput() RequestBodyMatchConditionParametersOutput
+	ToRequestBodyMatchConditionParametersOutputWithContext(context.Context) RequestBodyMatchConditionParametersOutput
+}
+
+// Defines the parameters for RequestBody match conditions
+type RequestBodyMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RequestBodyMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestBodyMatchConditionParameters)(nil)).Elem()
+}
+
+func (i RequestBodyMatchConditionParametersArgs) ToRequestBodyMatchConditionParametersOutput() RequestBodyMatchConditionParametersOutput {
+	return i.ToRequestBodyMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i RequestBodyMatchConditionParametersArgs) ToRequestBodyMatchConditionParametersOutputWithContext(ctx context.Context) RequestBodyMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestBodyMatchConditionParametersOutput)
+}
+
+// Defines the parameters for RequestBody match conditions
+type RequestBodyMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (RequestBodyMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestBodyMatchConditionParameters)(nil)).Elem()
+}
+
+func (o RequestBodyMatchConditionParametersOutput) ToRequestBodyMatchConditionParametersOutput() RequestBodyMatchConditionParametersOutput {
+	return o
+}
+
+func (o RequestBodyMatchConditionParametersOutput) ToRequestBodyMatchConditionParametersOutputWithContext(ctx context.Context) RequestBodyMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestBodyMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestBodyMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestBodyMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestBodyMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o RequestBodyMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RequestBody match conditions
+type RequestBodyMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RequestBodyMatchConditionParametersResponseInput is an input type that accepts RequestBodyMatchConditionParametersResponseArgs and RequestBodyMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `RequestBodyMatchConditionParametersResponseInput` via:
+//
+//          RequestBodyMatchConditionParametersResponseArgs{...}
+type RequestBodyMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToRequestBodyMatchConditionParametersResponseOutput() RequestBodyMatchConditionParametersResponseOutput
+	ToRequestBodyMatchConditionParametersResponseOutputWithContext(context.Context) RequestBodyMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for RequestBody match conditions
+type RequestBodyMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RequestBodyMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestBodyMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i RequestBodyMatchConditionParametersResponseArgs) ToRequestBodyMatchConditionParametersResponseOutput() RequestBodyMatchConditionParametersResponseOutput {
+	return i.ToRequestBodyMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i RequestBodyMatchConditionParametersResponseArgs) ToRequestBodyMatchConditionParametersResponseOutputWithContext(ctx context.Context) RequestBodyMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestBodyMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for RequestBody match conditions
+type RequestBodyMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (RequestBodyMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestBodyMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o RequestBodyMatchConditionParametersResponseOutput) ToRequestBodyMatchConditionParametersResponseOutput() RequestBodyMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o RequestBodyMatchConditionParametersResponseOutput) ToRequestBodyMatchConditionParametersResponseOutputWithContext(ctx context.Context) RequestBodyMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestBodyMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestBodyMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestBodyMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestBodyMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o RequestBodyMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RequestHeader match conditions
+type RequestHeaderMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// Name of Header to be matched
+	Selector string `pulumi:"selector"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RequestHeaderMatchConditionParametersInput is an input type that accepts RequestHeaderMatchConditionParametersArgs and RequestHeaderMatchConditionParametersOutput values.
+// You can construct a concrete instance of `RequestHeaderMatchConditionParametersInput` via:
+//
+//          RequestHeaderMatchConditionParametersArgs{...}
+type RequestHeaderMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToRequestHeaderMatchConditionParametersOutput() RequestHeaderMatchConditionParametersOutput
+	ToRequestHeaderMatchConditionParametersOutputWithContext(context.Context) RequestHeaderMatchConditionParametersOutput
+}
+
+// Defines the parameters for RequestHeader match conditions
+type RequestHeaderMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Name of Header to be matched
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RequestHeaderMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestHeaderMatchConditionParameters)(nil)).Elem()
+}
+
+func (i RequestHeaderMatchConditionParametersArgs) ToRequestHeaderMatchConditionParametersOutput() RequestHeaderMatchConditionParametersOutput {
+	return i.ToRequestHeaderMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i RequestHeaderMatchConditionParametersArgs) ToRequestHeaderMatchConditionParametersOutputWithContext(ctx context.Context) RequestHeaderMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestHeaderMatchConditionParametersOutput)
+}
+
+// Defines the parameters for RequestHeader match conditions
+type RequestHeaderMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (RequestHeaderMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestHeaderMatchConditionParameters)(nil)).Elem()
+}
+
+func (o RequestHeaderMatchConditionParametersOutput) ToRequestHeaderMatchConditionParametersOutput() RequestHeaderMatchConditionParametersOutput {
+	return o
+}
+
+func (o RequestHeaderMatchConditionParametersOutput) ToRequestHeaderMatchConditionParametersOutputWithContext(ctx context.Context) RequestHeaderMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestHeaderMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestHeaderMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestHeaderMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestHeaderMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Name of Header to be matched
+func (o RequestHeaderMatchConditionParametersOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParameters) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o RequestHeaderMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RequestHeader match conditions
+type RequestHeaderMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// Name of Header to be matched
+	Selector string `pulumi:"selector"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RequestHeaderMatchConditionParametersResponseInput is an input type that accepts RequestHeaderMatchConditionParametersResponseArgs and RequestHeaderMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `RequestHeaderMatchConditionParametersResponseInput` via:
+//
+//          RequestHeaderMatchConditionParametersResponseArgs{...}
+type RequestHeaderMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToRequestHeaderMatchConditionParametersResponseOutput() RequestHeaderMatchConditionParametersResponseOutput
+	ToRequestHeaderMatchConditionParametersResponseOutputWithContext(context.Context) RequestHeaderMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for RequestHeader match conditions
+type RequestHeaderMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Name of Header to be matched
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RequestHeaderMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestHeaderMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i RequestHeaderMatchConditionParametersResponseArgs) ToRequestHeaderMatchConditionParametersResponseOutput() RequestHeaderMatchConditionParametersResponseOutput {
+	return i.ToRequestHeaderMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i RequestHeaderMatchConditionParametersResponseArgs) ToRequestHeaderMatchConditionParametersResponseOutputWithContext(ctx context.Context) RequestHeaderMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestHeaderMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for RequestHeader match conditions
+type RequestHeaderMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (RequestHeaderMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestHeaderMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o RequestHeaderMatchConditionParametersResponseOutput) ToRequestHeaderMatchConditionParametersResponseOutput() RequestHeaderMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o RequestHeaderMatchConditionParametersResponseOutput) ToRequestHeaderMatchConditionParametersResponseOutputWithContext(ctx context.Context) RequestHeaderMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestHeaderMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestHeaderMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestHeaderMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestHeaderMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Name of Header to be matched
+func (o RequestHeaderMatchConditionParametersResponseOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersResponse) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o RequestHeaderMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RequestMethod match conditions
+type RequestMethodMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+}
+
+// RequestMethodMatchConditionParametersInput is an input type that accepts RequestMethodMatchConditionParametersArgs and RequestMethodMatchConditionParametersOutput values.
+// You can construct a concrete instance of `RequestMethodMatchConditionParametersInput` via:
+//
+//          RequestMethodMatchConditionParametersArgs{...}
+type RequestMethodMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToRequestMethodMatchConditionParametersOutput() RequestMethodMatchConditionParametersOutput
+	ToRequestMethodMatchConditionParametersOutputWithContext(context.Context) RequestMethodMatchConditionParametersOutput
+}
+
+// Defines the parameters for RequestMethod match conditions
+type RequestMethodMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (RequestMethodMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestMethodMatchConditionParameters)(nil)).Elem()
+}
+
+func (i RequestMethodMatchConditionParametersArgs) ToRequestMethodMatchConditionParametersOutput() RequestMethodMatchConditionParametersOutput {
+	return i.ToRequestMethodMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i RequestMethodMatchConditionParametersArgs) ToRequestMethodMatchConditionParametersOutputWithContext(ctx context.Context) RequestMethodMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestMethodMatchConditionParametersOutput)
+}
+
+// Defines the parameters for RequestMethod match conditions
+type RequestMethodMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (RequestMethodMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestMethodMatchConditionParameters)(nil)).Elem()
+}
+
+func (o RequestMethodMatchConditionParametersOutput) ToRequestMethodMatchConditionParametersOutput() RequestMethodMatchConditionParametersOutput {
+	return o
+}
+
+func (o RequestMethodMatchConditionParametersOutput) ToRequestMethodMatchConditionParametersOutputWithContext(ctx context.Context) RequestMethodMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestMethodMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestMethodMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestMethodMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestMethodMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for RequestMethod match conditions
+type RequestMethodMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+}
+
+// RequestMethodMatchConditionParametersResponseInput is an input type that accepts RequestMethodMatchConditionParametersResponseArgs and RequestMethodMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `RequestMethodMatchConditionParametersResponseInput` via:
+//
+//          RequestMethodMatchConditionParametersResponseArgs{...}
+type RequestMethodMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToRequestMethodMatchConditionParametersResponseOutput() RequestMethodMatchConditionParametersResponseOutput
+	ToRequestMethodMatchConditionParametersResponseOutputWithContext(context.Context) RequestMethodMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for RequestMethod match conditions
+type RequestMethodMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (RequestMethodMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestMethodMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i RequestMethodMatchConditionParametersResponseArgs) ToRequestMethodMatchConditionParametersResponseOutput() RequestMethodMatchConditionParametersResponseOutput {
+	return i.ToRequestMethodMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i RequestMethodMatchConditionParametersResponseArgs) ToRequestMethodMatchConditionParametersResponseOutputWithContext(ctx context.Context) RequestMethodMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestMethodMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for RequestMethod match conditions
+type RequestMethodMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (RequestMethodMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestMethodMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o RequestMethodMatchConditionParametersResponseOutput) ToRequestMethodMatchConditionParametersResponseOutput() RequestMethodMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o RequestMethodMatchConditionParametersResponseOutput) ToRequestMethodMatchConditionParametersResponseOutputWithContext(ctx context.Context) RequestMethodMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestMethodMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestMethodMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestMethodMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestMethodMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for RequestScheme match conditions
+type RequestSchemeMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+}
+
+// RequestSchemeMatchConditionParametersInput is an input type that accepts RequestSchemeMatchConditionParametersArgs and RequestSchemeMatchConditionParametersOutput values.
+// You can construct a concrete instance of `RequestSchemeMatchConditionParametersInput` via:
+//
+//          RequestSchemeMatchConditionParametersArgs{...}
+type RequestSchemeMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToRequestSchemeMatchConditionParametersOutput() RequestSchemeMatchConditionParametersOutput
+	ToRequestSchemeMatchConditionParametersOutputWithContext(context.Context) RequestSchemeMatchConditionParametersOutput
+}
+
+// Defines the parameters for RequestScheme match conditions
+type RequestSchemeMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (RequestSchemeMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSchemeMatchConditionParameters)(nil)).Elem()
+}
+
+func (i RequestSchemeMatchConditionParametersArgs) ToRequestSchemeMatchConditionParametersOutput() RequestSchemeMatchConditionParametersOutput {
+	return i.ToRequestSchemeMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i RequestSchemeMatchConditionParametersArgs) ToRequestSchemeMatchConditionParametersOutputWithContext(ctx context.Context) RequestSchemeMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSchemeMatchConditionParametersOutput)
+}
+
+// Defines the parameters for RequestScheme match conditions
+type RequestSchemeMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (RequestSchemeMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSchemeMatchConditionParameters)(nil)).Elem()
+}
+
+func (o RequestSchemeMatchConditionParametersOutput) ToRequestSchemeMatchConditionParametersOutput() RequestSchemeMatchConditionParametersOutput {
+	return o
+}
+
+func (o RequestSchemeMatchConditionParametersOutput) ToRequestSchemeMatchConditionParametersOutputWithContext(ctx context.Context) RequestSchemeMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestSchemeMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestSchemeMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestSchemeMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestSchemeMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for RequestScheme match conditions
+type RequestSchemeMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+}
+
+// RequestSchemeMatchConditionParametersResponseInput is an input type that accepts RequestSchemeMatchConditionParametersResponseArgs and RequestSchemeMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `RequestSchemeMatchConditionParametersResponseInput` via:
+//
+//          RequestSchemeMatchConditionParametersResponseArgs{...}
+type RequestSchemeMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToRequestSchemeMatchConditionParametersResponseOutput() RequestSchemeMatchConditionParametersResponseOutput
+	ToRequestSchemeMatchConditionParametersResponseOutputWithContext(context.Context) RequestSchemeMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for RequestScheme match conditions
+type RequestSchemeMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (RequestSchemeMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSchemeMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i RequestSchemeMatchConditionParametersResponseArgs) ToRequestSchemeMatchConditionParametersResponseOutput() RequestSchemeMatchConditionParametersResponseOutput {
+	return i.ToRequestSchemeMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i RequestSchemeMatchConditionParametersResponseArgs) ToRequestSchemeMatchConditionParametersResponseOutputWithContext(ctx context.Context) RequestSchemeMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSchemeMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for RequestScheme match conditions
+type RequestSchemeMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (RequestSchemeMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSchemeMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o RequestSchemeMatchConditionParametersResponseOutput) ToRequestSchemeMatchConditionParametersResponseOutput() RequestSchemeMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o RequestSchemeMatchConditionParametersResponseOutput) ToRequestSchemeMatchConditionParametersResponseOutputWithContext(ctx context.Context) RequestSchemeMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestSchemeMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestSchemeMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestSchemeMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestSchemeMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for RequestUri match conditions
+type RequestUriMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RequestUriMatchConditionParametersInput is an input type that accepts RequestUriMatchConditionParametersArgs and RequestUriMatchConditionParametersOutput values.
+// You can construct a concrete instance of `RequestUriMatchConditionParametersInput` via:
+//
+//          RequestUriMatchConditionParametersArgs{...}
+type RequestUriMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToRequestUriMatchConditionParametersOutput() RequestUriMatchConditionParametersOutput
+	ToRequestUriMatchConditionParametersOutputWithContext(context.Context) RequestUriMatchConditionParametersOutput
+}
+
+// Defines the parameters for RequestUri match conditions
+type RequestUriMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RequestUriMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestUriMatchConditionParameters)(nil)).Elem()
+}
+
+func (i RequestUriMatchConditionParametersArgs) ToRequestUriMatchConditionParametersOutput() RequestUriMatchConditionParametersOutput {
+	return i.ToRequestUriMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i RequestUriMatchConditionParametersArgs) ToRequestUriMatchConditionParametersOutputWithContext(ctx context.Context) RequestUriMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestUriMatchConditionParametersOutput)
+}
+
+// Defines the parameters for RequestUri match conditions
+type RequestUriMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (RequestUriMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestUriMatchConditionParameters)(nil)).Elem()
+}
+
+func (o RequestUriMatchConditionParametersOutput) ToRequestUriMatchConditionParametersOutput() RequestUriMatchConditionParametersOutput {
+	return o
+}
+
+func (o RequestUriMatchConditionParametersOutput) ToRequestUriMatchConditionParametersOutputWithContext(ctx context.Context) RequestUriMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestUriMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestUriMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestUriMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestUriMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o RequestUriMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RequestUri match conditions
+type RequestUriMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RequestUriMatchConditionParametersResponseInput is an input type that accepts RequestUriMatchConditionParametersResponseArgs and RequestUriMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `RequestUriMatchConditionParametersResponseInput` via:
+//
+//          RequestUriMatchConditionParametersResponseArgs{...}
+type RequestUriMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToRequestUriMatchConditionParametersResponseOutput() RequestUriMatchConditionParametersResponseOutput
+	ToRequestUriMatchConditionParametersResponseOutputWithContext(context.Context) RequestUriMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for RequestUri match conditions
+type RequestUriMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RequestUriMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestUriMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i RequestUriMatchConditionParametersResponseArgs) ToRequestUriMatchConditionParametersResponseOutput() RequestUriMatchConditionParametersResponseOutput {
+	return i.ToRequestUriMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i RequestUriMatchConditionParametersResponseArgs) ToRequestUriMatchConditionParametersResponseOutputWithContext(ctx context.Context) RequestUriMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestUriMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for RequestUri match conditions
+type RequestUriMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (RequestUriMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestUriMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o RequestUriMatchConditionParametersResponseOutput) ToRequestUriMatchConditionParametersResponseOutput() RequestUriMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o RequestUriMatchConditionParametersResponseOutput) ToRequestUriMatchConditionParametersResponseOutputWithContext(ctx context.Context) RequestUriMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestUriMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestUriMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestUriMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestUriMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o RequestUriMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
 
 // Reference to another resource.
@@ -3400,7 +7982,1167 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the parameters for UrlFileExtension match conditions
+type UrlFileExtensionMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// UrlFileExtensionMatchConditionParametersInput is an input type that accepts UrlFileExtensionMatchConditionParametersArgs and UrlFileExtensionMatchConditionParametersOutput values.
+// You can construct a concrete instance of `UrlFileExtensionMatchConditionParametersInput` via:
+//
+//          UrlFileExtensionMatchConditionParametersArgs{...}
+type UrlFileExtensionMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToUrlFileExtensionMatchConditionParametersOutput() UrlFileExtensionMatchConditionParametersOutput
+	ToUrlFileExtensionMatchConditionParametersOutputWithContext(context.Context) UrlFileExtensionMatchConditionParametersOutput
+}
+
+// Defines the parameters for UrlFileExtension match conditions
+type UrlFileExtensionMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (UrlFileExtensionMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileExtensionMatchConditionParameters)(nil)).Elem()
+}
+
+func (i UrlFileExtensionMatchConditionParametersArgs) ToUrlFileExtensionMatchConditionParametersOutput() UrlFileExtensionMatchConditionParametersOutput {
+	return i.ToUrlFileExtensionMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i UrlFileExtensionMatchConditionParametersArgs) ToUrlFileExtensionMatchConditionParametersOutputWithContext(ctx context.Context) UrlFileExtensionMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlFileExtensionMatchConditionParametersOutput)
+}
+
+// Defines the parameters for UrlFileExtension match conditions
+type UrlFileExtensionMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (UrlFileExtensionMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileExtensionMatchConditionParameters)(nil)).Elem()
+}
+
+func (o UrlFileExtensionMatchConditionParametersOutput) ToUrlFileExtensionMatchConditionParametersOutput() UrlFileExtensionMatchConditionParametersOutput {
+	return o
+}
+
+func (o UrlFileExtensionMatchConditionParametersOutput) ToUrlFileExtensionMatchConditionParametersOutputWithContext(ctx context.Context) UrlFileExtensionMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o UrlFileExtensionMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o UrlFileExtensionMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o UrlFileExtensionMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o UrlFileExtensionMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o UrlFileExtensionMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for UrlFileExtension match conditions
+type UrlFileExtensionMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// UrlFileExtensionMatchConditionParametersResponseInput is an input type that accepts UrlFileExtensionMatchConditionParametersResponseArgs and UrlFileExtensionMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `UrlFileExtensionMatchConditionParametersResponseInput` via:
+//
+//          UrlFileExtensionMatchConditionParametersResponseArgs{...}
+type UrlFileExtensionMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToUrlFileExtensionMatchConditionParametersResponseOutput() UrlFileExtensionMatchConditionParametersResponseOutput
+	ToUrlFileExtensionMatchConditionParametersResponseOutputWithContext(context.Context) UrlFileExtensionMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for UrlFileExtension match conditions
+type UrlFileExtensionMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (UrlFileExtensionMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileExtensionMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i UrlFileExtensionMatchConditionParametersResponseArgs) ToUrlFileExtensionMatchConditionParametersResponseOutput() UrlFileExtensionMatchConditionParametersResponseOutput {
+	return i.ToUrlFileExtensionMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i UrlFileExtensionMatchConditionParametersResponseArgs) ToUrlFileExtensionMatchConditionParametersResponseOutputWithContext(ctx context.Context) UrlFileExtensionMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlFileExtensionMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for UrlFileExtension match conditions
+type UrlFileExtensionMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlFileExtensionMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileExtensionMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o UrlFileExtensionMatchConditionParametersResponseOutput) ToUrlFileExtensionMatchConditionParametersResponseOutput() UrlFileExtensionMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o UrlFileExtensionMatchConditionParametersResponseOutput) ToUrlFileExtensionMatchConditionParametersResponseOutputWithContext(ctx context.Context) UrlFileExtensionMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o UrlFileExtensionMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o UrlFileExtensionMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o UrlFileExtensionMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o UrlFileExtensionMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o UrlFileExtensionMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for UrlFilename match conditions
+type UrlFileNameMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// UrlFileNameMatchConditionParametersInput is an input type that accepts UrlFileNameMatchConditionParametersArgs and UrlFileNameMatchConditionParametersOutput values.
+// You can construct a concrete instance of `UrlFileNameMatchConditionParametersInput` via:
+//
+//          UrlFileNameMatchConditionParametersArgs{...}
+type UrlFileNameMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToUrlFileNameMatchConditionParametersOutput() UrlFileNameMatchConditionParametersOutput
+	ToUrlFileNameMatchConditionParametersOutputWithContext(context.Context) UrlFileNameMatchConditionParametersOutput
+}
+
+// Defines the parameters for UrlFilename match conditions
+type UrlFileNameMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (UrlFileNameMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileNameMatchConditionParameters)(nil)).Elem()
+}
+
+func (i UrlFileNameMatchConditionParametersArgs) ToUrlFileNameMatchConditionParametersOutput() UrlFileNameMatchConditionParametersOutput {
+	return i.ToUrlFileNameMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i UrlFileNameMatchConditionParametersArgs) ToUrlFileNameMatchConditionParametersOutputWithContext(ctx context.Context) UrlFileNameMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlFileNameMatchConditionParametersOutput)
+}
+
+// Defines the parameters for UrlFilename match conditions
+type UrlFileNameMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (UrlFileNameMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileNameMatchConditionParameters)(nil)).Elem()
+}
+
+func (o UrlFileNameMatchConditionParametersOutput) ToUrlFileNameMatchConditionParametersOutput() UrlFileNameMatchConditionParametersOutput {
+	return o
+}
+
+func (o UrlFileNameMatchConditionParametersOutput) ToUrlFileNameMatchConditionParametersOutputWithContext(ctx context.Context) UrlFileNameMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o UrlFileNameMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o UrlFileNameMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o UrlFileNameMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o UrlFileNameMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o UrlFileNameMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for UrlFilename match conditions
+type UrlFileNameMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// UrlFileNameMatchConditionParametersResponseInput is an input type that accepts UrlFileNameMatchConditionParametersResponseArgs and UrlFileNameMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `UrlFileNameMatchConditionParametersResponseInput` via:
+//
+//          UrlFileNameMatchConditionParametersResponseArgs{...}
+type UrlFileNameMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToUrlFileNameMatchConditionParametersResponseOutput() UrlFileNameMatchConditionParametersResponseOutput
+	ToUrlFileNameMatchConditionParametersResponseOutputWithContext(context.Context) UrlFileNameMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for UrlFilename match conditions
+type UrlFileNameMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (UrlFileNameMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileNameMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i UrlFileNameMatchConditionParametersResponseArgs) ToUrlFileNameMatchConditionParametersResponseOutput() UrlFileNameMatchConditionParametersResponseOutput {
+	return i.ToUrlFileNameMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i UrlFileNameMatchConditionParametersResponseArgs) ToUrlFileNameMatchConditionParametersResponseOutputWithContext(ctx context.Context) UrlFileNameMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlFileNameMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for UrlFilename match conditions
+type UrlFileNameMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlFileNameMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileNameMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o UrlFileNameMatchConditionParametersResponseOutput) ToUrlFileNameMatchConditionParametersResponseOutput() UrlFileNameMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o UrlFileNameMatchConditionParametersResponseOutput) ToUrlFileNameMatchConditionParametersResponseOutputWithContext(ctx context.Context) UrlFileNameMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o UrlFileNameMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o UrlFileNameMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o UrlFileNameMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o UrlFileNameMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o UrlFileNameMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for UrlPath match conditions
+type UrlPathMatchConditionParameters struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// UrlPathMatchConditionParametersInput is an input type that accepts UrlPathMatchConditionParametersArgs and UrlPathMatchConditionParametersOutput values.
+// You can construct a concrete instance of `UrlPathMatchConditionParametersInput` via:
+//
+//          UrlPathMatchConditionParametersArgs{...}
+type UrlPathMatchConditionParametersInput interface {
+	pulumi.Input
+
+	ToUrlPathMatchConditionParametersOutput() UrlPathMatchConditionParametersOutput
+	ToUrlPathMatchConditionParametersOutputWithContext(context.Context) UrlPathMatchConditionParametersOutput
+}
+
+// Defines the parameters for UrlPath match conditions
+type UrlPathMatchConditionParametersArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (UrlPathMatchConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlPathMatchConditionParameters)(nil)).Elem()
+}
+
+func (i UrlPathMatchConditionParametersArgs) ToUrlPathMatchConditionParametersOutput() UrlPathMatchConditionParametersOutput {
+	return i.ToUrlPathMatchConditionParametersOutputWithContext(context.Background())
+}
+
+func (i UrlPathMatchConditionParametersArgs) ToUrlPathMatchConditionParametersOutputWithContext(ctx context.Context) UrlPathMatchConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlPathMatchConditionParametersOutput)
+}
+
+// Defines the parameters for UrlPath match conditions
+type UrlPathMatchConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (UrlPathMatchConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlPathMatchConditionParameters)(nil)).Elem()
+}
+
+func (o UrlPathMatchConditionParametersOutput) ToUrlPathMatchConditionParametersOutput() UrlPathMatchConditionParametersOutput {
+	return o
+}
+
+func (o UrlPathMatchConditionParametersOutput) ToUrlPathMatchConditionParametersOutputWithContext(ctx context.Context) UrlPathMatchConditionParametersOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o UrlPathMatchConditionParametersOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParameters) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o UrlPathMatchConditionParametersOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParameters) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o UrlPathMatchConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o UrlPathMatchConditionParametersOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o UrlPathMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for UrlPath match conditions
+type UrlPathMatchConditionParametersResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// UrlPathMatchConditionParametersResponseInput is an input type that accepts UrlPathMatchConditionParametersResponseArgs and UrlPathMatchConditionParametersResponseOutput values.
+// You can construct a concrete instance of `UrlPathMatchConditionParametersResponseInput` via:
+//
+//          UrlPathMatchConditionParametersResponseArgs{...}
+type UrlPathMatchConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToUrlPathMatchConditionParametersResponseOutput() UrlPathMatchConditionParametersResponseOutput
+	ToUrlPathMatchConditionParametersResponseOutputWithContext(context.Context) UrlPathMatchConditionParametersResponseOutput
+}
+
+// Defines the parameters for UrlPath match conditions
+type UrlPathMatchConditionParametersResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (UrlPathMatchConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlPathMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (i UrlPathMatchConditionParametersResponseArgs) ToUrlPathMatchConditionParametersResponseOutput() UrlPathMatchConditionParametersResponseOutput {
+	return i.ToUrlPathMatchConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i UrlPathMatchConditionParametersResponseArgs) ToUrlPathMatchConditionParametersResponseOutputWithContext(ctx context.Context) UrlPathMatchConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlPathMatchConditionParametersResponseOutput)
+}
+
+// Defines the parameters for UrlPath match conditions
+type UrlPathMatchConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlPathMatchConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlPathMatchConditionParametersResponse)(nil)).Elem()
+}
+
+func (o UrlPathMatchConditionParametersResponseOutput) ToUrlPathMatchConditionParametersResponseOutput() UrlPathMatchConditionParametersResponseOutput {
+	return o
+}
+
+func (o UrlPathMatchConditionParametersResponseOutput) ToUrlPathMatchConditionParametersResponseOutputWithContext(ctx context.Context) UrlPathMatchConditionParametersResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o UrlPathMatchConditionParametersResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParametersResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o UrlPathMatchConditionParametersResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParametersResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o UrlPathMatchConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o UrlPathMatchConditionParametersResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParametersResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o UrlPathMatchConditionParametersResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParametersResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the url redirect action for the delivery rule.
+type UrlRedirectAction struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRedirectActionParameters `pulumi:"parameters"`
+}
+
+// UrlRedirectActionInput is an input type that accepts UrlRedirectActionArgs and UrlRedirectActionOutput values.
+// You can construct a concrete instance of `UrlRedirectActionInput` via:
+//
+//          UrlRedirectActionArgs{...}
+type UrlRedirectActionInput interface {
+	pulumi.Input
+
+	ToUrlRedirectActionOutput() UrlRedirectActionOutput
+	ToUrlRedirectActionOutputWithContext(context.Context) UrlRedirectActionOutput
+}
+
+// Defines the url redirect action for the delivery rule.
+type UrlRedirectActionArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRedirectActionParametersInput `pulumi:"parameters"`
+}
+
+func (UrlRedirectActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectAction)(nil)).Elem()
+}
+
+func (i UrlRedirectActionArgs) ToUrlRedirectActionOutput() UrlRedirectActionOutput {
+	return i.ToUrlRedirectActionOutputWithContext(context.Background())
+}
+
+func (i UrlRedirectActionArgs) ToUrlRedirectActionOutputWithContext(ctx context.Context) UrlRedirectActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRedirectActionOutput)
+}
+
+// Defines the url redirect action for the delivery rule.
+type UrlRedirectActionOutput struct{ *pulumi.OutputState }
+
+func (UrlRedirectActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectAction)(nil)).Elem()
+}
+
+func (o UrlRedirectActionOutput) ToUrlRedirectActionOutput() UrlRedirectActionOutput {
+	return o
+}
+
+func (o UrlRedirectActionOutput) ToUrlRedirectActionOutputWithContext(ctx context.Context) UrlRedirectActionOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o UrlRedirectActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRedirectAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o UrlRedirectActionOutput) Parameters() UrlRedirectActionParametersOutput {
+	return o.ApplyT(func(v UrlRedirectAction) UrlRedirectActionParameters { return v.Parameters }).(UrlRedirectActionParametersOutput)
+}
+
+// Defines the parameters for the url redirect action.
+type UrlRedirectActionParameters struct {
+	// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+	CustomFragment *string `pulumi:"customFragment"`
+	// Host to redirect. Leave empty to use the incoming host as the destination host.
+	CustomHostname *string `pulumi:"customHostname"`
+	// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+	CustomPath *string `pulumi:"customPath"`
+	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+	CustomQueryString *string `pulumi:"customQueryString"`
+	// Protocol to use for the redirect. The default value is MatchRequest
+	DestinationProtocol *string `pulumi:"destinationProtocol"`
+	OdataType           string  `pulumi:"odataType"`
+	// The redirect type the rule will use when redirecting traffic.
+	RedirectType string `pulumi:"redirectType"`
+}
+
+// UrlRedirectActionParametersInput is an input type that accepts UrlRedirectActionParametersArgs and UrlRedirectActionParametersOutput values.
+// You can construct a concrete instance of `UrlRedirectActionParametersInput` via:
+//
+//          UrlRedirectActionParametersArgs{...}
+type UrlRedirectActionParametersInput interface {
+	pulumi.Input
+
+	ToUrlRedirectActionParametersOutput() UrlRedirectActionParametersOutput
+	ToUrlRedirectActionParametersOutputWithContext(context.Context) UrlRedirectActionParametersOutput
+}
+
+// Defines the parameters for the url redirect action.
+type UrlRedirectActionParametersArgs struct {
+	// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+	CustomFragment pulumi.StringPtrInput `pulumi:"customFragment"`
+	// Host to redirect. Leave empty to use the incoming host as the destination host.
+	CustomHostname pulumi.StringPtrInput `pulumi:"customHostname"`
+	// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+	CustomPath pulumi.StringPtrInput `pulumi:"customPath"`
+	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+	CustomQueryString pulumi.StringPtrInput `pulumi:"customQueryString"`
+	// Protocol to use for the redirect. The default value is MatchRequest
+	DestinationProtocol pulumi.StringPtrInput `pulumi:"destinationProtocol"`
+	OdataType           pulumi.StringInput    `pulumi:"odataType"`
+	// The redirect type the rule will use when redirecting traffic.
+	RedirectType pulumi.StringInput `pulumi:"redirectType"`
+}
+
+func (UrlRedirectActionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectActionParameters)(nil)).Elem()
+}
+
+func (i UrlRedirectActionParametersArgs) ToUrlRedirectActionParametersOutput() UrlRedirectActionParametersOutput {
+	return i.ToUrlRedirectActionParametersOutputWithContext(context.Background())
+}
+
+func (i UrlRedirectActionParametersArgs) ToUrlRedirectActionParametersOutputWithContext(ctx context.Context) UrlRedirectActionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRedirectActionParametersOutput)
+}
+
+// Defines the parameters for the url redirect action.
+type UrlRedirectActionParametersOutput struct{ *pulumi.OutputState }
+
+func (UrlRedirectActionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectActionParameters)(nil)).Elem()
+}
+
+func (o UrlRedirectActionParametersOutput) ToUrlRedirectActionParametersOutput() UrlRedirectActionParametersOutput {
+	return o
+}
+
+func (o UrlRedirectActionParametersOutput) ToUrlRedirectActionParametersOutputWithContext(ctx context.Context) UrlRedirectActionParametersOutput {
+	return o
+}
+
+// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+func (o UrlRedirectActionParametersOutput) CustomFragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParameters) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
+}
+
+// Host to redirect. Leave empty to use the incoming host as the destination host.
+func (o UrlRedirectActionParametersOutput) CustomHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParameters) *string { return v.CustomHostname }).(pulumi.StringPtrOutput)
+}
+
+// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+func (o UrlRedirectActionParametersOutput) CustomPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParameters) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
+}
+
+// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+func (o UrlRedirectActionParametersOutput) CustomQueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParameters) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
+}
+
+// Protocol to use for the redirect. The default value is MatchRequest
+func (o UrlRedirectActionParametersOutput) DestinationProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParameters) *string { return v.DestinationProtocol }).(pulumi.StringPtrOutput)
+}
+
+func (o UrlRedirectActionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRedirectActionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The redirect type the rule will use when redirecting traffic.
+func (o UrlRedirectActionParametersOutput) RedirectType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRedirectActionParameters) string { return v.RedirectType }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the url redirect action.
+type UrlRedirectActionParametersResponse struct {
+	// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+	CustomFragment *string `pulumi:"customFragment"`
+	// Host to redirect. Leave empty to use the incoming host as the destination host.
+	CustomHostname *string `pulumi:"customHostname"`
+	// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+	CustomPath *string `pulumi:"customPath"`
+	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+	CustomQueryString *string `pulumi:"customQueryString"`
+	// Protocol to use for the redirect. The default value is MatchRequest
+	DestinationProtocol *string `pulumi:"destinationProtocol"`
+	OdataType           string  `pulumi:"odataType"`
+	// The redirect type the rule will use when redirecting traffic.
+	RedirectType string `pulumi:"redirectType"`
+}
+
+// UrlRedirectActionParametersResponseInput is an input type that accepts UrlRedirectActionParametersResponseArgs and UrlRedirectActionParametersResponseOutput values.
+// You can construct a concrete instance of `UrlRedirectActionParametersResponseInput` via:
+//
+//          UrlRedirectActionParametersResponseArgs{...}
+type UrlRedirectActionParametersResponseInput interface {
+	pulumi.Input
+
+	ToUrlRedirectActionParametersResponseOutput() UrlRedirectActionParametersResponseOutput
+	ToUrlRedirectActionParametersResponseOutputWithContext(context.Context) UrlRedirectActionParametersResponseOutput
+}
+
+// Defines the parameters for the url redirect action.
+type UrlRedirectActionParametersResponseArgs struct {
+	// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+	CustomFragment pulumi.StringPtrInput `pulumi:"customFragment"`
+	// Host to redirect. Leave empty to use the incoming host as the destination host.
+	CustomHostname pulumi.StringPtrInput `pulumi:"customHostname"`
+	// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+	CustomPath pulumi.StringPtrInput `pulumi:"customPath"`
+	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+	CustomQueryString pulumi.StringPtrInput `pulumi:"customQueryString"`
+	// Protocol to use for the redirect. The default value is MatchRequest
+	DestinationProtocol pulumi.StringPtrInput `pulumi:"destinationProtocol"`
+	OdataType           pulumi.StringInput    `pulumi:"odataType"`
+	// The redirect type the rule will use when redirecting traffic.
+	RedirectType pulumi.StringInput `pulumi:"redirectType"`
+}
+
+func (UrlRedirectActionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectActionParametersResponse)(nil)).Elem()
+}
+
+func (i UrlRedirectActionParametersResponseArgs) ToUrlRedirectActionParametersResponseOutput() UrlRedirectActionParametersResponseOutput {
+	return i.ToUrlRedirectActionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i UrlRedirectActionParametersResponseArgs) ToUrlRedirectActionParametersResponseOutputWithContext(ctx context.Context) UrlRedirectActionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRedirectActionParametersResponseOutput)
+}
+
+// Defines the parameters for the url redirect action.
+type UrlRedirectActionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlRedirectActionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectActionParametersResponse)(nil)).Elem()
+}
+
+func (o UrlRedirectActionParametersResponseOutput) ToUrlRedirectActionParametersResponseOutput() UrlRedirectActionParametersResponseOutput {
+	return o
+}
+
+func (o UrlRedirectActionParametersResponseOutput) ToUrlRedirectActionParametersResponseOutputWithContext(ctx context.Context) UrlRedirectActionParametersResponseOutput {
+	return o
+}
+
+// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+func (o UrlRedirectActionParametersResponseOutput) CustomFragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersResponse) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
+}
+
+// Host to redirect. Leave empty to use the incoming host as the destination host.
+func (o UrlRedirectActionParametersResponseOutput) CustomHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersResponse) *string { return v.CustomHostname }).(pulumi.StringPtrOutput)
+}
+
+// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+func (o UrlRedirectActionParametersResponseOutput) CustomPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersResponse) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
+}
+
+// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+func (o UrlRedirectActionParametersResponseOutput) CustomQueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersResponse) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
+}
+
+// Protocol to use for the redirect. The default value is MatchRequest
+func (o UrlRedirectActionParametersResponseOutput) DestinationProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersResponse) *string { return v.DestinationProtocol }).(pulumi.StringPtrOutput)
+}
+
+func (o UrlRedirectActionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The redirect type the rule will use when redirecting traffic.
+func (o UrlRedirectActionParametersResponseOutput) RedirectType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersResponse) string { return v.RedirectType }).(pulumi.StringOutput)
+}
+
+// Defines the url redirect action for the delivery rule.
+type UrlRedirectActionResponse struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRedirectActionParametersResponse `pulumi:"parameters"`
+}
+
+// UrlRedirectActionResponseInput is an input type that accepts UrlRedirectActionResponseArgs and UrlRedirectActionResponseOutput values.
+// You can construct a concrete instance of `UrlRedirectActionResponseInput` via:
+//
+//          UrlRedirectActionResponseArgs{...}
+type UrlRedirectActionResponseInput interface {
+	pulumi.Input
+
+	ToUrlRedirectActionResponseOutput() UrlRedirectActionResponseOutput
+	ToUrlRedirectActionResponseOutputWithContext(context.Context) UrlRedirectActionResponseOutput
+}
+
+// Defines the url redirect action for the delivery rule.
+type UrlRedirectActionResponseArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRedirectActionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (UrlRedirectActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectActionResponse)(nil)).Elem()
+}
+
+func (i UrlRedirectActionResponseArgs) ToUrlRedirectActionResponseOutput() UrlRedirectActionResponseOutput {
+	return i.ToUrlRedirectActionResponseOutputWithContext(context.Background())
+}
+
+func (i UrlRedirectActionResponseArgs) ToUrlRedirectActionResponseOutputWithContext(ctx context.Context) UrlRedirectActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRedirectActionResponseOutput)
+}
+
+// Defines the url redirect action for the delivery rule.
+type UrlRedirectActionResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlRedirectActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectActionResponse)(nil)).Elem()
+}
+
+func (o UrlRedirectActionResponseOutput) ToUrlRedirectActionResponseOutput() UrlRedirectActionResponseOutput {
+	return o
+}
+
+func (o UrlRedirectActionResponseOutput) ToUrlRedirectActionResponseOutputWithContext(ctx context.Context) UrlRedirectActionResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o UrlRedirectActionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRedirectActionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o UrlRedirectActionResponseOutput) Parameters() UrlRedirectActionParametersResponseOutput {
+	return o.ApplyT(func(v UrlRedirectActionResponse) UrlRedirectActionParametersResponse { return v.Parameters }).(UrlRedirectActionParametersResponseOutput)
+}
+
+// Defines the url rewrite action for the delivery rule.
+type UrlRewriteAction struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRewriteActionParameters `pulumi:"parameters"`
+}
+
+// UrlRewriteActionInput is an input type that accepts UrlRewriteActionArgs and UrlRewriteActionOutput values.
+// You can construct a concrete instance of `UrlRewriteActionInput` via:
+//
+//          UrlRewriteActionArgs{...}
+type UrlRewriteActionInput interface {
+	pulumi.Input
+
+	ToUrlRewriteActionOutput() UrlRewriteActionOutput
+	ToUrlRewriteActionOutputWithContext(context.Context) UrlRewriteActionOutput
+}
+
+// Defines the url rewrite action for the delivery rule.
+type UrlRewriteActionArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRewriteActionParametersInput `pulumi:"parameters"`
+}
+
+func (UrlRewriteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteAction)(nil)).Elem()
+}
+
+func (i UrlRewriteActionArgs) ToUrlRewriteActionOutput() UrlRewriteActionOutput {
+	return i.ToUrlRewriteActionOutputWithContext(context.Background())
+}
+
+func (i UrlRewriteActionArgs) ToUrlRewriteActionOutputWithContext(ctx context.Context) UrlRewriteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRewriteActionOutput)
+}
+
+// Defines the url rewrite action for the delivery rule.
+type UrlRewriteActionOutput struct{ *pulumi.OutputState }
+
+func (UrlRewriteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteAction)(nil)).Elem()
+}
+
+func (o UrlRewriteActionOutput) ToUrlRewriteActionOutput() UrlRewriteActionOutput {
+	return o
+}
+
+func (o UrlRewriteActionOutput) ToUrlRewriteActionOutputWithContext(ctx context.Context) UrlRewriteActionOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o UrlRewriteActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o UrlRewriteActionOutput) Parameters() UrlRewriteActionParametersOutput {
+	return o.ApplyT(func(v UrlRewriteAction) UrlRewriteActionParameters { return v.Parameters }).(UrlRewriteActionParametersOutput)
+}
+
+// Defines the parameters for the url rewrite action.
+type UrlRewriteActionParameters struct {
+	// Define the relative URL to which the above requests will be rewritten by.
+	Destination string `pulumi:"destination"`
+	OdataType   string `pulumi:"odataType"`
+	// Whether to preserve unmatched path. Default value is true.
+	PreserveUnmatchedPath *bool `pulumi:"preserveUnmatchedPath"`
+	// define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+	SourcePattern string `pulumi:"sourcePattern"`
+}
+
+// UrlRewriteActionParametersInput is an input type that accepts UrlRewriteActionParametersArgs and UrlRewriteActionParametersOutput values.
+// You can construct a concrete instance of `UrlRewriteActionParametersInput` via:
+//
+//          UrlRewriteActionParametersArgs{...}
+type UrlRewriteActionParametersInput interface {
+	pulumi.Input
+
+	ToUrlRewriteActionParametersOutput() UrlRewriteActionParametersOutput
+	ToUrlRewriteActionParametersOutputWithContext(context.Context) UrlRewriteActionParametersOutput
+}
+
+// Defines the parameters for the url rewrite action.
+type UrlRewriteActionParametersArgs struct {
+	// Define the relative URL to which the above requests will be rewritten by.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	OdataType   pulumi.StringInput `pulumi:"odataType"`
+	// Whether to preserve unmatched path. Default value is true.
+	PreserveUnmatchedPath pulumi.BoolPtrInput `pulumi:"preserveUnmatchedPath"`
+	// define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+	SourcePattern pulumi.StringInput `pulumi:"sourcePattern"`
+}
+
+func (UrlRewriteActionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteActionParameters)(nil)).Elem()
+}
+
+func (i UrlRewriteActionParametersArgs) ToUrlRewriteActionParametersOutput() UrlRewriteActionParametersOutput {
+	return i.ToUrlRewriteActionParametersOutputWithContext(context.Background())
+}
+
+func (i UrlRewriteActionParametersArgs) ToUrlRewriteActionParametersOutputWithContext(ctx context.Context) UrlRewriteActionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRewriteActionParametersOutput)
+}
+
+// Defines the parameters for the url rewrite action.
+type UrlRewriteActionParametersOutput struct{ *pulumi.OutputState }
+
+func (UrlRewriteActionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteActionParameters)(nil)).Elem()
+}
+
+func (o UrlRewriteActionParametersOutput) ToUrlRewriteActionParametersOutput() UrlRewriteActionParametersOutput {
+	return o
+}
+
+func (o UrlRewriteActionParametersOutput) ToUrlRewriteActionParametersOutputWithContext(ctx context.Context) UrlRewriteActionParametersOutput {
+	return o
+}
+
+// Define the relative URL to which the above requests will be rewritten by.
+func (o UrlRewriteActionParametersOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteActionParameters) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+func (o UrlRewriteActionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteActionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Whether to preserve unmatched path. Default value is true.
+func (o UrlRewriteActionParametersOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlRewriteActionParameters) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
+}
+
+// define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+func (o UrlRewriteActionParametersOutput) SourcePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteActionParameters) string { return v.SourcePattern }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the url rewrite action.
+type UrlRewriteActionParametersResponse struct {
+	// Define the relative URL to which the above requests will be rewritten by.
+	Destination string `pulumi:"destination"`
+	OdataType   string `pulumi:"odataType"`
+	// Whether to preserve unmatched path. Default value is true.
+	PreserveUnmatchedPath *bool `pulumi:"preserveUnmatchedPath"`
+	// define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+	SourcePattern string `pulumi:"sourcePattern"`
+}
+
+// UrlRewriteActionParametersResponseInput is an input type that accepts UrlRewriteActionParametersResponseArgs and UrlRewriteActionParametersResponseOutput values.
+// You can construct a concrete instance of `UrlRewriteActionParametersResponseInput` via:
+//
+//          UrlRewriteActionParametersResponseArgs{...}
+type UrlRewriteActionParametersResponseInput interface {
+	pulumi.Input
+
+	ToUrlRewriteActionParametersResponseOutput() UrlRewriteActionParametersResponseOutput
+	ToUrlRewriteActionParametersResponseOutputWithContext(context.Context) UrlRewriteActionParametersResponseOutput
+}
+
+// Defines the parameters for the url rewrite action.
+type UrlRewriteActionParametersResponseArgs struct {
+	// Define the relative URL to which the above requests will be rewritten by.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	OdataType   pulumi.StringInput `pulumi:"odataType"`
+	// Whether to preserve unmatched path. Default value is true.
+	PreserveUnmatchedPath pulumi.BoolPtrInput `pulumi:"preserveUnmatchedPath"`
+	// define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+	SourcePattern pulumi.StringInput `pulumi:"sourcePattern"`
+}
+
+func (UrlRewriteActionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteActionParametersResponse)(nil)).Elem()
+}
+
+func (i UrlRewriteActionParametersResponseArgs) ToUrlRewriteActionParametersResponseOutput() UrlRewriteActionParametersResponseOutput {
+	return i.ToUrlRewriteActionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i UrlRewriteActionParametersResponseArgs) ToUrlRewriteActionParametersResponseOutputWithContext(ctx context.Context) UrlRewriteActionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRewriteActionParametersResponseOutput)
+}
+
+// Defines the parameters for the url rewrite action.
+type UrlRewriteActionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlRewriteActionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteActionParametersResponse)(nil)).Elem()
+}
+
+func (o UrlRewriteActionParametersResponseOutput) ToUrlRewriteActionParametersResponseOutput() UrlRewriteActionParametersResponseOutput {
+	return o
+}
+
+func (o UrlRewriteActionParametersResponseOutput) ToUrlRewriteActionParametersResponseOutputWithContext(ctx context.Context) UrlRewriteActionParametersResponseOutput {
+	return o
+}
+
+// Define the relative URL to which the above requests will be rewritten by.
+func (o UrlRewriteActionParametersResponseOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteActionParametersResponse) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+func (o UrlRewriteActionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteActionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Whether to preserve unmatched path. Default value is true.
+func (o UrlRewriteActionParametersResponseOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlRewriteActionParametersResponse) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
+}
+
+// define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+func (o UrlRewriteActionParametersResponseOutput) SourcePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteActionParametersResponse) string { return v.SourcePattern }).(pulumi.StringOutput)
+}
+
+// Defines the url rewrite action for the delivery rule.
+type UrlRewriteActionResponse struct {
+	// The name of the action for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRewriteActionParametersResponse `pulumi:"parameters"`
+}
+
+// UrlRewriteActionResponseInput is an input type that accepts UrlRewriteActionResponseArgs and UrlRewriteActionResponseOutput values.
+// You can construct a concrete instance of `UrlRewriteActionResponseInput` via:
+//
+//          UrlRewriteActionResponseArgs{...}
+type UrlRewriteActionResponseInput interface {
+	pulumi.Input
+
+	ToUrlRewriteActionResponseOutput() UrlRewriteActionResponseOutput
+	ToUrlRewriteActionResponseOutputWithContext(context.Context) UrlRewriteActionResponseOutput
+}
+
+// Defines the url rewrite action for the delivery rule.
+type UrlRewriteActionResponseArgs struct {
+	// The name of the action for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRewriteActionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (UrlRewriteActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteActionResponse)(nil)).Elem()
+}
+
+func (i UrlRewriteActionResponseArgs) ToUrlRewriteActionResponseOutput() UrlRewriteActionResponseOutput {
+	return i.ToUrlRewriteActionResponseOutputWithContext(context.Background())
+}
+
+func (i UrlRewriteActionResponseArgs) ToUrlRewriteActionResponseOutputWithContext(ctx context.Context) UrlRewriteActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRewriteActionResponseOutput)
+}
+
+// Defines the url rewrite action for the delivery rule.
+type UrlRewriteActionResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlRewriteActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteActionResponse)(nil)).Elem()
+}
+
+func (o UrlRewriteActionResponseOutput) ToUrlRewriteActionResponseOutput() UrlRewriteActionResponseOutput {
+	return o
+}
+
+func (o UrlRewriteActionResponseOutput) ToUrlRewriteActionResponseOutputWithContext(ctx context.Context) UrlRewriteActionResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+func (o UrlRewriteActionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteActionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o UrlRewriteActionResponseOutput) Parameters() UrlRewriteActionParametersResponseOutput {
+	return o.ApplyT(func(v UrlRewriteActionResponse) UrlRewriteActionParametersResponse { return v.Parameters }).(UrlRewriteActionParametersResponseOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(CacheExpirationActionParametersOutput{})
+	pulumi.RegisterOutputType(CacheExpirationActionParametersResponseOutput{})
+	pulumi.RegisterOutputType(CacheKeyQueryStringActionParametersOutput{})
+	pulumi.RegisterOutputType(CacheKeyQueryStringActionParametersResponseOutput{})
+	pulumi.RegisterOutputType(CookiesMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(CookiesMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginArrayOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginGroupOutput{})
@@ -3411,16 +9153,44 @@ func init() {
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleArrayOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleActionOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleActionArrayOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleActionResponseOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleActionResponseArrayOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleConditionOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleConditionArrayOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleConditionResponseOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleConditionResponseArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCacheExpirationActionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCacheExpirationActionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCacheKeyQueryStringActionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCacheKeyQueryStringActionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCookiesConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCookiesConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleHttpVersionConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleHttpVersionConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleIsDeviceConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleIsDeviceConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRulePostArgsConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRulePostArgsConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleQueryStringConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleQueryStringConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRemoteAddressConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRemoteAddressConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestBodyConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestBodyConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestHeaderActionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestHeaderActionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestHeaderConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestHeaderConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestMethodConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestMethodConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestSchemeConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestSchemeConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestUriConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestUriConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleResponseHeaderActionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleResponseHeaderActionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlFileExtensionConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlFileExtensionConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlFileNameConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlFileNameConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlPathConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlPathConditionResponseOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput{})
@@ -3429,6 +9199,8 @@ func init() {
 	pulumi.RegisterOutputType(GeoFilterArrayOutput{})
 	pulumi.RegisterOutputType(GeoFilterResponseOutput{})
 	pulumi.RegisterOutputType(GeoFilterResponseArrayOutput{})
+	pulumi.RegisterOutputType(HeaderActionParametersOutput{})
+	pulumi.RegisterOutputType(HeaderActionParametersResponseOutput{})
 	pulumi.RegisterOutputType(HealthProbeParametersOutput{})
 	pulumi.RegisterOutputType(HealthProbeParametersPtrOutput{})
 	pulumi.RegisterOutputType(HealthProbeParametersResponseOutput{})
@@ -3437,6 +9209,30 @@ func init() {
 	pulumi.RegisterOutputType(HttpErrorRangeParametersArrayOutput{})
 	pulumi.RegisterOutputType(HttpErrorRangeParametersResponseOutput{})
 	pulumi.RegisterOutputType(HttpErrorRangeParametersResponseArrayOutput{})
+	pulumi.RegisterOutputType(HttpVersionMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(HttpVersionMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(IsDeviceMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(IsDeviceMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(OriginGroupOverrideActionOutput{})
+	pulumi.RegisterOutputType(OriginGroupOverrideActionParametersOutput{})
+	pulumi.RegisterOutputType(OriginGroupOverrideActionParametersResponseOutput{})
+	pulumi.RegisterOutputType(OriginGroupOverrideActionResponseOutput{})
+	pulumi.RegisterOutputType(PostArgsMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(PostArgsMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(QueryStringMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(QueryStringMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(RemoteAddressMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RemoteAddressMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(RequestBodyMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RequestBodyMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(RequestHeaderMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RequestHeaderMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(RequestMethodMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RequestMethodMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(RequestSchemeMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RequestSchemeMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(RequestUriMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RequestUriMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceOutput{})
 	pulumi.RegisterOutputType(ResourceReferencePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceArrayOutput{})
@@ -3451,4 +9247,18 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(UrlFileExtensionMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(UrlFileExtensionMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(UrlFileNameMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(UrlFileNameMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(UrlPathMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(UrlPathMatchConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(UrlRedirectActionOutput{})
+	pulumi.RegisterOutputType(UrlRedirectActionParametersOutput{})
+	pulumi.RegisterOutputType(UrlRedirectActionParametersResponseOutput{})
+	pulumi.RegisterOutputType(UrlRedirectActionResponseOutput{})
+	pulumi.RegisterOutputType(UrlRewriteActionOutput{})
+	pulumi.RegisterOutputType(UrlRewriteActionParametersOutput{})
+	pulumi.RegisterOutputType(UrlRewriteActionParametersResponseOutput{})
+	pulumi.RegisterOutputType(UrlRewriteActionResponseOutput{})
 }

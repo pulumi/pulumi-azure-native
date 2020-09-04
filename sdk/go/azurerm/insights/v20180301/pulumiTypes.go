@@ -772,6 +772,406 @@ func (o AzureFunctionReceiverResponseArrayOutput) Index(i pulumi.IntInput) Azure
 	}).(AzureFunctionReceiverResponseOutput)
 }
 
+// Criterion for dynamic threshold.
+type DynamicMetricCriteria struct {
+	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+	AlertSensitivity string `pulumi:"alertSensitivity"`
+	// Specifies the type of threshold criteria
+	CriterionType string `pulumi:"criterionType"`
+	// List of dimension conditions.
+	Dimensions []MetricDimension `pulumi:"dimensions"`
+	// The minimum number of violations required within the selected lookback time window required to raise an alert.
+	FailingPeriods DynamicThresholdFailingPeriods `pulumi:"failingPeriods"`
+	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+	IgnoreDataBefore *string `pulumi:"ignoreDataBefore"`
+	// Name of the metric.
+	MetricName string `pulumi:"metricName"`
+	// Namespace of the metric.
+	MetricNamespace *string `pulumi:"metricNamespace"`
+	// Name of the criteria.
+	Name string `pulumi:"name"`
+	// The operator used to compare the metric value against the threshold.
+	Operator string `pulumi:"operator"`
+	// the criteria time aggregation types.
+	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
+}
+
+// DynamicMetricCriteriaInput is an input type that accepts DynamicMetricCriteriaArgs and DynamicMetricCriteriaOutput values.
+// You can construct a concrete instance of `DynamicMetricCriteriaInput` via:
+//
+//          DynamicMetricCriteriaArgs{...}
+type DynamicMetricCriteriaInput interface {
+	pulumi.Input
+
+	ToDynamicMetricCriteriaOutput() DynamicMetricCriteriaOutput
+	ToDynamicMetricCriteriaOutputWithContext(context.Context) DynamicMetricCriteriaOutput
+}
+
+// Criterion for dynamic threshold.
+type DynamicMetricCriteriaArgs struct {
+	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+	AlertSensitivity pulumi.StringInput `pulumi:"alertSensitivity"`
+	// Specifies the type of threshold criteria
+	CriterionType pulumi.StringInput `pulumi:"criterionType"`
+	// List of dimension conditions.
+	Dimensions MetricDimensionArrayInput `pulumi:"dimensions"`
+	// The minimum number of violations required within the selected lookback time window required to raise an alert.
+	FailingPeriods DynamicThresholdFailingPeriodsInput `pulumi:"failingPeriods"`
+	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+	IgnoreDataBefore pulumi.StringPtrInput `pulumi:"ignoreDataBefore"`
+	// Name of the metric.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// Namespace of the metric.
+	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
+	// Name of the criteria.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator used to compare the metric value against the threshold.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// the criteria time aggregation types.
+	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
+}
+
+func (DynamicMetricCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicMetricCriteria)(nil)).Elem()
+}
+
+func (i DynamicMetricCriteriaArgs) ToDynamicMetricCriteriaOutput() DynamicMetricCriteriaOutput {
+	return i.ToDynamicMetricCriteriaOutputWithContext(context.Background())
+}
+
+func (i DynamicMetricCriteriaArgs) ToDynamicMetricCriteriaOutputWithContext(ctx context.Context) DynamicMetricCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicMetricCriteriaOutput)
+}
+
+// Criterion for dynamic threshold.
+type DynamicMetricCriteriaOutput struct{ *pulumi.OutputState }
+
+func (DynamicMetricCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicMetricCriteria)(nil)).Elem()
+}
+
+func (o DynamicMetricCriteriaOutput) ToDynamicMetricCriteriaOutput() DynamicMetricCriteriaOutput {
+	return o
+}
+
+func (o DynamicMetricCriteriaOutput) ToDynamicMetricCriteriaOutputWithContext(ctx context.Context) DynamicMetricCriteriaOutput {
+	return o
+}
+
+// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+func (o DynamicMetricCriteriaOutput) AlertSensitivity() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.AlertSensitivity }).(pulumi.StringOutput)
+}
+
+// Specifies the type of threshold criteria
+func (o DynamicMetricCriteriaOutput) CriterionType() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.CriterionType }).(pulumi.StringOutput)
+}
+
+// List of dimension conditions.
+func (o DynamicMetricCriteriaOutput) Dimensions() MetricDimensionArrayOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) []MetricDimension { return v.Dimensions }).(MetricDimensionArrayOutput)
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+func (o DynamicMetricCriteriaOutput) FailingPeriods() DynamicThresholdFailingPeriodsOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) DynamicThresholdFailingPeriods { return v.FailingPeriods }).(DynamicThresholdFailingPeriodsOutput)
+}
+
+// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+func (o DynamicMetricCriteriaOutput) IgnoreDataBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) *string { return v.IgnoreDataBefore }).(pulumi.StringPtrOutput)
+}
+
+// Name of the metric.
+func (o DynamicMetricCriteriaOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// Namespace of the metric.
+func (o DynamicMetricCriteriaOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Name of the criteria.
+func (o DynamicMetricCriteriaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator used to compare the metric value against the threshold.
+func (o DynamicMetricCriteriaOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// the criteria time aggregation types.
+func (o DynamicMetricCriteriaOutput) TimeAggregation() pulumi.MapOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) map[string]interface{} { return v.TimeAggregation }).(pulumi.MapOutput)
+}
+
+// Criterion for dynamic threshold.
+type DynamicMetricCriteriaResponse struct {
+	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+	AlertSensitivity string `pulumi:"alertSensitivity"`
+	// Specifies the type of threshold criteria
+	CriterionType string `pulumi:"criterionType"`
+	// List of dimension conditions.
+	Dimensions []MetricDimensionResponse `pulumi:"dimensions"`
+	// The minimum number of violations required within the selected lookback time window required to raise an alert.
+	FailingPeriods DynamicThresholdFailingPeriodsResponse `pulumi:"failingPeriods"`
+	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+	IgnoreDataBefore *string `pulumi:"ignoreDataBefore"`
+	// Name of the metric.
+	MetricName string `pulumi:"metricName"`
+	// Namespace of the metric.
+	MetricNamespace *string `pulumi:"metricNamespace"`
+	// Name of the criteria.
+	Name string `pulumi:"name"`
+	// The operator used to compare the metric value against the threshold.
+	Operator string `pulumi:"operator"`
+	// the criteria time aggregation types.
+	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
+}
+
+// DynamicMetricCriteriaResponseInput is an input type that accepts DynamicMetricCriteriaResponseArgs and DynamicMetricCriteriaResponseOutput values.
+// You can construct a concrete instance of `DynamicMetricCriteriaResponseInput` via:
+//
+//          DynamicMetricCriteriaResponseArgs{...}
+type DynamicMetricCriteriaResponseInput interface {
+	pulumi.Input
+
+	ToDynamicMetricCriteriaResponseOutput() DynamicMetricCriteriaResponseOutput
+	ToDynamicMetricCriteriaResponseOutputWithContext(context.Context) DynamicMetricCriteriaResponseOutput
+}
+
+// Criterion for dynamic threshold.
+type DynamicMetricCriteriaResponseArgs struct {
+	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+	AlertSensitivity pulumi.StringInput `pulumi:"alertSensitivity"`
+	// Specifies the type of threshold criteria
+	CriterionType pulumi.StringInput `pulumi:"criterionType"`
+	// List of dimension conditions.
+	Dimensions MetricDimensionResponseArrayInput `pulumi:"dimensions"`
+	// The minimum number of violations required within the selected lookback time window required to raise an alert.
+	FailingPeriods DynamicThresholdFailingPeriodsResponseInput `pulumi:"failingPeriods"`
+	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+	IgnoreDataBefore pulumi.StringPtrInput `pulumi:"ignoreDataBefore"`
+	// Name of the metric.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// Namespace of the metric.
+	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
+	// Name of the criteria.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator used to compare the metric value against the threshold.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// the criteria time aggregation types.
+	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
+}
+
+func (DynamicMetricCriteriaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicMetricCriteriaResponse)(nil)).Elem()
+}
+
+func (i DynamicMetricCriteriaResponseArgs) ToDynamicMetricCriteriaResponseOutput() DynamicMetricCriteriaResponseOutput {
+	return i.ToDynamicMetricCriteriaResponseOutputWithContext(context.Background())
+}
+
+func (i DynamicMetricCriteriaResponseArgs) ToDynamicMetricCriteriaResponseOutputWithContext(ctx context.Context) DynamicMetricCriteriaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicMetricCriteriaResponseOutput)
+}
+
+// Criterion for dynamic threshold.
+type DynamicMetricCriteriaResponseOutput struct{ *pulumi.OutputState }
+
+func (DynamicMetricCriteriaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicMetricCriteriaResponse)(nil)).Elem()
+}
+
+func (o DynamicMetricCriteriaResponseOutput) ToDynamicMetricCriteriaResponseOutput() DynamicMetricCriteriaResponseOutput {
+	return o
+}
+
+func (o DynamicMetricCriteriaResponseOutput) ToDynamicMetricCriteriaResponseOutputWithContext(ctx context.Context) DynamicMetricCriteriaResponseOutput {
+	return o
+}
+
+// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+func (o DynamicMetricCriteriaResponseOutput) AlertSensitivity() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.AlertSensitivity }).(pulumi.StringOutput)
+}
+
+// Specifies the type of threshold criteria
+func (o DynamicMetricCriteriaResponseOutput) CriterionType() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.CriterionType }).(pulumi.StringOutput)
+}
+
+// List of dimension conditions.
+func (o DynamicMetricCriteriaResponseOutput) Dimensions() MetricDimensionResponseArrayOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) []MetricDimensionResponse { return v.Dimensions }).(MetricDimensionResponseArrayOutput)
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+func (o DynamicMetricCriteriaResponseOutput) FailingPeriods() DynamicThresholdFailingPeriodsResponseOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) DynamicThresholdFailingPeriodsResponse { return v.FailingPeriods }).(DynamicThresholdFailingPeriodsResponseOutput)
+}
+
+// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+func (o DynamicMetricCriteriaResponseOutput) IgnoreDataBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) *string { return v.IgnoreDataBefore }).(pulumi.StringPtrOutput)
+}
+
+// Name of the metric.
+func (o DynamicMetricCriteriaResponseOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// Namespace of the metric.
+func (o DynamicMetricCriteriaResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Name of the criteria.
+func (o DynamicMetricCriteriaResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator used to compare the metric value against the threshold.
+func (o DynamicMetricCriteriaResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// the criteria time aggregation types.
+func (o DynamicMetricCriteriaResponseOutput) TimeAggregation() pulumi.MapOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) map[string]interface{} { return v.TimeAggregation }).(pulumi.MapOutput)
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+type DynamicThresholdFailingPeriods struct {
+	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+	MinFailingPeriodsToAlert float64 `pulumi:"minFailingPeriodsToAlert"`
+	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	NumberOfEvaluationPeriods float64 `pulumi:"numberOfEvaluationPeriods"`
+}
+
+// DynamicThresholdFailingPeriodsInput is an input type that accepts DynamicThresholdFailingPeriodsArgs and DynamicThresholdFailingPeriodsOutput values.
+// You can construct a concrete instance of `DynamicThresholdFailingPeriodsInput` via:
+//
+//          DynamicThresholdFailingPeriodsArgs{...}
+type DynamicThresholdFailingPeriodsInput interface {
+	pulumi.Input
+
+	ToDynamicThresholdFailingPeriodsOutput() DynamicThresholdFailingPeriodsOutput
+	ToDynamicThresholdFailingPeriodsOutputWithContext(context.Context) DynamicThresholdFailingPeriodsOutput
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+type DynamicThresholdFailingPeriodsArgs struct {
+	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+	MinFailingPeriodsToAlert pulumi.Float64Input `pulumi:"minFailingPeriodsToAlert"`
+	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	NumberOfEvaluationPeriods pulumi.Float64Input `pulumi:"numberOfEvaluationPeriods"`
+}
+
+func (DynamicThresholdFailingPeriodsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicThresholdFailingPeriods)(nil)).Elem()
+}
+
+func (i DynamicThresholdFailingPeriodsArgs) ToDynamicThresholdFailingPeriodsOutput() DynamicThresholdFailingPeriodsOutput {
+	return i.ToDynamicThresholdFailingPeriodsOutputWithContext(context.Background())
+}
+
+func (i DynamicThresholdFailingPeriodsArgs) ToDynamicThresholdFailingPeriodsOutputWithContext(ctx context.Context) DynamicThresholdFailingPeriodsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicThresholdFailingPeriodsOutput)
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+type DynamicThresholdFailingPeriodsOutput struct{ *pulumi.OutputState }
+
+func (DynamicThresholdFailingPeriodsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicThresholdFailingPeriods)(nil)).Elem()
+}
+
+func (o DynamicThresholdFailingPeriodsOutput) ToDynamicThresholdFailingPeriodsOutput() DynamicThresholdFailingPeriodsOutput {
+	return o
+}
+
+func (o DynamicThresholdFailingPeriodsOutput) ToDynamicThresholdFailingPeriodsOutputWithContext(ctx context.Context) DynamicThresholdFailingPeriodsOutput {
+	return o
+}
+
+// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+func (o DynamicThresholdFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.Float64Output {
+	return o.ApplyT(func(v DynamicThresholdFailingPeriods) float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64Output)
+}
+
+// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+func (o DynamicThresholdFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.Float64Output {
+	return o.ApplyT(func(v DynamicThresholdFailingPeriods) float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64Output)
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+type DynamicThresholdFailingPeriodsResponse struct {
+	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+	MinFailingPeriodsToAlert float64 `pulumi:"minFailingPeriodsToAlert"`
+	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	NumberOfEvaluationPeriods float64 `pulumi:"numberOfEvaluationPeriods"`
+}
+
+// DynamicThresholdFailingPeriodsResponseInput is an input type that accepts DynamicThresholdFailingPeriodsResponseArgs and DynamicThresholdFailingPeriodsResponseOutput values.
+// You can construct a concrete instance of `DynamicThresholdFailingPeriodsResponseInput` via:
+//
+//          DynamicThresholdFailingPeriodsResponseArgs{...}
+type DynamicThresholdFailingPeriodsResponseInput interface {
+	pulumi.Input
+
+	ToDynamicThresholdFailingPeriodsResponseOutput() DynamicThresholdFailingPeriodsResponseOutput
+	ToDynamicThresholdFailingPeriodsResponseOutputWithContext(context.Context) DynamicThresholdFailingPeriodsResponseOutput
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+type DynamicThresholdFailingPeriodsResponseArgs struct {
+	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+	MinFailingPeriodsToAlert pulumi.Float64Input `pulumi:"minFailingPeriodsToAlert"`
+	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	NumberOfEvaluationPeriods pulumi.Float64Input `pulumi:"numberOfEvaluationPeriods"`
+}
+
+func (DynamicThresholdFailingPeriodsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicThresholdFailingPeriodsResponse)(nil)).Elem()
+}
+
+func (i DynamicThresholdFailingPeriodsResponseArgs) ToDynamicThresholdFailingPeriodsResponseOutput() DynamicThresholdFailingPeriodsResponseOutput {
+	return i.ToDynamicThresholdFailingPeriodsResponseOutputWithContext(context.Background())
+}
+
+func (i DynamicThresholdFailingPeriodsResponseArgs) ToDynamicThresholdFailingPeriodsResponseOutputWithContext(ctx context.Context) DynamicThresholdFailingPeriodsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DynamicThresholdFailingPeriodsResponseOutput)
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+type DynamicThresholdFailingPeriodsResponseOutput struct{ *pulumi.OutputState }
+
+func (DynamicThresholdFailingPeriodsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DynamicThresholdFailingPeriodsResponse)(nil)).Elem()
+}
+
+func (o DynamicThresholdFailingPeriodsResponseOutput) ToDynamicThresholdFailingPeriodsResponseOutput() DynamicThresholdFailingPeriodsResponseOutput {
+	return o
+}
+
+func (o DynamicThresholdFailingPeriodsResponseOutput) ToDynamicThresholdFailingPeriodsResponseOutputWithContext(ctx context.Context) DynamicThresholdFailingPeriodsResponseOutput {
+	return o
+}
+
+// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+func (o DynamicThresholdFailingPeriodsResponseOutput) MinFailingPeriodsToAlert() pulumi.Float64Output {
+	return o.ApplyT(func(v DynamicThresholdFailingPeriodsResponse) float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64Output)
+}
+
+// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+func (o DynamicThresholdFailingPeriodsResponseOutput) NumberOfEvaluationPeriods() pulumi.Float64Output {
+	return o.ApplyT(func(v DynamicThresholdFailingPeriodsResponse) float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64Output)
+}
+
 // An email receiver.
 type EmailReceiver struct {
 	// The email address of this receiver.
@@ -1725,272 +2125,824 @@ func (o MetricAlertActionResponseArrayOutput) Index(i pulumi.IntInput) MetricAle
 	}).(MetricAlertActionResponseOutput)
 }
 
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteria struct {
+// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+type MetricAlertMultipleResourceMultipleMetricCriteria struct {
+	// the list of multiple metric criteria for this 'all of' operation.
+	AllOf []interface{} `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
 	OdataType string `pulumi:"odataType"`
 }
 
-// MetricAlertCriteriaInput is an input type that accepts MetricAlertCriteriaArgs and MetricAlertCriteriaOutput values.
-// You can construct a concrete instance of `MetricAlertCriteriaInput` via:
+// MetricAlertMultipleResourceMultipleMetricCriteriaInput is an input type that accepts MetricAlertMultipleResourceMultipleMetricCriteriaArgs and MetricAlertMultipleResourceMultipleMetricCriteriaOutput values.
+// You can construct a concrete instance of `MetricAlertMultipleResourceMultipleMetricCriteriaInput` via:
 //
-//          MetricAlertCriteriaArgs{...}
-type MetricAlertCriteriaInput interface {
+//          MetricAlertMultipleResourceMultipleMetricCriteriaArgs{...}
+type MetricAlertMultipleResourceMultipleMetricCriteriaInput interface {
 	pulumi.Input
 
-	ToMetricAlertCriteriaOutput() MetricAlertCriteriaOutput
-	ToMetricAlertCriteriaOutputWithContext(context.Context) MetricAlertCriteriaOutput
+	ToMetricAlertMultipleResourceMultipleMetricCriteriaOutput() MetricAlertMultipleResourceMultipleMetricCriteriaOutput
+	ToMetricAlertMultipleResourceMultipleMetricCriteriaOutputWithContext(context.Context) MetricAlertMultipleResourceMultipleMetricCriteriaOutput
 }
 
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteriaArgs struct {
+// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+type MetricAlertMultipleResourceMultipleMetricCriteriaArgs struct {
+	// the list of multiple metric criteria for this 'all of' operation.
+	AllOf pulumi.ArrayInput `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
-func (MetricAlertCriteriaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertCriteria)(nil)).Elem()
+func (MetricAlertMultipleResourceMultipleMetricCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertMultipleResourceMultipleMetricCriteria)(nil)).Elem()
 }
 
-func (i MetricAlertCriteriaArgs) ToMetricAlertCriteriaOutput() MetricAlertCriteriaOutput {
-	return i.ToMetricAlertCriteriaOutputWithContext(context.Background())
+func (i MetricAlertMultipleResourceMultipleMetricCriteriaArgs) ToMetricAlertMultipleResourceMultipleMetricCriteriaOutput() MetricAlertMultipleResourceMultipleMetricCriteriaOutput {
+	return i.ToMetricAlertMultipleResourceMultipleMetricCriteriaOutputWithContext(context.Background())
 }
 
-func (i MetricAlertCriteriaArgs) ToMetricAlertCriteriaOutputWithContext(ctx context.Context) MetricAlertCriteriaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaOutput)
+func (i MetricAlertMultipleResourceMultipleMetricCriteriaArgs) ToMetricAlertMultipleResourceMultipleMetricCriteriaOutputWithContext(ctx context.Context) MetricAlertMultipleResourceMultipleMetricCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertMultipleResourceMultipleMetricCriteriaOutput)
 }
 
-func (i MetricAlertCriteriaArgs) ToMetricAlertCriteriaPtrOutput() MetricAlertCriteriaPtrOutput {
-	return i.ToMetricAlertCriteriaPtrOutputWithContext(context.Background())
+// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+type MetricAlertMultipleResourceMultipleMetricCriteriaOutput struct{ *pulumi.OutputState }
+
+func (MetricAlertMultipleResourceMultipleMetricCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertMultipleResourceMultipleMetricCriteria)(nil)).Elem()
 }
 
-func (i MetricAlertCriteriaArgs) ToMetricAlertCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaOutput).ToMetricAlertCriteriaPtrOutputWithContext(ctx)
-}
-
-// MetricAlertCriteriaPtrInput is an input type that accepts MetricAlertCriteriaArgs, MetricAlertCriteriaPtr and MetricAlertCriteriaPtrOutput values.
-// You can construct a concrete instance of `MetricAlertCriteriaPtrInput` via:
-//
-//          MetricAlertCriteriaArgs{...}
-//
-//  or:
-//
-//          nil
-type MetricAlertCriteriaPtrInput interface {
-	pulumi.Input
-
-	ToMetricAlertCriteriaPtrOutput() MetricAlertCriteriaPtrOutput
-	ToMetricAlertCriteriaPtrOutputWithContext(context.Context) MetricAlertCriteriaPtrOutput
-}
-
-type metricAlertCriteriaPtrType MetricAlertCriteriaArgs
-
-func MetricAlertCriteriaPtr(v *MetricAlertCriteriaArgs) MetricAlertCriteriaPtrInput {
-	return (*metricAlertCriteriaPtrType)(v)
-}
-
-func (*metricAlertCriteriaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertCriteria)(nil)).Elem()
-}
-
-func (i *metricAlertCriteriaPtrType) ToMetricAlertCriteriaPtrOutput() MetricAlertCriteriaPtrOutput {
-	return i.ToMetricAlertCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i *metricAlertCriteriaPtrType) ToMetricAlertCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaPtrOutput)
-}
-
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteriaOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertCriteriaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertCriteria)(nil)).Elem()
-}
-
-func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaOutput() MetricAlertCriteriaOutput {
+func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) ToMetricAlertMultipleResourceMultipleMetricCriteriaOutput() MetricAlertMultipleResourceMultipleMetricCriteriaOutput {
 	return o
 }
 
-func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaOutputWithContext(ctx context.Context) MetricAlertCriteriaOutput {
+func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) ToMetricAlertMultipleResourceMultipleMetricCriteriaOutputWithContext(ctx context.Context) MetricAlertMultipleResourceMultipleMetricCriteriaOutput {
 	return o
 }
 
-func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaPtrOutput() MetricAlertCriteriaPtrOutput {
-	return o.ToMetricAlertCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertCriteriaPtrOutput {
-	return o.ApplyT(func(v MetricAlertCriteria) *MetricAlertCriteria {
-		return &v
-	}).(MetricAlertCriteriaPtrOutput)
+// the list of multiple metric criteria for this 'all of' operation.
+func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) AllOf() pulumi.ArrayOutput {
+	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteria) []interface{} { return v.AllOf }).(pulumi.ArrayOutput)
 }
 
 // specifies the type of the alert criteria.
-func (o MetricAlertCriteriaOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricAlertCriteria) string { return v.OdataType }).(pulumi.StringOutput)
+func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteria) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-type MetricAlertCriteriaPtrOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertCriteriaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertCriteria)(nil)).Elem()
-}
-
-func (o MetricAlertCriteriaPtrOutput) ToMetricAlertCriteriaPtrOutput() MetricAlertCriteriaPtrOutput {
-	return o
-}
-
-func (o MetricAlertCriteriaPtrOutput) ToMetricAlertCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertCriteriaPtrOutput {
-	return o
-}
-
-func (o MetricAlertCriteriaPtrOutput) Elem() MetricAlertCriteriaOutput {
-	return o.ApplyT(func(v *MetricAlertCriteria) MetricAlertCriteria { return *v }).(MetricAlertCriteriaOutput)
-}
-
-// specifies the type of the alert criteria.
-func (o MetricAlertCriteriaPtrOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MetricAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OdataType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteriaResponse struct {
+// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+type MetricAlertMultipleResourceMultipleMetricCriteriaResponse struct {
+	// the list of multiple metric criteria for this 'all of' operation.
+	AllOf []interface{} `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
 	OdataType string `pulumi:"odataType"`
 }
 
-// MetricAlertCriteriaResponseInput is an input type that accepts MetricAlertCriteriaResponseArgs and MetricAlertCriteriaResponseOutput values.
-// You can construct a concrete instance of `MetricAlertCriteriaResponseInput` via:
+// MetricAlertMultipleResourceMultipleMetricCriteriaResponseInput is an input type that accepts MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs and MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput values.
+// You can construct a concrete instance of `MetricAlertMultipleResourceMultipleMetricCriteriaResponseInput` via:
 //
-//          MetricAlertCriteriaResponseArgs{...}
-type MetricAlertCriteriaResponseInput interface {
+//          MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs{...}
+type MetricAlertMultipleResourceMultipleMetricCriteriaResponseInput interface {
 	pulumi.Input
 
-	ToMetricAlertCriteriaResponseOutput() MetricAlertCriteriaResponseOutput
-	ToMetricAlertCriteriaResponseOutputWithContext(context.Context) MetricAlertCriteriaResponseOutput
+	ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput() MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput
+	ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutputWithContext(context.Context) MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput
 }
 
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteriaResponseArgs struct {
+// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+type MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs struct {
+	// the list of multiple metric criteria for this 'all of' operation.
+	AllOf pulumi.ArrayInput `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
-func (MetricAlertCriteriaResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertCriteriaResponse)(nil)).Elem()
+func (MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertMultipleResourceMultipleMetricCriteriaResponse)(nil)).Elem()
 }
 
-func (i MetricAlertCriteriaResponseArgs) ToMetricAlertCriteriaResponseOutput() MetricAlertCriteriaResponseOutput {
-	return i.ToMetricAlertCriteriaResponseOutputWithContext(context.Background())
+func (i MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs) ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput() MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput {
+	return i.ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutputWithContext(context.Background())
 }
 
-func (i MetricAlertCriteriaResponseArgs) ToMetricAlertCriteriaResponseOutputWithContext(ctx context.Context) MetricAlertCriteriaResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaResponseOutput)
+func (i MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs) ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutputWithContext(ctx context.Context) MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput)
 }
 
-func (i MetricAlertCriteriaResponseArgs) ToMetricAlertCriteriaResponsePtrOutput() MetricAlertCriteriaResponsePtrOutput {
-	return i.ToMetricAlertCriteriaResponsePtrOutputWithContext(context.Background())
+// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+type MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput struct{ *pulumi.OutputState }
+
+func (MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertMultipleResourceMultipleMetricCriteriaResponse)(nil)).Elem()
 }
 
-func (i MetricAlertCriteriaResponseArgs) ToMetricAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) MetricAlertCriteriaResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaResponseOutput).ToMetricAlertCriteriaResponsePtrOutputWithContext(ctx)
+func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput() MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput {
+	return o
 }
 
-// MetricAlertCriteriaResponsePtrInput is an input type that accepts MetricAlertCriteriaResponseArgs, MetricAlertCriteriaResponsePtr and MetricAlertCriteriaResponsePtrOutput values.
-// You can construct a concrete instance of `MetricAlertCriteriaResponsePtrInput` via:
+func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutputWithContext(ctx context.Context) MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput {
+	return o
+}
+
+// the list of multiple metric criteria for this 'all of' operation.
+func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) AllOf() pulumi.ArrayOutput {
+	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteriaResponse) []interface{} { return v.AllOf }).(pulumi.ArrayOutput)
+}
+
+// specifies the type of the alert criteria.
+func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+type MetricAlertSingleResourceMultipleMetricCriteria struct {
+	// The list of metric criteria for this 'all of' operation.
+	AllOf []MetricCriteria `pulumi:"allOf"`
+	// specifies the type of the alert criteria.
+	OdataType string `pulumi:"odataType"`
+}
+
+// MetricAlertSingleResourceMultipleMetricCriteriaInput is an input type that accepts MetricAlertSingleResourceMultipleMetricCriteriaArgs and MetricAlertSingleResourceMultipleMetricCriteriaOutput values.
+// You can construct a concrete instance of `MetricAlertSingleResourceMultipleMetricCriteriaInput` via:
 //
-//          MetricAlertCriteriaResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MetricAlertCriteriaResponsePtrInput interface {
+//          MetricAlertSingleResourceMultipleMetricCriteriaArgs{...}
+type MetricAlertSingleResourceMultipleMetricCriteriaInput interface {
 	pulumi.Input
 
-	ToMetricAlertCriteriaResponsePtrOutput() MetricAlertCriteriaResponsePtrOutput
-	ToMetricAlertCriteriaResponsePtrOutputWithContext(context.Context) MetricAlertCriteriaResponsePtrOutput
+	ToMetricAlertSingleResourceMultipleMetricCriteriaOutput() MetricAlertSingleResourceMultipleMetricCriteriaOutput
+	ToMetricAlertSingleResourceMultipleMetricCriteriaOutputWithContext(context.Context) MetricAlertSingleResourceMultipleMetricCriteriaOutput
 }
 
-type metricAlertCriteriaResponsePtrType MetricAlertCriteriaResponseArgs
-
-func MetricAlertCriteriaResponsePtr(v *MetricAlertCriteriaResponseArgs) MetricAlertCriteriaResponsePtrInput {
-	return (*metricAlertCriteriaResponsePtrType)(v)
+// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+type MetricAlertSingleResourceMultipleMetricCriteriaArgs struct {
+	// The list of metric criteria for this 'all of' operation.
+	AllOf MetricCriteriaArrayInput `pulumi:"allOf"`
+	// specifies the type of the alert criteria.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
-func (*metricAlertCriteriaResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertCriteriaResponse)(nil)).Elem()
+func (MetricAlertSingleResourceMultipleMetricCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertSingleResourceMultipleMetricCriteria)(nil)).Elem()
 }
 
-func (i *metricAlertCriteriaResponsePtrType) ToMetricAlertCriteriaResponsePtrOutput() MetricAlertCriteriaResponsePtrOutput {
-	return i.ToMetricAlertCriteriaResponsePtrOutputWithContext(context.Background())
+func (i MetricAlertSingleResourceMultipleMetricCriteriaArgs) ToMetricAlertSingleResourceMultipleMetricCriteriaOutput() MetricAlertSingleResourceMultipleMetricCriteriaOutput {
+	return i.ToMetricAlertSingleResourceMultipleMetricCriteriaOutputWithContext(context.Background())
 }
 
-func (i *metricAlertCriteriaResponsePtrType) ToMetricAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) MetricAlertCriteriaResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaResponsePtrOutput)
+func (i MetricAlertSingleResourceMultipleMetricCriteriaArgs) ToMetricAlertSingleResourceMultipleMetricCriteriaOutputWithContext(ctx context.Context) MetricAlertSingleResourceMultipleMetricCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertSingleResourceMultipleMetricCriteriaOutput)
 }
 
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteriaResponseOutput struct{ *pulumi.OutputState }
+// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+type MetricAlertSingleResourceMultipleMetricCriteriaOutput struct{ *pulumi.OutputState }
 
-func (MetricAlertCriteriaResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertCriteriaResponse)(nil)).Elem()
+func (MetricAlertSingleResourceMultipleMetricCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertSingleResourceMultipleMetricCriteria)(nil)).Elem()
 }
 
-func (o MetricAlertCriteriaResponseOutput) ToMetricAlertCriteriaResponseOutput() MetricAlertCriteriaResponseOutput {
+func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) ToMetricAlertSingleResourceMultipleMetricCriteriaOutput() MetricAlertSingleResourceMultipleMetricCriteriaOutput {
 	return o
 }
 
-func (o MetricAlertCriteriaResponseOutput) ToMetricAlertCriteriaResponseOutputWithContext(ctx context.Context) MetricAlertCriteriaResponseOutput {
+func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) ToMetricAlertSingleResourceMultipleMetricCriteriaOutputWithContext(ctx context.Context) MetricAlertSingleResourceMultipleMetricCriteriaOutput {
 	return o
 }
 
-func (o MetricAlertCriteriaResponseOutput) ToMetricAlertCriteriaResponsePtrOutput() MetricAlertCriteriaResponsePtrOutput {
-	return o.ToMetricAlertCriteriaResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MetricAlertCriteriaResponseOutput) ToMetricAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) MetricAlertCriteriaResponsePtrOutput {
-	return o.ApplyT(func(v MetricAlertCriteriaResponse) *MetricAlertCriteriaResponse {
-		return &v
-	}).(MetricAlertCriteriaResponsePtrOutput)
+// The list of metric criteria for this 'all of' operation.
+func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) AllOf() MetricCriteriaArrayOutput {
+	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteria) []MetricCriteria { return v.AllOf }).(MetricCriteriaArrayOutput)
 }
 
 // specifies the type of the alert criteria.
-func (o MetricAlertCriteriaResponseOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricAlertCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
+func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteria) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-type MetricAlertCriteriaResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertCriteriaResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertCriteriaResponse)(nil)).Elem()
+// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+type MetricAlertSingleResourceMultipleMetricCriteriaResponse struct {
+	// The list of metric criteria for this 'all of' operation.
+	AllOf []MetricCriteriaResponse `pulumi:"allOf"`
+	// specifies the type of the alert criteria.
+	OdataType string `pulumi:"odataType"`
 }
 
-func (o MetricAlertCriteriaResponsePtrOutput) ToMetricAlertCriteriaResponsePtrOutput() MetricAlertCriteriaResponsePtrOutput {
+// MetricAlertSingleResourceMultipleMetricCriteriaResponseInput is an input type that accepts MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs and MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput values.
+// You can construct a concrete instance of `MetricAlertSingleResourceMultipleMetricCriteriaResponseInput` via:
+//
+//          MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs{...}
+type MetricAlertSingleResourceMultipleMetricCriteriaResponseInput interface {
+	pulumi.Input
+
+	ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutput() MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput
+	ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutputWithContext(context.Context) MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput
+}
+
+// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+type MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs struct {
+	// The list of metric criteria for this 'all of' operation.
+	AllOf MetricCriteriaResponseArrayInput `pulumi:"allOf"`
+	// specifies the type of the alert criteria.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertSingleResourceMultipleMetricCriteriaResponse)(nil)).Elem()
+}
+
+func (i MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs) ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutput() MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput {
+	return i.ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutputWithContext(context.Background())
+}
+
+func (i MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs) ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutputWithContext(ctx context.Context) MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput)
+}
+
+// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+type MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput struct{ *pulumi.OutputState }
+
+func (MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertSingleResourceMultipleMetricCriteriaResponse)(nil)).Elem()
+}
+
+func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutput() MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput {
 	return o
 }
 
-func (o MetricAlertCriteriaResponsePtrOutput) ToMetricAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) MetricAlertCriteriaResponsePtrOutput {
+func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutputWithContext(ctx context.Context) MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput {
 	return o
 }
 
-func (o MetricAlertCriteriaResponsePtrOutput) Elem() MetricAlertCriteriaResponseOutput {
-	return o.ApplyT(func(v *MetricAlertCriteriaResponse) MetricAlertCriteriaResponse { return *v }).(MetricAlertCriteriaResponseOutput)
+// The list of metric criteria for this 'all of' operation.
+func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) AllOf() MetricCriteriaResponseArrayOutput {
+	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteriaResponse) []MetricCriteriaResponse {
+		return v.AllOf
+	}).(MetricCriteriaResponseArrayOutput)
 }
 
 // specifies the type of the alert criteria.
-func (o MetricAlertCriteriaResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MetricAlertCriteriaResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OdataType
-	}).(pulumi.StringPtrOutput)
+func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Criterion to filter metrics.
+type MetricCriteria struct {
+	// Specifies the type of threshold criteria
+	CriterionType string `pulumi:"criterionType"`
+	// List of dimension conditions.
+	Dimensions []MetricDimension `pulumi:"dimensions"`
+	// Name of the metric.
+	MetricName string `pulumi:"metricName"`
+	// Namespace of the metric.
+	MetricNamespace *string `pulumi:"metricNamespace"`
+	// Name of the criteria.
+	Name string `pulumi:"name"`
+	// the criteria operator.
+	Operator string `pulumi:"operator"`
+	// the criteria threshold value that activates the alert.
+	Threshold float64 `pulumi:"threshold"`
+	// the criteria time aggregation types.
+	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
+}
+
+// MetricCriteriaInput is an input type that accepts MetricCriteriaArgs and MetricCriteriaOutput values.
+// You can construct a concrete instance of `MetricCriteriaInput` via:
+//
+//          MetricCriteriaArgs{...}
+type MetricCriteriaInput interface {
+	pulumi.Input
+
+	ToMetricCriteriaOutput() MetricCriteriaOutput
+	ToMetricCriteriaOutputWithContext(context.Context) MetricCriteriaOutput
+}
+
+// Criterion to filter metrics.
+type MetricCriteriaArgs struct {
+	// Specifies the type of threshold criteria
+	CriterionType pulumi.StringInput `pulumi:"criterionType"`
+	// List of dimension conditions.
+	Dimensions MetricDimensionArrayInput `pulumi:"dimensions"`
+	// Name of the metric.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// Namespace of the metric.
+	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
+	// Name of the criteria.
+	Name pulumi.StringInput `pulumi:"name"`
+	// the criteria operator.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// the criteria threshold value that activates the alert.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// the criteria time aggregation types.
+	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
+}
+
+func (MetricCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCriteria)(nil)).Elem()
+}
+
+func (i MetricCriteriaArgs) ToMetricCriteriaOutput() MetricCriteriaOutput {
+	return i.ToMetricCriteriaOutputWithContext(context.Background())
+}
+
+func (i MetricCriteriaArgs) ToMetricCriteriaOutputWithContext(ctx context.Context) MetricCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCriteriaOutput)
+}
+
+// MetricCriteriaArrayInput is an input type that accepts MetricCriteriaArray and MetricCriteriaArrayOutput values.
+// You can construct a concrete instance of `MetricCriteriaArrayInput` via:
+//
+//          MetricCriteriaArray{ MetricCriteriaArgs{...} }
+type MetricCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToMetricCriteriaArrayOutput() MetricCriteriaArrayOutput
+	ToMetricCriteriaArrayOutputWithContext(context.Context) MetricCriteriaArrayOutput
+}
+
+type MetricCriteriaArray []MetricCriteriaInput
+
+func (MetricCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCriteria)(nil)).Elem()
+}
+
+func (i MetricCriteriaArray) ToMetricCriteriaArrayOutput() MetricCriteriaArrayOutput {
+	return i.ToMetricCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i MetricCriteriaArray) ToMetricCriteriaArrayOutputWithContext(ctx context.Context) MetricCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCriteriaArrayOutput)
+}
+
+// Criterion to filter metrics.
+type MetricCriteriaOutput struct{ *pulumi.OutputState }
+
+func (MetricCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCriteria)(nil)).Elem()
+}
+
+func (o MetricCriteriaOutput) ToMetricCriteriaOutput() MetricCriteriaOutput {
+	return o
+}
+
+func (o MetricCriteriaOutput) ToMetricCriteriaOutputWithContext(ctx context.Context) MetricCriteriaOutput {
+	return o
+}
+
+// Specifies the type of threshold criteria
+func (o MetricCriteriaOutput) CriterionType() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCriteria) string { return v.CriterionType }).(pulumi.StringOutput)
+}
+
+// List of dimension conditions.
+func (o MetricCriteriaOutput) Dimensions() MetricDimensionArrayOutput {
+	return o.ApplyT(func(v MetricCriteria) []MetricDimension { return v.Dimensions }).(MetricDimensionArrayOutput)
+}
+
+// Name of the metric.
+func (o MetricCriteriaOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCriteria) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// Namespace of the metric.
+func (o MetricCriteriaOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricCriteria) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Name of the criteria.
+func (o MetricCriteriaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCriteria) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the criteria operator.
+func (o MetricCriteriaOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCriteria) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// the criteria threshold value that activates the alert.
+func (o MetricCriteriaOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v MetricCriteria) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// the criteria time aggregation types.
+func (o MetricCriteriaOutput) TimeAggregation() pulumi.MapOutput {
+	return o.ApplyT(func(v MetricCriteria) map[string]interface{} { return v.TimeAggregation }).(pulumi.MapOutput)
+}
+
+type MetricCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCriteria)(nil)).Elem()
+}
+
+func (o MetricCriteriaArrayOutput) ToMetricCriteriaArrayOutput() MetricCriteriaArrayOutput {
+	return o
+}
+
+func (o MetricCriteriaArrayOutput) ToMetricCriteriaArrayOutputWithContext(ctx context.Context) MetricCriteriaArrayOutput {
+	return o
+}
+
+func (o MetricCriteriaArrayOutput) Index(i pulumi.IntInput) MetricCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricCriteria {
+		return vs[0].([]MetricCriteria)[vs[1].(int)]
+	}).(MetricCriteriaOutput)
+}
+
+// Criterion to filter metrics.
+type MetricCriteriaResponse struct {
+	// Specifies the type of threshold criteria
+	CriterionType string `pulumi:"criterionType"`
+	// List of dimension conditions.
+	Dimensions []MetricDimensionResponse `pulumi:"dimensions"`
+	// Name of the metric.
+	MetricName string `pulumi:"metricName"`
+	// Namespace of the metric.
+	MetricNamespace *string `pulumi:"metricNamespace"`
+	// Name of the criteria.
+	Name string `pulumi:"name"`
+	// the criteria operator.
+	Operator string `pulumi:"operator"`
+	// the criteria threshold value that activates the alert.
+	Threshold float64 `pulumi:"threshold"`
+	// the criteria time aggregation types.
+	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
+}
+
+// MetricCriteriaResponseInput is an input type that accepts MetricCriteriaResponseArgs and MetricCriteriaResponseOutput values.
+// You can construct a concrete instance of `MetricCriteriaResponseInput` via:
+//
+//          MetricCriteriaResponseArgs{...}
+type MetricCriteriaResponseInput interface {
+	pulumi.Input
+
+	ToMetricCriteriaResponseOutput() MetricCriteriaResponseOutput
+	ToMetricCriteriaResponseOutputWithContext(context.Context) MetricCriteriaResponseOutput
+}
+
+// Criterion to filter metrics.
+type MetricCriteriaResponseArgs struct {
+	// Specifies the type of threshold criteria
+	CriterionType pulumi.StringInput `pulumi:"criterionType"`
+	// List of dimension conditions.
+	Dimensions MetricDimensionResponseArrayInput `pulumi:"dimensions"`
+	// Name of the metric.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// Namespace of the metric.
+	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
+	// Name of the criteria.
+	Name pulumi.StringInput `pulumi:"name"`
+	// the criteria operator.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// the criteria threshold value that activates the alert.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// the criteria time aggregation types.
+	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
+}
+
+func (MetricCriteriaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCriteriaResponse)(nil)).Elem()
+}
+
+func (i MetricCriteriaResponseArgs) ToMetricCriteriaResponseOutput() MetricCriteriaResponseOutput {
+	return i.ToMetricCriteriaResponseOutputWithContext(context.Background())
+}
+
+func (i MetricCriteriaResponseArgs) ToMetricCriteriaResponseOutputWithContext(ctx context.Context) MetricCriteriaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCriteriaResponseOutput)
+}
+
+// MetricCriteriaResponseArrayInput is an input type that accepts MetricCriteriaResponseArray and MetricCriteriaResponseArrayOutput values.
+// You can construct a concrete instance of `MetricCriteriaResponseArrayInput` via:
+//
+//          MetricCriteriaResponseArray{ MetricCriteriaResponseArgs{...} }
+type MetricCriteriaResponseArrayInput interface {
+	pulumi.Input
+
+	ToMetricCriteriaResponseArrayOutput() MetricCriteriaResponseArrayOutput
+	ToMetricCriteriaResponseArrayOutputWithContext(context.Context) MetricCriteriaResponseArrayOutput
+}
+
+type MetricCriteriaResponseArray []MetricCriteriaResponseInput
+
+func (MetricCriteriaResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCriteriaResponse)(nil)).Elem()
+}
+
+func (i MetricCriteriaResponseArray) ToMetricCriteriaResponseArrayOutput() MetricCriteriaResponseArrayOutput {
+	return i.ToMetricCriteriaResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MetricCriteriaResponseArray) ToMetricCriteriaResponseArrayOutputWithContext(ctx context.Context) MetricCriteriaResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCriteriaResponseArrayOutput)
+}
+
+// Criterion to filter metrics.
+type MetricCriteriaResponseOutput struct{ *pulumi.OutputState }
+
+func (MetricCriteriaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCriteriaResponse)(nil)).Elem()
+}
+
+func (o MetricCriteriaResponseOutput) ToMetricCriteriaResponseOutput() MetricCriteriaResponseOutput {
+	return o
+}
+
+func (o MetricCriteriaResponseOutput) ToMetricCriteriaResponseOutputWithContext(ctx context.Context) MetricCriteriaResponseOutput {
+	return o
+}
+
+// Specifies the type of threshold criteria
+func (o MetricCriteriaResponseOutput) CriterionType() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.CriterionType }).(pulumi.StringOutput)
+}
+
+// List of dimension conditions.
+func (o MetricCriteriaResponseOutput) Dimensions() MetricDimensionResponseArrayOutput {
+	return o.ApplyT(func(v MetricCriteriaResponse) []MetricDimensionResponse { return v.Dimensions }).(MetricDimensionResponseArrayOutput)
+}
+
+// Name of the metric.
+func (o MetricCriteriaResponseOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// Namespace of the metric.
+func (o MetricCriteriaResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricCriteriaResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Name of the criteria.
+func (o MetricCriteriaResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the criteria operator.
+func (o MetricCriteriaResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// the criteria threshold value that activates the alert.
+func (o MetricCriteriaResponseOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v MetricCriteriaResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// the criteria time aggregation types.
+func (o MetricCriteriaResponseOutput) TimeAggregation() pulumi.MapOutput {
+	return o.ApplyT(func(v MetricCriteriaResponse) map[string]interface{} { return v.TimeAggregation }).(pulumi.MapOutput)
+}
+
+type MetricCriteriaResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricCriteriaResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCriteriaResponse)(nil)).Elem()
+}
+
+func (o MetricCriteriaResponseArrayOutput) ToMetricCriteriaResponseArrayOutput() MetricCriteriaResponseArrayOutput {
+	return o
+}
+
+func (o MetricCriteriaResponseArrayOutput) ToMetricCriteriaResponseArrayOutputWithContext(ctx context.Context) MetricCriteriaResponseArrayOutput {
+	return o
+}
+
+func (o MetricCriteriaResponseArrayOutput) Index(i pulumi.IntInput) MetricCriteriaResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricCriteriaResponse {
+		return vs[0].([]MetricCriteriaResponse)[vs[1].(int)]
+	}).(MetricCriteriaResponseOutput)
+}
+
+// Specifies a metric dimension.
+type MetricDimension struct {
+	// Name of the dimension.
+	Name string `pulumi:"name"`
+	// the dimension operator. Only 'Include' and 'Exclude' are supported
+	Operator string `pulumi:"operator"`
+	// list of dimension values.
+	Values []string `pulumi:"values"`
+}
+
+// MetricDimensionInput is an input type that accepts MetricDimensionArgs and MetricDimensionOutput values.
+// You can construct a concrete instance of `MetricDimensionInput` via:
+//
+//          MetricDimensionArgs{...}
+type MetricDimensionInput interface {
+	pulumi.Input
+
+	ToMetricDimensionOutput() MetricDimensionOutput
+	ToMetricDimensionOutputWithContext(context.Context) MetricDimensionOutput
+}
+
+// Specifies a metric dimension.
+type MetricDimensionArgs struct {
+	// Name of the dimension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// the dimension operator. Only 'Include' and 'Exclude' are supported
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// list of dimension values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MetricDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricDimension)(nil)).Elem()
+}
+
+func (i MetricDimensionArgs) ToMetricDimensionOutput() MetricDimensionOutput {
+	return i.ToMetricDimensionOutputWithContext(context.Background())
+}
+
+func (i MetricDimensionArgs) ToMetricDimensionOutputWithContext(ctx context.Context) MetricDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionOutput)
+}
+
+// MetricDimensionArrayInput is an input type that accepts MetricDimensionArray and MetricDimensionArrayOutput values.
+// You can construct a concrete instance of `MetricDimensionArrayInput` via:
+//
+//          MetricDimensionArray{ MetricDimensionArgs{...} }
+type MetricDimensionArrayInput interface {
+	pulumi.Input
+
+	ToMetricDimensionArrayOutput() MetricDimensionArrayOutput
+	ToMetricDimensionArrayOutputWithContext(context.Context) MetricDimensionArrayOutput
+}
+
+type MetricDimensionArray []MetricDimensionInput
+
+func (MetricDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricDimension)(nil)).Elem()
+}
+
+func (i MetricDimensionArray) ToMetricDimensionArrayOutput() MetricDimensionArrayOutput {
+	return i.ToMetricDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i MetricDimensionArray) ToMetricDimensionArrayOutputWithContext(ctx context.Context) MetricDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionArrayOutput)
+}
+
+// Specifies a metric dimension.
+type MetricDimensionOutput struct{ *pulumi.OutputState }
+
+func (MetricDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricDimension)(nil)).Elem()
+}
+
+func (o MetricDimensionOutput) ToMetricDimensionOutput() MetricDimensionOutput {
+	return o
+}
+
+func (o MetricDimensionOutput) ToMetricDimensionOutputWithContext(ctx context.Context) MetricDimensionOutput {
+	return o
+}
+
+// Name of the dimension.
+func (o MetricDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the dimension operator. Only 'Include' and 'Exclude' are supported
+func (o MetricDimensionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricDimension) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// list of dimension values.
+func (o MetricDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetricDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MetricDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricDimension)(nil)).Elem()
+}
+
+func (o MetricDimensionArrayOutput) ToMetricDimensionArrayOutput() MetricDimensionArrayOutput {
+	return o
+}
+
+func (o MetricDimensionArrayOutput) ToMetricDimensionArrayOutputWithContext(ctx context.Context) MetricDimensionArrayOutput {
+	return o
+}
+
+func (o MetricDimensionArrayOutput) Index(i pulumi.IntInput) MetricDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricDimension {
+		return vs[0].([]MetricDimension)[vs[1].(int)]
+	}).(MetricDimensionOutput)
+}
+
+// Specifies a metric dimension.
+type MetricDimensionResponse struct {
+	// Name of the dimension.
+	Name string `pulumi:"name"`
+	// the dimension operator. Only 'Include' and 'Exclude' are supported
+	Operator string `pulumi:"operator"`
+	// list of dimension values.
+	Values []string `pulumi:"values"`
+}
+
+// MetricDimensionResponseInput is an input type that accepts MetricDimensionResponseArgs and MetricDimensionResponseOutput values.
+// You can construct a concrete instance of `MetricDimensionResponseInput` via:
+//
+//          MetricDimensionResponseArgs{...}
+type MetricDimensionResponseInput interface {
+	pulumi.Input
+
+	ToMetricDimensionResponseOutput() MetricDimensionResponseOutput
+	ToMetricDimensionResponseOutputWithContext(context.Context) MetricDimensionResponseOutput
+}
+
+// Specifies a metric dimension.
+type MetricDimensionResponseArgs struct {
+	// Name of the dimension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// the dimension operator. Only 'Include' and 'Exclude' are supported
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// list of dimension values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MetricDimensionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricDimensionResponse)(nil)).Elem()
+}
+
+func (i MetricDimensionResponseArgs) ToMetricDimensionResponseOutput() MetricDimensionResponseOutput {
+	return i.ToMetricDimensionResponseOutputWithContext(context.Background())
+}
+
+func (i MetricDimensionResponseArgs) ToMetricDimensionResponseOutputWithContext(ctx context.Context) MetricDimensionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionResponseOutput)
+}
+
+// MetricDimensionResponseArrayInput is an input type that accepts MetricDimensionResponseArray and MetricDimensionResponseArrayOutput values.
+// You can construct a concrete instance of `MetricDimensionResponseArrayInput` via:
+//
+//          MetricDimensionResponseArray{ MetricDimensionResponseArgs{...} }
+type MetricDimensionResponseArrayInput interface {
+	pulumi.Input
+
+	ToMetricDimensionResponseArrayOutput() MetricDimensionResponseArrayOutput
+	ToMetricDimensionResponseArrayOutputWithContext(context.Context) MetricDimensionResponseArrayOutput
+}
+
+type MetricDimensionResponseArray []MetricDimensionResponseInput
+
+func (MetricDimensionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricDimensionResponse)(nil)).Elem()
+}
+
+func (i MetricDimensionResponseArray) ToMetricDimensionResponseArrayOutput() MetricDimensionResponseArrayOutput {
+	return i.ToMetricDimensionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MetricDimensionResponseArray) ToMetricDimensionResponseArrayOutputWithContext(ctx context.Context) MetricDimensionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionResponseArrayOutput)
+}
+
+// Specifies a metric dimension.
+type MetricDimensionResponseOutput struct{ *pulumi.OutputState }
+
+func (MetricDimensionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricDimensionResponse)(nil)).Elem()
+}
+
+func (o MetricDimensionResponseOutput) ToMetricDimensionResponseOutput() MetricDimensionResponseOutput {
+	return o
+}
+
+func (o MetricDimensionResponseOutput) ToMetricDimensionResponseOutputWithContext(ctx context.Context) MetricDimensionResponseOutput {
+	return o
+}
+
+// Name of the dimension.
+func (o MetricDimensionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricDimensionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the dimension operator. Only 'Include' and 'Exclude' are supported
+func (o MetricDimensionResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricDimensionResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// list of dimension values.
+func (o MetricDimensionResponseOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetricDimensionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MetricDimensionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricDimensionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricDimensionResponse)(nil)).Elem()
+}
+
+func (o MetricDimensionResponseArrayOutput) ToMetricDimensionResponseArrayOutput() MetricDimensionResponseArrayOutput {
+	return o
+}
+
+func (o MetricDimensionResponseArrayOutput) ToMetricDimensionResponseArrayOutputWithContext(ctx context.Context) MetricDimensionResponseArrayOutput {
+	return o
+}
+
+func (o MetricDimensionResponseArrayOutput) Index(i pulumi.IntInput) MetricDimensionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricDimensionResponse {
+		return vs[0].([]MetricDimensionResponse)[vs[1].(int)]
+	}).(MetricDimensionResponseOutput)
 }
 
 // An SMS receiver.
@@ -2692,6 +3644,170 @@ func (o WebhookReceiverResponseArrayOutput) Index(i pulumi.IntInput) WebhookRece
 	}).(WebhookReceiverResponseOutput)
 }
 
+// Specifies the metric alert rule criteria for a web test resource.
+type WebtestLocationAvailabilityCriteria struct {
+	// The Application Insights resource Id.
+	ComponentId string `pulumi:"componentId"`
+	// The number of failed locations.
+	FailedLocationCount float64 `pulumi:"failedLocationCount"`
+	// specifies the type of the alert criteria.
+	OdataType string `pulumi:"odataType"`
+	// The Application Insights web test Id.
+	WebTestId string `pulumi:"webTestId"`
+}
+
+// WebtestLocationAvailabilityCriteriaInput is an input type that accepts WebtestLocationAvailabilityCriteriaArgs and WebtestLocationAvailabilityCriteriaOutput values.
+// You can construct a concrete instance of `WebtestLocationAvailabilityCriteriaInput` via:
+//
+//          WebtestLocationAvailabilityCriteriaArgs{...}
+type WebtestLocationAvailabilityCriteriaInput interface {
+	pulumi.Input
+
+	ToWebtestLocationAvailabilityCriteriaOutput() WebtestLocationAvailabilityCriteriaOutput
+	ToWebtestLocationAvailabilityCriteriaOutputWithContext(context.Context) WebtestLocationAvailabilityCriteriaOutput
+}
+
+// Specifies the metric alert rule criteria for a web test resource.
+type WebtestLocationAvailabilityCriteriaArgs struct {
+	// The Application Insights resource Id.
+	ComponentId pulumi.StringInput `pulumi:"componentId"`
+	// The number of failed locations.
+	FailedLocationCount pulumi.Float64Input `pulumi:"failedLocationCount"`
+	// specifies the type of the alert criteria.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The Application Insights web test Id.
+	WebTestId pulumi.StringInput `pulumi:"webTestId"`
+}
+
+func (WebtestLocationAvailabilityCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebtestLocationAvailabilityCriteria)(nil)).Elem()
+}
+
+func (i WebtestLocationAvailabilityCriteriaArgs) ToWebtestLocationAvailabilityCriteriaOutput() WebtestLocationAvailabilityCriteriaOutput {
+	return i.ToWebtestLocationAvailabilityCriteriaOutputWithContext(context.Background())
+}
+
+func (i WebtestLocationAvailabilityCriteriaArgs) ToWebtestLocationAvailabilityCriteriaOutputWithContext(ctx context.Context) WebtestLocationAvailabilityCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebtestLocationAvailabilityCriteriaOutput)
+}
+
+// Specifies the metric alert rule criteria for a web test resource.
+type WebtestLocationAvailabilityCriteriaOutput struct{ *pulumi.OutputState }
+
+func (WebtestLocationAvailabilityCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebtestLocationAvailabilityCriteria)(nil)).Elem()
+}
+
+func (o WebtestLocationAvailabilityCriteriaOutput) ToWebtestLocationAvailabilityCriteriaOutput() WebtestLocationAvailabilityCriteriaOutput {
+	return o
+}
+
+func (o WebtestLocationAvailabilityCriteriaOutput) ToWebtestLocationAvailabilityCriteriaOutputWithContext(ctx context.Context) WebtestLocationAvailabilityCriteriaOutput {
+	return o
+}
+
+// The Application Insights resource Id.
+func (o WebtestLocationAvailabilityCriteriaOutput) ComponentId() pulumi.StringOutput {
+	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.ComponentId }).(pulumi.StringOutput)
+}
+
+// The number of failed locations.
+func (o WebtestLocationAvailabilityCriteriaOutput) FailedLocationCount() pulumi.Float64Output {
+	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) float64 { return v.FailedLocationCount }).(pulumi.Float64Output)
+}
+
+// specifies the type of the alert criteria.
+func (o WebtestLocationAvailabilityCriteriaOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The Application Insights web test Id.
+func (o WebtestLocationAvailabilityCriteriaOutput) WebTestId() pulumi.StringOutput {
+	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.WebTestId }).(pulumi.StringOutput)
+}
+
+// Specifies the metric alert rule criteria for a web test resource.
+type WebtestLocationAvailabilityCriteriaResponse struct {
+	// The Application Insights resource Id.
+	ComponentId string `pulumi:"componentId"`
+	// The number of failed locations.
+	FailedLocationCount float64 `pulumi:"failedLocationCount"`
+	// specifies the type of the alert criteria.
+	OdataType string `pulumi:"odataType"`
+	// The Application Insights web test Id.
+	WebTestId string `pulumi:"webTestId"`
+}
+
+// WebtestLocationAvailabilityCriteriaResponseInput is an input type that accepts WebtestLocationAvailabilityCriteriaResponseArgs and WebtestLocationAvailabilityCriteriaResponseOutput values.
+// You can construct a concrete instance of `WebtestLocationAvailabilityCriteriaResponseInput` via:
+//
+//          WebtestLocationAvailabilityCriteriaResponseArgs{...}
+type WebtestLocationAvailabilityCriteriaResponseInput interface {
+	pulumi.Input
+
+	ToWebtestLocationAvailabilityCriteriaResponseOutput() WebtestLocationAvailabilityCriteriaResponseOutput
+	ToWebtestLocationAvailabilityCriteriaResponseOutputWithContext(context.Context) WebtestLocationAvailabilityCriteriaResponseOutput
+}
+
+// Specifies the metric alert rule criteria for a web test resource.
+type WebtestLocationAvailabilityCriteriaResponseArgs struct {
+	// The Application Insights resource Id.
+	ComponentId pulumi.StringInput `pulumi:"componentId"`
+	// The number of failed locations.
+	FailedLocationCount pulumi.Float64Input `pulumi:"failedLocationCount"`
+	// specifies the type of the alert criteria.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The Application Insights web test Id.
+	WebTestId pulumi.StringInput `pulumi:"webTestId"`
+}
+
+func (WebtestLocationAvailabilityCriteriaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebtestLocationAvailabilityCriteriaResponse)(nil)).Elem()
+}
+
+func (i WebtestLocationAvailabilityCriteriaResponseArgs) ToWebtestLocationAvailabilityCriteriaResponseOutput() WebtestLocationAvailabilityCriteriaResponseOutput {
+	return i.ToWebtestLocationAvailabilityCriteriaResponseOutputWithContext(context.Background())
+}
+
+func (i WebtestLocationAvailabilityCriteriaResponseArgs) ToWebtestLocationAvailabilityCriteriaResponseOutputWithContext(ctx context.Context) WebtestLocationAvailabilityCriteriaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebtestLocationAvailabilityCriteriaResponseOutput)
+}
+
+// Specifies the metric alert rule criteria for a web test resource.
+type WebtestLocationAvailabilityCriteriaResponseOutput struct{ *pulumi.OutputState }
+
+func (WebtestLocationAvailabilityCriteriaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebtestLocationAvailabilityCriteriaResponse)(nil)).Elem()
+}
+
+func (o WebtestLocationAvailabilityCriteriaResponseOutput) ToWebtestLocationAvailabilityCriteriaResponseOutput() WebtestLocationAvailabilityCriteriaResponseOutput {
+	return o
+}
+
+func (o WebtestLocationAvailabilityCriteriaResponseOutput) ToWebtestLocationAvailabilityCriteriaResponseOutputWithContext(ctx context.Context) WebtestLocationAvailabilityCriteriaResponseOutput {
+	return o
+}
+
+// The Application Insights resource Id.
+func (o WebtestLocationAvailabilityCriteriaResponseOutput) ComponentId() pulumi.StringOutput {
+	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) string { return v.ComponentId }).(pulumi.StringOutput)
+}
+
+// The number of failed locations.
+func (o WebtestLocationAvailabilityCriteriaResponseOutput) FailedLocationCount() pulumi.Float64Output {
+	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) float64 { return v.FailedLocationCount }).(pulumi.Float64Output)
+}
+
+// specifies the type of the alert criteria.
+func (o WebtestLocationAvailabilityCriteriaResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The Application Insights web test Id.
+func (o WebtestLocationAvailabilityCriteriaResponseOutput) WebTestId() pulumi.StringOutput {
+	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) string { return v.WebTestId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutomationRunbookReceiverOutput{})
 	pulumi.RegisterOutputType(AutomationRunbookReceiverArrayOutput{})
@@ -2705,6 +3821,10 @@ func init() {
 	pulumi.RegisterOutputType(AzureFunctionReceiverArrayOutput{})
 	pulumi.RegisterOutputType(AzureFunctionReceiverResponseOutput{})
 	pulumi.RegisterOutputType(AzureFunctionReceiverResponseArrayOutput{})
+	pulumi.RegisterOutputType(DynamicMetricCriteriaOutput{})
+	pulumi.RegisterOutputType(DynamicMetricCriteriaResponseOutput{})
+	pulumi.RegisterOutputType(DynamicThresholdFailingPeriodsOutput{})
+	pulumi.RegisterOutputType(DynamicThresholdFailingPeriodsResponseOutput{})
 	pulumi.RegisterOutputType(EmailReceiverOutput{})
 	pulumi.RegisterOutputType(EmailReceiverArrayOutput{})
 	pulumi.RegisterOutputType(EmailReceiverResponseOutput{})
@@ -2721,10 +3841,18 @@ func init() {
 	pulumi.RegisterOutputType(MetricAlertActionArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionResponseOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionResponseArrayOutput{})
-	pulumi.RegisterOutputType(MetricAlertCriteriaOutput{})
-	pulumi.RegisterOutputType(MetricAlertCriteriaPtrOutput{})
-	pulumi.RegisterOutputType(MetricAlertCriteriaResponseOutput{})
-	pulumi.RegisterOutputType(MetricAlertCriteriaResponsePtrOutput{})
+	pulumi.RegisterOutputType(MetricAlertMultipleResourceMultipleMetricCriteriaOutput{})
+	pulumi.RegisterOutputType(MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput{})
+	pulumi.RegisterOutputType(MetricAlertSingleResourceMultipleMetricCriteriaOutput{})
+	pulumi.RegisterOutputType(MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput{})
+	pulumi.RegisterOutputType(MetricCriteriaOutput{})
+	pulumi.RegisterOutputType(MetricCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(MetricCriteriaResponseOutput{})
+	pulumi.RegisterOutputType(MetricCriteriaResponseArrayOutput{})
+	pulumi.RegisterOutputType(MetricDimensionOutput{})
+	pulumi.RegisterOutputType(MetricDimensionArrayOutput{})
+	pulumi.RegisterOutputType(MetricDimensionResponseOutput{})
+	pulumi.RegisterOutputType(MetricDimensionResponseArrayOutput{})
 	pulumi.RegisterOutputType(SmsReceiverOutput{})
 	pulumi.RegisterOutputType(SmsReceiverArrayOutput{})
 	pulumi.RegisterOutputType(SmsReceiverResponseOutput{})
@@ -2737,4 +3865,6 @@ func init() {
 	pulumi.RegisterOutputType(WebhookReceiverArrayOutput{})
 	pulumi.RegisterOutputType(WebhookReceiverResponseOutput{})
 	pulumi.RegisterOutputType(WebhookReceiverResponseArrayOutput{})
+	pulumi.RegisterOutputType(WebtestLocationAvailabilityCriteriaOutput{})
+	pulumi.RegisterOutputType(WebtestLocationAvailabilityCriteriaResponseOutput{})
 }
