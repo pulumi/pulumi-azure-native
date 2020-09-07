@@ -55,6 +55,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		Invokes:   map[string]provider.AzureApiInvoke{},
 	}
 
+	csharpVersionReplacer := strings.NewReplacer("privatepreview", "PrivatePreview", "preview", "Preview")
 	csharpNamespaces := map[string]string{
 		"azurerm": "AzureRM",
 	}
@@ -79,7 +80,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 
 			// Populate C# and Python module mapping.
 			module := gen.providerToModule(providerName)
-			csVersion := strings.Title(strings.Replace(version, "preview", "Preview", 1))
+			csVersion := strings.Title(csharpVersionReplacer.Replace(version))
 			csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
 			pythonModuleNames[module] = module
 
