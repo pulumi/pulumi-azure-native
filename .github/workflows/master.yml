@@ -31,6 +31,7 @@ jobs:
   lint:
     name: lint
     runs-on: ubuntu-latest
+    container: golangci/golangci-lint:latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
