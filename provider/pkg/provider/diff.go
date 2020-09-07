@@ -66,6 +66,10 @@ func (d *differ) calculateDetailedDiff(diff *resource.ObjectDiff, base string) (
 			}
 
 			for sk, sv := range subDiff {
+				if sv.Kind == rpc.PropertyDiff_UPDATE && d.replaceKeys.Has(key) {
+					// If the parent property causes a replacement, all child properties cause a replacement.
+					sv.Kind = rpc.PropertyDiff_UPDATE_REPLACE
+				}
 				detailedDiff[sk] = sv
 			}
 		}
