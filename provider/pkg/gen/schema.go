@@ -32,7 +32,7 @@ import (
 )
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureApiMetadata, error) {
+func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureAPIMetadata, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azurerm",
 		Version:     "0.1.0", // TODO
@@ -49,10 +49,10 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]json.RawMessage{},
 	}
-	metadata := provider.AzureApiMetadata{
-		Types:     map[string]provider.AzureApiType{},
-		Resources: map[string]provider.AzureApiResource{},
-		Invokes:   map[string]provider.AzureApiInvoke{},
+	metadata := provider.AzureAPIMetadata{
+		Types:     map[string]provider.AzureAPIType{},
+		Resources: map[string]provider.AzureAPIResource{},
+		Invokes:   map[string]provider.AzureAPIInvoke{},
 	}
 
 	csharpVersionReplacer := strings.NewReplacer("privatepreview", "PrivatePreview", "preview", "Preview")
@@ -149,7 +149,7 @@ const (
 
 type packageGenerator struct {
 	pkg        *pschema.PackageSpec
-	metadata   *provider.AzureApiMetadata
+	metadata   *provider.AzureAPIMetadata
 	apiVersion string
 }
 
@@ -237,8 +237,8 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 	}
 	g.pkg.Functions[functionTok] = functionSpec
 
-	r := provider.AzureApiResource{
-		ApiVersion:    swagger.Info.Version,
+	r := provider.AzureAPIResource{
+		APIVersion:    swagger.Info.Version,
 		Path:          key,
 		GetParameters: requestFunction.parameters,
 		PutParameters: resourceRequest.parameters,
@@ -246,8 +246,8 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 	}
 	g.metadata.Resources[resourceTok] = r
 
-	f := provider.AzureApiInvoke{
-		ApiVersion:    swagger.Info.Version,
+	f := provider.AzureAPIInvoke{
+		APIVersion:    swagger.Info.Version,
 		Path:          key,
 		GetParameters: requestFunction.parameters,
 		Response:      responseFunction.properties,
@@ -302,8 +302,8 @@ func (g *packageGenerator) genListFunctions(prov, typeName, path string, pathIte
 	}
 	g.pkg.Functions[functionTok] = functionSpec
 
-	f := provider.AzureApiInvoke{
-		ApiVersion:     swagger.Info.Version,
+	f := provider.AzureAPIInvoke{
+		APIVersion:     swagger.Info.Version,
 		Path:           path,
 		PostParameters: request.parameters,
 		Response:       response.properties,
@@ -318,7 +318,7 @@ func (g *packageGenerator) providerToModule(prov string) string {
 
 type moduleGenerator struct {
 	pkg           *pschema.PackageSpec
-	metadata      *provider.AzureApiMetadata
+	metadata      *provider.AzureAPIMetadata
 	module        string
 	resourceToken string
 	visitedTypes  map[string]bool
@@ -348,12 +348,12 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 		}
 
 		location, _ := param.Extensions.GetString(extensionParameterLocation)
-		apiParameter := provider.AzureApiParameter{
+		apiParameter := provider.AzureAPIParameter{
 			Name:       param.Name,
 			Location:   param.In,
 			Source:     location,
 			IsRequired: param.Required,
-			Value: &provider.AzureApiProperty{
+			Value: &provider.AzureAPIProperty{
 				Type:      param.Type,
 				MinLength: param.MinLength,
 				MaxLength: param.MaxLength,
@@ -384,7 +384,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			}
 
 			result.merge(props)
-			apiParameter.Body = &provider.AzureApiType{
+			apiParameter.Body = &provider.AzureAPIType{
 				Properties:         props.properties,
 				RequiredProperties: props.requiredProperties.SortedValues(),
 			}
@@ -519,7 +519,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			}
 
 			// Adjust every property to mark them as flattened.
-			newProperties := map[string]provider.AzureApiProperty{}
+			newProperties := map[string]provider.AzureAPIProperty{}
 			for n, value := range bag.properties {
 				value.Container = name
 				newProperties[n] = value
@@ -545,12 +545,12 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
-		var apiProperty provider.AzureApiProperty
+		var apiProperty provider.AzureAPIProperty
 		if isOutput {
 			if property.ReadOnly {
 				result.requiredSpecs.Add(sdkName)
 			}
-			apiProperty = provider.AzureApiProperty{
+			apiProperty = provider.AzureAPIProperty{
 				OneOf: m.getOneOfValues(propertySpec),
 				Ref:   propertySpec.Ref,
 			}
@@ -559,7 +559,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			if err != nil {
 				return nil, err
 			}
-			apiProperty = provider.AzureApiProperty{
+			apiProperty = provider.AzureAPIProperty{
 				Type:      propertySpec.Type,
 				Enum:      m.getEnumValues(&property),
 				OneOf:     m.getOneOfValues(propertySpec),
@@ -588,7 +588,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			apiProperty.SdkName = sdkName
 		}
 		if propertySpec.Items != nil {
-			apiProperty.Items = &provider.AzureApiProperty{
+			apiProperty.Items = &provider.AzureAPIProperty{
 				Type: propertySpec.Items.Type,
 				Ref:  propertySpec.Items.Ref,
 			}
@@ -759,7 +759,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 				Required:    props.requiredSpecs.SortedValues(),
 			}
 
-			m.metadata.Types[tok] = provider.AzureApiType{
+			m.metadata.Types[tok] = provider.AzureAPIType{
 				Properties:         props.properties,
 				RequiredProperties: props.requiredProperties.SortedValues(),
 			}
@@ -863,7 +863,7 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 type parameterBag struct {
 	description   string
 	specs         map[string]pschema.PropertySpec
-	parameters    []provider.AzureApiParameter
+	parameters    []provider.AzureAPIParameter
 	requiredSpecs codegen.StringSet
 }
 
@@ -887,7 +887,7 @@ func (bag *parameterBag) merge(other *propertyBag) {
 type propertyBag struct {
 	description        string
 	specs              map[string]pschema.PropertySpec
-	properties         map[string]provider.AzureApiProperty
+	properties         map[string]provider.AzureAPIProperty
 	requiredSpecs      codegen.StringSet
 	requiredProperties codegen.StringSet
 }
@@ -895,7 +895,7 @@ type propertyBag struct {
 func newPropertyBag() *propertyBag {
 	return &propertyBag{
 		specs:              map[string]pschema.PropertySpec{},
-		properties:         map[string]provider.AzureApiProperty{},
+		properties:         map[string]provider.AzureAPIProperty{},
 		requiredSpecs:      codegen.NewStringSet(),
 		requiredProperties: codegen.NewStringSet(),
 	}

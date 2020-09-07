@@ -34,7 +34,7 @@ import (
 
 const (
 	ActiveDirectoryEndpoint = "https://login.microsoftonline.com/"
-	AuthTokenAudience       = "https://management.azure.com/"
+	AuthTokenAudience       = "https://management.azure.com/" //nolint:gosec
 	// DefaultBaseURI is the default URI used for the service
 	DefaultBaseURI = "https://management.azure.com"
 )
@@ -43,22 +43,23 @@ type azurermProvider struct {
 	host           *provider.HostClient
 	name           string
 	version        string
-	subscriptionId string
+	subscriptionID string
 	client         autorest.Client
-	resourceMap    *AzureApiMetadata
+	resourceMap    *AzureAPIMetadata
 	config         map[string]string
 	schemaBytes    []byte
 }
 
-func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte, azureApiResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
+func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
+	azureAPIResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
 	// Creating a REST client
 	client := autorest.NewClientWithUserAgent(getUserAgent())
 	// Set a long timeout of 2 hours for now.
 	client.PollingDuration = 120 * time.Minute
 
-	var resourceMap AzureApiMetadata
+	var resourceMap AzureAPIMetadata
 
-	uncompressed, err := gzip.NewReader(bytes.NewReader(azureApiResourcesBytes))
+	uncompressed, err := gzip.NewReader(bytes.NewReader(azureAPIResourcesBytes))
 	if err != nil {
 		return nil, errors.Wrap(err, "expand compressed metadata")
 	}
@@ -75,7 +76,10 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	}
 
 	buf := bytes.Buffer{}
-	buf.ReadFrom(uncompressed)
+	_, err = buf.ReadFrom(uncompressed)
+	if err != nil {
+		return nil, errors.Wrap(err, "closing read stream for schema")
+	}
 
 	if err = uncompressed.Close(); err != nil {
 		return nil, errors.Wrap(err, "closing uncompress stream for schema")
@@ -111,7 +115,7 @@ func (k *azurermProvider) Configure(ctx context.Context, req *rpc.ConfigureReque
 		return nil, errors.Wrap(err, "building authorizer")
 	}
 
-	k.subscriptionId = authConfig.SubscriptionID
+	k.subscriptionID = authConfig.SubscriptionID
 	k.client.Authorizer = authorizer
 
 	return &rpc.ConfigureResponse{}, nil
@@ -145,8 +149,8 @@ func (k *azurermProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*
 		parameters,
 		args.Mappable(),
 		map[string]interface{}{
-			"subscriptionId": k.subscriptionId,
-			"api-version":    res.ApiVersion,
+			"subscriptionId": k.subscriptionID,
+			"api-version":    res.APIVersion,
 		},
 	)
 	if err != nil {
@@ -155,7 +159,7 @@ func (k *azurermProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*
 
 	var response map[string]interface{}
 	if res.GetParameters != nil {
-		response, err = k.azureGet(ctx, id, res.ApiVersion)
+		response, err = k.azureGet(ctx, id, res.APIVersion)
 	} else if res.PostParameters != nil {
 		response, err = k.azurePost(ctx, id, body, query)
 	} else {
@@ -224,9 +228,7 @@ func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rp
 
 		if param.Location == "body" {
 			// Body parameter is a collection of properties, so validate all properties in its type.
-			for _, failure := range k.validateType("", param.Body, inputMap) {
-				failures = append(failures, failure)
-			}
+			failures = append(failures, k.validateType("", param.Body, inputMap)...)
 
 			continue
 		}
@@ -238,9 +240,7 @@ func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rp
 
 		if value, has := inputMap[name]; has {
 			// Check if the value matches the parameter constraints (recursively).
-			for _, failure := range k.validateProperty(name, param.Value, value) {
-				failures = append(failures, failure)
-			}
+			failures = append(failures, k.validateProperty(name, param.Value, value)...)
 		} else if param.IsRequired {
 			// Report a missing required parameter.
 			failures = append(failures, &rpc.CheckFailure{
@@ -253,7 +253,8 @@ func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rp
 }
 
 // validateType checks the all properties and required properties of the given type and value map.
-func (k *azurermProvider) validateType(ctx string, typ *AzureApiType, values map[string]interface{}) []*rpc.CheckFailure {
+func (k *azurermProvider) validateType(ctx string, typ *AzureAPIType,
+	values map[string]interface{}) []*rpc.CheckFailure {
 	var failures []*rpc.CheckFailure
 
 	for _, name := range typ.RequiredProperties {
@@ -273,6 +274,7 @@ func (k *azurermProvider) validateType(ctx string, typ *AzureApiType, values map
 	}
 
 	for name, prop := range typ.Properties {
+		p := prop // https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
 		if prop.SdkName != "" {
 			name = prop.SdkName
 		}
@@ -285,15 +287,13 @@ func (k *azurermProvider) validateType(ctx string, typ *AzureApiType, values map
 		if ctx != "" {
 			propCtx = fmt.Sprintf("%s.%s", ctx, name)
 		}
-		for _, failure := range k.validateProperty(propCtx, &prop, value) {
-			failures = append(failures, failure)
-		}
+		failures = append(failures, k.validateProperty(propCtx, &p, value)...)
 	}
 	return failures
 }
 
 // validateProperty checks the property value against its metadata.
-func (k *azurermProvider) validateProperty(ctx string, prop *AzureApiProperty, value interface{}) []*rpc.CheckFailure {
+func (k *azurermProvider) validateProperty(ctx string, prop *AzureAPIProperty, value interface{}) []*rpc.CheckFailure {
 	var failures []*rpc.CheckFailure
 
 	if _, ok := value.(resource.Computed); ok {
@@ -313,9 +313,7 @@ func (k *azurermProvider) validateProperty(ctx string, prop *AzureApiProperty, v
 		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
 		typ := k.resourceMap.Types[typeName]
 
-		for _, failure := range k.validateType(ctx, &typ, value) {
-			failures = append(failures, failure)
-		}
+		failures = append(failures, k.validateType(ctx, &typ, value)...)
 	case []interface{}:
 		if prop.Type != "array" {
 			return append(failures, &rpc.CheckFailure{
@@ -326,9 +324,7 @@ func (k *azurermProvider) validateProperty(ctx string, prop *AzureApiProperty, v
 		// Array: validate each item.
 		for index, item := range value {
 			itemCtx := fmt.Sprintf("%s[%d]", ctx, index)
-			for _, failure := range k.validateProperty(itemCtx, prop.Items, item) {
-				failures = append(failures, failure)
-			}
+			failures = append(failures, k.validateProperty(itemCtx, prop.Items, item)...)
 		}
 	case string:
 		if prop.Type != "string" {
@@ -343,12 +339,14 @@ func (k *azurermProvider) validateProperty(ctx string, prop *AzureApiProperty, v
 		length := int64(len(value))
 		if prop.MinLength != nil && length < *prop.MinLength {
 			failures = append(failures, &rpc.CheckFailure{
-				Reason: fmt.Sprintf("'%s' is too short (%d): at least %d characters required", ctx, length, *prop.MinLength),
+				Reason: fmt.Sprintf("'%s' is too short (%d): at least %d characters required",
+					ctx, length, *prop.MinLength),
 			})
 		}
 		if prop.MaxLength != nil && length > *prop.MaxLength {
 			failures = append(failures, &rpc.CheckFailure{
-				Reason: fmt.Sprintf("'%s' is too long (%d): at most %d characters allowed", ctx, length, *prop.MaxLength),
+				Reason: fmt.Sprintf("'%s' is too long (%d): at most %d characters allowed",
+					ctx, length, *prop.MaxLength),
 			})
 		}
 		if prop.Pattern != "" {
@@ -458,7 +456,8 @@ func (k *azurermProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.
 		KeepSecrets:  true,
 	})
 	if err != nil {
-		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs %v %v", oldState, newResInputs)
+		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs %v %v",
+			oldState, newResInputs)
 	}
 
 	// Calculate the difference between old and new inputs.
@@ -540,8 +539,8 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		res.PutParameters,
 		inputs.Mappable(),
 		map[string]interface{}{
-			"subscriptionId": k.subscriptionId,
-			"api-version":    res.ApiVersion,
+			"subscriptionId": k.subscriptionID,
+			"api-version":    res.APIVersion,
 		},
 	)
 	if err != nil {
@@ -550,7 +549,7 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
 	// (though it's technically impossible since the only operation supported is an upsert).
-	_, err = k.azureGet(ctx, id, res.ApiVersion)
+	_, err = k.azureGet(ctx, id, res.APIVersion)
 	if err == nil {
 		return nil, fmt.Errorf("cannot create already existing resource %v", id)
 	}
@@ -609,7 +608,7 @@ func (k *azurermProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
 
-	response, err := k.azureGet(ctx, id, res.ApiVersion)
+	response, err := k.azureGet(ctx, id, res.APIVersion)
 	if err != nil {
 		return nil, err
 	}
@@ -654,8 +653,8 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 		res.PutParameters,
 		inputs.Mappable(),
 		map[string]interface{}{
-			"subscriptionId": k.subscriptionId,
-			"api-version":    res.ApiVersion,
+			"subscriptionId": k.subscriptionID,
+			"api-version":    res.APIVersion,
 		},
 	)
 	if err != nil {
@@ -698,7 +697,7 @@ func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*
 	if !ok {
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
-	err := k.azureDelete(ctx, id, res.ApiVersion)
+	err := k.azureDelete(ctx, id, res.APIVersion)
 	if err != nil {
 		return nil, err
 	}
@@ -896,7 +895,7 @@ func (k *azurermProvider) azurePost(
 	return outputs, nil
 }
 
-func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []AzureApiParameter, methodInputs,
+func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []AzureAPIParameter, methodInputs,
 	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
 	locations := map[string]map[string]interface{}{

@@ -19,7 +19,7 @@ func init() {
 	//   (e.g., happened in Web provider for ServerFarm -> AppServicePlan)
 	// - Res 4 is named consistently, but the path has changed over time
 	//   (e.g., happened with several resources in ApiManagement)
-	versionMap = map[string]VersionResources {
+	versionMap = map[string]VersionResources{
 		"2020-01-01": {
 			Resources: map[string]*ResourceSpec{
 				"Res1": makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v1"),
@@ -29,17 +29,17 @@ func init() {
 		},
 		"2020-02-01": {
 			Resources: map[string]*ResourceSpec{
-				"Res1": makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v2"),
-				"Res2": makeResource("/someprefix/Microsoft.Foo/res2/{res2Name}", "Res 2 v2"),
+				"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v2"),
+				"Res2":        makeResource("/someprefix/Microsoft.Foo/res2/{res2Name}", "Res 2 v2"),
 				"Res3Renamed": makeResource("/someprefix/Microsoft.Foo/res3/{res3Name}", "Res 3 v2"),
-				"Res4": makeResource("/someprefix/Microsoft.Foo/res4/{res4Name}", "Res 4 v1"),
+				"Res4":        makeResource("/someprefix/Microsoft.Foo/res4/{res4Name}", "Res 4 v1"),
 			},
 		},
 		"2020-03-01": {
 			Resources: map[string]*ResourceSpec{
-				"Res1": makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v3"),
+				"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v3"),
 				"Res3Renamed": makeResource("/someprefix/Microsoft.Foo/res3/{res3Name}", "Res 3 v3"),
-				"Res4": makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v2"),
+				"Res4":        makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v2"),
 			},
 		},
 	}
@@ -47,13 +47,13 @@ func init() {
 
 func TestFindingLatestResourceVersions(t *testing.T) {
 	expected := map[string]*ResourceSpec{
-		"Res1": makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v3"),
-		"Res2": makeResource("/someprefix/Microsoft.Foo/res2/{res2Name}", "Res 2 v2"),
+		"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v3"),
+		"Res2":        makeResource("/someprefix/Microsoft.Foo/res2/{res2Name}", "Res 2 v2"),
 		"Res3Renamed": makeResource("/someprefix/Microsoft.Foo/res3/{res3Name}", "Res 3 v3"),
-		"Res4": makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v2"),
+		"Res4":        makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v2"),
 	}
 
-	actual := calculateLatestVersions(versionMap, /* invokes */false, /* preview */ false)
+	actual := calculateLatestVersions(versionMap /* invokes */, false /* preview */, false)
 	assert.Equal(t, actual, expected)
 }
 
@@ -70,7 +70,7 @@ func TestFindingPathVersions(t *testing.T) {
 }
 
 func makeResource(path, description string) *ResourceSpec {
-	return &ResourceSpec {
+	return &ResourceSpec{
 		Path: path,
 		PathItem: &spec.PathItem{
 			PathItemProps: spec.PathItemProps{

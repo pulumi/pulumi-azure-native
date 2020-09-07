@@ -45,6 +45,9 @@ codegen::
 provider::
 	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
+lint_provider:: provider # lint the provider code
+	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
+
 generate_nodejs::
 	$(WORKING_DIR)/bin/$(CODEGEN) nodejs
 

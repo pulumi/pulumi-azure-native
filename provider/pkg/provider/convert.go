@@ -4,7 +4,7 @@ package provider
 
 import "strings"
 
-func (k *azurermProvider) sdkPropertyToRequest(prop *AzureApiProperty, value interface{}) interface{} {
+func (k *azurermProvider) sdkPropertyToRequest(prop *AzureAPIProperty, value interface{}) interface{} {
 	switch value := value.(type) {
 	case map[string]interface{}:
 		// For union types, iterate through types and find the first one that matches the shape.
@@ -35,9 +35,11 @@ func (k *azurermProvider) sdkPropertyToRequest(prop *AzureApiProperty, value int
 	return value
 }
 
-func (k *azurermProvider) sdkPropertiesToRequest(props map[string]AzureApiProperty, values map[string]interface{}) map[string]interface{} {
+func (k *azurermProvider) sdkPropertiesToRequest(props map[string]AzureAPIProperty,
+	values map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
 	for name, prop := range props {
+		p := prop // https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
 		sdkName := name
 		if prop.SdkName != "" {
 			sdkName = prop.SdkName
@@ -48,7 +50,7 @@ func (k *azurermProvider) sdkPropertiesToRequest(props map[string]AzureApiProper
 			}
 
 			if prop.Container == "" {
-				result[name] = k.sdkPropertyToRequest(&prop, value)
+				result[name] = k.sdkPropertyToRequest(&p, value)
 			} else {
 				// "Unflatten" the property into a container property.
 				container := map[string]interface{}{}
@@ -57,7 +59,7 @@ func (k *azurermProvider) sdkPropertiesToRequest(props map[string]AzureApiProper
 						container = v
 					}
 				}
-				container[name] = k.sdkPropertyToRequest(&prop, value)
+				container[name] = k.sdkPropertyToRequest(&p, value)
 				result[prop.Container] = container
 			}
 		}
@@ -65,7 +67,7 @@ func (k *azurermProvider) sdkPropertiesToRequest(props map[string]AzureApiProper
 	return result
 }
 
-func (k *azurermProvider) responsePropertyToSdk(prop *AzureApiProperty, value interface{}) interface{} {
+func (k *azurermProvider) responsePropertyToSdk(prop *AzureAPIProperty, value interface{}) interface{} {
 	switch value := value.(type) {
 	case map[string]interface{}:
 		// For union types, iterate through types and find the first one that matches the shape.
@@ -96,9 +98,11 @@ func (k *azurermProvider) responsePropertyToSdk(prop *AzureApiProperty, value in
 	return value
 }
 
-func (k *azurermProvider) responseToSdkOutputs(props map[string]AzureApiProperty, response map[string]interface{}) map[string]interface{} {
+func (k *azurermProvider) responseToSdkOutputs(props map[string]AzureAPIProperty,
+	response map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
 	for name, prop := range props {
+		p := prop // https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
 		sdkName := name
 		if prop.SdkName != "" {
 			sdkName = prop.SdkName
@@ -118,7 +122,7 @@ func (k *azurermProvider) responseToSdkOutputs(props map[string]AzureApiProperty
 				return nil
 			}
 
-			result[sdkName] = k.responsePropertyToSdk(&prop, value)
+			result[sdkName] = k.responsePropertyToSdk(&p, value)
 		}
 	}
 	return result

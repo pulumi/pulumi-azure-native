@@ -106,7 +106,8 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 	return &Schema{ptr.ReferenceContext, &schema}, nil
 }
 
-// FindSubtypes returns a slice of schemas, each schema is a reference to a type definition that is a subtype of a given type.
+// FindSubtypes returns a slice of schemas, each schema is a reference to
+// a type definition that is a subtype of a given type.
 // The following rules apply:
 // - All subtypes reside in the same Open API specification.
 // - A subtype is defines as `allOf` of the base type.
