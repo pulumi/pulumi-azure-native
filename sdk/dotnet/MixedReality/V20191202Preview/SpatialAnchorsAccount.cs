@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.MixedReality.V20191202Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:mixedreality/latest:SpatialAnchorsAccount"},
+                    new Pulumi.Alias { Type = "azurerm:mixedreality/preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azurerm:mixedreality/v20190228preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azurerm:mixedreality/v20200501:SpatialAnchorsAccount"},
                 },

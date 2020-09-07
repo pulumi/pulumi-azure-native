@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppVnetConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppVnetConnection"},

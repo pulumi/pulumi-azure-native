@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:appplatform/latest:Deployment"},
+                    new Pulumi.Alias { Type = "azurerm:appplatform/preview:Deployment"},
                     new Pulumi.Alias { Type = "azurerm:appplatform/v20190501preview:Deployment"},
                 },
             };

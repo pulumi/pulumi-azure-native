@@ -72,6 +72,7 @@ namespace Pulumi.AzureRM.OffAzure.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:offazure/preview:HyperVSite"},
                     new Pulumi.Alias { Type = "azurerm:offazure/v20200101:HyperVSite"},
                     new Pulumi.Alias { Type = "azurerm:offazure/v20200707:HyperVSite"},
                 },

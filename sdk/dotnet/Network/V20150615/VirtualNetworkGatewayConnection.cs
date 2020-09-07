@@ -154,6 +154,7 @@ namespace Pulumi.AzureRM.Network.V20150615
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:VirtualNetworkGatewayConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160601:VirtualNetworkGatewayConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160901:VirtualNetworkGatewayConnection"},

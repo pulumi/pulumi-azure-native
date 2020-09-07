@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.Consumption.V20180630
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:consumption/latest:BudgetByResourceGroupName"},
+                    new Pulumi.Alias { Type = "azurerm:consumption/preview:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azurerm:consumption/v20180131:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azurerm:consumption/v20180331:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azurerm:consumption/v20180831:BudgetByResourceGroupName"},

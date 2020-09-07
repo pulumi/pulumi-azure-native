@@ -142,6 +142,7 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:eventhub/latest:Namespace"},
+                    new Pulumi.Alias { Type = "azurerm:eventhub/preview:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20140901:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20150801:Namespace"},
                     new Pulumi.Alias { Type = "azurerm:eventhub/v20170401:Namespace"},

@@ -123,6 +123,7 @@ namespace Pulumi.AzureRM.Logic.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:logic/preview:RosettaNetProcessConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20160601:RosettaNetProcessConfiguration"},
                 },
             };

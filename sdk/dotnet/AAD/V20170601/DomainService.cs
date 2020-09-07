@@ -154,6 +154,7 @@ namespace Pulumi.AzureRM.Aad.V20170601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:aad/latest:DomainService"},
+                    new Pulumi.Alias { Type = "azurerm:aad/preview:DomainService"},
                     new Pulumi.Alias { Type = "azurerm:aad/v20170101:DomainService"},
                     new Pulumi.Alias { Type = "azurerm:aad/v20200101:DomainService"},
                 },

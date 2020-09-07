@@ -131,6 +131,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:containerregistry/latest:Task"},
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/preview:Task"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20180901:Task"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20190401:Task"},
                 },

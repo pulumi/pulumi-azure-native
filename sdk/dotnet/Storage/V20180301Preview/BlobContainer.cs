@@ -118,6 +118,7 @@ namespace Pulumi.AzureRM.Storage.V20180301Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storage/latest:BlobContainer"},
+                    new Pulumi.Alias { Type = "azurerm:storage/preview:BlobContainer"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20180201:BlobContainer"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20180701:BlobContainer"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20181101:BlobContainer"},

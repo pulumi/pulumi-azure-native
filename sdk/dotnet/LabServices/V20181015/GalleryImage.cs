@@ -136,6 +136,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:labservices/latest:GalleryImage"},
+                    new Pulumi.Alias { Type = "azurerm:labservices/preview:GalleryImage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -190,6 +190,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/latest:Workspace"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/preview:Workspace"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20180301preview:Workspace"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20181119:Workspace"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20190501:Workspace"},

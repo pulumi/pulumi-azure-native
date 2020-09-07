@@ -118,6 +118,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:Agreement"},
+                    new Pulumi.Alias { Type = "azurerm:logic/preview:Agreement"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20150801preview:Agreement"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:Agreement"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20190501:Agreement"},

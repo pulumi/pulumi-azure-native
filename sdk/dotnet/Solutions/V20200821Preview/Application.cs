@@ -184,6 +184,7 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:solutions/latest:Application"},
+                    new Pulumi.Alias { Type = "azurerm:solutions/preview:Application"},
                     new Pulumi.Alias { Type = "azurerm:solutions/v20170901:Application"},
                     new Pulumi.Alias { Type = "azurerm:solutions/v20180601:Application"},
                     new Pulumi.Alias { Type = "azurerm:solutions/v20190701:Application"},

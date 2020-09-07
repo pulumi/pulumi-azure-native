@@ -136,6 +136,7 @@ namespace Pulumi.AzureRM.Insights.V20150501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:insights/latest:WebTest"},
+                    new Pulumi.Alias { Type = "azurerm:insights/preview:WebTest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

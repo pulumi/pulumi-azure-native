@@ -135,6 +135,7 @@ namespace Pulumi.AzureRM.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:insights/preview:MetricAlert"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20180301:MetricAlert"},
                 },
             };

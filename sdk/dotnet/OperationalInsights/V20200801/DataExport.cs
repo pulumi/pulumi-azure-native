@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:DataExport"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:DataExport"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20190801preview:DataExport"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:DataExport"},
                 },

@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/preview:Route"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150501preview:Route"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:Route"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:Route"},

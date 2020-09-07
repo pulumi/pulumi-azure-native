@@ -106,6 +106,7 @@ namespace Pulumi.AzureRM.Web.V20160801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:WebAppPremierAddOn"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppPremierAddOn"},

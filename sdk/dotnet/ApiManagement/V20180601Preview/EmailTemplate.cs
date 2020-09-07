@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:EmailTemplate"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:EmailTemplate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:EmailTemplate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:EmailTemplate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20190101:EmailTemplate"},

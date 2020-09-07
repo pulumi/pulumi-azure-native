@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.Storage.V20190401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storage/latest:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:storage/preview:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20180201:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20180301preview:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20180701:BlobContainerImmutabilityPolicy"},

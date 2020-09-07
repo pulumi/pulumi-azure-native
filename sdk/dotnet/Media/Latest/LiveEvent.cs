@@ -129,6 +129,7 @@ namespace Pulumi.AzureRM.Media.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:media/preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180330preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180601preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:LiveEvent"},

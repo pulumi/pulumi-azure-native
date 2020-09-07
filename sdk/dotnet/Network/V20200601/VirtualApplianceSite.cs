@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:VirtualApplianceSite"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:VirtualApplianceSite"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:VirtualApplianceSite"},
                 },
             };

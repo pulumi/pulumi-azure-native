@@ -130,6 +130,7 @@ namespace Pulumi.AzureRM.Network.V20171001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:NetworkInterface"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:NetworkInterface"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150501preview:NetworkInterface"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:NetworkInterface"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:NetworkInterface"},

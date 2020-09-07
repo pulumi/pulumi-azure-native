@@ -175,6 +175,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:servicebus/latest:Topic"},
+                    new Pulumi.Alias { Type = "azurerm:servicebus/preview:Topic"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:Topic"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:Topic"},
                 },

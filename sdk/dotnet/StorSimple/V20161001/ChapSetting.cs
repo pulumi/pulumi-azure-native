@@ -58,6 +58,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storsimple/latest:ChapSetting"},
+                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:ChapSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

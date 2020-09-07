@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Network.V20191101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:NetworkExperimentProfile"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:NetworkExperimentProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

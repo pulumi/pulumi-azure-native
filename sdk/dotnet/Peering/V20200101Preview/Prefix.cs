@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.Peering.V20200101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:peering/latest:Prefix"},
+                    new Pulumi.Alias { Type = "azurerm:peering/preview:Prefix"},
                     new Pulumi.Alias { Type = "azurerm:peering/v20190801preview:Prefix"},
                     new Pulumi.Alias { Type = "azurerm:peering/v20190901preview:Prefix"},
                     new Pulumi.Alias { Type = "azurerm:peering/v20200401:Prefix"},

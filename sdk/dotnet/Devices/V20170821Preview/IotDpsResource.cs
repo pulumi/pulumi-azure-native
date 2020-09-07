@@ -79,6 +79,7 @@ namespace Pulumi.AzureRM.Devices.V20170821Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devices/latest:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/preview:IotDpsResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20171115:IotDpsResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20180122:IotDpsResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200101:IotDpsResource"},

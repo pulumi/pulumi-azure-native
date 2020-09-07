@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:AlertRuleAction"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200101:AlertRuleAction"},
                 },
             };

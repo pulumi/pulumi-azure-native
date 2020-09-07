@@ -72,6 +72,7 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20190801:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20200601:WebAppPrivateEndpointConnection"},
                 },

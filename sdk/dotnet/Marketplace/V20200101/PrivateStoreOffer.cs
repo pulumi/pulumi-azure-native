@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.Marketplace.V20200101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:marketplace/latest:PrivateStoreOffer"},
+                    new Pulumi.Alias { Type = "azurerm:marketplace/preview:PrivateStoreOffer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

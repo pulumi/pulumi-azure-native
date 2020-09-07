@@ -160,6 +160,7 @@ namespace Pulumi.AzureRM.Solutions.V20190701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:solutions/latest:ApplicationDefinition"},
+                    new Pulumi.Alias { Type = "azurerm:solutions/preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azurerm:solutions/v20170901:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azurerm:solutions/v20180601:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azurerm:solutions/v20200821preview:ApplicationDefinition"},

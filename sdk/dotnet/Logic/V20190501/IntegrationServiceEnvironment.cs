@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:IntegrationServiceEnvironment"},
+                    new Pulumi.Alias { Type = "azurerm:logic/preview:IntegrationServiceEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

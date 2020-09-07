@@ -294,6 +294,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:sql/latest:Database"},
+                    new Pulumi.Alias { Type = "azurerm:sql/preview:Database"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20140401:Database"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20170301preview:Database"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20190601preview:Database"},

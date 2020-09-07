@@ -93,6 +93,7 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20190924Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:desktopvirtualization/preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20190123preview:ApplicationGroup"},
                     new Pulumi.Alias { Type = "azurerm:desktopvirtualization/v20191210preview:ApplicationGroup"},
                 },

@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:StorageAccount"},
                 },
             };

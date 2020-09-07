@@ -87,6 +87,7 @@ namespace Pulumi.AzureRM.Media.V20200201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:media/preview:MediaGraph"},
                     new Pulumi.Alias { Type = "azurerm:media/v20190901preview:MediaGraph"},
                 },
             };

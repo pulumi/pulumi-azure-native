@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:User"},
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:User"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:User"},
                 },
             };

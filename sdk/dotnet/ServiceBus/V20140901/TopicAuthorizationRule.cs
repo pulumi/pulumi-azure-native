@@ -106,6 +106,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:servicebus/latest:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azurerm:servicebus/preview:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:TopicAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:TopicAuthorizationRule"},
                 },

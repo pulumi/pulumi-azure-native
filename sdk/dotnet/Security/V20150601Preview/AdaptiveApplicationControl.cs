@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:security/latest:AdaptiveApplicationControl"},
+                    new Pulumi.Alias { Type = "azurerm:security/preview:AdaptiveApplicationControl"},
                     new Pulumi.Alias { Type = "azurerm:security/v20200101:AdaptiveApplicationControl"},
                 },
             };

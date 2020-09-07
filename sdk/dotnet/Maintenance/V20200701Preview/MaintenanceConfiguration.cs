@@ -118,6 +118,7 @@ namespace Pulumi.AzureRM.Maintenance.V20200701Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:maintenance/latest:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:maintenance/preview:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:maintenance/v20180601preview:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:maintenance/v20200401:MaintenanceConfiguration"},
                 },

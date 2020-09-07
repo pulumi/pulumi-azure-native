@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datafactory/latest:Dataset"},
+                    new Pulumi.Alias { Type = "azurerm:datafactory/preview:Dataset"},
                     new Pulumi.Alias { Type = "azurerm:datafactory/v20180601:Dataset"},
                 },
             };

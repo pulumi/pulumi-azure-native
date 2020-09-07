@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:Formula"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20150521preview:Formula"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:Formula"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:Formula"},

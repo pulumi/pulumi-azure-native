@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:vmwarecloudsimple/latest:DedicatedCloudService"},
+                    new Pulumi.Alias { Type = "azurerm:vmwarecloudsimple/preview:DedicatedCloudService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

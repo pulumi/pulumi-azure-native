@@ -58,6 +58,7 @@ namespace Pulumi.AzureRM.Resources.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:resources/latest:TagAtScope"},
+                    new Pulumi.Alias { Type = "azurerm:resources/preview:TagAtScope"},
                     new Pulumi.Alias { Type = "azurerm:resources/v20191001:TagAtScope"},
                 },
             };

@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:maps/latest:Account"},
+                    new Pulumi.Alias { Type = "azurerm:maps/preview:Account"},
                     new Pulumi.Alias { Type = "azurerm:maps/v20170101preview:Account"},
                     new Pulumi.Alias { Type = "azurerm:maps/v20180501:Account"},
                 },

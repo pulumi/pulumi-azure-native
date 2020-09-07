@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:appplatform/latest:App"},
+                    new Pulumi.Alias { Type = "azurerm:appplatform/preview:App"},
                     new Pulumi.Alias { Type = "azurerm:appplatform/v20200701:App"},
                 },
             };

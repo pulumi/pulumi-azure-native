@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.Kusto.V20180907Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:kusto/latest:Database"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/preview:Database"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20170907privatepreview:Database"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20190121:Database"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20190515:Database"},

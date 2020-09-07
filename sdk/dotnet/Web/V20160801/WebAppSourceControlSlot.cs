@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.Web.V20160801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:WebAppSourceControlSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:WebAppSourceControlSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppSourceControlSlot"},

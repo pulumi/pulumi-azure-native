@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.DBforMySQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/preview:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201preview:VirtualNetworkRule"},
                 },

@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.DataCatalog.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:datacatalog/preview:ADCCatalog"},
                     new Pulumi.Alias { Type = "azurerm:datacatalog/v20160330:ADCCatalog"},
                 },
             };

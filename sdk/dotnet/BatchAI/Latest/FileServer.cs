@@ -99,6 +99,7 @@ namespace Pulumi.AzureRM.BatchAI.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:batchai/preview:FileServer"},
                     new Pulumi.Alias { Type = "azurerm:batchai/v20180501:FileServer"},
                 },
             };

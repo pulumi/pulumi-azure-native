@@ -157,6 +157,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:containerinstance/latest:ContainerGroup"},
+                    new Pulumi.Alias { Type = "azurerm:containerinstance/preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azurerm:containerinstance/v20170801preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azurerm:containerinstance/v20171001preview:ContainerGroup"},
                     new Pulumi.Alias { Type = "azurerm:containerinstance/v20171201preview:ContainerGroup"},

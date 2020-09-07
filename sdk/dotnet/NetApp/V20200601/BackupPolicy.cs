@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:netapp/latest:backupPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/preview:backupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

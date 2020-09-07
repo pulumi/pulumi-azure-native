@@ -58,6 +58,7 @@ namespace Pulumi.AzureRM.Search.V20191001Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:search/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:search/preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:search/v20200313:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:search/v20200801:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:search/v20200801preview:PrivateEndpointConnection"},

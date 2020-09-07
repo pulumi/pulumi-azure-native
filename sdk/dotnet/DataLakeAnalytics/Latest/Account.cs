@@ -195,6 +195,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:datalakeanalytics/preview:Account"},
                     new Pulumi.Alias { Type = "azurerm:datalakeanalytics/v20161101:Account"},
                 },
             };

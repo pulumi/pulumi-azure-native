@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:ServiceRunner"},
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:ServiceRunner"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:ServiceRunner"},
                 },
             };

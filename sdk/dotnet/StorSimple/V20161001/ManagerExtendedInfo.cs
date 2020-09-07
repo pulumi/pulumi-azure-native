@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storsimple/latest:ManagerExtendedInfo"},
+                    new Pulumi.Alias { Type = "azurerm:storsimple/preview:ManagerExtendedInfo"},
                     new Pulumi.Alias { Type = "azurerm:storsimple/v20170601:ManagerExtendedInfo"},
                 },
             };

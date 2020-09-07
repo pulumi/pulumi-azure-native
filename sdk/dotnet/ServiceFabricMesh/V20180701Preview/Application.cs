@@ -123,6 +123,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:servicefabricmesh/preview:Application"},
                     new Pulumi.Alias { Type = "azurerm:servicefabricmesh/v20180901preview:Application"},
                 },
             };

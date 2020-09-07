@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Peering.V20190901Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:peering/latest:PeeringService"},
+                    new Pulumi.Alias { Type = "azurerm:peering/preview:PeeringService"},
                     new Pulumi.Alias { Type = "azurerm:peering/v20190801preview:PeeringService"},
                     new Pulumi.Alias { Type = "azurerm:peering/v20200101preview:PeeringService"},
                     new Pulumi.Alias { Type = "azurerm:peering/v20200401:PeeringService"},

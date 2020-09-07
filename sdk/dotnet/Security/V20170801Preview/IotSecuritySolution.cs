@@ -118,6 +118,7 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:security/latest:IotSecuritySolution"},
+                    new Pulumi.Alias { Type = "azurerm:security/preview:IotSecuritySolution"},
                     new Pulumi.Alias { Type = "azurerm:security/v20190801:IotSecuritySolution"},
                 },
             };

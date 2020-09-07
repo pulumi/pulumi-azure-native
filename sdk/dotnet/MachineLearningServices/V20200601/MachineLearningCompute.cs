@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/latest:MachineLearningCompute"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20180301preview:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20181119:MachineLearningCompute"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20190501:MachineLearningCompute"},

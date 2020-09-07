@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20180601PrivatePreview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbformysql/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20180601:PrivateEndpointConnection"},
                 },
             };

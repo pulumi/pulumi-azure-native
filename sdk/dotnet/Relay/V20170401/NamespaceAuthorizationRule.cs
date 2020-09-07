@@ -58,6 +58,7 @@ namespace Pulumi.AzureRM.Relay.V20170401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:relay/latest:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azurerm:relay/preview:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:relay/v20160701:NamespaceAuthorizationRule"},
                 },
             };

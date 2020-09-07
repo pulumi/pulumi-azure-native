@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.Devices.V20170701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devices/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:devices/preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20180122:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20180401:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20181201preview:Certificate"},

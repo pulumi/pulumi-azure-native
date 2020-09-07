@@ -106,6 +106,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datamigration/latest:Project"},
+                    new Pulumi.Alias { Type = "azurerm:datamigration/preview:Project"},
                     new Pulumi.Alias { Type = "azurerm:datamigration/v20171115preview:Project"},
                     new Pulumi.Alias { Type = "azurerm:datamigration/v20180315preview:Project"},
                     new Pulumi.Alias { Type = "azurerm:datamigration/v20180331preview:Project"},

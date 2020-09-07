@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:DatabaseAccountMongoDBDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20151106:DatabaseAccountMongoDBDatabase"},

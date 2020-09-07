@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:VirtualHubBgpConnection"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:VirtualHubBgpConnection"},
                 },
             };

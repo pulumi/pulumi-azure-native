@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20170228Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/latest:AccessPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:timeseriesinsights/preview:AccessPolicy"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20171115:AccessPolicy"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20180815preview:AccessPolicy"},
                     new Pulumi.Alias { Type = "azurerm:timeseriesinsights/v20200515:AccessPolicy"},

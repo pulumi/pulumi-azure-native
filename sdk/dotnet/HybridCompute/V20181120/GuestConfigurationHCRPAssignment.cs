@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20181120
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/latest:GuestConfigurationHCRPAssignment"},
+                    new Pulumi.Alias { Type = "azurerm:hybridcompute/preview:GuestConfigurationHCRPAssignment"},
                     new Pulumi.Alias { Type = "azurerm:hybridcompute/v20200625:GuestConfigurationHCRPAssignment"},
                 },
             };

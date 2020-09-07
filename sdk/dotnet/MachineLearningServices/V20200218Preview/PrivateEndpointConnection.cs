@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:machinelearningservices/preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200101:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200301:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:machinelearningservices/v20200401:PrivateEndpointConnection"},

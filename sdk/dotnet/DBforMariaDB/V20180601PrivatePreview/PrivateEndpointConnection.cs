@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601PrivatePreview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbformariadb/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:dbformariadb/preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:dbformariadb/v20180601:PrivateEndpointConnection"},
                 },
             };

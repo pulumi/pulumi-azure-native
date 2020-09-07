@@ -171,6 +171,7 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:customerinsights/preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azurerm:customerinsights/v20170101:RoleAssignment"},
                     new Pulumi.Alias { Type = "azurerm:customerinsights/v20170426:RoleAssignment"},
                 },

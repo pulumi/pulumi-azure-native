@@ -99,6 +99,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:Environment"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:Environment"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:Environment"},
                 },

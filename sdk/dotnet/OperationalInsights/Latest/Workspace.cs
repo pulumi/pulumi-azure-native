@@ -117,6 +117,7 @@ namespace Pulumi.AzureRM.OperationalInsights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:Workspace"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20151101preview:Workspace"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200301preview:Workspace"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200801:Workspace"},

@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Compute.V20160430Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:compute/latest:Image"},
+                    new Pulumi.Alias { Type = "azurerm:compute/preview:Image"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20170330:Image"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20171201:Image"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20180401:Image"},

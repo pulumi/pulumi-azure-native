@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:media/latest:ContentKeyPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:media/preview:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180601preview:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azurerm:media/v20200501:ContentKeyPolicy"},

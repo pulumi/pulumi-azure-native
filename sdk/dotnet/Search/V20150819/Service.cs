@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.Search.V20150819
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:search/latest:Service"},
+                    new Pulumi.Alias { Type = "azurerm:search/preview:Service"},
                     new Pulumi.Alias { Type = "azurerm:search/v20191001preview:Service"},
                     new Pulumi.Alias { Type = "azurerm:search/v20200313:Service"},
                     new Pulumi.Alias { Type = "azurerm:search/v20200801:Service"},

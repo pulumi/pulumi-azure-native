@@ -147,6 +147,7 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:servicebus/preview:Topic"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20140901:Topic"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20150801:Topic"},
                     new Pulumi.Alias { Type = "azurerm:servicebus/v20170401:Topic"},

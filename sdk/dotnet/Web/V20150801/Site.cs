@@ -238,6 +238,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:Site"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:Site"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:Site"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:Site"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:Site"},

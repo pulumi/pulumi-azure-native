@@ -208,6 +208,7 @@ namespace Pulumi.AzureRM.Storage.V20190401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:storage/latest:StorageAccount"},
+                    new Pulumi.Alias { Type = "azurerm:storage/preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20150501preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20150615:StorageAccount"},
                     new Pulumi.Alias { Type = "azurerm:storage/v20160101:StorageAccount"},

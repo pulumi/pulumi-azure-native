@@ -99,6 +99,7 @@ namespace Pulumi.AzureRM.Compute.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:compute/preview:GalleryApplication"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20190301:GalleryApplication"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20190701:GalleryApplication"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20191201:GalleryApplication"},

@@ -73,6 +73,7 @@ namespace Pulumi.AzureRM.OffAzure.V20200707
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:offazure/latest:HyperVSite"},
+                    new Pulumi.Alias { Type = "azurerm:offazure/preview:HyperVSite"},
                     new Pulumi.Alias { Type = "azurerm:offazure/v20200101:HyperVSite"},
                 },
             };

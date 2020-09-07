@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.Web.V20180201
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:WebAppHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:WebAppHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:WebAppHostNameBindingSlot"},

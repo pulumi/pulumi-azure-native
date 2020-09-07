@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20170601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:containerregistry/latest:Webhook"},
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/preview:Webhook"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20171001:Webhook"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20190501:Webhook"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20191201preview:Webhook"},

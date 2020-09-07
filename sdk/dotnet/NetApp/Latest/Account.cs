@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.NetApp.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:netapp/preview:Account"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20170815:Account"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190501:Account"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Account"},

@@ -135,6 +135,7 @@ namespace Pulumi.AzureRM.Automation.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:automation/preview:Python2Package"},
                     new Pulumi.Alias { Type = "azurerm:automation/v20180630:Python2Package"},
                 },
             };

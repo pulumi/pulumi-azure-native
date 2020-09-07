@@ -166,6 +166,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbformysql/latest:Server"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/preview:Server"},
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:Server"},
                 },
             };

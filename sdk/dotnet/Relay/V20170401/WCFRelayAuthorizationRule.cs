@@ -58,6 +58,7 @@ namespace Pulumi.AzureRM.Relay.V20170401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:relay/latest:WCFRelayAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azurerm:relay/preview:WCFRelayAuthorizationRule"},
                     new Pulumi.Alias { Type = "azurerm:relay/v20160701:WCFRelayAuthorizationRule"},
                 },
             };

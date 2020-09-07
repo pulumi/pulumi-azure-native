@@ -58,6 +58,7 @@ namespace Pulumi.AzureRM.Devices.V20200301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devices/latest:IotDpsResourcePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:devices/preview:IotDpsResourcePrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

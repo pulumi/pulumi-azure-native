@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:datalakeanalytics/preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azurerm:datalakeanalytics/v20161101:FirewallRule"},
                 },
             };

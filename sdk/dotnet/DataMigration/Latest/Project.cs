@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.DataMigration.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:datamigration/preview:Project"},
                     new Pulumi.Alias { Type = "azurerm:datamigration/v20171115preview:Project"},
                     new Pulumi.Alias { Type = "azurerm:datamigration/v20180315preview:Project"},
                     new Pulumi.Alias { Type = "azurerm:datamigration/v20180331preview:Project"},

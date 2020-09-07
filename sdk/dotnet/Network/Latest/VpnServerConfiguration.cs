@@ -147,6 +147,7 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/preview:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190801:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20190901:VpnServerConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20191101:VpnServerConfiguration"},

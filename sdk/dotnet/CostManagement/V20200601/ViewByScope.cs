@@ -130,6 +130,7 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:costmanagement/latest:ViewByScope"},
+                    new Pulumi.Alias { Type = "azurerm:costmanagement/preview:ViewByScope"},
                     new Pulumi.Alias { Type = "azurerm:costmanagement/v20190401preview:ViewByScope"},
                     new Pulumi.Alias { Type = "azurerm:costmanagement/v20191101:ViewByScope"},
                 },

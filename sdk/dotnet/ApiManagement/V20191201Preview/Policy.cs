@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Policy"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:Policy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Policy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Policy"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180601preview:Policy"},

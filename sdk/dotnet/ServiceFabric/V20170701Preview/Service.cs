@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:servicefabric/latest:Service"},
+                    new Pulumi.Alias { Type = "azurerm:servicefabric/preview:Service"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301:Service"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20190301preview:Service"},
                     new Pulumi.Alias { Type = "azurerm:servicefabric/v20190601preview:Service"},

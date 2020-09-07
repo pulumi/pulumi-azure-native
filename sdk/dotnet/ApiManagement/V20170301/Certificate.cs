@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:Certificate"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Certificate"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20180101:Certificate"},

@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:dbformariadb/preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azurerm:dbformariadb/v20180601:FirewallRule"},
                     new Pulumi.Alias { Type = "azurerm:dbformariadb/v20180601preview:FirewallRule"},
                 },

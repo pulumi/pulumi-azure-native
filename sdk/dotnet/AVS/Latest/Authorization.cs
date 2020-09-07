@@ -69,6 +69,7 @@ namespace Pulumi.AzureRM.AVS.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:avs/preview:Authorization"},
                     new Pulumi.Alias { Type = "azurerm:avs/v20200320:Authorization"},
                 },
             };

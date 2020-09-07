@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:batchai/latest:Experiment"},
+                    new Pulumi.Alias { Type = "azurerm:batchai/preview:Experiment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

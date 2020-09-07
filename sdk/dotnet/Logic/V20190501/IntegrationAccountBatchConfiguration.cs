@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:IntegrationAccountBatchConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:logic/preview:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20160601:IntegrationAccountBatchConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20180701preview:IntegrationAccountBatchConfiguration"},
                 },

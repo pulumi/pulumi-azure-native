@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.ApiManagement.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:Property"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20160707:Property"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20161010:Property"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20170301:Property"},

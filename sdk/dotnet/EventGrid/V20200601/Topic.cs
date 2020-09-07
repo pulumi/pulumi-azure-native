@@ -110,6 +110,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:eventgrid/latest:Topic"},
+                    new Pulumi.Alias { Type = "azurerm:eventgrid/preview:Topic"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20170615preview:Topic"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20170915preview:Topic"},
                     new Pulumi.Alias { Type = "azurerm:eventgrid/v20180101:Topic"},

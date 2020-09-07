@@ -63,6 +63,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/preview:Database"},
                     new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201:Database"},
                     new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201preview:Database"},
                 },

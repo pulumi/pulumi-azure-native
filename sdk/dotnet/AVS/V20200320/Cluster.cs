@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.AVS.V20200320
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:avs/latest:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:avs/preview:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:avs/v20190809preview:Cluster"},
                 },
             };

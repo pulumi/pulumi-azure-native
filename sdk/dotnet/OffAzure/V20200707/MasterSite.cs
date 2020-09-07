@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.OffAzure.V20200707
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:offazure/latest:MasterSite"},
+                    new Pulumi.Alias { Type = "azurerm:offazure/preview:MasterSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

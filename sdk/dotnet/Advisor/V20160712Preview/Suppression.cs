@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.Advisor.V20160712Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:advisor/latest:Suppression"},
+                    new Pulumi.Alias { Type = "azurerm:advisor/preview:Suppression"},
                     new Pulumi.Alias { Type = "azurerm:advisor/v20170331:Suppression"},
                     new Pulumi.Alias { Type = "azurerm:advisor/v20170419:Suppression"},
                     new Pulumi.Alias { Type = "azurerm:advisor/v20200101:Suppression"},

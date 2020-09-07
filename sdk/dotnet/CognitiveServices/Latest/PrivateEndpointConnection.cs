@@ -57,6 +57,7 @@ namespace Pulumi.AzureRM.CognitiveServices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:cognitiveservices/preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:cognitiveservices/v20170418:PrivateEndpointConnection"},
                 },
             };

@@ -67,6 +67,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:SqlResourceSqlTrigger"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20190801:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:SqlResourceSqlTrigger"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:SqlResourceSqlTrigger"},

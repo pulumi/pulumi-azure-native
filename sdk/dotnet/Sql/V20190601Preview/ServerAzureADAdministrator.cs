@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:sql/latest:ServerAzureADAdministrator"},
+                    new Pulumi.Alias { Type = "azurerm:sql/preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20140401:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20180601preview:ServerAzureADAdministrator"},
                 },

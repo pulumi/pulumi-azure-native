@@ -159,6 +159,7 @@ namespace Pulumi.AzureRM.SignalRService.V20200701Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:signalrservice/latest:SignalR"},
+                    new Pulumi.Alias { Type = "azurerm:signalrservice/preview:SignalR"},
                     new Pulumi.Alias { Type = "azurerm:signalrservice/v20180301preview:SignalR"},
                     new Pulumi.Alias { Type = "azurerm:signalrservice/v20181001:SignalR"},
                     new Pulumi.Alias { Type = "azurerm:signalrservice/v20200501:SignalR"},

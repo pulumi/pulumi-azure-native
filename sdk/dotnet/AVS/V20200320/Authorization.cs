@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.AVS.V20200320
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:avs/latest:Authorization"},
+                    new Pulumi.Alias { Type = "azurerm:avs/preview:Authorization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

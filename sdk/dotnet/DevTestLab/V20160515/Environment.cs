@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:Environment"},
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:Environment"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20180915:Environment"},
                 },
             };

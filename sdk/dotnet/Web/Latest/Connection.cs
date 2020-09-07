@@ -72,6 +72,7 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/preview:Connection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20150801preview:Connection"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160601:Connection"},
                 },

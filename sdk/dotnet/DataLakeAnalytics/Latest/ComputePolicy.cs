@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:datalakeanalytics/preview:ComputePolicy"},
                     new Pulumi.Alias { Type = "azurerm:datalakeanalytics/v20161101:ComputePolicy"},
                 },
             };

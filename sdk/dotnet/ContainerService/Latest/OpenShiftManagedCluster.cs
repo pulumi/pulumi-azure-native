@@ -129,6 +129,7 @@ namespace Pulumi.AzureRM.ContainerService.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:containerservice/preview:OpenShiftManagedCluster"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20180930preview:OpenShiftManagedCluster"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20190430:OpenShiftManagedCluster"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20190930preview:OpenShiftManagedCluster"},

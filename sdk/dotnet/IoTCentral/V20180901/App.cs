@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:iotcentral/latest:App"},
+                    new Pulumi.Alias { Type = "azurerm:iotcentral/preview:App"},
                     new Pulumi.Alias { Type = "azurerm:iotcentral/v20170701privatepreview:App"},
                 },
             };

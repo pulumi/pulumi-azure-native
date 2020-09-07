@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20170301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:containerregistry/latest:Registry"},
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/preview:Registry"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20160627preview:Registry"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20170601preview:Registry"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20171001:Registry"},

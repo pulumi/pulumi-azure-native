@@ -75,6 +75,7 @@ namespace Pulumi.AzureRM.EnterpriseKnowledgeGraph.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:enterpriseknowledgegraph/preview:EnterpriseKnowledgeGraph"},
                     new Pulumi.Alias { Type = "azurerm:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"},
                 },
             };

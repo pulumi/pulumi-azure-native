@@ -106,6 +106,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:SiteHostNameBinding"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:SiteHostNameBinding"},
                     new Pulumi.Alias { Type = "azurerm:web/v20160801:SiteHostNameBinding"},
                     new Pulumi.Alias { Type = "azurerm:web/v20180201:SiteHostNameBinding"},
                     new Pulumi.Alias { Type = "azurerm:web/v20181101:SiteHostNameBinding"},

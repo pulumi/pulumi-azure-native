@@ -204,6 +204,7 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:sql/preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20180601preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20200202preview:ManagedInstance"},
                 },

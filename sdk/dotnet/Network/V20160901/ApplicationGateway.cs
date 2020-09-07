@@ -172,6 +172,7 @@ namespace Pulumi.AzureRM.Network.V20160901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:ApplicationGateway"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150501preview:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20150615:ApplicationGateway"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160330:ApplicationGateway"},

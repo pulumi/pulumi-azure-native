@@ -82,6 +82,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:automation/latest:Variable"},
+                    new Pulumi.Alias { Type = "azurerm:automation/preview:Variable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

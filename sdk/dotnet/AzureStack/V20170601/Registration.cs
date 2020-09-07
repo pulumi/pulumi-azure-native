@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:azurestack/latest:Registration"},
+                    new Pulumi.Alias { Type = "azurerm:azurestack/preview:Registration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:netapp/latest:Snapshot"},
+                    new Pulumi.Alias { Type = "azurerm:netapp/preview:Snapshot"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20170815:Snapshot"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190501:Snapshot"},
                     new Pulumi.Alias { Type = "azurerm:netapp/v20190601:Snapshot"},

@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.Web.V20190801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:StaticSite"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:StaticSite"},
                     new Pulumi.Alias { Type = "azurerm:web/v20200601:StaticSite"},
                 },
             };

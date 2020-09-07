@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:security/latest:AssessmentsMetadataSubscription"},
+                    new Pulumi.Alias { Type = "azurerm:security/preview:AssessmentsMetadataSubscription"},
                     new Pulumi.Alias { Type = "azurerm:security/v20200101:AssessmentsMetadataSubscription"},
                 },
             };

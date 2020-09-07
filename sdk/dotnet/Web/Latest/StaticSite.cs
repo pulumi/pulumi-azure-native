@@ -111,6 +111,7 @@ namespace Pulumi.AzureRM.Web.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:web/preview:StaticSite"},
                     new Pulumi.Alias { Type = "azurerm:web/v20190801:StaticSite"},
                     new Pulumi.Alias { Type = "azurerm:web/v20200601:StaticSite"},
                 },

@@ -106,6 +106,7 @@ namespace Pulumi.AzureRM.Kusto.V20170907PrivatePreview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:kusto/latest:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:kusto/preview:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20180907preview:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20190121:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:kusto/v20190515:Cluster"},

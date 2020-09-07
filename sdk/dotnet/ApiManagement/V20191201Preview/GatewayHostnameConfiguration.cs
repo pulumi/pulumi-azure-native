@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:apimanagement/latest:GatewayHostnameConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:apimanagement/preview:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:apimanagement/v20191201:GatewayHostnameConfiguration"},
                 },
             };

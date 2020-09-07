@@ -73,6 +73,7 @@ namespace Pulumi.AzureRM.Web.V20160601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:ConnectionGateway"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:ConnectionGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

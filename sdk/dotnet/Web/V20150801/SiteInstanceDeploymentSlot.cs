@@ -124,6 +124,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:SiteInstanceDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:SiteInstanceDeploymentSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

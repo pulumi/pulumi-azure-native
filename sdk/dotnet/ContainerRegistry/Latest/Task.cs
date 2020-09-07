@@ -124,6 +124,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:containerregistry/preview:Task"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20180901:Task"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20190401:Task"},
                     new Pulumi.Alias { Type = "azurerm:containerregistry/v20190601preview:Task"},

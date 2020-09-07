@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:DatabaseAccountTable"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:DatabaseAccountTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150401:DatabaseAccountTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20150408:DatabaseAccountTable"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20160319:DatabaseAccountTable"},

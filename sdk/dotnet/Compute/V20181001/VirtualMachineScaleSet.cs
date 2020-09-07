@@ -154,6 +154,7 @@ namespace Pulumi.AzureRM.Compute.V20181001
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:compute/latest:VirtualMachineScaleSet"},
+                    new Pulumi.Alias { Type = "azurerm:compute/preview:VirtualMachineScaleSet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20150615:VirtualMachineScaleSet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20160330:VirtualMachineScaleSet"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20160430preview:VirtualMachineScaleSet"},

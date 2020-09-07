@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20200202
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/latest:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:recoveryservices/preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbformysql/latest:ServerAdministrator"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/preview:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20171201:ServerAdministrator"},
                 },
             };

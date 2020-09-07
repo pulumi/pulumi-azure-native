@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:media/latest:MediaService"},
+                    new Pulumi.Alias { Type = "azurerm:media/preview:MediaService"},
                     new Pulumi.Alias { Type = "azurerm:media/v20151001:MediaService"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180601preview:MediaService"},
                     new Pulumi.Alias { Type = "azurerm:media/v20180701:MediaService"},

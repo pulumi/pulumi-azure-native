@@ -124,6 +124,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:automation/latest:Watcher"},
+                    new Pulumi.Alias { Type = "azurerm:automation/preview:Watcher"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

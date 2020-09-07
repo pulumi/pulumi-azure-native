@@ -57,6 +57,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:streamanalytics/preview:Input"},
                     new Pulumi.Alias { Type = "azurerm:streamanalytics/v20160301:Input"},
                 },
             };

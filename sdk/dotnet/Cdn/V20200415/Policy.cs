@@ -115,6 +115,7 @@ namespace Pulumi.AzureRM.Cdn.V20200415
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:cdn/latest:Policy"},
+                    new Pulumi.Alias { Type = "azurerm:cdn/preview:Policy"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190615:Policy"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20190615preview:Policy"},
                     new Pulumi.Alias { Type = "azurerm:cdn/v20200331:Policy"},

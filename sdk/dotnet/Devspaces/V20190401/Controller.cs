@@ -103,6 +103,7 @@ namespace Pulumi.AzureRM.DevSpaces.V20190401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devspaces/latest:Controller"},
+                    new Pulumi.Alias { Type = "azurerm:devspaces/preview:Controller"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

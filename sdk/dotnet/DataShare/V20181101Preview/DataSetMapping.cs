@@ -58,6 +58,7 @@ namespace Pulumi.AzureRM.DataShare.V20181101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datashare/latest:DataSetMapping"},
+                    new Pulumi.Alias { Type = "azurerm:datashare/preview:DataSetMapping"},
                     new Pulumi.Alias { Type = "azurerm:datashare/v20191101:DataSetMapping"},
                 },
             };

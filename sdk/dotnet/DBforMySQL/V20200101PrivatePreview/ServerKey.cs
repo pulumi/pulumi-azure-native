@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20200101PrivatePreview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbformysql/latest:ServerKey"},
+                    new Pulumi.Alias { Type = "azurerm:dbformysql/preview:ServerKey"},
                     new Pulumi.Alias { Type = "azurerm:dbformysql/v20200101:ServerKey"},
                 },
             };

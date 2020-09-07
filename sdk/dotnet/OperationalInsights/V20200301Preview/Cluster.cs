@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/latest:Cluster"},
+                    new Pulumi.Alias { Type = "azurerm:operationalinsights/preview:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20190801preview:Cluster"},
                     new Pulumi.Alias { Type = "azurerm:operationalinsights/v20200801:Cluster"},
                 },

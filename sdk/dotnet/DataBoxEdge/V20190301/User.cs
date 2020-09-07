@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databoxedge/latest:User"},
+                    new Pulumi.Alias { Type = "azurerm:databoxedge/preview:User"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190701:User"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20190801:User"},
                     new Pulumi.Alias { Type = "azurerm:databoxedge/v20200501preview:User"},

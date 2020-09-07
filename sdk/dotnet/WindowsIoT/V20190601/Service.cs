@@ -100,6 +100,7 @@ namespace Pulumi.AzureRM.WindowsIoT.V20190601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:windowsiot/latest:Service"},
+                    new Pulumi.Alias { Type = "azurerm:windowsiot/preview:Service"},
                     new Pulumi.Alias { Type = "azurerm:windowsiot/v20180216preview:Service"},
                 },
             };

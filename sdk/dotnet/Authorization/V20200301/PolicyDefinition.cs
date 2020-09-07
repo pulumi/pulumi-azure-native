@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.Authorization.V20200301
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:authorization/latest:PolicyDefinition"},
+                    new Pulumi.Alias { Type = "azurerm:authorization/preview:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20151001preview:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20151101:PolicyDefinition"},
                     new Pulumi.Alias { Type = "azurerm:authorization/v20160401:PolicyDefinition"},

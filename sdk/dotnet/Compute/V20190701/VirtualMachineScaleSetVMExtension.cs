@@ -112,6 +112,7 @@ namespace Pulumi.AzureRM.Compute.V20190701
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:compute/latest:VirtualMachineScaleSetVMExtension"},
+                    new Pulumi.Alias { Type = "azurerm:compute/preview:VirtualMachineScaleSetVMExtension"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20191201:VirtualMachineScaleSetVMExtension"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20200601:VirtualMachineScaleSetVMExtension"},
                 },

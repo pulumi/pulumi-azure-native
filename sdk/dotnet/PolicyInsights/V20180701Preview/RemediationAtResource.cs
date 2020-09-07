@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.PolicyInsights.V20180701Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:policyinsights/latest:RemediationAtResource"},
+                    new Pulumi.Alias { Type = "azurerm:policyinsights/preview:RemediationAtResource"},
                     new Pulumi.Alias { Type = "azurerm:policyinsights/v20190701:RemediationAtResource"},
                 },
             };

@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.Logic.V20180701Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:logic/latest:IntegrationAccountAssembly"},
+                    new Pulumi.Alias { Type = "azurerm:logic/preview:IntegrationAccountAssembly"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20160601:IntegrationAccountAssembly"},
                     new Pulumi.Alias { Type = "azurerm:logic/v20190501:IntegrationAccountAssembly"},
                 },

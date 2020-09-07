@@ -130,6 +130,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:devtestlab/latest:Schedule"},
+                    new Pulumi.Alias { Type = "azurerm:devtestlab/preview:Schedule"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20150521preview:Schedule"},
                     new Pulumi.Alias { Type = "azurerm:devtestlab/v20160515:Schedule"},
                 },

@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:certificateregistration/latest:CertificateOrderCertificate"},
+                    new Pulumi.Alias { Type = "azurerm:certificateregistration/preview:CertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azurerm:certificateregistration/v20180201:CertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azurerm:certificateregistration/v20190801:CertificateOrderCertificate"},
                     new Pulumi.Alias { Type = "azurerm:certificateregistration/v20200601:CertificateOrderCertificate"},

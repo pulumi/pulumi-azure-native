@@ -251,6 +251,7 @@ namespace Pulumi.AzureRM.Web.V20150801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:ManagedHostingEnvironment"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:ManagedHostingEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

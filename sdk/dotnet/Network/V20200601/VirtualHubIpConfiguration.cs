@@ -88,6 +88,7 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:VirtualHubIpConfiguration"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:VirtualHubIpConfiguration"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:VirtualHubIpConfiguration"},
                 },
             };

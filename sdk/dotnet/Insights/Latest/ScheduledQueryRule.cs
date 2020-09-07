@@ -105,6 +105,7 @@ namespace Pulumi.AzureRM.Insights.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:insights/preview:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20180416:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azurerm:insights/v20200501preview:ScheduledQueryRule"},
                 },

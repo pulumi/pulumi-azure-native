@@ -67,6 +67,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:documentdb/latest:MongoDBResourceMongoDBDatabase"},
+                    new Pulumi.Alias { Type = "azurerm:documentdb/preview:MongoDBResourceMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20191212:MongoDBResourceMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200301:MongoDBResourceMongoDBDatabase"},
                     new Pulumi.Alias { Type = "azurerm:documentdb/v20200401:MongoDBResourceMongoDBDatabase"},

@@ -171,6 +171,7 @@ namespace Pulumi.AzureRM.Cache.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:cache/preview:Redis"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20150801:Redis"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20160401:Redis"},
                     new Pulumi.Alias { Type = "azurerm:cache/v20170201:Redis"},

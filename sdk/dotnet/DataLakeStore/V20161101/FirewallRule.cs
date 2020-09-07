@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:datalakestore/latest:FirewallRule"},
+                    new Pulumi.Alias { Type = "azurerm:datalakestore/preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

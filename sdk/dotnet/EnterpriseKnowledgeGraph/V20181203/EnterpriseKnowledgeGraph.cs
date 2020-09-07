@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.EnterpriseKnowledgeGraph.V20181203
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:enterpriseknowledgegraph/latest:EnterpriseKnowledgeGraph"},
+                    new Pulumi.Alias { Type = "azurerm:enterpriseknowledgegraph/preview:EnterpriseKnowledgeGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

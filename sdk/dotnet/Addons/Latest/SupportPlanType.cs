@@ -57,6 +57,7 @@ namespace Pulumi.AzureRM.Addons.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:addons/preview:SupportPlanType"},
                     new Pulumi.Alias { Type = "azurerm:addons/v20170515:SupportPlanType"},
                     new Pulumi.Alias { Type = "azurerm:addons/v20180301:SupportPlanType"},
                 },

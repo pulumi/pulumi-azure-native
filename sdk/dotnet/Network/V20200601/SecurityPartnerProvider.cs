@@ -94,6 +94,7 @@ namespace Pulumi.AzureRM.Network.V20200601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:SecurityPartnerProvider"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200301:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200401:SecurityPartnerProvider"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200501:SecurityPartnerProvider"},

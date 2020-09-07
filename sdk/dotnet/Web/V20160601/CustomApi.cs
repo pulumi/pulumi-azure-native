@@ -76,6 +76,7 @@ namespace Pulumi.AzureRM.Web.V20160601
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:web/latest:CustomApi"},
+                    new Pulumi.Alias { Type = "azurerm:web/preview:CustomApi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

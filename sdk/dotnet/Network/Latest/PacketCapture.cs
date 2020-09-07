@@ -93,6 +93,7 @@ namespace Pulumi.AzureRM.Network.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:network/preview:PacketCapture"},
                     new Pulumi.Alias { Type = "azurerm:network/v20160901:PacketCapture"},
                     new Pulumi.Alias { Type = "azurerm:network/v20161201:PacketCapture"},
                     new Pulumi.Alias { Type = "azurerm:network/v20170301:PacketCapture"},

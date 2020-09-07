@@ -70,6 +70,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:dbforpostgresql/latest:VirtualNetworkRule"},
+                    new Pulumi.Alias { Type = "azurerm:dbforpostgresql/preview:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azurerm:dbforpostgresql/v20171201:VirtualNetworkRule"},
                 },
             };

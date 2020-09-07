@@ -118,6 +118,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:sql/latest:ElasticPool"},
+                    new Pulumi.Alias { Type = "azurerm:sql/preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20140401:ElasticPool"},
                 },
             };

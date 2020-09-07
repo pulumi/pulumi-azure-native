@@ -57,6 +57,7 @@ namespace Pulumi.AzureRM.Devices.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:devices/preview:IotDpsResourcePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200301:IotDpsResourcePrivateEndpointConnection"},
                 },
             };

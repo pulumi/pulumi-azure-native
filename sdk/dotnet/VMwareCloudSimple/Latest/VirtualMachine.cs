@@ -195,6 +195,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:vmwarecloudsimple/preview:VirtualMachine"},
                     new Pulumi.Alias { Type = "azurerm:vmwarecloudsimple/v20190401:VirtualMachine"},
                 },
             };

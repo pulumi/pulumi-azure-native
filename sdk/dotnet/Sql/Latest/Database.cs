@@ -263,6 +263,7 @@ namespace Pulumi.AzureRM.Sql.Latest
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azurerm:sql/preview:Database"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20140401:Database"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20170301preview:Database"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20171001preview:Database"},

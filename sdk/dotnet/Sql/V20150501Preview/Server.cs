@@ -106,6 +106,7 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:sql/latest:Server"},
+                    new Pulumi.Alias { Type = "azurerm:sql/preview:Server"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20140401:Server"},
                     new Pulumi.Alias { Type = "azurerm:sql/v20190601preview:Server"},
                 },

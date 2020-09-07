@@ -136,6 +136,7 @@ namespace Pulumi.AzureRM.DataBox.V20190901
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:databox/latest:Job"},
+                    new Pulumi.Alias { Type = "azurerm:databox/preview:Job"},
                     new Pulumi.Alias { Type = "azurerm:databox/v20180101:Job"},
                     new Pulumi.Alias { Type = "azurerm:databox/v20200401:Job"},
                 },

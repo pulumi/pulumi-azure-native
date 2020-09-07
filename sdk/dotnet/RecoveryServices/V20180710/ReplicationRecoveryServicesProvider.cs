@@ -64,6 +64,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/latest:ReplicationRecoveryServicesProvider"},
+                    new Pulumi.Alias { Type = "azurerm:recoveryservices/preview:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azurerm:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"},
                 },
             };

@@ -106,6 +106,7 @@ namespace Pulumi.AzureRM.Network.V20180801
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azurerm:network/latest:VirtualNetworkTap"},
+                    new Pulumi.Alias { Type = "azurerm:network/preview:VirtualNetworkTap"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181001:VirtualNetworkTap"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181101:VirtualNetworkTap"},
                     new Pulumi.Alias { Type = "azurerm:network/v20181201:VirtualNetworkTap"},
