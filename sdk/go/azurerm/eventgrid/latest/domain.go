@@ -58,6 +58,9 @@ func NewDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:eventgrid/preview:Domain"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventgrid/v20180915preview:Domain"),
 		},
 		{

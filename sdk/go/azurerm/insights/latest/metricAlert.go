@@ -83,6 +83,9 @@ func NewMetricAlert(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:insights/preview:MetricAlert"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20180301:MetricAlert"),
 		},
 	})

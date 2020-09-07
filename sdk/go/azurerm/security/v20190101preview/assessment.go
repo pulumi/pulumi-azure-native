@@ -53,6 +53,9 @@ func NewAssessment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:security/latest:Assessment"),
 		},
 		{
+			Type: pulumi.String("azurerm:security/preview:Assessment"),
+		},
+		{
 			Type: pulumi.String("azurerm:security/v20200101:Assessment"),
 		},
 	})

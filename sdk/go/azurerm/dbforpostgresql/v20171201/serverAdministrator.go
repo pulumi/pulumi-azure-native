@@ -57,6 +57,9 @@ func NewServerAdministrator(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbforpostgresql/latest:ServerAdministrator"),
 		},
 		{
+			Type: pulumi.String("azurerm:dbforpostgresql/preview:ServerAdministrator"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbforpostgresql/v20171201preview:ServerAdministrator"),
 		},
 	})

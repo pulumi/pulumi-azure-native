@@ -55,6 +55,9 @@ func NewConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:Connection"),
 		},
+		{
+			Type: pulumi.String("azurerm:automation/preview:Connection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Connection

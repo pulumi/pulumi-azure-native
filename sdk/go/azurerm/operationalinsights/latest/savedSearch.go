@@ -62,6 +62,9 @@ func NewSavedSearch(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:operationalinsights/preview:SavedSearch"),
+		},
+		{
 			Type: pulumi.String("azurerm:operationalinsights/v20150320:SavedSearch"),
 		},
 		{

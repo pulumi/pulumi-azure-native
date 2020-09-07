@@ -52,6 +52,9 @@ func NewADCCatalog(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:datacatalog/preview:ADCCatalog"),
+		},
+		{
 			Type: pulumi.String("azurerm:datacatalog/v20160330:ADCCatalog"),
 		},
 	})

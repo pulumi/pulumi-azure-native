@@ -45,6 +45,9 @@ func NewContentType(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:apimanagement/latest:ContentType"),
 		},
+		{
+			Type: pulumi.String("azurerm:apimanagement/preview:ContentType"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ContentType

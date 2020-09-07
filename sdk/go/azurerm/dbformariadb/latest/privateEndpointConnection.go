@@ -43,6 +43,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:dbformariadb/preview:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbformariadb/v20180601:PrivateEndpointConnection"),
 		},
 		{

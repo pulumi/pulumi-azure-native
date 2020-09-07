@@ -55,6 +55,9 @@ func NewObjectReplicationPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storage/latest:ObjectReplicationPolicy"),
 		},
+		{
+			Type: pulumi.String("azurerm:storage/preview:ObjectReplicationPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ObjectReplicationPolicy

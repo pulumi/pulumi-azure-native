@@ -55,6 +55,9 @@ func NewConnectionType(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:ConnectionType"),
 		},
+		{
+			Type: pulumi.String("azurerm:automation/preview:ConnectionType"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionType

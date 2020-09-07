@@ -46,6 +46,9 @@ func NewServiceRunner(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:ServiceRunner"),
 		},
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:ServiceRunner"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:ServiceRunner"),
 		},
 	})

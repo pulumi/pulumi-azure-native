@@ -46,6 +46,9 @@ func NewGatewayHostnameConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:GatewayHostnameConfiguration"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:GatewayHostnameConfiguration"),
 		},
 		{

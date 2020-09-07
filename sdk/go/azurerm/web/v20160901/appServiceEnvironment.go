@@ -122,6 +122,9 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:AppServiceEnvironment"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:AppServiceEnvironment"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:AppServiceEnvironment"),
 		},
 		{

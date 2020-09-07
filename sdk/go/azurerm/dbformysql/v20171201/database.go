@@ -44,6 +44,9 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbformysql/latest:Database"),
 		},
 		{
+			Type: pulumi.String("azurerm:dbformysql/preview:Database"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbformysql/v20171201preview:Database"),
 		},
 	})

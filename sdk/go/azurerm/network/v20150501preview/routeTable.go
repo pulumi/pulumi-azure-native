@@ -52,6 +52,9 @@ func NewRouteTable(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:RouteTable"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:RouteTable"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20150615:RouteTable"),
 		},
 		{

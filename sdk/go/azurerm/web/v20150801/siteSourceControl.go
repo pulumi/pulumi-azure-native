@@ -56,6 +56,9 @@ func NewSiteSourceControl(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:SiteSourceControl"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:SiteSourceControl"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20160801:SiteSourceControl"),
 		},
 		{

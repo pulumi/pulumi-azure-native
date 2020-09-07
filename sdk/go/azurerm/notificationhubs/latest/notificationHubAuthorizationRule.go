@@ -67,6 +67,9 @@ func NewNotificationHubAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:notificationhubs/preview:NotificationHubAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:notificationhubs/v20160301:NotificationHubAuthorizationRule"),
 		},
 		{

@@ -62,6 +62,9 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/latest:DscpConfiguration"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/preview:DscpConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DscpConfiguration

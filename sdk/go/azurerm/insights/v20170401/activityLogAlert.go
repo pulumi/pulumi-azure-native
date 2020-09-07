@@ -63,6 +63,9 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:insights/latest:ActivityLogAlert"),
 		},
 		{
+			Type: pulumi.String("azurerm:insights/preview:ActivityLogAlert"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20170301preview:ActivityLogAlert"),
 		},
 	})

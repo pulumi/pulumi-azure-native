@@ -49,6 +49,9 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbformysql/latest:VirtualNetworkRule"),
 		},
 		{
+			Type: pulumi.String("azurerm:dbformysql/preview:VirtualNetworkRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbformysql/v20171201preview:VirtualNetworkRule"),
 		},
 	})

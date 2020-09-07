@@ -47,6 +47,9 @@ func NewPartner(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:managementpartner/preview:Partner"),
+		},
+		{
 			Type: pulumi.String("azurerm:managementpartner/v20180201:Partner"),
 		},
 	})

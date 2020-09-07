@@ -51,6 +51,12 @@ func NewBlueprint(ctx *pulumi.Context,
 	if args == nil {
 		args = &BlueprintArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:management/preview:Blueprint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Blueprint
 	err := ctx.RegisterResource("azurerm:management/v20171111preview:Blueprint", name, args, &resource, opts...)
 	if err != nil {

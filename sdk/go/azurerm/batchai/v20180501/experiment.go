@@ -45,6 +45,9 @@ func NewExperiment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:batchai/latest:Experiment"),
 		},
+		{
+			Type: pulumi.String("azurerm:batchai/preview:Experiment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Experiment

@@ -64,6 +64,9 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:security/preview:IotSecuritySolution"),
+		},
+		{
 			Type: pulumi.String("azurerm:security/v20170801preview:IotSecuritySolution"),
 		},
 		{

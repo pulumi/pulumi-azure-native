@@ -68,6 +68,9 @@ func NewSapMonitor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:hanaonazure/preview:SapMonitor"),
+		},
+		{
 			Type: pulumi.String("azurerm:hanaonazure/v20200207preview:SapMonitor"),
 		},
 	})

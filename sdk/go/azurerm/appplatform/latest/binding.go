@@ -42,6 +42,9 @@ func NewBinding(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:appplatform/preview:Binding"),
+		},
+		{
 			Type: pulumi.String("azurerm:appplatform/v20190501preview:Binding"),
 		},
 		{

@@ -50,6 +50,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:eventgrid/latest:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azurerm:eventgrid/preview:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventgrid/v20200401preview:PrivateEndpointConnection"),
 		},
 	})

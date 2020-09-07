@@ -64,6 +64,9 @@ func NewDisk(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:Disk"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:Disk"),
 		},
 		{

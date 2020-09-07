@@ -51,6 +51,9 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:security/latest:JitNetworkAccessPolicy"),
 		},
 		{
+			Type: pulumi.String("azurerm:security/preview:JitNetworkAccessPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:security/v20150601preview:JitNetworkAccessPolicy"),
 		},
 	})

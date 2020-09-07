@@ -60,6 +60,9 @@ func NewWebAppHostNameBinding(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppHostNameBinding"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppHostNameBinding"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppHostNameBinding"),
 		},
 		{

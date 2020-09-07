@@ -88,6 +88,9 @@ func NewComponent(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:insights/latest:Component"),
 		},
 		{
+			Type: pulumi.String("azurerm:insights/preview:Component"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20180501preview:Component"),
 		},
 		{

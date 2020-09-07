@@ -48,6 +48,9 @@ func NewTagByOperation(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:TagByOperation"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:TagByOperation"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20180101:TagByOperation"),
 		},
 		{

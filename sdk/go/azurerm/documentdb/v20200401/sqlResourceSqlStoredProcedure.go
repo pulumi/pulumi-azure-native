@@ -57,6 +57,9 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:SqlResourceSqlStoredProcedure"),
 		},
 		{
+			Type: pulumi.String("azurerm:documentdb/preview:SqlResourceSqlStoredProcedure"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:SqlResourceSqlStoredProcedure"),
 		},
 		{

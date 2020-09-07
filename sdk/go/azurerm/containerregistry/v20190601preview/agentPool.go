@@ -53,6 +53,12 @@ func NewAgentPool(ctx *pulumi.Context,
 	if args == nil {
 		args = &AgentPoolArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:containerregistry/preview:AgentPool"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AgentPool
 	err := ctx.RegisterResource("azurerm:containerregistry/v20190601preview:AgentPool", name, args, &resource, opts...)
 	if err != nil {

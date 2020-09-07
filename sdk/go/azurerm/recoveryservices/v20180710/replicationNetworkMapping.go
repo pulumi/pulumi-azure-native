@@ -50,6 +50,9 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:recoveryservices/latest:ReplicationNetworkMapping"),
 		},
 		{
+			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationNetworkMapping"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationNetworkMapping"),
 		},
 		{

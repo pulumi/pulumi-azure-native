@@ -50,6 +50,9 @@ func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:recoveryservices/latest:ReplicationProtectionContainerMapping"),
 		},
 		{
+			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationProtectionContainerMapping"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationProtectionContainerMapping"),
 		},
 		{

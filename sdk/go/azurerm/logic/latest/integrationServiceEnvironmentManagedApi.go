@@ -43,6 +43,9 @@ func NewIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:logic/preview:IntegrationServiceEnvironmentManagedApi"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20190501:IntegrationServiceEnvironmentManagedApi"),
 		},
 	})

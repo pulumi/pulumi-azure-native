@@ -57,6 +57,9 @@ func NewFormula(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:Formula"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20150521preview:Formula"),
 		},
 		{

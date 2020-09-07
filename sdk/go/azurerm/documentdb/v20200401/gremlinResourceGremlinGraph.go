@@ -55,6 +55,9 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:GremlinResourceGremlinGraph"),
 		},
 		{
+			Type: pulumi.String("azurerm:documentdb/preview:GremlinResourceGremlinGraph"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:GremlinResourceGremlinGraph"),
 		},
 		{

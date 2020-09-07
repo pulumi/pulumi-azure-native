@@ -34,6 +34,12 @@ func NewCostAllocationRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &CostAllocationRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:billing/preview:CostAllocationRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CostAllocationRule
 	err := ctx.RegisterResource("azurerm:billing/v20200301preview:CostAllocationRule", name, args, &resource, opts...)
 	if err != nil {

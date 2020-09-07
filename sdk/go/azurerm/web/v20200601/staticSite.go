@@ -60,6 +60,9 @@ func NewStaticSite(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:StaticSite"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:StaticSite"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20190801:StaticSite"),
 		},
 	})

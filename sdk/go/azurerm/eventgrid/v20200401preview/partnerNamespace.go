@@ -46,6 +46,12 @@ func NewPartnerNamespace(ctx *pulumi.Context,
 	if args == nil {
 		args = &PartnerNamespaceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:eventgrid/preview:PartnerNamespace"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PartnerNamespace
 	err := ctx.RegisterResource("azurerm:eventgrid/v20200401preview:PartnerNamespace", name, args, &resource, opts...)
 	if err != nil {

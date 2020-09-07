@@ -68,6 +68,9 @@ func NewDscConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:DscConfiguration"),
 		},
+		{
+			Type: pulumi.String("azurerm:automation/preview:DscConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DscConfiguration

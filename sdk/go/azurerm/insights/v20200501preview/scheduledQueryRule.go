@@ -63,6 +63,9 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:insights/latest:ScheduledQueryRule"),
 		},
 		{
+			Type: pulumi.String("azurerm:insights/preview:ScheduledQueryRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20180416:ScheduledQueryRule"),
 		},
 	})

@@ -63,6 +63,9 @@ func NewView(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:costmanagement/preview:View"),
+		},
+		{
 			Type: pulumi.String("azurerm:costmanagement/v20190401preview:View"),
 		},
 		{

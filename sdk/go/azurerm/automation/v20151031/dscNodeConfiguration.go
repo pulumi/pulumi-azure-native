@@ -55,6 +55,9 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:automation/latest:DscNodeConfiguration"),
 		},
 		{
+			Type: pulumi.String("azurerm:automation/preview:DscNodeConfiguration"),
+		},
+		{
 			Type: pulumi.String("azurerm:automation/v20180115:DscNodeConfiguration"),
 		},
 	})

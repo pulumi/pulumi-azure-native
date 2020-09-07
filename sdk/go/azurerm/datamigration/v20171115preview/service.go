@@ -59,6 +59,9 @@ func NewService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:datamigration/latest:Service"),
 		},
 		{
+			Type: pulumi.String("azurerm:datamigration/preview:Service"),
+		},
+		{
 			Type: pulumi.String("azurerm:datamigration/v20180315preview:Service"),
 		},
 		{

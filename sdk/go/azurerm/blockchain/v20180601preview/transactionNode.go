@@ -49,6 +49,12 @@ func NewTransactionNode(ctx *pulumi.Context,
 	if args == nil {
 		args = &TransactionNodeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:blockchain/preview:TransactionNode"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TransactionNode
 	err := ctx.RegisterResource("azurerm:blockchain/v20180601preview:TransactionNode", name, args, &resource, opts...)
 	if err != nil {

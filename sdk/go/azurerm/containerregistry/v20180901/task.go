@@ -72,6 +72,9 @@ func NewTask(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:containerregistry/latest:Task"),
 		},
 		{
+			Type: pulumi.String("azurerm:containerregistry/preview:Task"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerregistry/v20190401:Task"),
 		},
 		{

@@ -54,6 +54,12 @@ func NewPolicyExemption(ctx *pulumi.Context,
 	if args == nil {
 		args = &PolicyExemptionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:authorization/preview:PolicyExemption"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PolicyExemption
 	err := ctx.RegisterResource("azurerm:authorization/v20200701preview:PolicyExemption", name, args, &resource, opts...)
 	if err != nil {

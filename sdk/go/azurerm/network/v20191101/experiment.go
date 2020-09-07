@@ -57,6 +57,9 @@ func NewExperiment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/latest:Experiment"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/preview:Experiment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Experiment

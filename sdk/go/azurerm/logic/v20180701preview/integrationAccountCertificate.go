@@ -54,6 +54,9 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:IntegrationAccountCertificate"),
 		},
 		{
+			Type: pulumi.String("azurerm:logic/preview:IntegrationAccountCertificate"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20150801preview:IntegrationAccountCertificate"),
 		},
 		{

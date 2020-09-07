@@ -44,6 +44,9 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:GuestConfigurationAssignment"),
 		},
 		{
+			Type: pulumi.String("azurerm:compute/preview:GuestConfigurationAssignment"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20181120:GuestConfigurationAssignment"),
 		},
 		{

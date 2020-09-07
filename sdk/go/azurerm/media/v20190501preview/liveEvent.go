@@ -71,6 +71,9 @@ func NewLiveEvent(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:media/latest:LiveEvent"),
 		},
 		{
+			Type: pulumi.String("azurerm:media/preview:LiveEvent"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180330preview:LiveEvent"),
 		},
 		{

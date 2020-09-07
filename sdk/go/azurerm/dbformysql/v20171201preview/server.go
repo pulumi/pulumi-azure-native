@@ -81,6 +81,9 @@ func NewServer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbformysql/latest:Server"),
 		},
 		{
+			Type: pulumi.String("azurerm:dbformysql/preview:Server"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbformysql/v20171201:Server"),
 		},
 	})

@@ -39,6 +39,12 @@ func NewConfigurationProfileAssignment(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConfigurationProfileAssignmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:compute/preview:ConfigurationProfileAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConfigurationProfileAssignment
 	err := ctx.RegisterResource("azurerm:compute/v20200630preview:ConfigurationProfileAssignment", name, args, &resource, opts...)
 	if err != nil {

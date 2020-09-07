@@ -50,6 +50,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbforpostgresql/latest:FirewallRule"),
 		},
 		{
+			Type: pulumi.String("azurerm:dbforpostgresql/preview:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbforpostgresql/v20171201:FirewallRule"),
 		},
 	})

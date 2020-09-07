@@ -34,6 +34,9 @@ func NewUserSettings(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:portal/latest:UserSettings"),
 		},
+		{
+			Type: pulumi.String("azurerm:portal/preview:UserSettings"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource UserSettings

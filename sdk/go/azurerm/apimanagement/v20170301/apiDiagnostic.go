@@ -48,6 +48,9 @@ func NewApiDiagnostic(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:ApiDiagnostic"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:ApiDiagnostic"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20180101:ApiDiagnostic"),
 		},
 		{

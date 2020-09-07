@@ -54,6 +54,9 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:documentdb/preview:SqlResourceSqlTrigger"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:SqlResourceSqlTrigger"),
 		},
 		{

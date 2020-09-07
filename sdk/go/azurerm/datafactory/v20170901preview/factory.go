@@ -51,6 +51,9 @@ func NewFactory(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:datafactory/latest:Factory"),
 		},
 		{
+			Type: pulumi.String("azurerm:datafactory/preview:Factory"),
+		},
+		{
 			Type: pulumi.String("azurerm:datafactory/v20180601:Factory"),
 		},
 	})

@@ -65,6 +65,9 @@ func NewWebAppHybridConnectionSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppHybridConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppHybridConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20160801:WebAppHybridConnectionSlot"),
 		},
 		{

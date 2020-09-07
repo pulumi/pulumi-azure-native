@@ -80,6 +80,9 @@ func NewVolume(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storsimple/latest:Volume"),
 		},
+		{
+			Type: pulumi.String("azurerm:storsimple/preview:Volume"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Volume

@@ -67,6 +67,9 @@ func NewSiteInstanceDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:web/preview:SiteInstanceDeployment"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:SiteInstanceDeployment"),
 		},
 	})

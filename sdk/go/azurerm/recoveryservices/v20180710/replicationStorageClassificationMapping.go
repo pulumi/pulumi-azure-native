@@ -50,6 +50,9 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:recoveryservices/latest:ReplicationStorageClassificationMapping"),
 		},
 		{
+			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationStorageClassificationMapping"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationStorageClassificationMapping"),
 		},
 		{

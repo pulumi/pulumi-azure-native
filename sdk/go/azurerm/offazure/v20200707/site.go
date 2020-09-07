@@ -44,6 +44,9 @@ func NewSite(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:offazure/latest:Site"),
 		},
 		{
+			Type: pulumi.String("azurerm:offazure/preview:Site"),
+		},
+		{
 			Type: pulumi.String("azurerm:offazure/v20200101:Site"),
 		},
 	})

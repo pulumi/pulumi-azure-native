@@ -61,6 +61,12 @@ func NewCloudConnector(ctx *pulumi.Context,
 	if args == nil {
 		args = &CloudConnectorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:costmanagement/preview:CloudConnector"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CloudConnector
 	err := ctx.RegisterResource("azurerm:costmanagement/v20190301preview:CloudConnector", name, args, &resource, opts...)
 	if err != nil {

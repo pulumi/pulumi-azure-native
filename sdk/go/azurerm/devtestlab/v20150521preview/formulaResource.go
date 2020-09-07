@@ -58,6 +58,9 @@ func NewFormulaResource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:FormulaResource"),
 		},
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:FormulaResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:FormulaResource"),
 		},
 		{

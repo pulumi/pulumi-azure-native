@@ -70,6 +70,9 @@ func NewServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:dbformariadb/preview:Server"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbformariadb/v20180601:Server"),
 		},
 		{

@@ -45,6 +45,9 @@ func NewTrigger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:datashare/preview:Trigger"),
+		},
+		{
 			Type: pulumi.String("azurerm:datashare/v20181101preview:Trigger"),
 		},
 		{

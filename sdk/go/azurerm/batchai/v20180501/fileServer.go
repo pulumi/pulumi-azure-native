@@ -64,6 +64,9 @@ func NewFileServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:batchai/latest:FileServer"),
 		},
+		{
+			Type: pulumi.String("azurerm:batchai/preview:FileServer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FileServer

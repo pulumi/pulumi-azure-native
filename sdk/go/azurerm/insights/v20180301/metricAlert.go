@@ -85,6 +85,9 @@ func NewMetricAlert(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:insights/latest:MetricAlert"),
 		},
+		{
+			Type: pulumi.String("azurerm:insights/preview:MetricAlert"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MetricAlert

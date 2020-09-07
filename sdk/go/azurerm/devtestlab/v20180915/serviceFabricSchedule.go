@@ -71,6 +71,9 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:devtestlab/latest:ServiceFabricSchedule"),
 		},
+		{
+			Type: pulumi.String("azurerm:devtestlab/preview:ServiceFabricSchedule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceFabricSchedule

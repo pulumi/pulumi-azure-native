@@ -61,6 +61,9 @@ func NewPolicyResource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:PolicyResource"),
 		},
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:PolicyResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:PolicyResource"),
 		},
 		{

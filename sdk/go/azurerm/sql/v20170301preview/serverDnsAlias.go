@@ -37,6 +37,12 @@ func NewServerDnsAlias(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerDnsAliasArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sql/preview:ServerDnsAlias"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ServerDnsAlias
 	err := ctx.RegisterResource("azurerm:sql/v20170301preview:ServerDnsAlias", name, args, &resource, opts...)
 	if err != nil {

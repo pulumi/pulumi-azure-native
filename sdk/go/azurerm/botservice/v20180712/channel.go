@@ -52,6 +52,9 @@ func NewChannel(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:botservice/latest:Channel"),
 		},
 		{
+			Type: pulumi.String("azurerm:botservice/preview:Channel"),
+		},
+		{
 			Type: pulumi.String("azurerm:botservice/v20171201:Channel"),
 		},
 		{

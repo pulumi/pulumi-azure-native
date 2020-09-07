@@ -73,6 +73,9 @@ func NewServer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbformariadb/latest:Server"),
 		},
 		{
+			Type: pulumi.String("azurerm:dbformariadb/preview:Server"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbformariadb/v20180601preview:Server"),
 		},
 	})

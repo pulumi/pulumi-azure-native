@@ -47,6 +47,9 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:recoveryservices/latest:ReplicationRecoveryPlan"),
 		},
 		{
+			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationRecoveryPlan"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20180110:ReplicationRecoveryPlan"),
 		},
 		{

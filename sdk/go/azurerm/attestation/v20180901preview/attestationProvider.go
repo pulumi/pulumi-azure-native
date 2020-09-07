@@ -48,6 +48,12 @@ func NewAttestationProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &AttestationProviderArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:attestation/preview:AttestationProvider"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AttestationProvider
 	err := ctx.RegisterResource("azurerm:attestation/v20180901preview:AttestationProvider", name, args, &resource, opts...)
 	if err != nil {

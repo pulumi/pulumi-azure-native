@@ -51,6 +51,9 @@ func NewWebAppSourceControl(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppSourceControl"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppSourceControl"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppSourceControl"),
 		},
 		{

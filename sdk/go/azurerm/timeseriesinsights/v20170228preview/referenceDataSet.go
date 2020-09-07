@@ -56,6 +56,9 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:timeseriesinsights/latest:ReferenceDataSet"),
 		},
 		{
+			Type: pulumi.String("azurerm:timeseriesinsights/preview:ReferenceDataSet"),
+		},
+		{
 			Type: pulumi.String("azurerm:timeseriesinsights/v20171115:ReferenceDataSet"),
 		},
 		{

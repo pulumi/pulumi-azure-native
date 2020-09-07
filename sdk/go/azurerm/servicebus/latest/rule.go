@@ -51,6 +51,9 @@ func NewRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:servicebus/preview:Rule"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicebus/v20170401:Rule"),
 		},
 	})

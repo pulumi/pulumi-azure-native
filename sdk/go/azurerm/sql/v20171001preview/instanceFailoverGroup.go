@@ -56,6 +56,12 @@ func NewInstanceFailoverGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &InstanceFailoverGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sql/preview:InstanceFailoverGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource InstanceFailoverGroup
 	err := ctx.RegisterResource("azurerm:sql/v20171001preview:InstanceFailoverGroup", name, args, &resource, opts...)
 	if err != nil {

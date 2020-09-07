@@ -50,6 +50,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbformariadb/latest:FirewallRule"),
 		},
 		{
+			Type: pulumi.String("azurerm:dbformariadb/preview:FirewallRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbformariadb/v20180601:FirewallRule"),
 		},
 	})

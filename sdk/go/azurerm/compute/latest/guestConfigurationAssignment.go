@@ -41,6 +41,9 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:compute/preview:GuestConfigurationAssignment"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20180630preview:GuestConfigurationAssignment"),
 		},
 		{

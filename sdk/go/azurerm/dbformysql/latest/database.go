@@ -41,6 +41,9 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:dbformysql/preview:Database"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbformysql/v20171201:Database"),
 		},
 		{

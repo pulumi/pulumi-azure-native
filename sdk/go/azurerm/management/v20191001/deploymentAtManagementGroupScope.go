@@ -49,6 +49,9 @@ func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:management/latest:DeploymentAtManagementGroupScope"),
 		},
 		{
+			Type: pulumi.String("azurerm:management/preview:DeploymentAtManagementGroupScope"),
+		},
+		{
 			Type: pulumi.String("azurerm:management/v20190501:DeploymentAtManagementGroupScope"),
 		},
 		{

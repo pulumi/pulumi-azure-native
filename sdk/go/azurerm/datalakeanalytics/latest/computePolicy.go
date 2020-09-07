@@ -51,6 +51,9 @@ func NewComputePolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:datalakeanalytics/preview:ComputePolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:datalakeanalytics/v20161101:ComputePolicy"),
 		},
 	})

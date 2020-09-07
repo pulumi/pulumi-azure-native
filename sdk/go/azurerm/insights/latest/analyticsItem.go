@@ -49,6 +49,9 @@ func NewAnalyticsItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:insights/preview:AnalyticsItem"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20150501:AnalyticsItem"),
 		},
 	})

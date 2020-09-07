@@ -44,6 +44,9 @@ func NewSyncGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storagesync/latest:SyncGroup"),
 		},
 		{
+			Type: pulumi.String("azurerm:storagesync/preview:SyncGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:storagesync/v20180402:SyncGroup"),
 		},
 		{

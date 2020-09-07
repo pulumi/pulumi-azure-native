@@ -51,6 +51,9 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:logic/preview:IntegrationAccountCertificate"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20150801preview:IntegrationAccountCertificate"),
 		},
 		{

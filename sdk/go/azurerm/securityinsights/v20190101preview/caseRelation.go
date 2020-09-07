@@ -53,6 +53,12 @@ func NewCaseRelation(ctx *pulumi.Context,
 	if args == nil {
 		args = &CaseRelationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:securityinsights/preview:CaseRelation"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CaseRelation
 	err := ctx.RegisterResource("azurerm:securityinsights/v20190101preview:CaseRelation", name, args, &resource, opts...)
 	if err != nil {

@@ -50,6 +50,9 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationMigrationItem"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20180110:ReplicationMigrationItem"),
 		},
 		{

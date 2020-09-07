@@ -44,6 +44,12 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &VirtualNetworkRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sql/preview:VirtualNetworkRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualNetworkRule
 	err := ctx.RegisterResource("azurerm:sql/v20150501preview:VirtualNetworkRule", name, args, &resource, opts...)
 	if err != nil {

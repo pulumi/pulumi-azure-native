@@ -74,6 +74,9 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:ExpressRouteCircuitPeering"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:ExpressRouteCircuitPeering"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20150501preview:ExpressRouteCircuitPeering"),
 		},
 		{

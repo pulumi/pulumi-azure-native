@@ -50,6 +50,9 @@ func NewIntegrationAccountSession(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:IntegrationAccountSession"),
 		},
 		{
+			Type: pulumi.String("azurerm:logic/preview:IntegrationAccountSession"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountSession"),
 		},
 		{

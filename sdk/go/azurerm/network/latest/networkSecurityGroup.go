@@ -54,6 +54,9 @@ func NewNetworkSecurityGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:NetworkSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20150501preview:NetworkSecurityGroup"),
 		},
 		{

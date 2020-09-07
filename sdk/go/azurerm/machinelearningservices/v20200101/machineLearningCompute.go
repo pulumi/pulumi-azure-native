@@ -50,6 +50,9 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:machinelearningservices/latest:MachineLearningCompute"),
 		},
 		{
+			Type: pulumi.String("azurerm:machinelearningservices/preview:MachineLearningCompute"),
+		},
+		{
 			Type: pulumi.String("azurerm:machinelearningservices/v20180301preview:MachineLearningCompute"),
 		},
 		{

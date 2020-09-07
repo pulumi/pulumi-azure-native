@@ -71,6 +71,9 @@ func NewApi(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:Api"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:Api"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:Api"),
 		},
 		{

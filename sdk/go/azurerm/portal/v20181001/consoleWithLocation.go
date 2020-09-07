@@ -34,6 +34,9 @@ func NewConsoleWithLocation(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:portal/latest:ConsoleWithLocation"),
 		},
+		{
+			Type: pulumi.String("azurerm:portal/preview:ConsoleWithLocation"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConsoleWithLocation

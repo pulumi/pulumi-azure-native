@@ -53,6 +53,9 @@ func NewWebApplicationFirewallPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:WebApplicationFirewallPolicy"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:WebApplicationFirewallPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20181201:WebApplicationFirewallPolicy"),
 		},
 		{

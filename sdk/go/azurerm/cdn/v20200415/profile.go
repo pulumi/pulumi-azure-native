@@ -53,6 +53,9 @@ func NewProfile(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cdn/latest:Profile"),
 		},
 		{
+			Type: pulumi.String("azurerm:cdn/preview:Profile"),
+		},
+		{
 			Type: pulumi.String("azurerm:cdn/v20150601:Profile"),
 		},
 		{

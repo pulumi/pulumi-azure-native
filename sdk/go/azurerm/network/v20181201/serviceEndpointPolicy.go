@@ -51,6 +51,9 @@ func NewServiceEndpointPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:ServiceEndpointPolicy"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:ServiceEndpointPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20180701:ServiceEndpointPolicy"),
 		},
 		{

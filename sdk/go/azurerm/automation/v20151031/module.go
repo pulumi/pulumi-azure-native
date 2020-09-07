@@ -70,6 +70,9 @@ func NewModule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:automation/latest:Module"),
 		},
+		{
+			Type: pulumi.String("azurerm:automation/preview:Module"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Module

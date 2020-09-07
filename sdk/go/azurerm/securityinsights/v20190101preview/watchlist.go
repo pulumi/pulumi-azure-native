@@ -79,6 +79,12 @@ func NewWatchlist(ctx *pulumi.Context,
 	if args == nil {
 		args = &WatchlistArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:securityinsights/preview:Watchlist"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Watchlist
 	err := ctx.RegisterResource("azurerm:securityinsights/v20190101preview:Watchlist", name, args, &resource, opts...)
 	if err != nil {

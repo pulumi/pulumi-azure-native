@@ -60,6 +60,9 @@ func NewWebAppVnetConnectionSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppVnetConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppVnetConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppVnetConnectionSlot"),
 		},
 		{

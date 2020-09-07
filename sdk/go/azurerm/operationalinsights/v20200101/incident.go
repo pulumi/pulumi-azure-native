@@ -84,6 +84,9 @@ func NewIncident(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:operationalinsights/latest:Incident"),
 		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/preview:Incident"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Incident

@@ -38,6 +38,12 @@ func NewConfigurationProfilePreference(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConfigurationProfilePreferenceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:automanage/preview:ConfigurationProfilePreference"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConfigurationProfilePreference
 	err := ctx.RegisterResource("azurerm:automanage/v20200630preview:ConfigurationProfilePreference", name, args, &resource, opts...)
 	if err != nil {

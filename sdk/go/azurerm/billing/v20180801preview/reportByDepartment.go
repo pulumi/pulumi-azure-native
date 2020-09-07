@@ -48,6 +48,12 @@ func NewReportByDepartment(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReportByDepartmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:billing/preview:ReportByDepartment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReportByDepartment
 	err := ctx.RegisterResource("azurerm:billing/v20180801preview:ReportByDepartment", name, args, &resource, opts...)
 	if err != nil {

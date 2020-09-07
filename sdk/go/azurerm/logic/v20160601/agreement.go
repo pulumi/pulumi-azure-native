@@ -80,6 +80,9 @@ func NewAgreement(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:Agreement"),
 		},
 		{
+			Type: pulumi.String("azurerm:logic/preview:Agreement"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20150801preview:Agreement"),
 		},
 		{

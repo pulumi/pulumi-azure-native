@@ -77,6 +77,9 @@ func NewSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicebus/latest:Subscription"),
 		},
 		{
+			Type: pulumi.String("azurerm:servicebus/preview:Subscription"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicebus/v20140901:Subscription"),
 		},
 		{

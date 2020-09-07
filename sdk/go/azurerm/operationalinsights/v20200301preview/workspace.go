@@ -62,6 +62,9 @@ func NewWorkspace(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:operationalinsights/latest:Workspace"),
 		},
 		{
+			Type: pulumi.String("azurerm:operationalinsights/preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azurerm:operationalinsights/v20151101preview:Workspace"),
 		},
 		{

@@ -55,6 +55,12 @@ func NewWorkbookTemplate(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkbookTemplateArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/preview:WorkbookTemplate"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WorkbookTemplate
 	err := ctx.RegisterResource("azurerm:insights/v20191017preview:WorkbookTemplate", name, args, &resource, opts...)
 	if err != nil {

@@ -47,6 +47,9 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:desktopvirtualization/preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azurerm:desktopvirtualization/v20190924preview:Workspace"),
 		},
 		{

@@ -119,6 +119,9 @@ func NewWebAppSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppSlot"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppSlot"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppSlot"),
 		},
 		{

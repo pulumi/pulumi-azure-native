@@ -45,6 +45,12 @@ func NewAlertRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &AlertRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:securityinsights/preview:AlertRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AlertRule
 	err := ctx.RegisterResource("azurerm:securityinsights/v20190101preview:AlertRule", name, args, &resource, opts...)
 	if err != nil {

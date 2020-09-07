@@ -61,6 +61,12 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConnectedClusterArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:kubernetes/preview:ConnectedCluster"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConnectedCluster
 	err := ctx.RegisterResource("azurerm:kubernetes/v20200101preview:ConnectedCluster", name, args, &resource, opts...)
 	if err != nil {

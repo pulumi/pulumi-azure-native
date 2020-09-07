@@ -49,6 +49,9 @@ func NewBot(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:botservice/latest:Bot"),
 		},
 		{
+			Type: pulumi.String("azurerm:botservice/preview:Bot"),
+		},
+		{
 			Type: pulumi.String("azurerm:botservice/v20180712:Bot"),
 		},
 		{

@@ -48,6 +48,9 @@ func NewEnterpriseChannel(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:botservice/latest:EnterpriseChannel"),
 		},
+		{
+			Type: pulumi.String("azurerm:botservice/preview:EnterpriseChannel"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource EnterpriseChannel

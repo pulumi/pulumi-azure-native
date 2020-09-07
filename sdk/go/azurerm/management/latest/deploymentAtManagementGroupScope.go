@@ -46,6 +46,9 @@ func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:management/preview:DeploymentAtManagementGroupScope"),
+		},
+		{
 			Type: pulumi.String("azurerm:management/v20190501:DeploymentAtManagementGroupScope"),
 		},
 		{

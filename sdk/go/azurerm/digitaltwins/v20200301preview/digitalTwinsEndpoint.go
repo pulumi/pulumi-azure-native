@@ -37,6 +37,12 @@ func NewDigitalTwinsEndpoint(ctx *pulumi.Context,
 	if args == nil {
 		args = &DigitalTwinsEndpointArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:digitaltwins/preview:DigitalTwinsEndpoint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DigitalTwinsEndpoint
 	err := ctx.RegisterResource("azurerm:digitaltwins/v20200301preview:DigitalTwinsEndpoint", name, args, &resource, opts...)
 	if err != nil {

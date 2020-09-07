@@ -45,6 +45,9 @@ func NewExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:visualstudio/preview:Extension"),
+		},
+		{
 			Type: pulumi.String("azurerm:visualstudio/v20140401preview:Extension"),
 		},
 	})

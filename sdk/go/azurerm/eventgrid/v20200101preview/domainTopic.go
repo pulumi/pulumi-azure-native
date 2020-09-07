@@ -42,6 +42,9 @@ func NewDomainTopic(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:eventgrid/latest:DomainTopic"),
 		},
 		{
+			Type: pulumi.String("azurerm:eventgrid/preview:DomainTopic"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventgrid/v20190201preview:DomainTopic"),
 		},
 		{

@@ -44,6 +44,9 @@ func NewManagementPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storage/latest:ManagementPolicy"),
 		},
 		{
+			Type: pulumi.String("azurerm:storage/preview:ManagementPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:storage/v20181101:ManagementPolicy"),
 		},
 		{

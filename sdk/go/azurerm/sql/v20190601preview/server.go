@@ -64,6 +64,9 @@ func NewServer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:sql/latest:Server"),
 		},
 		{
+			Type: pulumi.String("azurerm:sql/preview:Server"),
+		},
+		{
 			Type: pulumi.String("azurerm:sql/v20140401:Server"),
 		},
 		{

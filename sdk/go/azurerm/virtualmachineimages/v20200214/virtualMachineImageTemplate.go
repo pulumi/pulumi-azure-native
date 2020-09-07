@@ -71,6 +71,9 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:virtualmachineimages/latest:VirtualMachineImageTemplate"),
 		},
 		{
+			Type: pulumi.String("azurerm:virtualmachineimages/preview:VirtualMachineImageTemplate"),
+		},
+		{
 			Type: pulumi.String("azurerm:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"),
 		},
 		{

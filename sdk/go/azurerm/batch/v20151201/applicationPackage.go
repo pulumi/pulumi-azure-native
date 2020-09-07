@@ -51,6 +51,9 @@ func NewApplicationPackage(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:batch/latest:ApplicationPackage"),
 		},
 		{
+			Type: pulumi.String("azurerm:batch/preview:ApplicationPackage"),
+		},
+		{
 			Type: pulumi.String("azurerm:batch/v20170101:ApplicationPackage"),
 		},
 		{

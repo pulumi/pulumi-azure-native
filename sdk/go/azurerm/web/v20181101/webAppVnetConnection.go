@@ -57,6 +57,9 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppVnetConnection"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppVnetConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801:WebAppVnetConnection"),
 		},
 		{

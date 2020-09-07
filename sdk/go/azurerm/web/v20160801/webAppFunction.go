@@ -60,6 +60,9 @@ func NewWebAppFunction(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:WebAppFunction"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:WebAppFunction"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20180201:WebAppFunction"),
 		},
 		{

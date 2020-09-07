@@ -68,6 +68,9 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:security/latest:IotSecuritySolution"),
 		},
 		{
+			Type: pulumi.String("azurerm:security/preview:IotSecuritySolution"),
+		},
+		{
 			Type: pulumi.String("azurerm:security/v20190801:IotSecuritySolution"),
 		},
 	})

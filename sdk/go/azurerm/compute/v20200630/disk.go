@@ -95,6 +95,9 @@ func NewDisk(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:Disk"),
 		},
 		{
+			Type: pulumi.String("azurerm:compute/preview:Disk"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20160430preview:Disk"),
 		},
 		{

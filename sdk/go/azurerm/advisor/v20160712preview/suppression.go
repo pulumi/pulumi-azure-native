@@ -48,6 +48,9 @@ func NewSuppression(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:advisor/latest:Suppression"),
 		},
 		{
+			Type: pulumi.String("azurerm:advisor/preview:Suppression"),
+		},
+		{
 			Type: pulumi.String("azurerm:advisor/v20170331:Suppression"),
 		},
 		{

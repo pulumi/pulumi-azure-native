@@ -40,6 +40,9 @@ func NewContentItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:ContentItem"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20191201:ContentItem"),
 		},
 	})

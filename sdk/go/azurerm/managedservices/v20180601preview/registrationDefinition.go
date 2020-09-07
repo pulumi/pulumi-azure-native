@@ -41,6 +41,9 @@ func NewRegistrationDefinition(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:managedservices/latest:RegistrationDefinition"),
 		},
 		{
+			Type: pulumi.String("azurerm:managedservices/preview:RegistrationDefinition"),
+		},
+		{
 			Type: pulumi.String("azurerm:managedservices/v20190401preview:RegistrationDefinition"),
 		},
 		{

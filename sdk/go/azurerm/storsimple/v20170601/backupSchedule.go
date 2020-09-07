@@ -74,6 +74,9 @@ func NewBackupSchedule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storsimple/latest:BackupSchedule"),
 		},
+		{
+			Type: pulumi.String("azurerm:storsimple/preview:BackupSchedule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BackupSchedule

@@ -107,6 +107,9 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:sql/latest:Database"),
 		},
 		{
+			Type: pulumi.String("azurerm:sql/preview:Database"),
+		},
+		{
 			Type: pulumi.String("azurerm:sql/v20140401:Database"),
 		},
 		{

@@ -73,6 +73,12 @@ func NewPartnerRegistration(ctx *pulumi.Context,
 	if args == nil {
 		args = &PartnerRegistrationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:eventgrid/preview:PartnerRegistration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PartnerRegistration
 	err := ctx.RegisterResource("azurerm:eventgrid/v20200401preview:PartnerRegistration", name, args, &resource, opts...)
 	if err != nil {

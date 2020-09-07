@@ -47,6 +47,9 @@ func NewReportConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:costmanagement/preview:ReportConfig"),
+		},
+		{
 			Type: pulumi.String("azurerm:costmanagement/v20180531:ReportConfig"),
 		},
 	})

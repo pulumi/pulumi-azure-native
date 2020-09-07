@@ -54,6 +54,9 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:insights/latest:AutoscaleSetting"),
 		},
+		{
+			Type: pulumi.String("azurerm:insights/preview:AutoscaleSetting"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AutoscaleSetting

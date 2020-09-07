@@ -54,6 +54,9 @@ func NewOrder(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:databoxedge/preview:Order"),
+		},
+		{
 			Type: pulumi.String("azurerm:databoxedge/v20190301:Order"),
 		},
 		{

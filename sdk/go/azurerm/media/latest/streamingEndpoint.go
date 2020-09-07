@@ -79,6 +79,9 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:media/preview:StreamingEndpoint"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180330preview:StreamingEndpoint"),
 		},
 		{

@@ -71,6 +71,9 @@ func NewServerFarm(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:ServerFarm"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:ServerFarm"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20160901:ServerFarm"),
 		},
 		{

@@ -62,6 +62,9 @@ func NewAssessmentMetadataInSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:security/preview:AssessmentMetadataInSubscription"),
+		},
+		{
 			Type: pulumi.String("azurerm:security/v20190101preview:AssessmentMetadataInSubscription"),
 		},
 		{

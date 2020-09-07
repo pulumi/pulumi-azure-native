@@ -60,6 +60,9 @@ func NewIdentityProvider(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:IdentityProvider"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:IdentityProvider"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:IdentityProvider"),
 		},
 		{

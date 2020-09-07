@@ -52,6 +52,12 @@ func NewCustomerMaintenanceWindow(ctx *pulumi.Context,
 	if args == nil {
 		args = &CustomerMaintenanceWindowArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:dbforpostgresql/preview:CustomerMaintenanceWindow"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CustomerMaintenanceWindow
 	err := ctx.RegisterResource("azurerm:dbforpostgresql/v20200214privatepreview:CustomerMaintenanceWindow", name, args, &resource, opts...)
 	if err != nil {

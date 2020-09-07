@@ -43,6 +43,9 @@ func NewConnectionGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:web/latest:ConnectionGateway"),
 		},
+		{
+			Type: pulumi.String("azurerm:web/preview:ConnectionGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionGateway

@@ -44,6 +44,9 @@ func NewConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:Connection"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:Connection"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20150801preview:Connection"),
 		},
 	})

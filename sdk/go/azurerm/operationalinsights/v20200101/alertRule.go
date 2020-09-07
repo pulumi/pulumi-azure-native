@@ -46,6 +46,9 @@ func NewAlertRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:operationalinsights/latest:AlertRule"),
 		},
+		{
+			Type: pulumi.String("azurerm:operationalinsights/preview:AlertRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AlertRule

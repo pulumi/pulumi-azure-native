@@ -59,6 +59,9 @@ func NewNamespace(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:eventhub/latest:Namespace"),
 		},
 		{
+			Type: pulumi.String("azurerm:eventhub/preview:Namespace"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventhub/v20140901:Namespace"),
 		},
 		{

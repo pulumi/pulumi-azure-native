@@ -66,6 +66,12 @@ func NewBlockchainMember(ctx *pulumi.Context,
 	if args == nil {
 		args = &BlockchainMemberArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:blockchain/preview:BlockchainMember"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BlockchainMember
 	err := ctx.RegisterResource("azurerm:blockchain/v20180601preview:BlockchainMember", name, args, &resource, opts...)
 	if err != nil {

@@ -53,6 +53,9 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:DedicatedHostGroup"),
 		},
 		{
+			Type: pulumi.String("azurerm:compute/preview:DedicatedHostGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20190301:DedicatedHostGroup"),
 		},
 		{

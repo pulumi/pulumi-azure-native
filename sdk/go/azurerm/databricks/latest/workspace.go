@@ -68,6 +68,9 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:databricks/preview:Workspace"),
+		},
+		{
 			Type: pulumi.String("azurerm:databricks/v20180401:Workspace"),
 		},
 	})

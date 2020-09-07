@@ -60,6 +60,12 @@ func NewHealthAlert(ctx *pulumi.Context,
 	if args == nil {
 		args = &HealthAlertArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:alertsmanagement/preview:HealthAlert"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HealthAlert
 	err := ctx.RegisterResource("azurerm:alertsmanagement/v20200804preview:HealthAlert", name, args, &resource, opts...)
 	if err != nil {

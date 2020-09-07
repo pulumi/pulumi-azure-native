@@ -44,6 +44,12 @@ func NewCreator(ctx *pulumi.Context,
 	if args == nil {
 		args = &CreatorArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:maps/preview:Creator"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Creator
 	err := ctx.RegisterResource("azurerm:maps/v20200201preview:Creator", name, args, &resource, opts...)
 	if err != nil {

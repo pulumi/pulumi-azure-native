@@ -48,6 +48,9 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicebus/latest:QueueAuthorizationRule"),
 		},
 		{
+			Type: pulumi.String("azurerm:servicebus/preview:QueueAuthorizationRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicebus/v20140901:QueueAuthorizationRule"),
 		},
 		{

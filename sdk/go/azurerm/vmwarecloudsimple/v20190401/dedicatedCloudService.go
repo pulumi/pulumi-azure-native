@@ -54,6 +54,9 @@ func NewDedicatedCloudService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:vmwarecloudsimple/latest:DedicatedCloudService"),
 		},
+		{
+			Type: pulumi.String("azurerm:vmwarecloudsimple/preview:DedicatedCloudService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DedicatedCloudService

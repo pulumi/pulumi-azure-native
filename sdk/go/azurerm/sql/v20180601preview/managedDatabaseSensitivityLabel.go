@@ -58,6 +58,12 @@ func NewManagedDatabaseSensitivityLabel(ctx *pulumi.Context,
 	if args == nil {
 		args = &ManagedDatabaseSensitivityLabelArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sql/preview:ManagedDatabaseSensitivityLabel"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagedDatabaseSensitivityLabel
 	err := ctx.RegisterResource("azurerm:sql/v20180601preview:ManagedDatabaseSensitivityLabel", name, args, &resource, opts...)
 	if err != nil {

@@ -46,6 +46,9 @@ func NewDeploymentAtScope(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:resources/latest:DeploymentAtScope"),
 		},
 		{
+			Type: pulumi.String("azurerm:resources/preview:DeploymentAtScope"),
+		},
+		{
 			Type: pulumi.String("azurerm:resources/v20190701:DeploymentAtScope"),
 		},
 		{

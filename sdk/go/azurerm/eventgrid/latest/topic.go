@@ -57,6 +57,9 @@ func NewTopic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:eventgrid/preview:Topic"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventgrid/v20170615preview:Topic"),
 		},
 		{

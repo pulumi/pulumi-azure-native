@@ -64,6 +64,9 @@ func NewEnvironment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:timeseriesinsights/latest:Environment"),
 		},
 		{
+			Type: pulumi.String("azurerm:timeseriesinsights/preview:Environment"),
+		},
+		{
 			Type: pulumi.String("azurerm:timeseriesinsights/v20171115:Environment"),
 		},
 		{

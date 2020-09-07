@@ -64,6 +64,9 @@ func NewStreamingLocator(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:media/latest:StreamingLocator"),
 		},
 		{
+			Type: pulumi.String("azurerm:media/preview:StreamingLocator"),
+		},
+		{
 			Type: pulumi.String("azurerm:media/v20180330preview:StreamingLocator"),
 		},
 		{

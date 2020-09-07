@@ -45,6 +45,9 @@ func NewTrigger(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:databoxedge/latest:Trigger"),
 		},
 		{
+			Type: pulumi.String("azurerm:databoxedge/preview:Trigger"),
+		},
+		{
 			Type: pulumi.String("azurerm:databoxedge/v20190301:Trigger"),
 		},
 		{

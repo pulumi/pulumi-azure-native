@@ -57,6 +57,9 @@ func NewManagementLockAtResourceLevel(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:authorization/latest:ManagementLockAtResourceLevel"),
 		},
+		{
+			Type: pulumi.String("azurerm:authorization/preview:ManagementLockAtResourceLevel"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagementLockAtResourceLevel

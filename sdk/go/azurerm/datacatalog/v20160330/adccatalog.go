@@ -54,6 +54,9 @@ func NewADCCatalog(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:datacatalog/latest:ADCCatalog"),
 		},
+		{
+			Type: pulumi.String("azurerm:datacatalog/preview:ADCCatalog"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ADCCatalog

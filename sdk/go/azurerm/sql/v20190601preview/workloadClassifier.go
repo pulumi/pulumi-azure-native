@@ -56,6 +56,12 @@ func NewWorkloadClassifier(ctx *pulumi.Context,
 	if args == nil {
 		args = &WorkloadClassifierArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sql/preview:WorkloadClassifier"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource WorkloadClassifier
 	err := ctx.RegisterResource("azurerm:sql/v20190601preview:WorkloadClassifier", name, args, &resource, opts...)
 	if err != nil {

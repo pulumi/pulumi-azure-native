@@ -45,6 +45,9 @@ func NewLinkedService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:operationalinsights/latest:LinkedService"),
 		},
 		{
+			Type: pulumi.String("azurerm:operationalinsights/preview:LinkedService"),
+		},
+		{
 			Type: pulumi.String("azurerm:operationalinsights/v20190801preview:LinkedService"),
 		},
 		{

@@ -54,6 +54,9 @@ func NewEventHub(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:eventhub/latest:EventHub"),
 		},
 		{
+			Type: pulumi.String("azurerm:eventhub/preview:EventHub"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventhub/v20140901:EventHub"),
 		},
 		{

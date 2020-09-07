@@ -52,6 +52,9 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:VirtualHubIpConfiguration"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:VirtualHubIpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20200501:VirtualHubIpConfiguration"),
 		},
 	})

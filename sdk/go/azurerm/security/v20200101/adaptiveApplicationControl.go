@@ -51,6 +51,9 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:security/latest:AdaptiveApplicationControl"),
 		},
 		{
+			Type: pulumi.String("azurerm:security/preview:AdaptiveApplicationControl"),
+		},
+		{
 			Type: pulumi.String("azurerm:security/v20150601preview:AdaptiveApplicationControl"),
 		},
 	})

@@ -63,6 +63,9 @@ func NewIntegrationAccountMap(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:IntegrationAccountMap"),
 		},
 		{
+			Type: pulumi.String("azurerm:logic/preview:IntegrationAccountMap"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20150801preview:IntegrationAccountMap"),
 		},
 		{

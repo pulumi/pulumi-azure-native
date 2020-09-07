@@ -60,6 +60,9 @@ func NewCognitiveServicesAccount(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cognitiveservices/latest:CognitiveServicesAccount"),
 		},
 		{
+			Type: pulumi.String("azurerm:cognitiveservices/preview:CognitiveServicesAccount"),
+		},
+		{
 			Type: pulumi.String("azurerm:cognitiveservices/v20170418:CognitiveServicesAccount"),
 		},
 	})

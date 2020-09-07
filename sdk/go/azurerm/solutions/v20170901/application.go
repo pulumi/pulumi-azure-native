@@ -69,6 +69,9 @@ func NewApplication(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:solutions/latest:Application"),
 		},
 		{
+			Type: pulumi.String("azurerm:solutions/preview:Application"),
+		},
+		{
 			Type: pulumi.String("azurerm:solutions/v20180601:Application"),
 		},
 		{

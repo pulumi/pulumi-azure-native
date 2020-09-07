@@ -44,6 +44,9 @@ func NewRoleDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:authorization/preview:RoleDefinition"),
+		},
+		{
 			Type: pulumi.String("azurerm:authorization/v20150701:RoleDefinition"),
 		},
 		{

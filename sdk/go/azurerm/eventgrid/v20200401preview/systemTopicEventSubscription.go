@@ -61,6 +61,12 @@ func NewSystemTopicEventSubscription(ctx *pulumi.Context,
 	if args == nil {
 		args = &SystemTopicEventSubscriptionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:eventgrid/preview:SystemTopicEventSubscription"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SystemTopicEventSubscription
 	err := ctx.RegisterResource("azurerm:eventgrid/v20200401preview:SystemTopicEventSubscription", name, args, &resource, opts...)
 	if err != nil {

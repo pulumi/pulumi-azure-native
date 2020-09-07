@@ -62,6 +62,9 @@ func NewRegistry(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:containerregistry/latest:Registry"),
 		},
 		{
+			Type: pulumi.String("azurerm:containerregistry/preview:Registry"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerregistry/v20160627preview:Registry"),
 		},
 		{

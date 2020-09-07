@@ -114,6 +114,9 @@ func NewCluster(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicefabric/latest:Cluster"),
 		},
 		{
+			Type: pulumi.String("azurerm:servicefabric/preview:Cluster"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicefabric/v20160901:Cluster"),
 		},
 		{

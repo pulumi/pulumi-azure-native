@@ -51,6 +51,9 @@ func NewDataSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:operationalinsights/preview:DataSource"),
+		},
+		{
 			Type: pulumi.String("azurerm:operationalinsights/v20151101preview:DataSource"),
 		},
 		{

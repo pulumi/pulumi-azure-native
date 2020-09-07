@@ -57,6 +57,9 @@ func NewLinkedServer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cache/latest:LinkedServer"),
 		},
 		{
+			Type: pulumi.String("azurerm:cache/preview:LinkedServer"),
+		},
+		{
 			Type: pulumi.String("azurerm:cache/v20170201:LinkedServer"),
 		},
 		{

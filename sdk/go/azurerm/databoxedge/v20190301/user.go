@@ -44,6 +44,9 @@ func NewUser(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:databoxedge/latest:User"),
 		},
 		{
+			Type: pulumi.String("azurerm:databoxedge/preview:User"),
+		},
+		{
 			Type: pulumi.String("azurerm:databoxedge/v20190701:User"),
 		},
 		{

@@ -36,6 +36,12 @@ func NewNotebookProxy(ctx *pulumi.Context,
 	if args == nil {
 		args = &NotebookProxyArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:notebooks/preview:NotebookProxy"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource NotebookProxy
 	err := ctx.RegisterResource("azurerm:notebooks/v20191011preview:NotebookProxy", name, args, &resource, opts...)
 	if err != nil {

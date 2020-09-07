@@ -81,6 +81,12 @@ func NewServer(ctx *pulumi.Context,
 	if args == nil {
 		args = &ServerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:dbformysql/preview:Server"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Server
 	err := ctx.RegisterResource("azurerm:dbformysql/v20200701privatepreview:Server", name, args, &resource, opts...)
 	if err != nil {

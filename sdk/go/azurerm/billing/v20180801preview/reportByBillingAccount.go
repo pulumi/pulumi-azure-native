@@ -48,6 +48,12 @@ func NewReportByBillingAccount(ctx *pulumi.Context,
 	if args == nil {
 		args = &ReportByBillingAccountArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:billing/preview:ReportByBillingAccount"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ReportByBillingAccount
 	err := ctx.RegisterResource("azurerm:billing/v20180801preview:ReportByBillingAccount", name, args, &resource, opts...)
 	if err != nil {

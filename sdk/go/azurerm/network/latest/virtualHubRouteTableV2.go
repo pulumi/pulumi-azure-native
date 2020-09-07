@@ -43,6 +43,9 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:VirtualHubRouteTableV2"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20190901:VirtualHubRouteTableV2"),
 		},
 		{

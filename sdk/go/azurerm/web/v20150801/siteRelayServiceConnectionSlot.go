@@ -59,6 +59,9 @@ func NewSiteRelayServiceConnectionSlot(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:web/latest:SiteRelayServiceConnectionSlot"),
 		},
 		{
+			Type: pulumi.String("azurerm:web/preview:SiteRelayServiceConnectionSlot"),
+		},
+		{
 			Type: pulumi.String("azurerm:web/v20160801:SiteRelayServiceConnectionSlot"),
 		},
 		{

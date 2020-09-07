@@ -53,6 +53,9 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:avs/preview:Cluster"),
+		},
+		{
 			Type: pulumi.String("azurerm:avs/v20190809preview:Cluster"),
 		},
 		{

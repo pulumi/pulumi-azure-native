@@ -59,6 +59,9 @@ func NewNatGateway(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:NatGateway"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:NatGateway"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20190201:NatGateway"),
 		},
 		{

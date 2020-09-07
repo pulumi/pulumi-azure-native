@@ -62,6 +62,9 @@ func NewServerDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:analysisservices/preview:ServerDetails"),
+		},
+		{
 			Type: pulumi.String("azurerm:analysisservices/v20160516:ServerDetails"),
 		},
 		{

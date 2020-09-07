@@ -44,6 +44,9 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:datafactory/preview:IntegrationRuntime"),
+		},
+		{
 			Type: pulumi.String("azurerm:datafactory/v20170901preview:IntegrationRuntime"),
 		},
 		{

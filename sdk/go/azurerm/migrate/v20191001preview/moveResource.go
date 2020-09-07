@@ -37,6 +37,12 @@ func NewMoveResource(ctx *pulumi.Context,
 	if args == nil {
 		args = &MoveResourceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:migrate/preview:MoveResource"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MoveResource
 	err := ctx.RegisterResource("azurerm:migrate/v20191001preview:MoveResource", name, args, &resource, opts...)
 	if err != nil {

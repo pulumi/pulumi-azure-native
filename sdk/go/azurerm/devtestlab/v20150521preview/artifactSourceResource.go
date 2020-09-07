@@ -60,6 +60,9 @@ func NewArtifactSourceResource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:ArtifactSourceResource"),
 		},
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:ArtifactSourceResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:ArtifactSourceResource"),
 		},
 		{

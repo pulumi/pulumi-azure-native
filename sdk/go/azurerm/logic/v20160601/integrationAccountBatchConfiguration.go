@@ -49,6 +49,9 @@ func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:logic/latest:IntegrationAccountBatchConfiguration"),
 		},
 		{
+			Type: pulumi.String("azurerm:logic/preview:IntegrationAccountBatchConfiguration"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20180701preview:IntegrationAccountBatchConfiguration"),
 		},
 		{

@@ -42,6 +42,9 @@ func NewIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:devices/preview:IotDpsResourcePrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20200301:IotDpsResourcePrivateEndpointConnection"),
 		},
 	})

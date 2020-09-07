@@ -66,6 +66,12 @@ func NewAssignment(ctx *pulumi.Context,
 	if args == nil {
 		args = &AssignmentArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:blueprint/preview:Assignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Assignment
 	err := ctx.RegisterResource("azurerm:blueprint/v20181101preview:Assignment", name, args, &resource, opts...)
 	if err != nil {

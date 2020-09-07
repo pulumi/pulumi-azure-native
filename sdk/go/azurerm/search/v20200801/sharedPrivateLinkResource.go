@@ -42,6 +42,9 @@ func NewSharedPrivateLinkResource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:search/latest:SharedPrivateLinkResource"),
 		},
 		{
+			Type: pulumi.String("azurerm:search/preview:SharedPrivateLinkResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:search/v20200801preview:SharedPrivateLinkResource"),
 		},
 	})

@@ -44,6 +44,9 @@ func NewCertificate(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devices/latest:Certificate"),
 		},
 		{
+			Type: pulumi.String("azurerm:devices/preview:Certificate"),
+		},
+		{
 			Type: pulumi.String("azurerm:devices/v20180122:Certificate"),
 		},
 		{

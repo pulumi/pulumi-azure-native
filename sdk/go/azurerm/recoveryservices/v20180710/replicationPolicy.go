@@ -44,6 +44,9 @@ func NewReplicationPolicy(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:recoveryservices/latest:ReplicationPolicy"),
 		},
 		{
+			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationPolicy"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20160810:ReplicationPolicy"),
 		},
 		{

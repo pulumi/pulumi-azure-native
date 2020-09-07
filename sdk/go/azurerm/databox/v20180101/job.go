@@ -65,6 +65,9 @@ func NewJob(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:databox/latest:Job"),
 		},
 		{
+			Type: pulumi.String("azurerm:databox/preview:Job"),
+		},
+		{
 			Type: pulumi.String("azurerm:databox/v20190901:Job"),
 		},
 		{

@@ -73,6 +73,9 @@ func NewEnvironment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:labservices/latest:Environment"),
 		},
+		{
+			Type: pulumi.String("azurerm:labservices/preview:Environment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Environment

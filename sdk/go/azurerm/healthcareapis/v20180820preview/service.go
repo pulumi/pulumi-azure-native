@@ -53,6 +53,9 @@ func NewService(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:healthcareapis/latest:Service"),
 		},
 		{
+			Type: pulumi.String("azurerm:healthcareapis/preview:Service"),
+		},
+		{
 			Type: pulumi.String("azurerm:healthcareapis/v20190916:Service"),
 		},
 	})

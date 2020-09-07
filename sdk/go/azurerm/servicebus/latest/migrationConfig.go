@@ -53,6 +53,9 @@ func NewMigrationConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:servicebus/preview:MigrationConfig"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicebus/v20170401:MigrationConfig"),
 		},
 	})

@@ -52,6 +52,9 @@ func NewSqlResourceSqlDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:SqlResourceSqlDatabase"),
 		},
 		{
+			Type: pulumi.String("azurerm:documentdb/preview:SqlResourceSqlDatabase"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20190801:SqlResourceSqlDatabase"),
 		},
 		{

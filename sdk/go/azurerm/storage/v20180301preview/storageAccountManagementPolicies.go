@@ -44,6 +44,9 @@ func NewStorageAccountManagementPolicies(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:storage/latest:StorageAccountManagementPolicies"),
 		},
 		{
+			Type: pulumi.String("azurerm:storage/preview:StorageAccountManagementPolicies"),
+		},
+		{
 			Type: pulumi.String("azurerm:storage/v20181101:StorageAccountManagementPolicies"),
 		},
 		{

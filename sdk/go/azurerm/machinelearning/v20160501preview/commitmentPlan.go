@@ -45,6 +45,12 @@ func NewCommitmentPlan(ctx *pulumi.Context,
 	if args == nil {
 		args = &CommitmentPlanArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:machinelearning/preview:CommitmentPlan"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource CommitmentPlan
 	err := ctx.RegisterResource("azurerm:machinelearning/v20160501preview:CommitmentPlan", name, args, &resource, opts...)
 	if err != nil {

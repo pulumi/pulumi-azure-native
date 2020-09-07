@@ -44,6 +44,9 @@ func NewTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:datamigration/preview:Task"),
+		},
+		{
 			Type: pulumi.String("azurerm:datamigration/v20171115preview:Task"),
 		},
 		{

@@ -39,6 +39,9 @@ func NewAlias(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:subscription/latest:Alias"),
 		},
 		{
+			Type: pulumi.String("azurerm:subscription/preview:Alias"),
+		},
+		{
 			Type: pulumi.String("azurerm:subscription/v20191001preview:Alias"),
 		},
 	})

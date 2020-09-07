@@ -54,6 +54,9 @@ func NewSqlResourceSqlContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:documentdb/latest:SqlResourceSqlContainer"),
 		},
 		{
+			Type: pulumi.String("azurerm:documentdb/preview:SqlResourceSqlContainer"),
+		},
+		{
 			Type: pulumi.String("azurerm:documentdb/v20191212:SqlResourceSqlContainer"),
 		},
 		{

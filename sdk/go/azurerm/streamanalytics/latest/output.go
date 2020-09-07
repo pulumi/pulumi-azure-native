@@ -45,6 +45,9 @@ func NewOutput(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:streamanalytics/preview:Output"),
+		},
+		{
 			Type: pulumi.String("azurerm:streamanalytics/v20160301:Output"),
 		},
 	})

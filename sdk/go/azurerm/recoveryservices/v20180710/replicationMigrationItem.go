@@ -53,6 +53,9 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:recoveryservices/latest:ReplicationMigrationItem"),
 		},
 		{
+			Type: pulumi.String("azurerm:recoveryservices/preview:ReplicationMigrationItem"),
+		},
+		{
 			Type: pulumi.String("azurerm:recoveryservices/v20180110:ReplicationMigrationItem"),
 		},
 	})

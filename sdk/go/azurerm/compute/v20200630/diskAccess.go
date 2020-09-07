@@ -50,6 +50,9 @@ func NewDiskAccess(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:compute/latest:DiskAccess"),
 		},
 		{
+			Type: pulumi.String("azurerm:compute/preview:DiskAccess"),
+		},
+		{
 			Type: pulumi.String("azurerm:compute/v20200501:DiskAccess"),
 		},
 	})

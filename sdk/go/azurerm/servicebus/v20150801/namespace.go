@@ -60,6 +60,9 @@ func NewNamespace(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:servicebus/latest:Namespace"),
 		},
 		{
+			Type: pulumi.String("azurerm:servicebus/preview:Namespace"),
+		},
+		{
 			Type: pulumi.String("azurerm:servicebus/v20140901:Namespace"),
 		},
 		{

@@ -57,6 +57,9 @@ func NewOrder(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:databoxedge/latest:Order"),
 		},
 		{
+			Type: pulumi.String("azurerm:databoxedge/preview:Order"),
+		},
+		{
 			Type: pulumi.String("azurerm:databoxedge/v20190701:Order"),
 		},
 		{

@@ -68,6 +68,9 @@ func NewApiOperation(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:ApiOperation"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:ApiOperation"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20160707:ApiOperation"),
 		},
 		{

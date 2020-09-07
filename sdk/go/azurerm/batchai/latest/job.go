@@ -107,6 +107,9 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:batchai/preview:Job"),
+		},
+		{
 			Type: pulumi.String("azurerm:batchai/v20180501:Job"),
 		},
 	})

@@ -46,6 +46,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbformysql/latest:PrivateEndpointConnection"),
 		},
 		{
+			Type: pulumi.String("azurerm:dbformysql/preview:PrivateEndpointConnection"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbformysql/v20180601:PrivateEndpointConnection"),
 		},
 	})

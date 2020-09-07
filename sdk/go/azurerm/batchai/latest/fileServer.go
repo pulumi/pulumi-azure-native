@@ -62,6 +62,9 @@ func NewFileServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:batchai/preview:FileServer"),
+		},
+		{
 			Type: pulumi.String("azurerm:batchai/v20180501:FileServer"),
 		},
 	})

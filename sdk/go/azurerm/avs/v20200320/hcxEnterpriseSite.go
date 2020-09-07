@@ -43,6 +43,9 @@ func NewHcxEnterpriseSite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:avs/latest:HcxEnterpriseSite"),
 		},
+		{
+			Type: pulumi.String("azurerm:avs/preview:HcxEnterpriseSite"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource HcxEnterpriseSite

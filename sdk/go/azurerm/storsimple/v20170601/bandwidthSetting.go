@@ -48,6 +48,9 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storsimple/latest:BandwidthSetting"),
 		},
+		{
+			Type: pulumi.String("azurerm:storsimple/preview:BandwidthSetting"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BandwidthSetting

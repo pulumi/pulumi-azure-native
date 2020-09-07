@@ -51,6 +51,9 @@ func NewStorageDomain(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:storsimple/latest:StorageDomain"),
 		},
+		{
+			Type: pulumi.String("azurerm:storsimple/preview:StorageDomain"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StorageDomain

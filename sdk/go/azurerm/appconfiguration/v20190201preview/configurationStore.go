@@ -50,6 +50,9 @@ func NewConfigurationStore(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:appconfiguration/latest:ConfigurationStore"),
 		},
 		{
+			Type: pulumi.String("azurerm:appconfiguration/preview:ConfigurationStore"),
+		},
+		{
 			Type: pulumi.String("azurerm:appconfiguration/v20191001:ConfigurationStore"),
 		},
 		{

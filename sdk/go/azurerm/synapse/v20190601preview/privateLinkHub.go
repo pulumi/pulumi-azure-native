@@ -41,6 +41,12 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateLinkHubArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:synapse/preview:PrivateLinkHub"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateLinkHub
 	err := ctx.RegisterResource("azurerm:synapse/v20190601preview:PrivateLinkHub", name, args, &resource, opts...)
 	if err != nil {

@@ -46,6 +46,9 @@ func NewNetworkExperimentProfile(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:network/latest:NetworkExperimentProfile"),
 		},
+		{
+			Type: pulumi.String("azurerm:network/preview:NetworkExperimentProfile"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkExperimentProfile

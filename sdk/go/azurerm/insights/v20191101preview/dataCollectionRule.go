@@ -58,6 +58,12 @@ func NewDataCollectionRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &DataCollectionRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:insights/preview:DataCollectionRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DataCollectionRule
 	err := ctx.RegisterResource("azurerm:insights/v20191101preview:DataCollectionRule", name, args, &resource, opts...)
 	if err != nil {

@@ -40,6 +40,12 @@ func NewAzureADMetric(ctx *pulumi.Context,
 	if args == nil {
 		args = &AzureADMetricArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:aadiam/preview:azureADMetric"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AzureADMetric
 	err := ctx.RegisterResource("azurerm:aadiam/v20200701preview:azureADMetric", name, args, &resource, opts...)
 	if err != nil {

@@ -41,6 +41,9 @@ func NewHyperVSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:offazure/preview:HyperVSite"),
+		},
+		{
 			Type: pulumi.String("azurerm:offazure/v20200101:HyperVSite"),
 		},
 		{

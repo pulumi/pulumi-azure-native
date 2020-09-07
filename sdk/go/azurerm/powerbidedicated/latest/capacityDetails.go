@@ -52,6 +52,9 @@ func NewCapacityDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:powerbidedicated/preview:CapacityDetails"),
+		},
+		{
 			Type: pulumi.String("azurerm:powerbidedicated/v20171001:CapacityDetails"),
 		},
 	})

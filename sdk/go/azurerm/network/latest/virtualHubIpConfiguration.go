@@ -49,6 +49,9 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:network/preview:VirtualHubIpConfiguration"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20200501:VirtualHubIpConfiguration"),
 		},
 		{

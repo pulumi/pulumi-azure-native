@@ -49,6 +49,9 @@ func NewChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:botservice/preview:Channel"),
+		},
+		{
 			Type: pulumi.String("azurerm:botservice/v20171201:Channel"),
 		},
 		{

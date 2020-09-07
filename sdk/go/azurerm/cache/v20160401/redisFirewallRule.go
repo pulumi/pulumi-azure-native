@@ -50,6 +50,9 @@ func NewRedisFirewallRule(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:cache/latest:RedisFirewallRule"),
 		},
 		{
+			Type: pulumi.String("azurerm:cache/preview:RedisFirewallRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:cache/v20170201:RedisFirewallRule"),
 		},
 		{

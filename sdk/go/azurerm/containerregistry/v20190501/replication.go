@@ -51,6 +51,9 @@ func NewReplication(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:containerregistry/latest:Replication"),
 		},
 		{
+			Type: pulumi.String("azurerm:containerregistry/preview:Replication"),
+		},
+		{
 			Type: pulumi.String("azurerm:containerregistry/v20170601preview:Replication"),
 		},
 		{

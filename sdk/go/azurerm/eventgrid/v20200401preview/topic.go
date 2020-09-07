@@ -64,6 +64,9 @@ func NewTopic(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:eventgrid/latest:Topic"),
 		},
 		{
+			Type: pulumi.String("azurerm:eventgrid/preview:Topic"),
+		},
+		{
 			Type: pulumi.String("azurerm:eventgrid/v20170615preview:Topic"),
 		},
 		{

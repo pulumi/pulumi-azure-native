@@ -51,6 +51,9 @@ func NewServerKey(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:dbforpostgresql/latest:ServerKey"),
 		},
 		{
+			Type: pulumi.String("azurerm:dbforpostgresql/preview:ServerKey"),
+		},
+		{
 			Type: pulumi.String("azurerm:dbforpostgresql/v20200101privatepreview:ServerKey"),
 		},
 	})

@@ -47,6 +47,9 @@ func NewIntegrationAccountSession(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:logic/preview:IntegrationAccountSession"),
+		},
+		{
 			Type: pulumi.String("azurerm:logic/v20160601:IntegrationAccountSession"),
 		},
 		{

@@ -47,6 +47,9 @@ func NewApplicationSecurityGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:network/latest:ApplicationSecurityGroup"),
 		},
 		{
+			Type: pulumi.String("azurerm:network/preview:ApplicationSecurityGroup"),
+		},
+		{
 			Type: pulumi.String("azurerm:network/v20170901:ApplicationSecurityGroup"),
 		},
 		{

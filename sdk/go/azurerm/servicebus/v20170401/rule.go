@@ -53,6 +53,9 @@ func NewRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:servicebus/latest:Rule"),
 		},
+		{
+			Type: pulumi.String("azurerm:servicebus/preview:Rule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Rule

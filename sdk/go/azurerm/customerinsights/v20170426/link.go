@@ -81,6 +81,9 @@ func NewLink(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:customerinsights/latest:Link"),
 		},
 		{
+			Type: pulumi.String("azurerm:customerinsights/preview:Link"),
+		},
+		{
 			Type: pulumi.String("azurerm:customerinsights/v20170101:Link"),
 		},
 	})

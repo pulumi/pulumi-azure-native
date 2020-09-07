@@ -70,6 +70,12 @@ func NewSqlServerInstance(ctx *pulumi.Context,
 	if args == nil {
 		args = &SqlServerInstanceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:azuredata/preview:SqlServerInstance"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SqlServerInstance
 	err := ctx.RegisterResource("azurerm:azuredata/v20190724preview:SqlServerInstance", name, args, &resource, opts...)
 	if err != nil {

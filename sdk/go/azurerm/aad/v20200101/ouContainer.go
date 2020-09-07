@@ -60,6 +60,9 @@ func NewOuContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:aad/latest:OuContainer"),
 		},
 		{
+			Type: pulumi.String("azurerm:aad/preview:OuContainer"),
+		},
+		{
 			Type: pulumi.String("azurerm:aad/v20170601:OuContainer"),
 		},
 	})

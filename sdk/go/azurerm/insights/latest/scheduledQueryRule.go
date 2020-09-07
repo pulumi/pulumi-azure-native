@@ -61,6 +61,9 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:insights/preview:ScheduledQueryRule"),
+		},
+		{
 			Type: pulumi.String("azurerm:insights/v20180416:ScheduledQueryRule"),
 		},
 		{

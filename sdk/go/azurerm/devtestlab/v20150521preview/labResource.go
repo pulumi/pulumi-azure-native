@@ -57,6 +57,9 @@ func NewLabResource(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:devtestlab/latest:LabResource"),
 		},
 		{
+			Type: pulumi.String("azurerm:devtestlab/preview:LabResource"),
+		},
+		{
 			Type: pulumi.String("azurerm:devtestlab/v20160515:LabResource"),
 		},
 		{

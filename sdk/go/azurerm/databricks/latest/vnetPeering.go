@@ -60,6 +60,9 @@ func NewVNetPeering(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:databricks/preview:vNetPeering"),
+		},
+		{
 			Type: pulumi.String("azurerm:databricks/v20180401:vNetPeering"),
 		},
 	})

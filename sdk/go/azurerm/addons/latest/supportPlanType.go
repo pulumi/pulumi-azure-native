@@ -36,6 +36,9 @@ func NewSupportPlanType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:addons/preview:SupportPlanType"),
+		},
+		{
 			Type: pulumi.String("azurerm:addons/v20170515:SupportPlanType"),
 		},
 		{

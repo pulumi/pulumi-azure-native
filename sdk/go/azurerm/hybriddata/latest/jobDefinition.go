@@ -67,6 +67,9 @@ func NewJobDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:hybriddata/preview:JobDefinition"),
+		},
+		{
 			Type: pulumi.String("azurerm:hybriddata/v20160601:JobDefinition"),
 		},
 		{

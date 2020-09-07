@@ -58,6 +58,9 @@ func NewApiIssueComment(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:apimanagement/latest:ApiIssueComment"),
 		},
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:ApiIssueComment"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:ApiIssueComment"),
 		},
 		{

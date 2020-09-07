@@ -46,6 +46,12 @@ func NewDataController(ctx *pulumi.Context,
 	if args == nil {
 		args = &DataControllerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:azuredata/preview:DataController"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource DataController
 	err := ctx.RegisterResource("azurerm:azuredata/v20190724preview:DataController", name, args, &resource, opts...)
 	if err != nil {

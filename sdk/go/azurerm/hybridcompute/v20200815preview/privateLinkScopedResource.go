@@ -39,6 +39,12 @@ func NewPrivateLinkScopedResource(ctx *pulumi.Context,
 	if args == nil {
 		args = &PrivateLinkScopedResourceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:hybridcompute/preview:PrivateLinkScopedResource"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource PrivateLinkScopedResource
 	err := ctx.RegisterResource("azurerm:hybridcompute/v20200815preview:PrivateLinkScopedResource", name, args, &resource, opts...)
 	if err != nil {

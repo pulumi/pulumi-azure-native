@@ -54,6 +54,12 @@ func NewMachineGroup(ctx *pulumi.Context,
 		args = &MachineGroupArgs{}
 	}
 	args.Kind = pulumi.String("machineGroup")
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:operationalinsights/preview:MachineGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource MachineGroup
 	err := ctx.RegisterResource("azurerm:operationalinsights/v20151101preview:MachineGroup", name, args, &resource, opts...)
 	if err != nil {

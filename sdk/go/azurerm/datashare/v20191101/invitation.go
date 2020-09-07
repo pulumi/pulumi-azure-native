@@ -63,6 +63,9 @@ func NewInvitation(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:datashare/latest:Invitation"),
 		},
 		{
+			Type: pulumi.String("azurerm:datashare/preview:Invitation"),
+		},
+		{
 			Type: pulumi.String("azurerm:datashare/v20181101preview:Invitation"),
 		},
 	})

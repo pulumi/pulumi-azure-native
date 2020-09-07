@@ -70,6 +70,9 @@ func NewSignalR(ctx *pulumi.Context,
 			Type: pulumi.String("azurerm:signalrservice/latest:SignalR"),
 		},
 		{
+			Type: pulumi.String("azurerm:signalrservice/preview:SignalR"),
+		},
+		{
 			Type: pulumi.String("azurerm:signalrservice/v20180301preview:SignalR"),
 		},
 		{

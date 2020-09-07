@@ -42,6 +42,12 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	if args == nil {
 		args = &IntegrationRuntimeArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:synapse/preview:IntegrationRuntime"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource IntegrationRuntime
 	err := ctx.RegisterResource("azurerm:synapse/v20190601preview:IntegrationRuntime", name, args, &resource, opts...)
 	if err != nil {

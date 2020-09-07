@@ -43,6 +43,9 @@ func NewRegisteredAsn(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:peering/preview:RegisteredAsn"),
+		},
+		{
 			Type: pulumi.String("azurerm:peering/v20200101preview:RegisteredAsn"),
 		},
 		{

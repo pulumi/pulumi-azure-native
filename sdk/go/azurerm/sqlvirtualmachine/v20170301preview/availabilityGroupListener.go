@@ -45,6 +45,12 @@ func NewAvailabilityGroupListener(ctx *pulumi.Context,
 	if args == nil {
 		args = &AvailabilityGroupListenerArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:sqlvirtualmachine/preview:AvailabilityGroupListener"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource AvailabilityGroupListener
 	err := ctx.RegisterResource("azurerm:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener", name, args, &resource, opts...)
 	if err != nil {

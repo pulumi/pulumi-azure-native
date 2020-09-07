@@ -49,6 +49,9 @@ func NewEmailTemplate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azurerm:apimanagement/preview:EmailTemplate"),
+		},
+		{
 			Type: pulumi.String("azurerm:apimanagement/v20170301:EmailTemplate"),
 		},
 		{
