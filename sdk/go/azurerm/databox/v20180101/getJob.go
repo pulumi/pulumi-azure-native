@@ -30,7 +30,7 @@ type LookupJobResult struct {
 	// Reason for cancellation.
 	CancellationReason string `pulumi:"cancellationReason"`
 	// Details of a job run. This field will only be sent for expand details filter.
-	Details *JobDetailsResponse `pulumi:"details"`
+	Details interface{} `pulumi:"details"`
 	// Top level error for the job.
 	Error ErrorResponse `pulumi:"error"`
 	// Describes whether the job is cancellable or not.

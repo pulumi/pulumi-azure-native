@@ -28,7 +28,7 @@ type LookupTemplateSpecVersionArgs struct {
 // Template Spec Version object.
 type LookupTemplateSpecVersionResult struct {
 	// An array of Template Spec artifacts.
-	Artifacts []TemplateSpecArtifactResponse `pulumi:"artifacts"`
+	Artifacts []TemplateSpecTemplateArtifactResponse `pulumi:"artifacts"`
 	// Template Spec version description.
 	Description *string `pulumi:"description"`
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.

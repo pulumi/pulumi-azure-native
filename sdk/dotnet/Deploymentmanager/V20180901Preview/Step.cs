@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
         /// The properties that define the step.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StepPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.WaitStepPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -103,7 +103,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
         /// The properties that define the step.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.StepPropertiesArgs> Properties { get; set; } = null!;
+        public Input<Inputs.WaitStepPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

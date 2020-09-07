@@ -352,8 +352,9 @@ func (k *azurermProvider) validateProperty(ctx string, prop *AzureApiProperty, v
 			})
 		}
 		if prop.Pattern != "" {
-			pattern := regexp.MustCompile(prop.Pattern)
-			if !pattern.MatchString(value) {
+			pattern, err := regexp.Compile(prop.Pattern)
+			// TODO: Support ECMA-262 regexp https://github.com/pulumi/pulumi-azurerm/issues/164
+			if err == nil && !pattern.MatchString(value) {
 				failures = append(failures, &rpc.CheckFailure{
 					Reason: fmt.Sprintf("'%s' does not match expression '%s'", ctx, prop.Pattern),
 				})

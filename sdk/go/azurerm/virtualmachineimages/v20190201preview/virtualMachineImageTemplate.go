@@ -14,9 +14,9 @@ type VirtualMachineImageTemplate struct {
 	pulumi.CustomResourceState
 
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize ImageTemplateCustomizerResponseArrayOutput `pulumi:"customize"`
+	Customize pulumi.ArrayOutput `pulumi:"customize"`
 	// The distribution targets where the image output needs to go to.
-	Distribute ImageTemplateDistributorResponseArrayOutput `pulumi:"distribute"`
+	Distribute pulumi.ArrayOutput `pulumi:"distribute"`
 	// State of 'run' that is currently executing or was last executed.
 	LastRunStatus ImageTemplateLastRunStatusResponseOutput `pulumi:"lastRunStatus"`
 	// Resource location
@@ -28,7 +28,7 @@ type VirtualMachineImageTemplate struct {
 	// Provisioning state of the resource
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Specifies the properties used to describe the source image.
-	Source ImageTemplateSourceResponseOutput `pulumi:"source"`
+	Source pulumi.AnyOutput `pulumi:"source"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -94,9 +94,9 @@ func GetVirtualMachineImageTemplate(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VirtualMachineImageTemplate resources.
 type virtualMachineImageTemplateState struct {
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize []ImageTemplateCustomizerResponse `pulumi:"customize"`
+	Customize []interface{} `pulumi:"customize"`
 	// The distribution targets where the image output needs to go to.
-	Distribute []ImageTemplateDistributorResponse `pulumi:"distribute"`
+	Distribute []interface{} `pulumi:"distribute"`
 	// State of 'run' that is currently executing or was last executed.
 	LastRunStatus *ImageTemplateLastRunStatusResponse `pulumi:"lastRunStatus"`
 	// Resource location
@@ -108,7 +108,7 @@ type virtualMachineImageTemplateState struct {
 	// Provisioning state of the resource
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Specifies the properties used to describe the source image.
-	Source *ImageTemplateSourceResponse `pulumi:"source"`
+	Source interface{} `pulumi:"source"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -117,9 +117,9 @@ type virtualMachineImageTemplateState struct {
 
 type VirtualMachineImageTemplateState struct {
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize ImageTemplateCustomizerResponseArrayInput
+	Customize pulumi.ArrayInput
 	// The distribution targets where the image output needs to go to.
-	Distribute ImageTemplateDistributorResponseArrayInput
+	Distribute pulumi.ArrayInput
 	// State of 'run' that is currently executing or was last executed.
 	LastRunStatus ImageTemplateLastRunStatusResponsePtrInput
 	// Resource location
@@ -131,7 +131,7 @@ type VirtualMachineImageTemplateState struct {
 	// Provisioning state of the resource
 	ProvisioningState pulumi.StringPtrInput
 	// Specifies the properties used to describe the source image.
-	Source ImageTemplateSourceResponsePtrInput
+	Source pulumi.Input
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
@@ -144,9 +144,9 @@ func (VirtualMachineImageTemplateState) ElementType() reflect.Type {
 
 type virtualMachineImageTemplateArgs struct {
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize []ImageTemplateCustomizer `pulumi:"customize"`
+	Customize []interface{} `pulumi:"customize"`
 	// The distribution targets where the image output needs to go to.
-	Distribute []ImageTemplateDistributor `pulumi:"distribute"`
+	Distribute []interface{} `pulumi:"distribute"`
 	// The name of the image Template
 	ImageTemplateName string `pulumi:"imageTemplateName"`
 	// Resource location
@@ -154,7 +154,7 @@ type virtualMachineImageTemplateArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the properties used to describe the source image.
-	Source ImageTemplateSource `pulumi:"source"`
+	Source interface{} `pulumi:"source"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -162,9 +162,9 @@ type virtualMachineImageTemplateArgs struct {
 // The set of arguments for constructing a VirtualMachineImageTemplate resource.
 type VirtualMachineImageTemplateArgs struct {
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize ImageTemplateCustomizerArrayInput
+	Customize pulumi.ArrayInput
 	// The distribution targets where the image output needs to go to.
-	Distribute ImageTemplateDistributorArrayInput
+	Distribute pulumi.ArrayInput
 	// The name of the image Template
 	ImageTemplateName pulumi.StringInput
 	// Resource location
@@ -172,7 +172,7 @@ type VirtualMachineImageTemplateArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the properties used to describe the source image.
-	Source ImageTemplateSourceInput
+	Source pulumi.Input
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

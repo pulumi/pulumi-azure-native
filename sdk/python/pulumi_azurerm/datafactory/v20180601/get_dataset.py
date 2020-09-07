@@ -52,7 +52,7 @@ class GetDatasetResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.DatasetResponse':
+    def properties(self) -> Any:
         """
         Dataset properties.
         """

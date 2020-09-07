@@ -21,7 +21,7 @@ type MachineLearningService struct {
 	// Specifies the name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Service properties
-	Properties ServiceResponseBaseResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// The sku of the workspace.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
@@ -86,7 +86,7 @@ type machineLearningServiceState struct {
 	// Specifies the name of the resource.
 	Name *string `pulumi:"name"`
 	// Service properties
-	Properties *ServiceResponseBaseResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The sku of the workspace.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
@@ -103,7 +103,7 @@ type MachineLearningServiceState struct {
 	// Specifies the name of the resource.
 	Name pulumi.StringPtrInput
 	// Service properties
-	Properties ServiceResponseBaseResponsePtrInput
+	Properties pulumi.Input
 	// The sku of the workspace.
 	Sku SkuResponsePtrInput
 	// Contains resource tags defined as key/value pairs.

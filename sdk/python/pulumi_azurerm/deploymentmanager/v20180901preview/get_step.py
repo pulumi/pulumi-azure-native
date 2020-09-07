@@ -55,7 +55,7 @@ class GetStepResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.StepPropertiesResponse':
+    def properties(self) -> 'outputs.WaitStepPropertiesResponse':
         """
         The properties that define the step.
         """

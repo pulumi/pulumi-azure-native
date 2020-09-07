@@ -10,272 +10,168 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Defines the authentication method and properties to access the artifacts.
-type Authentication struct {
-	// The authentication type
+// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
+type ApiKeyAuthentication struct {
+	// The location of the authentication key/value pair in the request.
+	In string `pulumi:"in"`
+	// The key name of the authentication key/value pair.
+	Name string `pulumi:"name"`
+	// The authentication type.
 	Type string `pulumi:"type"`
+	// The value of the authentication key/value pair.
+	Value string `pulumi:"value"`
 }
 
-// AuthenticationInput is an input type that accepts AuthenticationArgs and AuthenticationOutput values.
-// You can construct a concrete instance of `AuthenticationInput` via:
+// ApiKeyAuthenticationInput is an input type that accepts ApiKeyAuthenticationArgs and ApiKeyAuthenticationOutput values.
+// You can construct a concrete instance of `ApiKeyAuthenticationInput` via:
 //
-//          AuthenticationArgs{...}
-type AuthenticationInput interface {
+//          ApiKeyAuthenticationArgs{...}
+type ApiKeyAuthenticationInput interface {
 	pulumi.Input
 
-	ToAuthenticationOutput() AuthenticationOutput
-	ToAuthenticationOutputWithContext(context.Context) AuthenticationOutput
+	ToApiKeyAuthenticationOutput() ApiKeyAuthenticationOutput
+	ToApiKeyAuthenticationOutputWithContext(context.Context) ApiKeyAuthenticationOutput
 }
 
-// Defines the authentication method and properties to access the artifacts.
-type AuthenticationArgs struct {
-	// The authentication type
+// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
+type ApiKeyAuthenticationArgs struct {
+	// The location of the authentication key/value pair in the request.
+	In pulumi.StringInput `pulumi:"in"`
+	// The key name of the authentication key/value pair.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The authentication type.
 	Type pulumi.StringInput `pulumi:"type"`
+	// The value of the authentication key/value pair.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (AuthenticationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Authentication)(nil)).Elem()
+func (ApiKeyAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyAuthentication)(nil)).Elem()
 }
 
-func (i AuthenticationArgs) ToAuthenticationOutput() AuthenticationOutput {
-	return i.ToAuthenticationOutputWithContext(context.Background())
+func (i ApiKeyAuthenticationArgs) ToApiKeyAuthenticationOutput() ApiKeyAuthenticationOutput {
+	return i.ToApiKeyAuthenticationOutputWithContext(context.Background())
 }
 
-func (i AuthenticationArgs) ToAuthenticationOutputWithContext(ctx context.Context) AuthenticationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationOutput)
+func (i ApiKeyAuthenticationArgs) ToApiKeyAuthenticationOutputWithContext(ctx context.Context) ApiKeyAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyAuthenticationOutput)
 }
 
-func (i AuthenticationArgs) ToAuthenticationPtrOutput() AuthenticationPtrOutput {
-	return i.ToAuthenticationPtrOutputWithContext(context.Background())
+// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
+type ApiKeyAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyAuthentication)(nil)).Elem()
 }
 
-func (i AuthenticationArgs) ToAuthenticationPtrOutputWithContext(ctx context.Context) AuthenticationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationOutput).ToAuthenticationPtrOutputWithContext(ctx)
-}
-
-// AuthenticationPtrInput is an input type that accepts AuthenticationArgs, AuthenticationPtr and AuthenticationPtrOutput values.
-// You can construct a concrete instance of `AuthenticationPtrInput` via:
-//
-//          AuthenticationArgs{...}
-//
-//  or:
-//
-//          nil
-type AuthenticationPtrInput interface {
-	pulumi.Input
-
-	ToAuthenticationPtrOutput() AuthenticationPtrOutput
-	ToAuthenticationPtrOutputWithContext(context.Context) AuthenticationPtrOutput
-}
-
-type authenticationPtrType AuthenticationArgs
-
-func AuthenticationPtr(v *AuthenticationArgs) AuthenticationPtrInput {
-	return (*authenticationPtrType)(v)
-}
-
-func (*authenticationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Authentication)(nil)).Elem()
-}
-
-func (i *authenticationPtrType) ToAuthenticationPtrOutput() AuthenticationPtrOutput {
-	return i.ToAuthenticationPtrOutputWithContext(context.Background())
-}
-
-func (i *authenticationPtrType) ToAuthenticationPtrOutputWithContext(ctx context.Context) AuthenticationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPtrOutput)
-}
-
-// Defines the authentication method and properties to access the artifacts.
-type AuthenticationOutput struct{ *pulumi.OutputState }
-
-func (AuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Authentication)(nil)).Elem()
-}
-
-func (o AuthenticationOutput) ToAuthenticationOutput() AuthenticationOutput {
+func (o ApiKeyAuthenticationOutput) ToApiKeyAuthenticationOutput() ApiKeyAuthenticationOutput {
 	return o
 }
 
-func (o AuthenticationOutput) ToAuthenticationOutputWithContext(ctx context.Context) AuthenticationOutput {
+func (o ApiKeyAuthenticationOutput) ToApiKeyAuthenticationOutputWithContext(ctx context.Context) ApiKeyAuthenticationOutput {
 	return o
 }
 
-func (o AuthenticationOutput) ToAuthenticationPtrOutput() AuthenticationPtrOutput {
-	return o.ToAuthenticationPtrOutputWithContext(context.Background())
+// The location of the authentication key/value pair in the request.
+func (o ApiKeyAuthenticationOutput) In() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAuthentication) string { return v.In }).(pulumi.StringOutput)
 }
 
-func (o AuthenticationOutput) ToAuthenticationPtrOutputWithContext(ctx context.Context) AuthenticationPtrOutput {
-	return o.ApplyT(func(v Authentication) *Authentication {
-		return &v
-	}).(AuthenticationPtrOutput)
+// The key name of the authentication key/value pair.
+func (o ApiKeyAuthenticationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAuthentication) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The authentication type
-func (o AuthenticationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v Authentication) string { return v.Type }).(pulumi.StringOutput)
+// The authentication type.
+func (o ApiKeyAuthenticationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type AuthenticationPtrOutput struct{ *pulumi.OutputState }
-
-func (AuthenticationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Authentication)(nil)).Elem()
+// The value of the authentication key/value pair.
+func (o ApiKeyAuthenticationOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAuthentication) string { return v.Value }).(pulumi.StringOutput)
 }
 
-func (o AuthenticationPtrOutput) ToAuthenticationPtrOutput() AuthenticationPtrOutput {
-	return o
-}
-
-func (o AuthenticationPtrOutput) ToAuthenticationPtrOutputWithContext(ctx context.Context) AuthenticationPtrOutput {
-	return o
-}
-
-func (o AuthenticationPtrOutput) Elem() AuthenticationOutput {
-	return o.ApplyT(func(v *Authentication) Authentication { return *v }).(AuthenticationOutput)
-}
-
-// The authentication type
-func (o AuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Authentication) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the authentication method and properties to access the artifacts.
-type AuthenticationResponse struct {
-	// The authentication type
+// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
+type ApiKeyAuthenticationResponse struct {
+	// The location of the authentication key/value pair in the request.
+	In string `pulumi:"in"`
+	// The key name of the authentication key/value pair.
+	Name string `pulumi:"name"`
+	// The authentication type.
 	Type string `pulumi:"type"`
+	// The value of the authentication key/value pair.
+	Value string `pulumi:"value"`
 }
 
-// AuthenticationResponseInput is an input type that accepts AuthenticationResponseArgs and AuthenticationResponseOutput values.
-// You can construct a concrete instance of `AuthenticationResponseInput` via:
+// ApiKeyAuthenticationResponseInput is an input type that accepts ApiKeyAuthenticationResponseArgs and ApiKeyAuthenticationResponseOutput values.
+// You can construct a concrete instance of `ApiKeyAuthenticationResponseInput` via:
 //
-//          AuthenticationResponseArgs{...}
-type AuthenticationResponseInput interface {
+//          ApiKeyAuthenticationResponseArgs{...}
+type ApiKeyAuthenticationResponseInput interface {
 	pulumi.Input
 
-	ToAuthenticationResponseOutput() AuthenticationResponseOutput
-	ToAuthenticationResponseOutputWithContext(context.Context) AuthenticationResponseOutput
+	ToApiKeyAuthenticationResponseOutput() ApiKeyAuthenticationResponseOutput
+	ToApiKeyAuthenticationResponseOutputWithContext(context.Context) ApiKeyAuthenticationResponseOutput
 }
 
-// Defines the authentication method and properties to access the artifacts.
-type AuthenticationResponseArgs struct {
-	// The authentication type
+// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
+type ApiKeyAuthenticationResponseArgs struct {
+	// The location of the authentication key/value pair in the request.
+	In pulumi.StringInput `pulumi:"in"`
+	// The key name of the authentication key/value pair.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The authentication type.
 	Type pulumi.StringInput `pulumi:"type"`
+	// The value of the authentication key/value pair.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (AuthenticationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthenticationResponse)(nil)).Elem()
+func (ApiKeyAuthenticationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyAuthenticationResponse)(nil)).Elem()
 }
 
-func (i AuthenticationResponseArgs) ToAuthenticationResponseOutput() AuthenticationResponseOutput {
-	return i.ToAuthenticationResponseOutputWithContext(context.Background())
+func (i ApiKeyAuthenticationResponseArgs) ToApiKeyAuthenticationResponseOutput() ApiKeyAuthenticationResponseOutput {
+	return i.ToApiKeyAuthenticationResponseOutputWithContext(context.Background())
 }
 
-func (i AuthenticationResponseArgs) ToAuthenticationResponseOutputWithContext(ctx context.Context) AuthenticationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationResponseOutput)
+func (i ApiKeyAuthenticationResponseArgs) ToApiKeyAuthenticationResponseOutputWithContext(ctx context.Context) ApiKeyAuthenticationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyAuthenticationResponseOutput)
 }
 
-func (i AuthenticationResponseArgs) ToAuthenticationResponsePtrOutput() AuthenticationResponsePtrOutput {
-	return i.ToAuthenticationResponsePtrOutputWithContext(context.Background())
+// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
+type ApiKeyAuthenticationResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyAuthenticationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyAuthenticationResponse)(nil)).Elem()
 }
 
-func (i AuthenticationResponseArgs) ToAuthenticationResponsePtrOutputWithContext(ctx context.Context) AuthenticationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationResponseOutput).ToAuthenticationResponsePtrOutputWithContext(ctx)
-}
-
-// AuthenticationResponsePtrInput is an input type that accepts AuthenticationResponseArgs, AuthenticationResponsePtr and AuthenticationResponsePtrOutput values.
-// You can construct a concrete instance of `AuthenticationResponsePtrInput` via:
-//
-//          AuthenticationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AuthenticationResponsePtrInput interface {
-	pulumi.Input
-
-	ToAuthenticationResponsePtrOutput() AuthenticationResponsePtrOutput
-	ToAuthenticationResponsePtrOutputWithContext(context.Context) AuthenticationResponsePtrOutput
-}
-
-type authenticationResponsePtrType AuthenticationResponseArgs
-
-func AuthenticationResponsePtr(v *AuthenticationResponseArgs) AuthenticationResponsePtrInput {
-	return (*authenticationResponsePtrType)(v)
-}
-
-func (*authenticationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthenticationResponse)(nil)).Elem()
-}
-
-func (i *authenticationResponsePtrType) ToAuthenticationResponsePtrOutput() AuthenticationResponsePtrOutput {
-	return i.ToAuthenticationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *authenticationResponsePtrType) ToAuthenticationResponsePtrOutputWithContext(ctx context.Context) AuthenticationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationResponsePtrOutput)
-}
-
-// Defines the authentication method and properties to access the artifacts.
-type AuthenticationResponseOutput struct{ *pulumi.OutputState }
-
-func (AuthenticationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthenticationResponse)(nil)).Elem()
-}
-
-func (o AuthenticationResponseOutput) ToAuthenticationResponseOutput() AuthenticationResponseOutput {
+func (o ApiKeyAuthenticationResponseOutput) ToApiKeyAuthenticationResponseOutput() ApiKeyAuthenticationResponseOutput {
 	return o
 }
 
-func (o AuthenticationResponseOutput) ToAuthenticationResponseOutputWithContext(ctx context.Context) AuthenticationResponseOutput {
+func (o ApiKeyAuthenticationResponseOutput) ToApiKeyAuthenticationResponseOutputWithContext(ctx context.Context) ApiKeyAuthenticationResponseOutput {
 	return o
 }
 
-func (o AuthenticationResponseOutput) ToAuthenticationResponsePtrOutput() AuthenticationResponsePtrOutput {
-	return o.ToAuthenticationResponsePtrOutputWithContext(context.Background())
+// The location of the authentication key/value pair in the request.
+func (o ApiKeyAuthenticationResponseOutput) In() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAuthenticationResponse) string { return v.In }).(pulumi.StringOutput)
 }
 
-func (o AuthenticationResponseOutput) ToAuthenticationResponsePtrOutputWithContext(ctx context.Context) AuthenticationResponsePtrOutput {
-	return o.ApplyT(func(v AuthenticationResponse) *AuthenticationResponse {
-		return &v
-	}).(AuthenticationResponsePtrOutput)
+// The key name of the authentication key/value pair.
+func (o ApiKeyAuthenticationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAuthenticationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The authentication type
-func (o AuthenticationResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
+// The authentication type.
+func (o ApiKeyAuthenticationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type AuthenticationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AuthenticationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthenticationResponse)(nil)).Elem()
-}
-
-func (o AuthenticationResponsePtrOutput) ToAuthenticationResponsePtrOutput() AuthenticationResponsePtrOutput {
-	return o
-}
-
-func (o AuthenticationResponsePtrOutput) ToAuthenticationResponsePtrOutputWithContext(ctx context.Context) AuthenticationResponsePtrOutput {
-	return o
-}
-
-func (o AuthenticationResponsePtrOutput) Elem() AuthenticationResponseOutput {
-	return o.ApplyT(func(v *AuthenticationResponse) AuthenticationResponse { return *v }).(AuthenticationResponseOutput)
-}
-
-// The authentication type
-func (o AuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AuthenticationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
+// The value of the authentication key/value pair.
+func (o ApiKeyAuthenticationResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAuthenticationResponse) string { return v.Value }).(pulumi.StringOutput)
 }
 
 // Detailed error information of any failure.
@@ -512,6 +408,134 @@ func (o CloudErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) CloudErrorBo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudErrorBodyResponse {
 		return vs[0].([]CloudErrorBodyResponse)[vs[1].(int)]
 	}).(CloudErrorBodyResponseOutput)
+}
+
+// Defines the properties of a health check step.
+type HealthCheckStepProperties struct {
+	// The health check step attributes
+	Attributes RestHealthCheckStepAttributes `pulumi:"attributes"`
+	// The type of step.
+	StepType string `pulumi:"stepType"`
+}
+
+// HealthCheckStepPropertiesInput is an input type that accepts HealthCheckStepPropertiesArgs and HealthCheckStepPropertiesOutput values.
+// You can construct a concrete instance of `HealthCheckStepPropertiesInput` via:
+//
+//          HealthCheckStepPropertiesArgs{...}
+type HealthCheckStepPropertiesInput interface {
+	pulumi.Input
+
+	ToHealthCheckStepPropertiesOutput() HealthCheckStepPropertiesOutput
+	ToHealthCheckStepPropertiesOutputWithContext(context.Context) HealthCheckStepPropertiesOutput
+}
+
+// Defines the properties of a health check step.
+type HealthCheckStepPropertiesArgs struct {
+	// The health check step attributes
+	Attributes RestHealthCheckStepAttributesInput `pulumi:"attributes"`
+	// The type of step.
+	StepType pulumi.StringInput `pulumi:"stepType"`
+}
+
+func (HealthCheckStepPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckStepProperties)(nil)).Elem()
+}
+
+func (i HealthCheckStepPropertiesArgs) ToHealthCheckStepPropertiesOutput() HealthCheckStepPropertiesOutput {
+	return i.ToHealthCheckStepPropertiesOutputWithContext(context.Background())
+}
+
+func (i HealthCheckStepPropertiesArgs) ToHealthCheckStepPropertiesOutputWithContext(ctx context.Context) HealthCheckStepPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckStepPropertiesOutput)
+}
+
+// Defines the properties of a health check step.
+type HealthCheckStepPropertiesOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckStepPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckStepProperties)(nil)).Elem()
+}
+
+func (o HealthCheckStepPropertiesOutput) ToHealthCheckStepPropertiesOutput() HealthCheckStepPropertiesOutput {
+	return o
+}
+
+func (o HealthCheckStepPropertiesOutput) ToHealthCheckStepPropertiesOutputWithContext(ctx context.Context) HealthCheckStepPropertiesOutput {
+	return o
+}
+
+// The health check step attributes
+func (o HealthCheckStepPropertiesOutput) Attributes() RestHealthCheckStepAttributesOutput {
+	return o.ApplyT(func(v HealthCheckStepProperties) RestHealthCheckStepAttributes { return v.Attributes }).(RestHealthCheckStepAttributesOutput)
+}
+
+// The type of step.
+func (o HealthCheckStepPropertiesOutput) StepType() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthCheckStepProperties) string { return v.StepType }).(pulumi.StringOutput)
+}
+
+// Defines the properties of a health check step.
+type HealthCheckStepPropertiesResponse struct {
+	// The health check step attributes
+	Attributes RestHealthCheckStepAttributesResponse `pulumi:"attributes"`
+	// The type of step.
+	StepType string `pulumi:"stepType"`
+}
+
+// HealthCheckStepPropertiesResponseInput is an input type that accepts HealthCheckStepPropertiesResponseArgs and HealthCheckStepPropertiesResponseOutput values.
+// You can construct a concrete instance of `HealthCheckStepPropertiesResponseInput` via:
+//
+//          HealthCheckStepPropertiesResponseArgs{...}
+type HealthCheckStepPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToHealthCheckStepPropertiesResponseOutput() HealthCheckStepPropertiesResponseOutput
+	ToHealthCheckStepPropertiesResponseOutputWithContext(context.Context) HealthCheckStepPropertiesResponseOutput
+}
+
+// Defines the properties of a health check step.
+type HealthCheckStepPropertiesResponseArgs struct {
+	// The health check step attributes
+	Attributes RestHealthCheckStepAttributesResponseInput `pulumi:"attributes"`
+	// The type of step.
+	StepType pulumi.StringInput `pulumi:"stepType"`
+}
+
+func (HealthCheckStepPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckStepPropertiesResponse)(nil)).Elem()
+}
+
+func (i HealthCheckStepPropertiesResponseArgs) ToHealthCheckStepPropertiesResponseOutput() HealthCheckStepPropertiesResponseOutput {
+	return i.ToHealthCheckStepPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i HealthCheckStepPropertiesResponseArgs) ToHealthCheckStepPropertiesResponseOutputWithContext(ctx context.Context) HealthCheckStepPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckStepPropertiesResponseOutput)
+}
+
+// Defines the properties of a health check step.
+type HealthCheckStepPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (HealthCheckStepPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckStepPropertiesResponse)(nil)).Elem()
+}
+
+func (o HealthCheckStepPropertiesResponseOutput) ToHealthCheckStepPropertiesResponseOutput() HealthCheckStepPropertiesResponseOutput {
+	return o
+}
+
+func (o HealthCheckStepPropertiesResponseOutput) ToHealthCheckStepPropertiesResponseOutputWithContext(ctx context.Context) HealthCheckStepPropertiesResponseOutput {
+	return o
+}
+
+// The health check step attributes
+func (o HealthCheckStepPropertiesResponseOutput) Attributes() RestHealthCheckStepAttributesResponseOutput {
+	return o.ApplyT(func(v HealthCheckStepPropertiesResponse) RestHealthCheckStepAttributesResponse { return v.Attributes }).(RestHealthCheckStepAttributesResponseOutput)
+}
+
+// The type of step.
+func (o HealthCheckStepPropertiesResponseOutput) StepType() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthCheckStepPropertiesResponse) string { return v.StepType }).(pulumi.StringOutput)
 }
 
 // Identity for the resource.
@@ -1274,6 +1298,1292 @@ func (o ResourceOperationResponseArrayOutput) Index(i pulumi.IntInput) ResourceO
 	}).(ResourceOperationResponseOutput)
 }
 
+// A REST based health check
+type RestHealthCheck struct {
+	// A unique name for this check.
+	Name string `pulumi:"name"`
+	// The request to the health provider.
+	Request RestRequest `pulumi:"request"`
+	// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+	Response *RestResponse `pulumi:"response"`
+}
+
+// RestHealthCheckInput is an input type that accepts RestHealthCheckArgs and RestHealthCheckOutput values.
+// You can construct a concrete instance of `RestHealthCheckInput` via:
+//
+//          RestHealthCheckArgs{...}
+type RestHealthCheckInput interface {
+	pulumi.Input
+
+	ToRestHealthCheckOutput() RestHealthCheckOutput
+	ToRestHealthCheckOutputWithContext(context.Context) RestHealthCheckOutput
+}
+
+// A REST based health check
+type RestHealthCheckArgs struct {
+	// A unique name for this check.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The request to the health provider.
+	Request RestRequestInput `pulumi:"request"`
+	// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+	Response RestResponsePtrInput `pulumi:"response"`
+}
+
+func (RestHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestHealthCheck)(nil)).Elem()
+}
+
+func (i RestHealthCheckArgs) ToRestHealthCheckOutput() RestHealthCheckOutput {
+	return i.ToRestHealthCheckOutputWithContext(context.Background())
+}
+
+func (i RestHealthCheckArgs) ToRestHealthCheckOutputWithContext(ctx context.Context) RestHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestHealthCheckOutput)
+}
+
+// RestHealthCheckArrayInput is an input type that accepts RestHealthCheckArray and RestHealthCheckArrayOutput values.
+// You can construct a concrete instance of `RestHealthCheckArrayInput` via:
+//
+//          RestHealthCheckArray{ RestHealthCheckArgs{...} }
+type RestHealthCheckArrayInput interface {
+	pulumi.Input
+
+	ToRestHealthCheckArrayOutput() RestHealthCheckArrayOutput
+	ToRestHealthCheckArrayOutputWithContext(context.Context) RestHealthCheckArrayOutput
+}
+
+type RestHealthCheckArray []RestHealthCheckInput
+
+func (RestHealthCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestHealthCheck)(nil)).Elem()
+}
+
+func (i RestHealthCheckArray) ToRestHealthCheckArrayOutput() RestHealthCheckArrayOutput {
+	return i.ToRestHealthCheckArrayOutputWithContext(context.Background())
+}
+
+func (i RestHealthCheckArray) ToRestHealthCheckArrayOutputWithContext(ctx context.Context) RestHealthCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestHealthCheckArrayOutput)
+}
+
+// A REST based health check
+type RestHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (RestHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestHealthCheck)(nil)).Elem()
+}
+
+func (o RestHealthCheckOutput) ToRestHealthCheckOutput() RestHealthCheckOutput {
+	return o
+}
+
+func (o RestHealthCheckOutput) ToRestHealthCheckOutputWithContext(ctx context.Context) RestHealthCheckOutput {
+	return o
+}
+
+// A unique name for this check.
+func (o RestHealthCheckOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RestHealthCheck) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The request to the health provider.
+func (o RestHealthCheckOutput) Request() RestRequestOutput {
+	return o.ApplyT(func(v RestHealthCheck) RestRequest { return v.Request }).(RestRequestOutput)
+}
+
+// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+func (o RestHealthCheckOutput) Response() RestResponsePtrOutput {
+	return o.ApplyT(func(v RestHealthCheck) *RestResponse { return v.Response }).(RestResponsePtrOutput)
+}
+
+type RestHealthCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (RestHealthCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestHealthCheck)(nil)).Elem()
+}
+
+func (o RestHealthCheckArrayOutput) ToRestHealthCheckArrayOutput() RestHealthCheckArrayOutput {
+	return o
+}
+
+func (o RestHealthCheckArrayOutput) ToRestHealthCheckArrayOutputWithContext(ctx context.Context) RestHealthCheckArrayOutput {
+	return o
+}
+
+func (o RestHealthCheckArrayOutput) Index(i pulumi.IntInput) RestHealthCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestHealthCheck {
+		return vs[0].([]RestHealthCheck)[vs[1].(int)]
+	}).(RestHealthCheckOutput)
+}
+
+// A REST based health check
+type RestHealthCheckResponse struct {
+	// A unique name for this check.
+	Name string `pulumi:"name"`
+	// The request to the health provider.
+	Request RestRequestResponse `pulumi:"request"`
+	// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+	Response *RestResponseResponse `pulumi:"response"`
+}
+
+// RestHealthCheckResponseInput is an input type that accepts RestHealthCheckResponseArgs and RestHealthCheckResponseOutput values.
+// You can construct a concrete instance of `RestHealthCheckResponseInput` via:
+//
+//          RestHealthCheckResponseArgs{...}
+type RestHealthCheckResponseInput interface {
+	pulumi.Input
+
+	ToRestHealthCheckResponseOutput() RestHealthCheckResponseOutput
+	ToRestHealthCheckResponseOutputWithContext(context.Context) RestHealthCheckResponseOutput
+}
+
+// A REST based health check
+type RestHealthCheckResponseArgs struct {
+	// A unique name for this check.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The request to the health provider.
+	Request RestRequestResponseInput `pulumi:"request"`
+	// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+	Response RestResponseResponsePtrInput `pulumi:"response"`
+}
+
+func (RestHealthCheckResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestHealthCheckResponse)(nil)).Elem()
+}
+
+func (i RestHealthCheckResponseArgs) ToRestHealthCheckResponseOutput() RestHealthCheckResponseOutput {
+	return i.ToRestHealthCheckResponseOutputWithContext(context.Background())
+}
+
+func (i RestHealthCheckResponseArgs) ToRestHealthCheckResponseOutputWithContext(ctx context.Context) RestHealthCheckResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestHealthCheckResponseOutput)
+}
+
+// RestHealthCheckResponseArrayInput is an input type that accepts RestHealthCheckResponseArray and RestHealthCheckResponseArrayOutput values.
+// You can construct a concrete instance of `RestHealthCheckResponseArrayInput` via:
+//
+//          RestHealthCheckResponseArray{ RestHealthCheckResponseArgs{...} }
+type RestHealthCheckResponseArrayInput interface {
+	pulumi.Input
+
+	ToRestHealthCheckResponseArrayOutput() RestHealthCheckResponseArrayOutput
+	ToRestHealthCheckResponseArrayOutputWithContext(context.Context) RestHealthCheckResponseArrayOutput
+}
+
+type RestHealthCheckResponseArray []RestHealthCheckResponseInput
+
+func (RestHealthCheckResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestHealthCheckResponse)(nil)).Elem()
+}
+
+func (i RestHealthCheckResponseArray) ToRestHealthCheckResponseArrayOutput() RestHealthCheckResponseArrayOutput {
+	return i.ToRestHealthCheckResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RestHealthCheckResponseArray) ToRestHealthCheckResponseArrayOutputWithContext(ctx context.Context) RestHealthCheckResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestHealthCheckResponseArrayOutput)
+}
+
+// A REST based health check
+type RestHealthCheckResponseOutput struct{ *pulumi.OutputState }
+
+func (RestHealthCheckResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestHealthCheckResponse)(nil)).Elem()
+}
+
+func (o RestHealthCheckResponseOutput) ToRestHealthCheckResponseOutput() RestHealthCheckResponseOutput {
+	return o
+}
+
+func (o RestHealthCheckResponseOutput) ToRestHealthCheckResponseOutputWithContext(ctx context.Context) RestHealthCheckResponseOutput {
+	return o
+}
+
+// A unique name for this check.
+func (o RestHealthCheckResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RestHealthCheckResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The request to the health provider.
+func (o RestHealthCheckResponseOutput) Request() RestRequestResponseOutput {
+	return o.ApplyT(func(v RestHealthCheckResponse) RestRequestResponse { return v.Request }).(RestRequestResponseOutput)
+}
+
+// The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+func (o RestHealthCheckResponseOutput) Response() RestResponseResponsePtrOutput {
+	return o.ApplyT(func(v RestHealthCheckResponse) *RestResponseResponse { return v.Response }).(RestResponseResponsePtrOutput)
+}
+
+type RestHealthCheckResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RestHealthCheckResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestHealthCheckResponse)(nil)).Elem()
+}
+
+func (o RestHealthCheckResponseArrayOutput) ToRestHealthCheckResponseArrayOutput() RestHealthCheckResponseArrayOutput {
+	return o
+}
+
+func (o RestHealthCheckResponseArrayOutput) ToRestHealthCheckResponseArrayOutputWithContext(ctx context.Context) RestHealthCheckResponseArrayOutput {
+	return o
+}
+
+func (o RestHealthCheckResponseArrayOutput) Index(i pulumi.IntInput) RestHealthCheckResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestHealthCheckResponse {
+		return vs[0].([]RestHealthCheckResponse)[vs[1].(int)]
+	}).(RestHealthCheckResponseOutput)
+}
+
+// Defines the REST health check step properties.
+type RestHealthCheckStepAttributes struct {
+	// The list of checks that form the health check step.
+	HealthChecks []RestHealthCheck `pulumi:"healthChecks"`
+	// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+	HealthyStateDuration string `pulumi:"healthyStateDuration"`
+	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+	MaxElasticDuration *string `pulumi:"maxElasticDuration"`
+	// The type of health check.
+	Type string `pulumi:"type"`
+	// The duration in ISO 8601 format for which health check waits idly without any checks.
+	WaitDuration *string `pulumi:"waitDuration"`
+}
+
+// RestHealthCheckStepAttributesInput is an input type that accepts RestHealthCheckStepAttributesArgs and RestHealthCheckStepAttributesOutput values.
+// You can construct a concrete instance of `RestHealthCheckStepAttributesInput` via:
+//
+//          RestHealthCheckStepAttributesArgs{...}
+type RestHealthCheckStepAttributesInput interface {
+	pulumi.Input
+
+	ToRestHealthCheckStepAttributesOutput() RestHealthCheckStepAttributesOutput
+	ToRestHealthCheckStepAttributesOutputWithContext(context.Context) RestHealthCheckStepAttributesOutput
+}
+
+// Defines the REST health check step properties.
+type RestHealthCheckStepAttributesArgs struct {
+	// The list of checks that form the health check step.
+	HealthChecks RestHealthCheckArrayInput `pulumi:"healthChecks"`
+	// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+	HealthyStateDuration pulumi.StringInput `pulumi:"healthyStateDuration"`
+	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+	MaxElasticDuration pulumi.StringPtrInput `pulumi:"maxElasticDuration"`
+	// The type of health check.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The duration in ISO 8601 format for which health check waits idly without any checks.
+	WaitDuration pulumi.StringPtrInput `pulumi:"waitDuration"`
+}
+
+func (RestHealthCheckStepAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestHealthCheckStepAttributes)(nil)).Elem()
+}
+
+func (i RestHealthCheckStepAttributesArgs) ToRestHealthCheckStepAttributesOutput() RestHealthCheckStepAttributesOutput {
+	return i.ToRestHealthCheckStepAttributesOutputWithContext(context.Background())
+}
+
+func (i RestHealthCheckStepAttributesArgs) ToRestHealthCheckStepAttributesOutputWithContext(ctx context.Context) RestHealthCheckStepAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestHealthCheckStepAttributesOutput)
+}
+
+// Defines the REST health check step properties.
+type RestHealthCheckStepAttributesOutput struct{ *pulumi.OutputState }
+
+func (RestHealthCheckStepAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestHealthCheckStepAttributes)(nil)).Elem()
+}
+
+func (o RestHealthCheckStepAttributesOutput) ToRestHealthCheckStepAttributesOutput() RestHealthCheckStepAttributesOutput {
+	return o
+}
+
+func (o RestHealthCheckStepAttributesOutput) ToRestHealthCheckStepAttributesOutputWithContext(ctx context.Context) RestHealthCheckStepAttributesOutput {
+	return o
+}
+
+// The list of checks that form the health check step.
+func (o RestHealthCheckStepAttributesOutput) HealthChecks() RestHealthCheckArrayOutput {
+	return o.ApplyT(func(v RestHealthCheckStepAttributes) []RestHealthCheck { return v.HealthChecks }).(RestHealthCheckArrayOutput)
+}
+
+// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+func (o RestHealthCheckStepAttributesOutput) HealthyStateDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v RestHealthCheckStepAttributes) string { return v.HealthyStateDuration }).(pulumi.StringOutput)
+}
+
+// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+func (o RestHealthCheckStepAttributesOutput) MaxElasticDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestHealthCheckStepAttributes) *string { return v.MaxElasticDuration }).(pulumi.StringPtrOutput)
+}
+
+// The type of health check.
+func (o RestHealthCheckStepAttributesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RestHealthCheckStepAttributes) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The duration in ISO 8601 format for which health check waits idly without any checks.
+func (o RestHealthCheckStepAttributesOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestHealthCheckStepAttributes) *string { return v.WaitDuration }).(pulumi.StringPtrOutput)
+}
+
+// Defines the REST health check step properties.
+type RestHealthCheckStepAttributesResponse struct {
+	// The list of checks that form the health check step.
+	HealthChecks []RestHealthCheckResponse `pulumi:"healthChecks"`
+	// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+	HealthyStateDuration string `pulumi:"healthyStateDuration"`
+	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+	MaxElasticDuration *string `pulumi:"maxElasticDuration"`
+	// The type of health check.
+	Type string `pulumi:"type"`
+	// The duration in ISO 8601 format for which health check waits idly without any checks.
+	WaitDuration *string `pulumi:"waitDuration"`
+}
+
+// RestHealthCheckStepAttributesResponseInput is an input type that accepts RestHealthCheckStepAttributesResponseArgs and RestHealthCheckStepAttributesResponseOutput values.
+// You can construct a concrete instance of `RestHealthCheckStepAttributesResponseInput` via:
+//
+//          RestHealthCheckStepAttributesResponseArgs{...}
+type RestHealthCheckStepAttributesResponseInput interface {
+	pulumi.Input
+
+	ToRestHealthCheckStepAttributesResponseOutput() RestHealthCheckStepAttributesResponseOutput
+	ToRestHealthCheckStepAttributesResponseOutputWithContext(context.Context) RestHealthCheckStepAttributesResponseOutput
+}
+
+// Defines the REST health check step properties.
+type RestHealthCheckStepAttributesResponseArgs struct {
+	// The list of checks that form the health check step.
+	HealthChecks RestHealthCheckResponseArrayInput `pulumi:"healthChecks"`
+	// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+	HealthyStateDuration pulumi.StringInput `pulumi:"healthyStateDuration"`
+	// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+	MaxElasticDuration pulumi.StringPtrInput `pulumi:"maxElasticDuration"`
+	// The type of health check.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The duration in ISO 8601 format for which health check waits idly without any checks.
+	WaitDuration pulumi.StringPtrInput `pulumi:"waitDuration"`
+}
+
+func (RestHealthCheckStepAttributesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestHealthCheckStepAttributesResponse)(nil)).Elem()
+}
+
+func (i RestHealthCheckStepAttributesResponseArgs) ToRestHealthCheckStepAttributesResponseOutput() RestHealthCheckStepAttributesResponseOutput {
+	return i.ToRestHealthCheckStepAttributesResponseOutputWithContext(context.Background())
+}
+
+func (i RestHealthCheckStepAttributesResponseArgs) ToRestHealthCheckStepAttributesResponseOutputWithContext(ctx context.Context) RestHealthCheckStepAttributesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestHealthCheckStepAttributesResponseOutput)
+}
+
+// Defines the REST health check step properties.
+type RestHealthCheckStepAttributesResponseOutput struct{ *pulumi.OutputState }
+
+func (RestHealthCheckStepAttributesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestHealthCheckStepAttributesResponse)(nil)).Elem()
+}
+
+func (o RestHealthCheckStepAttributesResponseOutput) ToRestHealthCheckStepAttributesResponseOutput() RestHealthCheckStepAttributesResponseOutput {
+	return o
+}
+
+func (o RestHealthCheckStepAttributesResponseOutput) ToRestHealthCheckStepAttributesResponseOutputWithContext(ctx context.Context) RestHealthCheckStepAttributesResponseOutput {
+	return o
+}
+
+// The list of checks that form the health check step.
+func (o RestHealthCheckStepAttributesResponseOutput) HealthChecks() RestHealthCheckResponseArrayOutput {
+	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) []RestHealthCheckResponse { return v.HealthChecks }).(RestHealthCheckResponseArrayOutput)
+}
+
+// The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+func (o RestHealthCheckStepAttributesResponseOutput) HealthyStateDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) string { return v.HealthyStateDuration }).(pulumi.StringOutput)
+}
+
+// The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+func (o RestHealthCheckStepAttributesResponseOutput) MaxElasticDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) *string { return v.MaxElasticDuration }).(pulumi.StringPtrOutput)
+}
+
+// The type of health check.
+func (o RestHealthCheckStepAttributesResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The duration in ISO 8601 format for which health check waits idly without any checks.
+func (o RestHealthCheckStepAttributesResponseOutput) WaitDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestHealthCheckStepAttributesResponse) *string { return v.WaitDuration }).(pulumi.StringPtrOutput)
+}
+
+// The properties that make up a REST request
+type RestRequest struct {
+	// The authentication information required in the request to the health provider.
+	Authentication interface{} `pulumi:"authentication"`
+	// The HTTP method to use for the request.
+	Method string `pulumi:"method"`
+	// The HTTP URI to use for the request.
+	Uri string `pulumi:"uri"`
+}
+
+// RestRequestInput is an input type that accepts RestRequestArgs and RestRequestOutput values.
+// You can construct a concrete instance of `RestRequestInput` via:
+//
+//          RestRequestArgs{...}
+type RestRequestInput interface {
+	pulumi.Input
+
+	ToRestRequestOutput() RestRequestOutput
+	ToRestRequestOutputWithContext(context.Context) RestRequestOutput
+}
+
+// The properties that make up a REST request
+type RestRequestArgs struct {
+	// The authentication information required in the request to the health provider.
+	Authentication pulumi.Input `pulumi:"authentication"`
+	// The HTTP method to use for the request.
+	Method pulumi.StringInput `pulumi:"method"`
+	// The HTTP URI to use for the request.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (RestRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestRequest)(nil)).Elem()
+}
+
+func (i RestRequestArgs) ToRestRequestOutput() RestRequestOutput {
+	return i.ToRestRequestOutputWithContext(context.Background())
+}
+
+func (i RestRequestArgs) ToRestRequestOutputWithContext(ctx context.Context) RestRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestRequestOutput)
+}
+
+// The properties that make up a REST request
+type RestRequestOutput struct{ *pulumi.OutputState }
+
+func (RestRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestRequest)(nil)).Elem()
+}
+
+func (o RestRequestOutput) ToRestRequestOutput() RestRequestOutput {
+	return o
+}
+
+func (o RestRequestOutput) ToRestRequestOutputWithContext(ctx context.Context) RestRequestOutput {
+	return o
+}
+
+// The authentication information required in the request to the health provider.
+func (o RestRequestOutput) Authentication() pulumi.AnyOutput {
+	return o.ApplyT(func(v RestRequest) interface{} { return v.Authentication }).(pulumi.AnyOutput)
+}
+
+// The HTTP method to use for the request.
+func (o RestRequestOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v RestRequest) string { return v.Method }).(pulumi.StringOutput)
+}
+
+// The HTTP URI to use for the request.
+func (o RestRequestOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v RestRequest) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+// The properties that make up a REST request
+type RestRequestResponse struct {
+	// The authentication information required in the request to the health provider.
+	Authentication interface{} `pulumi:"authentication"`
+	// The HTTP method to use for the request.
+	Method string `pulumi:"method"`
+	// The HTTP URI to use for the request.
+	Uri string `pulumi:"uri"`
+}
+
+// RestRequestResponseInput is an input type that accepts RestRequestResponseArgs and RestRequestResponseOutput values.
+// You can construct a concrete instance of `RestRequestResponseInput` via:
+//
+//          RestRequestResponseArgs{...}
+type RestRequestResponseInput interface {
+	pulumi.Input
+
+	ToRestRequestResponseOutput() RestRequestResponseOutput
+	ToRestRequestResponseOutputWithContext(context.Context) RestRequestResponseOutput
+}
+
+// The properties that make up a REST request
+type RestRequestResponseArgs struct {
+	// The authentication information required in the request to the health provider.
+	Authentication pulumi.Input `pulumi:"authentication"`
+	// The HTTP method to use for the request.
+	Method pulumi.StringInput `pulumi:"method"`
+	// The HTTP URI to use for the request.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (RestRequestResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestRequestResponse)(nil)).Elem()
+}
+
+func (i RestRequestResponseArgs) ToRestRequestResponseOutput() RestRequestResponseOutput {
+	return i.ToRestRequestResponseOutputWithContext(context.Background())
+}
+
+func (i RestRequestResponseArgs) ToRestRequestResponseOutputWithContext(ctx context.Context) RestRequestResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestRequestResponseOutput)
+}
+
+// The properties that make up a REST request
+type RestRequestResponseOutput struct{ *pulumi.OutputState }
+
+func (RestRequestResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestRequestResponse)(nil)).Elem()
+}
+
+func (o RestRequestResponseOutput) ToRestRequestResponseOutput() RestRequestResponseOutput {
+	return o
+}
+
+func (o RestRequestResponseOutput) ToRestRequestResponseOutputWithContext(ctx context.Context) RestRequestResponseOutput {
+	return o
+}
+
+// The authentication information required in the request to the health provider.
+func (o RestRequestResponseOutput) Authentication() pulumi.AnyOutput {
+	return o.ApplyT(func(v RestRequestResponse) interface{} { return v.Authentication }).(pulumi.AnyOutput)
+}
+
+// The HTTP method to use for the request.
+func (o RestRequestResponseOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v RestRequestResponse) string { return v.Method }).(pulumi.StringOutput)
+}
+
+// The HTTP URI to use for the request.
+func (o RestRequestResponseOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v RestRequestResponse) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+// The properties that make up the expected REST response
+type RestResponse struct {
+	// The regular expressions to match the response content with.
+	Regex *RestResponseRegex `pulumi:"regex"`
+	// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+	SuccessStatusCodes []string `pulumi:"successStatusCodes"`
+}
+
+// RestResponseInput is an input type that accepts RestResponseArgs and RestResponseOutput values.
+// You can construct a concrete instance of `RestResponseInput` via:
+//
+//          RestResponseArgs{...}
+type RestResponseInput interface {
+	pulumi.Input
+
+	ToRestResponseOutput() RestResponseOutput
+	ToRestResponseOutputWithContext(context.Context) RestResponseOutput
+}
+
+// The properties that make up the expected REST response
+type RestResponseArgs struct {
+	// The regular expressions to match the response content with.
+	Regex RestResponseRegexPtrInput `pulumi:"regex"`
+	// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+	SuccessStatusCodes pulumi.StringArrayInput `pulumi:"successStatusCodes"`
+}
+
+func (RestResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestResponse)(nil)).Elem()
+}
+
+func (i RestResponseArgs) ToRestResponseOutput() RestResponseOutput {
+	return i.ToRestResponseOutputWithContext(context.Background())
+}
+
+func (i RestResponseArgs) ToRestResponseOutputWithContext(ctx context.Context) RestResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponseOutput)
+}
+
+func (i RestResponseArgs) ToRestResponsePtrOutput() RestResponsePtrOutput {
+	return i.ToRestResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RestResponseArgs) ToRestResponsePtrOutputWithContext(ctx context.Context) RestResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponseOutput).ToRestResponsePtrOutputWithContext(ctx)
+}
+
+// RestResponsePtrInput is an input type that accepts RestResponseArgs, RestResponsePtr and RestResponsePtrOutput values.
+// You can construct a concrete instance of `RestResponsePtrInput` via:
+//
+//          RestResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RestResponsePtrInput interface {
+	pulumi.Input
+
+	ToRestResponsePtrOutput() RestResponsePtrOutput
+	ToRestResponsePtrOutputWithContext(context.Context) RestResponsePtrOutput
+}
+
+type restResponsePtrType RestResponseArgs
+
+func RestResponsePtr(v *RestResponseArgs) RestResponsePtrInput {
+	return (*restResponsePtrType)(v)
+}
+
+func (*restResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestResponse)(nil)).Elem()
+}
+
+func (i *restResponsePtrType) ToRestResponsePtrOutput() RestResponsePtrOutput {
+	return i.ToRestResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *restResponsePtrType) ToRestResponsePtrOutputWithContext(ctx context.Context) RestResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponsePtrOutput)
+}
+
+// The properties that make up the expected REST response
+type RestResponseOutput struct{ *pulumi.OutputState }
+
+func (RestResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestResponse)(nil)).Elem()
+}
+
+func (o RestResponseOutput) ToRestResponseOutput() RestResponseOutput {
+	return o
+}
+
+func (o RestResponseOutput) ToRestResponseOutputWithContext(ctx context.Context) RestResponseOutput {
+	return o
+}
+
+func (o RestResponseOutput) ToRestResponsePtrOutput() RestResponsePtrOutput {
+	return o.ToRestResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RestResponseOutput) ToRestResponsePtrOutputWithContext(ctx context.Context) RestResponsePtrOutput {
+	return o.ApplyT(func(v RestResponse) *RestResponse {
+		return &v
+	}).(RestResponsePtrOutput)
+}
+
+// The regular expressions to match the response content with.
+func (o RestResponseOutput) Regex() RestResponseRegexPtrOutput {
+	return o.ApplyT(func(v RestResponse) *RestResponseRegex { return v.Regex }).(RestResponseRegexPtrOutput)
+}
+
+// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+func (o RestResponseOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestResponse) []string { return v.SuccessStatusCodes }).(pulumi.StringArrayOutput)
+}
+
+type RestResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RestResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestResponse)(nil)).Elem()
+}
+
+func (o RestResponsePtrOutput) ToRestResponsePtrOutput() RestResponsePtrOutput {
+	return o
+}
+
+func (o RestResponsePtrOutput) ToRestResponsePtrOutputWithContext(ctx context.Context) RestResponsePtrOutput {
+	return o
+}
+
+func (o RestResponsePtrOutput) Elem() RestResponseOutput {
+	return o.ApplyT(func(v *RestResponse) RestResponse { return *v }).(RestResponseOutput)
+}
+
+// The regular expressions to match the response content with.
+func (o RestResponsePtrOutput) Regex() RestResponseRegexPtrOutput {
+	return o.ApplyT(func(v *RestResponse) *RestResponseRegex {
+		if v == nil {
+			return nil
+		}
+		return v.Regex
+	}).(RestResponseRegexPtrOutput)
+}
+
+// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+func (o RestResponsePtrOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessStatusCodes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The regular expressions to match the response content with.
+type RestResponseRegex struct {
+	// Indicates whether any or all of the expressions should match with the response content.
+	MatchQuantifier *string `pulumi:"matchQuantifier"`
+	// The list of regular expressions.
+	Matches []string `pulumi:"matches"`
+}
+
+// RestResponseRegexInput is an input type that accepts RestResponseRegexArgs and RestResponseRegexOutput values.
+// You can construct a concrete instance of `RestResponseRegexInput` via:
+//
+//          RestResponseRegexArgs{...}
+type RestResponseRegexInput interface {
+	pulumi.Input
+
+	ToRestResponseRegexOutput() RestResponseRegexOutput
+	ToRestResponseRegexOutputWithContext(context.Context) RestResponseRegexOutput
+}
+
+// The regular expressions to match the response content with.
+type RestResponseRegexArgs struct {
+	// Indicates whether any or all of the expressions should match with the response content.
+	MatchQuantifier pulumi.StringPtrInput `pulumi:"matchQuantifier"`
+	// The list of regular expressions.
+	Matches pulumi.StringArrayInput `pulumi:"matches"`
+}
+
+func (RestResponseRegexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestResponseRegex)(nil)).Elem()
+}
+
+func (i RestResponseRegexArgs) ToRestResponseRegexOutput() RestResponseRegexOutput {
+	return i.ToRestResponseRegexOutputWithContext(context.Background())
+}
+
+func (i RestResponseRegexArgs) ToRestResponseRegexOutputWithContext(ctx context.Context) RestResponseRegexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponseRegexOutput)
+}
+
+func (i RestResponseRegexArgs) ToRestResponseRegexPtrOutput() RestResponseRegexPtrOutput {
+	return i.ToRestResponseRegexPtrOutputWithContext(context.Background())
+}
+
+func (i RestResponseRegexArgs) ToRestResponseRegexPtrOutputWithContext(ctx context.Context) RestResponseRegexPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponseRegexOutput).ToRestResponseRegexPtrOutputWithContext(ctx)
+}
+
+// RestResponseRegexPtrInput is an input type that accepts RestResponseRegexArgs, RestResponseRegexPtr and RestResponseRegexPtrOutput values.
+// You can construct a concrete instance of `RestResponseRegexPtrInput` via:
+//
+//          RestResponseRegexArgs{...}
+//
+//  or:
+//
+//          nil
+type RestResponseRegexPtrInput interface {
+	pulumi.Input
+
+	ToRestResponseRegexPtrOutput() RestResponseRegexPtrOutput
+	ToRestResponseRegexPtrOutputWithContext(context.Context) RestResponseRegexPtrOutput
+}
+
+type restResponseRegexPtrType RestResponseRegexArgs
+
+func RestResponseRegexPtr(v *RestResponseRegexArgs) RestResponseRegexPtrInput {
+	return (*restResponseRegexPtrType)(v)
+}
+
+func (*restResponseRegexPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestResponseRegex)(nil)).Elem()
+}
+
+func (i *restResponseRegexPtrType) ToRestResponseRegexPtrOutput() RestResponseRegexPtrOutput {
+	return i.ToRestResponseRegexPtrOutputWithContext(context.Background())
+}
+
+func (i *restResponseRegexPtrType) ToRestResponseRegexPtrOutputWithContext(ctx context.Context) RestResponseRegexPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponseRegexPtrOutput)
+}
+
+// The regular expressions to match the response content with.
+type RestResponseRegexOutput struct{ *pulumi.OutputState }
+
+func (RestResponseRegexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestResponseRegex)(nil)).Elem()
+}
+
+func (o RestResponseRegexOutput) ToRestResponseRegexOutput() RestResponseRegexOutput {
+	return o
+}
+
+func (o RestResponseRegexOutput) ToRestResponseRegexOutputWithContext(ctx context.Context) RestResponseRegexOutput {
+	return o
+}
+
+func (o RestResponseRegexOutput) ToRestResponseRegexPtrOutput() RestResponseRegexPtrOutput {
+	return o.ToRestResponseRegexPtrOutputWithContext(context.Background())
+}
+
+func (o RestResponseRegexOutput) ToRestResponseRegexPtrOutputWithContext(ctx context.Context) RestResponseRegexPtrOutput {
+	return o.ApplyT(func(v RestResponseRegex) *RestResponseRegex {
+		return &v
+	}).(RestResponseRegexPtrOutput)
+}
+
+// Indicates whether any or all of the expressions should match with the response content.
+func (o RestResponseRegexOutput) MatchQuantifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestResponseRegex) *string { return v.MatchQuantifier }).(pulumi.StringPtrOutput)
+}
+
+// The list of regular expressions.
+func (o RestResponseRegexOutput) Matches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestResponseRegex) []string { return v.Matches }).(pulumi.StringArrayOutput)
+}
+
+type RestResponseRegexPtrOutput struct{ *pulumi.OutputState }
+
+func (RestResponseRegexPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestResponseRegex)(nil)).Elem()
+}
+
+func (o RestResponseRegexPtrOutput) ToRestResponseRegexPtrOutput() RestResponseRegexPtrOutput {
+	return o
+}
+
+func (o RestResponseRegexPtrOutput) ToRestResponseRegexPtrOutputWithContext(ctx context.Context) RestResponseRegexPtrOutput {
+	return o
+}
+
+func (o RestResponseRegexPtrOutput) Elem() RestResponseRegexOutput {
+	return o.ApplyT(func(v *RestResponseRegex) RestResponseRegex { return *v }).(RestResponseRegexOutput)
+}
+
+// Indicates whether any or all of the expressions should match with the response content.
+func (o RestResponseRegexPtrOutput) MatchQuantifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestResponseRegex) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchQuantifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of regular expressions.
+func (o RestResponseRegexPtrOutput) Matches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestResponseRegex) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Matches
+	}).(pulumi.StringArrayOutput)
+}
+
+// The properties that make up the expected REST response
+type RestResponseResponse struct {
+	// The regular expressions to match the response content with.
+	Regex *RestResponseResponseRegex `pulumi:"regex"`
+	// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+	SuccessStatusCodes []string `pulumi:"successStatusCodes"`
+}
+
+// RestResponseResponseInput is an input type that accepts RestResponseResponseArgs and RestResponseResponseOutput values.
+// You can construct a concrete instance of `RestResponseResponseInput` via:
+//
+//          RestResponseResponseArgs{...}
+type RestResponseResponseInput interface {
+	pulumi.Input
+
+	ToRestResponseResponseOutput() RestResponseResponseOutput
+	ToRestResponseResponseOutputWithContext(context.Context) RestResponseResponseOutput
+}
+
+// The properties that make up the expected REST response
+type RestResponseResponseArgs struct {
+	// The regular expressions to match the response content with.
+	Regex RestResponseResponseRegexPtrInput `pulumi:"regex"`
+	// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+	SuccessStatusCodes pulumi.StringArrayInput `pulumi:"successStatusCodes"`
+}
+
+func (RestResponseResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestResponseResponse)(nil)).Elem()
+}
+
+func (i RestResponseResponseArgs) ToRestResponseResponseOutput() RestResponseResponseOutput {
+	return i.ToRestResponseResponseOutputWithContext(context.Background())
+}
+
+func (i RestResponseResponseArgs) ToRestResponseResponseOutputWithContext(ctx context.Context) RestResponseResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponseResponseOutput)
+}
+
+func (i RestResponseResponseArgs) ToRestResponseResponsePtrOutput() RestResponseResponsePtrOutput {
+	return i.ToRestResponseResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RestResponseResponseArgs) ToRestResponseResponsePtrOutputWithContext(ctx context.Context) RestResponseResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponseResponseOutput).ToRestResponseResponsePtrOutputWithContext(ctx)
+}
+
+// RestResponseResponsePtrInput is an input type that accepts RestResponseResponseArgs, RestResponseResponsePtr and RestResponseResponsePtrOutput values.
+// You can construct a concrete instance of `RestResponseResponsePtrInput` via:
+//
+//          RestResponseResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RestResponseResponsePtrInput interface {
+	pulumi.Input
+
+	ToRestResponseResponsePtrOutput() RestResponseResponsePtrOutput
+	ToRestResponseResponsePtrOutputWithContext(context.Context) RestResponseResponsePtrOutput
+}
+
+type restResponseResponsePtrType RestResponseResponseArgs
+
+func RestResponseResponsePtr(v *RestResponseResponseArgs) RestResponseResponsePtrInput {
+	return (*restResponseResponsePtrType)(v)
+}
+
+func (*restResponseResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestResponseResponse)(nil)).Elem()
+}
+
+func (i *restResponseResponsePtrType) ToRestResponseResponsePtrOutput() RestResponseResponsePtrOutput {
+	return i.ToRestResponseResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *restResponseResponsePtrType) ToRestResponseResponsePtrOutputWithContext(ctx context.Context) RestResponseResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponseResponsePtrOutput)
+}
+
+// The properties that make up the expected REST response
+type RestResponseResponseOutput struct{ *pulumi.OutputState }
+
+func (RestResponseResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestResponseResponse)(nil)).Elem()
+}
+
+func (o RestResponseResponseOutput) ToRestResponseResponseOutput() RestResponseResponseOutput {
+	return o
+}
+
+func (o RestResponseResponseOutput) ToRestResponseResponseOutputWithContext(ctx context.Context) RestResponseResponseOutput {
+	return o
+}
+
+func (o RestResponseResponseOutput) ToRestResponseResponsePtrOutput() RestResponseResponsePtrOutput {
+	return o.ToRestResponseResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RestResponseResponseOutput) ToRestResponseResponsePtrOutputWithContext(ctx context.Context) RestResponseResponsePtrOutput {
+	return o.ApplyT(func(v RestResponseResponse) *RestResponseResponse {
+		return &v
+	}).(RestResponseResponsePtrOutput)
+}
+
+// The regular expressions to match the response content with.
+func (o RestResponseResponseOutput) Regex() RestResponseResponseRegexPtrOutput {
+	return o.ApplyT(func(v RestResponseResponse) *RestResponseResponseRegex { return v.Regex }).(RestResponseResponseRegexPtrOutput)
+}
+
+// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+func (o RestResponseResponseOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestResponseResponse) []string { return v.SuccessStatusCodes }).(pulumi.StringArrayOutput)
+}
+
+type RestResponseResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RestResponseResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestResponseResponse)(nil)).Elem()
+}
+
+func (o RestResponseResponsePtrOutput) ToRestResponseResponsePtrOutput() RestResponseResponsePtrOutput {
+	return o
+}
+
+func (o RestResponseResponsePtrOutput) ToRestResponseResponsePtrOutputWithContext(ctx context.Context) RestResponseResponsePtrOutput {
+	return o
+}
+
+func (o RestResponseResponsePtrOutput) Elem() RestResponseResponseOutput {
+	return o.ApplyT(func(v *RestResponseResponse) RestResponseResponse { return *v }).(RestResponseResponseOutput)
+}
+
+// The regular expressions to match the response content with.
+func (o RestResponseResponsePtrOutput) Regex() RestResponseResponseRegexPtrOutput {
+	return o.ApplyT(func(v *RestResponseResponse) *RestResponseResponseRegex {
+		if v == nil {
+			return nil
+		}
+		return v.Regex
+	}).(RestResponseResponseRegexPtrOutput)
+}
+
+// The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+func (o RestResponseResponsePtrOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestResponseResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessStatusCodes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The regular expressions to match the response content with.
+type RestResponseResponseRegex struct {
+	// Indicates whether any or all of the expressions should match with the response content.
+	MatchQuantifier *string `pulumi:"matchQuantifier"`
+	// The list of regular expressions.
+	Matches []string `pulumi:"matches"`
+}
+
+// RestResponseResponseRegexInput is an input type that accepts RestResponseResponseRegexArgs and RestResponseResponseRegexOutput values.
+// You can construct a concrete instance of `RestResponseResponseRegexInput` via:
+//
+//          RestResponseResponseRegexArgs{...}
+type RestResponseResponseRegexInput interface {
+	pulumi.Input
+
+	ToRestResponseResponseRegexOutput() RestResponseResponseRegexOutput
+	ToRestResponseResponseRegexOutputWithContext(context.Context) RestResponseResponseRegexOutput
+}
+
+// The regular expressions to match the response content with.
+type RestResponseResponseRegexArgs struct {
+	// Indicates whether any or all of the expressions should match with the response content.
+	MatchQuantifier pulumi.StringPtrInput `pulumi:"matchQuantifier"`
+	// The list of regular expressions.
+	Matches pulumi.StringArrayInput `pulumi:"matches"`
+}
+
+func (RestResponseResponseRegexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestResponseResponseRegex)(nil)).Elem()
+}
+
+func (i RestResponseResponseRegexArgs) ToRestResponseResponseRegexOutput() RestResponseResponseRegexOutput {
+	return i.ToRestResponseResponseRegexOutputWithContext(context.Background())
+}
+
+func (i RestResponseResponseRegexArgs) ToRestResponseResponseRegexOutputWithContext(ctx context.Context) RestResponseResponseRegexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponseResponseRegexOutput)
+}
+
+func (i RestResponseResponseRegexArgs) ToRestResponseResponseRegexPtrOutput() RestResponseResponseRegexPtrOutput {
+	return i.ToRestResponseResponseRegexPtrOutputWithContext(context.Background())
+}
+
+func (i RestResponseResponseRegexArgs) ToRestResponseResponseRegexPtrOutputWithContext(ctx context.Context) RestResponseResponseRegexPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponseResponseRegexOutput).ToRestResponseResponseRegexPtrOutputWithContext(ctx)
+}
+
+// RestResponseResponseRegexPtrInput is an input type that accepts RestResponseResponseRegexArgs, RestResponseResponseRegexPtr and RestResponseResponseRegexPtrOutput values.
+// You can construct a concrete instance of `RestResponseResponseRegexPtrInput` via:
+//
+//          RestResponseResponseRegexArgs{...}
+//
+//  or:
+//
+//          nil
+type RestResponseResponseRegexPtrInput interface {
+	pulumi.Input
+
+	ToRestResponseResponseRegexPtrOutput() RestResponseResponseRegexPtrOutput
+	ToRestResponseResponseRegexPtrOutputWithContext(context.Context) RestResponseResponseRegexPtrOutput
+}
+
+type restResponseResponseRegexPtrType RestResponseResponseRegexArgs
+
+func RestResponseResponseRegexPtr(v *RestResponseResponseRegexArgs) RestResponseResponseRegexPtrInput {
+	return (*restResponseResponseRegexPtrType)(v)
+}
+
+func (*restResponseResponseRegexPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestResponseResponseRegex)(nil)).Elem()
+}
+
+func (i *restResponseResponseRegexPtrType) ToRestResponseResponseRegexPtrOutput() RestResponseResponseRegexPtrOutput {
+	return i.ToRestResponseResponseRegexPtrOutputWithContext(context.Background())
+}
+
+func (i *restResponseResponseRegexPtrType) ToRestResponseResponseRegexPtrOutputWithContext(ctx context.Context) RestResponseResponseRegexPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestResponseResponseRegexPtrOutput)
+}
+
+// The regular expressions to match the response content with.
+type RestResponseResponseRegexOutput struct{ *pulumi.OutputState }
+
+func (RestResponseResponseRegexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestResponseResponseRegex)(nil)).Elem()
+}
+
+func (o RestResponseResponseRegexOutput) ToRestResponseResponseRegexOutput() RestResponseResponseRegexOutput {
+	return o
+}
+
+func (o RestResponseResponseRegexOutput) ToRestResponseResponseRegexOutputWithContext(ctx context.Context) RestResponseResponseRegexOutput {
+	return o
+}
+
+func (o RestResponseResponseRegexOutput) ToRestResponseResponseRegexPtrOutput() RestResponseResponseRegexPtrOutput {
+	return o.ToRestResponseResponseRegexPtrOutputWithContext(context.Background())
+}
+
+func (o RestResponseResponseRegexOutput) ToRestResponseResponseRegexPtrOutputWithContext(ctx context.Context) RestResponseResponseRegexPtrOutput {
+	return o.ApplyT(func(v RestResponseResponseRegex) *RestResponseResponseRegex {
+		return &v
+	}).(RestResponseResponseRegexPtrOutput)
+}
+
+// Indicates whether any or all of the expressions should match with the response content.
+func (o RestResponseResponseRegexOutput) MatchQuantifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestResponseResponseRegex) *string { return v.MatchQuantifier }).(pulumi.StringPtrOutput)
+}
+
+// The list of regular expressions.
+func (o RestResponseResponseRegexOutput) Matches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestResponseResponseRegex) []string { return v.Matches }).(pulumi.StringArrayOutput)
+}
+
+type RestResponseResponseRegexPtrOutput struct{ *pulumi.OutputState }
+
+func (RestResponseResponseRegexPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestResponseResponseRegex)(nil)).Elem()
+}
+
+func (o RestResponseResponseRegexPtrOutput) ToRestResponseResponseRegexPtrOutput() RestResponseResponseRegexPtrOutput {
+	return o
+}
+
+func (o RestResponseResponseRegexPtrOutput) ToRestResponseResponseRegexPtrOutputWithContext(ctx context.Context) RestResponseResponseRegexPtrOutput {
+	return o
+}
+
+func (o RestResponseResponseRegexPtrOutput) Elem() RestResponseResponseRegexOutput {
+	return o.ApplyT(func(v *RestResponseResponseRegex) RestResponseResponseRegex { return *v }).(RestResponseResponseRegexOutput)
+}
+
+// Indicates whether any or all of the expressions should match with the response content.
+func (o RestResponseResponseRegexPtrOutput) MatchQuantifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestResponseResponseRegex) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchQuantifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of regular expressions.
+func (o RestResponseResponseRegexPtrOutput) Matches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestResponseResponseRegex) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Matches
+	}).(pulumi.StringArrayOutput)
+}
+
+// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
+type RolloutIdentityAuthentication struct {
+	// The authentication type.
+	Type string `pulumi:"type"`
+}
+
+// RolloutIdentityAuthenticationInput is an input type that accepts RolloutIdentityAuthenticationArgs and RolloutIdentityAuthenticationOutput values.
+// You can construct a concrete instance of `RolloutIdentityAuthenticationInput` via:
+//
+//          RolloutIdentityAuthenticationArgs{...}
+type RolloutIdentityAuthenticationInput interface {
+	pulumi.Input
+
+	ToRolloutIdentityAuthenticationOutput() RolloutIdentityAuthenticationOutput
+	ToRolloutIdentityAuthenticationOutputWithContext(context.Context) RolloutIdentityAuthenticationOutput
+}
+
+// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
+type RolloutIdentityAuthenticationArgs struct {
+	// The authentication type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RolloutIdentityAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolloutIdentityAuthentication)(nil)).Elem()
+}
+
+func (i RolloutIdentityAuthenticationArgs) ToRolloutIdentityAuthenticationOutput() RolloutIdentityAuthenticationOutput {
+	return i.ToRolloutIdentityAuthenticationOutputWithContext(context.Background())
+}
+
+func (i RolloutIdentityAuthenticationArgs) ToRolloutIdentityAuthenticationOutputWithContext(ctx context.Context) RolloutIdentityAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolloutIdentityAuthenticationOutput)
+}
+
+// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
+type RolloutIdentityAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (RolloutIdentityAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolloutIdentityAuthentication)(nil)).Elem()
+}
+
+func (o RolloutIdentityAuthenticationOutput) ToRolloutIdentityAuthenticationOutput() RolloutIdentityAuthenticationOutput {
+	return o
+}
+
+func (o RolloutIdentityAuthenticationOutput) ToRolloutIdentityAuthenticationOutputWithContext(ctx context.Context) RolloutIdentityAuthenticationOutput {
+	return o
+}
+
+// The authentication type.
+func (o RolloutIdentityAuthenticationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RolloutIdentityAuthentication) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
+type RolloutIdentityAuthenticationResponse struct {
+	// The authentication type.
+	Type string `pulumi:"type"`
+}
+
+// RolloutIdentityAuthenticationResponseInput is an input type that accepts RolloutIdentityAuthenticationResponseArgs and RolloutIdentityAuthenticationResponseOutput values.
+// You can construct a concrete instance of `RolloutIdentityAuthenticationResponseInput` via:
+//
+//          RolloutIdentityAuthenticationResponseArgs{...}
+type RolloutIdentityAuthenticationResponseInput interface {
+	pulumi.Input
+
+	ToRolloutIdentityAuthenticationResponseOutput() RolloutIdentityAuthenticationResponseOutput
+	ToRolloutIdentityAuthenticationResponseOutputWithContext(context.Context) RolloutIdentityAuthenticationResponseOutput
+}
+
+// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
+type RolloutIdentityAuthenticationResponseArgs struct {
+	// The authentication type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RolloutIdentityAuthenticationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolloutIdentityAuthenticationResponse)(nil)).Elem()
+}
+
+func (i RolloutIdentityAuthenticationResponseArgs) ToRolloutIdentityAuthenticationResponseOutput() RolloutIdentityAuthenticationResponseOutput {
+	return i.ToRolloutIdentityAuthenticationResponseOutputWithContext(context.Background())
+}
+
+func (i RolloutIdentityAuthenticationResponseArgs) ToRolloutIdentityAuthenticationResponseOutputWithContext(ctx context.Context) RolloutIdentityAuthenticationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolloutIdentityAuthenticationResponseOutput)
+}
+
+// RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
+type RolloutIdentityAuthenticationResponseOutput struct{ *pulumi.OutputState }
+
+func (RolloutIdentityAuthenticationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolloutIdentityAuthenticationResponse)(nil)).Elem()
+}
+
+func (o RolloutIdentityAuthenticationResponseOutput) ToRolloutIdentityAuthenticationResponseOutput() RolloutIdentityAuthenticationResponseOutput {
+	return o
+}
+
+func (o RolloutIdentityAuthenticationResponseOutput) ToRolloutIdentityAuthenticationResponseOutputWithContext(ctx context.Context) RolloutIdentityAuthenticationResponseOutput {
+	return o
+}
+
+// The authentication type.
+func (o RolloutIdentityAuthenticationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RolloutIdentityAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Detailed runtime information of the rollout.
 type RolloutOperationInfoResponse struct {
 	// The start time of the rollout in UTC. This property will not be set if the rollout has not completed yet.
@@ -1508,6 +2818,312 @@ func (o RolloutStepResponseArrayOutput) Index(i pulumi.IntInput) RolloutStepResp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RolloutStepResponse {
 		return vs[0].([]RolloutStepResponse)[vs[1].(int)]
 	}).(RolloutStepResponseOutput)
+}
+
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthentication struct {
+	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+	SasUri string `pulumi:"sasUri"`
+	// The authentication type
+	Type string `pulumi:"type"`
+}
+
+// SasAuthenticationInput is an input type that accepts SasAuthenticationArgs and SasAuthenticationOutput values.
+// You can construct a concrete instance of `SasAuthenticationInput` via:
+//
+//          SasAuthenticationArgs{...}
+type SasAuthenticationInput interface {
+	pulumi.Input
+
+	ToSasAuthenticationOutput() SasAuthenticationOutput
+	ToSasAuthenticationOutputWithContext(context.Context) SasAuthenticationOutput
+}
+
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthenticationArgs struct {
+	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+	SasUri pulumi.StringInput `pulumi:"sasUri"`
+	// The authentication type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SasAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasAuthentication)(nil)).Elem()
+}
+
+func (i SasAuthenticationArgs) ToSasAuthenticationOutput() SasAuthenticationOutput {
+	return i.ToSasAuthenticationOutputWithContext(context.Background())
+}
+
+func (i SasAuthenticationArgs) ToSasAuthenticationOutputWithContext(ctx context.Context) SasAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationOutput)
+}
+
+func (i SasAuthenticationArgs) ToSasAuthenticationPtrOutput() SasAuthenticationPtrOutput {
+	return i.ToSasAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i SasAuthenticationArgs) ToSasAuthenticationPtrOutputWithContext(ctx context.Context) SasAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationOutput).ToSasAuthenticationPtrOutputWithContext(ctx)
+}
+
+// SasAuthenticationPtrInput is an input type that accepts SasAuthenticationArgs, SasAuthenticationPtr and SasAuthenticationPtrOutput values.
+// You can construct a concrete instance of `SasAuthenticationPtrInput` via:
+//
+//          SasAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type SasAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToSasAuthenticationPtrOutput() SasAuthenticationPtrOutput
+	ToSasAuthenticationPtrOutputWithContext(context.Context) SasAuthenticationPtrOutput
+}
+
+type sasAuthenticationPtrType SasAuthenticationArgs
+
+func SasAuthenticationPtr(v *SasAuthenticationArgs) SasAuthenticationPtrInput {
+	return (*sasAuthenticationPtrType)(v)
+}
+
+func (*sasAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasAuthentication)(nil)).Elem()
+}
+
+func (i *sasAuthenticationPtrType) ToSasAuthenticationPtrOutput() SasAuthenticationPtrOutput {
+	return i.ToSasAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *sasAuthenticationPtrType) ToSasAuthenticationPtrOutputWithContext(ctx context.Context) SasAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationPtrOutput)
+}
+
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (SasAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasAuthentication)(nil)).Elem()
+}
+
+func (o SasAuthenticationOutput) ToSasAuthenticationOutput() SasAuthenticationOutput {
+	return o
+}
+
+func (o SasAuthenticationOutput) ToSasAuthenticationOutputWithContext(ctx context.Context) SasAuthenticationOutput {
+	return o
+}
+
+func (o SasAuthenticationOutput) ToSasAuthenticationPtrOutput() SasAuthenticationPtrOutput {
+	return o.ToSasAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o SasAuthenticationOutput) ToSasAuthenticationPtrOutputWithContext(ctx context.Context) SasAuthenticationPtrOutput {
+	return o.ApplyT(func(v SasAuthentication) *SasAuthentication {
+		return &v
+	}).(SasAuthenticationPtrOutput)
+}
+
+// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+func (o SasAuthenticationOutput) SasUri() pulumi.StringOutput {
+	return o.ApplyT(func(v SasAuthentication) string { return v.SasUri }).(pulumi.StringOutput)
+}
+
+// The authentication type
+func (o SasAuthenticationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SasAuthentication) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SasAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (SasAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasAuthentication)(nil)).Elem()
+}
+
+func (o SasAuthenticationPtrOutput) ToSasAuthenticationPtrOutput() SasAuthenticationPtrOutput {
+	return o
+}
+
+func (o SasAuthenticationPtrOutput) ToSasAuthenticationPtrOutputWithContext(ctx context.Context) SasAuthenticationPtrOutput {
+	return o
+}
+
+func (o SasAuthenticationPtrOutput) Elem() SasAuthenticationOutput {
+	return o.ApplyT(func(v *SasAuthentication) SasAuthentication { return *v }).(SasAuthenticationOutput)
+}
+
+// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+func (o SasAuthenticationPtrOutput) SasUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SasUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authentication type
+func (o SasAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthenticationResponse struct {
+	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+	SasUri string `pulumi:"sasUri"`
+	// The authentication type
+	Type string `pulumi:"type"`
+}
+
+// SasAuthenticationResponseInput is an input type that accepts SasAuthenticationResponseArgs and SasAuthenticationResponseOutput values.
+// You can construct a concrete instance of `SasAuthenticationResponseInput` via:
+//
+//          SasAuthenticationResponseArgs{...}
+type SasAuthenticationResponseInput interface {
+	pulumi.Input
+
+	ToSasAuthenticationResponseOutput() SasAuthenticationResponseOutput
+	ToSasAuthenticationResponseOutputWithContext(context.Context) SasAuthenticationResponseOutput
+}
+
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthenticationResponseArgs struct {
+	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+	SasUri pulumi.StringInput `pulumi:"sasUri"`
+	// The authentication type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SasAuthenticationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasAuthenticationResponse)(nil)).Elem()
+}
+
+func (i SasAuthenticationResponseArgs) ToSasAuthenticationResponseOutput() SasAuthenticationResponseOutput {
+	return i.ToSasAuthenticationResponseOutputWithContext(context.Background())
+}
+
+func (i SasAuthenticationResponseArgs) ToSasAuthenticationResponseOutputWithContext(ctx context.Context) SasAuthenticationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationResponseOutput)
+}
+
+func (i SasAuthenticationResponseArgs) ToSasAuthenticationResponsePtrOutput() SasAuthenticationResponsePtrOutput {
+	return i.ToSasAuthenticationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SasAuthenticationResponseArgs) ToSasAuthenticationResponsePtrOutputWithContext(ctx context.Context) SasAuthenticationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationResponseOutput).ToSasAuthenticationResponsePtrOutputWithContext(ctx)
+}
+
+// SasAuthenticationResponsePtrInput is an input type that accepts SasAuthenticationResponseArgs, SasAuthenticationResponsePtr and SasAuthenticationResponsePtrOutput values.
+// You can construct a concrete instance of `SasAuthenticationResponsePtrInput` via:
+//
+//          SasAuthenticationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SasAuthenticationResponsePtrInput interface {
+	pulumi.Input
+
+	ToSasAuthenticationResponsePtrOutput() SasAuthenticationResponsePtrOutput
+	ToSasAuthenticationResponsePtrOutputWithContext(context.Context) SasAuthenticationResponsePtrOutput
+}
+
+type sasAuthenticationResponsePtrType SasAuthenticationResponseArgs
+
+func SasAuthenticationResponsePtr(v *SasAuthenticationResponseArgs) SasAuthenticationResponsePtrInput {
+	return (*sasAuthenticationResponsePtrType)(v)
+}
+
+func (*sasAuthenticationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasAuthenticationResponse)(nil)).Elem()
+}
+
+func (i *sasAuthenticationResponsePtrType) ToSasAuthenticationResponsePtrOutput() SasAuthenticationResponsePtrOutput {
+	return i.ToSasAuthenticationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sasAuthenticationResponsePtrType) ToSasAuthenticationResponsePtrOutputWithContext(ctx context.Context) SasAuthenticationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationResponsePtrOutput)
+}
+
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthenticationResponseOutput struct{ *pulumi.OutputState }
+
+func (SasAuthenticationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasAuthenticationResponse)(nil)).Elem()
+}
+
+func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponseOutput() SasAuthenticationResponseOutput {
+	return o
+}
+
+func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponseOutputWithContext(ctx context.Context) SasAuthenticationResponseOutput {
+	return o
+}
+
+func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponsePtrOutput() SasAuthenticationResponsePtrOutput {
+	return o.ToSasAuthenticationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponsePtrOutputWithContext(ctx context.Context) SasAuthenticationResponsePtrOutput {
+	return o.ApplyT(func(v SasAuthenticationResponse) *SasAuthenticationResponse {
+		return &v
+	}).(SasAuthenticationResponsePtrOutput)
+}
+
+// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+func (o SasAuthenticationResponseOutput) SasUri() pulumi.StringOutput {
+	return o.ApplyT(func(v SasAuthenticationResponse) string { return v.SasUri }).(pulumi.StringOutput)
+}
+
+// The authentication type
+func (o SasAuthenticationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SasAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SasAuthenticationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SasAuthenticationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasAuthenticationResponse)(nil)).Elem()
+}
+
+func (o SasAuthenticationResponsePtrOutput) ToSasAuthenticationResponsePtrOutput() SasAuthenticationResponsePtrOutput {
+	return o
+}
+
+func (o SasAuthenticationResponsePtrOutput) ToSasAuthenticationResponsePtrOutputWithContext(ctx context.Context) SasAuthenticationResponsePtrOutput {
+	return o
+}
+
+func (o SasAuthenticationResponsePtrOutput) Elem() SasAuthenticationResponseOutput {
+	return o.ApplyT(func(v *SasAuthenticationResponse) SasAuthenticationResponse { return *v }).(SasAuthenticationResponseOutput)
+}
+
+// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+func (o SasAuthenticationResponsePtrOutput) SasUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasAuthenticationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SasUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authentication type
+func (o SasAuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasAuthenticationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // Defines a service.
@@ -2527,282 +4143,252 @@ func (o StepOperationInfoResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// The properties of a step resource.
-type StepProperties struct {
+// The parameters for the wait step.
+type WaitStepAttributes struct {
+	// The duration in ISO 8601 format of how long the wait should be.
+	Duration string `pulumi:"duration"`
+}
+
+// WaitStepAttributesInput is an input type that accepts WaitStepAttributesArgs and WaitStepAttributesOutput values.
+// You can construct a concrete instance of `WaitStepAttributesInput` via:
+//
+//          WaitStepAttributesArgs{...}
+type WaitStepAttributesInput interface {
+	pulumi.Input
+
+	ToWaitStepAttributesOutput() WaitStepAttributesOutput
+	ToWaitStepAttributesOutputWithContext(context.Context) WaitStepAttributesOutput
+}
+
+// The parameters for the wait step.
+type WaitStepAttributesArgs struct {
+	// The duration in ISO 8601 format of how long the wait should be.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (WaitStepAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepAttributes)(nil)).Elem()
+}
+
+func (i WaitStepAttributesArgs) ToWaitStepAttributesOutput() WaitStepAttributesOutput {
+	return i.ToWaitStepAttributesOutputWithContext(context.Background())
+}
+
+func (i WaitStepAttributesArgs) ToWaitStepAttributesOutputWithContext(ctx context.Context) WaitStepAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepAttributesOutput)
+}
+
+// The parameters for the wait step.
+type WaitStepAttributesOutput struct{ *pulumi.OutputState }
+
+func (WaitStepAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepAttributes)(nil)).Elem()
+}
+
+func (o WaitStepAttributesOutput) ToWaitStepAttributesOutput() WaitStepAttributesOutput {
+	return o
+}
+
+func (o WaitStepAttributesOutput) ToWaitStepAttributesOutputWithContext(ctx context.Context) WaitStepAttributesOutput {
+	return o
+}
+
+// The duration in ISO 8601 format of how long the wait should be.
+func (o WaitStepAttributesOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v WaitStepAttributes) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// The parameters for the wait step.
+type WaitStepAttributesResponse struct {
+	// The duration in ISO 8601 format of how long the wait should be.
+	Duration string `pulumi:"duration"`
+}
+
+// WaitStepAttributesResponseInput is an input type that accepts WaitStepAttributesResponseArgs and WaitStepAttributesResponseOutput values.
+// You can construct a concrete instance of `WaitStepAttributesResponseInput` via:
+//
+//          WaitStepAttributesResponseArgs{...}
+type WaitStepAttributesResponseInput interface {
+	pulumi.Input
+
+	ToWaitStepAttributesResponseOutput() WaitStepAttributesResponseOutput
+	ToWaitStepAttributesResponseOutputWithContext(context.Context) WaitStepAttributesResponseOutput
+}
+
+// The parameters for the wait step.
+type WaitStepAttributesResponseArgs struct {
+	// The duration in ISO 8601 format of how long the wait should be.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (WaitStepAttributesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepAttributesResponse)(nil)).Elem()
+}
+
+func (i WaitStepAttributesResponseArgs) ToWaitStepAttributesResponseOutput() WaitStepAttributesResponseOutput {
+	return i.ToWaitStepAttributesResponseOutputWithContext(context.Background())
+}
+
+func (i WaitStepAttributesResponseArgs) ToWaitStepAttributesResponseOutputWithContext(ctx context.Context) WaitStepAttributesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepAttributesResponseOutput)
+}
+
+// The parameters for the wait step.
+type WaitStepAttributesResponseOutput struct{ *pulumi.OutputState }
+
+func (WaitStepAttributesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepAttributesResponse)(nil)).Elem()
+}
+
+func (o WaitStepAttributesResponseOutput) ToWaitStepAttributesResponseOutput() WaitStepAttributesResponseOutput {
+	return o
+}
+
+func (o WaitStepAttributesResponseOutput) ToWaitStepAttributesResponseOutputWithContext(ctx context.Context) WaitStepAttributesResponseOutput {
+	return o
+}
+
+// The duration in ISO 8601 format of how long the wait should be.
+func (o WaitStepAttributesResponseOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v WaitStepAttributesResponse) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// Defines the properties of a Wait step.
+type WaitStepProperties struct {
+	// The Wait attributes
+	Attributes WaitStepAttributes `pulumi:"attributes"`
 	// The type of step.
 	StepType string `pulumi:"stepType"`
 }
 
-// StepPropertiesInput is an input type that accepts StepPropertiesArgs and StepPropertiesOutput values.
-// You can construct a concrete instance of `StepPropertiesInput` via:
+// WaitStepPropertiesInput is an input type that accepts WaitStepPropertiesArgs and WaitStepPropertiesOutput values.
+// You can construct a concrete instance of `WaitStepPropertiesInput` via:
 //
-//          StepPropertiesArgs{...}
-type StepPropertiesInput interface {
+//          WaitStepPropertiesArgs{...}
+type WaitStepPropertiesInput interface {
 	pulumi.Input
 
-	ToStepPropertiesOutput() StepPropertiesOutput
-	ToStepPropertiesOutputWithContext(context.Context) StepPropertiesOutput
+	ToWaitStepPropertiesOutput() WaitStepPropertiesOutput
+	ToWaitStepPropertiesOutputWithContext(context.Context) WaitStepPropertiesOutput
 }
 
-// The properties of a step resource.
-type StepPropertiesArgs struct {
+// Defines the properties of a Wait step.
+type WaitStepPropertiesArgs struct {
+	// The Wait attributes
+	Attributes WaitStepAttributesInput `pulumi:"attributes"`
 	// The type of step.
 	StepType pulumi.StringInput `pulumi:"stepType"`
 }
 
-func (StepPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StepProperties)(nil)).Elem()
+func (WaitStepPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepProperties)(nil)).Elem()
 }
 
-func (i StepPropertiesArgs) ToStepPropertiesOutput() StepPropertiesOutput {
-	return i.ToStepPropertiesOutputWithContext(context.Background())
+func (i WaitStepPropertiesArgs) ToWaitStepPropertiesOutput() WaitStepPropertiesOutput {
+	return i.ToWaitStepPropertiesOutputWithContext(context.Background())
 }
 
-func (i StepPropertiesArgs) ToStepPropertiesOutputWithContext(ctx context.Context) StepPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesOutput)
+func (i WaitStepPropertiesArgs) ToWaitStepPropertiesOutputWithContext(ctx context.Context) WaitStepPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepPropertiesOutput)
 }
 
-func (i StepPropertiesArgs) ToStepPropertiesPtrOutput() StepPropertiesPtrOutput {
-	return i.ToStepPropertiesPtrOutputWithContext(context.Background())
+// Defines the properties of a Wait step.
+type WaitStepPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WaitStepPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepProperties)(nil)).Elem()
 }
 
-func (i StepPropertiesArgs) ToStepPropertiesPtrOutputWithContext(ctx context.Context) StepPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesOutput).ToStepPropertiesPtrOutputWithContext(ctx)
-}
-
-// StepPropertiesPtrInput is an input type that accepts StepPropertiesArgs, StepPropertiesPtr and StepPropertiesPtrOutput values.
-// You can construct a concrete instance of `StepPropertiesPtrInput` via:
-//
-//          StepPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type StepPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToStepPropertiesPtrOutput() StepPropertiesPtrOutput
-	ToStepPropertiesPtrOutputWithContext(context.Context) StepPropertiesPtrOutput
-}
-
-type stepPropertiesPtrType StepPropertiesArgs
-
-func StepPropertiesPtr(v *StepPropertiesArgs) StepPropertiesPtrInput {
-	return (*stepPropertiesPtrType)(v)
-}
-
-func (*stepPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StepProperties)(nil)).Elem()
-}
-
-func (i *stepPropertiesPtrType) ToStepPropertiesPtrOutput() StepPropertiesPtrOutput {
-	return i.ToStepPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *stepPropertiesPtrType) ToStepPropertiesPtrOutputWithContext(ctx context.Context) StepPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesPtrOutput)
-}
-
-// The properties of a step resource.
-type StepPropertiesOutput struct{ *pulumi.OutputState }
-
-func (StepPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StepProperties)(nil)).Elem()
-}
-
-func (o StepPropertiesOutput) ToStepPropertiesOutput() StepPropertiesOutput {
+func (o WaitStepPropertiesOutput) ToWaitStepPropertiesOutput() WaitStepPropertiesOutput {
 	return o
 }
 
-func (o StepPropertiesOutput) ToStepPropertiesOutputWithContext(ctx context.Context) StepPropertiesOutput {
+func (o WaitStepPropertiesOutput) ToWaitStepPropertiesOutputWithContext(ctx context.Context) WaitStepPropertiesOutput {
 	return o
 }
 
-func (o StepPropertiesOutput) ToStepPropertiesPtrOutput() StepPropertiesPtrOutput {
-	return o.ToStepPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o StepPropertiesOutput) ToStepPropertiesPtrOutputWithContext(ctx context.Context) StepPropertiesPtrOutput {
-	return o.ApplyT(func(v StepProperties) *StepProperties {
-		return &v
-	}).(StepPropertiesPtrOutput)
+// The Wait attributes
+func (o WaitStepPropertiesOutput) Attributes() WaitStepAttributesOutput {
+	return o.ApplyT(func(v WaitStepProperties) WaitStepAttributes { return v.Attributes }).(WaitStepAttributesOutput)
 }
 
 // The type of step.
-func (o StepPropertiesOutput) StepType() pulumi.StringOutput {
-	return o.ApplyT(func(v StepProperties) string { return v.StepType }).(pulumi.StringOutput)
+func (o WaitStepPropertiesOutput) StepType() pulumi.StringOutput {
+	return o.ApplyT(func(v WaitStepProperties) string { return v.StepType }).(pulumi.StringOutput)
 }
 
-type StepPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (StepPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StepProperties)(nil)).Elem()
-}
-
-func (o StepPropertiesPtrOutput) ToStepPropertiesPtrOutput() StepPropertiesPtrOutput {
-	return o
-}
-
-func (o StepPropertiesPtrOutput) ToStepPropertiesPtrOutputWithContext(ctx context.Context) StepPropertiesPtrOutput {
-	return o
-}
-
-func (o StepPropertiesPtrOutput) Elem() StepPropertiesOutput {
-	return o.ApplyT(func(v *StepProperties) StepProperties { return *v }).(StepPropertiesOutput)
-}
-
-// The type of step.
-func (o StepPropertiesPtrOutput) StepType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StepProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StepType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of a step resource.
-type StepPropertiesResponse struct {
+// Defines the properties of a Wait step.
+type WaitStepPropertiesResponse struct {
+	// The Wait attributes
+	Attributes WaitStepAttributesResponse `pulumi:"attributes"`
 	// The type of step.
 	StepType string `pulumi:"stepType"`
 }
 
-// StepPropertiesResponseInput is an input type that accepts StepPropertiesResponseArgs and StepPropertiesResponseOutput values.
-// You can construct a concrete instance of `StepPropertiesResponseInput` via:
+// WaitStepPropertiesResponseInput is an input type that accepts WaitStepPropertiesResponseArgs and WaitStepPropertiesResponseOutput values.
+// You can construct a concrete instance of `WaitStepPropertiesResponseInput` via:
 //
-//          StepPropertiesResponseArgs{...}
-type StepPropertiesResponseInput interface {
+//          WaitStepPropertiesResponseArgs{...}
+type WaitStepPropertiesResponseInput interface {
 	pulumi.Input
 
-	ToStepPropertiesResponseOutput() StepPropertiesResponseOutput
-	ToStepPropertiesResponseOutputWithContext(context.Context) StepPropertiesResponseOutput
+	ToWaitStepPropertiesResponseOutput() WaitStepPropertiesResponseOutput
+	ToWaitStepPropertiesResponseOutputWithContext(context.Context) WaitStepPropertiesResponseOutput
 }
 
-// The properties of a step resource.
-type StepPropertiesResponseArgs struct {
+// Defines the properties of a Wait step.
+type WaitStepPropertiesResponseArgs struct {
+	// The Wait attributes
+	Attributes WaitStepAttributesResponseInput `pulumi:"attributes"`
 	// The type of step.
 	StepType pulumi.StringInput `pulumi:"stepType"`
 }
 
-func (StepPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StepPropertiesResponse)(nil)).Elem()
+func (WaitStepPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepPropertiesResponse)(nil)).Elem()
 }
 
-func (i StepPropertiesResponseArgs) ToStepPropertiesResponseOutput() StepPropertiesResponseOutput {
-	return i.ToStepPropertiesResponseOutputWithContext(context.Background())
+func (i WaitStepPropertiesResponseArgs) ToWaitStepPropertiesResponseOutput() WaitStepPropertiesResponseOutput {
+	return i.ToWaitStepPropertiesResponseOutputWithContext(context.Background())
 }
 
-func (i StepPropertiesResponseArgs) ToStepPropertiesResponseOutputWithContext(ctx context.Context) StepPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesResponseOutput)
+func (i WaitStepPropertiesResponseArgs) ToWaitStepPropertiesResponseOutputWithContext(ctx context.Context) WaitStepPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepPropertiesResponseOutput)
 }
 
-func (i StepPropertiesResponseArgs) ToStepPropertiesResponsePtrOutput() StepPropertiesResponsePtrOutput {
-	return i.ToStepPropertiesResponsePtrOutputWithContext(context.Background())
+// Defines the properties of a Wait step.
+type WaitStepPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (WaitStepPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepPropertiesResponse)(nil)).Elem()
 }
 
-func (i StepPropertiesResponseArgs) ToStepPropertiesResponsePtrOutputWithContext(ctx context.Context) StepPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesResponseOutput).ToStepPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// StepPropertiesResponsePtrInput is an input type that accepts StepPropertiesResponseArgs, StepPropertiesResponsePtr and StepPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `StepPropertiesResponsePtrInput` via:
-//
-//          StepPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type StepPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToStepPropertiesResponsePtrOutput() StepPropertiesResponsePtrOutput
-	ToStepPropertiesResponsePtrOutputWithContext(context.Context) StepPropertiesResponsePtrOutput
-}
-
-type stepPropertiesResponsePtrType StepPropertiesResponseArgs
-
-func StepPropertiesResponsePtr(v *StepPropertiesResponseArgs) StepPropertiesResponsePtrInput {
-	return (*stepPropertiesResponsePtrType)(v)
-}
-
-func (*stepPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StepPropertiesResponse)(nil)).Elem()
-}
-
-func (i *stepPropertiesResponsePtrType) ToStepPropertiesResponsePtrOutput() StepPropertiesResponsePtrOutput {
-	return i.ToStepPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *stepPropertiesResponsePtrType) ToStepPropertiesResponsePtrOutputWithContext(ctx context.Context) StepPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesResponsePtrOutput)
-}
-
-// The properties of a step resource.
-type StepPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (StepPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StepPropertiesResponse)(nil)).Elem()
-}
-
-func (o StepPropertiesResponseOutput) ToStepPropertiesResponseOutput() StepPropertiesResponseOutput {
+func (o WaitStepPropertiesResponseOutput) ToWaitStepPropertiesResponseOutput() WaitStepPropertiesResponseOutput {
 	return o
 }
 
-func (o StepPropertiesResponseOutput) ToStepPropertiesResponseOutputWithContext(ctx context.Context) StepPropertiesResponseOutput {
+func (o WaitStepPropertiesResponseOutput) ToWaitStepPropertiesResponseOutputWithContext(ctx context.Context) WaitStepPropertiesResponseOutput {
 	return o
 }
 
-func (o StepPropertiesResponseOutput) ToStepPropertiesResponsePtrOutput() StepPropertiesResponsePtrOutput {
-	return o.ToStepPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o StepPropertiesResponseOutput) ToStepPropertiesResponsePtrOutputWithContext(ctx context.Context) StepPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v StepPropertiesResponse) *StepPropertiesResponse {
-		return &v
-	}).(StepPropertiesResponsePtrOutput)
+// The Wait attributes
+func (o WaitStepPropertiesResponseOutput) Attributes() WaitStepAttributesResponseOutput {
+	return o.ApplyT(func(v WaitStepPropertiesResponse) WaitStepAttributesResponse { return v.Attributes }).(WaitStepAttributesResponseOutput)
 }
 
 // The type of step.
-func (o StepPropertiesResponseOutput) StepType() pulumi.StringOutput {
-	return o.ApplyT(func(v StepPropertiesResponse) string { return v.StepType }).(pulumi.StringOutput)
-}
-
-type StepPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (StepPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StepPropertiesResponse)(nil)).Elem()
-}
-
-func (o StepPropertiesResponsePtrOutput) ToStepPropertiesResponsePtrOutput() StepPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o StepPropertiesResponsePtrOutput) ToStepPropertiesResponsePtrOutputWithContext(ctx context.Context) StepPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o StepPropertiesResponsePtrOutput) Elem() StepPropertiesResponseOutput {
-	return o.ApplyT(func(v *StepPropertiesResponse) StepPropertiesResponse { return *v }).(StepPropertiesResponseOutput)
-}
-
-// The type of step.
-func (o StepPropertiesResponsePtrOutput) StepType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StepPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StepType
-	}).(pulumi.StringPtrOutput)
+func (o WaitStepPropertiesResponseOutput) StepType() pulumi.StringOutput {
+	return o.ApplyT(func(v WaitStepPropertiesResponse) string { return v.StepType }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(AuthenticationOutput{})
-	pulumi.RegisterOutputType(AuthenticationPtrOutput{})
-	pulumi.RegisterOutputType(AuthenticationResponseOutput{})
-	pulumi.RegisterOutputType(AuthenticationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiKeyAuthenticationOutput{})
+	pulumi.RegisterOutputType(ApiKeyAuthenticationResponseOutput{})
 	pulumi.RegisterOutputType(CloudErrorBodyResponseOutput{})
 	pulumi.RegisterOutputType(CloudErrorBodyResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudErrorBodyResponseArrayOutput{})
+	pulumi.RegisterOutputType(HealthCheckStepPropertiesOutput{})
+	pulumi.RegisterOutputType(HealthCheckStepPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
@@ -2815,9 +4401,31 @@ func init() {
 	pulumi.RegisterOutputType(PrePostStepResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceOperationResponseOutput{})
 	pulumi.RegisterOutputType(ResourceOperationResponseArrayOutput{})
+	pulumi.RegisterOutputType(RestHealthCheckOutput{})
+	pulumi.RegisterOutputType(RestHealthCheckArrayOutput{})
+	pulumi.RegisterOutputType(RestHealthCheckResponseOutput{})
+	pulumi.RegisterOutputType(RestHealthCheckResponseArrayOutput{})
+	pulumi.RegisterOutputType(RestHealthCheckStepAttributesOutput{})
+	pulumi.RegisterOutputType(RestHealthCheckStepAttributesResponseOutput{})
+	pulumi.RegisterOutputType(RestRequestOutput{})
+	pulumi.RegisterOutputType(RestRequestResponseOutput{})
+	pulumi.RegisterOutputType(RestResponseOutput{})
+	pulumi.RegisterOutputType(RestResponsePtrOutput{})
+	pulumi.RegisterOutputType(RestResponseRegexOutput{})
+	pulumi.RegisterOutputType(RestResponseRegexPtrOutput{})
+	pulumi.RegisterOutputType(RestResponseResponseOutput{})
+	pulumi.RegisterOutputType(RestResponseResponsePtrOutput{})
+	pulumi.RegisterOutputType(RestResponseResponseRegexOutput{})
+	pulumi.RegisterOutputType(RestResponseResponseRegexPtrOutput{})
+	pulumi.RegisterOutputType(RolloutIdentityAuthenticationOutput{})
+	pulumi.RegisterOutputType(RolloutIdentityAuthenticationResponseOutput{})
 	pulumi.RegisterOutputType(RolloutOperationInfoResponseOutput{})
 	pulumi.RegisterOutputType(RolloutStepResponseOutput{})
 	pulumi.RegisterOutputType(RolloutStepResponseArrayOutput{})
+	pulumi.RegisterOutputType(SasAuthenticationOutput{})
+	pulumi.RegisterOutputType(SasAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(SasAuthenticationResponseOutput{})
+	pulumi.RegisterOutputType(SasAuthenticationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceResponseOutput{})
 	pulumi.RegisterOutputType(ServiceResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServiceUnitArtifactsOutput{})
@@ -2831,8 +4439,8 @@ func init() {
 	pulumi.RegisterOutputType(StepGroupResponseOutput{})
 	pulumi.RegisterOutputType(StepGroupResponseArrayOutput{})
 	pulumi.RegisterOutputType(StepOperationInfoResponseOutput{})
-	pulumi.RegisterOutputType(StepPropertiesOutput{})
-	pulumi.RegisterOutputType(StepPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(StepPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(StepPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(WaitStepAttributesOutput{})
+	pulumi.RegisterOutputType(WaitStepAttributesResponseOutput{})
+	pulumi.RegisterOutputType(WaitStepPropertiesOutput{})
+	pulumi.RegisterOutputType(WaitStepPropertiesResponseOutput{})
 }

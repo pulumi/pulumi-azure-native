@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.EventGrid.V20180915Preview
         /// <summary>
         /// Information about the InputSchemaMapping which specified the info about mapping event payload.
         /// </summary>
-        public readonly Outputs.InputSchemaMappingResponseResult? InputSchemaMapping;
+        public readonly Outputs.JsonInputSchemaMappingResponseResult? InputSchemaMapping;
         /// <summary>
         /// Location of the resource
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.EventGrid.V20180915Preview
 
             string? inputSchema,
 
-            Outputs.InputSchemaMappingResponseResult? inputSchemaMapping,
+            Outputs.JsonInputSchemaMappingResponseResult? inputSchemaMapping,
 
             string location,
 

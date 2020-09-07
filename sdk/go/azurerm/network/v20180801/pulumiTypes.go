@@ -11581,6 +11581,480 @@ func (o AzureFirewallRCActionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines contents of a web application rule
+type AzureManagedOverrideRuleGroup struct {
+	// Type of Actions
+	Action string `pulumi:"action"`
+	// Describes override rule group
+	RuleGroupOverride string `pulumi:"ruleGroupOverride"`
+}
+
+// AzureManagedOverrideRuleGroupInput is an input type that accepts AzureManagedOverrideRuleGroupArgs and AzureManagedOverrideRuleGroupOutput values.
+// You can construct a concrete instance of `AzureManagedOverrideRuleGroupInput` via:
+//
+//          AzureManagedOverrideRuleGroupArgs{...}
+type AzureManagedOverrideRuleGroupInput interface {
+	pulumi.Input
+
+	ToAzureManagedOverrideRuleGroupOutput() AzureManagedOverrideRuleGroupOutput
+	ToAzureManagedOverrideRuleGroupOutputWithContext(context.Context) AzureManagedOverrideRuleGroupOutput
+}
+
+// Defines contents of a web application rule
+type AzureManagedOverrideRuleGroupArgs struct {
+	// Type of Actions
+	Action pulumi.StringInput `pulumi:"action"`
+	// Describes override rule group
+	RuleGroupOverride pulumi.StringInput `pulumi:"ruleGroupOverride"`
+}
+
+func (AzureManagedOverrideRuleGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureManagedOverrideRuleGroup)(nil)).Elem()
+}
+
+func (i AzureManagedOverrideRuleGroupArgs) ToAzureManagedOverrideRuleGroupOutput() AzureManagedOverrideRuleGroupOutput {
+	return i.ToAzureManagedOverrideRuleGroupOutputWithContext(context.Background())
+}
+
+func (i AzureManagedOverrideRuleGroupArgs) ToAzureManagedOverrideRuleGroupOutputWithContext(ctx context.Context) AzureManagedOverrideRuleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureManagedOverrideRuleGroupOutput)
+}
+
+// AzureManagedOverrideRuleGroupArrayInput is an input type that accepts AzureManagedOverrideRuleGroupArray and AzureManagedOverrideRuleGroupArrayOutput values.
+// You can construct a concrete instance of `AzureManagedOverrideRuleGroupArrayInput` via:
+//
+//          AzureManagedOverrideRuleGroupArray{ AzureManagedOverrideRuleGroupArgs{...} }
+type AzureManagedOverrideRuleGroupArrayInput interface {
+	pulumi.Input
+
+	ToAzureManagedOverrideRuleGroupArrayOutput() AzureManagedOverrideRuleGroupArrayOutput
+	ToAzureManagedOverrideRuleGroupArrayOutputWithContext(context.Context) AzureManagedOverrideRuleGroupArrayOutput
+}
+
+type AzureManagedOverrideRuleGroupArray []AzureManagedOverrideRuleGroupInput
+
+func (AzureManagedOverrideRuleGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureManagedOverrideRuleGroup)(nil)).Elem()
+}
+
+func (i AzureManagedOverrideRuleGroupArray) ToAzureManagedOverrideRuleGroupArrayOutput() AzureManagedOverrideRuleGroupArrayOutput {
+	return i.ToAzureManagedOverrideRuleGroupArrayOutputWithContext(context.Background())
+}
+
+func (i AzureManagedOverrideRuleGroupArray) ToAzureManagedOverrideRuleGroupArrayOutputWithContext(ctx context.Context) AzureManagedOverrideRuleGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureManagedOverrideRuleGroupArrayOutput)
+}
+
+// Defines contents of a web application rule
+type AzureManagedOverrideRuleGroupOutput struct{ *pulumi.OutputState }
+
+func (AzureManagedOverrideRuleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureManagedOverrideRuleGroup)(nil)).Elem()
+}
+
+func (o AzureManagedOverrideRuleGroupOutput) ToAzureManagedOverrideRuleGroupOutput() AzureManagedOverrideRuleGroupOutput {
+	return o
+}
+
+func (o AzureManagedOverrideRuleGroupOutput) ToAzureManagedOverrideRuleGroupOutputWithContext(ctx context.Context) AzureManagedOverrideRuleGroupOutput {
+	return o
+}
+
+// Type of Actions
+func (o AzureManagedOverrideRuleGroupOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureManagedOverrideRuleGroup) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Describes override rule group
+func (o AzureManagedOverrideRuleGroupOutput) RuleGroupOverride() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureManagedOverrideRuleGroup) string { return v.RuleGroupOverride }).(pulumi.StringOutput)
+}
+
+type AzureManagedOverrideRuleGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureManagedOverrideRuleGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureManagedOverrideRuleGroup)(nil)).Elem()
+}
+
+func (o AzureManagedOverrideRuleGroupArrayOutput) ToAzureManagedOverrideRuleGroupArrayOutput() AzureManagedOverrideRuleGroupArrayOutput {
+	return o
+}
+
+func (o AzureManagedOverrideRuleGroupArrayOutput) ToAzureManagedOverrideRuleGroupArrayOutputWithContext(ctx context.Context) AzureManagedOverrideRuleGroupArrayOutput {
+	return o
+}
+
+func (o AzureManagedOverrideRuleGroupArrayOutput) Index(i pulumi.IntInput) AzureManagedOverrideRuleGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureManagedOverrideRuleGroup {
+		return vs[0].([]AzureManagedOverrideRuleGroup)[vs[1].(int)]
+	}).(AzureManagedOverrideRuleGroupOutput)
+}
+
+// Defines contents of a web application rule
+type AzureManagedOverrideRuleGroupResponse struct {
+	// Type of Actions
+	Action string `pulumi:"action"`
+	// Describes override rule group
+	RuleGroupOverride string `pulumi:"ruleGroupOverride"`
+}
+
+// AzureManagedOverrideRuleGroupResponseInput is an input type that accepts AzureManagedOverrideRuleGroupResponseArgs and AzureManagedOverrideRuleGroupResponseOutput values.
+// You can construct a concrete instance of `AzureManagedOverrideRuleGroupResponseInput` via:
+//
+//          AzureManagedOverrideRuleGroupResponseArgs{...}
+type AzureManagedOverrideRuleGroupResponseInput interface {
+	pulumi.Input
+
+	ToAzureManagedOverrideRuleGroupResponseOutput() AzureManagedOverrideRuleGroupResponseOutput
+	ToAzureManagedOverrideRuleGroupResponseOutputWithContext(context.Context) AzureManagedOverrideRuleGroupResponseOutput
+}
+
+// Defines contents of a web application rule
+type AzureManagedOverrideRuleGroupResponseArgs struct {
+	// Type of Actions
+	Action pulumi.StringInput `pulumi:"action"`
+	// Describes override rule group
+	RuleGroupOverride pulumi.StringInput `pulumi:"ruleGroupOverride"`
+}
+
+func (AzureManagedOverrideRuleGroupResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureManagedOverrideRuleGroupResponse)(nil)).Elem()
+}
+
+func (i AzureManagedOverrideRuleGroupResponseArgs) ToAzureManagedOverrideRuleGroupResponseOutput() AzureManagedOverrideRuleGroupResponseOutput {
+	return i.ToAzureManagedOverrideRuleGroupResponseOutputWithContext(context.Background())
+}
+
+func (i AzureManagedOverrideRuleGroupResponseArgs) ToAzureManagedOverrideRuleGroupResponseOutputWithContext(ctx context.Context) AzureManagedOverrideRuleGroupResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureManagedOverrideRuleGroupResponseOutput)
+}
+
+// AzureManagedOverrideRuleGroupResponseArrayInput is an input type that accepts AzureManagedOverrideRuleGroupResponseArray and AzureManagedOverrideRuleGroupResponseArrayOutput values.
+// You can construct a concrete instance of `AzureManagedOverrideRuleGroupResponseArrayInput` via:
+//
+//          AzureManagedOverrideRuleGroupResponseArray{ AzureManagedOverrideRuleGroupResponseArgs{...} }
+type AzureManagedOverrideRuleGroupResponseArrayInput interface {
+	pulumi.Input
+
+	ToAzureManagedOverrideRuleGroupResponseArrayOutput() AzureManagedOverrideRuleGroupResponseArrayOutput
+	ToAzureManagedOverrideRuleGroupResponseArrayOutputWithContext(context.Context) AzureManagedOverrideRuleGroupResponseArrayOutput
+}
+
+type AzureManagedOverrideRuleGroupResponseArray []AzureManagedOverrideRuleGroupResponseInput
+
+func (AzureManagedOverrideRuleGroupResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureManagedOverrideRuleGroupResponse)(nil)).Elem()
+}
+
+func (i AzureManagedOverrideRuleGroupResponseArray) ToAzureManagedOverrideRuleGroupResponseArrayOutput() AzureManagedOverrideRuleGroupResponseArrayOutput {
+	return i.ToAzureManagedOverrideRuleGroupResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AzureManagedOverrideRuleGroupResponseArray) ToAzureManagedOverrideRuleGroupResponseArrayOutputWithContext(ctx context.Context) AzureManagedOverrideRuleGroupResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureManagedOverrideRuleGroupResponseArrayOutput)
+}
+
+// Defines contents of a web application rule
+type AzureManagedOverrideRuleGroupResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureManagedOverrideRuleGroupResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureManagedOverrideRuleGroupResponse)(nil)).Elem()
+}
+
+func (o AzureManagedOverrideRuleGroupResponseOutput) ToAzureManagedOverrideRuleGroupResponseOutput() AzureManagedOverrideRuleGroupResponseOutput {
+	return o
+}
+
+func (o AzureManagedOverrideRuleGroupResponseOutput) ToAzureManagedOverrideRuleGroupResponseOutputWithContext(ctx context.Context) AzureManagedOverrideRuleGroupResponseOutput {
+	return o
+}
+
+// Type of Actions
+func (o AzureManagedOverrideRuleGroupResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureManagedOverrideRuleGroupResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Describes override rule group
+func (o AzureManagedOverrideRuleGroupResponseOutput) RuleGroupOverride() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureManagedOverrideRuleGroupResponse) string { return v.RuleGroupOverride }).(pulumi.StringOutput)
+}
+
+type AzureManagedOverrideRuleGroupResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureManagedOverrideRuleGroupResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureManagedOverrideRuleGroupResponse)(nil)).Elem()
+}
+
+func (o AzureManagedOverrideRuleGroupResponseArrayOutput) ToAzureManagedOverrideRuleGroupResponseArrayOutput() AzureManagedOverrideRuleGroupResponseArrayOutput {
+	return o
+}
+
+func (o AzureManagedOverrideRuleGroupResponseArrayOutput) ToAzureManagedOverrideRuleGroupResponseArrayOutputWithContext(ctx context.Context) AzureManagedOverrideRuleGroupResponseArrayOutput {
+	return o
+}
+
+func (o AzureManagedOverrideRuleGroupResponseArrayOutput) Index(i pulumi.IntInput) AzureManagedOverrideRuleGroupResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureManagedOverrideRuleGroupResponse {
+		return vs[0].([]AzureManagedOverrideRuleGroupResponse)[vs[1].(int)]
+	}).(AzureManagedOverrideRuleGroupResponseOutput)
+}
+
+// Describes azure managed provider.
+type AzureManagedRuleSet struct {
+	// Describes priority of the rule
+	Priority *int `pulumi:"priority"`
+	// List of azure managed provider override configuration (optional)
+	RuleGroupOverrides []AzureManagedOverrideRuleGroup `pulumi:"ruleGroupOverrides"`
+	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+	RuleSetType string `pulumi:"ruleSetType"`
+	// defines version of the rule set
+	Version *int `pulumi:"version"`
+}
+
+// AzureManagedRuleSetInput is an input type that accepts AzureManagedRuleSetArgs and AzureManagedRuleSetOutput values.
+// You can construct a concrete instance of `AzureManagedRuleSetInput` via:
+//
+//          AzureManagedRuleSetArgs{...}
+type AzureManagedRuleSetInput interface {
+	pulumi.Input
+
+	ToAzureManagedRuleSetOutput() AzureManagedRuleSetOutput
+	ToAzureManagedRuleSetOutputWithContext(context.Context) AzureManagedRuleSetOutput
+}
+
+// Describes azure managed provider.
+type AzureManagedRuleSetArgs struct {
+	// Describes priority of the rule
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// List of azure managed provider override configuration (optional)
+	RuleGroupOverrides AzureManagedOverrideRuleGroupArrayInput `pulumi:"ruleGroupOverrides"`
+	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
+	// defines version of the rule set
+	Version pulumi.IntPtrInput `pulumi:"version"`
+}
+
+func (AzureManagedRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureManagedRuleSet)(nil)).Elem()
+}
+
+func (i AzureManagedRuleSetArgs) ToAzureManagedRuleSetOutput() AzureManagedRuleSetOutput {
+	return i.ToAzureManagedRuleSetOutputWithContext(context.Background())
+}
+
+func (i AzureManagedRuleSetArgs) ToAzureManagedRuleSetOutputWithContext(ctx context.Context) AzureManagedRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureManagedRuleSetOutput)
+}
+
+// AzureManagedRuleSetArrayInput is an input type that accepts AzureManagedRuleSetArray and AzureManagedRuleSetArrayOutput values.
+// You can construct a concrete instance of `AzureManagedRuleSetArrayInput` via:
+//
+//          AzureManagedRuleSetArray{ AzureManagedRuleSetArgs{...} }
+type AzureManagedRuleSetArrayInput interface {
+	pulumi.Input
+
+	ToAzureManagedRuleSetArrayOutput() AzureManagedRuleSetArrayOutput
+	ToAzureManagedRuleSetArrayOutputWithContext(context.Context) AzureManagedRuleSetArrayOutput
+}
+
+type AzureManagedRuleSetArray []AzureManagedRuleSetInput
+
+func (AzureManagedRuleSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureManagedRuleSet)(nil)).Elem()
+}
+
+func (i AzureManagedRuleSetArray) ToAzureManagedRuleSetArrayOutput() AzureManagedRuleSetArrayOutput {
+	return i.ToAzureManagedRuleSetArrayOutputWithContext(context.Background())
+}
+
+func (i AzureManagedRuleSetArray) ToAzureManagedRuleSetArrayOutputWithContext(ctx context.Context) AzureManagedRuleSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureManagedRuleSetArrayOutput)
+}
+
+// Describes azure managed provider.
+type AzureManagedRuleSetOutput struct{ *pulumi.OutputState }
+
+func (AzureManagedRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureManagedRuleSet)(nil)).Elem()
+}
+
+func (o AzureManagedRuleSetOutput) ToAzureManagedRuleSetOutput() AzureManagedRuleSetOutput {
+	return o
+}
+
+func (o AzureManagedRuleSetOutput) ToAzureManagedRuleSetOutputWithContext(ctx context.Context) AzureManagedRuleSetOutput {
+	return o
+}
+
+// Describes priority of the rule
+func (o AzureManagedRuleSetOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureManagedRuleSet) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// List of azure managed provider override configuration (optional)
+func (o AzureManagedRuleSetOutput) RuleGroupOverrides() AzureManagedOverrideRuleGroupArrayOutput {
+	return o.ApplyT(func(v AzureManagedRuleSet) []AzureManagedOverrideRuleGroup { return v.RuleGroupOverrides }).(AzureManagedOverrideRuleGroupArrayOutput)
+}
+
+// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+func (o AzureManagedRuleSetOutput) RuleSetType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureManagedRuleSet) string { return v.RuleSetType }).(pulumi.StringOutput)
+}
+
+// defines version of the rule set
+func (o AzureManagedRuleSetOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureManagedRuleSet) *int { return v.Version }).(pulumi.IntPtrOutput)
+}
+
+type AzureManagedRuleSetArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureManagedRuleSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureManagedRuleSet)(nil)).Elem()
+}
+
+func (o AzureManagedRuleSetArrayOutput) ToAzureManagedRuleSetArrayOutput() AzureManagedRuleSetArrayOutput {
+	return o
+}
+
+func (o AzureManagedRuleSetArrayOutput) ToAzureManagedRuleSetArrayOutputWithContext(ctx context.Context) AzureManagedRuleSetArrayOutput {
+	return o
+}
+
+func (o AzureManagedRuleSetArrayOutput) Index(i pulumi.IntInput) AzureManagedRuleSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureManagedRuleSet {
+		return vs[0].([]AzureManagedRuleSet)[vs[1].(int)]
+	}).(AzureManagedRuleSetOutput)
+}
+
+// Describes azure managed provider.
+type AzureManagedRuleSetResponse struct {
+	// Describes priority of the rule
+	Priority *int `pulumi:"priority"`
+	// List of azure managed provider override configuration (optional)
+	RuleGroupOverrides []AzureManagedOverrideRuleGroupResponse `pulumi:"ruleGroupOverrides"`
+	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+	RuleSetType string `pulumi:"ruleSetType"`
+	// defines version of the rule set
+	Version *int `pulumi:"version"`
+}
+
+// AzureManagedRuleSetResponseInput is an input type that accepts AzureManagedRuleSetResponseArgs and AzureManagedRuleSetResponseOutput values.
+// You can construct a concrete instance of `AzureManagedRuleSetResponseInput` via:
+//
+//          AzureManagedRuleSetResponseArgs{...}
+type AzureManagedRuleSetResponseInput interface {
+	pulumi.Input
+
+	ToAzureManagedRuleSetResponseOutput() AzureManagedRuleSetResponseOutput
+	ToAzureManagedRuleSetResponseOutputWithContext(context.Context) AzureManagedRuleSetResponseOutput
+}
+
+// Describes azure managed provider.
+type AzureManagedRuleSetResponseArgs struct {
+	// Describes priority of the rule
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// List of azure managed provider override configuration (optional)
+	RuleGroupOverrides AzureManagedOverrideRuleGroupResponseArrayInput `pulumi:"ruleGroupOverrides"`
+	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
+	// defines version of the rule set
+	Version pulumi.IntPtrInput `pulumi:"version"`
+}
+
+func (AzureManagedRuleSetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureManagedRuleSetResponse)(nil)).Elem()
+}
+
+func (i AzureManagedRuleSetResponseArgs) ToAzureManagedRuleSetResponseOutput() AzureManagedRuleSetResponseOutput {
+	return i.ToAzureManagedRuleSetResponseOutputWithContext(context.Background())
+}
+
+func (i AzureManagedRuleSetResponseArgs) ToAzureManagedRuleSetResponseOutputWithContext(ctx context.Context) AzureManagedRuleSetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureManagedRuleSetResponseOutput)
+}
+
+// AzureManagedRuleSetResponseArrayInput is an input type that accepts AzureManagedRuleSetResponseArray and AzureManagedRuleSetResponseArrayOutput values.
+// You can construct a concrete instance of `AzureManagedRuleSetResponseArrayInput` via:
+//
+//          AzureManagedRuleSetResponseArray{ AzureManagedRuleSetResponseArgs{...} }
+type AzureManagedRuleSetResponseArrayInput interface {
+	pulumi.Input
+
+	ToAzureManagedRuleSetResponseArrayOutput() AzureManagedRuleSetResponseArrayOutput
+	ToAzureManagedRuleSetResponseArrayOutputWithContext(context.Context) AzureManagedRuleSetResponseArrayOutput
+}
+
+type AzureManagedRuleSetResponseArray []AzureManagedRuleSetResponseInput
+
+func (AzureManagedRuleSetResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureManagedRuleSetResponse)(nil)).Elem()
+}
+
+func (i AzureManagedRuleSetResponseArray) ToAzureManagedRuleSetResponseArrayOutput() AzureManagedRuleSetResponseArrayOutput {
+	return i.ToAzureManagedRuleSetResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AzureManagedRuleSetResponseArray) ToAzureManagedRuleSetResponseArrayOutputWithContext(ctx context.Context) AzureManagedRuleSetResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureManagedRuleSetResponseArrayOutput)
+}
+
+// Describes azure managed provider.
+type AzureManagedRuleSetResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureManagedRuleSetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureManagedRuleSetResponse)(nil)).Elem()
+}
+
+func (o AzureManagedRuleSetResponseOutput) ToAzureManagedRuleSetResponseOutput() AzureManagedRuleSetResponseOutput {
+	return o
+}
+
+func (o AzureManagedRuleSetResponseOutput) ToAzureManagedRuleSetResponseOutputWithContext(ctx context.Context) AzureManagedRuleSetResponseOutput {
+	return o
+}
+
+// Describes priority of the rule
+func (o AzureManagedRuleSetResponseOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureManagedRuleSetResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// List of azure managed provider override configuration (optional)
+func (o AzureManagedRuleSetResponseOutput) RuleGroupOverrides() AzureManagedOverrideRuleGroupResponseArrayOutput {
+	return o.ApplyT(func(v AzureManagedRuleSetResponse) []AzureManagedOverrideRuleGroupResponse {
+		return v.RuleGroupOverrides
+	}).(AzureManagedOverrideRuleGroupResponseArrayOutput)
+}
+
+// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+func (o AzureManagedRuleSetResponseOutput) RuleSetType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureManagedRuleSetResponse) string { return v.RuleSetType }).(pulumi.StringOutput)
+}
+
+// defines version of the rule set
+func (o AzureManagedRuleSetResponseOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureManagedRuleSetResponse) *int { return v.Version }).(pulumi.IntPtrOutput)
+}
+
+type AzureManagedRuleSetResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureManagedRuleSetResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureManagedRuleSetResponse)(nil)).Elem()
+}
+
+func (o AzureManagedRuleSetResponseArrayOutput) ToAzureManagedRuleSetResponseArrayOutput() AzureManagedRuleSetResponseArrayOutput {
+	return o
+}
+
+func (o AzureManagedRuleSetResponseArrayOutput) ToAzureManagedRuleSetResponseArrayOutputWithContext(ctx context.Context) AzureManagedRuleSetResponseArrayOutput {
+	return o
+}
+
+func (o AzureManagedRuleSetResponseArrayOutput) Index(i pulumi.IntInput) AzureManagedRuleSetResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureManagedRuleSetResponse {
+		return vs[0].([]AzureManagedRuleSetResponse)[vs[1].(int)]
+	}).(AzureManagedRuleSetResponseOutput)
+}
+
 // Backend address of a frontDoor load balancer.
 type Backend struct {
 	// Location of the backend (IP address or FQDN)
@@ -27649,246 +28123,10 @@ func (o LocalNetworkGatewayResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Base class for all types of ManagedRuleSet.
-type ManagedRuleSet struct {
-	// Describes priority of the rule
-	Priority *int `pulumi:"priority"`
-	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
-	RuleSetType string `pulumi:"ruleSetType"`
-	// defines version of the rule set
-	Version *int `pulumi:"version"`
-}
-
-// ManagedRuleSetInput is an input type that accepts ManagedRuleSetArgs and ManagedRuleSetOutput values.
-// You can construct a concrete instance of `ManagedRuleSetInput` via:
-//
-//          ManagedRuleSetArgs{...}
-type ManagedRuleSetInput interface {
-	pulumi.Input
-
-	ToManagedRuleSetOutput() ManagedRuleSetOutput
-	ToManagedRuleSetOutputWithContext(context.Context) ManagedRuleSetOutput
-}
-
-// Base class for all types of ManagedRuleSet.
-type ManagedRuleSetArgs struct {
-	// Describes priority of the rule
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
-	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
-	// defines version of the rule set
-	Version pulumi.IntPtrInput `pulumi:"version"`
-}
-
-func (ManagedRuleSetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedRuleSet)(nil)).Elem()
-}
-
-func (i ManagedRuleSetArgs) ToManagedRuleSetOutput() ManagedRuleSetOutput {
-	return i.ToManagedRuleSetOutputWithContext(context.Background())
-}
-
-func (i ManagedRuleSetArgs) ToManagedRuleSetOutputWithContext(ctx context.Context) ManagedRuleSetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetOutput)
-}
-
-// ManagedRuleSetArrayInput is an input type that accepts ManagedRuleSetArray and ManagedRuleSetArrayOutput values.
-// You can construct a concrete instance of `ManagedRuleSetArrayInput` via:
-//
-//          ManagedRuleSetArray{ ManagedRuleSetArgs{...} }
-type ManagedRuleSetArrayInput interface {
-	pulumi.Input
-
-	ToManagedRuleSetArrayOutput() ManagedRuleSetArrayOutput
-	ToManagedRuleSetArrayOutputWithContext(context.Context) ManagedRuleSetArrayOutput
-}
-
-type ManagedRuleSetArray []ManagedRuleSetInput
-
-func (ManagedRuleSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedRuleSet)(nil)).Elem()
-}
-
-func (i ManagedRuleSetArray) ToManagedRuleSetArrayOutput() ManagedRuleSetArrayOutput {
-	return i.ToManagedRuleSetArrayOutputWithContext(context.Background())
-}
-
-func (i ManagedRuleSetArray) ToManagedRuleSetArrayOutputWithContext(ctx context.Context) ManagedRuleSetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetArrayOutput)
-}
-
-// Base class for all types of ManagedRuleSet.
-type ManagedRuleSetOutput struct{ *pulumi.OutputState }
-
-func (ManagedRuleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedRuleSet)(nil)).Elem()
-}
-
-func (o ManagedRuleSetOutput) ToManagedRuleSetOutput() ManagedRuleSetOutput {
-	return o
-}
-
-func (o ManagedRuleSetOutput) ToManagedRuleSetOutputWithContext(ctx context.Context) ManagedRuleSetOutput {
-	return o
-}
-
-// Describes priority of the rule
-func (o ManagedRuleSetOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagedRuleSet) *int { return v.Priority }).(pulumi.IntPtrOutput)
-}
-
-// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
-func (o ManagedRuleSetOutput) RuleSetType() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedRuleSet) string { return v.RuleSetType }).(pulumi.StringOutput)
-}
-
-// defines version of the rule set
-func (o ManagedRuleSetOutput) Version() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagedRuleSet) *int { return v.Version }).(pulumi.IntPtrOutput)
-}
-
-type ManagedRuleSetArrayOutput struct{ *pulumi.OutputState }
-
-func (ManagedRuleSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedRuleSet)(nil)).Elem()
-}
-
-func (o ManagedRuleSetArrayOutput) ToManagedRuleSetArrayOutput() ManagedRuleSetArrayOutput {
-	return o
-}
-
-func (o ManagedRuleSetArrayOutput) ToManagedRuleSetArrayOutputWithContext(ctx context.Context) ManagedRuleSetArrayOutput {
-	return o
-}
-
-func (o ManagedRuleSetArrayOutput) Index(i pulumi.IntInput) ManagedRuleSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleSet {
-		return vs[0].([]ManagedRuleSet)[vs[1].(int)]
-	}).(ManagedRuleSetOutput)
-}
-
-// Base class for all types of ManagedRuleSet.
-type ManagedRuleSetResponse struct {
-	// Describes priority of the rule
-	Priority *int `pulumi:"priority"`
-	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
-	RuleSetType string `pulumi:"ruleSetType"`
-	// defines version of the rule set
-	Version *int `pulumi:"version"`
-}
-
-// ManagedRuleSetResponseInput is an input type that accepts ManagedRuleSetResponseArgs and ManagedRuleSetResponseOutput values.
-// You can construct a concrete instance of `ManagedRuleSetResponseInput` via:
-//
-//          ManagedRuleSetResponseArgs{...}
-type ManagedRuleSetResponseInput interface {
-	pulumi.Input
-
-	ToManagedRuleSetResponseOutput() ManagedRuleSetResponseOutput
-	ToManagedRuleSetResponseOutputWithContext(context.Context) ManagedRuleSetResponseOutput
-}
-
-// Base class for all types of ManagedRuleSet.
-type ManagedRuleSetResponseArgs struct {
-	// Describes priority of the rule
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
-	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
-	// defines version of the rule set
-	Version pulumi.IntPtrInput `pulumi:"version"`
-}
-
-func (ManagedRuleSetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedRuleSetResponse)(nil)).Elem()
-}
-
-func (i ManagedRuleSetResponseArgs) ToManagedRuleSetResponseOutput() ManagedRuleSetResponseOutput {
-	return i.ToManagedRuleSetResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedRuleSetResponseArgs) ToManagedRuleSetResponseOutputWithContext(ctx context.Context) ManagedRuleSetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetResponseOutput)
-}
-
-// ManagedRuleSetResponseArrayInput is an input type that accepts ManagedRuleSetResponseArray and ManagedRuleSetResponseArrayOutput values.
-// You can construct a concrete instance of `ManagedRuleSetResponseArrayInput` via:
-//
-//          ManagedRuleSetResponseArray{ ManagedRuleSetResponseArgs{...} }
-type ManagedRuleSetResponseArrayInput interface {
-	pulumi.Input
-
-	ToManagedRuleSetResponseArrayOutput() ManagedRuleSetResponseArrayOutput
-	ToManagedRuleSetResponseArrayOutputWithContext(context.Context) ManagedRuleSetResponseArrayOutput
-}
-
-type ManagedRuleSetResponseArray []ManagedRuleSetResponseInput
-
-func (ManagedRuleSetResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedRuleSetResponse)(nil)).Elem()
-}
-
-func (i ManagedRuleSetResponseArray) ToManagedRuleSetResponseArrayOutput() ManagedRuleSetResponseArrayOutput {
-	return i.ToManagedRuleSetResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ManagedRuleSetResponseArray) ToManagedRuleSetResponseArrayOutputWithContext(ctx context.Context) ManagedRuleSetResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetResponseArrayOutput)
-}
-
-// Base class for all types of ManagedRuleSet.
-type ManagedRuleSetResponseOutput struct{ *pulumi.OutputState }
-
-func (ManagedRuleSetResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedRuleSetResponse)(nil)).Elem()
-}
-
-func (o ManagedRuleSetResponseOutput) ToManagedRuleSetResponseOutput() ManagedRuleSetResponseOutput {
-	return o
-}
-
-func (o ManagedRuleSetResponseOutput) ToManagedRuleSetResponseOutputWithContext(ctx context.Context) ManagedRuleSetResponseOutput {
-	return o
-}
-
-// Describes priority of the rule
-func (o ManagedRuleSetResponseOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagedRuleSetResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
-}
-
-// RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
-func (o ManagedRuleSetResponseOutput) RuleSetType() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedRuleSetResponse) string { return v.RuleSetType }).(pulumi.StringOutput)
-}
-
-// defines version of the rule set
-func (o ManagedRuleSetResponseOutput) Version() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagedRuleSetResponse) *int { return v.Version }).(pulumi.IntPtrOutput)
-}
-
-type ManagedRuleSetResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ManagedRuleSetResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedRuleSetResponse)(nil)).Elem()
-}
-
-func (o ManagedRuleSetResponseArrayOutput) ToManagedRuleSetResponseArrayOutput() ManagedRuleSetResponseArrayOutput {
-	return o
-}
-
-func (o ManagedRuleSetResponseArrayOutput) ToManagedRuleSetResponseArrayOutputWithContext(ctx context.Context) ManagedRuleSetResponseArrayOutput {
-	return o
-}
-
-func (o ManagedRuleSetResponseArrayOutput) Index(i pulumi.IntInput) ManagedRuleSetResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleSetResponse {
-		return vs[0].([]ManagedRuleSetResponse)[vs[1].(int)]
-	}).(ManagedRuleSetResponseOutput)
-}
-
 // Defines ManagedRuleSets - array of managedRuleSet
 type ManagedRuleSets struct {
 	// List of rules
-	RuleSets []ManagedRuleSet `pulumi:"ruleSets"`
+	RuleSets []AzureManagedRuleSet `pulumi:"ruleSets"`
 }
 
 // ManagedRuleSetsInput is an input type that accepts ManagedRuleSetsArgs and ManagedRuleSetsOutput values.
@@ -27905,7 +28143,7 @@ type ManagedRuleSetsInput interface {
 // Defines ManagedRuleSets - array of managedRuleSet
 type ManagedRuleSetsArgs struct {
 	// List of rules
-	RuleSets ManagedRuleSetArrayInput `pulumi:"ruleSets"`
+	RuleSets AzureManagedRuleSetArrayInput `pulumi:"ruleSets"`
 }
 
 func (ManagedRuleSetsArgs) ElementType() reflect.Type {
@@ -27987,8 +28225,8 @@ func (o ManagedRuleSetsOutput) ToManagedRuleSetsPtrOutputWithContext(ctx context
 }
 
 // List of rules
-func (o ManagedRuleSetsOutput) RuleSets() ManagedRuleSetArrayOutput {
-	return o.ApplyT(func(v ManagedRuleSets) []ManagedRuleSet { return v.RuleSets }).(ManagedRuleSetArrayOutput)
+func (o ManagedRuleSetsOutput) RuleSets() AzureManagedRuleSetArrayOutput {
+	return o.ApplyT(func(v ManagedRuleSets) []AzureManagedRuleSet { return v.RuleSets }).(AzureManagedRuleSetArrayOutput)
 }
 
 type ManagedRuleSetsPtrOutput struct{ *pulumi.OutputState }
@@ -28010,19 +28248,19 @@ func (o ManagedRuleSetsPtrOutput) Elem() ManagedRuleSetsOutput {
 }
 
 // List of rules
-func (o ManagedRuleSetsPtrOutput) RuleSets() ManagedRuleSetArrayOutput {
-	return o.ApplyT(func(v *ManagedRuleSets) []ManagedRuleSet {
+func (o ManagedRuleSetsPtrOutput) RuleSets() AzureManagedRuleSetArrayOutput {
+	return o.ApplyT(func(v *ManagedRuleSets) []AzureManagedRuleSet {
 		if v == nil {
 			return nil
 		}
 		return v.RuleSets
-	}).(ManagedRuleSetArrayOutput)
+	}).(AzureManagedRuleSetArrayOutput)
 }
 
 // Defines ManagedRuleSets - array of managedRuleSet
 type ManagedRuleSetsResponse struct {
 	// List of rules
-	RuleSets []ManagedRuleSetResponse `pulumi:"ruleSets"`
+	RuleSets []AzureManagedRuleSetResponse `pulumi:"ruleSets"`
 }
 
 // ManagedRuleSetsResponseInput is an input type that accepts ManagedRuleSetsResponseArgs and ManagedRuleSetsResponseOutput values.
@@ -28039,7 +28277,7 @@ type ManagedRuleSetsResponseInput interface {
 // Defines ManagedRuleSets - array of managedRuleSet
 type ManagedRuleSetsResponseArgs struct {
 	// List of rules
-	RuleSets ManagedRuleSetResponseArrayInput `pulumi:"ruleSets"`
+	RuleSets AzureManagedRuleSetResponseArrayInput `pulumi:"ruleSets"`
 }
 
 func (ManagedRuleSetsResponseArgs) ElementType() reflect.Type {
@@ -28121,8 +28359,8 @@ func (o ManagedRuleSetsResponseOutput) ToManagedRuleSetsResponsePtrOutputWithCon
 }
 
 // List of rules
-func (o ManagedRuleSetsResponseOutput) RuleSets() ManagedRuleSetResponseArrayOutput {
-	return o.ApplyT(func(v ManagedRuleSetsResponse) []ManagedRuleSetResponse { return v.RuleSets }).(ManagedRuleSetResponseArrayOutput)
+func (o ManagedRuleSetsResponseOutput) RuleSets() AzureManagedRuleSetResponseArrayOutput {
+	return o.ApplyT(func(v ManagedRuleSetsResponse) []AzureManagedRuleSetResponse { return v.RuleSets }).(AzureManagedRuleSetResponseArrayOutput)
 }
 
 type ManagedRuleSetsResponsePtrOutput struct{ *pulumi.OutputState }
@@ -28144,13 +28382,13 @@ func (o ManagedRuleSetsResponsePtrOutput) Elem() ManagedRuleSetsResponseOutput {
 }
 
 // List of rules
-func (o ManagedRuleSetsResponsePtrOutput) RuleSets() ManagedRuleSetResponseArrayOutput {
-	return o.ApplyT(func(v *ManagedRuleSetsResponse) []ManagedRuleSetResponse {
+func (o ManagedRuleSetsResponsePtrOutput) RuleSets() AzureManagedRuleSetResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedRuleSetsResponse) []AzureManagedRuleSetResponse {
 		if v == nil {
 			return nil
 		}
 		return v.RuleSets
-	}).(ManagedRuleSetResponseArrayOutput)
+	}).(AzureManagedRuleSetResponseArrayOutput)
 }
 
 // Define match conditions
@@ -46388,6 +46626,14 @@ func init() {
 	pulumi.RegisterOutputType(AzureFirewallRCActionPtrOutput{})
 	pulumi.RegisterOutputType(AzureFirewallRCActionResponseOutput{})
 	pulumi.RegisterOutputType(AzureFirewallRCActionResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureManagedOverrideRuleGroupOutput{})
+	pulumi.RegisterOutputType(AzureManagedOverrideRuleGroupArrayOutput{})
+	pulumi.RegisterOutputType(AzureManagedOverrideRuleGroupResponseOutput{})
+	pulumi.RegisterOutputType(AzureManagedOverrideRuleGroupResponseArrayOutput{})
+	pulumi.RegisterOutputType(AzureManagedRuleSetOutput{})
+	pulumi.RegisterOutputType(AzureManagedRuleSetArrayOutput{})
+	pulumi.RegisterOutputType(AzureManagedRuleSetResponseOutput{})
+	pulumi.RegisterOutputType(AzureManagedRuleSetResponseArrayOutput{})
 	pulumi.RegisterOutputType(BackendOutput{})
 	pulumi.RegisterOutputType(BackendArrayOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolOutput{})
@@ -46577,10 +46823,6 @@ func init() {
 	pulumi.RegisterOutputType(LocalNetworkGatewayTypePtrOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayResponseOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayResponsePtrOutput{})
-	pulumi.RegisterOutputType(ManagedRuleSetOutput{})
-	pulumi.RegisterOutputType(ManagedRuleSetArrayOutput{})
-	pulumi.RegisterOutputType(ManagedRuleSetResponseOutput{})
-	pulumi.RegisterOutputType(ManagedRuleSetResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleSetsOutput{})
 	pulumi.RegisterOutputType(ManagedRuleSetsPtrOutput{})
 	pulumi.RegisterOutputType(ManagedRuleSetsResponseOutput{})

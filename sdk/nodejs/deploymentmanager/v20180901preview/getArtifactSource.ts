@@ -42,7 +42,7 @@ export interface GetArtifactSourceResult {
     /**
      * The authentication method to use to access the artifact source.
      */
-    readonly authentication: outputs.deploymentmanager.v20180901preview.AuthenticationResponse;
+    readonly authentication: outputs.deploymentmanager.v20180901preview.SasAuthenticationResponse;
     /**
      * The geo-location where the resource lives
      */

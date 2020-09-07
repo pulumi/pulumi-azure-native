@@ -47,7 +47,7 @@ export class WebService extends pulumi.CustomResource {
     /**
      * Contains the property payload that describes the web service.
      */
-    public readonly properties!: pulumi.Output<outputs.machinelearning.latest.WebServicePropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.machinelearning.latest.WebServicePropertiesForGraphResponse>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
@@ -117,7 +117,7 @@ export interface WebServiceArgs {
     /**
      * Contains the property payload that describes the web service.
      */
-    readonly properties: pulumi.Input<inputs.machinelearning.latest.WebServiceProperties>;
+    readonly properties: pulumi.Input<inputs.machinelearning.latest.WebServicePropertiesForGraph>;
     /**
      * Name of the resource group in which the web service is located.
      */

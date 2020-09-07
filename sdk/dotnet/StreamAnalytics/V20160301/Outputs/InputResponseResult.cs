@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
         /// <summary>
         /// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Outputs.InputPropertiesResponseResult? Properties;
+        public readonly Union<Outputs.ReferenceInputPropertiesResponseResult, Outputs.StreamInputPropertiesResponseResult>? Properties;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
 
             string? name,
 
-            Outputs.InputPropertiesResponseResult? properties,
+            Union<Outputs.ReferenceInputPropertiesResponseResult, Outputs.StreamInputPropertiesResponseResult>? properties,
 
             string type)
         {

@@ -55,7 +55,7 @@ export interface GetMachineLearningComputeResult {
     /**
      * Compute properties
      */
-    readonly properties: outputs.machinelearningservices.v20190601.ComputeResponse;
+    readonly properties: outputs.machinelearningservices.v20190601.AKSResponse | outputs.machinelearningservices.v20190601.AmlComputeResponse | outputs.machinelearningservices.v20190601.DataFactoryResponse | outputs.machinelearningservices.v20190601.DataLakeAnalyticsResponse | outputs.machinelearningservices.v20190601.DatabricksResponse | outputs.machinelearningservices.v20190601.HDInsightResponse | outputs.machinelearningservices.v20190601.VirtualMachineResponse;
     /**
      * Contains resource tags defined as key/value pairs.
      */

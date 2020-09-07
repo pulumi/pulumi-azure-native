@@ -32,7 +32,7 @@ type LookupIntegrationRuntimeResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Integration runtime properties.
-	Properties IntegrationRuntimeResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

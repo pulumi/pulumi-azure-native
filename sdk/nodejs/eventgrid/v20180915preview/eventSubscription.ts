@@ -39,11 +39,11 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20180915preview.DeadLetterDestinationResponse | undefined>;
+    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20180915preview.StorageBlobDeadLetterDestinationResponse | undefined>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    public readonly destination!: pulumi.Output<outputs.eventgrid.v20180915preview.EventSubscriptionDestinationResponse | undefined>;
+    public readonly destination!: pulumi.Output<outputs.eventgrid.v20180915preview.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20180915preview.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20180915preview.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20180915preview.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -143,11 +143,11 @@ export interface EventSubscriptionArgs {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20180915preview.DeadLetterDestination>;
+    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20180915preview.StorageBlobDeadLetterDestination>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20180915preview.EventSubscriptionDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.v20180915preview.EventHubEventSubscriptionDestination | inputs.eventgrid.v20180915preview.HybridConnectionEventSubscriptionDestination | inputs.eventgrid.v20180915preview.StorageQueueEventSubscriptionDestination | inputs.eventgrid.v20180915preview.WebHookEventSubscriptionDestination>;
     /**
      * The event delivery schema for the event subscription.
      */

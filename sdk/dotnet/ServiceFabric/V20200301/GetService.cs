@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         /// <summary>
         /// Describes how the service is partitioned.
         /// </summary>
-        public readonly Outputs.PartitionSchemeDescriptionResponseResult? PartitionDescription;
+        public readonly Union<Outputs.NamedPartitionSchemeDescriptionResponseResult, Union<Outputs.SingletonPartitionSchemeDescriptionResponseResult, Outputs.UniformInt64RangePartitionSchemeDescriptionResponseResult>>? PartitionDescription;
         /// <summary>
         /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
 
             string name,
 
-            Outputs.PartitionSchemeDescriptionResponseResult? partitionDescription,
+            Union<Outputs.NamedPartitionSchemeDescriptionResponseResult, Union<Outputs.SingletonPartitionSchemeDescriptionResponseResult, Outputs.UniformInt64RangePartitionSchemeDescriptionResponseResult>>? partitionDescription,
 
             string? placementConstraints,
 

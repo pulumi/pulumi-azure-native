@@ -15,7 +15,7 @@ type TemplateSpecVersion struct {
 	pulumi.CustomResourceState
 
 	// An array of Template Spec artifacts.
-	Artifacts TemplateSpecArtifactResponseArrayOutput `pulumi:"artifacts"`
+	Artifacts TemplateSpecTemplateArtifactResponseArrayOutput `pulumi:"artifacts"`
 	// Template Spec version description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
@@ -73,7 +73,7 @@ func GetTemplateSpecVersion(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TemplateSpecVersion resources.
 type templateSpecVersionState struct {
 	// An array of Template Spec artifacts.
-	Artifacts []TemplateSpecArtifactResponse `pulumi:"artifacts"`
+	Artifacts []TemplateSpecTemplateArtifactResponse `pulumi:"artifacts"`
 	// Template Spec version description.
 	Description *string `pulumi:"description"`
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
@@ -92,7 +92,7 @@ type templateSpecVersionState struct {
 
 type TemplateSpecVersionState struct {
 	// An array of Template Spec artifacts.
-	Artifacts TemplateSpecArtifactResponseArrayInput
+	Artifacts TemplateSpecTemplateArtifactResponseArrayInput
 	// Template Spec version description.
 	Description pulumi.StringPtrInput
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
@@ -115,7 +115,7 @@ func (TemplateSpecVersionState) ElementType() reflect.Type {
 
 type templateSpecVersionArgs struct {
 	// An array of Template Spec artifacts.
-	Artifacts []TemplateSpecArtifact `pulumi:"artifacts"`
+	Artifacts []TemplateSpecTemplateArtifact `pulumi:"artifacts"`
 	// Template Spec version description.
 	Description *string `pulumi:"description"`
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
@@ -135,7 +135,7 @@ type templateSpecVersionArgs struct {
 // The set of arguments for constructing a TemplateSpecVersion resource.
 type TemplateSpecVersionArgs struct {
 	// An array of Template Spec artifacts.
-	Artifacts TemplateSpecArtifactArrayInput
+	Artifacts TemplateSpecTemplateArtifactArrayInput
 	// Template Spec version description.
 	Description pulumi.StringPtrInput
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.

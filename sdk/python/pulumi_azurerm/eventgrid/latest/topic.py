@@ -19,7 +19,7 @@ class Topic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inbound_ip_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
-                 input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['InputSchemaMappingArgs']]] = None,
+                 input_schema_mapping: Optional[pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[str] input_schema: This determines the format that Event Grid should expect for incoming events published to the topic.
-        :param pulumi.Input[pulumi.InputType['InputSchemaMappingArgs']] input_schema_mapping: This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
+        :param pulumi.Input[pulumi.InputType['JsonInputSchemaMappingArgs']] input_schema_mapping: This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. 
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
@@ -133,7 +133,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputSchemaMapping")
-    def input_schema_mapping(self) -> pulumi.Output[Optional['outputs.InputSchemaMappingResponse']]:
+    def input_schema_mapping(self) -> pulumi.Output[Optional['outputs.JsonInputSchemaMappingResponse']]:
         """
         This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         """

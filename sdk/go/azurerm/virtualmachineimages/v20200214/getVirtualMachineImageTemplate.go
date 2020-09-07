@@ -28,9 +28,9 @@ type LookupVirtualMachineImageTemplateResult struct {
 	// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
 	BuildTimeoutInMinutes *int `pulumi:"buildTimeoutInMinutes"`
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize []ImageTemplateCustomizerResponse `pulumi:"customize"`
+	Customize []interface{} `pulumi:"customize"`
 	// The distribution targets where the image output needs to go to.
-	Distribute []ImageTemplateDistributorResponse `pulumi:"distribute"`
+	Distribute []interface{} `pulumi:"distribute"`
 	// The identity of the image template, if configured.
 	Identity ImageTemplateIdentityResponse `pulumi:"identity"`
 	// State of 'run' that is currently executing or was last executed.
@@ -44,7 +44,7 @@ type LookupVirtualMachineImageTemplateResult struct {
 	// Provisioning state of the resource
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Specifies the properties used to describe the source image.
-	Source ImageTemplateSourceResponse `pulumi:"source"`
+	Source interface{} `pulumi:"source"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

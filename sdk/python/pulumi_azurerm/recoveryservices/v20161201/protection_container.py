@@ -21,7 +21,7 @@ class ProtectionContainer(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ProtectionContainerArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureSqlContainerArgs'], pulumi.InputType['AzureStorageContainerArgs'], pulumi.InputType['AzureWorkloadContainerArgs'], pulumi.InputType['DpmContainerArgs'], pulumi.InputType['GenericContainerArgs'], pulumi.InputType['IaaSVMContainerArgs'], pulumi.InputType['MabContainerArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +37,7 @@ class ProtectionContainer(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[str] fabric_name: Fabric name associated with the container.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[pulumi.InputType['ProtectionContainerArgs']] properties: ProtectionContainerResource properties
+        :param pulumi.Input[Union[pulumi.InputType['AzureSqlContainerArgs'], pulumi.InputType['AzureStorageContainerArgs'], pulumi.InputType['AzureWorkloadContainerArgs'], pulumi.InputType['DpmContainerArgs'], pulumi.InputType['GenericContainerArgs'], pulumi.InputType['IaaSVMContainerArgs'], pulumi.InputType['MabContainerArgs']]] properties: ProtectionContainerResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the recovery services vault.
@@ -129,7 +129,7 @@ class ProtectionContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ProtectionContainerResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         ProtectionContainerResource properties
         """

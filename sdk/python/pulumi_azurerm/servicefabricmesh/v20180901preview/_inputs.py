@@ -9,16 +9,17 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'AddRemoveReplicaScalingMechanismArgs',
     'ApplicationScopedVolumeArgs',
-    'ApplicationScopedVolumeCreationParametersArgs',
-    'AutoScalingMechanismArgs',
+    'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs',
     'AutoScalingPolicyArgs',
-    'AutoScalingTriggerArgs',
+    'AutoScalingResourceMetricArgs',
+    'AverageLoadScalingTriggerArgs',
+    'AzureInternalMonitoringPipelineSinkDescriptionArgs',
     'ContainerCodePackagePropertiesArgs',
     'ContainerLabelArgs',
     'DiagnosticsDescriptionArgs',
     'DiagnosticsRefArgs',
-    'DiagnosticsSinkPropertiesArgs',
     'EndpointPropertiesArgs',
     'EndpointRefArgs',
     'EnvironmentVariableArgs',
@@ -45,15 +46,83 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class AddRemoveReplicaScalingMechanismArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 max_count: pulumi.Input[float],
+                 min_count: pulumi.Input[float],
+                 scale_increment: pulumi.Input[float]):
+        """
+        Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+        :param pulumi.Input[str] kind: The type of auto scaling mechanism.
+        :param pulumi.Input[float] max_count: Maximum number of containers (scale up won't be performed above this number).
+        :param pulumi.Input[float] min_count: Minimum number of containers (scale down won't be performed below this number).
+        :param pulumi.Input[float] scale_increment: Each time auto scaling is performed, this number of containers will be added or removed.
+        """
+        pulumi.set(__self__, "kind", 'AddRemoveReplica')
+        pulumi.set(__self__, "max_count", max_count)
+        pulumi.set(__self__, "min_count", min_count)
+        pulumi.set(__self__, "scale_increment", scale_increment)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The type of auto scaling mechanism.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="maxCount")
+    def max_count(self) -> pulumi.Input[float]:
+        """
+        Maximum number of containers (scale up won't be performed above this number).
+        """
+        return pulumi.get(self, "max_count")
+
+    @max_count.setter
+    def max_count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "max_count", value)
+
+    @property
+    @pulumi.getter(name="minCount")
+    def min_count(self) -> pulumi.Input[float]:
+        """
+        Minimum number of containers (scale down won't be performed below this number).
+        """
+        return pulumi.get(self, "min_count")
+
+    @min_count.setter
+    def min_count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "min_count", value)
+
+    @property
+    @pulumi.getter(name="scaleIncrement")
+    def scale_increment(self) -> pulumi.Input[float]:
+        """
+        Each time auto scaling is performed, this number of containers will be added or removed.
+        """
+        return pulumi.get(self, "scale_increment")
+
+    @scale_increment.setter
+    def scale_increment(self, value: pulumi.Input[float]):
+        pulumi.set(self, "scale_increment", value)
+
+
+@pulumi.input_type
 class ApplicationScopedVolumeArgs:
     def __init__(__self__, *,
-                 creation_parameters: pulumi.Input['ApplicationScopedVolumeCreationParametersArgs'],
+                 creation_parameters: pulumi.Input['ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs'],
                  destination_path: pulumi.Input[str],
                  name: pulumi.Input[str],
                  read_only: Optional[pulumi.Input[bool]] = None):
         """
         Describes a volume whose lifetime is scoped to the application's lifetime.
-        :param pulumi.Input['ApplicationScopedVolumeCreationParametersArgs'] creation_parameters: Describes parameters for creating application-scoped volumes.
+        :param pulumi.Input['ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs'] creation_parameters: Describes parameters for creating application-scoped volumes.
         :param pulumi.Input[str] destination_path: The path within the container at which the volume should be mounted. Only valid path characters are allowed.
         :param pulumi.Input[str] name: Name of the volume being referenced.
         :param pulumi.Input[bool] read_only: The flag indicating whether the volume is read only. Default is 'false'.
@@ -66,14 +135,14 @@ class ApplicationScopedVolumeArgs:
 
     @property
     @pulumi.getter(name="creationParameters")
-    def creation_parameters(self) -> pulumi.Input['ApplicationScopedVolumeCreationParametersArgs']:
+    def creation_parameters(self) -> pulumi.Input['ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs']:
         """
         Describes parameters for creating application-scoped volumes.
         """
         return pulumi.get(self, "creation_parameters")
 
     @creation_parameters.setter
-    def creation_parameters(self, value: pulumi.Input['ApplicationScopedVolumeCreationParametersArgs']):
+    def creation_parameters(self, value: pulumi.Input['ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs']):
         pulumi.set(self, "creation_parameters", value)
 
     @property
@@ -114,16 +183,19 @@ class ApplicationScopedVolumeArgs:
 
 
 @pulumi.input_type
-class ApplicationScopedVolumeCreationParametersArgs:
+class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
+                 size_disk: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
         """
-        Describes parameters for creating application-scoped volumes.
+        Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
         :param pulumi.Input[str] kind: Specifies the application-scoped volume kind.
+        :param pulumi.Input[str] size_disk: Volume size
         :param pulumi.Input[str] description: User readable description of the volume.
         """
-        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "kind", 'ServiceFabricVolumeDisk')
+        pulumi.set(__self__, "size_disk", size_disk)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -140,6 +212,18 @@ class ApplicationScopedVolumeCreationParametersArgs:
         pulumi.set(self, "kind", value)
 
     @property
+    @pulumi.getter(name="sizeDisk")
+    def size_disk(self) -> pulumi.Input[str]:
+        """
+        Volume size
+        """
+        return pulumi.get(self, "size_disk")
+
+    @size_disk.setter
+    def size_disk(self, value: pulumi.Input[str]):
+        pulumi.set(self, "size_disk", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -153,39 +237,16 @@ class ApplicationScopedVolumeCreationParametersArgs:
 
 
 @pulumi.input_type
-class AutoScalingMechanismArgs:
-    def __init__(__self__, *,
-                 kind: pulumi.Input[str]):
-        """
-        Describes the mechanism for performing auto scaling operation. Derived classes will describe the actual mechanism.
-        :param pulumi.Input[str] kind: The type of auto scaling mechanism.
-        """
-        pulumi.set(__self__, "kind", kind)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Input[str]:
-        """
-        The type of auto scaling mechanism.
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kind", value)
-
-
-@pulumi.input_type
 class AutoScalingPolicyArgs:
     def __init__(__self__, *,
-                 mechanism: pulumi.Input['AutoScalingMechanismArgs'],
+                 mechanism: pulumi.Input['AddRemoveReplicaScalingMechanismArgs'],
                  name: pulumi.Input[str],
-                 trigger: pulumi.Input['AutoScalingTriggerArgs']):
+                 trigger: pulumi.Input['AverageLoadScalingTriggerArgs']):
         """
         Describes the auto scaling policy
-        :param pulumi.Input['AutoScalingMechanismArgs'] mechanism: The mechanism that is used to scale when auto scaling operation is invoked.
+        :param pulumi.Input['AddRemoveReplicaScalingMechanismArgs'] mechanism: The mechanism that is used to scale when auto scaling operation is invoked.
         :param pulumi.Input[str] name: The name of the auto scaling policy.
-        :param pulumi.Input['AutoScalingTriggerArgs'] trigger: Determines when auto scaling operation will be invoked.
+        :param pulumi.Input['AverageLoadScalingTriggerArgs'] trigger: Determines when auto scaling operation will be invoked.
         """
         pulumi.set(__self__, "mechanism", mechanism)
         pulumi.set(__self__, "name", name)
@@ -193,14 +254,14 @@ class AutoScalingPolicyArgs:
 
     @property
     @pulumi.getter
-    def mechanism(self) -> pulumi.Input['AutoScalingMechanismArgs']:
+    def mechanism(self) -> pulumi.Input['AddRemoveReplicaScalingMechanismArgs']:
         """
         The mechanism that is used to scale when auto scaling operation is invoked.
         """
         return pulumi.get(self, "mechanism")
 
     @mechanism.setter
-    def mechanism(self, value: pulumi.Input['AutoScalingMechanismArgs']):
+    def mechanism(self, value: pulumi.Input['AddRemoveReplicaScalingMechanismArgs']):
         pulumi.set(self, "mechanism", value)
 
     @property
@@ -217,26 +278,76 @@ class AutoScalingPolicyArgs:
 
     @property
     @pulumi.getter
-    def trigger(self) -> pulumi.Input['AutoScalingTriggerArgs']:
+    def trigger(self) -> pulumi.Input['AverageLoadScalingTriggerArgs']:
         """
         Determines when auto scaling operation will be invoked.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: pulumi.Input['AutoScalingTriggerArgs']):
+    def trigger(self, value: pulumi.Input['AverageLoadScalingTriggerArgs']):
         pulumi.set(self, "trigger", value)
 
 
 @pulumi.input_type
-class AutoScalingTriggerArgs:
+class AutoScalingResourceMetricArgs:
     def __init__(__self__, *,
-                 kind: pulumi.Input[str]):
+                 kind: pulumi.Input[str],
+                 name: pulumi.Input[str]):
         """
-        Describes the trigger for performing auto scaling operation.
+        Describes the resource that is used for triggering auto scaling.
+        :param pulumi.Input[str] kind: The type of auto scaling metric
+        :param pulumi.Input[str] name: Name of the resource.
+        """
+        pulumi.set(__self__, "kind", 'Resource')
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The type of auto scaling metric
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class AverageLoadScalingTriggerArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 lower_load_threshold: pulumi.Input[float],
+                 metric: pulumi.Input['AutoScalingResourceMetricArgs'],
+                 scale_interval_in_seconds: pulumi.Input[float],
+                 upper_load_threshold: pulumi.Input[float]):
+        """
+        Describes the average load trigger used for auto scaling.
         :param pulumi.Input[str] kind: The type of auto scaling trigger
+        :param pulumi.Input[float] lower_load_threshold: Lower load threshold (if average load is below this threshold, service will scale down).
+        :param pulumi.Input['AutoScalingResourceMetricArgs'] metric: Description of the metric that is used for scaling.
+        :param pulumi.Input[float] scale_interval_in_seconds: Scale interval that indicates how often will this trigger be checked.
+        :param pulumi.Input[float] upper_load_threshold: Upper load threshold (if average load is above this threshold, service will scale up).
         """
-        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "kind", 'AverageLoad')
+        pulumi.set(__self__, "lower_load_threshold", lower_load_threshold)
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "scale_interval_in_seconds", scale_interval_in_seconds)
+        pulumi.set(__self__, "upper_load_threshold", upper_load_threshold)
 
     @property
     @pulumi.getter
@@ -249,6 +360,189 @@ class AutoScalingTriggerArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="lowerLoadThreshold")
+    def lower_load_threshold(self) -> pulumi.Input[float]:
+        """
+        Lower load threshold (if average load is below this threshold, service will scale down).
+        """
+        return pulumi.get(self, "lower_load_threshold")
+
+    @lower_load_threshold.setter
+    def lower_load_threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "lower_load_threshold", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> pulumi.Input['AutoScalingResourceMetricArgs']:
+        """
+        Description of the metric that is used for scaling.
+        """
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: pulumi.Input['AutoScalingResourceMetricArgs']):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter(name="scaleIntervalInSeconds")
+    def scale_interval_in_seconds(self) -> pulumi.Input[float]:
+        """
+        Scale interval that indicates how often will this trigger be checked.
+        """
+        return pulumi.get(self, "scale_interval_in_seconds")
+
+    @scale_interval_in_seconds.setter
+    def scale_interval_in_seconds(self, value: pulumi.Input[float]):
+        pulumi.set(self, "scale_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="upperLoadThreshold")
+    def upper_load_threshold(self) -> pulumi.Input[float]:
+        """
+        Upper load threshold (if average load is above this threshold, service will scale up).
+        """
+        return pulumi.get(self, "upper_load_threshold")
+
+    @upper_load_threshold.setter
+    def upper_load_threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "upper_load_threshold", value)
+
+
+@pulumi.input_type
+class AzureInternalMonitoringPipelineSinkDescriptionArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 auto_key_config_url: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 fluentd_config_url: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 ma_config_url: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None):
+        """
+        Diagnostics settings for Geneva.
+        :param pulumi.Input[str] kind: The kind of DiagnosticsSink.
+        :param pulumi.Input[str] account_name: Azure Internal monitoring pipeline account.
+        :param pulumi.Input[str] auto_key_config_url: Azure Internal monitoring pipeline autokey associated with the certificate.
+        :param pulumi.Input[str] description: A description of the sink.
+        :param pulumi.Input[Mapping[str, Any]] fluentd_config_url: Azure Internal monitoring agent fluentd configuration.
+        :param pulumi.Input[str] ma_config_url: Azure Internal monitoring agent configuration.
+        :param pulumi.Input[str] name: Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+        :param pulumi.Input[str] namespace: Azure Internal monitoring pipeline account namespace.
+        """
+        pulumi.set(__self__, "kind", 'AzureInternalMonitoringPipeline')
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if auto_key_config_url is not None:
+            pulumi.set(__self__, "auto_key_config_url", auto_key_config_url)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if fluentd_config_url is not None:
+            pulumi.set(__self__, "fluentd_config_url", fluentd_config_url)
+        if ma_config_url is not None:
+            pulumi.set(__self__, "ma_config_url", ma_config_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The kind of DiagnosticsSink.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Internal monitoring pipeline account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="autoKeyConfigUrl")
+    def auto_key_config_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Internal monitoring pipeline autokey associated with the certificate.
+        """
+        return pulumi.get(self, "auto_key_config_url")
+
+    @auto_key_config_url.setter
+    def auto_key_config_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_key_config_url", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the sink.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="fluentdConfigUrl")
+    def fluentd_config_url(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Azure Internal monitoring agent fluentd configuration.
+        """
+        return pulumi.get(self, "fluentd_config_url")
+
+    @fluentd_config_url.setter
+    def fluentd_config_url(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "fluentd_config_url", value)
+
+    @property
+    @pulumi.getter(name="maConfigUrl")
+    def ma_config_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Internal monitoring agent configuration.
+        """
+        return pulumi.get(self, "ma_config_url")
+
+    @ma_config_url.setter
+    def ma_config_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ma_config_url", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Internal monitoring pipeline account namespace.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
 
 
 @pulumi.input_type
@@ -523,12 +817,12 @@ class DiagnosticsDescriptionArgs:
     def __init__(__self__, *,
                  default_sink_refs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 sinks: Optional[pulumi.Input[List[pulumi.Input['DiagnosticsSinkPropertiesArgs']]]] = None):
+                 sinks: Optional[pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]] = None):
         """
         Describes the diagnostics options available
         :param pulumi.Input[List[pulumi.Input[str]]] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         :param pulumi.Input[bool] enabled: Status of whether or not sinks are enabled.
-        :param pulumi.Input[List[pulumi.Input['DiagnosticsSinkPropertiesArgs']]] sinks: List of supported sinks that can be referenced.
+        :param pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]] sinks: List of supported sinks that can be referenced.
         """
         if default_sink_refs is not None:
             pulumi.set(__self__, "default_sink_refs", default_sink_refs)
@@ -563,14 +857,14 @@ class DiagnosticsDescriptionArgs:
 
     @property
     @pulumi.getter
-    def sinks(self) -> Optional[pulumi.Input[List[pulumi.Input['DiagnosticsSinkPropertiesArgs']]]]:
+    def sinks(self) -> Optional[pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]:
         """
         List of supported sinks that can be referenced.
         """
         return pulumi.get(self, "sinks")
 
     @sinks.setter
-    def sinks(self, value: Optional[pulumi.Input[List[pulumi.Input['DiagnosticsSinkPropertiesArgs']]]]):
+    def sinks(self, value: Optional[pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]):
         pulumi.set(self, "sinks", value)
 
 
@@ -612,61 +906,6 @@ class DiagnosticsRefArgs:
     @sink_refs.setter
     def sink_refs(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
         pulumi.set(self, "sink_refs", value)
-
-
-@pulumi.input_type
-class DiagnosticsSinkPropertiesArgs:
-    def __init__(__self__, *,
-                 kind: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        Properties of a DiagnosticsSink.
-        :param pulumi.Input[str] kind: The kind of DiagnosticsSink.
-        :param pulumi.Input[str] description: A description of the sink.
-        :param pulumi.Input[str] name: Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-        """
-        pulumi.set(__self__, "kind", kind)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Input[str]:
-        """
-        The kind of DiagnosticsSink.
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of the sink.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -1221,7 +1460,7 @@ class NetworkResourcePropertiesArgs:
         :param pulumi.Input[str] kind: The type of a Service Fabric container network.
         :param pulumi.Input[str] description: User readable description of the network.
         """
-        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "kind", 'NetworkResourceProperties')
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -1418,7 +1657,7 @@ class SecretResourcePropertiesArgs:
         :param pulumi.Input[str] content_type: The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
         :param pulumi.Input[str] description: User readable description of the secret.
         """
-        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "kind", 'SecretResourceProperties')
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
         if description is not None:

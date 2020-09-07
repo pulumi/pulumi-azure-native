@@ -57,7 +57,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def action(self) -> 'outputs.ActionResponse':
+    def action(self) -> Any:
         """
         Action needs to be taken on rule execution.
         """

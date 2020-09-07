@@ -66,7 +66,7 @@ class GetProtectionIntentResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProtectionIntentResponse':
+    def properties(self) -> Any:
         """
         ProtectionIntentResource properties
         """

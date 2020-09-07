@@ -21,7 +21,7 @@ class Factory(pulumi.CustomResource):
                  global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 repo_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryRepoConfigurationArgs']]] = None,
+                 repo_configuration: Optional[pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -36,7 +36,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]] global_parameters: List of parameters for factory.
         :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: Managed service identity of the factory.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[pulumi.InputType['FactoryRepoConfigurationArgs']] repo_configuration: Git repo information of the factory.
+        :param pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]] repo_configuration: Git repo information of the factory.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -158,7 +158,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repoConfiguration")
-    def repo_configuration(self) -> pulumi.Output[Optional['outputs.FactoryRepoConfigurationResponse']]:
+    def repo_configuration(self) -> pulumi.Output[Optional[Any]]:
         """
         Git repo information of the factory.
         """

@@ -27,8 +27,8 @@ __all__ = [
     'ClusterVersionDetailsResponse',
     'DiagnosticsStorageAccountConfigResponse',
     'EndpointRangeDescriptionResponse',
+    'NamedPartitionSchemeDescriptionResponse',
     'NodeTypeDescriptionResponse',
-    'PartitionSchemeDescriptionResponse',
     'ServerCertificateCommonNameResponse',
     'ServerCertificateCommonNamesResponse',
     'ServiceCorrelationDescriptionResponse',
@@ -38,6 +38,8 @@ __all__ = [
     'ServiceTypeHealthPolicyResponse',
     'SettingsParameterDescriptionResponse',
     'SettingsSectionDescriptionResponse',
+    'SingletonPartitionSchemeDescriptionResponse',
+    'UniformInt64RangePartitionSchemeDescriptionResponse',
 ]
 
 @pulumi.output_type
@@ -1068,6 +1070,53 @@ class EndpointRangeDescriptionResponse(dict):
 
 
 @pulumi.output_type
+class NamedPartitionSchemeDescriptionResponse(dict):
+    """
+    Describes the named partition scheme of the service.
+    """
+    def __init__(__self__, *,
+                 count: float,
+                 names: List[str],
+                 partition_scheme: str):
+        """
+        Describes the named partition scheme of the service.
+        :param float count: The number of partitions.
+        :param List[str] names: Array of size specified by the ‘Count’ parameter, for the names of the partitions.
+        :param str partition_scheme: Specifies how the service is partitioned.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "names", names)
+        pulumi.set(__self__, "partition_scheme", 'Named')
+
+    @property
+    @pulumi.getter
+    def count(self) -> float:
+        """
+        The number of partitions.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def names(self) -> List[str]:
+        """
+        Array of size specified by the ‘Count’ parameter, for the names of the partitions.
+        """
+        return pulumi.get(self, "names")
+
+    @property
+    @pulumi.getter(name="partitionScheme")
+    def partition_scheme(self) -> str:
+        """
+        Specifies how the service is partitioned.
+        """
+        return pulumi.get(self, "partition_scheme")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class NodeTypeDescriptionResponse(dict):
     """
     Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
@@ -1211,31 +1260,6 @@ class NodeTypeDescriptionResponse(dict):
         The endpoint used by reverse proxy.
         """
         return pulumi.get(self, "reverse_proxy_endpoint_port")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class PartitionSchemeDescriptionResponse(dict):
-    """
-    Describes how the service is partitioned.
-    """
-    def __init__(__self__, *,
-                 partition_scheme: str):
-        """
-        Describes how the service is partitioned.
-        :param str partition_scheme: Specifies how the service is partitioned.
-        """
-        pulumi.set(__self__, "partition_scheme", partition_scheme)
-
-    @property
-    @pulumi.getter(name="partitionScheme")
-    def partition_scheme(self) -> str:
-        """
-        Specifies how the service is partitioned.
-        """
-        return pulumi.get(self, "partition_scheme")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1574,6 +1598,93 @@ class SettingsSectionDescriptionResponse(dict):
         The collection of parameters in the section.
         """
         return pulumi.get(self, "parameters")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SingletonPartitionSchemeDescriptionResponse(dict):
+    """
+    Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+    """
+    def __init__(__self__, *,
+                 partition_scheme: str):
+        """
+        Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+        :param str partition_scheme: Specifies how the service is partitioned.
+        """
+        pulumi.set(__self__, "partition_scheme", 'Singleton')
+
+    @property
+    @pulumi.getter(name="partitionScheme")
+    def partition_scheme(self) -> str:
+        """
+        Specifies how the service is partitioned.
+        """
+        return pulumi.get(self, "partition_scheme")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UniformInt64RangePartitionSchemeDescriptionResponse(dict):
+    """
+    Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+    """
+    def __init__(__self__, *,
+                 count: float,
+                 high_key: str,
+                 low_key: str,
+                 partition_scheme: str):
+        """
+        Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+        :param float count: The number of partitions.
+        :param str high_key: String indicating the upper bound of the partition key range that
+               should be split between the partition ‘Count’
+        :param str low_key: String indicating the lower bound of the partition key range that
+               should be split between the partition ‘Count’
+        :param str partition_scheme: Specifies how the service is partitioned.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "high_key", high_key)
+        pulumi.set(__self__, "low_key", low_key)
+        pulumi.set(__self__, "partition_scheme", 'UniformInt64Range')
+
+    @property
+    @pulumi.getter
+    def count(self) -> float:
+        """
+        The number of partitions.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="highKey")
+    def high_key(self) -> str:
+        """
+        String indicating the upper bound of the partition key range that
+        should be split between the partition ‘Count’
+        """
+        return pulumi.get(self, "high_key")
+
+    @property
+    @pulumi.getter(name="lowKey")
+    def low_key(self) -> str:
+        """
+        String indicating the lower bound of the partition key range that
+        should be split between the partition ‘Count’
+        """
+        return pulumi.get(self, "low_key")
+
+    @property
+    @pulumi.getter(name="partitionScheme")
+    def partition_scheme(self) -> str:
+        """
+        Specifies how the service is partitioned.
+        """
+        return pulumi.get(self, "partition_scheme")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

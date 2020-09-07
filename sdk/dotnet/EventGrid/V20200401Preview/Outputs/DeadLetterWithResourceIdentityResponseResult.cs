@@ -17,7 +17,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview.Outputs
         /// Information about the destination where events have to be delivered for the event subscription.
         /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
-        public readonly Outputs.DeadLetterDestinationResponseResult? DeadLetterDestination;
+        public readonly Outputs.StorageBlobDeadLetterDestinationResponseResult? DeadLetterDestination;
         /// <summary>
         /// The identity to use when dead-lettering events.
         /// </summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview.Outputs
 
         [OutputConstructor]
         private DeadLetterWithResourceIdentityResponseResult(
-            Outputs.DeadLetterDestinationResponseResult? deadLetterDestination,
+            Outputs.StorageBlobDeadLetterDestinationResponseResult? deadLetterDestination,
 
             Outputs.EventSubscriptionIdentityResponseResult? identity)
         {

@@ -52,7 +52,7 @@ class GetTaskResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProjectTaskPropertiesResponse':
+    def properties(self) -> Any:
         """
         Custom task properties
         """

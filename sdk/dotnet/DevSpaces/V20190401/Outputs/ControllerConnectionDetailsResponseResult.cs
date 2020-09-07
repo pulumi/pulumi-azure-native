@@ -16,10 +16,10 @@ namespace Pulumi.AzureRM.DevSpaces.V20190401.Outputs
         /// <summary>
         /// Base class for types that supply values used to connect to container orchestrators
         /// </summary>
-        public readonly Outputs.OrchestratorSpecificConnectionDetailsResponseResult? OrchestratorSpecificConnectionDetails;
+        public readonly Outputs.KubernetesConnectionDetailsResponseResult? OrchestratorSpecificConnectionDetails;
 
         [OutputConstructor]
-        private ControllerConnectionDetailsResponseResult(Outputs.OrchestratorSpecificConnectionDetailsResponseResult? orchestratorSpecificConnectionDetails)
+        private ControllerConnectionDetailsResponseResult(Outputs.KubernetesConnectionDetailsResponseResult? orchestratorSpecificConnectionDetails)
         {
             OrchestratorSpecificConnectionDetails = orchestratorSpecificConnectionDetails;
         }

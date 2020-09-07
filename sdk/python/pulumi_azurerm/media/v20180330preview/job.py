@@ -19,9 +19,9 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 input: Optional[pulumi.Input[pulumi.InputType['JobInputArgs']]] = None,
+                 input: Optional[pulumi.Input[Union[pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputsArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JobOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
@@ -35,9 +35,9 @@ class Job(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[str] description: Optional customer supplied description of the Job.
-        :param pulumi.Input[pulumi.InputType['JobInputArgs']] input: The inputs for the Job.
+        :param pulumi.Input[Union[pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputsArgs']]] input: The inputs for the Job.
         :param pulumi.Input[str] job_name: The Job name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['JobOutputArgs']]]] outputs: The outputs for the Job.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]] outputs: The outputs for the Job.
         :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] transform_name: The Transform name.
@@ -128,7 +128,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def input(self) -> pulumi.Output['outputs.JobInputResponse']:
+    def input(self) -> pulumi.Output[Any]:
         """
         The inputs for the Job.
         """
@@ -152,7 +152,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> pulumi.Output[List['outputs.JobOutputResponse']]:
+    def outputs(self) -> pulumi.Output[List['outputs.JobOutputAssetResponse']]:
         """
         The outputs for the Job.
         """

@@ -53,6 +53,7 @@ func NewMachineGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &MachineGroupArgs{}
 	}
+	args.Kind = pulumi.String("machineGroup")
 	var resource MachineGroup
 	err := ctx.RegisterResource("azurerm:operationalinsights/v20151101preview:MachineGroup", name, args, &resource, opts...)
 	if err != nil {

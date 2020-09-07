@@ -10,7 +10,8 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'HttpAuthenticationResponse',
+    'BasicAuthenticationResponse',
+    'ClientCertAuthenticationResponse',
     'HttpRequestResponse',
     'JobActionResponse',
     'JobCollectionPropertiesResponse',
@@ -22,6 +23,7 @@ __all__ = [
     'JobRecurrenceScheduleMonthlyOccurrenceResponse',
     'JobRecurrenceScheduleResponse',
     'JobStatusResponse',
+    'OAuthAuthenticationResponse',
     'RetryPolicyResponse',
     'ServiceBusAuthenticationResponse',
     'ServiceBusBrokeredMessagePropertiesResponse',
@@ -32,13 +34,21 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class HttpAuthenticationResponse(dict):
+class BasicAuthenticationResponse(dict):
     def __init__(__self__, *,
-                 type: str):
+                 type: str,
+                 password: Optional[str] = None,
+                 username: Optional[str] = None):
         """
         :param str type: Gets or sets the HTTP authentication type.
+        :param str password: Gets or sets the password, return value will always be empty.
+        :param str username: Gets or sets the username.
         """
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type", 'Basic')
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -48,6 +58,103 @@ class HttpAuthenticationResponse(dict):
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Gets or sets the password, return value will always be empty.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Gets or sets the username.
+        """
+        return pulumi.get(self, "username")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ClientCertAuthenticationResponse(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 certificate_expiration_date: Optional[str] = None,
+                 certificate_subject_name: Optional[str] = None,
+                 certificate_thumbprint: Optional[str] = None,
+                 password: Optional[str] = None,
+                 pfx: Optional[str] = None):
+        """
+        :param str type: Gets or sets the HTTP authentication type.
+        :param str certificate_expiration_date: Gets or sets the certificate expiration date.
+        :param str certificate_subject_name: Gets or sets the certificate subject name.
+        :param str certificate_thumbprint: Gets or sets the certificate thumbprint.
+        :param str password: Gets or sets the certificate password, return value will always be empty.
+        :param str pfx: Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+        """
+        pulumi.set(__self__, "type", 'ClientCertificate')
+        if certificate_expiration_date is not None:
+            pulumi.set(__self__, "certificate_expiration_date", certificate_expiration_date)
+        if certificate_subject_name is not None:
+            pulumi.set(__self__, "certificate_subject_name", certificate_subject_name)
+        if certificate_thumbprint is not None:
+            pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if pfx is not None:
+            pulumi.set(__self__, "pfx", pfx)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Gets or sets the HTTP authentication type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="certificateExpirationDate")
+    def certificate_expiration_date(self) -> Optional[str]:
+        """
+        Gets or sets the certificate expiration date.
+        """
+        return pulumi.get(self, "certificate_expiration_date")
+
+    @property
+    @pulumi.getter(name="certificateSubjectName")
+    def certificate_subject_name(self) -> Optional[str]:
+        """
+        Gets or sets the certificate subject name.
+        """
+        return pulumi.get(self, "certificate_subject_name")
+
+    @property
+    @pulumi.getter(name="certificateThumbprint")
+    def certificate_thumbprint(self) -> Optional[str]:
+        """
+        Gets or sets the certificate thumbprint.
+        """
+        return pulumi.get(self, "certificate_thumbprint")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Gets or sets the certificate password, return value will always be empty.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def pfx(self) -> Optional[str]:
+        """
+        Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+        """
+        return pulumi.get(self, "pfx")
+
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
@@ -55,13 +162,13 @@ class HttpAuthenticationResponse(dict):
 @pulumi.output_type
 class HttpRequestResponse(dict):
     def __init__(__self__, *,
-                 authentication: Optional['outputs.HttpAuthenticationResponse'] = None,
+                 authentication: Optional[Any] = None,
                  body: Optional[str] = None,
                  headers: Optional[Mapping[str, str]] = None,
                  method: Optional[str] = None,
                  uri: Optional[str] = None):
         """
-        :param 'HttpAuthenticationResponseArgs' authentication: Gets or sets the authentication method of the request.
+        :param Union['BasicAuthenticationResponseArgs', 'ClientCertAuthenticationResponseArgs', 'OAuthAuthenticationResponseArgs'] authentication: Gets or sets the authentication method of the request.
         :param str body: Gets or sets the request body.
         :param Mapping[str, str] headers: Gets or sets the headers.
         :param str method: Gets or sets the method of the request.
@@ -80,7 +187,7 @@ class HttpRequestResponse(dict):
 
     @property
     @pulumi.getter
-    def authentication(self) -> Optional['outputs.HttpAuthenticationResponse']:
+    def authentication(self) -> Optional[Any]:
         """
         Gets or sets the authentication method of the request.
         """
@@ -723,6 +830,75 @@ class JobStatusResponse(dict):
         Gets the time of the next occurrence in ISO-8601 format. Could be empty if the job is completed.
         """
         return pulumi.get(self, "next_execution_time")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OAuthAuthenticationResponse(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 audience: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 secret: Optional[str] = None,
+                 tenant: Optional[str] = None):
+        """
+        :param str type: Gets or sets the HTTP authentication type.
+        :param str audience: Gets or sets the audience.
+        :param str client_id: Gets or sets the client identifier.
+        :param str secret: Gets or sets the secret, return value will always be empty.
+        :param str tenant: Gets or sets the tenant.
+        """
+        pulumi.set(__self__, "type", 'ActiveDirectoryOAuth')
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if tenant is not None:
+            pulumi.set(__self__, "tenant", tenant)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Gets or sets the HTTP authentication type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def audience(self) -> Optional[str]:
+        """
+        Gets or sets the audience.
+        """
+        return pulumi.get(self, "audience")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        Gets or sets the client identifier.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[str]:
+        """
+        Gets or sets the secret, return value will always be empty.
+        """
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter
+    def tenant(self) -> Optional[str]:
+        """
+        Gets or sets the tenant.
+        """
+        return pulumi.get(self, "tenant")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

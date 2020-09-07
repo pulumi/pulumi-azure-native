@@ -9,19 +9,24 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'EventSubscriptionDestinationArgs',
+    'EventHubEventSubscriptionDestinationArgs',
     'EventSubscriptionFilterArgs',
+    'WebHookEventSubscriptionDestinationArgs',
 ]
 
 @pulumi.input_type
-class EventSubscriptionDestinationArgs:
+class EventHubEventSubscriptionDestinationArgs:
     def __init__(__self__, *,
-                 endpoint_type: pulumi.Input[str]):
+                 endpoint_type: pulumi.Input[str],
+                 resource_id: Optional[pulumi.Input[str]] = None):
         """
-        Information about the destination for an event subscription
+        Information about the event hub destination for an event subscription
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination
+        :param pulumi.Input[str] resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "endpoint_type", 'EventHub')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -34,6 +39,18 @@ class EventSubscriptionDestinationArgs:
     @endpoint_type.setter
     def endpoint_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -116,5 +133,44 @@ class EventSubscriptionFilterArgs:
     @subject_ends_with.setter
     def subject_ends_with(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subject_ends_with", value)
+
+
+@pulumi.input_type
+class WebHookEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 endpoint_url: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the webhook destination for an event subscription
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination
+        :param pulumi.Input[str] endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'WebHook')
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_url")
+
+    @endpoint_url.setter
+    def endpoint_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_url", value)
 
 

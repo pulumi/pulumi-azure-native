@@ -15,7 +15,7 @@ type CustomDomain struct {
 	pulumi.CustomResourceState
 
 	// Certificate parameters for securing custom HTTPS
-	CustomHttpsParameters CustomDomainHttpsParametersResponsePtrOutput `pulumi:"customHttpsParameters"`
+	CustomHttpsParameters pulumi.AnyOutput `pulumi:"customHttpsParameters"`
 	// Provisioning status of Custom Https of the custom domain.
 	CustomHttpsProvisioningState pulumi.StringOutput `pulumi:"customHttpsProvisioningState"`
 	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
@@ -114,7 +114,7 @@ func GetCustomDomain(ctx *pulumi.Context,
 // Input properties used for looking up and filtering CustomDomain resources.
 type customDomainState struct {
 	// Certificate parameters for securing custom HTTPS
-	CustomHttpsParameters *CustomDomainHttpsParametersResponse `pulumi:"customHttpsParameters"`
+	CustomHttpsParameters interface{} `pulumi:"customHttpsParameters"`
 	// Provisioning status of Custom Https of the custom domain.
 	CustomHttpsProvisioningState *string `pulumi:"customHttpsProvisioningState"`
 	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
@@ -135,7 +135,7 @@ type customDomainState struct {
 
 type CustomDomainState struct {
 	// Certificate parameters for securing custom HTTPS
-	CustomHttpsParameters CustomDomainHttpsParametersResponsePtrInput
+	CustomHttpsParameters pulumi.Input
 	// Provisioning status of Custom Https of the custom domain.
 	CustomHttpsProvisioningState pulumi.StringPtrInput
 	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.

@@ -10,6 +10,164 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParameters struct {
+	// Caching behavior for the requests that include query strings.
+	CacheBehavior string `pulumi:"cacheBehavior"`
+	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheDuration *string `pulumi:"cacheDuration"`
+	// The level at which the content needs to be cached.
+	CacheType string `pulumi:"cacheType"`
+	OdataType string `pulumi:"odataType"`
+}
+
+// CacheExpirationActionParametersInput is an input type that accepts CacheExpirationActionParametersArgs and CacheExpirationActionParametersOutput values.
+// You can construct a concrete instance of `CacheExpirationActionParametersInput` via:
+//
+//          CacheExpirationActionParametersArgs{...}
+type CacheExpirationActionParametersInput interface {
+	pulumi.Input
+
+	ToCacheExpirationActionParametersOutput() CacheExpirationActionParametersOutput
+	ToCacheExpirationActionParametersOutputWithContext(context.Context) CacheExpirationActionParametersOutput
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersArgs struct {
+	// Caching behavior for the requests that include query strings.
+	CacheBehavior pulumi.StringInput `pulumi:"cacheBehavior"`
+	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
+	// The level at which the content needs to be cached.
+	CacheType pulumi.StringInput `pulumi:"cacheType"`
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (CacheExpirationActionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheExpirationActionParameters)(nil)).Elem()
+}
+
+func (i CacheExpirationActionParametersArgs) ToCacheExpirationActionParametersOutput() CacheExpirationActionParametersOutput {
+	return i.ToCacheExpirationActionParametersOutputWithContext(context.Background())
+}
+
+func (i CacheExpirationActionParametersArgs) ToCacheExpirationActionParametersOutputWithContext(ctx context.Context) CacheExpirationActionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheExpirationActionParametersOutput)
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersOutput struct{ *pulumi.OutputState }
+
+func (CacheExpirationActionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheExpirationActionParameters)(nil)).Elem()
+}
+
+func (o CacheExpirationActionParametersOutput) ToCacheExpirationActionParametersOutput() CacheExpirationActionParametersOutput {
+	return o
+}
+
+func (o CacheExpirationActionParametersOutput) ToCacheExpirationActionParametersOutputWithContext(ctx context.Context) CacheExpirationActionParametersOutput {
+	return o
+}
+
+// Caching behavior for the requests that include query strings.
+func (o CacheExpirationActionParametersOutput) CacheBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParameters) string { return v.CacheBehavior }).(pulumi.StringOutput)
+}
+
+// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+func (o CacheExpirationActionParametersOutput) CacheDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheExpirationActionParameters) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
+}
+
+// The level at which the content needs to be cached.
+func (o CacheExpirationActionParametersOutput) CacheType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParameters) string { return v.CacheType }).(pulumi.StringOutput)
+}
+
+func (o CacheExpirationActionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersResponse struct {
+	// Caching behavior for the requests that include query strings.
+	CacheBehavior string `pulumi:"cacheBehavior"`
+	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheDuration *string `pulumi:"cacheDuration"`
+	// The level at which the content needs to be cached.
+	CacheType string `pulumi:"cacheType"`
+	OdataType string `pulumi:"odataType"`
+}
+
+// CacheExpirationActionParametersResponseInput is an input type that accepts CacheExpirationActionParametersResponseArgs and CacheExpirationActionParametersResponseOutput values.
+// You can construct a concrete instance of `CacheExpirationActionParametersResponseInput` via:
+//
+//          CacheExpirationActionParametersResponseArgs{...}
+type CacheExpirationActionParametersResponseInput interface {
+	pulumi.Input
+
+	ToCacheExpirationActionParametersResponseOutput() CacheExpirationActionParametersResponseOutput
+	ToCacheExpirationActionParametersResponseOutputWithContext(context.Context) CacheExpirationActionParametersResponseOutput
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersResponseArgs struct {
+	// Caching behavior for the requests that include query strings.
+	CacheBehavior pulumi.StringInput `pulumi:"cacheBehavior"`
+	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
+	// The level at which the content needs to be cached.
+	CacheType pulumi.StringInput `pulumi:"cacheType"`
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (CacheExpirationActionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheExpirationActionParametersResponse)(nil)).Elem()
+}
+
+func (i CacheExpirationActionParametersResponseArgs) ToCacheExpirationActionParametersResponseOutput() CacheExpirationActionParametersResponseOutput {
+	return i.ToCacheExpirationActionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i CacheExpirationActionParametersResponseArgs) ToCacheExpirationActionParametersResponseOutputWithContext(ctx context.Context) CacheExpirationActionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheExpirationActionParametersResponseOutput)
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheExpirationActionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheExpirationActionParametersResponse)(nil)).Elem()
+}
+
+func (o CacheExpirationActionParametersResponseOutput) ToCacheExpirationActionParametersResponseOutput() CacheExpirationActionParametersResponseOutput {
+	return o
+}
+
+func (o CacheExpirationActionParametersResponseOutput) ToCacheExpirationActionParametersResponseOutputWithContext(ctx context.Context) CacheExpirationActionParametersResponseOutput {
+	return o
+}
+
+// Caching behavior for the requests that include query strings.
+func (o CacheExpirationActionParametersResponseOutput) CacheBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersResponse) string { return v.CacheBehavior }).(pulumi.StringOutput)
+}
+
+// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+func (o CacheExpirationActionParametersResponseOutput) CacheDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersResponse) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
+}
+
+// The level at which the content needs to be cached.
+func (o CacheExpirationActionParametersResponseOutput) CacheType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersResponse) string { return v.CacheType }).(pulumi.StringOutput)
+}
+
+func (o CacheExpirationActionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
 // The main origin of CDN content which is added when creating a CDN endpoint.
 type DeepCreatedOrigin struct {
 	// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
@@ -267,9 +425,9 @@ func (o DeepCreatedOriginResponseArrayOutput) Index(i pulumi.IntInput) DeepCreat
 // A rule that specifies a set of actions and conditions
 type DeliveryRule struct {
 	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions []DeliveryRuleAction `pulumi:"actions"`
+	Actions []DeliveryRuleCacheExpirationAction `pulumi:"actions"`
 	// A list of conditions that must be matched for the actions to be executed
-	Conditions []DeliveryRuleCondition `pulumi:"conditions"`
+	Conditions []interface{} `pulumi:"conditions"`
 	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
 	Order int `pulumi:"order"`
 }
@@ -288,9 +446,9 @@ type DeliveryRuleInput interface {
 // A rule that specifies a set of actions and conditions
 type DeliveryRuleArgs struct {
 	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions DeliveryRuleActionArrayInput `pulumi:"actions"`
+	Actions DeliveryRuleCacheExpirationActionArrayInput `pulumi:"actions"`
 	// A list of conditions that must be matched for the actions to be executed
-	Conditions DeliveryRuleConditionArrayInput `pulumi:"conditions"`
+	Conditions pulumi.ArrayInput `pulumi:"conditions"`
 	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
 	Order pulumi.IntInput `pulumi:"order"`
 }
@@ -348,13 +506,13 @@ func (o DeliveryRuleOutput) ToDeliveryRuleOutputWithContext(ctx context.Context)
 }
 
 // A list of actions that are executed when all the conditions of a rule are satisfied.
-func (o DeliveryRuleOutput) Actions() DeliveryRuleActionArrayOutput {
-	return o.ApplyT(func(v DeliveryRule) []DeliveryRuleAction { return v.Actions }).(DeliveryRuleActionArrayOutput)
+func (o DeliveryRuleOutput) Actions() DeliveryRuleCacheExpirationActionArrayOutput {
+	return o.ApplyT(func(v DeliveryRule) []DeliveryRuleCacheExpirationAction { return v.Actions }).(DeliveryRuleCacheExpirationActionArrayOutput)
 }
 
 // A list of conditions that must be matched for the actions to be executed
-func (o DeliveryRuleOutput) Conditions() DeliveryRuleConditionArrayOutput {
-	return o.ApplyT(func(v DeliveryRule) []DeliveryRuleCondition { return v.Conditions }).(DeliveryRuleConditionArrayOutput)
+func (o DeliveryRuleOutput) Conditions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DeliveryRule) []interface{} { return v.Conditions }).(pulumi.ArrayOutput)
 }
 
 // The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
@@ -382,412 +540,232 @@ func (o DeliveryRuleArrayOutput) Index(i pulumi.IntInput) DeliveryRuleOutput {
 	}).(DeliveryRuleOutput)
 }
 
-// An action for the delivery rule.
-type DeliveryRuleAction struct {
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationAction struct {
 	// The name of the action for the delivery rule.
 	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheExpirationActionParameters `pulumi:"parameters"`
 }
 
-// DeliveryRuleActionInput is an input type that accepts DeliveryRuleActionArgs and DeliveryRuleActionOutput values.
-// You can construct a concrete instance of `DeliveryRuleActionInput` via:
+// DeliveryRuleCacheExpirationActionInput is an input type that accepts DeliveryRuleCacheExpirationActionArgs and DeliveryRuleCacheExpirationActionOutput values.
+// You can construct a concrete instance of `DeliveryRuleCacheExpirationActionInput` via:
 //
-//          DeliveryRuleActionArgs{...}
-type DeliveryRuleActionInput interface {
+//          DeliveryRuleCacheExpirationActionArgs{...}
+type DeliveryRuleCacheExpirationActionInput interface {
 	pulumi.Input
 
-	ToDeliveryRuleActionOutput() DeliveryRuleActionOutput
-	ToDeliveryRuleActionOutputWithContext(context.Context) DeliveryRuleActionOutput
+	ToDeliveryRuleCacheExpirationActionOutput() DeliveryRuleCacheExpirationActionOutput
+	ToDeliveryRuleCacheExpirationActionOutputWithContext(context.Context) DeliveryRuleCacheExpirationActionOutput
 }
 
-// An action for the delivery rule.
-type DeliveryRuleActionArgs struct {
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionArgs struct {
 	// The name of the action for the delivery rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheExpirationActionParametersInput `pulumi:"parameters"`
 }
 
-func (DeliveryRuleActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleAction)(nil)).Elem()
+func (DeliveryRuleCacheExpirationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheExpirationAction)(nil)).Elem()
 }
 
-func (i DeliveryRuleActionArgs) ToDeliveryRuleActionOutput() DeliveryRuleActionOutput {
-	return i.ToDeliveryRuleActionOutputWithContext(context.Background())
+func (i DeliveryRuleCacheExpirationActionArgs) ToDeliveryRuleCacheExpirationActionOutput() DeliveryRuleCacheExpirationActionOutput {
+	return i.ToDeliveryRuleCacheExpirationActionOutputWithContext(context.Background())
 }
 
-func (i DeliveryRuleActionArgs) ToDeliveryRuleActionOutputWithContext(ctx context.Context) DeliveryRuleActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleActionOutput)
+func (i DeliveryRuleCacheExpirationActionArgs) ToDeliveryRuleCacheExpirationActionOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheExpirationActionOutput)
 }
 
-// DeliveryRuleActionArrayInput is an input type that accepts DeliveryRuleActionArray and DeliveryRuleActionArrayOutput values.
-// You can construct a concrete instance of `DeliveryRuleActionArrayInput` via:
+// DeliveryRuleCacheExpirationActionArrayInput is an input type that accepts DeliveryRuleCacheExpirationActionArray and DeliveryRuleCacheExpirationActionArrayOutput values.
+// You can construct a concrete instance of `DeliveryRuleCacheExpirationActionArrayInput` via:
 //
-//          DeliveryRuleActionArray{ DeliveryRuleActionArgs{...} }
-type DeliveryRuleActionArrayInput interface {
+//          DeliveryRuleCacheExpirationActionArray{ DeliveryRuleCacheExpirationActionArgs{...} }
+type DeliveryRuleCacheExpirationActionArrayInput interface {
 	pulumi.Input
 
-	ToDeliveryRuleActionArrayOutput() DeliveryRuleActionArrayOutput
-	ToDeliveryRuleActionArrayOutputWithContext(context.Context) DeliveryRuleActionArrayOutput
+	ToDeliveryRuleCacheExpirationActionArrayOutput() DeliveryRuleCacheExpirationActionArrayOutput
+	ToDeliveryRuleCacheExpirationActionArrayOutputWithContext(context.Context) DeliveryRuleCacheExpirationActionArrayOutput
 }
 
-type DeliveryRuleActionArray []DeliveryRuleActionInput
+type DeliveryRuleCacheExpirationActionArray []DeliveryRuleCacheExpirationActionInput
 
-func (DeliveryRuleActionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleAction)(nil)).Elem()
+func (DeliveryRuleCacheExpirationActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryRuleCacheExpirationAction)(nil)).Elem()
 }
 
-func (i DeliveryRuleActionArray) ToDeliveryRuleActionArrayOutput() DeliveryRuleActionArrayOutput {
-	return i.ToDeliveryRuleActionArrayOutputWithContext(context.Background())
+func (i DeliveryRuleCacheExpirationActionArray) ToDeliveryRuleCacheExpirationActionArrayOutput() DeliveryRuleCacheExpirationActionArrayOutput {
+	return i.ToDeliveryRuleCacheExpirationActionArrayOutputWithContext(context.Background())
 }
 
-func (i DeliveryRuleActionArray) ToDeliveryRuleActionArrayOutputWithContext(ctx context.Context) DeliveryRuleActionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleActionArrayOutput)
+func (i DeliveryRuleCacheExpirationActionArray) ToDeliveryRuleCacheExpirationActionArrayOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheExpirationActionArrayOutput)
 }
 
-// An action for the delivery rule.
-type DeliveryRuleActionOutput struct{ *pulumi.OutputState }
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionOutput struct{ *pulumi.OutputState }
 
-func (DeliveryRuleActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleAction)(nil)).Elem()
+func (DeliveryRuleCacheExpirationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheExpirationAction)(nil)).Elem()
 }
 
-func (o DeliveryRuleActionOutput) ToDeliveryRuleActionOutput() DeliveryRuleActionOutput {
+func (o DeliveryRuleCacheExpirationActionOutput) ToDeliveryRuleCacheExpirationActionOutput() DeliveryRuleCacheExpirationActionOutput {
 	return o
 }
 
-func (o DeliveryRuleActionOutput) ToDeliveryRuleActionOutputWithContext(ctx context.Context) DeliveryRuleActionOutput {
+func (o DeliveryRuleCacheExpirationActionOutput) ToDeliveryRuleCacheExpirationActionOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionOutput {
 	return o
 }
 
 // The name of the action for the delivery rule.
-func (o DeliveryRuleActionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleAction) string { return v.Name }).(pulumi.StringOutput)
+func (o DeliveryRuleCacheExpirationActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheExpirationAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type DeliveryRuleActionArrayOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleAction)(nil)).Elem()
+// Defines the parameters for the action.
+func (o DeliveryRuleCacheExpirationActionOutput) Parameters() CacheExpirationActionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheExpirationAction) CacheExpirationActionParameters { return v.Parameters }).(CacheExpirationActionParametersOutput)
 }
 
-func (o DeliveryRuleActionArrayOutput) ToDeliveryRuleActionArrayOutput() DeliveryRuleActionArrayOutput {
+type DeliveryRuleCacheExpirationActionArrayOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleCacheExpirationActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryRuleCacheExpirationAction)(nil)).Elem()
+}
+
+func (o DeliveryRuleCacheExpirationActionArrayOutput) ToDeliveryRuleCacheExpirationActionArrayOutput() DeliveryRuleCacheExpirationActionArrayOutput {
 	return o
 }
 
-func (o DeliveryRuleActionArrayOutput) ToDeliveryRuleActionArrayOutputWithContext(ctx context.Context) DeliveryRuleActionArrayOutput {
+func (o DeliveryRuleCacheExpirationActionArrayOutput) ToDeliveryRuleCacheExpirationActionArrayOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionArrayOutput {
 	return o
 }
 
-func (o DeliveryRuleActionArrayOutput) Index(i pulumi.IntInput) DeliveryRuleActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleAction {
-		return vs[0].([]DeliveryRuleAction)[vs[1].(int)]
-	}).(DeliveryRuleActionOutput)
+func (o DeliveryRuleCacheExpirationActionArrayOutput) Index(i pulumi.IntInput) DeliveryRuleCacheExpirationActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleCacheExpirationAction {
+		return vs[0].([]DeliveryRuleCacheExpirationAction)[vs[1].(int)]
+	}).(DeliveryRuleCacheExpirationActionOutput)
 }
 
-// An action for the delivery rule.
-type DeliveryRuleActionResponse struct {
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionResponse struct {
 	// The name of the action for the delivery rule.
 	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheExpirationActionParametersResponse `pulumi:"parameters"`
 }
 
-// DeliveryRuleActionResponseInput is an input type that accepts DeliveryRuleActionResponseArgs and DeliveryRuleActionResponseOutput values.
-// You can construct a concrete instance of `DeliveryRuleActionResponseInput` via:
+// DeliveryRuleCacheExpirationActionResponseInput is an input type that accepts DeliveryRuleCacheExpirationActionResponseArgs and DeliveryRuleCacheExpirationActionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleCacheExpirationActionResponseInput` via:
 //
-//          DeliveryRuleActionResponseArgs{...}
-type DeliveryRuleActionResponseInput interface {
+//          DeliveryRuleCacheExpirationActionResponseArgs{...}
+type DeliveryRuleCacheExpirationActionResponseInput interface {
 	pulumi.Input
 
-	ToDeliveryRuleActionResponseOutput() DeliveryRuleActionResponseOutput
-	ToDeliveryRuleActionResponseOutputWithContext(context.Context) DeliveryRuleActionResponseOutput
+	ToDeliveryRuleCacheExpirationActionResponseOutput() DeliveryRuleCacheExpirationActionResponseOutput
+	ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(context.Context) DeliveryRuleCacheExpirationActionResponseOutput
 }
 
-// An action for the delivery rule.
-type DeliveryRuleActionResponseArgs struct {
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionResponseArgs struct {
 	// The name of the action for the delivery rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheExpirationActionParametersResponseInput `pulumi:"parameters"`
 }
 
-func (DeliveryRuleActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleActionResponse)(nil)).Elem()
+func (DeliveryRuleCacheExpirationActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheExpirationActionResponse)(nil)).Elem()
 }
 
-func (i DeliveryRuleActionResponseArgs) ToDeliveryRuleActionResponseOutput() DeliveryRuleActionResponseOutput {
-	return i.ToDeliveryRuleActionResponseOutputWithContext(context.Background())
+func (i DeliveryRuleCacheExpirationActionResponseArgs) ToDeliveryRuleCacheExpirationActionResponseOutput() DeliveryRuleCacheExpirationActionResponseOutput {
+	return i.ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(context.Background())
 }
 
-func (i DeliveryRuleActionResponseArgs) ToDeliveryRuleActionResponseOutputWithContext(ctx context.Context) DeliveryRuleActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleActionResponseOutput)
+func (i DeliveryRuleCacheExpirationActionResponseArgs) ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheExpirationActionResponseOutput)
 }
 
-// DeliveryRuleActionResponseArrayInput is an input type that accepts DeliveryRuleActionResponseArray and DeliveryRuleActionResponseArrayOutput values.
-// You can construct a concrete instance of `DeliveryRuleActionResponseArrayInput` via:
+// DeliveryRuleCacheExpirationActionResponseArrayInput is an input type that accepts DeliveryRuleCacheExpirationActionResponseArray and DeliveryRuleCacheExpirationActionResponseArrayOutput values.
+// You can construct a concrete instance of `DeliveryRuleCacheExpirationActionResponseArrayInput` via:
 //
-//          DeliveryRuleActionResponseArray{ DeliveryRuleActionResponseArgs{...} }
-type DeliveryRuleActionResponseArrayInput interface {
+//          DeliveryRuleCacheExpirationActionResponseArray{ DeliveryRuleCacheExpirationActionResponseArgs{...} }
+type DeliveryRuleCacheExpirationActionResponseArrayInput interface {
 	pulumi.Input
 
-	ToDeliveryRuleActionResponseArrayOutput() DeliveryRuleActionResponseArrayOutput
-	ToDeliveryRuleActionResponseArrayOutputWithContext(context.Context) DeliveryRuleActionResponseArrayOutput
+	ToDeliveryRuleCacheExpirationActionResponseArrayOutput() DeliveryRuleCacheExpirationActionResponseArrayOutput
+	ToDeliveryRuleCacheExpirationActionResponseArrayOutputWithContext(context.Context) DeliveryRuleCacheExpirationActionResponseArrayOutput
 }
 
-type DeliveryRuleActionResponseArray []DeliveryRuleActionResponseInput
+type DeliveryRuleCacheExpirationActionResponseArray []DeliveryRuleCacheExpirationActionResponseInput
 
-func (DeliveryRuleActionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleActionResponse)(nil)).Elem()
+func (DeliveryRuleCacheExpirationActionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryRuleCacheExpirationActionResponse)(nil)).Elem()
 }
 
-func (i DeliveryRuleActionResponseArray) ToDeliveryRuleActionResponseArrayOutput() DeliveryRuleActionResponseArrayOutput {
-	return i.ToDeliveryRuleActionResponseArrayOutputWithContext(context.Background())
+func (i DeliveryRuleCacheExpirationActionResponseArray) ToDeliveryRuleCacheExpirationActionResponseArrayOutput() DeliveryRuleCacheExpirationActionResponseArrayOutput {
+	return i.ToDeliveryRuleCacheExpirationActionResponseArrayOutputWithContext(context.Background())
 }
 
-func (i DeliveryRuleActionResponseArray) ToDeliveryRuleActionResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleActionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleActionResponseArrayOutput)
+func (i DeliveryRuleCacheExpirationActionResponseArray) ToDeliveryRuleCacheExpirationActionResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheExpirationActionResponseArrayOutput)
 }
 
-// An action for the delivery rule.
-type DeliveryRuleActionResponseOutput struct{ *pulumi.OutputState }
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionResponseOutput struct{ *pulumi.OutputState }
 
-func (DeliveryRuleActionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleActionResponse)(nil)).Elem()
+func (DeliveryRuleCacheExpirationActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheExpirationActionResponse)(nil)).Elem()
 }
 
-func (o DeliveryRuleActionResponseOutput) ToDeliveryRuleActionResponseOutput() DeliveryRuleActionResponseOutput {
+func (o DeliveryRuleCacheExpirationActionResponseOutput) ToDeliveryRuleCacheExpirationActionResponseOutput() DeliveryRuleCacheExpirationActionResponseOutput {
 	return o
 }
 
-func (o DeliveryRuleActionResponseOutput) ToDeliveryRuleActionResponseOutputWithContext(ctx context.Context) DeliveryRuleActionResponseOutput {
+func (o DeliveryRuleCacheExpirationActionResponseOutput) ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionResponseOutput {
 	return o
 }
 
 // The name of the action for the delivery rule.
-func (o DeliveryRuleActionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleActionResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o DeliveryRuleCacheExpirationActionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheExpirationActionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type DeliveryRuleActionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleActionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleActionResponse)(nil)).Elem()
+// Defines the parameters for the action.
+func (o DeliveryRuleCacheExpirationActionResponseOutput) Parameters() CacheExpirationActionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheExpirationActionResponse) CacheExpirationActionParametersResponse {
+		return v.Parameters
+	}).(CacheExpirationActionParametersResponseOutput)
 }
 
-func (o DeliveryRuleActionResponseArrayOutput) ToDeliveryRuleActionResponseArrayOutput() DeliveryRuleActionResponseArrayOutput {
+type DeliveryRuleCacheExpirationActionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleCacheExpirationActionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryRuleCacheExpirationActionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleCacheExpirationActionResponseArrayOutput) ToDeliveryRuleCacheExpirationActionResponseArrayOutput() DeliveryRuleCacheExpirationActionResponseArrayOutput {
 	return o
 }
 
-func (o DeliveryRuleActionResponseArrayOutput) ToDeliveryRuleActionResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleActionResponseArrayOutput {
+func (o DeliveryRuleCacheExpirationActionResponseArrayOutput) ToDeliveryRuleCacheExpirationActionResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionResponseArrayOutput {
 	return o
 }
 
-func (o DeliveryRuleActionResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleActionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleActionResponse {
-		return vs[0].([]DeliveryRuleActionResponse)[vs[1].(int)]
-	}).(DeliveryRuleActionResponseOutput)
-}
-
-// A condition for the delivery rule.
-type DeliveryRuleCondition struct {
-	// The name of the condition for the delivery rule.
-	Name string `pulumi:"name"`
-}
-
-// DeliveryRuleConditionInput is an input type that accepts DeliveryRuleConditionArgs and DeliveryRuleConditionOutput values.
-// You can construct a concrete instance of `DeliveryRuleConditionInput` via:
-//
-//          DeliveryRuleConditionArgs{...}
-type DeliveryRuleConditionInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleConditionOutput() DeliveryRuleConditionOutput
-	ToDeliveryRuleConditionOutputWithContext(context.Context) DeliveryRuleConditionOutput
-}
-
-// A condition for the delivery rule.
-type DeliveryRuleConditionArgs struct {
-	// The name of the condition for the delivery rule.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (DeliveryRuleConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleCondition)(nil)).Elem()
-}
-
-func (i DeliveryRuleConditionArgs) ToDeliveryRuleConditionOutput() DeliveryRuleConditionOutput {
-	return i.ToDeliveryRuleConditionOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleConditionArgs) ToDeliveryRuleConditionOutputWithContext(ctx context.Context) DeliveryRuleConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleConditionOutput)
-}
-
-// DeliveryRuleConditionArrayInput is an input type that accepts DeliveryRuleConditionArray and DeliveryRuleConditionArrayOutput values.
-// You can construct a concrete instance of `DeliveryRuleConditionArrayInput` via:
-//
-//          DeliveryRuleConditionArray{ DeliveryRuleConditionArgs{...} }
-type DeliveryRuleConditionArrayInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleConditionArrayOutput() DeliveryRuleConditionArrayOutput
-	ToDeliveryRuleConditionArrayOutputWithContext(context.Context) DeliveryRuleConditionArrayOutput
-}
-
-type DeliveryRuleConditionArray []DeliveryRuleConditionInput
-
-func (DeliveryRuleConditionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleCondition)(nil)).Elem()
-}
-
-func (i DeliveryRuleConditionArray) ToDeliveryRuleConditionArrayOutput() DeliveryRuleConditionArrayOutput {
-	return i.ToDeliveryRuleConditionArrayOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleConditionArray) ToDeliveryRuleConditionArrayOutputWithContext(ctx context.Context) DeliveryRuleConditionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleConditionArrayOutput)
-}
-
-// A condition for the delivery rule.
-type DeliveryRuleConditionOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleCondition)(nil)).Elem()
-}
-
-func (o DeliveryRuleConditionOutput) ToDeliveryRuleConditionOutput() DeliveryRuleConditionOutput {
-	return o
-}
-
-func (o DeliveryRuleConditionOutput) ToDeliveryRuleConditionOutputWithContext(ctx context.Context) DeliveryRuleConditionOutput {
-	return o
-}
-
-// The name of the condition for the delivery rule.
-func (o DeliveryRuleConditionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleCondition) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type DeliveryRuleConditionArrayOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleConditionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleCondition)(nil)).Elem()
-}
-
-func (o DeliveryRuleConditionArrayOutput) ToDeliveryRuleConditionArrayOutput() DeliveryRuleConditionArrayOutput {
-	return o
-}
-
-func (o DeliveryRuleConditionArrayOutput) ToDeliveryRuleConditionArrayOutputWithContext(ctx context.Context) DeliveryRuleConditionArrayOutput {
-	return o
-}
-
-func (o DeliveryRuleConditionArrayOutput) Index(i pulumi.IntInput) DeliveryRuleConditionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleCondition {
-		return vs[0].([]DeliveryRuleCondition)[vs[1].(int)]
-	}).(DeliveryRuleConditionOutput)
-}
-
-// A condition for the delivery rule.
-type DeliveryRuleConditionResponse struct {
-	// The name of the condition for the delivery rule.
-	Name string `pulumi:"name"`
-}
-
-// DeliveryRuleConditionResponseInput is an input type that accepts DeliveryRuleConditionResponseArgs and DeliveryRuleConditionResponseOutput values.
-// You can construct a concrete instance of `DeliveryRuleConditionResponseInput` via:
-//
-//          DeliveryRuleConditionResponseArgs{...}
-type DeliveryRuleConditionResponseInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleConditionResponseOutput() DeliveryRuleConditionResponseOutput
-	ToDeliveryRuleConditionResponseOutputWithContext(context.Context) DeliveryRuleConditionResponseOutput
-}
-
-// A condition for the delivery rule.
-type DeliveryRuleConditionResponseArgs struct {
-	// The name of the condition for the delivery rule.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (DeliveryRuleConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleConditionResponse)(nil)).Elem()
-}
-
-func (i DeliveryRuleConditionResponseArgs) ToDeliveryRuleConditionResponseOutput() DeliveryRuleConditionResponseOutput {
-	return i.ToDeliveryRuleConditionResponseOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleConditionResponseArgs) ToDeliveryRuleConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleConditionResponseOutput)
-}
-
-// DeliveryRuleConditionResponseArrayInput is an input type that accepts DeliveryRuleConditionResponseArray and DeliveryRuleConditionResponseArrayOutput values.
-// You can construct a concrete instance of `DeliveryRuleConditionResponseArrayInput` via:
-//
-//          DeliveryRuleConditionResponseArray{ DeliveryRuleConditionResponseArgs{...} }
-type DeliveryRuleConditionResponseArrayInput interface {
-	pulumi.Input
-
-	ToDeliveryRuleConditionResponseArrayOutput() DeliveryRuleConditionResponseArrayOutput
-	ToDeliveryRuleConditionResponseArrayOutputWithContext(context.Context) DeliveryRuleConditionResponseArrayOutput
-}
-
-type DeliveryRuleConditionResponseArray []DeliveryRuleConditionResponseInput
-
-func (DeliveryRuleConditionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleConditionResponse)(nil)).Elem()
-}
-
-func (i DeliveryRuleConditionResponseArray) ToDeliveryRuleConditionResponseArrayOutput() DeliveryRuleConditionResponseArrayOutput {
-	return i.ToDeliveryRuleConditionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DeliveryRuleConditionResponseArray) ToDeliveryRuleConditionResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleConditionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleConditionResponseArrayOutput)
-}
-
-// A condition for the delivery rule.
-type DeliveryRuleConditionResponseOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleConditionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeliveryRuleConditionResponse)(nil)).Elem()
-}
-
-func (o DeliveryRuleConditionResponseOutput) ToDeliveryRuleConditionResponseOutput() DeliveryRuleConditionResponseOutput {
-	return o
-}
-
-func (o DeliveryRuleConditionResponseOutput) ToDeliveryRuleConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleConditionResponseOutput {
-	return o
-}
-
-// The name of the condition for the delivery rule.
-func (o DeliveryRuleConditionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryRuleConditionResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type DeliveryRuleConditionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (DeliveryRuleConditionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeliveryRuleConditionResponse)(nil)).Elem()
-}
-
-func (o DeliveryRuleConditionResponseArrayOutput) ToDeliveryRuleConditionResponseArrayOutput() DeliveryRuleConditionResponseArrayOutput {
-	return o
-}
-
-func (o DeliveryRuleConditionResponseArrayOutput) ToDeliveryRuleConditionResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleConditionResponseArrayOutput {
-	return o
-}
-
-func (o DeliveryRuleConditionResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleConditionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleConditionResponse {
-		return vs[0].([]DeliveryRuleConditionResponse)[vs[1].(int)]
-	}).(DeliveryRuleConditionResponseOutput)
+func (o DeliveryRuleCacheExpirationActionResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleCacheExpirationActionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleCacheExpirationActionResponse {
+		return vs[0].([]DeliveryRuleCacheExpirationActionResponse)[vs[1].(int)]
+	}).(DeliveryRuleCacheExpirationActionResponseOutput)
 }
 
 // A rule that specifies a set of actions and conditions
 type DeliveryRuleResponse struct {
 	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions []DeliveryRuleActionResponse `pulumi:"actions"`
+	Actions []DeliveryRuleCacheExpirationActionResponse `pulumi:"actions"`
 	// A list of conditions that must be matched for the actions to be executed
-	Conditions []DeliveryRuleConditionResponse `pulumi:"conditions"`
+	Conditions []interface{} `pulumi:"conditions"`
 	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
 	Order int `pulumi:"order"`
 }
@@ -806,9 +784,9 @@ type DeliveryRuleResponseInput interface {
 // A rule that specifies a set of actions and conditions
 type DeliveryRuleResponseArgs struct {
 	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions DeliveryRuleActionResponseArrayInput `pulumi:"actions"`
+	Actions DeliveryRuleCacheExpirationActionResponseArrayInput `pulumi:"actions"`
 	// A list of conditions that must be matched for the actions to be executed
-	Conditions DeliveryRuleConditionResponseArrayInput `pulumi:"conditions"`
+	Conditions pulumi.ArrayInput `pulumi:"conditions"`
 	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
 	Order pulumi.IntInput `pulumi:"order"`
 }
@@ -866,13 +844,13 @@ func (o DeliveryRuleResponseOutput) ToDeliveryRuleResponseOutputWithContext(ctx 
 }
 
 // A list of actions that are executed when all the conditions of a rule are satisfied.
-func (o DeliveryRuleResponseOutput) Actions() DeliveryRuleActionResponseArrayOutput {
-	return o.ApplyT(func(v DeliveryRuleResponse) []DeliveryRuleActionResponse { return v.Actions }).(DeliveryRuleActionResponseArrayOutput)
+func (o DeliveryRuleResponseOutput) Actions() DeliveryRuleCacheExpirationActionResponseArrayOutput {
+	return o.ApplyT(func(v DeliveryRuleResponse) []DeliveryRuleCacheExpirationActionResponse { return v.Actions }).(DeliveryRuleCacheExpirationActionResponseArrayOutput)
 }
 
 // A list of conditions that must be matched for the actions to be executed
-func (o DeliveryRuleResponseOutput) Conditions() DeliveryRuleConditionResponseArrayOutput {
-	return o.ApplyT(func(v DeliveryRuleResponse) []DeliveryRuleConditionResponse { return v.Conditions }).(DeliveryRuleConditionResponseArrayOutput)
+func (o DeliveryRuleResponseOutput) Conditions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DeliveryRuleResponse) []interface{} { return v.Conditions }).(pulumi.ArrayOutput)
 }
 
 // The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
@@ -898,6 +876,264 @@ func (o DeliveryRuleResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleResponse {
 		return vs[0].([]DeliveryRuleResponse)[vs[1].(int)]
 	}).(DeliveryRuleResponseOutput)
+}
+
+// Defines the URL file extension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileExtensionConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlFileExtensionConditionInput is an input type that accepts DeliveryRuleUrlFileExtensionConditionArgs and DeliveryRuleUrlFileExtensionConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlFileExtensionConditionInput` via:
+//
+//          DeliveryRuleUrlFileExtensionConditionArgs{...}
+type DeliveryRuleUrlFileExtensionConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlFileExtensionConditionOutput() DeliveryRuleUrlFileExtensionConditionOutput
+	ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(context.Context) DeliveryRuleUrlFileExtensionConditionOutput
+}
+
+// Defines the URL file extension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileExtensionConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlFileExtensionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlFileExtensionConditionArgs) ToDeliveryRuleUrlFileExtensionConditionOutput() DeliveryRuleUrlFileExtensionConditionOutput {
+	return i.ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlFileExtensionConditionArgs) ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileExtensionConditionOutput)
+}
+
+// Defines the URL file extension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlFileExtensionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlFileExtensionConditionOutput) ToDeliveryRuleUrlFileExtensionConditionOutput() DeliveryRuleUrlFileExtensionConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlFileExtensionConditionOutput) ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleUrlFileExtensionConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlFileExtensionConditionOutput) Parameters() UrlFileExtensionConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionCondition) UrlFileExtensionConditionParameters { return v.Parameters }).(UrlFileExtensionConditionParametersOutput)
+}
+
+// Defines the URL file extension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileExtensionConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlFileExtensionConditionResponseInput is an input type that accepts DeliveryRuleUrlFileExtensionConditionResponseArgs and DeliveryRuleUrlFileExtensionConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlFileExtensionConditionResponseInput` via:
+//
+//          DeliveryRuleUrlFileExtensionConditionResponseArgs{...}
+type DeliveryRuleUrlFileExtensionConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlFileExtensionConditionResponseOutput() DeliveryRuleUrlFileExtensionConditionResponseOutput
+	ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(context.Context) DeliveryRuleUrlFileExtensionConditionResponseOutput
+}
+
+// Defines the URL file extension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileExtensionConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlFileExtensionConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlFileExtensionConditionResponseArgs) ToDeliveryRuleUrlFileExtensionConditionResponseOutput() DeliveryRuleUrlFileExtensionConditionResponseOutput {
+	return i.ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlFileExtensionConditionResponseArgs) ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileExtensionConditionResponseOutput)
+}
+
+// Defines the URL file extension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlFileExtensionConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) ToDeliveryRuleUrlFileExtensionConditionResponseOutput() DeliveryRuleUrlFileExtensionConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) Parameters() UrlFileExtensionConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionConditionResponse) UrlFileExtensionConditionParametersResponse {
+		return v.Parameters
+	}).(UrlFileExtensionConditionParametersResponseOutput)
+}
+
+// Defines the URL path condition for the delivery rule.
+type DeliveryRuleUrlPathCondition struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlPathConditionParameters `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlPathConditionInput is an input type that accepts DeliveryRuleUrlPathConditionArgs and DeliveryRuleUrlPathConditionOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlPathConditionInput` via:
+//
+//          DeliveryRuleUrlPathConditionArgs{...}
+type DeliveryRuleUrlPathConditionInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlPathConditionOutput() DeliveryRuleUrlPathConditionOutput
+	ToDeliveryRuleUrlPathConditionOutputWithContext(context.Context) DeliveryRuleUrlPathConditionOutput
+}
+
+// Defines the URL path condition for the delivery rule.
+type DeliveryRuleUrlPathConditionArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlPathConditionParametersInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlPathConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlPathCondition)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlPathConditionArgs) ToDeliveryRuleUrlPathConditionOutput() DeliveryRuleUrlPathConditionOutput {
+	return i.ToDeliveryRuleUrlPathConditionOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlPathConditionArgs) ToDeliveryRuleUrlPathConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlPathConditionOutput)
+}
+
+// Defines the URL path condition for the delivery rule.
+type DeliveryRuleUrlPathConditionOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlPathConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlPathCondition)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlPathConditionOutput) ToDeliveryRuleUrlPathConditionOutput() DeliveryRuleUrlPathConditionOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlPathConditionOutput) ToDeliveryRuleUrlPathConditionOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleUrlPathConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlPathCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlPathConditionOutput) Parameters() UrlPathConditionParametersOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlPathCondition) UrlPathConditionParameters { return v.Parameters }).(UrlPathConditionParametersOutput)
+}
+
+// Defines the URL path condition for the delivery rule.
+type DeliveryRuleUrlPathConditionResponse struct {
+	// The name of the condition for the delivery rule.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlPathConditionParametersResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlPathConditionResponseInput is an input type that accepts DeliveryRuleUrlPathConditionResponseArgs and DeliveryRuleUrlPathConditionResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlPathConditionResponseInput` via:
+//
+//          DeliveryRuleUrlPathConditionResponseArgs{...}
+type DeliveryRuleUrlPathConditionResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlPathConditionResponseOutput() DeliveryRuleUrlPathConditionResponseOutput
+	ToDeliveryRuleUrlPathConditionResponseOutputWithContext(context.Context) DeliveryRuleUrlPathConditionResponseOutput
+}
+
+// Defines the URL path condition for the delivery rule.
+type DeliveryRuleUrlPathConditionResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlPathConditionParametersResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlPathConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlPathConditionResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlPathConditionResponseArgs) ToDeliveryRuleUrlPathConditionResponseOutput() DeliveryRuleUrlPathConditionResponseOutput {
+	return i.ToDeliveryRuleUrlPathConditionResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlPathConditionResponseArgs) ToDeliveryRuleUrlPathConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlPathConditionResponseOutput)
+}
+
+// Defines the URL path condition for the delivery rule.
+type DeliveryRuleUrlPathConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlPathConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlPathConditionResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlPathConditionResponseOutput) ToDeliveryRuleUrlPathConditionResponseOutput() DeliveryRuleUrlPathConditionResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlPathConditionResponseOutput) ToDeliveryRuleUrlPathConditionResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+func (o DeliveryRuleUrlPathConditionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlPathConditionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlPathConditionResponseOutput) Parameters() UrlPathConditionParametersResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlPathConditionResponse) UrlPathConditionParametersResponse { return v.Parameters }).(UrlPathConditionParametersResponseOutput)
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
@@ -1716,23 +1952,287 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the parameters for the URL file extension condition.
+type UrlFileExtensionConditionParameters struct {
+	// A list of extensions for the condition of the delivery rule.
+	Extensions []string `pulumi:"extensions"`
+	OdataType  string   `pulumi:"odataType"`
+}
+
+// UrlFileExtensionConditionParametersInput is an input type that accepts UrlFileExtensionConditionParametersArgs and UrlFileExtensionConditionParametersOutput values.
+// You can construct a concrete instance of `UrlFileExtensionConditionParametersInput` via:
+//
+//          UrlFileExtensionConditionParametersArgs{...}
+type UrlFileExtensionConditionParametersInput interface {
+	pulumi.Input
+
+	ToUrlFileExtensionConditionParametersOutput() UrlFileExtensionConditionParametersOutput
+	ToUrlFileExtensionConditionParametersOutputWithContext(context.Context) UrlFileExtensionConditionParametersOutput
+}
+
+// Defines the parameters for the URL file extension condition.
+type UrlFileExtensionConditionParametersArgs struct {
+	// A list of extensions for the condition of the delivery rule.
+	Extensions pulumi.StringArrayInput `pulumi:"extensions"`
+	OdataType  pulumi.StringInput      `pulumi:"odataType"`
+}
+
+func (UrlFileExtensionConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileExtensionConditionParameters)(nil)).Elem()
+}
+
+func (i UrlFileExtensionConditionParametersArgs) ToUrlFileExtensionConditionParametersOutput() UrlFileExtensionConditionParametersOutput {
+	return i.ToUrlFileExtensionConditionParametersOutputWithContext(context.Background())
+}
+
+func (i UrlFileExtensionConditionParametersArgs) ToUrlFileExtensionConditionParametersOutputWithContext(ctx context.Context) UrlFileExtensionConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlFileExtensionConditionParametersOutput)
+}
+
+// Defines the parameters for the URL file extension condition.
+type UrlFileExtensionConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (UrlFileExtensionConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileExtensionConditionParameters)(nil)).Elem()
+}
+
+func (o UrlFileExtensionConditionParametersOutput) ToUrlFileExtensionConditionParametersOutput() UrlFileExtensionConditionParametersOutput {
+	return o
+}
+
+func (o UrlFileExtensionConditionParametersOutput) ToUrlFileExtensionConditionParametersOutputWithContext(ctx context.Context) UrlFileExtensionConditionParametersOutput {
+	return o
+}
+
+// A list of extensions for the condition of the delivery rule.
+func (o UrlFileExtensionConditionParametersOutput) Extensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileExtensionConditionParameters) []string { return v.Extensions }).(pulumi.StringArrayOutput)
+}
+
+func (o UrlFileExtensionConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileExtensionConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the URL file extension condition.
+type UrlFileExtensionConditionParametersResponse struct {
+	// A list of extensions for the condition of the delivery rule.
+	Extensions []string `pulumi:"extensions"`
+	OdataType  string   `pulumi:"odataType"`
+}
+
+// UrlFileExtensionConditionParametersResponseInput is an input type that accepts UrlFileExtensionConditionParametersResponseArgs and UrlFileExtensionConditionParametersResponseOutput values.
+// You can construct a concrete instance of `UrlFileExtensionConditionParametersResponseInput` via:
+//
+//          UrlFileExtensionConditionParametersResponseArgs{...}
+type UrlFileExtensionConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToUrlFileExtensionConditionParametersResponseOutput() UrlFileExtensionConditionParametersResponseOutput
+	ToUrlFileExtensionConditionParametersResponseOutputWithContext(context.Context) UrlFileExtensionConditionParametersResponseOutput
+}
+
+// Defines the parameters for the URL file extension condition.
+type UrlFileExtensionConditionParametersResponseArgs struct {
+	// A list of extensions for the condition of the delivery rule.
+	Extensions pulumi.StringArrayInput `pulumi:"extensions"`
+	OdataType  pulumi.StringInput      `pulumi:"odataType"`
+}
+
+func (UrlFileExtensionConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileExtensionConditionParametersResponse)(nil)).Elem()
+}
+
+func (i UrlFileExtensionConditionParametersResponseArgs) ToUrlFileExtensionConditionParametersResponseOutput() UrlFileExtensionConditionParametersResponseOutput {
+	return i.ToUrlFileExtensionConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i UrlFileExtensionConditionParametersResponseArgs) ToUrlFileExtensionConditionParametersResponseOutputWithContext(ctx context.Context) UrlFileExtensionConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlFileExtensionConditionParametersResponseOutput)
+}
+
+// Defines the parameters for the URL file extension condition.
+type UrlFileExtensionConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlFileExtensionConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileExtensionConditionParametersResponse)(nil)).Elem()
+}
+
+func (o UrlFileExtensionConditionParametersResponseOutput) ToUrlFileExtensionConditionParametersResponseOutput() UrlFileExtensionConditionParametersResponseOutput {
+	return o
+}
+
+func (o UrlFileExtensionConditionParametersResponseOutput) ToUrlFileExtensionConditionParametersResponseOutputWithContext(ctx context.Context) UrlFileExtensionConditionParametersResponseOutput {
+	return o
+}
+
+// A list of extensions for the condition of the delivery rule.
+func (o UrlFileExtensionConditionParametersResponseOutput) Extensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileExtensionConditionParametersResponse) []string { return v.Extensions }).(pulumi.StringArrayOutput)
+}
+
+func (o UrlFileExtensionConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileExtensionConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the URL path condition.
+type UrlPathConditionParameters struct {
+	// The match type for the condition of the delivery rule
+	MatchType string `pulumi:"matchType"`
+	OdataType string `pulumi:"odataType"`
+	// A URL path for the condition of the delivery rule
+	Path string `pulumi:"path"`
+}
+
+// UrlPathConditionParametersInput is an input type that accepts UrlPathConditionParametersArgs and UrlPathConditionParametersOutput values.
+// You can construct a concrete instance of `UrlPathConditionParametersInput` via:
+//
+//          UrlPathConditionParametersArgs{...}
+type UrlPathConditionParametersInput interface {
+	pulumi.Input
+
+	ToUrlPathConditionParametersOutput() UrlPathConditionParametersOutput
+	ToUrlPathConditionParametersOutputWithContext(context.Context) UrlPathConditionParametersOutput
+}
+
+// Defines the parameters for the URL path condition.
+type UrlPathConditionParametersArgs struct {
+	// The match type for the condition of the delivery rule
+	MatchType pulumi.StringInput `pulumi:"matchType"`
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// A URL path for the condition of the delivery rule
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (UrlPathConditionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlPathConditionParameters)(nil)).Elem()
+}
+
+func (i UrlPathConditionParametersArgs) ToUrlPathConditionParametersOutput() UrlPathConditionParametersOutput {
+	return i.ToUrlPathConditionParametersOutputWithContext(context.Background())
+}
+
+func (i UrlPathConditionParametersArgs) ToUrlPathConditionParametersOutputWithContext(ctx context.Context) UrlPathConditionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlPathConditionParametersOutput)
+}
+
+// Defines the parameters for the URL path condition.
+type UrlPathConditionParametersOutput struct{ *pulumi.OutputState }
+
+func (UrlPathConditionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlPathConditionParameters)(nil)).Elem()
+}
+
+func (o UrlPathConditionParametersOutput) ToUrlPathConditionParametersOutput() UrlPathConditionParametersOutput {
+	return o
+}
+
+func (o UrlPathConditionParametersOutput) ToUrlPathConditionParametersOutputWithContext(ctx context.Context) UrlPathConditionParametersOutput {
+	return o
+}
+
+// The match type for the condition of the delivery rule
+func (o UrlPathConditionParametersOutput) MatchType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathConditionParameters) string { return v.MatchType }).(pulumi.StringOutput)
+}
+
+func (o UrlPathConditionParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// A URL path for the condition of the delivery rule
+func (o UrlPathConditionParametersOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathConditionParameters) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the URL path condition.
+type UrlPathConditionParametersResponse struct {
+	// The match type for the condition of the delivery rule
+	MatchType string `pulumi:"matchType"`
+	OdataType string `pulumi:"odataType"`
+	// A URL path for the condition of the delivery rule
+	Path string `pulumi:"path"`
+}
+
+// UrlPathConditionParametersResponseInput is an input type that accepts UrlPathConditionParametersResponseArgs and UrlPathConditionParametersResponseOutput values.
+// You can construct a concrete instance of `UrlPathConditionParametersResponseInput` via:
+//
+//          UrlPathConditionParametersResponseArgs{...}
+type UrlPathConditionParametersResponseInput interface {
+	pulumi.Input
+
+	ToUrlPathConditionParametersResponseOutput() UrlPathConditionParametersResponseOutput
+	ToUrlPathConditionParametersResponseOutputWithContext(context.Context) UrlPathConditionParametersResponseOutput
+}
+
+// Defines the parameters for the URL path condition.
+type UrlPathConditionParametersResponseArgs struct {
+	// The match type for the condition of the delivery rule
+	MatchType pulumi.StringInput `pulumi:"matchType"`
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// A URL path for the condition of the delivery rule
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (UrlPathConditionParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlPathConditionParametersResponse)(nil)).Elem()
+}
+
+func (i UrlPathConditionParametersResponseArgs) ToUrlPathConditionParametersResponseOutput() UrlPathConditionParametersResponseOutput {
+	return i.ToUrlPathConditionParametersResponseOutputWithContext(context.Background())
+}
+
+func (i UrlPathConditionParametersResponseArgs) ToUrlPathConditionParametersResponseOutputWithContext(ctx context.Context) UrlPathConditionParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlPathConditionParametersResponseOutput)
+}
+
+// Defines the parameters for the URL path condition.
+type UrlPathConditionParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlPathConditionParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlPathConditionParametersResponse)(nil)).Elem()
+}
+
+func (o UrlPathConditionParametersResponseOutput) ToUrlPathConditionParametersResponseOutput() UrlPathConditionParametersResponseOutput {
+	return o
+}
+
+func (o UrlPathConditionParametersResponseOutput) ToUrlPathConditionParametersResponseOutputWithContext(ctx context.Context) UrlPathConditionParametersResponseOutput {
+	return o
+}
+
+// The match type for the condition of the delivery rule
+func (o UrlPathConditionParametersResponseOutput) MatchType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathConditionParametersResponse) string { return v.MatchType }).(pulumi.StringOutput)
+}
+
+func (o UrlPathConditionParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// A URL path for the condition of the delivery rule
+func (o UrlPathConditionParametersResponseOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathConditionParametersResponse) string { return v.Path }).(pulumi.StringOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(CacheExpirationActionParametersOutput{})
+	pulumi.RegisterOutputType(CacheExpirationActionParametersResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginArrayOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleArrayOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleActionOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleActionArrayOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleActionResponseOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleActionResponseArrayOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleConditionOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleConditionArrayOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleConditionResponseOutput{})
-	pulumi.RegisterOutputType(DeliveryRuleConditionResponseArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCacheExpirationActionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCacheExpirationActionArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCacheExpirationActionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCacheExpirationActionResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlFileExtensionConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlFileExtensionConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlPathConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlPathConditionResponseOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput{})
@@ -1745,4 +2245,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(UrlFileExtensionConditionParametersOutput{})
+	pulumi.RegisterOutputType(UrlFileExtensionConditionParametersResponseOutput{})
+	pulumi.RegisterOutputType(UrlPathConditionParametersOutput{})
+	pulumi.RegisterOutputType(UrlPathConditionParametersResponseOutput{})
 }

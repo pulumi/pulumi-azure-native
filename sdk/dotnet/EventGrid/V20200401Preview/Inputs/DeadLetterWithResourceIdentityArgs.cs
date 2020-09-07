@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview.Inputs
         /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
         [Input("deadLetterDestination")]
-        public Input<Inputs.DeadLetterDestinationArgs>? DeadLetterDestination { get; set; }
+        public Input<Inputs.StorageBlobDeadLetterDestinationArgs>? DeadLetterDestination { get; set; }
 
         /// <summary>
         /// The identity to use when dead-lettering events.

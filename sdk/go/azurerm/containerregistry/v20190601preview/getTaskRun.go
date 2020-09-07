@@ -39,7 +39,7 @@ type LookupTaskRunResult struct {
 	// The provisioning state of this task run
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The request (parameters) for the run
-	RunRequest *RunRequestResponse `pulumi:"runRequest"`
+	RunRequest interface{} `pulumi:"runRequest"`
 	// The result of this task run
 	RunResult RunResponse `pulumi:"runResult"`
 	// The type of the resource.

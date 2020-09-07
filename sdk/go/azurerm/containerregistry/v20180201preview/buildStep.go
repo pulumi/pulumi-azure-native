@@ -17,7 +17,7 @@ type BuildStep struct {
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The properties of a build step.
-	Properties BuildStepPropertiesResponseOutput `pulumi:"properties"`
+	Properties DockerBuildStepResponseOutput `pulumi:"properties"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,7 +65,7 @@ type buildStepState struct {
 	// The name of the resource.
 	Name *string `pulumi:"name"`
 	// The properties of a build step.
-	Properties *BuildStepPropertiesResponse `pulumi:"properties"`
+	Properties *DockerBuildStepResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -74,7 +74,7 @@ type BuildStepState struct {
 	// The name of the resource.
 	Name pulumi.StringPtrInput
 	// The properties of a build step.
-	Properties BuildStepPropertiesResponsePtrInput
+	Properties DockerBuildStepResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

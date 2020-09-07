@@ -9,31 +9,46 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'ActionArgs',
     'ActivityLogAlertActionGroupArgs',
     'ActivityLogAlertActionListArgs',
     'ActivityLogAlertAllOfConditionArgs',
     'ActivityLogAlertLeafConditionArgs',
+    'AlertingActionArgs',
     'ApplicationInsightsComponentAnalyticsItemPropertiesArgs',
     'ArmRoleReceiverArgs',
     'AutomationRunbookReceiverArgs',
     'AutoscaleNotificationArgs',
     'AutoscaleProfileArgs',
+    'AzNsActionGroupArgs',
     'AzureAppPushReceiverArgs',
     'AzureFunctionReceiverArgs',
+    'CriteriaArgs',
+    'DimensionArgs',
+    'DynamicMetricCriteriaArgs',
+    'DynamicThresholdFailingPeriodsArgs',
     'EmailNotificationArgs',
     'EmailReceiverArgs',
     'ItsmReceiverArgs',
+    'LocationThresholdRuleConditionArgs',
+    'LogMetricTriggerArgs',
+    'LogToMetricActionArgs',
     'LogicAppReceiverArgs',
+    'ManagementEventAggregationConditionArgs',
+    'ManagementEventRuleConditionArgs',
     'MetricAlertActionArgs',
-    'MetricAlertCriteriaArgs',
+    'MetricAlertMultipleResourceMultipleMetricCriteriaArgs',
+    'MetricAlertSingleResourceMultipleMetricCriteriaArgs',
+    'MetricCriteriaArgs',
+    'MetricDimensionArgs',
     'MetricTriggerArgs',
     'RecurrenceArgs',
     'RecurrentScheduleArgs',
     'RetentionPolicyArgs',
-    'RuleActionArgs',
-    'RuleConditionArgs',
-    'RuleDataSourceArgs',
+    'RuleEmailActionArgs',
+    'RuleManagementEventClaimsDataSourceArgs',
+    'RuleManagementEventDataSourceArgs',
+    'RuleMetricDataSourceArgs',
+    'RuleWebhookActionArgs',
     'ScaleActionArgs',
     'ScaleCapacityArgs',
     'ScaleRuleArgs',
@@ -41,36 +56,16 @@ __all__ = [
     'ScheduleArgs',
     'SmsReceiverArgs',
     'SourceArgs',
+    'ThresholdRuleConditionArgs',
     'TimeWindowArgs',
+    'TriggerConditionArgs',
     'VoiceReceiverArgs',
     'WebTestGeolocationArgs',
     'WebTestPropertiesConfigurationArgs',
     'WebhookNotificationArgs',
     'WebhookReceiverArgs',
+    'WebtestLocationAvailabilityCriteriaArgs',
 ]
-
-@pulumi.input_type
-class ActionArgs:
-    def __init__(__self__, *,
-                 odata_type: pulumi.Input[str]):
-        """
-        Action descriptor.
-        :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
-        """
-        pulumi.set(__self__, "odata_type", odata_type)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> pulumi.Input[str]:
-        """
-        Specifies the action. Supported values - AlertingAction, LogToMetricAction
-        """
-        return pulumi.get(self, "odata_type")
-
-    @odata_type.setter
-    def odata_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "odata_type", value)
-
 
 @pulumi.input_type
 class ActivityLogAlertActionGroupArgs:
@@ -194,6 +189,91 @@ class ActivityLogAlertLeafConditionArgs:
     @field.setter
     def field(self, value: pulumi.Input[str]):
         pulumi.set(self, "field", value)
+
+
+@pulumi.input_type
+class AlertingActionArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 severity: pulumi.Input[str],
+                 trigger: pulumi.Input['TriggerConditionArgs'],
+                 azns_action: Optional[pulumi.Input['AzNsActionGroupArgs']] = None,
+                 throttling_in_min: Optional[pulumi.Input[float]] = None):
+        """
+        Specify action need to be taken when rule type is Alert
+        :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        :param pulumi.Input[str] severity: Severity of the alert
+        :param pulumi.Input['TriggerConditionArgs'] trigger: The trigger condition that results in the alert rule being.
+        :param pulumi.Input['AzNsActionGroupArgs'] azns_action: Azure action group reference.
+        :param pulumi.Input[float] throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
+        """
+        pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction')
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "trigger", trigger)
+        if azns_action is not None:
+            pulumi.set(__self__, "azns_action", azns_action)
+        if throttling_in_min is not None:
+            pulumi.set(__self__, "throttling_in_min", throttling_in_min)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> pulumi.Input[str]:
+        """
+        Severity of the alert
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: pulumi.Input[str]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> pulumi.Input['TriggerConditionArgs']:
+        """
+        The trigger condition that results in the alert rule being.
+        """
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: pulumi.Input['TriggerConditionArgs']):
+        pulumi.set(self, "trigger", value)
+
+    @property
+    @pulumi.getter(name="aznsAction")
+    def azns_action(self) -> Optional[pulumi.Input['AzNsActionGroupArgs']]:
+        """
+        Azure action group reference.
+        """
+        return pulumi.get(self, "azns_action")
+
+    @azns_action.setter
+    def azns_action(self, value: Optional[pulumi.Input['AzNsActionGroupArgs']]):
+        pulumi.set(self, "azns_action", value)
+
+    @property
+    @pulumi.getter(name="throttlingInMin")
+    def throttling_in_min(self) -> Optional[pulumi.Input[float]]:
+        """
+        time (in minutes) for which Alerts should be throttled or suppressed.
+        """
+        return pulumi.get(self, "throttling_in_min")
+
+    @throttling_in_min.setter
+    def throttling_in_min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "throttling_in_min", value)
 
 
 @pulumi.input_type
@@ -529,6 +609,62 @@ class AutoscaleProfileArgs:
 
 
 @pulumi.input_type
+class AzNsActionGroupArgs:
+    def __init__(__self__, *,
+                 action_group: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_webhook_payload: Optional[pulumi.Input[str]] = None,
+                 email_subject: Optional[pulumi.Input[str]] = None):
+        """
+        Azure action group
+        :param pulumi.Input[List[pulumi.Input[str]]] action_group: Azure Action Group reference.
+        :param pulumi.Input[str] custom_webhook_payload: Custom payload to be sent for all webhook URI in Azure action group
+        :param pulumi.Input[str] email_subject: Custom subject override for all email ids in Azure action group
+        """
+        if action_group is not None:
+            pulumi.set(__self__, "action_group", action_group)
+        if custom_webhook_payload is not None:
+            pulumi.set(__self__, "custom_webhook_payload", custom_webhook_payload)
+        if email_subject is not None:
+            pulumi.set(__self__, "email_subject", email_subject)
+
+    @property
+    @pulumi.getter(name="actionGroup")
+    def action_group(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        Azure Action Group reference.
+        """
+        return pulumi.get(self, "action_group")
+
+    @action_group.setter
+    def action_group(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "action_group", value)
+
+    @property
+    @pulumi.getter(name="customWebhookPayload")
+    def custom_webhook_payload(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom payload to be sent for all webhook URI in Azure action group
+        """
+        return pulumi.get(self, "custom_webhook_payload")
+
+    @custom_webhook_payload.setter
+    def custom_webhook_payload(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_webhook_payload", value)
+
+    @property
+    @pulumi.getter(name="emailSubject")
+    def email_subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom subject override for all email ids in Azure action group
+        """
+        return pulumi.get(self, "email_subject")
+
+    @email_subject.setter
+    def email_subject(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_subject", value)
+
+
+@pulumi.input_type
 class AzureAppPushReceiverArgs:
     def __init__(__self__, *,
                  email_address: pulumi.Input[str],
@@ -647,6 +783,297 @@ class AzureFunctionReceiverArgs:
     @use_common_alert_schema.setter
     def use_common_alert_schema(self, value: pulumi.Input[bool]):
         pulumi.set(self, "use_common_alert_schema", value)
+
+
+@pulumi.input_type
+class CriteriaArgs:
+    def __init__(__self__, *,
+                 metric_name: pulumi.Input[str],
+                 dimensions: Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]] = None):
+        """
+        Specifies the criteria for converting log to metric.
+        :param pulumi.Input[str] metric_name: Name of the metric
+        :param pulumi.Input[List[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions for creating metric
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input[str]:
+        """
+        Name of the metric
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]]:
+        """
+        List of Dimensions for creating metric
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[List[pulumi.Input['DimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
+
+
+@pulumi.input_type
+class DimensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[List[pulumi.Input[str]]]):
+        """
+        Specifies the criteria for converting log to metric.
+        :param pulumi.Input[str] name: Name of the dimension
+        :param pulumi.Input[str] operator: Operator for dimension values
+        :param pulumi.Input[List[pulumi.Input[str]]] values: List of dimension values
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the dimension
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        Operator for dimension values
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        List of dimension values
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class DynamicMetricCriteriaArgs:
+    def __init__(__self__, *,
+                 alert_sensitivity: pulumi.Input[str],
+                 criterion_type: pulumi.Input[str],
+                 failing_periods: pulumi.Input['DynamicThresholdFailingPeriodsArgs'],
+                 metric_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 operator: pulumi.Input[str],
+                 time_aggregation: pulumi.Input[Mapping[str, Any]],
+                 dimensions: Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]] = None,
+                 ignore_data_before: Optional[pulumi.Input[str]] = None,
+                 metric_namespace: Optional[pulumi.Input[str]] = None):
+        """
+        Criterion for dynamic threshold.
+        :param pulumi.Input[str] alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+        :param pulumi.Input[str] criterion_type: Specifies the type of threshold criteria
+        :param pulumi.Input['DynamicThresholdFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
+        :param pulumi.Input[str] metric_name: Name of the metric.
+        :param pulumi.Input[str] name: Name of the criteria.
+        :param pulumi.Input[str] operator: The operator used to compare the metric value against the threshold.
+        :param pulumi.Input[Mapping[str, Any]] time_aggregation: the criteria time aggregation types.
+        :param pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
+        :param pulumi.Input[str] ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+        :param pulumi.Input[str] metric_namespace: Namespace of the metric.
+        """
+        pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
+        pulumi.set(__self__, "criterion_type", 'DynamicThresholdCriterion')
+        pulumi.set(__self__, "failing_periods", failing_periods)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "time_aggregation", time_aggregation)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if ignore_data_before is not None:
+            pulumi.set(__self__, "ignore_data_before", ignore_data_before)
+        if metric_namespace is not None:
+            pulumi.set(__self__, "metric_namespace", metric_namespace)
+
+    @property
+    @pulumi.getter(name="alertSensitivity")
+    def alert_sensitivity(self) -> pulumi.Input[str]:
+        """
+        The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+        """
+        return pulumi.get(self, "alert_sensitivity")
+
+    @alert_sensitivity.setter
+    def alert_sensitivity(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alert_sensitivity", value)
+
+    @property
+    @pulumi.getter(name="criterionType")
+    def criterion_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of threshold criteria
+        """
+        return pulumi.get(self, "criterion_type")
+
+    @criterion_type.setter
+    def criterion_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "criterion_type", value)
+
+    @property
+    @pulumi.getter(name="failingPeriods")
+    def failing_periods(self) -> pulumi.Input['DynamicThresholdFailingPeriodsArgs']:
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        """
+        return pulumi.get(self, "failing_periods")
+
+    @failing_periods.setter
+    def failing_periods(self, value: pulumi.Input['DynamicThresholdFailingPeriodsArgs']):
+        pulumi.set(self, "failing_periods", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input[str]:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the criteria.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator used to compare the metric value against the threshold.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="timeAggregation")
+    def time_aggregation(self) -> pulumi.Input[Mapping[str, Any]]:
+        """
+        the criteria time aggregation types.
+        """
+        return pulumi.get(self, "time_aggregation")
+
+    @time_aggregation.setter
+    def time_aggregation(self, value: pulumi.Input[Mapping[str, Any]]):
+        pulumi.set(self, "time_aggregation", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]]:
+        """
+        List of dimension conditions.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="ignoreDataBefore")
+    def ignore_data_before(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+        """
+        return pulumi.get(self, "ignore_data_before")
+
+    @ignore_data_before.setter
+    def ignore_data_before(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ignore_data_before", value)
+
+    @property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Namespace of the metric.
+        """
+        return pulumi.get(self, "metric_namespace")
+
+    @metric_namespace.setter
+    def metric_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_namespace", value)
+
+
+@pulumi.input_type
+class DynamicThresholdFailingPeriodsArgs:
+    def __init__(__self__, *,
+                 min_failing_periods_to_alert: pulumi.Input[float],
+                 number_of_evaluation_periods: pulumi.Input[float]):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        :param pulumi.Input[float] min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+        :param pulumi.Input[float] number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+        """
+        pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+        pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @property
+    @pulumi.getter(name="minFailingPeriodsToAlert")
+    def min_failing_periods_to_alert(self) -> pulumi.Input[float]:
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+        """
+        return pulumi.get(self, "min_failing_periods_to_alert")
+
+    @min_failing_periods_to_alert.setter
+    def min_failing_periods_to_alert(self, value: pulumi.Input[float]):
+        pulumi.set(self, "min_failing_periods_to_alert", value)
+
+    @property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> pulumi.Input[float]:
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
+
+    @number_of_evaluation_periods.setter
+    def number_of_evaluation_periods(self, value: pulumi.Input[float]):
+        pulumi.set(self, "number_of_evaluation_periods", value)
 
 
 @pulumi.input_type
@@ -842,6 +1269,186 @@ class ItsmReceiverArgs:
 
 
 @pulumi.input_type
+class LocationThresholdRuleConditionArgs:
+    def __init__(__self__, *,
+                 failed_location_count: pulumi.Input[float],
+                 odata_type: pulumi.Input[str],
+                 data_source: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]] = None,
+                 window_size: Optional[pulumi.Input[str]] = None):
+        """
+        A rule condition based on a certain number of locations failing.
+        :param pulumi.Input[float] failed_location_count: the number of locations that must fail to activate the alert.
+        :param pulumi.Input[str] odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+        """
+        pulumi.set(__self__, "failed_location_count", failed_location_count)
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition')
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if window_size is not None:
+            pulumi.set(__self__, "window_size", window_size)
+
+    @property
+    @pulumi.getter(name="failedLocationCount")
+    def failed_location_count(self) -> pulumi.Input[float]:
+        """
+        the number of locations that must fail to activate the alert.
+        """
+        return pulumi.get(self, "failed_location_count")
+
+    @failed_location_count.setter
+    def failed_location_count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "failed_location_count", value)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]]:
+        """
+        the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+        """
+        return pulumi.get(self, "window_size")
+
+    @window_size.setter
+    def window_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "window_size", value)
+
+
+@pulumi.input_type
+class LogMetricTriggerArgs:
+    def __init__(__self__, *,
+                 metric_column: Optional[pulumi.Input[str]] = None,
+                 metric_trigger_type: Optional[pulumi.Input[str]] = None,
+                 threshold: Optional[pulumi.Input[float]] = None,
+                 threshold_operator: Optional[pulumi.Input[str]] = None):
+        """
+        A log metrics trigger descriptor.
+        :param pulumi.Input[str] metric_column: Evaluation of metric on a particular column
+        :param pulumi.Input[str] metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'
+        :param pulumi.Input[float] threshold: The threshold of the metric trigger.
+        :param pulumi.Input[str] threshold_operator: Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+        """
+        if metric_column is not None:
+            pulumi.set(__self__, "metric_column", metric_column)
+        if metric_trigger_type is not None:
+            pulumi.set(__self__, "metric_trigger_type", metric_trigger_type)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+        if threshold_operator is not None:
+            pulumi.set(__self__, "threshold_operator", threshold_operator)
+
+    @property
+    @pulumi.getter(name="metricColumn")
+    def metric_column(self) -> Optional[pulumi.Input[str]]:
+        """
+        Evaluation of metric on a particular column
+        """
+        return pulumi.get(self, "metric_column")
+
+    @metric_column.setter
+    def metric_column(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_column", value)
+
+    @property
+    @pulumi.getter(name="metricTriggerType")
+    def metric_trigger_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metric Trigger Type - 'Consecutive' or 'Total'
+        """
+        return pulumi.get(self, "metric_trigger_type")
+
+    @metric_trigger_type.setter
+    def metric_trigger_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_trigger_type", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The threshold of the metric trigger.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="thresholdOperator")
+    def threshold_operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+        """
+        return pulumi.get(self, "threshold_operator")
+
+    @threshold_operator.setter
+    def threshold_operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "threshold_operator", value)
+
+
+@pulumi.input_type
+class LogToMetricActionArgs:
+    def __init__(__self__, *,
+                 criteria: pulumi.Input[List[pulumi.Input['CriteriaArgs']]],
+                 odata_type: pulumi.Input[str]):
+        """
+        Specify action need to be taken when rule type is converting log to metric
+        :param pulumi.Input[List[pulumi.Input['CriteriaArgs']]] criteria: Criteria of Metric
+        :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "odata_type", 'Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction')
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input[List[pulumi.Input['CriteriaArgs']]]:
+        """
+        Criteria of Metric
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input[List[pulumi.Input['CriteriaArgs']]]):
+        pulumi.set(self, "criteria", value)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the action. Supported values - AlertingAction, LogToMetricAction
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+
+@pulumi.input_type
 class LogicAppReceiverArgs:
     def __init__(__self__, *,
                  callback_url: pulumi.Input[str],
@@ -910,6 +1517,117 @@ class LogicAppReceiverArgs:
 
 
 @pulumi.input_type
+class ManagementEventAggregationConditionArgs:
+    def __init__(__self__, *,
+                 operator: Optional[pulumi.Input[str]] = None,
+                 threshold: Optional[pulumi.Input[float]] = None,
+                 window_size: Optional[pulumi.Input[str]] = None):
+        """
+        How the data that is collected should be combined over time.
+        :param pulumi.Input[str] operator: the condition operator.
+        :param pulumi.Input[float] threshold: The threshold value that activates the alert.
+        :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+        if window_size is not None:
+            pulumi.set(__self__, "window_size", window_size)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        the condition operator.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The threshold value that activates the alert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+        """
+        return pulumi.get(self, "window_size")
+
+    @window_size.setter
+    def window_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "window_size", value)
+
+
+@pulumi.input_type
+class ManagementEventRuleConditionArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 aggregation: Optional[pulumi.Input['ManagementEventAggregationConditionArgs']] = None,
+                 data_source: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]] = None):
+        """
+        A management event rule condition.
+        :param pulumi.Input[str] odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        :param pulumi.Input['ManagementEventAggregationConditionArgs'] aggregation: How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+        :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        """
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition')
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[pulumi.Input['ManagementEventAggregationConditionArgs']]:
+        """
+        How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: Optional[pulumi.Input['ManagementEventAggregationConditionArgs']]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]]:
+        """
+        the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]]):
+        pulumi.set(self, "data_source", value)
+
+
+@pulumi.input_type
 class MetricAlertActionArgs:
     def __init__(__self__, *,
                  action_group_id: Optional[pulumi.Input[str]] = None,
@@ -950,14 +1668,18 @@ class MetricAlertActionArgs:
 
 
 @pulumi.input_type
-class MetricAlertCriteriaArgs:
+class MetricAlertMultipleResourceMultipleMetricCriteriaArgs:
     def __init__(__self__, *,
-                 odata_type: pulumi.Input[str]):
+                 odata_type: pulumi.Input[str],
+                 all_of: Optional[pulumi.Input[List[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]] = None):
         """
-        The rule criteria that defines the conditions of the alert rule.
+        Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
         :param pulumi.Input[str] odata_type: specifies the type of the alert criteria.
+        :param pulumi.Input[List[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]] all_of: the list of multiple metric criteria for this 'all of' operation. 
         """
-        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
+        if all_of is not None:
+            pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="odataType")
@@ -970,6 +1692,240 @@ class MetricAlertCriteriaArgs:
     @odata_type.setter
     def odata_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> Optional[pulumi.Input[List[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]:
+        """
+        the list of multiple metric criteria for this 'all of' operation. 
+        """
+        return pulumi.get(self, "all_of")
+
+    @all_of.setter
+    def all_of(self, value: Optional[pulumi.Input[List[pulumi.Input[Union['DynamicMetricCriteriaArgs', 'MetricCriteriaArgs']]]]]):
+        pulumi.set(self, "all_of", value)
+
+
+@pulumi.input_type
+class MetricAlertSingleResourceMultipleMetricCriteriaArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 all_of: Optional[pulumi.Input[List[pulumi.Input['MetricCriteriaArgs']]]] = None):
+        """
+        Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+        :param pulumi.Input[str] odata_type: specifies the type of the alert criteria.
+        :param pulumi.Input[List[pulumi.Input['MetricCriteriaArgs']]] all_of: The list of metric criteria for this 'all of' operation. 
+        """
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
+        if all_of is not None:
+            pulumi.set(__self__, "all_of", all_of)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        specifies the type of the alert criteria.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> Optional[pulumi.Input[List[pulumi.Input['MetricCriteriaArgs']]]]:
+        """
+        The list of metric criteria for this 'all of' operation. 
+        """
+        return pulumi.get(self, "all_of")
+
+    @all_of.setter
+    def all_of(self, value: Optional[pulumi.Input[List[pulumi.Input['MetricCriteriaArgs']]]]):
+        pulumi.set(self, "all_of", value)
+
+
+@pulumi.input_type
+class MetricCriteriaArgs:
+    def __init__(__self__, *,
+                 criterion_type: pulumi.Input[str],
+                 metric_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 operator: pulumi.Input[str],
+                 threshold: pulumi.Input[float],
+                 time_aggregation: pulumi.Input[Mapping[str, Any]],
+                 dimensions: Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]] = None,
+                 metric_namespace: Optional[pulumi.Input[str]] = None):
+        """
+        Criterion to filter metrics.
+        :param pulumi.Input[str] criterion_type: Specifies the type of threshold criteria
+        :param pulumi.Input[str] metric_name: Name of the metric.
+        :param pulumi.Input[str] name: Name of the criteria.
+        :param pulumi.Input[str] operator: the criteria operator.
+        :param pulumi.Input[float] threshold: the criteria threshold value that activates the alert.
+        :param pulumi.Input[Mapping[str, Any]] time_aggregation: the criteria time aggregation types.
+        :param pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
+        :param pulumi.Input[str] metric_namespace: Namespace of the metric.
+        """
+        pulumi.set(__self__, "criterion_type", 'StaticThresholdCriterion')
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "time_aggregation", time_aggregation)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_namespace is not None:
+            pulumi.set(__self__, "metric_namespace", metric_namespace)
+
+    @property
+    @pulumi.getter(name="criterionType")
+    def criterion_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of threshold criteria
+        """
+        return pulumi.get(self, "criterion_type")
+
+    @criterion_type.setter
+    def criterion_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "criterion_type", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input[str]:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the criteria.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        the criteria operator.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> pulumi.Input[float]:
+        """
+        the criteria threshold value that activates the alert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="timeAggregation")
+    def time_aggregation(self) -> pulumi.Input[Mapping[str, Any]]:
+        """
+        the criteria time aggregation types.
+        """
+        return pulumi.get(self, "time_aggregation")
+
+    @time_aggregation.setter
+    def time_aggregation(self, value: pulumi.Input[Mapping[str, Any]]):
+        pulumi.set(self, "time_aggregation", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]]:
+        """
+        List of dimension conditions.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Namespace of the metric.
+        """
+        return pulumi.get(self, "metric_namespace")
+
+    @metric_namespace.setter
+    def metric_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_namespace", value)
+
+
+@pulumi.input_type
+class MetricDimensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[List[pulumi.Input[str]]]):
+        """
+        Specifies a metric dimension.
+        :param pulumi.Input[str] name: Name of the dimension.
+        :param pulumi.Input[str] operator: the dimension operator. Only 'Include' and 'Exclude' are supported
+        :param pulumi.Input[List[pulumi.Input[str]]] values: list of dimension values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the dimension.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        the dimension operator. Only 'Include' and 'Exclude' are supported
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        list of dimension values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
@@ -1277,14 +2233,22 @@ class RetentionPolicyArgs:
 
 
 @pulumi.input_type
-class RuleActionArgs:
+class RuleEmailActionArgs:
     def __init__(__self__, *,
-                 odata_type: pulumi.Input[str]):
+                 odata_type: pulumi.Input[str],
+                 custom_emails: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 send_to_service_owners: Optional[pulumi.Input[bool]] = None):
         """
-        The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+        Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
         :param pulumi.Input[str] odata_type: specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+        :param pulumi.Input[List[pulumi.Input[str]]] custom_emails: the list of administrator's custom email addresses to notify of the activation of the alert.
+        :param pulumi.Input[bool] send_to_service_owners: Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
         """
-        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction')
+        if custom_emails is not None:
+            pulumi.set(__self__, "custom_emails", custom_emails)
+        if send_to_service_owners is not None:
+            pulumi.set(__self__, "send_to_service_owners", send_to_service_owners)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1298,26 +2262,110 @@ class RuleActionArgs:
     def odata_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "odata_type", value)
 
+    @property
+    @pulumi.getter(name="customEmails")
+    def custom_emails(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        the list of administrator's custom email addresses to notify of the activation of the alert.
+        """
+        return pulumi.get(self, "custom_emails")
+
+    @custom_emails.setter
+    def custom_emails(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_emails", value)
+
+    @property
+    @pulumi.getter(name="sendToServiceOwners")
+    def send_to_service_owners(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
+        """
+        return pulumi.get(self, "send_to_service_owners")
+
+    @send_to_service_owners.setter
+    def send_to_service_owners(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "send_to_service_owners", value)
+
 
 @pulumi.input_type
-class RuleConditionArgs:
+class RuleManagementEventClaimsDataSourceArgs:
+    def __init__(__self__, *,
+                 email_address: Optional[pulumi.Input[str]] = None):
+        """
+        The claims for a rule management event data source.
+        :param pulumi.Input[str] email_address: the email address.
+        """
+        if email_address is not None:
+            pulumi.set(__self__, "email_address", email_address)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        the email address.
+        """
+        return pulumi.get(self, "email_address")
+
+    @email_address.setter
+    def email_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_address", value)
+
+
+@pulumi.input_type
+class RuleManagementEventDataSourceArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 data_source: Optional[pulumi.Input['RuleDataSourceArgs']] = None):
+                 claims: Optional[pulumi.Input['RuleManagementEventClaimsDataSourceArgs']] = None,
+                 event_name: Optional[pulumi.Input[str]] = None,
+                 event_source: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 operation_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_provider_name: Optional[pulumi.Input[str]] = None,
+                 resource_uri: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 sub_status: Optional[pulumi.Input[str]] = None):
         """
-        The condition that results in the alert rule being activated.
-        :param pulumi.Input[str] odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-        :param pulumi.Input['RuleDataSourceArgs'] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
+        :param pulumi.Input[str] odata_type: specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+        :param pulumi.Input['RuleManagementEventClaimsDataSourceArgs'] claims: the claims.
+        :param pulumi.Input[str] event_name: the event name.
+        :param pulumi.Input[str] event_source: the event source.
+        :param pulumi.Input[str] level: the level.
+        :param pulumi.Input[str] operation_name: The name of the operation that should be checked for. If no name is provided, any operation will match.
+        :param pulumi.Input[str] resource_group_name: the resource group name.
+        :param pulumi.Input[str] resource_provider_name: the resource provider name.
+        :param pulumi.Input[str] resource_uri: the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+        :param pulumi.Input[str] status: The status of the operation that should be checked for. If no status is provided, any status will match.
+        :param pulumi.Input[str] sub_status: the substatus.
         """
-        pulumi.set(__self__, "odata_type", odata_type)
-        if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource')
+        if claims is not None:
+            pulumi.set(__self__, "claims", claims)
+        if event_name is not None:
+            pulumi.set(__self__, "event_name", event_name)
+        if event_source is not None:
+            pulumi.set(__self__, "event_source", event_source)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if resource_provider_name is not None:
+            pulumi.set(__self__, "resource_provider_name", resource_provider_name)
+        if resource_uri is not None:
+            pulumi.set(__self__, "resource_uri", resource_uri)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if sub_status is not None:
+            pulumi.set(__self__, "sub_status", sub_status)
 
     @property
     @pulumi.getter(name="odataType")
     def odata_type(self) -> pulumi.Input[str]:
         """
-        specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
         """
         return pulumi.get(self, "odata_type")
 
@@ -1326,29 +2374,141 @@ class RuleConditionArgs:
         pulumi.set(self, "odata_type", value)
 
     @property
-    @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input['RuleDataSourceArgs']]:
+    @pulumi.getter
+    def claims(self) -> Optional[pulumi.Input['RuleManagementEventClaimsDataSourceArgs']]:
         """
-        the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        the claims.
         """
-        return pulumi.get(self, "data_source")
+        return pulumi.get(self, "claims")
 
-    @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input['RuleDataSourceArgs']]):
-        pulumi.set(self, "data_source", value)
+    @claims.setter
+    def claims(self, value: Optional[pulumi.Input['RuleManagementEventClaimsDataSourceArgs']]):
+        pulumi.set(self, "claims", value)
+
+    @property
+    @pulumi.getter(name="eventName")
+    def event_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the event name.
+        """
+        return pulumi.get(self, "event_name")
+
+    @event_name.setter
+    def event_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_name", value)
+
+    @property
+    @pulumi.getter(name="eventSource")
+    def event_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        the event source.
+        """
+        return pulumi.get(self, "event_source")
+
+    @event_source.setter
+    def event_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_source", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        """
+        the level.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the operation that should be checked for. If no name is provided, any operation will match.
+        """
+        return pulumi.get(self, "operation_name")
+
+    @operation_name.setter
+    def operation_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operation_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the resource group name.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceProviderName")
+    def resource_provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the resource provider name.
+        """
+        return pulumi.get(self, "resource_provider_name")
+
+    @resource_provider_name.setter
+    def resource_provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_provider_name", value)
+
+    @property
+    @pulumi.getter(name="resourceUri")
+    def resource_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+        """
+        return pulumi.get(self, "resource_uri")
+
+    @resource_uri.setter
+    def resource_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_uri", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the operation that should be checked for. If no status is provided, any status will match.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="subStatus")
+    def sub_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        the substatus.
+        """
+        return pulumi.get(self, "sub_status")
+
+    @sub_status.setter
+    def sub_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sub_status", value)
 
 
 @pulumi.input_type
-class RuleDataSourceArgs:
+class RuleMetricDataSourceArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
+                 metric_name: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None):
         """
-        The resource from which the rule collects its data.
+        A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
         :param pulumi.Input[str] odata_type: specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+        :param pulumi.Input[str] metric_name: the name of the metric that defines what the rule monitors.
         :param pulumi.Input[str] resource_uri: the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
         """
-        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource')
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
         if resource_uri is not None:
             pulumi.set(__self__, "resource_uri", resource_uri)
 
@@ -1365,6 +2525,18 @@ class RuleDataSourceArgs:
         pulumi.set(self, "odata_type", value)
 
     @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the name of the metric that defines what the rule monitors.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
     @pulumi.getter(name="resourceUri")
     def resource_uri(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1375,6 +2547,61 @@ class RuleDataSourceArgs:
     @resource_uri.setter
     def resource_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_uri", value)
+
+
+@pulumi.input_type
+class RuleWebhookActionArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 service_uri: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
+        :param pulumi.Input[str] odata_type: specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+        :param pulumi.Input[str] service_uri: the service uri to Post the notification when the alert activates or resolves.
+        """
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleWebhookAction')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if service_uri is not None:
+            pulumi.set(__self__, "service_uri", service_uri)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="serviceUri")
+    def service_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        the service uri to Post the notification when the alert activates or resolves.
+        """
+        return pulumi.get(self, "service_uri")
+
+    @service_uri.setter
+    def service_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_uri", value)
 
 
 @pulumi.input_type
@@ -1753,6 +2980,107 @@ class SourceArgs:
 
 
 @pulumi.input_type
+class ThresholdRuleConditionArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 operator: pulumi.Input[str],
+                 threshold: pulumi.Input[float],
+                 data_source: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]] = None,
+                 time_aggregation: Optional[pulumi.Input[str]] = None,
+                 window_size: Optional[pulumi.Input[str]] = None):
+        """
+        A rule condition based on a metric crossing a threshold.
+        :param pulumi.Input[str] odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        :param pulumi.Input[str] operator: the operator used to compare the data and the threshold.
+        :param pulumi.Input[float] threshold: the threshold value that activates the alert.
+        :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        :param pulumi.Input[str] time_aggregation: the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+        :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+        """
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition')
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if time_aggregation is not None:
+            pulumi.set(__self__, "time_aggregation", time_aggregation)
+        if window_size is not None:
+            pulumi.set(__self__, "window_size", window_size)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        the operator used to compare the data and the threshold.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> pulumi.Input[float]:
+        """
+        the threshold value that activates the alert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]]:
+        """
+        the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]]):
+        pulumi.set(self, "data_source", value)
+
+    @property
+    @pulumi.getter(name="timeAggregation")
+    def time_aggregation(self) -> Optional[pulumi.Input[str]]:
+        """
+        the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+        """
+        return pulumi.get(self, "time_aggregation")
+
+    @time_aggregation.setter
+    def time_aggregation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_aggregation", value)
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+        """
+        return pulumi.get(self, "window_size")
+
+    @window_size.setter
+    def window_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "window_size", value)
+
+
+@pulumi.input_type
 class TimeWindowArgs:
     def __init__(__self__, *,
                  end: pulumi.Input[str],
@@ -1804,6 +3132,60 @@ class TimeWindowArgs:
     @time_zone.setter
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class TriggerConditionArgs:
+    def __init__(__self__, *,
+                 threshold: pulumi.Input[float],
+                 threshold_operator: pulumi.Input[str],
+                 metric_trigger: Optional[pulumi.Input['LogMetricTriggerArgs']] = None):
+        """
+        The condition that results in the Log Search rule.
+        :param pulumi.Input[float] threshold: Result or count threshold based on which rule should be triggered.
+        :param pulumi.Input[str] threshold_operator: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+        :param pulumi.Input['LogMetricTriggerArgs'] metric_trigger: Trigger condition for metric query rule
+        """
+        pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "threshold_operator", threshold_operator)
+        if metric_trigger is not None:
+            pulumi.set(__self__, "metric_trigger", metric_trigger)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> pulumi.Input[float]:
+        """
+        Result or count threshold based on which rule should be triggered.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="thresholdOperator")
+    def threshold_operator(self) -> pulumi.Input[str]:
+        """
+        Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+        """
+        return pulumi.get(self, "threshold_operator")
+
+    @threshold_operator.setter
+    def threshold_operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "threshold_operator", value)
+
+    @property
+    @pulumi.getter(name="metricTrigger")
+    def metric_trigger(self) -> Optional[pulumi.Input['LogMetricTriggerArgs']]:
+        """
+        Trigger condition for metric query rule
+        """
+        return pulumi.get(self, "metric_trigger")
+
+    @metric_trigger.setter
+    def metric_trigger(self, value: Optional[pulumi.Input['LogMetricTriggerArgs']]):
+        pulumi.set(self, "metric_trigger", value)
 
 
 @pulumi.input_type
@@ -2062,5 +3444,73 @@ class WebhookReceiverArgs:
     @use_aad_auth.setter
     def use_aad_auth(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_aad_auth", value)
+
+
+@pulumi.input_type
+class WebtestLocationAvailabilityCriteriaArgs:
+    def __init__(__self__, *,
+                 component_id: pulumi.Input[str],
+                 failed_location_count: pulumi.Input[float],
+                 odata_type: pulumi.Input[str],
+                 web_test_id: pulumi.Input[str]):
+        """
+        Specifies the metric alert rule criteria for a web test resource.
+        :param pulumi.Input[str] component_id: The Application Insights resource Id.
+        :param pulumi.Input[float] failed_location_count: The number of failed locations.
+        :param pulumi.Input[str] odata_type: specifies the type of the alert criteria.
+        :param pulumi.Input[str] web_test_id: The Application Insights web test Id.
+        """
+        pulumi.set(__self__, "component_id", component_id)
+        pulumi.set(__self__, "failed_location_count", failed_location_count)
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria')
+        pulumi.set(__self__, "web_test_id", web_test_id)
+
+    @property
+    @pulumi.getter(name="componentId")
+    def component_id(self) -> pulumi.Input[str]:
+        """
+        The Application Insights resource Id.
+        """
+        return pulumi.get(self, "component_id")
+
+    @component_id.setter
+    def component_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "component_id", value)
+
+    @property
+    @pulumi.getter(name="failedLocationCount")
+    def failed_location_count(self) -> pulumi.Input[float]:
+        """
+        The number of failed locations.
+        """
+        return pulumi.get(self, "failed_location_count")
+
+    @failed_location_count.setter
+    def failed_location_count(self, value: pulumi.Input[float]):
+        pulumi.set(self, "failed_location_count", value)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        specifies the type of the alert criteria.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="webTestId")
+    def web_test_id(self) -> pulumi.Input[str]:
+        """
+        The Application Insights web test Id.
+        """
+        return pulumi.get(self, "web_test_id")
+
+    @web_test_id.setter
+    def web_test_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "web_test_id", value)
 
 

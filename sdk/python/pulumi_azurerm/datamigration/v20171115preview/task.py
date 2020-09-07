@@ -20,7 +20,7 @@ class Task(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ProjectTaskPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ConnectToSourceSqlServerTaskPropertiesArgs'], pulumi.InputType['ConnectToTargetSqlDbTaskPropertiesArgs'], pulumi.InputType['GetUserTablesSqlTaskPropertiesArgs'], pulumi.InputType['MigrateSqlServerSqlDbTaskPropertiesArgs']]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -34,7 +34,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] etag: HTTP strong entity tag value. This is ignored if submitted.
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] project_name: Name of the project
-        :param pulumi.Input[pulumi.InputType['ProjectTaskPropertiesArgs']] properties: Custom task properties
+        :param pulumi.Input[Union[pulumi.InputType['ConnectToSourceSqlServerTaskPropertiesArgs'], pulumi.InputType['ConnectToTargetSqlDbTaskPropertiesArgs'], pulumi.InputType['GetUserTablesSqlTaskPropertiesArgs'], pulumi.InputType['MigrateSqlServerSqlDbTaskPropertiesArgs']]] properties: Custom task properties
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input[str] task_name: Name of the Task
         """
@@ -115,7 +115,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ProjectTaskPropertiesResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         Custom task properties
         """

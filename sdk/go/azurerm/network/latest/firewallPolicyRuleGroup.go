@@ -23,7 +23,7 @@ type FirewallPolicyRuleGroup struct {
 	// The provisioning state of the firewall policy rule group resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Group of Firewall Policy rules.
-	Rules FirewallPolicyRuleResponseArrayOutput `pulumi:"rules"`
+	Rules pulumi.ArrayOutput `pulumi:"rules"`
 	// Rule Group type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -101,7 +101,7 @@ type firewallPolicyRuleGroupState struct {
 	// The provisioning state of the firewall policy rule group resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Group of Firewall Policy rules.
-	Rules []FirewallPolicyRuleResponse `pulumi:"rules"`
+	Rules []interface{} `pulumi:"rules"`
 	// Rule Group type.
 	Type *string `pulumi:"type"`
 }
@@ -116,7 +116,7 @@ type FirewallPolicyRuleGroupState struct {
 	// The provisioning state of the firewall policy rule group resource.
 	ProvisioningState pulumi.StringPtrInput
 	// Group of Firewall Policy rules.
-	Rules FirewallPolicyRuleResponseArrayInput
+	Rules pulumi.ArrayInput
 	// Rule Group type.
 	Type pulumi.StringPtrInput
 }
@@ -139,7 +139,7 @@ type firewallPolicyRuleGroupArgs struct {
 	// The name of the FirewallPolicyRuleGroup.
 	RuleGroupName string `pulumi:"ruleGroupName"`
 	// Group of Firewall Policy rules.
-	Rules []FirewallPolicyRule `pulumi:"rules"`
+	Rules []interface{} `pulumi:"rules"`
 }
 
 // The set of arguments for constructing a FirewallPolicyRuleGroup resource.
@@ -157,7 +157,7 @@ type FirewallPolicyRuleGroupArgs struct {
 	// The name of the FirewallPolicyRuleGroup.
 	RuleGroupName pulumi.StringInput
 	// Group of Firewall Policy rules.
-	Rules FirewallPolicyRuleArrayInput
+	Rules pulumi.ArrayInput
 }
 
 func (FirewallPolicyRuleGroupArgs) ElementType() reflect.Type {

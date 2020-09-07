@@ -20,13 +20,13 @@ namespace Pulumi.AzureRM.ContainerService.V20180930Preview.Outputs
         /// <summary>
         /// Configuration of the provider.
         /// </summary>
-        public readonly Outputs.OpenShiftManagedClusterBaseIdentityProviderResponseResult? Provider;
+        public readonly Outputs.OpenShiftManagedClusterAADIdentityProviderResponseResult? Provider;
 
         [OutputConstructor]
         private OpenShiftManagedClusterIdentityProviderResponseResult(
             string? name,
 
-            Outputs.OpenShiftManagedClusterBaseIdentityProviderResponseResult? provider)
+            Outputs.OpenShiftManagedClusterAADIdentityProviderResponseResult? provider)
         {
             Name = name;
             Provider = provider;

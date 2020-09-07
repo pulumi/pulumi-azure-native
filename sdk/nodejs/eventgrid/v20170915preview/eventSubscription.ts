@@ -39,7 +39,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    public readonly destination!: pulumi.Output<outputs.eventgrid.v20170915preview.EventSubscriptionDestinationResponse | undefined>;
+    public readonly destination!: pulumi.Output<outputs.eventgrid.v20170915preview.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20170915preview.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
      * Information about the filter for the event subscription.
      */
@@ -119,7 +119,7 @@ export interface EventSubscriptionArgs {
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20170915preview.EventSubscriptionDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.v20170915preview.EventHubEventSubscriptionDestination | inputs.eventgrid.v20170915preview.WebHookEventSubscriptionDestination>;
     /**
      * Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
      */

@@ -10,12 +10,15 @@ from ... import _utilities, _tables
 
 __all__ = [
     'AssessmentStatusArgs',
-    'AutomationActionArgs',
+    'AutomationActionEventHubArgs',
+    'AutomationActionLogicAppArgs',
+    'AutomationActionWorkspaceArgs',
     'AutomationRuleSetArgs',
     'AutomationScopeArgs',
     'AutomationSourceArgs',
     'AutomationTriggeringRuleArgs',
-    'ResourceDetailsArgs',
+    'AzureResourceDetailsArgs',
+    'OnPremiseResourceDetailsArgs',
     'ScopeElementArgs',
     'SuppressionAlertsScopeArgs',
 ]
@@ -76,14 +79,22 @@ class AssessmentStatusArgs:
 
 
 @pulumi.input_type
-class AutomationActionArgs:
+class AutomationActionEventHubArgs:
     def __init__(__self__, *,
-                 action_type: pulumi.Input[str]):
+                 action_type: pulumi.Input[str],
+                 connection_string: Optional[pulumi.Input[str]] = None,
+                 event_hub_resource_id: Optional[pulumi.Input[str]] = None):
         """
-        The action that should be triggered.
+        The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
         :param pulumi.Input[str] action_type: The type of the action that will be triggered by the Automation
+        :param pulumi.Input[str] connection_string: The target Event Hub connection string (it will not be included in any response).
+        :param pulumi.Input[str] event_hub_resource_id: The target Event Hub Azure Resource ID.
         """
-        pulumi.set(__self__, "action_type", action_type)
+        pulumi.set(__self__, "action_type", 'EventHub')
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if event_hub_resource_id is not None:
+            pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
 
     @property
     @pulumi.getter(name="actionType")
@@ -96,6 +107,124 @@ class AutomationActionArgs:
     @action_type.setter
     def action_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target Event Hub connection string (it will not be included in any response).
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="eventHubResourceId")
+    def event_hub_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target Event Hub Azure Resource ID.
+        """
+        return pulumi.get(self, "event_hub_resource_id")
+
+    @event_hub_resource_id.setter
+    def event_hub_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_resource_id", value)
+
+
+@pulumi.input_type
+class AutomationActionLogicAppArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[str],
+                 logic_app_resource_id: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+        :param pulumi.Input[str] action_type: The type of the action that will be triggered by the Automation
+        :param pulumi.Input[str] logic_app_resource_id: The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+        :param pulumi.Input[str] uri: The Logic App trigger URI endpoint (it will not be included in any response).
+        """
+        pulumi.set(__self__, "action_type", 'LogicApp')
+        if logic_app_resource_id is not None:
+            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        The type of the action that will be triggered by the Automation
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="logicAppResourceId")
+    def logic_app_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+        """
+        return pulumi.get(self, "logic_app_resource_id")
+
+    @logic_app_resource_id.setter
+    def logic_app_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logic_app_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Logic App trigger URI endpoint (it will not be included in any response).
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class AutomationActionWorkspaceArgs:
+    def __init__(__self__, *,
+                 action_type: pulumi.Input[str],
+                 workspace_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+        :param pulumi.Input[str] action_type: The type of the action that will be triggered by the Automation
+        :param pulumi.Input[str] workspace_resource_id: The fully qualified Log Analytics Workspace Azure Resource ID.
+        """
+        pulumi.set(__self__, "action_type", 'Workspace')
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        The type of the action that will be triggered by the Automation
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified Log Analytics Workspace Azure Resource ID.
+        """
+        return pulumi.get(self, "workspace_resource_id")
+
+    @workspace_resource_id.setter
+    def workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_resource_id", value)
 
 
 @pulumi.input_type
@@ -271,14 +400,14 @@ class AutomationTriggeringRuleArgs:
 
 
 @pulumi.input_type
-class ResourceDetailsArgs:
+class AzureResourceDetailsArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[str]):
         """
-        Details of the resource that was assessed
+        Details of the Azure resource that was assessed
         :param pulumi.Input[str] source: The platform where the assessed resource resides
         """
-        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "source", 'Azure')
 
     @property
     @pulumi.getter
@@ -291,6 +420,89 @@ class ResourceDetailsArgs:
     @source.setter
     def source(self, value: pulumi.Input[str]):
         pulumi.set(self, "source", value)
+
+
+@pulumi.input_type
+class OnPremiseResourceDetailsArgs:
+    def __init__(__self__, *,
+                 machine_name: pulumi.Input[str],
+                 source: pulumi.Input[str],
+                 source_computer_id: pulumi.Input[str],
+                 vmuuid: pulumi.Input[str],
+                 workspace_id: pulumi.Input[str]):
+        """
+        Details of the On Premise resource that was assessed
+        :param pulumi.Input[str] machine_name: The name of the machine
+        :param pulumi.Input[str] source: The platform where the assessed resource resides
+        :param pulumi.Input[str] source_computer_id: The oms agent Id installed on the machine
+        :param pulumi.Input[str] vmuuid: The unique Id of the machine
+        :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
+        """
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "source", 'OnPremise')
+        pulumi.set(__self__, "source_computer_id", source_computer_id)
+        pulumi.set(__self__, "vmuuid", vmuuid)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> pulumi.Input[str]:
+        """
+        The name of the machine
+        """
+        return pulumi.get(self, "machine_name")
+
+    @machine_name.setter
+    def machine_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        """
+        The platform where the assessed resource resides
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="sourceComputerId")
+    def source_computer_id(self) -> pulumi.Input[str]:
+        """
+        The oms agent Id installed on the machine
+        """
+        return pulumi.get(self, "source_computer_id")
+
+    @source_computer_id.setter
+    def source_computer_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_computer_id", value)
+
+    @property
+    @pulumi.getter
+    def vmuuid(self) -> pulumi.Input[str]:
+        """
+        The unique Id of the machine
+        """
+        return pulumi.get(self, "vmuuid")
+
+    @vmuuid.setter
+    def vmuuid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vmuuid", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Input[str]:
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_id", value)
 
 
 @pulumi.input_type

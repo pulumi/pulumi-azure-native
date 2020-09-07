@@ -11,7 +11,6 @@ from ... import _utilities, _tables
 __all__ = [
     'ApiPropertiesArgs',
     'AutoscaleSettingsArgs',
-    'BackupPolicyArgs',
     'CapabilityArgs',
     'CassandraKeyspaceResourceArgs',
     'CassandraPartitionKeyArgs',
@@ -23,9 +22,11 @@ __all__ = [
     'ConflictResolutionPolicyArgs',
     'ConsistencyPolicyArgs',
     'ContainerPartitionKeyArgs',
+    'ContinuousModeBackupPolicyArgs',
     'CorsPolicyArgs',
     'CreateUpdateOptionsArgs',
-    'DatabaseAccountCreateUpdatePropertiesArgs',
+    'DatabaseRestoreResourceArgs',
+    'DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs',
     'ExcludedPathArgs',
     'GremlinDatabaseResourceArgs',
     'GremlinGraphResourceArgs',
@@ -40,6 +41,10 @@ __all__ = [
     'MongoIndexArgs',
     'MongoIndexKeysArgs',
     'MongoIndexOptionsArgs',
+    'PeriodicModeBackupPolicyArgs',
+    'PeriodicModePropertiesArgs',
+    'RestoreParametersArgs',
+    'RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs',
     'SpatialSpecArgs',
     'SqlContainerResourceArgs',
     'SqlDatabaseResourceArgs',
@@ -96,29 +101,6 @@ class AutoscaleSettingsArgs:
     @max_throughput.setter
     def max_throughput(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_throughput", value)
-
-
-@pulumi.input_type
-class BackupPolicyArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[str]):
-        """
-        The object representing the policy for taking backups on an account.
-        :param pulumi.Input[str] type: Describes the mode of backups.
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Describes the mode of backups.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -606,6 +588,29 @@ class ContainerPartitionKeyArgs:
 
 
 @pulumi.input_type
+class ContinuousModeBackupPolicyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        """
+        The object representing continuous mode backup policy.
+        :param pulumi.Input[str] type: Describes the mode of backups.
+        """
+        pulumi.set(__self__, "type", 'Continuous')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Describes the mode of backups.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class CorsPolicyArgs:
     def __init__(__self__, *,
                  allowed_origins: pulumi.Input[str],
@@ -733,13 +738,53 @@ class CreateUpdateOptionsArgs:
 
 
 @pulumi.input_type
-class DatabaseAccountCreateUpdatePropertiesArgs:
+class DatabaseRestoreResourceArgs:
+    def __init__(__self__, *,
+                 collection_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None):
+        """
+        Specific Databases to restore.
+        :param pulumi.Input[List[pulumi.Input[str]]] collection_names: The names of the collections to restore.
+        :param pulumi.Input[str] database_name: The name of the database to restore.
+        """
+        if collection_names is not None:
+            pulumi.set(__self__, "collection_names", collection_names)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="collectionNames")
+    def collection_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The names of the collections to restore.
+        """
+        return pulumi.get(self, "collection_names")
+
+    @collection_names.setter
+    def collection_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "collection_names", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database to restore.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+
+@pulumi.input_type
+class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
     def __init__(__self__, *,
                  create_mode: pulumi.Input[str],
                  database_account_offer_type: pulumi.Input[str],
                  locations: pulumi.Input[List[pulumi.Input['LocationArgs']]],
                  api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
-                 backup_policy: Optional[pulumi.Input['BackupPolicyArgs']] = None,
+                 backup_policy: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
                  capabilities: Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]] = None,
                  connector_offer: Optional[pulumi.Input[str]] = None,
                  consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
@@ -756,12 +801,12 @@ class DatabaseAccountCreateUpdatePropertiesArgs:
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
-        Properties to create and update Azure Cosmos DB database accounts.
+        Properties for non-restore Azure Cosmos DB database account requests.
         :param pulumi.Input[str] create_mode: Enum to indicate the mode of account creation.
         :param pulumi.Input[str] database_account_offer_type: The offer type for the database
         :param pulumi.Input[List[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
         :param pulumi.Input['ApiPropertiesArgs'] api_properties: API specific properties. Currently, supported only for MongoDB API.
-        :param pulumi.Input['BackupPolicyArgs'] backup_policy: The object representing the policy for taking backups on an account.
+        :param pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']] backup_policy: The object representing the policy for taking backups on an account.
         :param pulumi.Input[List[pulumi.Input['CapabilityArgs']]] capabilities: List of Cosmos DB capabilities for the account
         :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
         :param pulumi.Input['ConsistencyPolicyArgs'] consistency_policy: The consistency policy for the Cosmos DB account.
@@ -778,7 +823,7 @@ class DatabaseAccountCreateUpdatePropertiesArgs:
         :param pulumi.Input[str] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
-        pulumi.set(__self__, "create_mode", create_mode)
+        pulumi.set(__self__, "create_mode", 'Default')
         pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
         pulumi.set(__self__, "locations", locations)
         if api_properties is not None:
@@ -866,14 +911,14 @@ class DatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter(name="backupPolicy")
-    def backup_policy(self) -> Optional[pulumi.Input['BackupPolicyArgs']]:
+    def backup_policy(self) -> Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]]:
         """
         The object representing the policy for taking backups on an account.
         """
         return pulumi.get(self, "backup_policy")
 
     @backup_policy.setter
-    def backup_policy(self, value: Optional[pulumi.Input['BackupPolicyArgs']]):
+    def backup_policy(self, value: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]]):
         pulumi.set(self, "backup_policy", value)
 
     @property
@@ -1722,6 +1767,498 @@ class MongoIndexOptionsArgs:
     @unique.setter
     def unique(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "unique", value)
+
+
+@pulumi.input_type
+class PeriodicModeBackupPolicyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 periodic_mode_properties: Optional[pulumi.Input['PeriodicModePropertiesArgs']] = None):
+        """
+        The object representing periodic mode backup policy.
+        :param pulumi.Input[str] type: Describes the mode of backups.
+        :param pulumi.Input['PeriodicModePropertiesArgs'] periodic_mode_properties: Configuration values for periodic mode backup
+        """
+        pulumi.set(__self__, "type", 'Periodic')
+        if periodic_mode_properties is not None:
+            pulumi.set(__self__, "periodic_mode_properties", periodic_mode_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Describes the mode of backups.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="periodicModeProperties")
+    def periodic_mode_properties(self) -> Optional[pulumi.Input['PeriodicModePropertiesArgs']]:
+        """
+        Configuration values for periodic mode backup
+        """
+        return pulumi.get(self, "periodic_mode_properties")
+
+    @periodic_mode_properties.setter
+    def periodic_mode_properties(self, value: Optional[pulumi.Input['PeriodicModePropertiesArgs']]):
+        pulumi.set(self, "periodic_mode_properties", value)
+
+
+@pulumi.input_type
+class PeriodicModePropertiesArgs:
+    def __init__(__self__, *,
+                 backup_interval_in_minutes: Optional[pulumi.Input[float]] = None,
+                 backup_retention_interval_in_hours: Optional[pulumi.Input[float]] = None):
+        """
+        Configuration values for periodic mode backup
+        :param pulumi.Input[float] backup_interval_in_minutes: An integer representing the interval in minutes between two backups
+        :param pulumi.Input[float] backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
+        """
+        if backup_interval_in_minutes is not None:
+            pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
+        if backup_retention_interval_in_hours is not None:
+            pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+
+    @property
+    @pulumi.getter(name="backupIntervalInMinutes")
+    def backup_interval_in_minutes(self) -> Optional[pulumi.Input[float]]:
+        """
+        An integer representing the interval in minutes between two backups
+        """
+        return pulumi.get(self, "backup_interval_in_minutes")
+
+    @backup_interval_in_minutes.setter
+    def backup_interval_in_minutes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "backup_interval_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="backupRetentionIntervalInHours")
+    def backup_retention_interval_in_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        An integer representing the time (in hours) that each backup is retained
+        """
+        return pulumi.get(self, "backup_retention_interval_in_hours")
+
+    @backup_retention_interval_in_hours.setter
+    def backup_retention_interval_in_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "backup_retention_interval_in_hours", value)
+
+
+@pulumi.input_type
+class RestoreParametersArgs:
+    def __init__(__self__, *,
+                 databases_to_restore: Optional[pulumi.Input[List[pulumi.Input['DatabaseRestoreResourceArgs']]]] = None,
+                 restore_mode: Optional[pulumi.Input[str]] = None,
+                 restore_source: Optional[pulumi.Input[str]] = None,
+                 restore_timestamp_in_utc: Optional[pulumi.Input[str]] = None):
+        """
+        Parameters to indicate the information about the restore.
+        :param pulumi.Input[List[pulumi.Input['DatabaseRestoreResourceArgs']]] databases_to_restore: List of specific databases to restore.
+        :param pulumi.Input[str] restore_mode: Describes the mode of the restore.
+        :param pulumi.Input[str] restore_source: Path of the source account from which the restore has to be initiated
+        :param pulumi.Input[str] restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
+        """
+        if databases_to_restore is not None:
+            pulumi.set(__self__, "databases_to_restore", databases_to_restore)
+        if restore_mode is not None:
+            pulumi.set(__self__, "restore_mode", restore_mode)
+        if restore_source is not None:
+            pulumi.set(__self__, "restore_source", restore_source)
+        if restore_timestamp_in_utc is not None:
+            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+
+    @property
+    @pulumi.getter(name="databasesToRestore")
+    def databases_to_restore(self) -> Optional[pulumi.Input[List[pulumi.Input['DatabaseRestoreResourceArgs']]]]:
+        """
+        List of specific databases to restore.
+        """
+        return pulumi.get(self, "databases_to_restore")
+
+    @databases_to_restore.setter
+    def databases_to_restore(self, value: Optional[pulumi.Input[List[pulumi.Input['DatabaseRestoreResourceArgs']]]]):
+        pulumi.set(self, "databases_to_restore", value)
+
+    @property
+    @pulumi.getter(name="restoreMode")
+    def restore_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the mode of the restore.
+        """
+        return pulumi.get(self, "restore_mode")
+
+    @restore_mode.setter
+    def restore_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_mode", value)
+
+    @property
+    @pulumi.getter(name="restoreSource")
+    def restore_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path of the source account from which the restore has to be initiated
+        """
+        return pulumi.get(self, "restore_source")
+
+    @restore_source.setter
+    def restore_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_source", value)
+
+    @property
+    @pulumi.getter(name="restoreTimestampInUtc")
+    def restore_timestamp_in_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time to which the account has to be restored (ISO-8601 format).
+        """
+        return pulumi.get(self, "restore_timestamp_in_utc")
+
+    @restore_timestamp_in_utc.setter
+    def restore_timestamp_in_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_timestamp_in_utc", value)
+
+
+@pulumi.input_type
+class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 create_mode: pulumi.Input[str],
+                 database_account_offer_type: pulumi.Input[str],
+                 locations: pulumi.Input[List[pulumi.Input['LocationArgs']]],
+                 api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
+                 backup_policy: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
+                 capabilities: Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]] = None,
+                 connector_offer: Optional[pulumi.Input[str]] = None,
+                 consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
+                 cors: Optional[pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]]] = None,
+                 disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
+                 enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
+                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+                 enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
+                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
+                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+                 ip_rules: Optional[pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
+                 is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_uri: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
+                 restore_parameters: Optional[pulumi.Input['RestoreParametersArgs']] = None,
+                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+        """
+        Properties to restore Azure Cosmos DB database account.
+        :param pulumi.Input[str] create_mode: Enum to indicate the mode of account creation.
+        :param pulumi.Input[str] database_account_offer_type: The offer type for the database
+        :param pulumi.Input[List[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
+        :param pulumi.Input['ApiPropertiesArgs'] api_properties: API specific properties. Currently, supported only for MongoDB API.
+        :param pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']] backup_policy: The object representing the policy for taking backups on an account.
+        :param pulumi.Input[List[pulumi.Input['CapabilityArgs']]] capabilities: List of Cosmos DB capabilities for the account
+        :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
+        :param pulumi.Input['ConsistencyPolicyArgs'] consistency_policy: The consistency policy for the Cosmos DB account.
+        :param pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]] cors: The CORS policy for the Cosmos DB database account.
+        :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
+        :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
+        :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
+        :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
+        :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
+        :param pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
+        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
+        :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
+        :param pulumi.Input[str] public_network_access: Whether requests from Public Network are allowed
+        :param pulumi.Input['RestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore.
+        :param pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
+        """
+        pulumi.set(__self__, "create_mode", 'Restore')
+        pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
+        pulumi.set(__self__, "locations", locations)
+        if api_properties is not None:
+            pulumi.set(__self__, "api_properties", api_properties)
+        if backup_policy is not None:
+            pulumi.set(__self__, "backup_policy", backup_policy)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if connector_offer is not None:
+            pulumi.set(__self__, "connector_offer", connector_offer)
+        if consistency_policy is not None:
+            pulumi.set(__self__, "consistency_policy", consistency_policy)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if disable_key_based_metadata_write_access is not None:
+            pulumi.set(__self__, "disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
+        if enable_analytical_storage is not None:
+            pulumi.set(__self__, "enable_analytical_storage", enable_analytical_storage)
+        if enable_automatic_failover is not None:
+            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+        if enable_cassandra_connector is not None:
+            pulumi.set(__self__, "enable_cassandra_connector", enable_cassandra_connector)
+        if enable_free_tier is not None:
+            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+        if enable_multiple_write_locations is not None:
+            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if is_virtual_network_filter_enabled is not None:
+            pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+        if key_vault_key_uri is not None:
+            pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> pulumi.Input[str]:
+        """
+        Enum to indicate the mode of account creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="databaseAccountOfferType")
+    def database_account_offer_type(self) -> pulumi.Input[str]:
+        """
+        The offer type for the database
+        """
+        return pulumi.get(self, "database_account_offer_type")
+
+    @database_account_offer_type.setter
+    def database_account_offer_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_account_offer_type", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[List[pulumi.Input['LocationArgs']]]:
+        """
+        An array that contains the georeplication locations enabled for the Cosmos DB account.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[List[pulumi.Input['LocationArgs']]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter(name="apiProperties")
+    def api_properties(self) -> Optional[pulumi.Input['ApiPropertiesArgs']]:
+        """
+        API specific properties. Currently, supported only for MongoDB API.
+        """
+        return pulumi.get(self, "api_properties")
+
+    @api_properties.setter
+    def api_properties(self, value: Optional[pulumi.Input['ApiPropertiesArgs']]):
+        pulumi.set(self, "api_properties", value)
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]]:
+        """
+        The object representing the policy for taking backups on an account.
+        """
+        return pulumi.get(self, "backup_policy")
+
+    @backup_policy.setter
+    def backup_policy(self, value: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]]):
+        pulumi.set(self, "backup_policy", value)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]]:
+        """
+        List of Cosmos DB capabilities for the account
+        """
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter(name="connectorOffer")
+    def connector_offer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cassandra connector offer type for the Cosmos DB database C* account.
+        """
+        return pulumi.get(self, "connector_offer")
+
+    @connector_offer.setter
+    def connector_offer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connector_offer", value)
+
+    @property
+    @pulumi.getter(name="consistencyPolicy")
+    def consistency_policy(self) -> Optional[pulumi.Input['ConsistencyPolicyArgs']]:
+        """
+        The consistency policy for the Cosmos DB account.
+        """
+        return pulumi.get(self, "consistency_policy")
+
+    @consistency_policy.setter
+    def consistency_policy(self, value: Optional[pulumi.Input['ConsistencyPolicyArgs']]):
+        pulumi.set(self, "consistency_policy", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]]]:
+        """
+        The CORS policy for the Cosmos DB database account.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input[List[pulumi.Input['CorsPolicyArgs']]]]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="disableKeyBasedMetadataWriteAccess")
+    def disable_key_based_metadata_write_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disable write operations on metadata resources (databases, containers, throughput) via account keys
+        """
+        return pulumi.get(self, "disable_key_based_metadata_write_access")
+
+    @disable_key_based_metadata_write_access.setter
+    def disable_key_based_metadata_write_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_key_based_metadata_write_access", value)
+
+    @property
+    @pulumi.getter(name="enableAnalyticalStorage")
+    def enable_analytical_storage(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether to enable storage analytics.
+        """
+        return pulumi.get(self, "enable_analytical_storage")
+
+    @enable_analytical_storage.setter
+    def enable_analytical_storage(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_analytical_storage", value)
+
+    @property
+    @pulumi.getter(name="enableAutomaticFailover")
+    def enable_automatic_failover(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        """
+        return pulumi.get(self, "enable_automatic_failover")
+
+    @enable_automatic_failover.setter
+    def enable_automatic_failover(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_failover", value)
+
+    @property
+    @pulumi.getter(name="enableCassandraConnector")
+    def enable_cassandra_connector(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables the cassandra connector on the Cosmos DB C* account
+        """
+        return pulumi.get(self, "enable_cassandra_connector")
+
+    @enable_cassandra_connector.setter
+    def enable_cassandra_connector(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_cassandra_connector", value)
+
+    @property
+    @pulumi.getter(name="enableFreeTier")
+    def enable_free_tier(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether Free Tier is enabled.
+        """
+        return pulumi.get(self, "enable_free_tier")
+
+    @enable_free_tier.setter
+    def enable_free_tier(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_free_tier", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleWriteLocations")
+    def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables the account to write in multiple locations
+        """
+        return pulumi.get(self, "enable_multiple_write_locations")
+
+    @enable_multiple_write_locations.setter
+    def enable_multiple_write_locations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_write_locations", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]]]:
+        """
+        List of IpRules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['IpAddressOrRangeArgs']]]]):
+        pulumi.set(self, "ip_rules", value)
+
+    @property
+    @pulumi.getter(name="isVirtualNetworkFilterEnabled")
+    def is_virtual_network_filter_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether to enable/disable Virtual Network ACL rules.
+        """
+        return pulumi.get(self, "is_virtual_network_filter_enabled")
+
+    @is_virtual_network_filter_enabled.setter
+    def is_virtual_network_filter_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_virtual_network_filter_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyUri")
+    def key_vault_key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the key vault
+        """
+        return pulumi.get(self, "key_vault_key_uri")
+
+    @key_vault_key_uri.setter
+    def key_vault_key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_uri", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether requests from Public Network are allowed
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional[pulumi.Input['RestoreParametersArgs']]:
+        """
+        Parameters to indicate the information about the restore.
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @restore_parameters.setter
+    def restore_parameters(self, value: Optional[pulumi.Input['RestoreParametersArgs']]):
+        pulumi.set(self, "restore_parameters", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+        """
+        List of Virtual Network ACL rules configured for the Cosmos DB account.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
+    @virtual_network_rules.setter
+    def virtual_network_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+        pulumi.set(self, "virtual_network_rules", value)
 
 
 @pulumi.input_type

@@ -40,14 +40,14 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest.Inputs
         public Input<string> PrimaryFabricId { get; set; } = null!;
 
         [Input("providerSpecificInput")]
-        private InputList<Inputs.RecoveryPlanProviderSpecificInputArgs>? _providerSpecificInput;
+        private InputList<Inputs.RecoveryPlanA2AInputArgs>? _providerSpecificInput;
 
         /// <summary>
         /// The provider specific input.
         /// </summary>
-        public InputList<Inputs.RecoveryPlanProviderSpecificInputArgs> ProviderSpecificInput
+        public InputList<Inputs.RecoveryPlanA2AInputArgs> ProviderSpecificInput
         {
-            get => _providerSpecificInput ?? (_providerSpecificInput = new InputList<Inputs.RecoveryPlanProviderSpecificInputArgs>());
+            get => _providerSpecificInput ?? (_providerSpecificInput = new InputList<Inputs.RecoveryPlanA2AInputArgs>());
             set => _providerSpecificInput = value;
         }
 

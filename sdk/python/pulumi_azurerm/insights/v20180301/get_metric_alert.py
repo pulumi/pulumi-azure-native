@@ -88,7 +88,7 @@ class GetMetricAlertResult:
 
     @property
     @pulumi.getter
-    def criteria(self) -> 'outputs.MetricAlertCriteriaResponse':
+    def criteria(self) -> Any:
         """
         defines the specific alert criteria information.
         """

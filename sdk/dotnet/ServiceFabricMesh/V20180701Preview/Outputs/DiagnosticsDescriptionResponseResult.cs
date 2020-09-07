@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview.Outputs
         /// <summary>
         /// List of supported sinks that can be referenced.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DiagnosticsSinkPropertiesResponseResult> Sinks;
+        public readonly ImmutableArray<Outputs.AzureInternalMonitoringPipelineSinkDescriptionResponseResult> Sinks;
 
         [OutputConstructor]
         private DiagnosticsDescriptionResponseResult(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview.Outputs
 
             bool? enabled,
 
-            ImmutableArray<Outputs.DiagnosticsSinkPropertiesResponseResult> sinks)
+            ImmutableArray<Outputs.AzureInternalMonitoringPipelineSinkDescriptionResponseResult> sinks)
         {
             DefaultSinkRefs = defaultSinkRefs;
             Enabled = enabled;

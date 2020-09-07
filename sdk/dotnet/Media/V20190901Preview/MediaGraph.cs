@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.Media.V20190901Preview
         /// Media Graph sinks
         /// </summary>
         [Output("sinks")]
-        public Output<ImmutableArray<Outputs.MediaGraphSinkResponseResult>> Sinks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MediaGraphAssetSinkResponseResult>> Sinks { get; private set; } = null!;
 
         /// <summary>
         /// Media Graph sources
         /// </summary>
         [Output("sources")]
-        public Output<ImmutableArray<Outputs.MediaGraphSourceResponseResult>> Sources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MediaGraphRtspSourceResponseResult>> Sources { get; private set; } = null!;
 
         /// <summary>
         /// Media Graph state
@@ -136,26 +136,26 @@ namespace Pulumi.AzureRM.Media.V20190901Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("sinks", required: true)]
-        private InputList<Inputs.MediaGraphSinkArgs>? _sinks;
+        private InputList<Inputs.MediaGraphAssetSinkArgs>? _sinks;
 
         /// <summary>
         /// Media Graph sinks
         /// </summary>
-        public InputList<Inputs.MediaGraphSinkArgs> Sinks
+        public InputList<Inputs.MediaGraphAssetSinkArgs> Sinks
         {
-            get => _sinks ?? (_sinks = new InputList<Inputs.MediaGraphSinkArgs>());
+            get => _sinks ?? (_sinks = new InputList<Inputs.MediaGraphAssetSinkArgs>());
             set => _sinks = value;
         }
 
         [Input("sources", required: true)]
-        private InputList<Inputs.MediaGraphSourceArgs>? _sources;
+        private InputList<Inputs.MediaGraphRtspSourceArgs>? _sources;
 
         /// <summary>
         /// Media Graph sources
         /// </summary>
-        public InputList<Inputs.MediaGraphSourceArgs> Sources
+        public InputList<Inputs.MediaGraphRtspSourceArgs> Sources
         {
-            get => _sources ?? (_sources = new InputList<Inputs.MediaGraphSourceArgs>());
+            get => _sources ?? (_sources = new InputList<Inputs.MediaGraphRtspSourceArgs>());
             set => _sources = value;
         }
 

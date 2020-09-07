@@ -20,7 +20,7 @@ class Function(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[str]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['FunctionPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ScalarFunctionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,7 +33,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] function_name: The name of the function.
         :param pulumi.Input[str] job_name: The name of the streaming job.
         :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[pulumi.InputType['FunctionPropertiesArgs']] properties: The properties that are associated with a function.
+        :param pulumi.Input[pulumi.InputType['ScalarFunctionPropertiesArgs']] properties: The properties that are associated with a function.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         """
         if __name__ is not None:
@@ -101,7 +101,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.FunctionPropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.ScalarFunctionPropertiesResponse']:
         """
         The properties that are associated with a function.
         """

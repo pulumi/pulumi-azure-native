@@ -57,7 +57,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def activities(self) -> Optional[List['outputs.ActivityResponse']]:
+    def activities(self) -> Optional[List[Any]]:
         """
         List of activities in pipeline.
         """

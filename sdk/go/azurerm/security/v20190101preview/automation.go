@@ -15,7 +15,7 @@ type Automation struct {
 	pulumi.CustomResourceState
 
 	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
-	Actions AutomationActionResponseArrayOutput `pulumi:"actions"`
+	Actions pulumi.ArrayOutput `pulumi:"actions"`
 	// The security automation description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Entity tag is used for comparing two or more entities from the same requested resource.
@@ -73,7 +73,7 @@ func GetAutomation(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Automation resources.
 type automationState struct {
 	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
-	Actions []AutomationActionResponse `pulumi:"actions"`
+	Actions []interface{} `pulumi:"actions"`
 	// The security automation description.
 	Description *string `pulumi:"description"`
 	// Entity tag is used for comparing two or more entities from the same requested resource.
@@ -98,7 +98,7 @@ type automationState struct {
 
 type AutomationState struct {
 	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
-	Actions AutomationActionResponseArrayInput
+	Actions pulumi.ArrayInput
 	// The security automation description.
 	Description pulumi.StringPtrInput
 	// Entity tag is used for comparing two or more entities from the same requested resource.
@@ -127,7 +127,7 @@ func (AutomationState) ElementType() reflect.Type {
 
 type automationArgs struct {
 	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
-	Actions []AutomationAction `pulumi:"actions"`
+	Actions []interface{} `pulumi:"actions"`
 	// The security automation name.
 	AutomationName string `pulumi:"automationName"`
 	// The security automation description.
@@ -153,7 +153,7 @@ type automationArgs struct {
 // The set of arguments for constructing a Automation resource.
 type AutomationArgs struct {
 	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
-	Actions AutomationActionArrayInput
+	Actions pulumi.ArrayInput
 	// The security automation name.
 	AutomationName pulumi.StringInput
 	// The security automation description.

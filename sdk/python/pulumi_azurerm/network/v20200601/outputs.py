@@ -49,6 +49,7 @@ __all__ = [
     'ApplicationGatewayUrlConfigurationResponse',
     'ApplicationGatewayUrlPathMapResponse',
     'ApplicationGatewayWebApplicationFirewallConfigurationResponse',
+    'ApplicationRuleResponse',
     'ApplicationSecurityGroupResponse',
     'AzureFirewallApplicationRuleCollectionResponse',
     'AzureFirewallApplicationRuleProtocolResponse',
@@ -106,7 +107,11 @@ __all__ = [
     'ExpressRouteGatewayPropertiesResponseBounds',
     'ExpressRouteLinkMacSecConfigResponse',
     'ExpressRouteLinkResponse',
-    'FirewallPolicyRuleCollectionResponse',
+    'FirewallPolicyFilterRuleCollectionActionResponse',
+    'FirewallPolicyFilterRuleCollectionResponse',
+    'FirewallPolicyNatRuleCollectionActionResponse',
+    'FirewallPolicyNatRuleCollectionResponse',
+    'FirewallPolicyRuleApplicationProtocolResponse',
     'FirewallPolicyThreatIntelWhitelistResponse',
     'FlowLogFormatParametersResponse',
     'FlowLogResponse',
@@ -137,11 +142,13 @@ __all__ = [
     'MatchConditionResponse',
     'MatchVariableResponse',
     'NatGatewaySkuResponse',
+    'NatRuleResponse',
     'NetworkInterfaceDnsSettingsResponse',
     'NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse',
     'NetworkInterfaceIPConfigurationResponse',
     'NetworkInterfaceResponse',
     'NetworkInterfaceTapConfigurationResponse',
+    'NetworkRuleResponse',
     'NetworkSecurityGroupResponse',
     'O365BreakOutCategoryPoliciesResponse',
     'O365PolicyPropertiesResponse',
@@ -4032,6 +4039,127 @@ class ApplicationGatewayWebApplicationFirewallConfigurationResponse(dict):
         Whether allow WAF to check request Body.
         """
         return pulumi.get(self, "request_body_check")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ApplicationRuleResponse(dict):
+    """
+    Rule of type application.
+    """
+    def __init__(__self__, *,
+                 rule_type: str,
+                 description: Optional[str] = None,
+                 destination_addresses: Optional[List[str]] = None,
+                 fqdn_tags: Optional[List[str]] = None,
+                 name: Optional[str] = None,
+                 protocols: Optional[List['outputs.FirewallPolicyRuleApplicationProtocolResponse']] = None,
+                 source_addresses: Optional[List[str]] = None,
+                 source_ip_groups: Optional[List[str]] = None,
+                 target_fqdns: Optional[List[str]] = None):
+        """
+        Rule of type application.
+        :param str rule_type: Rule Type.
+        :param str description: Description of the rule.
+        :param List[str] destination_addresses: List of destination IP addresses or Service Tags.
+        :param List[str] fqdn_tags: List of FQDN Tags for this rule.
+        :param str name: Name of the rule.
+        :param List['FirewallPolicyRuleApplicationProtocolResponseArgs'] protocols: Array of Application Protocols.
+        :param List[str] source_addresses: List of source IP addresses for this rule.
+        :param List[str] source_ip_groups: List of source IpGroups for this rule.
+        :param List[str] target_fqdns: List of FQDNs for this rule.
+        """
+        pulumi.set(__self__, "rule_type", 'ApplicationRule')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if fqdn_tags is not None:
+            pulumi.set(__self__, "fqdn_tags", fqdn_tags)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ip_groups is not None:
+            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+        if target_fqdns is not None:
+            pulumi.set(__self__, "target_fqdns", target_fqdns)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> str:
+        """
+        Rule Type.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[List[str]]:
+        """
+        List of destination IP addresses or Service Tags.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @property
+    @pulumi.getter(name="fqdnTags")
+    def fqdn_tags(self) -> Optional[List[str]]:
+        """
+        List of FQDN Tags for this rule.
+        """
+        return pulumi.get(self, "fqdn_tags")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[List['outputs.FirewallPolicyRuleApplicationProtocolResponse']]:
+        """
+        Array of Application Protocols.
+        """
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[List[str]]:
+        """
+        List of source IP addresses for this rule.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> Optional[List[str]]:
+        """
+        List of source IpGroups for this rule.
+        """
+        return pulumi.get(self, "source_ip_groups")
+
+    @property
+    @pulumi.getter(name="targetFqdns")
+    def target_fqdns(self) -> Optional[List[str]]:
+        """
+        List of FQDNs for this rule.
+        """
+        return pulumi.get(self, "target_fqdns")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -7978,25 +8106,59 @@ class ExpressRouteLinkResponse(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyRuleCollectionResponse(dict):
+class FirewallPolicyFilterRuleCollectionActionResponse(dict):
     """
-    Properties of the rule collection.
+    Properties of the FirewallPolicyFilterRuleCollectionAction.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        Properties of the FirewallPolicyFilterRuleCollectionAction.
+        :param str type: The type of action.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of action.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FirewallPolicyFilterRuleCollectionResponse(dict):
+    """
+    Firewall Policy Filter Rule Collection.
     """
     def __init__(__self__, *,
                  rule_collection_type: str,
+                 action: Optional['outputs.FirewallPolicyFilterRuleCollectionActionResponse'] = None,
                  name: Optional[str] = None,
-                 priority: Optional[float] = None):
+                 priority: Optional[float] = None,
+                 rules: Optional[List[Any]] = None):
         """
-        Properties of the rule collection.
+        Firewall Policy Filter Rule Collection.
         :param str rule_collection_type: The type of the rule collection.
+        :param 'FirewallPolicyFilterRuleCollectionActionResponseArgs' action: The action type of a Filter rule collection.
         :param str name: The name of the rule collection.
         :param float priority: Priority of the Firewall Policy Rule Collection resource.
+        :param List[Union['ApplicationRuleResponseArgs', 'NatRuleResponseArgs', 'NetworkRuleResponseArgs']] rules: List of rules included in a rule collection.
         """
-        pulumi.set(__self__, "rule_collection_type", rule_collection_type)
+        pulumi.set(__self__, "rule_collection_type", 'FirewallPolicyFilterRuleCollection')
+        if action is not None:
+            pulumi.set(__self__, "action", action)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter(name="ruleCollectionType")
@@ -8005,6 +8167,14 @@ class FirewallPolicyRuleCollectionResponse(dict):
         The type of the rule collection.
         """
         return pulumi.get(self, "rule_collection_type")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.FirewallPolicyFilterRuleCollectionActionResponse']:
+        """
+        The action type of a Filter rule collection.
+        """
+        return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
@@ -8021,6 +8191,151 @@ class FirewallPolicyRuleCollectionResponse(dict):
         Priority of the Firewall Policy Rule Collection resource.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[List[Any]]:
+        """
+        List of rules included in a rule collection.
+        """
+        return pulumi.get(self, "rules")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FirewallPolicyNatRuleCollectionActionResponse(dict):
+    """
+    Properties of the FirewallPolicyNatRuleCollectionAction.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        Properties of the FirewallPolicyNatRuleCollectionAction.
+        :param str type: The type of action.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of action.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FirewallPolicyNatRuleCollectionResponse(dict):
+    """
+    Firewall Policy NAT Rule Collection.
+    """
+    def __init__(__self__, *,
+                 rule_collection_type: str,
+                 action: Optional['outputs.FirewallPolicyNatRuleCollectionActionResponse'] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[float] = None,
+                 rules: Optional[List[Any]] = None):
+        """
+        Firewall Policy NAT Rule Collection.
+        :param str rule_collection_type: The type of the rule collection.
+        :param 'FirewallPolicyNatRuleCollectionActionResponseArgs' action: The action type of a Nat rule collection.
+        :param str name: The name of the rule collection.
+        :param float priority: Priority of the Firewall Policy Rule Collection resource.
+        :param List[Union['ApplicationRuleResponseArgs', 'NatRuleResponseArgs', 'NetworkRuleResponseArgs']] rules: List of rules included in a rule collection.
+        """
+        pulumi.set(__self__, "rule_collection_type", 'FirewallPolicyNatRuleCollection')
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="ruleCollectionType")
+    def rule_collection_type(self) -> str:
+        """
+        The type of the rule collection.
+        """
+        return pulumi.get(self, "rule_collection_type")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['outputs.FirewallPolicyNatRuleCollectionActionResponse']:
+        """
+        The action type of a Nat rule collection.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the rule collection.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        """
+        Priority of the Firewall Policy Rule Collection resource.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[List[Any]]:
+        """
+        List of rules included in a rule collection.
+        """
+        return pulumi.get(self, "rules")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FirewallPolicyRuleApplicationProtocolResponse(dict):
+    """
+    Properties of the application rule protocol.
+    """
+    def __init__(__self__, *,
+                 port: Optional[float] = None,
+                 protocol_type: Optional[str] = None):
+        """
+        Properties of the application rule protocol.
+        :param float port: Port number for the protocol, cannot be greater than 64000.
+        :param str protocol_type: Protocol type.
+        """
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol_type is not None:
+            pulumi.set(__self__, "protocol_type", protocol_type)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[float]:
+        """
+        Port number for the protocol, cannot be greater than 64000.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> Optional[str]:
+        """
+        Protocol type.
+        """
+        return pulumi.get(self, "protocol_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -10317,6 +10632,139 @@ class NatGatewaySkuResponse(dict):
 
 
 @pulumi.output_type
+class NatRuleResponse(dict):
+    """
+    Rule of type nat.
+    """
+    def __init__(__self__, *,
+                 rule_type: str,
+                 description: Optional[str] = None,
+                 destination_addresses: Optional[List[str]] = None,
+                 destination_ports: Optional[List[str]] = None,
+                 ip_protocols: Optional[List[str]] = None,
+                 name: Optional[str] = None,
+                 source_addresses: Optional[List[str]] = None,
+                 source_ip_groups: Optional[List[str]] = None,
+                 translated_address: Optional[str] = None,
+                 translated_port: Optional[str] = None):
+        """
+        Rule of type nat.
+        :param str rule_type: Rule Type.
+        :param str description: Description of the rule.
+        :param List[str] destination_addresses: List of destination IP addresses or Service Tags.
+        :param List[str] destination_ports: List of destination ports.
+        :param List[str] ip_protocols: Array of FirewallPolicyRuleNetworkProtocols.
+        :param str name: Name of the rule.
+        :param List[str] source_addresses: List of source IP addresses for this rule.
+        :param List[str] source_ip_groups: List of source IpGroups for this rule.
+        :param str translated_address: The translated address for this NAT rule.
+        :param str translated_port: The translated port for this NAT rule.
+        """
+        pulumi.set(__self__, "rule_type", 'NatRule')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if ip_protocols is not None:
+            pulumi.set(__self__, "ip_protocols", ip_protocols)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ip_groups is not None:
+            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+        if translated_address is not None:
+            pulumi.set(__self__, "translated_address", translated_address)
+        if translated_port is not None:
+            pulumi.set(__self__, "translated_port", translated_port)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> str:
+        """
+        Rule Type.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[List[str]]:
+        """
+        List of destination IP addresses or Service Tags.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[List[str]]:
+        """
+        List of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @property
+    @pulumi.getter(name="ipProtocols")
+    def ip_protocols(self) -> Optional[List[str]]:
+        """
+        Array of FirewallPolicyRuleNetworkProtocols.
+        """
+        return pulumi.get(self, "ip_protocols")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[List[str]]:
+        """
+        List of source IP addresses for this rule.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> Optional[List[str]]:
+        """
+        List of source IpGroups for this rule.
+        """
+        return pulumi.get(self, "source_ip_groups")
+
+    @property
+    @pulumi.getter(name="translatedAddress")
+    def translated_address(self) -> Optional[str]:
+        """
+        The translated address for this NAT rule.
+        """
+        return pulumi.get(self, "translated_address")
+
+    @property
+    @pulumi.getter(name="translatedPort")
+    def translated_port(self) -> Optional[str]:
+        """
+        The translated port for this NAT rule.
+        """
+        return pulumi.get(self, "translated_port")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class NetworkInterfaceDnsSettingsResponse(dict):
     """
     DNS settings of a network interface.
@@ -10957,6 +11405,139 @@ class NetworkInterfaceTapConfigurationResponse(dict):
         The reference to the Virtual Network Tap resource.
         """
         return pulumi.get(self, "virtual_network_tap")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetworkRuleResponse(dict):
+    """
+    Rule of type network.
+    """
+    def __init__(__self__, *,
+                 rule_type: str,
+                 description: Optional[str] = None,
+                 destination_addresses: Optional[List[str]] = None,
+                 destination_fqdns: Optional[List[str]] = None,
+                 destination_ip_groups: Optional[List[str]] = None,
+                 destination_ports: Optional[List[str]] = None,
+                 ip_protocols: Optional[List[str]] = None,
+                 name: Optional[str] = None,
+                 source_addresses: Optional[List[str]] = None,
+                 source_ip_groups: Optional[List[str]] = None):
+        """
+        Rule of type network.
+        :param str rule_type: Rule Type.
+        :param str description: Description of the rule.
+        :param List[str] destination_addresses: List of destination IP addresses or Service Tags.
+        :param List[str] destination_fqdns: List of destination FQDNs.
+        :param List[str] destination_ip_groups: List of destination IpGroups for this rule.
+        :param List[str] destination_ports: List of destination ports.
+        :param List[str] ip_protocols: Array of FirewallPolicyRuleNetworkProtocols.
+        :param str name: Name of the rule.
+        :param List[str] source_addresses: List of source IP addresses for this rule.
+        :param List[str] source_ip_groups: List of source IpGroups for this rule.
+        """
+        pulumi.set(__self__, "rule_type", 'NetworkRule')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_fqdns is not None:
+            pulumi.set(__self__, "destination_fqdns", destination_fqdns)
+        if destination_ip_groups is not None:
+            pulumi.set(__self__, "destination_ip_groups", destination_ip_groups)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if ip_protocols is not None:
+            pulumi.set(__self__, "ip_protocols", ip_protocols)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ip_groups is not None:
+            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> str:
+        """
+        Rule Type.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[List[str]]:
+        """
+        List of destination IP addresses or Service Tags.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @property
+    @pulumi.getter(name="destinationFqdns")
+    def destination_fqdns(self) -> Optional[List[str]]:
+        """
+        List of destination FQDNs.
+        """
+        return pulumi.get(self, "destination_fqdns")
+
+    @property
+    @pulumi.getter(name="destinationIpGroups")
+    def destination_ip_groups(self) -> Optional[List[str]]:
+        """
+        List of destination IpGroups for this rule.
+        """
+        return pulumi.get(self, "destination_ip_groups")
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[List[str]]:
+        """
+        List of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @property
+    @pulumi.getter(name="ipProtocols")
+    def ip_protocols(self) -> Optional[List[str]]:
+        """
+        Array of FirewallPolicyRuleNetworkProtocols.
+        """
+        return pulumi.get(self, "ip_protocols")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[List[str]]:
+        """
+        List of source IP addresses for this rule.
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> Optional[List[str]]:
+        """
+        List of source IpGroups for this rule.
+        """
+        return pulumi.get(self, "source_ip_groups")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

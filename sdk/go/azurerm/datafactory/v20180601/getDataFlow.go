@@ -32,7 +32,7 @@ type LookupDataFlowResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// Data flow properties.
-	Properties DataFlowResponse `pulumi:"properties"`
+	Properties MappingDataFlowResponse `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

@@ -99,7 +99,7 @@ class GetAssessmentResult:
 
     @property
     @pulumi.getter(name="resourceDetails")
-    def resource_details(self) -> 'outputs.ResourceDetailsResponse':
+    def resource_details(self) -> Any:
         """
         Details of the resource that was assessed
         """

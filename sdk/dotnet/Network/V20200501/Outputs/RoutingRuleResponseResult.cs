@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
         /// <summary>
         /// A reference to the routing configuration.
         /// </summary>
-        public readonly Outputs.RouteConfigurationResponseResult? RouteConfiguration;
+        public readonly Union<Outputs.ForwardingConfigurationResponseResult, Outputs.RedirectConfigurationResponseResult>? RouteConfiguration;
         /// <summary>
         /// A reference to a specific Rules Engine Configuration to apply to this route.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
 
             string? resourceState,
 
-            Outputs.RouteConfigurationResponseResult? routeConfiguration,
+            Union<Outputs.ForwardingConfigurationResponseResult, Outputs.RedirectConfigurationResponseResult>? routeConfiguration,
 
             Outputs.SubResourceResponseResult? rulesEngine,
 

@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Resources.V20190601Preview
         /// <summary>
         /// An array of Template Spec artifacts.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TemplateSpecArtifactResponseResult> Artifacts;
+        public readonly ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponseResult> Artifacts;
         /// <summary>
         /// Template Spec version description.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Resources.V20190601Preview
 
         [OutputConstructor]
         private GetTemplateSpecVersionResult(
-            ImmutableArray<Outputs.TemplateSpecArtifactResponseResult> artifacts,
+            ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponseResult> artifacts,
 
             string? description,
 

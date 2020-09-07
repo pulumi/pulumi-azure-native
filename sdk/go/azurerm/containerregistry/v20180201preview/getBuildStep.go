@@ -32,7 +32,7 @@ type LookupBuildStepResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The properties of a build step.
-	Properties BuildStepPropertiesResponse `pulumi:"properties"`
+	Properties DockerBuildStepResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

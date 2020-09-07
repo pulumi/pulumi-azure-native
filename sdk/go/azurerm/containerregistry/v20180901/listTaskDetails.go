@@ -45,7 +45,7 @@ type ListTaskDetailsResult struct {
 	// The current status of task.
 	Status *string `pulumi:"status"`
 	// The properties of a task step.
-	Step TaskStepPropertiesResponse `pulumi:"step"`
+	Step interface{} `pulumi:"step"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Run timeout in seconds.

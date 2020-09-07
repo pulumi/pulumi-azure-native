@@ -47,7 +47,7 @@ export class Step extends pulumi.CustomResource {
     /**
      * The properties that define the step.
      */
-    public readonly properties!: pulumi.Output<outputs.deploymentmanager.v20180901preview.StepPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.deploymentmanager.v20180901preview.WaitStepPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -117,7 +117,7 @@ export interface StepArgs {
     /**
      * The properties that define the step.
      */
-    readonly properties: pulumi.Input<inputs.deploymentmanager.v20180901preview.StepProperties>;
+    readonly properties: pulumi.Input<inputs.deploymentmanager.v20180901preview.WaitStepProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

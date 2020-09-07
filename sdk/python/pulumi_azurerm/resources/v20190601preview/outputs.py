@@ -9,25 +9,28 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'TemplateSpecArtifactResponse',
+    'TemplateSpecTemplateArtifactResponse',
     'SystemDataResponse',
 ]
 
 @pulumi.output_type
-class TemplateSpecArtifactResponse(dict):
+class TemplateSpecTemplateArtifactResponse(dict):
     """
-    Represents a Template Spec artifact.
+    Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
     """
     def __init__(__self__, *,
                  kind: str,
-                 path: str):
+                 path: str,
+                 template: Mapping[str, Any]):
         """
-        Represents a Template Spec artifact.
+        Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
         :param str kind: The kind of artifact.
         :param str path: A filesystem safe relative path of the artifact.
+        :param Mapping[str, Any] template: The Azure Resource Manager template.
         """
-        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "kind", 'template')
         pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "template", template)
 
     @property
     @pulumi.getter
@@ -44,6 +47,14 @@ class TemplateSpecArtifactResponse(dict):
         A filesystem safe relative path of the artifact.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Mapping[str, Any]:
+        """
+        The Azure Resource Manager template.
+        """
+        return pulumi.get(self, "template")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

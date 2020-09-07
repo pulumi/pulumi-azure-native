@@ -17,9 +17,9 @@ type VirtualMachineImageTemplate struct {
 	// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
 	BuildTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"buildTimeoutInMinutes"`
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize ImageTemplateCustomizerResponseArrayOutput `pulumi:"customize"`
+	Customize pulumi.ArrayOutput `pulumi:"customize"`
 	// The distribution targets where the image output needs to go to.
-	Distribute ImageTemplateDistributorResponseArrayOutput `pulumi:"distribute"`
+	Distribute pulumi.ArrayOutput `pulumi:"distribute"`
 	// The identity of the image template, if configured.
 	Identity ImageTemplateIdentityResponsePtrOutput `pulumi:"identity"`
 	// State of 'run' that is currently executing or was last executed.
@@ -33,7 +33,7 @@ type VirtualMachineImageTemplate struct {
 	// Provisioning state of the resource
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Specifies the properties used to describe the source image.
-	Source ImageTemplateSourceResponseOutput `pulumi:"source"`
+	Source pulumi.AnyOutput `pulumi:"source"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -103,9 +103,9 @@ type virtualMachineImageTemplateState struct {
 	// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
 	BuildTimeoutInMinutes *int `pulumi:"buildTimeoutInMinutes"`
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize []ImageTemplateCustomizerResponse `pulumi:"customize"`
+	Customize []interface{} `pulumi:"customize"`
 	// The distribution targets where the image output needs to go to.
-	Distribute []ImageTemplateDistributorResponse `pulumi:"distribute"`
+	Distribute []interface{} `pulumi:"distribute"`
 	// The identity of the image template, if configured.
 	Identity *ImageTemplateIdentityResponse `pulumi:"identity"`
 	// State of 'run' that is currently executing or was last executed.
@@ -119,7 +119,7 @@ type virtualMachineImageTemplateState struct {
 	// Provisioning state of the resource
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Specifies the properties used to describe the source image.
-	Source *ImageTemplateSourceResponse `pulumi:"source"`
+	Source interface{} `pulumi:"source"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -132,9 +132,9 @@ type VirtualMachineImageTemplateState struct {
 	// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
 	BuildTimeoutInMinutes pulumi.IntPtrInput
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize ImageTemplateCustomizerResponseArrayInput
+	Customize pulumi.ArrayInput
 	// The distribution targets where the image output needs to go to.
-	Distribute ImageTemplateDistributorResponseArrayInput
+	Distribute pulumi.ArrayInput
 	// The identity of the image template, if configured.
 	Identity ImageTemplateIdentityResponsePtrInput
 	// State of 'run' that is currently executing or was last executed.
@@ -148,7 +148,7 @@ type VirtualMachineImageTemplateState struct {
 	// Provisioning state of the resource
 	ProvisioningState pulumi.StringPtrInput
 	// Specifies the properties used to describe the source image.
-	Source ImageTemplateSourceResponsePtrInput
+	Source pulumi.Input
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
@@ -165,9 +165,9 @@ type virtualMachineImageTemplateArgs struct {
 	// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
 	BuildTimeoutInMinutes *int `pulumi:"buildTimeoutInMinutes"`
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize []ImageTemplateCustomizer `pulumi:"customize"`
+	Customize []interface{} `pulumi:"customize"`
 	// The distribution targets where the image output needs to go to.
-	Distribute []ImageTemplateDistributor `pulumi:"distribute"`
+	Distribute []interface{} `pulumi:"distribute"`
 	// The identity of the image template, if configured.
 	Identity *ImageTemplateIdentity `pulumi:"identity"`
 	// The name of the image Template
@@ -177,7 +177,7 @@ type virtualMachineImageTemplateArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the properties used to describe the source image.
-	Source ImageTemplateSource `pulumi:"source"`
+	Source interface{} `pulumi:"source"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Describes how virtual machine is set up to build images
@@ -189,9 +189,9 @@ type VirtualMachineImageTemplateArgs struct {
 	// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
 	BuildTimeoutInMinutes pulumi.IntPtrInput
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize ImageTemplateCustomizerArrayInput
+	Customize pulumi.ArrayInput
 	// The distribution targets where the image output needs to go to.
-	Distribute ImageTemplateDistributorArrayInput
+	Distribute pulumi.ArrayInput
 	// The identity of the image template, if configured.
 	Identity ImageTemplateIdentityPtrInput
 	// The name of the image Template
@@ -201,7 +201,7 @@ type VirtualMachineImageTemplateArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the properties used to describe the source image.
-	Source ImageTemplateSourceInput
+	Source pulumi.Input
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Describes how virtual machine is set up to build images

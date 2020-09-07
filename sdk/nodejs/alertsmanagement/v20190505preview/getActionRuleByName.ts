@@ -46,7 +46,7 @@ export interface GetActionRuleByNameResult {
     /**
      * action rule properties
      */
-    readonly properties: outputs.alertsmanagement.v20190505preview.ActionRulePropertiesResponse;
+    readonly properties: outputs.alertsmanagement.v20190505preview.ActionGroupResponse | outputs.alertsmanagement.v20190505preview.DiagnosticsResponse | outputs.alertsmanagement.v20190505preview.SuppressionResponse;
     /**
      * Resource tags
      */

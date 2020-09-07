@@ -17,7 +17,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview.Outputs
         /// Information about the destination where events have to be delivered for the event subscription.
         /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
-        public readonly Outputs.EventSubscriptionDestinationResponseResult? Destination;
+        public readonly Union<Outputs.AzureFunctionEventSubscriptionDestinationResponseResult, Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusTopicEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>>>>? Destination;
         /// <summary>
         /// The identity to use when delivering events.
         /// </summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview.Outputs
 
         [OutputConstructor]
         private DeliveryWithResourceIdentityResponseResult(
-            Outputs.EventSubscriptionDestinationResponseResult? destination,
+            Union<Outputs.AzureFunctionEventSubscriptionDestinationResponseResult, Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusTopicEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>>>>? destination,
 
             Outputs.EventSubscriptionIdentityResponseResult? identity)
         {

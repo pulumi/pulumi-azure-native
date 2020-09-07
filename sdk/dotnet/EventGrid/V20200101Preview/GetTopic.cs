@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200101Preview
         /// <summary>
         /// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         /// </summary>
-        public readonly Outputs.InputSchemaMappingResponseResult? InputSchemaMapping;
+        public readonly Outputs.JsonInputSchemaMappingResponseResult? InputSchemaMapping;
         /// <summary>
         /// Location of the resource
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200101Preview
 
             string? inputSchema,
 
-            Outputs.InputSchemaMappingResponseResult? inputSchemaMapping,
+            Outputs.JsonInputSchemaMappingResponseResult? inputSchemaMapping,
 
             string location,
 

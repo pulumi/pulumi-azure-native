@@ -51,7 +51,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    public readonly details!: pulumi.Output<outputs.databox.latest.JobDetailsResponse | undefined>;
+    public readonly details!: pulumi.Output<outputs.databox.latest.DataBoxDiskJobDetailsResponse | outputs.databox.latest.DataBoxHeavyJobDetailsResponse | outputs.databox.latest.DataBoxJobDetailsResponse | undefined>;
     /**
      * Top level error for the job.
      */
@@ -208,7 +208,7 @@ export interface JobArgs {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    readonly details?: pulumi.Input<inputs.databox.latest.JobDetails>;
+    readonly details?: pulumi.Input<inputs.databox.latest.DataBoxDiskJobDetails | inputs.databox.latest.DataBoxHeavyJobDetails | inputs.databox.latest.DataBoxJobDetails>;
     /**
      * Msi identity of the resource
      */

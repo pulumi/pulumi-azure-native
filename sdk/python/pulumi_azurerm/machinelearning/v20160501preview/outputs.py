@@ -17,6 +17,11 @@ __all__ = [
     'CommitmentPlanResponse',
     'DiagnosticsConfigurationResponse',
     'ExampleRequestResponse',
+    'GraphEdgeResponse',
+    'GraphNodeResponse',
+    'GraphPackageResponse',
+    'GraphParameterLinkResponse',
+    'GraphParameterResponse',
     'InputPortResponse',
     'MachineLearningWorkspaceResponse',
     'ModeValueInfoResponse',
@@ -29,7 +34,7 @@ __all__ = [
     'StorageAccountResponse',
     'TableSpecificationResponse',
     'WebServiceKeysResponse',
-    'WebServicePropertiesResponse',
+    'WebServicePropertiesForGraphResponse',
 ]
 
 @pulumi.output_type
@@ -468,6 +473,264 @@ class ExampleRequestResponse(dict):
         Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         """
         return pulumi.get(self, "inputs")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GraphEdgeResponse(dict):
+    """
+    Defines an edge within the web service's graph.
+    """
+    def __init__(__self__, *,
+                 source_node_id: Optional[str] = None,
+                 source_port_id: Optional[str] = None,
+                 target_node_id: Optional[str] = None,
+                 target_port_id: Optional[str] = None):
+        """
+        Defines an edge within the web service's graph.
+        :param str source_node_id: The source graph node's identifier.
+        :param str source_port_id: The identifier of the source node's port that the edge connects from.
+        :param str target_node_id: The destination graph node's identifier.
+        :param str target_port_id: The identifier of the destination node's port that the edge connects into.
+        """
+        if source_node_id is not None:
+            pulumi.set(__self__, "source_node_id", source_node_id)
+        if source_port_id is not None:
+            pulumi.set(__self__, "source_port_id", source_port_id)
+        if target_node_id is not None:
+            pulumi.set(__self__, "target_node_id", target_node_id)
+        if target_port_id is not None:
+            pulumi.set(__self__, "target_port_id", target_port_id)
+
+    @property
+    @pulumi.getter(name="sourceNodeId")
+    def source_node_id(self) -> Optional[str]:
+        """
+        The source graph node's identifier.
+        """
+        return pulumi.get(self, "source_node_id")
+
+    @property
+    @pulumi.getter(name="sourcePortId")
+    def source_port_id(self) -> Optional[str]:
+        """
+        The identifier of the source node's port that the edge connects from.
+        """
+        return pulumi.get(self, "source_port_id")
+
+    @property
+    @pulumi.getter(name="targetNodeId")
+    def target_node_id(self) -> Optional[str]:
+        """
+        The destination graph node's identifier.
+        """
+        return pulumi.get(self, "target_node_id")
+
+    @property
+    @pulumi.getter(name="targetPortId")
+    def target_port_id(self) -> Optional[str]:
+        """
+        The identifier of the destination node's port that the edge connects into.
+        """
+        return pulumi.get(self, "target_port_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GraphNodeResponse(dict):
+    """
+    Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+    """
+    def __init__(__self__, *,
+                 asset_id: Optional[str] = None,
+                 input_id: Optional[str] = None,
+                 output_id: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+        :param str asset_id: The id of the asset represented by this node.
+        :param str input_id: The id of the input element represented by this node.
+        :param str output_id: The id of the output element represented by this node.
+        :param Mapping[str, str] parameters: If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+        """
+        if asset_id is not None:
+            pulumi.set(__self__, "asset_id", asset_id)
+        if input_id is not None:
+            pulumi.set(__self__, "input_id", input_id)
+        if output_id is not None:
+            pulumi.set(__self__, "output_id", output_id)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> Optional[str]:
+        """
+        The id of the asset represented by this node.
+        """
+        return pulumi.get(self, "asset_id")
+
+    @property
+    @pulumi.getter(name="inputId")
+    def input_id(self) -> Optional[str]:
+        """
+        The id of the input element represented by this node.
+        """
+        return pulumi.get(self, "input_id")
+
+    @property
+    @pulumi.getter(name="outputId")
+    def output_id(self) -> Optional[str]:
+        """
+        The id of the output element represented by this node.
+        """
+        return pulumi.get(self, "output_id")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+        """
+        return pulumi.get(self, "parameters")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GraphPackageResponse(dict):
+    """
+    Defines the graph of modules making up the machine learning solution.
+    """
+    def __init__(__self__, *,
+                 edges: Optional[List['outputs.GraphEdgeResponse']] = None,
+                 graph_parameters: Optional[Mapping[str, 'outputs.GraphParameterResponse']] = None,
+                 nodes: Optional[Mapping[str, 'outputs.GraphNodeResponse']] = None):
+        """
+        Defines the graph of modules making up the machine learning solution.
+        :param List['GraphEdgeResponseArgs'] edges: The list of edges making up the graph.
+        :param Mapping[str, 'GraphParameterResponseArgs'] graph_parameters: The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+        :param Mapping[str, 'GraphNodeResponseArgs'] nodes: The set of nodes making up the graph, provided as a nodeId to GraphNode map
+        """
+        if edges is not None:
+            pulumi.set(__self__, "edges", edges)
+        if graph_parameters is not None:
+            pulumi.set(__self__, "graph_parameters", graph_parameters)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
+
+    @property
+    @pulumi.getter
+    def edges(self) -> Optional[List['outputs.GraphEdgeResponse']]:
+        """
+        The list of edges making up the graph.
+        """
+        return pulumi.get(self, "edges")
+
+    @property
+    @pulumi.getter(name="graphParameters")
+    def graph_parameters(self) -> Optional[Mapping[str, 'outputs.GraphParameterResponse']]:
+        """
+        The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+        """
+        return pulumi.get(self, "graph_parameters")
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[Mapping[str, 'outputs.GraphNodeResponse']]:
+        """
+        The set of nodes making up the graph, provided as a nodeId to GraphNode map
+        """
+        return pulumi.get(self, "nodes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GraphParameterLinkResponse(dict):
+    """
+    Association link for a graph global parameter to a node in the graph.
+    """
+    def __init__(__self__, *,
+                 node_id: str,
+                 parameter_key: str):
+        """
+        Association link for a graph global parameter to a node in the graph.
+        :param str node_id: The graph node's identifier
+        :param str parameter_key: The identifier of the node parameter that the global parameter maps to.
+        """
+        pulumi.set(__self__, "node_id", node_id)
+        pulumi.set(__self__, "parameter_key", parameter_key)
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> str:
+        """
+        The graph node's identifier
+        """
+        return pulumi.get(self, "node_id")
+
+    @property
+    @pulumi.getter(name="parameterKey")
+    def parameter_key(self) -> str:
+        """
+        The identifier of the node parameter that the global parameter maps to.
+        """
+        return pulumi.get(self, "parameter_key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GraphParameterResponse(dict):
+    """
+    Defines a global parameter in the graph.
+    """
+    def __init__(__self__, *,
+                 links: List['outputs.GraphParameterLinkResponse'],
+                 type: str,
+                 description: Optional[str] = None):
+        """
+        Defines a global parameter in the graph.
+        :param List['GraphParameterLinkResponseArgs'] links: Association links for this parameter to nodes in the graph.
+        :param str type: Graph parameter's type.
+        :param str description: Description of this graph parameter.
+        """
+        pulumi.set(__self__, "links", links)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def links(self) -> List['outputs.GraphParameterLinkResponse']:
+        """
+        Association links for this parameter to nodes in the graph.
+        """
+        return pulumi.get(self, "links")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Graph parameter's type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of this graph parameter.
+        """
+        return pulumi.get(self, "description")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -982,9 +1245,9 @@ class WebServiceKeysResponse(dict):
 
 
 @pulumi.output_type
-class WebServicePropertiesResponse(dict):
+class WebServicePropertiesForGraphResponse(dict):
     """
-    The set of properties specific to the Azure ML web service resource.
+    Properties specific to a Graph based web service.
     """
     def __init__(__self__, *,
                  created_on: str,
@@ -1002,13 +1265,14 @@ class WebServicePropertiesResponse(dict):
                  keys: Optional['outputs.WebServiceKeysResponse'] = None,
                  machine_learning_workspace: Optional['outputs.MachineLearningWorkspaceResponse'] = None,
                  output: Optional['outputs.ServiceInputOutputSpecificationResponse'] = None,
+                 package: Optional['outputs.GraphPackageResponse'] = None,
                  parameters: Optional[Mapping[str, str]] = None,
                  read_only: Optional[bool] = None,
                  realtime_configuration: Optional['outputs.RealtimeConfigurationResponse'] = None,
                  storage_account: Optional['outputs.StorageAccountResponse'] = None,
                  title: Optional[str] = None):
         """
-        The set of properties specific to the Azure ML web service resource.
+        Properties specific to a Graph based web service.
         :param str created_on: Read Only: The date and time when the web service was created.
         :param str modified_on: Read Only: The date and time when the web service was last modified.
         :param str package_type: Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
@@ -1024,6 +1288,7 @@ class WebServicePropertiesResponse(dict):
         :param 'WebServiceKeysResponseArgs' keys: Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
         :param 'MachineLearningWorkspaceResponseArgs' machine_learning_workspace: Specifies the Machine Learning workspace containing the experiment that is source for the web service.
         :param 'ServiceInputOutputSpecificationResponseArgs' output: Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
+        :param 'GraphPackageResponseArgs' package: The definition of the graph package making up this web service.
         :param Mapping[str, str] parameters: The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
         :param bool read_only: When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
         :param 'RealtimeConfigurationResponseArgs' realtime_configuration: Contains the configuration settings for the web service endpoint.
@@ -1032,7 +1297,7 @@ class WebServicePropertiesResponse(dict):
         """
         pulumi.set(__self__, "created_on", created_on)
         pulumi.set(__self__, "modified_on", modified_on)
-        pulumi.set(__self__, "package_type", package_type)
+        pulumi.set(__self__, "package_type", 'Graph')
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "swagger_location", swagger_location)
         if assets is not None:
@@ -1055,6 +1320,8 @@ class WebServicePropertiesResponse(dict):
             pulumi.set(__self__, "machine_learning_workspace", machine_learning_workspace)
         if output is not None:
             pulumi.set(__self__, "output", output)
+        if package is not None:
+            pulumi.set(__self__, "package", package)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if read_only is not None:
@@ -1185,6 +1452,14 @@ class WebServicePropertiesResponse(dict):
         Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
         """
         return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter
+    def package(self) -> Optional['outputs.GraphPackageResponse']:
+        """
+        The definition of the graph package making up this web service.
+        """
+        return pulumi.get(self, "package")
 
     @property
     @pulumi.getter

@@ -40,7 +40,7 @@ type LookupFactoryResult struct {
 	// Factory provisioning state, example Succeeded.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Git repo information of the factory.
-	RepoConfiguration *FactoryRepoConfigurationResponse `pulumi:"repoConfiguration"`
+	RepoConfiguration interface{} `pulumi:"repoConfiguration"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

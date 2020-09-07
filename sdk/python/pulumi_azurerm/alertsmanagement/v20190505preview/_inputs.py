@@ -9,29 +9,36 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'ActionRulePropertiesArgs',
+    'ActionGroupArgs',
     'ConditionArgs',
     'ConditionsArgs',
+    'DiagnosticsArgs',
     'ScopeArgs',
+    'SuppressionArgs',
+    'SuppressionConfigArgs',
+    'SuppressionScheduleArgs',
 ]
 
 @pulumi.input_type
-class ActionRulePropertiesArgs:
+class ActionGroupArgs:
     def __init__(__self__, *,
+                 action_group_id: pulumi.Input[str],
                  type: pulumi.Input[str],
                  conditions: Optional[pulumi.Input['ConditionsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['ScopeArgs']] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
-        Action rule properties defining scope, conditions, suppression logic for action rule
+        Action rule with action group configuration
+        :param pulumi.Input[str] action_group_id: Action group to trigger if action rule matches
         :param pulumi.Input[str] type: Indicates type of action rule
         :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
         :param pulumi.Input[str] description: Description of action rule
         :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
         :param pulumi.Input[str] status: Indicates if the given action rule is enabled or disabled
         """
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "action_group_id", action_group_id)
+        pulumi.set(__self__, "type", 'ActionGroup')
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
         if description is not None:
@@ -40,6 +47,18 @@ class ActionRulePropertiesArgs:
             pulumi.set(__self__, "scope", scope)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionGroupId")
+    def action_group_id(self) -> pulumi.Input[str]:
+        """
+        Action group to trigger if action rule matches
+        """
+        return pulumi.get(self, "action_group_id")
+
+    @action_group_id.setter
+    def action_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_group_id", value)
 
     @property
     @pulumi.getter
@@ -263,6 +282,93 @@ class ConditionsArgs:
 
 
 @pulumi.input_type
+class DiagnosticsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 conditions: Optional[pulumi.Input['ConditionsArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['ScopeArgs']] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        Action rule with diagnostics configuration
+        :param pulumi.Input[str] type: Indicates type of action rule
+        :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
+        :param pulumi.Input[str] description: Description of action rule
+        :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
+        :param pulumi.Input[str] status: Indicates if the given action rule is enabled or disabled
+        """
+        pulumi.set(__self__, "type", 'Diagnostics')
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates type of action rule
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input['ConditionsArgs']]:
+        """
+        conditions on which alerts will be filtered
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input['ConditionsArgs']]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of action rule
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['ScopeArgs']]:
+        """
+        scope on which action rule will apply
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['ScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates if the given action rule is enabled or disabled
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
 class ScopeArgs:
     def __init__(__self__, *,
                  scope_type: Optional[pulumi.Input[str]] = None,
@@ -300,5 +406,234 @@ class ScopeArgs:
     @values.setter
     def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class SuppressionArgs:
+    def __init__(__self__, *,
+                 suppression_config: pulumi.Input['SuppressionConfigArgs'],
+                 type: pulumi.Input[str],
+                 conditions: Optional[pulumi.Input['ConditionsArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['ScopeArgs']] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        Action rule with suppression configuration
+        :param pulumi.Input['SuppressionConfigArgs'] suppression_config: suppression configuration for the action rule
+        :param pulumi.Input[str] type: Indicates type of action rule
+        :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
+        :param pulumi.Input[str] description: Description of action rule
+        :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
+        :param pulumi.Input[str] status: Indicates if the given action rule is enabled or disabled
+        """
+        pulumi.set(__self__, "suppression_config", suppression_config)
+        pulumi.set(__self__, "type", 'Suppression')
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="suppressionConfig")
+    def suppression_config(self) -> pulumi.Input['SuppressionConfigArgs']:
+        """
+        suppression configuration for the action rule
+        """
+        return pulumi.get(self, "suppression_config")
+
+    @suppression_config.setter
+    def suppression_config(self, value: pulumi.Input['SuppressionConfigArgs']):
+        pulumi.set(self, "suppression_config", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates type of action rule
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input['ConditionsArgs']]:
+        """
+        conditions on which alerts will be filtered
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input['ConditionsArgs']]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of action rule
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['ScopeArgs']]:
+        """
+        scope on which action rule will apply
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['ScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates if the given action rule is enabled or disabled
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class SuppressionConfigArgs:
+    def __init__(__self__, *,
+                 recurrence_type: pulumi.Input[str],
+                 schedule: Optional[pulumi.Input['SuppressionScheduleArgs']] = None):
+        """
+        Suppression logic for a given action rule
+        :param pulumi.Input[str] recurrence_type: Specifies when the suppression should be applied
+        :param pulumi.Input['SuppressionScheduleArgs'] schedule: suppression schedule configuration
+        """
+        pulumi.set(__self__, "recurrence_type", recurrence_type)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter(name="recurrenceType")
+    def recurrence_type(self) -> pulumi.Input[str]:
+        """
+        Specifies when the suppression should be applied
+        """
+        return pulumi.get(self, "recurrence_type")
+
+    @recurrence_type.setter
+    def recurrence_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recurrence_type", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['SuppressionScheduleArgs']]:
+        """
+        suppression schedule configuration
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['SuppressionScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+
+@pulumi.input_type
+class SuppressionScheduleArgs:
+    def __init__(__self__, *,
+                 end_date: Optional[pulumi.Input[str]] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 recurrence_values: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        Schedule for a given suppression configuration.
+        :param pulumi.Input[str] end_date: End date for suppression
+        :param pulumi.Input[str] end_time: End date for suppression
+        :param pulumi.Input[List[pulumi.Input[float]]] recurrence_values: Specifies the values for recurrence pattern
+        :param pulumi.Input[str] start_date: Start date for suppression
+        :param pulumi.Input[str] start_time: Start time for suppression
+        """
+        if end_date is not None:
+            pulumi.set(__self__, "end_date", end_date)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if recurrence_values is not None:
+            pulumi.set(__self__, "recurrence_values", recurrence_values)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        End date for suppression
+        """
+        return pulumi.get(self, "end_date")
+
+    @end_date.setter
+    def end_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_date", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        End date for suppression
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="recurrenceValues")
+    def recurrence_values(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+        """
+        Specifies the values for recurrence pattern
+        """
+        return pulumi.get(self, "recurrence_values")
+
+    @recurrence_values.setter
+    def recurrence_values(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+        pulumi.set(self, "recurrence_values", value)
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Start date for suppression
+        """
+        return pulumi.get(self, "start_date")
+
+    @start_date.setter
+    def start_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_date", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Start time for suppression
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
 
 

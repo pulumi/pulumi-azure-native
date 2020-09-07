@@ -10,8 +10,11 @@ from ... import _utilities, _tables
 
 __all__ = [
     'ContactDetailsArgs',
-    'DestinationAccountDetailsArgs',
-    'JobDetailsArgs',
+    'DataBoxDiskJobDetailsArgs',
+    'DataBoxHeavyJobDetailsArgs',
+    'DataBoxJobDetailsArgs',
+    'DestinationManagedDiskDetailsArgs',
+    'DestinationStorageAccountDetailsArgs',
     'NotificationPreferenceArgs',
     'PreferencesArgs',
     'ShippingAddressArgs',
@@ -120,57 +123,150 @@ class ContactDetailsArgs:
 
 
 @pulumi.input_type
-class DestinationAccountDetailsArgs:
+class DataBoxDiskJobDetailsArgs:
     def __init__(__self__, *,
-                 data_destination_type: pulumi.Input[str],
-                 account_id: Optional[pulumi.Input[str]] = None):
+                 contact_details: pulumi.Input['ContactDetailsArgs'],
+                 destination_account_details: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]],
+                 job_details_type: pulumi.Input[str],
+                 shipping_address: pulumi.Input['ShippingAddressArgs'],
+                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[float]] = None,
+                 passkey: Optional[pulumi.Input[str]] = None,
+                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+                 preferred_disks: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]] = None):
         """
-        Details of the destination of the data
-        :param pulumi.Input[str] data_destination_type: Data Destination Type.
-        :param pulumi.Input[str] account_id: Arm Id of the destination where the data has to be moved.
+        DataBox Disk Job Details.
+        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
+        :param pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
+        :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+        :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
+        :param pulumi.Input[float] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[str] passkey: User entered passkey for DataBox Disk job.
+        :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
+        :param pulumi.Input[Mapping[str, pulumi.Input[float]]] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
         """
-        pulumi.set(__self__, "data_destination_type", data_destination_type)
-        if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "destination_account_details", destination_account_details)
+        pulumi.set(__self__, "job_details_type", 'DataBoxDisk')
+        pulumi.set(__self__, "shipping_address", shipping_address)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+        if passkey is not None:
+            pulumi.set(__self__, "passkey", passkey)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+        if preferred_disks is not None:
+            pulumi.set(__self__, "preferred_disks", preferred_disks)
 
     @property
-    @pulumi.getter(name="dataDestinationType")
-    def data_destination_type(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> pulumi.Input['ContactDetailsArgs']:
         """
-        Data Destination Type.
+        Contact details for notification and shipping.
         """
-        return pulumi.get(self, "data_destination_type")
+        return pulumi.get(self, "contact_details")
 
-    @data_destination_type.setter
-    def data_destination_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_destination_type", value)
+    @contact_details.setter
+    def contact_details(self, value: pulumi.Input['ContactDetailsArgs']):
+        pulumi.set(self, "contact_details", value)
 
     @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="destinationAccountDetails")
+    def destination_account_details(self) -> pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]:
         """
-        Arm Id of the destination where the data has to be moved.
+        Destination account details.
         """
-        return pulumi.get(self, "account_id")
+        return pulumi.get(self, "destination_account_details")
 
-    @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "account_id", value)
+    @destination_account_details.setter
+    def destination_account_details(self, value: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]):
+        pulumi.set(self, "destination_account_details", value)
+
+    @property
+    @pulumi.getter(name="jobDetailsType")
+    def job_details_type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of job details.
+        """
+        return pulumi.get(self, "job_details_type")
+
+    @job_details_type.setter
+    def job_details_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "job_details_type", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> pulumi.Input['ShippingAddressArgs']:
+        """
+        Shipping address of the customer.
+        """
+        return pulumi.get(self, "shipping_address")
+
+    @shipping_address.setter
+    def shipping_address(self, value: pulumi.Input['ShippingAddressArgs']):
+        pulumi.set(self, "shipping_address", value)
+
+    @property
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        """
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
+
+    @expected_data_size_in_tera_bytes.setter
+    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "expected_data_size_in_tera_bytes", value)
+
+    @property
+    @pulumi.getter
+    def passkey(self) -> Optional[pulumi.Input[str]]:
+        """
+        User entered passkey for DataBox Disk job.
+        """
+        return pulumi.get(self, "passkey")
+
+    @passkey.setter
+    def passkey(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "passkey", value)
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
+        """
+        Preferences for the order.
+        """
+        return pulumi.get(self, "preferences")
+
+    @preferences.setter
+    def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
+        pulumi.set(self, "preferences", value)
+
+    @property
+    @pulumi.getter(name="preferredDisks")
+    def preferred_disks(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]:
+        """
+        User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+        """
+        return pulumi.get(self, "preferred_disks")
+
+    @preferred_disks.setter
+    def preferred_disks(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]):
+        pulumi.set(self, "preferred_disks", value)
 
 
 @pulumi.input_type
-class JobDetailsArgs:
+class DataBoxHeavyJobDetailsArgs:
     def __init__(__self__, *,
                  contact_details: pulumi.Input['ContactDetailsArgs'],
-                 destination_account_details: pulumi.Input[List[pulumi.Input['DestinationAccountDetailsArgs']]],
+                 destination_account_details: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]],
                  job_details_type: pulumi.Input[str],
                  shipping_address: pulumi.Input['ShippingAddressArgs'],
                  expected_data_size_in_tera_bytes: Optional[pulumi.Input[float]] = None,
                  preferences: Optional[pulumi.Input['PreferencesArgs']] = None):
         """
-        Job details.
+        DataBoxHeavy Device Job Details
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
-        :param pulumi.Input[List[pulumi.Input['DestinationAccountDetailsArgs']]] destination_account_details: Destination account details.
+        :param pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
         :param pulumi.Input[str] job_details_type: Indicates the type of job details.
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         :param pulumi.Input[float] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
@@ -178,7 +274,7 @@ class JobDetailsArgs:
         """
         pulumi.set(__self__, "contact_details", contact_details)
         pulumi.set(__self__, "destination_account_details", destination_account_details)
-        pulumi.set(__self__, "job_details_type", job_details_type)
+        pulumi.set(__self__, "job_details_type", 'DataBoxHeavy')
         pulumi.set(__self__, "shipping_address", shipping_address)
         if expected_data_size_in_tera_bytes is not None:
             pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
@@ -199,14 +295,14 @@ class JobDetailsArgs:
 
     @property
     @pulumi.getter(name="destinationAccountDetails")
-    def destination_account_details(self) -> pulumi.Input[List[pulumi.Input['DestinationAccountDetailsArgs']]]:
+    def destination_account_details(self) -> pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]:
         """
         Destination account details.
         """
         return pulumi.get(self, "destination_account_details")
 
     @destination_account_details.setter
-    def destination_account_details(self, value: pulumi.Input[List[pulumi.Input['DestinationAccountDetailsArgs']]]):
+    def destination_account_details(self, value: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]):
         pulumi.set(self, "destination_account_details", value)
 
     @property
@@ -256,6 +352,229 @@ class JobDetailsArgs:
     @preferences.setter
     def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
         pulumi.set(self, "preferences", value)
+
+
+@pulumi.input_type
+class DataBoxJobDetailsArgs:
+    def __init__(__self__, *,
+                 contact_details: pulumi.Input['ContactDetailsArgs'],
+                 destination_account_details: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]],
+                 job_details_type: pulumi.Input[str],
+                 shipping_address: pulumi.Input['ShippingAddressArgs'],
+                 expected_data_size_in_tera_bytes: Optional[pulumi.Input[float]] = None,
+                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None):
+        """
+        DataBox Job Details
+        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
+        :param pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]] destination_account_details: Destination account details.
+        :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+        :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
+        :param pulumi.Input[float] expected_data_size_in_tera_bytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
+        """
+        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "destination_account_details", destination_account_details)
+        pulumi.set(__self__, "job_details_type", 'DataBox')
+        pulumi.set(__self__, "shipping_address", shipping_address)
+        if expected_data_size_in_tera_bytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> pulumi.Input['ContactDetailsArgs']:
+        """
+        Contact details for notification and shipping.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @contact_details.setter
+    def contact_details(self, value: pulumi.Input['ContactDetailsArgs']):
+        pulumi.set(self, "contact_details", value)
+
+    @property
+    @pulumi.getter(name="destinationAccountDetails")
+    def destination_account_details(self) -> pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]:
+        """
+        Destination account details.
+        """
+        return pulumi.get(self, "destination_account_details")
+
+    @destination_account_details.setter
+    def destination_account_details(self, value: pulumi.Input[List[pulumi.Input[Union['DestinationManagedDiskDetailsArgs', 'DestinationStorageAccountDetailsArgs']]]]):
+        pulumi.set(self, "destination_account_details", value)
+
+    @property
+    @pulumi.getter(name="jobDetailsType")
+    def job_details_type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of job details.
+        """
+        return pulumi.get(self, "job_details_type")
+
+    @job_details_type.setter
+    def job_details_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "job_details_type", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> pulumi.Input['ShippingAddressArgs']:
+        """
+        Shipping address of the customer.
+        """
+        return pulumi.get(self, "shipping_address")
+
+    @shipping_address.setter
+    def shipping_address(self, value: pulumi.Input['ShippingAddressArgs']):
+        pulumi.set(self, "shipping_address", value)
+
+    @property
+    @pulumi.getter(name="expectedDataSizeInTeraBytes")
+    def expected_data_size_in_tera_bytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        """
+        return pulumi.get(self, "expected_data_size_in_tera_bytes")
+
+    @expected_data_size_in_tera_bytes.setter
+    def expected_data_size_in_tera_bytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "expected_data_size_in_tera_bytes", value)
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
+        """
+        Preferences for the order.
+        """
+        return pulumi.get(self, "preferences")
+
+    @preferences.setter
+    def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
+        pulumi.set(self, "preferences", value)
+
+
+@pulumi.input_type
+class DestinationManagedDiskDetailsArgs:
+    def __init__(__self__, *,
+                 data_destination_type: pulumi.Input[str],
+                 resource_group_id: pulumi.Input[str],
+                 staging_storage_account_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None):
+        """
+        Details for the destination compute disks.
+        :param pulumi.Input[str] data_destination_type: Data Destination Type.
+        :param pulumi.Input[str] resource_group_id: Destination Resource Group Id where the Compute disks should be created.
+        :param pulumi.Input[str] staging_storage_account_id: Arm Id of the storage account that can be used to copy the vhd for staging.
+        :param pulumi.Input[str] account_id: Arm Id of the destination where the data has to be moved.
+        """
+        pulumi.set(__self__, "data_destination_type", 'ManagedDisk')
+        pulumi.set(__self__, "resource_group_id", resource_group_id)
+        pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+
+    @property
+    @pulumi.getter(name="dataDestinationType")
+    def data_destination_type(self) -> pulumi.Input[str]:
+        """
+        Data Destination Type.
+        """
+        return pulumi.get(self, "data_destination_type")
+
+    @data_destination_type.setter
+    def data_destination_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_destination_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupId")
+    def resource_group_id(self) -> pulumi.Input[str]:
+        """
+        Destination Resource Group Id where the Compute disks should be created.
+        """
+        return pulumi.get(self, "resource_group_id")
+
+    @resource_group_id.setter
+    def resource_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_id", value)
+
+    @property
+    @pulumi.getter(name="stagingStorageAccountId")
+    def staging_storage_account_id(self) -> pulumi.Input[str]:
+        """
+        Arm Id of the storage account that can be used to copy the vhd for staging.
+        """
+        return pulumi.get(self, "staging_storage_account_id")
+
+    @staging_storage_account_id.setter
+    def staging_storage_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "staging_storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Arm Id of the destination where the data has to be moved.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+
+@pulumi.input_type
+class DestinationStorageAccountDetailsArgs:
+    def __init__(__self__, *,
+                 data_destination_type: pulumi.Input[str],
+                 storage_account_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None):
+        """
+        Details for the destination storage account.
+        :param pulumi.Input[str] data_destination_type: Data Destination Type.
+        :param pulumi.Input[str] storage_account_id: Destination Storage Account Arm Id.
+        :param pulumi.Input[str] account_id: Arm Id of the destination where the data has to be moved.
+        """
+        pulumi.set(__self__, "data_destination_type", 'StorageAccount')
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+
+    @property
+    @pulumi.getter(name="dataDestinationType")
+    def data_destination_type(self) -> pulumi.Input[str]:
+        """
+        Data Destination Type.
+        """
+        return pulumi.get(self, "data_destination_type")
+
+    @data_destination_type.setter
+    def data_destination_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_destination_type", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Input[str]:
+        """
+        Destination Storage Account Arm Id.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Arm Id of the destination where the data has to be moved.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
 
 
 @pulumi.input_type

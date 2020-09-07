@@ -19,7 +19,7 @@ type ActionRuleByName struct {
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// action rule properties
-	Properties ActionRulePropertiesResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type
@@ -74,7 +74,7 @@ type actionRuleByNameState struct {
 	// Azure resource name
 	Name *string `pulumi:"name"`
 	// action rule properties
-	Properties *ActionRulePropertiesResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type
@@ -87,7 +87,7 @@ type ActionRuleByNameState struct {
 	// Azure resource name
 	Name pulumi.StringPtrInput
 	// action rule properties
-	Properties ActionRulePropertiesResponsePtrInput
+	Properties pulumi.Input
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Azure resource type
@@ -104,7 +104,7 @@ type actionRuleByNameArgs struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// action rule properties
-	Properties *ActionRuleProperties `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource group name where the resource is created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -118,7 +118,7 @@ type ActionRuleByNameArgs struct {
 	// Resource location
 	Location pulumi.StringInput
 	// action rule properties
-	Properties ActionRulePropertiesPtrInput
+	Properties pulumi.Input
 	// Resource group name where the resource is created.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

@@ -43,7 +43,7 @@ namespace Pulumi.AzureRM.Network.Latest.Inputs
         /// Override the route configuration.
         /// </summary>
         [Input("routeConfigurationOverride")]
-        public Input<Inputs.RouteConfigurationArgs>? RouteConfigurationOverride { get; set; }
+        public InputUnion<Inputs.ForwardingConfigurationArgs, Inputs.RedirectConfigurationArgs>? RouteConfigurationOverride { get; set; }
 
         public RulesEngineActionArgs()
         {

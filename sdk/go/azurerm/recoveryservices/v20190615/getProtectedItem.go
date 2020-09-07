@@ -40,7 +40,7 @@ type LookupProtectedItemResult struct {
 	// Resource name associated with the resource.
 	Name string `pulumi:"name"`
 	// ProtectedItemResource properties
-	Properties ProtectedItemResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...

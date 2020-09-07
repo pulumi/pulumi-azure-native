@@ -38,7 +38,7 @@ export interface GetAutomationResult {
     /**
      * A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
      */
-    readonly actions?: outputs.security.v20190101preview.AutomationActionResponse[];
+    readonly actions?: outputs.security.v20190101preview.AutomationActionEventHubResponse | outputs.security.v20190101preview.AutomationActionLogicAppResponse | outputs.security.v20190101preview.AutomationActionWorkspaceResponse[];
     /**
      * The security automation description.
      */

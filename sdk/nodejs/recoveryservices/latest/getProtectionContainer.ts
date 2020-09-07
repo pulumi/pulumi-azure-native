@@ -60,7 +60,7 @@ export interface GetProtectionContainerResult {
     /**
      * ProtectionContainerResource properties
      */
-    readonly properties: outputs.recoveryservices.latest.ProtectionContainerResponse;
+    readonly properties: outputs.recoveryservices.latest.AzureSqlContainerResponse | outputs.recoveryservices.latest.AzureStorageContainerResponse | outputs.recoveryservices.latest.AzureWorkloadContainerResponse | outputs.recoveryservices.latest.DpmContainerResponse | outputs.recoveryservices.latest.GenericContainerResponse | outputs.recoveryservices.latest.IaaSVMContainerResponse | outputs.recoveryservices.latest.MabContainerResponse;
     /**
      * Resource tags.
      */

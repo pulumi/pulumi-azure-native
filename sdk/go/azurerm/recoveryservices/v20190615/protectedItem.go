@@ -21,7 +21,7 @@ type ProtectedItem struct {
 	// Resource name associated with the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ProtectedItemResource properties
-	Properties ProtectedItemResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -90,7 +90,7 @@ type protectedItemState struct {
 	// Resource name associated with the resource.
 	Name *string `pulumi:"name"`
 	// ProtectedItemResource properties
-	Properties *ProtectedItemResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -105,7 +105,7 @@ type ProtectedItemState struct {
 	// Resource name associated with the resource.
 	Name pulumi.StringPtrInput
 	// ProtectedItemResource properties
-	Properties ProtectedItemResponsePtrInput
+	Properties pulumi.Input
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -126,7 +126,7 @@ type protectedItemArgs struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// ProtectedItemResource properties
-	Properties *ProtectedItemType `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Item name to be backed up.
 	ProtectedItemName string `pulumi:"protectedItemName"`
 	// The name of the resource group where the recovery services vault is present.
@@ -148,7 +148,7 @@ type ProtectedItemArgs struct {
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// ProtectedItemResource properties
-	Properties ProtectedItemTypePtrInput
+	Properties pulumi.Input
 	// Item name to be backed up.
 	ProtectedItemName pulumi.StringInput
 	// The name of the resource group where the recovery services vault is present.

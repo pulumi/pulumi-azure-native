@@ -18,7 +18,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DigitalTwinsEndpointResourcePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['EventGridArgs'], pulumi.InputType['EventHubArgs'], pulumi.InputType['ServiceBusArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,7 +30,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of Endpoint Resource.
-        :param pulumi.Input[pulumi.InputType['DigitalTwinsEndpointResourcePropertiesArgs']] properties: DigitalTwinsInstance endpoint resource properties.
+        :param pulumi.Input[Union[pulumi.InputType['EventGridArgs'], pulumi.InputType['EventHubArgs'], pulumi.InputType['ServiceBusArgs']]] properties: DigitalTwinsInstance endpoint resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input[str] resource_name_: The name of the DigitalTwinsInstance.
         """
@@ -97,7 +97,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.DigitalTwinsEndpointResourcePropertiesResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         DigitalTwinsInstance endpoint resource properties.
         """

@@ -26,7 +26,7 @@ type TaskRun struct {
 	// The provisioning state of this task run
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The request (parameters) for the run
-	RunRequest RunRequestResponsePtrOutput `pulumi:"runRequest"`
+	RunRequest pulumi.AnyOutput `pulumi:"runRequest"`
 	// The result of this task run
 	RunResult RunResponseOutput `pulumi:"runResult"`
 	// The type of the resource.
@@ -81,7 +81,7 @@ type taskRunState struct {
 	// The provisioning state of this task run
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The request (parameters) for the run
-	RunRequest *RunRequestResponse `pulumi:"runRequest"`
+	RunRequest interface{} `pulumi:"runRequest"`
 	// The result of this task run
 	RunResult *RunResponse `pulumi:"runResult"`
 	// The type of the resource.
@@ -100,7 +100,7 @@ type TaskRunState struct {
 	// The provisioning state of this task run
 	ProvisioningState pulumi.StringPtrInput
 	// The request (parameters) for the run
-	RunRequest RunRequestResponsePtrInput
+	RunRequest pulumi.Input
 	// The result of this task run
 	RunResult RunResponsePtrInput
 	// The type of the resource.
@@ -123,7 +123,7 @@ type taskRunArgs struct {
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The request (parameters) for the run
-	RunRequest *RunRequest `pulumi:"runRequest"`
+	RunRequest interface{} `pulumi:"runRequest"`
 	// The name of the task run.
 	TaskRunName string `pulumi:"taskRunName"`
 }
@@ -141,7 +141,7 @@ type TaskRunArgs struct {
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The request (parameters) for the run
-	RunRequest RunRequestPtrInput
+	RunRequest pulumi.Input
 	// The name of the task run.
 	TaskRunName pulumi.StringInput
 }

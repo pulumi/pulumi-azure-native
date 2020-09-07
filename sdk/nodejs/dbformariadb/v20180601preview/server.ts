@@ -184,7 +184,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbformariadb.v20180601preview.ServerPropertiesForCreate>;
+    readonly properties: pulumi.Input<inputs.dbformariadb.v20180601preview.ServerPropertiesForDefaultCreate | inputs.dbformariadb.v20180601preview.ServerPropertiesForGeoRestore | inputs.dbformariadb.v20180601preview.ServerPropertiesForReplica | inputs.dbformariadb.v20180601preview.ServerPropertiesForRestore>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

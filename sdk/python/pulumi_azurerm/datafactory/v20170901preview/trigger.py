@@ -18,7 +18,7 @@ class Trigger(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['TriggerArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['MultiplePipelineTriggerArgs'], pulumi.InputType['TumblingWindowTriggerArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  trigger_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,7 +30,7 @@ class Trigger(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.
-        :param pulumi.Input[pulumi.InputType['TriggerArgs']] properties: Properties of the trigger.
+        :param pulumi.Input[Union[pulumi.InputType['MultiplePipelineTriggerArgs'], pulumi.InputType['TumblingWindowTriggerArgs']]] properties: Properties of the trigger.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] trigger_name: The trigger name.
         """
@@ -110,7 +110,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.TriggerResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         Properties of the trigger.
         """

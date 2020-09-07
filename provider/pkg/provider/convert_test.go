@@ -47,6 +47,26 @@ func init() {
 						},
 					},
 				},
+				"azurerm:testing:OptionA": {
+					Properties: map[string]AzureApiProperty{
+						"type": {
+							Const: "AAA",
+						},
+						"a": {
+							Container: "aa",
+						},
+					},
+				},
+				"azurerm:testing:OptionB": {
+					Properties: map[string]AzureApiProperty{
+						"type": {
+							Const: "BBB",
+						},
+						"b": {
+							Container: "bb",
+						},
+					},
+				},
 			},
 			Resources: map[string]AzureApiResource{
 				"r1": {
@@ -71,6 +91,9 @@ func init() {
 										Container: "properties",
 										Ref:       "#/types/azurerm:testing:More",
 									},
+									"union": {
+										OneOf: []string{"#/types/azurerm:testing:OptionA", "#/types/azurerm:testing:OptionB"},
+									},
 									"tags": {},
 								},
 							},
@@ -93,6 +116,9 @@ func init() {
 						"more": {
 							Container: "properties",
 							Ref:       "#/types/azurerm:testing:More",
+						},
+						"union": {
+							OneOf: []string{"#/types/azurerm:testing:OptionA", "#/types/azurerm:testing:OptionB"},
 						},
 						"tags": {},
 					},
@@ -122,6 +148,12 @@ func init() {
 				},
 			},
 		},
+		"union": map[string]interface{}{
+			"type": "BBB",
+			"bb": map[string]interface{}{
+				"b": "valueOfB",
+			},
+		},
 		"tags": map[string]interface{}{
 			"createdBy":   "admin",
 			"application": "dashboard",
@@ -144,6 +176,10 @@ func init() {
 				map[string]interface{}{"Aaa": "222"},
 			},
 		},
+		"union": map[string]interface{}{
+			"type": "BBB",
+			"b": "valueOfB",
+		},
 		"tags": map[string]interface{}{
 			"createdBy":   "admin",
 			"application": "dashboard",
@@ -153,11 +189,11 @@ func init() {
 
 func TestResponseToSdkOutputs(t *testing.T) {
 	outputs := p.responseToSdkOutputs(p.resourceMap.Resources["r1"].Response, sampleApiPackage)
-	assert.Equal(t, outputs, sampleSdkProps)
+	assert.Equal(t, sampleSdkProps, outputs)
 }
 
 func TestSdkPropertiesToRequest(t *testing.T) {
 	bodyProperties := p.resourceMap.Resources["r1"].PutParameters[0].Body.Properties
 	data := p.sdkPropertiesToRequest(bodyProperties, sampleSdkProps)
-	assert.Equal(t, data, sampleApiPackage)
+	assert.Equal(t, sampleApiPackage, data)
 }

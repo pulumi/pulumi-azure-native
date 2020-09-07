@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// Git repo information of the factory.
         /// </summary>
         [Output("repoConfiguration")]
-        public Output<Outputs.FactoryRepoConfigurationResponseResult?> RepoConfiguration { get; private set; } = null!;
+        public Output<Union<Outputs.FactoryGitHubConfigurationResponseResult, Outputs.FactoryVSTSConfigurationResponseResult>?> RepoConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -164,7 +164,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// Git repo information of the factory.
         /// </summary>
         [Input("repoConfiguration")]
-        public Input<Inputs.FactoryRepoConfigurationArgs>? RepoConfiguration { get; set; }
+        public InputUnion<Inputs.FactoryGitHubConfigurationArgs, Inputs.FactoryVSTSConfigurationArgs>? RepoConfiguration { get; set; }
 
         /// <summary>
         /// The resource group name.

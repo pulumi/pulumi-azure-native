@@ -19,7 +19,7 @@ type Trigger struct {
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the trigger.
-	Properties TriggerResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -78,7 +78,7 @@ type triggerState struct {
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// Properties of the trigger.
-	Properties *TriggerResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
@@ -89,7 +89,7 @@ type TriggerState struct {
 	// The resource name.
 	Name pulumi.StringPtrInput
 	// Properties of the trigger.
-	Properties TriggerResponsePtrInput
+	Properties pulumi.Input
 	// The resource type.
 	Type pulumi.StringPtrInput
 }
@@ -102,7 +102,7 @@ type triggerArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// Properties of the trigger.
-	Properties TriggerType `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The trigger name.
@@ -114,7 +114,7 @@ type TriggerArgs struct {
 	// The factory name.
 	FactoryName pulumi.StringInput
 	// Properties of the trigger.
-	Properties TriggerTypeInput
+	Properties pulumi.Input
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The trigger name.

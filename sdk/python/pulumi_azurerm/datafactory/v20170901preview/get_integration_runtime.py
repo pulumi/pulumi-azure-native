@@ -52,7 +52,7 @@ class GetIntegrationRuntimeResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.IntegrationRuntimeResponse':
+    def properties(self) -> Any:
         """
         Integration runtime properties.
         """

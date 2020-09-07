@@ -218,7 +218,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbforpostgresql.latest.ServerPropertiesForCreate>;
+    readonly properties: pulumi.Input<inputs.dbforpostgresql.latest.ServerPropertiesForDefaultCreate | inputs.dbforpostgresql.latest.ServerPropertiesForGeoRestore | inputs.dbforpostgresql.latest.ServerPropertiesForReplica | inputs.dbforpostgresql.latest.ServerPropertiesForRestore>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

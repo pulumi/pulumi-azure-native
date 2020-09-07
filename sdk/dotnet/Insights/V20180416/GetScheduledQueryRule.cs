@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Insights.V20180416
         /// <summary>
         /// Action needs to be taken on rule execution.
         /// </summary>
-        public readonly Outputs.ActionResponseResult Action;
+        public readonly Union<Outputs.AlertingActionResponseResult, Outputs.LogToMetricActionResponseResult> Action;
         /// <summary>
         /// The description of the Log Search rule.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Insights.V20180416
 
         [OutputConstructor]
         private GetScheduledQueryRuleResult(
-            Outputs.ActionResponseResult action,
+            Union<Outputs.AlertingActionResponseResult, Outputs.LogToMetricActionResponseResult> action,
 
             string? description,
 

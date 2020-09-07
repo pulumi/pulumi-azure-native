@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
         /// The authentication method to use to access the artifact source.
         /// </summary>
         [Output("authentication")]
-        public Output<Outputs.AuthenticationResponseResult> Authentication { get; private set; } = null!;
+        public Output<Outputs.SasAuthenticationResponseResult> Authentication { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -121,7 +121,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
         /// The authentication method to use to access the artifact source.
         /// </summary>
         [Input("authentication", required: true)]
-        public Input<Inputs.AuthenticationArgs> Authentication { get; set; } = null!;
+        public Input<Inputs.SasAuthenticationArgs> Authentication { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

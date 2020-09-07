@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
         /// <summary>
         /// The authentication method to use to access the artifact source.
         /// </summary>
-        public readonly Outputs.AuthenticationResponseResult Authentication;
+        public readonly Outputs.SasAuthenticationResponseResult Authentication;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
         private GetArtifactSourceResult(
             string? artifactRoot,
 
-            Outputs.AuthenticationResponseResult authentication,
+            Outputs.SasAuthenticationResponseResult authentication,
 
             string location,
 

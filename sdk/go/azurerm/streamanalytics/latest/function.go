@@ -17,7 +17,7 @@ type Function struct {
 	// Resource name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The properties that are associated with a function.
-	Properties FunctionPropertiesResponseOutput `pulumi:"properties"`
+	Properties ScalarFunctionPropertiesResponseOutput `pulumi:"properties"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -68,7 +68,7 @@ type functionState struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with a function.
-	Properties *FunctionPropertiesResponse `pulumi:"properties"`
+	Properties *ScalarFunctionPropertiesResponse `pulumi:"properties"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -77,7 +77,7 @@ type FunctionState struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// The properties that are associated with a function.
-	Properties FunctionPropertiesResponsePtrInput
+	Properties ScalarFunctionPropertiesResponsePtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }
@@ -94,7 +94,7 @@ type functionArgs struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with a function.
-	Properties *FunctionProperties `pulumi:"properties"`
+	Properties *ScalarFunctionProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -108,7 +108,7 @@ type FunctionArgs struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// The properties that are associated with a function.
-	Properties FunctionPropertiesPtrInput
+	Properties ScalarFunctionPropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 }

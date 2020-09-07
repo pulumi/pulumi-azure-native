@@ -59,7 +59,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information for connecting to source
      */
-    public readonly sourceConnectionInfo!: pulumi.Output<outputs.datamigration.v20180715preview.ConnectionInfoResponse | undefined>;
+    public readonly sourceConnectionInfo!: pulumi.Output<outputs.datamigration.v20180715preview.MiSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.MongoDbConnectionInfoResponse | outputs.datamigration.v20180715preview.MySqlConnectionInfoResponse | outputs.datamigration.v20180715preview.OracleConnectionInfoResponse | outputs.datamigration.v20180715preview.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.SqlConnectionInfoResponse | undefined>;
     /**
      * Source platform for the project
      */
@@ -71,7 +71,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information for connecting to target
      */
-    public readonly targetConnectionInfo!: pulumi.Output<outputs.datamigration.v20180715preview.ConnectionInfoResponse | undefined>;
+    public readonly targetConnectionInfo!: pulumi.Output<outputs.datamigration.v20180715preview.MiSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.MongoDbConnectionInfoResponse | outputs.datamigration.v20180715preview.MySqlConnectionInfoResponse | outputs.datamigration.v20180715preview.OracleConnectionInfoResponse | outputs.datamigration.v20180715preview.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180715preview.SqlConnectionInfoResponse | undefined>;
     /**
      * Target platform for the project
      */
@@ -176,7 +176,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180715preview.ConnectionInfo>;
+    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180715preview.MiSqlConnectionInfo | inputs.datamigration.v20180715preview.MongoDbConnectionInfo | inputs.datamigration.v20180715preview.MySqlConnectionInfo | inputs.datamigration.v20180715preview.OracleConnectionInfo | inputs.datamigration.v20180715preview.PostgreSqlConnectionInfo | inputs.datamigration.v20180715preview.SqlConnectionInfo>;
     /**
      * Source platform for the project
      */
@@ -188,7 +188,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180715preview.ConnectionInfo>;
+    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180715preview.MiSqlConnectionInfo | inputs.datamigration.v20180715preview.MongoDbConnectionInfo | inputs.datamigration.v20180715preview.MySqlConnectionInfo | inputs.datamigration.v20180715preview.OracleConnectionInfo | inputs.datamigration.v20180715preview.PostgreSqlConnectionInfo | inputs.datamigration.v20180715preview.SqlConnectionInfo>;
     /**
      * Target platform for the project
      */

@@ -39,11 +39,11 @@ export class AlertRule extends pulumi.CustomResource {
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    public readonly actions!: pulumi.Output<outputs.insights.latest.RuleActionResponse[] | undefined>;
+    public readonly actions!: pulumi.Output<outputs.insights.latest.RuleEmailActionResponse | outputs.insights.latest.RuleWebhookActionResponse[] | undefined>;
     /**
      * the condition that results in the alert rule being activated.
      */
-    public readonly condition!: pulumi.Output<outputs.insights.latest.RuleConditionResponse>;
+    public readonly condition!: pulumi.Output<outputs.insights.latest.LocationThresholdRuleConditionResponse | outputs.insights.latest.ManagementEventRuleConditionResponse | outputs.insights.latest.ThresholdRuleConditionResponse>;
     /**
      * the description of the alert rule that will be included in the alert email.
      */
@@ -143,11 +143,11 @@ export interface AlertRuleArgs {
     /**
      * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.latest.RuleAction>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.latest.RuleEmailAction | inputs.insights.latest.RuleWebhookAction>[]>;
     /**
      * the condition that results in the alert rule being activated.
      */
-    readonly condition: pulumi.Input<inputs.insights.latest.RuleCondition>;
+    readonly condition: pulumi.Input<inputs.insights.latest.LocationThresholdRuleCondition | inputs.insights.latest.ManagementEventRuleCondition | inputs.insights.latest.ThresholdRuleCondition>;
     /**
      * the description of the alert rule that will be included in the alert email.
      */

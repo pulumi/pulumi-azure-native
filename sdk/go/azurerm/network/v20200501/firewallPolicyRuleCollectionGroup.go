@@ -23,7 +23,7 @@ type FirewallPolicyRuleCollectionGroup struct {
 	// The provisioning state of the firewall policy rule collection group resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Group of Firewall Policy rule collections.
-	RuleCollections FirewallPolicyRuleCollectionResponseArrayOutput `pulumi:"ruleCollections"`
+	RuleCollections pulumi.ArrayOutput `pulumi:"ruleCollections"`
 	// Rule Group type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -83,7 +83,7 @@ type firewallPolicyRuleCollectionGroupState struct {
 	// The provisioning state of the firewall policy rule collection group resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Group of Firewall Policy rule collections.
-	RuleCollections []FirewallPolicyRuleCollectionResponse `pulumi:"ruleCollections"`
+	RuleCollections []interface{} `pulumi:"ruleCollections"`
 	// Rule Group type.
 	Type *string `pulumi:"type"`
 }
@@ -98,7 +98,7 @@ type FirewallPolicyRuleCollectionGroupState struct {
 	// The provisioning state of the firewall policy rule collection group resource.
 	ProvisioningState pulumi.StringPtrInput
 	// Group of Firewall Policy rule collections.
-	RuleCollections FirewallPolicyRuleCollectionResponseArrayInput
+	RuleCollections pulumi.ArrayInput
 	// Rule Group type.
 	Type pulumi.StringPtrInput
 }
@@ -121,7 +121,7 @@ type firewallPolicyRuleCollectionGroupArgs struct {
 	// The name of the FirewallPolicyRuleCollectionGroup.
 	RuleCollectionGroupName string `pulumi:"ruleCollectionGroupName"`
 	// Group of Firewall Policy rule collections.
-	RuleCollections []FirewallPolicyRuleCollection `pulumi:"ruleCollections"`
+	RuleCollections []interface{} `pulumi:"ruleCollections"`
 }
 
 // The set of arguments for constructing a FirewallPolicyRuleCollectionGroup resource.
@@ -139,7 +139,7 @@ type FirewallPolicyRuleCollectionGroupArgs struct {
 	// The name of the FirewallPolicyRuleCollectionGroup.
 	RuleCollectionGroupName pulumi.StringInput
 	// Group of Firewall Policy rule collections.
-	RuleCollections FirewallPolicyRuleCollectionArrayInput
+	RuleCollections pulumi.ArrayInput
 }
 
 func (FirewallPolicyRuleCollectionGroupArgs) ElementType() reflect.Type {

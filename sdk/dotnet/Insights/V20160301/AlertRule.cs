@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Insights.V20160301
         /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Outputs.RuleActionResponseResult>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.RuleEmailActionResponseResult, Outputs.RuleWebhookActionResponseResult>>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// the condition that results in the alert rule being activated.
         /// </summary>
         [Output("condition")]
-        public Output<Outputs.RuleConditionResponseResult> Condition { get; private set; } = null!;
+        public Output<Union<Outputs.LocationThresholdRuleConditionResponseResult, Union<Outputs.ManagementEventRuleConditionResponseResult, Outputs.ThresholdRuleConditionResponseResult>>> Condition { get; private set; } = null!;
 
         /// <summary>
         /// the description of the alert rule that will be included in the alert email.
@@ -118,14 +118,14 @@ namespace Pulumi.AzureRM.Insights.V20160301
     public sealed class AlertRuleArgs : Pulumi.ResourceArgs
     {
         [Input("actions")]
-        private InputList<Inputs.RuleActionArgs>? _actions;
+        private InputList<Union<Inputs.RuleEmailActionArgs, Inputs.RuleWebhookActionArgs>>? _actions;
 
         /// <summary>
         /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         /// </summary>
-        public InputList<Inputs.RuleActionArgs> Actions
+        public InputList<Union<Inputs.RuleEmailActionArgs, Inputs.RuleWebhookActionArgs>> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.RuleActionArgs>());
+            get => _actions ?? (_actions = new InputList<Union<Inputs.RuleEmailActionArgs, Inputs.RuleWebhookActionArgs>>());
             set => _actions = value;
         }
 
@@ -133,7 +133,7 @@ namespace Pulumi.AzureRM.Insights.V20160301
         /// the condition that results in the alert rule being activated.
         /// </summary>
         [Input("condition", required: true)]
-        public Input<Inputs.RuleConditionArgs> Condition { get; set; } = null!;
+        public InputUnion<Inputs.LocationThresholdRuleConditionArgs, InputUnion<Inputs.ManagementEventRuleConditionArgs, Inputs.ThresholdRuleConditionArgs>> Condition { get; set; } = null!;
 
         /// <summary>
         /// the description of the alert rule that will be included in the alert email.

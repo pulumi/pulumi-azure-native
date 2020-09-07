@@ -52,7 +52,7 @@ class GetTriggerResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.TriggerResponse':
+    def properties(self) -> Any:
         """
         Properties of the trigger.
         """

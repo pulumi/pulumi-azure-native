@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710.Outputs
         /// <summary>
         /// The migration provider custom settings.
         /// </summary>
-        public readonly Outputs.MigrationProviderSpecificSettingsResponseResult? ProviderSpecificDetails;
+        public readonly Outputs.VMwareCbtMigrationDetailsResponseResult? ProviderSpecificDetails;
         /// <summary>
         /// The recovery services provider ARM Id.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710.Outputs
 
             string policyId,
 
-            Outputs.MigrationProviderSpecificSettingsResponseResult? providerSpecificDetails,
+            Outputs.VMwareCbtMigrationDetailsResponseResult? providerSpecificDetails,
 
             string recoveryServicesProviderId,
 

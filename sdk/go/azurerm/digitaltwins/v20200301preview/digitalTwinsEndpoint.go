@@ -17,7 +17,7 @@ type DigitalTwinsEndpoint struct {
 	// Extension resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// DigitalTwinsInstance endpoint resource properties.
-	Properties DigitalTwinsEndpointResourcePropertiesResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,7 +62,7 @@ type digitalTwinsEndpointState struct {
 	// Extension resource name.
 	Name *string `pulumi:"name"`
 	// DigitalTwinsInstance endpoint resource properties.
-	Properties *DigitalTwinsEndpointResourcePropertiesResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
@@ -71,7 +71,7 @@ type DigitalTwinsEndpointState struct {
 	// Extension resource name.
 	Name pulumi.StringPtrInput
 	// DigitalTwinsInstance endpoint resource properties.
-	Properties DigitalTwinsEndpointResourcePropertiesResponsePtrInput
+	Properties pulumi.Input
 	// The resource type.
 	Type pulumi.StringPtrInput
 }
@@ -84,7 +84,7 @@ type digitalTwinsEndpointArgs struct {
 	// Name of Endpoint Resource.
 	EndpointName string `pulumi:"endpointName"`
 	// DigitalTwinsInstance endpoint resource properties.
-	Properties *DigitalTwinsEndpointResourceProperties `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the DigitalTwinsInstance.
@@ -96,7 +96,7 @@ type DigitalTwinsEndpointArgs struct {
 	// Name of Endpoint Resource.
 	EndpointName pulumi.StringInput
 	// DigitalTwinsInstance endpoint resource properties.
-	Properties DigitalTwinsEndpointResourcePropertiesPtrInput
+	Properties pulumi.Input
 	// The name of the resource group that contains the DigitalTwinsInstance.
 	ResourceGroupName pulumi.StringInput
 	// The name of the DigitalTwinsInstance.

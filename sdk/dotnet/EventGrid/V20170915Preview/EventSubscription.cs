@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.EventGrid.V20170915Preview
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Output("destination")]
-        public Output<Outputs.EventSubscriptionDestinationResponseResult?> Destination { get; private set; } = null!;
+        public Output<Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>?> Destination { get; private set; } = null!;
 
         /// <summary>
         /// Information about the filter for the event subscription.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureRM.EventGrid.V20170915Preview
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Input("destination")]
-        public Input<Inputs.EventSubscriptionDestinationArgs>? Destination { get; set; }
+        public InputUnion<Inputs.EventHubEventSubscriptionDestinationArgs, Inputs.WebHookEventSubscriptionDestinationArgs>? Destination { get; set; }
 
         /// <summary>
         /// Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.

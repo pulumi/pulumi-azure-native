@@ -36,7 +36,7 @@ type LookupChannelResult struct {
 	// Specifies the name of the resource.
 	Name string `pulumi:"name"`
 	// The set of properties specific to bot channel resource
-	Properties ChannelResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Gets or sets the SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.

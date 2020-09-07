@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180331Preview
         /// Information for connecting to source
         /// </summary>
         [Output("sourceConnectionInfo")]
-        public Output<Outputs.ConnectionInfoResponseResult?> SourceConnectionInfo { get; private set; } = null!;
+        public Output<Outputs.SqlConnectionInfoResponseResult?> SourceConnectionInfo { get; private set; } = null!;
 
         /// <summary>
         /// Source platform for the project
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180331Preview
         /// Information for connecting to target
         /// </summary>
         [Output("targetConnectionInfo")]
-        public Output<Outputs.ConnectionInfoResponseResult?> TargetConnectionInfo { get; private set; } = null!;
+        public Output<Outputs.SqlConnectionInfoResponseResult?> TargetConnectionInfo { get; private set; } = null!;
 
         /// <summary>
         /// Target platform for the project
@@ -173,7 +173,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180331Preview
         /// Information for connecting to source
         /// </summary>
         [Input("sourceConnectionInfo")]
-        public Input<Inputs.ConnectionInfoArgs>? SourceConnectionInfo { get; set; }
+        public Input<Inputs.SqlConnectionInfoArgs>? SourceConnectionInfo { get; set; }
 
         /// <summary>
         /// Source platform for the project
@@ -197,7 +197,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180331Preview
         /// Information for connecting to target
         /// </summary>
         [Input("targetConnectionInfo")]
-        public Input<Inputs.ConnectionInfoArgs>? TargetConnectionInfo { get; set; }
+        public Input<Inputs.SqlConnectionInfoArgs>? TargetConnectionInfo { get; set; }
 
         /// <summary>
         /// Target platform for the project

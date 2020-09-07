@@ -19,7 +19,7 @@ type Dataset struct {
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Dataset properties.
-	Properties DatasetResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -78,7 +78,7 @@ type datasetState struct {
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// Dataset properties.
-	Properties *DatasetResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
@@ -89,7 +89,7 @@ type DatasetState struct {
 	// The resource name.
 	Name pulumi.StringPtrInput
 	// Dataset properties.
-	Properties DatasetResponsePtrInput
+	Properties pulumi.Input
 	// The resource type.
 	Type pulumi.StringPtrInput
 }
@@ -104,7 +104,7 @@ type datasetArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// Dataset properties.
-	Properties DatasetType `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -116,7 +116,7 @@ type DatasetArgs struct {
 	// The factory name.
 	FactoryName pulumi.StringInput
 	// Dataset properties.
-	Properties DatasetTypeInput
+	Properties pulumi.Input
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 }

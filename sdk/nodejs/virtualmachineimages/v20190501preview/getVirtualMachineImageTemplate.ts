@@ -42,11 +42,11 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    readonly customize?: outputs.virtualmachineimages.v20190501preview.ImageTemplateCustomizerResponse[];
+    readonly customize?: outputs.virtualmachineimages.v20190501preview.ImageTemplateFileCustomizerResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplatePowerShellCustomizerResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateRestartCustomizerResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateShellCustomizerResponse[];
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: outputs.virtualmachineimages.v20190501preview.ImageTemplateDistributorResponse[];
+    readonly distribute: outputs.virtualmachineimages.v20190501preview.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateVhdDistributorResponse[];
     /**
      * The identity of the image template, if configured.
      */
@@ -74,7 +74,7 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Specifies the properties used to describe the source image.
      */
-    readonly source: outputs.virtualmachineimages.v20190501preview.ImageTemplateSourceResponse;
+    readonly source: outputs.virtualmachineimages.v20190501preview.ImageTemplateIsoSourceResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateManagedImageSourceResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplatePlatformImageSourceResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateSharedImageVersionSourceResponse;
     /**
      * Resource tags
      */

@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.DataMigration.V20171115Preview
         /// <summary>
         /// Information for connecting to source
         /// </summary>
-        public readonly Outputs.ConnectionInfoResponseResult? SourceConnectionInfo;
+        public readonly Outputs.SqlConnectionInfoResponseResult? SourceConnectionInfo;
         /// <summary>
         /// Source platform for the project
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.DataMigration.V20171115Preview
         /// <summary>
         /// Information for connecting to target
         /// </summary>
-        public readonly Outputs.ConnectionInfoResponseResult? TargetConnectionInfo;
+        public readonly Outputs.SqlConnectionInfoResponseResult? TargetConnectionInfo;
         /// <summary>
         /// Target platform for the project
         /// </summary>
@@ -102,13 +102,13 @@ namespace Pulumi.AzureRM.DataMigration.V20171115Preview
 
             string provisioningState,
 
-            Outputs.ConnectionInfoResponseResult? sourceConnectionInfo,
+            Outputs.SqlConnectionInfoResponseResult? sourceConnectionInfo,
 
             string sourcePlatform,
 
             ImmutableDictionary<string, string>? tags,
 
-            Outputs.ConnectionInfoResponseResult? targetConnectionInfo,
+            Outputs.SqlConnectionInfoResponseResult? targetConnectionInfo,
 
             string targetPlatform,
 

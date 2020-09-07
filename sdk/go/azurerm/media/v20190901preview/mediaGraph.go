@@ -23,9 +23,9 @@ type MediaGraph struct {
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Media Graph sinks
-	Sinks MediaGraphSinkResponseArrayOutput `pulumi:"sinks"`
+	Sinks MediaGraphAssetSinkResponseArrayOutput `pulumi:"sinks"`
 	// Media Graph sources
-	Sources MediaGraphSourceResponseArrayOutput `pulumi:"sources"`
+	Sources MediaGraphRtspSourceResponseArrayOutput `pulumi:"sources"`
 	// Media Graph state
 	State pulumi.StringOutput `pulumi:"state"`
 	// The type of the resource.
@@ -90,9 +90,9 @@ type mediaGraphState struct {
 	// The name of the resource.
 	Name *string `pulumi:"name"`
 	// Media Graph sinks
-	Sinks []MediaGraphSinkResponse `pulumi:"sinks"`
+	Sinks []MediaGraphAssetSinkResponse `pulumi:"sinks"`
 	// Media Graph sources
-	Sources []MediaGraphSourceResponse `pulumi:"sources"`
+	Sources []MediaGraphRtspSourceResponse `pulumi:"sources"`
 	// Media Graph state
 	State *string `pulumi:"state"`
 	// The type of the resource.
@@ -109,9 +109,9 @@ type MediaGraphState struct {
 	// The name of the resource.
 	Name pulumi.StringPtrInput
 	// Media Graph sinks
-	Sinks MediaGraphSinkResponseArrayInput
+	Sinks MediaGraphAssetSinkResponseArrayInput
 	// Media Graph sources
-	Sources MediaGraphSourceResponseArrayInput
+	Sources MediaGraphRtspSourceResponseArrayInput
 	// Media Graph state
 	State pulumi.StringPtrInput
 	// The type of the resource.
@@ -132,9 +132,9 @@ type mediaGraphArgs struct {
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Media Graph sinks
-	Sinks []MediaGraphSink `pulumi:"sinks"`
+	Sinks []MediaGraphAssetSink `pulumi:"sinks"`
 	// Media Graph sources
-	Sources []MediaGraphSource `pulumi:"sources"`
+	Sources []MediaGraphRtspSource `pulumi:"sources"`
 }
 
 // The set of arguments for constructing a MediaGraph resource.
@@ -148,9 +148,9 @@ type MediaGraphArgs struct {
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Media Graph sinks
-	Sinks MediaGraphSinkArrayInput
+	Sinks MediaGraphAssetSinkArrayInput
 	// Media Graph sources
-	Sources MediaGraphSourceArrayInput
+	Sources MediaGraphRtspSourceArrayInput
 }
 
 func (MediaGraphArgs) ElementType() reflect.Type {

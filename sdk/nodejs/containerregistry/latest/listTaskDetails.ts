@@ -80,7 +80,7 @@ export interface ListTaskDetailsResult {
     /**
      * The properties of a task step.
      */
-    readonly step: outputs.containerregistry.latest.TaskStepPropertiesResponse;
+    readonly step: outputs.containerregistry.latest.DockerBuildStepResponse | outputs.containerregistry.latest.EncodedTaskStepResponse | outputs.containerregistry.latest.FileTaskStepResponse;
     /**
      * The tags of the resource.
      */

@@ -17,8 +17,8 @@ class EventSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['DeadLetterDestinationArgs']]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']]] = None,
+                 dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['StorageBlobDeadLetterDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union[pulumi.InputType['EventHubEventSubscriptionDestinationArgs'], pulumi.InputType['HybridConnectionEventSubscriptionDestinationArgs'], pulumi.InputType['ServiceBusQueueEventSubscriptionDestinationArgs'], pulumi.InputType['StorageQueueEventSubscriptionDestinationArgs'], pulumi.InputType['WebHookEventSubscriptionDestinationArgs']]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
@@ -34,8 +34,8 @@ class EventSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeadLetterDestinationArgs']] dead_letter_destination: The DeadLetter destination of the event subscription.
-        :param pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input[pulumi.InputType['StorageBlobDeadLetterDestinationArgs']] dead_letter_destination: The DeadLetter destination of the event subscription.
+        :param pulumi.Input[Union[pulumi.InputType['EventHubEventSubscriptionDestinationArgs'], pulumi.InputType['HybridConnectionEventSubscriptionDestinationArgs'], pulumi.InputType['ServiceBusQueueEventSubscriptionDestinationArgs'], pulumi.InputType['StorageQueueEventSubscriptionDestinationArgs'], pulumi.InputType['WebHookEventSubscriptionDestinationArgs']]] destination: Information about the destination where events have to be delivered for the event subscription.
         :param pulumi.Input[str] event_delivery_schema: The event delivery schema for the event subscription.
         :param pulumi.Input[str] event_subscription_name: Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
         :param pulumi.Input[str] expiration_time_utc: Expiration time of the event subscription.
@@ -106,7 +106,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deadLetterDestination")
-    def dead_letter_destination(self) -> pulumi.Output[Optional['outputs.DeadLetterDestinationResponse']]:
+    def dead_letter_destination(self) -> pulumi.Output[Optional['outputs.StorageBlobDeadLetterDestinationResponse']]:
         """
         The DeadLetter destination of the event subscription.
         """
@@ -114,7 +114,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Output[Optional['outputs.EventSubscriptionDestinationResponse']]:
+    def destination(self) -> pulumi.Output[Optional[Any]]:
         """
         Information about the destination where events have to be delivered for the event subscription.
         """

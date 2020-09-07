@@ -10,6 +10,664 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A rule condition based on a certain number of locations failing.
+type LocationThresholdRuleCondition struct {
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource interface{} `pulumi:"dataSource"`
+	// the number of locations that must fail to activate the alert.
+	FailedLocationCount int `pulumi:"failedLocationCount"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType string `pulumi:"odataType"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize *string `pulumi:"windowSize"`
+}
+
+// LocationThresholdRuleConditionInput is an input type that accepts LocationThresholdRuleConditionArgs and LocationThresholdRuleConditionOutput values.
+// You can construct a concrete instance of `LocationThresholdRuleConditionInput` via:
+//
+//          LocationThresholdRuleConditionArgs{...}
+type LocationThresholdRuleConditionInput interface {
+	pulumi.Input
+
+	ToLocationThresholdRuleConditionOutput() LocationThresholdRuleConditionOutput
+	ToLocationThresholdRuleConditionOutputWithContext(context.Context) LocationThresholdRuleConditionOutput
+}
+
+// A rule condition based on a certain number of locations failing.
+type LocationThresholdRuleConditionArgs struct {
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource pulumi.Input `pulumi:"dataSource"`
+	// the number of locations that must fail to activate the alert.
+	FailedLocationCount pulumi.IntInput `pulumi:"failedLocationCount"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+}
+
+func (LocationThresholdRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationThresholdRuleCondition)(nil)).Elem()
+}
+
+func (i LocationThresholdRuleConditionArgs) ToLocationThresholdRuleConditionOutput() LocationThresholdRuleConditionOutput {
+	return i.ToLocationThresholdRuleConditionOutputWithContext(context.Background())
+}
+
+func (i LocationThresholdRuleConditionArgs) ToLocationThresholdRuleConditionOutputWithContext(ctx context.Context) LocationThresholdRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationThresholdRuleConditionOutput)
+}
+
+// A rule condition based on a certain number of locations failing.
+type LocationThresholdRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (LocationThresholdRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationThresholdRuleCondition)(nil)).Elem()
+}
+
+func (o LocationThresholdRuleConditionOutput) ToLocationThresholdRuleConditionOutput() LocationThresholdRuleConditionOutput {
+	return o
+}
+
+func (o LocationThresholdRuleConditionOutput) ToLocationThresholdRuleConditionOutputWithContext(ctx context.Context) LocationThresholdRuleConditionOutput {
+	return o
+}
+
+// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+func (o LocationThresholdRuleConditionOutput) DataSource() pulumi.AnyOutput {
+	return o.ApplyT(func(v LocationThresholdRuleCondition) interface{} { return v.DataSource }).(pulumi.AnyOutput)
+}
+
+// the number of locations that must fail to activate the alert.
+func (o LocationThresholdRuleConditionOutput) FailedLocationCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LocationThresholdRuleCondition) int { return v.FailedLocationCount }).(pulumi.IntOutput)
+}
+
+// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+func (o LocationThresholdRuleConditionOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationThresholdRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+func (o LocationThresholdRuleConditionOutput) WindowSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationThresholdRuleCondition) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
+}
+
+// A rule condition based on a certain number of locations failing.
+type LocationThresholdRuleConditionResponse struct {
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource interface{} `pulumi:"dataSource"`
+	// the number of locations that must fail to activate the alert.
+	FailedLocationCount int `pulumi:"failedLocationCount"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType string `pulumi:"odataType"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize *string `pulumi:"windowSize"`
+}
+
+// LocationThresholdRuleConditionResponseInput is an input type that accepts LocationThresholdRuleConditionResponseArgs and LocationThresholdRuleConditionResponseOutput values.
+// You can construct a concrete instance of `LocationThresholdRuleConditionResponseInput` via:
+//
+//          LocationThresholdRuleConditionResponseArgs{...}
+type LocationThresholdRuleConditionResponseInput interface {
+	pulumi.Input
+
+	ToLocationThresholdRuleConditionResponseOutput() LocationThresholdRuleConditionResponseOutput
+	ToLocationThresholdRuleConditionResponseOutputWithContext(context.Context) LocationThresholdRuleConditionResponseOutput
+}
+
+// A rule condition based on a certain number of locations failing.
+type LocationThresholdRuleConditionResponseArgs struct {
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource pulumi.Input `pulumi:"dataSource"`
+	// the number of locations that must fail to activate the alert.
+	FailedLocationCount pulumi.IntInput `pulumi:"failedLocationCount"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+}
+
+func (LocationThresholdRuleConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationThresholdRuleConditionResponse)(nil)).Elem()
+}
+
+func (i LocationThresholdRuleConditionResponseArgs) ToLocationThresholdRuleConditionResponseOutput() LocationThresholdRuleConditionResponseOutput {
+	return i.ToLocationThresholdRuleConditionResponseOutputWithContext(context.Background())
+}
+
+func (i LocationThresholdRuleConditionResponseArgs) ToLocationThresholdRuleConditionResponseOutputWithContext(ctx context.Context) LocationThresholdRuleConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationThresholdRuleConditionResponseOutput)
+}
+
+// A rule condition based on a certain number of locations failing.
+type LocationThresholdRuleConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (LocationThresholdRuleConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationThresholdRuleConditionResponse)(nil)).Elem()
+}
+
+func (o LocationThresholdRuleConditionResponseOutput) ToLocationThresholdRuleConditionResponseOutput() LocationThresholdRuleConditionResponseOutput {
+	return o
+}
+
+func (o LocationThresholdRuleConditionResponseOutput) ToLocationThresholdRuleConditionResponseOutputWithContext(ctx context.Context) LocationThresholdRuleConditionResponseOutput {
+	return o
+}
+
+// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+func (o LocationThresholdRuleConditionResponseOutput) DataSource() pulumi.AnyOutput {
+	return o.ApplyT(func(v LocationThresholdRuleConditionResponse) interface{} { return v.DataSource }).(pulumi.AnyOutput)
+}
+
+// the number of locations that must fail to activate the alert.
+func (o LocationThresholdRuleConditionResponseOutput) FailedLocationCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LocationThresholdRuleConditionResponse) int { return v.FailedLocationCount }).(pulumi.IntOutput)
+}
+
+// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+func (o LocationThresholdRuleConditionResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationThresholdRuleConditionResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+func (o LocationThresholdRuleConditionResponseOutput) WindowSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationThresholdRuleConditionResponse) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
+}
+
+// How the data that is collected should be combined over time.
+type ManagementEventAggregationCondition struct {
+	// the condition operator.
+	Operator *string `pulumi:"operator"`
+	// The threshold value that activates the alert.
+	Threshold *float64 `pulumi:"threshold"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize *string `pulumi:"windowSize"`
+}
+
+// ManagementEventAggregationConditionInput is an input type that accepts ManagementEventAggregationConditionArgs and ManagementEventAggregationConditionOutput values.
+// You can construct a concrete instance of `ManagementEventAggregationConditionInput` via:
+//
+//          ManagementEventAggregationConditionArgs{...}
+type ManagementEventAggregationConditionInput interface {
+	pulumi.Input
+
+	ToManagementEventAggregationConditionOutput() ManagementEventAggregationConditionOutput
+	ToManagementEventAggregationConditionOutputWithContext(context.Context) ManagementEventAggregationConditionOutput
+}
+
+// How the data that is collected should be combined over time.
+type ManagementEventAggregationConditionArgs struct {
+	// the condition operator.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The threshold value that activates the alert.
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+}
+
+func (ManagementEventAggregationConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementEventAggregationCondition)(nil)).Elem()
+}
+
+func (i ManagementEventAggregationConditionArgs) ToManagementEventAggregationConditionOutput() ManagementEventAggregationConditionOutput {
+	return i.ToManagementEventAggregationConditionOutputWithContext(context.Background())
+}
+
+func (i ManagementEventAggregationConditionArgs) ToManagementEventAggregationConditionOutputWithContext(ctx context.Context) ManagementEventAggregationConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventAggregationConditionOutput)
+}
+
+func (i ManagementEventAggregationConditionArgs) ToManagementEventAggregationConditionPtrOutput() ManagementEventAggregationConditionPtrOutput {
+	return i.ToManagementEventAggregationConditionPtrOutputWithContext(context.Background())
+}
+
+func (i ManagementEventAggregationConditionArgs) ToManagementEventAggregationConditionPtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventAggregationConditionOutput).ToManagementEventAggregationConditionPtrOutputWithContext(ctx)
+}
+
+// ManagementEventAggregationConditionPtrInput is an input type that accepts ManagementEventAggregationConditionArgs, ManagementEventAggregationConditionPtr and ManagementEventAggregationConditionPtrOutput values.
+// You can construct a concrete instance of `ManagementEventAggregationConditionPtrInput` via:
+//
+//          ManagementEventAggregationConditionArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagementEventAggregationConditionPtrInput interface {
+	pulumi.Input
+
+	ToManagementEventAggregationConditionPtrOutput() ManagementEventAggregationConditionPtrOutput
+	ToManagementEventAggregationConditionPtrOutputWithContext(context.Context) ManagementEventAggregationConditionPtrOutput
+}
+
+type managementEventAggregationConditionPtrType ManagementEventAggregationConditionArgs
+
+func ManagementEventAggregationConditionPtr(v *ManagementEventAggregationConditionArgs) ManagementEventAggregationConditionPtrInput {
+	return (*managementEventAggregationConditionPtrType)(v)
+}
+
+func (*managementEventAggregationConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementEventAggregationCondition)(nil)).Elem()
+}
+
+func (i *managementEventAggregationConditionPtrType) ToManagementEventAggregationConditionPtrOutput() ManagementEventAggregationConditionPtrOutput {
+	return i.ToManagementEventAggregationConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *managementEventAggregationConditionPtrType) ToManagementEventAggregationConditionPtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventAggregationConditionPtrOutput)
+}
+
+// How the data that is collected should be combined over time.
+type ManagementEventAggregationConditionOutput struct{ *pulumi.OutputState }
+
+func (ManagementEventAggregationConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementEventAggregationCondition)(nil)).Elem()
+}
+
+func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationConditionOutput() ManagementEventAggregationConditionOutput {
+	return o
+}
+
+func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationConditionOutputWithContext(ctx context.Context) ManagementEventAggregationConditionOutput {
+	return o
+}
+
+func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationConditionPtrOutput() ManagementEventAggregationConditionPtrOutput {
+	return o.ToManagementEventAggregationConditionPtrOutputWithContext(context.Background())
+}
+
+func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationConditionPtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionPtrOutput {
+	return o.ApplyT(func(v ManagementEventAggregationCondition) *ManagementEventAggregationCondition {
+		return &v
+	}).(ManagementEventAggregationConditionPtrOutput)
+}
+
+// the condition operator.
+func (o ManagementEventAggregationConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementEventAggregationCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// The threshold value that activates the alert.
+func (o ManagementEventAggregationConditionOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ManagementEventAggregationCondition) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+func (o ManagementEventAggregationConditionOutput) WindowSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementEventAggregationCondition) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
+}
+
+type ManagementEventAggregationConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagementEventAggregationConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementEventAggregationCondition)(nil)).Elem()
+}
+
+func (o ManagementEventAggregationConditionPtrOutput) ToManagementEventAggregationConditionPtrOutput() ManagementEventAggregationConditionPtrOutput {
+	return o
+}
+
+func (o ManagementEventAggregationConditionPtrOutput) ToManagementEventAggregationConditionPtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionPtrOutput {
+	return o
+}
+
+func (o ManagementEventAggregationConditionPtrOutput) Elem() ManagementEventAggregationConditionOutput {
+	return o.ApplyT(func(v *ManagementEventAggregationCondition) ManagementEventAggregationCondition { return *v }).(ManagementEventAggregationConditionOutput)
+}
+
+// the condition operator.
+func (o ManagementEventAggregationConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementEventAggregationCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The threshold value that activates the alert.
+func (o ManagementEventAggregationConditionPtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ManagementEventAggregationCondition) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Threshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+func (o ManagementEventAggregationConditionPtrOutput) WindowSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementEventAggregationCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WindowSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// How the data that is collected should be combined over time.
+type ManagementEventAggregationConditionResponse struct {
+	// the condition operator.
+	Operator *string `pulumi:"operator"`
+	// The threshold value that activates the alert.
+	Threshold *float64 `pulumi:"threshold"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize *string `pulumi:"windowSize"`
+}
+
+// ManagementEventAggregationConditionResponseInput is an input type that accepts ManagementEventAggregationConditionResponseArgs and ManagementEventAggregationConditionResponseOutput values.
+// You can construct a concrete instance of `ManagementEventAggregationConditionResponseInput` via:
+//
+//          ManagementEventAggregationConditionResponseArgs{...}
+type ManagementEventAggregationConditionResponseInput interface {
+	pulumi.Input
+
+	ToManagementEventAggregationConditionResponseOutput() ManagementEventAggregationConditionResponseOutput
+	ToManagementEventAggregationConditionResponseOutputWithContext(context.Context) ManagementEventAggregationConditionResponseOutput
+}
+
+// How the data that is collected should be combined over time.
+type ManagementEventAggregationConditionResponseArgs struct {
+	// the condition operator.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The threshold value that activates the alert.
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+}
+
+func (ManagementEventAggregationConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementEventAggregationConditionResponse)(nil)).Elem()
+}
+
+func (i ManagementEventAggregationConditionResponseArgs) ToManagementEventAggregationConditionResponseOutput() ManagementEventAggregationConditionResponseOutput {
+	return i.ToManagementEventAggregationConditionResponseOutputWithContext(context.Background())
+}
+
+func (i ManagementEventAggregationConditionResponseArgs) ToManagementEventAggregationConditionResponseOutputWithContext(ctx context.Context) ManagementEventAggregationConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventAggregationConditionResponseOutput)
+}
+
+func (i ManagementEventAggregationConditionResponseArgs) ToManagementEventAggregationConditionResponsePtrOutput() ManagementEventAggregationConditionResponsePtrOutput {
+	return i.ToManagementEventAggregationConditionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagementEventAggregationConditionResponseArgs) ToManagementEventAggregationConditionResponsePtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventAggregationConditionResponseOutput).ToManagementEventAggregationConditionResponsePtrOutputWithContext(ctx)
+}
+
+// ManagementEventAggregationConditionResponsePtrInput is an input type that accepts ManagementEventAggregationConditionResponseArgs, ManagementEventAggregationConditionResponsePtr and ManagementEventAggregationConditionResponsePtrOutput values.
+// You can construct a concrete instance of `ManagementEventAggregationConditionResponsePtrInput` via:
+//
+//          ManagementEventAggregationConditionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagementEventAggregationConditionResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagementEventAggregationConditionResponsePtrOutput() ManagementEventAggregationConditionResponsePtrOutput
+	ToManagementEventAggregationConditionResponsePtrOutputWithContext(context.Context) ManagementEventAggregationConditionResponsePtrOutput
+}
+
+type managementEventAggregationConditionResponsePtrType ManagementEventAggregationConditionResponseArgs
+
+func ManagementEventAggregationConditionResponsePtr(v *ManagementEventAggregationConditionResponseArgs) ManagementEventAggregationConditionResponsePtrInput {
+	return (*managementEventAggregationConditionResponsePtrType)(v)
+}
+
+func (*managementEventAggregationConditionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementEventAggregationConditionResponse)(nil)).Elem()
+}
+
+func (i *managementEventAggregationConditionResponsePtrType) ToManagementEventAggregationConditionResponsePtrOutput() ManagementEventAggregationConditionResponsePtrOutput {
+	return i.ToManagementEventAggregationConditionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managementEventAggregationConditionResponsePtrType) ToManagementEventAggregationConditionResponsePtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventAggregationConditionResponsePtrOutput)
+}
+
+// How the data that is collected should be combined over time.
+type ManagementEventAggregationConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagementEventAggregationConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementEventAggregationConditionResponse)(nil)).Elem()
+}
+
+func (o ManagementEventAggregationConditionResponseOutput) ToManagementEventAggregationConditionResponseOutput() ManagementEventAggregationConditionResponseOutput {
+	return o
+}
+
+func (o ManagementEventAggregationConditionResponseOutput) ToManagementEventAggregationConditionResponseOutputWithContext(ctx context.Context) ManagementEventAggregationConditionResponseOutput {
+	return o
+}
+
+func (o ManagementEventAggregationConditionResponseOutput) ToManagementEventAggregationConditionResponsePtrOutput() ManagementEventAggregationConditionResponsePtrOutput {
+	return o.ToManagementEventAggregationConditionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagementEventAggregationConditionResponseOutput) ToManagementEventAggregationConditionResponsePtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionResponsePtrOutput {
+	return o.ApplyT(func(v ManagementEventAggregationConditionResponse) *ManagementEventAggregationConditionResponse {
+		return &v
+	}).(ManagementEventAggregationConditionResponsePtrOutput)
+}
+
+// the condition operator.
+func (o ManagementEventAggregationConditionResponseOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementEventAggregationConditionResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// The threshold value that activates the alert.
+func (o ManagementEventAggregationConditionResponseOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ManagementEventAggregationConditionResponse) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+func (o ManagementEventAggregationConditionResponseOutput) WindowSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementEventAggregationConditionResponse) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
+}
+
+type ManagementEventAggregationConditionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagementEventAggregationConditionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementEventAggregationConditionResponse)(nil)).Elem()
+}
+
+func (o ManagementEventAggregationConditionResponsePtrOutput) ToManagementEventAggregationConditionResponsePtrOutput() ManagementEventAggregationConditionResponsePtrOutput {
+	return o
+}
+
+func (o ManagementEventAggregationConditionResponsePtrOutput) ToManagementEventAggregationConditionResponsePtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionResponsePtrOutput {
+	return o
+}
+
+func (o ManagementEventAggregationConditionResponsePtrOutput) Elem() ManagementEventAggregationConditionResponseOutput {
+	return o.ApplyT(func(v *ManagementEventAggregationConditionResponse) ManagementEventAggregationConditionResponse {
+		return *v
+	}).(ManagementEventAggregationConditionResponseOutput)
+}
+
+// the condition operator.
+func (o ManagementEventAggregationConditionResponsePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementEventAggregationConditionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The threshold value that activates the alert.
+func (o ManagementEventAggregationConditionResponsePtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ManagementEventAggregationConditionResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Threshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+func (o ManagementEventAggregationConditionResponsePtrOutput) WindowSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementEventAggregationConditionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WindowSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// A management event rule condition.
+type ManagementEventRuleCondition struct {
+	// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+	Aggregation *ManagementEventAggregationCondition `pulumi:"aggregation"`
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource interface{} `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType string `pulumi:"odataType"`
+}
+
+// ManagementEventRuleConditionInput is an input type that accepts ManagementEventRuleConditionArgs and ManagementEventRuleConditionOutput values.
+// You can construct a concrete instance of `ManagementEventRuleConditionInput` via:
+//
+//          ManagementEventRuleConditionArgs{...}
+type ManagementEventRuleConditionInput interface {
+	pulumi.Input
+
+	ToManagementEventRuleConditionOutput() ManagementEventRuleConditionOutput
+	ToManagementEventRuleConditionOutputWithContext(context.Context) ManagementEventRuleConditionOutput
+}
+
+// A management event rule condition.
+type ManagementEventRuleConditionArgs struct {
+	// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+	Aggregation ManagementEventAggregationConditionPtrInput `pulumi:"aggregation"`
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource pulumi.Input `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ManagementEventRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementEventRuleCondition)(nil)).Elem()
+}
+
+func (i ManagementEventRuleConditionArgs) ToManagementEventRuleConditionOutput() ManagementEventRuleConditionOutput {
+	return i.ToManagementEventRuleConditionOutputWithContext(context.Background())
+}
+
+func (i ManagementEventRuleConditionArgs) ToManagementEventRuleConditionOutputWithContext(ctx context.Context) ManagementEventRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventRuleConditionOutput)
+}
+
+// A management event rule condition.
+type ManagementEventRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (ManagementEventRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementEventRuleCondition)(nil)).Elem()
+}
+
+func (o ManagementEventRuleConditionOutput) ToManagementEventRuleConditionOutput() ManagementEventRuleConditionOutput {
+	return o
+}
+
+func (o ManagementEventRuleConditionOutput) ToManagementEventRuleConditionOutputWithContext(ctx context.Context) ManagementEventRuleConditionOutput {
+	return o
+}
+
+// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+func (o ManagementEventRuleConditionOutput) Aggregation() ManagementEventAggregationConditionPtrOutput {
+	return o.ApplyT(func(v ManagementEventRuleCondition) *ManagementEventAggregationCondition { return v.Aggregation }).(ManagementEventAggregationConditionPtrOutput)
+}
+
+// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+func (o ManagementEventRuleConditionOutput) DataSource() pulumi.AnyOutput {
+	return o.ApplyT(func(v ManagementEventRuleCondition) interface{} { return v.DataSource }).(pulumi.AnyOutput)
+}
+
+// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+func (o ManagementEventRuleConditionOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementEventRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// A management event rule condition.
+type ManagementEventRuleConditionResponse struct {
+	// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+	Aggregation *ManagementEventAggregationConditionResponse `pulumi:"aggregation"`
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource interface{} `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType string `pulumi:"odataType"`
+}
+
+// ManagementEventRuleConditionResponseInput is an input type that accepts ManagementEventRuleConditionResponseArgs and ManagementEventRuleConditionResponseOutput values.
+// You can construct a concrete instance of `ManagementEventRuleConditionResponseInput` via:
+//
+//          ManagementEventRuleConditionResponseArgs{...}
+type ManagementEventRuleConditionResponseInput interface {
+	pulumi.Input
+
+	ToManagementEventRuleConditionResponseOutput() ManagementEventRuleConditionResponseOutput
+	ToManagementEventRuleConditionResponseOutputWithContext(context.Context) ManagementEventRuleConditionResponseOutput
+}
+
+// A management event rule condition.
+type ManagementEventRuleConditionResponseArgs struct {
+	// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+	Aggregation ManagementEventAggregationConditionResponsePtrInput `pulumi:"aggregation"`
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource pulumi.Input `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ManagementEventRuleConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementEventRuleConditionResponse)(nil)).Elem()
+}
+
+func (i ManagementEventRuleConditionResponseArgs) ToManagementEventRuleConditionResponseOutput() ManagementEventRuleConditionResponseOutput {
+	return i.ToManagementEventRuleConditionResponseOutputWithContext(context.Background())
+}
+
+func (i ManagementEventRuleConditionResponseArgs) ToManagementEventRuleConditionResponseOutputWithContext(ctx context.Context) ManagementEventRuleConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventRuleConditionResponseOutput)
+}
+
+// A management event rule condition.
+type ManagementEventRuleConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagementEventRuleConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementEventRuleConditionResponse)(nil)).Elem()
+}
+
+func (o ManagementEventRuleConditionResponseOutput) ToManagementEventRuleConditionResponseOutput() ManagementEventRuleConditionResponseOutput {
+	return o
+}
+
+func (o ManagementEventRuleConditionResponseOutput) ToManagementEventRuleConditionResponseOutputWithContext(ctx context.Context) ManagementEventRuleConditionResponseOutput {
+	return o
+}
+
+// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
+func (o ManagementEventRuleConditionResponseOutput) Aggregation() ManagementEventAggregationConditionResponsePtrOutput {
+	return o.ApplyT(func(v ManagementEventRuleConditionResponse) *ManagementEventAggregationConditionResponse {
+		return v.Aggregation
+	}).(ManagementEventAggregationConditionResponsePtrOutput)
+}
+
+// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+func (o ManagementEventRuleConditionResponseOutput) DataSource() pulumi.AnyOutput {
+	return o.ApplyT(func(v ManagementEventRuleConditionResponse) interface{} { return v.DataSource }).(pulumi.AnyOutput)
+}
+
+// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+func (o ManagementEventRuleConditionResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementEventRuleConditionResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
 // Specifies the retention policy for the log.
 type RetentionPolicy struct {
 	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
@@ -316,833 +974,1231 @@ func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleAction struct {
+// Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
+type RuleEmailAction struct {
+	// the list of administrator's custom email addresses to notify of the activation of the alert.
+	CustomEmails []string `pulumi:"customEmails"`
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
 	OdataType string `pulumi:"odataType"`
+	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
+	SendToServiceOwners *bool `pulumi:"sendToServiceOwners"`
 }
 
-// RuleActionInput is an input type that accepts RuleActionArgs and RuleActionOutput values.
-// You can construct a concrete instance of `RuleActionInput` via:
+// RuleEmailActionInput is an input type that accepts RuleEmailActionArgs and RuleEmailActionOutput values.
+// You can construct a concrete instance of `RuleEmailActionInput` via:
 //
-//          RuleActionArgs{...}
-type RuleActionInput interface {
+//          RuleEmailActionArgs{...}
+type RuleEmailActionInput interface {
 	pulumi.Input
 
-	ToRuleActionOutput() RuleActionOutput
-	ToRuleActionOutputWithContext(context.Context) RuleActionOutput
+	ToRuleEmailActionOutput() RuleEmailActionOutput
+	ToRuleEmailActionOutputWithContext(context.Context) RuleEmailActionOutput
 }
 
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleActionArgs struct {
+// Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
+type RuleEmailActionArgs struct {
+	// the list of administrator's custom email addresses to notify of the activation of the alert.
+	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
+	SendToServiceOwners pulumi.BoolPtrInput `pulumi:"sendToServiceOwners"`
 }
 
-func (RuleActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleAction)(nil)).Elem()
+func (RuleEmailActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleEmailAction)(nil)).Elem()
 }
 
-func (i RuleActionArgs) ToRuleActionOutput() RuleActionOutput {
-	return i.ToRuleActionOutputWithContext(context.Background())
+func (i RuleEmailActionArgs) ToRuleEmailActionOutput() RuleEmailActionOutput {
+	return i.ToRuleEmailActionOutputWithContext(context.Background())
 }
 
-func (i RuleActionArgs) ToRuleActionOutputWithContext(ctx context.Context) RuleActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleActionOutput)
+func (i RuleEmailActionArgs) ToRuleEmailActionOutputWithContext(ctx context.Context) RuleEmailActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleEmailActionOutput)
 }
 
-// RuleActionArrayInput is an input type that accepts RuleActionArray and RuleActionArrayOutput values.
-// You can construct a concrete instance of `RuleActionArrayInput` via:
-//
-//          RuleActionArray{ RuleActionArgs{...} }
-type RuleActionArrayInput interface {
-	pulumi.Input
+// Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
+type RuleEmailActionOutput struct{ *pulumi.OutputState }
 
-	ToRuleActionArrayOutput() RuleActionArrayOutput
-	ToRuleActionArrayOutputWithContext(context.Context) RuleActionArrayOutput
+func (RuleEmailActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleEmailAction)(nil)).Elem()
 }
 
-type RuleActionArray []RuleActionInput
-
-func (RuleActionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleAction)(nil)).Elem()
-}
-
-func (i RuleActionArray) ToRuleActionArrayOutput() RuleActionArrayOutput {
-	return i.ToRuleActionArrayOutputWithContext(context.Background())
-}
-
-func (i RuleActionArray) ToRuleActionArrayOutputWithContext(ctx context.Context) RuleActionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleActionArrayOutput)
-}
-
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleActionOutput struct{ *pulumi.OutputState }
-
-func (RuleActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleAction)(nil)).Elem()
-}
-
-func (o RuleActionOutput) ToRuleActionOutput() RuleActionOutput {
+func (o RuleEmailActionOutput) ToRuleEmailActionOutput() RuleEmailActionOutput {
 	return o
 }
 
-func (o RuleActionOutput) ToRuleActionOutputWithContext(ctx context.Context) RuleActionOutput {
+func (o RuleEmailActionOutput) ToRuleEmailActionOutputWithContext(ctx context.Context) RuleEmailActionOutput {
 	return o
+}
+
+// the list of administrator's custom email addresses to notify of the activation of the alert.
+func (o RuleEmailActionOutput) CustomEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleEmailAction) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
 }
 
 // specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-func (o RuleActionOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleAction) string { return v.OdataType }).(pulumi.StringOutput)
+func (o RuleEmailActionOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleEmailAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-type RuleActionArrayOutput struct{ *pulumi.OutputState }
-
-func (RuleActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleAction)(nil)).Elem()
+// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
+func (o RuleEmailActionOutput) SendToServiceOwners() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RuleEmailAction) *bool { return v.SendToServiceOwners }).(pulumi.BoolPtrOutput)
 }
 
-func (o RuleActionArrayOutput) ToRuleActionArrayOutput() RuleActionArrayOutput {
-	return o
-}
-
-func (o RuleActionArrayOutput) ToRuleActionArrayOutputWithContext(ctx context.Context) RuleActionArrayOutput {
-	return o
-}
-
-func (o RuleActionArrayOutput) Index(i pulumi.IntInput) RuleActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleAction {
-		return vs[0].([]RuleAction)[vs[1].(int)]
-	}).(RuleActionOutput)
-}
-
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleActionResponse struct {
+// Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
+type RuleEmailActionResponse struct {
+	// the list of administrator's custom email addresses to notify of the activation of the alert.
+	CustomEmails []string `pulumi:"customEmails"`
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
 	OdataType string `pulumi:"odataType"`
+	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
+	SendToServiceOwners *bool `pulumi:"sendToServiceOwners"`
 }
 
-// RuleActionResponseInput is an input type that accepts RuleActionResponseArgs and RuleActionResponseOutput values.
-// You can construct a concrete instance of `RuleActionResponseInput` via:
+// RuleEmailActionResponseInput is an input type that accepts RuleEmailActionResponseArgs and RuleEmailActionResponseOutput values.
+// You can construct a concrete instance of `RuleEmailActionResponseInput` via:
 //
-//          RuleActionResponseArgs{...}
-type RuleActionResponseInput interface {
+//          RuleEmailActionResponseArgs{...}
+type RuleEmailActionResponseInput interface {
 	pulumi.Input
 
-	ToRuleActionResponseOutput() RuleActionResponseOutput
-	ToRuleActionResponseOutputWithContext(context.Context) RuleActionResponseOutput
+	ToRuleEmailActionResponseOutput() RuleEmailActionResponseOutput
+	ToRuleEmailActionResponseOutputWithContext(context.Context) RuleEmailActionResponseOutput
 }
 
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleActionResponseArgs struct {
+// Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
+type RuleEmailActionResponseArgs struct {
+	// the list of administrator's custom email addresses to notify of the activation of the alert.
+	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
+	SendToServiceOwners pulumi.BoolPtrInput `pulumi:"sendToServiceOwners"`
 }
 
-func (RuleActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleActionResponse)(nil)).Elem()
+func (RuleEmailActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleEmailActionResponse)(nil)).Elem()
 }
 
-func (i RuleActionResponseArgs) ToRuleActionResponseOutput() RuleActionResponseOutput {
-	return i.ToRuleActionResponseOutputWithContext(context.Background())
+func (i RuleEmailActionResponseArgs) ToRuleEmailActionResponseOutput() RuleEmailActionResponseOutput {
+	return i.ToRuleEmailActionResponseOutputWithContext(context.Background())
 }
 
-func (i RuleActionResponseArgs) ToRuleActionResponseOutputWithContext(ctx context.Context) RuleActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleActionResponseOutput)
+func (i RuleEmailActionResponseArgs) ToRuleEmailActionResponseOutputWithContext(ctx context.Context) RuleEmailActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleEmailActionResponseOutput)
 }
 
-// RuleActionResponseArrayInput is an input type that accepts RuleActionResponseArray and RuleActionResponseArrayOutput values.
-// You can construct a concrete instance of `RuleActionResponseArrayInput` via:
-//
-//          RuleActionResponseArray{ RuleActionResponseArgs{...} }
-type RuleActionResponseArrayInput interface {
-	pulumi.Input
+// Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
+type RuleEmailActionResponseOutput struct{ *pulumi.OutputState }
 
-	ToRuleActionResponseArrayOutput() RuleActionResponseArrayOutput
-	ToRuleActionResponseArrayOutputWithContext(context.Context) RuleActionResponseArrayOutput
+func (RuleEmailActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleEmailActionResponse)(nil)).Elem()
 }
 
-type RuleActionResponseArray []RuleActionResponseInput
-
-func (RuleActionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleActionResponse)(nil)).Elem()
-}
-
-func (i RuleActionResponseArray) ToRuleActionResponseArrayOutput() RuleActionResponseArrayOutput {
-	return i.ToRuleActionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RuleActionResponseArray) ToRuleActionResponseArrayOutputWithContext(ctx context.Context) RuleActionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleActionResponseArrayOutput)
-}
-
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleActionResponseOutput struct{ *pulumi.OutputState }
-
-func (RuleActionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleActionResponse)(nil)).Elem()
-}
-
-func (o RuleActionResponseOutput) ToRuleActionResponseOutput() RuleActionResponseOutput {
+func (o RuleEmailActionResponseOutput) ToRuleEmailActionResponseOutput() RuleEmailActionResponseOutput {
 	return o
 }
 
-func (o RuleActionResponseOutput) ToRuleActionResponseOutputWithContext(ctx context.Context) RuleActionResponseOutput {
+func (o RuleEmailActionResponseOutput) ToRuleEmailActionResponseOutputWithContext(ctx context.Context) RuleEmailActionResponseOutput {
 	return o
+}
+
+// the list of administrator's custom email addresses to notify of the activation of the alert.
+func (o RuleEmailActionResponseOutput) CustomEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleEmailActionResponse) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
 }
 
 // specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-func (o RuleActionResponseOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
+func (o RuleEmailActionResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleEmailActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-type RuleActionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (RuleActionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleActionResponse)(nil)).Elem()
+// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
+func (o RuleEmailActionResponseOutput) SendToServiceOwners() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RuleEmailActionResponse) *bool { return v.SendToServiceOwners }).(pulumi.BoolPtrOutput)
 }
 
-func (o RuleActionResponseArrayOutput) ToRuleActionResponseArrayOutput() RuleActionResponseArrayOutput {
-	return o
+// The claims for a rule management event data source.
+type RuleManagementEventClaimsDataSource struct {
+	// the email address.
+	EmailAddress *string `pulumi:"emailAddress"`
 }
 
-func (o RuleActionResponseArrayOutput) ToRuleActionResponseArrayOutputWithContext(ctx context.Context) RuleActionResponseArrayOutput {
-	return o
-}
-
-func (o RuleActionResponseArrayOutput) Index(i pulumi.IntInput) RuleActionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleActionResponse {
-		return vs[0].([]RuleActionResponse)[vs[1].(int)]
-	}).(RuleActionResponseOutput)
-}
-
-// The condition that results in the alert rule being activated.
-type RuleCondition struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource *RuleDataSource `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	OdataType string `pulumi:"odataType"`
-}
-
-// RuleConditionInput is an input type that accepts RuleConditionArgs and RuleConditionOutput values.
-// You can construct a concrete instance of `RuleConditionInput` via:
+// RuleManagementEventClaimsDataSourceInput is an input type that accepts RuleManagementEventClaimsDataSourceArgs and RuleManagementEventClaimsDataSourceOutput values.
+// You can construct a concrete instance of `RuleManagementEventClaimsDataSourceInput` via:
 //
-//          RuleConditionArgs{...}
-type RuleConditionInput interface {
+//          RuleManagementEventClaimsDataSourceArgs{...}
+type RuleManagementEventClaimsDataSourceInput interface {
 	pulumi.Input
 
-	ToRuleConditionOutput() RuleConditionOutput
-	ToRuleConditionOutputWithContext(context.Context) RuleConditionOutput
+	ToRuleManagementEventClaimsDataSourceOutput() RuleManagementEventClaimsDataSourceOutput
+	ToRuleManagementEventClaimsDataSourceOutputWithContext(context.Context) RuleManagementEventClaimsDataSourceOutput
 }
 
-// The condition that results in the alert rule being activated.
-type RuleConditionArgs struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource RuleDataSourcePtrInput `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+// The claims for a rule management event data source.
+type RuleManagementEventClaimsDataSourceArgs struct {
+	// the email address.
+	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
 }
 
-func (RuleConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleCondition)(nil)).Elem()
+func (RuleManagementEventClaimsDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleManagementEventClaimsDataSource)(nil)).Elem()
 }
 
-func (i RuleConditionArgs) ToRuleConditionOutput() RuleConditionOutput {
-	return i.ToRuleConditionOutputWithContext(context.Background())
+func (i RuleManagementEventClaimsDataSourceArgs) ToRuleManagementEventClaimsDataSourceOutput() RuleManagementEventClaimsDataSourceOutput {
+	return i.ToRuleManagementEventClaimsDataSourceOutputWithContext(context.Background())
 }
 
-func (i RuleConditionArgs) ToRuleConditionOutputWithContext(ctx context.Context) RuleConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleConditionOutput)
+func (i RuleManagementEventClaimsDataSourceArgs) ToRuleManagementEventClaimsDataSourceOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventClaimsDataSourceOutput)
 }
 
-func (i RuleConditionArgs) ToRuleConditionPtrOutput() RuleConditionPtrOutput {
-	return i.ToRuleConditionPtrOutputWithContext(context.Background())
+func (i RuleManagementEventClaimsDataSourceArgs) ToRuleManagementEventClaimsDataSourcePtrOutput() RuleManagementEventClaimsDataSourcePtrOutput {
+	return i.ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(context.Background())
 }
 
-func (i RuleConditionArgs) ToRuleConditionPtrOutputWithContext(ctx context.Context) RuleConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleConditionOutput).ToRuleConditionPtrOutputWithContext(ctx)
+func (i RuleManagementEventClaimsDataSourceArgs) ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventClaimsDataSourceOutput).ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(ctx)
 }
 
-// RuleConditionPtrInput is an input type that accepts RuleConditionArgs, RuleConditionPtr and RuleConditionPtrOutput values.
-// You can construct a concrete instance of `RuleConditionPtrInput` via:
+// RuleManagementEventClaimsDataSourcePtrInput is an input type that accepts RuleManagementEventClaimsDataSourceArgs, RuleManagementEventClaimsDataSourcePtr and RuleManagementEventClaimsDataSourcePtrOutput values.
+// You can construct a concrete instance of `RuleManagementEventClaimsDataSourcePtrInput` via:
 //
-//          RuleConditionArgs{...}
+//          RuleManagementEventClaimsDataSourceArgs{...}
 //
 //  or:
 //
 //          nil
-type RuleConditionPtrInput interface {
+type RuleManagementEventClaimsDataSourcePtrInput interface {
 	pulumi.Input
 
-	ToRuleConditionPtrOutput() RuleConditionPtrOutput
-	ToRuleConditionPtrOutputWithContext(context.Context) RuleConditionPtrOutput
+	ToRuleManagementEventClaimsDataSourcePtrOutput() RuleManagementEventClaimsDataSourcePtrOutput
+	ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(context.Context) RuleManagementEventClaimsDataSourcePtrOutput
 }
 
-type ruleConditionPtrType RuleConditionArgs
+type ruleManagementEventClaimsDataSourcePtrType RuleManagementEventClaimsDataSourceArgs
 
-func RuleConditionPtr(v *RuleConditionArgs) RuleConditionPtrInput {
-	return (*ruleConditionPtrType)(v)
+func RuleManagementEventClaimsDataSourcePtr(v *RuleManagementEventClaimsDataSourceArgs) RuleManagementEventClaimsDataSourcePtrInput {
+	return (*ruleManagementEventClaimsDataSourcePtrType)(v)
 }
 
-func (*ruleConditionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleCondition)(nil)).Elem()
+func (*ruleManagementEventClaimsDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleManagementEventClaimsDataSource)(nil)).Elem()
 }
 
-func (i *ruleConditionPtrType) ToRuleConditionPtrOutput() RuleConditionPtrOutput {
-	return i.ToRuleConditionPtrOutputWithContext(context.Background())
+func (i *ruleManagementEventClaimsDataSourcePtrType) ToRuleManagementEventClaimsDataSourcePtrOutput() RuleManagementEventClaimsDataSourcePtrOutput {
+	return i.ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(context.Background())
 }
 
-func (i *ruleConditionPtrType) ToRuleConditionPtrOutputWithContext(ctx context.Context) RuleConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleConditionPtrOutput)
+func (i *ruleManagementEventClaimsDataSourcePtrType) ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventClaimsDataSourcePtrOutput)
 }
 
-// The condition that results in the alert rule being activated.
-type RuleConditionOutput struct{ *pulumi.OutputState }
+// The claims for a rule management event data source.
+type RuleManagementEventClaimsDataSourceOutput struct{ *pulumi.OutputState }
 
-func (RuleConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleCondition)(nil)).Elem()
+func (RuleManagementEventClaimsDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleManagementEventClaimsDataSource)(nil)).Elem()
 }
 
-func (o RuleConditionOutput) ToRuleConditionOutput() RuleConditionOutput {
+func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDataSourceOutput() RuleManagementEventClaimsDataSourceOutput {
 	return o
 }
 
-func (o RuleConditionOutput) ToRuleConditionOutputWithContext(ctx context.Context) RuleConditionOutput {
+func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDataSourceOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceOutput {
 	return o
 }
 
-func (o RuleConditionOutput) ToRuleConditionPtrOutput() RuleConditionPtrOutput {
-	return o.ToRuleConditionPtrOutputWithContext(context.Background())
+func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDataSourcePtrOutput() RuleManagementEventClaimsDataSourcePtrOutput {
+	return o.ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(context.Background())
 }
 
-func (o RuleConditionOutput) ToRuleConditionPtrOutputWithContext(ctx context.Context) RuleConditionPtrOutput {
-	return o.ApplyT(func(v RuleCondition) *RuleCondition {
+func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourcePtrOutput {
+	return o.ApplyT(func(v RuleManagementEventClaimsDataSource) *RuleManagementEventClaimsDataSource {
 		return &v
-	}).(RuleConditionPtrOutput)
+	}).(RuleManagementEventClaimsDataSourcePtrOutput)
 }
 
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-func (o RuleConditionOutput) DataSource() RuleDataSourcePtrOutput {
-	return o.ApplyT(func(v RuleCondition) *RuleDataSource { return v.DataSource }).(RuleDataSourcePtrOutput)
+// the email address.
+func (o RuleManagementEventClaimsDataSourceOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventClaimsDataSource) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-func (o RuleConditionOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
+type RuleManagementEventClaimsDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleManagementEventClaimsDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleManagementEventClaimsDataSource)(nil)).Elem()
 }
 
-type RuleConditionPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleConditionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleCondition)(nil)).Elem()
-}
-
-func (o RuleConditionPtrOutput) ToRuleConditionPtrOutput() RuleConditionPtrOutput {
+func (o RuleManagementEventClaimsDataSourcePtrOutput) ToRuleManagementEventClaimsDataSourcePtrOutput() RuleManagementEventClaimsDataSourcePtrOutput {
 	return o
 }
 
-func (o RuleConditionPtrOutput) ToRuleConditionPtrOutputWithContext(ctx context.Context) RuleConditionPtrOutput {
+func (o RuleManagementEventClaimsDataSourcePtrOutput) ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourcePtrOutput {
 	return o
 }
 
-func (o RuleConditionPtrOutput) Elem() RuleConditionOutput {
-	return o.ApplyT(func(v *RuleCondition) RuleCondition { return *v }).(RuleConditionOutput)
+func (o RuleManagementEventClaimsDataSourcePtrOutput) Elem() RuleManagementEventClaimsDataSourceOutput {
+	return o.ApplyT(func(v *RuleManagementEventClaimsDataSource) RuleManagementEventClaimsDataSource { return *v }).(RuleManagementEventClaimsDataSourceOutput)
 }
 
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-func (o RuleConditionPtrOutput) DataSource() RuleDataSourcePtrOutput {
-	return o.ApplyT(func(v *RuleCondition) *RuleDataSource {
+// the email address.
+func (o RuleManagementEventClaimsDataSourcePtrOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleManagementEventClaimsDataSource) *string {
 		if v == nil {
 			return nil
 		}
-		return v.DataSource
-	}).(RuleDataSourcePtrOutput)
-}
-
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-func (o RuleConditionPtrOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleCondition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OdataType
+		return v.EmailAddress
 	}).(pulumi.StringPtrOutput)
 }
 
-// The condition that results in the alert rule being activated.
-type RuleConditionResponse struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource *RuleDataSourceResponse `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	OdataType string `pulumi:"odataType"`
+// The claims for a rule management event data source.
+type RuleManagementEventClaimsDataSourceResponse struct {
+	// the email address.
+	EmailAddress *string `pulumi:"emailAddress"`
 }
 
-// RuleConditionResponseInput is an input type that accepts RuleConditionResponseArgs and RuleConditionResponseOutput values.
-// You can construct a concrete instance of `RuleConditionResponseInput` via:
+// RuleManagementEventClaimsDataSourceResponseInput is an input type that accepts RuleManagementEventClaimsDataSourceResponseArgs and RuleManagementEventClaimsDataSourceResponseOutput values.
+// You can construct a concrete instance of `RuleManagementEventClaimsDataSourceResponseInput` via:
 //
-//          RuleConditionResponseArgs{...}
-type RuleConditionResponseInput interface {
+//          RuleManagementEventClaimsDataSourceResponseArgs{...}
+type RuleManagementEventClaimsDataSourceResponseInput interface {
 	pulumi.Input
 
-	ToRuleConditionResponseOutput() RuleConditionResponseOutput
-	ToRuleConditionResponseOutputWithContext(context.Context) RuleConditionResponseOutput
+	ToRuleManagementEventClaimsDataSourceResponseOutput() RuleManagementEventClaimsDataSourceResponseOutput
+	ToRuleManagementEventClaimsDataSourceResponseOutputWithContext(context.Context) RuleManagementEventClaimsDataSourceResponseOutput
 }
 
-// The condition that results in the alert rule being activated.
-type RuleConditionResponseArgs struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource RuleDataSourceResponsePtrInput `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+// The claims for a rule management event data source.
+type RuleManagementEventClaimsDataSourceResponseArgs struct {
+	// the email address.
+	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
 }
 
-func (RuleConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleConditionResponse)(nil)).Elem()
+func (RuleManagementEventClaimsDataSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleManagementEventClaimsDataSourceResponse)(nil)).Elem()
 }
 
-func (i RuleConditionResponseArgs) ToRuleConditionResponseOutput() RuleConditionResponseOutput {
-	return i.ToRuleConditionResponseOutputWithContext(context.Background())
+func (i RuleManagementEventClaimsDataSourceResponseArgs) ToRuleManagementEventClaimsDataSourceResponseOutput() RuleManagementEventClaimsDataSourceResponseOutput {
+	return i.ToRuleManagementEventClaimsDataSourceResponseOutputWithContext(context.Background())
 }
 
-func (i RuleConditionResponseArgs) ToRuleConditionResponseOutputWithContext(ctx context.Context) RuleConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleConditionResponseOutput)
+func (i RuleManagementEventClaimsDataSourceResponseArgs) ToRuleManagementEventClaimsDataSourceResponseOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventClaimsDataSourceResponseOutput)
 }
 
-func (i RuleConditionResponseArgs) ToRuleConditionResponsePtrOutput() RuleConditionResponsePtrOutput {
-	return i.ToRuleConditionResponsePtrOutputWithContext(context.Background())
+func (i RuleManagementEventClaimsDataSourceResponseArgs) ToRuleManagementEventClaimsDataSourceResponsePtrOutput() RuleManagementEventClaimsDataSourceResponsePtrOutput {
+	return i.ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(context.Background())
 }
 
-func (i RuleConditionResponseArgs) ToRuleConditionResponsePtrOutputWithContext(ctx context.Context) RuleConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleConditionResponseOutput).ToRuleConditionResponsePtrOutputWithContext(ctx)
+func (i RuleManagementEventClaimsDataSourceResponseArgs) ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventClaimsDataSourceResponseOutput).ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(ctx)
 }
 
-// RuleConditionResponsePtrInput is an input type that accepts RuleConditionResponseArgs, RuleConditionResponsePtr and RuleConditionResponsePtrOutput values.
-// You can construct a concrete instance of `RuleConditionResponsePtrInput` via:
+// RuleManagementEventClaimsDataSourceResponsePtrInput is an input type that accepts RuleManagementEventClaimsDataSourceResponseArgs, RuleManagementEventClaimsDataSourceResponsePtr and RuleManagementEventClaimsDataSourceResponsePtrOutput values.
+// You can construct a concrete instance of `RuleManagementEventClaimsDataSourceResponsePtrInput` via:
 //
-//          RuleConditionResponseArgs{...}
+//          RuleManagementEventClaimsDataSourceResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type RuleConditionResponsePtrInput interface {
+type RuleManagementEventClaimsDataSourceResponsePtrInput interface {
 	pulumi.Input
 
-	ToRuleConditionResponsePtrOutput() RuleConditionResponsePtrOutput
-	ToRuleConditionResponsePtrOutputWithContext(context.Context) RuleConditionResponsePtrOutput
+	ToRuleManagementEventClaimsDataSourceResponsePtrOutput() RuleManagementEventClaimsDataSourceResponsePtrOutput
+	ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(context.Context) RuleManagementEventClaimsDataSourceResponsePtrOutput
 }
 
-type ruleConditionResponsePtrType RuleConditionResponseArgs
+type ruleManagementEventClaimsDataSourceResponsePtrType RuleManagementEventClaimsDataSourceResponseArgs
 
-func RuleConditionResponsePtr(v *RuleConditionResponseArgs) RuleConditionResponsePtrInput {
-	return (*ruleConditionResponsePtrType)(v)
+func RuleManagementEventClaimsDataSourceResponsePtr(v *RuleManagementEventClaimsDataSourceResponseArgs) RuleManagementEventClaimsDataSourceResponsePtrInput {
+	return (*ruleManagementEventClaimsDataSourceResponsePtrType)(v)
 }
 
-func (*ruleConditionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleConditionResponse)(nil)).Elem()
+func (*ruleManagementEventClaimsDataSourceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleManagementEventClaimsDataSourceResponse)(nil)).Elem()
 }
 
-func (i *ruleConditionResponsePtrType) ToRuleConditionResponsePtrOutput() RuleConditionResponsePtrOutput {
-	return i.ToRuleConditionResponsePtrOutputWithContext(context.Background())
+func (i *ruleManagementEventClaimsDataSourceResponsePtrType) ToRuleManagementEventClaimsDataSourceResponsePtrOutput() RuleManagementEventClaimsDataSourceResponsePtrOutput {
+	return i.ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *ruleConditionResponsePtrType) ToRuleConditionResponsePtrOutputWithContext(ctx context.Context) RuleConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleConditionResponsePtrOutput)
+func (i *ruleManagementEventClaimsDataSourceResponsePtrType) ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventClaimsDataSourceResponsePtrOutput)
 }
 
-// The condition that results in the alert rule being activated.
-type RuleConditionResponseOutput struct{ *pulumi.OutputState }
+// The claims for a rule management event data source.
+type RuleManagementEventClaimsDataSourceResponseOutput struct{ *pulumi.OutputState }
 
-func (RuleConditionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleConditionResponse)(nil)).Elem()
+func (RuleManagementEventClaimsDataSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleManagementEventClaimsDataSourceResponse)(nil)).Elem()
 }
 
-func (o RuleConditionResponseOutput) ToRuleConditionResponseOutput() RuleConditionResponseOutput {
+func (o RuleManagementEventClaimsDataSourceResponseOutput) ToRuleManagementEventClaimsDataSourceResponseOutput() RuleManagementEventClaimsDataSourceResponseOutput {
 	return o
 }
 
-func (o RuleConditionResponseOutput) ToRuleConditionResponseOutputWithContext(ctx context.Context) RuleConditionResponseOutput {
+func (o RuleManagementEventClaimsDataSourceResponseOutput) ToRuleManagementEventClaimsDataSourceResponseOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceResponseOutput {
 	return o
 }
 
-func (o RuleConditionResponseOutput) ToRuleConditionResponsePtrOutput() RuleConditionResponsePtrOutput {
-	return o.ToRuleConditionResponsePtrOutputWithContext(context.Background())
+func (o RuleManagementEventClaimsDataSourceResponseOutput) ToRuleManagementEventClaimsDataSourceResponsePtrOutput() RuleManagementEventClaimsDataSourceResponsePtrOutput {
+	return o.ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(context.Background())
 }
 
-func (o RuleConditionResponseOutput) ToRuleConditionResponsePtrOutputWithContext(ctx context.Context) RuleConditionResponsePtrOutput {
-	return o.ApplyT(func(v RuleConditionResponse) *RuleConditionResponse {
+func (o RuleManagementEventClaimsDataSourceResponseOutput) ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceResponsePtrOutput {
+	return o.ApplyT(func(v RuleManagementEventClaimsDataSourceResponse) *RuleManagementEventClaimsDataSourceResponse {
 		return &v
-	}).(RuleConditionResponsePtrOutput)
+	}).(RuleManagementEventClaimsDataSourceResponsePtrOutput)
 }
 
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-func (o RuleConditionResponseOutput) DataSource() RuleDataSourceResponsePtrOutput {
-	return o.ApplyT(func(v RuleConditionResponse) *RuleDataSourceResponse { return v.DataSource }).(RuleDataSourceResponsePtrOutput)
+// the email address.
+func (o RuleManagementEventClaimsDataSourceResponseOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventClaimsDataSourceResponse) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-func (o RuleConditionResponseOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleConditionResponse) string { return v.OdataType }).(pulumi.StringOutput)
+type RuleManagementEventClaimsDataSourceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleManagementEventClaimsDataSourceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleManagementEventClaimsDataSourceResponse)(nil)).Elem()
 }
 
-type RuleConditionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RuleConditionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleConditionResponse)(nil)).Elem()
-}
-
-func (o RuleConditionResponsePtrOutput) ToRuleConditionResponsePtrOutput() RuleConditionResponsePtrOutput {
+func (o RuleManagementEventClaimsDataSourceResponsePtrOutput) ToRuleManagementEventClaimsDataSourceResponsePtrOutput() RuleManagementEventClaimsDataSourceResponsePtrOutput {
 	return o
 }
 
-func (o RuleConditionResponsePtrOutput) ToRuleConditionResponsePtrOutputWithContext(ctx context.Context) RuleConditionResponsePtrOutput {
+func (o RuleManagementEventClaimsDataSourceResponsePtrOutput) ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceResponsePtrOutput {
 	return o
 }
 
-func (o RuleConditionResponsePtrOutput) Elem() RuleConditionResponseOutput {
-	return o.ApplyT(func(v *RuleConditionResponse) RuleConditionResponse { return *v }).(RuleConditionResponseOutput)
+func (o RuleManagementEventClaimsDataSourceResponsePtrOutput) Elem() RuleManagementEventClaimsDataSourceResponseOutput {
+	return o.ApplyT(func(v *RuleManagementEventClaimsDataSourceResponse) RuleManagementEventClaimsDataSourceResponse {
+		return *v
+	}).(RuleManagementEventClaimsDataSourceResponseOutput)
 }
 
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-func (o RuleConditionResponsePtrOutput) DataSource() RuleDataSourceResponsePtrOutput {
-	return o.ApplyT(func(v *RuleConditionResponse) *RuleDataSourceResponse {
+// the email address.
+func (o RuleManagementEventClaimsDataSourceResponsePtrOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleManagementEventClaimsDataSourceResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.DataSource
-	}).(RuleDataSourceResponsePtrOutput)
-}
-
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-func (o RuleConditionResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleConditionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OdataType
+		return v.EmailAddress
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource from which the rule collects its data.
-type RuleDataSource struct {
+// A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
+type RuleManagementEventDataSource struct {
+	// the claims.
+	Claims *RuleManagementEventClaimsDataSource `pulumi:"claims"`
+	// the event name.
+	EventName *string `pulumi:"eventName"`
+	// the event source.
+	EventSource *string `pulumi:"eventSource"`
+	// the level.
+	Level *string `pulumi:"level"`
+	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	OdataType string `pulumi:"odataType"`
+	// The name of the operation that should be checked for. If no name is provided, any operation will match.
+	OperationName *string `pulumi:"operationName"`
+	// the resource group name.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// the resource provider name.
+	ResourceProviderName *string `pulumi:"resourceProviderName"`
+	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	ResourceUri *string `pulumi:"resourceUri"`
+	// The status of the operation that should be checked for. If no status is provided, any status will match.
+	Status *string `pulumi:"status"`
+	// the substatus.
+	SubStatus *string `pulumi:"subStatus"`
+}
+
+// RuleManagementEventDataSourceInput is an input type that accepts RuleManagementEventDataSourceArgs and RuleManagementEventDataSourceOutput values.
+// You can construct a concrete instance of `RuleManagementEventDataSourceInput` via:
+//
+//          RuleManagementEventDataSourceArgs{...}
+type RuleManagementEventDataSourceInput interface {
+	pulumi.Input
+
+	ToRuleManagementEventDataSourceOutput() RuleManagementEventDataSourceOutput
+	ToRuleManagementEventDataSourceOutputWithContext(context.Context) RuleManagementEventDataSourceOutput
+}
+
+// A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
+type RuleManagementEventDataSourceArgs struct {
+	// the claims.
+	Claims RuleManagementEventClaimsDataSourcePtrInput `pulumi:"claims"`
+	// the event name.
+	EventName pulumi.StringPtrInput `pulumi:"eventName"`
+	// the event source.
+	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
+	// the level.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The name of the operation that should be checked for. If no name is provided, any operation will match.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// the resource group name.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// the resource provider name.
+	ResourceProviderName pulumi.StringPtrInput `pulumi:"resourceProviderName"`
+	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
+	// The status of the operation that should be checked for. If no status is provided, any status will match.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// the substatus.
+	SubStatus pulumi.StringPtrInput `pulumi:"subStatus"`
+}
+
+func (RuleManagementEventDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleManagementEventDataSource)(nil)).Elem()
+}
+
+func (i RuleManagementEventDataSourceArgs) ToRuleManagementEventDataSourceOutput() RuleManagementEventDataSourceOutput {
+	return i.ToRuleManagementEventDataSourceOutputWithContext(context.Background())
+}
+
+func (i RuleManagementEventDataSourceArgs) ToRuleManagementEventDataSourceOutputWithContext(ctx context.Context) RuleManagementEventDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventDataSourceOutput)
+}
+
+// A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
+type RuleManagementEventDataSourceOutput struct{ *pulumi.OutputState }
+
+func (RuleManagementEventDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleManagementEventDataSource)(nil)).Elem()
+}
+
+func (o RuleManagementEventDataSourceOutput) ToRuleManagementEventDataSourceOutput() RuleManagementEventDataSourceOutput {
+	return o
+}
+
+func (o RuleManagementEventDataSourceOutput) ToRuleManagementEventDataSourceOutputWithContext(ctx context.Context) RuleManagementEventDataSourceOutput {
+	return o
+}
+
+// the claims.
+func (o RuleManagementEventDataSourceOutput) Claims() RuleManagementEventClaimsDataSourcePtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *RuleManagementEventClaimsDataSource { return v.Claims }).(RuleManagementEventClaimsDataSourcePtrOutput)
+}
+
+// the event name.
+func (o RuleManagementEventDataSourceOutput) EventName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.EventName }).(pulumi.StringPtrOutput)
+}
+
+// the event source.
+func (o RuleManagementEventDataSourceOutput) EventSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.EventSource }).(pulumi.StringPtrOutput)
+}
+
+// the level.
+func (o RuleManagementEventDataSourceOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+func (o RuleManagementEventDataSourceOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The name of the operation that should be checked for. If no name is provided, any operation will match.
+func (o RuleManagementEventDataSourceOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.OperationName }).(pulumi.StringPtrOutput)
+}
+
+// the resource group name.
+func (o RuleManagementEventDataSourceOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// the resource provider name.
+func (o RuleManagementEventDataSourceOutput) ResourceProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceProviderName }).(pulumi.StringPtrOutput)
+}
+
+// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+func (o RuleManagementEventDataSourceOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+// The status of the operation that should be checked for. If no status is provided, any status will match.
+func (o RuleManagementEventDataSourceOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// the substatus.
+func (o RuleManagementEventDataSourceOutput) SubStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
+}
+
+// A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
+type RuleManagementEventDataSourceResponse struct {
+	// the claims.
+	Claims *RuleManagementEventClaimsDataSourceResponse `pulumi:"claims"`
+	// the event name.
+	EventName *string `pulumi:"eventName"`
+	// the event source.
+	EventSource *string `pulumi:"eventSource"`
+	// the level.
+	Level *string `pulumi:"level"`
+	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	OdataType string `pulumi:"odataType"`
+	// The name of the operation that should be checked for. If no name is provided, any operation will match.
+	OperationName *string `pulumi:"operationName"`
+	// the resource group name.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// the resource provider name.
+	ResourceProviderName *string `pulumi:"resourceProviderName"`
+	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	ResourceUri *string `pulumi:"resourceUri"`
+	// The status of the operation that should be checked for. If no status is provided, any status will match.
+	Status *string `pulumi:"status"`
+	// the substatus.
+	SubStatus *string `pulumi:"subStatus"`
+}
+
+// RuleManagementEventDataSourceResponseInput is an input type that accepts RuleManagementEventDataSourceResponseArgs and RuleManagementEventDataSourceResponseOutput values.
+// You can construct a concrete instance of `RuleManagementEventDataSourceResponseInput` via:
+//
+//          RuleManagementEventDataSourceResponseArgs{...}
+type RuleManagementEventDataSourceResponseInput interface {
+	pulumi.Input
+
+	ToRuleManagementEventDataSourceResponseOutput() RuleManagementEventDataSourceResponseOutput
+	ToRuleManagementEventDataSourceResponseOutputWithContext(context.Context) RuleManagementEventDataSourceResponseOutput
+}
+
+// A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
+type RuleManagementEventDataSourceResponseArgs struct {
+	// the claims.
+	Claims RuleManagementEventClaimsDataSourceResponsePtrInput `pulumi:"claims"`
+	// the event name.
+	EventName pulumi.StringPtrInput `pulumi:"eventName"`
+	// the event source.
+	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
+	// the level.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The name of the operation that should be checked for. If no name is provided, any operation will match.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// the resource group name.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// the resource provider name.
+	ResourceProviderName pulumi.StringPtrInput `pulumi:"resourceProviderName"`
+	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
+	// The status of the operation that should be checked for. If no status is provided, any status will match.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// the substatus.
+	SubStatus pulumi.StringPtrInput `pulumi:"subStatus"`
+}
+
+func (RuleManagementEventDataSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleManagementEventDataSourceResponse)(nil)).Elem()
+}
+
+func (i RuleManagementEventDataSourceResponseArgs) ToRuleManagementEventDataSourceResponseOutput() RuleManagementEventDataSourceResponseOutput {
+	return i.ToRuleManagementEventDataSourceResponseOutputWithContext(context.Background())
+}
+
+func (i RuleManagementEventDataSourceResponseArgs) ToRuleManagementEventDataSourceResponseOutputWithContext(ctx context.Context) RuleManagementEventDataSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventDataSourceResponseOutput)
+}
+
+// A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
+type RuleManagementEventDataSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (RuleManagementEventDataSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleManagementEventDataSourceResponse)(nil)).Elem()
+}
+
+func (o RuleManagementEventDataSourceResponseOutput) ToRuleManagementEventDataSourceResponseOutput() RuleManagementEventDataSourceResponseOutput {
+	return o
+}
+
+func (o RuleManagementEventDataSourceResponseOutput) ToRuleManagementEventDataSourceResponseOutputWithContext(ctx context.Context) RuleManagementEventDataSourceResponseOutput {
+	return o
+}
+
+// the claims.
+func (o RuleManagementEventDataSourceResponseOutput) Claims() RuleManagementEventClaimsDataSourceResponsePtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *RuleManagementEventClaimsDataSourceResponse {
+		return v.Claims
+	}).(RuleManagementEventClaimsDataSourceResponsePtrOutput)
+}
+
+// the event name.
+func (o RuleManagementEventDataSourceResponseOutput) EventName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.EventName }).(pulumi.StringPtrOutput)
+}
+
+// the event source.
+func (o RuleManagementEventDataSourceResponseOutput) EventSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.EventSource }).(pulumi.StringPtrOutput)
+}
+
+// the level.
+func (o RuleManagementEventDataSourceResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+func (o RuleManagementEventDataSourceResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The name of the operation that should be checked for. If no name is provided, any operation will match.
+func (o RuleManagementEventDataSourceResponseOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.OperationName }).(pulumi.StringPtrOutput)
+}
+
+// the resource group name.
+func (o RuleManagementEventDataSourceResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// the resource provider name.
+func (o RuleManagementEventDataSourceResponseOutput) ResourceProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.ResourceProviderName }).(pulumi.StringPtrOutput)
+}
+
+// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+func (o RuleManagementEventDataSourceResponseOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+// The status of the operation that should be checked for. If no status is provided, any status will match.
+func (o RuleManagementEventDataSourceResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// the substatus.
+func (o RuleManagementEventDataSourceResponseOutput) SubStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleManagementEventDataSourceResponse) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
+}
+
+// A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
+type RuleMetricDataSource struct {
+	// the name of the metric that defines what the rule monitors.
+	MetricName *string `pulumi:"metricName"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	OdataType string `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri *string `pulumi:"resourceUri"`
 }
 
-// RuleDataSourceInput is an input type that accepts RuleDataSourceArgs and RuleDataSourceOutput values.
-// You can construct a concrete instance of `RuleDataSourceInput` via:
+// RuleMetricDataSourceInput is an input type that accepts RuleMetricDataSourceArgs and RuleMetricDataSourceOutput values.
+// You can construct a concrete instance of `RuleMetricDataSourceInput` via:
 //
-//          RuleDataSourceArgs{...}
-type RuleDataSourceInput interface {
+//          RuleMetricDataSourceArgs{...}
+type RuleMetricDataSourceInput interface {
 	pulumi.Input
 
-	ToRuleDataSourceOutput() RuleDataSourceOutput
-	ToRuleDataSourceOutputWithContext(context.Context) RuleDataSourceOutput
+	ToRuleMetricDataSourceOutput() RuleMetricDataSourceOutput
+	ToRuleMetricDataSourceOutputWithContext(context.Context) RuleMetricDataSourceOutput
 }
 
-// The resource from which the rule collects its data.
-type RuleDataSourceArgs struct {
+// A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
+type RuleMetricDataSourceArgs struct {
+	// the name of the metric that defines what the rule monitors.
+	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
 }
 
-func (RuleDataSourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleDataSource)(nil)).Elem()
+func (RuleMetricDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleMetricDataSource)(nil)).Elem()
 }
 
-func (i RuleDataSourceArgs) ToRuleDataSourceOutput() RuleDataSourceOutput {
-	return i.ToRuleDataSourceOutputWithContext(context.Background())
+func (i RuleMetricDataSourceArgs) ToRuleMetricDataSourceOutput() RuleMetricDataSourceOutput {
+	return i.ToRuleMetricDataSourceOutputWithContext(context.Background())
 }
 
-func (i RuleDataSourceArgs) ToRuleDataSourceOutputWithContext(ctx context.Context) RuleDataSourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleDataSourceOutput)
+func (i RuleMetricDataSourceArgs) ToRuleMetricDataSourceOutputWithContext(ctx context.Context) RuleMetricDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleMetricDataSourceOutput)
 }
 
-func (i RuleDataSourceArgs) ToRuleDataSourcePtrOutput() RuleDataSourcePtrOutput {
-	return i.ToRuleDataSourcePtrOutputWithContext(context.Background())
+// A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
+type RuleMetricDataSourceOutput struct{ *pulumi.OutputState }
+
+func (RuleMetricDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleMetricDataSource)(nil)).Elem()
 }
 
-func (i RuleDataSourceArgs) ToRuleDataSourcePtrOutputWithContext(ctx context.Context) RuleDataSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleDataSourceOutput).ToRuleDataSourcePtrOutputWithContext(ctx)
-}
-
-// RuleDataSourcePtrInput is an input type that accepts RuleDataSourceArgs, RuleDataSourcePtr and RuleDataSourcePtrOutput values.
-// You can construct a concrete instance of `RuleDataSourcePtrInput` via:
-//
-//          RuleDataSourceArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleDataSourcePtrInput interface {
-	pulumi.Input
-
-	ToRuleDataSourcePtrOutput() RuleDataSourcePtrOutput
-	ToRuleDataSourcePtrOutputWithContext(context.Context) RuleDataSourcePtrOutput
-}
-
-type ruleDataSourcePtrType RuleDataSourceArgs
-
-func RuleDataSourcePtr(v *RuleDataSourceArgs) RuleDataSourcePtrInput {
-	return (*ruleDataSourcePtrType)(v)
-}
-
-func (*ruleDataSourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleDataSource)(nil)).Elem()
-}
-
-func (i *ruleDataSourcePtrType) ToRuleDataSourcePtrOutput() RuleDataSourcePtrOutput {
-	return i.ToRuleDataSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *ruleDataSourcePtrType) ToRuleDataSourcePtrOutputWithContext(ctx context.Context) RuleDataSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleDataSourcePtrOutput)
-}
-
-// The resource from which the rule collects its data.
-type RuleDataSourceOutput struct{ *pulumi.OutputState }
-
-func (RuleDataSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleDataSource)(nil)).Elem()
-}
-
-func (o RuleDataSourceOutput) ToRuleDataSourceOutput() RuleDataSourceOutput {
+func (o RuleMetricDataSourceOutput) ToRuleMetricDataSourceOutput() RuleMetricDataSourceOutput {
 	return o
 }
 
-func (o RuleDataSourceOutput) ToRuleDataSourceOutputWithContext(ctx context.Context) RuleDataSourceOutput {
+func (o RuleMetricDataSourceOutput) ToRuleMetricDataSourceOutputWithContext(ctx context.Context) RuleMetricDataSourceOutput {
 	return o
 }
 
-func (o RuleDataSourceOutput) ToRuleDataSourcePtrOutput() RuleDataSourcePtrOutput {
-	return o.ToRuleDataSourcePtrOutputWithContext(context.Background())
-}
-
-func (o RuleDataSourceOutput) ToRuleDataSourcePtrOutputWithContext(ctx context.Context) RuleDataSourcePtrOutput {
-	return o.ApplyT(func(v RuleDataSource) *RuleDataSource {
-		return &v
-	}).(RuleDataSourcePtrOutput)
+// the name of the metric that defines what the rule monitors.
+func (o RuleMetricDataSourceOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
 // specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-func (o RuleDataSourceOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleDataSource) string { return v.OdataType }).(pulumi.StringOutput)
+func (o RuleMetricDataSourceOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleMetricDataSource) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-func (o RuleDataSourceOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleDataSource) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+func (o RuleMetricDataSourceOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
 }
 
-type RuleDataSourcePtrOutput struct{ *pulumi.OutputState }
-
-func (RuleDataSourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleDataSource)(nil)).Elem()
-}
-
-func (o RuleDataSourcePtrOutput) ToRuleDataSourcePtrOutput() RuleDataSourcePtrOutput {
-	return o
-}
-
-func (o RuleDataSourcePtrOutput) ToRuleDataSourcePtrOutputWithContext(ctx context.Context) RuleDataSourcePtrOutput {
-	return o
-}
-
-func (o RuleDataSourcePtrOutput) Elem() RuleDataSourceOutput {
-	return o.ApplyT(func(v *RuleDataSource) RuleDataSource { return *v }).(RuleDataSourceOutput)
-}
-
-// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-func (o RuleDataSourcePtrOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleDataSource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OdataType
-	}).(pulumi.StringPtrOutput)
-}
-
-// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-func (o RuleDataSourcePtrOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleDataSource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource from which the rule collects its data.
-type RuleDataSourceResponse struct {
+// A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
+type RuleMetricDataSourceResponse struct {
+	// the name of the metric that defines what the rule monitors.
+	MetricName *string `pulumi:"metricName"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	OdataType string `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri *string `pulumi:"resourceUri"`
 }
 
-// RuleDataSourceResponseInput is an input type that accepts RuleDataSourceResponseArgs and RuleDataSourceResponseOutput values.
-// You can construct a concrete instance of `RuleDataSourceResponseInput` via:
+// RuleMetricDataSourceResponseInput is an input type that accepts RuleMetricDataSourceResponseArgs and RuleMetricDataSourceResponseOutput values.
+// You can construct a concrete instance of `RuleMetricDataSourceResponseInput` via:
 //
-//          RuleDataSourceResponseArgs{...}
-type RuleDataSourceResponseInput interface {
+//          RuleMetricDataSourceResponseArgs{...}
+type RuleMetricDataSourceResponseInput interface {
 	pulumi.Input
 
-	ToRuleDataSourceResponseOutput() RuleDataSourceResponseOutput
-	ToRuleDataSourceResponseOutputWithContext(context.Context) RuleDataSourceResponseOutput
+	ToRuleMetricDataSourceResponseOutput() RuleMetricDataSourceResponseOutput
+	ToRuleMetricDataSourceResponseOutputWithContext(context.Context) RuleMetricDataSourceResponseOutput
 }
 
-// The resource from which the rule collects its data.
-type RuleDataSourceResponseArgs struct {
+// A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
+type RuleMetricDataSourceResponseArgs struct {
+	// the name of the metric that defines what the rule monitors.
+	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
 }
 
-func (RuleDataSourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleDataSourceResponse)(nil)).Elem()
+func (RuleMetricDataSourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleMetricDataSourceResponse)(nil)).Elem()
 }
 
-func (i RuleDataSourceResponseArgs) ToRuleDataSourceResponseOutput() RuleDataSourceResponseOutput {
-	return i.ToRuleDataSourceResponseOutputWithContext(context.Background())
+func (i RuleMetricDataSourceResponseArgs) ToRuleMetricDataSourceResponseOutput() RuleMetricDataSourceResponseOutput {
+	return i.ToRuleMetricDataSourceResponseOutputWithContext(context.Background())
 }
 
-func (i RuleDataSourceResponseArgs) ToRuleDataSourceResponseOutputWithContext(ctx context.Context) RuleDataSourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleDataSourceResponseOutput)
+func (i RuleMetricDataSourceResponseArgs) ToRuleMetricDataSourceResponseOutputWithContext(ctx context.Context) RuleMetricDataSourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleMetricDataSourceResponseOutput)
 }
 
-func (i RuleDataSourceResponseArgs) ToRuleDataSourceResponsePtrOutput() RuleDataSourceResponsePtrOutput {
-	return i.ToRuleDataSourceResponsePtrOutputWithContext(context.Background())
+// A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
+type RuleMetricDataSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (RuleMetricDataSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleMetricDataSourceResponse)(nil)).Elem()
 }
 
-func (i RuleDataSourceResponseArgs) ToRuleDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleDataSourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleDataSourceResponseOutput).ToRuleDataSourceResponsePtrOutputWithContext(ctx)
+func (o RuleMetricDataSourceResponseOutput) ToRuleMetricDataSourceResponseOutput() RuleMetricDataSourceResponseOutput {
+	return o
 }
 
-// RuleDataSourceResponsePtrInput is an input type that accepts RuleDataSourceResponseArgs, RuleDataSourceResponsePtr and RuleDataSourceResponsePtrOutput values.
-// You can construct a concrete instance of `RuleDataSourceResponsePtrInput` via:
+func (o RuleMetricDataSourceResponseOutput) ToRuleMetricDataSourceResponseOutputWithContext(ctx context.Context) RuleMetricDataSourceResponseOutput {
+	return o
+}
+
+// the name of the metric that defines what the rule monitors.
+func (o RuleMetricDataSourceResponseOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMetricDataSourceResponse) *string { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+func (o RuleMetricDataSourceResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleMetricDataSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+func (o RuleMetricDataSourceResponseOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleMetricDataSourceResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
+type RuleWebhookAction struct {
+	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	OdataType string `pulumi:"odataType"`
+	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	Properties map[string]string `pulumi:"properties"`
+	// the service uri to Post the notification when the alert activates or resolves.
+	ServiceUri *string `pulumi:"serviceUri"`
+}
+
+// RuleWebhookActionInput is an input type that accepts RuleWebhookActionArgs and RuleWebhookActionOutput values.
+// You can construct a concrete instance of `RuleWebhookActionInput` via:
 //
-//          RuleDataSourceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleDataSourceResponsePtrInput interface {
+//          RuleWebhookActionArgs{...}
+type RuleWebhookActionInput interface {
 	pulumi.Input
 
-	ToRuleDataSourceResponsePtrOutput() RuleDataSourceResponsePtrOutput
-	ToRuleDataSourceResponsePtrOutputWithContext(context.Context) RuleDataSourceResponsePtrOutput
+	ToRuleWebhookActionOutput() RuleWebhookActionOutput
+	ToRuleWebhookActionOutputWithContext(context.Context) RuleWebhookActionOutput
 }
 
-type ruleDataSourceResponsePtrType RuleDataSourceResponseArgs
-
-func RuleDataSourceResponsePtr(v *RuleDataSourceResponseArgs) RuleDataSourceResponsePtrInput {
-	return (*ruleDataSourceResponsePtrType)(v)
+// Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
+type RuleWebhookActionArgs struct {
+	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// the service uri to Post the notification when the alert activates or resolves.
+	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
 }
 
-func (*ruleDataSourceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleDataSourceResponse)(nil)).Elem()
+func (RuleWebhookActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleWebhookAction)(nil)).Elem()
 }
 
-func (i *ruleDataSourceResponsePtrType) ToRuleDataSourceResponsePtrOutput() RuleDataSourceResponsePtrOutput {
-	return i.ToRuleDataSourceResponsePtrOutputWithContext(context.Background())
+func (i RuleWebhookActionArgs) ToRuleWebhookActionOutput() RuleWebhookActionOutput {
+	return i.ToRuleWebhookActionOutputWithContext(context.Background())
 }
 
-func (i *ruleDataSourceResponsePtrType) ToRuleDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleDataSourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleDataSourceResponsePtrOutput)
+func (i RuleWebhookActionArgs) ToRuleWebhookActionOutputWithContext(ctx context.Context) RuleWebhookActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleWebhookActionOutput)
 }
 
-// The resource from which the rule collects its data.
-type RuleDataSourceResponseOutput struct{ *pulumi.OutputState }
+// Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
+type RuleWebhookActionOutput struct{ *pulumi.OutputState }
 
-func (RuleDataSourceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleDataSourceResponse)(nil)).Elem()
+func (RuleWebhookActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleWebhookAction)(nil)).Elem()
 }
 
-func (o RuleDataSourceResponseOutput) ToRuleDataSourceResponseOutput() RuleDataSourceResponseOutput {
+func (o RuleWebhookActionOutput) ToRuleWebhookActionOutput() RuleWebhookActionOutput {
 	return o
 }
 
-func (o RuleDataSourceResponseOutput) ToRuleDataSourceResponseOutputWithContext(ctx context.Context) RuleDataSourceResponseOutput {
+func (o RuleWebhookActionOutput) ToRuleWebhookActionOutputWithContext(ctx context.Context) RuleWebhookActionOutput {
 	return o
 }
 
-func (o RuleDataSourceResponseOutput) ToRuleDataSourceResponsePtrOutput() RuleDataSourceResponsePtrOutput {
-	return o.ToRuleDataSourceResponsePtrOutputWithContext(context.Background())
+// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+func (o RuleWebhookActionOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleWebhookAction) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-func (o RuleDataSourceResponseOutput) ToRuleDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleDataSourceResponsePtrOutput {
-	return o.ApplyT(func(v RuleDataSourceResponse) *RuleDataSourceResponse {
-		return &v
-	}).(RuleDataSourceResponsePtrOutput)
+// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+func (o RuleWebhookActionOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RuleWebhookAction) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-func (o RuleDataSourceResponseOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleDataSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
+// the service uri to Post the notification when the alert activates or resolves.
+func (o RuleWebhookActionOutput) ServiceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleWebhookAction) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
 
-// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-func (o RuleDataSourceResponseOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleDataSourceResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+// Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
+type RuleWebhookActionResponse struct {
+	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	OdataType string `pulumi:"odataType"`
+	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	Properties map[string]string `pulumi:"properties"`
+	// the service uri to Post the notification when the alert activates or resolves.
+	ServiceUri *string `pulumi:"serviceUri"`
 }
 
-type RuleDataSourceResponsePtrOutput struct{ *pulumi.OutputState }
+// RuleWebhookActionResponseInput is an input type that accepts RuleWebhookActionResponseArgs and RuleWebhookActionResponseOutput values.
+// You can construct a concrete instance of `RuleWebhookActionResponseInput` via:
+//
+//          RuleWebhookActionResponseArgs{...}
+type RuleWebhookActionResponseInput interface {
+	pulumi.Input
 
-func (RuleDataSourceResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleDataSourceResponse)(nil)).Elem()
+	ToRuleWebhookActionResponseOutput() RuleWebhookActionResponseOutput
+	ToRuleWebhookActionResponseOutputWithContext(context.Context) RuleWebhookActionResponseOutput
 }
 
-func (o RuleDataSourceResponsePtrOutput) ToRuleDataSourceResponsePtrOutput() RuleDataSourceResponsePtrOutput {
+// Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
+type RuleWebhookActionResponseArgs struct {
+	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// the service uri to Post the notification when the alert activates or resolves.
+	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
+}
+
+func (RuleWebhookActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleWebhookActionResponse)(nil)).Elem()
+}
+
+func (i RuleWebhookActionResponseArgs) ToRuleWebhookActionResponseOutput() RuleWebhookActionResponseOutput {
+	return i.ToRuleWebhookActionResponseOutputWithContext(context.Background())
+}
+
+func (i RuleWebhookActionResponseArgs) ToRuleWebhookActionResponseOutputWithContext(ctx context.Context) RuleWebhookActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleWebhookActionResponseOutput)
+}
+
+// Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
+type RuleWebhookActionResponseOutput struct{ *pulumi.OutputState }
+
+func (RuleWebhookActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleWebhookActionResponse)(nil)).Elem()
+}
+
+func (o RuleWebhookActionResponseOutput) ToRuleWebhookActionResponseOutput() RuleWebhookActionResponseOutput {
 	return o
 }
 
-func (o RuleDataSourceResponsePtrOutput) ToRuleDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleDataSourceResponsePtrOutput {
+func (o RuleWebhookActionResponseOutput) ToRuleWebhookActionResponseOutputWithContext(ctx context.Context) RuleWebhookActionResponseOutput {
 	return o
 }
 
-func (o RuleDataSourceResponsePtrOutput) Elem() RuleDataSourceResponseOutput {
-	return o.ApplyT(func(v *RuleDataSourceResponse) RuleDataSourceResponse { return *v }).(RuleDataSourceResponseOutput)
+// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+func (o RuleWebhookActionResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleWebhookActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-func (o RuleDataSourceResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleDataSourceResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OdataType
-	}).(pulumi.StringPtrOutput)
+// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+func (o RuleWebhookActionResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RuleWebhookActionResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-func (o RuleDataSourceResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleDataSourceResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceUri
-	}).(pulumi.StringPtrOutput)
+// the service uri to Post the notification when the alert activates or resolves.
+func (o RuleWebhookActionResponseOutput) ServiceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleWebhookActionResponse) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
+}
+
+// A rule condition based on a metric crossing a threshold.
+type ThresholdRuleCondition struct {
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource interface{} `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType string `pulumi:"odataType"`
+	// the operator used to compare the data and the threshold.
+	Operator string `pulumi:"operator"`
+	// the threshold value that activates the alert.
+	Threshold float64 `pulumi:"threshold"`
+	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+	TimeAggregation *string `pulumi:"timeAggregation"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize *string `pulumi:"windowSize"`
+}
+
+// ThresholdRuleConditionInput is an input type that accepts ThresholdRuleConditionArgs and ThresholdRuleConditionOutput values.
+// You can construct a concrete instance of `ThresholdRuleConditionInput` via:
+//
+//          ThresholdRuleConditionArgs{...}
+type ThresholdRuleConditionInput interface {
+	pulumi.Input
+
+	ToThresholdRuleConditionOutput() ThresholdRuleConditionOutput
+	ToThresholdRuleConditionOutputWithContext(context.Context) ThresholdRuleConditionOutput
+}
+
+// A rule condition based on a metric crossing a threshold.
+type ThresholdRuleConditionArgs struct {
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource pulumi.Input `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// the operator used to compare the data and the threshold.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// the threshold value that activates the alert.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+	TimeAggregation pulumi.StringPtrInput `pulumi:"timeAggregation"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+}
+
+func (ThresholdRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThresholdRuleCondition)(nil)).Elem()
+}
+
+func (i ThresholdRuleConditionArgs) ToThresholdRuleConditionOutput() ThresholdRuleConditionOutput {
+	return i.ToThresholdRuleConditionOutputWithContext(context.Background())
+}
+
+func (i ThresholdRuleConditionArgs) ToThresholdRuleConditionOutputWithContext(ctx context.Context) ThresholdRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThresholdRuleConditionOutput)
+}
+
+// A rule condition based on a metric crossing a threshold.
+type ThresholdRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (ThresholdRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThresholdRuleCondition)(nil)).Elem()
+}
+
+func (o ThresholdRuleConditionOutput) ToThresholdRuleConditionOutput() ThresholdRuleConditionOutput {
+	return o
+}
+
+func (o ThresholdRuleConditionOutput) ToThresholdRuleConditionOutputWithContext(ctx context.Context) ThresholdRuleConditionOutput {
+	return o
+}
+
+// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+func (o ThresholdRuleConditionOutput) DataSource() pulumi.AnyOutput {
+	return o.ApplyT(func(v ThresholdRuleCondition) interface{} { return v.DataSource }).(pulumi.AnyOutput)
+}
+
+// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+func (o ThresholdRuleConditionOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// the operator used to compare the data and the threshold.
+func (o ThresholdRuleConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdRuleCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// the threshold value that activates the alert.
+func (o ThresholdRuleConditionOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ThresholdRuleCondition) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+func (o ThresholdRuleConditionOutput) TimeAggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThresholdRuleCondition) *string { return v.TimeAggregation }).(pulumi.StringPtrOutput)
+}
+
+// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+func (o ThresholdRuleConditionOutput) WindowSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThresholdRuleCondition) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
+}
+
+// A rule condition based on a metric crossing a threshold.
+type ThresholdRuleConditionResponse struct {
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource interface{} `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType string `pulumi:"odataType"`
+	// the operator used to compare the data and the threshold.
+	Operator string `pulumi:"operator"`
+	// the threshold value that activates the alert.
+	Threshold float64 `pulumi:"threshold"`
+	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+	TimeAggregation *string `pulumi:"timeAggregation"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize *string `pulumi:"windowSize"`
+}
+
+// ThresholdRuleConditionResponseInput is an input type that accepts ThresholdRuleConditionResponseArgs and ThresholdRuleConditionResponseOutput values.
+// You can construct a concrete instance of `ThresholdRuleConditionResponseInput` via:
+//
+//          ThresholdRuleConditionResponseArgs{...}
+type ThresholdRuleConditionResponseInput interface {
+	pulumi.Input
+
+	ToThresholdRuleConditionResponseOutput() ThresholdRuleConditionResponseOutput
+	ToThresholdRuleConditionResponseOutputWithContext(context.Context) ThresholdRuleConditionResponseOutput
+}
+
+// A rule condition based on a metric crossing a threshold.
+type ThresholdRuleConditionResponseArgs struct {
+	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+	DataSource pulumi.Input `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// the operator used to compare the data and the threshold.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// the threshold value that activates the alert.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+	TimeAggregation pulumi.StringPtrInput `pulumi:"timeAggregation"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
+}
+
+func (ThresholdRuleConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThresholdRuleConditionResponse)(nil)).Elem()
+}
+
+func (i ThresholdRuleConditionResponseArgs) ToThresholdRuleConditionResponseOutput() ThresholdRuleConditionResponseOutput {
+	return i.ToThresholdRuleConditionResponseOutputWithContext(context.Background())
+}
+
+func (i ThresholdRuleConditionResponseArgs) ToThresholdRuleConditionResponseOutputWithContext(ctx context.Context) ThresholdRuleConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThresholdRuleConditionResponseOutput)
+}
+
+// A rule condition based on a metric crossing a threshold.
+type ThresholdRuleConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (ThresholdRuleConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThresholdRuleConditionResponse)(nil)).Elem()
+}
+
+func (o ThresholdRuleConditionResponseOutput) ToThresholdRuleConditionResponseOutput() ThresholdRuleConditionResponseOutput {
+	return o
+}
+
+func (o ThresholdRuleConditionResponseOutput) ToThresholdRuleConditionResponseOutputWithContext(ctx context.Context) ThresholdRuleConditionResponseOutput {
+	return o
+}
+
+// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+func (o ThresholdRuleConditionResponseOutput) DataSource() pulumi.AnyOutput {
+	return o.ApplyT(func(v ThresholdRuleConditionResponse) interface{} { return v.DataSource }).(pulumi.AnyOutput)
+}
+
+// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+func (o ThresholdRuleConditionResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdRuleConditionResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// the operator used to compare the data and the threshold.
+func (o ThresholdRuleConditionResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdRuleConditionResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// the threshold value that activates the alert.
+func (o ThresholdRuleConditionResponseOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ThresholdRuleConditionResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+func (o ThresholdRuleConditionResponseOutput) TimeAggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThresholdRuleConditionResponse) *string { return v.TimeAggregation }).(pulumi.StringPtrOutput)
+}
+
+// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
+func (o ThresholdRuleConditionResponseOutput) WindowSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThresholdRuleConditionResponse) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
 }
 
 func init() {
+	pulumi.RegisterOutputType(LocationThresholdRuleConditionOutput{})
+	pulumi.RegisterOutputType(LocationThresholdRuleConditionResponseOutput{})
+	pulumi.RegisterOutputType(ManagementEventAggregationConditionOutput{})
+	pulumi.RegisterOutputType(ManagementEventAggregationConditionPtrOutput{})
+	pulumi.RegisterOutputType(ManagementEventAggregationConditionResponseOutput{})
+	pulumi.RegisterOutputType(ManagementEventAggregationConditionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagementEventRuleConditionOutput{})
+	pulumi.RegisterOutputType(ManagementEventRuleConditionResponseOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(RuleActionOutput{})
-	pulumi.RegisterOutputType(RuleActionArrayOutput{})
-	pulumi.RegisterOutputType(RuleActionResponseOutput{})
-	pulumi.RegisterOutputType(RuleActionResponseArrayOutput{})
-	pulumi.RegisterOutputType(RuleConditionOutput{})
-	pulumi.RegisterOutputType(RuleConditionPtrOutput{})
-	pulumi.RegisterOutputType(RuleConditionResponseOutput{})
-	pulumi.RegisterOutputType(RuleConditionResponsePtrOutput{})
-	pulumi.RegisterOutputType(RuleDataSourceOutput{})
-	pulumi.RegisterOutputType(RuleDataSourcePtrOutput{})
-	pulumi.RegisterOutputType(RuleDataSourceResponseOutput{})
-	pulumi.RegisterOutputType(RuleDataSourceResponsePtrOutput{})
+	pulumi.RegisterOutputType(RuleEmailActionOutput{})
+	pulumi.RegisterOutputType(RuleEmailActionResponseOutput{})
+	pulumi.RegisterOutputType(RuleManagementEventClaimsDataSourceOutput{})
+	pulumi.RegisterOutputType(RuleManagementEventClaimsDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(RuleManagementEventClaimsDataSourceResponseOutput{})
+	pulumi.RegisterOutputType(RuleManagementEventClaimsDataSourceResponsePtrOutput{})
+	pulumi.RegisterOutputType(RuleManagementEventDataSourceOutput{})
+	pulumi.RegisterOutputType(RuleManagementEventDataSourceResponseOutput{})
+	pulumi.RegisterOutputType(RuleMetricDataSourceOutput{})
+	pulumi.RegisterOutputType(RuleMetricDataSourceResponseOutput{})
+	pulumi.RegisterOutputType(RuleWebhookActionOutput{})
+	pulumi.RegisterOutputType(RuleWebhookActionResponseOutput{})
+	pulumi.RegisterOutputType(ThresholdRuleConditionOutput{})
+	pulumi.RegisterOutputType(ThresholdRuleConditionResponseOutput{})
 }

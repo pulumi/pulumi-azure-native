@@ -47,7 +47,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
     /**
      * Integration runtime properties.
      */
-    public readonly properties!: pulumi.Output<outputs.synapse.v20190601preview.IntegrationRuntimeResponse>;
+    public readonly properties!: pulumi.Output<outputs.synapse.v20190601preview.ManagedIntegrationRuntimeResponse | outputs.synapse.v20190601preview.SelfHostedIntegrationRuntimeResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -110,7 +110,7 @@ export interface IntegrationRuntimeArgs {
     /**
      * Integration runtime properties.
      */
-    readonly properties: pulumi.Input<inputs.synapse.v20190601preview.IntegrationRuntime>;
+    readonly properties: pulumi.Input<inputs.synapse.v20190601preview.ManagedIntegrationRuntime | inputs.synapse.v20190601preview.SelfHostedIntegrationRuntime>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

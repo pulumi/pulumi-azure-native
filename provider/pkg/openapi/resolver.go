@@ -4,11 +4,12 @@ package openapi
 
 import (
 	"fmt"
-	"net/url"
-
+	"github.com/go-openapi/jsonreference"
 	"github.com/go-openapi/spec"
 	"github.com/go-openapi/swag"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/pkg/v2/codegen"
+	"net/url"
 )
 
 // ReferenceContext contains a pointer to a swagger schema and can navigate references from that schema.
@@ -103,6 +104,31 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 
 	schema := ptr.value.(spec.Schema)
 	return &Schema{ptr.ReferenceContext, &schema}, nil
+}
+
+// FindSubtypes returns a slice of schemas, each schema is a reference to a type definition that is a subtype of a given type.
+// The following rules apply:
+// - All subtypes reside in the same Open API specification.
+// - A subtype is defines as `allOf` of the base type.
+func (ctx *ReferenceContext) FindSubtypes() (schemas []*spec.Schema) {
+	for _, name := range codegen.SortedKeys(ctx.swagger.Definitions) {
+		def := ctx.swagger.Definitions[name]
+		for _, schema := range def.AllOf {
+			if resolved, ok, _ := ctx.resolveReference(schema.Ref); ok {
+				if resolved.ReferenceName == ctx.ReferenceName {
+					ref := spec.Schema{
+						SchemaProps: spec.SchemaProps{
+							Ref: spec.Ref{
+								Ref: jsonreference.MustCreateRef("#/definitions/" + name),
+							},
+						},
+					}
+					schemas = append(schemas, &ref)
+				}
+			}
+		}
+	}
+	return
 }
 
 // MergeParameters combines the Path Item parameters with Operation parameters.

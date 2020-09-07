@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Insights.V20180301
         /// <summary>
         /// defines the specific alert criteria information.
         /// </summary>
-        public readonly Outputs.MetricAlertCriteriaResponseResult Criteria;
+        public readonly Union<Outputs.MetricAlertMultipleResourceMultipleMetricCriteriaResponseResult, Union<Outputs.MetricAlertSingleResourceMultipleMetricCriteriaResponseResult, Outputs.WebtestLocationAvailabilityCriteriaResponseResult>> Criteria;
         /// <summary>
         /// the description of the metric alert that will be included in the alert email.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.Insights.V20180301
 
             bool? autoMitigate,
 
-            Outputs.MetricAlertCriteriaResponseResult criteria,
+            Union<Outputs.MetricAlertMultipleResourceMultipleMetricCriteriaResponseResult, Union<Outputs.MetricAlertSingleResourceMultipleMetricCriteriaResponseResult, Outputs.WebtestLocationAvailabilityCriteriaResponseResult>> criteria,
 
             string description,
 

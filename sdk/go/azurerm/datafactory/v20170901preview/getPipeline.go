@@ -28,7 +28,7 @@ type LookupPipelineArgs struct {
 // Pipeline resource type.
 type LookupPipelineResult struct {
 	// List of activities in pipeline.
-	Activities []ActivityResponse `pulumi:"activities"`
+	Activities []interface{} `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.

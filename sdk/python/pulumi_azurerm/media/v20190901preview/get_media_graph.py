@@ -80,7 +80,7 @@ class GetMediaGraphResult:
 
     @property
     @pulumi.getter
-    def sinks(self) -> List['outputs.MediaGraphSinkResponse']:
+    def sinks(self) -> List['outputs.MediaGraphAssetSinkResponse']:
         """
         Media Graph sinks
         """
@@ -88,7 +88,7 @@ class GetMediaGraphResult:
 
     @property
     @pulumi.getter
-    def sources(self) -> List['outputs.MediaGraphSourceResponse']:
+    def sources(self) -> List['outputs.MediaGraphRtspSourceResponse']:
         """
         Media Graph sources
         """

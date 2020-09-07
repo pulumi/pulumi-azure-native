@@ -39,11 +39,11 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20190601.DeadLetterDestinationResponse | undefined>;
+    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20190601.StorageBlobDeadLetterDestinationResponse | undefined>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    public readonly destination!: pulumi.Output<outputs.eventgrid.v20190601.EventSubscriptionDestinationResponse | undefined>;
+    public readonly destination!: pulumi.Output<outputs.eventgrid.v20190601.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20190601.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20190601.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20190601.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20190601.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
      * Expiration time of the event subscription.
      */
@@ -137,11 +137,11 @@ export interface EventSubscriptionArgs {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20190601.DeadLetterDestination>;
+    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20190601.StorageBlobDeadLetterDestination>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20190601.EventSubscriptionDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.v20190601.EventHubEventSubscriptionDestination | inputs.eventgrid.v20190601.HybridConnectionEventSubscriptionDestination | inputs.eventgrid.v20190601.ServiceBusQueueEventSubscriptionDestination | inputs.eventgrid.v20190601.StorageQueueEventSubscriptionDestination | inputs.eventgrid.v20190601.WebHookEventSubscriptionDestination>;
     /**
      * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
      */

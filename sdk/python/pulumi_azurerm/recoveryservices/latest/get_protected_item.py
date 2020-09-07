@@ -66,7 +66,7 @@ class GetProtectedItemResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProtectedItemResponse':
+    def properties(self) -> Any:
         """
         ProtectedItemResource properties
         """

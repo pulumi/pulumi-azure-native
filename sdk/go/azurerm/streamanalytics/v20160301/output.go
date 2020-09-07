@@ -15,7 +15,7 @@ type Output struct {
 	pulumi.CustomResourceState
 
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-	Datasource OutputDataSourceResponsePtrOutput `pulumi:"datasource"`
+	Datasource pulumi.AnyOutput `pulumi:"datasource"`
 	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
 	Diagnostics DiagnosticsResponseOutput `pulumi:"diagnostics"`
 	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
@@ -23,7 +23,7 @@ type Output struct {
 	// Resource name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization SerializationResponsePtrOutput `pulumi:"serialization"`
+	Serialization pulumi.AnyOutput `pulumi:"serialization"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -72,7 +72,7 @@ func GetOutput(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Output resources.
 type outputState struct {
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-	Datasource *OutputDataSourceResponse `pulumi:"datasource"`
+	Datasource interface{} `pulumi:"datasource"`
 	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
 	Diagnostics *DiagnosticsResponse `pulumi:"diagnostics"`
 	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
@@ -80,14 +80,14 @@ type outputState struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization *SerializationResponse `pulumi:"serialization"`
+	Serialization interface{} `pulumi:"serialization"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type OutputState struct {
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-	Datasource OutputDataSourceResponsePtrInput
+	Datasource pulumi.Input
 	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
 	Diagnostics DiagnosticsResponsePtrInput
 	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
@@ -95,7 +95,7 @@ type OutputState struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization SerializationResponsePtrInput
+	Serialization pulumi.Input
 	// Resource type
 	Type pulumi.StringPtrInput
 }
@@ -106,7 +106,7 @@ func (OutputState) ElementType() reflect.Type {
 
 type outputArgs struct {
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-	Datasource *OutputDataSource `pulumi:"datasource"`
+	Datasource interface{} `pulumi:"datasource"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
 	// Resource name
@@ -116,13 +116,13 @@ type outputArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization *Serialization `pulumi:"serialization"`
+	Serialization interface{} `pulumi:"serialization"`
 }
 
 // The set of arguments for constructing a Output resource.
 type OutputArgs struct {
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-	Datasource OutputDataSourcePtrInput
+	Datasource pulumi.Input
 	// The name of the streaming job.
 	JobName pulumi.StringInput
 	// Resource name
@@ -132,7 +132,7 @@ type OutputArgs struct {
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization SerializationPtrInput
+	Serialization pulumi.Input
 }
 
 func (OutputArgs) ElementType() reflect.Type {

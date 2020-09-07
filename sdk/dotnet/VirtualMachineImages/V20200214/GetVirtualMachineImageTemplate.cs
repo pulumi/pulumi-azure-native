@@ -46,11 +46,11 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
         /// <summary>
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
         /// </summary>
-        public readonly ImmutableArray<Outputs.ImageTemplateCustomizerResponseResult> Customize;
+        public readonly ImmutableArray<Union<Outputs.ImageTemplateFileCustomizerResponseResult, Union<Outputs.ImageTemplatePowerShellCustomizerResponseResult, Union<Outputs.ImageTemplateRestartCustomizerResponseResult, Union<Outputs.ImageTemplateShellCustomizerResponseResult, Outputs.ImageTemplateWindowsUpdateCustomizerResponseResult>>>>> Customize;
         /// <summary>
         /// The distribution targets where the image output needs to go to.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ImageTemplateDistributorResponseResult> Distribute;
+        public readonly ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponseResult, Union<Outputs.ImageTemplateSharedImageDistributorResponseResult, Outputs.ImageTemplateVhdDistributorResponseResult>>> Distribute;
         /// <summary>
         /// The identity of the image template, if configured.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
         /// <summary>
         /// Specifies the properties used to describe the source image.
         /// </summary>
-        public readonly Outputs.ImageTemplateSourceResponseResult Source;
+        public readonly Union<Outputs.ImageTemplateManagedImageSourceResponseResult, Union<Outputs.ImageTemplatePlatformImageSourceResponseResult, Outputs.ImageTemplateSharedImageVersionSourceResponseResult>> Source;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -96,9 +96,9 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
         private GetVirtualMachineImageTemplateResult(
             int? buildTimeoutInMinutes,
 
-            ImmutableArray<Outputs.ImageTemplateCustomizerResponseResult> customize,
+            ImmutableArray<Union<Outputs.ImageTemplateFileCustomizerResponseResult, Union<Outputs.ImageTemplatePowerShellCustomizerResponseResult, Union<Outputs.ImageTemplateRestartCustomizerResponseResult, Union<Outputs.ImageTemplateShellCustomizerResponseResult, Outputs.ImageTemplateWindowsUpdateCustomizerResponseResult>>>>> customize,
 
-            ImmutableArray<Outputs.ImageTemplateDistributorResponseResult> distribute,
+            ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponseResult, Union<Outputs.ImageTemplateSharedImageDistributorResponseResult, Outputs.ImageTemplateVhdDistributorResponseResult>>> distribute,
 
             Outputs.ImageTemplateIdentityResponseResult identity,
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
 
             string provisioningState,
 
-            Outputs.ImageTemplateSourceResponseResult source,
+            Union<Outputs.ImageTemplateManagedImageSourceResponseResult, Union<Outputs.ImageTemplatePlatformImageSourceResponseResult, Outputs.ImageTemplateSharedImageVersionSourceResponseResult>> source,
 
             ImmutableDictionary<string, string>? tags,
 

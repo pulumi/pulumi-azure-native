@@ -10,272 +10,1494 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Action descriptor.
-type Action struct {
+// Specify action need to be taken when rule type is Alert
+type AlertingAction struct {
+	// Azure action group reference.
+	AznsAction *AzNsActionGroup `pulumi:"aznsAction"`
 	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
 	OdataType string `pulumi:"odataType"`
+	// Severity of the alert
+	Severity string `pulumi:"severity"`
+	// time (in minutes) for which Alerts should be throttled or suppressed.
+	ThrottlingInMin *int `pulumi:"throttlingInMin"`
+	// The trigger condition that results in the alert rule being.
+	Trigger TriggerCondition `pulumi:"trigger"`
 }
 
-// ActionInput is an input type that accepts ActionArgs and ActionOutput values.
-// You can construct a concrete instance of `ActionInput` via:
+// AlertingActionInput is an input type that accepts AlertingActionArgs and AlertingActionOutput values.
+// You can construct a concrete instance of `AlertingActionInput` via:
 //
-//          ActionArgs{...}
-type ActionInput interface {
+//          AlertingActionArgs{...}
+type AlertingActionInput interface {
 	pulumi.Input
 
-	ToActionOutput() ActionOutput
-	ToActionOutputWithContext(context.Context) ActionOutput
+	ToAlertingActionOutput() AlertingActionOutput
+	ToAlertingActionOutputWithContext(context.Context) AlertingActionOutput
 }
 
-// Action descriptor.
-type ActionArgs struct {
+// Specify action need to be taken when rule type is Alert
+type AlertingActionArgs struct {
+	// Azure action group reference.
+	AznsAction AzNsActionGroupPtrInput `pulumi:"aznsAction"`
 	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
 	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Severity of the alert
+	Severity pulumi.StringInput `pulumi:"severity"`
+	// time (in minutes) for which Alerts should be throttled or suppressed.
+	ThrottlingInMin pulumi.IntPtrInput `pulumi:"throttlingInMin"`
+	// The trigger condition that results in the alert rule being.
+	Trigger TriggerConditionInput `pulumi:"trigger"`
 }
 
-func (ActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil)).Elem()
+func (AlertingActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertingAction)(nil)).Elem()
 }
 
-func (i ActionArgs) ToActionOutput() ActionOutput {
-	return i.ToActionOutputWithContext(context.Background())
+func (i AlertingActionArgs) ToAlertingActionOutput() AlertingActionOutput {
+	return i.ToAlertingActionOutputWithContext(context.Background())
 }
 
-func (i ActionArgs) ToActionOutputWithContext(ctx context.Context) ActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionOutput)
+func (i AlertingActionArgs) ToAlertingActionOutputWithContext(ctx context.Context) AlertingActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertingActionOutput)
 }
 
-func (i ActionArgs) ToActionPtrOutput() ActionPtrOutput {
-	return i.ToActionPtrOutputWithContext(context.Background())
+// Specify action need to be taken when rule type is Alert
+type AlertingActionOutput struct{ *pulumi.OutputState }
+
+func (AlertingActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertingAction)(nil)).Elem()
 }
 
-func (i ActionArgs) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionOutput).ToActionPtrOutputWithContext(ctx)
+func (o AlertingActionOutput) ToAlertingActionOutput() AlertingActionOutput {
+	return o
 }
 
-// ActionPtrInput is an input type that accepts ActionArgs, ActionPtr and ActionPtrOutput values.
-// You can construct a concrete instance of `ActionPtrInput` via:
+func (o AlertingActionOutput) ToAlertingActionOutputWithContext(ctx context.Context) AlertingActionOutput {
+	return o
+}
+
+// Azure action group reference.
+func (o AlertingActionOutput) AznsAction() AzNsActionGroupPtrOutput {
+	return o.ApplyT(func(v AlertingAction) *AzNsActionGroup { return v.AznsAction }).(AzNsActionGroupPtrOutput)
+}
+
+// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+func (o AlertingActionOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertingAction) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Severity of the alert
+func (o AlertingActionOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertingAction) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// time (in minutes) for which Alerts should be throttled or suppressed.
+func (o AlertingActionOutput) ThrottlingInMin() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlertingAction) *int { return v.ThrottlingInMin }).(pulumi.IntPtrOutput)
+}
+
+// The trigger condition that results in the alert rule being.
+func (o AlertingActionOutput) Trigger() TriggerConditionOutput {
+	return o.ApplyT(func(v AlertingAction) TriggerCondition { return v.Trigger }).(TriggerConditionOutput)
+}
+
+// Specify action need to be taken when rule type is Alert
+type AlertingActionResponse struct {
+	// Azure action group reference.
+	AznsAction *AzNsActionGroupResponse `pulumi:"aznsAction"`
+	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	OdataType string `pulumi:"odataType"`
+	// Severity of the alert
+	Severity string `pulumi:"severity"`
+	// time (in minutes) for which Alerts should be throttled or suppressed.
+	ThrottlingInMin *int `pulumi:"throttlingInMin"`
+	// The trigger condition that results in the alert rule being.
+	Trigger TriggerConditionResponse `pulumi:"trigger"`
+}
+
+// AlertingActionResponseInput is an input type that accepts AlertingActionResponseArgs and AlertingActionResponseOutput values.
+// You can construct a concrete instance of `AlertingActionResponseInput` via:
 //
-//          ActionArgs{...}
+//          AlertingActionResponseArgs{...}
+type AlertingActionResponseInput interface {
+	pulumi.Input
+
+	ToAlertingActionResponseOutput() AlertingActionResponseOutput
+	ToAlertingActionResponseOutputWithContext(context.Context) AlertingActionResponseOutput
+}
+
+// Specify action need to be taken when rule type is Alert
+type AlertingActionResponseArgs struct {
+	// Azure action group reference.
+	AznsAction AzNsActionGroupResponsePtrInput `pulumi:"aznsAction"`
+	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Severity of the alert
+	Severity pulumi.StringInput `pulumi:"severity"`
+	// time (in minutes) for which Alerts should be throttled or suppressed.
+	ThrottlingInMin pulumi.IntPtrInput `pulumi:"throttlingInMin"`
+	// The trigger condition that results in the alert rule being.
+	Trigger TriggerConditionResponseInput `pulumi:"trigger"`
+}
+
+func (AlertingActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertingActionResponse)(nil)).Elem()
+}
+
+func (i AlertingActionResponseArgs) ToAlertingActionResponseOutput() AlertingActionResponseOutput {
+	return i.ToAlertingActionResponseOutputWithContext(context.Background())
+}
+
+func (i AlertingActionResponseArgs) ToAlertingActionResponseOutputWithContext(ctx context.Context) AlertingActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertingActionResponseOutput)
+}
+
+// Specify action need to be taken when rule type is Alert
+type AlertingActionResponseOutput struct{ *pulumi.OutputState }
+
+func (AlertingActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertingActionResponse)(nil)).Elem()
+}
+
+func (o AlertingActionResponseOutput) ToAlertingActionResponseOutput() AlertingActionResponseOutput {
+	return o
+}
+
+func (o AlertingActionResponseOutput) ToAlertingActionResponseOutputWithContext(ctx context.Context) AlertingActionResponseOutput {
+	return o
+}
+
+// Azure action group reference.
+func (o AlertingActionResponseOutput) AznsAction() AzNsActionGroupResponsePtrOutput {
+	return o.ApplyT(func(v AlertingActionResponse) *AzNsActionGroupResponse { return v.AznsAction }).(AzNsActionGroupResponsePtrOutput)
+}
+
+// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+func (o AlertingActionResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertingActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Severity of the alert
+func (o AlertingActionResponseOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertingActionResponse) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// time (in minutes) for which Alerts should be throttled or suppressed.
+func (o AlertingActionResponseOutput) ThrottlingInMin() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlertingActionResponse) *int { return v.ThrottlingInMin }).(pulumi.IntPtrOutput)
+}
+
+// The trigger condition that results in the alert rule being.
+func (o AlertingActionResponseOutput) Trigger() TriggerConditionResponseOutput {
+	return o.ApplyT(func(v AlertingActionResponse) TriggerConditionResponse { return v.Trigger }).(TriggerConditionResponseOutput)
+}
+
+// Azure action group
+type AzNsActionGroup struct {
+	// Azure Action Group reference.
+	ActionGroup []string `pulumi:"actionGroup"`
+	// Custom payload to be sent for all webhook URI in Azure action group
+	CustomWebhookPayload *string `pulumi:"customWebhookPayload"`
+	// Custom subject override for all email ids in Azure action group
+	EmailSubject *string `pulumi:"emailSubject"`
+}
+
+// AzNsActionGroupInput is an input type that accepts AzNsActionGroupArgs and AzNsActionGroupOutput values.
+// You can construct a concrete instance of `AzNsActionGroupInput` via:
+//
+//          AzNsActionGroupArgs{...}
+type AzNsActionGroupInput interface {
+	pulumi.Input
+
+	ToAzNsActionGroupOutput() AzNsActionGroupOutput
+	ToAzNsActionGroupOutputWithContext(context.Context) AzNsActionGroupOutput
+}
+
+// Azure action group
+type AzNsActionGroupArgs struct {
+	// Azure Action Group reference.
+	ActionGroup pulumi.StringArrayInput `pulumi:"actionGroup"`
+	// Custom payload to be sent for all webhook URI in Azure action group
+	CustomWebhookPayload pulumi.StringPtrInput `pulumi:"customWebhookPayload"`
+	// Custom subject override for all email ids in Azure action group
+	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
+}
+
+func (AzNsActionGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzNsActionGroup)(nil)).Elem()
+}
+
+func (i AzNsActionGroupArgs) ToAzNsActionGroupOutput() AzNsActionGroupOutput {
+	return i.ToAzNsActionGroupOutputWithContext(context.Background())
+}
+
+func (i AzNsActionGroupArgs) ToAzNsActionGroupOutputWithContext(ctx context.Context) AzNsActionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzNsActionGroupOutput)
+}
+
+func (i AzNsActionGroupArgs) ToAzNsActionGroupPtrOutput() AzNsActionGroupPtrOutput {
+	return i.ToAzNsActionGroupPtrOutputWithContext(context.Background())
+}
+
+func (i AzNsActionGroupArgs) ToAzNsActionGroupPtrOutputWithContext(ctx context.Context) AzNsActionGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzNsActionGroupOutput).ToAzNsActionGroupPtrOutputWithContext(ctx)
+}
+
+// AzNsActionGroupPtrInput is an input type that accepts AzNsActionGroupArgs, AzNsActionGroupPtr and AzNsActionGroupPtrOutput values.
+// You can construct a concrete instance of `AzNsActionGroupPtrInput` via:
+//
+//          AzNsActionGroupArgs{...}
 //
 //  or:
 //
 //          nil
-type ActionPtrInput interface {
+type AzNsActionGroupPtrInput interface {
 	pulumi.Input
 
-	ToActionPtrOutput() ActionPtrOutput
-	ToActionPtrOutputWithContext(context.Context) ActionPtrOutput
+	ToAzNsActionGroupPtrOutput() AzNsActionGroupPtrOutput
+	ToAzNsActionGroupPtrOutputWithContext(context.Context) AzNsActionGroupPtrOutput
 }
 
-type actionPtrType ActionArgs
+type azNsActionGroupPtrType AzNsActionGroupArgs
 
-func ActionPtr(v *ActionArgs) ActionPtrInput {
-	return (*actionPtrType)(v)
+func AzNsActionGroupPtr(v *AzNsActionGroupArgs) AzNsActionGroupPtrInput {
+	return (*azNsActionGroupPtrType)(v)
 }
 
-func (*actionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Action)(nil)).Elem()
+func (*azNsActionGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzNsActionGroup)(nil)).Elem()
 }
 
-func (i *actionPtrType) ToActionPtrOutput() ActionPtrOutput {
-	return i.ToActionPtrOutputWithContext(context.Background())
+func (i *azNsActionGroupPtrType) ToAzNsActionGroupPtrOutput() AzNsActionGroupPtrOutput {
+	return i.ToAzNsActionGroupPtrOutputWithContext(context.Background())
 }
 
-func (i *actionPtrType) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionPtrOutput)
+func (i *azNsActionGroupPtrType) ToAzNsActionGroupPtrOutputWithContext(ctx context.Context) AzNsActionGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzNsActionGroupPtrOutput)
 }
 
-// Action descriptor.
-type ActionOutput struct{ *pulumi.OutputState }
+// Azure action group
+type AzNsActionGroupOutput struct{ *pulumi.OutputState }
 
-func (ActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil)).Elem()
+func (AzNsActionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzNsActionGroup)(nil)).Elem()
 }
 
-func (o ActionOutput) ToActionOutput() ActionOutput {
+func (o AzNsActionGroupOutput) ToAzNsActionGroupOutput() AzNsActionGroupOutput {
 	return o
 }
 
-func (o ActionOutput) ToActionOutputWithContext(ctx context.Context) ActionOutput {
+func (o AzNsActionGroupOutput) ToAzNsActionGroupOutputWithContext(ctx context.Context) AzNsActionGroupOutput {
 	return o
 }
 
-func (o ActionOutput) ToActionPtrOutput() ActionPtrOutput {
-	return o.ToActionPtrOutputWithContext(context.Background())
+func (o AzNsActionGroupOutput) ToAzNsActionGroupPtrOutput() AzNsActionGroupPtrOutput {
+	return o.ToAzNsActionGroupPtrOutputWithContext(context.Background())
 }
 
-func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return o.ApplyT(func(v Action) *Action {
+func (o AzNsActionGroupOutput) ToAzNsActionGroupPtrOutputWithContext(ctx context.Context) AzNsActionGroupPtrOutput {
+	return o.ApplyT(func(v AzNsActionGroup) *AzNsActionGroup {
 		return &v
-	}).(ActionPtrOutput)
+	}).(AzNsActionGroupPtrOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-func (o ActionOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v Action) string { return v.OdataType }).(pulumi.StringOutput)
+// Azure Action Group reference.
+func (o AzNsActionGroupOutput) ActionGroup() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzNsActionGroup) []string { return v.ActionGroup }).(pulumi.StringArrayOutput)
 }
 
-type ActionPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Action)(nil)).Elem()
+// Custom payload to be sent for all webhook URI in Azure action group
+func (o AzNsActionGroupOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzNsActionGroup) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
 }
 
-func (o ActionPtrOutput) ToActionPtrOutput() ActionPtrOutput {
+// Custom subject override for all email ids in Azure action group
+func (o AzNsActionGroupOutput) EmailSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzNsActionGroup) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
+}
+
+type AzNsActionGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (AzNsActionGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzNsActionGroup)(nil)).Elem()
+}
+
+func (o AzNsActionGroupPtrOutput) ToAzNsActionGroupPtrOutput() AzNsActionGroupPtrOutput {
 	return o
 }
 
-func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+func (o AzNsActionGroupPtrOutput) ToAzNsActionGroupPtrOutputWithContext(ctx context.Context) AzNsActionGroupPtrOutput {
 	return o
 }
 
-func (o ActionPtrOutput) Elem() ActionOutput {
-	return o.ApplyT(func(v *Action) Action { return *v }).(ActionOutput)
+func (o AzNsActionGroupPtrOutput) Elem() AzNsActionGroupOutput {
+	return o.ApplyT(func(v *AzNsActionGroup) AzNsActionGroup { return *v }).(AzNsActionGroupOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-func (o ActionPtrOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Action) *string {
+// Azure Action Group reference.
+func (o AzNsActionGroupPtrOutput) ActionGroup() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzNsActionGroup) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.OdataType
+		return v.ActionGroup
+	}).(pulumi.StringArrayOutput)
+}
+
+// Custom payload to be sent for all webhook URI in Azure action group
+func (o AzNsActionGroupPtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzNsActionGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomWebhookPayload
 	}).(pulumi.StringPtrOutput)
 }
 
-// Action descriptor.
-type ActionResponse struct {
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	OdataType string `pulumi:"odataType"`
+// Custom subject override for all email ids in Azure action group
+func (o AzNsActionGroupPtrOutput) EmailSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzNsActionGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailSubject
+	}).(pulumi.StringPtrOutput)
 }
 
-// ActionResponseInput is an input type that accepts ActionResponseArgs and ActionResponseOutput values.
-// You can construct a concrete instance of `ActionResponseInput` via:
+// Azure action group
+type AzNsActionGroupResponse struct {
+	// Azure Action Group reference.
+	ActionGroup []string `pulumi:"actionGroup"`
+	// Custom payload to be sent for all webhook URI in Azure action group
+	CustomWebhookPayload *string `pulumi:"customWebhookPayload"`
+	// Custom subject override for all email ids in Azure action group
+	EmailSubject *string `pulumi:"emailSubject"`
+}
+
+// AzNsActionGroupResponseInput is an input type that accepts AzNsActionGroupResponseArgs and AzNsActionGroupResponseOutput values.
+// You can construct a concrete instance of `AzNsActionGroupResponseInput` via:
 //
-//          ActionResponseArgs{...}
-type ActionResponseInput interface {
+//          AzNsActionGroupResponseArgs{...}
+type AzNsActionGroupResponseInput interface {
 	pulumi.Input
 
-	ToActionResponseOutput() ActionResponseOutput
-	ToActionResponseOutputWithContext(context.Context) ActionResponseOutput
+	ToAzNsActionGroupResponseOutput() AzNsActionGroupResponseOutput
+	ToAzNsActionGroupResponseOutputWithContext(context.Context) AzNsActionGroupResponseOutput
 }
 
-// Action descriptor.
-type ActionResponseArgs struct {
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+// Azure action group
+type AzNsActionGroupResponseArgs struct {
+	// Azure Action Group reference.
+	ActionGroup pulumi.StringArrayInput `pulumi:"actionGroup"`
+	// Custom payload to be sent for all webhook URI in Azure action group
+	CustomWebhookPayload pulumi.StringPtrInput `pulumi:"customWebhookPayload"`
+	// Custom subject override for all email ids in Azure action group
+	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
 }
 
-func (ActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionResponse)(nil)).Elem()
+func (AzNsActionGroupResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzNsActionGroupResponse)(nil)).Elem()
 }
 
-func (i ActionResponseArgs) ToActionResponseOutput() ActionResponseOutput {
-	return i.ToActionResponseOutputWithContext(context.Background())
+func (i AzNsActionGroupResponseArgs) ToAzNsActionGroupResponseOutput() AzNsActionGroupResponseOutput {
+	return i.ToAzNsActionGroupResponseOutputWithContext(context.Background())
 }
 
-func (i ActionResponseArgs) ToActionResponseOutputWithContext(ctx context.Context) ActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseOutput)
+func (i AzNsActionGroupResponseArgs) ToAzNsActionGroupResponseOutputWithContext(ctx context.Context) AzNsActionGroupResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzNsActionGroupResponseOutput)
 }
 
-func (i ActionResponseArgs) ToActionResponsePtrOutput() ActionResponsePtrOutput {
-	return i.ToActionResponsePtrOutputWithContext(context.Background())
+func (i AzNsActionGroupResponseArgs) ToAzNsActionGroupResponsePtrOutput() AzNsActionGroupResponsePtrOutput {
+	return i.ToAzNsActionGroupResponsePtrOutputWithContext(context.Background())
 }
 
-func (i ActionResponseArgs) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseOutput).ToActionResponsePtrOutputWithContext(ctx)
+func (i AzNsActionGroupResponseArgs) ToAzNsActionGroupResponsePtrOutputWithContext(ctx context.Context) AzNsActionGroupResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzNsActionGroupResponseOutput).ToAzNsActionGroupResponsePtrOutputWithContext(ctx)
 }
 
-// ActionResponsePtrInput is an input type that accepts ActionResponseArgs, ActionResponsePtr and ActionResponsePtrOutput values.
-// You can construct a concrete instance of `ActionResponsePtrInput` via:
+// AzNsActionGroupResponsePtrInput is an input type that accepts AzNsActionGroupResponseArgs, AzNsActionGroupResponsePtr and AzNsActionGroupResponsePtrOutput values.
+// You can construct a concrete instance of `AzNsActionGroupResponsePtrInput` via:
 //
-//          ActionResponseArgs{...}
+//          AzNsActionGroupResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type ActionResponsePtrInput interface {
+type AzNsActionGroupResponsePtrInput interface {
 	pulumi.Input
 
-	ToActionResponsePtrOutput() ActionResponsePtrOutput
-	ToActionResponsePtrOutputWithContext(context.Context) ActionResponsePtrOutput
+	ToAzNsActionGroupResponsePtrOutput() AzNsActionGroupResponsePtrOutput
+	ToAzNsActionGroupResponsePtrOutputWithContext(context.Context) AzNsActionGroupResponsePtrOutput
 }
 
-type actionResponsePtrType ActionResponseArgs
+type azNsActionGroupResponsePtrType AzNsActionGroupResponseArgs
 
-func ActionResponsePtr(v *ActionResponseArgs) ActionResponsePtrInput {
-	return (*actionResponsePtrType)(v)
+func AzNsActionGroupResponsePtr(v *AzNsActionGroupResponseArgs) AzNsActionGroupResponsePtrInput {
+	return (*azNsActionGroupResponsePtrType)(v)
 }
 
-func (*actionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionResponse)(nil)).Elem()
+func (*azNsActionGroupResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzNsActionGroupResponse)(nil)).Elem()
 }
 
-func (i *actionResponsePtrType) ToActionResponsePtrOutput() ActionResponsePtrOutput {
-	return i.ToActionResponsePtrOutputWithContext(context.Background())
+func (i *azNsActionGroupResponsePtrType) ToAzNsActionGroupResponsePtrOutput() AzNsActionGroupResponsePtrOutput {
+	return i.ToAzNsActionGroupResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *actionResponsePtrType) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionResponsePtrOutput)
+func (i *azNsActionGroupResponsePtrType) ToAzNsActionGroupResponsePtrOutputWithContext(ctx context.Context) AzNsActionGroupResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzNsActionGroupResponsePtrOutput)
 }
 
-// Action descriptor.
-type ActionResponseOutput struct{ *pulumi.OutputState }
+// Azure action group
+type AzNsActionGroupResponseOutput struct{ *pulumi.OutputState }
 
-func (ActionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionResponse)(nil)).Elem()
+func (AzNsActionGroupResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzNsActionGroupResponse)(nil)).Elem()
 }
 
-func (o ActionResponseOutput) ToActionResponseOutput() ActionResponseOutput {
+func (o AzNsActionGroupResponseOutput) ToAzNsActionGroupResponseOutput() AzNsActionGroupResponseOutput {
 	return o
 }
 
-func (o ActionResponseOutput) ToActionResponseOutputWithContext(ctx context.Context) ActionResponseOutput {
+func (o AzNsActionGroupResponseOutput) ToAzNsActionGroupResponseOutputWithContext(ctx context.Context) AzNsActionGroupResponseOutput {
 	return o
 }
 
-func (o ActionResponseOutput) ToActionResponsePtrOutput() ActionResponsePtrOutput {
-	return o.ToActionResponsePtrOutputWithContext(context.Background())
+func (o AzNsActionGroupResponseOutput) ToAzNsActionGroupResponsePtrOutput() AzNsActionGroupResponsePtrOutput {
+	return o.ToAzNsActionGroupResponsePtrOutputWithContext(context.Background())
 }
 
-func (o ActionResponseOutput) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
-	return o.ApplyT(func(v ActionResponse) *ActionResponse {
+func (o AzNsActionGroupResponseOutput) ToAzNsActionGroupResponsePtrOutputWithContext(ctx context.Context) AzNsActionGroupResponsePtrOutput {
+	return o.ApplyT(func(v AzNsActionGroupResponse) *AzNsActionGroupResponse {
 		return &v
-	}).(ActionResponsePtrOutput)
+	}).(AzNsActionGroupResponsePtrOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-func (o ActionResponseOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v ActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
+// Azure Action Group reference.
+func (o AzNsActionGroupResponseOutput) ActionGroup() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzNsActionGroupResponse) []string { return v.ActionGroup }).(pulumi.StringArrayOutput)
 }
 
-type ActionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ActionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionResponse)(nil)).Elem()
+// Custom payload to be sent for all webhook URI in Azure action group
+func (o AzNsActionGroupResponseOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzNsActionGroupResponse) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
 }
 
-func (o ActionResponsePtrOutput) ToActionResponsePtrOutput() ActionResponsePtrOutput {
+// Custom subject override for all email ids in Azure action group
+func (o AzNsActionGroupResponseOutput) EmailSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzNsActionGroupResponse) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
+}
+
+type AzNsActionGroupResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzNsActionGroupResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzNsActionGroupResponse)(nil)).Elem()
+}
+
+func (o AzNsActionGroupResponsePtrOutput) ToAzNsActionGroupResponsePtrOutput() AzNsActionGroupResponsePtrOutput {
 	return o
 }
 
-func (o ActionResponsePtrOutput) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
+func (o AzNsActionGroupResponsePtrOutput) ToAzNsActionGroupResponsePtrOutputWithContext(ctx context.Context) AzNsActionGroupResponsePtrOutput {
 	return o
 }
 
-func (o ActionResponsePtrOutput) Elem() ActionResponseOutput {
-	return o.ApplyT(func(v *ActionResponse) ActionResponse { return *v }).(ActionResponseOutput)
+func (o AzNsActionGroupResponsePtrOutput) Elem() AzNsActionGroupResponseOutput {
+	return o.ApplyT(func(v *AzNsActionGroupResponse) AzNsActionGroupResponse { return *v }).(AzNsActionGroupResponseOutput)
 }
 
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-func (o ActionResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionResponse) *string {
+// Azure Action Group reference.
+func (o AzNsActionGroupResponsePtrOutput) ActionGroup() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzNsActionGroupResponse) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.OdataType
+		return v.ActionGroup
+	}).(pulumi.StringArrayOutput)
+}
+
+// Custom payload to be sent for all webhook URI in Azure action group
+func (o AzNsActionGroupResponsePtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzNsActionGroupResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomWebhookPayload
 	}).(pulumi.StringPtrOutput)
+}
+
+// Custom subject override for all email ids in Azure action group
+func (o AzNsActionGroupResponsePtrOutput) EmailSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzNsActionGroupResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailSubject
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the criteria for converting log to metric.
+type Criteria struct {
+	// List of Dimensions for creating metric
+	Dimensions []Dimension `pulumi:"dimensions"`
+	// Name of the metric
+	MetricName string `pulumi:"metricName"`
+}
+
+// CriteriaInput is an input type that accepts CriteriaArgs and CriteriaOutput values.
+// You can construct a concrete instance of `CriteriaInput` via:
+//
+//          CriteriaArgs{...}
+type CriteriaInput interface {
+	pulumi.Input
+
+	ToCriteriaOutput() CriteriaOutput
+	ToCriteriaOutputWithContext(context.Context) CriteriaOutput
+}
+
+// Specifies the criteria for converting log to metric.
+type CriteriaArgs struct {
+	// List of Dimensions for creating metric
+	Dimensions DimensionArrayInput `pulumi:"dimensions"`
+	// Name of the metric
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+}
+
+func (CriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Criteria)(nil)).Elem()
+}
+
+func (i CriteriaArgs) ToCriteriaOutput() CriteriaOutput {
+	return i.ToCriteriaOutputWithContext(context.Background())
+}
+
+func (i CriteriaArgs) ToCriteriaOutputWithContext(ctx context.Context) CriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CriteriaOutput)
+}
+
+// CriteriaArrayInput is an input type that accepts CriteriaArray and CriteriaArrayOutput values.
+// You can construct a concrete instance of `CriteriaArrayInput` via:
+//
+//          CriteriaArray{ CriteriaArgs{...} }
+type CriteriaArrayInput interface {
+	pulumi.Input
+
+	ToCriteriaArrayOutput() CriteriaArrayOutput
+	ToCriteriaArrayOutputWithContext(context.Context) CriteriaArrayOutput
+}
+
+type CriteriaArray []CriteriaInput
+
+func (CriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Criteria)(nil)).Elem()
+}
+
+func (i CriteriaArray) ToCriteriaArrayOutput() CriteriaArrayOutput {
+	return i.ToCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i CriteriaArray) ToCriteriaArrayOutputWithContext(ctx context.Context) CriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CriteriaArrayOutput)
+}
+
+// Specifies the criteria for converting log to metric.
+type CriteriaOutput struct{ *pulumi.OutputState }
+
+func (CriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Criteria)(nil)).Elem()
+}
+
+func (o CriteriaOutput) ToCriteriaOutput() CriteriaOutput {
+	return o
+}
+
+func (o CriteriaOutput) ToCriteriaOutputWithContext(ctx context.Context) CriteriaOutput {
+	return o
+}
+
+// List of Dimensions for creating metric
+func (o CriteriaOutput) Dimensions() DimensionArrayOutput {
+	return o.ApplyT(func(v Criteria) []Dimension { return v.Dimensions }).(DimensionArrayOutput)
+}
+
+// Name of the metric
+func (o CriteriaOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v Criteria) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+type CriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (CriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Criteria)(nil)).Elem()
+}
+
+func (o CriteriaArrayOutput) ToCriteriaArrayOutput() CriteriaArrayOutput {
+	return o
+}
+
+func (o CriteriaArrayOutput) ToCriteriaArrayOutputWithContext(ctx context.Context) CriteriaArrayOutput {
+	return o
+}
+
+func (o CriteriaArrayOutput) Index(i pulumi.IntInput) CriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Criteria {
+		return vs[0].([]Criteria)[vs[1].(int)]
+	}).(CriteriaOutput)
+}
+
+// Specifies the criteria for converting log to metric.
+type CriteriaResponse struct {
+	// List of Dimensions for creating metric
+	Dimensions []DimensionResponse `pulumi:"dimensions"`
+	// Name of the metric
+	MetricName string `pulumi:"metricName"`
+}
+
+// CriteriaResponseInput is an input type that accepts CriteriaResponseArgs and CriteriaResponseOutput values.
+// You can construct a concrete instance of `CriteriaResponseInput` via:
+//
+//          CriteriaResponseArgs{...}
+type CriteriaResponseInput interface {
+	pulumi.Input
+
+	ToCriteriaResponseOutput() CriteriaResponseOutput
+	ToCriteriaResponseOutputWithContext(context.Context) CriteriaResponseOutput
+}
+
+// Specifies the criteria for converting log to metric.
+type CriteriaResponseArgs struct {
+	// List of Dimensions for creating metric
+	Dimensions DimensionResponseArrayInput `pulumi:"dimensions"`
+	// Name of the metric
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+}
+
+func (CriteriaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CriteriaResponse)(nil)).Elem()
+}
+
+func (i CriteriaResponseArgs) ToCriteriaResponseOutput() CriteriaResponseOutput {
+	return i.ToCriteriaResponseOutputWithContext(context.Background())
+}
+
+func (i CriteriaResponseArgs) ToCriteriaResponseOutputWithContext(ctx context.Context) CriteriaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CriteriaResponseOutput)
+}
+
+// CriteriaResponseArrayInput is an input type that accepts CriteriaResponseArray and CriteriaResponseArrayOutput values.
+// You can construct a concrete instance of `CriteriaResponseArrayInput` via:
+//
+//          CriteriaResponseArray{ CriteriaResponseArgs{...} }
+type CriteriaResponseArrayInput interface {
+	pulumi.Input
+
+	ToCriteriaResponseArrayOutput() CriteriaResponseArrayOutput
+	ToCriteriaResponseArrayOutputWithContext(context.Context) CriteriaResponseArrayOutput
+}
+
+type CriteriaResponseArray []CriteriaResponseInput
+
+func (CriteriaResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CriteriaResponse)(nil)).Elem()
+}
+
+func (i CriteriaResponseArray) ToCriteriaResponseArrayOutput() CriteriaResponseArrayOutput {
+	return i.ToCriteriaResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CriteriaResponseArray) ToCriteriaResponseArrayOutputWithContext(ctx context.Context) CriteriaResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CriteriaResponseArrayOutput)
+}
+
+// Specifies the criteria for converting log to metric.
+type CriteriaResponseOutput struct{ *pulumi.OutputState }
+
+func (CriteriaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CriteriaResponse)(nil)).Elem()
+}
+
+func (o CriteriaResponseOutput) ToCriteriaResponseOutput() CriteriaResponseOutput {
+	return o
+}
+
+func (o CriteriaResponseOutput) ToCriteriaResponseOutputWithContext(ctx context.Context) CriteriaResponseOutput {
+	return o
+}
+
+// List of Dimensions for creating metric
+func (o CriteriaResponseOutput) Dimensions() DimensionResponseArrayOutput {
+	return o.ApplyT(func(v CriteriaResponse) []DimensionResponse { return v.Dimensions }).(DimensionResponseArrayOutput)
+}
+
+// Name of the metric
+func (o CriteriaResponseOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v CriteriaResponse) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+type CriteriaResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CriteriaResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CriteriaResponse)(nil)).Elem()
+}
+
+func (o CriteriaResponseArrayOutput) ToCriteriaResponseArrayOutput() CriteriaResponseArrayOutput {
+	return o
+}
+
+func (o CriteriaResponseArrayOutput) ToCriteriaResponseArrayOutputWithContext(ctx context.Context) CriteriaResponseArrayOutput {
+	return o
+}
+
+func (o CriteriaResponseArrayOutput) Index(i pulumi.IntInput) CriteriaResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CriteriaResponse {
+		return vs[0].([]CriteriaResponse)[vs[1].(int)]
+	}).(CriteriaResponseOutput)
+}
+
+// Specifies the criteria for converting log to metric.
+type Dimension struct {
+	// Name of the dimension
+	Name string `pulumi:"name"`
+	// Operator for dimension values
+	Operator string `pulumi:"operator"`
+	// List of dimension values
+	Values []string `pulumi:"values"`
+}
+
+// DimensionInput is an input type that accepts DimensionArgs and DimensionOutput values.
+// You can construct a concrete instance of `DimensionInput` via:
+//
+//          DimensionArgs{...}
+type DimensionInput interface {
+	pulumi.Input
+
+	ToDimensionOutput() DimensionOutput
+	ToDimensionOutputWithContext(context.Context) DimensionOutput
+}
+
+// Specifies the criteria for converting log to metric.
+type DimensionArgs struct {
+	// Name of the dimension
+	Name pulumi.StringInput `pulumi:"name"`
+	// Operator for dimension values
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of dimension values
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (DimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Dimension)(nil)).Elem()
+}
+
+func (i DimensionArgs) ToDimensionOutput() DimensionOutput {
+	return i.ToDimensionOutputWithContext(context.Background())
+}
+
+func (i DimensionArgs) ToDimensionOutputWithContext(ctx context.Context) DimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DimensionOutput)
+}
+
+// DimensionArrayInput is an input type that accepts DimensionArray and DimensionArrayOutput values.
+// You can construct a concrete instance of `DimensionArrayInput` via:
+//
+//          DimensionArray{ DimensionArgs{...} }
+type DimensionArrayInput interface {
+	pulumi.Input
+
+	ToDimensionArrayOutput() DimensionArrayOutput
+	ToDimensionArrayOutputWithContext(context.Context) DimensionArrayOutput
+}
+
+type DimensionArray []DimensionInput
+
+func (DimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Dimension)(nil)).Elem()
+}
+
+func (i DimensionArray) ToDimensionArrayOutput() DimensionArrayOutput {
+	return i.ToDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i DimensionArray) ToDimensionArrayOutputWithContext(ctx context.Context) DimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DimensionArrayOutput)
+}
+
+// Specifies the criteria for converting log to metric.
+type DimensionOutput struct{ *pulumi.OutputState }
+
+func (DimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Dimension)(nil)).Elem()
+}
+
+func (o DimensionOutput) ToDimensionOutput() DimensionOutput {
+	return o
+}
+
+func (o DimensionOutput) ToDimensionOutputWithContext(ctx context.Context) DimensionOutput {
+	return o
+}
+
+// Name of the dimension
+func (o DimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Dimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operator for dimension values
+func (o DimensionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v Dimension) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of dimension values
+func (o DimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Dimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type DimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (DimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Dimension)(nil)).Elem()
+}
+
+func (o DimensionArrayOutput) ToDimensionArrayOutput() DimensionArrayOutput {
+	return o
+}
+
+func (o DimensionArrayOutput) ToDimensionArrayOutputWithContext(ctx context.Context) DimensionArrayOutput {
+	return o
+}
+
+func (o DimensionArrayOutput) Index(i pulumi.IntInput) DimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Dimension {
+		return vs[0].([]Dimension)[vs[1].(int)]
+	}).(DimensionOutput)
+}
+
+// Specifies the criteria for converting log to metric.
+type DimensionResponse struct {
+	// Name of the dimension
+	Name string `pulumi:"name"`
+	// Operator for dimension values
+	Operator string `pulumi:"operator"`
+	// List of dimension values
+	Values []string `pulumi:"values"`
+}
+
+// DimensionResponseInput is an input type that accepts DimensionResponseArgs and DimensionResponseOutput values.
+// You can construct a concrete instance of `DimensionResponseInput` via:
+//
+//          DimensionResponseArgs{...}
+type DimensionResponseInput interface {
+	pulumi.Input
+
+	ToDimensionResponseOutput() DimensionResponseOutput
+	ToDimensionResponseOutputWithContext(context.Context) DimensionResponseOutput
+}
+
+// Specifies the criteria for converting log to metric.
+type DimensionResponseArgs struct {
+	// Name of the dimension
+	Name pulumi.StringInput `pulumi:"name"`
+	// Operator for dimension values
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of dimension values
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (DimensionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DimensionResponse)(nil)).Elem()
+}
+
+func (i DimensionResponseArgs) ToDimensionResponseOutput() DimensionResponseOutput {
+	return i.ToDimensionResponseOutputWithContext(context.Background())
+}
+
+func (i DimensionResponseArgs) ToDimensionResponseOutputWithContext(ctx context.Context) DimensionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DimensionResponseOutput)
+}
+
+// DimensionResponseArrayInput is an input type that accepts DimensionResponseArray and DimensionResponseArrayOutput values.
+// You can construct a concrete instance of `DimensionResponseArrayInput` via:
+//
+//          DimensionResponseArray{ DimensionResponseArgs{...} }
+type DimensionResponseArrayInput interface {
+	pulumi.Input
+
+	ToDimensionResponseArrayOutput() DimensionResponseArrayOutput
+	ToDimensionResponseArrayOutputWithContext(context.Context) DimensionResponseArrayOutput
+}
+
+type DimensionResponseArray []DimensionResponseInput
+
+func (DimensionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DimensionResponse)(nil)).Elem()
+}
+
+func (i DimensionResponseArray) ToDimensionResponseArrayOutput() DimensionResponseArrayOutput {
+	return i.ToDimensionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DimensionResponseArray) ToDimensionResponseArrayOutputWithContext(ctx context.Context) DimensionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DimensionResponseArrayOutput)
+}
+
+// Specifies the criteria for converting log to metric.
+type DimensionResponseOutput struct{ *pulumi.OutputState }
+
+func (DimensionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DimensionResponse)(nil)).Elem()
+}
+
+func (o DimensionResponseOutput) ToDimensionResponseOutput() DimensionResponseOutput {
+	return o
+}
+
+func (o DimensionResponseOutput) ToDimensionResponseOutputWithContext(ctx context.Context) DimensionResponseOutput {
+	return o
+}
+
+// Name of the dimension
+func (o DimensionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DimensionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operator for dimension values
+func (o DimensionResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v DimensionResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of dimension values
+func (o DimensionResponseOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DimensionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type DimensionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DimensionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DimensionResponse)(nil)).Elem()
+}
+
+func (o DimensionResponseArrayOutput) ToDimensionResponseArrayOutput() DimensionResponseArrayOutput {
+	return o
+}
+
+func (o DimensionResponseArrayOutput) ToDimensionResponseArrayOutputWithContext(ctx context.Context) DimensionResponseArrayOutput {
+	return o
+}
+
+func (o DimensionResponseArrayOutput) Index(i pulumi.IntInput) DimensionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DimensionResponse {
+		return vs[0].([]DimensionResponse)[vs[1].(int)]
+	}).(DimensionResponseOutput)
+}
+
+// A log metrics trigger descriptor.
+type LogMetricTrigger struct {
+	// Evaluation of metric on a particular column
+	MetricColumn *string `pulumi:"metricColumn"`
+	// Metric Trigger Type - 'Consecutive' or 'Total'
+	MetricTriggerType *string `pulumi:"metricTriggerType"`
+	// The threshold of the metric trigger.
+	Threshold *float64 `pulumi:"threshold"`
+	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+	ThresholdOperator *string `pulumi:"thresholdOperator"`
+}
+
+// LogMetricTriggerInput is an input type that accepts LogMetricTriggerArgs and LogMetricTriggerOutput values.
+// You can construct a concrete instance of `LogMetricTriggerInput` via:
+//
+//          LogMetricTriggerArgs{...}
+type LogMetricTriggerInput interface {
+	pulumi.Input
+
+	ToLogMetricTriggerOutput() LogMetricTriggerOutput
+	ToLogMetricTriggerOutputWithContext(context.Context) LogMetricTriggerOutput
+}
+
+// A log metrics trigger descriptor.
+type LogMetricTriggerArgs struct {
+	// Evaluation of metric on a particular column
+	MetricColumn pulumi.StringPtrInput `pulumi:"metricColumn"`
+	// Metric Trigger Type - 'Consecutive' or 'Total'
+	MetricTriggerType pulumi.StringPtrInput `pulumi:"metricTriggerType"`
+	// The threshold of the metric trigger.
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
+	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+	ThresholdOperator pulumi.StringPtrInput `pulumi:"thresholdOperator"`
+}
+
+func (LogMetricTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogMetricTrigger)(nil)).Elem()
+}
+
+func (i LogMetricTriggerArgs) ToLogMetricTriggerOutput() LogMetricTriggerOutput {
+	return i.ToLogMetricTriggerOutputWithContext(context.Background())
+}
+
+func (i LogMetricTriggerArgs) ToLogMetricTriggerOutputWithContext(ctx context.Context) LogMetricTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogMetricTriggerOutput)
+}
+
+func (i LogMetricTriggerArgs) ToLogMetricTriggerPtrOutput() LogMetricTriggerPtrOutput {
+	return i.ToLogMetricTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i LogMetricTriggerArgs) ToLogMetricTriggerPtrOutputWithContext(ctx context.Context) LogMetricTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogMetricTriggerOutput).ToLogMetricTriggerPtrOutputWithContext(ctx)
+}
+
+// LogMetricTriggerPtrInput is an input type that accepts LogMetricTriggerArgs, LogMetricTriggerPtr and LogMetricTriggerPtrOutput values.
+// You can construct a concrete instance of `LogMetricTriggerPtrInput` via:
+//
+//          LogMetricTriggerArgs{...}
+//
+//  or:
+//
+//          nil
+type LogMetricTriggerPtrInput interface {
+	pulumi.Input
+
+	ToLogMetricTriggerPtrOutput() LogMetricTriggerPtrOutput
+	ToLogMetricTriggerPtrOutputWithContext(context.Context) LogMetricTriggerPtrOutput
+}
+
+type logMetricTriggerPtrType LogMetricTriggerArgs
+
+func LogMetricTriggerPtr(v *LogMetricTriggerArgs) LogMetricTriggerPtrInput {
+	return (*logMetricTriggerPtrType)(v)
+}
+
+func (*logMetricTriggerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogMetricTrigger)(nil)).Elem()
+}
+
+func (i *logMetricTriggerPtrType) ToLogMetricTriggerPtrOutput() LogMetricTriggerPtrOutput {
+	return i.ToLogMetricTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i *logMetricTriggerPtrType) ToLogMetricTriggerPtrOutputWithContext(ctx context.Context) LogMetricTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogMetricTriggerPtrOutput)
+}
+
+// A log metrics trigger descriptor.
+type LogMetricTriggerOutput struct{ *pulumi.OutputState }
+
+func (LogMetricTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogMetricTrigger)(nil)).Elem()
+}
+
+func (o LogMetricTriggerOutput) ToLogMetricTriggerOutput() LogMetricTriggerOutput {
+	return o
+}
+
+func (o LogMetricTriggerOutput) ToLogMetricTriggerOutputWithContext(ctx context.Context) LogMetricTriggerOutput {
+	return o
+}
+
+func (o LogMetricTriggerOutput) ToLogMetricTriggerPtrOutput() LogMetricTriggerPtrOutput {
+	return o.ToLogMetricTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o LogMetricTriggerOutput) ToLogMetricTriggerPtrOutputWithContext(ctx context.Context) LogMetricTriggerPtrOutput {
+	return o.ApplyT(func(v LogMetricTrigger) *LogMetricTrigger {
+		return &v
+	}).(LogMetricTriggerPtrOutput)
+}
+
+// Evaluation of metric on a particular column
+func (o LogMetricTriggerOutput) MetricColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogMetricTrigger) *string { return v.MetricColumn }).(pulumi.StringPtrOutput)
+}
+
+// Metric Trigger Type - 'Consecutive' or 'Total'
+func (o LogMetricTriggerOutput) MetricTriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogMetricTrigger) *string { return v.MetricTriggerType }).(pulumi.StringPtrOutput)
+}
+
+// The threshold of the metric trigger.
+func (o LogMetricTriggerOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LogMetricTrigger) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+func (o LogMetricTriggerOutput) ThresholdOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogMetricTrigger) *string { return v.ThresholdOperator }).(pulumi.StringPtrOutput)
+}
+
+type LogMetricTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (LogMetricTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogMetricTrigger)(nil)).Elem()
+}
+
+func (o LogMetricTriggerPtrOutput) ToLogMetricTriggerPtrOutput() LogMetricTriggerPtrOutput {
+	return o
+}
+
+func (o LogMetricTriggerPtrOutput) ToLogMetricTriggerPtrOutputWithContext(ctx context.Context) LogMetricTriggerPtrOutput {
+	return o
+}
+
+func (o LogMetricTriggerPtrOutput) Elem() LogMetricTriggerOutput {
+	return o.ApplyT(func(v *LogMetricTrigger) LogMetricTrigger { return *v }).(LogMetricTriggerOutput)
+}
+
+// Evaluation of metric on a particular column
+func (o LogMetricTriggerPtrOutput) MetricColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogMetricTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricColumn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metric Trigger Type - 'Consecutive' or 'Total'
+func (o LogMetricTriggerPtrOutput) MetricTriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogMetricTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricTriggerType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The threshold of the metric trigger.
+func (o LogMetricTriggerPtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LogMetricTrigger) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Threshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+func (o LogMetricTriggerPtrOutput) ThresholdOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogMetricTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdOperator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A log metrics trigger descriptor.
+type LogMetricTriggerResponse struct {
+	// Evaluation of metric on a particular column
+	MetricColumn *string `pulumi:"metricColumn"`
+	// Metric Trigger Type - 'Consecutive' or 'Total'
+	MetricTriggerType *string `pulumi:"metricTriggerType"`
+	// The threshold of the metric trigger.
+	Threshold *float64 `pulumi:"threshold"`
+	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+	ThresholdOperator *string `pulumi:"thresholdOperator"`
+}
+
+// LogMetricTriggerResponseInput is an input type that accepts LogMetricTriggerResponseArgs and LogMetricTriggerResponseOutput values.
+// You can construct a concrete instance of `LogMetricTriggerResponseInput` via:
+//
+//          LogMetricTriggerResponseArgs{...}
+type LogMetricTriggerResponseInput interface {
+	pulumi.Input
+
+	ToLogMetricTriggerResponseOutput() LogMetricTriggerResponseOutput
+	ToLogMetricTriggerResponseOutputWithContext(context.Context) LogMetricTriggerResponseOutput
+}
+
+// A log metrics trigger descriptor.
+type LogMetricTriggerResponseArgs struct {
+	// Evaluation of metric on a particular column
+	MetricColumn pulumi.StringPtrInput `pulumi:"metricColumn"`
+	// Metric Trigger Type - 'Consecutive' or 'Total'
+	MetricTriggerType pulumi.StringPtrInput `pulumi:"metricTriggerType"`
+	// The threshold of the metric trigger.
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
+	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+	ThresholdOperator pulumi.StringPtrInput `pulumi:"thresholdOperator"`
+}
+
+func (LogMetricTriggerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogMetricTriggerResponse)(nil)).Elem()
+}
+
+func (i LogMetricTriggerResponseArgs) ToLogMetricTriggerResponseOutput() LogMetricTriggerResponseOutput {
+	return i.ToLogMetricTriggerResponseOutputWithContext(context.Background())
+}
+
+func (i LogMetricTriggerResponseArgs) ToLogMetricTriggerResponseOutputWithContext(ctx context.Context) LogMetricTriggerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogMetricTriggerResponseOutput)
+}
+
+func (i LogMetricTriggerResponseArgs) ToLogMetricTriggerResponsePtrOutput() LogMetricTriggerResponsePtrOutput {
+	return i.ToLogMetricTriggerResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LogMetricTriggerResponseArgs) ToLogMetricTriggerResponsePtrOutputWithContext(ctx context.Context) LogMetricTriggerResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogMetricTriggerResponseOutput).ToLogMetricTriggerResponsePtrOutputWithContext(ctx)
+}
+
+// LogMetricTriggerResponsePtrInput is an input type that accepts LogMetricTriggerResponseArgs, LogMetricTriggerResponsePtr and LogMetricTriggerResponsePtrOutput values.
+// You can construct a concrete instance of `LogMetricTriggerResponsePtrInput` via:
+//
+//          LogMetricTriggerResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LogMetricTriggerResponsePtrInput interface {
+	pulumi.Input
+
+	ToLogMetricTriggerResponsePtrOutput() LogMetricTriggerResponsePtrOutput
+	ToLogMetricTriggerResponsePtrOutputWithContext(context.Context) LogMetricTriggerResponsePtrOutput
+}
+
+type logMetricTriggerResponsePtrType LogMetricTriggerResponseArgs
+
+func LogMetricTriggerResponsePtr(v *LogMetricTriggerResponseArgs) LogMetricTriggerResponsePtrInput {
+	return (*logMetricTriggerResponsePtrType)(v)
+}
+
+func (*logMetricTriggerResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogMetricTriggerResponse)(nil)).Elem()
+}
+
+func (i *logMetricTriggerResponsePtrType) ToLogMetricTriggerResponsePtrOutput() LogMetricTriggerResponsePtrOutput {
+	return i.ToLogMetricTriggerResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *logMetricTriggerResponsePtrType) ToLogMetricTriggerResponsePtrOutputWithContext(ctx context.Context) LogMetricTriggerResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogMetricTriggerResponsePtrOutput)
+}
+
+// A log metrics trigger descriptor.
+type LogMetricTriggerResponseOutput struct{ *pulumi.OutputState }
+
+func (LogMetricTriggerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogMetricTriggerResponse)(nil)).Elem()
+}
+
+func (o LogMetricTriggerResponseOutput) ToLogMetricTriggerResponseOutput() LogMetricTriggerResponseOutput {
+	return o
+}
+
+func (o LogMetricTriggerResponseOutput) ToLogMetricTriggerResponseOutputWithContext(ctx context.Context) LogMetricTriggerResponseOutput {
+	return o
+}
+
+func (o LogMetricTriggerResponseOutput) ToLogMetricTriggerResponsePtrOutput() LogMetricTriggerResponsePtrOutput {
+	return o.ToLogMetricTriggerResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LogMetricTriggerResponseOutput) ToLogMetricTriggerResponsePtrOutputWithContext(ctx context.Context) LogMetricTriggerResponsePtrOutput {
+	return o.ApplyT(func(v LogMetricTriggerResponse) *LogMetricTriggerResponse {
+		return &v
+	}).(LogMetricTriggerResponsePtrOutput)
+}
+
+// Evaluation of metric on a particular column
+func (o LogMetricTriggerResponseOutput) MetricColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogMetricTriggerResponse) *string { return v.MetricColumn }).(pulumi.StringPtrOutput)
+}
+
+// Metric Trigger Type - 'Consecutive' or 'Total'
+func (o LogMetricTriggerResponseOutput) MetricTriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogMetricTriggerResponse) *string { return v.MetricTriggerType }).(pulumi.StringPtrOutput)
+}
+
+// The threshold of the metric trigger.
+func (o LogMetricTriggerResponseOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LogMetricTriggerResponse) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+func (o LogMetricTriggerResponseOutput) ThresholdOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogMetricTriggerResponse) *string { return v.ThresholdOperator }).(pulumi.StringPtrOutput)
+}
+
+type LogMetricTriggerResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LogMetricTriggerResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogMetricTriggerResponse)(nil)).Elem()
+}
+
+func (o LogMetricTriggerResponsePtrOutput) ToLogMetricTriggerResponsePtrOutput() LogMetricTriggerResponsePtrOutput {
+	return o
+}
+
+func (o LogMetricTriggerResponsePtrOutput) ToLogMetricTriggerResponsePtrOutputWithContext(ctx context.Context) LogMetricTriggerResponsePtrOutput {
+	return o
+}
+
+func (o LogMetricTriggerResponsePtrOutput) Elem() LogMetricTriggerResponseOutput {
+	return o.ApplyT(func(v *LogMetricTriggerResponse) LogMetricTriggerResponse { return *v }).(LogMetricTriggerResponseOutput)
+}
+
+// Evaluation of metric on a particular column
+func (o LogMetricTriggerResponsePtrOutput) MetricColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogMetricTriggerResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricColumn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metric Trigger Type - 'Consecutive' or 'Total'
+func (o LogMetricTriggerResponsePtrOutput) MetricTriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogMetricTriggerResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricTriggerType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The threshold of the metric trigger.
+func (o LogMetricTriggerResponsePtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LogMetricTriggerResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Threshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+func (o LogMetricTriggerResponsePtrOutput) ThresholdOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogMetricTriggerResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdOperator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify action need to be taken when rule type is converting log to metric
+type LogToMetricAction struct {
+	// Criteria of Metric
+	Criteria []Criteria `pulumi:"criteria"`
+	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	OdataType string `pulumi:"odataType"`
+}
+
+// LogToMetricActionInput is an input type that accepts LogToMetricActionArgs and LogToMetricActionOutput values.
+// You can construct a concrete instance of `LogToMetricActionInput` via:
+//
+//          LogToMetricActionArgs{...}
+type LogToMetricActionInput interface {
+	pulumi.Input
+
+	ToLogToMetricActionOutput() LogToMetricActionOutput
+	ToLogToMetricActionOutputWithContext(context.Context) LogToMetricActionOutput
+}
+
+// Specify action need to be taken when rule type is converting log to metric
+type LogToMetricActionArgs struct {
+	// Criteria of Metric
+	Criteria CriteriaArrayInput `pulumi:"criteria"`
+	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (LogToMetricActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogToMetricAction)(nil)).Elem()
+}
+
+func (i LogToMetricActionArgs) ToLogToMetricActionOutput() LogToMetricActionOutput {
+	return i.ToLogToMetricActionOutputWithContext(context.Background())
+}
+
+func (i LogToMetricActionArgs) ToLogToMetricActionOutputWithContext(ctx context.Context) LogToMetricActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogToMetricActionOutput)
+}
+
+// Specify action need to be taken when rule type is converting log to metric
+type LogToMetricActionOutput struct{ *pulumi.OutputState }
+
+func (LogToMetricActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogToMetricAction)(nil)).Elem()
+}
+
+func (o LogToMetricActionOutput) ToLogToMetricActionOutput() LogToMetricActionOutput {
+	return o
+}
+
+func (o LogToMetricActionOutput) ToLogToMetricActionOutputWithContext(ctx context.Context) LogToMetricActionOutput {
+	return o
+}
+
+// Criteria of Metric
+func (o LogToMetricActionOutput) Criteria() CriteriaArrayOutput {
+	return o.ApplyT(func(v LogToMetricAction) []Criteria { return v.Criteria }).(CriteriaArrayOutput)
+}
+
+// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+func (o LogToMetricActionOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v LogToMetricAction) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Specify action need to be taken when rule type is converting log to metric
+type LogToMetricActionResponse struct {
+	// Criteria of Metric
+	Criteria []CriteriaResponse `pulumi:"criteria"`
+	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	OdataType string `pulumi:"odataType"`
+}
+
+// LogToMetricActionResponseInput is an input type that accepts LogToMetricActionResponseArgs and LogToMetricActionResponseOutput values.
+// You can construct a concrete instance of `LogToMetricActionResponseInput` via:
+//
+//          LogToMetricActionResponseArgs{...}
+type LogToMetricActionResponseInput interface {
+	pulumi.Input
+
+	ToLogToMetricActionResponseOutput() LogToMetricActionResponseOutput
+	ToLogToMetricActionResponseOutputWithContext(context.Context) LogToMetricActionResponseOutput
+}
+
+// Specify action need to be taken when rule type is converting log to metric
+type LogToMetricActionResponseArgs struct {
+	// Criteria of Metric
+	Criteria CriteriaResponseArrayInput `pulumi:"criteria"`
+	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (LogToMetricActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogToMetricActionResponse)(nil)).Elem()
+}
+
+func (i LogToMetricActionResponseArgs) ToLogToMetricActionResponseOutput() LogToMetricActionResponseOutput {
+	return i.ToLogToMetricActionResponseOutputWithContext(context.Background())
+}
+
+func (i LogToMetricActionResponseArgs) ToLogToMetricActionResponseOutputWithContext(ctx context.Context) LogToMetricActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogToMetricActionResponseOutput)
+}
+
+// Specify action need to be taken when rule type is converting log to metric
+type LogToMetricActionResponseOutput struct{ *pulumi.OutputState }
+
+func (LogToMetricActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogToMetricActionResponse)(nil)).Elem()
+}
+
+func (o LogToMetricActionResponseOutput) ToLogToMetricActionResponseOutput() LogToMetricActionResponseOutput {
+	return o
+}
+
+func (o LogToMetricActionResponseOutput) ToLogToMetricActionResponseOutputWithContext(ctx context.Context) LogToMetricActionResponseOutput {
+	return o
+}
+
+// Criteria of Metric
+func (o LogToMetricActionResponseOutput) Criteria() CriteriaResponseArrayOutput {
+	return o.ApplyT(func(v LogToMetricActionResponse) []CriteriaResponse { return v.Criteria }).(CriteriaResponseArrayOutput)
+}
+
+// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+func (o LogToMetricActionResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v LogToMetricActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // Defines how often to run the search and the time interval.
@@ -966,11 +2188,173 @@ func (o SourceResponsePtrOutput) QueryType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The condition that results in the Log Search rule.
+type TriggerCondition struct {
+	// Trigger condition for metric query rule
+	MetricTrigger *LogMetricTrigger `pulumi:"metricTrigger"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold float64 `pulumi:"threshold"`
+	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+	ThresholdOperator string `pulumi:"thresholdOperator"`
+}
+
+// TriggerConditionInput is an input type that accepts TriggerConditionArgs and TriggerConditionOutput values.
+// You can construct a concrete instance of `TriggerConditionInput` via:
+//
+//          TriggerConditionArgs{...}
+type TriggerConditionInput interface {
+	pulumi.Input
+
+	ToTriggerConditionOutput() TriggerConditionOutput
+	ToTriggerConditionOutputWithContext(context.Context) TriggerConditionOutput
+}
+
+// The condition that results in the Log Search rule.
+type TriggerConditionArgs struct {
+	// Trigger condition for metric query rule
+	MetricTrigger LogMetricTriggerPtrInput `pulumi:"metricTrigger"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+	ThresholdOperator pulumi.StringInput `pulumi:"thresholdOperator"`
+}
+
+func (TriggerConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCondition)(nil)).Elem()
+}
+
+func (i TriggerConditionArgs) ToTriggerConditionOutput() TriggerConditionOutput {
+	return i.ToTriggerConditionOutputWithContext(context.Background())
+}
+
+func (i TriggerConditionArgs) ToTriggerConditionOutputWithContext(ctx context.Context) TriggerConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerConditionOutput)
+}
+
+// The condition that results in the Log Search rule.
+type TriggerConditionOutput struct{ *pulumi.OutputState }
+
+func (TriggerConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCondition)(nil)).Elem()
+}
+
+func (o TriggerConditionOutput) ToTriggerConditionOutput() TriggerConditionOutput {
+	return o
+}
+
+func (o TriggerConditionOutput) ToTriggerConditionOutputWithContext(ctx context.Context) TriggerConditionOutput {
+	return o
+}
+
+// Trigger condition for metric query rule
+func (o TriggerConditionOutput) MetricTrigger() LogMetricTriggerPtrOutput {
+	return o.ApplyT(func(v TriggerCondition) *LogMetricTrigger { return v.MetricTrigger }).(LogMetricTriggerPtrOutput)
+}
+
+// Result or count threshold based on which rule should be triggered.
+func (o TriggerConditionOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v TriggerCondition) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+func (o TriggerConditionOutput) ThresholdOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerCondition) string { return v.ThresholdOperator }).(pulumi.StringOutput)
+}
+
+// The condition that results in the Log Search rule.
+type TriggerConditionResponse struct {
+	// Trigger condition for metric query rule
+	MetricTrigger *LogMetricTriggerResponse `pulumi:"metricTrigger"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold float64 `pulumi:"threshold"`
+	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+	ThresholdOperator string `pulumi:"thresholdOperator"`
+}
+
+// TriggerConditionResponseInput is an input type that accepts TriggerConditionResponseArgs and TriggerConditionResponseOutput values.
+// You can construct a concrete instance of `TriggerConditionResponseInput` via:
+//
+//          TriggerConditionResponseArgs{...}
+type TriggerConditionResponseInput interface {
+	pulumi.Input
+
+	ToTriggerConditionResponseOutput() TriggerConditionResponseOutput
+	ToTriggerConditionResponseOutputWithContext(context.Context) TriggerConditionResponseOutput
+}
+
+// The condition that results in the Log Search rule.
+type TriggerConditionResponseArgs struct {
+	// Trigger condition for metric query rule
+	MetricTrigger LogMetricTriggerResponsePtrInput `pulumi:"metricTrigger"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+	ThresholdOperator pulumi.StringInput `pulumi:"thresholdOperator"`
+}
+
+func (TriggerConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerConditionResponse)(nil)).Elem()
+}
+
+func (i TriggerConditionResponseArgs) ToTriggerConditionResponseOutput() TriggerConditionResponseOutput {
+	return i.ToTriggerConditionResponseOutputWithContext(context.Background())
+}
+
+func (i TriggerConditionResponseArgs) ToTriggerConditionResponseOutputWithContext(ctx context.Context) TriggerConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerConditionResponseOutput)
+}
+
+// The condition that results in the Log Search rule.
+type TriggerConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (TriggerConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerConditionResponse)(nil)).Elem()
+}
+
+func (o TriggerConditionResponseOutput) ToTriggerConditionResponseOutput() TriggerConditionResponseOutput {
+	return o
+}
+
+func (o TriggerConditionResponseOutput) ToTriggerConditionResponseOutputWithContext(ctx context.Context) TriggerConditionResponseOutput {
+	return o
+}
+
+// Trigger condition for metric query rule
+func (o TriggerConditionResponseOutput) MetricTrigger() LogMetricTriggerResponsePtrOutput {
+	return o.ApplyT(func(v TriggerConditionResponse) *LogMetricTriggerResponse { return v.MetricTrigger }).(LogMetricTriggerResponsePtrOutput)
+}
+
+// Result or count threshold based on which rule should be triggered.
+func (o TriggerConditionResponseOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v TriggerConditionResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+func (o TriggerConditionResponseOutput) ThresholdOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerConditionResponse) string { return v.ThresholdOperator }).(pulumi.StringOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(ActionOutput{})
-	pulumi.RegisterOutputType(ActionPtrOutput{})
-	pulumi.RegisterOutputType(ActionResponseOutput{})
-	pulumi.RegisterOutputType(ActionResponsePtrOutput{})
+	pulumi.RegisterOutputType(AlertingActionOutput{})
+	pulumi.RegisterOutputType(AlertingActionResponseOutput{})
+	pulumi.RegisterOutputType(AzNsActionGroupOutput{})
+	pulumi.RegisterOutputType(AzNsActionGroupPtrOutput{})
+	pulumi.RegisterOutputType(AzNsActionGroupResponseOutput{})
+	pulumi.RegisterOutputType(AzNsActionGroupResponsePtrOutput{})
+	pulumi.RegisterOutputType(CriteriaOutput{})
+	pulumi.RegisterOutputType(CriteriaArrayOutput{})
+	pulumi.RegisterOutputType(CriteriaResponseOutput{})
+	pulumi.RegisterOutputType(CriteriaResponseArrayOutput{})
+	pulumi.RegisterOutputType(DimensionOutput{})
+	pulumi.RegisterOutputType(DimensionArrayOutput{})
+	pulumi.RegisterOutputType(DimensionResponseOutput{})
+	pulumi.RegisterOutputType(DimensionResponseArrayOutput{})
+	pulumi.RegisterOutputType(LogMetricTriggerOutput{})
+	pulumi.RegisterOutputType(LogMetricTriggerPtrOutput{})
+	pulumi.RegisterOutputType(LogMetricTriggerResponseOutput{})
+	pulumi.RegisterOutputType(LogMetricTriggerResponsePtrOutput{})
+	pulumi.RegisterOutputType(LogToMetricActionOutput{})
+	pulumi.RegisterOutputType(LogToMetricActionResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleOutput{})
 	pulumi.RegisterOutputType(SchedulePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleResponseOutput{})
@@ -979,4 +2363,6 @@ func init() {
 	pulumi.RegisterOutputType(SourcePtrOutput{})
 	pulumi.RegisterOutputType(SourceResponseOutput{})
 	pulumi.RegisterOutputType(SourceResponsePtrOutput{})
+	pulumi.RegisterOutputType(TriggerConditionOutput{})
+	pulumi.RegisterOutputType(TriggerConditionResponseOutput{})
 }

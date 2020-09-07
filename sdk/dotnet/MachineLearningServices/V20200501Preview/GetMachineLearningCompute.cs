@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200501Preview
         /// <summary>
         /// Compute properties
         /// </summary>
-        public readonly Outputs.ComputeResponseResult Properties;
+        public readonly Union<Outputs.AKSResponseResult, Union<Outputs.AmlComputeResponseResult, Union<Outputs.DataFactoryResponseResult, Union<Outputs.DataLakeAnalyticsResponseResult, Union<Outputs.DatabricksResponseResult, Union<Outputs.HDInsightResponseResult, Outputs.VirtualMachineResponseResult>>>>>> Properties;
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200501Preview
 
             string name,
 
-            Outputs.ComputeResponseResult properties,
+            Union<Outputs.AKSResponseResult, Union<Outputs.AmlComputeResponseResult, Union<Outputs.DataFactoryResponseResult, Union<Outputs.DataLakeAnalyticsResponseResult, Union<Outputs.DatabricksResponseResult, Union<Outputs.HDInsightResponseResult, Outputs.VirtualMachineResponseResult>>>>>> properties,
 
             Outputs.SkuResponseResult? sku,
 

@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Inputs
         /// Configuration of the provider.
         /// </summary>
         [Input("provider")]
-        public Input<Inputs.OpenShiftManagedClusterBaseIdentityProviderArgs>? Provider { get; set; }
+        public Input<Inputs.OpenShiftManagedClusterAADIdentityProviderArgs>? Provider { get; set; }
 
         public OpenShiftManagedClusterIdentityProviderArgs()
         {

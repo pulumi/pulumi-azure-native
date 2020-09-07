@@ -46,6 +46,8 @@ __all__ = [
     'AzureFirewallNetworkRuleCollectionResponse',
     'AzureFirewallNetworkRuleResponse',
     'AzureFirewallRCActionResponse',
+    'AzureManagedOverrideRuleGroupResponse',
+    'AzureManagedRuleSetResponse',
     'BackendAddressPoolResponse',
     'BackendPoolResponse',
     'BackendResponse',
@@ -95,7 +97,6 @@ __all__ = [
     'LoadBalancingRuleResponse',
     'LoadBalancingSettingsModelResponse',
     'LocalNetworkGatewayResponse',
-    'ManagedRuleSetResponse',
     'ManagedRuleSetsResponse',
     'MatchConditionResponse',
     'NetworkInterfaceDnsSettingsResponse',
@@ -3350,6 +3351,103 @@ class AzureFirewallRCActionResponse(dict):
         The type of action.
         """
         return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureManagedOverrideRuleGroupResponse(dict):
+    """
+    Defines contents of a web application rule
+    """
+    def __init__(__self__, *,
+                 action: str,
+                 rule_group_override: str):
+        """
+        Defines contents of a web application rule
+        :param str action: Type of Actions
+        :param str rule_group_override: Describes override rule group
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "rule_group_override", rule_group_override)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Type of Actions
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="ruleGroupOverride")
+    def rule_group_override(self) -> str:
+        """
+        Describes override rule group
+        """
+        return pulumi.get(self, "rule_group_override")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureManagedRuleSetResponse(dict):
+    """
+    Describes azure managed provider.
+    """
+    def __init__(__self__, *,
+                 rule_set_type: str,
+                 priority: Optional[float] = None,
+                 rule_group_overrides: Optional[List['outputs.AzureManagedOverrideRuleGroupResponse']] = None,
+                 version: Optional[float] = None):
+        """
+        Describes azure managed provider.
+        :param str rule_set_type: RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+        :param float priority: Describes priority of the rule
+        :param List['AzureManagedOverrideRuleGroupResponseArgs'] rule_group_overrides: List of azure managed provider override configuration (optional)
+        :param float version: defines version of the rule set
+        """
+        pulumi.set(__self__, "rule_set_type", 'AzureManagedRuleSet')
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if rule_group_overrides is not None:
+            pulumi.set(__self__, "rule_group_overrides", rule_group_overrides)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="ruleSetType")
+    def rule_set_type(self) -> str:
+        """
+        RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
+        """
+        return pulumi.get(self, "rule_set_type")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        """
+        Describes priority of the rule
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="ruleGroupOverrides")
+    def rule_group_overrides(self) -> Optional[List['outputs.AzureManagedOverrideRuleGroupResponse']]:
+        """
+        List of azure managed provider override configuration (optional)
+        """
+        return pulumi.get(self, "rule_group_overrides")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[float]:
+        """
+        defines version of the rule set
+        """
+        return pulumi.get(self, "version")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -7500,71 +7598,22 @@ class LocalNetworkGatewayResponse(dict):
 
 
 @pulumi.output_type
-class ManagedRuleSetResponse(dict):
-    """
-    Base class for all types of ManagedRuleSet.
-    """
-    def __init__(__self__, *,
-                 rule_set_type: str,
-                 priority: Optional[float] = None,
-                 version: Optional[float] = None):
-        """
-        Base class for all types of ManagedRuleSet.
-        :param str rule_set_type: RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
-        :param float priority: Describes priority of the rule
-        :param float version: defines version of the rule set
-        """
-        pulumi.set(__self__, "rule_set_type", rule_set_type)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="ruleSetType")
-    def rule_set_type(self) -> str:
-        """
-        RuleSetType - AzureManagedRuleSet or OWASP RuleSets.
-        """
-        return pulumi.get(self, "rule_set_type")
-
-    @property
-    @pulumi.getter
-    def priority(self) -> Optional[float]:
-        """
-        Describes priority of the rule
-        """
-        return pulumi.get(self, "priority")
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[float]:
-        """
-        defines version of the rule set
-        """
-        return pulumi.get(self, "version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class ManagedRuleSetsResponse(dict):
     """
     Defines ManagedRuleSets - array of managedRuleSet
     """
     def __init__(__self__, *,
-                 rule_sets: Optional[List['outputs.ManagedRuleSetResponse']] = None):
+                 rule_sets: Optional[List['outputs.AzureManagedRuleSetResponse']] = None):
         """
         Defines ManagedRuleSets - array of managedRuleSet
-        :param List['ManagedRuleSetResponseArgs'] rule_sets: List of rules
+        :param List['AzureManagedRuleSetResponseArgs'] rule_sets: List of rules
         """
         if rule_sets is not None:
             pulumi.set(__self__, "rule_sets", rule_sets)
 
     @property
     @pulumi.getter(name="ruleSets")
-    def rule_sets(self) -> Optional[List['outputs.ManagedRuleSetResponse']]:
+    def rule_sets(self) -> Optional[List['outputs.AzureManagedRuleSetResponse']]:
         """
         List of rules
         """

@@ -23,7 +23,7 @@ type Assessment struct {
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Details of the resource that was assessed
-	ResourceDetails ResourceDetailsResponseOutput `pulumi:"resourceDetails"`
+	ResourceDetails pulumi.AnyOutput `pulumi:"resourceDetails"`
 	// The result of the assessment
 	Status AssessmentStatusResponseOutput `pulumi:"status"`
 	// Resource type
@@ -88,7 +88,7 @@ type assessmentState struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Details of the resource that was assessed
-	ResourceDetails *ResourceDetailsResponse `pulumi:"resourceDetails"`
+	ResourceDetails interface{} `pulumi:"resourceDetails"`
 	// The result of the assessment
 	Status *AssessmentStatusResponse `pulumi:"status"`
 	// Resource type
@@ -105,7 +105,7 @@ type AssessmentState struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// Details of the resource that was assessed
-	ResourceDetails ResourceDetailsResponsePtrInput
+	ResourceDetails pulumi.Input
 	// The result of the assessment
 	Status AssessmentStatusResponsePtrInput
 	// Resource type
@@ -122,7 +122,7 @@ type assessmentArgs struct {
 	// The Assessment Key - Unique key for the assessment type
 	AssessmentName string `pulumi:"assessmentName"`
 	// Details of the resource that was assessed
-	ResourceDetails ResourceDetails `pulumi:"resourceDetails"`
+	ResourceDetails interface{} `pulumi:"resourceDetails"`
 	// The identifier of the resource.
 	ResourceId string `pulumi:"resourceId"`
 	// The result of the assessment
@@ -136,7 +136,7 @@ type AssessmentArgs struct {
 	// The Assessment Key - Unique key for the assessment type
 	AssessmentName pulumi.StringInput
 	// Details of the resource that was assessed
-	ResourceDetails ResourceDetailsInput
+	ResourceDetails pulumi.Input
 	// The identifier of the resource.
 	ResourceId pulumi.StringInput
 	// The result of the assessment

@@ -14,17 +14,18 @@ __all__ = [
     'AllowlistCustomAlertRuleResponse',
     'AssessmentLinksResponse',
     'AssessmentStatusResponse',
+    'AzureResourceDetailsResponse',
     'DenylistCustomAlertRuleResponse',
     'JitNetworkAccessPolicyVirtualMachineResponse',
     'JitNetworkAccessPortRuleResponse',
     'JitNetworkAccessRequestPortResponse',
     'JitNetworkAccessRequestResponse',
     'JitNetworkAccessRequestVirtualMachineResponse',
+    'OnPremiseResourceDetailsResponse',
     'PathRecommendationResponse',
     'ProtectionModeResponse',
     'PublisherInfoResponse',
     'RecommendationConfigurationPropertiesResponse',
-    'ResourceDetailsResponse',
     'SecurityAssessmentMetadataPartnerDataResponse',
     'SecurityAssessmentMetadataPropertiesResponse',
     'SecurityAssessmentPartnerDataResponse',
@@ -98,7 +99,7 @@ class AllowlistCustomAlertRuleResponse(dict):
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ListCustomAlertRule')
         pulumi.set(__self__, "value_type", value_type)
 
     @property
@@ -228,6 +229,42 @@ class AssessmentStatusResponse(dict):
 
 
 @pulumi.output_type
+class AzureResourceDetailsResponse(dict):
+    """
+    Details of the Azure resource that was assessed
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 source: str):
+        """
+        Details of the Azure resource that was assessed
+        :param str id: Azure resource Id of the assessed resource
+        :param str source: The platform where the assessed resource resides
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "source", 'Azure')
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id of the assessed resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The platform where the assessed resource resides
+        """
+        return pulumi.get(self, "source")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class DenylistCustomAlertRuleResponse(dict):
     """
     A custom alert rule that checks if a value (depends on the custom alert type) is denied.
@@ -252,7 +289,7 @@ class DenylistCustomAlertRuleResponse(dict):
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ListCustomAlertRule')
         pulumi.set(__self__, "value_type", value_type)
 
     @property
@@ -580,6 +617,75 @@ class JitNetworkAccessRequestVirtualMachineResponse(dict):
 
 
 @pulumi.output_type
+class OnPremiseResourceDetailsResponse(dict):
+    """
+    Details of the On Premise resource that was assessed
+    """
+    def __init__(__self__, *,
+                 machine_name: str,
+                 source: str,
+                 source_computer_id: str,
+                 vmuuid: str,
+                 workspace_id: str):
+        """
+        Details of the On Premise resource that was assessed
+        :param str machine_name: The name of the machine
+        :param str source: The platform where the assessed resource resides
+        :param str source_computer_id: The oms agent Id installed on the machine
+        :param str vmuuid: The unique Id of the machine
+        :param str workspace_id: Azure resource Id of the workspace the machine is attached to
+        """
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "source", 'OnPremise')
+        pulumi.set(__self__, "source_computer_id", source_computer_id)
+        pulumi.set(__self__, "vmuuid", vmuuid)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> str:
+        """
+        The name of the machine
+        """
+        return pulumi.get(self, "machine_name")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The platform where the assessed resource resides
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="sourceComputerId")
+    def source_computer_id(self) -> str:
+        """
+        The oms agent Id installed on the machine
+        """
+        return pulumi.get(self, "source_computer_id")
+
+    @property
+    @pulumi.getter
+    def vmuuid(self) -> str:
+        """
+        The unique Id of the machine
+        """
+        return pulumi.get(self, "vmuuid")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+        return pulumi.get(self, "workspace_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class PathRecommendationResponse(dict):
     """
     Represents a path that is recommended to be allowed and its properties
@@ -861,31 +967,6 @@ class RecommendationConfigurationPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class ResourceDetailsResponse(dict):
-    """
-    Details of the resource that was assessed
-    """
-    def __init__(__self__, *,
-                 source: str):
-        """
-        Details of the resource that was assessed
-        :param str source: The platform where the assessed resource resides
-        """
-        pulumi.set(__self__, "source", source)
-
-    @property
-    @pulumi.getter
-    def source(self) -> str:
-        """
-        The platform where the assessed resource resides
-        """
-        return pulumi.get(self, "source")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class SecurityAssessmentMetadataPartnerDataResponse(dict):
     """
     Describes the partner that created the assessment
@@ -1141,7 +1222,7 @@ class ThresholdCustomAlertRuleResponse(dict):
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "max_threshold", max_threshold)
         pulumi.set(__self__, "min_threshold", min_threshold)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ThresholdCustomAlertRule')
 
     @property
     @pulumi.getter
@@ -1223,7 +1304,7 @@ class TimeWindowCustomAlertRuleResponse(dict):
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "max_threshold", max_threshold)
         pulumi.set(__self__, "min_threshold", min_threshold)
-        pulumi.set(__self__, "rule_type", rule_type)
+        pulumi.set(__self__, "rule_type", 'ThresholdCustomAlertRule')
         pulumi.set(__self__, "time_window_size", time_window_size)
 
     @property

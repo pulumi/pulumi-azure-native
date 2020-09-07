@@ -21,7 +21,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DatabaseAccountCreateUpdatePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs'], pulumi.InputType['RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -36,7 +36,7 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] kind: Indicates the type of database account. This can only be set at database account creation.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[pulumi.InputType['DatabaseAccountCreateUpdatePropertiesArgs']] properties: Properties to create and update Azure Cosmos DB database accounts.
+        :param pulumi.Input[Union[pulumi.InputType['DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs'], pulumi.InputType['RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs']]] properties: Properties to create and update Azure Cosmos DB database accounts.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
@@ -137,7 +137,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupPolicy")
-    def backup_policy(self) -> pulumi.Output[Optional['outputs.BackupPolicyResponse']]:
+    def backup_policy(self) -> pulumi.Output[Optional[Any]]:
         """
         The object representing the policy for taking backups on an account.
         """

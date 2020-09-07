@@ -51,7 +51,7 @@ class GetCustomDomainResult:
 
     @property
     @pulumi.getter(name="customHttpsParameters")
-    def custom_https_parameters(self) -> Optional['outputs.CustomDomainHttpsParametersResponse']:
+    def custom_https_parameters(self) -> Optional[Any]:
         """
         Certificate parameters for securing custom HTTPS
         """

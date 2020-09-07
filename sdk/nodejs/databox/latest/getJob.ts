@@ -55,7 +55,7 @@ export interface GetJobResult {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    readonly details?: outputs.databox.latest.JobDetailsResponse;
+    readonly details?: outputs.databox.latest.DataBoxDiskJobDetailsResponse | outputs.databox.latest.DataBoxHeavyJobDetailsResponse | outputs.databox.latest.DataBoxJobDetailsResponse;
     /**
      * Top level error for the job.
      */

@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110.Outputs
         /// <summary>
         /// The migration provider custom settings.
         /// </summary>
-        public readonly Outputs.MigrationProviderSpecificSettingsResponseResult? ProviderSpecificDetails;
+        public readonly Outputs.VMwareCbtMigrationDetailsResponseResult? ProviderSpecificDetails;
         /// <summary>
         /// The test migrate state.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110.Outputs
 
             string policyId,
 
-            Outputs.MigrationProviderSpecificSettingsResponseResult? providerSpecificDetails,
+            Outputs.VMwareCbtMigrationDetailsResponseResult? providerSpecificDetails,
 
             string testMigrateState,
 

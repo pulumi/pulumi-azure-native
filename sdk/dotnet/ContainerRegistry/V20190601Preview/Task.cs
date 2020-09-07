@@ -79,7 +79,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The properties of a task step.
         /// </summary>
         [Output("step")]
-        public Output<Outputs.TaskStepPropertiesResponseResult> Step { get; private set; } = null!;
+        public Output<Union<Outputs.DockerBuildStepResponseResult, Union<Outputs.EncodedTaskStepResponseResult, Outputs.FileTaskStepResponseResult>>> Step { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -214,7 +214,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The properties of a task step.
         /// </summary>
         [Input("step", required: true)]
-        public Input<Inputs.TaskStepPropertiesArgs> Step { get; set; } = null!;
+        public InputUnion<Inputs.DockerBuildStepArgs, InputUnion<Inputs.EncodedTaskStepArgs, Inputs.FileTaskStepArgs>> Step { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

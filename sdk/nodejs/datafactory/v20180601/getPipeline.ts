@@ -43,7 +43,7 @@ export interface GetPipelineResult {
     /**
      * List of activities in pipeline.
      */
-    readonly activities?: outputs.datafactory.v20180601.ActivityResponse[];
+    readonly activities?: outputs.datafactory.v20180601.ControlActivityResponse | outputs.datafactory.v20180601.ExecutionActivityResponse[];
     /**
      * List of tags that can be used for describing the Pipeline.
      */

@@ -51,7 +51,7 @@ export class MachineLearningCompute extends pulumi.CustomResource {
     /**
      * Compute properties
      */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.v20200218preview.ComputeResponse>;
+    public readonly properties!: pulumi.Output<outputs.machinelearningservices.v20200218preview.AKSResponse | outputs.machinelearningservices.v20200218preview.AmlComputeResponse | outputs.machinelearningservices.v20200218preview.ComputeInstanceResponse | outputs.machinelearningservices.v20200218preview.DataFactoryResponse | outputs.machinelearningservices.v20200218preview.DataLakeAnalyticsResponse | outputs.machinelearningservices.v20200218preview.DatabricksResponse | outputs.machinelearningservices.v20200218preview.HDInsightResponse | outputs.machinelearningservices.v20200218preview.VirtualMachineResponse>;
     /**
      * The sku of the workspace.
      */
@@ -135,7 +135,7 @@ export interface MachineLearningComputeArgs {
     /**
      * Compute properties
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20200218preview.Compute>;
+    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20200218preview.AKS | inputs.machinelearningservices.v20200218preview.AmlCompute | inputs.machinelearningservices.v20200218preview.ComputeInstance | inputs.machinelearningservices.v20200218preview.DataFactory | inputs.machinelearningservices.v20200218preview.DataLakeAnalytics | inputs.machinelearningservices.v20200218preview.Databricks | inputs.machinelearningservices.v20200218preview.HDInsight | inputs.machinelearningservices.v20200218preview.VirtualMachine>;
     /**
      * Name of the resource group in which workspace is located.
      */

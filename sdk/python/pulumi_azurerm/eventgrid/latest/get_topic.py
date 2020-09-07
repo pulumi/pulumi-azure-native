@@ -84,7 +84,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="inputSchemaMapping")
-    def input_schema_mapping(self) -> Optional['outputs.InputSchemaMappingResponse']:
+    def input_schema_mapping(self) -> Optional['outputs.JsonInputSchemaMappingResponse']:
         """
         This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
         """

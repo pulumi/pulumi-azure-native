@@ -19,7 +19,7 @@ type Topic struct {
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
 	InputSchema pulumi.StringPtrOutput `pulumi:"inputSchema"`
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping InputSchemaMappingResponsePtrOutput `pulumi:"inputSchemaMapping"`
+	InputSchemaMapping JsonInputSchemaMappingResponsePtrOutput `pulumi:"inputSchemaMapping"`
 	// Location of the resource
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Metric resource id for the topic.
@@ -112,7 +112,7 @@ type topicState struct {
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
 	InputSchema *string `pulumi:"inputSchema"`
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping *InputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
+	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
 	// Location of the resource
 	Location *string `pulumi:"location"`
 	// Metric resource id for the topic.
@@ -133,7 +133,7 @@ type TopicState struct {
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
 	InputSchema pulumi.StringPtrInput
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping InputSchemaMappingResponsePtrInput
+	InputSchemaMapping JsonInputSchemaMappingResponsePtrInput
 	// Location of the resource
 	Location pulumi.StringPtrInput
 	// Metric resource id for the topic.
@@ -156,7 +156,7 @@ type topicArgs struct {
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
 	InputSchema *string `pulumi:"inputSchema"`
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping *InputSchemaMapping `pulumi:"inputSchemaMapping"`
+	InputSchemaMapping *JsonInputSchemaMapping `pulumi:"inputSchemaMapping"`
 	// Location of the resource
 	Location string `pulumi:"location"`
 	// The name of the resource group within the user's subscription.
@@ -172,7 +172,7 @@ type TopicArgs struct {
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
 	InputSchema pulumi.StringPtrInput
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping InputSchemaMappingPtrInput
+	InputSchemaMapping JsonInputSchemaMappingPtrInput
 	// Location of the resource
 	Location pulumi.StringInput
 	// The name of the resource group within the user's subscription.

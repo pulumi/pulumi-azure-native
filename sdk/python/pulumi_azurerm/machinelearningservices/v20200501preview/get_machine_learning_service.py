@@ -69,7 +69,7 @@ class GetMachineLearningServiceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ServiceResponseBaseResponse':
+    def properties(self) -> Any:
         """
         Service properties
         """

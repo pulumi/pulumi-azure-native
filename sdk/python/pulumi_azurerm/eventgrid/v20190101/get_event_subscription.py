@@ -51,7 +51,7 @@ class GetEventSubscriptionResult:
 
     @property
     @pulumi.getter(name="deadLetterDestination")
-    def dead_letter_destination(self) -> Optional['outputs.DeadLetterDestinationResponse']:
+    def dead_letter_destination(self) -> Optional['outputs.StorageBlobDeadLetterDestinationResponse']:
         """
         The DeadLetter destination of the event subscription.
         """
@@ -59,7 +59,7 @@ class GetEventSubscriptionResult:
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional['outputs.EventSubscriptionDestinationResponse']:
+    def destination(self) -> Optional[Any]:
         """
         Information about the destination where events have to be delivered for the event subscription.
         """

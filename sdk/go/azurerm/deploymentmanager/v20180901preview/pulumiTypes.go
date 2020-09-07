@@ -10,274 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Defines the authentication method and properties to access the artifacts.
-type Authentication struct {
-	// The authentication type
-	Type string `pulumi:"type"`
-}
-
-// AuthenticationInput is an input type that accepts AuthenticationArgs and AuthenticationOutput values.
-// You can construct a concrete instance of `AuthenticationInput` via:
-//
-//          AuthenticationArgs{...}
-type AuthenticationInput interface {
-	pulumi.Input
-
-	ToAuthenticationOutput() AuthenticationOutput
-	ToAuthenticationOutputWithContext(context.Context) AuthenticationOutput
-}
-
-// Defines the authentication method and properties to access the artifacts.
-type AuthenticationArgs struct {
-	// The authentication type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AuthenticationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Authentication)(nil)).Elem()
-}
-
-func (i AuthenticationArgs) ToAuthenticationOutput() AuthenticationOutput {
-	return i.ToAuthenticationOutputWithContext(context.Background())
-}
-
-func (i AuthenticationArgs) ToAuthenticationOutputWithContext(ctx context.Context) AuthenticationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationOutput)
-}
-
-func (i AuthenticationArgs) ToAuthenticationPtrOutput() AuthenticationPtrOutput {
-	return i.ToAuthenticationPtrOutputWithContext(context.Background())
-}
-
-func (i AuthenticationArgs) ToAuthenticationPtrOutputWithContext(ctx context.Context) AuthenticationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationOutput).ToAuthenticationPtrOutputWithContext(ctx)
-}
-
-// AuthenticationPtrInput is an input type that accepts AuthenticationArgs, AuthenticationPtr and AuthenticationPtrOutput values.
-// You can construct a concrete instance of `AuthenticationPtrInput` via:
-//
-//          AuthenticationArgs{...}
-//
-//  or:
-//
-//          nil
-type AuthenticationPtrInput interface {
-	pulumi.Input
-
-	ToAuthenticationPtrOutput() AuthenticationPtrOutput
-	ToAuthenticationPtrOutputWithContext(context.Context) AuthenticationPtrOutput
-}
-
-type authenticationPtrType AuthenticationArgs
-
-func AuthenticationPtr(v *AuthenticationArgs) AuthenticationPtrInput {
-	return (*authenticationPtrType)(v)
-}
-
-func (*authenticationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Authentication)(nil)).Elem()
-}
-
-func (i *authenticationPtrType) ToAuthenticationPtrOutput() AuthenticationPtrOutput {
-	return i.ToAuthenticationPtrOutputWithContext(context.Background())
-}
-
-func (i *authenticationPtrType) ToAuthenticationPtrOutputWithContext(ctx context.Context) AuthenticationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPtrOutput)
-}
-
-// Defines the authentication method and properties to access the artifacts.
-type AuthenticationOutput struct{ *pulumi.OutputState }
-
-func (AuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Authentication)(nil)).Elem()
-}
-
-func (o AuthenticationOutput) ToAuthenticationOutput() AuthenticationOutput {
-	return o
-}
-
-func (o AuthenticationOutput) ToAuthenticationOutputWithContext(ctx context.Context) AuthenticationOutput {
-	return o
-}
-
-func (o AuthenticationOutput) ToAuthenticationPtrOutput() AuthenticationPtrOutput {
-	return o.ToAuthenticationPtrOutputWithContext(context.Background())
-}
-
-func (o AuthenticationOutput) ToAuthenticationPtrOutputWithContext(ctx context.Context) AuthenticationPtrOutput {
-	return o.ApplyT(func(v Authentication) *Authentication {
-		return &v
-	}).(AuthenticationPtrOutput)
-}
-
-// The authentication type
-func (o AuthenticationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v Authentication) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type AuthenticationPtrOutput struct{ *pulumi.OutputState }
-
-func (AuthenticationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Authentication)(nil)).Elem()
-}
-
-func (o AuthenticationPtrOutput) ToAuthenticationPtrOutput() AuthenticationPtrOutput {
-	return o
-}
-
-func (o AuthenticationPtrOutput) ToAuthenticationPtrOutputWithContext(ctx context.Context) AuthenticationPtrOutput {
-	return o
-}
-
-func (o AuthenticationPtrOutput) Elem() AuthenticationOutput {
-	return o.ApplyT(func(v *Authentication) Authentication { return *v }).(AuthenticationOutput)
-}
-
-// The authentication type
-func (o AuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Authentication) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the authentication method and properties to access the artifacts.
-type AuthenticationResponse struct {
-	// The authentication type
-	Type string `pulumi:"type"`
-}
-
-// AuthenticationResponseInput is an input type that accepts AuthenticationResponseArgs and AuthenticationResponseOutput values.
-// You can construct a concrete instance of `AuthenticationResponseInput` via:
-//
-//          AuthenticationResponseArgs{...}
-type AuthenticationResponseInput interface {
-	pulumi.Input
-
-	ToAuthenticationResponseOutput() AuthenticationResponseOutput
-	ToAuthenticationResponseOutputWithContext(context.Context) AuthenticationResponseOutput
-}
-
-// Defines the authentication method and properties to access the artifacts.
-type AuthenticationResponseArgs struct {
-	// The authentication type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AuthenticationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthenticationResponse)(nil)).Elem()
-}
-
-func (i AuthenticationResponseArgs) ToAuthenticationResponseOutput() AuthenticationResponseOutput {
-	return i.ToAuthenticationResponseOutputWithContext(context.Background())
-}
-
-func (i AuthenticationResponseArgs) ToAuthenticationResponseOutputWithContext(ctx context.Context) AuthenticationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationResponseOutput)
-}
-
-func (i AuthenticationResponseArgs) ToAuthenticationResponsePtrOutput() AuthenticationResponsePtrOutput {
-	return i.ToAuthenticationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AuthenticationResponseArgs) ToAuthenticationResponsePtrOutputWithContext(ctx context.Context) AuthenticationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationResponseOutput).ToAuthenticationResponsePtrOutputWithContext(ctx)
-}
-
-// AuthenticationResponsePtrInput is an input type that accepts AuthenticationResponseArgs, AuthenticationResponsePtr and AuthenticationResponsePtrOutput values.
-// You can construct a concrete instance of `AuthenticationResponsePtrInput` via:
-//
-//          AuthenticationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AuthenticationResponsePtrInput interface {
-	pulumi.Input
-
-	ToAuthenticationResponsePtrOutput() AuthenticationResponsePtrOutput
-	ToAuthenticationResponsePtrOutputWithContext(context.Context) AuthenticationResponsePtrOutput
-}
-
-type authenticationResponsePtrType AuthenticationResponseArgs
-
-func AuthenticationResponsePtr(v *AuthenticationResponseArgs) AuthenticationResponsePtrInput {
-	return (*authenticationResponsePtrType)(v)
-}
-
-func (*authenticationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthenticationResponse)(nil)).Elem()
-}
-
-func (i *authenticationResponsePtrType) ToAuthenticationResponsePtrOutput() AuthenticationResponsePtrOutput {
-	return i.ToAuthenticationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *authenticationResponsePtrType) ToAuthenticationResponsePtrOutputWithContext(ctx context.Context) AuthenticationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationResponsePtrOutput)
-}
-
-// Defines the authentication method and properties to access the artifacts.
-type AuthenticationResponseOutput struct{ *pulumi.OutputState }
-
-func (AuthenticationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthenticationResponse)(nil)).Elem()
-}
-
-func (o AuthenticationResponseOutput) ToAuthenticationResponseOutput() AuthenticationResponseOutput {
-	return o
-}
-
-func (o AuthenticationResponseOutput) ToAuthenticationResponseOutputWithContext(ctx context.Context) AuthenticationResponseOutput {
-	return o
-}
-
-func (o AuthenticationResponseOutput) ToAuthenticationResponsePtrOutput() AuthenticationResponsePtrOutput {
-	return o.ToAuthenticationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AuthenticationResponseOutput) ToAuthenticationResponsePtrOutputWithContext(ctx context.Context) AuthenticationResponsePtrOutput {
-	return o.ApplyT(func(v AuthenticationResponse) *AuthenticationResponse {
-		return &v
-	}).(AuthenticationResponsePtrOutput)
-}
-
-// The authentication type
-func (o AuthenticationResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type AuthenticationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AuthenticationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthenticationResponse)(nil)).Elem()
-}
-
-func (o AuthenticationResponsePtrOutput) ToAuthenticationResponsePtrOutput() AuthenticationResponsePtrOutput {
-	return o
-}
-
-func (o AuthenticationResponsePtrOutput) ToAuthenticationResponsePtrOutputWithContext(ctx context.Context) AuthenticationResponsePtrOutput {
-	return o
-}
-
-func (o AuthenticationResponsePtrOutput) Elem() AuthenticationResponseOutput {
-	return o.ApplyT(func(v *AuthenticationResponse) AuthenticationResponse { return *v }).(AuthenticationResponseOutput)
-}
-
-// The authentication type
-func (o AuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AuthenticationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 // Detailed error information of any failure.
 type CloudErrorBodyResponse struct {
 	// Error code string.
@@ -1510,6 +1242,312 @@ func (o RolloutStepResponseArrayOutput) Index(i pulumi.IntInput) RolloutStepResp
 	}).(RolloutStepResponseOutput)
 }
 
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthentication struct {
+	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+	SasUri string `pulumi:"sasUri"`
+	// The authentication type
+	Type string `pulumi:"type"`
+}
+
+// SasAuthenticationInput is an input type that accepts SasAuthenticationArgs and SasAuthenticationOutput values.
+// You can construct a concrete instance of `SasAuthenticationInput` via:
+//
+//          SasAuthenticationArgs{...}
+type SasAuthenticationInput interface {
+	pulumi.Input
+
+	ToSasAuthenticationOutput() SasAuthenticationOutput
+	ToSasAuthenticationOutputWithContext(context.Context) SasAuthenticationOutput
+}
+
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthenticationArgs struct {
+	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+	SasUri pulumi.StringInput `pulumi:"sasUri"`
+	// The authentication type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SasAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasAuthentication)(nil)).Elem()
+}
+
+func (i SasAuthenticationArgs) ToSasAuthenticationOutput() SasAuthenticationOutput {
+	return i.ToSasAuthenticationOutputWithContext(context.Background())
+}
+
+func (i SasAuthenticationArgs) ToSasAuthenticationOutputWithContext(ctx context.Context) SasAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationOutput)
+}
+
+func (i SasAuthenticationArgs) ToSasAuthenticationPtrOutput() SasAuthenticationPtrOutput {
+	return i.ToSasAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i SasAuthenticationArgs) ToSasAuthenticationPtrOutputWithContext(ctx context.Context) SasAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationOutput).ToSasAuthenticationPtrOutputWithContext(ctx)
+}
+
+// SasAuthenticationPtrInput is an input type that accepts SasAuthenticationArgs, SasAuthenticationPtr and SasAuthenticationPtrOutput values.
+// You can construct a concrete instance of `SasAuthenticationPtrInput` via:
+//
+//          SasAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type SasAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToSasAuthenticationPtrOutput() SasAuthenticationPtrOutput
+	ToSasAuthenticationPtrOutputWithContext(context.Context) SasAuthenticationPtrOutput
+}
+
+type sasAuthenticationPtrType SasAuthenticationArgs
+
+func SasAuthenticationPtr(v *SasAuthenticationArgs) SasAuthenticationPtrInput {
+	return (*sasAuthenticationPtrType)(v)
+}
+
+func (*sasAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasAuthentication)(nil)).Elem()
+}
+
+func (i *sasAuthenticationPtrType) ToSasAuthenticationPtrOutput() SasAuthenticationPtrOutput {
+	return i.ToSasAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *sasAuthenticationPtrType) ToSasAuthenticationPtrOutputWithContext(ctx context.Context) SasAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationPtrOutput)
+}
+
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (SasAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasAuthentication)(nil)).Elem()
+}
+
+func (o SasAuthenticationOutput) ToSasAuthenticationOutput() SasAuthenticationOutput {
+	return o
+}
+
+func (o SasAuthenticationOutput) ToSasAuthenticationOutputWithContext(ctx context.Context) SasAuthenticationOutput {
+	return o
+}
+
+func (o SasAuthenticationOutput) ToSasAuthenticationPtrOutput() SasAuthenticationPtrOutput {
+	return o.ToSasAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o SasAuthenticationOutput) ToSasAuthenticationPtrOutputWithContext(ctx context.Context) SasAuthenticationPtrOutput {
+	return o.ApplyT(func(v SasAuthentication) *SasAuthentication {
+		return &v
+	}).(SasAuthenticationPtrOutput)
+}
+
+// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+func (o SasAuthenticationOutput) SasUri() pulumi.StringOutput {
+	return o.ApplyT(func(v SasAuthentication) string { return v.SasUri }).(pulumi.StringOutput)
+}
+
+// The authentication type
+func (o SasAuthenticationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SasAuthentication) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SasAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (SasAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasAuthentication)(nil)).Elem()
+}
+
+func (o SasAuthenticationPtrOutput) ToSasAuthenticationPtrOutput() SasAuthenticationPtrOutput {
+	return o
+}
+
+func (o SasAuthenticationPtrOutput) ToSasAuthenticationPtrOutputWithContext(ctx context.Context) SasAuthenticationPtrOutput {
+	return o
+}
+
+func (o SasAuthenticationPtrOutput) Elem() SasAuthenticationOutput {
+	return o.ApplyT(func(v *SasAuthentication) SasAuthentication { return *v }).(SasAuthenticationOutput)
+}
+
+// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+func (o SasAuthenticationPtrOutput) SasUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SasUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authentication type
+func (o SasAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthenticationResponse struct {
+	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+	SasUri string `pulumi:"sasUri"`
+	// The authentication type
+	Type string `pulumi:"type"`
+}
+
+// SasAuthenticationResponseInput is an input type that accepts SasAuthenticationResponseArgs and SasAuthenticationResponseOutput values.
+// You can construct a concrete instance of `SasAuthenticationResponseInput` via:
+//
+//          SasAuthenticationResponseArgs{...}
+type SasAuthenticationResponseInput interface {
+	pulumi.Input
+
+	ToSasAuthenticationResponseOutput() SasAuthenticationResponseOutput
+	ToSasAuthenticationResponseOutputWithContext(context.Context) SasAuthenticationResponseOutput
+}
+
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthenticationResponseArgs struct {
+	// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+	SasUri pulumi.StringInput `pulumi:"sasUri"`
+	// The authentication type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SasAuthenticationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasAuthenticationResponse)(nil)).Elem()
+}
+
+func (i SasAuthenticationResponseArgs) ToSasAuthenticationResponseOutput() SasAuthenticationResponseOutput {
+	return i.ToSasAuthenticationResponseOutputWithContext(context.Background())
+}
+
+func (i SasAuthenticationResponseArgs) ToSasAuthenticationResponseOutputWithContext(ctx context.Context) SasAuthenticationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationResponseOutput)
+}
+
+func (i SasAuthenticationResponseArgs) ToSasAuthenticationResponsePtrOutput() SasAuthenticationResponsePtrOutput {
+	return i.ToSasAuthenticationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SasAuthenticationResponseArgs) ToSasAuthenticationResponsePtrOutputWithContext(ctx context.Context) SasAuthenticationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationResponseOutput).ToSasAuthenticationResponsePtrOutputWithContext(ctx)
+}
+
+// SasAuthenticationResponsePtrInput is an input type that accepts SasAuthenticationResponseArgs, SasAuthenticationResponsePtr and SasAuthenticationResponsePtrOutput values.
+// You can construct a concrete instance of `SasAuthenticationResponsePtrInput` via:
+//
+//          SasAuthenticationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SasAuthenticationResponsePtrInput interface {
+	pulumi.Input
+
+	ToSasAuthenticationResponsePtrOutput() SasAuthenticationResponsePtrOutput
+	ToSasAuthenticationResponsePtrOutputWithContext(context.Context) SasAuthenticationResponsePtrOutput
+}
+
+type sasAuthenticationResponsePtrType SasAuthenticationResponseArgs
+
+func SasAuthenticationResponsePtr(v *SasAuthenticationResponseArgs) SasAuthenticationResponsePtrInput {
+	return (*sasAuthenticationResponsePtrType)(v)
+}
+
+func (*sasAuthenticationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasAuthenticationResponse)(nil)).Elem()
+}
+
+func (i *sasAuthenticationResponsePtrType) ToSasAuthenticationResponsePtrOutput() SasAuthenticationResponsePtrOutput {
+	return i.ToSasAuthenticationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sasAuthenticationResponsePtrType) ToSasAuthenticationResponsePtrOutputWithContext(ctx context.Context) SasAuthenticationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasAuthenticationResponsePtrOutput)
+}
+
+// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+type SasAuthenticationResponseOutput struct{ *pulumi.OutputState }
+
+func (SasAuthenticationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasAuthenticationResponse)(nil)).Elem()
+}
+
+func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponseOutput() SasAuthenticationResponseOutput {
+	return o
+}
+
+func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponseOutputWithContext(ctx context.Context) SasAuthenticationResponseOutput {
+	return o
+}
+
+func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponsePtrOutput() SasAuthenticationResponsePtrOutput {
+	return o.ToSasAuthenticationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SasAuthenticationResponseOutput) ToSasAuthenticationResponsePtrOutputWithContext(ctx context.Context) SasAuthenticationResponsePtrOutput {
+	return o.ApplyT(func(v SasAuthenticationResponse) *SasAuthenticationResponse {
+		return &v
+	}).(SasAuthenticationResponsePtrOutput)
+}
+
+// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+func (o SasAuthenticationResponseOutput) SasUri() pulumi.StringOutput {
+	return o.ApplyT(func(v SasAuthenticationResponse) string { return v.SasUri }).(pulumi.StringOutput)
+}
+
+// The authentication type
+func (o SasAuthenticationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SasAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SasAuthenticationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SasAuthenticationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SasAuthenticationResponse)(nil)).Elem()
+}
+
+func (o SasAuthenticationResponsePtrOutput) ToSasAuthenticationResponsePtrOutput() SasAuthenticationResponsePtrOutput {
+	return o
+}
+
+func (o SasAuthenticationResponsePtrOutput) ToSasAuthenticationResponsePtrOutputWithContext(ctx context.Context) SasAuthenticationResponsePtrOutput {
+	return o
+}
+
+func (o SasAuthenticationResponsePtrOutput) Elem() SasAuthenticationResponseOutput {
+	return o.ApplyT(func(v *SasAuthenticationResponse) SasAuthenticationResponse { return *v }).(SasAuthenticationResponseOutput)
+}
+
+// The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+func (o SasAuthenticationResponsePtrOutput) SasUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasAuthenticationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SasUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authentication type
+func (o SasAuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SasAuthenticationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Defines a service.
 type ServiceResponse struct {
 	// Name of the service.
@@ -2391,274 +2429,6 @@ func (o StepOperationInfoResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v StepOperationInfoResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// The properties of a step resource.
-type StepProperties struct {
-	// The type of step.
-	StepType string `pulumi:"stepType"`
-}
-
-// StepPropertiesInput is an input type that accepts StepPropertiesArgs and StepPropertiesOutput values.
-// You can construct a concrete instance of `StepPropertiesInput` via:
-//
-//          StepPropertiesArgs{...}
-type StepPropertiesInput interface {
-	pulumi.Input
-
-	ToStepPropertiesOutput() StepPropertiesOutput
-	ToStepPropertiesOutputWithContext(context.Context) StepPropertiesOutput
-}
-
-// The properties of a step resource.
-type StepPropertiesArgs struct {
-	// The type of step.
-	StepType pulumi.StringInput `pulumi:"stepType"`
-}
-
-func (StepPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StepProperties)(nil)).Elem()
-}
-
-func (i StepPropertiesArgs) ToStepPropertiesOutput() StepPropertiesOutput {
-	return i.ToStepPropertiesOutputWithContext(context.Background())
-}
-
-func (i StepPropertiesArgs) ToStepPropertiesOutputWithContext(ctx context.Context) StepPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesOutput)
-}
-
-func (i StepPropertiesArgs) ToStepPropertiesPtrOutput() StepPropertiesPtrOutput {
-	return i.ToStepPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i StepPropertiesArgs) ToStepPropertiesPtrOutputWithContext(ctx context.Context) StepPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesOutput).ToStepPropertiesPtrOutputWithContext(ctx)
-}
-
-// StepPropertiesPtrInput is an input type that accepts StepPropertiesArgs, StepPropertiesPtr and StepPropertiesPtrOutput values.
-// You can construct a concrete instance of `StepPropertiesPtrInput` via:
-//
-//          StepPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type StepPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToStepPropertiesPtrOutput() StepPropertiesPtrOutput
-	ToStepPropertiesPtrOutputWithContext(context.Context) StepPropertiesPtrOutput
-}
-
-type stepPropertiesPtrType StepPropertiesArgs
-
-func StepPropertiesPtr(v *StepPropertiesArgs) StepPropertiesPtrInput {
-	return (*stepPropertiesPtrType)(v)
-}
-
-func (*stepPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StepProperties)(nil)).Elem()
-}
-
-func (i *stepPropertiesPtrType) ToStepPropertiesPtrOutput() StepPropertiesPtrOutput {
-	return i.ToStepPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *stepPropertiesPtrType) ToStepPropertiesPtrOutputWithContext(ctx context.Context) StepPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesPtrOutput)
-}
-
-// The properties of a step resource.
-type StepPropertiesOutput struct{ *pulumi.OutputState }
-
-func (StepPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StepProperties)(nil)).Elem()
-}
-
-func (o StepPropertiesOutput) ToStepPropertiesOutput() StepPropertiesOutput {
-	return o
-}
-
-func (o StepPropertiesOutput) ToStepPropertiesOutputWithContext(ctx context.Context) StepPropertiesOutput {
-	return o
-}
-
-func (o StepPropertiesOutput) ToStepPropertiesPtrOutput() StepPropertiesPtrOutput {
-	return o.ToStepPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o StepPropertiesOutput) ToStepPropertiesPtrOutputWithContext(ctx context.Context) StepPropertiesPtrOutput {
-	return o.ApplyT(func(v StepProperties) *StepProperties {
-		return &v
-	}).(StepPropertiesPtrOutput)
-}
-
-// The type of step.
-func (o StepPropertiesOutput) StepType() pulumi.StringOutput {
-	return o.ApplyT(func(v StepProperties) string { return v.StepType }).(pulumi.StringOutput)
-}
-
-type StepPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (StepPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StepProperties)(nil)).Elem()
-}
-
-func (o StepPropertiesPtrOutput) ToStepPropertiesPtrOutput() StepPropertiesPtrOutput {
-	return o
-}
-
-func (o StepPropertiesPtrOutput) ToStepPropertiesPtrOutputWithContext(ctx context.Context) StepPropertiesPtrOutput {
-	return o
-}
-
-func (o StepPropertiesPtrOutput) Elem() StepPropertiesOutput {
-	return o.ApplyT(func(v *StepProperties) StepProperties { return *v }).(StepPropertiesOutput)
-}
-
-// The type of step.
-func (o StepPropertiesPtrOutput) StepType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StepProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StepType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of a step resource.
-type StepPropertiesResponse struct {
-	// The type of step.
-	StepType string `pulumi:"stepType"`
-}
-
-// StepPropertiesResponseInput is an input type that accepts StepPropertiesResponseArgs and StepPropertiesResponseOutput values.
-// You can construct a concrete instance of `StepPropertiesResponseInput` via:
-//
-//          StepPropertiesResponseArgs{...}
-type StepPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToStepPropertiesResponseOutput() StepPropertiesResponseOutput
-	ToStepPropertiesResponseOutputWithContext(context.Context) StepPropertiesResponseOutput
-}
-
-// The properties of a step resource.
-type StepPropertiesResponseArgs struct {
-	// The type of step.
-	StepType pulumi.StringInput `pulumi:"stepType"`
-}
-
-func (StepPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StepPropertiesResponse)(nil)).Elem()
-}
-
-func (i StepPropertiesResponseArgs) ToStepPropertiesResponseOutput() StepPropertiesResponseOutput {
-	return i.ToStepPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i StepPropertiesResponseArgs) ToStepPropertiesResponseOutputWithContext(ctx context.Context) StepPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesResponseOutput)
-}
-
-func (i StepPropertiesResponseArgs) ToStepPropertiesResponsePtrOutput() StepPropertiesResponsePtrOutput {
-	return i.ToStepPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i StepPropertiesResponseArgs) ToStepPropertiesResponsePtrOutputWithContext(ctx context.Context) StepPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesResponseOutput).ToStepPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// StepPropertiesResponsePtrInput is an input type that accepts StepPropertiesResponseArgs, StepPropertiesResponsePtr and StepPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `StepPropertiesResponsePtrInput` via:
-//
-//          StepPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type StepPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToStepPropertiesResponsePtrOutput() StepPropertiesResponsePtrOutput
-	ToStepPropertiesResponsePtrOutputWithContext(context.Context) StepPropertiesResponsePtrOutput
-}
-
-type stepPropertiesResponsePtrType StepPropertiesResponseArgs
-
-func StepPropertiesResponsePtr(v *StepPropertiesResponseArgs) StepPropertiesResponsePtrInput {
-	return (*stepPropertiesResponsePtrType)(v)
-}
-
-func (*stepPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StepPropertiesResponse)(nil)).Elem()
-}
-
-func (i *stepPropertiesResponsePtrType) ToStepPropertiesResponsePtrOutput() StepPropertiesResponsePtrOutput {
-	return i.ToStepPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *stepPropertiesResponsePtrType) ToStepPropertiesResponsePtrOutputWithContext(ctx context.Context) StepPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StepPropertiesResponsePtrOutput)
-}
-
-// The properties of a step resource.
-type StepPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (StepPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StepPropertiesResponse)(nil)).Elem()
-}
-
-func (o StepPropertiesResponseOutput) ToStepPropertiesResponseOutput() StepPropertiesResponseOutput {
-	return o
-}
-
-func (o StepPropertiesResponseOutput) ToStepPropertiesResponseOutputWithContext(ctx context.Context) StepPropertiesResponseOutput {
-	return o
-}
-
-func (o StepPropertiesResponseOutput) ToStepPropertiesResponsePtrOutput() StepPropertiesResponsePtrOutput {
-	return o.ToStepPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o StepPropertiesResponseOutput) ToStepPropertiesResponsePtrOutputWithContext(ctx context.Context) StepPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v StepPropertiesResponse) *StepPropertiesResponse {
-		return &v
-	}).(StepPropertiesResponsePtrOutput)
-}
-
-// The type of step.
-func (o StepPropertiesResponseOutput) StepType() pulumi.StringOutput {
-	return o.ApplyT(func(v StepPropertiesResponse) string { return v.StepType }).(pulumi.StringOutput)
-}
-
-type StepPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (StepPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StepPropertiesResponse)(nil)).Elem()
-}
-
-func (o StepPropertiesResponsePtrOutput) ToStepPropertiesResponsePtrOutput() StepPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o StepPropertiesResponsePtrOutput) ToStepPropertiesResponsePtrOutputWithContext(ctx context.Context) StepPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o StepPropertiesResponsePtrOutput) Elem() StepPropertiesResponseOutput {
-	return o.ApplyT(func(v *StepPropertiesResponse) StepPropertiesResponse { return *v }).(StepPropertiesResponseOutput)
-}
-
-// The type of step.
-func (o StepPropertiesResponsePtrOutput) StepType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StepPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StepType
-	}).(pulumi.StringPtrOutput)
-}
-
 // The properties that define an Azure Deployment Manager step.
 type StepResponse struct {
 	// The list of step group names on which this step group depends on.
@@ -2795,11 +2565,581 @@ func (o StepResponseArrayOutput) Index(i pulumi.IntInput) StepResponseOutput {
 	}).(StepResponseOutput)
 }
 
+// The parameters for the wait step.
+type WaitStepAttributes struct {
+	// The duration in ISO 8601 format of how long the wait should be.
+	Duration string `pulumi:"duration"`
+}
+
+// WaitStepAttributesInput is an input type that accepts WaitStepAttributesArgs and WaitStepAttributesOutput values.
+// You can construct a concrete instance of `WaitStepAttributesInput` via:
+//
+//          WaitStepAttributesArgs{...}
+type WaitStepAttributesInput interface {
+	pulumi.Input
+
+	ToWaitStepAttributesOutput() WaitStepAttributesOutput
+	ToWaitStepAttributesOutputWithContext(context.Context) WaitStepAttributesOutput
+}
+
+// The parameters for the wait step.
+type WaitStepAttributesArgs struct {
+	// The duration in ISO 8601 format of how long the wait should be.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (WaitStepAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepAttributes)(nil)).Elem()
+}
+
+func (i WaitStepAttributesArgs) ToWaitStepAttributesOutput() WaitStepAttributesOutput {
+	return i.ToWaitStepAttributesOutputWithContext(context.Background())
+}
+
+func (i WaitStepAttributesArgs) ToWaitStepAttributesOutputWithContext(ctx context.Context) WaitStepAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepAttributesOutput)
+}
+
+func (i WaitStepAttributesArgs) ToWaitStepAttributesPtrOutput() WaitStepAttributesPtrOutput {
+	return i.ToWaitStepAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i WaitStepAttributesArgs) ToWaitStepAttributesPtrOutputWithContext(ctx context.Context) WaitStepAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepAttributesOutput).ToWaitStepAttributesPtrOutputWithContext(ctx)
+}
+
+// WaitStepAttributesPtrInput is an input type that accepts WaitStepAttributesArgs, WaitStepAttributesPtr and WaitStepAttributesPtrOutput values.
+// You can construct a concrete instance of `WaitStepAttributesPtrInput` via:
+//
+//          WaitStepAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type WaitStepAttributesPtrInput interface {
+	pulumi.Input
+
+	ToWaitStepAttributesPtrOutput() WaitStepAttributesPtrOutput
+	ToWaitStepAttributesPtrOutputWithContext(context.Context) WaitStepAttributesPtrOutput
+}
+
+type waitStepAttributesPtrType WaitStepAttributesArgs
+
+func WaitStepAttributesPtr(v *WaitStepAttributesArgs) WaitStepAttributesPtrInput {
+	return (*waitStepAttributesPtrType)(v)
+}
+
+func (*waitStepAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WaitStepAttributes)(nil)).Elem()
+}
+
+func (i *waitStepAttributesPtrType) ToWaitStepAttributesPtrOutput() WaitStepAttributesPtrOutput {
+	return i.ToWaitStepAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *waitStepAttributesPtrType) ToWaitStepAttributesPtrOutputWithContext(ctx context.Context) WaitStepAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepAttributesPtrOutput)
+}
+
+// The parameters for the wait step.
+type WaitStepAttributesOutput struct{ *pulumi.OutputState }
+
+func (WaitStepAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepAttributes)(nil)).Elem()
+}
+
+func (o WaitStepAttributesOutput) ToWaitStepAttributesOutput() WaitStepAttributesOutput {
+	return o
+}
+
+func (o WaitStepAttributesOutput) ToWaitStepAttributesOutputWithContext(ctx context.Context) WaitStepAttributesOutput {
+	return o
+}
+
+func (o WaitStepAttributesOutput) ToWaitStepAttributesPtrOutput() WaitStepAttributesPtrOutput {
+	return o.ToWaitStepAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o WaitStepAttributesOutput) ToWaitStepAttributesPtrOutputWithContext(ctx context.Context) WaitStepAttributesPtrOutput {
+	return o.ApplyT(func(v WaitStepAttributes) *WaitStepAttributes {
+		return &v
+	}).(WaitStepAttributesPtrOutput)
+}
+
+// The duration in ISO 8601 format of how long the wait should be.
+func (o WaitStepAttributesOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v WaitStepAttributes) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+type WaitStepAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (WaitStepAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WaitStepAttributes)(nil)).Elem()
+}
+
+func (o WaitStepAttributesPtrOutput) ToWaitStepAttributesPtrOutput() WaitStepAttributesPtrOutput {
+	return o
+}
+
+func (o WaitStepAttributesPtrOutput) ToWaitStepAttributesPtrOutputWithContext(ctx context.Context) WaitStepAttributesPtrOutput {
+	return o
+}
+
+func (o WaitStepAttributesPtrOutput) Elem() WaitStepAttributesOutput {
+	return o.ApplyT(func(v *WaitStepAttributes) WaitStepAttributes { return *v }).(WaitStepAttributesOutput)
+}
+
+// The duration in ISO 8601 format of how long the wait should be.
+func (o WaitStepAttributesPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WaitStepAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The parameters for the wait step.
+type WaitStepAttributesResponse struct {
+	// The duration in ISO 8601 format of how long the wait should be.
+	Duration string `pulumi:"duration"`
+}
+
+// WaitStepAttributesResponseInput is an input type that accepts WaitStepAttributesResponseArgs and WaitStepAttributesResponseOutput values.
+// You can construct a concrete instance of `WaitStepAttributesResponseInput` via:
+//
+//          WaitStepAttributesResponseArgs{...}
+type WaitStepAttributesResponseInput interface {
+	pulumi.Input
+
+	ToWaitStepAttributesResponseOutput() WaitStepAttributesResponseOutput
+	ToWaitStepAttributesResponseOutputWithContext(context.Context) WaitStepAttributesResponseOutput
+}
+
+// The parameters for the wait step.
+type WaitStepAttributesResponseArgs struct {
+	// The duration in ISO 8601 format of how long the wait should be.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (WaitStepAttributesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepAttributesResponse)(nil)).Elem()
+}
+
+func (i WaitStepAttributesResponseArgs) ToWaitStepAttributesResponseOutput() WaitStepAttributesResponseOutput {
+	return i.ToWaitStepAttributesResponseOutputWithContext(context.Background())
+}
+
+func (i WaitStepAttributesResponseArgs) ToWaitStepAttributesResponseOutputWithContext(ctx context.Context) WaitStepAttributesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepAttributesResponseOutput)
+}
+
+func (i WaitStepAttributesResponseArgs) ToWaitStepAttributesResponsePtrOutput() WaitStepAttributesResponsePtrOutput {
+	return i.ToWaitStepAttributesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WaitStepAttributesResponseArgs) ToWaitStepAttributesResponsePtrOutputWithContext(ctx context.Context) WaitStepAttributesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepAttributesResponseOutput).ToWaitStepAttributesResponsePtrOutputWithContext(ctx)
+}
+
+// WaitStepAttributesResponsePtrInput is an input type that accepts WaitStepAttributesResponseArgs, WaitStepAttributesResponsePtr and WaitStepAttributesResponsePtrOutput values.
+// You can construct a concrete instance of `WaitStepAttributesResponsePtrInput` via:
+//
+//          WaitStepAttributesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WaitStepAttributesResponsePtrInput interface {
+	pulumi.Input
+
+	ToWaitStepAttributesResponsePtrOutput() WaitStepAttributesResponsePtrOutput
+	ToWaitStepAttributesResponsePtrOutputWithContext(context.Context) WaitStepAttributesResponsePtrOutput
+}
+
+type waitStepAttributesResponsePtrType WaitStepAttributesResponseArgs
+
+func WaitStepAttributesResponsePtr(v *WaitStepAttributesResponseArgs) WaitStepAttributesResponsePtrInput {
+	return (*waitStepAttributesResponsePtrType)(v)
+}
+
+func (*waitStepAttributesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WaitStepAttributesResponse)(nil)).Elem()
+}
+
+func (i *waitStepAttributesResponsePtrType) ToWaitStepAttributesResponsePtrOutput() WaitStepAttributesResponsePtrOutput {
+	return i.ToWaitStepAttributesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *waitStepAttributesResponsePtrType) ToWaitStepAttributesResponsePtrOutputWithContext(ctx context.Context) WaitStepAttributesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepAttributesResponsePtrOutput)
+}
+
+// The parameters for the wait step.
+type WaitStepAttributesResponseOutput struct{ *pulumi.OutputState }
+
+func (WaitStepAttributesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepAttributesResponse)(nil)).Elem()
+}
+
+func (o WaitStepAttributesResponseOutput) ToWaitStepAttributesResponseOutput() WaitStepAttributesResponseOutput {
+	return o
+}
+
+func (o WaitStepAttributesResponseOutput) ToWaitStepAttributesResponseOutputWithContext(ctx context.Context) WaitStepAttributesResponseOutput {
+	return o
+}
+
+func (o WaitStepAttributesResponseOutput) ToWaitStepAttributesResponsePtrOutput() WaitStepAttributesResponsePtrOutput {
+	return o.ToWaitStepAttributesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WaitStepAttributesResponseOutput) ToWaitStepAttributesResponsePtrOutputWithContext(ctx context.Context) WaitStepAttributesResponsePtrOutput {
+	return o.ApplyT(func(v WaitStepAttributesResponse) *WaitStepAttributesResponse {
+		return &v
+	}).(WaitStepAttributesResponsePtrOutput)
+}
+
+// The duration in ISO 8601 format of how long the wait should be.
+func (o WaitStepAttributesResponseOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v WaitStepAttributesResponse) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+type WaitStepAttributesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WaitStepAttributesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WaitStepAttributesResponse)(nil)).Elem()
+}
+
+func (o WaitStepAttributesResponsePtrOutput) ToWaitStepAttributesResponsePtrOutput() WaitStepAttributesResponsePtrOutput {
+	return o
+}
+
+func (o WaitStepAttributesResponsePtrOutput) ToWaitStepAttributesResponsePtrOutputWithContext(ctx context.Context) WaitStepAttributesResponsePtrOutput {
+	return o
+}
+
+func (o WaitStepAttributesResponsePtrOutput) Elem() WaitStepAttributesResponseOutput {
+	return o.ApplyT(func(v *WaitStepAttributesResponse) WaitStepAttributesResponse { return *v }).(WaitStepAttributesResponseOutput)
+}
+
+// The duration in ISO 8601 format of how long the wait should be.
+func (o WaitStepAttributesResponsePtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WaitStepAttributesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the properties of a Wait step.
+type WaitStepProperties struct {
+	// The Wait attributes
+	Attributes *WaitStepAttributes `pulumi:"attributes"`
+	// The type of step.
+	StepType string `pulumi:"stepType"`
+}
+
+// WaitStepPropertiesInput is an input type that accepts WaitStepPropertiesArgs and WaitStepPropertiesOutput values.
+// You can construct a concrete instance of `WaitStepPropertiesInput` via:
+//
+//          WaitStepPropertiesArgs{...}
+type WaitStepPropertiesInput interface {
+	pulumi.Input
+
+	ToWaitStepPropertiesOutput() WaitStepPropertiesOutput
+	ToWaitStepPropertiesOutputWithContext(context.Context) WaitStepPropertiesOutput
+}
+
+// Defines the properties of a Wait step.
+type WaitStepPropertiesArgs struct {
+	// The Wait attributes
+	Attributes WaitStepAttributesPtrInput `pulumi:"attributes"`
+	// The type of step.
+	StepType pulumi.StringInput `pulumi:"stepType"`
+}
+
+func (WaitStepPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepProperties)(nil)).Elem()
+}
+
+func (i WaitStepPropertiesArgs) ToWaitStepPropertiesOutput() WaitStepPropertiesOutput {
+	return i.ToWaitStepPropertiesOutputWithContext(context.Background())
+}
+
+func (i WaitStepPropertiesArgs) ToWaitStepPropertiesOutputWithContext(ctx context.Context) WaitStepPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepPropertiesOutput)
+}
+
+func (i WaitStepPropertiesArgs) ToWaitStepPropertiesPtrOutput() WaitStepPropertiesPtrOutput {
+	return i.ToWaitStepPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WaitStepPropertiesArgs) ToWaitStepPropertiesPtrOutputWithContext(ctx context.Context) WaitStepPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepPropertiesOutput).ToWaitStepPropertiesPtrOutputWithContext(ctx)
+}
+
+// WaitStepPropertiesPtrInput is an input type that accepts WaitStepPropertiesArgs, WaitStepPropertiesPtr and WaitStepPropertiesPtrOutput values.
+// You can construct a concrete instance of `WaitStepPropertiesPtrInput` via:
+//
+//          WaitStepPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WaitStepPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWaitStepPropertiesPtrOutput() WaitStepPropertiesPtrOutput
+	ToWaitStepPropertiesPtrOutputWithContext(context.Context) WaitStepPropertiesPtrOutput
+}
+
+type waitStepPropertiesPtrType WaitStepPropertiesArgs
+
+func WaitStepPropertiesPtr(v *WaitStepPropertiesArgs) WaitStepPropertiesPtrInput {
+	return (*waitStepPropertiesPtrType)(v)
+}
+
+func (*waitStepPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WaitStepProperties)(nil)).Elem()
+}
+
+func (i *waitStepPropertiesPtrType) ToWaitStepPropertiesPtrOutput() WaitStepPropertiesPtrOutput {
+	return i.ToWaitStepPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *waitStepPropertiesPtrType) ToWaitStepPropertiesPtrOutputWithContext(ctx context.Context) WaitStepPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepPropertiesPtrOutput)
+}
+
+// Defines the properties of a Wait step.
+type WaitStepPropertiesOutput struct{ *pulumi.OutputState }
+
+func (WaitStepPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepProperties)(nil)).Elem()
+}
+
+func (o WaitStepPropertiesOutput) ToWaitStepPropertiesOutput() WaitStepPropertiesOutput {
+	return o
+}
+
+func (o WaitStepPropertiesOutput) ToWaitStepPropertiesOutputWithContext(ctx context.Context) WaitStepPropertiesOutput {
+	return o
+}
+
+func (o WaitStepPropertiesOutput) ToWaitStepPropertiesPtrOutput() WaitStepPropertiesPtrOutput {
+	return o.ToWaitStepPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WaitStepPropertiesOutput) ToWaitStepPropertiesPtrOutputWithContext(ctx context.Context) WaitStepPropertiesPtrOutput {
+	return o.ApplyT(func(v WaitStepProperties) *WaitStepProperties {
+		return &v
+	}).(WaitStepPropertiesPtrOutput)
+}
+
+// The Wait attributes
+func (o WaitStepPropertiesOutput) Attributes() WaitStepAttributesPtrOutput {
+	return o.ApplyT(func(v WaitStepProperties) *WaitStepAttributes { return v.Attributes }).(WaitStepAttributesPtrOutput)
+}
+
+// The type of step.
+func (o WaitStepPropertiesOutput) StepType() pulumi.StringOutput {
+	return o.ApplyT(func(v WaitStepProperties) string { return v.StepType }).(pulumi.StringOutput)
+}
+
+type WaitStepPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WaitStepPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WaitStepProperties)(nil)).Elem()
+}
+
+func (o WaitStepPropertiesPtrOutput) ToWaitStepPropertiesPtrOutput() WaitStepPropertiesPtrOutput {
+	return o
+}
+
+func (o WaitStepPropertiesPtrOutput) ToWaitStepPropertiesPtrOutputWithContext(ctx context.Context) WaitStepPropertiesPtrOutput {
+	return o
+}
+
+func (o WaitStepPropertiesPtrOutput) Elem() WaitStepPropertiesOutput {
+	return o.ApplyT(func(v *WaitStepProperties) WaitStepProperties { return *v }).(WaitStepPropertiesOutput)
+}
+
+// The Wait attributes
+func (o WaitStepPropertiesPtrOutput) Attributes() WaitStepAttributesPtrOutput {
+	return o.ApplyT(func(v *WaitStepProperties) *WaitStepAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(WaitStepAttributesPtrOutput)
+}
+
+// The type of step.
+func (o WaitStepPropertiesPtrOutput) StepType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WaitStepProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StepType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the properties of a Wait step.
+type WaitStepPropertiesResponse struct {
+	// The Wait attributes
+	Attributes *WaitStepAttributesResponse `pulumi:"attributes"`
+	// The type of step.
+	StepType string `pulumi:"stepType"`
+}
+
+// WaitStepPropertiesResponseInput is an input type that accepts WaitStepPropertiesResponseArgs and WaitStepPropertiesResponseOutput values.
+// You can construct a concrete instance of `WaitStepPropertiesResponseInput` via:
+//
+//          WaitStepPropertiesResponseArgs{...}
+type WaitStepPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToWaitStepPropertiesResponseOutput() WaitStepPropertiesResponseOutput
+	ToWaitStepPropertiesResponseOutputWithContext(context.Context) WaitStepPropertiesResponseOutput
+}
+
+// Defines the properties of a Wait step.
+type WaitStepPropertiesResponseArgs struct {
+	// The Wait attributes
+	Attributes WaitStepAttributesResponsePtrInput `pulumi:"attributes"`
+	// The type of step.
+	StepType pulumi.StringInput `pulumi:"stepType"`
+}
+
+func (WaitStepPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepPropertiesResponse)(nil)).Elem()
+}
+
+func (i WaitStepPropertiesResponseArgs) ToWaitStepPropertiesResponseOutput() WaitStepPropertiesResponseOutput {
+	return i.ToWaitStepPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i WaitStepPropertiesResponseArgs) ToWaitStepPropertiesResponseOutputWithContext(ctx context.Context) WaitStepPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepPropertiesResponseOutput)
+}
+
+func (i WaitStepPropertiesResponseArgs) ToWaitStepPropertiesResponsePtrOutput() WaitStepPropertiesResponsePtrOutput {
+	return i.ToWaitStepPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WaitStepPropertiesResponseArgs) ToWaitStepPropertiesResponsePtrOutputWithContext(ctx context.Context) WaitStepPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepPropertiesResponseOutput).ToWaitStepPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// WaitStepPropertiesResponsePtrInput is an input type that accepts WaitStepPropertiesResponseArgs, WaitStepPropertiesResponsePtr and WaitStepPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `WaitStepPropertiesResponsePtrInput` via:
+//
+//          WaitStepPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WaitStepPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToWaitStepPropertiesResponsePtrOutput() WaitStepPropertiesResponsePtrOutput
+	ToWaitStepPropertiesResponsePtrOutputWithContext(context.Context) WaitStepPropertiesResponsePtrOutput
+}
+
+type waitStepPropertiesResponsePtrType WaitStepPropertiesResponseArgs
+
+func WaitStepPropertiesResponsePtr(v *WaitStepPropertiesResponseArgs) WaitStepPropertiesResponsePtrInput {
+	return (*waitStepPropertiesResponsePtrType)(v)
+}
+
+func (*waitStepPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WaitStepPropertiesResponse)(nil)).Elem()
+}
+
+func (i *waitStepPropertiesResponsePtrType) ToWaitStepPropertiesResponsePtrOutput() WaitStepPropertiesResponsePtrOutput {
+	return i.ToWaitStepPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *waitStepPropertiesResponsePtrType) ToWaitStepPropertiesResponsePtrOutputWithContext(ctx context.Context) WaitStepPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WaitStepPropertiesResponsePtrOutput)
+}
+
+// Defines the properties of a Wait step.
+type WaitStepPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (WaitStepPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WaitStepPropertiesResponse)(nil)).Elem()
+}
+
+func (o WaitStepPropertiesResponseOutput) ToWaitStepPropertiesResponseOutput() WaitStepPropertiesResponseOutput {
+	return o
+}
+
+func (o WaitStepPropertiesResponseOutput) ToWaitStepPropertiesResponseOutputWithContext(ctx context.Context) WaitStepPropertiesResponseOutput {
+	return o
+}
+
+func (o WaitStepPropertiesResponseOutput) ToWaitStepPropertiesResponsePtrOutput() WaitStepPropertiesResponsePtrOutput {
+	return o.ToWaitStepPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WaitStepPropertiesResponseOutput) ToWaitStepPropertiesResponsePtrOutputWithContext(ctx context.Context) WaitStepPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v WaitStepPropertiesResponse) *WaitStepPropertiesResponse {
+		return &v
+	}).(WaitStepPropertiesResponsePtrOutput)
+}
+
+// The Wait attributes
+func (o WaitStepPropertiesResponseOutput) Attributes() WaitStepAttributesResponsePtrOutput {
+	return o.ApplyT(func(v WaitStepPropertiesResponse) *WaitStepAttributesResponse { return v.Attributes }).(WaitStepAttributesResponsePtrOutput)
+}
+
+// The type of step.
+func (o WaitStepPropertiesResponseOutput) StepType() pulumi.StringOutput {
+	return o.ApplyT(func(v WaitStepPropertiesResponse) string { return v.StepType }).(pulumi.StringOutput)
+}
+
+type WaitStepPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WaitStepPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WaitStepPropertiesResponse)(nil)).Elem()
+}
+
+func (o WaitStepPropertiesResponsePtrOutput) ToWaitStepPropertiesResponsePtrOutput() WaitStepPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o WaitStepPropertiesResponsePtrOutput) ToWaitStepPropertiesResponsePtrOutputWithContext(ctx context.Context) WaitStepPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o WaitStepPropertiesResponsePtrOutput) Elem() WaitStepPropertiesResponseOutput {
+	return o.ApplyT(func(v *WaitStepPropertiesResponse) WaitStepPropertiesResponse { return *v }).(WaitStepPropertiesResponseOutput)
+}
+
+// The Wait attributes
+func (o WaitStepPropertiesResponsePtrOutput) Attributes() WaitStepAttributesResponsePtrOutput {
+	return o.ApplyT(func(v *WaitStepPropertiesResponse) *WaitStepAttributesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(WaitStepAttributesResponsePtrOutput)
+}
+
+// The type of step.
+func (o WaitStepPropertiesResponsePtrOutput) StepType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WaitStepPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StepType
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(AuthenticationOutput{})
-	pulumi.RegisterOutputType(AuthenticationPtrOutput{})
-	pulumi.RegisterOutputType(AuthenticationResponseOutput{})
-	pulumi.RegisterOutputType(AuthenticationResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudErrorBodyResponseOutput{})
 	pulumi.RegisterOutputType(CloudErrorBodyResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudErrorBodyResponseArrayOutput{})
@@ -2818,6 +3158,10 @@ func init() {
 	pulumi.RegisterOutputType(RolloutOperationInfoResponseOutput{})
 	pulumi.RegisterOutputType(RolloutStepResponseOutput{})
 	pulumi.RegisterOutputType(RolloutStepResponseArrayOutput{})
+	pulumi.RegisterOutputType(SasAuthenticationOutput{})
+	pulumi.RegisterOutputType(SasAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(SasAuthenticationResponseOutput{})
+	pulumi.RegisterOutputType(SasAuthenticationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceResponseOutput{})
 	pulumi.RegisterOutputType(ServiceResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServiceUnitArtifactsOutput{})
@@ -2829,10 +3173,14 @@ func init() {
 	pulumi.RegisterOutputType(StepTypeOutput{})
 	pulumi.RegisterOutputType(StepTypeArrayOutput{})
 	pulumi.RegisterOutputType(StepOperationInfoResponseOutput{})
-	pulumi.RegisterOutputType(StepPropertiesOutput{})
-	pulumi.RegisterOutputType(StepPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(StepPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(StepPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(StepResponseOutput{})
 	pulumi.RegisterOutputType(StepResponseArrayOutput{})
+	pulumi.RegisterOutputType(WaitStepAttributesOutput{})
+	pulumi.RegisterOutputType(WaitStepAttributesPtrOutput{})
+	pulumi.RegisterOutputType(WaitStepAttributesResponseOutput{})
+	pulumi.RegisterOutputType(WaitStepAttributesResponsePtrOutput{})
+	pulumi.RegisterOutputType(WaitStepPropertiesOutput{})
+	pulumi.RegisterOutputType(WaitStepPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WaitStepPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(WaitStepPropertiesResponsePtrOutput{})
 }

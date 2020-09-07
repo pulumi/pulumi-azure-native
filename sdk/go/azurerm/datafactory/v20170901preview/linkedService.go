@@ -19,7 +19,7 @@ type LinkedService struct {
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of linked service.
-	Properties LinkedServiceResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -78,7 +78,7 @@ type linkedServiceState struct {
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// Properties of linked service.
-	Properties *LinkedServiceResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
@@ -89,7 +89,7 @@ type LinkedServiceState struct {
 	// The resource name.
 	Name pulumi.StringPtrInput
 	// Properties of linked service.
-	Properties LinkedServiceResponsePtrInput
+	Properties pulumi.Input
 	// The resource type.
 	Type pulumi.StringPtrInput
 }
@@ -104,7 +104,7 @@ type linkedServiceArgs struct {
 	// The linked service name.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
 	// Properties of linked service.
-	Properties LinkedServiceType `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -116,7 +116,7 @@ type LinkedServiceArgs struct {
 	// The linked service name.
 	LinkedServiceName pulumi.StringInput
 	// Properties of linked service.
-	Properties LinkedServiceTypeInput
+	Properties pulumi.Input
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 }

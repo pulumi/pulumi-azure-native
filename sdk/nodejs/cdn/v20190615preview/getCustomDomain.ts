@@ -48,7 +48,7 @@ export interface GetCustomDomainResult {
     /**
      * Certificate parameters for securing custom HTTPS
      */
-    readonly customHttpsParameters?: outputs.cdn.v20190615preview.CustomDomainHttpsParametersResponse;
+    readonly customHttpsParameters?: outputs.cdn.v20190615preview.CdnManagedHttpsParametersResponse | outputs.cdn.v20190615preview.UserManagedHttpsParametersResponse;
     /**
      * Provisioning status of Custom Https of the custom domain.
      */

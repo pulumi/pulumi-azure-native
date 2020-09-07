@@ -5350,6 +5350,152 @@ func (o EndpointRangeDescriptionResponsePtrOutput) StartPort() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// Describes the named partition scheme of the service.
+type NamedPartitionSchemeDescription struct {
+	// The number of partitions.
+	Count int `pulumi:"count"`
+	// Array of size specified by the ‘Count’ parameter, for the names of the partitions.
+	Names []string `pulumi:"names"`
+	// Specifies how the service is partitioned.
+	PartitionScheme string `pulumi:"partitionScheme"`
+}
+
+// NamedPartitionSchemeDescriptionInput is an input type that accepts NamedPartitionSchemeDescriptionArgs and NamedPartitionSchemeDescriptionOutput values.
+// You can construct a concrete instance of `NamedPartitionSchemeDescriptionInput` via:
+//
+//          NamedPartitionSchemeDescriptionArgs{...}
+type NamedPartitionSchemeDescriptionInput interface {
+	pulumi.Input
+
+	ToNamedPartitionSchemeDescriptionOutput() NamedPartitionSchemeDescriptionOutput
+	ToNamedPartitionSchemeDescriptionOutputWithContext(context.Context) NamedPartitionSchemeDescriptionOutput
+}
+
+// Describes the named partition scheme of the service.
+type NamedPartitionSchemeDescriptionArgs struct {
+	// The number of partitions.
+	Count pulumi.IntInput `pulumi:"count"`
+	// Array of size specified by the ‘Count’ parameter, for the names of the partitions.
+	Names pulumi.StringArrayInput `pulumi:"names"`
+	// Specifies how the service is partitioned.
+	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
+}
+
+func (NamedPartitionSchemeDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedPartitionSchemeDescription)(nil)).Elem()
+}
+
+func (i NamedPartitionSchemeDescriptionArgs) ToNamedPartitionSchemeDescriptionOutput() NamedPartitionSchemeDescriptionOutput {
+	return i.ToNamedPartitionSchemeDescriptionOutputWithContext(context.Background())
+}
+
+func (i NamedPartitionSchemeDescriptionArgs) ToNamedPartitionSchemeDescriptionOutputWithContext(ctx context.Context) NamedPartitionSchemeDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamedPartitionSchemeDescriptionOutput)
+}
+
+// Describes the named partition scheme of the service.
+type NamedPartitionSchemeDescriptionOutput struct{ *pulumi.OutputState }
+
+func (NamedPartitionSchemeDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedPartitionSchemeDescription)(nil)).Elem()
+}
+
+func (o NamedPartitionSchemeDescriptionOutput) ToNamedPartitionSchemeDescriptionOutput() NamedPartitionSchemeDescriptionOutput {
+	return o
+}
+
+func (o NamedPartitionSchemeDescriptionOutput) ToNamedPartitionSchemeDescriptionOutputWithContext(ctx context.Context) NamedPartitionSchemeDescriptionOutput {
+	return o
+}
+
+// The number of partitions.
+func (o NamedPartitionSchemeDescriptionOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v NamedPartitionSchemeDescription) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// Array of size specified by the ‘Count’ parameter, for the names of the partitions.
+func (o NamedPartitionSchemeDescriptionOutput) Names() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NamedPartitionSchemeDescription) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+// Specifies how the service is partitioned.
+func (o NamedPartitionSchemeDescriptionOutput) PartitionScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v NamedPartitionSchemeDescription) string { return v.PartitionScheme }).(pulumi.StringOutput)
+}
+
+// Describes the named partition scheme of the service.
+type NamedPartitionSchemeDescriptionResponse struct {
+	// The number of partitions.
+	Count int `pulumi:"count"`
+	// Array of size specified by the ‘Count’ parameter, for the names of the partitions.
+	Names []string `pulumi:"names"`
+	// Specifies how the service is partitioned.
+	PartitionScheme string `pulumi:"partitionScheme"`
+}
+
+// NamedPartitionSchemeDescriptionResponseInput is an input type that accepts NamedPartitionSchemeDescriptionResponseArgs and NamedPartitionSchemeDescriptionResponseOutput values.
+// You can construct a concrete instance of `NamedPartitionSchemeDescriptionResponseInput` via:
+//
+//          NamedPartitionSchemeDescriptionResponseArgs{...}
+type NamedPartitionSchemeDescriptionResponseInput interface {
+	pulumi.Input
+
+	ToNamedPartitionSchemeDescriptionResponseOutput() NamedPartitionSchemeDescriptionResponseOutput
+	ToNamedPartitionSchemeDescriptionResponseOutputWithContext(context.Context) NamedPartitionSchemeDescriptionResponseOutput
+}
+
+// Describes the named partition scheme of the service.
+type NamedPartitionSchemeDescriptionResponseArgs struct {
+	// The number of partitions.
+	Count pulumi.IntInput `pulumi:"count"`
+	// Array of size specified by the ‘Count’ parameter, for the names of the partitions.
+	Names pulumi.StringArrayInput `pulumi:"names"`
+	// Specifies how the service is partitioned.
+	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
+}
+
+func (NamedPartitionSchemeDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedPartitionSchemeDescriptionResponse)(nil)).Elem()
+}
+
+func (i NamedPartitionSchemeDescriptionResponseArgs) ToNamedPartitionSchemeDescriptionResponseOutput() NamedPartitionSchemeDescriptionResponseOutput {
+	return i.ToNamedPartitionSchemeDescriptionResponseOutputWithContext(context.Background())
+}
+
+func (i NamedPartitionSchemeDescriptionResponseArgs) ToNamedPartitionSchemeDescriptionResponseOutputWithContext(ctx context.Context) NamedPartitionSchemeDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamedPartitionSchemeDescriptionResponseOutput)
+}
+
+// Describes the named partition scheme of the service.
+type NamedPartitionSchemeDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (NamedPartitionSchemeDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedPartitionSchemeDescriptionResponse)(nil)).Elem()
+}
+
+func (o NamedPartitionSchemeDescriptionResponseOutput) ToNamedPartitionSchemeDescriptionResponseOutput() NamedPartitionSchemeDescriptionResponseOutput {
+	return o
+}
+
+func (o NamedPartitionSchemeDescriptionResponseOutput) ToNamedPartitionSchemeDescriptionResponseOutputWithContext(ctx context.Context) NamedPartitionSchemeDescriptionResponseOutput {
+	return o
+}
+
+// The number of partitions.
+func (o NamedPartitionSchemeDescriptionResponseOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v NamedPartitionSchemeDescriptionResponse) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// Array of size specified by the ‘Count’ parameter, for the names of the partitions.
+func (o NamedPartitionSchemeDescriptionResponseOutput) Names() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NamedPartitionSchemeDescriptionResponse) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+// Specifies how the service is partitioned.
+func (o NamedPartitionSchemeDescriptionResponseOutput) PartitionScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v NamedPartitionSchemeDescriptionResponse) string { return v.PartitionScheme }).(pulumi.StringOutput)
+}
+
 // Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 type NodeTypeDescription struct {
 	// The range of ports from which cluster assigned port to Service Fabric applications.
@@ -5752,274 +5898,6 @@ func (o NodeTypeDescriptionResponseArrayOutput) Index(i pulumi.IntInput) NodeTyp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeTypeDescriptionResponse {
 		return vs[0].([]NodeTypeDescriptionResponse)[vs[1].(int)]
 	}).(NodeTypeDescriptionResponseOutput)
-}
-
-// Describes how the service is partitioned.
-type PartitionSchemeDescription struct {
-	// Specifies how the service is partitioned.
-	PartitionScheme string `pulumi:"partitionScheme"`
-}
-
-// PartitionSchemeDescriptionInput is an input type that accepts PartitionSchemeDescriptionArgs and PartitionSchemeDescriptionOutput values.
-// You can construct a concrete instance of `PartitionSchemeDescriptionInput` via:
-//
-//          PartitionSchemeDescriptionArgs{...}
-type PartitionSchemeDescriptionInput interface {
-	pulumi.Input
-
-	ToPartitionSchemeDescriptionOutput() PartitionSchemeDescriptionOutput
-	ToPartitionSchemeDescriptionOutputWithContext(context.Context) PartitionSchemeDescriptionOutput
-}
-
-// Describes how the service is partitioned.
-type PartitionSchemeDescriptionArgs struct {
-	// Specifies how the service is partitioned.
-	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
-}
-
-func (PartitionSchemeDescriptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartitionSchemeDescription)(nil)).Elem()
-}
-
-func (i PartitionSchemeDescriptionArgs) ToPartitionSchemeDescriptionOutput() PartitionSchemeDescriptionOutput {
-	return i.ToPartitionSchemeDescriptionOutputWithContext(context.Background())
-}
-
-func (i PartitionSchemeDescriptionArgs) ToPartitionSchemeDescriptionOutputWithContext(ctx context.Context) PartitionSchemeDescriptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemeDescriptionOutput)
-}
-
-func (i PartitionSchemeDescriptionArgs) ToPartitionSchemeDescriptionPtrOutput() PartitionSchemeDescriptionPtrOutput {
-	return i.ToPartitionSchemeDescriptionPtrOutputWithContext(context.Background())
-}
-
-func (i PartitionSchemeDescriptionArgs) ToPartitionSchemeDescriptionPtrOutputWithContext(ctx context.Context) PartitionSchemeDescriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemeDescriptionOutput).ToPartitionSchemeDescriptionPtrOutputWithContext(ctx)
-}
-
-// PartitionSchemeDescriptionPtrInput is an input type that accepts PartitionSchemeDescriptionArgs, PartitionSchemeDescriptionPtr and PartitionSchemeDescriptionPtrOutput values.
-// You can construct a concrete instance of `PartitionSchemeDescriptionPtrInput` via:
-//
-//          PartitionSchemeDescriptionArgs{...}
-//
-//  or:
-//
-//          nil
-type PartitionSchemeDescriptionPtrInput interface {
-	pulumi.Input
-
-	ToPartitionSchemeDescriptionPtrOutput() PartitionSchemeDescriptionPtrOutput
-	ToPartitionSchemeDescriptionPtrOutputWithContext(context.Context) PartitionSchemeDescriptionPtrOutput
-}
-
-type partitionSchemeDescriptionPtrType PartitionSchemeDescriptionArgs
-
-func PartitionSchemeDescriptionPtr(v *PartitionSchemeDescriptionArgs) PartitionSchemeDescriptionPtrInput {
-	return (*partitionSchemeDescriptionPtrType)(v)
-}
-
-func (*partitionSchemeDescriptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PartitionSchemeDescription)(nil)).Elem()
-}
-
-func (i *partitionSchemeDescriptionPtrType) ToPartitionSchemeDescriptionPtrOutput() PartitionSchemeDescriptionPtrOutput {
-	return i.ToPartitionSchemeDescriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *partitionSchemeDescriptionPtrType) ToPartitionSchemeDescriptionPtrOutputWithContext(ctx context.Context) PartitionSchemeDescriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemeDescriptionPtrOutput)
-}
-
-// Describes how the service is partitioned.
-type PartitionSchemeDescriptionOutput struct{ *pulumi.OutputState }
-
-func (PartitionSchemeDescriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartitionSchemeDescription)(nil)).Elem()
-}
-
-func (o PartitionSchemeDescriptionOutput) ToPartitionSchemeDescriptionOutput() PartitionSchemeDescriptionOutput {
-	return o
-}
-
-func (o PartitionSchemeDescriptionOutput) ToPartitionSchemeDescriptionOutputWithContext(ctx context.Context) PartitionSchemeDescriptionOutput {
-	return o
-}
-
-func (o PartitionSchemeDescriptionOutput) ToPartitionSchemeDescriptionPtrOutput() PartitionSchemeDescriptionPtrOutput {
-	return o.ToPartitionSchemeDescriptionPtrOutputWithContext(context.Background())
-}
-
-func (o PartitionSchemeDescriptionOutput) ToPartitionSchemeDescriptionPtrOutputWithContext(ctx context.Context) PartitionSchemeDescriptionPtrOutput {
-	return o.ApplyT(func(v PartitionSchemeDescription) *PartitionSchemeDescription {
-		return &v
-	}).(PartitionSchemeDescriptionPtrOutput)
-}
-
-// Specifies how the service is partitioned.
-func (o PartitionSchemeDescriptionOutput) PartitionScheme() pulumi.StringOutput {
-	return o.ApplyT(func(v PartitionSchemeDescription) string { return v.PartitionScheme }).(pulumi.StringOutput)
-}
-
-type PartitionSchemeDescriptionPtrOutput struct{ *pulumi.OutputState }
-
-func (PartitionSchemeDescriptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PartitionSchemeDescription)(nil)).Elem()
-}
-
-func (o PartitionSchemeDescriptionPtrOutput) ToPartitionSchemeDescriptionPtrOutput() PartitionSchemeDescriptionPtrOutput {
-	return o
-}
-
-func (o PartitionSchemeDescriptionPtrOutput) ToPartitionSchemeDescriptionPtrOutputWithContext(ctx context.Context) PartitionSchemeDescriptionPtrOutput {
-	return o
-}
-
-func (o PartitionSchemeDescriptionPtrOutput) Elem() PartitionSchemeDescriptionOutput {
-	return o.ApplyT(func(v *PartitionSchemeDescription) PartitionSchemeDescription { return *v }).(PartitionSchemeDescriptionOutput)
-}
-
-// Specifies how the service is partitioned.
-func (o PartitionSchemeDescriptionPtrOutput) PartitionScheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PartitionSchemeDescription) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PartitionScheme
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes how the service is partitioned.
-type PartitionSchemeDescriptionResponse struct {
-	// Specifies how the service is partitioned.
-	PartitionScheme string `pulumi:"partitionScheme"`
-}
-
-// PartitionSchemeDescriptionResponseInput is an input type that accepts PartitionSchemeDescriptionResponseArgs and PartitionSchemeDescriptionResponseOutput values.
-// You can construct a concrete instance of `PartitionSchemeDescriptionResponseInput` via:
-//
-//          PartitionSchemeDescriptionResponseArgs{...}
-type PartitionSchemeDescriptionResponseInput interface {
-	pulumi.Input
-
-	ToPartitionSchemeDescriptionResponseOutput() PartitionSchemeDescriptionResponseOutput
-	ToPartitionSchemeDescriptionResponseOutputWithContext(context.Context) PartitionSchemeDescriptionResponseOutput
-}
-
-// Describes how the service is partitioned.
-type PartitionSchemeDescriptionResponseArgs struct {
-	// Specifies how the service is partitioned.
-	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
-}
-
-func (PartitionSchemeDescriptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartitionSchemeDescriptionResponse)(nil)).Elem()
-}
-
-func (i PartitionSchemeDescriptionResponseArgs) ToPartitionSchemeDescriptionResponseOutput() PartitionSchemeDescriptionResponseOutput {
-	return i.ToPartitionSchemeDescriptionResponseOutputWithContext(context.Background())
-}
-
-func (i PartitionSchemeDescriptionResponseArgs) ToPartitionSchemeDescriptionResponseOutputWithContext(ctx context.Context) PartitionSchemeDescriptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemeDescriptionResponseOutput)
-}
-
-func (i PartitionSchemeDescriptionResponseArgs) ToPartitionSchemeDescriptionResponsePtrOutput() PartitionSchemeDescriptionResponsePtrOutput {
-	return i.ToPartitionSchemeDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PartitionSchemeDescriptionResponseArgs) ToPartitionSchemeDescriptionResponsePtrOutputWithContext(ctx context.Context) PartitionSchemeDescriptionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemeDescriptionResponseOutput).ToPartitionSchemeDescriptionResponsePtrOutputWithContext(ctx)
-}
-
-// PartitionSchemeDescriptionResponsePtrInput is an input type that accepts PartitionSchemeDescriptionResponseArgs, PartitionSchemeDescriptionResponsePtr and PartitionSchemeDescriptionResponsePtrOutput values.
-// You can construct a concrete instance of `PartitionSchemeDescriptionResponsePtrInput` via:
-//
-//          PartitionSchemeDescriptionResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type PartitionSchemeDescriptionResponsePtrInput interface {
-	pulumi.Input
-
-	ToPartitionSchemeDescriptionResponsePtrOutput() PartitionSchemeDescriptionResponsePtrOutput
-	ToPartitionSchemeDescriptionResponsePtrOutputWithContext(context.Context) PartitionSchemeDescriptionResponsePtrOutput
-}
-
-type partitionSchemeDescriptionResponsePtrType PartitionSchemeDescriptionResponseArgs
-
-func PartitionSchemeDescriptionResponsePtr(v *PartitionSchemeDescriptionResponseArgs) PartitionSchemeDescriptionResponsePtrInput {
-	return (*partitionSchemeDescriptionResponsePtrType)(v)
-}
-
-func (*partitionSchemeDescriptionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PartitionSchemeDescriptionResponse)(nil)).Elem()
-}
-
-func (i *partitionSchemeDescriptionResponsePtrType) ToPartitionSchemeDescriptionResponsePtrOutput() PartitionSchemeDescriptionResponsePtrOutput {
-	return i.ToPartitionSchemeDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *partitionSchemeDescriptionResponsePtrType) ToPartitionSchemeDescriptionResponsePtrOutputWithContext(ctx context.Context) PartitionSchemeDescriptionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemeDescriptionResponsePtrOutput)
-}
-
-// Describes how the service is partitioned.
-type PartitionSchemeDescriptionResponseOutput struct{ *pulumi.OutputState }
-
-func (PartitionSchemeDescriptionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartitionSchemeDescriptionResponse)(nil)).Elem()
-}
-
-func (o PartitionSchemeDescriptionResponseOutput) ToPartitionSchemeDescriptionResponseOutput() PartitionSchemeDescriptionResponseOutput {
-	return o
-}
-
-func (o PartitionSchemeDescriptionResponseOutput) ToPartitionSchemeDescriptionResponseOutputWithContext(ctx context.Context) PartitionSchemeDescriptionResponseOutput {
-	return o
-}
-
-func (o PartitionSchemeDescriptionResponseOutput) ToPartitionSchemeDescriptionResponsePtrOutput() PartitionSchemeDescriptionResponsePtrOutput {
-	return o.ToPartitionSchemeDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PartitionSchemeDescriptionResponseOutput) ToPartitionSchemeDescriptionResponsePtrOutputWithContext(ctx context.Context) PartitionSchemeDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v PartitionSchemeDescriptionResponse) *PartitionSchemeDescriptionResponse {
-		return &v
-	}).(PartitionSchemeDescriptionResponsePtrOutput)
-}
-
-// Specifies how the service is partitioned.
-func (o PartitionSchemeDescriptionResponseOutput) PartitionScheme() pulumi.StringOutput {
-	return o.ApplyT(func(v PartitionSchemeDescriptionResponse) string { return v.PartitionScheme }).(pulumi.StringOutput)
-}
-
-type PartitionSchemeDescriptionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PartitionSchemeDescriptionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PartitionSchemeDescriptionResponse)(nil)).Elem()
-}
-
-func (o PartitionSchemeDescriptionResponsePtrOutput) ToPartitionSchemeDescriptionResponsePtrOutput() PartitionSchemeDescriptionResponsePtrOutput {
-	return o
-}
-
-func (o PartitionSchemeDescriptionResponsePtrOutput) ToPartitionSchemeDescriptionResponsePtrOutputWithContext(ctx context.Context) PartitionSchemeDescriptionResponsePtrOutput {
-	return o
-}
-
-func (o PartitionSchemeDescriptionResponsePtrOutput) Elem() PartitionSchemeDescriptionResponseOutput {
-	return o.ApplyT(func(v *PartitionSchemeDescriptionResponse) PartitionSchemeDescriptionResponse { return *v }).(PartitionSchemeDescriptionResponseOutput)
-}
-
-// Specifies how the service is partitioned.
-func (o PartitionSchemeDescriptionResponsePtrOutput) PartitionScheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PartitionSchemeDescriptionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PartitionScheme
-	}).(pulumi.StringPtrOutput)
 }
 
 // Creates a particular correlation between services.
@@ -7148,6 +7026,292 @@ func (o SettingsSectionDescriptionResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(SettingsSectionDescriptionResponseOutput)
 }
 
+// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+type SingletonPartitionSchemeDescription struct {
+	// Specifies how the service is partitioned.
+	PartitionScheme string `pulumi:"partitionScheme"`
+}
+
+// SingletonPartitionSchemeDescriptionInput is an input type that accepts SingletonPartitionSchemeDescriptionArgs and SingletonPartitionSchemeDescriptionOutput values.
+// You can construct a concrete instance of `SingletonPartitionSchemeDescriptionInput` via:
+//
+//          SingletonPartitionSchemeDescriptionArgs{...}
+type SingletonPartitionSchemeDescriptionInput interface {
+	pulumi.Input
+
+	ToSingletonPartitionSchemeDescriptionOutput() SingletonPartitionSchemeDescriptionOutput
+	ToSingletonPartitionSchemeDescriptionOutputWithContext(context.Context) SingletonPartitionSchemeDescriptionOutput
+}
+
+// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+type SingletonPartitionSchemeDescriptionArgs struct {
+	// Specifies how the service is partitioned.
+	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
+}
+
+func (SingletonPartitionSchemeDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SingletonPartitionSchemeDescription)(nil)).Elem()
+}
+
+func (i SingletonPartitionSchemeDescriptionArgs) ToSingletonPartitionSchemeDescriptionOutput() SingletonPartitionSchemeDescriptionOutput {
+	return i.ToSingletonPartitionSchemeDescriptionOutputWithContext(context.Background())
+}
+
+func (i SingletonPartitionSchemeDescriptionArgs) ToSingletonPartitionSchemeDescriptionOutputWithContext(ctx context.Context) SingletonPartitionSchemeDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SingletonPartitionSchemeDescriptionOutput)
+}
+
+// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+type SingletonPartitionSchemeDescriptionOutput struct{ *pulumi.OutputState }
+
+func (SingletonPartitionSchemeDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SingletonPartitionSchemeDescription)(nil)).Elem()
+}
+
+func (o SingletonPartitionSchemeDescriptionOutput) ToSingletonPartitionSchemeDescriptionOutput() SingletonPartitionSchemeDescriptionOutput {
+	return o
+}
+
+func (o SingletonPartitionSchemeDescriptionOutput) ToSingletonPartitionSchemeDescriptionOutputWithContext(ctx context.Context) SingletonPartitionSchemeDescriptionOutput {
+	return o
+}
+
+// Specifies how the service is partitioned.
+func (o SingletonPartitionSchemeDescriptionOutput) PartitionScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v SingletonPartitionSchemeDescription) string { return v.PartitionScheme }).(pulumi.StringOutput)
+}
+
+// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+type SingletonPartitionSchemeDescriptionResponse struct {
+	// Specifies how the service is partitioned.
+	PartitionScheme string `pulumi:"partitionScheme"`
+}
+
+// SingletonPartitionSchemeDescriptionResponseInput is an input type that accepts SingletonPartitionSchemeDescriptionResponseArgs and SingletonPartitionSchemeDescriptionResponseOutput values.
+// You can construct a concrete instance of `SingletonPartitionSchemeDescriptionResponseInput` via:
+//
+//          SingletonPartitionSchemeDescriptionResponseArgs{...}
+type SingletonPartitionSchemeDescriptionResponseInput interface {
+	pulumi.Input
+
+	ToSingletonPartitionSchemeDescriptionResponseOutput() SingletonPartitionSchemeDescriptionResponseOutput
+	ToSingletonPartitionSchemeDescriptionResponseOutputWithContext(context.Context) SingletonPartitionSchemeDescriptionResponseOutput
+}
+
+// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+type SingletonPartitionSchemeDescriptionResponseArgs struct {
+	// Specifies how the service is partitioned.
+	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
+}
+
+func (SingletonPartitionSchemeDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SingletonPartitionSchemeDescriptionResponse)(nil)).Elem()
+}
+
+func (i SingletonPartitionSchemeDescriptionResponseArgs) ToSingletonPartitionSchemeDescriptionResponseOutput() SingletonPartitionSchemeDescriptionResponseOutput {
+	return i.ToSingletonPartitionSchemeDescriptionResponseOutputWithContext(context.Background())
+}
+
+func (i SingletonPartitionSchemeDescriptionResponseArgs) ToSingletonPartitionSchemeDescriptionResponseOutputWithContext(ctx context.Context) SingletonPartitionSchemeDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SingletonPartitionSchemeDescriptionResponseOutput)
+}
+
+// Describes the partition scheme of a singleton-partitioned, or non-partitioned service.
+type SingletonPartitionSchemeDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (SingletonPartitionSchemeDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SingletonPartitionSchemeDescriptionResponse)(nil)).Elem()
+}
+
+func (o SingletonPartitionSchemeDescriptionResponseOutput) ToSingletonPartitionSchemeDescriptionResponseOutput() SingletonPartitionSchemeDescriptionResponseOutput {
+	return o
+}
+
+func (o SingletonPartitionSchemeDescriptionResponseOutput) ToSingletonPartitionSchemeDescriptionResponseOutputWithContext(ctx context.Context) SingletonPartitionSchemeDescriptionResponseOutput {
+	return o
+}
+
+// Specifies how the service is partitioned.
+func (o SingletonPartitionSchemeDescriptionResponseOutput) PartitionScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v SingletonPartitionSchemeDescriptionResponse) string { return v.PartitionScheme }).(pulumi.StringOutput)
+}
+
+// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+type UniformInt64RangePartitionSchemeDescription struct {
+	// The number of partitions.
+	Count int `pulumi:"count"`
+	// String indicating the upper bound of the partition key range that
+	// should be split between the partition ‘Count’
+	HighKey string `pulumi:"highKey"`
+	// String indicating the lower bound of the partition key range that
+	// should be split between the partition ‘Count’
+	LowKey string `pulumi:"lowKey"`
+	// Specifies how the service is partitioned.
+	PartitionScheme string `pulumi:"partitionScheme"`
+}
+
+// UniformInt64RangePartitionSchemeDescriptionInput is an input type that accepts UniformInt64RangePartitionSchemeDescriptionArgs and UniformInt64RangePartitionSchemeDescriptionOutput values.
+// You can construct a concrete instance of `UniformInt64RangePartitionSchemeDescriptionInput` via:
+//
+//          UniformInt64RangePartitionSchemeDescriptionArgs{...}
+type UniformInt64RangePartitionSchemeDescriptionInput interface {
+	pulumi.Input
+
+	ToUniformInt64RangePartitionSchemeDescriptionOutput() UniformInt64RangePartitionSchemeDescriptionOutput
+	ToUniformInt64RangePartitionSchemeDescriptionOutputWithContext(context.Context) UniformInt64RangePartitionSchemeDescriptionOutput
+}
+
+// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+type UniformInt64RangePartitionSchemeDescriptionArgs struct {
+	// The number of partitions.
+	Count pulumi.IntInput `pulumi:"count"`
+	// String indicating the upper bound of the partition key range that
+	// should be split between the partition ‘Count’
+	HighKey pulumi.StringInput `pulumi:"highKey"`
+	// String indicating the lower bound of the partition key range that
+	// should be split between the partition ‘Count’
+	LowKey pulumi.StringInput `pulumi:"lowKey"`
+	// Specifies how the service is partitioned.
+	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
+}
+
+func (UniformInt64RangePartitionSchemeDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniformInt64RangePartitionSchemeDescription)(nil)).Elem()
+}
+
+func (i UniformInt64RangePartitionSchemeDescriptionArgs) ToUniformInt64RangePartitionSchemeDescriptionOutput() UniformInt64RangePartitionSchemeDescriptionOutput {
+	return i.ToUniformInt64RangePartitionSchemeDescriptionOutputWithContext(context.Background())
+}
+
+func (i UniformInt64RangePartitionSchemeDescriptionArgs) ToUniformInt64RangePartitionSchemeDescriptionOutputWithContext(ctx context.Context) UniformInt64RangePartitionSchemeDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UniformInt64RangePartitionSchemeDescriptionOutput)
+}
+
+// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+type UniformInt64RangePartitionSchemeDescriptionOutput struct{ *pulumi.OutputState }
+
+func (UniformInt64RangePartitionSchemeDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniformInt64RangePartitionSchemeDescription)(nil)).Elem()
+}
+
+func (o UniformInt64RangePartitionSchemeDescriptionOutput) ToUniformInt64RangePartitionSchemeDescriptionOutput() UniformInt64RangePartitionSchemeDescriptionOutput {
+	return o
+}
+
+func (o UniformInt64RangePartitionSchemeDescriptionOutput) ToUniformInt64RangePartitionSchemeDescriptionOutputWithContext(ctx context.Context) UniformInt64RangePartitionSchemeDescriptionOutput {
+	return o
+}
+
+// The number of partitions.
+func (o UniformInt64RangePartitionSchemeDescriptionOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v UniformInt64RangePartitionSchemeDescription) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// String indicating the upper bound of the partition key range that
+// should be split between the partition ‘Count’
+func (o UniformInt64RangePartitionSchemeDescriptionOutput) HighKey() pulumi.StringOutput {
+	return o.ApplyT(func(v UniformInt64RangePartitionSchemeDescription) string { return v.HighKey }).(pulumi.StringOutput)
+}
+
+// String indicating the lower bound of the partition key range that
+// should be split between the partition ‘Count’
+func (o UniformInt64RangePartitionSchemeDescriptionOutput) LowKey() pulumi.StringOutput {
+	return o.ApplyT(func(v UniformInt64RangePartitionSchemeDescription) string { return v.LowKey }).(pulumi.StringOutput)
+}
+
+// Specifies how the service is partitioned.
+func (o UniformInt64RangePartitionSchemeDescriptionOutput) PartitionScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v UniformInt64RangePartitionSchemeDescription) string { return v.PartitionScheme }).(pulumi.StringOutput)
+}
+
+// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+type UniformInt64RangePartitionSchemeDescriptionResponse struct {
+	// The number of partitions.
+	Count int `pulumi:"count"`
+	// String indicating the upper bound of the partition key range that
+	// should be split between the partition ‘Count’
+	HighKey string `pulumi:"highKey"`
+	// String indicating the lower bound of the partition key range that
+	// should be split between the partition ‘Count’
+	LowKey string `pulumi:"lowKey"`
+	// Specifies how the service is partitioned.
+	PartitionScheme string `pulumi:"partitionScheme"`
+}
+
+// UniformInt64RangePartitionSchemeDescriptionResponseInput is an input type that accepts UniformInt64RangePartitionSchemeDescriptionResponseArgs and UniformInt64RangePartitionSchemeDescriptionResponseOutput values.
+// You can construct a concrete instance of `UniformInt64RangePartitionSchemeDescriptionResponseInput` via:
+//
+//          UniformInt64RangePartitionSchemeDescriptionResponseArgs{...}
+type UniformInt64RangePartitionSchemeDescriptionResponseInput interface {
+	pulumi.Input
+
+	ToUniformInt64RangePartitionSchemeDescriptionResponseOutput() UniformInt64RangePartitionSchemeDescriptionResponseOutput
+	ToUniformInt64RangePartitionSchemeDescriptionResponseOutputWithContext(context.Context) UniformInt64RangePartitionSchemeDescriptionResponseOutput
+}
+
+// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+type UniformInt64RangePartitionSchemeDescriptionResponseArgs struct {
+	// The number of partitions.
+	Count pulumi.IntInput `pulumi:"count"`
+	// String indicating the upper bound of the partition key range that
+	// should be split between the partition ‘Count’
+	HighKey pulumi.StringInput `pulumi:"highKey"`
+	// String indicating the lower bound of the partition key range that
+	// should be split between the partition ‘Count’
+	LowKey pulumi.StringInput `pulumi:"lowKey"`
+	// Specifies how the service is partitioned.
+	PartitionScheme pulumi.StringInput `pulumi:"partitionScheme"`
+}
+
+func (UniformInt64RangePartitionSchemeDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniformInt64RangePartitionSchemeDescriptionResponse)(nil)).Elem()
+}
+
+func (i UniformInt64RangePartitionSchemeDescriptionResponseArgs) ToUniformInt64RangePartitionSchemeDescriptionResponseOutput() UniformInt64RangePartitionSchemeDescriptionResponseOutput {
+	return i.ToUniformInt64RangePartitionSchemeDescriptionResponseOutputWithContext(context.Background())
+}
+
+func (i UniformInt64RangePartitionSchemeDescriptionResponseArgs) ToUniformInt64RangePartitionSchemeDescriptionResponseOutputWithContext(ctx context.Context) UniformInt64RangePartitionSchemeDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UniformInt64RangePartitionSchemeDescriptionResponseOutput)
+}
+
+// Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
+type UniformInt64RangePartitionSchemeDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (UniformInt64RangePartitionSchemeDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniformInt64RangePartitionSchemeDescriptionResponse)(nil)).Elem()
+}
+
+func (o UniformInt64RangePartitionSchemeDescriptionResponseOutput) ToUniformInt64RangePartitionSchemeDescriptionResponseOutput() UniformInt64RangePartitionSchemeDescriptionResponseOutput {
+	return o
+}
+
+func (o UniformInt64RangePartitionSchemeDescriptionResponseOutput) ToUniformInt64RangePartitionSchemeDescriptionResponseOutputWithContext(ctx context.Context) UniformInt64RangePartitionSchemeDescriptionResponseOutput {
+	return o
+}
+
+// The number of partitions.
+func (o UniformInt64RangePartitionSchemeDescriptionResponseOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v UniformInt64RangePartitionSchemeDescriptionResponse) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// String indicating the upper bound of the partition key range that
+// should be split between the partition ‘Count’
+func (o UniformInt64RangePartitionSchemeDescriptionResponseOutput) HighKey() pulumi.StringOutput {
+	return o.ApplyT(func(v UniformInt64RangePartitionSchemeDescriptionResponse) string { return v.HighKey }).(pulumi.StringOutput)
+}
+
+// String indicating the lower bound of the partition key range that
+// should be split between the partition ‘Count’
+func (o UniformInt64RangePartitionSchemeDescriptionResponseOutput) LowKey() pulumi.StringOutput {
+	return o.ApplyT(func(v UniformInt64RangePartitionSchemeDescriptionResponse) string { return v.LowKey }).(pulumi.StringOutput)
+}
+
+// Specifies how the service is partitioned.
+func (o UniformInt64RangePartitionSchemeDescriptionResponseOutput) PartitionScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v UniformInt64RangePartitionSchemeDescriptionResponse) string { return v.PartitionScheme }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationMetricDescriptionOutput{})
 	pulumi.RegisterOutputType(ApplicationMetricDescriptionArrayOutput{})
@@ -7211,14 +7375,12 @@ func init() {
 	pulumi.RegisterOutputType(EndpointRangeDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(NamedPartitionSchemeDescriptionOutput{})
+	pulumi.RegisterOutputType(NamedPartitionSchemeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionArrayOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionResponseArrayOutput{})
-	pulumi.RegisterOutputType(PartitionSchemeDescriptionOutput{})
-	pulumi.RegisterOutputType(PartitionSchemeDescriptionPtrOutput{})
-	pulumi.RegisterOutputType(PartitionSchemeDescriptionResponseOutput{})
-	pulumi.RegisterOutputType(PartitionSchemeDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceCorrelationDescriptionOutput{})
 	pulumi.RegisterOutputType(ServiceCorrelationDescriptionArrayOutput{})
 	pulumi.RegisterOutputType(ServiceCorrelationDescriptionResponseOutput{})
@@ -7239,4 +7401,8 @@ func init() {
 	pulumi.RegisterOutputType(SettingsSectionDescriptionArrayOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(SingletonPartitionSchemeDescriptionOutput{})
+	pulumi.RegisterOutputType(SingletonPartitionSchemeDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(UniformInt64RangePartitionSchemeDescriptionOutput{})
+	pulumi.RegisterOutputType(UniformInt64RangePartitionSchemeDescriptionResponseOutput{})
 }

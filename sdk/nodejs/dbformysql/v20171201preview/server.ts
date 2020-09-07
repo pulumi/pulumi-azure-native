@@ -214,7 +214,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbformysql.v20171201preview.ServerPropertiesForCreate>;
+    readonly properties: pulumi.Input<inputs.dbformysql.v20171201preview.ServerPropertiesForDefaultCreate | inputs.dbformysql.v20171201preview.ServerPropertiesForGeoRestore | inputs.dbformysql.v20171201preview.ServerPropertiesForReplica | inputs.dbformysql.v20171201preview.ServerPropertiesForRestore>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

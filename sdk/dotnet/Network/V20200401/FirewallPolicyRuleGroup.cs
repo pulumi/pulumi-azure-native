@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// Group of Firewall Policy rules.
         /// </summary>
         [Output("rules")]
-        public Output<ImmutableArray<Outputs.FirewallPolicyRuleResponseResult>> Rules { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.FirewallPolicyFilterRuleResponseResult, Outputs.FirewallPolicyNatRuleResponseResult>>> Rules { get; private set; } = null!;
 
         /// <summary>
         /// Rule Group type.
@@ -143,14 +143,14 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Input<string> RuleGroupName { get; set; } = null!;
 
         [Input("rules")]
-        private InputList<Inputs.FirewallPolicyRuleArgs>? _rules;
+        private InputList<Union<Inputs.FirewallPolicyFilterRuleArgs, Inputs.FirewallPolicyNatRuleArgs>>? _rules;
 
         /// <summary>
         /// Group of Firewall Policy rules.
         /// </summary>
-        public InputList<Inputs.FirewallPolicyRuleArgs> Rules
+        public InputList<Union<Inputs.FirewallPolicyFilterRuleArgs, Inputs.FirewallPolicyNatRuleArgs>> Rules
         {
-            get => _rules ?? (_rules = new InputList<Inputs.FirewallPolicyRuleArgs>());
+            get => _rules ?? (_rules = new InputList<Union<Inputs.FirewallPolicyFilterRuleArgs, Inputs.FirewallPolicyNatRuleArgs>>());
             set => _rules = value;
         }
 

@@ -15,9 +15,9 @@ type EventSubscription struct {
 	pulumi.CustomResourceState
 
 	// The DeadLetter destination of the event subscription.
-	DeadLetterDestination DeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
+	DeadLetterDestination StorageBlobDeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination EventSubscriptionDestinationResponsePtrOutput `pulumi:"destination"`
+	Destination pulumi.AnyOutput `pulumi:"destination"`
 	// Information about the filter for the event subscription.
 	Filter EventSubscriptionFilterResponsePtrOutput `pulumi:"filter"`
 	// List of user defined labels.
@@ -105,9 +105,9 @@ func GetEventSubscription(ctx *pulumi.Context,
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
 	// The DeadLetter destination of the event subscription.
-	DeadLetterDestination *DeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination *EventSubscriptionDestinationResponse `pulumi:"destination"`
+	Destination interface{} `pulumi:"destination"`
 	// Information about the filter for the event subscription.
 	Filter *EventSubscriptionFilterResponse `pulumi:"filter"`
 	// List of user defined labels.
@@ -126,9 +126,9 @@ type eventSubscriptionState struct {
 
 type EventSubscriptionState struct {
 	// The DeadLetter destination of the event subscription.
-	DeadLetterDestination DeadLetterDestinationResponsePtrInput
+	DeadLetterDestination StorageBlobDeadLetterDestinationResponsePtrInput
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination EventSubscriptionDestinationResponsePtrInput
+	Destination pulumi.Input
 	// Information about the filter for the event subscription.
 	Filter EventSubscriptionFilterResponsePtrInput
 	// List of user defined labels.
@@ -151,9 +151,9 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 
 type eventSubscriptionArgs struct {
 	// The DeadLetter destination of the event subscription.
-	DeadLetterDestination *DeadLetterDestination `pulumi:"deadLetterDestination"`
+	DeadLetterDestination *StorageBlobDeadLetterDestination `pulumi:"deadLetterDestination"`
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination *EventSubscriptionDestination `pulumi:"destination"`
+	Destination interface{} `pulumi:"destination"`
 	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
 	EventSubscriptionName string `pulumi:"eventSubscriptionName"`
 	// Information about the filter for the event subscription.
@@ -169,9 +169,9 @@ type eventSubscriptionArgs struct {
 // The set of arguments for constructing a EventSubscription resource.
 type EventSubscriptionArgs struct {
 	// The DeadLetter destination of the event subscription.
-	DeadLetterDestination DeadLetterDestinationPtrInput
+	DeadLetterDestination StorageBlobDeadLetterDestinationPtrInput
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination EventSubscriptionDestinationPtrInput
+	Destination pulumi.Input
 	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
 	EventSubscriptionName pulumi.StringInput
 	// Information about the filter for the event subscription.

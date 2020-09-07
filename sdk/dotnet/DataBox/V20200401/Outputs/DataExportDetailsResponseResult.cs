@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.DataBox.V20200401.Outputs
         /// <summary>
         /// Account details of the data to be transferred
         /// </summary>
-        public readonly Outputs.DataAccountDetailsResponseResult AccountDetails;
+        public readonly Union<Outputs.ManagedDiskDetailsResponseResult, Outputs.StorageAccountDetailsResponseResult> AccountDetails;
         /// <summary>
         /// Level of the logs to be collected.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.DataBox.V20200401.Outputs
 
         [OutputConstructor]
         private DataExportDetailsResponseResult(
-            Outputs.DataAccountDetailsResponseResult accountDetails,
+            Union<Outputs.ManagedDiskDetailsResponseResult, Outputs.StorageAccountDetailsResponseResult> accountDetails,
 
             string? logCollectionLevel,
 

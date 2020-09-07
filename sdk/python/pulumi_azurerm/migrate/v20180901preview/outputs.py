@@ -10,13 +10,137 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'DatabaseProjectSummaryResponse',
+    'DatabasesSolutionSummaryResponse',
     'MigrateProjectPropertiesResponse',
     'MigrateProjectResponseTags',
-    'ProjectSummaryResponse',
+    'ServersProjectSummaryResponse',
+    'ServersSolutionSummaryResponse',
     'SolutionDetailsResponse',
     'SolutionPropertiesResponse',
-    'SolutionSummaryResponse',
 ]
+
+@pulumi.output_type
+class DatabaseProjectSummaryResponse(dict):
+    """
+    The database project summary class.
+    """
+    def __init__(__self__, *,
+                 instance_type: str,
+                 extended_summary: Optional[Mapping[str, str]] = None,
+                 last_summary_refreshed_time: Optional[str] = None,
+                 refresh_summary_state: Optional[str] = None):
+        """
+        The database project summary class.
+        :param str instance_type: Gets the Instance type.
+        :param Mapping[str, str] extended_summary: Gets or sets the extended summary.
+        :param str last_summary_refreshed_time: Gets or sets the time when summary was last refreshed.
+        :param str refresh_summary_state: Gets or sets the state of refresh summary.
+        """
+        pulumi.set(__self__, "instance_type", 'Databases')
+        if extended_summary is not None:
+            pulumi.set(__self__, "extended_summary", extended_summary)
+        if last_summary_refreshed_time is not None:
+            pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
+        if refresh_summary_state is not None:
+            pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Gets the Instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="extendedSummary")
+    def extended_summary(self) -> Optional[Mapping[str, str]]:
+        """
+        Gets or sets the extended summary.
+        """
+        return pulumi.get(self, "extended_summary")
+
+    @property
+    @pulumi.getter(name="lastSummaryRefreshedTime")
+    def last_summary_refreshed_time(self) -> Optional[str]:
+        """
+        Gets or sets the time when summary was last refreshed.
+        """
+        return pulumi.get(self, "last_summary_refreshed_time")
+
+    @property
+    @pulumi.getter(name="refreshSummaryState")
+    def refresh_summary_state(self) -> Optional[str]:
+        """
+        Gets or sets the state of refresh summary.
+        """
+        return pulumi.get(self, "refresh_summary_state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DatabasesSolutionSummaryResponse(dict):
+    """
+    Class representing the databases solution summary.
+    """
+    def __init__(__self__, *,
+                 instance_type: str,
+                 database_instances_assessed_count: Optional[float] = None,
+                 databases_assessed_count: Optional[float] = None,
+                 migration_ready_count: Optional[float] = None):
+        """
+        Class representing the databases solution summary.
+        :param str instance_type: Gets the Instance type.
+        :param float database_instances_assessed_count: Gets or sets the count of database instances assessed.
+        :param float databases_assessed_count: Gets or sets the count of databases assessed.
+        :param float migration_ready_count: Gets or sets the count of databases ready for migration.
+        """
+        pulumi.set(__self__, "instance_type", 'Databases')
+        if database_instances_assessed_count is not None:
+            pulumi.set(__self__, "database_instances_assessed_count", database_instances_assessed_count)
+        if databases_assessed_count is not None:
+            pulumi.set(__self__, "databases_assessed_count", databases_assessed_count)
+        if migration_ready_count is not None:
+            pulumi.set(__self__, "migration_ready_count", migration_ready_count)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Gets the Instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="databaseInstancesAssessedCount")
+    def database_instances_assessed_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of database instances assessed.
+        """
+        return pulumi.get(self, "database_instances_assessed_count")
+
+    @property
+    @pulumi.getter(name="databasesAssessedCount")
+    def databases_assessed_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of databases assessed.
+        """
+        return pulumi.get(self, "databases_assessed_count")
+
+    @property
+    @pulumi.getter(name="migrationReadyCount")
+    def migration_ready_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of databases ready for migration.
+        """
+        return pulumi.get(self, "migration_ready_count")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class MigrateProjectPropertiesResponse(dict):
@@ -26,14 +150,14 @@ class MigrateProjectPropertiesResponse(dict):
     def __init__(__self__, *,
                  last_summary_refreshed_time: str,
                  refresh_summary_state: str,
-                 summary: Mapping[str, 'outputs.ProjectSummaryResponse'],
+                 summary: Mapping[str, Any],
                  provisioning_state: Optional[str] = None,
                  registered_tools: Optional[List[str]] = None):
         """
         Class for migrate project properties.
         :param str last_summary_refreshed_time: Gets the last time the project summary was refreshed.
         :param str refresh_summary_state: Gets the refresh summary state.
-        :param Mapping[str, 'ProjectSummaryResponseArgs'] summary: Gets the summary of the migrate project.
+        :param Mapping[str, Union['DatabaseProjectSummaryResponseArgs', 'ServersProjectSummaryResponseArgs']] summary: Gets the summary of the migrate project.
         :param str provisioning_state: Provisioning state of the migrate project.
         :param List[str] registered_tools: Gets or sets the list of tools registered with the migrate project.
         """
@@ -63,7 +187,7 @@ class MigrateProjectPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def summary(self) -> Mapping[str, 'outputs.ProjectSummaryResponse']:
+    def summary(self) -> Mapping[str, Any]:
         """
         Gets the summary of the migrate project.
         """
@@ -112,29 +236,49 @@ class MigrateProjectResponseTags(dict):
 
 
 @pulumi.output_type
-class ProjectSummaryResponse(dict):
+class ServersProjectSummaryResponse(dict):
     """
-    The project summary class.
+    Class representing the servers project summary.
     """
     def __init__(__self__, *,
                  instance_type: str,
+                 assessed_count: Optional[float] = None,
+                 discovered_count: Optional[float] = None,
                  extended_summary: Optional[Mapping[str, str]] = None,
                  last_summary_refreshed_time: Optional[str] = None,
-                 refresh_summary_state: Optional[str] = None):
+                 migrated_count: Optional[float] = None,
+                 refresh_summary_state: Optional[str] = None,
+                 replicating_count: Optional[float] = None,
+                 test_migrated_count: Optional[float] = None):
         """
-        The project summary class.
+        Class representing the servers project summary.
         :param str instance_type: Gets the Instance type.
+        :param float assessed_count: Gets or sets the count of entities assessed.
+        :param float discovered_count: Gets or sets the count of entities discovered.
         :param Mapping[str, str] extended_summary: Gets or sets the extended summary.
         :param str last_summary_refreshed_time: Gets or sets the time when summary was last refreshed.
+        :param float migrated_count: Gets or sets the count of entities migrated.
         :param str refresh_summary_state: Gets or sets the state of refresh summary.
+        :param float replicating_count: Gets or sets the count of entities being replicated.
+        :param float test_migrated_count: Gets or sets the count of entities test migrated.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "instance_type", 'Servers')
+        if assessed_count is not None:
+            pulumi.set(__self__, "assessed_count", assessed_count)
+        if discovered_count is not None:
+            pulumi.set(__self__, "discovered_count", discovered_count)
         if extended_summary is not None:
             pulumi.set(__self__, "extended_summary", extended_summary)
         if last_summary_refreshed_time is not None:
             pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
+        if migrated_count is not None:
+            pulumi.set(__self__, "migrated_count", migrated_count)
         if refresh_summary_state is not None:
             pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
+        if replicating_count is not None:
+            pulumi.set(__self__, "replicating_count", replicating_count)
+        if test_migrated_count is not None:
+            pulumi.set(__self__, "test_migrated_count", test_migrated_count)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -143,6 +287,22 @@ class ProjectSummaryResponse(dict):
         Gets the Instance type.
         """
         return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="assessedCount")
+    def assessed_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of entities assessed.
+        """
+        return pulumi.get(self, "assessed_count")
+
+    @property
+    @pulumi.getter(name="discoveredCount")
+    def discovered_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of entities discovered.
+        """
+        return pulumi.get(self, "discovered_count")
 
     @property
     @pulumi.getter(name="extendedSummary")
@@ -161,12 +321,121 @@ class ProjectSummaryResponse(dict):
         return pulumi.get(self, "last_summary_refreshed_time")
 
     @property
+    @pulumi.getter(name="migratedCount")
+    def migrated_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of entities migrated.
+        """
+        return pulumi.get(self, "migrated_count")
+
+    @property
     @pulumi.getter(name="refreshSummaryState")
     def refresh_summary_state(self) -> Optional[str]:
         """
         Gets or sets the state of refresh summary.
         """
         return pulumi.get(self, "refresh_summary_state")
+
+    @property
+    @pulumi.getter(name="replicatingCount")
+    def replicating_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of entities being replicated.
+        """
+        return pulumi.get(self, "replicating_count")
+
+    @property
+    @pulumi.getter(name="testMigratedCount")
+    def test_migrated_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of entities test migrated.
+        """
+        return pulumi.get(self, "test_migrated_count")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServersSolutionSummaryResponse(dict):
+    """
+    Class representing the servers solution summary.
+    """
+    def __init__(__self__, *,
+                 instance_type: str,
+                 assessed_count: Optional[float] = None,
+                 discovered_count: Optional[float] = None,
+                 migrated_count: Optional[float] = None,
+                 replicating_count: Optional[float] = None,
+                 test_migrated_count: Optional[float] = None):
+        """
+        Class representing the servers solution summary.
+        :param str instance_type: Gets the Instance type.
+        :param float assessed_count: Gets or sets the count of servers assessed.
+        :param float discovered_count: Gets or sets the count of servers discovered.
+        :param float migrated_count: Gets or sets the count of servers migrated.
+        :param float replicating_count: Gets or sets the count of servers being replicated.
+        :param float test_migrated_count: Gets or sets the count of servers test migrated.
+        """
+        pulumi.set(__self__, "instance_type", 'Servers')
+        if assessed_count is not None:
+            pulumi.set(__self__, "assessed_count", assessed_count)
+        if discovered_count is not None:
+            pulumi.set(__self__, "discovered_count", discovered_count)
+        if migrated_count is not None:
+            pulumi.set(__self__, "migrated_count", migrated_count)
+        if replicating_count is not None:
+            pulumi.set(__self__, "replicating_count", replicating_count)
+        if test_migrated_count is not None:
+            pulumi.set(__self__, "test_migrated_count", test_migrated_count)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Gets the Instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="assessedCount")
+    def assessed_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of servers assessed.
+        """
+        return pulumi.get(self, "assessed_count")
+
+    @property
+    @pulumi.getter(name="discoveredCount")
+    def discovered_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of servers discovered.
+        """
+        return pulumi.get(self, "discovered_count")
+
+    @property
+    @pulumi.getter(name="migratedCount")
+    def migrated_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of servers migrated.
+        """
+        return pulumi.get(self, "migrated_count")
+
+    @property
+    @pulumi.getter(name="replicatingCount")
+    def replicating_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of servers being replicated.
+        """
+        return pulumi.get(self, "replicating_count")
+
+    @property
+    @pulumi.getter(name="testMigratedCount")
+    def test_migrated_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of servers test migrated.
+        """
+        return pulumi.get(self, "test_migrated_count")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -233,7 +502,7 @@ class SolutionPropertiesResponse(dict):
                  goal: Optional[str] = None,
                  purpose: Optional[str] = None,
                  status: Optional[str] = None,
-                 summary: Optional['outputs.SolutionSummaryResponse'] = None,
+                 summary: Optional[Any] = None,
                  tool: Optional[str] = None):
         """
         Class for solution properties.
@@ -242,7 +511,7 @@ class SolutionPropertiesResponse(dict):
         :param str goal: Gets or sets the goal of the solution.
         :param str purpose: Gets or sets the purpose of the solution.
         :param str status: Gets or sets the current status of the solution.
-        :param 'SolutionSummaryResponseArgs' summary: Gets or sets the summary of the solution.
+        :param Union['DatabasesSolutionSummaryResponseArgs', 'ServersSolutionSummaryResponseArgs'] summary: Gets or sets the summary of the solution.
         :param str tool: Gets or sets the tool being used in the solution.
         """
         if cleanup_state is not None:
@@ -302,7 +571,7 @@ class SolutionPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def summary(self) -> Optional['outputs.SolutionSummaryResponse']:
+    def summary(self) -> Optional[Any]:
         """
         Gets or sets the summary of the solution.
         """
@@ -315,31 +584,6 @@ class SolutionPropertiesResponse(dict):
         Gets or sets the tool being used in the solution.
         """
         return pulumi.get(self, "tool")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class SolutionSummaryResponse(dict):
-    """
-    The solution summary class.
-    """
-    def __init__(__self__, *,
-                 instance_type: str):
-        """
-        The solution summary class.
-        :param str instance_type: Gets the Instance type.
-        """
-        pulumi.set(__self__, "instance_type", instance_type)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
-        """
-        Gets the Instance type.
-        """
-        return pulumi.get(self, "instance_type")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

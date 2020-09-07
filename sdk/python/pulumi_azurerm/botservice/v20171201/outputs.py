@@ -11,13 +11,35 @@ from . import outputs
 
 __all__ = [
     'BotPropertiesResponse',
-    'ChannelResponse',
     'ConnectionSettingParameterResponse',
     'ConnectionSettingPropertiesResponse',
+    'DirectLineChannelPropertiesResponse',
+    'DirectLineChannelResponse',
+    'DirectLineSiteResponse',
+    'EmailChannelPropertiesResponse',
+    'EmailChannelResponse',
+    'FacebookChannelPropertiesResponse',
+    'FacebookChannelResponse',
+    'FacebookPageResponse',
+    'KikChannelPropertiesResponse',
+    'KikChannelResponse',
+    'MsTeamsChannelPropertiesResponse',
+    'MsTeamsChannelResponse',
     'ServiceProviderParameterResponseResult',
     'ServiceProviderPropertiesResponseResult',
     'ServiceProviderResponseResult',
     'SkuResponse',
+    'SkypeChannelPropertiesResponse',
+    'SkypeChannelResponse',
+    'SlackChannelPropertiesResponse',
+    'SlackChannelResponse',
+    'SmsChannelPropertiesResponse',
+    'SmsChannelResponse',
+    'TelegramChannelPropertiesResponse',
+    'TelegramChannelResponse',
+    'WebChatChannelPropertiesResponse',
+    'WebChatChannelResponse',
+    'WebChatSiteResponse',
 ]
 
 @pulumi.output_type
@@ -185,31 +207,6 @@ class BotPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class ChannelResponse(dict):
-    """
-    Channel definition
-    """
-    def __init__(__self__, *,
-                 channel_name: str):
-        """
-        Channel definition
-        :param str channel_name: The channel name
-        """
-        pulumi.set(__self__, "channel_name", channel_name)
-
-    @property
-    @pulumi.getter(name="channelName")
-    def channel_name(self) -> str:
-        """
-        The channel name
-        """
-        return pulumi.get(self, "channel_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class ConnectionSettingParameterResponse(dict):
     """
     Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
@@ -339,6 +336,616 @@ class ConnectionSettingPropertiesResponse(dict):
         Service Provider Id associated with the Connection Setting
         """
         return pulumi.get(self, "service_provider_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DirectLineChannelPropertiesResponse(dict):
+    """
+    The parameters to provide for the Direct Line channel.
+    """
+    def __init__(__self__, *,
+                 sites: Optional[List['outputs.DirectLineSiteResponse']] = None):
+        """
+        The parameters to provide for the Direct Line channel.
+        :param List['DirectLineSiteResponseArgs'] sites: The list of Direct Line sites
+        """
+        if sites is not None:
+            pulumi.set(__self__, "sites", sites)
+
+    @property
+    @pulumi.getter
+    def sites(self) -> Optional[List['outputs.DirectLineSiteResponse']]:
+        """
+        The list of Direct Line sites
+        """
+        return pulumi.get(self, "sites")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DirectLineChannelResponse(dict):
+    """
+    Direct Line channel definition
+    """
+    def __init__(__self__, *,
+                 channel_name: str,
+                 properties: Optional['outputs.DirectLineChannelPropertiesResponse'] = None):
+        """
+        Direct Line channel definition
+        :param str channel_name: The channel name
+        :param 'DirectLineChannelPropertiesResponseArgs' properties: The set of properties specific to Direct Line channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'DirectLineChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> str:
+        """
+        The channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.DirectLineChannelPropertiesResponse']:
+        """
+        The set of properties specific to Direct Line channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DirectLineSiteResponse(dict):
+    """
+    A site for the Direct Line channel
+    """
+    def __init__(__self__, *,
+                 is_enabled: bool,
+                 is_v1_enabled: bool,
+                 is_v3_enabled: bool,
+                 key: str,
+                 key2: str,
+                 site_id: str,
+                 site_name: str):
+        """
+        A site for the Direct Line channel
+        :param bool is_enabled: Whether this site is enabled for DirectLine channel
+        :param bool is_v1_enabled: Whether this site is enabled for Bot Framework V1 protocol
+        :param bool is_v3_enabled: Whether this site is enabled for Bot Framework V1 protocol
+        :param str key: Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param str key2: Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param str site_id: Site Id
+        :param str site_name: Site name
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
+        pulumi.set(__self__, "is_v3_enabled", is_v3_enabled)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "key2", key2)
+        pulumi.set(__self__, "site_id", site_id)
+        pulumi.set(__self__, "site_name", site_name)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Whether this site is enabled for DirectLine channel
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="isV1Enabled")
+    def is_v1_enabled(self) -> bool:
+        """
+        Whether this site is enabled for Bot Framework V1 protocol
+        """
+        return pulumi.get(self, "is_v1_enabled")
+
+    @property
+    @pulumi.getter(name="isV3Enabled")
+    def is_v3_enabled(self) -> bool:
+        """
+        Whether this site is enabled for Bot Framework V1 protocol
+        """
+        return pulumi.get(self, "is_v3_enabled")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def key2(self) -> str:
+        """
+        Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "key2")
+
+    @property
+    @pulumi.getter(name="siteId")
+    def site_id(self) -> str:
+        """
+        Site Id
+        """
+        return pulumi.get(self, "site_id")
+
+    @property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> str:
+        """
+        Site name
+        """
+        return pulumi.get(self, "site_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EmailChannelPropertiesResponse(dict):
+    """
+    The parameters to provide for the Email channel.
+    """
+    def __init__(__self__, *,
+                 email_address: str,
+                 is_enabled: bool,
+                 password: str):
+        """
+        The parameters to provide for the Email channel.
+        :param str email_address: The email address
+        :param bool is_enabled: Whether this channel is enabled for the bot
+        :param str password: The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> str:
+        """
+        The email address
+        """
+        return pulumi.get(self, "email_address")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Whether this channel is enabled for the bot
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "password")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EmailChannelResponse(dict):
+    """
+    Email channel definition
+    """
+    def __init__(__self__, *,
+                 channel_name: str,
+                 properties: Optional['outputs.EmailChannelPropertiesResponse'] = None):
+        """
+        Email channel definition
+        :param str channel_name: The channel name
+        :param 'EmailChannelPropertiesResponseArgs' properties: The set of properties specific to email channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'EmailChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> str:
+        """
+        The channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.EmailChannelPropertiesResponse']:
+        """
+        The set of properties specific to email channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FacebookChannelPropertiesResponse(dict):
+    """
+    The parameters to provide for the Facebook channel.
+    """
+    def __init__(__self__, *,
+                 app_id: str,
+                 app_secret: str,
+                 callback_url: str,
+                 is_enabled: bool,
+                 verify_token: str,
+                 pages: Optional[List['outputs.FacebookPageResponse']] = None):
+        """
+        The parameters to provide for the Facebook channel.
+        :param str app_id: Facebook application id
+        :param str app_secret: Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param str callback_url: Callback Url
+        :param bool is_enabled: Whether this channel is enabled for the bot
+        :param str verify_token: Verify token. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param List['FacebookPageResponseArgs'] pages: The list of Facebook pages
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "app_secret", app_secret)
+        pulumi.set(__self__, "callback_url", callback_url)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "verify_token", verify_token)
+        if pages is not None:
+            pulumi.set(__self__, "pages", pages)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> str:
+        """
+        Facebook application id
+        """
+        return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> str:
+        """
+        Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @property
+    @pulumi.getter(name="callbackUrl")
+    def callback_url(self) -> str:
+        """
+        Callback Url
+        """
+        return pulumi.get(self, "callback_url")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Whether this channel is enabled for the bot
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="verifyToken")
+    def verify_token(self) -> str:
+        """
+        Verify token. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "verify_token")
+
+    @property
+    @pulumi.getter
+    def pages(self) -> Optional[List['outputs.FacebookPageResponse']]:
+        """
+        The list of Facebook pages
+        """
+        return pulumi.get(self, "pages")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FacebookChannelResponse(dict):
+    """
+    Facebook channel definition
+    """
+    def __init__(__self__, *,
+                 channel_name: str,
+                 properties: Optional['outputs.FacebookChannelPropertiesResponse'] = None):
+        """
+        Facebook channel definition
+        :param str channel_name: The channel name
+        :param 'FacebookChannelPropertiesResponseArgs' properties: The set of properties specific to bot facebook channel
+        """
+        pulumi.set(__self__, "channel_name", 'FacebookChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> str:
+        """
+        The channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.FacebookChannelPropertiesResponse']:
+        """
+        The set of properties specific to bot facebook channel
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FacebookPageResponse(dict):
+    """
+    A Facebook page for Facebook channel registration
+    """
+    def __init__(__self__, *,
+                 access_token: str,
+                 id: str):
+        """
+        A Facebook page for Facebook channel registration
+        :param str access_token: Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param str id: Page id
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> str:
+        """
+        Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Page id
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KikChannelPropertiesResponse(dict):
+    """
+    The parameters to provide for the Kik channel.
+    """
+    def __init__(__self__, *,
+                 api_key: str,
+                 is_enabled: bool,
+                 user_name: str,
+                 is_validated: Optional[bool] = None):
+        """
+        The parameters to provide for the Kik channel.
+        :param str api_key: Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param bool is_enabled: Whether this channel is enabled for the bot
+        :param str user_name: The Kik user name
+        :param bool is_validated: Whether this channel is validated for the bot
+        """
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "user_name", user_name)
+        if is_validated is not None:
+            pulumi.set(__self__, "is_validated", is_validated)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> str:
+        """
+        Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Whether this channel is enabled for the bot
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        The Kik user name
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter(name="isValidated")
+    def is_validated(self) -> Optional[bool]:
+        """
+        Whether this channel is validated for the bot
+        """
+        return pulumi.get(self, "is_validated")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KikChannelResponse(dict):
+    """
+    Kik channel definition
+    """
+    def __init__(__self__, *,
+                 channel_name: str,
+                 properties: Optional['outputs.KikChannelPropertiesResponse'] = None):
+        """
+        Kik channel definition
+        :param str channel_name: The channel name
+        :param 'KikChannelPropertiesResponseArgs' properties: The set of properties specific to Kik channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'KikChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> str:
+        """
+        The channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.KikChannelPropertiesResponse']:
+        """
+        The set of properties specific to Kik channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MsTeamsChannelPropertiesResponse(dict):
+    """
+    The parameters to provide for the Microsoft Teams channel.
+    """
+    def __init__(__self__, *,
+                 is_enabled: bool,
+                 call_mode: Optional[str] = None,
+                 enable_calling: Optional[bool] = None,
+                 enable_media_cards: Optional[bool] = None,
+                 enable_messaging: Optional[bool] = None,
+                 enable_video: Optional[bool] = None):
+        """
+        The parameters to provide for the Microsoft Teams channel.
+        :param bool is_enabled: Whether this channel is enabled for the bot
+        :param str call_mode: Enable messaging for Microsoft Teams channel
+        :param bool enable_calling: Enable calling for Microsoft Teams channel
+        :param bool enable_media_cards: Enable media cards for Microsoft Teams channel
+        :param bool enable_messaging: Enable messaging for Microsoft Teams channel
+        :param bool enable_video: Enable video for Microsoft Teams channel
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        if call_mode is not None:
+            pulumi.set(__self__, "call_mode", call_mode)
+        if enable_calling is not None:
+            pulumi.set(__self__, "enable_calling", enable_calling)
+        if enable_media_cards is not None:
+            pulumi.set(__self__, "enable_media_cards", enable_media_cards)
+        if enable_messaging is not None:
+            pulumi.set(__self__, "enable_messaging", enable_messaging)
+        if enable_video is not None:
+            pulumi.set(__self__, "enable_video", enable_video)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Whether this channel is enabled for the bot
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="callMode")
+    def call_mode(self) -> Optional[str]:
+        """
+        Enable messaging for Microsoft Teams channel
+        """
+        return pulumi.get(self, "call_mode")
+
+    @property
+    @pulumi.getter(name="enableCalling")
+    def enable_calling(self) -> Optional[bool]:
+        """
+        Enable calling for Microsoft Teams channel
+        """
+        return pulumi.get(self, "enable_calling")
+
+    @property
+    @pulumi.getter(name="enableMediaCards")
+    def enable_media_cards(self) -> Optional[bool]:
+        """
+        Enable media cards for Microsoft Teams channel
+        """
+        return pulumi.get(self, "enable_media_cards")
+
+    @property
+    @pulumi.getter(name="enableMessaging")
+    def enable_messaging(self) -> Optional[bool]:
+        """
+        Enable messaging for Microsoft Teams channel
+        """
+        return pulumi.get(self, "enable_messaging")
+
+    @property
+    @pulumi.getter(name="enableVideo")
+    def enable_video(self) -> Optional[bool]:
+        """
+        Enable video for Microsoft Teams channel
+        """
+        return pulumi.get(self, "enable_video")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MsTeamsChannelResponse(dict):
+    """
+    Microsoft Teams channel definition
+    """
+    def __init__(__self__, *,
+                 channel_name: str,
+                 properties: Optional['outputs.MsTeamsChannelPropertiesResponse'] = None):
+        """
+        Microsoft Teams channel definition
+        :param str channel_name: The channel name
+        :param 'MsTeamsChannelPropertiesResponseArgs' properties: The set of properties specific to Microsoft Teams channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'MsTeamsChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> str:
+        """
+        The channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.MsTeamsChannelPropertiesResponse']:
+        """
+        The set of properties specific to Microsoft Teams channel resource
+        """
+        return pulumi.get(self, "properties")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -553,6 +1160,661 @@ class SkuResponse(dict):
         Gets the sku tier. This is based on the SKU name.
         """
         return pulumi.get(self, "tier")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SkypeChannelPropertiesResponse(dict):
+    """
+    The parameters to provide for the Microsoft Teams channel.
+    """
+    def __init__(__self__, *,
+                 is_enabled: bool,
+                 calling_web_hook: Optional[str] = None,
+                 enable_calling: Optional[bool] = None,
+                 enable_groups: Optional[bool] = None,
+                 enable_media_cards: Optional[bool] = None,
+                 enable_messaging: Optional[bool] = None,
+                 enable_screen_sharing: Optional[bool] = None,
+                 enable_video: Optional[bool] = None,
+                 groups_mode: Optional[str] = None):
+        """
+        The parameters to provide for the Microsoft Teams channel.
+        :param bool is_enabled: Whether this channel is enabled for the bot
+        :param str calling_web_hook: Calling web hook for Skype channel
+        :param bool enable_calling: Enable calling for Skype channel
+        :param bool enable_groups: Enable groups for Skype channel
+        :param bool enable_media_cards: Enable media cards for Skype channel
+        :param bool enable_messaging: Enable messaging for Skype channel
+        :param bool enable_screen_sharing: Enable screen sharing for Skype channel
+        :param bool enable_video: Enable video for Skype channel
+        :param str groups_mode: Group mode for Skype channel
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        if calling_web_hook is not None:
+            pulumi.set(__self__, "calling_web_hook", calling_web_hook)
+        if enable_calling is not None:
+            pulumi.set(__self__, "enable_calling", enable_calling)
+        if enable_groups is not None:
+            pulumi.set(__self__, "enable_groups", enable_groups)
+        if enable_media_cards is not None:
+            pulumi.set(__self__, "enable_media_cards", enable_media_cards)
+        if enable_messaging is not None:
+            pulumi.set(__self__, "enable_messaging", enable_messaging)
+        if enable_screen_sharing is not None:
+            pulumi.set(__self__, "enable_screen_sharing", enable_screen_sharing)
+        if enable_video is not None:
+            pulumi.set(__self__, "enable_video", enable_video)
+        if groups_mode is not None:
+            pulumi.set(__self__, "groups_mode", groups_mode)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Whether this channel is enabled for the bot
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="callingWebHook")
+    def calling_web_hook(self) -> Optional[str]:
+        """
+        Calling web hook for Skype channel
+        """
+        return pulumi.get(self, "calling_web_hook")
+
+    @property
+    @pulumi.getter(name="enableCalling")
+    def enable_calling(self) -> Optional[bool]:
+        """
+        Enable calling for Skype channel
+        """
+        return pulumi.get(self, "enable_calling")
+
+    @property
+    @pulumi.getter(name="enableGroups")
+    def enable_groups(self) -> Optional[bool]:
+        """
+        Enable groups for Skype channel
+        """
+        return pulumi.get(self, "enable_groups")
+
+    @property
+    @pulumi.getter(name="enableMediaCards")
+    def enable_media_cards(self) -> Optional[bool]:
+        """
+        Enable media cards for Skype channel
+        """
+        return pulumi.get(self, "enable_media_cards")
+
+    @property
+    @pulumi.getter(name="enableMessaging")
+    def enable_messaging(self) -> Optional[bool]:
+        """
+        Enable messaging for Skype channel
+        """
+        return pulumi.get(self, "enable_messaging")
+
+    @property
+    @pulumi.getter(name="enableScreenSharing")
+    def enable_screen_sharing(self) -> Optional[bool]:
+        """
+        Enable screen sharing for Skype channel
+        """
+        return pulumi.get(self, "enable_screen_sharing")
+
+    @property
+    @pulumi.getter(name="enableVideo")
+    def enable_video(self) -> Optional[bool]:
+        """
+        Enable video for Skype channel
+        """
+        return pulumi.get(self, "enable_video")
+
+    @property
+    @pulumi.getter(name="groupsMode")
+    def groups_mode(self) -> Optional[str]:
+        """
+        Group mode for Skype channel
+        """
+        return pulumi.get(self, "groups_mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SkypeChannelResponse(dict):
+    """
+    Skype channel definition
+    """
+    def __init__(__self__, *,
+                 channel_name: str,
+                 properties: Optional['outputs.SkypeChannelPropertiesResponse'] = None):
+        """
+        Skype channel definition
+        :param str channel_name: The channel name
+        :param 'SkypeChannelPropertiesResponseArgs' properties: The set of properties specific to Skype channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'SkypeChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> str:
+        """
+        The channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.SkypeChannelPropertiesResponse']:
+        """
+        The set of properties specific to Skype channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SlackChannelPropertiesResponse(dict):
+    """
+    The parameters to provide for the Slack channel.
+    """
+    def __init__(__self__, *,
+                 client_id: str,
+                 client_secret: str,
+                 is_enabled: bool,
+                 is_validated: bool,
+                 last_submission_id: str,
+                 redirect_action: str,
+                 register_before_o_auth_flow: bool,
+                 verification_token: str,
+                 landing_page_url: Optional[str] = None):
+        """
+        The parameters to provide for the Slack channel.
+        :param str client_id: The Slack client id
+        :param str client_secret: The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param bool is_enabled: Whether this channel is enabled for the bot
+        :param bool is_validated: Whether this channel is validated for the bot
+        :param str last_submission_id: The Sms auth token
+        :param str redirect_action: The Slack redirect action
+        :param bool register_before_o_auth_flow: Whether to register the settings before OAuth validation is performed. Recommended to True.
+        :param str verification_token: The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param str landing_page_url: The Slack landing page Url
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "is_validated", is_validated)
+        pulumi.set(__self__, "last_submission_id", last_submission_id)
+        pulumi.set(__self__, "redirect_action", redirect_action)
+        pulumi.set(__self__, "register_before_o_auth_flow", register_before_o_auth_flow)
+        pulumi.set(__self__, "verification_token", verification_token)
+        if landing_page_url is not None:
+            pulumi.set(__self__, "landing_page_url", landing_page_url)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The Slack client id
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> str:
+        """
+        The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Whether this channel is enabled for the bot
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="isValidated")
+    def is_validated(self) -> bool:
+        """
+        Whether this channel is validated for the bot
+        """
+        return pulumi.get(self, "is_validated")
+
+    @property
+    @pulumi.getter(name="lastSubmissionId")
+    def last_submission_id(self) -> str:
+        """
+        The Sms auth token
+        """
+        return pulumi.get(self, "last_submission_id")
+
+    @property
+    @pulumi.getter(name="redirectAction")
+    def redirect_action(self) -> str:
+        """
+        The Slack redirect action
+        """
+        return pulumi.get(self, "redirect_action")
+
+    @property
+    @pulumi.getter(name="registerBeforeOAuthFlow")
+    def register_before_o_auth_flow(self) -> bool:
+        """
+        Whether to register the settings before OAuth validation is performed. Recommended to True.
+        """
+        return pulumi.get(self, "register_before_o_auth_flow")
+
+    @property
+    @pulumi.getter(name="verificationToken")
+    def verification_token(self) -> str:
+        """
+        The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "verification_token")
+
+    @property
+    @pulumi.getter(name="landingPageUrl")
+    def landing_page_url(self) -> Optional[str]:
+        """
+        The Slack landing page Url
+        """
+        return pulumi.get(self, "landing_page_url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SlackChannelResponse(dict):
+    """
+    Slack channel definition
+    """
+    def __init__(__self__, *,
+                 channel_name: str,
+                 properties: Optional['outputs.SlackChannelPropertiesResponse'] = None):
+        """
+        Slack channel definition
+        :param str channel_name: The channel name
+        :param 'SlackChannelPropertiesResponseArgs' properties: The set of properties specific to Slack channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'SlackChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> str:
+        """
+        The channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.SlackChannelPropertiesResponse']:
+        """
+        The set of properties specific to Slack channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SmsChannelPropertiesResponse(dict):
+    """
+    The parameters to provide for the Sms channel.
+    """
+    def __init__(__self__, *,
+                 account_sid: str,
+                 auth_token: str,
+                 is_enabled: bool,
+                 phone: str,
+                 is_validated: Optional[bool] = None):
+        """
+        The parameters to provide for the Sms channel.
+        :param str account_sid: The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param str auth_token: The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param bool is_enabled: Whether this channel is enabled for the bot
+        :param str phone: The Sms phone
+        :param bool is_validated: Whether this channel is validated for the bot
+        """
+        pulumi.set(__self__, "account_sid", account_sid)
+        pulumi.set(__self__, "auth_token", auth_token)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "phone", phone)
+        if is_validated is not None:
+            pulumi.set(__self__, "is_validated", is_validated)
+
+    @property
+    @pulumi.getter(name="accountSID")
+    def account_sid(self) -> str:
+        """
+        The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "account_sid")
+
+    @property
+    @pulumi.getter(name="authToken")
+    def auth_token(self) -> str:
+        """
+        The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "auth_token")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Whether this channel is enabled for the bot
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def phone(self) -> str:
+        """
+        The Sms phone
+        """
+        return pulumi.get(self, "phone")
+
+    @property
+    @pulumi.getter(name="isValidated")
+    def is_validated(self) -> Optional[bool]:
+        """
+        Whether this channel is validated for the bot
+        """
+        return pulumi.get(self, "is_validated")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SmsChannelResponse(dict):
+    """
+    Sms channel definition
+    """
+    def __init__(__self__, *,
+                 channel_name: str,
+                 properties: Optional['outputs.SmsChannelPropertiesResponse'] = None):
+        """
+        Sms channel definition
+        :param str channel_name: The channel name
+        :param 'SmsChannelPropertiesResponseArgs' properties: The set of properties specific to Sms channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'SmsChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> str:
+        """
+        The channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.SmsChannelPropertiesResponse']:
+        """
+        The set of properties specific to Sms channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TelegramChannelPropertiesResponse(dict):
+    """
+    The parameters to provide for the Telegram channel.
+    """
+    def __init__(__self__, *,
+                 access_token: str,
+                 is_enabled: bool,
+                 is_validated: Optional[bool] = None):
+        """
+        The parameters to provide for the Telegram channel.
+        :param str access_token: The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param bool is_enabled: Whether this channel is enabled for the bot
+        :param bool is_validated: Whether this channel is validated for the bot
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        if is_validated is not None:
+            pulumi.set(__self__, "is_validated", is_validated)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> str:
+        """
+        The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Whether this channel is enabled for the bot
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="isValidated")
+    def is_validated(self) -> Optional[bool]:
+        """
+        Whether this channel is validated for the bot
+        """
+        return pulumi.get(self, "is_validated")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TelegramChannelResponse(dict):
+    """
+    Telegram channel definition
+    """
+    def __init__(__self__, *,
+                 channel_name: str,
+                 properties: Optional['outputs.TelegramChannelPropertiesResponse'] = None):
+        """
+        Telegram channel definition
+        :param str channel_name: The channel name
+        :param 'TelegramChannelPropertiesResponseArgs' properties: The set of properties specific to Telegram channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'TelegramChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> str:
+        """
+        The channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.TelegramChannelPropertiesResponse']:
+        """
+        The set of properties specific to Telegram channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WebChatChannelPropertiesResponse(dict):
+    """
+    The parameters to provide for the Web Chat channel.
+    """
+    def __init__(__self__, *,
+                 web_chat_embed_code: str,
+                 sites: Optional[List['outputs.WebChatSiteResponse']] = None):
+        """
+        The parameters to provide for the Web Chat channel.
+        :param str web_chat_embed_code: Web chat control embed code
+        :param List['WebChatSiteResponseArgs'] sites: The list of Web Chat sites
+        """
+        pulumi.set(__self__, "web_chat_embed_code", web_chat_embed_code)
+        if sites is not None:
+            pulumi.set(__self__, "sites", sites)
+
+    @property
+    @pulumi.getter(name="webChatEmbedCode")
+    def web_chat_embed_code(self) -> str:
+        """
+        Web chat control embed code
+        """
+        return pulumi.get(self, "web_chat_embed_code")
+
+    @property
+    @pulumi.getter
+    def sites(self) -> Optional[List['outputs.WebChatSiteResponse']]:
+        """
+        The list of Web Chat sites
+        """
+        return pulumi.get(self, "sites")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WebChatChannelResponse(dict):
+    """
+    Web Chat channel definition
+    """
+    def __init__(__self__, *,
+                 channel_name: str,
+                 properties: Optional['outputs.WebChatChannelPropertiesResponse'] = None):
+        """
+        Web Chat channel definition
+        :param str channel_name: The channel name
+        :param 'WebChatChannelPropertiesResponseArgs' properties: The set of properties specific to Web Chat channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'WebChatChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> str:
+        """
+        The channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.WebChatChannelPropertiesResponse']:
+        """
+        The set of properties specific to Web Chat channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WebChatSiteResponse(dict):
+    """
+    A site for the Webchat channel
+    """
+    def __init__(__self__, *,
+                 enable_preview: bool,
+                 is_enabled: bool,
+                 key: str,
+                 key2: str,
+                 site_id: str,
+                 site_name: str):
+        """
+        A site for the Webchat channel
+        :param bool enable_preview: Whether this site is enabled for preview versions of Webchat
+        :param bool is_enabled: Whether this site is enabled for DirectLine channel
+        :param str key: Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param str key2: Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
+        :param str site_id: Site Id
+        :param str site_name: Site name
+        """
+        pulumi.set(__self__, "enable_preview", enable_preview)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "key2", key2)
+        pulumi.set(__self__, "site_id", site_id)
+        pulumi.set(__self__, "site_name", site_name)
+
+    @property
+    @pulumi.getter(name="enablePreview")
+    def enable_preview(self) -> bool:
+        """
+        Whether this site is enabled for preview versions of Webchat
+        """
+        return pulumi.get(self, "enable_preview")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        Whether this site is enabled for DirectLine channel
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def key2(self) -> str:
+        """
+        Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
+        """
+        return pulumi.get(self, "key2")
+
+    @property
+    @pulumi.getter(name="siteId")
+    def site_id(self) -> str:
+        """
+        Site Id
+        """
+        return pulumi.get(self, "site_id")
+
+    @property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> str:
+        """
+        Site name
+        """
+        return pulumi.get(self, "site_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// <summary>
         /// List of activities in pipeline.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ActivityResponseResult> Activities;
+        public readonly ImmutableArray<Union<Outputs.ControlActivityResponseResult, Outputs.ExecutionActivityResponseResult>> Activities;
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
 
         [OutputConstructor]
         private GetPipelineResult(
-            ImmutableArray<Outputs.ActivityResponseResult> activities,
+            ImmutableArray<Union<Outputs.ControlActivityResponseResult, Outputs.ExecutionActivityResponseResult>> activities,
 
             ImmutableArray<ImmutableDictionary<string, object>> annotations,
 

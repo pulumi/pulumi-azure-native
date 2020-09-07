@@ -55,7 +55,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The inputs for the Job.
      */
-    public readonly input!: pulumi.Output<outputs.media.latest.JobInputResponse>;
+    public readonly input!: pulumi.Output<outputs.media.latest.JobInputClipResponse | outputs.media.latest.JobInputsResponse>;
     /**
      * The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
@@ -67,7 +67,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The outputs for the Job.
      */
-    public readonly outputs!: pulumi.Output<outputs.media.latest.JobOutputResponse[]>;
+    public readonly outputs!: pulumi.Output<outputs.media.latest.JobOutputAssetResponse[]>;
     /**
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
      */
@@ -175,7 +175,7 @@ export interface JobArgs {
     /**
      * The inputs for the Job.
      */
-    readonly input: pulumi.Input<inputs.media.latest.JobInput>;
+    readonly input: pulumi.Input<inputs.media.latest.JobInputClip | inputs.media.latest.JobInputs>;
     /**
      * The Job name.
      */
@@ -183,7 +183,7 @@ export interface JobArgs {
     /**
      * The outputs for the Job.
      */
-    readonly outputs: pulumi.Input<pulumi.Input<inputs.media.latest.JobOutput>[]>;
+    readonly outputs: pulumi.Input<pulumi.Input<inputs.media.latest.JobOutputAsset>[]>;
     /**
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
      */

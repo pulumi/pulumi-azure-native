@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Resources.V20190601Preview
         /// An array of Template Spec artifacts.
         /// </summary>
         [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.TemplateSpecArtifactResponseResult>> Artifacts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponseResult>> Artifacts { get; private set; } = null!;
 
         /// <summary>
         /// Template Spec version description.
@@ -108,14 +108,14 @@ namespace Pulumi.AzureRM.Resources.V20190601Preview
     public sealed class TemplateSpecVersionArgs : Pulumi.ResourceArgs
     {
         [Input("artifacts")]
-        private InputList<Inputs.TemplateSpecArtifactArgs>? _artifacts;
+        private InputList<Inputs.TemplateSpecTemplateArtifactArgs>? _artifacts;
 
         /// <summary>
         /// An array of Template Spec artifacts.
         /// </summary>
-        public InputList<Inputs.TemplateSpecArtifactArgs> Artifacts
+        public InputList<Inputs.TemplateSpecTemplateArtifactArgs> Artifacts
         {
-            get => _artifacts ?? (_artifacts = new InputList<Inputs.TemplateSpecArtifactArgs>());
+            get => _artifacts ?? (_artifacts = new InputList<Inputs.TemplateSpecTemplateArtifactArgs>());
             set => _artifacts = value;
         }
 
