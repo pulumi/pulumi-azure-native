@@ -810,6 +810,8 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 }
 
 // genDiscriminatedType generates polymorphic types (base type and subtypes) if the schema specifies a discriminator property.
+// If no error occurs, the bool result indicates whether a discriminated (union) type is detected. If true, the TypeSpec
+// result points to the specification of the union type.
 func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, isOutput bool) (*pschema.TypeSpec, bool, error) {
 	if resolvedSchema.Discriminator == "" {
 		return nil, false, nil

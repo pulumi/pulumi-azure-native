@@ -51,8 +51,6 @@ generate_nodejs::
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
-		yarn global add typescript && \
-		tsc --version && \
 		tsc && \
 		cp ../../README.md package.json yarn.lock ./bin/ && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
