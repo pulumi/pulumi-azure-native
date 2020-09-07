@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.Devices.Latest.Outputs
         /// </summary>
         public readonly bool? ApplyAllocationPolicy;
         /// <summary>
-        /// Connection string og the IoT hub.
+        /// Connection string of the IoT hub.
         /// </summary>
         public readonly string ConnectionString;
         /// <summary>

@@ -2164,47 +2164,31 @@ class PrivateEndpointConnectionResponse(dict):
                  name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  type: str,
-                 identity: Optional['outputs.IdentityResponse'] = None,
-                 location: Optional[str] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
-                 provisioning_state: Optional[str] = None,
-                 sku: Optional['outputs.SkuResponse'] = None,
-                 tags: Optional[Mapping[str, str]] = None):
+                 provisioning_state: Optional[str] = None):
         """
         The Private Endpoint Connection resource.
-        :param str id: Specifies the resource ID.
-        :param str name: Specifies the name of the resource.
+        :param str id: ResourceId of the private endpoint connection.
+        :param str name: Friendly name of the private endpoint connection.
         :param 'PrivateLinkServiceConnectionStateResponseArgs' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param str type: Specifies the type of the resource.
-        :param 'IdentityResponseArgs' identity: The identity of the resource.
-        :param str location: Specifies the location of the resource.
+        :param str type: Resource type of private endpoint connection.
         :param 'PrivateEndpointResponseArgs' private_endpoint: The resource of private end point.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param 'SkuResponseArgs' sku: The sku of the workspace.
-        :param Mapping[str, str] tags: Contains resource tags defined as key/value pairs.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "type", type)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Specifies the resource ID.
+        ResourceId of the private endpoint connection.
         """
         return pulumi.get(self, "id")
 
@@ -2212,7 +2196,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the resource.
+        Friendly name of the private endpoint connection.
         """
         return pulumi.get(self, "name")
 
@@ -2228,25 +2212,9 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of the resource.
+        Resource type of private endpoint connection.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
-        """
-        The identity of the resource.
-        """
-        return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        Specifies the location of the resource.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -2263,22 +2231,6 @@ class PrivateEndpointConnectionResponse(dict):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
-        """
-        The sku of the workspace.
-        """
-        return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Contains resource tags defined as key/value pairs.
-        """
-        return pulumi.get(self, "tags")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

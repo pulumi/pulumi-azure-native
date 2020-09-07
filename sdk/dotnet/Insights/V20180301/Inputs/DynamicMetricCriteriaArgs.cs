@@ -75,6 +75,12 @@ namespace Pulumi.AzureRM.Insights.V20180301.Inputs
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        /// </summary>
+        [Input("skipMetricValidation")]
+        public Input<bool>? SkipMetricValidation { get; set; }
+
         [Input("timeAggregation", required: true)]
         private InputMap<object>? _timeAggregation;
 

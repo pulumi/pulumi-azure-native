@@ -38,9 +38,17 @@ namespace Pulumi.AzureRM.Devices.Latest.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.IpFilterRuleResponseResult> IpFilterRules;
         /// <summary>
+        /// Private endpoint connections created on this IotHub
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        /// <summary>
         /// The ARM provisioning state of the provisioning service.
         /// </summary>
         public readonly string? ProvisioningState;
+        /// <summary>
+        /// Whether requests from Public Network are allowed
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Service endpoint for provisioning service.
         /// </summary>
@@ -64,7 +72,11 @@ namespace Pulumi.AzureRM.Devices.Latest.Outputs
 
             ImmutableArray<Outputs.IpFilterRuleResponseResult> ipFilterRules,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+
             string? provisioningState,
+
+            string? publicNetworkAccess,
 
             string serviceOperationsHostName,
 
@@ -76,7 +88,9 @@ namespace Pulumi.AzureRM.Devices.Latest.Outputs
             IdScope = idScope;
             IotHubs = iotHubs;
             IpFilterRules = ipFilterRules;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             ServiceOperationsHostName = serviceOperationsHostName;
             State = state;
         }

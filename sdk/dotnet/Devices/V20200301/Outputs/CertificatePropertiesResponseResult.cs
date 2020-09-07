@@ -14,11 +14,7 @@ namespace Pulumi.AzureRM.Devices.V20200301.Outputs
     public sealed class CertificatePropertiesResponseResult
     {
         /// <summary>
-        /// The certificate content
-        /// </summary>
-        public readonly string? Certificate;
-        /// <summary>
-        /// The certificate's create date and time.
+        /// The certificate's creation date and time.
         /// </summary>
         public readonly string Created;
         /// <summary>
@@ -44,8 +40,6 @@ namespace Pulumi.AzureRM.Devices.V20200301.Outputs
 
         [OutputConstructor]
         private CertificatePropertiesResponseResult(
-            string? certificate,
-
             string created,
 
             string expiry,
@@ -58,7 +52,6 @@ namespace Pulumi.AzureRM.Devices.V20200301.Outputs
 
             string updated)
         {
-            Certificate = certificate;
             Created = created;
             Expiry = expiry;
             IsVerified = isVerified;

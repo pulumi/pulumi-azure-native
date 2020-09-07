@@ -50,6 +50,10 @@ namespace Pulumi.AzureRM.Insights.Latest.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
+        /// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        /// </summary>
+        public readonly bool? SkipMetricValidation;
+        /// <summary>
         /// the criteria time aggregation types.
         /// </summary>
         public readonly ImmutableDictionary<string, object> TimeAggregation;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureRM.Insights.Latest.Outputs
 
             string @operator,
 
+            bool? skipMetricValidation,
+
             ImmutableDictionary<string, object> timeAggregation)
         {
             AlertSensitivity = alertSensitivity;
@@ -85,6 +91,7 @@ namespace Pulumi.AzureRM.Insights.Latest.Outputs
             MetricNamespace = metricNamespace;
             Name = name;
             Operator = @operator;
+            SkipMetricValidation = skipMetricValidation;
             TimeAggregation = timeAggregation;
         }
     }

@@ -58,6 +58,12 @@ namespace Pulumi.AzureRM.Insights.V20180301.Inputs
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
+        /// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        /// </summary>
+        [Input("skipMetricValidation")]
+        public Input<bool>? SkipMetricValidation { get; set; }
+
+        /// <summary>
         /// the criteria threshold value that activates the alert.
         /// </summary>
         [Input("threshold", required: true)]

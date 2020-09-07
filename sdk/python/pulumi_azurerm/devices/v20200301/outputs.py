@@ -16,6 +16,9 @@ __all__ = [
     'EventHubPropertiesResponse',
     'FallbackRoutePropertiesResponse',
     'FeedbackPropertiesResponse',
+    'IotDpsPropertiesDescriptionResponse',
+    'IotDpsSkuInfoResponse',
+    'IotHubDefinitionDescriptionResponse',
     'IotHubLocationDescriptionResponse',
     'IotHubPropertiesResponse',
     'IotHubSkuInfoResponse',
@@ -32,6 +35,7 @@ __all__ = [
     'RoutingServiceBusQueueEndpointPropertiesResponse',
     'RoutingServiceBusTopicEndpointPropertiesResponse',
     'RoutingStorageContainerPropertiesResponse',
+    'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse',
     'SharedAccessSignatureAuthorizationRuleResponse',
     'StorageEndpointPropertiesResponse',
 ]
@@ -47,17 +51,15 @@ class CertificatePropertiesResponse(dict):
                  is_verified: bool,
                  subject: str,
                  thumbprint: str,
-                 updated: str,
-                 certificate: Optional[str] = None):
+                 updated: str):
         """
         The description of an X509 CA Certificate.
-        :param str created: The certificate's create date and time.
+        :param str created: The certificate's creation date and time.
         :param str expiry: The certificate's expiration date and time.
         :param bool is_verified: Determines whether certificate has been verified.
         :param str subject: The certificate's subject name.
         :param str thumbprint: The certificate's thumbprint.
         :param str updated: The certificate's last update date and time.
-        :param str certificate: The certificate content
         """
         pulumi.set(__self__, "created", created)
         pulumi.set(__self__, "expiry", expiry)
@@ -65,14 +67,12 @@ class CertificatePropertiesResponse(dict):
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "thumbprint", thumbprint)
         pulumi.set(__self__, "updated", updated)
-        if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
 
     @property
     @pulumi.getter
     def created(self) -> str:
         """
-        The certificate's create date and time.
+        The certificate's creation date and time.
         """
         return pulumi.get(self, "created")
 
@@ -115,14 +115,6 @@ class CertificatePropertiesResponse(dict):
         The certificate's last update date and time.
         """
         return pulumi.get(self, "updated")
-
-    @property
-    @pulumi.getter
-    def certificate(self) -> Optional[str]:
-        """
-        The certificate content
-        """
-        return pulumi.get(self, "certificate")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -412,6 +404,269 @@ class FeedbackPropertiesResponse(dict):
         The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         return pulumi.get(self, "ttl_as_iso8601")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IotDpsPropertiesDescriptionResponse(dict):
+    """
+    the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+    """
+    def __init__(__self__, *,
+                 device_provisioning_host_name: str,
+                 id_scope: str,
+                 service_operations_host_name: str,
+                 allocation_policy: Optional[str] = None,
+                 authorization_policies: Optional[List['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']] = None,
+                 iot_hubs: Optional[List['outputs.IotHubDefinitionDescriptionResponse']] = None,
+                 ip_filter_rules: Optional[List['outputs.IpFilterRuleResponse']] = None,
+                 private_endpoint_connections: Optional[List['outputs.PrivateEndpointConnectionResponse']] = None,
+                 provisioning_state: Optional[str] = None,
+                 public_network_access: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+        :param str device_provisioning_host_name: Device endpoint for this provisioning service.
+        :param str id_scope: Unique identifier of this provisioning service.
+        :param str service_operations_host_name: Service endpoint for provisioning service.
+        :param str allocation_policy: Allocation policy to be used by this provisioning service.
+        :param List['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs'] authorization_policies: List of authorization keys for a provisioning service.
+        :param List['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
+        :param List['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
+        :param List['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: Private endpoint connections created on this IotHub
+        :param str provisioning_state: The ARM provisioning state of the provisioning service.
+        :param str public_network_access: Whether requests from Public Network are allowed
+        :param str state: Current state of the provisioning service.
+        """
+        pulumi.set(__self__, "device_provisioning_host_name", device_provisioning_host_name)
+        pulumi.set(__self__, "id_scope", id_scope)
+        pulumi.set(__self__, "service_operations_host_name", service_operations_host_name)
+        if allocation_policy is not None:
+            pulumi.set(__self__, "allocation_policy", allocation_policy)
+        if authorization_policies is not None:
+            pulumi.set(__self__, "authorization_policies", authorization_policies)
+        if iot_hubs is not None:
+            pulumi.set(__self__, "iot_hubs", iot_hubs)
+        if ip_filter_rules is not None:
+            pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
+        if private_endpoint_connections is not None:
+            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="deviceProvisioningHostName")
+    def device_provisioning_host_name(self) -> str:
+        """
+        Device endpoint for this provisioning service.
+        """
+        return pulumi.get(self, "device_provisioning_host_name")
+
+    @property
+    @pulumi.getter(name="idScope")
+    def id_scope(self) -> str:
+        """
+        Unique identifier of this provisioning service.
+        """
+        return pulumi.get(self, "id_scope")
+
+    @property
+    @pulumi.getter(name="serviceOperationsHostName")
+    def service_operations_host_name(self) -> str:
+        """
+        Service endpoint for provisioning service.
+        """
+        return pulumi.get(self, "service_operations_host_name")
+
+    @property
+    @pulumi.getter(name="allocationPolicy")
+    def allocation_policy(self) -> Optional[str]:
+        """
+        Allocation policy to be used by this provisioning service.
+        """
+        return pulumi.get(self, "allocation_policy")
+
+    @property
+    @pulumi.getter(name="authorizationPolicies")
+    def authorization_policies(self) -> Optional[List['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']]:
+        """
+        List of authorization keys for a provisioning service.
+        """
+        return pulumi.get(self, "authorization_policies")
+
+    @property
+    @pulumi.getter(name="iotHubs")
+    def iot_hubs(self) -> Optional[List['outputs.IotHubDefinitionDescriptionResponse']]:
+        """
+        List of IoT hubs associated with this provisioning service.
+        """
+        return pulumi.get(self, "iot_hubs")
+
+    @property
+    @pulumi.getter(name="ipFilterRules")
+    def ip_filter_rules(self) -> Optional[List['outputs.IpFilterRuleResponse']]:
+        """
+        The IP filter rules.
+        """
+        return pulumi.get(self, "ip_filter_rules")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[List['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        Private endpoint connections created on this IotHub
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The ARM provisioning state of the provisioning service.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether requests from Public Network are allowed
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Current state of the provisioning service.
+        """
+        return pulumi.get(self, "state")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IotDpsSkuInfoResponse(dict):
+    """
+    List of possible provisioning service SKUs.
+    """
+    def __init__(__self__, *,
+                 tier: str,
+                 capacity: Optional[float] = None,
+                 name: Optional[str] = None):
+        """
+        List of possible provisioning service SKUs.
+        :param str tier: Pricing tier name of the provisioning service.
+        :param float capacity: The number of units to provision
+        :param str name: Sku name.
+        """
+        pulumi.set(__self__, "tier", tier)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        Pricing tier name of the provisioning service.
+        """
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[float]:
+        """
+        The number of units to provision
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Sku name.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class IotHubDefinitionDescriptionResponse(dict):
+    """
+    Description of the IoT hub.
+    """
+    def __init__(__self__, *,
+                 connection_string: str,
+                 location: str,
+                 name: str,
+                 allocation_weight: Optional[float] = None,
+                 apply_allocation_policy: Optional[bool] = None):
+        """
+        Description of the IoT hub.
+        :param str connection_string: Connection string of the IoT hub.
+        :param str location: ARM region of the IoT hub.
+        :param str name: Host name of the IoT hub.
+        :param float allocation_weight: weight to apply for a given iot h.
+        :param bool apply_allocation_policy: flag for applying allocationPolicy or not for a given iot hub.
+        """
+        pulumi.set(__self__, "connection_string", connection_string)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        if allocation_weight is not None:
+            pulumi.set(__self__, "allocation_weight", allocation_weight)
+        if apply_allocation_policy is not None:
+            pulumi.set(__self__, "apply_allocation_policy", apply_allocation_policy)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> str:
+        """
+        Connection string of the IoT hub.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        ARM region of the IoT hub.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Host name of the IoT hub.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="allocationWeight")
+    def allocation_weight(self) -> Optional[float]:
+        """
+        weight to apply for a given iot h.
+        """
+        return pulumi.get(self, "allocation_weight")
+
+    @property
+    @pulumi.getter(name="applyAllocationPolicy")
+    def apply_allocation_policy(self) -> Optional[bool]:
+        """
+        flag for applying allocationPolicy or not for a given iot hub.
+        """
+        return pulumi.get(self, "apply_allocation_policy")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1654,6 +1909,66 @@ class RoutingStorageContainerPropertiesResponse(dict):
         The subscription identifier of the storage account.
         """
         return pulumi.get(self, "subscription_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse(dict):
+    """
+    Description of the shared access key.
+    """
+    def __init__(__self__, *,
+                 key_name: str,
+                 rights: str,
+                 primary_key: Optional[str] = None,
+                 secondary_key: Optional[str] = None):
+        """
+        Description of the shared access key.
+        :param str key_name: Name of the key.
+        :param str rights: Rights that this key has.
+        :param str primary_key: Primary SAS key value.
+        :param str secondary_key: Secondary SAS key value.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "rights", rights)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        Name of the key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter
+    def rights(self) -> str:
+        """
+        Rights that this key has.
+        """
+        return pulumi.get(self, "rights")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[str]:
+        """
+        Primary SAS key value.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[str]:
+        """
+        Secondary SAS key value.
+        """
+        return pulumi.get(self, "secondary_key")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

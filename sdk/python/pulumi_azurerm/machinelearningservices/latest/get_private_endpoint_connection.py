@@ -20,13 +20,7 @@ class GetPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
     """
-    def __init__(__self__, identity=None, location=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, sku=None, tags=None, type=None):
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
+    def __init__(__self__, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -39,37 +33,15 @@ class GetPrivateEndpointConnectionResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        pulumi.set(__self__, "sku", sku)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
-        """
-        The identity of the resource.
-        """
-        return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        Specifies the location of the resource.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the resource.
+        Friendly name of the private endpoint connection.
         """
         return pulumi.get(self, "name")
 
@@ -99,25 +71,9 @@ class GetPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.SkuResponse']:
-        """
-        The sku of the workspace.
-        """
-        return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Contains resource tags defined as key/value pairs.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of the resource.
+        Resource type of private endpoint connection.
         """
         return pulumi.get(self, "type")
 
@@ -128,14 +84,10 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
         if False:
             yield self
         return GetPrivateEndpointConnectionResult(
-            identity=self.identity,
-            location=self.location,
             name=self.name,
             private_endpoint=self.private_endpoint,
             private_link_service_connection_state=self.private_link_service_connection_state,
             provisioning_state=self.provisioning_state,
-            sku=self.sku,
-            tags=self.tags,
             type=self.type)
 
 
@@ -161,12 +113,8 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azurerm:machinelearningservices/latest:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
-        identity=__ret__.identity,
-        location=__ret__.location,
         name=__ret__.name,
         private_endpoint=__ret__.private_endpoint,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
         type=__ret__.type)

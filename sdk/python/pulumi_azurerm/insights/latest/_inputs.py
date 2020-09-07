@@ -889,7 +889,8 @@ class DynamicMetricCriteriaArgs:
                  time_aggregation: pulumi.Input[Mapping[str, Any]],
                  dimensions: Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]] = None,
                  ignore_data_before: Optional[pulumi.Input[str]] = None,
-                 metric_namespace: Optional[pulumi.Input[str]] = None):
+                 metric_namespace: Optional[pulumi.Input[str]] = None,
+                 skip_metric_validation: Optional[pulumi.Input[bool]] = None):
         """
         Criterion for dynamic threshold.
         :param pulumi.Input[str] alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
@@ -902,6 +903,7 @@ class DynamicMetricCriteriaArgs:
         :param pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
         :param pulumi.Input[str] ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
         :param pulumi.Input[str] metric_namespace: Namespace of the metric.
+        :param pulumi.Input[bool] skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
         pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
         pulumi.set(__self__, "criterion_type", 'DynamicThresholdCriterion')
@@ -916,6 +918,8 @@ class DynamicMetricCriteriaArgs:
             pulumi.set(__self__, "ignore_data_before", ignore_data_before)
         if metric_namespace is not None:
             pulumi.set(__self__, "metric_namespace", metric_namespace)
+        if skip_metric_validation is not None:
+            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter(name="alertSensitivity")
@@ -1036,6 +1040,18 @@ class DynamicMetricCriteriaArgs:
     @metric_namespace.setter
     def metric_namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric_namespace", value)
+
+    @property
+    @pulumi.getter(name="skipMetricValidation")
+    def skip_metric_validation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        """
+        return pulumi.get(self, "skip_metric_validation")
+
+    @skip_metric_validation.setter
+    def skip_metric_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_metric_validation", value)
 
 
 @pulumi.input_type
@@ -1755,7 +1771,8 @@ class MetricCriteriaArgs:
                  threshold: pulumi.Input[float],
                  time_aggregation: pulumi.Input[Mapping[str, Any]],
                  dimensions: Optional[pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]]] = None,
-                 metric_namespace: Optional[pulumi.Input[str]] = None):
+                 metric_namespace: Optional[pulumi.Input[str]] = None,
+                 skip_metric_validation: Optional[pulumi.Input[bool]] = None):
         """
         Criterion to filter metrics.
         :param pulumi.Input[str] criterion_type: Specifies the type of threshold criteria
@@ -1766,6 +1783,7 @@ class MetricCriteriaArgs:
         :param pulumi.Input[Mapping[str, Any]] time_aggregation: the criteria time aggregation types.
         :param pulumi.Input[List[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
         :param pulumi.Input[str] metric_namespace: Namespace of the metric.
+        :param pulumi.Input[bool] skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
         pulumi.set(__self__, "criterion_type", 'StaticThresholdCriterion')
         pulumi.set(__self__, "metric_name", metric_name)
@@ -1777,6 +1795,8 @@ class MetricCriteriaArgs:
             pulumi.set(__self__, "dimensions", dimensions)
         if metric_namespace is not None:
             pulumi.set(__self__, "metric_namespace", metric_namespace)
+        if skip_metric_validation is not None:
+            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter(name="criterionType")
@@ -1873,6 +1893,18 @@ class MetricCriteriaArgs:
     @metric_namespace.setter
     def metric_namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric_namespace", value)
+
+    @property
+    @pulumi.getter(name="skipMetricValidation")
+    def skip_metric_validation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        """
+        return pulumi.get(self, "skip_metric_validation")
+
+    @skip_metric_validation.setter
+    def skip_metric_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_metric_validation", value)
 
 
 @pulumi.input_type

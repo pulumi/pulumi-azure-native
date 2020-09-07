@@ -804,7 +804,8 @@ class DynamicMetricCriteriaResponse(dict):
                  time_aggregation: Mapping[str, Any],
                  dimensions: Optional[List['outputs.MetricDimensionResponse']] = None,
                  ignore_data_before: Optional[str] = None,
-                 metric_namespace: Optional[str] = None):
+                 metric_namespace: Optional[str] = None,
+                 skip_metric_validation: Optional[bool] = None):
         """
         Criterion for dynamic threshold.
         :param str alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
@@ -817,6 +818,7 @@ class DynamicMetricCriteriaResponse(dict):
         :param List['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
         :param str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
         :param str metric_namespace: Namespace of the metric.
+        :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
         pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
         pulumi.set(__self__, "criterion_type", 'DynamicThresholdCriterion')
@@ -831,6 +833,8 @@ class DynamicMetricCriteriaResponse(dict):
             pulumi.set(__self__, "ignore_data_before", ignore_data_before)
         if metric_namespace is not None:
             pulumi.set(__self__, "metric_namespace", metric_namespace)
+        if skip_metric_validation is not None:
+            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter(name="alertSensitivity")
@@ -911,6 +915,14 @@ class DynamicMetricCriteriaResponse(dict):
         Namespace of the metric.
         """
         return pulumi.get(self, "metric_namespace")
+
+    @property
+    @pulumi.getter(name="skipMetricValidation")
+    def skip_metric_validation(self) -> Optional[bool]:
+        """
+        Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        """
+        return pulumi.get(self, "skip_metric_validation")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1569,7 +1581,8 @@ class MetricCriteriaResponse(dict):
                  threshold: float,
                  time_aggregation: Mapping[str, Any],
                  dimensions: Optional[List['outputs.MetricDimensionResponse']] = None,
-                 metric_namespace: Optional[str] = None):
+                 metric_namespace: Optional[str] = None,
+                 skip_metric_validation: Optional[bool] = None):
         """
         Criterion to filter metrics.
         :param str criterion_type: Specifies the type of threshold criteria
@@ -1580,6 +1593,7 @@ class MetricCriteriaResponse(dict):
         :param Mapping[str, Any] time_aggregation: the criteria time aggregation types.
         :param List['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
         :param str metric_namespace: Namespace of the metric.
+        :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
         pulumi.set(__self__, "criterion_type", 'StaticThresholdCriterion')
         pulumi.set(__self__, "metric_name", metric_name)
@@ -1591,6 +1605,8 @@ class MetricCriteriaResponse(dict):
             pulumi.set(__self__, "dimensions", dimensions)
         if metric_namespace is not None:
             pulumi.set(__self__, "metric_namespace", metric_namespace)
+        if skip_metric_validation is not None:
+            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter(name="criterionType")
@@ -1655,6 +1671,14 @@ class MetricCriteriaResponse(dict):
         Namespace of the metric.
         """
         return pulumi.get(self, "metric_namespace")
+
+    @property
+    @pulumi.getter(name="skipMetricValidation")
+    def skip_metric_validation(self) -> Optional[bool]:
+        """
+        Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        """
+        return pulumi.get(self, "skip_metric_validation")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
