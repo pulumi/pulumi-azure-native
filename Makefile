@@ -7,6 +7,7 @@ PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
 VERSION         := 0.1.0
 
+PROVIDER_PKGS    := $(shell cd ./provider && go list ./...)
 WORKING_DIR     := $(shell pwd)
 
 VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azurerm/provider/pkg/version.Version=${VERSION}"
@@ -44,6 +45,9 @@ codegen::
 
 provider::
 	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
+
+test_provider::
+	(cd provider && go test -v $(PROVIDER_PKGS))
 
 lint_provider:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml

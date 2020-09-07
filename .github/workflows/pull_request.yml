@@ -93,6 +93,8 @@ jobs:
         with:
           name: pulumi-${{ env.PROVIDER }}
           path: ${{ github.workspace }}/bin
+      - name: Test Provider Library
+        run: make test_provider
   build_sdks:
     name: build_sdks
     runs-on: ubuntu-latest

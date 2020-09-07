@@ -106,6 +106,8 @@ jobs:
         with:
           name: pulumi-${{ env.PROVIDER }}
           path: ${{ github.workspace }}/bin
+      - name: Test Provider Library
+        run: make test_provider
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
         uses: 8398a7/action-slack@v3
