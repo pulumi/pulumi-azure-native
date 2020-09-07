@@ -102,7 +102,7 @@ export class EventSource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:timeseriesinsights/latest:EventSource" }, { type: "azurerm:timeseriesinsights/v20170228preview:EventSource" }, { type: "azurerm:timeseriesinsights/v20180815preview:EventSource" }, { type: "azurerm:timeseriesinsights/v20200515:EventSource" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:timeseriesinsights/latest:EventSource" }, { type: "azurerm:timeseriesinsights/preview:EventSource" }, { type: "azurerm:timeseriesinsights/v20170228preview:EventSource" }, { type: "azurerm:timeseriesinsights/v20180815preview:EventSource" }, { type: "azurerm:timeseriesinsights/v20200515:EventSource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EventSource.__pulumiType, name, inputs, opts);
     }

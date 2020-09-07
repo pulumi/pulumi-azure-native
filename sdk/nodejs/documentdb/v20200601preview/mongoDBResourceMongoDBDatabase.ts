@@ -110,7 +110,7 @@ export class MongoDBResourceMongoDBDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:MongoDBResourceMongoDBDatabase" }, { type: "azurerm:documentdb/v20190801:MongoDBResourceMongoDBDatabase" }, { type: "azurerm:documentdb/v20191212:MongoDBResourceMongoDBDatabase" }, { type: "azurerm:documentdb/v20200301:MongoDBResourceMongoDBDatabase" }, { type: "azurerm:documentdb/v20200401:MongoDBResourceMongoDBDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:documentdb/latest:MongoDBResourceMongoDBDatabase" }, { type: "azurerm:documentdb/preview:MongoDBResourceMongoDBDatabase" }, { type: "azurerm:documentdb/v20190801:MongoDBResourceMongoDBDatabase" }, { type: "azurerm:documentdb/v20191212:MongoDBResourceMongoDBDatabase" }, { type: "azurerm:documentdb/v20200301:MongoDBResourceMongoDBDatabase" }, { type: "azurerm:documentdb/v20200401:MongoDBResourceMongoDBDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MongoDBResourceMongoDBDatabase.__pulumiType, name, inputs, opts);
     }

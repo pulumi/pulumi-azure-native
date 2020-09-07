@@ -96,6 +96,8 @@ export class ProviderInstance extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:hanaonazure/preview:ProviderInstance" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProviderInstance.__pulumiType, name, inputs, opts);
     }
 }

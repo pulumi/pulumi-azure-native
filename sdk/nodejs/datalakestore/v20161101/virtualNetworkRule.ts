@@ -87,7 +87,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datalakestore/latest:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datalakestore/latest:VirtualNetworkRule" }, { type: "azurerm:datalakestore/preview:VirtualNetworkRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }

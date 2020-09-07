@@ -92,7 +92,7 @@ export class TagByOperation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:TagByOperation" }, { type: "azurerm:apimanagement/v20170301:TagByOperation" }, { type: "azurerm:apimanagement/v20180601preview:TagByOperation" }, { type: "azurerm:apimanagement/v20190101:TagByOperation" }, { type: "azurerm:apimanagement/v20191201:TagByOperation" }, { type: "azurerm:apimanagement/v20191201preview:TagByOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:TagByOperation" }, { type: "azurerm:apimanagement/preview:TagByOperation" }, { type: "azurerm:apimanagement/v20170301:TagByOperation" }, { type: "azurerm:apimanagement/v20180601preview:TagByOperation" }, { type: "azurerm:apimanagement/v20190101:TagByOperation" }, { type: "azurerm:apimanagement/v20191201:TagByOperation" }, { type: "azurerm:apimanagement/v20191201preview:TagByOperation" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TagByOperation.__pulumiType, name, inputs, opts);
     }

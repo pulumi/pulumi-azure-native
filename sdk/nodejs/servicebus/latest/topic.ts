@@ -176,7 +176,7 @@ export class Topic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicebus/v20140901:Topic" }, { type: "azurerm:servicebus/v20150801:Topic" }, { type: "azurerm:servicebus/v20170401:Topic" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:servicebus/preview:Topic" }, { type: "azurerm:servicebus/v20140901:Topic" }, { type: "azurerm:servicebus/v20150801:Topic" }, { type: "azurerm:servicebus/v20170401:Topic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Topic.__pulumiType, name, inputs, opts);
     }

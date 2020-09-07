@@ -124,7 +124,7 @@ export class App extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:iotcentral/latest:App" }, { type: "azurerm:iotcentral/v20170701privatepreview:App" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:iotcentral/latest:App" }, { type: "azurerm:iotcentral/preview:App" }, { type: "azurerm:iotcentral/v20170701privatepreview:App" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(App.__pulumiType, name, inputs, opts);
     }

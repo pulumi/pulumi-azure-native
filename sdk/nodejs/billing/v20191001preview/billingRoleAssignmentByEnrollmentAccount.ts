@@ -138,6 +138,8 @@ export class BillingRoleAssignmentByEnrollmentAccount extends pulumi.CustomResou
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:billing/preview:BillingRoleAssignmentByEnrollmentAccount" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BillingRoleAssignmentByEnrollmentAccount.__pulumiType, name, inputs, opts);
     }
 }

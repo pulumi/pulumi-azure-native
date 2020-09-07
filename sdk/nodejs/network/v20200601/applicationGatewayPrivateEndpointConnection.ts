@@ -111,7 +111,7 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:ApplicationGatewayPrivateEndpointConnection" }, { type: "azurerm:network/v20200501:ApplicationGatewayPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:ApplicationGatewayPrivateEndpointConnection" }, { type: "azurerm:network/preview:ApplicationGatewayPrivateEndpointConnection" }, { type: "azurerm:network/v20200501:ApplicationGatewayPrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationGatewayPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

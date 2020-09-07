@@ -133,6 +133,8 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:sqlvirtualmachine/preview:SqlVirtualMachineGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SqlVirtualMachineGroup.__pulumiType, name, inputs, opts);
     }
 }

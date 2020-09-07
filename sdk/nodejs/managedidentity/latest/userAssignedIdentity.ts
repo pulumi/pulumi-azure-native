@@ -107,7 +107,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:managedidentity/v20150831preview:UserAssignedIdentity" }, { type: "azurerm:managedidentity/v20181130:UserAssignedIdentity" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:managedidentity/preview:UserAssignedIdentity" }, { type: "azurerm:managedidentity/v20150831preview:UserAssignedIdentity" }, { type: "azurerm:managedidentity/v20181130:UserAssignedIdentity" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(UserAssignedIdentity.__pulumiType, name, inputs, opts);
     }

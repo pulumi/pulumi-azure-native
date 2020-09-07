@@ -149,7 +149,7 @@ export class Connector extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/latest:Connector" }, { type: "azurerm:customerinsights/v20170101:Connector" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:customerinsights/latest:Connector" }, { type: "azurerm:customerinsights/preview:Connector" }, { type: "azurerm:customerinsights/v20170101:Connector" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Connector.__pulumiType, name, inputs, opts);
     }

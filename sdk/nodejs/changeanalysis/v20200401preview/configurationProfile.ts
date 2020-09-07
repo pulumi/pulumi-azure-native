@@ -90,6 +90,8 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:changeanalysis/preview:ConfigurationProfile" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConfigurationProfile.__pulumiType, name, inputs, opts);
     }
 }

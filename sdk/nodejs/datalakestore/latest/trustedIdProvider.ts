@@ -87,7 +87,7 @@ export class TrustedIdProvider extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datalakestore/v20161101:TrustedIdProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datalakestore/preview:TrustedIdProvider" }, { type: "azurerm:datalakestore/v20161101:TrustedIdProvider" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TrustedIdProvider.__pulumiType, name, inputs, opts);
     }

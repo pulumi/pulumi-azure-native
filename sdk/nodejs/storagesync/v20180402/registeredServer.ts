@@ -187,7 +187,7 @@ export class RegisteredServer extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:RegisteredServer" }, { type: "azurerm:storagesync/v20170605preview:RegisteredServer" }, { type: "azurerm:storagesync/v20180701:RegisteredServer" }, { type: "azurerm:storagesync/v20181001:RegisteredServer" }, { type: "azurerm:storagesync/v20190201:RegisteredServer" }, { type: "azurerm:storagesync/v20190301:RegisteredServer" }, { type: "azurerm:storagesync/v20190601:RegisteredServer" }, { type: "azurerm:storagesync/v20191001:RegisteredServer" }, { type: "azurerm:storagesync/v20200301:RegisteredServer" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:storagesync/latest:RegisteredServer" }, { type: "azurerm:storagesync/preview:RegisteredServer" }, { type: "azurerm:storagesync/v20170605preview:RegisteredServer" }, { type: "azurerm:storagesync/v20180701:RegisteredServer" }, { type: "azurerm:storagesync/v20181001:RegisteredServer" }, { type: "azurerm:storagesync/v20190201:RegisteredServer" }, { type: "azurerm:storagesync/v20190301:RegisteredServer" }, { type: "azurerm:storagesync/v20190601:RegisteredServer" }, { type: "azurerm:storagesync/v20191001:RegisteredServer" }, { type: "azurerm:storagesync/v20200301:RegisteredServer" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RegisteredServer.__pulumiType, name, inputs, opts);
     }

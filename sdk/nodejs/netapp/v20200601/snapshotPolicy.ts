@@ -123,7 +123,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:netapp/latest:snapshotPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:netapp/latest:snapshotPolicy" }, { type: "azurerm:netapp/preview:snapshotPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SnapshotPolicy.__pulumiType, name, inputs, opts);
     }

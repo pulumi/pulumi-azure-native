@@ -100,7 +100,7 @@ export class WebService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearning/latest:WebService" }, { type: "azurerm:machinelearning/v20170101:WebService" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:machinelearning/latest:WebService" }, { type: "azurerm:machinelearning/preview:WebService" }, { type: "azurerm:machinelearning/v20170101:WebService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebService.__pulumiType, name, inputs, opts);
     }

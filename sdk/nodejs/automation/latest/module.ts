@@ -167,7 +167,7 @@ export class Module extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/v20151031:Module" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/preview:Module" }, { type: "azurerm:automation/v20151031:Module" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Module.__pulumiType, name, inputs, opts);
     }

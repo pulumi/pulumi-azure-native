@@ -105,7 +105,7 @@ export class ProtectionPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/latest:ProtectionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/latest:ProtectionPolicy" }, { type: "azurerm:recoveryservices/preview:ProtectionPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectionPolicy.__pulumiType, name, inputs, opts);
     }

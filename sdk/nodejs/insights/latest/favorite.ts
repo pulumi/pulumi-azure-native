@@ -131,7 +131,7 @@ export class Favorite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:insights/v20150501:Favorite" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:insights/preview:Favorite" }, { type: "azurerm:insights/v20150501:Favorite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Favorite.__pulumiType, name, inputs, opts);
     }

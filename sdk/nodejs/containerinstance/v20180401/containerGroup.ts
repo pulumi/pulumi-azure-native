@@ -145,7 +145,7 @@ export class ContainerGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerinstance/latest:ContainerGroup" }, { type: "azurerm:containerinstance/v20170801preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20171001preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20171201preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20180201preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20180601:ContainerGroup" }, { type: "azurerm:containerinstance/v20180901:ContainerGroup" }, { type: "azurerm:containerinstance/v20181001:ContainerGroup" }, { type: "azurerm:containerinstance/v20191201:ContainerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:containerinstance/latest:ContainerGroup" }, { type: "azurerm:containerinstance/preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20170801preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20171001preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20171201preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20180201preview:ContainerGroup" }, { type: "azurerm:containerinstance/v20180601:ContainerGroup" }, { type: "azurerm:containerinstance/v20180901:ContainerGroup" }, { type: "azurerm:containerinstance/v20181001:ContainerGroup" }, { type: "azurerm:containerinstance/v20191201:ContainerGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContainerGroup.__pulumiType, name, inputs, opts);
     }

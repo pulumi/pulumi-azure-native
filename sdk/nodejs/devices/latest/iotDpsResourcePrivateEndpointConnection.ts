@@ -89,7 +89,7 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devices/preview:IotDpsResourcePrivateEndpointConnection" }, { type: "azurerm:devices/v20200301:IotDpsResourcePrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotDpsResourcePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

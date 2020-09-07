@@ -116,7 +116,7 @@ export class Channel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:botservice/latest:Channel" }, { type: "azurerm:botservice/v20180712:Channel" }, { type: "azurerm:botservice/v20200602:Channel" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:botservice/latest:Channel" }, { type: "azurerm:botservice/preview:Channel" }, { type: "azurerm:botservice/v20180712:Channel" }, { type: "azurerm:botservice/v20200602:Channel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Channel.__pulumiType, name, inputs, opts);
     }

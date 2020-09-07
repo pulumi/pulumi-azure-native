@@ -93,6 +93,8 @@ export class JobTargetGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:sql/preview:JobTargetGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobTargetGroup.__pulumiType, name, inputs, opts);
     }
 }

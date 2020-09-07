@@ -154,7 +154,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:security/v20170801preview:IotSecuritySolution" }, { type: "azurerm:security/v20190801:IotSecuritySolution" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:security/preview:IotSecuritySolution" }, { type: "azurerm:security/v20170801preview:IotSecuritySolution" }, { type: "azurerm:security/v20190801:IotSecuritySolution" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotSecuritySolution.__pulumiType, name, inputs, opts);
     }

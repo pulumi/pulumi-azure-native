@@ -130,6 +130,8 @@ export class Automation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:security/preview:Automation" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Automation.__pulumiType, name, inputs, opts);
     }
 }

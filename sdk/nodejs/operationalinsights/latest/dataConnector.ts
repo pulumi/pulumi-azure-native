@@ -93,7 +93,7 @@ export class DataConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/v20200101:DataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/preview:DataConnector" }, { type: "azurerm:operationalinsights/v20200101:DataConnector" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataConnector.__pulumiType, name, inputs, opts);
     }

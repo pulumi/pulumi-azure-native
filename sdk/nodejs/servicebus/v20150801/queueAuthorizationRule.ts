@@ -97,7 +97,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:servicebus/latest:QueueAuthorizationRule" }, { type: "azurerm:servicebus/v20140901:QueueAuthorizationRule" }, { type: "azurerm:servicebus/v20170401:QueueAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:servicebus/latest:QueueAuthorizationRule" }, { type: "azurerm:servicebus/preview:QueueAuthorizationRule" }, { type: "azurerm:servicebus/v20140901:QueueAuthorizationRule" }, { type: "azurerm:servicebus/v20170401:QueueAuthorizationRule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(QueueAuthorizationRule.__pulumiType, name, inputs, opts);
     }

@@ -103,7 +103,7 @@ export class Dashboard extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:portal/v20150801preview:Dashboard" }, { type: "azurerm:portal/v20190101preview:Dashboard" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:portal/preview:Dashboard" }, { type: "azurerm:portal/v20150801preview:Dashboard" }, { type: "azurerm:portal/v20190101preview:Dashboard" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Dashboard.__pulumiType, name, inputs, opts);
     }

@@ -104,7 +104,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azurerm:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azurerm:maintenance/v20200701preview:MaintenanceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:maintenance/preview:MaintenanceConfiguration" }, { type: "azurerm:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azurerm:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azurerm:maintenance/v20200701preview:MaintenanceConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MaintenanceConfiguration.__pulumiType, name, inputs, opts);
     }

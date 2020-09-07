@@ -124,7 +124,7 @@ export class Export extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:costmanagement/latest:Export" }, { type: "azurerm:costmanagement/v20190101:Export" }, { type: "azurerm:costmanagement/v20190901:Export" }, { type: "azurerm:costmanagement/v20191001:Export" }, { type: "azurerm:costmanagement/v20191101:Export" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:costmanagement/latest:Export" }, { type: "azurerm:costmanagement/preview:Export" }, { type: "azurerm:costmanagement/v20190101:Export" }, { type: "azurerm:costmanagement/v20190901:Export" }, { type: "azurerm:costmanagement/v20191001:Export" }, { type: "azurerm:costmanagement/v20191101:Export" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Export.__pulumiType, name, inputs, opts);
     }

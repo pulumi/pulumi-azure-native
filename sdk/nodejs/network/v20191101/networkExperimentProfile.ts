@@ -104,7 +104,7 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:NetworkExperimentProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:NetworkExperimentProfile" }, { type: "azurerm:network/preview:NetworkExperimentProfile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NetworkExperimentProfile.__pulumiType, name, inputs, opts);
     }

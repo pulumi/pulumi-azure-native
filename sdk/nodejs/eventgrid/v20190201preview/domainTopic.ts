@@ -84,7 +84,7 @@ export class DomainTopic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/latest:DomainTopic" }, { type: "azurerm:eventgrid/v20190601:DomainTopic" }, { type: "azurerm:eventgrid/v20200101preview:DomainTopic" }, { type: "azurerm:eventgrid/v20200401preview:DomainTopic" }, { type: "azurerm:eventgrid/v20200601:DomainTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/latest:DomainTopic" }, { type: "azurerm:eventgrid/preview:DomainTopic" }, { type: "azurerm:eventgrid/v20190601:DomainTopic" }, { type: "azurerm:eventgrid/v20200101preview:DomainTopic" }, { type: "azurerm:eventgrid/v20200401preview:DomainTopic" }, { type: "azurerm:eventgrid/v20200601:DomainTopic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainTopic.__pulumiType, name, inputs, opts);
     }

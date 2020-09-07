@@ -96,6 +96,8 @@ export class Vendor extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:hybridnetwork/preview:Vendor" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Vendor.__pulumiType, name, inputs, opts);
     }
 }

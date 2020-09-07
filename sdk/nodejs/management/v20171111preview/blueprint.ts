@@ -127,6 +127,8 @@ export class Blueprint extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:management/preview:Blueprint" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Blueprint.__pulumiType, name, inputs, opts);
     }
 }

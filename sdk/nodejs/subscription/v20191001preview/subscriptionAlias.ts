@@ -78,7 +78,7 @@ export class SubscriptionAlias extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:subscription/latest:SubscriptionAlias" }, { type: "azurerm:subscription/v20200901:SubscriptionAlias" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:subscription/latest:SubscriptionAlias" }, { type: "azurerm:subscription/preview:SubscriptionAlias" }, { type: "azurerm:subscription/v20200901:SubscriptionAlias" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SubscriptionAlias.__pulumiType, name, inputs, opts);
     }

@@ -86,7 +86,7 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:ManagementLockAtResourceGroupLevel" }, { type: "azurerm:authorization/v20160901:ManagementLockAtResourceGroupLevel" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:authorization/latest:ManagementLockAtResourceGroupLevel" }, { type: "azurerm:authorization/preview:ManagementLockAtResourceGroupLevel" }, { type: "azurerm:authorization/v20160901:ManagementLockAtResourceGroupLevel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementLockAtResourceGroupLevel.__pulumiType, name, inputs, opts);
     }

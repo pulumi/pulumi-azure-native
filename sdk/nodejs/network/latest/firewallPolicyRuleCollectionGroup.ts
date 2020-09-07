@@ -105,7 +105,7 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/v20200501:FirewallPolicyRuleCollectionGroup" }, { type: "azurerm:network/v20200601:FirewallPolicyRuleCollectionGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/preview:FirewallPolicyRuleCollectionGroup" }, { type: "azurerm:network/v20200501:FirewallPolicyRuleCollectionGroup" }, { type: "azurerm:network/v20200601:FirewallPolicyRuleCollectionGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FirewallPolicyRuleCollectionGroup.__pulumiType, name, inputs, opts);
     }

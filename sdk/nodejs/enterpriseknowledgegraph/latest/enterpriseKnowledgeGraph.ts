@@ -100,7 +100,7 @@ export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:enterpriseknowledgegraph/preview:EnterpriseKnowledgeGraph" }, { type: "azurerm:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EnterpriseKnowledgeGraph.__pulumiType, name, inputs, opts);
     }

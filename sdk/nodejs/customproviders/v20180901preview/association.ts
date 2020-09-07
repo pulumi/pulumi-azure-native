@@ -86,6 +86,8 @@ export class Association extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:customproviders/preview:Association" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Association.__pulumiType, name, inputs, opts);
     }
 }

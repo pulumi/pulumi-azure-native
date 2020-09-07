@@ -98,7 +98,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/latest:PrivateEndpointConnection" }, { type: "azurerm:dbformysql/v20180601:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/latest:PrivateEndpointConnection" }, { type: "azurerm:dbformysql/preview:PrivateEndpointConnection" }, { type: "azurerm:dbformysql/v20180601:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

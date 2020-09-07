@@ -185,6 +185,8 @@ export class NodeType extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:servicefabric/preview:NodeType" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(NodeType.__pulumiType, name, inputs, opts);
     }
 }

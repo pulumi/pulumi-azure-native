@@ -132,7 +132,7 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppPremierAddOnSlot" }, { type: "azurerm:web/v20150801:WebAppPremierAddOnSlot" }, { type: "azurerm:web/v20160801:WebAppPremierAddOnSlot" }, { type: "azurerm:web/v20180201:WebAppPremierAddOnSlot" }, { type: "azurerm:web/v20181101:WebAppPremierAddOnSlot" }, { type: "azurerm:web/v20200601:WebAppPremierAddOnSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppPremierAddOnSlot" }, { type: "azurerm:web/preview:WebAppPremierAddOnSlot" }, { type: "azurerm:web/v20150801:WebAppPremierAddOnSlot" }, { type: "azurerm:web/v20160801:WebAppPremierAddOnSlot" }, { type: "azurerm:web/v20180201:WebAppPremierAddOnSlot" }, { type: "azurerm:web/v20181101:WebAppPremierAddOnSlot" }, { type: "azurerm:web/v20200601:WebAppPremierAddOnSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPremierAddOnSlot.__pulumiType, name, inputs, opts);
     }

@@ -148,7 +148,7 @@ export class Share extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:Share" }, { type: "azurerm:databoxedge/v20190301:Share" }, { type: "azurerm:databoxedge/v20190801:Share" }, { type: "azurerm:databoxedge/v20200501preview:Share" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:databoxedge/latest:Share" }, { type: "azurerm:databoxedge/preview:Share" }, { type: "azurerm:databoxedge/v20190301:Share" }, { type: "azurerm:databoxedge/v20190801:Share" }, { type: "azurerm:databoxedge/v20200501preview:Share" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Share.__pulumiType, name, inputs, opts);
     }

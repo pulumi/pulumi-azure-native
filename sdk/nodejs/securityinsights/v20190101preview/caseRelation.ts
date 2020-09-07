@@ -125,6 +125,8 @@ export class CaseRelation extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:securityinsights/preview:CaseRelation" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CaseRelation.__pulumiType, name, inputs, opts);
     }
 }

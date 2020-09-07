@@ -91,7 +91,7 @@ export class WorkspaceCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:powerbi/latest:WorkspaceCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:powerbi/latest:WorkspaceCollection" }, { type: "azurerm:powerbi/preview:WorkspaceCollection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WorkspaceCollection.__pulumiType, name, inputs, opts);
     }

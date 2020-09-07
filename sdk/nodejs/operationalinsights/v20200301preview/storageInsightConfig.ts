@@ -119,7 +119,7 @@ export class StorageInsightConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/latest:StorageInsightConfig" }, { type: "azurerm:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azurerm:operationalinsights/v20200801:StorageInsightConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/latest:StorageInsightConfig" }, { type: "azurerm:operationalinsights/preview:StorageInsightConfig" }, { type: "azurerm:operationalinsights/v20150320:StorageInsightConfig" }, { type: "azurerm:operationalinsights/v20200801:StorageInsightConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StorageInsightConfig.__pulumiType, name, inputs, opts);
     }

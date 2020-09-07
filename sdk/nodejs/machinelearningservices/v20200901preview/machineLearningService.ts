@@ -118,7 +118,7 @@ export class MachineLearningService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azurerm:machinelearningservices/v20200515preview:MachineLearningService" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:machinelearningservices/preview:MachineLearningService" }, { type: "azurerm:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azurerm:machinelearningservices/v20200515preview:MachineLearningService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MachineLearningService.__pulumiType, name, inputs, opts);
     }

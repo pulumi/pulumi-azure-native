@@ -117,6 +117,8 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:management/preview:ManagementGroupDiagnosticSetting" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementGroupDiagnosticSetting.__pulumiType, name, inputs, opts);
     }
 }

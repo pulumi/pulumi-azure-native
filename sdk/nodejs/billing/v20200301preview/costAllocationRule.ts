@@ -82,6 +82,8 @@ export class CostAllocationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:billing/preview:CostAllocationRule" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CostAllocationRule.__pulumiType, name, inputs, opts);
     }
 }

@@ -178,7 +178,7 @@ export class DomainService extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:aad/latest:DomainService" }, { type: "azurerm:aad/v20170101:DomainService" }, { type: "azurerm:aad/v20200101:DomainService" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:aad/latest:DomainService" }, { type: "azurerm:aad/preview:DomainService" }, { type: "azurerm:aad/v20170101:DomainService" }, { type: "azurerm:aad/v20200101:DomainService" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DomainService.__pulumiType, name, inputs, opts);
     }

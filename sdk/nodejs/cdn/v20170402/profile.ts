@@ -112,7 +112,7 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:Profile" }, { type: "azurerm:cdn/v20150601:Profile" }, { type: "azurerm:cdn/v20160402:Profile" }, { type: "azurerm:cdn/v20161002:Profile" }, { type: "azurerm:cdn/v20171012:Profile" }, { type: "azurerm:cdn/v20190415:Profile" }, { type: "azurerm:cdn/v20190615:Profile" }, { type: "azurerm:cdn/v20190615preview:Profile" }, { type: "azurerm:cdn/v20191231:Profile" }, { type: "azurerm:cdn/v20200331:Profile" }, { type: "azurerm:cdn/v20200415:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:cdn/latest:Profile" }, { type: "azurerm:cdn/preview:Profile" }, { type: "azurerm:cdn/v20150601:Profile" }, { type: "azurerm:cdn/v20160402:Profile" }, { type: "azurerm:cdn/v20161002:Profile" }, { type: "azurerm:cdn/v20171012:Profile" }, { type: "azurerm:cdn/v20190415:Profile" }, { type: "azurerm:cdn/v20190615:Profile" }, { type: "azurerm:cdn/v20190615preview:Profile" }, { type: "azurerm:cdn/v20191231:Profile" }, { type: "azurerm:cdn/v20200331:Profile" }, { type: "azurerm:cdn/v20200415:Profile" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Profile.__pulumiType, name, inputs, opts);
     }

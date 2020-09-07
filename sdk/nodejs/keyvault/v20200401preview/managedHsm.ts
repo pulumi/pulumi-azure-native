@@ -99,6 +99,8 @@ export class ManagedHsm extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:keyvault/preview:ManagedHsm" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedHsm.__pulumiType, name, inputs, opts);
     }
 }

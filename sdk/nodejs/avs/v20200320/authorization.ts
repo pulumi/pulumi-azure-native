@@ -96,7 +96,7 @@ export class Authorization extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:avs/latest:Authorization" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:avs/latest:Authorization" }, { type: "azurerm:avs/preview:Authorization" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Authorization.__pulumiType, name, inputs, opts);
     }

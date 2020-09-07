@@ -137,7 +137,7 @@ export class Topic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/latest:Topic" }, { type: "azurerm:eventgrid/v20170615preview:Topic" }, { type: "azurerm:eventgrid/v20170915preview:Topic" }, { type: "azurerm:eventgrid/v20180101:Topic" }, { type: "azurerm:eventgrid/v20180501preview:Topic" }, { type: "azurerm:eventgrid/v20180915preview:Topic" }, { type: "azurerm:eventgrid/v20190101:Topic" }, { type: "azurerm:eventgrid/v20190201preview:Topic" }, { type: "azurerm:eventgrid/v20190601:Topic" }, { type: "azurerm:eventgrid/v20200101preview:Topic" }, { type: "azurerm:eventgrid/v20200401preview:Topic" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/latest:Topic" }, { type: "azurerm:eventgrid/preview:Topic" }, { type: "azurerm:eventgrid/v20170615preview:Topic" }, { type: "azurerm:eventgrid/v20170915preview:Topic" }, { type: "azurerm:eventgrid/v20180101:Topic" }, { type: "azurerm:eventgrid/v20180501preview:Topic" }, { type: "azurerm:eventgrid/v20180915preview:Topic" }, { type: "azurerm:eventgrid/v20190101:Topic" }, { type: "azurerm:eventgrid/v20190201preview:Topic" }, { type: "azurerm:eventgrid/v20190601:Topic" }, { type: "azurerm:eventgrid/v20200101preview:Topic" }, { type: "azurerm:eventgrid/v20200401preview:Topic" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Topic.__pulumiType, name, inputs, opts);
     }

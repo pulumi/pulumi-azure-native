@@ -140,7 +140,7 @@ export class User extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:User" }, { type: "azurerm:apimanagement/v20160707:User" }, { type: "azurerm:apimanagement/v20161010:User" }, { type: "azurerm:apimanagement/v20170301:User" }, { type: "azurerm:apimanagement/v20180101:User" }, { type: "azurerm:apimanagement/v20180601preview:User" }, { type: "azurerm:apimanagement/v20190101:User" }, { type: "azurerm:apimanagement/v20191201:User" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:User" }, { type: "azurerm:apimanagement/preview:User" }, { type: "azurerm:apimanagement/v20160707:User" }, { type: "azurerm:apimanagement/v20161010:User" }, { type: "azurerm:apimanagement/v20170301:User" }, { type: "azurerm:apimanagement/v20180101:User" }, { type: "azurerm:apimanagement/v20180601preview:User" }, { type: "azurerm:apimanagement/v20190101:User" }, { type: "azurerm:apimanagement/v20191201:User" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(User.__pulumiType, name, inputs, opts);
     }

@@ -142,7 +142,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20191001:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20191101preview:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20200601:ConfigurationStore" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:appconfiguration/preview:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20191001:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20191101preview:ConfigurationStore" }, { type: "azurerm:appconfiguration/v20200601:ConfigurationStore" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConfigurationStore.__pulumiType, name, inputs, opts);
     }

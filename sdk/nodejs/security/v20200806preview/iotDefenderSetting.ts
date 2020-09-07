@@ -66,6 +66,8 @@ export class IotDefenderSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:security/preview:IotDefenderSetting" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotDefenderSetting.__pulumiType, name, inputs, opts);
     }
 }

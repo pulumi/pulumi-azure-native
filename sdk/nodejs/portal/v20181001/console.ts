@@ -69,7 +69,7 @@ export class Console extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:portal/latest:Console" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:portal/latest:Console" }, { type: "azurerm:portal/preview:Console" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Console.__pulumiType, name, inputs, opts);
     }

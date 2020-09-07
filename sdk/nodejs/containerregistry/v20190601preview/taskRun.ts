@@ -117,6 +117,8 @@ export class TaskRun extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/preview:TaskRun" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(TaskRun.__pulumiType, name, inputs, opts);
     }
 }

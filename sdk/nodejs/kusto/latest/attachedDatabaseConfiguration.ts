@@ -123,7 +123,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azurerm:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azurerm:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azurerm:kusto/v20200614:AttachedDatabaseConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:kusto/preview:AttachedDatabaseConfiguration" }, { type: "azurerm:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azurerm:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azurerm:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azurerm:kusto/v20200614:AttachedDatabaseConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AttachedDatabaseConfiguration.__pulumiType, name, inputs, opts);
     }

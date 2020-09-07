@@ -155,7 +155,7 @@ export class ArtifactSource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/v20150521preview:ArtifactSource" }, { type: "azurerm:devtestlab/v20160515:ArtifactSource" }, { type: "azurerm:devtestlab/v20180915:ArtifactSource" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/preview:ArtifactSource" }, { type: "azurerm:devtestlab/v20150521preview:ArtifactSource" }, { type: "azurerm:devtestlab/v20160515:ArtifactSource" }, { type: "azurerm:devtestlab/v20180915:ArtifactSource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ArtifactSource.__pulumiType, name, inputs, opts);
     }

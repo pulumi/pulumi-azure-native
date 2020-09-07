@@ -116,7 +116,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:avs/latest:Cluster" }, { type: "azurerm:avs/v20190809preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:avs/latest:Cluster" }, { type: "azurerm:avs/preview:Cluster" }, { type: "azurerm:avs/v20190809preview:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

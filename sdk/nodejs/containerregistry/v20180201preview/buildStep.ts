@@ -90,6 +90,8 @@ export class BuildStep extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:containerregistry/preview:BuildStep" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BuildStep.__pulumiType, name, inputs, opts);
     }
 }

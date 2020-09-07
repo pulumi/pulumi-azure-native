@@ -125,7 +125,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:desktopvirtualization/v20190123preview:ApplicationGroup" }, { type: "azurerm:desktopvirtualization/v20191210preview:ApplicationGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:desktopvirtualization/preview:ApplicationGroup" }, { type: "azurerm:desktopvirtualization/v20190123preview:ApplicationGroup" }, { type: "azurerm:desktopvirtualization/v20191210preview:ApplicationGroup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplicationGroup.__pulumiType, name, inputs, opts);
     }

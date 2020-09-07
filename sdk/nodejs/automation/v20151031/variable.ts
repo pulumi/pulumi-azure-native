@@ -111,7 +111,7 @@ export class Variable extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:Variable" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:Variable" }, { type: "azurerm:automation/preview:Variable" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Variable.__pulumiType, name, inputs, opts);
     }

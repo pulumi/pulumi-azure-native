@@ -173,7 +173,7 @@ export class Schedule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/v20151031:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/preview:Schedule" }, { type: "azurerm:automation/v20151031:Schedule" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Schedule.__pulumiType, name, inputs, opts);
     }

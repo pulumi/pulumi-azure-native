@@ -130,7 +130,7 @@ export class AutomationAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:AutomationAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:automation/latest:AutomationAccount" }, { type: "azurerm:automation/preview:AutomationAccount" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AutomationAccount.__pulumiType, name, inputs, opts);
     }

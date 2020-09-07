@@ -96,6 +96,8 @@ export class IpFirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:synapse/preview:IpFirewallRule" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IpFirewallRule.__pulumiType, name, inputs, opts);
     }
 }

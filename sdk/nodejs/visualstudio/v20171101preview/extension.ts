@@ -104,7 +104,7 @@ export class Extension extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:visualstudio/v20140401preview:Extension" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:visualstudio/preview:Extension" }, { type: "azurerm:visualstudio/v20140401preview:Extension" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Extension.__pulumiType, name, inputs, opts);
     }

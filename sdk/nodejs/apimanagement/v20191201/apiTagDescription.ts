@@ -112,7 +112,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiTagDescription" }, { type: "azurerm:apimanagement/v20170301:ApiTagDescription" }, { type: "azurerm:apimanagement/v20180101:ApiTagDescription" }, { type: "azurerm:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azurerm:apimanagement/v20190101:ApiTagDescription" }, { type: "azurerm:apimanagement/v20191201preview:ApiTagDescription" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiTagDescription" }, { type: "azurerm:apimanagement/preview:ApiTagDescription" }, { type: "azurerm:apimanagement/v20170301:ApiTagDescription" }, { type: "azurerm:apimanagement/v20180101:ApiTagDescription" }, { type: "azurerm:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azurerm:apimanagement/v20190101:ApiTagDescription" }, { type: "azurerm:apimanagement/v20191201preview:ApiTagDescription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiTagDescription.__pulumiType, name, inputs, opts);
     }

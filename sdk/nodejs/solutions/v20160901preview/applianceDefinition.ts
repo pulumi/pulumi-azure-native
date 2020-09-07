@@ -151,6 +151,8 @@ export class ApplianceDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:solutions/preview:ApplianceDefinition" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApplianceDefinition.__pulumiType, name, inputs, opts);
     }
 }

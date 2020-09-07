@@ -100,7 +100,7 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/latest:ReplicationNetworkMapping" }, { type: "azurerm:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azurerm:recoveryservices/v20180110:ReplicationNetworkMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/latest:ReplicationNetworkMapping" }, { type: "azurerm:recoveryservices/preview:ReplicationNetworkMapping" }, { type: "azurerm:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azurerm:recoveryservices/v20180110:ReplicationNetworkMapping" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationNetworkMapping.__pulumiType, name, inputs, opts);
     }

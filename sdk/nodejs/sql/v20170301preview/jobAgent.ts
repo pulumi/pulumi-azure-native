@@ -116,6 +116,8 @@ export class JobAgent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:sql/preview:JobAgent" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobAgent.__pulumiType, name, inputs, opts);
     }
 }

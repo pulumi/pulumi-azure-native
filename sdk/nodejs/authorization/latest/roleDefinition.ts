@@ -106,7 +106,7 @@ export class RoleDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:authorization/v20150701:RoleDefinition" }, { type: "azurerm:authorization/v20180101preview:RoleDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:authorization/preview:RoleDefinition" }, { type: "azurerm:authorization/v20150701:RoleDefinition" }, { type: "azurerm:authorization/v20180101preview:RoleDefinition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RoleDefinition.__pulumiType, name, inputs, opts);
     }

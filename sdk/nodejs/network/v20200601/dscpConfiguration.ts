@@ -155,7 +155,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:DscpConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:DscpConfiguration" }, { type: "azurerm:network/preview:DscpConfiguration" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DscpConfiguration.__pulumiType, name, inputs, opts);
     }

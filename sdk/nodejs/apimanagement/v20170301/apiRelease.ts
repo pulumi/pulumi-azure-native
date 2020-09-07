@@ -105,7 +105,7 @@ export class ApiRelease extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiRelease" }, { type: "azurerm:apimanagement/v20180101:ApiRelease" }, { type: "azurerm:apimanagement/v20180601preview:ApiRelease" }, { type: "azurerm:apimanagement/v20190101:ApiRelease" }, { type: "azurerm:apimanagement/v20191201:ApiRelease" }, { type: "azurerm:apimanagement/v20191201preview:ApiRelease" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:ApiRelease" }, { type: "azurerm:apimanagement/preview:ApiRelease" }, { type: "azurerm:apimanagement/v20180101:ApiRelease" }, { type: "azurerm:apimanagement/v20180601preview:ApiRelease" }, { type: "azurerm:apimanagement/v20190101:ApiRelease" }, { type: "azurerm:apimanagement/v20191201:ApiRelease" }, { type: "azurerm:apimanagement/v20191201preview:ApiRelease" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ApiRelease.__pulumiType, name, inputs, opts);
     }

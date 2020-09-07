@@ -97,7 +97,7 @@ export class ConnectionGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/v20160601:ConnectionGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/preview:ConnectionGateway" }, { type: "azurerm:web/v20160601:ConnectionGateway" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ConnectionGateway.__pulumiType, name, inputs, opts);
     }

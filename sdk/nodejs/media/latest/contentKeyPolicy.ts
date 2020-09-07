@@ -113,7 +113,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:media/v20180330preview:ContentKeyPolicy" }, { type: "azurerm:media/v20180601preview:ContentKeyPolicy" }, { type: "azurerm:media/v20180701:ContentKeyPolicy" }, { type: "azurerm:media/v20200501:ContentKeyPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:media/preview:ContentKeyPolicy" }, { type: "azurerm:media/v20180330preview:ContentKeyPolicy" }, { type: "azurerm:media/v20180601preview:ContentKeyPolicy" }, { type: "azurerm:media/v20180701:ContentKeyPolicy" }, { type: "azurerm:media/v20200501:ContentKeyPolicy" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ContentKeyPolicy.__pulumiType, name, inputs, opts);
     }

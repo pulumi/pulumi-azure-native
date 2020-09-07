@@ -125,7 +125,7 @@ export class Backup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:netapp/v20200601:Backup" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:netapp/preview:Backup" }, { type: "azurerm:netapp/v20200601:Backup" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Backup.__pulumiType, name, inputs, opts);
     }

@@ -196,7 +196,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:kusto/latest:Cluster" }, { type: "azurerm:kusto/v20170907privatepreview:Cluster" }, { type: "azurerm:kusto/v20180907preview:Cluster" }, { type: "azurerm:kusto/v20190121:Cluster" }, { type: "azurerm:kusto/v20190515:Cluster" }, { type: "azurerm:kusto/v20190907:Cluster" }, { type: "azurerm:kusto/v20191109:Cluster" }, { type: "azurerm:kusto/v20200215:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:kusto/latest:Cluster" }, { type: "azurerm:kusto/preview:Cluster" }, { type: "azurerm:kusto/v20170907privatepreview:Cluster" }, { type: "azurerm:kusto/v20180907preview:Cluster" }, { type: "azurerm:kusto/v20190121:Cluster" }, { type: "azurerm:kusto/v20190515:Cluster" }, { type: "azurerm:kusto/v20190907:Cluster" }, { type: "azurerm:kusto/v20191109:Cluster" }, { type: "azurerm:kusto/v20200215:Cluster" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Cluster.__pulumiType, name, inputs, opts);
     }

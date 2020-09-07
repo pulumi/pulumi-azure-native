@@ -143,7 +143,7 @@ export class Project extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datamigration/v20171115preview:Project" }, { type: "azurerm:datamigration/v20180315preview:Project" }, { type: "azurerm:datamigration/v20180331preview:Project" }, { type: "azurerm:datamigration/v20180419:Project" }, { type: "azurerm:datamigration/v20180715preview:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datamigration/preview:Project" }, { type: "azurerm:datamigration/v20171115preview:Project" }, { type: "azurerm:datamigration/v20180315preview:Project" }, { type: "azurerm:datamigration/v20180331preview:Project" }, { type: "azurerm:datamigration/v20180419:Project" }, { type: "azurerm:datamigration/v20180715preview:Project" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Project.__pulumiType, name, inputs, opts);
     }

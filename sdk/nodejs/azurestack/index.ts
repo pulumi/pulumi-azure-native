@@ -3,5 +3,6 @@
 
 // Export sub-modules:
 import * as latest from "./latest";
+import * as preview from "./preview";
 import * as v20170601 from "./v20170601";
-export {latest, v20170601};
+export {latest, preview, v20170601};

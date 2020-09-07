@@ -138,7 +138,7 @@ export class StaticSite extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/v20190801:StaticSite" }, { type: "azurerm:web/v20200601:StaticSite" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/preview:StaticSite" }, { type: "azurerm:web/v20190801:StaticSite" }, { type: "azurerm:web/v20200601:StaticSite" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(StaticSite.__pulumiType, name, inputs, opts);
     }

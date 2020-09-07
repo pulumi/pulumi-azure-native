@@ -162,7 +162,7 @@ export class RecordSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:RecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:RecordSet" }, { type: "azurerm:network/preview:RecordSet" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(RecordSet.__pulumiType, name, inputs, opts);
     }

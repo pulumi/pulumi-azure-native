@@ -115,6 +115,8 @@ export class DeploymentScript extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:resources/preview:DeploymentScript" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DeploymentScript.__pulumiType, name, inputs, opts);
     }
 }

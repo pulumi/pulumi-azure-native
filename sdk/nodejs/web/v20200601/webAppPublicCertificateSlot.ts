@@ -105,7 +105,7 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppPublicCertificateSlot" }, { type: "azurerm:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azurerm:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azurerm:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azurerm:web/v20190801:WebAppPublicCertificateSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:WebAppPublicCertificateSlot" }, { type: "azurerm:web/preview:WebAppPublicCertificateSlot" }, { type: "azurerm:web/v20160801:WebAppPublicCertificateSlot" }, { type: "azurerm:web/v20180201:WebAppPublicCertificateSlot" }, { type: "azurerm:web/v20181101:WebAppPublicCertificateSlot" }, { type: "azurerm:web/v20190801:WebAppPublicCertificateSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(WebAppPublicCertificateSlot.__pulumiType, name, inputs, opts);
     }

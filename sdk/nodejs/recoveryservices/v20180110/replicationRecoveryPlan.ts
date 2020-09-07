@@ -95,7 +95,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/latest:ReplicationRecoveryPlan" }, { type: "azurerm:recoveryservices/v20160810:ReplicationRecoveryPlan" }, { type: "azurerm:recoveryservices/v20180710:ReplicationRecoveryPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/latest:ReplicationRecoveryPlan" }, { type: "azurerm:recoveryservices/preview:ReplicationRecoveryPlan" }, { type: "azurerm:recoveryservices/v20160810:ReplicationRecoveryPlan" }, { type: "azurerm:recoveryservices/v20180710:ReplicationRecoveryPlan" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ReplicationRecoveryPlan.__pulumiType, name, inputs, opts);
     }

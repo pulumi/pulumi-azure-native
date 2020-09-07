@@ -86,7 +86,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:search/latest:PrivateEndpointConnection" }, { type: "azurerm:search/v20191001preview:PrivateEndpointConnection" }, { type: "azurerm:search/v20200313:PrivateEndpointConnection" }, { type: "azurerm:search/v20200801:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:search/latest:PrivateEndpointConnection" }, { type: "azurerm:search/preview:PrivateEndpointConnection" }, { type: "azurerm:search/v20191001preview:PrivateEndpointConnection" }, { type: "azurerm:search/v20200313:PrivateEndpointConnection" }, { type: "azurerm:search/v20200801:PrivateEndpointConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

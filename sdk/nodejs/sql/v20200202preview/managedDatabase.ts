@@ -195,7 +195,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:sql/v20170301preview:ManagedDatabase" }, { type: "azurerm:sql/v20180601preview:ManagedDatabase" }, { type: "azurerm:sql/v20190601preview:ManagedDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:sql/preview:ManagedDatabase" }, { type: "azurerm:sql/v20170301preview:ManagedDatabase" }, { type: "azurerm:sql/v20180601preview:ManagedDatabase" }, { type: "azurerm:sql/v20190601preview:ManagedDatabase" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagedDatabase.__pulumiType, name, inputs, opts);
     }

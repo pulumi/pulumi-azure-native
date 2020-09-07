@@ -91,7 +91,7 @@ export class Trigger extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:datashare/v20181101preview:Trigger" }, { type: "azurerm:datashare/v20191101:Trigger" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:datashare/preview:Trigger" }, { type: "azurerm:datashare/v20181101preview:Trigger" }, { type: "azurerm:datashare/v20191101:Trigger" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Trigger.__pulumiType, name, inputs, opts);
     }

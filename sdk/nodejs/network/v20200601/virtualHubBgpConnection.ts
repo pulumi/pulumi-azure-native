@@ -109,7 +109,7 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:VirtualHubBgpConnection" }, { type: "azurerm:network/v20200501:VirtualHubBgpConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:VirtualHubBgpConnection" }, { type: "azurerm:network/preview:VirtualHubBgpConnection" }, { type: "azurerm:network/v20200501:VirtualHubBgpConnection" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualHubBgpConnection.__pulumiType, name, inputs, opts);
     }

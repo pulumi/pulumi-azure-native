@@ -113,7 +113,7 @@ export class BastionHost extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:BastionHost" }, { type: "azurerm:network/v20190401:BastionHost" }, { type: "azurerm:network/v20190601:BastionHost" }, { type: "azurerm:network/v20190701:BastionHost" }, { type: "azurerm:network/v20190901:BastionHost" }, { type: "azurerm:network/v20191101:BastionHost" }, { type: "azurerm:network/v20191201:BastionHost" }, { type: "azurerm:network/v20200301:BastionHost" }, { type: "azurerm:network/v20200401:BastionHost" }, { type: "azurerm:network/v20200501:BastionHost" }, { type: "azurerm:network/v20200601:BastionHost" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:BastionHost" }, { type: "azurerm:network/preview:BastionHost" }, { type: "azurerm:network/v20190401:BastionHost" }, { type: "azurerm:network/v20190601:BastionHost" }, { type: "azurerm:network/v20190701:BastionHost" }, { type: "azurerm:network/v20190901:BastionHost" }, { type: "azurerm:network/v20191101:BastionHost" }, { type: "azurerm:network/v20191201:BastionHost" }, { type: "azurerm:network/v20200301:BastionHost" }, { type: "azurerm:network/v20200401:BastionHost" }, { type: "azurerm:network/v20200501:BastionHost" }, { type: "azurerm:network/v20200601:BastionHost" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(BastionHost.__pulumiType, name, inputs, opts);
     }

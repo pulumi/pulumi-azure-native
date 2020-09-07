@@ -159,7 +159,7 @@ export class Subscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Subscription" }, { type: "azurerm:apimanagement/v20160707:Subscription" }, { type: "azurerm:apimanagement/v20161010:Subscription" }, { type: "azurerm:apimanagement/v20180101:Subscription" }, { type: "azurerm:apimanagement/v20180601preview:Subscription" }, { type: "azurerm:apimanagement/v20190101:Subscription" }, { type: "azurerm:apimanagement/v20191201:Subscription" }, { type: "azurerm:apimanagement/v20191201preview:Subscription" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:apimanagement/latest:Subscription" }, { type: "azurerm:apimanagement/preview:Subscription" }, { type: "azurerm:apimanagement/v20160707:Subscription" }, { type: "azurerm:apimanagement/v20161010:Subscription" }, { type: "azurerm:apimanagement/v20180101:Subscription" }, { type: "azurerm:apimanagement/v20180601preview:Subscription" }, { type: "azurerm:apimanagement/v20190101:Subscription" }, { type: "azurerm:apimanagement/v20191201:Subscription" }, { type: "azurerm:apimanagement/v20191201preview:Subscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Subscription.__pulumiType, name, inputs, opts);
     }

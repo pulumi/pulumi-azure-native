@@ -134,7 +134,7 @@ export class FormulaResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:FormulaResource" }, { type: "azurerm:devtestlab/v20160515:FormulaResource" }, { type: "azurerm:devtestlab/v20180915:FormulaResource" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devtestlab/latest:FormulaResource" }, { type: "azurerm:devtestlab/preview:FormulaResource" }, { type: "azurerm:devtestlab/v20160515:FormulaResource" }, { type: "azurerm:devtestlab/v20180915:FormulaResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(FormulaResource.__pulumiType, name, inputs, opts);
     }

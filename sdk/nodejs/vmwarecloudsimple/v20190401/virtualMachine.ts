@@ -232,7 +232,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:vmwarecloudsimple/latest:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:vmwarecloudsimple/latest:VirtualMachine" }, { type: "azurerm:vmwarecloudsimple/preview:VirtualMachine" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }

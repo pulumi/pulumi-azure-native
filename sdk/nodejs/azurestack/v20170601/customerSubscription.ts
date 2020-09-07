@@ -90,7 +90,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:azurestack/latest:CustomerSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:azurestack/latest:CustomerSubscription" }, { type: "azurerm:azurestack/preview:CustomerSubscription" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(CustomerSubscription.__pulumiType, name, inputs, opts);
     }

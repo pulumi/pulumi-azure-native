@@ -95,6 +95,8 @@ export class IntegrationRuntime extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:synapse/preview:IntegrationRuntime" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationRuntime.__pulumiType, name, inputs, opts);
     }
 }

@@ -197,7 +197,7 @@ export class Incident extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/v20200101:Incident" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:operationalinsights/preview:Incident" }, { type: "azurerm:operationalinsights/v20200101:Incident" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Incident.__pulumiType, name, inputs, opts);
     }

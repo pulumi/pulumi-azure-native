@@ -2,5 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as preview from "./preview";
 import * as v20200808preview from "./v20200808preview";
-export {v20200808preview};
+export {preview, v20200808preview};

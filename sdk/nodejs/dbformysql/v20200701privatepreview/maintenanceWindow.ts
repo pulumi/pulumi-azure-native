@@ -111,6 +111,8 @@ export class MaintenanceWindow extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:dbformysql/preview:MaintenanceWindow" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(MaintenanceWindow.__pulumiType, name, inputs, opts);
     }
 }

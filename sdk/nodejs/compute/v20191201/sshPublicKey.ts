@@ -95,7 +95,7 @@ export class SshPublicKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:SshPublicKey" }, { type: "azurerm:compute/v20200601:SshPublicKey" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:SshPublicKey" }, { type: "azurerm:compute/preview:SshPublicKey" }, { type: "azurerm:compute/v20200601:SshPublicKey" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SshPublicKey.__pulumiType, name, inputs, opts);
     }

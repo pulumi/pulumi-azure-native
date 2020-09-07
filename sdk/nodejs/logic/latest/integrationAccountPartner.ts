@@ -128,7 +128,7 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:logic/v20150801preview:IntegrationAccountPartner" }, { type: "azurerm:logic/v20160601:IntegrationAccountPartner" }, { type: "azurerm:logic/v20180701preview:IntegrationAccountPartner" }, { type: "azurerm:logic/v20190501:IntegrationAccountPartner" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:logic/preview:IntegrationAccountPartner" }, { type: "azurerm:logic/v20150801preview:IntegrationAccountPartner" }, { type: "azurerm:logic/v20160601:IntegrationAccountPartner" }, { type: "azurerm:logic/v20180701preview:IntegrationAccountPartner" }, { type: "azurerm:logic/v20190501:IntegrationAccountPartner" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IntegrationAccountPartner.__pulumiType, name, inputs, opts);
     }

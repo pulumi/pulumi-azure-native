@@ -103,7 +103,7 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:VirtualRouterPeering" }, { type: "azurerm:network/v20190701:VirtualRouterPeering" }, { type: "azurerm:network/v20190801:VirtualRouterPeering" }, { type: "azurerm:network/v20190901:VirtualRouterPeering" }, { type: "azurerm:network/v20191201:VirtualRouterPeering" }, { type: "azurerm:network/v20200301:VirtualRouterPeering" }, { type: "azurerm:network/v20200401:VirtualRouterPeering" }, { type: "azurerm:network/v20200501:VirtualRouterPeering" }, { type: "azurerm:network/v20200601:VirtualRouterPeering" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:network/latest:VirtualRouterPeering" }, { type: "azurerm:network/preview:VirtualRouterPeering" }, { type: "azurerm:network/v20190701:VirtualRouterPeering" }, { type: "azurerm:network/v20190801:VirtualRouterPeering" }, { type: "azurerm:network/v20190901:VirtualRouterPeering" }, { type: "azurerm:network/v20191201:VirtualRouterPeering" }, { type: "azurerm:network/v20200301:VirtualRouterPeering" }, { type: "azurerm:network/v20200401:VirtualRouterPeering" }, { type: "azurerm:network/v20200501:VirtualRouterPeering" }, { type: "azurerm:network/v20200601:VirtualRouterPeering" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(VirtualRouterPeering.__pulumiType, name, inputs, opts);
     }

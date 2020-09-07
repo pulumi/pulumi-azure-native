@@ -142,7 +142,7 @@ export class SiteVNETConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20160801:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20180201:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20181101:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20190801:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20200601:SiteVNETConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:web/latest:SiteVNETConnectionSlot" }, { type: "azurerm:web/preview:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20160801:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20180201:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20181101:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20190801:SiteVNETConnectionSlot" }, { type: "azurerm:web/v20200601:SiteVNETConnectionSlot" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(SiteVNETConnectionSlot.__pulumiType, name, inputs, opts);
     }

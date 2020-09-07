@@ -124,6 +124,8 @@ export class EventChannel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:eventgrid/preview:EventChannel" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EventChannel.__pulumiType, name, inputs, opts);
     }
 }

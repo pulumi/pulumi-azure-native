@@ -112,7 +112,7 @@ export class EnterpriseChannel extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:botservice/v20180712:EnterpriseChannel" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:botservice/preview:EnterpriseChannel" }, { type: "azurerm:botservice/v20180712:EnterpriseChannel" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(EnterpriseChannel.__pulumiType, name, inputs, opts);
     }

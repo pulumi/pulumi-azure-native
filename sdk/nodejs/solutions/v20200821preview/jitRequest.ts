@@ -145,7 +145,7 @@ export class JitRequest extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:solutions/latest:JitRequest" }, { type: "azurerm:solutions/v20190701:JitRequest" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:solutions/latest:JitRequest" }, { type: "azurerm:solutions/preview:JitRequest" }, { type: "azurerm:solutions/v20190701:JitRequest" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JitRequest.__pulumiType, name, inputs, opts);
     }

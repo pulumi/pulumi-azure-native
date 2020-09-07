@@ -112,7 +112,7 @@ export class ProtectedItem extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/v20160601:ProtectedItem" }, { type: "azurerm:recoveryservices/v20190513:ProtectedItem" }, { type: "azurerm:recoveryservices/v20190615:ProtectedItem" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:recoveryservices/preview:ProtectedItem" }, { type: "azurerm:recoveryservices/v20160601:ProtectedItem" }, { type: "azurerm:recoveryservices/v20190513:ProtectedItem" }, { type: "azurerm:recoveryservices/v20190615:ProtectedItem" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ProtectedItem.__pulumiType, name, inputs, opts);
     }

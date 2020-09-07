@@ -106,7 +106,7 @@ export class DataManager extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:hybriddata/v20160601:DataManager" }, { type: "azurerm:hybriddata/v20190601:DataManager" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:hybriddata/preview:DataManager" }, { type: "azurerm:hybriddata/v20160601:DataManager" }, { type: "azurerm:hybriddata/v20190601:DataManager" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DataManager.__pulumiType, name, inputs, opts);
     }

@@ -119,6 +119,8 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azurerm:securityinsights/preview:ThreatIntelligenceIndicator" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ThreatIntelligenceIndicator.__pulumiType, name, inputs, opts);
     }
 }
