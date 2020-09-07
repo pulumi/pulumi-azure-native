@@ -63,7 +63,7 @@ class Cluster(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:avs/latest:Cluster"), pulumi.Alias(type_="azurerm:avs/v20200320:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:avs/latest:Cluster"), pulumi.Alias(type_="azurerm:avs/preview:Cluster"), pulumi.Alias(type_="azurerm:avs/v20200320:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azurerm:avs/v20190809preview:Cluster',

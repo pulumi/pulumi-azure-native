@@ -73,7 +73,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:ApiOperationPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiOperationPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:ApiOperationPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiOperationPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiOperationPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiOperationPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:ApiOperationPolicy"), pulumi.Alias(type_="azurerm:apimanagement/preview:ApiOperationPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiOperationPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:ApiOperationPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiOperationPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiOperationPolicy"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiOperationPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiOperationPolicy, __self__).__init__(
             'azurerm:apimanagement/v20170301:ApiOperationPolicy',

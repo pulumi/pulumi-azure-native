@@ -66,7 +66,7 @@ class MasterSite(pulumi.CustomResource):
                 raise TypeError("Missing required property 'site_name'")
             __props__['site_name'] = site_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:offazure/v20200707:MasterSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:offazure/preview:MasterSite"), pulumi.Alias(type_="azurerm:offazure/v20200707:MasterSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MasterSite, __self__).__init__(
             'azurerm:offazure/latest:MasterSite',

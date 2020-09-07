@@ -69,7 +69,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__['private_endpoint'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:keyvault/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:keyvault/v20180214:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:keyvault/v20200401preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:keyvault/latest:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:keyvault/preview:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:keyvault/v20180214:PrivateEndpointConnection"), pulumi.Alias(type_="azurerm:keyvault/v20200401preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:keyvault/v20190901:PrivateEndpointConnection',

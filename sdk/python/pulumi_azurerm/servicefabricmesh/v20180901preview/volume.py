@@ -77,7 +77,7 @@ class Volume(pulumi.CustomResource):
             __props__['status'] = None
             __props__['status_details'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabricmesh/v20180701preview:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabricmesh/preview:Volume"), pulumi.Alias(type_="azurerm:servicefabricmesh/v20180701preview:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azurerm:servicefabricmesh/v20180901preview:Volume',

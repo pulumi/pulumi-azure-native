@@ -66,7 +66,7 @@ class ManagementLockByScope(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/v20160901:ManagementLockByScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:authorization/preview:ManagementLockByScope"), pulumi.Alias(type_="azurerm:authorization/v20160901:ManagementLockByScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLockByScope, __self__).__init__(
             'azurerm:authorization/latest:ManagementLockByScope',

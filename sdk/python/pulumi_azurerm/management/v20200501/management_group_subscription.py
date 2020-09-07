@@ -53,7 +53,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
             __props__['state'] = None
             __props__['tenant'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:management/latest:ManagementGroupSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:management/latest:ManagementGroupSubscription"), pulumi.Alias(type_="azurerm:management/preview:ManagementGroupSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementGroupSubscription, __self__).__init__(
             'azurerm:management/v20200501:ManagementGroupSubscription',

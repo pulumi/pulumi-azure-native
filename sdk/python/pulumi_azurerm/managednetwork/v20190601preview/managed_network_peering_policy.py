@@ -66,6 +66,8 @@ class ManagedNetworkPeeringPolicy(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:managednetwork/preview:ManagedNetworkPeeringPolicy")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedNetworkPeeringPolicy, __self__).__init__(
             'azurerm:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy',
             resource_name,

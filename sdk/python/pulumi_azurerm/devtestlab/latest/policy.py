@@ -89,7 +89,7 @@ class Policy(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['unique_identifier'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/v20150521preview:Policy"), pulumi.Alias(type_="azurerm:devtestlab/v20160515:Policy"), pulumi.Alias(type_="azurerm:devtestlab/v20180915:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/preview:Policy"), pulumi.Alias(type_="azurerm:devtestlab/v20150521preview:Policy"), pulumi.Alias(type_="azurerm:devtestlab/v20160515:Policy"), pulumi.Alias(type_="azurerm:devtestlab/v20180915:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azurerm:devtestlab/latest:Policy',

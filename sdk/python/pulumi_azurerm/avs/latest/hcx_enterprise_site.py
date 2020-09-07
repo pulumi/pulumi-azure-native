@@ -60,7 +60,7 @@ class HcxEnterpriseSite(pulumi.CustomResource):
             __props__['name'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:avs/v20200320:HcxEnterpriseSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:avs/preview:HcxEnterpriseSite"), pulumi.Alias(type_="azurerm:avs/v20200320:HcxEnterpriseSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HcxEnterpriseSite, __self__).__init__(
             'azurerm:avs/latest:HcxEnterpriseSite',

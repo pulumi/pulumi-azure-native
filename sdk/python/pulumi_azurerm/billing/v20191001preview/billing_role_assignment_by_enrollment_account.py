@@ -78,6 +78,8 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
             __props__['name'] = None
             __props__['scope'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:billing/preview:BillingRoleAssignmentByEnrollmentAccount")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BillingRoleAssignmentByEnrollmentAccount, __self__).__init__(
             'azurerm:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount',
             resource_name,

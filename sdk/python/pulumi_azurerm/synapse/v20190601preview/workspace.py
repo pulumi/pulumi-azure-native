@@ -92,6 +92,8 @@ class Workspace(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:synapse/preview:Workspace")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azurerm:synapse/v20190601preview:Workspace',
             resource_name,

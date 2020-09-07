@@ -86,7 +86,7 @@ class Watcher(pulumi.CustomResource):
             __props__['name'] = None
             __props__['status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/latest:Watcher")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/latest:Watcher"), pulumi.Alias(type_="azurerm:automation/preview:Watcher")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Watcher, __self__).__init__(
             'azurerm:automation/v20151031:Watcher',

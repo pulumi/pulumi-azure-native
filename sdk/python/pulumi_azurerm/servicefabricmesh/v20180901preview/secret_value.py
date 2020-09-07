@@ -70,6 +70,8 @@ class SecretValue(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabricmesh/preview:SecretValue")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecretValue, __self__).__init__(
             'azurerm:servicefabricmesh/v20180901preview:SecretValue',
             resource_name,

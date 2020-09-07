@@ -91,7 +91,7 @@ class CustomImageResource(pulumi.CustomResource):
             __props__['type'] = type
             __props__['vhd'] = vhd
             __props__['vm'] = vm
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:CustomImageResource"), pulumi.Alias(type_="azurerm:devtestlab/v20160515:CustomImageResource"), pulumi.Alias(type_="azurerm:devtestlab/v20180915:CustomImageResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:CustomImageResource"), pulumi.Alias(type_="azurerm:devtestlab/preview:CustomImageResource"), pulumi.Alias(type_="azurerm:devtestlab/v20160515:CustomImageResource"), pulumi.Alias(type_="azurerm:devtestlab/v20180915:CustomImageResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomImageResource, __self__).__init__(
             'azurerm:devtestlab/v20150521preview:CustomImageResource',

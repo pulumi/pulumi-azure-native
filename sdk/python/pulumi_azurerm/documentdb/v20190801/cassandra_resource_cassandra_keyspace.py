@@ -76,7 +76,7 @@ class CassandraResourceCassandraKeyspace(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/latest:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azurerm:documentdb/v20191212:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azurerm:documentdb/v20200301:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azurerm:documentdb/v20200401:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azurerm:documentdb/v20200601preview:CassandraResourceCassandraKeyspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/latest:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azurerm:documentdb/preview:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azurerm:documentdb/v20191212:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azurerm:documentdb/v20200301:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azurerm:documentdb/v20200401:CassandraResourceCassandraKeyspace"), pulumi.Alias(type_="azurerm:documentdb/v20200601preview:CassandraResourceCassandraKeyspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CassandraResourceCassandraKeyspace, __self__).__init__(
             'azurerm:documentdb/v20190801:CassandraResourceCassandraKeyspace',

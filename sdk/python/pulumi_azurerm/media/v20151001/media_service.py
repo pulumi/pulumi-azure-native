@@ -65,7 +65,7 @@ class MediaService(pulumi.CustomResource):
             __props__['api_endpoints'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/latest:MediaService"), pulumi.Alias(type_="azurerm:media/v20180330preview:MediaService"), pulumi.Alias(type_="azurerm:media/v20180601preview:MediaService"), pulumi.Alias(type_="azurerm:media/v20180701:MediaService"), pulumi.Alias(type_="azurerm:media/v20200501:MediaService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:media/latest:MediaService"), pulumi.Alias(type_="azurerm:media/preview:MediaService"), pulumi.Alias(type_="azurerm:media/v20180330preview:MediaService"), pulumi.Alias(type_="azurerm:media/v20180601preview:MediaService"), pulumi.Alias(type_="azurerm:media/v20180701:MediaService"), pulumi.Alias(type_="azurerm:media/v20200501:MediaService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MediaService, __self__).__init__(
             'azurerm:media/v20151001:MediaService',

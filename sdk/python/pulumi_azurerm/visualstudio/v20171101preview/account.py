@@ -65,7 +65,7 @@ class Account(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:visualstudio/v20140401preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:visualstudio/preview:Account"), pulumi.Alias(type_="azurerm:visualstudio/v20140401preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azurerm:visualstudio/v20171101preview:Account',

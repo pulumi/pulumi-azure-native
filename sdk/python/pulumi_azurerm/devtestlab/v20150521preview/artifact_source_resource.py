@@ -92,7 +92,7 @@ class ArtifactSourceResource(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['uri'] = uri
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:ArtifactSourceResource"), pulumi.Alias(type_="azurerm:devtestlab/v20160515:ArtifactSourceResource"), pulumi.Alias(type_="azurerm:devtestlab/v20180915:ArtifactSourceResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:devtestlab/latest:ArtifactSourceResource"), pulumi.Alias(type_="azurerm:devtestlab/preview:ArtifactSourceResource"), pulumi.Alias(type_="azurerm:devtestlab/v20160515:ArtifactSourceResource"), pulumi.Alias(type_="azurerm:devtestlab/v20180915:ArtifactSourceResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ArtifactSourceResource, __self__).__init__(
             'azurerm:devtestlab/v20150521preview:ArtifactSourceResource',

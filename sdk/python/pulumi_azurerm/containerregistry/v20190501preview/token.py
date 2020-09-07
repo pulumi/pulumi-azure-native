@@ -71,6 +71,8 @@ class Token(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerregistry/preview:Token")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Token, __self__).__init__(
             'azurerm:containerregistry/v20190501preview:Token',
             resource_name,

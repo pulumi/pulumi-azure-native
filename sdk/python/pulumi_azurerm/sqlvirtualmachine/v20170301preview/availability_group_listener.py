@@ -73,6 +73,8 @@ class AvailabilityGroupListener(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:sqlvirtualmachine/preview:AvailabilityGroupListener")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AvailabilityGroupListener, __self__).__init__(
             'azurerm:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener',
             resource_name,

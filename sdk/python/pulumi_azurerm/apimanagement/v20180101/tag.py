@@ -63,7 +63,7 @@ class Tag(pulumi.CustomResource):
             __props__['tag_id'] = tag_id
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:Tag")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:Tag"), pulumi.Alias(type_="azurerm:apimanagement/preview:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20170301:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:Tag"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:Tag")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Tag, __self__).__init__(
             'azurerm:apimanagement/v20180101:Tag',

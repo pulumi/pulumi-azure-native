@@ -71,7 +71,7 @@ class ApiSchema(pulumi.CustomResource):
             __props__['value'] = value
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiSchema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:apimanagement/latest:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/preview:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20180101:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20180601preview:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20190101:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20191201:ApiSchema"), pulumi.Alias(type_="azurerm:apimanagement/v20191201preview:ApiSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiSchema, __self__).__init__(
             'azurerm:apimanagement/v20170301:ApiSchema',

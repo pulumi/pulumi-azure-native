@@ -55,7 +55,7 @@ class Partner(pulumi.CustomResource):
             __props__['type'] = None
             __props__['updated_time'] = None
             __props__['version'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:managementpartner/v20180201:Partner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:managementpartner/preview:Partner"), pulumi.Alias(type_="azurerm:managementpartner/v20180201:Partner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Partner, __self__).__init__(
             'azurerm:managementpartner/latest:Partner',

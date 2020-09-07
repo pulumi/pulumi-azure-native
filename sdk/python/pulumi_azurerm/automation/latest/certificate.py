@@ -79,7 +79,7 @@ class Certificate(pulumi.CustomResource):
             __props__['expiry_time'] = None
             __props__['last_modified_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/v20151031:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:automation/preview:Certificate"), pulumi.Alias(type_="azurerm:automation/v20151031:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azurerm:automation/latest:Certificate',

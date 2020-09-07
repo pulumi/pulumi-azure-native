@@ -68,7 +68,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__['start_ip_address'] = start_ip_address
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbformariadb/latest:FirewallRule"), pulumi.Alias(type_="azurerm:dbformariadb/v20180601preview:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:dbformariadb/latest:FirewallRule"), pulumi.Alias(type_="azurerm:dbformariadb/preview:FirewallRule"), pulumi.Alias(type_="azurerm:dbformariadb/v20180601preview:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azurerm:dbformariadb/v20180601:FirewallRule',

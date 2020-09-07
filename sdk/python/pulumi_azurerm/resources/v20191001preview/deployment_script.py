@@ -74,6 +74,8 @@ class DeploymentScript(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/preview:DeploymentScript")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentScript, __self__).__init__(
             'azurerm:resources/v20191001preview:DeploymentScript',
             resource_name,

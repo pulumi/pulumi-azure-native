@@ -79,7 +79,7 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
             __props__['shard_key'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/v20150401:DatabaseAccountMongoDBCollection"), pulumi.Alias(type_="azurerm:documentdb/v20150408:DatabaseAccountMongoDBCollection"), pulumi.Alias(type_="azurerm:documentdb/v20151106:DatabaseAccountMongoDBCollection"), pulumi.Alias(type_="azurerm:documentdb/v20160319:DatabaseAccountMongoDBCollection"), pulumi.Alias(type_="azurerm:documentdb/v20160331:DatabaseAccountMongoDBCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:documentdb/preview:DatabaseAccountMongoDBCollection"), pulumi.Alias(type_="azurerm:documentdb/v20150401:DatabaseAccountMongoDBCollection"), pulumi.Alias(type_="azurerm:documentdb/v20150408:DatabaseAccountMongoDBCollection"), pulumi.Alias(type_="azurerm:documentdb/v20151106:DatabaseAccountMongoDBCollection"), pulumi.Alias(type_="azurerm:documentdb/v20160319:DatabaseAccountMongoDBCollection"), pulumi.Alias(type_="azurerm:documentdb/v20160331:DatabaseAccountMongoDBCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAccountMongoDBCollection, __self__).__init__(
             'azurerm:documentdb/latest:DatabaseAccountMongoDBCollection',

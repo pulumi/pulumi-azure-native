@@ -86,7 +86,7 @@ class MachineLearningService(pulumi.CustomResource):
             __props__['sku'] = None
             __props__['tags'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearningservices/v20200501preview:MachineLearningService"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200515preview:MachineLearningService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearningservices/preview:MachineLearningService"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200501preview:MachineLearningService"), pulumi.Alias(type_="azurerm:machinelearningservices/v20200515preview:MachineLearningService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineLearningService, __self__).__init__(
             'azurerm:machinelearningservices/v20200901preview:MachineLearningService',

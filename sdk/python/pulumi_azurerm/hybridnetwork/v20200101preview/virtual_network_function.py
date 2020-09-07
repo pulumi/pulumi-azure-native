@@ -84,6 +84,8 @@ class VirtualNetworkFunction(pulumi.CustomResource):
             __props__['sku_type'] = None
             __props__['type'] = None
             __props__['vendor_provisioning_state'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:hybridnetwork/preview:VirtualNetworkFunction")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkFunction, __self__).__init__(
             'azurerm:hybridnetwork/v20200101preview:VirtualNetworkFunction',
             resource_name,

@@ -55,7 +55,7 @@ class TagAtScope(pulumi.CustomResource):
             __props__['scope'] = scope
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/latest:TagAtScope"), pulumi.Alias(type_="azurerm:resources/v20200601:TagAtScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:resources/latest:TagAtScope"), pulumi.Alias(type_="azurerm:resources/preview:TagAtScope"), pulumi.Alias(type_="azurerm:resources/v20200601:TagAtScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagAtScope, __self__).__init__(
             'azurerm:resources/v20191001:TagAtScope',

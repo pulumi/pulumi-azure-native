@@ -54,7 +54,7 @@ class SupportPlanType(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:addons/v20170515:SupportPlanType"), pulumi.Alias(type_="azurerm:addons/v20180301:SupportPlanType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:addons/preview:SupportPlanType"), pulumi.Alias(type_="azurerm:addons/v20170515:SupportPlanType"), pulumi.Alias(type_="azurerm:addons/v20180301:SupportPlanType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SupportPlanType, __self__).__init__(
             'azurerm:addons/latest:SupportPlanType',

@@ -79,7 +79,7 @@ class EventHub(pulumi.CustomResource):
             __props__['created_at'] = None
             __props__['partition_ids'] = None
             __props__['updated_at'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventhub/latest:EventHub"), pulumi.Alias(type_="azurerm:eventhub/v20150801:EventHub"), pulumi.Alias(type_="azurerm:eventhub/v20170401:EventHub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventhub/latest:EventHub"), pulumi.Alias(type_="azurerm:eventhub/preview:EventHub"), pulumi.Alias(type_="azurerm:eventhub/v20150801:EventHub"), pulumi.Alias(type_="azurerm:eventhub/v20170401:EventHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHub, __self__).__init__(
             'azurerm:eventhub/v20140901:EventHub',

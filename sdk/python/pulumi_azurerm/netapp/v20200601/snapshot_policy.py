@@ -81,7 +81,7 @@ class SnapshotPolicy(pulumi.CustomResource):
             __props__['weekly_schedule'] = weekly_schedule
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:netapp/latest:snapshotPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:netapp/latest:snapshotPolicy"), pulumi.Alias(type_="azurerm:netapp/preview:snapshotPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SnapshotPolicy, __self__).__init__(
             'azurerm:netapp/v20200601:snapshotPolicy',

@@ -87,7 +87,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
             __props__['service_bus_namespace'] = service_bus_namespace
             __props__['service_bus_suffix'] = service_bus_suffix
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppHybridConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/preview:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azurerm:web/v20200601:WebAppHybridConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppHybridConnection, __self__).__init__(
             'azurerm:web/v20190801:WebAppHybridConnection',

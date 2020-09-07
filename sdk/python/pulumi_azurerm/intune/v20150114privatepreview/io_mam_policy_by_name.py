@@ -98,7 +98,7 @@ class IoMAMPolicyByName(pulumi.CustomResource):
             __props__['name'] = None
             __props__['num_of_apps'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:intune/v20150114preview:IoMAMPolicyByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:intune/preview:IoMAMPolicyByName"), pulumi.Alias(type_="azurerm:intune/v20150114preview:IoMAMPolicyByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IoMAMPolicyByName, __self__).__init__(
             'azurerm:intune/v20150114privatepreview:IoMAMPolicyByName',

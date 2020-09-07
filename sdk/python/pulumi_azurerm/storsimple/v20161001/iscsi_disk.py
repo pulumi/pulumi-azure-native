@@ -98,7 +98,7 @@ class IscsiDisk(pulumi.CustomResource):
             __props__['name'] = None
             __props__['type'] = None
             __props__['used_capacity_in_bytes'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/latest:IscsiDisk")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:storsimple/latest:IscsiDisk"), pulumi.Alias(type_="azurerm:storsimple/preview:IscsiDisk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IscsiDisk, __self__).__init__(
             'azurerm:storsimple/v20161001:IscsiDisk',

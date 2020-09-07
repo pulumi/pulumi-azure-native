@@ -96,7 +96,7 @@ class Task(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerregistry/latest:Task"), pulumi.Alias(type_="azurerm:containerregistry/v20190401:Task"), pulumi.Alias(type_="azurerm:containerregistry/v20190601preview:Task")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerregistry/latest:Task"), pulumi.Alias(type_="azurerm:containerregistry/preview:Task"), pulumi.Alias(type_="azurerm:containerregistry/v20190401:Task"), pulumi.Alias(type_="azurerm:containerregistry/v20190601preview:Task")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Task, __self__).__init__(
             'azurerm:containerregistry/v20180901:Task',

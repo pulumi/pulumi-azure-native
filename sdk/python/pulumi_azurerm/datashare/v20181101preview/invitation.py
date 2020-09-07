@@ -80,7 +80,7 @@ class Invitation(pulumi.CustomResource):
             __props__['type'] = None
             __props__['user_email'] = None
             __props__['user_name'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datashare/latest:Invitation"), pulumi.Alias(type_="azurerm:datashare/v20191101:Invitation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datashare/latest:Invitation"), pulumi.Alias(type_="azurerm:datashare/preview:Invitation"), pulumi.Alias(type_="azurerm:datashare/v20191101:Invitation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Invitation, __self__).__init__(
             'azurerm:datashare/v20181101preview:Invitation',

@@ -75,6 +75,8 @@ class SqlDatabase(pulumi.CustomResource):
             __props__['name'] = None
             __props__['system_data'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:synapse/preview:SqlDatabase")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlDatabase, __self__).__init__(
             'azurerm:synapse/v20200401preview:SqlDatabase',
             resource_name,

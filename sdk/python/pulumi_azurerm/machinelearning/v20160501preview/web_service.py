@@ -70,7 +70,7 @@ class WebService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'web_service_name'")
             __props__['web_service_name'] = web_service_name
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearning/latest:WebService"), pulumi.Alias(type_="azurerm:machinelearning/v20170101:WebService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:machinelearning/latest:WebService"), pulumi.Alias(type_="azurerm:machinelearning/preview:WebService"), pulumi.Alias(type_="azurerm:machinelearning/v20170101:WebService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebService, __self__).__init__(
             'azurerm:machinelearning/v20160501preview:WebService',

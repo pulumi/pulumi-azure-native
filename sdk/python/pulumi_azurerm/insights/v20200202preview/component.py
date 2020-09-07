@@ -115,7 +115,7 @@ class Component(pulumi.CustomResource):
             __props__['retention_in_days'] = None
             __props__['tenant_id'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:Component"), pulumi.Alias(type_="azurerm:insights/v20150501:Component"), pulumi.Alias(type_="azurerm:insights/v20180501preview:Component")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:Component"), pulumi.Alias(type_="azurerm:insights/preview:Component"), pulumi.Alias(type_="azurerm:insights/v20150501:Component"), pulumi.Alias(type_="azurerm:insights/v20180501preview:Component")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Component, __self__).__init__(
             'azurerm:insights/v20200202preview:Component',

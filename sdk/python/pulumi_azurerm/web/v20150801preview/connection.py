@@ -107,7 +107,7 @@ class Connection(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['tenant_id'] = tenant_id
             __props__['type'] = type
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:Connection"), pulumi.Alias(type_="azurerm:web/v20160601:Connection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:web/latest:Connection"), pulumi.Alias(type_="azurerm:web/preview:Connection"), pulumi.Alias(type_="azurerm:web/v20160601:Connection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connection, __self__).__init__(
             'azurerm:web/v20150801preview:Connection',

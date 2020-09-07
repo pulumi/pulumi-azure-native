@@ -81,7 +81,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azurerm:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azurerm:logic/v20180701preview:IntegrationAccountPartner"), pulumi.Alias(type_="azurerm:logic/v20190501:IntegrationAccountPartner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/preview:IntegrationAccountPartner"), pulumi.Alias(type_="azurerm:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azurerm:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azurerm:logic/v20180701preview:IntegrationAccountPartner"), pulumi.Alias(type_="azurerm:logic/v20190501:IntegrationAccountPartner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountPartner, __self__).__init__(
             'azurerm:logic/latest:IntegrationAccountPartner',

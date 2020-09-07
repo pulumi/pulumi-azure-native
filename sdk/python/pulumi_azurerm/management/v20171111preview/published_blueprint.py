@@ -66,6 +66,8 @@ class PublishedBlueprint(pulumi.CustomResource):
             __props__['status'] = None
             __props__['target_scope'] = None
             __props__['type'] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:management/preview:PublishedBlueprint")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PublishedBlueprint, __self__).__init__(
             'azurerm:management/v20171111preview:PublishedBlueprint',
             resource_name,

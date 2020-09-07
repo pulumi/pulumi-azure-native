@@ -77,7 +77,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['type'] = None
             __props__['virtual_network_link_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:VirtualNetworkLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:VirtualNetworkLink"), pulumi.Alias(type_="azurerm:network/preview:VirtualNetworkLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkLink, __self__).__init__(
             'azurerm:network/v20180901:VirtualNetworkLink',

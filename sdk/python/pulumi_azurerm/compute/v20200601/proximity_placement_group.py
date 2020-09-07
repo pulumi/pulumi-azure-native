@@ -72,7 +72,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
             __props__['type'] = None
             __props__['virtual_machine_scale_sets'] = None
             __props__['virtual_machines'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/latest:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20180401:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20180601:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20181001:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20190301:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20190701:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20191201:ProximityPlacementGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/latest:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/preview:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20180401:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20180601:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20181001:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20190301:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20190701:ProximityPlacementGroup"), pulumi.Alias(type_="azurerm:compute/v20191201:ProximityPlacementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProximityPlacementGroup, __self__).__init__(
             'azurerm:compute/v20200601:ProximityPlacementGroup',

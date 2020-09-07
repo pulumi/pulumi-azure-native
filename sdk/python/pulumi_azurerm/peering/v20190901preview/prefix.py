@@ -67,7 +67,7 @@ class Prefix(pulumi.CustomResource):
             __props__['prefix_validation_state'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:peering/latest:Prefix"), pulumi.Alias(type_="azurerm:peering/v20190801preview:Prefix"), pulumi.Alias(type_="azurerm:peering/v20200101preview:Prefix"), pulumi.Alias(type_="azurerm:peering/v20200401:Prefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:peering/latest:Prefix"), pulumi.Alias(type_="azurerm:peering/preview:Prefix"), pulumi.Alias(type_="azurerm:peering/v20190801preview:Prefix"), pulumi.Alias(type_="azurerm:peering/v20200101preview:Prefix"), pulumi.Alias(type_="azurerm:peering/v20200401:Prefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Prefix, __self__).__init__(
             'azurerm:peering/v20190901preview:Prefix',

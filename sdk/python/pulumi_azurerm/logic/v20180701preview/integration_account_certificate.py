@@ -77,7 +77,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
             __props__['created_time'] = None
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/latest:IntegrationAccountCertificate"), pulumi.Alias(type_="azurerm:logic/v20150801preview:IntegrationAccountCertificate"), pulumi.Alias(type_="azurerm:logic/v20160601:IntegrationAccountCertificate"), pulumi.Alias(type_="azurerm:logic/v20190501:IntegrationAccountCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:logic/latest:IntegrationAccountCertificate"), pulumi.Alias(type_="azurerm:logic/preview:IntegrationAccountCertificate"), pulumi.Alias(type_="azurerm:logic/v20150801preview:IntegrationAccountCertificate"), pulumi.Alias(type_="azurerm:logic/v20160601:IntegrationAccountCertificate"), pulumi.Alias(type_="azurerm:logic/v20190501:IntegrationAccountCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountCertificate, __self__).__init__(
             'azurerm:logic/v20180701preview:IntegrationAccountCertificate',

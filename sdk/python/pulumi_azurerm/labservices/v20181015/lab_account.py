@@ -71,7 +71,7 @@ class LabAccount(pulumi.CustomResource):
             __props__['name'] = None
             __props__['size_configuration'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:labservices/latest:LabAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:labservices/latest:LabAccount"), pulumi.Alias(type_="azurerm:labservices/preview:LabAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LabAccount, __self__).__init__(
             'azurerm:labservices/v20181015:LabAccount',

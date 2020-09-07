@@ -84,7 +84,7 @@ class AlertRule(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['last_updated_time'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:AlertRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:insights/latest:AlertRule"), pulumi.Alias(type_="azurerm:insights/preview:AlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AlertRule, __self__).__init__(
             'azurerm:insights/v20160301:AlertRule',

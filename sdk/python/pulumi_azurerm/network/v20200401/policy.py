@@ -77,7 +77,7 @@ class Policy(pulumi.CustomResource):
             __props__['resource_state'] = None
             __props__['routing_rule_links'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:Policy"), pulumi.Alias(type_="azurerm:network/v20180801:Policy"), pulumi.Alias(type_="azurerm:network/v20190301:Policy"), pulumi.Alias(type_="azurerm:network/v20191001:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:network/latest:Policy"), pulumi.Alias(type_="azurerm:network/preview:Policy"), pulumi.Alias(type_="azurerm:network/v20180801:Policy"), pulumi.Alias(type_="azurerm:network/v20190301:Policy"), pulumi.Alias(type_="azurerm:network/v20191001:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azurerm:network/v20200401:Policy',

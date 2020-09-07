@@ -77,7 +77,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabric/latest:ApplicationTypeVersion"), pulumi.Alias(type_="azurerm:servicefabric/v20170701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azurerm:servicefabric/v20190301:ApplicationTypeVersion"), pulumi.Alias(type_="azurerm:servicefabric/v20190301preview:ApplicationTypeVersion"), pulumi.Alias(type_="azurerm:servicefabric/v20190601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azurerm:servicefabric/v20191101preview:ApplicationTypeVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:servicefabric/latest:ApplicationTypeVersion"), pulumi.Alias(type_="azurerm:servicefabric/preview:ApplicationTypeVersion"), pulumi.Alias(type_="azurerm:servicefabric/v20170701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azurerm:servicefabric/v20190301:ApplicationTypeVersion"), pulumi.Alias(type_="azurerm:servicefabric/v20190301preview:ApplicationTypeVersion"), pulumi.Alias(type_="azurerm:servicefabric/v20190601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azurerm:servicefabric/v20191101preview:ApplicationTypeVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationTypeVersion, __self__).__init__(
             'azurerm:servicefabric/v20200301:ApplicationTypeVersion',

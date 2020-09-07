@@ -68,7 +68,7 @@ class DataSet(pulumi.CustomResource):
             __props__['share_name'] = share_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datashare/latest:DataSet"), pulumi.Alias(type_="azurerm:datashare/v20191101:DataSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:datashare/latest:DataSet"), pulumi.Alias(type_="azurerm:datashare/preview:DataSet"), pulumi.Alias(type_="azurerm:datashare/v20191101:DataSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataSet, __self__).__init__(
             'azurerm:datashare/v20181101preview:DataSet',

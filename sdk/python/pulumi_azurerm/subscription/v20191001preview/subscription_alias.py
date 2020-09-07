@@ -53,7 +53,7 @@ class SubscriptionAlias(pulumi.CustomResource):
             __props__['properties'] = properties
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:subscription/latest:SubscriptionAlias"), pulumi.Alias(type_="azurerm:subscription/v20200901:SubscriptionAlias")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:subscription/latest:SubscriptionAlias"), pulumi.Alias(type_="azurerm:subscription/preview:SubscriptionAlias"), pulumi.Alias(type_="azurerm:subscription/v20200901:SubscriptionAlias")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SubscriptionAlias, __self__).__init__(
             'azurerm:subscription/v20191001preview:SubscriptionAlias',

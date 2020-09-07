@@ -59,7 +59,7 @@ class DomainTopic(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventgrid/latest:DomainTopic"), pulumi.Alias(type_="azurerm:eventgrid/v20190201preview:DomainTopic"), pulumi.Alias(type_="azurerm:eventgrid/v20190601:DomainTopic"), pulumi.Alias(type_="azurerm:eventgrid/v20200101preview:DomainTopic"), pulumi.Alias(type_="azurerm:eventgrid/v20200601:DomainTopic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:eventgrid/latest:DomainTopic"), pulumi.Alias(type_="azurerm:eventgrid/preview:DomainTopic"), pulumi.Alias(type_="azurerm:eventgrid/v20190201preview:DomainTopic"), pulumi.Alias(type_="azurerm:eventgrid/v20190601:DomainTopic"), pulumi.Alias(type_="azurerm:eventgrid/v20200101preview:DomainTopic"), pulumi.Alias(type_="azurerm:eventgrid/v20200601:DomainTopic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainTopic, __self__).__init__(
             'azurerm:eventgrid/v20200401preview:DomainTopic',
