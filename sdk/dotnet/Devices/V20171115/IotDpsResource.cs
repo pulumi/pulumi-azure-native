@@ -85,6 +85,7 @@ namespace Pulumi.AzureRM.Devices.V20171115
                     new Pulumi.Alias { Type = "azurerm:devices/v20170821preview:IotDpsResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20180122:IotDpsResource"},
                     new Pulumi.Alias { Type = "azurerm:devices/v20200101:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azurerm:devices/v20200301:IotDpsResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

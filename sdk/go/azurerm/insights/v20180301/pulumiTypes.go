@@ -792,6 +792,8 @@ type DynamicMetricCriteria struct {
 	Name string `pulumi:"name"`
 	// The operator used to compare the metric value against the threshold.
 	Operator string `pulumi:"operator"`
+	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
 	// the criteria time aggregation types.
 	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
 }
@@ -827,6 +829,8 @@ type DynamicMetricCriteriaArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The operator used to compare the metric value against the threshold.
 	Operator pulumi.StringInput `pulumi:"operator"`
+	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
 	// the criteria time aggregation types.
 	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
 }
@@ -903,6 +907,11 @@ func (o DynamicMetricCriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+func (o DynamicMetricCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DynamicMetricCriteria) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
+}
+
 // the criteria time aggregation types.
 func (o DynamicMetricCriteriaOutput) TimeAggregation() pulumi.MapOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) map[string]interface{} { return v.TimeAggregation }).(pulumi.MapOutput)
@@ -928,6 +937,8 @@ type DynamicMetricCriteriaResponse struct {
 	Name string `pulumi:"name"`
 	// The operator used to compare the metric value against the threshold.
 	Operator string `pulumi:"operator"`
+	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
 	// the criteria time aggregation types.
 	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
 }
@@ -963,6 +974,8 @@ type DynamicMetricCriteriaResponseArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The operator used to compare the metric value against the threshold.
 	Operator pulumi.StringInput `pulumi:"operator"`
+	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
 	// the criteria time aggregation types.
 	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
 }
@@ -1037,6 +1050,11 @@ func (o DynamicMetricCriteriaResponseOutput) Name() pulumi.StringOutput {
 // The operator used to compare the metric value against the threshold.
 func (o DynamicMetricCriteriaResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+func (o DynamicMetricCriteriaResponseOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DynamicMetricCriteriaResponse) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
 
 // the criteria time aggregation types.
@@ -2397,6 +2415,8 @@ type MetricCriteria struct {
 	Name string `pulumi:"name"`
 	// the criteria operator.
 	Operator string `pulumi:"operator"`
+	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
 	// the criteria threshold value that activates the alert.
 	Threshold float64 `pulumi:"threshold"`
 	// the criteria time aggregation types.
@@ -2428,6 +2448,8 @@ type MetricCriteriaArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// the criteria operator.
 	Operator pulumi.StringInput `pulumi:"operator"`
+	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
 	// the criteria threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// the criteria time aggregation types.
@@ -2516,6 +2538,11 @@ func (o MetricCriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+func (o MetricCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MetricCriteria) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
+}
+
 // the criteria threshold value that activates the alert.
 func (o MetricCriteriaOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v MetricCriteria) float64 { return v.Threshold }).(pulumi.Float64Output)
@@ -2560,6 +2587,8 @@ type MetricCriteriaResponse struct {
 	Name string `pulumi:"name"`
 	// the criteria operator.
 	Operator string `pulumi:"operator"`
+	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
 	// the criteria threshold value that activates the alert.
 	Threshold float64 `pulumi:"threshold"`
 	// the criteria time aggregation types.
@@ -2591,6 +2620,8 @@ type MetricCriteriaResponseArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// the criteria operator.
 	Operator pulumi.StringInput `pulumi:"operator"`
+	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
 	// the criteria threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// the criteria time aggregation types.
@@ -2677,6 +2708,11 @@ func (o MetricCriteriaResponseOutput) Name() pulumi.StringOutput {
 // the criteria operator.
 func (o MetricCriteriaResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+func (o MetricCriteriaResponseOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MetricCriteriaResponse) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
 
 // the criteria threshold value that activates the alert.

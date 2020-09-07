@@ -8,10 +8,12 @@ from .dps_certificate import *
 from .get_certificate import *
 from .get_dps_certificate import *
 from .get_iot_dps_resource import *
+from .get_iot_dps_resource_private_endpoint_connection import *
 from .get_iot_hub_resource import *
 from .get_iot_hub_resource_event_hub_consumer_group import *
 from .get_private_endpoint_connection import *
 from .iot_dps_resource import *
+from .iot_dps_resource_private_endpoint_connection import *
 from .iot_hub_resource import *
 from .iot_hub_resource_event_hub_consumer_group import *
 from .list_iot_dps_resource_keys import *

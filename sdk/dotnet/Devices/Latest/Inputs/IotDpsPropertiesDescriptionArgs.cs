@@ -57,11 +57,29 @@ namespace Pulumi.AzureRM.Devices.Latest.Inputs
             set => _ipFilterRules = value;
         }
 
+        [Input("privateEndpointConnections")]
+        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+
+        /// <summary>
+        /// Private endpoint connections created on this IotHub
+        /// </summary>
+        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
+            set => _privateEndpointConnections = value;
+        }
+
         /// <summary>
         /// The ARM provisioning state of the provisioning service.
         /// </summary>
         [Input("provisioningState")]
         public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Whether requests from Public Network are allowed
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Current state of the provisioning service.

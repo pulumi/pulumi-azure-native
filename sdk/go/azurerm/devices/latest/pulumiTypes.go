@@ -2106,8 +2106,12 @@ type IotDpsPropertiesDescription struct {
 	IotHubs []IotHubDefinitionDescription `pulumi:"iotHubs"`
 	// The IP filter rules.
 	IpFilterRules []IpFilterRule `pulumi:"ipFilterRules"`
+	// Private endpoint connections created on this IotHub
+	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// The ARM provisioning state of the provisioning service.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Current state of the provisioning service.
 	State *string `pulumi:"state"`
 }
@@ -2133,8 +2137,12 @@ type IotDpsPropertiesDescriptionArgs struct {
 	IotHubs IotHubDefinitionDescriptionArrayInput `pulumi:"iotHubs"`
 	// The IP filter rules.
 	IpFilterRules IpFilterRuleArrayInput `pulumi:"ipFilterRules"`
+	// Private endpoint connections created on this IotHub
+	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput `pulumi:"privateEndpointConnections"`
 	// The ARM provisioning state of the provisioning service.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// Current state of the provisioning service.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
@@ -2239,9 +2247,21 @@ func (o IotDpsPropertiesDescriptionOutput) IpFilterRules() IpFilterRuleArrayOutp
 	return o.ApplyT(func(v IotDpsPropertiesDescription) []IpFilterRule { return v.IpFilterRules }).(IpFilterRuleArrayOutput)
 }
 
+// Private endpoint connections created on this IotHub
+func (o IotDpsPropertiesDescriptionOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescription) []PrivateEndpointConnectionType {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionTypeArrayOutput)
+}
+
 // The ARM provisioning state of the provisioning service.
 func (o IotDpsPropertiesDescriptionOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Whether requests from Public Network are allowed
+func (o IotDpsPropertiesDescriptionOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescription) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // Current state of the provisioning service.
@@ -2307,6 +2327,16 @@ func (o IotDpsPropertiesDescriptionPtrOutput) IpFilterRules() IpFilterRuleArrayO
 	}).(IpFilterRuleArrayOutput)
 }
 
+// Private endpoint connections created on this IotHub
+func (o IotDpsPropertiesDescriptionPtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
+	return o.ApplyT(func(v *IotDpsPropertiesDescription) []PrivateEndpointConnectionType {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionTypeArrayOutput)
+}
+
 // The ARM provisioning state of the provisioning service.
 func (o IotDpsPropertiesDescriptionPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescription) *string {
@@ -2314,6 +2344,16 @@ func (o IotDpsPropertiesDescriptionPtrOutput) ProvisioningState() pulumi.StringP
 			return nil
 		}
 		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether requests from Public Network are allowed
+func (o IotDpsPropertiesDescriptionPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotDpsPropertiesDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2341,8 +2381,12 @@ type IotDpsPropertiesDescriptionResponse struct {
 	IotHubs []IotHubDefinitionDescriptionResponse `pulumi:"iotHubs"`
 	// The IP filter rules.
 	IpFilterRules []IpFilterRuleResponse `pulumi:"ipFilterRules"`
+	// Private endpoint connections created on this IotHub
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The ARM provisioning state of the provisioning service.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Service endpoint for provisioning service.
 	ServiceOperationsHostName string `pulumi:"serviceOperationsHostName"`
 	// Current state of the provisioning service.
@@ -2374,8 +2418,12 @@ type IotDpsPropertiesDescriptionResponseArgs struct {
 	IotHubs IotHubDefinitionDescriptionResponseArrayInput `pulumi:"iotHubs"`
 	// The IP filter rules.
 	IpFilterRules IpFilterRuleResponseArrayInput `pulumi:"ipFilterRules"`
+	// Private endpoint connections created on this IotHub
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
 	// The ARM provisioning state of the provisioning service.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// Service endpoint for provisioning service.
 	ServiceOperationsHostName pulumi.StringInput `pulumi:"serviceOperationsHostName"`
 	// Current state of the provisioning service.
@@ -2492,9 +2540,21 @@ func (o IotDpsPropertiesDescriptionResponseOutput) IpFilterRules() IpFilterRuleR
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) []IpFilterRuleResponse { return v.IpFilterRules }).(IpFilterRuleResponseArrayOutput)
 }
 
+// Private endpoint connections created on this IotHub
+func (o IotDpsPropertiesDescriptionResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) []PrivateEndpointConnectionResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
 // The ARM provisioning state of the provisioning service.
 func (o IotDpsPropertiesDescriptionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Whether requests from Public Network are allowed
+func (o IotDpsPropertiesDescriptionResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // Service endpoint for provisioning service.
@@ -2585,6 +2645,16 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) IpFilterRules() IpFilterRu
 	}).(IpFilterRuleResponseArrayOutput)
 }
 
+// Private endpoint connections created on this IotHub
+func (o IotDpsPropertiesDescriptionResponsePtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) []PrivateEndpointConnectionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
 // The ARM provisioning state of the provisioning service.
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) *string {
@@ -2592,6 +2662,16 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) ProvisioningState() pulumi
 			return nil
 		}
 		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether requests from Public Network are allowed
+func (o IotDpsPropertiesDescriptionResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2946,7 +3026,7 @@ type IotHubDefinitionDescription struct {
 	AllocationWeight *int `pulumi:"allocationWeight"`
 	// flag for applying allocationPolicy or not for a given iot hub.
 	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
-	// Connection string og the IoT hub.
+	// Connection string of the IoT hub.
 	ConnectionString string `pulumi:"connectionString"`
 	// ARM region of the IoT hub.
 	Location string `pulumi:"location"`
@@ -2969,7 +3049,7 @@ type IotHubDefinitionDescriptionArgs struct {
 	AllocationWeight pulumi.IntPtrInput `pulumi:"allocationWeight"`
 	// flag for applying allocationPolicy or not for a given iot hub.
 	ApplyAllocationPolicy pulumi.BoolPtrInput `pulumi:"applyAllocationPolicy"`
-	// Connection string og the IoT hub.
+	// Connection string of the IoT hub.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// ARM region of the IoT hub.
 	Location pulumi.StringInput `pulumi:"location"`
@@ -3037,7 +3117,7 @@ func (o IotHubDefinitionDescriptionOutput) ApplyAllocationPolicy() pulumi.BoolPt
 	return o.ApplyT(func(v IotHubDefinitionDescription) *bool { return v.ApplyAllocationPolicy }).(pulumi.BoolPtrOutput)
 }
 
-// Connection string og the IoT hub.
+// Connection string of the IoT hub.
 func (o IotHubDefinitionDescriptionOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDefinitionDescription) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
@@ -3073,7 +3153,7 @@ type IotHubDefinitionDescriptionResponse struct {
 	AllocationWeight *int `pulumi:"allocationWeight"`
 	// flag for applying allocationPolicy or not for a given iot hub.
 	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
-	// Connection string og the IoT hub.
+	// Connection string of the IoT hub.
 	ConnectionString string `pulumi:"connectionString"`
 	// ARM region of the IoT hub.
 	Location string `pulumi:"location"`
@@ -3098,7 +3178,7 @@ type IotHubDefinitionDescriptionResponseArgs struct {
 	AllocationWeight pulumi.IntPtrInput `pulumi:"allocationWeight"`
 	// flag for applying allocationPolicy or not for a given iot hub.
 	ApplyAllocationPolicy pulumi.BoolPtrInput `pulumi:"applyAllocationPolicy"`
-	// Connection string og the IoT hub.
+	// Connection string of the IoT hub.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// ARM region of the IoT hub.
 	Location pulumi.StringInput `pulumi:"location"`
@@ -3168,7 +3248,7 @@ func (o IotHubDefinitionDescriptionResponseOutput) ApplyAllocationPolicy() pulum
 	return o.ApplyT(func(v IotHubDefinitionDescriptionResponse) *bool { return v.ApplyAllocationPolicy }).(pulumi.BoolPtrOutput)
 }
 
-// Connection string og the IoT hub.
+// Connection string of the IoT hub.
 func (o IotHubDefinitionDescriptionResponseOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDefinitionDescriptionResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
 }

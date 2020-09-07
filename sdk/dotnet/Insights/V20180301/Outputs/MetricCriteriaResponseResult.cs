@@ -38,6 +38,10 @@ namespace Pulumi.AzureRM.Insights.V20180301.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
+        /// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        /// </summary>
+        public readonly bool? SkipMetricValidation;
+        /// <summary>
         /// the criteria threshold value that activates the alert.
         /// </summary>
         public readonly double Threshold;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureRM.Insights.V20180301.Outputs
 
             string @operator,
 
+            bool? skipMetricValidation,
+
             double threshold,
 
             ImmutableDictionary<string, object> timeAggregation)
@@ -70,6 +76,7 @@ namespace Pulumi.AzureRM.Insights.V20180301.Outputs
             MetricNamespace = metricNamespace;
             Name = name;
             Operator = @operator;
+            SkipMetricValidation = skipMetricValidation;
             Threshold = threshold;
             TimeAggregation = timeAggregation;
         }
