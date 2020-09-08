@@ -235,5 +235,5 @@ jobs:
       - name: Install dependencies
         run: make install_${{ matrix.language}}_sdk
       - name: Run tests
-        run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language
+        run: cd examples && go test -v -test.short -count=1 -cover -timeout 2h -tags=${{ matrix.language
           }} -parallel 4 .
