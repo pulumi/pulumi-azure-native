@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum EndpointResourceState {
-    Creating = "Creating",
-    Deleting = "Deleting",
-    Running = "Running",
-    Starting = "Starting",
-    Stopped = "Stopped",
-    Stopping = "Stopping",
-}
+export type EndpointResourceState = "Creating" | "Deleting" | "Running" | "Starting" | "Stopped" | "Stopping";
 
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     if (!opts) {

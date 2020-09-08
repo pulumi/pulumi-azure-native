@@ -6,9 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum RunbookProvisioningState {
-    Succeeded = "Succeeded",
-}
+export type RunbookProvisioningState = "Succeeded";
 
 export type RunbookState = "New" | "Edit" | "Published" | string;
 

@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum CardinalityTypes {
-    OneToOne = "OneToOne",
-    OneToMany = "OneToMany",
-    ManyToMany = "ManyToMany",
-}
+export type CardinalityTypes = "OneToOne" | "OneToMany" | "ManyToMany";
 
 export function getRelationship(args: GetRelationshipArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipResult> {
     if (!opts) {

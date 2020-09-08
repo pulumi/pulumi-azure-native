@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum DataSourceType {
-    CustomLogs = "CustomLogs",
-    AzureWatson = "AzureWatson",
-    Query = "Query",
-    Alerts = "Alerts",
-}
+export type DataSourceType = "CustomLogs" | "AzureWatson" | "Query" | "Alerts";
 
 /**
  * Linked storage accounts top level resource container.

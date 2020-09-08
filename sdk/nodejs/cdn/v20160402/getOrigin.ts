@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum OriginResourceState {
-    Creating = "Creating",
-    Active = "Active",
-    Deleting = "Deleting",
-}
+export type OriginResourceState = "Creating" | "Active" | "Deleting";
 
 export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginResult> {
     if (!opts) {

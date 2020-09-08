@@ -6,22 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum ConnectorMappingStates {
-    Creating = "Creating",
-    Created = "Created",
-    Failed = "Failed",
-    Ready = "Ready",
-    Running = "Running",
-    Stopped = "Stopped",
-    Expiring = "Expiring",
-}
+export type ConnectorMappingStates = "Creating" | "Created" | "Failed" | "Ready" | "Running" | "Stopped" | "Expiring";
 
-export enum EntityTypes {
-    None = "None",
-    Profile = "Profile",
-    Interaction = "Interaction",
-    Relationship = "Relationship",
-}
+export type EntityTypes = "None" | "Profile" | "Interaction" | "Relationship";
 
 /**
  * The connector mapping resource format.

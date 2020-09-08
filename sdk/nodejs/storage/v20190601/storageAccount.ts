@@ -6,21 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum AccessTier {
-    Hot = "Hot",
-    Cool = "Cool",
-}
+export type AccessTier = "Hot" | "Cool";
 
-export enum AccountStatus {
-    available = "available",
-    unavailable = "unavailable",
-}
+export type AccountStatus = "available" | "unavailable";
 
-export enum ProvisioningState {
-    Creating = "Creating",
-    ResolvingDNS = "ResolvingDNS",
-    Succeeded = "Succeeded",
-}
+export type ProvisioningState = "Creating" | "ResolvingDNS" | "Succeeded";
 
 export type Kind = "Storage" | "StorageV2" | "BlobStorage" | "FileStorage" | "BlockBlobStorage" | string;
 

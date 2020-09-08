@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum NamespaceType {
-    Messaging = "Messaging",
-    NotificationHub = "NotificationHub",
-}
+export type NamespaceType = "Messaging" | "NotificationHub";
 
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     if (!opts) {

@@ -6,16 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum CertificateFormat {
-    Pfx = "Pfx",
-    Cer = "Cer",
-}
+export type CertificateFormat = "Pfx" | "Cer";
 
-export enum CertificateProvisioningState {
-    Succeeded = "Succeeded",
-    Deleting = "Deleting",
-    Failed = "Failed",
-}
+export type CertificateProvisioningState = "Succeeded" | "Deleting" | "Failed";
 
 /**
  * Contains information about a certificate.

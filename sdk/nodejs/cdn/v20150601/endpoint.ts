@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum EndpointResourceState {
-    Creating = "Creating",
-    Deleting = "Deleting",
-    Running = "Running",
-    Starting = "Starting",
-    Stopped = "Stopped",
-    Stopping = "Stopping",
-}
+export type EndpointResourceState = "Creating" | "Deleting" | "Running" | "Starting" | "Stopped" | "Stopping";
 
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.

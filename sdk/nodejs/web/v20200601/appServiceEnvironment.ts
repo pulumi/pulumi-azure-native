@@ -6,20 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum HostingEnvironmentStatus {
-    Preparing = "Preparing",
-    Ready = "Ready",
-    Scaling = "Scaling",
-    Deleting = "Deleting",
-}
+export type HostingEnvironmentStatus = "Preparing" | "Ready" | "Scaling" | "Deleting";
 
-export enum ProvisioningState {
-    Succeeded = "Succeeded",
-    Failed = "Failed",
-    Canceled = "Canceled",
-    InProgress = "InProgress",
-    Deleting = "Deleting",
-}
+export type ProvisioningState = "Succeeded" | "Failed" | "Canceled" | "InProgress" | "Deleting";
 
 export type LoadBalancingMode = "None" | "Web" | "Publishing" | "Web,Publishing" | string;
 

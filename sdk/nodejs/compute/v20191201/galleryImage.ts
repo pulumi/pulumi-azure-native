@@ -6,15 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum OperatingSystemStateTypes {
-    Generalized = "Generalized",
-    Specialized = "Specialized",
-}
+export type OperatingSystemStateTypes = "Generalized" | "Specialized";
 
-export enum OperatingSystemTypes {
-    Windows = "Windows",
-    Linux = "Linux",
-}
+export type OperatingSystemTypes = "Windows" | "Linux";
 
 export type HyperVGeneration = "V1" | "V2" | string;
 

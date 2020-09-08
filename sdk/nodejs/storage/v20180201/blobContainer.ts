@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum PublicAccess {
-    Container = "Container",
-    Blob = "Blob",
-    None = "None",
-}
+export type PublicAccess = "Container" | "Blob" | "None";
 
 export type LeaseDuration = "Infinite" | "Fixed" | string;
 

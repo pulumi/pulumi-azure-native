@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum StorageLimitExceededBehavior {
-    PurgeOldData = "PurgeOldData",
-    PauseIngress = "PauseIngress",
-}
+export type StorageLimitExceededBehavior = "PurgeOldData" | "PauseIngress";
 
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.

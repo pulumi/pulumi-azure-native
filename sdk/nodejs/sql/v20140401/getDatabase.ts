@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum ReadScale {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type ReadScale = "Enabled" | "Disabled";
 
 export type CreateMode = "Copy" | "Default" | "NonReadableSecondary" | "OnlineSecondary" | "PointInTimeRestore" | "Recovery" | "Restore" | "RestoreLongTermRetentionBackup" | string;
 

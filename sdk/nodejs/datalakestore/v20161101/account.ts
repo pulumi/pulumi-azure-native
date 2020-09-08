@@ -6,59 +6,21 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum DataLakeStoreAccountState {
-    Active = "Active",
-    Suspended = "Suspended",
-}
+export type DataLakeStoreAccountState = "Active" | "Suspended";
 
-export enum DataLakeStoreAccountStatus {
-    Failed = "Failed",
-    Creating = "Creating",
-    Running = "Running",
-    Succeeded = "Succeeded",
-    Patching = "Patching",
-    Suspending = "Suspending",
-    Resuming = "Resuming",
-    Deleting = "Deleting",
-    Deleted = "Deleted",
-    Undeleting = "Undeleting",
-    Canceled = "Canceled",
-}
+export type DataLakeStoreAccountStatus = "Failed" | "Creating" | "Running" | "Succeeded" | "Patching" | "Suspending" | "Resuming" | "Deleting" | "Deleted" | "Undeleting" | "Canceled";
 
-export enum EncryptionProvisioningState {
-    Creating = "Creating",
-    Succeeded = "Succeeded",
-}
+export type EncryptionProvisioningState = "Creating" | "Succeeded";
 
-export enum EncryptionState {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type EncryptionState = "Enabled" | "Disabled";
 
-export enum FirewallAllowAzureIpsState {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type FirewallAllowAzureIpsState = "Enabled" | "Disabled";
 
-export enum FirewallState {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type FirewallState = "Enabled" | "Disabled";
 
-export enum TierType {
-    Consumption = "Consumption",
-    Commitment_1TB = "Commitment_1TB",
-    Commitment_10TB = "Commitment_10TB",
-    Commitment_100TB = "Commitment_100TB",
-    Commitment_500TB = "Commitment_500TB",
-    Commitment_1PB = "Commitment_1PB",
-    Commitment_5PB = "Commitment_5PB",
-}
+export type TierType = "Consumption" | "Commitment_1TB" | "Commitment_10TB" | "Commitment_100TB" | "Commitment_500TB" | "Commitment_1PB" | "Commitment_5PB";
 
-export enum TrustedIdProviderState {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type TrustedIdProviderState = "Enabled" | "Disabled";
 
 /**
  * Data Lake Store account information.

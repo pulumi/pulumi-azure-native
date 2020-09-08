@@ -36,7 +36,7 @@ const storageContainer = new azurerm.storage.v20190601.BlobContainer("c", {
     resourceGroupName: resourceGroup.name,
     accountName: storageAccount.name,
     containerName: "files",
-    publicAccess: azurerm.storage.v20190601.PublicAccess.None, // enum
+    publicAccess: "None",
 });
 
 // TODO: blobs are not supported
@@ -56,7 +56,7 @@ const appInsights = new azurerm.insights.v20150501.Component("ai", {
     location: "westus2",
     resourceName: "pulumi-as-ai",
     kind: "web",
-    applicationType: azurerm.insights.v20150501.ApplicationType.web, // enum modeled as string
+    applicationType: "web",
 });
 
 const username = "pulumi";
@@ -68,7 +68,7 @@ const sqlServer = new azurerm.sql.v20140401.Server("sql", {
     serverName: "pulumi-as-sql",
     administratorLogin: username,
     administratorLoginPassword: pwd,
-    version: azurerm.sql.v20140401.ServerVersion["120"], // enum modeled as string
+    version: "12.0",
 });
 
 const database = new azurerm.sql.v20140401.Database("db", {
@@ -76,7 +76,7 @@ const database = new azurerm.sql.v20140401.Database("db", {
     location: "westus2",
     serverName: sqlServer.name,
     databaseName: "db",
-    requestedServiceObjectiveName: azurerm.sql.v20140401.ServiceObjectiveName.S0, // enum modeled as string
+    requestedServiceObjectiveName: "S0",
 });
 
 const app = new azurerm.web.v20190801.WebApp("as", {
@@ -96,9 +96,10 @@ const app = new azurerm.web.v20190801.WebApp("as", {
         connectionStrings: [{
             name: "db",
             connectionString:
-                pulumi.all([sqlServer.name, database.name]).apply(([server, db]) =>
-                    `Server=tcp:${server}.database.windows.net;initial catalog=${db};user ID=${username};password=${pwd};Min Pool Size=0;Max Pool Size=30;Persist Security Info=true;`),
-            type: azurerm.types.input.web.v20190801.ConnectionStringType.SQLAzure, // enum
+                pulumi.all([sqlServer.name, database.name]).apply(([server, db]) => {
+                    return `Server=tcp:${server}.database.windows.net;initial catalog=${db};user ID=${username};password=${pwd};Min Pool Size=0;Max Pool Size=30;Persist Security Info=true;`;
+                }),
+            type: "SQLAzure",
         }],
     },
 });

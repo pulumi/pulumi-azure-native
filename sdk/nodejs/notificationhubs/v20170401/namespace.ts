@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum NamespaceType {
-    Messaging = "Messaging",
-    NotificationHub = "NotificationHub",
-}
+export type NamespaceType = "Messaging" | "NotificationHub";
 
 /**
  * Description of a Namespace resource.

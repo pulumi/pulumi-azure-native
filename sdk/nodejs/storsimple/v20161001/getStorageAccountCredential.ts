@@ -6,18 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum CloudType {
-    Azure = "Azure",
-    S3 = "S3",
-    S3_RRS = "S3_RRS",
-    OpenStack = "OpenStack",
-    HP = "HP",
-}
+export type CloudType = "Azure" | "S3" | "S3_RRS" | "OpenStack" | "HP";
 
-export enum SslStatus {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type SslStatus = "Enabled" | "Disabled";
 
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
     if (!opts) {

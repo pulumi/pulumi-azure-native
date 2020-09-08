@@ -6,16 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum SiteAvailabilityState {
-    Normal = "Normal",
-    Limited = "Limited",
-    DisasterRecoveryMode = "DisasterRecoveryMode",
-}
+export type SiteAvailabilityState = "Normal" | "Limited" | "DisasterRecoveryMode";
 
-export enum UsageState {
-    Normal = "Normal",
-    Exceeded = "Exceeded",
-}
+export type UsageState = "Normal" | "Exceeded";
 
 export function getSiteSlot(args: GetSiteSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteSlotResult> {
     if (!opts) {

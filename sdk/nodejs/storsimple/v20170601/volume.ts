@@ -4,37 +4,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum BackupStatus {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type BackupStatus = "Enabled" | "Disabled";
 
-export enum Kind {
-    Series8000 = "Series8000",
-}
+export type Kind = "Series8000";
 
-export enum MonitoringStatus {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type MonitoringStatus = "Enabled" | "Disabled";
 
-export enum OperationStatus {
-    None = "None",
-    Updating = "Updating",
-    Deleting = "Deleting",
-    Restoring = "Restoring",
-}
+export type OperationStatus = "None" | "Updating" | "Deleting" | "Restoring";
 
-export enum VolumeStatus {
-    Online = "Online",
-    Offline = "Offline",
-}
+export type VolumeStatus = "Online" | "Offline";
 
-export enum VolumeType {
-    Tiered = "Tiered",
-    Archival = "Archival",
-    LocallyPinned = "LocallyPinned",
-}
+export type VolumeType = "Tiered" | "Archival" | "LocallyPinned";
 
 /**
  * The volume.

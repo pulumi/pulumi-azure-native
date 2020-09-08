@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum StorageLimitExceededBehavior {
-    PurgeOldData = "PurgeOldData",
-    PauseIngress = "PauseIngress",
-}
+export type StorageLimitExceededBehavior = "PurgeOldData" | "PauseIngress";
 
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     if (!opts) {

@@ -6,9 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum DscConfigurationProvisioningState {
-    Succeeded = "Succeeded",
-}
+export type DscConfigurationProvisioningState = "Succeeded";
 
 export type DscConfigurationState = "New" | "Edit" | "Published" | string;
 

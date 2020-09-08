@@ -6,17 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum ProvisioningStateDR {
-    Accepted = "Accepted",
-    Succeeded = "Succeeded",
-    Failed = "Failed",
-}
+export type ProvisioningStateDR = "Accepted" | "Succeeded" | "Failed";
 
-export enum RoleDisasterRecovery {
-    Primary = "Primary",
-    PrimaryNotReplicating = "PrimaryNotReplicating",
-    Secondary = "Secondary",
-}
+export type RoleDisasterRecovery = "Primary" | "PrimaryNotReplicating" | "Secondary";
 
 export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigResult> {
     if (!opts) {

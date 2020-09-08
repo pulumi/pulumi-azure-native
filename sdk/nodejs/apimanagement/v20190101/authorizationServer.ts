@@ -6,16 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum AuthorizationMethod {
-    HEAD = "HEAD",
-    OPTIONS = "OPTIONS",
-    TRACE = "TRACE",
-    GET = "GET",
-    POST = "POST",
-    PUT = "PUT",
-    PATCH = "PATCH",
-    DELETE = "DELETE",
-}
+export type AuthorizationMethod = "HEAD" | "OPTIONS" | "TRACE" | "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 export type BearerTokenSendingMethod = "authorizationHeader" | "query" | string;
 

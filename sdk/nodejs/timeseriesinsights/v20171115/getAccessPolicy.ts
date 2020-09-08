@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum AccessPolicyRole {
-    Reader = "Reader",
-    Contributor = "Contributor",
-}
+export type AccessPolicyRole = "Reader" | "Contributor";
 
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
     if (!opts) {

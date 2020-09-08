@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum Relaytype {
-    NetTcp = "NetTcp",
-    Http = "Http",
-}
+export type Relaytype = "NetTcp" | "Http";
 
 /**
  * Description of the WCF relay resource.

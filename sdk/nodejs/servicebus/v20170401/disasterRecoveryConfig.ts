@@ -4,17 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum ProvisioningStateDR {
-    Accepted = "Accepted",
-    Succeeded = "Succeeded",
-    Failed = "Failed",
-}
+export type ProvisioningStateDR = "Accepted" | "Succeeded" | "Failed";
 
-export enum RoleDisasterRecovery {
-    Primary = "Primary",
-    PrimaryNotReplicating = "PrimaryNotReplicating",
-    Secondary = "Secondary",
-}
+export type RoleDisasterRecovery = "Primary" | "PrimaryNotReplicating" | "Secondary";
 
 /**
  * Single item in List or Get Alias(Disaster Recovery configuration) operation

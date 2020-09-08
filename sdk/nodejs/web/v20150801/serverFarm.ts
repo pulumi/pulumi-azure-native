@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum StatusOptions {
-    Ready = "Ready",
-    Pending = "Pending",
-}
+export type StatusOptions = "Ready" | "Pending";
 
 /**
  * App Service Plan Model

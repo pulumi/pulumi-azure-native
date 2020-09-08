@@ -6,20 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum AzureResourceType {
-    Website = "Website",
-    TrafficManager = "TrafficManager",
-}
+export type AzureResourceType = "Website" | "TrafficManager";
 
-export enum CustomHostNameDnsRecordType {
-    CName = "CName",
-    A = "A",
-}
+export type CustomHostNameDnsRecordType = "CName" | "A";
 
-export enum HostNameType {
-    Verified = "Verified",
-    Managed = "Managed",
-}
+export type HostNameType = "Verified" | "Managed";
 
 export function getSiteHostNameBinding(args: GetSiteHostNameBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteHostNameBindingResult> {
     if (!opts) {

@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum Relaytype {
-    NetTcp = "NetTcp",
-    Http = "Http",
-}
+export type Relaytype = "NetTcp" | "Http";
 
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
     if (!opts) {

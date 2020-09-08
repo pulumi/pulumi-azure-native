@@ -4,9 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum AdministratorType {
-    ActiveDirectory = "ActiveDirectory",
-}
+export type AdministratorType = "ActiveDirectory";
 
 /**
  * An server Active Directory Administrator.

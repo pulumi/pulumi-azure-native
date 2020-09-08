@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum OriginResourceState {
-    Creating = "Creating",
-    Active = "Active",
-    Deleting = "Deleting",
-}
+export type OriginResourceState = "Creating" | "Active" | "Deleting";
 
 /**
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.

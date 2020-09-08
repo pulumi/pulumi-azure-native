@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum CustomDomainResourceState {
-    Creating = "Creating",
-    Active = "Active",
-    Deleting = "Deleting",
-}
+export type CustomDomainResourceState = "Creating" | "Active" | "Deleting";
 
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
     if (!opts) {

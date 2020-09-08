@@ -4,22 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum DataPolicy {
-    Invalid = "Invalid",
-    Local = "Local",
-    Tiered = "Tiered",
-    Cloud = "Cloud",
-}
+export type DataPolicy = "Invalid" | "Local" | "Tiered" | "Cloud";
 
-export enum MonitoringStatus {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type MonitoringStatus = "Enabled" | "Disabled";
 
-export enum ShareStatus {
-    Online = "Online",
-    Offline = "Offline",
-}
+export type ShareStatus = "Online" | "Offline";
 
 /**
  * The File Share.

@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum VirtualNetworkType {
-    None = "None",
-    External = "External",
-    Internal = "Internal",
-}
+export type VirtualNetworkType = "None" | "External" | "Internal";
 
 /**
  * Description of an API Management service resource.

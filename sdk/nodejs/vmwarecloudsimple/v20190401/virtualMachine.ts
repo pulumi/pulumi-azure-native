@@ -6,20 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum GuestOSType {
-    linux = "linux",
-    windows = "windows",
-    other = "other",
-}
+export type GuestOSType = "linux" | "windows" | "other";
 
-export enum VirtualMachineStatus {
-    running = "running",
-    suspended = "suspended",
-    poweredoff = "poweredoff",
-    updating = "updating",
-    deallocating = "deallocating",
-    deleting = "deleting",
-}
+export type VirtualMachineStatus = "running" | "suspended" | "poweredoff" | "updating" | "deallocating" | "deleting";
 
 /**
  * Virtual machine model

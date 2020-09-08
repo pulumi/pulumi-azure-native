@@ -6,46 +6,15 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum DataLakeAnalyticsAccountState {
-    Active = "Active",
-    Suspended = "Suspended",
-}
+export type DataLakeAnalyticsAccountState = "Active" | "Suspended";
 
-export enum DataLakeAnalyticsAccountStatus {
-    Failed = "Failed",
-    Creating = "Creating",
-    Running = "Running",
-    Succeeded = "Succeeded",
-    Patching = "Patching",
-    Suspending = "Suspending",
-    Resuming = "Resuming",
-    Deleting = "Deleting",
-    Deleted = "Deleted",
-    Undeleting = "Undeleting",
-    Canceled = "Canceled",
-}
+export type DataLakeAnalyticsAccountStatus = "Failed" | "Creating" | "Running" | "Succeeded" | "Patching" | "Suspending" | "Resuming" | "Deleting" | "Deleted" | "Undeleting" | "Canceled";
 
-export enum FirewallAllowAzureIpsState {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type FirewallAllowAzureIpsState = "Enabled" | "Disabled";
 
-export enum FirewallState {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type FirewallState = "Enabled" | "Disabled";
 
-export enum TierType {
-    Consumption = "Consumption",
-    Commitment_100AUHours = "Commitment_100AUHours",
-    Commitment_500AUHours = "Commitment_500AUHours",
-    Commitment_1000AUHours = "Commitment_1000AUHours",
-    Commitment_5000AUHours = "Commitment_5000AUHours",
-    Commitment_10000AUHours = "Commitment_10000AUHours",
-    Commitment_50000AUHours = "Commitment_50000AUHours",
-    Commitment_100000AUHours = "Commitment_100000AUHours",
-    Commitment_500000AUHours = "Commitment_500000AUHours",
-}
+export type TierType = "Consumption" | "Commitment_100AUHours" | "Commitment_500AUHours" | "Commitment_1000AUHours" | "Commitment_5000AUHours" | "Commitment_10000AUHours" | "Commitment_50000AUHours" | "Commitment_100000AUHours" | "Commitment_500000AUHours";
 
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {

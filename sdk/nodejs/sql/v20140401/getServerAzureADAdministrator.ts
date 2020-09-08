@@ -6,9 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum AdministratorType {
-    ActiveDirectory = "ActiveDirectory",
-}
+export type AdministratorType = "ActiveDirectory";
 
 export function getServerAzureADAdministrator(args: GetServerAzureADAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAzureADAdministratorResult> {
     if (!opts) {

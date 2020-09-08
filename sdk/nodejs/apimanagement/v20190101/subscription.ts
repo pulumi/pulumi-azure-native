@@ -4,14 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum SubscriptionState {
-    suspended = "suspended",
-    active = "active",
-    expired = "expired",
-    submitted = "submitted",
-    rejected = "rejected",
-    cancelled = "cancelled",
-}
+export type SubscriptionState = "suspended" | "active" | "expired" | "submitted" | "rejected" | "cancelled";
 
 /**
  * Subscription details.

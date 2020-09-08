@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum ConnectorStates {
-    Creating = "Creating",
-    Created = "Created",
-    Ready = "Ready",
-    Expiring = "Expiring",
-    Deleting = "Deleting",
-    Failed = "Failed",
-}
+export type ConnectorStates = "Creating" | "Created" | "Ready" | "Expiring" | "Deleting" | "Failed";
 
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
     if (!opts) {

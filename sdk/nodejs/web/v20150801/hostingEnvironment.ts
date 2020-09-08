@@ -6,26 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum HostingEnvironmentStatus {
-    Preparing = "Preparing",
-    Ready = "Ready",
-    Scaling = "Scaling",
-    Deleting = "Deleting",
-}
+export type HostingEnvironmentStatus = "Preparing" | "Ready" | "Scaling" | "Deleting";
 
-export enum InternalLoadBalancingMode {
-    None = "None",
-    Web = "Web",
-    Publishing = "Publishing",
-}
+export type InternalLoadBalancingMode = "None" | "Web" | "Publishing";
 
-export enum ProvisioningState {
-    Succeeded = "Succeeded",
-    Failed = "Failed",
-    Canceled = "Canceled",
-    InProgress = "InProgress",
-    Deleting = "Deleting",
-}
+export type ProvisioningState = "Succeeded" | "Failed" | "Canceled" | "InProgress" | "Deleting";
 
 /**
  * Description of an hostingEnvironment (App Service Environment)

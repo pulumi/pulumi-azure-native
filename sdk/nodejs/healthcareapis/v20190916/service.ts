@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum kind {
-    fhir = "fhir",
-    fhirStu3 = "fhir-Stu3",
-    fhirR4 = "fhir-R4",
-}
+export type kind = "fhir" | "fhir-Stu3" | "fhir-R4";
 
 /**
  * The description of the service.

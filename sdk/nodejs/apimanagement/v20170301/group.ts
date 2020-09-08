@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum GroupType {
-    custom = "custom",
-    system = "system",
-    external = "external",
-}
+export type GroupType = "custom" | "system" | "external";
 
 /**
  * Contract details.

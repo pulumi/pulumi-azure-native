@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum EncryptionAlgorithm {
-    None = "None",
-    AES256 = "AES256",
-    RSAES_PKCS1_v_1_5 = "RSAES_PKCS1_v_1_5",
-}
+export type EncryptionAlgorithm = "None" | "AES256" | "RSAES_PKCS1_v_1_5";
 
 export function listManagerPublicEncryptionKey(args: ListManagerPublicEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListManagerPublicEncryptionKeyResult> {
     if (!opts) {

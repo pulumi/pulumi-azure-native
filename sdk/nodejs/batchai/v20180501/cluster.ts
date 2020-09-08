@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum VmPriority {
-    dedicated = "dedicated",
-    lowpriority = "lowpriority",
-}
+export type VmPriority = "dedicated" | "lowpriority";
 
 export type AllocationState = "steady" | "resizing" | string;
 

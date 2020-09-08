@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum Protocol {
-    http = "http",
-    https = "https",
-}
+export type Protocol = "http" | "https";
 
 export type ApiType = "http" | "soap" | string;
 

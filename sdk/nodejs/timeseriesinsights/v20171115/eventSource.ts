@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum Kind {
-    MicrosoftEventHub = "Microsoft.EventHub",
-    MicrosoftIoTHub = "Microsoft.IoTHub",
-}
+export type Kind = "Microsoft.EventHub" | "Microsoft.IoTHub";
 
 /**
  * An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source

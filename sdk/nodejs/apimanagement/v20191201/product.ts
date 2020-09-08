@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum ProductState {
-    notPublished = "notPublished",
-    published = "published",
-}
+export type ProductState = "notPublished" | "published";
 
 /**
  * Product details.

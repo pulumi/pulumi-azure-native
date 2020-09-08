@@ -6,24 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum ModuleProvisioningState {
-    Created = "Created",
-    Creating = "Creating",
-    StartingImportModuleRunbook = "StartingImportModuleRunbook",
-    RunningImportModuleRunbook = "RunningImportModuleRunbook",
-    ContentRetrieved = "ContentRetrieved",
-    ContentDownloaded = "ContentDownloaded",
-    ContentValidated = "ContentValidated",
-    ConnectionTypeImported = "ConnectionTypeImported",
-    ContentStored = "ContentStored",
-    ModuleDataStored = "ModuleDataStored",
-    ActivitiesStored = "ActivitiesStored",
-    ModuleImportRunbookComplete = "ModuleImportRunbookComplete",
-    Succeeded = "Succeeded",
-    Failed = "Failed",
-    Cancelled = "Cancelled",
-    Updating = "Updating",
-}
+export type ModuleProvisioningState = "Created" | "Creating" | "StartingImportModuleRunbook" | "RunningImportModuleRunbook" | "ContentRetrieved" | "ContentDownloaded" | "ContentValidated" | "ConnectionTypeImported" | "ContentStored" | "ModuleDataStored" | "ActivitiesStored" | "ModuleImportRunbookComplete" | "Succeeded" | "Failed" | "Cancelled" | "Updating";
 
 /**
  * Definition of the module type.

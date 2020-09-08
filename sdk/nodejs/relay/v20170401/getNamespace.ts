@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum provisioningStateEnum {
-    Created = "Created",
-    Succeeded = "Succeeded",
-    Deleted = "Deleted",
-    Failed = "Failed",
-    Updating = "Updating",
-    Unknown = "Unknown",
-}
+export type provisioningStateEnum = "Created" | "Succeeded" | "Deleted" | "Failed" | "Updating" | "Unknown";
 
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     if (!opts) {

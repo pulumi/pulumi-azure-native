@@ -6,14 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum SubscriptionState {
-    suspended = "suspended",
-    active = "active",
-    expired = "expired",
-    submitted = "submitted",
-    rejected = "rejected",
-    cancelled = "cancelled",
-}
+export type SubscriptionState = "suspended" | "active" | "expired" | "submitted" | "rejected" | "cancelled";
 
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
     if (!opts) {

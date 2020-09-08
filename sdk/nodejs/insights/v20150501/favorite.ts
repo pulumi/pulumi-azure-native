@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum FavoriteType {
-    shared = "shared",
-    user = "user",
-}
+export type FavoriteType = "shared" | "user";
 
 /**
  * Properties that define a favorite that is associated to an Application Insights component.

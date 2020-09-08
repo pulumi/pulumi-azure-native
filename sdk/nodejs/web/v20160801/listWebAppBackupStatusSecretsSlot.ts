@@ -6,25 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum BackupItemStatus {
-    InProgress = "InProgress",
-    Failed = "Failed",
-    Succeeded = "Succeeded",
-    TimedOut = "TimedOut",
-    Created = "Created",
-    Skipped = "Skipped",
-    PartiallySucceeded = "PartiallySucceeded",
-    DeleteInProgress = "DeleteInProgress",
-    DeleteFailed = "DeleteFailed",
-    Deleted = "Deleted",
-}
+export type BackupItemStatus = "InProgress" | "Failed" | "Succeeded" | "TimedOut" | "Created" | "Skipped" | "PartiallySucceeded" | "DeleteInProgress" | "DeleteFailed" | "Deleted";
 
-export enum BackupRestoreOperationType {
-    Default = "Default",
-    Clone = "Clone",
-    Relocation = "Relocation",
-    Snapshot = "Snapshot",
-}
+export type BackupRestoreOperationType = "Default" | "Clone" | "Relocation" | "Snapshot";
 
 export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupStatusSecretsSlotResult> {
     if (!opts) {

@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum ReplicationRole {
-    Primary = "Primary",
-    Secondary = "Secondary",
-}
+export type ReplicationRole = "Primary" | "Secondary";
 
 /**
  * Response to put/get linked server (with properties) for Redis cache.

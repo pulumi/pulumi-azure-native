@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum InstanceOperationType {
-    Upsert = "Upsert",
-    Delete = "Delete",
-}
+export type InstanceOperationType = "Upsert" | "Delete";
 
 /**
  * The link resource format.

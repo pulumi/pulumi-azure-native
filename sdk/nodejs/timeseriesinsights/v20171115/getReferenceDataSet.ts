@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum DataStringComparisonBehavior {
-    Ordinal = "Ordinal",
-    OrdinalIgnoreCase = "OrdinalIgnoreCase",
-}
+export type DataStringComparisonBehavior = "Ordinal" | "OrdinalIgnoreCase";
 
 export function getReferenceDataSet(args: GetReferenceDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReferenceDataSetResult> {
     if (!opts) {

@@ -4,11 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum PublicCertificateLocation {
-    CurrentUserMy = "CurrentUserMy",
-    LocalMachineMy = "LocalMachineMy",
-    Unknown = "Unknown",
-}
+export type PublicCertificateLocation = "CurrentUserMy" | "LocalMachineMy" | "Unknown";
 
 /**
  * Public certificate object

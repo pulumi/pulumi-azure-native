@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum ReplicationRole {
-    Primary = "Primary",
-    Secondary = "Secondary",
-}
+export type ReplicationRole = "Primary" | "Secondary";
 
 export function getRedisLinkedServer(args: GetRedisLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisLinkedServerResult> {
     if (!opts) {

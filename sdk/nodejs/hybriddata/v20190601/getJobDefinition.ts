@@ -6,46 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum RunLocation {
-    none = "none",
-    australiaeast = "australiaeast",
-    australiasoutheast = "australiasoutheast",
-    brazilsouth = "brazilsouth",
-    canadacentral = "canadacentral",
-    canadaeast = "canadaeast",
-    centralindia = "centralindia",
-    centralus = "centralus",
-    eastasia = "eastasia",
-    eastus = "eastus",
-    eastus2 = "eastus2",
-    japaneast = "japaneast",
-    japanwest = "japanwest",
-    koreacentral = "koreacentral",
-    koreasouth = "koreasouth",
-    southeastasia = "southeastasia",
-    southcentralus = "southcentralus",
-    southindia = "southindia",
-    northcentralus = "northcentralus",
-    northeurope = "northeurope",
-    uksouth = "uksouth",
-    ukwest = "ukwest",
-    westcentralus = "westcentralus",
-    westeurope = "westeurope",
-    westindia = "westindia",
-    westus = "westus",
-    westus2 = "westus2",
-}
+export type RunLocation = "none" | "australiaeast" | "australiasoutheast" | "brazilsouth" | "canadacentral" | "canadaeast" | "centralindia" | "centralus" | "eastasia" | "eastus" | "eastus2" | "japaneast" | "japanwest" | "koreacentral" | "koreasouth" | "southeastasia" | "southcentralus" | "southindia" | "northcentralus" | "northeurope" | "uksouth" | "ukwest" | "westcentralus" | "westeurope" | "westindia" | "westus" | "westus2";
 
-export enum State {
-    Disabled = "Disabled",
-    Enabled = "Enabled",
-    Supported = "Supported",
-}
+export type State = "Disabled" | "Enabled" | "Supported";
 
-export enum UserConfirmation {
-    NotRequired = "NotRequired",
-    Required = "Required",
-}
+export type UserConfirmation = "NotRequired" | "Required";
 
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
     if (!opts) {

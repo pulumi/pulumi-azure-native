@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum ProductState {
-    notPublished = "notPublished",
-    published = "published",
-}
+export type ProductState = "notPublished" | "published";
 
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
     if (!opts) {

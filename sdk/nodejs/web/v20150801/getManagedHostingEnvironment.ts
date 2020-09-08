@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum ManagedHostingEnvironmentStatus {
-    Preparing = "Preparing",
-    Ready = "Ready",
-    Deleting = "Deleting",
-}
+export type ManagedHostingEnvironmentStatus = "Preparing" | "Ready" | "Deleting";
 
 export function getManagedHostingEnvironment(args: GetManagedHostingEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHostingEnvironmentResult> {
     if (!opts) {

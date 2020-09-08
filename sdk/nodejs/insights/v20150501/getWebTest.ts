@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum WebTestKind {
-    ping = "ping",
-    multistep = "multistep",
-}
+export type WebTestKind = "ping" | "multistep";
 
 export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): Promise<GetWebTestResult> {
     if (!opts) {

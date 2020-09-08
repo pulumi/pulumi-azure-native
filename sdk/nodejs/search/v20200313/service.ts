@@ -6,30 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum HostingMode {
-    default = "default",
-    highDensity = "highDensity",
-}
+export type HostingMode = "default" | "highDensity";
 
-export enum ProvisioningState {
-    succeeded = "succeeded",
-    provisioning = "provisioning",
-    failed = "failed",
-}
+export type ProvisioningState = "succeeded" | "provisioning" | "failed";
 
-export enum PublicNetworkAccess {
-    enabled = "enabled",
-    disabled = "disabled",
-}
+export type PublicNetworkAccess = "enabled" | "disabled";
 
-export enum SearchServiceStatus {
-    running = "running",
-    provisioning = "provisioning",
-    deleting = "deleting",
-    degraded = "degraded",
-    disabled = "disabled",
-    error = "error",
-}
+export type SearchServiceStatus = "running" | "provisioning" | "deleting" | "degraded" | "disabled" | "error";
 
 /**
  * Describes an Azure Cognitive Search service and its current state.

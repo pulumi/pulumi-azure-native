@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum ServerState {
-    Ready = "Ready",
-    Disabled = "Disabled",
-}
+export type ServerState = "Ready" | "Disabled";
 
 export type ServerVersion = "2.0" | "12.0" | string;
 

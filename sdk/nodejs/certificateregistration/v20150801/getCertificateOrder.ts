@@ -6,31 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum CertificateOrderStatus {
-    Pendingissuance = "Pendingissuance",
-    Issued = "Issued",
-    Revoked = "Revoked",
-    Canceled = "Canceled",
-    Denied = "Denied",
-    Pendingrevocation = "Pendingrevocation",
-    PendingRekey = "PendingRekey",
-    Unused = "Unused",
-    Expired = "Expired",
-    NotSubmitted = "NotSubmitted",
-}
+export type CertificateOrderStatus = "Pendingissuance" | "Issued" | "Revoked" | "Canceled" | "Denied" | "Pendingrevocation" | "PendingRekey" | "Unused" | "Expired" | "NotSubmitted";
 
-export enum CertificateProductType {
-    StandardDomainValidatedSsl = "StandardDomainValidatedSsl",
-    StandardDomainValidatedWildCardSsl = "StandardDomainValidatedWildCardSsl",
-}
+export type CertificateProductType = "StandardDomainValidatedSsl" | "StandardDomainValidatedWildCardSsl";
 
-export enum ProvisioningState {
-    Succeeded = "Succeeded",
-    Failed = "Failed",
-    Canceled = "Canceled",
-    InProgress = "InProgress",
-    Deleting = "Deleting",
-}
+export type ProvisioningState = "Succeeded" | "Failed" | "Canceled" | "InProgress" | "Deleting";
 
 export function getCertificateOrder(args: GetCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateOrderResult> {
     if (!opts) {

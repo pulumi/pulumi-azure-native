@@ -4,10 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum SiteExtensionType {
-    Gallery = "Gallery",
-    WebRoot = "WebRoot",
-}
+export type SiteExtensionType = "Gallery" | "WebRoot";
 
 /**
  * Site Extension Information.

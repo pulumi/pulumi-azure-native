@@ -6,31 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum CalculationWindowTypes {
-    Lifetime = "Lifetime",
-    Hour = "Hour",
-    Day = "Day",
-    Week = "Week",
-    Month = "Month",
-}
+export type CalculationWindowTypes = "Lifetime" | "Hour" | "Day" | "Week" | "Month";
 
-export enum EntityTypes {
-    None = "None",
-    Profile = "Profile",
-    Interaction = "Interaction",
-    Relationship = "Relationship",
-}
+export type EntityTypes = "None" | "Profile" | "Interaction" | "Relationship";
 
-export enum KpiFunctions {
-    Sum = "Sum",
-    Avg = "Avg",
-    Min = "Min",
-    Max = "Max",
-    Last = "Last",
-    Count = "Count",
-    None = "None",
-    CountDistinct = "CountDistinct",
-}
+export type KpiFunctions = "Sum" | "Avg" | "Min" | "Max" | "Last" | "Count" | "None" | "CountDistinct";
 
 /**
  * The KPI resource format.

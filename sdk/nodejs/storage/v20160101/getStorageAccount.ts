@@ -6,26 +6,13 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum AccessTier {
-    Hot = "Hot",
-    Cool = "Cool",
-}
+export type AccessTier = "Hot" | "Cool";
 
-export enum AccountStatus {
-    Available = "Available",
-    Unavailable = "Unavailable",
-}
+export type AccountStatus = "Available" | "Unavailable";
 
-export enum Kind {
-    Storage = "Storage",
-    BlobStorage = "BlobStorage",
-}
+export type Kind = "Storage" | "BlobStorage";
 
-export enum ProvisioningState {
-    Creating = "Creating",
-    ResolvingDNS = "ResolvingDNS",
-    Succeeded = "Succeeded",
-}
+export type ProvisioningState = "Creating" | "ResolvingDNS" | "Succeeded";
 
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
     if (!opts) {

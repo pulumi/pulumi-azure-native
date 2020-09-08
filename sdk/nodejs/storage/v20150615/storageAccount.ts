@@ -6,24 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum AccountStatus {
-    Available = "Available",
-    Unavailable = "Unavailable",
-}
+export type AccountStatus = "Available" | "Unavailable";
 
-export enum AccountType {
-    Standard_LRS = "Standard_LRS",
-    Standard_ZRS = "Standard_ZRS",
-    Standard_GRS = "Standard_GRS",
-    Standard_RAGRS = "Standard_RAGRS",
-    Premium_LRS = "Premium_LRS",
-}
+export type AccountType = "Standard_LRS" | "Standard_ZRS" | "Standard_GRS" | "Standard_RAGRS" | "Premium_LRS";
 
-export enum ProvisioningState {
-    Creating = "Creating",
-    ResolvingDNS = "ResolvingDNS",
-    Succeeded = "Succeeded",
-}
+export type ProvisioningState = "Creating" | "ResolvingDNS" | "Succeeded";
 
 /**
  * The storage account.

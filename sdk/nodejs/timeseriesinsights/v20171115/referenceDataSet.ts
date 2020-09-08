@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum DataStringComparisonBehavior {
-    Ordinal = "Ordinal",
-    OrdinalIgnoreCase = "OrdinalIgnoreCase",
-}
+export type DataStringComparisonBehavior = "Ordinal" | "OrdinalIgnoreCase";
 
 /**
  * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.

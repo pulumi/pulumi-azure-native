@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum ZoneType {
-    Public = "Public",
-    Private = "Private",
-}
+export type ZoneType = "Public" | "Private";
 
 /**
  * Describes a DNS zone.

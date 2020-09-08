@@ -6,21 +6,11 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum AllocationState {
-    Steady = "Steady",
-    Resizing = "Resizing",
-    Stopping = "Stopping",
-}
+export type AllocationState = "Steady" | "Resizing" | "Stopping";
 
-export enum InterNodeCommunicationState {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type InterNodeCommunicationState = "Enabled" | "Disabled";
 
-export enum PoolProvisioningState {
-    Succeeded = "Succeeded",
-    Deleting = "Deleting",
-}
+export type PoolProvisioningState = "Succeeded" | "Deleting";
 
 /**
  * Contains information about a pool.

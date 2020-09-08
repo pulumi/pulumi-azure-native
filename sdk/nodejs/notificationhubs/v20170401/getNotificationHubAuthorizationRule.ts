@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum AccessRights {
-    Manage = "Manage",
-    Send = "Send",
-    Listen = "Listen",
-}
+export type AccessRights = "Manage" | "Send" | "Listen";
 
 export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubAuthorizationRuleResult> {
     if (!opts) {

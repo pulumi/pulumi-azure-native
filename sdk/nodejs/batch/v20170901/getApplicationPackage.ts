@@ -6,11 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum PackageState {
-    Pending = "Pending",
-    Active = "Active",
-    Unmapped = "Unmapped",
-}
+export type PackageState = "Pending" | "Active" | "Unmapped";
 
 export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationPackageResult> {
     if (!opts) {

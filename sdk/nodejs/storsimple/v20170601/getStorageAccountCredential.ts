@@ -6,14 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum Kind {
-    Series8000 = "Series8000",
-}
+export type Kind = "Series8000";
 
-export enum SslStatus {
-    Enabled = "Enabled",
-    Disabled = "Disabled",
-}
+export type SslStatus = "Enabled" | "Disabled";
 
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
     if (!opts) {

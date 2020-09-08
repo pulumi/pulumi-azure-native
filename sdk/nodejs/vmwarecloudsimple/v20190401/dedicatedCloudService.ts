@@ -4,12 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-export enum OnboardingStatus {
-    notOnBoarded = "notOnBoarded",
-    onBoarded = "onBoarded",
-    onBoardingFailed = "onBoardingFailed",
-    onBoarding = "onBoarding",
-}
+export type OnboardingStatus = "notOnBoarded" | "onBoarded" | "onBoardingFailed" | "onBoarding";
 
 /**
  * Dedicated cloud service model

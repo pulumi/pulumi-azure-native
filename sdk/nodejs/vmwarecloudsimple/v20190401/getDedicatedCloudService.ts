@@ -6,12 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum OnboardingStatus {
-    notOnBoarded = "notOnBoarded",
-    onBoarded = "onBoarded",
-    onBoardingFailed = "onBoardingFailed",
-    onBoarding = "onBoarding",
-}
+export type OnboardingStatus = "notOnBoarded" | "onBoarded" | "onBoardingFailed" | "onBoarding";
 
 export function getDedicatedCloudService(args: GetDedicatedCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedCloudServiceResult> {
     if (!opts) {

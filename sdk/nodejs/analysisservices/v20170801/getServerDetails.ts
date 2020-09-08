@@ -6,10 +6,7 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum ConnectionMode {
-    All = "All",
-    ReadOnly = "ReadOnly",
-}
+export type ConnectionMode = "All" | "ReadOnly";
 
 export type ProvisioningState = "Deleting" | "Succeeded" | "Failed" | "Paused" | "Suspended" | "Provisioning" | "Updating" | "Suspending" | "Pausing" | "Resuming" | "Preparing" | "Scaling" | string;
 

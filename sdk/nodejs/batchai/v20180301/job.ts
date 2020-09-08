@@ -6,20 +6,9 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-export enum ExecutionState {
-    queued = "queued",
-    running = "running",
-    terminating = "terminating",
-    succeeded = "succeeded",
-    failed = "failed",
-}
+export type ExecutionState = "queued" | "running" | "terminating" | "succeeded" | "failed";
 
-export enum ProvisioningState {
-    creating = "creating",
-    deleting = "deleting",
-    succeeded = "succeeded",
-    failed = "failed",
-}
+export type ProvisioningState = "creating" | "deleting" | "succeeded" | "failed";
 
 /**
  * Contains information about the job.
