@@ -20,6 +20,7 @@ func TestAccAppServiceTs(t *testing.T) {
 }
 
 func TestAccCosmosDBTs(t *testing.T) {
+	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "cosmosdb"),
