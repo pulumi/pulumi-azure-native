@@ -9,6 +9,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The provider type for the AzureRM package.
 type Provider struct {
 	pulumi.ProviderResourceState
 }
@@ -19,6 +20,36 @@ func NewProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProviderArgs{}
 	}
+	if args.AuxiliaryTenantIds == nil {
+		args.AuxiliaryTenantIds = pulumi.StringArray(getEnvOrDefault("", nil, "ARM_AUXILIARY_TENANT_IDS").(string))
+	}
+	if args.ClientCertificatePassword == nil {
+		args.ClientCertificatePassword = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_CLIENT_CERTIFICATE_PASSWORD").(string))
+	}
+	if args.ClientCertificatePath == nil {
+		args.ClientCertificatePath = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_CLIENT_CERTIFICATE_PATH").(string))
+	}
+	if args.ClientId == nil {
+		args.ClientId = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_CLIENT_ID").(string))
+	}
+	if args.ClientSecret == nil {
+		args.ClientSecret = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_CLIENT_SECRET").(string))
+	}
+	if args.Environment == nil {
+		args.Environment = pulumi.StringPtr(getEnvOrDefault("public", nil, "ARM_ENVIRONMENT").(string))
+	}
+	if args.MsiEndpoint == nil {
+		args.MsiEndpoint = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_MSI_ENDPOINT").(string))
+	}
+	if args.SubscriptionId == nil {
+		args.SubscriptionId = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID").(string))
+	}
+	if args.TenantId == nil {
+		args.TenantId = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_TENANT_ID").(string))
+	}
+	if args.UseMsi == nil {
+		args.UseMsi = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_USE_MSI").(bool))
+	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:azurerm", name, args, &resource, opts...)
 	if err != nil {
@@ -28,10 +59,48 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
+	AuxiliaryTenantIds []string `pulumi:"auxiliaryTenantIds"`
+	// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+	ClientCertificatePassword *string `pulumi:"clientCertificatePassword"`
+	// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
+	ClientCertificatePath *string `pulumi:"clientCertificatePath"`
+	// The Client ID which should be used.
+	ClientId *string `pulumi:"clientId"`
+	// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+	Environment *string `pulumi:"environment"`
+	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
+	MsiEndpoint *string `pulumi:"msiEndpoint"`
+	// The Subscription ID which should be used.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The Tenant ID which should be used.
+	TenantId *string `pulumi:"tenantId"`
+	// Allowed Managed Service Identity be used for Authentication.
+	UseMsi *bool `pulumi:"useMsi"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
+	AuxiliaryTenantIds pulumi.StringArrayInput
+	// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+	ClientCertificatePassword pulumi.StringPtrInput
+	// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
+	ClientCertificatePath pulumi.StringPtrInput
+	// The Client ID which should be used.
+	ClientId pulumi.StringPtrInput
+	// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+	ClientSecret pulumi.StringPtrInput
+	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+	Environment pulumi.StringPtrInput
+	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
+	MsiEndpoint pulumi.StringPtrInput
+	// The Subscription ID which should be used.
+	SubscriptionId pulumi.StringPtrInput
+	// The Tenant ID which should be used.
+	TenantId pulumi.StringPtrInput
+	// Allowed Managed Service Identity be used for Authentication.
+	UseMsi pulumi.BoolPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

@@ -968,20 +968,29 @@ func (k *azurermProvider) getConfig(configName, envName string) string {
 }
 
 func (k *azurermProvider) getAuthConfig() (*authentication.Config, error) {
+	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
+	var auxTenants []string
+	if auxTenantsString != "" {
+		auxTenants = strings.Split(auxTenantsString, ",")
+	}
+	useMsi := k.getConfig("useMsi", "ARM_USE_MSI") == "true"
 	builder := &authentication.Builder{
-		SubscriptionID: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
-		ClientID:       k.getConfig("clientId", "ARM_CLIENT_ID"),
-		ClientSecret:   k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
-		TenantID:       k.getConfig("tenantId", "ARM_TENANT_ID"),
-		Environment:    k.getConfig("environment", "ARM_ENVIRONMENT"),
-		MsiEndpoint:    k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
+		SubscriptionID:     k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
+		ClientID:           k.getConfig("clientId", "ARM_CLIENT_ID"),
+		ClientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
+		TenantID:           k.getConfig("tenantId", "ARM_TENANT_ID"),
+		Environment:        k.getConfig("environment", "ARM_ENVIRONMENT"),
+		ClientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
+		ClientCertPassword: k.getConfig("clientCertificatePassword", "ARM_CLIENT_CERTIFICATE_PASSWORD"),
+		MsiEndpoint:        k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
+		AuxiliaryTenantIDs: auxTenants,
 
 		// Feature Toggles
 		SupportsClientCertAuth:         true,
 		SupportsClientSecretAuth:       true,
-		SupportsManagedServiceIdentity: false,
+		SupportsManagedServiceIdentity: useMsi,
 		SupportsAzureCliToken:          true,
-		SupportsAuxiliaryTenants:       false,
+		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
 	}
 
 	return builder.Build()

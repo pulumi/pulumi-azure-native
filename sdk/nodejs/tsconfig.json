@@ -1818,6 +1818,8 @@
         "compute/v20200930/getGalleryImage.ts",
         "compute/v20200930/getGalleryImageVersion.ts",
         "compute/v20200930/index.ts",
+        "config/index.ts",
+        "config/vars.ts",
         "consumption/index.ts",
         "consumption/latest/budget.ts",
         "consumption/latest/budgetByResourceGroupName.ts",
