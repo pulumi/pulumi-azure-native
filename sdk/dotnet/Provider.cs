@@ -74,6 +74,12 @@ namespace Pulumi.AzureRM
         public Input<string>? ClientSecret { get; set; }
 
         /// <summary>
+        /// This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
+        /// </summary>
+        [Input("disablePulumiPartnerId", json: true)]
+        public Input<bool>? DisablePulumiPartnerId { get; set; }
+
+        /// <summary>
         /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
         /// </summary>
         [Input("environment")]
@@ -84,6 +90,12 @@ namespace Pulumi.AzureRM
         /// </summary>
         [Input("msiEndpoint")]
         public Input<string>? MsiEndpoint { get; set; }
+
+        /// <summary>
+        /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+        /// </summary>
+        [Input("partnerId")]
+        public Input<string>? PartnerId { get; set; }
 
         /// <summary>
         /// The Subscription ID which should be used.
@@ -110,8 +122,10 @@ namespace Pulumi.AzureRM
             ClientCertificatePath = Utilities.GetEnv("ARM_CLIENT_CERTIFICATE_PATH");
             ClientId = Utilities.GetEnv("ARM_CLIENT_ID");
             ClientSecret = Utilities.GetEnv("ARM_CLIENT_SECRET");
+            DisablePulumiPartnerId = Utilities.GetEnvBoolean("ARM_DISABLE_PULUMI_PARTNER_ID");
             Environment = Utilities.GetEnv("ARM_ENVIRONMENT") ?? "public";
             MsiEndpoint = Utilities.GetEnv("ARM_MSI_ENDPOINT");
+            PartnerId = Utilities.GetEnv("ARM_PARTNER_ID");
             SubscriptionId = Utilities.GetEnv("ARM_SUBSCRIPTION_ID");
             TenantId = Utilities.GetEnv("ARM_TENANT_ID");
             UseMsi = Utilities.GetEnvBoolean("ARM_USE_MSI") ?? false;

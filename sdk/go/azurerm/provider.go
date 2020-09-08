@@ -35,11 +35,17 @@ func NewProvider(ctx *pulumi.Context,
 	if args.ClientSecret == nil {
 		args.ClientSecret = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_CLIENT_SECRET").(string))
 	}
+	if args.DisablePulumiPartnerId == nil {
+		args.DisablePulumiPartnerId = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_DISABLE_PULUMI_PARTNER_ID").(bool))
+	}
 	if args.Environment == nil {
 		args.Environment = pulumi.StringPtr(getEnvOrDefault("public", nil, "ARM_ENVIRONMENT").(string))
 	}
 	if args.MsiEndpoint == nil {
 		args.MsiEndpoint = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_MSI_ENDPOINT").(string))
+	}
+	if args.PartnerId == nil {
+		args.PartnerId = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_PARTNER_ID").(string))
 	}
 	if args.SubscriptionId == nil {
 		args.SubscriptionId = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID").(string))
@@ -68,10 +74,14 @@ type providerArgs struct {
 	ClientId *string `pulumi:"clientId"`
 	// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 	ClientSecret *string `pulumi:"clientSecret"`
+	// This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
+	DisablePulumiPartnerId *bool `pulumi:"disablePulumiPartnerId"`
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
 	Environment *string `pulumi:"environment"`
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
 	MsiEndpoint *string `pulumi:"msiEndpoint"`
+	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+	PartnerId *string `pulumi:"partnerId"`
 	// The Subscription ID which should be used.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Tenant ID which should be used.
@@ -91,10 +101,14 @@ type ProviderArgs struct {
 	ClientId pulumi.StringPtrInput
 	// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 	ClientSecret pulumi.StringPtrInput
+	// This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
+	DisablePulumiPartnerId pulumi.BoolPtrInput
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
 	Environment pulumi.StringPtrInput
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
 	MsiEndpoint pulumi.StringPtrInput
+	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+	PartnerId pulumi.StringPtrInput
 	// The Subscription ID which should be used.
 	SubscriptionId pulumi.StringPtrInput
 	// The Tenant ID which should be used.

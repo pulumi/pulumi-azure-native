@@ -21,8 +21,10 @@ class Provider(pulumi.ProviderResource):
                  client_certificate_path: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
+                 disable_pulumi_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
+                 partner_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
@@ -38,8 +40,10 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         :param pulumi.Input[str] client_id: The Client ID which should be used.
         :param pulumi.Input[str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+        :param pulumi.Input[bool] disable_pulumi_partner_id: This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+        :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
         :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
@@ -76,12 +80,18 @@ class Provider(pulumi.ProviderResource):
             if client_secret is None:
                 client_secret = _utilities.get_env('ARM_CLIENT_SECRET')
             __props__['client_secret'] = client_secret
+            if disable_pulumi_partner_id is None:
+                disable_pulumi_partner_id = _utilities.get_env_bool('ARM_DISABLE_PULUMI_PARTNER_ID')
+            __props__['disable_pulumi_partner_id'] = pulumi.Output.from_input(disable_pulumi_partner_id).apply(json.dumps) if disable_pulumi_partner_id is not None else None
             if environment is None:
                 environment = (_utilities.get_env('ARM_ENVIRONMENT') or 'public')
             __props__['environment'] = environment
             if msi_endpoint is None:
                 msi_endpoint = _utilities.get_env('ARM_MSI_ENDPOINT')
             __props__['msi_endpoint'] = msi_endpoint
+            if partner_id is None:
+                partner_id = _utilities.get_env('ARM_PARTNER_ID')
+            __props__['partner_id'] = partner_id
             if subscription_id is None:
                 subscription_id = _utilities.get_env('ARM_SUBSCRIPTION_ID')
             __props__['subscription_id'] = subscription_id

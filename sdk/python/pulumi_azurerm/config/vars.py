@@ -14,8 +14,10 @@ __all__ = [
     'client_certificate_path',
     'client_id',
     'client_secret',
+    'disable_pulumi_partner_id',
     'environment',
     'msi_endpoint',
+    'partner_id',
     'subscription_id',
     'tenant_id',
     'use_msi',
@@ -45,6 +47,11 @@ client_secret = __config__.get('clientSecret')
 The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 """
 
+disable_pulumi_partner_id = __config__.get('disablePulumiPartnerId')
+"""
+This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
+"""
+
 environment = __config__.get('environment')
 """
 The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
@@ -53,6 +60,11 @@ The Cloud Environment which should be used. Possible values are public, usgovern
 msi_endpoint = __config__.get('msiEndpoint')
 """
 The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+"""
+
+partner_id = __config__.get('partnerId')
+"""
+A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 """
 
 subscription_id = __config__.get('subscriptionId')

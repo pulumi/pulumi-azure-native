@@ -32,6 +32,11 @@ func GetClientSecret(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azurerm:clientSecret")
 }
 
+// This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
+func GetDisablePulumiPartnerId(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "azurerm:disablePulumiPartnerId")
+}
+
 // The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
 func GetEnvironment(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azurerm:environment")
@@ -40,6 +45,11 @@ func GetEnvironment(ctx *pulumi.Context) string {
 // The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
 func GetMsiEndpoint(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azurerm:msiEndpoint")
+}
+
+// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+func GetPartnerId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azurerm:partnerId")
 }
 
 // The Subscription ID which should be used.

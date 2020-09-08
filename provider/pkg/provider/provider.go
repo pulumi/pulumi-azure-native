@@ -35,8 +35,10 @@ import (
 const (
 	ActiveDirectoryEndpoint = "https://login.microsoftonline.com/"
 	AuthTokenAudience       = "https://management.azure.com/" //nolint:gosec
-	// DefaultBaseURI is the default URI used for the service
+	// DefaultBaseURI is the default URI used for the service.
 	DefaultBaseURI = "https://management.azure.com"
+	// Microsoft's Pulumi Partner ID.
+	PulumiPartnerID = "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
 )
 
 type azurermProvider struct {
@@ -52,8 +54,8 @@ type azurermProvider struct {
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
 	azureAPIResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
-	// Creating a REST client
-	client := autorest.NewClientWithUserAgent(getUserAgent())
+	// Creating a REST client, defaulting to Pulumi Partner ID until the Configure method is invoked.
+	client := autorest.NewClientWithUserAgent(buildUserAgent(PulumiPartnerID))
 	// Set a long timeout of 2 hours for now.
 	client.PollingDuration = 120 * time.Minute
 
@@ -117,6 +119,7 @@ func (k *azurermProvider) Configure(ctx context.Context, req *rpc.ConfigureReque
 
 	k.subscriptionID = authConfig.SubscriptionID
 	k.client.Authorizer = authorizer
+	k.client.UserAgent = k.getUserAgent()
 
 	return &rpc.ConfigureResponse{}, nil
 }
@@ -1010,7 +1013,23 @@ func (k *azurermProvider) getAuthorizationToken(authConfig *authentication.Confi
 	return authConfig.GetAuthorizationToken(sender, oauthConfig, AuthTokenAudience)
 }
 
-func getUserAgent() (userAgent string) {
+// getUserAgent returns a User Agent string for the current provider configuration.
+func (k *azurermProvider) getUserAgent() string {
+	partnerID := PulumiPartnerID
+	customPartnerID := k.getConfig("partnerId", "ARM_PARTNER_ID")
+	if customPartnerID != "" {
+		partnerID = customPartnerID
+	} else {
+		disablePartnerID := k.getConfig("disablePulumiPartnerId", "ARM_DISABLE_PULUMI_PARTNER_ID")
+		if disablePartnerID == "true" {
+			partnerID = ""
+		}
+	}
+	return buildUserAgent(partnerID)
+}
+
+// buildUserAgent composes a User Agent string with the provided partner ID.
+func buildUserAgent(partnerID string) (userAgent string) {
 	userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azurerm/%s", autorest.UserAgent(), version.Version))
 
 	// append the CloudShell version to the user agent if it exists
@@ -1018,9 +1037,10 @@ func getUserAgent() (userAgent string) {
 		userAgent = fmt.Sprintf("%s %s", userAgent, azureAgent)
 	}
 
-	// Microsoft's Pulumi Partner ID is this specific GUID
-	partnerID := "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
-	userAgent = fmt.Sprintf("%s pid-%s", userAgent, partnerID)
+	// Append partner ID, if it's defined.
+	if partnerID != "" {
+		userAgent = fmt.Sprintf("%s pid-%s", userAgent, partnerID)
+	}
 
 	glog.V(9).Infof("AzureRM User Agent: %s", userAgent)
 	return

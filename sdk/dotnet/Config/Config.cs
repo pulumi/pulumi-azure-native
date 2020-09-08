@@ -31,6 +31,11 @@ namespace Pulumi.AzureRM
         public static string? ClientSecret { get; set; } = __config.Get("clientSecret");
 
         /// <summary>
+        /// This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
+        /// </summary>
+        public static bool? DisablePulumiPartnerId { get; set; } = __config.GetBoolean("disablePulumiPartnerId");
+
+        /// <summary>
         /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
         /// </summary>
         public static string? Environment { get; set; } = __config.Get("environment");
@@ -39,6 +44,11 @@ namespace Pulumi.AzureRM
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
         /// </summary>
         public static string? MsiEndpoint { get; set; } = __config.Get("msiEndpoint");
+
+        /// <summary>
+        /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+        /// </summary>
+        public static string? PartnerId { get; set; } = __config.Get("partnerId");
 
         /// <summary>
         /// The Subscription ID which should be used.

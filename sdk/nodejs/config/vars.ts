@@ -24,6 +24,10 @@ export let clientId: string | undefined = __config.get("clientId");
  */
 export let clientSecret: string | undefined = __config.get("clientSecret");
 /**
+ * This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
+ */
+export let disablePulumiPartnerId: boolean | undefined = __config.getObject<boolean>("disablePulumiPartnerId");
+/**
  * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
  */
 export let environment: string | undefined = __config.get("environment");
@@ -31,6 +35,10 @@ export let environment: string | undefined = __config.get("environment");
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
  */
 export let msiEndpoint: string | undefined = __config.get("msiEndpoint");
+/**
+ * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+ */
+export let partnerId: string | undefined = __config.get("partnerId");
 /**
  * The Subscription ID which should be used.
  */
