@@ -9,14 +9,14 @@ import (
 
 var p *azurermProvider
 var sampleSdkProps map[string]interface{}
-var sampleApiPackage map[string]interface{}
+var sampleAPIPackage map[string]interface{}
 
 func init() {
 	p = &azurermProvider{
-		resourceMap: &AzureApiMetadata{
-			Types: map[string]AzureApiType{
+		resourceMap: &AzureAPIMetadata{
+			Types: map[string]AzureAPIType{
 				"azurerm:testing:Structure": {
-					Properties: map[string]AzureApiProperty{
+					Properties: map[string]AzureAPIProperty{
 						"v1": {},
 						"v2": {},
 						"v3-odd": {
@@ -29,16 +29,16 @@ func init() {
 					},
 				},
 				"azurerm:testing:More": {
-					Properties: map[string]AzureApiProperty{
+					Properties: map[string]AzureAPIProperty{
 						"items": {
-							Items: &AzureApiProperty{
+							Items: &AzureAPIProperty{
 								Ref: "#/types/azurerm:testing:MoreItem",
 							},
 						},
 					},
 				},
 				"azurerm:testing:MoreItem": {
-					Properties: map[string]AzureApiProperty{
+					Properties: map[string]AzureAPIProperty{
 						"aaa": {
 							SdkName: "Aaa",
 						},
@@ -48,7 +48,7 @@ func init() {
 					},
 				},
 				"azurerm:testing:OptionA": {
-					Properties: map[string]AzureApiProperty{
+					Properties: map[string]AzureAPIProperty{
 						"type": {
 							Const: "AAA",
 						},
@@ -58,7 +58,7 @@ func init() {
 					},
 				},
 				"azurerm:testing:OptionB": {
-					Properties: map[string]AzureApiProperty{
+					Properties: map[string]AzureAPIProperty{
 						"type": {
 							Const: "BBB",
 						},
@@ -68,12 +68,12 @@ func init() {
 					},
 				},
 			},
-			Resources: map[string]AzureApiResource{
+			Resources: map[string]AzureAPIResource{
 				"r1": {
-					PutParameters: []AzureApiParameter{
+					PutParameters: []AzureAPIParameter{
 						{
-							Body: &AzureApiType{
-								Properties: map[string]AzureApiProperty{
+							Body: &AzureAPIType{
+								Properties: map[string]AzureAPIProperty{
 									"name": {},
 									"x-threshold": {
 										SdkName: "threshold",
@@ -99,7 +99,7 @@ func init() {
 							},
 						},
 					},
-					Response: map[string]AzureApiProperty{
+					Response: map[string]AzureAPIProperty{
 						"name": {},
 						"x-threshold": {
 							SdkName: "threshold",
@@ -127,7 +127,7 @@ func init() {
 		},
 	}
 
-	sampleApiPackage = map[string]interface{}{
+	sampleAPIPackage = map[string]interface{}{
 		"name":        "MyResource",
 		"x-threshold": 123,
 		"structure": map[string]interface{}{
@@ -178,7 +178,7 @@ func init() {
 		},
 		"union": map[string]interface{}{
 			"type": "BBB",
-			"b": "valueOfB",
+			"b":    "valueOfB",
 		},
 		"tags": map[string]interface{}{
 			"createdBy":   "admin",
@@ -188,12 +188,12 @@ func init() {
 }
 
 func TestResponseToSdkOutputs(t *testing.T) {
-	outputs := p.responseToSdkOutputs(p.resourceMap.Resources["r1"].Response, sampleApiPackage)
+	outputs := p.responseToSdkOutputs(p.resourceMap.Resources["r1"].Response, sampleAPIPackage)
 	assert.Equal(t, sampleSdkProps, outputs)
 }
 
 func TestSdkPropertiesToRequest(t *testing.T) {
 	bodyProperties := p.resourceMap.Resources["r1"].PutParameters[0].Body.Properties
 	data := p.sdkPropertiesToRequest(bodyProperties, sampleSdkProps)
-	assert.Equal(t, sampleApiPackage, data)
+	assert.Equal(t, sampleAPIPackage, data)
 }

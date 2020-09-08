@@ -8,8 +8,8 @@ import (
 	"github.com/gedex/inflector"
 )
 
-// AzureApiParameter represents a parameter of a Azure REST API endpoint.
-type AzureApiParameter struct {
+// AzureAPIParameter represents a parameter of a Azure REST API endpoint.
+type AzureAPIParameter struct {
 	Name string `json:"name"`
 	// Location defines the parameter's place the HTTP request: "path", "query", or "body".
 	Location string `json:"location"`
@@ -18,15 +18,15 @@ type AzureApiParameter struct {
 	// IsRequired is true for mandatory parameters.
 	IsRequired bool `json:"required,omitempty"`
 	// Value contains metadata for path/query parameters.
-	Value *AzureApiProperty `json:"value"`
+	Value *AzureAPIProperty `json:"value"`
 	// Body contains metadata for the body parameter.
-	Body *AzureApiType `json:"body,omitempty"`
+	Body *AzureAPIType `json:"body,omitempty"`
 }
 
-// AzureApiProperty represents validation constraints for a single parameter or body property.
-type AzureApiProperty struct {
+// AzureAPIProperty represents validation constraints for a single parameter or body property.
+type AzureAPIProperty struct {
 	Type      string            `json:"type,omitempty"`
-	Items     *AzureApiProperty `json:"items,omitempty"`
+	Items     *AzureAPIProperty `json:"items,omitempty"`
 	Enum      []string          `json:"enum,omitempty"`
 	OneOf     []string          `json:"oneOf,omitempty"`
 	Ref       string            `json:"$ref,omitempty"`
@@ -46,35 +46,35 @@ type AzureApiProperty struct {
 	ForceNew bool `json:"forceNew,omitempty"`
 }
 
-// AzureApiType represents the shape of an object property.
-type AzureApiType struct {
-	Properties         map[string]AzureApiProperty `json:"properties,omitempty"`
+// AzureAPIType represents the shape of an object property.
+type AzureAPIType struct {
+	Properties         map[string]AzureAPIProperty `json:"properties,omitempty"`
 	RequiredProperties []string                    `json:"required,omitempty"`
 }
 
-// AzureApiResource is a resource in Azure REST API.
-type AzureApiResource struct {
-	ApiVersion    string                      `json:"apiVersion"`
+// AzureAPIResource is a resource in Azure REST API.
+type AzureAPIResource struct {
+	APIVersion    string                      `json:"apiVersion"`
 	Path          string                      `json:"path"`
-	GetParameters []AzureApiParameter         `json:"GET"`
-	PutParameters []AzureApiParameter         `json:"PUT"`
-	Response      map[string]AzureApiProperty `json:"response"`
+	GetParameters []AzureAPIParameter         `json:"GET"`
+	PutParameters []AzureAPIParameter         `json:"PUT"`
+	Response      map[string]AzureAPIProperty `json:"response"`
 }
 
-// AzureApiInvoke is an invocation target (a function) in Azure REST API.
-type AzureApiInvoke struct {
-	ApiVersion     string                      `json:"apiVersion"`
+// AzureAPIInvoke is an invocation target (a function) in Azure REST API.
+type AzureAPIInvoke struct {
+	APIVersion     string                      `json:"apiVersion"`
 	Path           string                      `json:"path"`
-	GetParameters  []AzureApiParameter         `json:"GET"`
-	PostParameters []AzureApiParameter         `json:"POST"`
-	Response       map[string]AzureApiProperty `json:"response"`
+	GetParameters  []AzureAPIParameter         `json:"GET"`
+	PostParameters []AzureAPIParameter         `json:"POST"`
+	Response       map[string]AzureAPIProperty `json:"response"`
 }
 
-// AzureApiMetadata is a collection of all resources and functions in the Azure REST API surface.
-type AzureApiMetadata struct {
-	Types     map[string]AzureApiType     `json:"types"`
-	Resources map[string]AzureApiResource `json:"resources"`
-	Invokes   map[string]AzureApiInvoke   `json:"invokes"`
+// AzureAPIMetadata is a collection of all resources and functions in the Azure REST API surface.
+type AzureAPIMetadata struct {
+	Types     map[string]AzureAPIType     `json:"types"`
+	Resources map[string]AzureAPIResource `json:"resources"`
+	Invokes   map[string]AzureAPIInvoke   `json:"invokes"`
 }
 
 // ResourceProvider returns a provider name given resource's PUT path.
@@ -112,8 +112,8 @@ func init() {
 
 // ResourceName constructs a name of a resource based on Get or List operation ID,
 // e.g. "Managers_GetActivationKey" -> "ManagerActivationKey".
-func ResourceName(operationId string) string {
-	parts := strings.Split(operationId, "_")
+func ResourceName(operationID string) string {
+	parts := strings.Split(operationID, "_")
 	var name, verb string
 	if len(parts) == 1 {
 		verb = parts[0]

@@ -10,13 +10,13 @@ import (
 )
 
 func TestCalculateDiffBodyProperties(t *testing.T) {
-	res := AzureApiResource{
-		PutParameters: []AzureApiParameter{
+	res := AzureAPIResource{
+		PutParameters: []AzureAPIParameter{
 			{
 				Location: "body",
 				Name:     "bodyProperties",
-				Body: &AzureApiType{
-					Properties: map[string]AzureApiProperty{
+				Body: &AzureAPIType{
+					Properties: map[string]AzureAPIProperty{
 						"p1": {Type: "string"},
 						"p2": {Type: "number"},
 						"p3": {Type: "boolean"},
@@ -81,8 +81,8 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 }
 
 func TestCalculateDiffReplacesPathParameters(t *testing.T) {
-	res := AzureApiResource{
-		PutParameters: []AzureApiParameter{
+	res := AzureAPIResource{
+		PutParameters: []AzureAPIParameter{
 			{
 				Location: "path",
 				Name:     "p1",
@@ -90,7 +90,7 @@ func TestCalculateDiffReplacesPathParameters(t *testing.T) {
 			{
 				Location: "path",
 				Name:     "p2",
-				Value: &AzureApiProperty{
+				Value: &AzureAPIProperty{
 					SdkName: "Prop2",
 				},
 			},

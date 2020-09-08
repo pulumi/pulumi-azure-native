@@ -9,10 +9,10 @@ import (
 )
 
 // Serve launches the gRPC server for the resource provider.
-func Serve(providerName, version string, schemaBytes []byte, azureApiResourcesBytes []byte) {
+func Serve(providerName, version string, schemaBytes []byte, azureAPIResourcesBytes []byte) {
 	// Start gRPC service.
 	err := provider.Main(providerName, func(host *provider.HostClient) (rpc.ResourceProviderServer, error) {
-		return makeProvider(host, providerName, version, schemaBytes, azureApiResourcesBytes)
+		return makeProvider(host, providerName, version, schemaBytes, azureAPIResourcesBytes)
 	})
 	if err != nil {
 		cmdutil.ExitError(err.Error())

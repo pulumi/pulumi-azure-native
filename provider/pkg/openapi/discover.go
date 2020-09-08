@@ -55,7 +55,7 @@ func Providers() AzureProviders {
 	// Collect all versions for each path in the API across all Swagger files.
 	for _, swagger := range specs {
 		for path := range swagger.Paths.Paths {
-			addApiPath(providers, path, swagger)
+			addAPIPath(providers, path, swagger)
 		}
 	}
 
@@ -63,7 +63,7 @@ func Providers() AzureProviders {
 		// Add a `latest` (stable) version for each resource and invoke.
 		latestResources := calculateLatestVersions(versionMap, false /* invokes */, false /* preview */)
 		latestInvokes := calculateLatestVersions(versionMap, true /* invokes */, false /* preview */)
-		versionMap["latest"] = VersionResources {
+		versionMap["latest"] = VersionResources{
 			Resources: latestResources,
 			Invokes:   latestInvokes,
 		}
@@ -105,9 +105,9 @@ func swaggerLocations() ([]string, error) {
 	return files, nil
 }
 
-// addApiPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
+// addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
-func addApiPath(providers AzureProviders, path string, spec *Spec) {
+func addAPIPath(providers AzureProviders, path string, spec *Spec) {
 	prov := provider.ResourceProvider(path)
 	if prov == "" {
 		return
@@ -165,7 +165,8 @@ func addApiPath(providers AzureProviders, path string, spec *Spec) {
 
 // calculateLatestVersions builds a map of latest versions per API paths from a map of all versions of a resource
 // provider. The result is a map from a resource type name to resource specs.
-func calculateLatestVersions(versionMap ProviderVersions, invokes, preview bool) (latestResources map[string]*ResourceSpec)  {
+func calculateLatestVersions(versionMap ProviderVersions, invokes,
+	preview bool) (latestResources map[string]*ResourceSpec) {
 	var versions []string
 	for version := range versionMap {
 		if preview || !strings.Contains(version, "preview") {
@@ -194,7 +195,7 @@ func calculateLatestVersions(versionMap ProviderVersions, invokes, preview bool)
 			latestResources[typeName] = &copyResource
 		}
 	}
-	return
+	return latestResources
 }
 
 // calculatePathVersions builds a map of all versions defined for an API paths from a map of all versions of a resource
@@ -212,7 +213,7 @@ func calculatePathVersions(versionMap ProviderVersions) (pathVersions map[string
 			versions.Add(version)
 		}
 	}
-	return
+	return pathVersions
 }
 
 // normalizePath converts an API path to its canonical form (lowercase, with all placeholders removed). The paths that
