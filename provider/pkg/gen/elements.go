@@ -662,7 +662,9 @@ func extractType(info map[string]interface{}) (string, error) {
 	}
 
 	switch typeStr {
-	case "int", "bool", "string", "object", "array":
+	case "int":
+		return "number", nil
+	case "bool", "string", "object", "array":
 		return typeStr, nil
 	case "securestring":
 		return "string", nil // TODO: Fix this

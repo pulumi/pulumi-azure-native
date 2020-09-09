@@ -65,64 +65,69 @@ func RenderTemplate(templates map[string]*jsonx.Node, metadata *provider.AzureAp
 	templ := TemplateElements{}
 
 	for _, root := range templates {
-		rootValue := jsonx.NodeValue(*root)
-		for key, f := range rootValue.(map[string]interface{}) {
-			switch key {
-			case "$schema", "contentVersion", "apiProfile":
-				// Ignore this
-			case "parameters":
-				fObj, ok := f.(map[string]interface{})
+		rootValue := jsonx.NodeValue(*root).(map[string]interface{})
+		if f, ok := rootValue["parameters"]; ok {
+			const key = "parameters"
+			fObj, ok := f.(map[string]interface{})
+			if !ok {
+				return nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
+			}
+
+			for param, f := range fObj {
+				fMap, ok := f.(map[string]interface{})
 				if !ok {
-					return nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
+					return nil, fmt.Errorf("expect param %s to be defined with a map, got %T", param, f)
 				}
 
-				for param, f := range fObj {
-					fMap, ok := f.(map[string]interface{})
-					if !ok {
-						return nil, fmt.Errorf("expect param %s to be defined with a map, got %T", param, f)
-					}
-
-					if err := templ.AddParameter(param, fMap); err != nil {
-						return nil, err
-					}
+				if err := templ.AddParameter(param, fMap); err != nil {
+					return nil, err
 				}
-			case "variables":
-				fObj, ok := f.(map[string]interface{})
+			}
+		}
+
+		if f, ok := rootValue["variables"]; ok {
+			const key = "variables"
+			fObj, ok := f.(map[string]interface{})
+			if !ok {
+				return nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
+			}
+
+			for varName, f := range fObj {
+				if err := templ.AddVariable(varName, f); err != nil {
+					return nil, err
+				}
+			}
+		}
+
+		if f, ok := rootValue["resources"]; ok {
+			const key = "resources"
+			fObj, ok := f.([]interface{})
+			if !ok {
+				return nil, fmt.Errorf("expect %s block to be a list, got: %T", key, f)
+			}
+
+			for _, res := range fObj {
+				resMap, ok := res.(map[string]interface{})
 				if !ok {
-					return nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
+					return nil, fmt.Errorf("expect resource body to be a map, got: %T", res)
 				}
 
-				for varName, f := range fObj {
-					if err := templ.AddVariable(varName, f); err != nil {
-						return nil, err
-					}
+				if err := templ.AddResource(resMap); err != nil {
+					return nil, err
 				}
-			case "resources":
-				fObj, ok := f.([]interface{})
-				if !ok {
-					return nil, fmt.Errorf("expect %s block to be a list, got: %T", key, f)
-				}
+			}
+		}
 
-				for _, res := range fObj {
-					resMap, ok := res.(map[string]interface{})
-					if !ok {
-						return nil, fmt.Errorf("expect resource body to be a map, got: %T", res)
-					}
+		if f, ok := rootValue["outputs"]; ok {
+			const key = "outputs"
+			fObj, ok := f.(map[string]interface{})
+			if !ok {
+				return nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
+			}
 
-					if err := templ.AddResource(resMap); err != nil {
-						return nil, err
-					}
-				}
-			case "outputs":
-				fObj, ok := f.(map[string]interface{})
-				if !ok {
-					return nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
-				}
-
-				for outputName, args := range fObj {
-					if err := templ.AddOutput(outputName, args.(map[string]interface{})); err != nil {
-						return nil, err
-					}
+			for outputName, args := range fObj {
+				if err := templ.AddOutput(outputName, args.(map[string]interface{})); err != nil {
+					return nil, err
 				}
 			}
 		}
