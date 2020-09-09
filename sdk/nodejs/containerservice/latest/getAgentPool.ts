@@ -97,9 +97,17 @@ export interface GetAgentPoolResult {
      */
     readonly osDiskSizeGB?: number;
     /**
+     * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+     */
+    readonly osDiskType?: string;
+    /**
      * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
      */
     readonly osType?: string;
+    /**
+     * Describes whether the Agent Pool is Running or Stopped
+     */
+    readonly powerState: outputs.containerservice.latest.PowerStateResponse;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */

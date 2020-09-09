@@ -28,6 +28,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview.Inputs
         public Input<bool>? IsArchiveEnabled { get; set; }
 
         /// <summary>
+        /// The template that describes the repository and tag information for run log artifact.
+        /// </summary>
+        [Input("logTemplate")]
+        public Input<string>? LogTemplate { get; set; }
+
+        /// <summary>
         /// Set of overridable parameters that can be passed when running a Task.
         /// </summary>
         [Input("overrideTaskStepProperties")]

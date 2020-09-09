@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview.Outputs
         /// </summary>
         public readonly bool? IsPushEnabled;
         /// <summary>
+        /// The template that describes the repository and tag information for run log artifact.
+        /// </summary>
+        public readonly string? LogTemplate;
+        /// <summary>
         /// The value of this property indicates whether the image cache is enabled or not.
         /// </summary>
         public readonly bool? NoCache;
@@ -89,6 +93,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview.Outputs
 
             bool? isPushEnabled,
 
+            string? logTemplate,
+
             bool? noCache,
 
             Outputs.PlatformPropertiesResponseResult platform,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview.Outputs
             ImageNames = imageNames;
             IsArchiveEnabled = isArchiveEnabled;
             IsPushEnabled = isPushEnabled;
+            LogTemplate = logTemplate;
             NoCache = noCache;
             Platform = platform;
             SourceLocation = sourceLocation;

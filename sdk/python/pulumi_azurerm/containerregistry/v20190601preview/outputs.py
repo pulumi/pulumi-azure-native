@@ -452,6 +452,7 @@ class DockerBuildRequestResponse(dict):
                  image_names: Optional[List[str]] = None,
                  is_archive_enabled: Optional[bool] = None,
                  is_push_enabled: Optional[bool] = None,
+                 log_template: Optional[str] = None,
                  no_cache: Optional[bool] = None,
                  source_location: Optional[str] = None,
                  target: Optional[str] = None,
@@ -468,6 +469,7 @@ class DockerBuildRequestResponse(dict):
         :param List[str] image_names: The fully qualified image names including the repository and tag.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
         :param bool is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
+        :param str log_template: The template that describes the repository and tag information for run log artifact.
         :param bool no_cache: The value of this property indicates whether the image cache is enabled or not.
         :param str source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
                If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
@@ -491,6 +493,8 @@ class DockerBuildRequestResponse(dict):
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_push_enabled is not None:
             pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
         if no_cache is not None:
             pulumi.set(__self__, "no_cache", no_cache)
         if source_location is not None:
@@ -579,6 +583,14 @@ class DockerBuildRequestResponse(dict):
         The value of this property indicates whether the image built should be pushed to the registry or not.
         """
         return pulumi.get(self, "is_push_enabled")
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[str]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
 
     @property
     @pulumi.getter(name="noCache")
@@ -762,6 +774,7 @@ class EncodedTaskRunRequestResponse(dict):
                  credentials: Optional['outputs.CredentialsResponse'] = None,
                  encoded_values_content: Optional[str] = None,
                  is_archive_enabled: Optional[bool] = None,
+                 log_template: Optional[str] = None,
                  source_location: Optional[str] = None,
                  timeout: Optional[float] = None,
                  values: Optional[List['outputs.SetValueResponse']] = None):
@@ -775,6 +788,7 @@ class EncodedTaskRunRequestResponse(dict):
         :param 'CredentialsResponseArgs' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param str encoded_values_content: Base64 encoded value of the parameters/values file content.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
+        :param str log_template: The template that describes the repository and tag information for run log artifact.
         :param str source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
                If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
         :param float timeout: Run timeout in seconds.
@@ -793,6 +807,8 @@ class EncodedTaskRunRequestResponse(dict):
             pulumi.set(__self__, "encoded_values_content", encoded_values_content)
         if is_archive_enabled is not None:
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
         if source_location is not None:
             pulumi.set(__self__, "source_location", source_location)
         if timeout is not None:
@@ -863,6 +879,14 @@ class EncodedTaskRunRequestResponse(dict):
         The value that indicates whether archiving is enabled for the run or not.
         """
         return pulumi.get(self, "is_archive_enabled")
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[str]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
 
     @property
     @pulumi.getter(name="sourceLocation")
@@ -1001,6 +1025,7 @@ class FileTaskRunRequestResponse(dict):
                  agent_pool_name: Optional[str] = None,
                  credentials: Optional['outputs.CredentialsResponse'] = None,
                  is_archive_enabled: Optional[bool] = None,
+                 log_template: Optional[str] = None,
                  source_location: Optional[str] = None,
                  timeout: Optional[float] = None,
                  values: Optional[List['outputs.SetValueResponse']] = None,
@@ -1014,6 +1039,7 @@ class FileTaskRunRequestResponse(dict):
         :param str agent_pool_name: The dedicated agent pool for the run.
         :param 'CredentialsResponseArgs' credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
+        :param str log_template: The template that describes the repository and tag information for run log artifact.
         :param str source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
                If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
         :param float timeout: Run timeout in seconds.
@@ -1031,6 +1057,8 @@ class FileTaskRunRequestResponse(dict):
             pulumi.set(__self__, "credentials", credentials)
         if is_archive_enabled is not None:
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
         if source_location is not None:
             pulumi.set(__self__, "source_location", source_location)
         if timeout is not None:
@@ -1095,6 +1123,14 @@ class FileTaskRunRequestResponse(dict):
         The value that indicates whether archiving is enabled for the run or not.
         """
         return pulumi.get(self, "is_archive_enabled")
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[str]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
 
     @property
     @pulumi.getter(name="sourceLocation")
@@ -1548,6 +1584,7 @@ class RunResponse(dict):
     """
     def __init__(__self__, *,
                  id: str,
+                 log_artifact: 'outputs.ImageDescriptorResponse',
                  name: str,
                  run_error_message: str,
                  type: str,
@@ -1574,6 +1611,7 @@ class RunResponse(dict):
         """
         Run resource properties
         :param str id: The resource ID.
+        :param 'ImageDescriptorResponseArgs' log_artifact: The image description for the log artifact.
         :param str name: The name of the resource.
         :param str run_error_message: The error message received from backend systems after the run is scheduled.
         :param str type: The type of the resource.
@@ -1599,6 +1637,7 @@ class RunResponse(dict):
         :param str update_trigger_token: The update trigger token passed for the Run.
         """
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "log_artifact", log_artifact)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "run_error_message", run_error_message)
         pulumi.set(__self__, "type", type)
@@ -1650,6 +1689,14 @@ class RunResponse(dict):
         The resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="logArtifact")
+    def log_artifact(self) -> 'outputs.ImageDescriptorResponse':
+        """
+        The image description for the log artifact.
+        """
+        return pulumi.get(self, "log_artifact")
 
     @property
     @pulumi.getter
@@ -2190,6 +2237,7 @@ class TaskRunRequestResponse(dict):
                  type: str,
                  agent_pool_name: Optional[str] = None,
                  is_archive_enabled: Optional[bool] = None,
+                 log_template: Optional[str] = None,
                  override_task_step_properties: Optional['outputs.OverrideTaskStepPropertiesResponse'] = None):
         """
         The parameters for a task run request.
@@ -2197,6 +2245,7 @@ class TaskRunRequestResponse(dict):
         :param str type: The type of the run request.
         :param str agent_pool_name: The dedicated agent pool for the run.
         :param bool is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
+        :param str log_template: The template that describes the repository and tag information for run log artifact.
         :param 'OverrideTaskStepPropertiesResponseArgs' override_task_step_properties: Set of overridable parameters that can be passed when running a Task.
         """
         pulumi.set(__self__, "task_id", task_id)
@@ -2205,6 +2254,8 @@ class TaskRunRequestResponse(dict):
             pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         if is_archive_enabled is not None:
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
         if override_task_step_properties is not None:
             pulumi.set(__self__, "override_task_step_properties", override_task_step_properties)
 
@@ -2239,6 +2290,14 @@ class TaskRunRequestResponse(dict):
         The value that indicates whether archiving is enabled for the run or not.
         """
         return pulumi.get(self, "is_archive_enabled")
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[str]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
 
     @property
     @pulumi.getter(name="overrideTaskStepProperties")

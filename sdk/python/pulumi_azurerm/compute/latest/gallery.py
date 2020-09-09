@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._inputs import *
 
 __all__ = ['Gallery']
 
@@ -20,6 +21,7 @@ class Gallery(pulumi.CustomResource):
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sharing_profile: Optional[pulumi.Input[pulumi.InputType['SharingProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,6 +35,7 @@ class Gallery(pulumi.CustomResource):
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[pulumi.InputType['SharingProfileArgs']] sharing_profile: Profile for gallery sharing to subscription or tenant
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
@@ -62,12 +65,13 @@ class Gallery(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sharing_profile'] = sharing_profile
             __props__['tags'] = tags
             __props__['identifier'] = None
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20180601:Gallery"), pulumi.Alias(type_="azurerm:compute/v20190301:Gallery"), pulumi.Alias(type_="azurerm:compute/v20190701:Gallery"), pulumi.Alias(type_="azurerm:compute/v20191201:Gallery")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20180601:Gallery"), pulumi.Alias(type_="azurerm:compute/v20190301:Gallery"), pulumi.Alias(type_="azurerm:compute/v20190701:Gallery"), pulumi.Alias(type_="azurerm:compute/v20191201:Gallery"), pulumi.Alias(type_="azurerm:compute/v20200930:Gallery")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gallery, __self__).__init__(
             'azurerm:compute/latest:Gallery',
@@ -132,6 +136,14 @@ class Gallery(pulumi.CustomResource):
         The provisioning state, which only appears in the response.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sharingProfile")
+    def sharing_profile(self) -> pulumi.Output[Optional['outputs.SharingProfileResponse']]:
+        """
+        Profile for gallery sharing to subscription or tenant
+        """
+        return pulumi.get(self, "sharing_profile")
 
     @property
     @pulumi.getter

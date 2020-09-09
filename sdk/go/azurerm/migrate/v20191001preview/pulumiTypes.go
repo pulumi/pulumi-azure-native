@@ -318,7 +318,7 @@ type Identity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// Gets or sets the tenant id.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of identity used for the region move service.
+	// The type of identity used for the resource mover service.
 	Type *string `pulumi:"type"`
 }
 
@@ -339,7 +339,7 @@ type IdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// Gets or sets the tenant id.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of identity used for the region move service.
+	// The type of identity used for the resource mover service.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -431,7 +431,7 @@ func (o IdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the region move service.
+// The type of identity used for the resource mover service.
 func (o IdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -474,7 +474,7 @@ func (o IdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the region move service.
+// The type of identity used for the resource mover service.
 func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -490,7 +490,7 @@ type IdentityResponse struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// Gets or sets the tenant id.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of identity used for the region move service.
+	// The type of identity used for the resource mover service.
 	Type *string `pulumi:"type"`
 }
 
@@ -511,7 +511,7 @@ type IdentityResponseArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// Gets or sets the tenant id.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of identity used for the region move service.
+	// The type of identity used for the resource mover service.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -603,7 +603,7 @@ func (o IdentityResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the region move service.
+// The type of identity used for the resource mover service.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -646,7 +646,7 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the region move service.
+// The type of identity used for the resource mover service.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -2813,7 +2813,7 @@ func (o MoveResourceErrorBodyResponseArrayOutput) Index(i pulumi.IntInput) MoveR
 	}).(MoveResourceErrorBodyResponseOutput)
 }
 
-// An error response from the azure region move service.
+// An error response from the azure resource mover service.
 type MoveResourceErrorResponse struct {
 	// The move resource error body.
 	Properties *MoveResourceErrorBodyResponse `pulumi:"properties"`
@@ -2830,7 +2830,7 @@ type MoveResourceErrorResponseInput interface {
 	ToMoveResourceErrorResponseOutputWithContext(context.Context) MoveResourceErrorResponseOutput
 }
 
-// An error response from the azure region move service.
+// An error response from the azure resource mover service.
 type MoveResourceErrorResponseArgs struct {
 	// The move resource error body.
 	Properties MoveResourceErrorBodyResponsePtrInput `pulumi:"properties"`
@@ -2889,7 +2889,7 @@ func (i *moveResourceErrorResponsePtrType) ToMoveResourceErrorResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourceErrorResponsePtrOutput)
 }
 
-// An error response from the azure region move service.
+// An error response from the azure resource mover service.
 type MoveResourceErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (MoveResourceErrorResponseOutput) ElementType() reflect.Type {
@@ -3602,7 +3602,7 @@ func (o MoveResourcePropertiesResponseErrorsPtrOutput) Properties() MoveResource
 
 // Defines the move resource status.
 type MoveResourcePropertiesResponseMoveStatus struct {
-	// An error response from the azure region move service.
+	// An error response from the azure resource mover service.
 	Errors *MoveResourceErrorResponse `pulumi:"errors"`
 	// Defines the job status.
 	JobStatus *JobStatusResponse `pulumi:"jobStatus"`
@@ -3625,7 +3625,7 @@ type MoveResourcePropertiesResponseMoveStatusInput interface {
 
 // Defines the move resource status.
 type MoveResourcePropertiesResponseMoveStatusArgs struct {
-	// An error response from the azure region move service.
+	// An error response from the azure resource mover service.
 	Errors MoveResourceErrorResponsePtrInput `pulumi:"errors"`
 	// Defines the job status.
 	JobStatus JobStatusResponsePtrInput `pulumi:"jobStatus"`
@@ -3713,7 +3713,7 @@ func (o MoveResourcePropertiesResponseMoveStatusOutput) ToMoveResourceProperties
 	}).(MoveResourcePropertiesResponseMoveStatusPtrOutput)
 }
 
-// An error response from the azure region move service.
+// An error response from the azure resource mover service.
 func (o MoveResourcePropertiesResponseMoveStatusOutput) Errors() MoveResourceErrorResponsePtrOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponseMoveStatus) *MoveResourceErrorResponse { return v.Errors }).(MoveResourceErrorResponsePtrOutput)
 }
@@ -3751,7 +3751,7 @@ func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) Elem() MoveResourcePr
 	return o.ApplyT(func(v *MoveResourcePropertiesResponseMoveStatus) MoveResourcePropertiesResponseMoveStatus { return *v }).(MoveResourcePropertiesResponseMoveStatusOutput)
 }
 
-// An error response from the azure region move service.
+// An error response from the azure resource mover service.
 func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) Errors() MoveResourceErrorResponsePtrOutput {
 	return o.ApplyT(func(v *MoveResourcePropertiesResponseMoveStatus) *MoveResourceErrorResponse {
 		if v == nil {

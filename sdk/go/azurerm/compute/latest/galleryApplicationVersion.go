@@ -20,9 +20,9 @@ type GalleryApplicationVersion struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image version.
 	PublishingProfile GalleryApplicationVersionPublishingProfileResponseOutput `pulumi:"publishingProfile"`
-	// This is the replication status of the gallery Image Version.
+	// This is the replication status of the gallery image version.
 	ReplicationStatus ReplicationStatusResponseOutput `pulumi:"replicationStatus"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -64,6 +64,9 @@ func NewGalleryApplicationVersion(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:compute/v20191201:GalleryApplicationVersion"),
 		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200930:GalleryApplicationVersion"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GalleryApplicationVersion
@@ -94,9 +97,9 @@ type galleryApplicationVersionState struct {
 	Name *string `pulumi:"name"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image version.
 	PublishingProfile *GalleryApplicationVersionPublishingProfileResponse `pulumi:"publishingProfile"`
-	// This is the replication status of the gallery Image Version.
+	// This is the replication status of the gallery image version.
 	ReplicationStatus *ReplicationStatusResponse `pulumi:"replicationStatus"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -111,9 +114,9 @@ type GalleryApplicationVersionState struct {
 	Name pulumi.StringPtrInput
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringPtrInput
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image version.
 	PublishingProfile GalleryApplicationVersionPublishingProfileResponsePtrInput
-	// This is the replication status of the gallery Image Version.
+	// This is the replication status of the gallery image version.
 	ReplicationStatus ReplicationStatusResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
@@ -134,7 +137,7 @@ type galleryApplicationVersionArgs struct {
 	GalleryName string `pulumi:"galleryName"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image version.
 	PublishingProfile GalleryApplicationVersionPublishingProfile `pulumi:"publishingProfile"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -152,7 +155,7 @@ type GalleryApplicationVersionArgs struct {
 	GalleryName pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image version.
 	PublishingProfile GalleryApplicationVersionPublishingProfileInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput

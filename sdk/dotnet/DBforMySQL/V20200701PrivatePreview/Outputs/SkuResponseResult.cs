@@ -16,17 +16,17 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview.Outputs
         /// <summary>
         /// The name of the sku, e.g. Standard_D32s_v3.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// The tier of the particular SKU, e.g. GeneralPurpose.
         /// </summary>
-        public readonly string? Tier;
+        public readonly string Tier;
 
         [OutputConstructor]
         private SkuResponseResult(
-            string? name,
+            string name,
 
-            string? tier)
+            string tier)
         {
             Name = name;
             Tier = tier;

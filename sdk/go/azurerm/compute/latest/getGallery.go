@@ -21,6 +21,8 @@ type LookupGalleryArgs struct {
 	GalleryName string `pulumi:"galleryName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The select expression to apply on the operation.
+	Select *string `pulumi:"select"`
 }
 
 // Specifies information about the Shared Image Gallery that you want to create or update.
@@ -35,6 +37,8 @@ type LookupGalleryResult struct {
 	Name string `pulumi:"name"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Profile for gallery sharing to subscription or tenant
+	SharingProfile *SharingProfileResponse `pulumi:"sharingProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

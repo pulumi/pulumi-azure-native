@@ -63,6 +63,8 @@ type LookupManagedClusterResult struct {
 	NetworkProfile *ContainerServiceNetworkProfileResponse `pulumi:"networkProfile"`
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
+	// Represents the Power State of the cluster
+	PowerState PowerStateResponse `pulumi:"powerState"`
 	// FQDN of private cluster.
 	PrivateFQDN string `pulumi:"privateFQDN"`
 	// The current deployment or provisioning state, which only appears in the response.

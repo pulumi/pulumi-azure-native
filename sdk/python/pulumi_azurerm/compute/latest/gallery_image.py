@@ -21,6 +21,7 @@ class GalleryImage(pulumi.CustomResource):
                  disallowed: Optional[pulumi.Input[pulumi.InputType['DisallowedArgs']]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GalleryImageFeatureArgs']]]]] = None,
                  gallery_image_name: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -38,23 +39,24 @@ class GalleryImage(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Specifies information about the gallery Image Definition that you want to create or update.
+        Specifies information about the gallery image definition that you want to create or update.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of this gallery Image Definition resource. This property is updatable.
+        :param pulumi.Input[str] description: The description of this gallery image definition resource. This property is updatable.
         :param pulumi.Input[pulumi.InputType['DisallowedArgs']] disallowed: Describes the disallowed disk types.
-        :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
-        :param pulumi.Input[str] eula: The Eula agreement for the gallery Image Definition.
-        :param pulumi.Input[str] gallery_image_name: The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+        :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
+        :param pulumi.Input[str] eula: The Eula agreement for the gallery image definition.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GalleryImageFeatureArgs']]]] features: A list of gallery image features.
+        :param pulumi.Input[str] gallery_image_name: The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition is to be created.
         :param pulumi.Input[str] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-        :param pulumi.Input[pulumi.InputType['GalleryImageIdentifierArgs']] identifier: This is the gallery Image Definition identifier.
+        :param pulumi.Input[pulumi.InputType['GalleryImageIdentifierArgs']] identifier: This is the gallery image definition identifier.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         :param pulumi.Input[str] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
-        :param pulumi.Input[pulumi.InputType['ImagePurchasePlanArgs']] purchase_plan: Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        :param pulumi.Input[pulumi.InputType['ImagePurchasePlanArgs']] purchase_plan: Describes the gallery image definition purchase plan. This is used by marketplace images.
         :param pulumi.Input[pulumi.InputType['RecommendedMachineConfigurationArgs']] recommended: The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         :param pulumi.Input[str] release_note_uri: The release note uri.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -81,6 +83,7 @@ class GalleryImage(pulumi.CustomResource):
             __props__['disallowed'] = disallowed
             __props__['end_of_life_date'] = end_of_life_date
             __props__['eula'] = eula
+            __props__['features'] = features
             if gallery_image_name is None:
                 raise TypeError("Missing required property 'gallery_image_name'")
             __props__['gallery_image_name'] = gallery_image_name
@@ -111,7 +114,7 @@ class GalleryImage(pulumi.CustomResource):
             __props__['name'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20190301:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20190301:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryImage"), pulumi.Alias(type_="azurerm:compute/v20200930:GalleryImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImage, __self__).__init__(
             'azurerm:compute/latest:GalleryImage',
@@ -141,7 +144,7 @@ class GalleryImage(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of this gallery Image Definition resource. This property is updatable.
+        The description of this gallery image definition resource. This property is updatable.
         """
         return pulumi.get(self, "description")
 
@@ -157,7 +160,7 @@ class GalleryImage(pulumi.CustomResource):
     @pulumi.getter(name="endOfLifeDate")
     def end_of_life_date(self) -> pulumi.Output[Optional[str]]:
         """
-        The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+        The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         """
         return pulumi.get(self, "end_of_life_date")
 
@@ -165,9 +168,17 @@ class GalleryImage(pulumi.CustomResource):
     @pulumi.getter
     def eula(self) -> pulumi.Output[Optional[str]]:
         """
-        The Eula agreement for the gallery Image Definition.
+        The Eula agreement for the gallery image definition.
         """
         return pulumi.get(self, "eula")
+
+    @property
+    @pulumi.getter
+    def features(self) -> pulumi.Output[Optional[List['outputs.GalleryImageFeatureResponse']]]:
+        """
+        A list of gallery image features.
+        """
+        return pulumi.get(self, "features")
 
     @property
     @pulumi.getter(name="hyperVGeneration")
@@ -181,7 +192,7 @@ class GalleryImage(pulumi.CustomResource):
     @pulumi.getter
     def identifier(self) -> pulumi.Output['outputs.GalleryImageIdentifierResponse']:
         """
-        This is the gallery Image Definition identifier.
+        This is the gallery image definition identifier.
         """
         return pulumi.get(self, "identifier")
 
@@ -237,7 +248,7 @@ class GalleryImage(pulumi.CustomResource):
     @pulumi.getter(name="purchasePlan")
     def purchase_plan(self) -> pulumi.Output[Optional['outputs.ImagePurchasePlanResponse']]:
         """
-        Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        Describes the gallery image definition purchase plan. This is used by marketplace images.
         """
         return pulumi.get(self, "purchase_plan")
 

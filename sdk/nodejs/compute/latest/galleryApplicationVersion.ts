@@ -49,11 +49,11 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The publishing profile of a gallery Image Version.
+     * The publishing profile of a gallery image version.
      */
     public readonly publishingProfile!: pulumi.Output<outputs.compute.latest.GalleryApplicationVersionPublishingProfileResponse>;
     /**
-     * This is the replication status of the gallery Image Version.
+     * This is the replication status of the gallery image version.
      */
     public /*out*/ readonly replicationStatus!: pulumi.Output<outputs.compute.latest.ReplicationStatusResponse>;
     /**
@@ -120,7 +120,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20190301:GalleryApplicationVersion" }, { type: "azurerm:compute/v20190701:GalleryApplicationVersion" }, { type: "azurerm:compute/v20191201:GalleryApplicationVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20190301:GalleryApplicationVersion" }, { type: "azurerm:compute/v20190701:GalleryApplicationVersion" }, { type: "azurerm:compute/v20191201:GalleryApplicationVersion" }, { type: "azurerm:compute/v20200930:GalleryApplicationVersion" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryApplicationVersion.__pulumiType, name, inputs, opts);
     }
@@ -147,7 +147,7 @@ export interface GalleryApplicationVersionArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The publishing profile of a gallery Image Version.
+     * The publishing profile of a gallery image version.
      */
     readonly publishingProfile: pulumi.Input<inputs.compute.latest.GalleryApplicationVersionPublishingProfile>;
     /**

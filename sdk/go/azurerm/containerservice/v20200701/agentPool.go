@@ -118,6 +118,9 @@ func NewAgentPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:containerservice/v20200601:AgentPool"),
 		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20200901:AgentPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AgentPool

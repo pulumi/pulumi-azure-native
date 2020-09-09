@@ -4,3 +4,5 @@
 // Export members:
 export * from "./dashboard";
 export * from "./getDashboard";
+export * from "./getTenantConfiguration";
+export * from "./tenantConfiguration";

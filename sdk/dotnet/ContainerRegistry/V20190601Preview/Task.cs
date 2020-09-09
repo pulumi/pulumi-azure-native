@@ -46,10 +46,22 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         public Output<Outputs.IdentityPropertiesResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The value of this property indicates whether the task resource is system task or not.
+        /// </summary>
+        [Output("isSystemTask")]
+        public Output<bool?> IsSystemTask { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The template that describes the repository and tag information for run log artifact.
+        /// </summary>
+        [Output("logTemplate")]
+        public Output<string?> LogTemplate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -61,7 +73,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The platform properties against which the run has to happen.
         /// </summary>
         [Output("platform")]
-        public Output<Outputs.PlatformPropertiesResponseResult> Platform { get; private set; } = null!;
+        public Output<Outputs.PlatformPropertiesResponseResult?> Platform { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the task.
@@ -79,7 +91,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The properties of a task step.
         /// </summary>
         [Output("step")]
-        public Output<Union<Outputs.DockerBuildStepResponseResult, Union<Outputs.EncodedTaskStepResponseResult, Outputs.FileTaskStepResponseResult>>> Step { get; private set; } = null!;
+        public Output<Union<Outputs.DockerBuildStepResponseResult, Union<Outputs.EncodedTaskStepResponseResult, Outputs.FileTaskStepResponseResult>>?> Step { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -181,16 +193,28 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         public Input<Inputs.IdentityPropertiesArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The value of this property indicates whether the task resource is system task or not.
+        /// </summary>
+        [Input("isSystemTask")]
+        public Input<bool>? IsSystemTask { get; set; }
+
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// The template that describes the repository and tag information for run log artifact.
+        /// </summary>
+        [Input("logTemplate")]
+        public Input<string>? LogTemplate { get; set; }
+
+        /// <summary>
         /// The platform properties against which the run has to happen.
         /// </summary>
-        [Input("platform", required: true)]
-        public Input<Inputs.PlatformPropertiesArgs> Platform { get; set; } = null!;
+        [Input("platform")]
+        public Input<Inputs.PlatformPropertiesArgs>? Platform { get; set; }
 
         /// <summary>
         /// The name of the container registry.
@@ -213,8 +237,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// <summary>
         /// The properties of a task step.
         /// </summary>
-        [Input("step", required: true)]
-        public InputUnion<Inputs.DockerBuildStepArgs, InputUnion<Inputs.EncodedTaskStepArgs, Inputs.FileTaskStepArgs>> Step { get; set; } = null!;
+        [Input("step")]
+        public InputUnion<Inputs.DockerBuildStepArgs, InputUnion<Inputs.EncodedTaskStepArgs, Inputs.FileTaskStepArgs>>? Step { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -18,14 +18,14 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview.Inputs
         /// <summary>
         /// The name of the sku, e.g. Standard_D32s_v3.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The tier of the particular SKU, e.g. GeneralPurpose.
         /// </summary>
-        [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        [Input("tier", required: true)]
+        public Input<string> Tier { get; set; } = null!;
 
         public SkuArgs()
         {

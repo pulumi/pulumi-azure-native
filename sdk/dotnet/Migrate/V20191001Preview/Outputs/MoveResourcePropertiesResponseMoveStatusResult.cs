@@ -14,7 +14,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001Preview.Outputs
     public sealed class MoveResourcePropertiesResponseMoveStatusResult
     {
         /// <summary>
-        /// An error response from the azure region move service.
+        /// An error response from the azure resource mover service.
         /// </summary>
         public readonly Outputs.MoveResourceErrorResponseResult? Errors;
         /// <summary>

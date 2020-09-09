@@ -10,21 +10,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Specifies information about the gallery Image Definition that you want to create or update.
+// Specifies information about the gallery image definition that you want to create or update.
 type GalleryImage struct {
 	pulumi.CustomResourceState
 
-	// The description of this gallery Image Definition resource. This property is updatable.
+	// The description of this gallery image definition resource. This property is updatable.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Describes the disallowed disk types.
 	Disallowed DisallowedResponsePtrOutput `pulumi:"disallowed"`
-	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate pulumi.StringPtrOutput `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery Image Definition.
+	// The Eula agreement for the gallery image definition.
 	Eula pulumi.StringPtrOutput `pulumi:"eula"`
+	// A list of gallery image features.
+	Features GalleryImageFeatureResponseArrayOutput `pulumi:"features"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
-	// This is the gallery Image Definition identifier.
+	// This is the gallery image definition identifier.
 	Identifier GalleryImageIdentifierResponseOutput `pulumi:"identifier"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -38,7 +40,7 @@ type GalleryImage struct {
 	PrivacyStatementUri pulumi.StringPtrOutput `pulumi:"privacyStatementUri"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+	// Describes the gallery image definition purchase plan. This is used by marketplace images.
 	PurchasePlan ImagePurchasePlanResponsePtrOutput `pulumi:"purchasePlan"`
 	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 	Recommended RecommendedMachineConfigurationResponsePtrOutput `pulumi:"recommended"`
@@ -90,6 +92,9 @@ func NewGalleryImage(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:compute/v20191201:GalleryImage"),
 		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200930:GalleryImage"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GalleryImage
@@ -114,17 +119,19 @@ func GetGalleryImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GalleryImage resources.
 type galleryImageState struct {
-	// The description of this gallery Image Definition resource. This property is updatable.
+	// The description of this gallery image definition resource. This property is updatable.
 	Description *string `pulumi:"description"`
 	// Describes the disallowed disk types.
 	Disallowed *DisallowedResponse `pulumi:"disallowed"`
-	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery Image Definition.
+	// The Eula agreement for the gallery image definition.
 	Eula *string `pulumi:"eula"`
+	// A list of gallery image features.
+	Features []GalleryImageFeatureResponse `pulumi:"features"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// This is the gallery Image Definition identifier.
+	// This is the gallery image definition identifier.
 	Identifier *GalleryImageIdentifierResponse `pulumi:"identifier"`
 	// Resource location
 	Location *string `pulumi:"location"`
@@ -138,7 +145,7 @@ type galleryImageState struct {
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+	// Describes the gallery image definition purchase plan. This is used by marketplace images.
 	PurchasePlan *ImagePurchasePlanResponse `pulumi:"purchasePlan"`
 	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 	Recommended *RecommendedMachineConfigurationResponse `pulumi:"recommended"`
@@ -151,17 +158,19 @@ type galleryImageState struct {
 }
 
 type GalleryImageState struct {
-	// The description of this gallery Image Definition resource. This property is updatable.
+	// The description of this gallery image definition resource. This property is updatable.
 	Description pulumi.StringPtrInput
 	// Describes the disallowed disk types.
 	Disallowed DisallowedResponsePtrInput
-	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate pulumi.StringPtrInput
-	// The Eula agreement for the gallery Image Definition.
+	// The Eula agreement for the gallery image definition.
 	Eula pulumi.StringPtrInput
+	// A list of gallery image features.
+	Features GalleryImageFeatureResponseArrayInput
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration pulumi.StringPtrInput
-	// This is the gallery Image Definition identifier.
+	// This is the gallery image definition identifier.
 	Identifier GalleryImageIdentifierResponsePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
@@ -175,7 +184,7 @@ type GalleryImageState struct {
 	PrivacyStatementUri pulumi.StringPtrInput
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringPtrInput
-	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+	// Describes the gallery image definition purchase plan. This is used by marketplace images.
 	PurchasePlan ImagePurchasePlanResponsePtrInput
 	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 	Recommended RecommendedMachineConfigurationResponsePtrInput
@@ -192,21 +201,23 @@ func (GalleryImageState) ElementType() reflect.Type {
 }
 
 type galleryImageArgs struct {
-	// The description of this gallery Image Definition resource. This property is updatable.
+	// The description of this gallery image definition resource. This property is updatable.
 	Description *string `pulumi:"description"`
 	// Describes the disallowed disk types.
 	Disallowed *Disallowed `pulumi:"disallowed"`
-	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery Image Definition.
+	// The Eula agreement for the gallery image definition.
 	Eula *string `pulumi:"eula"`
-	// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+	// A list of gallery image features.
+	Features []GalleryImageFeature `pulumi:"features"`
+	// The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
 	GalleryImageName string `pulumi:"galleryImageName"`
 	// The name of the Shared Image Gallery in which the Image Definition is to be created.
 	GalleryName string `pulumi:"galleryName"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// This is the gallery Image Definition identifier.
+	// This is the gallery image definition identifier.
 	Identifier GalleryImageIdentifier `pulumi:"identifier"`
 	// Resource location
 	Location string `pulumi:"location"`
@@ -216,7 +227,7 @@ type galleryImageArgs struct {
 	OsType string `pulumi:"osType"`
 	// The privacy statement uri.
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
-	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+	// Describes the gallery image definition purchase plan. This is used by marketplace images.
 	PurchasePlan *ImagePurchasePlan `pulumi:"purchasePlan"`
 	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 	Recommended *RecommendedMachineConfiguration `pulumi:"recommended"`
@@ -230,21 +241,23 @@ type galleryImageArgs struct {
 
 // The set of arguments for constructing a GalleryImage resource.
 type GalleryImageArgs struct {
-	// The description of this gallery Image Definition resource. This property is updatable.
+	// The description of this gallery image definition resource. This property is updatable.
 	Description pulumi.StringPtrInput
 	// Describes the disallowed disk types.
 	Disallowed DisallowedPtrInput
-	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate pulumi.StringPtrInput
-	// The Eula agreement for the gallery Image Definition.
+	// The Eula agreement for the gallery image definition.
 	Eula pulumi.StringPtrInput
-	// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+	// A list of gallery image features.
+	Features GalleryImageFeatureArrayInput
+	// The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
 	GalleryImageName pulumi.StringInput
 	// The name of the Shared Image Gallery in which the Image Definition is to be created.
 	GalleryName pulumi.StringInput
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration pulumi.StringPtrInput
-	// This is the gallery Image Definition identifier.
+	// This is the gallery image definition identifier.
 	Identifier GalleryImageIdentifierInput
 	// Resource location
 	Location pulumi.StringInput
@@ -254,7 +267,7 @@ type GalleryImageArgs struct {
 	OsType pulumi.StringInput
 	// The privacy statement uri.
 	PrivacyStatementUri pulumi.StringPtrInput
-	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+	// Describes the gallery image definition purchase plan. This is used by marketplace images.
 	PurchasePlan ImagePurchasePlanPtrInput
 	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 	Recommended RecommendedMachineConfigurationPtrInput

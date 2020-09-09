@@ -57,6 +57,10 @@ export class Gallery extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Profile for gallery sharing to subscription or tenant
+     */
+    public readonly sharingProfile!: pulumi.Output<outputs.compute.latest.SharingProfileResponse | undefined>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -88,6 +92,7 @@ export class Gallery extends pulumi.CustomResource {
             inputs["galleryName"] = args ? args.galleryName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sharingProfile"] = args ? args.sharingProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["identifier"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -99,6 +104,7 @@ export class Gallery extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["sharingProfile"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -109,7 +115,7 @@ export class Gallery extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20180601:Gallery" }, { type: "azurerm:compute/v20190301:Gallery" }, { type: "azurerm:compute/v20190701:Gallery" }, { type: "azurerm:compute/v20191201:Gallery" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20180601:Gallery" }, { type: "azurerm:compute/v20190301:Gallery" }, { type: "azurerm:compute/v20190701:Gallery" }, { type: "azurerm:compute/v20191201:Gallery" }, { type: "azurerm:compute/v20200930:Gallery" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Gallery.__pulumiType, name, inputs, opts);
     }
@@ -135,6 +141,10 @@ export interface GalleryArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Profile for gallery sharing to subscription or tenant
+     */
+    readonly sharingProfile?: pulumi.Input<inputs.compute.latest.SharingProfile>;
     /**
      * Resource tags
      */

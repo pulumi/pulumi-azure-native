@@ -27,10 +27,28 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
+        /// availability Zone information of the server.
+        /// </summary>
+        [Output("availabilityZone")]
+        public Output<string?> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// Status showing whether the data encryption is enabled with customer-managed keys.
+        /// </summary>
+        [Output("byokEnforcement")]
+        public Output<string> ByokEnforcement { get; private set; } = null!;
+
+        /// <summary>
         /// The mode to create a new MySQL server.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Delegated subnet arguments.
+        /// </summary>
+        [Output("delegatedSubnetArguments")]
+        public Output<Outputs.DelegatedSubnetArgumentsResponseResult?> DelegatedSubnetArguments { get; private set; } = null!;
 
         /// <summary>
         /// Earliest restore point creation time (ISO8601 format)
@@ -43,6 +61,12 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// </summary>
         [Output("fullyQualifiedDomainName")]
         public Output<string> FullyQualifiedDomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable HA or not for a server.
+        /// </summary>
+        [Output("haEnabled")]
+        public Output<string?> HaEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The state of a HA server.
@@ -69,16 +93,16 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Maintenance window of a server.
+        /// </summary>
+        [Output("maintenanceWindow")]
+        public Output<Outputs.MaintenanceWindowResponseResult?> MaintenanceWindow { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The primary server id of a replica server.
-        /// </summary>
-        [Output("primaryServerId")]
-        public Output<string> PrimaryServerId { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -111,7 +135,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The source MySQL server name to restore from.
+        /// The source MySQL server id.
         /// </summary>
         [Output("sourceServerId")]
         public Output<string?> SourceServerId { get; private set; } = null!;
@@ -123,10 +147,10 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         public Output<string?> SslEnforcement { get; private set; } = null!;
 
         /// <summary>
-        /// stand by count value can be either 0 or 1
+        /// availability Zone information of the server.
         /// </summary>
-        [Output("standbyCount")]
-        public Output<int?> StandbyCount { get; private set; } = null!;
+        [Output("standByAvailabilityZone")]
+        public Output<string> StandByAvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// The state of a server.
@@ -157,12 +181,6 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
-
-        /// <summary>
-        /// Vnet arguments.
-        /// </summary>
-        [Output("vnetInjArgs")]
-        public Output<Outputs.VnetInjArgsResponseResult?> VnetInjArgs { get; private set; } = null!;
 
 
         /// <summary>
@@ -222,16 +240,34 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         public Input<string>? AdministratorLoginPassword { get; set; }
 
         /// <summary>
+        /// availability Zone information of the server.
+        /// </summary>
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
+
+        /// <summary>
         /// The mode to create a new MySQL server.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
+        /// Delegated subnet arguments.
+        /// </summary>
+        [Input("delegatedSubnetArguments")]
+        public Input<Inputs.DelegatedSubnetArgumentsArgs>? DelegatedSubnetArguments { get; set; }
+
+        /// <summary>
         /// Earliest restore point creation time (ISO8601 format)
         /// </summary>
         [Input("earliestRestoreDate")]
         public Input<string>? EarliestRestoreDate { get; set; }
+
+        /// <summary>
+        /// Enable HA or not for a server.
+        /// </summary>
+        [Input("haEnabled")]
+        public Input<string>? HaEnabled { get; set; }
 
         /// <summary>
         /// The Azure Active Directory identity of the server.
@@ -250,6 +286,12 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Maintenance window of a server.
+        /// </summary>
+        [Input("maintenanceWindow")]
+        public Input<Inputs.MaintenanceWindowArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -294,7 +336,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         /// <summary>
-        /// The source MySQL server name to restore from.
+        /// The source MySQL server id.
         /// </summary>
         [Input("sourceServerId")]
         public Input<string>? SourceServerId { get; set; }
@@ -304,12 +346,6 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// </summary>
         [Input("sslEnforcement")]
         public Input<string>? SslEnforcement { get; set; }
-
-        /// <summary>
-        /// stand by count value can be either 0 or 1
-        /// </summary>
-        [Input("standbyCount")]
-        public Input<int>? StandbyCount { get; set; }
 
         /// <summary>
         /// Storage profile of a server.
@@ -334,12 +370,6 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
-
-        /// <summary>
-        /// Vnet arguments.
-        /// </summary>
-        [Input("vnetInjArgs")]
-        public Input<Inputs.VnetInjArgsArgs>? VnetInjArgs { get; set; }
 
         public ServerArgs()
         {

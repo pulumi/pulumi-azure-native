@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The publishing profile of a gallery Image Version.
+        /// The publishing profile of a gallery image version.
         /// </summary>
         public readonly Outputs.GalleryApplicationVersionPublishingProfileResponseResult PublishingProfile;
         /// <summary>
-        /// This is the replication status of the gallery Image Version.
+        /// This is the replication status of the gallery image version.
         /// </summary>
         public readonly Outputs.ReplicationStatusResponseResult ReplicationStatus;
         /// <summary>

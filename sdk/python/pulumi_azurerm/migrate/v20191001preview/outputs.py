@@ -144,7 +144,7 @@ class IdentityResponse(dict):
         Defines the MSI properties of the Move Collection.
         :param str principal_id: Gets or sets the principal id.
         :param str tenant_id: Gets or sets the tenant id.
-        :param str type: The type of identity used for the region move service.
+        :param str type: The type of identity used for the resource mover service.
         """
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
@@ -173,7 +173,7 @@ class IdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of identity used for the region move service.
+        The type of identity used for the resource mover service.
         """
         return pulumi.get(self, "type")
 
@@ -716,12 +716,12 @@ class MoveResourceErrorBodyResponse(dict):
 @pulumi.output_type
 class MoveResourceErrorResponse(dict):
     """
-    An error response from the azure region move service.
+    An error response from the azure resource mover service.
     """
     def __init__(__self__, *,
                  properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
         """
-        An error response from the azure region move service.
+        An error response from the azure resource mover service.
         :param 'MoveResourceErrorBodyResponseArgs' properties: The move resource error body.
         """
         if properties is not None:
@@ -906,7 +906,7 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
         """
         Defines the move resource status.
         :param str target_id: Gets the Target ARM Id of the resource.
-        :param 'MoveResourceErrorResponseArgs' errors: An error response from the azure region move service.
+        :param 'MoveResourceErrorResponseArgs' errors: An error response from the azure resource mover service.
         :param 'JobStatusResponseArgs' job_status: Defines the job status.
         :param str move_state: Defines the MoveResource states.
         """
@@ -930,7 +930,7 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
     @pulumi.getter
     def errors(self) -> Optional['outputs.MoveResourceErrorResponse']:
         """
-        An error response from the azure region move service.
+        An error response from the azure resource mover service.
         """
         return pulumi.get(self, "errors")
 

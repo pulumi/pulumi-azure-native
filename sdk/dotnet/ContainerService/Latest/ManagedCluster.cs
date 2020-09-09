@@ -129,6 +129,12 @@ namespace Pulumi.AzureRM.ContainerService.Latest
         public Output<string?> NodeResourceGroup { get; private set; } = null!;
 
         /// <summary>
+        /// Represents the Power State of the cluster
+        /// </summary>
+        [Output("powerState")]
+        public Output<Outputs.PowerStateResponseResult> PowerState { get; private set; } = null!;
+
+        /// <summary>
         /// FQDN of private cluster.
         /// </summary>
         [Output("privateFQDN")]
@@ -210,6 +216,7 @@ namespace Pulumi.AzureRM.ContainerService.Latest
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20200401:ManagedCluster"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20200601:ManagedCluster"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20200701:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200901:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

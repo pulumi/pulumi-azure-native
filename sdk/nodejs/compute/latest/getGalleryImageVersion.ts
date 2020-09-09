@@ -29,11 +29,11 @@ export interface GetGalleryImageVersionArgs {
      */
     readonly expand?: string;
     /**
-     * The name of the gallery Image Definition in which the Image Version resides.
+     * The name of the gallery image definition in which the Image Version resides.
      */
     readonly galleryImageName: string;
     /**
-     * The name of the gallery Image Version to be retrieved.
+     * The name of the gallery image version to be retrieved.
      */
     readonly galleryImageVersionName: string;
     /**
@@ -47,7 +47,7 @@ export interface GetGalleryImageVersionArgs {
 }
 
 /**
- * Specifies information about the gallery Image Version that you want to create or update.
+ * Specifies information about the gallery image version that you want to create or update.
  */
 export interface GetGalleryImageVersionResult {
     /**
@@ -63,11 +63,11 @@ export interface GetGalleryImageVersionResult {
      */
     readonly provisioningState: string;
     /**
-     * The publishing profile of a gallery Image Version.
+     * The publishing profile of a gallery image Version.
      */
     readonly publishingProfile?: outputs.compute.latest.GalleryImageVersionPublishingProfileResponse;
     /**
-     * This is the replication status of the gallery Image Version.
+     * This is the replication status of the gallery image version.
      */
     readonly replicationStatus: outputs.compute.latest.ReplicationStatusResponse;
     /**

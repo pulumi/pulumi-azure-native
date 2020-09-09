@@ -44,9 +44,21 @@ export interface GetServerResult {
      */
     readonly administratorLoginPassword?: string;
     /**
+     * availability Zone information of the server.
+     */
+    readonly availabilityZone?: string;
+    /**
+     * Status showing whether the data encryption is enabled with customer-managed keys.
+     */
+    readonly byokEnforcement: string;
+    /**
      * The mode to create a new MySQL server.
      */
     readonly createMode?: string;
+    /**
+     * Delegated subnet arguments.
+     */
+    readonly delegatedSubnetArguments?: outputs.dbformysql.v20200701privatepreview.DelegatedSubnetArgumentsResponse;
     /**
      * Earliest restore point creation time (ISO8601 format)
      */
@@ -55,6 +67,10 @@ export interface GetServerResult {
      * The fully qualified domain name of a server.
      */
     readonly fullyQualifiedDomainName: string;
+    /**
+     * Enable HA or not for a server.
+     */
+    readonly haEnabled?: string;
     /**
      * The state of a HA server.
      */
@@ -72,13 +88,13 @@ export interface GetServerResult {
      */
     readonly location: string;
     /**
+     * Maintenance window of a server.
+     */
+    readonly maintenanceWindow?: outputs.dbformysql.v20200701privatepreview.MaintenanceWindowResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * The primary server id of a replica server.
-     */
-    readonly primaryServerId: string;
     /**
      * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
@@ -100,7 +116,7 @@ export interface GetServerResult {
      */
     readonly sku?: outputs.dbformysql.v20200701privatepreview.SkuResponse;
     /**
-     * The source MySQL server name to restore from.
+     * The source MySQL server id.
      */
     readonly sourceServerId?: string;
     /**
@@ -108,9 +124,9 @@ export interface GetServerResult {
      */
     readonly sslEnforcement?: string;
     /**
-     * stand by count value can be either 0 or 1
+     * availability Zone information of the server.
      */
-    readonly standbyCount?: number;
+    readonly standByAvailabilityZone: string;
     /**
      * The state of a server.
      */
@@ -131,8 +147,4 @@ export interface GetServerResult {
      * Server version.
      */
     readonly version?: string;
-    /**
-     * Vnet arguments.
-     */
-    readonly vnetInjArgs?: outputs.dbformysql.v20200701privatepreview.VnetInjArgsResponse;
 }

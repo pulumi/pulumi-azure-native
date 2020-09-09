@@ -29,12 +29,20 @@ type LookupServerResult struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password of the administrator login (required for server creation).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// availability Zone information of the server.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Status showing whether the data encryption is enabled with customer-managed keys.
+	ByokEnforcement string `pulumi:"byokEnforcement"`
 	// The mode to create a new MySQL server.
 	CreateMode *string `pulumi:"createMode"`
+	// Delegated subnet arguments.
+	DelegatedSubnetArguments *DelegatedSubnetArgumentsResponse `pulumi:"delegatedSubnetArguments"`
 	// Earliest restore point creation time (ISO8601 format)
 	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
+	// Enable HA or not for a server.
+	HaEnabled *string `pulumi:"haEnabled"`
 	// The state of a HA server.
 	HaState string `pulumi:"haState"`
 	// The Azure Active Directory identity of the server.
@@ -43,10 +51,10 @@ type LookupServerResult struct {
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// Maintenance window of a server.
+	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The primary server id of a replica server.
-	PrimaryServerId string `pulumi:"primaryServerId"`
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a primary server can have.
@@ -57,12 +65,12 @@ type LookupServerResult struct {
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// The SKU (pricing tier) of the server.
 	Sku *SkuResponse `pulumi:"sku"`
-	// The source MySQL server name to restore from.
+	// The source MySQL server id.
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
-	// stand by count value can be either 0 or 1
-	StandbyCount *int `pulumi:"standbyCount"`
+	// availability Zone information of the server.
+	StandByAvailabilityZone string `pulumi:"standByAvailabilityZone"`
 	// The state of a server.
 	State string `pulumi:"state"`
 	// Storage profile of a server.
@@ -73,6 +81,4 @@ type LookupServerResult struct {
 	Type string `pulumi:"type"`
 	// Server version.
 	Version *string `pulumi:"version"`
-	// Vnet arguments.
-	VnetInjArgs *VnetInjArgsResponse `pulumi:"vnetInjArgs"`
 }

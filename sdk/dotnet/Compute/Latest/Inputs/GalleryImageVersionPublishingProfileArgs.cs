@@ -11,12 +11,12 @@ namespace Pulumi.AzureRM.Compute.Latest.Inputs
 {
 
     /// <summary>
-    /// The publishing profile of a gallery Image Version.
+    /// The publishing profile of a gallery image Version.
     /// </summary>
     public sealed class GalleryImageVersionPublishingProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+        /// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         /// </summary>
         [Input("endOfLifeDate")]
         public Input<string>? EndOfLifeDate { get; set; }

@@ -63,11 +63,11 @@ export interface GetGalleryApplicationVersionResult {
      */
     readonly provisioningState: string;
     /**
-     * The publishing profile of a gallery Image Version.
+     * The publishing profile of a gallery image version.
      */
     readonly publishingProfile: outputs.compute.latest.GalleryApplicationVersionPublishingProfileResponse;
     /**
-     * This is the replication status of the gallery Image Version.
+     * This is the replication status of the gallery image version.
      */
     readonly replicationStatus: outputs.compute.latest.ReplicationStatusResponse;
     /**

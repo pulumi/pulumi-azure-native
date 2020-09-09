@@ -48,6 +48,7 @@ __all__ = [
     'OpenShiftManagedClusterIdentityProviderResponse',
     'OpenShiftManagedClusterMasterPoolProfileResponse',
     'OpenShiftRouterProfileResponse',
+    'PowerStateResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'PurchasePlanResponse',
@@ -1069,6 +1070,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  node_image_version: str,
+                 power_state: 'outputs.PowerStateResponse',
                  provisioning_state: str,
                  availability_zones: Optional[List[str]] = None,
                  count: Optional[float] = None,
@@ -1082,6 +1084,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  node_taints: Optional[List[str]] = None,
                  orchestrator_version: Optional[str] = None,
                  os_disk_size_gb: Optional[float] = None,
+                 os_disk_type: Optional[str] = None,
                  os_type: Optional[str] = None,
                  proximity_placement_group_id: Optional[str] = None,
                  scale_set_eviction_policy: Optional[str] = None,
@@ -1096,6 +1099,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         Profile for the container service agent pool.
         :param str name: Unique name of the agent pool profile in the context of the subscription and resource group.
         :param str node_image_version: Version of node image
+        :param 'PowerStateResponseArgs' power_state: Describes whether the Agent Pool is Running or Stopped
         :param str provisioning_state: The current deployment or provisioning state, which only appears in the response.
         :param List[str] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
         :param float count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
@@ -1109,6 +1113,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param List[str] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param str orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param float os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param str os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param str proximity_placement_group_id: The ID for Proximity Placement Group.
         :param str scale_set_eviction_policy: ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
@@ -1122,6 +1127,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "node_image_version", node_image_version)
+        pulumi.set(__self__, "power_state", power_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
@@ -1147,6 +1153,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "orchestrator_version", orchestrator_version)
         if os_disk_size_gb is not None:
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if os_disk_type is not None:
+            pulumi.set(__self__, "os_disk_type", os_disk_type)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if proximity_placement_group_id is not None:
@@ -1183,6 +1191,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         Version of node image
         """
         return pulumi.get(self, "node_image_version")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> 'outputs.PowerStateResponse':
+        """
+        Describes whether the Agent Pool is Running or Stopped
+        """
+        return pulumi.get(self, "power_state")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -1287,6 +1303,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
         return pulumi.get(self, "os_disk_size_gb")
+
+    @property
+    @pulumi.getter(name="osDiskType")
+    def os_disk_type(self) -> Optional[str]:
+        """
+        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        """
+        return pulumi.get(self, "os_disk_type")
 
     @property
     @pulumi.getter(name="osType")
@@ -1635,21 +1659,38 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     """
     def __init__(__self__, *,
                  balance_similar_node_groups: Optional[str] = None,
+                 expander: Optional[str] = None,
+                 max_empty_bulk_delete: Optional[str] = None,
                  max_graceful_termination_sec: Optional[str] = None,
+                 max_total_unready_percentage: Optional[str] = None,
+                 new_pod_scale_up_delay: Optional[str] = None,
+                 ok_total_unready_count: Optional[str] = None,
                  scale_down_delay_after_add: Optional[str] = None,
                  scale_down_delay_after_delete: Optional[str] = None,
                  scale_down_delay_after_failure: Optional[str] = None,
                  scale_down_unneeded_time: Optional[str] = None,
                  scale_down_unready_time: Optional[str] = None,
                  scale_down_utilization_threshold: Optional[str] = None,
-                 scan_interval: Optional[str] = None):
+                 scan_interval: Optional[str] = None,
+                 skip_nodes_with_local_storage: Optional[str] = None,
+                 skip_nodes_with_system_pods: Optional[str] = None):
         """
         Parameters to be applied to the cluster-autoscaler when enabled
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
+        if expander is not None:
+            pulumi.set(__self__, "expander", expander)
+        if max_empty_bulk_delete is not None:
+            pulumi.set(__self__, "max_empty_bulk_delete", max_empty_bulk_delete)
         if max_graceful_termination_sec is not None:
             pulumi.set(__self__, "max_graceful_termination_sec", max_graceful_termination_sec)
+        if max_total_unready_percentage is not None:
+            pulumi.set(__self__, "max_total_unready_percentage", max_total_unready_percentage)
+        if new_pod_scale_up_delay is not None:
+            pulumi.set(__self__, "new_pod_scale_up_delay", new_pod_scale_up_delay)
+        if ok_total_unready_count is not None:
+            pulumi.set(__self__, "ok_total_unready_count", ok_total_unready_count)
         if scale_down_delay_after_add is not None:
             pulumi.set(__self__, "scale_down_delay_after_add", scale_down_delay_after_add)
         if scale_down_delay_after_delete is not None:
@@ -1664,6 +1705,10 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
             pulumi.set(__self__, "scale_down_utilization_threshold", scale_down_utilization_threshold)
         if scan_interval is not None:
             pulumi.set(__self__, "scan_interval", scan_interval)
+        if skip_nodes_with_local_storage is not None:
+            pulumi.set(__self__, "skip_nodes_with_local_storage", skip_nodes_with_local_storage)
+        if skip_nodes_with_system_pods is not None:
+            pulumi.set(__self__, "skip_nodes_with_system_pods", skip_nodes_with_system_pods)
 
     @property
     @pulumi.getter(name="balanceSimilarNodeGroups")
@@ -1671,9 +1716,34 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
         return pulumi.get(self, "balance_similar_node_groups")
 
     @property
+    @pulumi.getter
+    def expander(self) -> Optional[str]:
+        return pulumi.get(self, "expander")
+
+    @property
+    @pulumi.getter(name="maxEmptyBulkDelete")
+    def max_empty_bulk_delete(self) -> Optional[str]:
+        return pulumi.get(self, "max_empty_bulk_delete")
+
+    @property
     @pulumi.getter(name="maxGracefulTerminationSec")
     def max_graceful_termination_sec(self) -> Optional[str]:
         return pulumi.get(self, "max_graceful_termination_sec")
+
+    @property
+    @pulumi.getter(name="maxTotalUnreadyPercentage")
+    def max_total_unready_percentage(self) -> Optional[str]:
+        return pulumi.get(self, "max_total_unready_percentage")
+
+    @property
+    @pulumi.getter(name="newPodScaleUpDelay")
+    def new_pod_scale_up_delay(self) -> Optional[str]:
+        return pulumi.get(self, "new_pod_scale_up_delay")
+
+    @property
+    @pulumi.getter(name="okTotalUnreadyCount")
+    def ok_total_unready_count(self) -> Optional[str]:
+        return pulumi.get(self, "ok_total_unready_count")
 
     @property
     @pulumi.getter(name="scaleDownDelayAfterAdd")
@@ -1709,6 +1779,16 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="scanInterval")
     def scan_interval(self) -> Optional[str]:
         return pulumi.get(self, "scan_interval")
+
+    @property
+    @pulumi.getter(name="skipNodesWithLocalStorage")
+    def skip_nodes_with_local_storage(self) -> Optional[str]:
+        return pulumi.get(self, "skip_nodes_with_local_storage")
+
+    @property
+    @pulumi.getter(name="skipNodesWithSystemPods")
+    def skip_nodes_with_system_pods(self) -> Optional[str]:
+        return pulumi.get(self, "skip_nodes_with_system_pods")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2265,6 +2345,32 @@ class OpenShiftRouterProfileResponse(dict):
         Name of the router profile.
         """
         return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PowerStateResponse(dict):
+    """
+    Describes the Power State of the cluster
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None):
+        """
+        Describes the Power State of the cluster
+        :param str code: Tells whether the cluster is Running or Stopped
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        Tells whether the cluster is Running or Stopped
+        """
+        return pulumi.get(self, "code")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

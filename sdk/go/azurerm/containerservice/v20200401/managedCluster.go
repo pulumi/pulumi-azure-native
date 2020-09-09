@@ -129,6 +129,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:containerservice/v20200701:ManagedCluster"),
 		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20200901:ManagedCluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedCluster

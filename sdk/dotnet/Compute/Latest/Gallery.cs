@@ -45,6 +45,12 @@ namespace Pulumi.AzureRM.Compute.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Profile for gallery sharing to subscription or tenant
+        /// </summary>
+        [Output("sharingProfile")]
+        public Output<Outputs.SharingProfileResponseResult?> SharingProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
@@ -85,6 +91,7 @@ namespace Pulumi.AzureRM.Compute.Latest
                     new Pulumi.Alias { Type = "azurerm:compute/v20190301:Gallery"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20190701:Gallery"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20191201:Gallery"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20200930:Gallery"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,6 +138,12 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Profile for gallery sharing to subscription or tenant
+        /// </summary>
+        [Input("sharingProfile")]
+        public Input<Inputs.SharingProfileArgs>? SharingProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

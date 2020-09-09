@@ -42,8 +42,12 @@ type AgentPool struct {
 	OrchestratorVersion pulumi.StringPtrOutput `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB pulumi.IntPtrOutput `pulumi:"osDiskSizeGB"`
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType pulumi.StringPtrOutput `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
+	// Describes whether the Agent Pool is Running or Stopped
+	PowerState PowerStateResponseOutput `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The ID for Proximity Placement Group.
@@ -118,6 +122,9 @@ func NewAgentPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:containerservice/v20200701:AgentPool"),
 		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20200901:AgentPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AgentPool
@@ -170,8 +177,12 @@ type agentPoolState struct {
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
+	// Describes whether the Agent Pool is Running or Stopped
+	PowerState *PowerStateResponse `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The ID for Proximity Placement Group.
@@ -223,8 +234,12 @@ type AgentPoolState struct {
 	OrchestratorVersion pulumi.StringPtrInput
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB pulumi.IntPtrInput
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType pulumi.StringPtrInput
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput
+	// Describes whether the Agent Pool is Running or Stopped
+	PowerState PowerStateResponsePtrInput
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringPtrInput
 	// The ID for Proximity Placement Group.
@@ -278,6 +293,8 @@ type agentPoolArgs struct {
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// The ID for Proximity Placement Group.
@@ -332,6 +349,8 @@ type AgentPoolArgs struct {
 	OrchestratorVersion pulumi.StringPtrInput
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB pulumi.IntPtrInput
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType pulumi.StringPtrInput
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput
 	// The ID for Proximity Placement Group.

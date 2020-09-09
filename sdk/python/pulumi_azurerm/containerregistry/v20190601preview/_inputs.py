@@ -408,6 +408,7 @@ class DockerBuildRequestArgs:
                  image_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  is_archive_enabled: Optional[pulumi.Input[bool]] = None,
                  is_push_enabled: Optional[pulumi.Input[bool]] = None,
+                 log_template: Optional[pulumi.Input[str]] = None,
                  no_cache: Optional[pulumi.Input[bool]] = None,
                  source_location: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
@@ -424,6 +425,7 @@ class DockerBuildRequestArgs:
         :param pulumi.Input[List[pulumi.Input[str]]] image_names: The fully qualified image names including the repository and tag.
         :param pulumi.Input[bool] is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
         :param pulumi.Input[bool] is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
+        :param pulumi.Input[str] log_template: The template that describes the repository and tag information for run log artifact.
         :param pulumi.Input[bool] no_cache: The value of this property indicates whether the image cache is enabled or not.
         :param pulumi.Input[str] source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
                If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
@@ -447,6 +449,8 @@ class DockerBuildRequestArgs:
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_push_enabled is not None:
             pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
         if no_cache is not None:
             pulumi.set(__self__, "no_cache", no_cache)
         if source_location is not None:
@@ -575,6 +579,18 @@ class DockerBuildRequestArgs:
     @is_push_enabled.setter
     def is_push_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_push_enabled", value)
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
+
+    @log_template.setter
+    def log_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_template", value)
 
     @property
     @pulumi.getter(name="noCache")
@@ -787,6 +803,7 @@ class EncodedTaskRunRequestArgs:
                  credentials: Optional[pulumi.Input['CredentialsArgs']] = None,
                  encoded_values_content: Optional[pulumi.Input[str]] = None,
                  is_archive_enabled: Optional[pulumi.Input[bool]] = None,
+                 log_template: Optional[pulumi.Input[str]] = None,
                  source_location: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[float]] = None,
                  values: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]] = None):
@@ -800,6 +817,7 @@ class EncodedTaskRunRequestArgs:
         :param pulumi.Input['CredentialsArgs'] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param pulumi.Input[str] encoded_values_content: Base64 encoded value of the parameters/values file content.
         :param pulumi.Input[bool] is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
+        :param pulumi.Input[str] log_template: The template that describes the repository and tag information for run log artifact.
         :param pulumi.Input[str] source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
                If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
         :param pulumi.Input[float] timeout: Run timeout in seconds.
@@ -818,6 +836,8 @@ class EncodedTaskRunRequestArgs:
             pulumi.set(__self__, "encoded_values_content", encoded_values_content)
         if is_archive_enabled is not None:
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
         if source_location is not None:
             pulumi.set(__self__, "source_location", source_location)
         if timeout is not None:
@@ -920,6 +940,18 @@ class EncodedTaskRunRequestArgs:
     @is_archive_enabled.setter
     def is_archive_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_archive_enabled", value)
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
+
+    @log_template.setter
+    def log_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_template", value)
 
     @property
     @pulumi.getter(name="sourceLocation")
@@ -1071,6 +1103,7 @@ class FileTaskRunRequestArgs:
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input['CredentialsArgs']] = None,
                  is_archive_enabled: Optional[pulumi.Input[bool]] = None,
+                 log_template: Optional[pulumi.Input[str]] = None,
                  source_location: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[float]] = None,
                  values: Optional[pulumi.Input[List[pulumi.Input['SetValueArgs']]]] = None,
@@ -1084,6 +1117,7 @@ class FileTaskRunRequestArgs:
         :param pulumi.Input[str] agent_pool_name: The dedicated agent pool for the run.
         :param pulumi.Input['CredentialsArgs'] credentials: The properties that describes a set of credentials that will be used when this run is invoked.
         :param pulumi.Input[bool] is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
+        :param pulumi.Input[str] log_template: The template that describes the repository and tag information for run log artifact.
         :param pulumi.Input[str] source_location: The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
                If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
         :param pulumi.Input[float] timeout: Run timeout in seconds.
@@ -1101,6 +1135,8 @@ class FileTaskRunRequestArgs:
             pulumi.set(__self__, "credentials", credentials)
         if is_archive_enabled is not None:
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
         if source_location is not None:
             pulumi.set(__self__, "source_location", source_location)
         if timeout is not None:
@@ -1193,6 +1229,18 @@ class FileTaskRunRequestArgs:
     @is_archive_enabled.setter
     def is_archive_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_archive_enabled", value)
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
+
+    @log_template.setter
+    def log_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_template", value)
 
     @property
     @pulumi.getter(name="sourceLocation")
@@ -1860,6 +1908,7 @@ class TaskRunRequestArgs:
                  type: pulumi.Input[str],
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  is_archive_enabled: Optional[pulumi.Input[bool]] = None,
+                 log_template: Optional[pulumi.Input[str]] = None,
                  override_task_step_properties: Optional[pulumi.Input['OverrideTaskStepPropertiesArgs']] = None):
         """
         The parameters for a task run request.
@@ -1867,6 +1916,7 @@ class TaskRunRequestArgs:
         :param pulumi.Input[str] type: The type of the run request.
         :param pulumi.Input[str] agent_pool_name: The dedicated agent pool for the run.
         :param pulumi.Input[bool] is_archive_enabled: The value that indicates whether archiving is enabled for the run or not.
+        :param pulumi.Input[str] log_template: The template that describes the repository and tag information for run log artifact.
         :param pulumi.Input['OverrideTaskStepPropertiesArgs'] override_task_step_properties: Set of overridable parameters that can be passed when running a Task.
         """
         pulumi.set(__self__, "task_id", task_id)
@@ -1875,6 +1925,8 @@ class TaskRunRequestArgs:
             pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         if is_archive_enabled is not None:
             pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if log_template is not None:
+            pulumi.set(__self__, "log_template", log_template)
         if override_task_step_properties is not None:
             pulumi.set(__self__, "override_task_step_properties", override_task_step_properties)
 
@@ -1925,6 +1977,18 @@ class TaskRunRequestArgs:
     @is_archive_enabled.setter
     def is_archive_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_archive_enabled", value)
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
+
+    @log_template.setter
+    def log_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_template", value)
 
     @property
     @pulumi.getter(name="overrideTaskStepProperties")

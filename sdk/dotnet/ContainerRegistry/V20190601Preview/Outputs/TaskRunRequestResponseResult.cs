@@ -22,6 +22,10 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview.Outputs
         /// </summary>
         public readonly bool? IsArchiveEnabled;
         /// <summary>
+        /// The template that describes the repository and tag information for run log artifact.
+        /// </summary>
+        public readonly string? LogTemplate;
+        /// <summary>
         /// Set of overridable parameters that can be passed when running a Task.
         /// </summary>
         public readonly Outputs.OverrideTaskStepPropertiesResponseResult? OverrideTaskStepProperties;
@@ -40,6 +44,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview.Outputs
 
             bool? isArchiveEnabled,
 
+            string? logTemplate,
+
             Outputs.OverrideTaskStepPropertiesResponseResult? overrideTaskStepProperties,
 
             string taskId,
@@ -48,6 +54,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview.Outputs
         {
             AgentPoolName = agentPoolName;
             IsArchiveEnabled = isArchiveEnabled;
+            LogTemplate = logTemplate;
             OverrideTaskStepProperties = overrideTaskStepProperties;
             TaskId = taskId;
             Type = type;

@@ -5912,6 +5912,8 @@ type ManagedClusterAgentPoolProfile struct {
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// The ID for Proximity Placement Group.
@@ -5973,6 +5975,8 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// The ID for Proximity Placement Group.
@@ -6112,6 +6116,11 @@ func (o ManagedClusterAgentPoolProfileOutput) OsDiskSizeGB() pulumi.IntPtrOutput
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
+// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+func (o ManagedClusterAgentPoolProfileOutput) OsDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
+}
+
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o ManagedClusterAgentPoolProfileOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
@@ -6212,8 +6221,12 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
+	// Describes whether the Agent Pool is Running or Stopped
+	PowerState PowerStateResponse `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The ID for Proximity Placement Group.
@@ -6277,8 +6290,12 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// Describes whether the Agent Pool is Running or Stopped
+	PowerState PowerStateResponseInput `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The ID for Proximity Placement Group.
@@ -6423,9 +6440,19 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskSizeGB() pulumi.IntP
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
+// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
+}
+
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// Describes whether the Agent Pool is Running or Stopped
+func (o ManagedClusterAgentPoolProfileResponseOutput) PowerState() PowerStateResponseOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) PowerStateResponse { return v.PowerState }).(PowerStateResponseOutput)
 }
 
 // The current deployment or provisioning state, which only appears in the response.
@@ -8232,7 +8259,12 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) PublicIPs
 // Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesAutoScalerProfile struct {
 	BalanceSimilarNodeGroups      *string `pulumi:"balanceSimilarNodeGroups"`
+	Expander                      *string `pulumi:"expander"`
+	MaxEmptyBulkDelete            *string `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     *string `pulumi:"maxGracefulTerminationSec"`
+	MaxTotalUnreadyPercentage     *string `pulumi:"maxTotalUnreadyPercentage"`
+	NewPodScaleUpDelay            *string `pulumi:"newPodScaleUpDelay"`
+	OkTotalUnreadyCount           *string `pulumi:"okTotalUnreadyCount"`
 	ScaleDownDelayAfterAdd        *string `pulumi:"scaleDownDelayAfterAdd"`
 	ScaleDownDelayAfterDelete     *string `pulumi:"scaleDownDelayAfterDelete"`
 	ScaleDownDelayAfterFailure    *string `pulumi:"scaleDownDelayAfterFailure"`
@@ -8240,6 +8272,8 @@ type ManagedClusterPropertiesAutoScalerProfile struct {
 	ScaleDownUnreadyTime          *string `pulumi:"scaleDownUnreadyTime"`
 	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
 	ScanInterval                  *string `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage     *string `pulumi:"skipNodesWithLocalStorage"`
+	SkipNodesWithSystemPods       *string `pulumi:"skipNodesWithSystemPods"`
 }
 
 // ManagedClusterPropertiesAutoScalerProfileInput is an input type that accepts ManagedClusterPropertiesAutoScalerProfileArgs and ManagedClusterPropertiesAutoScalerProfileOutput values.
@@ -8256,7 +8290,12 @@ type ManagedClusterPropertiesAutoScalerProfileInput interface {
 // Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesAutoScalerProfileArgs struct {
 	BalanceSimilarNodeGroups      pulumi.StringPtrInput `pulumi:"balanceSimilarNodeGroups"`
+	Expander                      pulumi.StringPtrInput `pulumi:"expander"`
+	MaxEmptyBulkDelete            pulumi.StringPtrInput `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	MaxTotalUnreadyPercentage     pulumi.StringPtrInput `pulumi:"maxTotalUnreadyPercentage"`
+	NewPodScaleUpDelay            pulumi.StringPtrInput `pulumi:"newPodScaleUpDelay"`
+	OkTotalUnreadyCount           pulumi.StringPtrInput `pulumi:"okTotalUnreadyCount"`
 	ScaleDownDelayAfterAdd        pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterAdd"`
 	ScaleDownDelayAfterDelete     pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterDelete"`
 	ScaleDownDelayAfterFailure    pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterFailure"`
@@ -8264,6 +8303,8 @@ type ManagedClusterPropertiesAutoScalerProfileArgs struct {
 	ScaleDownUnreadyTime          pulumi.StringPtrInput `pulumi:"scaleDownUnreadyTime"`
 	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
 	ScanInterval                  pulumi.StringPtrInput `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage     pulumi.StringPtrInput `pulumi:"skipNodesWithLocalStorage"`
+	SkipNodesWithSystemPods       pulumi.StringPtrInput `pulumi:"skipNodesWithSystemPods"`
 }
 
 func (ManagedClusterPropertiesAutoScalerProfileArgs) ElementType() reflect.Type {
@@ -8347,8 +8388,28 @@ func (o ManagedClusterPropertiesAutoScalerProfileOutput) BalanceSimilarNodeGroup
 	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.BalanceSimilarNodeGroups }).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) Expander() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.Expander }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) MaxEmptyBulkDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.MaxEmptyBulkDelete }).(pulumi.StringPtrOutput)
+}
+
 func (o ManagedClusterPropertiesAutoScalerProfileOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) MaxTotalUnreadyPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.MaxTotalUnreadyPercentage }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) NewPodScaleUpDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.NewPodScaleUpDelay }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) OkTotalUnreadyCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.OkTotalUnreadyCount }).(pulumi.StringPtrOutput)
 }
 
 func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
@@ -8377,6 +8438,14 @@ func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScaleDownUtilizationThr
 
 func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScanInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) SkipNodesWithLocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.SkipNodesWithLocalStorage }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) SkipNodesWithSystemPods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.SkipNodesWithSystemPods }).(pulumi.StringPtrOutput)
 }
 
 type ManagedClusterPropertiesAutoScalerProfilePtrOutput struct{ *pulumi.OutputState }
@@ -8408,12 +8477,57 @@ func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) BalanceSimilarNodeGr
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) Expander() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expander
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) MaxEmptyBulkDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEmptyBulkDelete
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
 		if v == nil {
 			return nil
 		}
 		return v.MaxGracefulTerminationSec
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) MaxTotalUnreadyPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTotalUnreadyPercentage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) NewPodScaleUpDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NewPodScaleUpDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) OkTotalUnreadyCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OkTotalUnreadyCount
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8477,6 +8591,24 @@ func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ScanInterval() pulum
 			return nil
 		}
 		return v.ScanInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) SkipNodesWithLocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SkipNodesWithLocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) SkipNodesWithSystemPods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SkipNodesWithSystemPods
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8598,7 +8730,12 @@ func (o ManagedClusterPropertiesIdentityProfileMapOutput) MapIndex(k pulumi.Stri
 // Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesResponseAutoScalerProfile struct {
 	BalanceSimilarNodeGroups      *string `pulumi:"balanceSimilarNodeGroups"`
+	Expander                      *string `pulumi:"expander"`
+	MaxEmptyBulkDelete            *string `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     *string `pulumi:"maxGracefulTerminationSec"`
+	MaxTotalUnreadyPercentage     *string `pulumi:"maxTotalUnreadyPercentage"`
+	NewPodScaleUpDelay            *string `pulumi:"newPodScaleUpDelay"`
+	OkTotalUnreadyCount           *string `pulumi:"okTotalUnreadyCount"`
 	ScaleDownDelayAfterAdd        *string `pulumi:"scaleDownDelayAfterAdd"`
 	ScaleDownDelayAfterDelete     *string `pulumi:"scaleDownDelayAfterDelete"`
 	ScaleDownDelayAfterFailure    *string `pulumi:"scaleDownDelayAfterFailure"`
@@ -8606,6 +8743,8 @@ type ManagedClusterPropertiesResponseAutoScalerProfile struct {
 	ScaleDownUnreadyTime          *string `pulumi:"scaleDownUnreadyTime"`
 	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
 	ScanInterval                  *string `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage     *string `pulumi:"skipNodesWithLocalStorage"`
+	SkipNodesWithSystemPods       *string `pulumi:"skipNodesWithSystemPods"`
 }
 
 // ManagedClusterPropertiesResponseAutoScalerProfileInput is an input type that accepts ManagedClusterPropertiesResponseAutoScalerProfileArgs and ManagedClusterPropertiesResponseAutoScalerProfileOutput values.
@@ -8622,7 +8761,12 @@ type ManagedClusterPropertiesResponseAutoScalerProfileInput interface {
 // Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesResponseAutoScalerProfileArgs struct {
 	BalanceSimilarNodeGroups      pulumi.StringPtrInput `pulumi:"balanceSimilarNodeGroups"`
+	Expander                      pulumi.StringPtrInput `pulumi:"expander"`
+	MaxEmptyBulkDelete            pulumi.StringPtrInput `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	MaxTotalUnreadyPercentage     pulumi.StringPtrInput `pulumi:"maxTotalUnreadyPercentage"`
+	NewPodScaleUpDelay            pulumi.StringPtrInput `pulumi:"newPodScaleUpDelay"`
+	OkTotalUnreadyCount           pulumi.StringPtrInput `pulumi:"okTotalUnreadyCount"`
 	ScaleDownDelayAfterAdd        pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterAdd"`
 	ScaleDownDelayAfterDelete     pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterDelete"`
 	ScaleDownDelayAfterFailure    pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterFailure"`
@@ -8630,6 +8774,8 @@ type ManagedClusterPropertiesResponseAutoScalerProfileArgs struct {
 	ScaleDownUnreadyTime          pulumi.StringPtrInput `pulumi:"scaleDownUnreadyTime"`
 	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
 	ScanInterval                  pulumi.StringPtrInput `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage     pulumi.StringPtrInput `pulumi:"skipNodesWithLocalStorage"`
+	SkipNodesWithSystemPods       pulumi.StringPtrInput `pulumi:"skipNodesWithSystemPods"`
 }
 
 func (ManagedClusterPropertiesResponseAutoScalerProfileArgs) ElementType() reflect.Type {
@@ -8713,8 +8859,28 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) BalanceSimilarN
 	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.BalanceSimilarNodeGroups }).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) Expander() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.Expander }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) MaxEmptyBulkDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.MaxEmptyBulkDelete }).(pulumi.StringPtrOutput)
+}
+
 func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) MaxTotalUnreadyPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.MaxTotalUnreadyPercentage }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) NewPodScaleUpDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.NewPodScaleUpDelay }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) OkTotalUnreadyCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.OkTotalUnreadyCount }).(pulumi.StringPtrOutput)
 }
 
 func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
@@ -8747,6 +8913,14 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ScanInterval() 
 	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) SkipNodesWithLocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.SkipNodesWithLocalStorage }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) SkipNodesWithSystemPods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.SkipNodesWithSystemPods }).(pulumi.StringPtrOutput)
+}
+
 type ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ElementType() reflect.Type {
@@ -8776,12 +8950,57 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) BalanceSimil
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) Expander() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expander
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) MaxEmptyBulkDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEmptyBulkDelete
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
 		if v == nil {
 			return nil
 		}
 		return v.MaxGracefulTerminationSec
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) MaxTotalUnreadyPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTotalUnreadyPercentage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) NewPodScaleUpDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NewPodScaleUpDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) OkTotalUnreadyCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OkTotalUnreadyCount
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8845,6 +9064,24 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ScanInterval
 			return nil
 		}
 		return v.ScanInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) SkipNodesWithLocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SkipNodesWithLocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) SkipNodesWithSystemPods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SkipNodesWithSystemPods
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12109,6 +12346,140 @@ func (o OpenShiftRouterProfileResponseArrayOutput) Index(i pulumi.IntInput) Open
 	}).(OpenShiftRouterProfileResponseOutput)
 }
 
+// Describes the Power State of the cluster
+type PowerStateResponse struct {
+	// Tells whether the cluster is Running or Stopped
+	Code *string `pulumi:"code"`
+}
+
+// PowerStateResponseInput is an input type that accepts PowerStateResponseArgs and PowerStateResponseOutput values.
+// You can construct a concrete instance of `PowerStateResponseInput` via:
+//
+//          PowerStateResponseArgs{...}
+type PowerStateResponseInput interface {
+	pulumi.Input
+
+	ToPowerStateResponseOutput() PowerStateResponseOutput
+	ToPowerStateResponseOutputWithContext(context.Context) PowerStateResponseOutput
+}
+
+// Describes the Power State of the cluster
+type PowerStateResponseArgs struct {
+	// Tells whether the cluster is Running or Stopped
+	Code pulumi.StringPtrInput `pulumi:"code"`
+}
+
+func (PowerStateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerStateResponse)(nil)).Elem()
+}
+
+func (i PowerStateResponseArgs) ToPowerStateResponseOutput() PowerStateResponseOutput {
+	return i.ToPowerStateResponseOutputWithContext(context.Background())
+}
+
+func (i PowerStateResponseArgs) ToPowerStateResponseOutputWithContext(ctx context.Context) PowerStateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerStateResponseOutput)
+}
+
+func (i PowerStateResponseArgs) ToPowerStateResponsePtrOutput() PowerStateResponsePtrOutput {
+	return i.ToPowerStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PowerStateResponseArgs) ToPowerStateResponsePtrOutputWithContext(ctx context.Context) PowerStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerStateResponseOutput).ToPowerStateResponsePtrOutputWithContext(ctx)
+}
+
+// PowerStateResponsePtrInput is an input type that accepts PowerStateResponseArgs, PowerStateResponsePtr and PowerStateResponsePtrOutput values.
+// You can construct a concrete instance of `PowerStateResponsePtrInput` via:
+//
+//          PowerStateResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PowerStateResponsePtrInput interface {
+	pulumi.Input
+
+	ToPowerStateResponsePtrOutput() PowerStateResponsePtrOutput
+	ToPowerStateResponsePtrOutputWithContext(context.Context) PowerStateResponsePtrOutput
+}
+
+type powerStateResponsePtrType PowerStateResponseArgs
+
+func PowerStateResponsePtr(v *PowerStateResponseArgs) PowerStateResponsePtrInput {
+	return (*powerStateResponsePtrType)(v)
+}
+
+func (*powerStateResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerStateResponse)(nil)).Elem()
+}
+
+func (i *powerStateResponsePtrType) ToPowerStateResponsePtrOutput() PowerStateResponsePtrOutput {
+	return i.ToPowerStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *powerStateResponsePtrType) ToPowerStateResponsePtrOutputWithContext(ctx context.Context) PowerStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerStateResponsePtrOutput)
+}
+
+// Describes the Power State of the cluster
+type PowerStateResponseOutput struct{ *pulumi.OutputState }
+
+func (PowerStateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerStateResponse)(nil)).Elem()
+}
+
+func (o PowerStateResponseOutput) ToPowerStateResponseOutput() PowerStateResponseOutput {
+	return o
+}
+
+func (o PowerStateResponseOutput) ToPowerStateResponseOutputWithContext(ctx context.Context) PowerStateResponseOutput {
+	return o
+}
+
+func (o PowerStateResponseOutput) ToPowerStateResponsePtrOutput() PowerStateResponsePtrOutput {
+	return o.ToPowerStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PowerStateResponseOutput) ToPowerStateResponsePtrOutputWithContext(ctx context.Context) PowerStateResponsePtrOutput {
+	return o.ApplyT(func(v PowerStateResponse) *PowerStateResponse {
+		return &v
+	}).(PowerStateResponsePtrOutput)
+}
+
+// Tells whether the cluster is Running or Stopped
+func (o PowerStateResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerStateResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+type PowerStateResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerStateResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerStateResponse)(nil)).Elem()
+}
+
+func (o PowerStateResponsePtrOutput) ToPowerStateResponsePtrOutput() PowerStateResponsePtrOutput {
+	return o
+}
+
+func (o PowerStateResponsePtrOutput) ToPowerStateResponsePtrOutputWithContext(ctx context.Context) PowerStateResponsePtrOutput {
+	return o
+}
+
+func (o PowerStateResponsePtrOutput) Elem() PowerStateResponseOutput {
+	return o.ApplyT(func(v *PowerStateResponse) PowerStateResponse { return *v }).(PowerStateResponseOutput)
+}
+
+// Tells whether the cluster is Running or Stopped
+func (o PowerStateResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
 // Private endpoint which a connection belongs to.
 type PrivateEndpoint struct {
 	// The resource Id for private endpoint
@@ -13413,6 +13784,8 @@ func init() {
 	pulumi.RegisterOutputType(OpenShiftRouterProfileArrayOutput{})
 	pulumi.RegisterOutputType(OpenShiftRouterProfileResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftRouterProfileResponseArrayOutput{})
+	pulumi.RegisterOutputType(PowerStateResponseOutput{})
+	pulumi.RegisterOutputType(PowerStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})

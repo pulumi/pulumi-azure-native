@@ -70,9 +70,17 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Outputs
         /// </summary>
         public readonly int? OsDiskSizeGB;
         /// <summary>
+        /// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        /// </summary>
+        public readonly string? OsDiskType;
+        /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         public readonly string? OsType;
+        /// <summary>
+        /// Describes whether the Agent Pool is Running or Stopped
+        /// </summary>
+        public readonly Outputs.PowerStateResponseResult PowerState;
         /// <summary>
         /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
@@ -144,7 +152,11 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Outputs
 
             int? osDiskSizeGB,
 
+            string? osDiskType,
+
             string? osType,
+
+            Outputs.PowerStateResponseResult powerState,
 
             string provisioningState,
 
@@ -180,7 +192,9 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Outputs
             NodeTaints = nodeTaints;
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGB = osDiskSizeGB;
+            OsDiskType = osDiskType;
             OsType = osType;
+            PowerState = powerState;
             ProvisioningState = provisioningState;
             ProximityPlacementGroupID = proximityPlacementGroupID;
             ScaleSetEvictionPolicy = scaleSetEvictionPolicy;

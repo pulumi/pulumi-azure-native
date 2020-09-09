@@ -76,6 +76,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview.Inputs
         public Input<bool>? IsPushEnabled { get; set; }
 
         /// <summary>
+        /// The template that describes the repository and tag information for run log artifact.
+        /// </summary>
+        [Input("logTemplate")]
+        public Input<string>? LogTemplate { get; set; }
+
+        /// <summary>
         /// The value of this property indicates whether the image cache is enabled or not.
         /// </summary>
         [Input("noCache")]

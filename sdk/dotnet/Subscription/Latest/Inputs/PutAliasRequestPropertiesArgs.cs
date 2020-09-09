@@ -18,14 +18,14 @@ namespace Pulumi.AzureRM.Subscription.Latest.Inputs
         /// <summary>
         /// Determines whether subscription is fieldLed, partnerLed or LegacyEA
         /// </summary>
-        [Input("billingScope", required: true)]
-        public Input<string> BillingScope { get; set; } = null!;
+        [Input("billingScope")]
+        public Input<string>? BillingScope { get; set; }
 
         /// <summary>
         /// The friendly name of the subscription.
         /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// This parameter can be used to create alias for existing subscription Id
@@ -36,8 +36,8 @@ namespace Pulumi.AzureRM.Subscription.Latest.Inputs
         /// <summary>
         /// The workload type of the subscription. It can be either Production or DevTest.
         /// </summary>
-        [Input("workload", required: true)]
-        public Input<string> Workload { get; set; } = null!;
+        [Input("workload")]
+        public Input<string>? Workload { get; set; }
 
         public PutAliasRequestPropertiesArgs()
         {
