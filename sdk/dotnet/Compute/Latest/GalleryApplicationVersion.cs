@@ -33,13 +33,13 @@ namespace Pulumi.AzureRM.Compute.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The publishing profile of a gallery Image Version.
+        /// The publishing profile of a gallery image version.
         /// </summary>
         [Output("publishingProfile")]
         public Output<Outputs.GalleryApplicationVersionPublishingProfileResponseResult> PublishingProfile { get; private set; } = null!;
 
         /// <summary>
-        /// This is the replication status of the gallery Image Version.
+        /// This is the replication status of the gallery image version.
         /// </summary>
         [Output("replicationStatus")]
         public Output<Outputs.ReplicationStatusResponseResult> ReplicationStatus { get; private set; } = null!;
@@ -84,6 +84,7 @@ namespace Pulumi.AzureRM.Compute.Latest
                     new Pulumi.Alias { Type = "azurerm:compute/v20190301:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20190701:GalleryApplicationVersion"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20191201:GalleryApplicationVersion"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20200930:GalleryApplicationVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -132,7 +133,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The publishing profile of a gallery Image Version.
+        /// The publishing profile of a gallery image version.
         /// </summary>
         [Input("publishingProfile", required: true)]
         public Input<Inputs.GalleryApplicationVersionPublishingProfileArgs> PublishingProfile { get; set; } = null!;

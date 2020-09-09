@@ -52,6 +52,8 @@ type ManagedCluster struct {
 	NetworkProfile ContainerServiceNetworkProfileResponsePtrOutput `pulumi:"networkProfile"`
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup pulumi.StringPtrOutput `pulumi:"nodeResourceGroup"`
+	// Represents the Power State of the cluster
+	PowerState PowerStateResponseOutput `pulumi:"powerState"`
 	// FQDN of private cluster.
 	PrivateFQDN pulumi.StringOutput `pulumi:"privateFQDN"`
 	// The current deployment or provisioning state, which only appears in the response.
@@ -129,6 +131,9 @@ func NewManagedCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:containerservice/v20200701:ManagedCluster"),
 		},
+		{
+			Type: pulumi.String("azurerm:containerservice/v20200901:ManagedCluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedCluster
@@ -191,6 +196,8 @@ type managedClusterState struct {
 	NetworkProfile *ContainerServiceNetworkProfileResponse `pulumi:"networkProfile"`
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
+	// Represents the Power State of the cluster
+	PowerState *PowerStateResponse `pulumi:"powerState"`
 	// FQDN of private cluster.
 	PrivateFQDN *string `pulumi:"privateFQDN"`
 	// The current deployment or provisioning state, which only appears in the response.
@@ -246,6 +253,8 @@ type ManagedClusterState struct {
 	NetworkProfile ContainerServiceNetworkProfileResponsePtrInput
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup pulumi.StringPtrInput
+	// Represents the Power State of the cluster
+	PowerState PowerStateResponsePtrInput
 	// FQDN of private cluster.
 	PrivateFQDN pulumi.StringPtrInput
 	// The current deployment or provisioning state, which only appears in the response.

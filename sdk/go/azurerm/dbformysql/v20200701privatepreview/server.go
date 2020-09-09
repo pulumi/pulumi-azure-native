@@ -18,12 +18,20 @@ type Server struct {
 	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
 	// The password of the administrator login (required for server creation).
 	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
+	// availability Zone information of the server.
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
+	// Status showing whether the data encryption is enabled with customer-managed keys.
+	ByokEnforcement pulumi.StringOutput `pulumi:"byokEnforcement"`
 	// The mode to create a new MySQL server.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
+	// Delegated subnet arguments.
+	DelegatedSubnetArguments DelegatedSubnetArgumentsResponsePtrOutput `pulumi:"delegatedSubnetArguments"`
 	// Earliest restore point creation time (ISO8601 format)
 	EarliestRestoreDate pulumi.StringPtrOutput `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
+	// Enable HA or not for a server.
+	HaEnabled pulumi.StringPtrOutput `pulumi:"haEnabled"`
 	// The state of a HA server.
 	HaState pulumi.StringOutput `pulumi:"haState"`
 	// The Azure Active Directory identity of the server.
@@ -32,10 +40,10 @@ type Server struct {
 	InfrastructureEncryption pulumi.StringPtrOutput `pulumi:"infrastructureEncryption"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Maintenance window of a server.
+	MaintenanceWindow MaintenanceWindowResponsePtrOutput `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The primary server id of a replica server.
-	PrimaryServerId pulumi.StringOutput `pulumi:"primaryServerId"`
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a primary server can have.
@@ -46,12 +54,12 @@ type Server struct {
 	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
 	// The SKU (pricing tier) of the server.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The source MySQL server name to restore from.
+	// The source MySQL server id.
 	SourceServerId pulumi.StringPtrOutput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement pulumi.StringPtrOutput `pulumi:"sslEnforcement"`
-	// stand by count value can be either 0 or 1
-	StandbyCount pulumi.IntPtrOutput `pulumi:"standbyCount"`
+	// availability Zone information of the server.
+	StandByAvailabilityZone pulumi.StringOutput `pulumi:"standByAvailabilityZone"`
 	// The state of a server.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Storage profile of a server.
@@ -62,8 +70,6 @@ type Server struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Server version.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
-	// Vnet arguments.
-	VnetInjArgs VnetInjArgsResponsePtrOutput `pulumi:"vnetInjArgs"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -107,12 +113,20 @@ type serverState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password of the administrator login (required for server creation).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// availability Zone information of the server.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Status showing whether the data encryption is enabled with customer-managed keys.
+	ByokEnforcement *string `pulumi:"byokEnforcement"`
 	// The mode to create a new MySQL server.
 	CreateMode *string `pulumi:"createMode"`
+	// Delegated subnet arguments.
+	DelegatedSubnetArguments *DelegatedSubnetArgumentsResponse `pulumi:"delegatedSubnetArguments"`
 	// Earliest restore point creation time (ISO8601 format)
 	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
+	// Enable HA or not for a server.
+	HaEnabled *string `pulumi:"haEnabled"`
 	// The state of a HA server.
 	HaState *string `pulumi:"haState"`
 	// The Azure Active Directory identity of the server.
@@ -121,10 +135,10 @@ type serverState struct {
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// Maintenance window of a server.
+	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The primary server id of a replica server.
-	PrimaryServerId *string `pulumi:"primaryServerId"`
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a primary server can have.
@@ -135,12 +149,12 @@ type serverState struct {
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// The SKU (pricing tier) of the server.
 	Sku *SkuResponse `pulumi:"sku"`
-	// The source MySQL server name to restore from.
+	// The source MySQL server id.
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
-	// stand by count value can be either 0 or 1
-	StandbyCount *int `pulumi:"standbyCount"`
+	// availability Zone information of the server.
+	StandByAvailabilityZone *string `pulumi:"standByAvailabilityZone"`
 	// The state of a server.
 	State *string `pulumi:"state"`
 	// Storage profile of a server.
@@ -151,8 +165,6 @@ type serverState struct {
 	Type *string `pulumi:"type"`
 	// Server version.
 	Version *string `pulumi:"version"`
-	// Vnet arguments.
-	VnetInjArgs *VnetInjArgsResponse `pulumi:"vnetInjArgs"`
 }
 
 type ServerState struct {
@@ -160,12 +172,20 @@ type ServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The password of the administrator login (required for server creation).
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// availability Zone information of the server.
+	AvailabilityZone pulumi.StringPtrInput
+	// Status showing whether the data encryption is enabled with customer-managed keys.
+	ByokEnforcement pulumi.StringPtrInput
 	// The mode to create a new MySQL server.
 	CreateMode pulumi.StringPtrInput
+	// Delegated subnet arguments.
+	DelegatedSubnetArguments DelegatedSubnetArgumentsResponsePtrInput
 	// Earliest restore point creation time (ISO8601 format)
 	EarliestRestoreDate pulumi.StringPtrInput
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName pulumi.StringPtrInput
+	// Enable HA or not for a server.
+	HaEnabled pulumi.StringPtrInput
 	// The state of a HA server.
 	HaState pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
@@ -174,10 +194,10 @@ type ServerState struct {
 	InfrastructureEncryption pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// Maintenance window of a server.
+	MaintenanceWindow MaintenanceWindowResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The primary server id of a replica server.
-	PrimaryServerId pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The maximum number of replicas that a primary server can have.
@@ -188,12 +208,12 @@ type ServerState struct {
 	RestorePointInTime pulumi.StringPtrInput
 	// The SKU (pricing tier) of the server.
 	Sku SkuResponsePtrInput
-	// The source MySQL server name to restore from.
+	// The source MySQL server id.
 	SourceServerId pulumi.StringPtrInput
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement pulumi.StringPtrInput
-	// stand by count value can be either 0 or 1
-	StandbyCount pulumi.IntPtrInput
+	// availability Zone information of the server.
+	StandByAvailabilityZone pulumi.StringPtrInput
 	// The state of a server.
 	State pulumi.StringPtrInput
 	// Storage profile of a server.
@@ -204,8 +224,6 @@ type ServerState struct {
 	Type pulumi.StringPtrInput
 	// Server version.
 	Version pulumi.StringPtrInput
-	// Vnet arguments.
-	VnetInjArgs VnetInjArgsResponsePtrInput
 }
 
 func (ServerState) ElementType() reflect.Type {
@@ -217,16 +235,24 @@ type serverArgs struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password of the administrator login (required for server creation).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// availability Zone information of the server.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The mode to create a new MySQL server.
 	CreateMode *string `pulumi:"createMode"`
+	// Delegated subnet arguments.
+	DelegatedSubnetArguments *DelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
 	// Earliest restore point creation time (ISO8601 format)
 	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
+	// Enable HA or not for a server.
+	HaEnabled *string `pulumi:"haEnabled"`
 	// The Azure Active Directory identity of the server.
 	Identity *Identity `pulumi:"identity"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// Maintenance window of a server.
+	MaintenanceWindow *MaintenanceWindow `pulumi:"maintenanceWindow"`
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a primary server can have.
@@ -241,20 +267,16 @@ type serverArgs struct {
 	ServerName string `pulumi:"serverName"`
 	// The SKU (pricing tier) of the server.
 	Sku *Sku `pulumi:"sku"`
-	// The source MySQL server name to restore from.
+	// The source MySQL server id.
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
-	// stand by count value can be either 0 or 1
-	StandbyCount *int `pulumi:"standbyCount"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Server version.
 	Version *string `pulumi:"version"`
-	// Vnet arguments.
-	VnetInjArgs *VnetInjArgs `pulumi:"vnetInjArgs"`
 }
 
 // The set of arguments for constructing a Server resource.
@@ -263,16 +285,24 @@ type ServerArgs struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The password of the administrator login (required for server creation).
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// availability Zone information of the server.
+	AvailabilityZone pulumi.StringPtrInput
 	// The mode to create a new MySQL server.
 	CreateMode pulumi.StringPtrInput
+	// Delegated subnet arguments.
+	DelegatedSubnetArguments DelegatedSubnetArgumentsPtrInput
 	// Earliest restore point creation time (ISO8601 format)
 	EarliestRestoreDate pulumi.StringPtrInput
+	// Enable HA or not for a server.
+	HaEnabled pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
 	Identity IdentityPtrInput
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
+	// Maintenance window of a server.
+	MaintenanceWindow MaintenanceWindowPtrInput
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess pulumi.StringPtrInput
 	// The maximum number of replicas that a primary server can have.
@@ -287,20 +317,16 @@ type ServerArgs struct {
 	ServerName pulumi.StringInput
 	// The SKU (pricing tier) of the server.
 	Sku SkuPtrInput
-	// The source MySQL server name to restore from.
+	// The source MySQL server id.
 	SourceServerId pulumi.StringPtrInput
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement pulumi.StringPtrInput
-	// stand by count value can be either 0 or 1
-	StandbyCount pulumi.IntPtrInput
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Server version.
 	Version pulumi.StringPtrInput
-	// Vnet arguments.
-	VnetInjArgs VnetInjArgsPtrInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {

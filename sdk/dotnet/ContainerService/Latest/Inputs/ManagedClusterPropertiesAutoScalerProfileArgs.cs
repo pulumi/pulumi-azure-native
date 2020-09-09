@@ -18,8 +18,23 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Inputs
         [Input("balanceSimilarNodeGroups")]
         public Input<string>? BalanceSimilarNodeGroups { get; set; }
 
+        [Input("expander")]
+        public Input<string>? Expander { get; set; }
+
+        [Input("maxEmptyBulkDelete")]
+        public Input<string>? MaxEmptyBulkDelete { get; set; }
+
         [Input("maxGracefulTerminationSec")]
         public Input<string>? MaxGracefulTerminationSec { get; set; }
+
+        [Input("maxTotalUnreadyPercentage")]
+        public Input<string>? MaxTotalUnreadyPercentage { get; set; }
+
+        [Input("newPodScaleUpDelay")]
+        public Input<string>? NewPodScaleUpDelay { get; set; }
+
+        [Input("okTotalUnreadyCount")]
+        public Input<string>? OkTotalUnreadyCount { get; set; }
 
         [Input("scaleDownDelayAfterAdd")]
         public Input<string>? ScaleDownDelayAfterAdd { get; set; }
@@ -41,6 +56,12 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Inputs
 
         [Input("scanInterval")]
         public Input<string>? ScanInterval { get; set; }
+
+        [Input("skipNodesWithLocalStorage")]
+        public Input<string>? SkipNodesWithLocalStorage { get; set; }
+
+        [Input("skipNodesWithSystemPods")]
+        public Input<string>? SkipNodesWithSystemPods { get; set; }
 
         public ManagedClusterPropertiesAutoScalerProfileArgs()
         {

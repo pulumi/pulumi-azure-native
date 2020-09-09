@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001Preview.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of identity used for the region move service.
+        /// The type of identity used for the resource mover service.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

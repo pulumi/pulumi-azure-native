@@ -14,15 +14,15 @@ namespace Pulumi.AzureRM.Compute.Latest.Outputs
     public sealed class GalleryImageIdentifierResponseResult
     {
         /// <summary>
-        /// The name of the gallery Image Definition offer.
+        /// The name of the gallery image definition offer.
         /// </summary>
         public readonly string Offer;
         /// <summary>
-        /// The name of the gallery Image Definition publisher.
+        /// The name of the gallery image definition publisher.
         /// </summary>
         public readonly string Publisher;
         /// <summary>
-        /// The name of the gallery Image Definition SKU.
+        /// The name of the gallery image definition SKU.
         /// </summary>
         public readonly string Sku;
 

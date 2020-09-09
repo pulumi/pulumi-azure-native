@@ -7,7 +7,7 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
- * Specifies information about the gallery Image Version that you want to create or update.
+ * Specifies information about the gallery image version that you want to create or update.
  */
 export class GalleryImageVersion extends pulumi.CustomResource {
     /**
@@ -49,11 +49,11 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The publishing profile of a gallery Image Version.
+     * The publishing profile of a gallery image Version.
      */
     public readonly publishingProfile!: pulumi.Output<outputs.compute.latest.GalleryImageVersionPublishingProfileResponse | undefined>;
     /**
-     * This is the replication status of the gallery Image Version.
+     * This is the replication status of the gallery image version.
      */
     public /*out*/ readonly replicationStatus!: pulumi.Output<outputs.compute.latest.ReplicationStatusResponse>;
     /**
@@ -126,7 +126,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20180601:GalleryImageVersion" }, { type: "azurerm:compute/v20190301:GalleryImageVersion" }, { type: "azurerm:compute/v20190701:GalleryImageVersion" }, { type: "azurerm:compute/v20191201:GalleryImageVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20180601:GalleryImageVersion" }, { type: "azurerm:compute/v20190301:GalleryImageVersion" }, { type: "azurerm:compute/v20190701:GalleryImageVersion" }, { type: "azurerm:compute/v20191201:GalleryImageVersion" }, { type: "azurerm:compute/v20200930:GalleryImageVersion" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryImageVersion.__pulumiType, name, inputs, opts);
     }
@@ -137,11 +137,11 @@ export class GalleryImageVersion extends pulumi.CustomResource {
  */
 export interface GalleryImageVersionArgs {
     /**
-     * The name of the gallery Image Definition in which the Image Version is to be created.
+     * The name of the gallery image definition in which the Image Version is to be created.
      */
     readonly galleryImageName: pulumi.Input<string>;
     /**
-     * The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+     * The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
      */
     readonly galleryImageVersionName: pulumi.Input<string>;
     /**
@@ -153,7 +153,7 @@ export interface GalleryImageVersionArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The publishing profile of a gallery Image Version.
+     * The publishing profile of a gallery image Version.
      */
     readonly publishingProfile?: pulumi.Input<inputs.compute.latest.GalleryImageVersionPublishingProfile>;
     /**

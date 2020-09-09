@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.Compute.Latest.Outputs
         /// </summary>
         public readonly int Progress;
         /// <summary>
-        /// The region to which the gallery Image Version is being replicated to.
+        /// The region to which the gallery image version is being replicated to.
         /// </summary>
         public readonly string Region;
         /// <summary>

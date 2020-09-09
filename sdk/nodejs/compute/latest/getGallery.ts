@@ -17,6 +17,7 @@ export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("azurerm:compute/latest:getGallery", {
         "galleryName": args.galleryName,
         "resourceGroupName": args.resourceGroupName,
+        "select": args.select,
     }, opts);
 }
 
@@ -29,6 +30,10 @@ export interface GetGalleryArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: string;
+    /**
+     * The select expression to apply on the operation.
+     */
+    readonly select?: string;
 }
 
 /**
@@ -55,6 +60,10 @@ export interface GetGalleryResult {
      * The provisioning state, which only appears in the response.
      */
     readonly provisioningState: string;
+    /**
+     * Profile for gallery sharing to subscription or tenant
+     */
+    readonly sharingProfile?: outputs.compute.latest.SharingProfileResponse;
     /**
      * Resource tags
      */

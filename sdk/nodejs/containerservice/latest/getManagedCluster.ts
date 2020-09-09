@@ -112,6 +112,10 @@ export interface GetManagedClusterResult {
      */
     readonly nodeResourceGroup?: string;
     /**
+     * Represents the Power State of the cluster
+     */
+    readonly powerState: outputs.containerservice.latest.PowerStateResponse;
+    /**
      * FQDN of private cluster.
      */
     readonly privateFQDN: string;

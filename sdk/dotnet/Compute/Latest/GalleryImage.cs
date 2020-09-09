@@ -10,12 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Compute.Latest
 {
     /// <summary>
-    /// Specifies information about the gallery Image Definition that you want to create or update.
+    /// Specifies information about the gallery image definition that you want to create or update.
     /// </summary>
     public partial class GalleryImage : Pulumi.CustomResource
     {
         /// <summary>
-        /// The description of this gallery Image Definition resource. This property is updatable.
+        /// The description of this gallery image definition resource. This property is updatable.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -27,16 +27,22 @@ namespace Pulumi.AzureRM.Compute.Latest
         public Output<Outputs.DisallowedResponseResult?> Disallowed { get; private set; } = null!;
 
         /// <summary>
-        /// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+        /// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         /// </summary>
         [Output("endOfLifeDate")]
         public Output<string?> EndOfLifeDate { get; private set; } = null!;
 
         /// <summary>
-        /// The Eula agreement for the gallery Image Definition.
+        /// The Eula agreement for the gallery image definition.
         /// </summary>
         [Output("eula")]
         public Output<string?> Eula { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of gallery image features.
+        /// </summary>
+        [Output("features")]
+        public Output<ImmutableArray<Outputs.GalleryImageFeatureResponseResult>> Features { get; private set; } = null!;
 
         /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
@@ -45,7 +51,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         public Output<string?> HyperVGeneration { get; private set; } = null!;
 
         /// <summary>
-        /// This is the gallery Image Definition identifier.
+        /// This is the gallery image definition identifier.
         /// </summary>
         [Output("identifier")]
         public Output<Outputs.GalleryImageIdentifierResponseResult> Identifier { get; private set; } = null!;
@@ -87,7 +93,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        /// Describes the gallery image definition purchase plan. This is used by marketplace images.
         /// </summary>
         [Output("purchasePlan")]
         public Output<Outputs.ImagePurchasePlanResponseResult?> PurchasePlan { get; private set; } = null!;
@@ -145,6 +151,7 @@ namespace Pulumi.AzureRM.Compute.Latest
                     new Pulumi.Alias { Type = "azurerm:compute/v20190301:GalleryImage"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20190701:GalleryImage"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20191201:GalleryImage"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20200930:GalleryImage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -169,7 +176,7 @@ namespace Pulumi.AzureRM.Compute.Latest
     public sealed class GalleryImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of this gallery Image Definition resource. This property is updatable.
+        /// The description of this gallery image definition resource. This property is updatable.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -181,19 +188,31 @@ namespace Pulumi.AzureRM.Compute.Latest
         public Input<Inputs.DisallowedArgs>? Disallowed { get; set; }
 
         /// <summary>
-        /// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+        /// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         /// </summary>
         [Input("endOfLifeDate")]
         public Input<string>? EndOfLifeDate { get; set; }
 
         /// <summary>
-        /// The Eula agreement for the gallery Image Definition.
+        /// The Eula agreement for the gallery image definition.
         /// </summary>
         [Input("eula")]
         public Input<string>? Eula { get; set; }
 
+        [Input("features")]
+        private InputList<Inputs.GalleryImageFeatureArgs>? _features;
+
         /// <summary>
-        /// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+        /// A list of gallery image features.
+        /// </summary>
+        public InputList<Inputs.GalleryImageFeatureArgs> Features
+        {
+            get => _features ?? (_features = new InputList<Inputs.GalleryImageFeatureArgs>());
+            set => _features = value;
+        }
+
+        /// <summary>
+        /// The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         /// </summary>
         [Input("galleryImageName", required: true)]
         public Input<string> GalleryImageName { get; set; } = null!;
@@ -211,7 +230,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
-        /// This is the gallery Image Definition identifier.
+        /// This is the gallery image definition identifier.
         /// </summary>
         [Input("identifier", required: true)]
         public Input<Inputs.GalleryImageIdentifierArgs> Identifier { get; set; } = null!;
@@ -241,7 +260,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         public Input<string>? PrivacyStatementUri { get; set; }
 
         /// <summary>
-        /// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        /// Describes the gallery image definition purchase plan. This is used by marketplace images.
         /// </summary>
         [Input("purchasePlan")]
         public Input<Inputs.ImagePurchasePlanArgs>? PurchasePlan { get; set; }

@@ -21,7 +21,7 @@ class GetTaskResult:
     The task that has the ARM resource and task properties. 
     The task will have all information to schedule a run against it.
     """
-    def __init__(__self__, agent_configuration=None, agent_pool_name=None, creation_date=None, credentials=None, identity=None, location=None, name=None, platform=None, provisioning_state=None, status=None, step=None, tags=None, timeout=None, trigger=None, type=None):
+    def __init__(__self__, agent_configuration=None, agent_pool_name=None, creation_date=None, credentials=None, identity=None, is_system_task=None, location=None, log_template=None, name=None, platform=None, provisioning_state=None, status=None, step=None, tags=None, timeout=None, trigger=None, type=None):
         if agent_configuration and not isinstance(agent_configuration, dict):
             raise TypeError("Expected argument 'agent_configuration' to be a dict")
         pulumi.set(__self__, "agent_configuration", agent_configuration)
@@ -37,9 +37,15 @@ class GetTaskResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if is_system_task and not isinstance(is_system_task, bool):
+            raise TypeError("Expected argument 'is_system_task' to be a bool")
+        pulumi.set(__self__, "is_system_task", is_system_task)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if log_template and not isinstance(log_template, str):
+            raise TypeError("Expected argument 'log_template' to be a str")
+        pulumi.set(__self__, "log_template", log_template)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -109,12 +115,28 @@ class GetTaskResult:
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter(name="isSystemTask")
+    def is_system_task(self) -> Optional[bool]:
+        """
+        The value of this property indicates whether the task resource is system task or not.
+        """
+        return pulumi.get(self, "is_system_task")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logTemplate")
+    def log_template(self) -> Optional[str]:
+        """
+        The template that describes the repository and tag information for run log artifact.
+        """
+        return pulumi.get(self, "log_template")
 
     @property
     @pulumi.getter
@@ -126,7 +148,7 @@ class GetTaskResult:
 
     @property
     @pulumi.getter
-    def platform(self) -> 'outputs.PlatformPropertiesResponse':
+    def platform(self) -> Optional['outputs.PlatformPropertiesResponse']:
         """
         The platform properties against which the run has to happen.
         """
@@ -150,7 +172,7 @@ class GetTaskResult:
 
     @property
     @pulumi.getter
-    def step(self) -> Any:
+    def step(self) -> Optional[Any]:
         """
         The properties of a task step.
         """
@@ -200,7 +222,9 @@ class AwaitableGetTaskResult(GetTaskResult):
             creation_date=self.creation_date,
             credentials=self.credentials,
             identity=self.identity,
+            is_system_task=self.is_system_task,
             location=self.location,
+            log_template=self.log_template,
             name=self.name,
             platform=self.platform,
             provisioning_state=self.provisioning_state,
@@ -239,7 +263,9 @@ def get_task(registry_name: Optional[str] = None,
         creation_date=__ret__.creation_date,
         credentials=__ret__.credentials,
         identity=__ret__.identity,
+        is_system_task=__ret__.is_system_task,
         location=__ret__.location,
+        log_template=__ret__.log_template,
         name=__ret__.name,
         platform=__ret__.platform,
         provisioning_state=__ret__.provisioning_state,

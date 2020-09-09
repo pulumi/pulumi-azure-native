@@ -48,9 +48,21 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// </summary>
         public readonly string? AdministratorLoginPassword;
         /// <summary>
+        /// availability Zone information of the server.
+        /// </summary>
+        public readonly string? AvailabilityZone;
+        /// <summary>
+        /// Status showing whether the data encryption is enabled with customer-managed keys.
+        /// </summary>
+        public readonly string ByokEnforcement;
+        /// <summary>
         /// The mode to create a new MySQL server.
         /// </summary>
         public readonly string? CreateMode;
+        /// <summary>
+        /// Delegated subnet arguments.
+        /// </summary>
+        public readonly Outputs.DelegatedSubnetArgumentsResponseResult? DelegatedSubnetArguments;
         /// <summary>
         /// Earliest restore point creation time (ISO8601 format)
         /// </summary>
@@ -59,6 +71,10 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// The fully qualified domain name of a server.
         /// </summary>
         public readonly string FullyQualifiedDomainName;
+        /// <summary>
+        /// Enable HA or not for a server.
+        /// </summary>
+        public readonly string? HaEnabled;
         /// <summary>
         /// The state of a HA server.
         /// </summary>
@@ -76,13 +92,13 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Maintenance window of a server.
+        /// </summary>
+        public readonly Outputs.MaintenanceWindowResponseResult? MaintenanceWindow;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The primary server id of a replica server.
-        /// </summary>
-        public readonly string PrimaryServerId;
         /// <summary>
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
@@ -104,7 +120,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
         /// <summary>
-        /// The source MySQL server name to restore from.
+        /// The source MySQL server id.
         /// </summary>
         public readonly string? SourceServerId;
         /// <summary>
@@ -112,9 +128,9 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// </summary>
         public readonly string? SslEnforcement;
         /// <summary>
-        /// stand by count value can be either 0 or 1
+        /// availability Zone information of the server.
         /// </summary>
-        public readonly int? StandbyCount;
+        public readonly string StandByAvailabilityZone;
         /// <summary>
         /// The state of a server.
         /// </summary>
@@ -135,10 +151,6 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// Server version.
         /// </summary>
         public readonly string? Version;
-        /// <summary>
-        /// Vnet arguments.
-        /// </summary>
-        public readonly Outputs.VnetInjArgsResponseResult? VnetInjArgs;
 
         [OutputConstructor]
         private GetServerResult(
@@ -146,11 +158,19 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
 
             string? administratorLoginPassword,
 
+            string? availabilityZone,
+
+            string byokEnforcement,
+
             string? createMode,
+
+            Outputs.DelegatedSubnetArgumentsResponseResult? delegatedSubnetArguments,
 
             string? earliestRestoreDate,
 
             string fullyQualifiedDomainName,
+
+            string? haEnabled,
 
             string haState,
 
@@ -160,9 +180,9 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
 
             string location,
 
-            string name,
+            Outputs.MaintenanceWindowResponseResult? maintenanceWindow,
 
-            string primaryServerId,
+            string name,
 
             string? publicNetworkAccess,
 
@@ -178,7 +198,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
 
             string? sslEnforcement,
 
-            int? standbyCount,
+            string standByAvailabilityZone,
 
             string state,
 
@@ -188,21 +208,23 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
 
             string type,
 
-            string? version,
-
-            Outputs.VnetInjArgsResponseResult? vnetInjArgs)
+            string? version)
         {
             AdministratorLogin = administratorLogin;
             AdministratorLoginPassword = administratorLoginPassword;
+            AvailabilityZone = availabilityZone;
+            ByokEnforcement = byokEnforcement;
             CreateMode = createMode;
+            DelegatedSubnetArguments = delegatedSubnetArguments;
             EarliestRestoreDate = earliestRestoreDate;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            HaEnabled = haEnabled;
             HaState = haState;
             Identity = identity;
             InfrastructureEncryption = infrastructureEncryption;
             Location = location;
+            MaintenanceWindow = maintenanceWindow;
             Name = name;
-            PrimaryServerId = primaryServerId;
             PublicNetworkAccess = publicNetworkAccess;
             ReplicaCapacity = replicaCapacity;
             ReplicationRole = replicationRole;
@@ -210,13 +232,12 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
             Sku = sku;
             SourceServerId = sourceServerId;
             SslEnforcement = sslEnforcement;
-            StandbyCount = standbyCount;
+            StandByAvailabilityZone = standByAvailabilityZone;
             State = state;
             StorageProfile = storageProfile;
             Tags = tags;
             Type = type;
             Version = version;
-            VnetInjArgs = vnetInjArgs;
         }
     }
 }

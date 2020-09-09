@@ -35,6 +35,7 @@ __all__ = [
     'GalleryApplicationVersionPublishingProfileArgs',
     'GalleryArtifactVersionSourceArgs',
     'GalleryDataDiskImageArgs',
+    'GalleryImageFeatureArgs',
     'GalleryImageIdentifierArgs',
     'GalleryImageVersionPublishingProfileArgs',
     'GalleryImageVersionStorageProfileArgs',
@@ -68,6 +69,7 @@ __all__ = [
     'ScaleInPolicyArgs',
     'ScheduledEventsProfileArgs',
     'SecurityProfileArgs',
+    'SharingProfileArgs',
     'SkuArgs',
     'SnapshotSkuArgs',
     'SourceVaultArgs',
@@ -1258,11 +1260,11 @@ class GalleryApplicationVersionPublishingProfileArgs:
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  target_regions: Optional[pulumi.Input[List[pulumi.Input['TargetRegionArgs']]]] = None):
         """
-        The publishing profile of a gallery Image Version.
+        The publishing profile of a gallery image version.
         :param pulumi.Input['UserArtifactSourceArgs'] source: The source image from which the Image Version is going to be created.
         :param pulumi.Input[str] content_type: Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
         :param pulumi.Input[bool] enable_health_check: Optional. Whether or not this application reports health.
-        :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+        :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param pulumi.Input[float] replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
@@ -1324,7 +1326,7 @@ class GalleryApplicationVersionPublishingProfileArgs:
     @pulumi.getter(name="endOfLifeDate")
     def end_of_life_date(self) -> Optional[pulumi.Input[str]]:
         """
-        The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+        The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         """
         return pulumi.get(self, "end_of_life_date")
 
@@ -1384,25 +1386,41 @@ class GalleryApplicationVersionPublishingProfileArgs:
 @pulumi.input_type
 class GalleryArtifactVersionSourceArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
+                 id: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
         """
         The gallery artifact version source.
-        :param pulumi.Input[str] id: The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+        :param pulumi.Input[str] id: The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+        :param pulumi.Input[str] uri: The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+        The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
         """
         return pulumi.get(self, "id")
 
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
 
 
 @pulumi.input_type
@@ -1461,16 +1479,56 @@ class GalleryDataDiskImageArgs:
 
 
 @pulumi.input_type
+class GalleryImageFeatureArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A feature for gallery image.
+        :param pulumi.Input[str] name: The name of the gallery image feature.
+        :param pulumi.Input[str] value: The value of the gallery image feature.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the gallery image feature.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the gallery image feature.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class GalleryImageIdentifierArgs:
     def __init__(__self__, *,
                  offer: pulumi.Input[str],
                  publisher: pulumi.Input[str],
                  sku: pulumi.Input[str]):
         """
-        This is the gallery Image Definition identifier.
-        :param pulumi.Input[str] offer: The name of the gallery Image Definition offer.
-        :param pulumi.Input[str] publisher: The name of the gallery Image Definition publisher.
-        :param pulumi.Input[str] sku: The name of the gallery Image Definition SKU.
+        This is the gallery image definition identifier.
+        :param pulumi.Input[str] offer: The name of the gallery image definition offer.
+        :param pulumi.Input[str] publisher: The name of the gallery image definition publisher.
+        :param pulumi.Input[str] sku: The name of the gallery image definition SKU.
         """
         pulumi.set(__self__, "offer", offer)
         pulumi.set(__self__, "publisher", publisher)
@@ -1480,7 +1538,7 @@ class GalleryImageIdentifierArgs:
     @pulumi.getter
     def offer(self) -> pulumi.Input[str]:
         """
-        The name of the gallery Image Definition offer.
+        The name of the gallery image definition offer.
         """
         return pulumi.get(self, "offer")
 
@@ -1492,7 +1550,7 @@ class GalleryImageIdentifierArgs:
     @pulumi.getter
     def publisher(self) -> pulumi.Input[str]:
         """
-        The name of the gallery Image Definition publisher.
+        The name of the gallery image definition publisher.
         """
         return pulumi.get(self, "publisher")
 
@@ -1504,7 +1562,7 @@ class GalleryImageIdentifierArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
         """
-        The name of the gallery Image Definition SKU.
+        The name of the gallery image definition SKU.
         """
         return pulumi.get(self, "sku")
 
@@ -1522,8 +1580,8 @@ class GalleryImageVersionPublishingProfileArgs:
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  target_regions: Optional[pulumi.Input[List[pulumi.Input['TargetRegionArgs']]]] = None):
         """
-        The publishing profile of a gallery Image Version.
-        :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+        The publishing profile of a gallery image Version.
+        :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param pulumi.Input[float] replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
@@ -1544,7 +1602,7 @@ class GalleryImageVersionPublishingProfileArgs:
     @pulumi.getter(name="endOfLifeDate")
     def end_of_life_date(self) -> Optional[pulumi.Input[str]]:
         """
-        The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+        The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         """
         return pulumi.get(self, "end_of_life_date")
 
@@ -2180,7 +2238,7 @@ class ImagePurchasePlanArgs:
                  product: Optional[pulumi.Input[str]] = None,
                  publisher: Optional[pulumi.Input[str]] = None):
         """
-        Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        Describes the gallery image definition purchase plan. This is used by marketplace images.
         :param pulumi.Input[str] name: The plan ID.
         :param pulumi.Input[str] product: The product ID.
         :param pulumi.Input[str] publisher: The publisher ID.
@@ -3464,6 +3522,30 @@ class SecurityProfileArgs:
     @encryption_at_host.setter
     def encryption_at_host(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "encryption_at_host", value)
+
+
+@pulumi.input_type
+class SharingProfileArgs:
+    def __init__(__self__, *,
+                 permissions: Optional[pulumi.Input[str]] = None):
+        """
+        Profile for gallery sharing to subscription or tenant
+        :param pulumi.Input[str] permissions: This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+        """
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[str]]:
+        """
+        This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "permissions", value)
 
 
 @pulumi.input_type

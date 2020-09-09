@@ -7,9 +7,9 @@ from .database import *
 from .firewall_rule import *
 from .get_database import *
 from .get_firewall_rule import *
-from .get_maintenance_window import *
 from .get_server import *
-from .maintenance_window import *
+from .get_server_key import *
 from .server import *
+from .server_key import *
 from ._inputs import *
 from . import outputs

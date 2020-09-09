@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Compute.Latest
     public sealed class GetGalleryImageArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the gallery Image Definition to be retrieved.
+        /// The name of the gallery image definition to be retrieved.
         /// </summary>
         [Input("galleryImageName", required: true)]
         public string GalleryImageName { get; set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.Compute.Latest
     public sealed class GetGalleryImageResult
     {
         /// <summary>
-        /// The description of this gallery Image Definition resource. This property is updatable.
+        /// The description of this gallery image definition resource. This property is updatable.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -54,19 +54,23 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// </summary>
         public readonly Outputs.DisallowedResponseResult? Disallowed;
         /// <summary>
-        /// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+        /// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         /// </summary>
         public readonly string? EndOfLifeDate;
         /// <summary>
-        /// The Eula agreement for the gallery Image Definition.
+        /// The Eula agreement for the gallery image definition.
         /// </summary>
         public readonly string? Eula;
+        /// <summary>
+        /// A list of gallery image features.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GalleryImageFeatureResponseResult> Features;
         /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         public readonly string? HyperVGeneration;
         /// <summary>
-        /// This is the gallery Image Definition identifier.
+        /// This is the gallery image definition identifier.
         /// </summary>
         public readonly Outputs.GalleryImageIdentifierResponseResult Identifier;
         /// <summary>
@@ -94,7 +98,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        /// Describes the gallery image definition purchase plan. This is used by marketplace images.
         /// </summary>
         public readonly Outputs.ImagePurchasePlanResponseResult? PurchasePlan;
         /// <summary>
@@ -123,6 +127,8 @@ namespace Pulumi.AzureRM.Compute.Latest
             string? endOfLifeDate,
 
             string? eula,
+
+            ImmutableArray<Outputs.GalleryImageFeatureResponseResult> features,
 
             string? hyperVGeneration,
 
@@ -154,6 +160,7 @@ namespace Pulumi.AzureRM.Compute.Latest
             Disallowed = disallowed;
             EndOfLifeDate = endOfLifeDate;
             Eula = eula;
+            Features = features;
             HyperVGeneration = hyperVGeneration;
             Identifier = identifier;
             Location = location;

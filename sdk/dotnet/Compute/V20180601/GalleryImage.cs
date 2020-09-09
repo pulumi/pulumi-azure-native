@@ -139,6 +139,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
                     new Pulumi.Alias { Type = "azurerm:compute/v20190301:GalleryImage"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20190701:GalleryImage"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20191201:GalleryImage"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20200930:GalleryImage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

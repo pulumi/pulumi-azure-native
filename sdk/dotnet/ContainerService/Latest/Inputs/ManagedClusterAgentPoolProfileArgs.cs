@@ -112,6 +112,12 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Inputs
         public Input<int>? OsDiskSizeGB { get; set; }
 
         /// <summary>
+        /// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        /// </summary>
+        [Input("osDiskType")]
+        public Input<string>? OsDiskType { get; set; }
+
+        /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Input("osType")]

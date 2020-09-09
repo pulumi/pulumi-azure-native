@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Specifies information about the gallery Image Version that you want to create or update.
+// Specifies information about the gallery image version that you want to create or update.
 type GalleryImageVersion struct {
 	pulumi.CustomResourceState
 
@@ -20,9 +20,9 @@ type GalleryImageVersion struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image Version.
 	PublishingProfile GalleryImageVersionPublishingProfileResponsePtrOutput `pulumi:"publishingProfile"`
-	// This is the replication status of the gallery Image Version.
+	// This is the replication status of the gallery image version.
 	ReplicationStatus ReplicationStatusResponseOutput `pulumi:"replicationStatus"`
 	// This is the storage profile of a Gallery Image Version.
 	StorageProfile GalleryImageVersionStorageProfileResponseOutput `pulumi:"storageProfile"`
@@ -69,6 +69,9 @@ func NewGalleryImageVersion(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:compute/v20191201:GalleryImageVersion"),
 		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200930:GalleryImageVersion"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GalleryImageVersion
@@ -99,9 +102,9 @@ type galleryImageVersionState struct {
 	Name *string `pulumi:"name"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image Version.
 	PublishingProfile *GalleryImageVersionPublishingProfileResponse `pulumi:"publishingProfile"`
-	// This is the replication status of the gallery Image Version.
+	// This is the replication status of the gallery image version.
 	ReplicationStatus *ReplicationStatusResponse `pulumi:"replicationStatus"`
 	// This is the storage profile of a Gallery Image Version.
 	StorageProfile *GalleryImageVersionStorageProfileResponse `pulumi:"storageProfile"`
@@ -118,9 +121,9 @@ type GalleryImageVersionState struct {
 	Name pulumi.StringPtrInput
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringPtrInput
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image Version.
 	PublishingProfile GalleryImageVersionPublishingProfileResponsePtrInput
-	// This is the replication status of the gallery Image Version.
+	// This is the replication status of the gallery image version.
 	ReplicationStatus ReplicationStatusResponsePtrInput
 	// This is the storage profile of a Gallery Image Version.
 	StorageProfile GalleryImageVersionStorageProfileResponsePtrInput
@@ -135,15 +138,15 @@ func (GalleryImageVersionState) ElementType() reflect.Type {
 }
 
 type galleryImageVersionArgs struct {
-	// The name of the gallery Image Definition in which the Image Version is to be created.
+	// The name of the gallery image definition in which the Image Version is to be created.
 	GalleryImageName string `pulumi:"galleryImageName"`
-	// The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+	// The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
 	GalleryImageVersionName string `pulumi:"galleryImageVersionName"`
 	// The name of the Shared Image Gallery in which the Image Definition resides.
 	GalleryName string `pulumi:"galleryName"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image Version.
 	PublishingProfile *GalleryImageVersionPublishingProfile `pulumi:"publishingProfile"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -155,15 +158,15 @@ type galleryImageVersionArgs struct {
 
 // The set of arguments for constructing a GalleryImageVersion resource.
 type GalleryImageVersionArgs struct {
-	// The name of the gallery Image Definition in which the Image Version is to be created.
+	// The name of the gallery image definition in which the Image Version is to be created.
 	GalleryImageName pulumi.StringInput
-	// The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+	// The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
 	GalleryImageVersionName pulumi.StringInput
 	// The name of the Shared Image Gallery in which the Image Definition resides.
 	GalleryName pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
-	// The publishing profile of a gallery Image Version.
+	// The publishing profile of a gallery image Version.
 	PublishingProfile GalleryImageVersionPublishingProfilePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput

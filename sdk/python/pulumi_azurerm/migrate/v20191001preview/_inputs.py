@@ -113,7 +113,7 @@ class IdentityArgs:
         Defines the MSI properties of the Move Collection.
         :param pulumi.Input[str] principal_id: Gets or sets the principal id.
         :param pulumi.Input[str] tenant_id: Gets or sets the tenant id.
-        :param pulumi.Input[str] type: The type of identity used for the region move service.
+        :param pulumi.Input[str] type: The type of identity used for the resource mover service.
         """
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
@@ -150,7 +150,7 @@ class IdentityArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of identity used for the region move service.
+        The type of identity used for the resource mover service.
         """
         return pulumi.get(self, "type")
 

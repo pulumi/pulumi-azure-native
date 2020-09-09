@@ -18,9 +18,9 @@ __all__ = [
 @pulumi.output_type
 class GetGalleryImageResult:
     """
-    Specifies information about the gallery Image Definition that you want to create or update.
+    Specifies information about the gallery image definition that you want to create or update.
     """
-    def __init__(__self__, description=None, disallowed=None, end_of_life_date=None, eula=None, hyper_v_generation=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, provisioning_state=None, purchase_plan=None, recommended=None, release_note_uri=None, tags=None, type=None):
+    def __init__(__self__, description=None, disallowed=None, end_of_life_date=None, eula=None, features=None, hyper_v_generation=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, provisioning_state=None, purchase_plan=None, recommended=None, release_note_uri=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -33,6 +33,9 @@ class GetGalleryImageResult:
         if eula and not isinstance(eula, str):
             raise TypeError("Expected argument 'eula' to be a str")
         pulumi.set(__self__, "eula", eula)
+        if features and not isinstance(features, list):
+            raise TypeError("Expected argument 'features' to be a list")
+        pulumi.set(__self__, "features", features)
         if hyper_v_generation and not isinstance(hyper_v_generation, str):
             raise TypeError("Expected argument 'hyper_v_generation' to be a str")
         pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
@@ -77,7 +80,7 @@ class GetGalleryImageResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        The description of this gallery Image Definition resource. This property is updatable.
+        The description of this gallery image definition resource. This property is updatable.
         """
         return pulumi.get(self, "description")
 
@@ -93,7 +96,7 @@ class GetGalleryImageResult:
     @pulumi.getter(name="endOfLifeDate")
     def end_of_life_date(self) -> Optional[str]:
         """
-        The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+        The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         """
         return pulumi.get(self, "end_of_life_date")
 
@@ -101,9 +104,17 @@ class GetGalleryImageResult:
     @pulumi.getter
     def eula(self) -> Optional[str]:
         """
-        The Eula agreement for the gallery Image Definition.
+        The Eula agreement for the gallery image definition.
         """
         return pulumi.get(self, "eula")
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[List['outputs.GalleryImageFeatureResponse']]:
+        """
+        A list of gallery image features.
+        """
+        return pulumi.get(self, "features")
 
     @property
     @pulumi.getter(name="hyperVGeneration")
@@ -117,7 +128,7 @@ class GetGalleryImageResult:
     @pulumi.getter
     def identifier(self) -> 'outputs.GalleryImageIdentifierResponse':
         """
-        This is the gallery Image Definition identifier.
+        This is the gallery image definition identifier.
         """
         return pulumi.get(self, "identifier")
 
@@ -173,7 +184,7 @@ class GetGalleryImageResult:
     @pulumi.getter(name="purchasePlan")
     def purchase_plan(self) -> Optional['outputs.ImagePurchasePlanResponse']:
         """
-        Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        Describes the gallery image definition purchase plan. This is used by marketplace images.
         """
         return pulumi.get(self, "purchase_plan")
 
@@ -220,6 +231,7 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
             disallowed=self.disallowed,
             end_of_life_date=self.end_of_life_date,
             eula=self.eula,
+            features=self.features,
             hyper_v_generation=self.hyper_v_generation,
             identifier=self.identifier,
             location=self.location,
@@ -242,7 +254,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str gallery_image_name: The name of the gallery Image Definition to be retrieved.
+    :param str gallery_image_name: The name of the gallery image definition to be retrieved.
     :param str gallery_name: The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
     :param str resource_group_name: The name of the resource group.
     """
@@ -261,6 +273,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
         disallowed=__ret__.disallowed,
         end_of_life_date=__ret__.end_of_life_date,
         eula=__ret__.eula,
+        features=__ret__.features,
         hyper_v_generation=__ret__.hyper_v_generation,
         identifier=__ret__.identifier,
         location=__ret__.location,

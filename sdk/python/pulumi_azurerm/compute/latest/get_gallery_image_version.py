@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetGalleryImageVersionResult:
     """
-    Specifies information about the gallery Image Version that you want to create or update.
+    Specifies information about the gallery image version that you want to create or update.
     """
     def __init__(__self__, location=None, name=None, provisioning_state=None, publishing_profile=None, replication_status=None, storage_profile=None, tags=None, type=None):
         if location and not isinstance(location, str):
@@ -74,7 +74,7 @@ class GetGalleryImageVersionResult:
     @pulumi.getter(name="publishingProfile")
     def publishing_profile(self) -> Optional['outputs.GalleryImageVersionPublishingProfileResponse']:
         """
-        The publishing profile of a gallery Image Version.
+        The publishing profile of a gallery image Version.
         """
         return pulumi.get(self, "publishing_profile")
 
@@ -82,7 +82,7 @@ class GetGalleryImageVersionResult:
     @pulumi.getter(name="replicationStatus")
     def replication_status(self) -> 'outputs.ReplicationStatusResponse':
         """
-        This is the replication status of the gallery Image Version.
+        This is the replication status of the gallery image version.
         """
         return pulumi.get(self, "replication_status")
 
@@ -137,8 +137,8 @@ def get_gallery_image_version(expand: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str expand: The expand expression to apply on the operation.
-    :param str gallery_image_name: The name of the gallery Image Definition in which the Image Version resides.
-    :param str gallery_image_version_name: The name of the gallery Image Version to be retrieved.
+    :param str gallery_image_name: The name of the gallery image definition in which the Image Version resides.
+    :param str gallery_image_version_name: The name of the gallery image version to be retrieved.
     :param str gallery_name: The name of the Shared Image Gallery in which the Image Definition resides.
     :param str resource_group_name: The name of the resource group.
     """

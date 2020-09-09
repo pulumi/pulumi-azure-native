@@ -13,13 +13,13 @@ import (
 // Put subscription properties.
 type PutAliasRequestProperties struct {
 	// Determines whether subscription is fieldLed, partnerLed or LegacyEA
-	BillingScope string `pulumi:"billingScope"`
+	BillingScope *string `pulumi:"billingScope"`
 	// The friendly name of the subscription.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
 	// This parameter can be used to create alias for existing subscription Id
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The workload type of the subscription. It can be either Production or DevTest.
-	Workload string `pulumi:"workload"`
+	Workload *string `pulumi:"workload"`
 }
 
 // PutAliasRequestPropertiesInput is an input type that accepts PutAliasRequestPropertiesArgs and PutAliasRequestPropertiesOutput values.
@@ -36,13 +36,13 @@ type PutAliasRequestPropertiesInput interface {
 // Put subscription properties.
 type PutAliasRequestPropertiesArgs struct {
 	// Determines whether subscription is fieldLed, partnerLed or LegacyEA
-	BillingScope pulumi.StringInput `pulumi:"billingScope"`
+	BillingScope pulumi.StringPtrInput `pulumi:"billingScope"`
 	// The friendly name of the subscription.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// This parameter can be used to create alias for existing subscription Id
 	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
 	// The workload type of the subscription. It can be either Production or DevTest.
-	Workload pulumi.StringInput `pulumi:"workload"`
+	Workload pulumi.StringPtrInput `pulumi:"workload"`
 }
 
 func (PutAliasRequestPropertiesArgs) ElementType() reflect.Type {
@@ -124,13 +124,13 @@ func (o PutAliasRequestPropertiesOutput) ToPutAliasRequestPropertiesPtrOutputWit
 }
 
 // Determines whether subscription is fieldLed, partnerLed or LegacyEA
-func (o PutAliasRequestPropertiesOutput) BillingScope() pulumi.StringOutput {
-	return o.ApplyT(func(v PutAliasRequestProperties) string { return v.BillingScope }).(pulumi.StringOutput)
+func (o PutAliasRequestPropertiesOutput) BillingScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PutAliasRequestProperties) *string { return v.BillingScope }).(pulumi.StringPtrOutput)
 }
 
 // The friendly name of the subscription.
-func (o PutAliasRequestPropertiesOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v PutAliasRequestProperties) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o PutAliasRequestPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PutAliasRequestProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // This parameter can be used to create alias for existing subscription Id
@@ -139,8 +139,8 @@ func (o PutAliasRequestPropertiesOutput) SubscriptionId() pulumi.StringPtrOutput
 }
 
 // The workload type of the subscription. It can be either Production or DevTest.
-func (o PutAliasRequestPropertiesOutput) Workload() pulumi.StringOutput {
-	return o.ApplyT(func(v PutAliasRequestProperties) string { return v.Workload }).(pulumi.StringOutput)
+func (o PutAliasRequestPropertiesOutput) Workload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PutAliasRequestProperties) *string { return v.Workload }).(pulumi.StringPtrOutput)
 }
 
 type PutAliasRequestPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -167,7 +167,7 @@ func (o PutAliasRequestPropertiesPtrOutput) BillingScope() pulumi.StringPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return &v.BillingScope
+		return v.BillingScope
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -177,7 +177,7 @@ func (o PutAliasRequestPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput
 		if v == nil {
 			return nil
 		}
-		return &v.DisplayName
+		return v.DisplayName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -197,7 +197,7 @@ func (o PutAliasRequestPropertiesPtrOutput) Workload() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Workload
+		return v.Workload
 	}).(pulumi.StringPtrOutput)
 }
 

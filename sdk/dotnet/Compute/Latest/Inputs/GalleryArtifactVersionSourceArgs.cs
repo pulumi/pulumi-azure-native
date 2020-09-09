@@ -16,10 +16,16 @@ namespace Pulumi.AzureRM.Compute.Latest.Inputs
     public sealed class GalleryArtifactVersionSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+        /// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+        /// </summary>
+        [Input("uri")]
+        public Input<string>? Uri { get; set; }
 
         public GalleryArtifactVersionSourceArgs()
         {

@@ -116,6 +116,10 @@ namespace Pulumi.AzureRM.ContainerService.Latest
         /// </summary>
         public readonly string? NodeResourceGroup;
         /// <summary>
+        /// Represents the Power State of the cluster
+        /// </summary>
+        public readonly Outputs.PowerStateResponseResult PowerState;
+        /// <summary>
         /// FQDN of private cluster.
         /// </summary>
         public readonly string PrivateFQDN;
@@ -184,6 +188,8 @@ namespace Pulumi.AzureRM.ContainerService.Latest
 
             string? nodeResourceGroup,
 
+            Outputs.PowerStateResponseResult powerState,
+
             string privateFQDN,
 
             string provisioningState,
@@ -217,6 +223,7 @@ namespace Pulumi.AzureRM.ContainerService.Latest
             Name = name;
             NetworkProfile = networkProfile;
             NodeResourceGroup = nodeResourceGroup;
+            PowerState = powerState;
             PrivateFQDN = privateFQDN;
             ProvisioningState = provisioningState;
             ServicePrincipalProfile = servicePrincipalProfile;

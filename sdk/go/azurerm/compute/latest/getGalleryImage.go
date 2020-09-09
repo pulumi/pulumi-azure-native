@@ -17,7 +17,7 @@ func LookupGalleryImage(ctx *pulumi.Context, args *LookupGalleryImageArgs, opts 
 }
 
 type LookupGalleryImageArgs struct {
-	// The name of the gallery Image Definition to be retrieved.
+	// The name of the gallery image definition to be retrieved.
 	GalleryImageName string `pulumi:"galleryImageName"`
 	// The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
 	GalleryName string `pulumi:"galleryName"`
@@ -25,19 +25,21 @@ type LookupGalleryImageArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Specifies information about the gallery Image Definition that you want to create or update.
+// Specifies information about the gallery image definition that you want to create or update.
 type LookupGalleryImageResult struct {
-	// The description of this gallery Image Definition resource. This property is updatable.
+	// The description of this gallery image definition resource. This property is updatable.
 	Description *string `pulumi:"description"`
 	// Describes the disallowed disk types.
 	Disallowed *DisallowedResponse `pulumi:"disallowed"`
-	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery Image Definition.
+	// The Eula agreement for the gallery image definition.
 	Eula *string `pulumi:"eula"`
+	// A list of gallery image features.
+	Features []GalleryImageFeatureResponse `pulumi:"features"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// This is the gallery Image Definition identifier.
+	// This is the gallery image definition identifier.
 	Identifier GalleryImageIdentifierResponse `pulumi:"identifier"`
 	// Resource location
 	Location string `pulumi:"location"`
@@ -51,7 +53,7 @@ type LookupGalleryImageResult struct {
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+	// Describes the gallery image definition purchase plan. This is used by marketplace images.
 	PurchasePlan *ImagePurchasePlanResponse `pulumi:"purchasePlan"`
 	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 	Recommended *RecommendedMachineConfigurationResponse `pulumi:"recommended"`

@@ -24,6 +24,8 @@ type Gallery struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Profile for gallery sharing to subscription or tenant
+	SharingProfile SharingProfileResponsePtrOutput `pulumi:"sharingProfile"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -57,6 +59,9 @@ func NewGallery(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azurerm:compute/v20191201:Gallery"),
+		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200930:Gallery"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -92,6 +97,8 @@ type galleryState struct {
 	Name *string `pulumi:"name"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Profile for gallery sharing to subscription or tenant
+	SharingProfile *SharingProfileResponse `pulumi:"sharingProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -109,6 +116,8 @@ type GalleryState struct {
 	Name pulumi.StringPtrInput
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringPtrInput
+	// Profile for gallery sharing to subscription or tenant
+	SharingProfile SharingProfileResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
@@ -128,6 +137,8 @@ type galleryArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Profile for gallery sharing to subscription or tenant
+	SharingProfile *SharingProfile `pulumi:"sharingProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -142,6 +153,8 @@ type GalleryArgs struct {
 	Location pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Profile for gallery sharing to subscription or tenant
+	SharingProfile SharingProfilePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

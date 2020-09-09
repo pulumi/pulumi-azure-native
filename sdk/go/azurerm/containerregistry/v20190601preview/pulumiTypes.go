@@ -2096,6 +2096,8 @@ type DockerBuildRequest struct {
 	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// The value of this property indicates whether the image built should be pushed to the registry or not.
 	IsPushEnabled *bool `pulumi:"isPushEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// The value of this property indicates whether the image cache is enabled or not.
 	NoCache *bool `pulumi:"noCache"`
 	// The platform properties against which the run has to happen.
@@ -2140,6 +2142,8 @@ type DockerBuildRequestArgs struct {
 	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
 	// The value of this property indicates whether the image built should be pushed to the registry or not.
 	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
 	// The value of this property indicates whether the image cache is enabled or not.
 	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
 	// The platform properties against which the run has to happen.
@@ -2222,6 +2226,11 @@ func (o DockerBuildRequestOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The template that describes the repository and tag information for run log artifact.
+func (o DockerBuildRequestOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
 // The value of this property indicates whether the image cache is enabled or not.
 func (o DockerBuildRequestOutput) NoCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *bool { return v.NoCache }).(pulumi.BoolPtrOutput)
@@ -2271,6 +2280,8 @@ type DockerBuildRequestResponse struct {
 	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// The value of this property indicates whether the image built should be pushed to the registry or not.
 	IsPushEnabled *bool `pulumi:"isPushEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// The value of this property indicates whether the image cache is enabled or not.
 	NoCache *bool `pulumi:"noCache"`
 	// The platform properties against which the run has to happen.
@@ -2315,6 +2326,8 @@ type DockerBuildRequestResponseArgs struct {
 	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
 	// The value of this property indicates whether the image built should be pushed to the registry or not.
 	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
 	// The value of this property indicates whether the image cache is enabled or not.
 	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
 	// The platform properties against which the run has to happen.
@@ -2395,6 +2408,11 @@ func (o DockerBuildRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutpu
 // The value of this property indicates whether the image built should be pushed to the registry or not.
 func (o DockerBuildRequestResponseOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o DockerBuildRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
 // The value of this property indicates whether the image cache is enabled or not.
@@ -2705,6 +2723,8 @@ type EncodedTaskRunRequest struct {
 	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// The platform properties against which the run has to happen.
 	Platform PlatformProperties `pulumi:"platform"`
 	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
@@ -2743,6 +2763,8 @@ type EncodedTaskRunRequestArgs struct {
 	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
 	// The platform properties against which the run has to happen.
 	Platform PlatformPropertiesInput `pulumi:"platform"`
 	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
@@ -2813,6 +2835,11 @@ func (o EncodedTaskRunRequestOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The template that describes the repository and tag information for run log artifact.
+func (o EncodedTaskRunRequestOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
 // The platform properties against which the run has to happen.
 func (o EncodedTaskRunRequestOutput) Platform() PlatformPropertiesOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) PlatformProperties { return v.Platform }).(PlatformPropertiesOutput)
@@ -2853,6 +2880,8 @@ type EncodedTaskRunRequestResponse struct {
 	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// The platform properties against which the run has to happen.
 	Platform PlatformPropertiesResponse `pulumi:"platform"`
 	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
@@ -2891,6 +2920,8 @@ type EncodedTaskRunRequestResponseArgs struct {
 	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
 	// The platform properties against which the run has to happen.
 	Platform PlatformPropertiesResponseInput `pulumi:"platform"`
 	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
@@ -2959,6 +2990,11 @@ func (o EncodedTaskRunRequestResponseOutput) EncodedValuesContent() pulumi.Strin
 // The value that indicates whether archiving is enabled for the run or not.
 func (o EncodedTaskRunRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o EncodedTaskRunRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
 // The platform properties against which the run has to happen.
@@ -3206,6 +3242,8 @@ type FileTaskRunRequest struct {
 	Credentials *Credentials `pulumi:"credentials"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// The platform properties against which the run has to happen.
 	Platform PlatformProperties `pulumi:"platform"`
 	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
@@ -3244,6 +3282,8 @@ type FileTaskRunRequestArgs struct {
 	Credentials CredentialsPtrInput `pulumi:"credentials"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
 	// The platform properties against which the run has to happen.
 	Platform PlatformPropertiesInput `pulumi:"platform"`
 	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
@@ -3308,6 +3348,11 @@ func (o FileTaskRunRequestOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The template that describes the repository and tag information for run log artifact.
+func (o FileTaskRunRequestOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
 // The platform properties against which the run has to happen.
 func (o FileTaskRunRequestOutput) Platform() PlatformPropertiesOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) PlatformProperties { return v.Platform }).(PlatformPropertiesOutput)
@@ -3354,6 +3399,8 @@ type FileTaskRunRequestResponse struct {
 	Credentials *CredentialsResponse `pulumi:"credentials"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// The platform properties against which the run has to happen.
 	Platform PlatformPropertiesResponse `pulumi:"platform"`
 	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
@@ -3392,6 +3439,8 @@ type FileTaskRunRequestResponseArgs struct {
 	Credentials CredentialsResponsePtrInput `pulumi:"credentials"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
 	// The platform properties against which the run has to happen.
 	Platform PlatformPropertiesResponseInput `pulumi:"platform"`
 	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
@@ -3454,6 +3503,11 @@ func (o FileTaskRunRequestResponseOutput) Credentials() CredentialsResponsePtrOu
 // The value that indicates whether archiving is enabled for the run or not.
 func (o FileTaskRunRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o FileTaskRunRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileTaskRunRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
 // The platform properties against which the run has to happen.
@@ -4156,6 +4210,47 @@ func (i ImageDescriptorResponseArgs) ToImageDescriptorResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDescriptorResponseOutput)
 }
 
+func (i ImageDescriptorResponseArgs) ToImageDescriptorResponsePtrOutput() ImageDescriptorResponsePtrOutput {
+	return i.ToImageDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ImageDescriptorResponseArgs) ToImageDescriptorResponsePtrOutputWithContext(ctx context.Context) ImageDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDescriptorResponseOutput).ToImageDescriptorResponsePtrOutputWithContext(ctx)
+}
+
+// ImageDescriptorResponsePtrInput is an input type that accepts ImageDescriptorResponseArgs, ImageDescriptorResponsePtr and ImageDescriptorResponsePtrOutput values.
+// You can construct a concrete instance of `ImageDescriptorResponsePtrInput` via:
+//
+//          ImageDescriptorResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageDescriptorResponsePtrInput interface {
+	pulumi.Input
+
+	ToImageDescriptorResponsePtrOutput() ImageDescriptorResponsePtrOutput
+	ToImageDescriptorResponsePtrOutputWithContext(context.Context) ImageDescriptorResponsePtrOutput
+}
+
+type imageDescriptorResponsePtrType ImageDescriptorResponseArgs
+
+func ImageDescriptorResponsePtr(v *ImageDescriptorResponseArgs) ImageDescriptorResponsePtrInput {
+	return (*imageDescriptorResponsePtrType)(v)
+}
+
+func (*imageDescriptorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageDescriptorResponse)(nil)).Elem()
+}
+
+func (i *imageDescriptorResponsePtrType) ToImageDescriptorResponsePtrOutput() ImageDescriptorResponsePtrOutput {
+	return i.ToImageDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *imageDescriptorResponsePtrType) ToImageDescriptorResponsePtrOutputWithContext(ctx context.Context) ImageDescriptorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDescriptorResponsePtrOutput)
+}
+
 // ImageDescriptorResponseArrayInput is an input type that accepts ImageDescriptorResponseArray and ImageDescriptorResponseArrayOutput values.
 // You can construct a concrete instance of `ImageDescriptorResponseArrayInput` via:
 //
@@ -4196,6 +4291,16 @@ func (o ImageDescriptorResponseOutput) ToImageDescriptorResponseOutputWithContex
 	return o
 }
 
+func (o ImageDescriptorResponseOutput) ToImageDescriptorResponsePtrOutput() ImageDescriptorResponsePtrOutput {
+	return o.ToImageDescriptorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ImageDescriptorResponseOutput) ToImageDescriptorResponsePtrOutputWithContext(ctx context.Context) ImageDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v ImageDescriptorResponse) *ImageDescriptorResponse {
+		return &v
+	}).(ImageDescriptorResponsePtrOutput)
+}
+
 // The sha256-based digest of the image manifest.
 func (o ImageDescriptorResponseOutput) Digest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageDescriptorResponse) *string { return v.Digest }).(pulumi.StringPtrOutput)
@@ -4214,6 +4319,64 @@ func (o ImageDescriptorResponseOutput) Repository() pulumi.StringPtrOutput {
 // The tag name.
 func (o ImageDescriptorResponseOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageDescriptorResponse) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+type ImageDescriptorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImageDescriptorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageDescriptorResponse)(nil)).Elem()
+}
+
+func (o ImageDescriptorResponsePtrOutput) ToImageDescriptorResponsePtrOutput() ImageDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o ImageDescriptorResponsePtrOutput) ToImageDescriptorResponsePtrOutputWithContext(ctx context.Context) ImageDescriptorResponsePtrOutput {
+	return o
+}
+
+func (o ImageDescriptorResponsePtrOutput) Elem() ImageDescriptorResponseOutput {
+	return o.ApplyT(func(v *ImageDescriptorResponse) ImageDescriptorResponse { return *v }).(ImageDescriptorResponseOutput)
+}
+
+// The sha256-based digest of the image manifest.
+func (o ImageDescriptorResponsePtrOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Digest
+	}).(pulumi.StringPtrOutput)
+}
+
+// The registry login server.
+func (o ImageDescriptorResponsePtrOutput) Registry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Registry
+	}).(pulumi.StringPtrOutput)
+}
+
+// The repository name.
+func (o ImageDescriptorResponsePtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Repository
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tag name.
+func (o ImageDescriptorResponsePtrOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(pulumi.StringPtrOutput)
 }
 
 type ImageDescriptorResponseArrayOutput struct{ *pulumi.OutputState }
@@ -5232,6 +5395,8 @@ type RunResponse struct {
 	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
 	// The last updated time for the run.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// The image description for the log artifact.
+	LogArtifact ImageDescriptorResponse `pulumi:"logArtifact"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
@@ -5295,6 +5460,8 @@ type RunResponseArgs struct {
 	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
 	// The last updated time for the run.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
+	// The image description for the log artifact.
+	LogArtifact ImageDescriptorResponseInput `pulumi:"logArtifact"`
 	// The name of the resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
@@ -5448,6 +5615,11 @@ func (o RunResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 // The last updated time for the run.
 func (o RunResponseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// The image description for the log artifact.
+func (o RunResponseOutput) LogArtifact() ImageDescriptorResponseOutput {
+	return o.ApplyT(func(v RunResponse) ImageDescriptorResponse { return v.LogArtifact }).(ImageDescriptorResponseOutput)
 }
 
 // The name of the resource.
@@ -5631,6 +5803,16 @@ func (o RunResponsePtrOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 		}
 		return v.LastUpdatedTime
 	}).(pulumi.StringPtrOutput)
+}
+
+// The image description for the log artifact.
+func (o RunResponsePtrOutput) LogArtifact() ImageDescriptorResponsePtrOutput {
+	return o.ApplyT(func(v *RunResponse) *ImageDescriptorResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.LogArtifact
+	}).(ImageDescriptorResponsePtrOutput)
 }
 
 // The name of the resource.
@@ -7311,6 +7493,8 @@ type TaskRunRequest struct {
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// Set of overridable parameters that can be passed when running a Task.
 	OverrideTaskStepProperties *OverrideTaskStepProperties `pulumi:"overrideTaskStepProperties"`
 	// The resource ID of task against which run has to be queued.
@@ -7336,6 +7520,8 @@ type TaskRunRequestArgs struct {
 	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
 	// Set of overridable parameters that can be passed when running a Task.
 	OverrideTaskStepProperties OverrideTaskStepPropertiesPtrInput `pulumi:"overrideTaskStepProperties"`
 	// The resource ID of task against which run has to be queued.
@@ -7381,6 +7567,11 @@ func (o TaskRunRequestOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskRunRequest) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The template that describes the repository and tag information for run log artifact.
+func (o TaskRunRequestOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskRunRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
 // Set of overridable parameters that can be passed when running a Task.
 func (o TaskRunRequestOutput) OverrideTaskStepProperties() OverrideTaskStepPropertiesPtrOutput {
 	return o.ApplyT(func(v TaskRunRequest) *OverrideTaskStepProperties { return v.OverrideTaskStepProperties }).(OverrideTaskStepPropertiesPtrOutput)
@@ -7402,6 +7593,8 @@ type TaskRunRequestResponse struct {
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// Set of overridable parameters that can be passed when running a Task.
 	OverrideTaskStepProperties *OverrideTaskStepPropertiesResponse `pulumi:"overrideTaskStepProperties"`
 	// The resource ID of task against which run has to be queued.
@@ -7427,6 +7620,8 @@ type TaskRunRequestResponseArgs struct {
 	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
 	// The value that indicates whether archiving is enabled for the run or not.
 	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
 	// Set of overridable parameters that can be passed when running a Task.
 	OverrideTaskStepProperties OverrideTaskStepPropertiesResponsePtrInput `pulumi:"overrideTaskStepProperties"`
 	// The resource ID of task against which run has to be queued.
@@ -7470,6 +7665,11 @@ func (o TaskRunRequestResponseOutput) AgentPoolName() pulumi.StringPtrOutput {
 // The value that indicates whether archiving is enabled for the run or not.
 func (o TaskRunRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskRunRequestResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o TaskRunRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskRunRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
 // Set of overridable parameters that can be passed when running a Task.
@@ -8475,6 +8675,7 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IdentityPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImageDescriptorResponseOutput{})
+	pulumi.RegisterOutputType(ImageDescriptorResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImageDescriptorResponseArrayOutput{})
 	pulumi.RegisterOutputType(ImageUpdateTriggerResponseOutput{})
 	pulumi.RegisterOutputType(ImageUpdateTriggerResponsePtrOutput{})

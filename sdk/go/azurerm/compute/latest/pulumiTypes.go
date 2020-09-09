@@ -9476,13 +9476,13 @@ func (o EncryptionSettingsElementResponseArrayOutput) Index(i pulumi.IntInput) E
 	}).(EncryptionSettingsElementResponseOutput)
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfile struct {
 	// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
 	ContentType *string `pulumi:"contentType"`
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck *bool `pulumi:"enableHealthCheck"`
-	// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
@@ -9507,13 +9507,13 @@ type GalleryApplicationVersionPublishingProfileInput interface {
 	ToGalleryApplicationVersionPublishingProfileOutputWithContext(context.Context) GalleryApplicationVersionPublishingProfileOutput
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileArgs struct {
 	// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck pulumi.BoolPtrInput `pulumi:"enableHealthCheck"`
-	// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 	ExcludeFromLatest pulumi.BoolPtrInput `pulumi:"excludeFromLatest"`
@@ -9580,7 +9580,7 @@ func (i *galleryApplicationVersionPublishingProfilePtrType) ToGalleryApplication
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionPublishingProfilePtrOutput)
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileOutput struct{ *pulumi.OutputState }
 
 func (GalleryApplicationVersionPublishingProfileOutput) ElementType() reflect.Type {
@@ -9615,7 +9615,7 @@ func (o GalleryApplicationVersionPublishingProfileOutput) EnableHealthCheck() pu
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *bool { return v.EnableHealthCheck }).(pulumi.BoolPtrOutput)
 }
 
-// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
 }
@@ -9685,7 +9685,7 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) EnableHealthCheck()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfilePtrOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) *string {
 		if v == nil {
@@ -9745,17 +9745,17 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) TargetRegions() Tar
 	}).(TargetRegionArrayOutput)
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileResponse struct {
 	// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
 	ContentType *string `pulumi:"contentType"`
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck *bool `pulumi:"enableHealthCheck"`
-	// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
-	// The timestamp for when the gallery Image Version is published.
+	// The timestamp for when the gallery image version is published.
 	PublishedDate string `pulumi:"publishedDate"`
 	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 	ReplicaCount *int `pulumi:"replicaCount"`
@@ -9778,17 +9778,17 @@ type GalleryApplicationVersionPublishingProfileResponseInput interface {
 	ToGalleryApplicationVersionPublishingProfileResponseOutputWithContext(context.Context) GalleryApplicationVersionPublishingProfileResponseOutput
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileResponseArgs struct {
 	// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	// Optional. Whether or not this application reports health.
 	EnableHealthCheck pulumi.BoolPtrInput `pulumi:"enableHealthCheck"`
-	// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 	ExcludeFromLatest pulumi.BoolPtrInput `pulumi:"excludeFromLatest"`
-	// The timestamp for when the gallery Image Version is published.
+	// The timestamp for when the gallery image version is published.
 	PublishedDate pulumi.StringInput `pulumi:"publishedDate"`
 	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
@@ -9853,7 +9853,7 @@ func (i *galleryApplicationVersionPublishingProfileResponsePtrType) ToGalleryApp
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionPublishingProfileResponsePtrOutput)
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryApplicationVersionPublishingProfileResponseOutput) ElementType() reflect.Type {
@@ -9888,7 +9888,7 @@ func (o GalleryApplicationVersionPublishingProfileResponseOutput) EnableHealthCh
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *bool { return v.EnableHealthCheck }).(pulumi.BoolPtrOutput)
 }
 
-// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
 }
@@ -9898,7 +9898,7 @@ func (o GalleryApplicationVersionPublishingProfileResponseOutput) ExcludeFromLat
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *bool { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
 }
 
-// The timestamp for when the gallery Image Version is published.
+// The timestamp for when the gallery image version is published.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) PublishedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) string { return v.PublishedDate }).(pulumi.StringOutput)
 }
@@ -9965,7 +9965,7 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) EnableHealt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *string {
 		if v == nil {
@@ -9985,7 +9985,7 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) ExcludeFrom
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The timestamp for when the gallery Image Version is published.
+// The timestamp for when the gallery image version is published.
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) PublishedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *string {
 		if v == nil {
@@ -10037,8 +10037,10 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) TargetRegio
 
 // The gallery artifact version source.
 type GalleryArtifactVersionSource struct {
-	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 	Id *string `pulumi:"id"`
+	// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+	Uri *string `pulumi:"uri"`
 }
 
 // GalleryArtifactVersionSourceInput is an input type that accepts GalleryArtifactVersionSourceArgs and GalleryArtifactVersionSourceOutput values.
@@ -10054,8 +10056,10 @@ type GalleryArtifactVersionSourceInput interface {
 
 // The gallery artifact version source.
 type GalleryArtifactVersionSourceArgs struct {
-	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (GalleryArtifactVersionSourceArgs) ElementType() reflect.Type {
@@ -10136,9 +10140,14 @@ func (o GalleryArtifactVersionSourceOutput) ToGalleryArtifactVersionSourcePtrOut
 	}).(GalleryArtifactVersionSourcePtrOutput)
 }
 
-// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 func (o GalleryArtifactVersionSourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryArtifactVersionSource) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+func (o GalleryArtifactVersionSourceOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryArtifactVersionSource) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 type GalleryArtifactVersionSourcePtrOutput struct{ *pulumi.OutputState }
@@ -10159,7 +10168,7 @@ func (o GalleryArtifactVersionSourcePtrOutput) Elem() GalleryArtifactVersionSour
 	return o.ApplyT(func(v *GalleryArtifactVersionSource) GalleryArtifactVersionSource { return *v }).(GalleryArtifactVersionSourceOutput)
 }
 
-// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 func (o GalleryArtifactVersionSourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryArtifactVersionSource) *string {
 		if v == nil {
@@ -10169,10 +10178,22 @@ func (o GalleryArtifactVersionSourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+func (o GalleryArtifactVersionSourcePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryArtifactVersionSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 // The gallery artifact version source.
 type GalleryArtifactVersionSourceResponse struct {
-	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 	Id *string `pulumi:"id"`
+	// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+	Uri *string `pulumi:"uri"`
 }
 
 // GalleryArtifactVersionSourceResponseInput is an input type that accepts GalleryArtifactVersionSourceResponseArgs and GalleryArtifactVersionSourceResponseOutput values.
@@ -10188,8 +10209,10 @@ type GalleryArtifactVersionSourceResponseInput interface {
 
 // The gallery artifact version source.
 type GalleryArtifactVersionSourceResponseArgs struct {
-	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (GalleryArtifactVersionSourceResponseArgs) ElementType() reflect.Type {
@@ -10270,9 +10293,14 @@ func (o GalleryArtifactVersionSourceResponseOutput) ToGalleryArtifactVersionSour
 	}).(GalleryArtifactVersionSourceResponsePtrOutput)
 }
 
-// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 func (o GalleryArtifactVersionSourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryArtifactVersionSourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+func (o GalleryArtifactVersionSourceResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryArtifactVersionSourceResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 type GalleryArtifactVersionSourceResponsePtrOutput struct{ *pulumi.OutputState }
@@ -10293,13 +10321,23 @@ func (o GalleryArtifactVersionSourceResponsePtrOutput) Elem() GalleryArtifactVer
 	return o.ApplyT(func(v *GalleryArtifactVersionSourceResponse) GalleryArtifactVersionSourceResponse { return *v }).(GalleryArtifactVersionSourceResponseOutput)
 }
 
-// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 func (o GalleryArtifactVersionSourceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryArtifactVersionSourceResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+func (o GalleryArtifactVersionSourceResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryArtifactVersionSourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10682,13 +10720,231 @@ func (o GalleryIdentifierResponsePtrOutput) UniqueName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is the gallery Image Definition identifier.
+// A feature for gallery image.
+type GalleryImageFeature struct {
+	// The name of the gallery image feature.
+	Name *string `pulumi:"name"`
+	// The value of the gallery image feature.
+	Value *string `pulumi:"value"`
+}
+
+// GalleryImageFeatureInput is an input type that accepts GalleryImageFeatureArgs and GalleryImageFeatureOutput values.
+// You can construct a concrete instance of `GalleryImageFeatureInput` via:
+//
+//          GalleryImageFeatureArgs{...}
+type GalleryImageFeatureInput interface {
+	pulumi.Input
+
+	ToGalleryImageFeatureOutput() GalleryImageFeatureOutput
+	ToGalleryImageFeatureOutputWithContext(context.Context) GalleryImageFeatureOutput
+}
+
+// A feature for gallery image.
+type GalleryImageFeatureArgs struct {
+	// The name of the gallery image feature.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the gallery image feature.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GalleryImageFeatureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageFeature)(nil)).Elem()
+}
+
+func (i GalleryImageFeatureArgs) ToGalleryImageFeatureOutput() GalleryImageFeatureOutput {
+	return i.ToGalleryImageFeatureOutputWithContext(context.Background())
+}
+
+func (i GalleryImageFeatureArgs) ToGalleryImageFeatureOutputWithContext(ctx context.Context) GalleryImageFeatureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageFeatureOutput)
+}
+
+// GalleryImageFeatureArrayInput is an input type that accepts GalleryImageFeatureArray and GalleryImageFeatureArrayOutput values.
+// You can construct a concrete instance of `GalleryImageFeatureArrayInput` via:
+//
+//          GalleryImageFeatureArray{ GalleryImageFeatureArgs{...} }
+type GalleryImageFeatureArrayInput interface {
+	pulumi.Input
+
+	ToGalleryImageFeatureArrayOutput() GalleryImageFeatureArrayOutput
+	ToGalleryImageFeatureArrayOutputWithContext(context.Context) GalleryImageFeatureArrayOutput
+}
+
+type GalleryImageFeatureArray []GalleryImageFeatureInput
+
+func (GalleryImageFeatureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GalleryImageFeature)(nil)).Elem()
+}
+
+func (i GalleryImageFeatureArray) ToGalleryImageFeatureArrayOutput() GalleryImageFeatureArrayOutput {
+	return i.ToGalleryImageFeatureArrayOutputWithContext(context.Background())
+}
+
+func (i GalleryImageFeatureArray) ToGalleryImageFeatureArrayOutputWithContext(ctx context.Context) GalleryImageFeatureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageFeatureArrayOutput)
+}
+
+// A feature for gallery image.
+type GalleryImageFeatureOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageFeatureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageFeature)(nil)).Elem()
+}
+
+func (o GalleryImageFeatureOutput) ToGalleryImageFeatureOutput() GalleryImageFeatureOutput {
+	return o
+}
+
+func (o GalleryImageFeatureOutput) ToGalleryImageFeatureOutputWithContext(ctx context.Context) GalleryImageFeatureOutput {
+	return o
+}
+
+// The name of the gallery image feature.
+func (o GalleryImageFeatureOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageFeature) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of the gallery image feature.
+func (o GalleryImageFeatureOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageFeature) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GalleryImageFeatureArrayOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageFeatureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GalleryImageFeature)(nil)).Elem()
+}
+
+func (o GalleryImageFeatureArrayOutput) ToGalleryImageFeatureArrayOutput() GalleryImageFeatureArrayOutput {
+	return o
+}
+
+func (o GalleryImageFeatureArrayOutput) ToGalleryImageFeatureArrayOutputWithContext(ctx context.Context) GalleryImageFeatureArrayOutput {
+	return o
+}
+
+func (o GalleryImageFeatureArrayOutput) Index(i pulumi.IntInput) GalleryImageFeatureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GalleryImageFeature {
+		return vs[0].([]GalleryImageFeature)[vs[1].(int)]
+	}).(GalleryImageFeatureOutput)
+}
+
+// A feature for gallery image.
+type GalleryImageFeatureResponse struct {
+	// The name of the gallery image feature.
+	Name *string `pulumi:"name"`
+	// The value of the gallery image feature.
+	Value *string `pulumi:"value"`
+}
+
+// GalleryImageFeatureResponseInput is an input type that accepts GalleryImageFeatureResponseArgs and GalleryImageFeatureResponseOutput values.
+// You can construct a concrete instance of `GalleryImageFeatureResponseInput` via:
+//
+//          GalleryImageFeatureResponseArgs{...}
+type GalleryImageFeatureResponseInput interface {
+	pulumi.Input
+
+	ToGalleryImageFeatureResponseOutput() GalleryImageFeatureResponseOutput
+	ToGalleryImageFeatureResponseOutputWithContext(context.Context) GalleryImageFeatureResponseOutput
+}
+
+// A feature for gallery image.
+type GalleryImageFeatureResponseArgs struct {
+	// The name of the gallery image feature.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the gallery image feature.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GalleryImageFeatureResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageFeatureResponse)(nil)).Elem()
+}
+
+func (i GalleryImageFeatureResponseArgs) ToGalleryImageFeatureResponseOutput() GalleryImageFeatureResponseOutput {
+	return i.ToGalleryImageFeatureResponseOutputWithContext(context.Background())
+}
+
+func (i GalleryImageFeatureResponseArgs) ToGalleryImageFeatureResponseOutputWithContext(ctx context.Context) GalleryImageFeatureResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageFeatureResponseOutput)
+}
+
+// GalleryImageFeatureResponseArrayInput is an input type that accepts GalleryImageFeatureResponseArray and GalleryImageFeatureResponseArrayOutput values.
+// You can construct a concrete instance of `GalleryImageFeatureResponseArrayInput` via:
+//
+//          GalleryImageFeatureResponseArray{ GalleryImageFeatureResponseArgs{...} }
+type GalleryImageFeatureResponseArrayInput interface {
+	pulumi.Input
+
+	ToGalleryImageFeatureResponseArrayOutput() GalleryImageFeatureResponseArrayOutput
+	ToGalleryImageFeatureResponseArrayOutputWithContext(context.Context) GalleryImageFeatureResponseArrayOutput
+}
+
+type GalleryImageFeatureResponseArray []GalleryImageFeatureResponseInput
+
+func (GalleryImageFeatureResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GalleryImageFeatureResponse)(nil)).Elem()
+}
+
+func (i GalleryImageFeatureResponseArray) ToGalleryImageFeatureResponseArrayOutput() GalleryImageFeatureResponseArrayOutput {
+	return i.ToGalleryImageFeatureResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GalleryImageFeatureResponseArray) ToGalleryImageFeatureResponseArrayOutputWithContext(ctx context.Context) GalleryImageFeatureResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageFeatureResponseArrayOutput)
+}
+
+// A feature for gallery image.
+type GalleryImageFeatureResponseOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageFeatureResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageFeatureResponse)(nil)).Elem()
+}
+
+func (o GalleryImageFeatureResponseOutput) ToGalleryImageFeatureResponseOutput() GalleryImageFeatureResponseOutput {
+	return o
+}
+
+func (o GalleryImageFeatureResponseOutput) ToGalleryImageFeatureResponseOutputWithContext(ctx context.Context) GalleryImageFeatureResponseOutput {
+	return o
+}
+
+// The name of the gallery image feature.
+func (o GalleryImageFeatureResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageFeatureResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of the gallery image feature.
+func (o GalleryImageFeatureResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageFeatureResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GalleryImageFeatureResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageFeatureResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GalleryImageFeatureResponse)(nil)).Elem()
+}
+
+func (o GalleryImageFeatureResponseArrayOutput) ToGalleryImageFeatureResponseArrayOutput() GalleryImageFeatureResponseArrayOutput {
+	return o
+}
+
+func (o GalleryImageFeatureResponseArrayOutput) ToGalleryImageFeatureResponseArrayOutputWithContext(ctx context.Context) GalleryImageFeatureResponseArrayOutput {
+	return o
+}
+
+func (o GalleryImageFeatureResponseArrayOutput) Index(i pulumi.IntInput) GalleryImageFeatureResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GalleryImageFeatureResponse {
+		return vs[0].([]GalleryImageFeatureResponse)[vs[1].(int)]
+	}).(GalleryImageFeatureResponseOutput)
+}
+
+// This is the gallery image definition identifier.
 type GalleryImageIdentifier struct {
-	// The name of the gallery Image Definition offer.
+	// The name of the gallery image definition offer.
 	Offer string `pulumi:"offer"`
-	// The name of the gallery Image Definition publisher.
+	// The name of the gallery image definition publisher.
 	Publisher string `pulumi:"publisher"`
-	// The name of the gallery Image Definition SKU.
+	// The name of the gallery image definition SKU.
 	Sku string `pulumi:"sku"`
 }
 
@@ -10703,13 +10959,13 @@ type GalleryImageIdentifierInput interface {
 	ToGalleryImageIdentifierOutputWithContext(context.Context) GalleryImageIdentifierOutput
 }
 
-// This is the gallery Image Definition identifier.
+// This is the gallery image definition identifier.
 type GalleryImageIdentifierArgs struct {
-	// The name of the gallery Image Definition offer.
+	// The name of the gallery image definition offer.
 	Offer pulumi.StringInput `pulumi:"offer"`
-	// The name of the gallery Image Definition publisher.
+	// The name of the gallery image definition publisher.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The name of the gallery Image Definition SKU.
+	// The name of the gallery image definition SKU.
 	Sku pulumi.StringInput `pulumi:"sku"`
 }
 
@@ -10766,7 +11022,7 @@ func (i *galleryImageIdentifierPtrType) ToGalleryImageIdentifierPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageIdentifierPtrOutput)
 }
 
-// This is the gallery Image Definition identifier.
+// This is the gallery image definition identifier.
 type GalleryImageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageIdentifierOutput) ElementType() reflect.Type {
@@ -10791,17 +11047,17 @@ func (o GalleryImageIdentifierOutput) ToGalleryImageIdentifierPtrOutputWithConte
 	}).(GalleryImageIdentifierPtrOutput)
 }
 
-// The name of the gallery Image Definition offer.
+// The name of the gallery image definition offer.
 func (o GalleryImageIdentifierOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
 }
 
-// The name of the gallery Image Definition publisher.
+// The name of the gallery image definition publisher.
 func (o GalleryImageIdentifierOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The name of the gallery Image Definition SKU.
+// The name of the gallery image definition SKU.
 func (o GalleryImageIdentifierOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
 }
@@ -10824,7 +11080,7 @@ func (o GalleryImageIdentifierPtrOutput) Elem() GalleryImageIdentifierOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifier) GalleryImageIdentifier { return *v }).(GalleryImageIdentifierOutput)
 }
 
-// The name of the gallery Image Definition offer.
+// The name of the gallery image definition offer.
 func (o GalleryImageIdentifierPtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifier) *string {
 		if v == nil {
@@ -10834,7 +11090,7 @@ func (o GalleryImageIdentifierPtrOutput) Offer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the gallery Image Definition publisher.
+// The name of the gallery image definition publisher.
 func (o GalleryImageIdentifierPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifier) *string {
 		if v == nil {
@@ -10844,7 +11100,7 @@ func (o GalleryImageIdentifierPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the gallery Image Definition SKU.
+// The name of the gallery image definition SKU.
 func (o GalleryImageIdentifierPtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifier) *string {
 		if v == nil {
@@ -10854,13 +11110,13 @@ func (o GalleryImageIdentifierPtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is the gallery Image Definition identifier.
+// This is the gallery image definition identifier.
 type GalleryImageIdentifierResponse struct {
-	// The name of the gallery Image Definition offer.
+	// The name of the gallery image definition offer.
 	Offer string `pulumi:"offer"`
-	// The name of the gallery Image Definition publisher.
+	// The name of the gallery image definition publisher.
 	Publisher string `pulumi:"publisher"`
-	// The name of the gallery Image Definition SKU.
+	// The name of the gallery image definition SKU.
 	Sku string `pulumi:"sku"`
 }
 
@@ -10875,13 +11131,13 @@ type GalleryImageIdentifierResponseInput interface {
 	ToGalleryImageIdentifierResponseOutputWithContext(context.Context) GalleryImageIdentifierResponseOutput
 }
 
-// This is the gallery Image Definition identifier.
+// This is the gallery image definition identifier.
 type GalleryImageIdentifierResponseArgs struct {
-	// The name of the gallery Image Definition offer.
+	// The name of the gallery image definition offer.
 	Offer pulumi.StringInput `pulumi:"offer"`
-	// The name of the gallery Image Definition publisher.
+	// The name of the gallery image definition publisher.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The name of the gallery Image Definition SKU.
+	// The name of the gallery image definition SKU.
 	Sku pulumi.StringInput `pulumi:"sku"`
 }
 
@@ -10938,7 +11194,7 @@ func (i *galleryImageIdentifierResponsePtrType) ToGalleryImageIdentifierResponse
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageIdentifierResponsePtrOutput)
 }
 
-// This is the gallery Image Definition identifier.
+// This is the gallery image definition identifier.
 type GalleryImageIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageIdentifierResponseOutput) ElementType() reflect.Type {
@@ -10963,17 +11219,17 @@ func (o GalleryImageIdentifierResponseOutput) ToGalleryImageIdentifierResponsePt
 	}).(GalleryImageIdentifierResponsePtrOutput)
 }
 
-// The name of the gallery Image Definition offer.
+// The name of the gallery image definition offer.
 func (o GalleryImageIdentifierResponseOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifierResponse) string { return v.Offer }).(pulumi.StringOutput)
 }
 
-// The name of the gallery Image Definition publisher.
+// The name of the gallery image definition publisher.
 func (o GalleryImageIdentifierResponseOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifierResponse) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The name of the gallery Image Definition SKU.
+// The name of the gallery image definition SKU.
 func (o GalleryImageIdentifierResponseOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifierResponse) string { return v.Sku }).(pulumi.StringOutput)
 }
@@ -10996,7 +11252,7 @@ func (o GalleryImageIdentifierResponsePtrOutput) Elem() GalleryImageIdentifierRe
 	return o.ApplyT(func(v *GalleryImageIdentifierResponse) GalleryImageIdentifierResponse { return *v }).(GalleryImageIdentifierResponseOutput)
 }
 
-// The name of the gallery Image Definition offer.
+// The name of the gallery image definition offer.
 func (o GalleryImageIdentifierResponsePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifierResponse) *string {
 		if v == nil {
@@ -11006,7 +11262,7 @@ func (o GalleryImageIdentifierResponsePtrOutput) Offer() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the gallery Image Definition publisher.
+// The name of the gallery image definition publisher.
 func (o GalleryImageIdentifierResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifierResponse) *string {
 		if v == nil {
@@ -11016,7 +11272,7 @@ func (o GalleryImageIdentifierResponsePtrOutput) Publisher() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the gallery Image Definition SKU.
+// The name of the gallery image definition SKU.
 func (o GalleryImageIdentifierResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifierResponse) *string {
 		if v == nil {
@@ -11026,9 +11282,9 @@ func (o GalleryImageIdentifierResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfile struct {
-	// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
@@ -11051,9 +11307,9 @@ type GalleryImageVersionPublishingProfileInput interface {
 	ToGalleryImageVersionPublishingProfileOutputWithContext(context.Context) GalleryImageVersionPublishingProfileOutput
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileArgs struct {
-	// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 	ExcludeFromLatest pulumi.BoolPtrInput `pulumi:"excludeFromLatest"`
@@ -11118,7 +11374,7 @@ func (i *galleryImageVersionPublishingProfilePtrType) ToGalleryImageVersionPubli
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionPublishingProfilePtrOutput)
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageVersionPublishingProfileOutput) ElementType() reflect.Type {
@@ -11143,7 +11399,7 @@ func (o GalleryImageVersionPublishingProfileOutput) ToGalleryImageVersionPublish
 	}).(GalleryImageVersionPublishingProfilePtrOutput)
 }
 
-// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryImageVersionPublishingProfileOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfile) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
 }
@@ -11186,7 +11442,7 @@ func (o GalleryImageVersionPublishingProfilePtrOutput) Elem() GalleryImageVersio
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfile) GalleryImageVersionPublishingProfile { return *v }).(GalleryImageVersionPublishingProfileOutput)
 }
 
-// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryImageVersionPublishingProfilePtrOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfile) *string {
 		if v == nil {
@@ -11236,13 +11492,13 @@ func (o GalleryImageVersionPublishingProfilePtrOutput) TargetRegions() TargetReg
 	}).(TargetRegionArrayOutput)
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileResponse struct {
-	// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
-	// The timestamp for when the gallery Image Version is published.
+	// The timestamp for when the gallery image version is published.
 	PublishedDate string `pulumi:"publishedDate"`
 	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 	ReplicaCount *int `pulumi:"replicaCount"`
@@ -11263,13 +11519,13 @@ type GalleryImageVersionPublishingProfileResponseInput interface {
 	ToGalleryImageVersionPublishingProfileResponseOutputWithContext(context.Context) GalleryImageVersionPublishingProfileResponseOutput
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileResponseArgs struct {
-	// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
 	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 	ExcludeFromLatest pulumi.BoolPtrInput `pulumi:"excludeFromLatest"`
-	// The timestamp for when the gallery Image Version is published.
+	// The timestamp for when the gallery image version is published.
 	PublishedDate pulumi.StringInput `pulumi:"publishedDate"`
 	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
@@ -11332,7 +11588,7 @@ func (i *galleryImageVersionPublishingProfileResponsePtrType) ToGalleryImageVers
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionPublishingProfileResponsePtrOutput)
 }
 
-// The publishing profile of a gallery Image Version.
+// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageVersionPublishingProfileResponseOutput) ElementType() reflect.Type {
@@ -11357,7 +11613,7 @@ func (o GalleryImageVersionPublishingProfileResponseOutput) ToGalleryImageVersio
 	}).(GalleryImageVersionPublishingProfileResponsePtrOutput)
 }
 
-// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryImageVersionPublishingProfileResponseOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfileResponse) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
 }
@@ -11367,7 +11623,7 @@ func (o GalleryImageVersionPublishingProfileResponseOutput) ExcludeFromLatest() 
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfileResponse) *bool { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
 }
 
-// The timestamp for when the gallery Image Version is published.
+// The timestamp for when the gallery image version is published.
 func (o GalleryImageVersionPublishingProfileResponseOutput) PublishedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfileResponse) string { return v.PublishedDate }).(pulumi.StringOutput)
 }
@@ -11407,7 +11663,7 @@ func (o GalleryImageVersionPublishingProfileResponsePtrOutput) Elem() GalleryIma
 	}).(GalleryImageVersionPublishingProfileResponseOutput)
 }
 
-// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryImageVersionPublishingProfileResponsePtrOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfileResponse) *string {
 		if v == nil {
@@ -11427,7 +11683,7 @@ func (o GalleryImageVersionPublishingProfileResponsePtrOutput) ExcludeFromLatest
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The timestamp for when the gallery Image Version is published.
+// The timestamp for when the gallery image version is published.
 func (o GalleryImageVersionPublishingProfileResponsePtrOutput) PublishedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfileResponse) *string {
 		if v == nil {
@@ -14523,7 +14779,7 @@ func (o ImageOSDiskResponsePtrOutput) StorageAccountType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlan struct {
 	// The plan ID.
 	Name *string `pulumi:"name"`
@@ -14544,7 +14800,7 @@ type ImagePurchasePlanInput interface {
 	ToImagePurchasePlanOutputWithContext(context.Context) ImagePurchasePlanOutput
 }
 
-// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanArgs struct {
 	// The plan ID.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -14607,7 +14863,7 @@ func (i *imagePurchasePlanPtrType) ToImagePurchasePlanPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePurchasePlanPtrOutput)
 }
 
-// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanOutput struct{ *pulumi.OutputState }
 
 func (ImagePurchasePlanOutput) ElementType() reflect.Type {
@@ -14695,7 +14951,7 @@ func (o ImagePurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanResponse struct {
 	// The plan ID.
 	Name *string `pulumi:"name"`
@@ -14716,7 +14972,7 @@ type ImagePurchasePlanResponseInput interface {
 	ToImagePurchasePlanResponseOutputWithContext(context.Context) ImagePurchasePlanResponseOutput
 }
 
-// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanResponseArgs struct {
 	// The plan ID.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -14779,7 +15035,7 @@ func (i *imagePurchasePlanResponsePtrType) ToImagePurchasePlanResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePurchasePlanResponsePtrOutput)
 }
 
-// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanResponseOutput struct{ *pulumi.OutputState }
 
 func (ImagePurchasePlanResponseOutput) ElementType() reflect.Type {
@@ -22164,7 +22420,7 @@ type RegionalReplicationStatusResponse struct {
 	Details string `pulumi:"details"`
 	// It indicates progress of the replication job.
 	Progress int `pulumi:"progress"`
-	// The region to which the gallery Image Version is being replicated to.
+	// The region to which the gallery image version is being replicated to.
 	Region string `pulumi:"region"`
 	// This is the regional replication state.
 	State string `pulumi:"state"`
@@ -22187,7 +22443,7 @@ type RegionalReplicationStatusResponseArgs struct {
 	Details pulumi.StringInput `pulumi:"details"`
 	// It indicates progress of the replication job.
 	Progress pulumi.IntInput `pulumi:"progress"`
-	// The region to which the gallery Image Version is being replicated to.
+	// The region to which the gallery image version is being replicated to.
 	Region pulumi.StringInput `pulumi:"region"`
 	// This is the regional replication state.
 	State pulumi.StringInput `pulumi:"state"`
@@ -22255,7 +22511,7 @@ func (o RegionalReplicationStatusResponseOutput) Progress() pulumi.IntOutput {
 	return o.ApplyT(func(v RegionalReplicationStatusResponse) int { return v.Progress }).(pulumi.IntOutput)
 }
 
-// The region to which the gallery Image Version is being replicated to.
+// The region to which the gallery image version is being replicated to.
 func (o RegionalReplicationStatusResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v RegionalReplicationStatusResponse) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -22285,7 +22541,7 @@ func (o RegionalReplicationStatusResponseArrayOutput) Index(i pulumi.IntInput) R
 	}).(RegionalReplicationStatusResponseOutput)
 }
 
-// This is the replication status of the gallery Image Version.
+// This is the replication status of the gallery image version.
 type ReplicationStatusResponse struct {
 	// This is the aggregated replication status based on all the regional replication status flags.
 	AggregatedState string `pulumi:"aggregatedState"`
@@ -22304,7 +22560,7 @@ type ReplicationStatusResponseInput interface {
 	ToReplicationStatusResponseOutputWithContext(context.Context) ReplicationStatusResponseOutput
 }
 
-// This is the replication status of the gallery Image Version.
+// This is the replication status of the gallery image version.
 type ReplicationStatusResponseArgs struct {
 	// This is the aggregated replication status based on all the regional replication status flags.
 	AggregatedState pulumi.StringInput `pulumi:"aggregatedState"`
@@ -22365,7 +22621,7 @@ func (i *replicationStatusResponsePtrType) ToReplicationStatusResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationStatusResponsePtrOutput)
 }
 
-// This is the replication status of the gallery Image Version.
+// This is the replication status of the gallery image version.
 type ReplicationStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ReplicationStatusResponseOutput) ElementType() reflect.Type {
@@ -24021,6 +24277,402 @@ func (o ShareInfoElementResponseArrayOutput) Index(i pulumi.IntInput) ShareInfoE
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareInfoElementResponse {
 		return vs[0].([]ShareInfoElementResponse)[vs[1].(int)]
 	}).(ShareInfoElementResponseOutput)
+}
+
+// Profile for gallery sharing to subscription or tenant
+type SharingProfile struct {
+	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+	Permissions *string `pulumi:"permissions"`
+}
+
+// SharingProfileInput is an input type that accepts SharingProfileArgs and SharingProfileOutput values.
+// You can construct a concrete instance of `SharingProfileInput` via:
+//
+//          SharingProfileArgs{...}
+type SharingProfileInput interface {
+	pulumi.Input
+
+	ToSharingProfileOutput() SharingProfileOutput
+	ToSharingProfileOutputWithContext(context.Context) SharingProfileOutput
+}
+
+// Profile for gallery sharing to subscription or tenant
+type SharingProfileArgs struct {
+	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+	Permissions pulumi.StringPtrInput `pulumi:"permissions"`
+}
+
+func (SharingProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharingProfile)(nil)).Elem()
+}
+
+func (i SharingProfileArgs) ToSharingProfileOutput() SharingProfileOutput {
+	return i.ToSharingProfileOutputWithContext(context.Background())
+}
+
+func (i SharingProfileArgs) ToSharingProfileOutputWithContext(ctx context.Context) SharingProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileOutput)
+}
+
+func (i SharingProfileArgs) ToSharingProfilePtrOutput() SharingProfilePtrOutput {
+	return i.ToSharingProfilePtrOutputWithContext(context.Background())
+}
+
+func (i SharingProfileArgs) ToSharingProfilePtrOutputWithContext(ctx context.Context) SharingProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileOutput).ToSharingProfilePtrOutputWithContext(ctx)
+}
+
+// SharingProfilePtrInput is an input type that accepts SharingProfileArgs, SharingProfilePtr and SharingProfilePtrOutput values.
+// You can construct a concrete instance of `SharingProfilePtrInput` via:
+//
+//          SharingProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type SharingProfilePtrInput interface {
+	pulumi.Input
+
+	ToSharingProfilePtrOutput() SharingProfilePtrOutput
+	ToSharingProfilePtrOutputWithContext(context.Context) SharingProfilePtrOutput
+}
+
+type sharingProfilePtrType SharingProfileArgs
+
+func SharingProfilePtr(v *SharingProfileArgs) SharingProfilePtrInput {
+	return (*sharingProfilePtrType)(v)
+}
+
+func (*sharingProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharingProfile)(nil)).Elem()
+}
+
+func (i *sharingProfilePtrType) ToSharingProfilePtrOutput() SharingProfilePtrOutput {
+	return i.ToSharingProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *sharingProfilePtrType) ToSharingProfilePtrOutputWithContext(ctx context.Context) SharingProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharingProfilePtrOutput)
+}
+
+// Profile for gallery sharing to subscription or tenant
+type SharingProfileOutput struct{ *pulumi.OutputState }
+
+func (SharingProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharingProfile)(nil)).Elem()
+}
+
+func (o SharingProfileOutput) ToSharingProfileOutput() SharingProfileOutput {
+	return o
+}
+
+func (o SharingProfileOutput) ToSharingProfileOutputWithContext(ctx context.Context) SharingProfileOutput {
+	return o
+}
+
+func (o SharingProfileOutput) ToSharingProfilePtrOutput() SharingProfilePtrOutput {
+	return o.ToSharingProfilePtrOutputWithContext(context.Background())
+}
+
+func (o SharingProfileOutput) ToSharingProfilePtrOutputWithContext(ctx context.Context) SharingProfilePtrOutput {
+	return o.ApplyT(func(v SharingProfile) *SharingProfile {
+		return &v
+	}).(SharingProfilePtrOutput)
+}
+
+// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+func (o SharingProfileOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharingProfile) *string { return v.Permissions }).(pulumi.StringPtrOutput)
+}
+
+type SharingProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (SharingProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharingProfile)(nil)).Elem()
+}
+
+func (o SharingProfilePtrOutput) ToSharingProfilePtrOutput() SharingProfilePtrOutput {
+	return o
+}
+
+func (o SharingProfilePtrOutput) ToSharingProfilePtrOutputWithContext(ctx context.Context) SharingProfilePtrOutput {
+	return o
+}
+
+func (o SharingProfilePtrOutput) Elem() SharingProfileOutput {
+	return o.ApplyT(func(v *SharingProfile) SharingProfile { return *v }).(SharingProfileOutput)
+}
+
+// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+func (o SharingProfilePtrOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharingProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Permissions
+	}).(pulumi.StringPtrOutput)
+}
+
+// Group of the gallery sharing profile
+type SharingProfileGroupResponse struct {
+	// A list of subscription/tenant ids the gallery is aimed to be shared to.
+	Ids []string `pulumi:"ids"`
+	// This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
+	Type *string `pulumi:"type"`
+}
+
+// SharingProfileGroupResponseInput is an input type that accepts SharingProfileGroupResponseArgs and SharingProfileGroupResponseOutput values.
+// You can construct a concrete instance of `SharingProfileGroupResponseInput` via:
+//
+//          SharingProfileGroupResponseArgs{...}
+type SharingProfileGroupResponseInput interface {
+	pulumi.Input
+
+	ToSharingProfileGroupResponseOutput() SharingProfileGroupResponseOutput
+	ToSharingProfileGroupResponseOutputWithContext(context.Context) SharingProfileGroupResponseOutput
+}
+
+// Group of the gallery sharing profile
+type SharingProfileGroupResponseArgs struct {
+	// A list of subscription/tenant ids the gallery is aimed to be shared to.
+	Ids pulumi.StringArrayInput `pulumi:"ids"`
+	// This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (SharingProfileGroupResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharingProfileGroupResponse)(nil)).Elem()
+}
+
+func (i SharingProfileGroupResponseArgs) ToSharingProfileGroupResponseOutput() SharingProfileGroupResponseOutput {
+	return i.ToSharingProfileGroupResponseOutputWithContext(context.Background())
+}
+
+func (i SharingProfileGroupResponseArgs) ToSharingProfileGroupResponseOutputWithContext(ctx context.Context) SharingProfileGroupResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileGroupResponseOutput)
+}
+
+// SharingProfileGroupResponseArrayInput is an input type that accepts SharingProfileGroupResponseArray and SharingProfileGroupResponseArrayOutput values.
+// You can construct a concrete instance of `SharingProfileGroupResponseArrayInput` via:
+//
+//          SharingProfileGroupResponseArray{ SharingProfileGroupResponseArgs{...} }
+type SharingProfileGroupResponseArrayInput interface {
+	pulumi.Input
+
+	ToSharingProfileGroupResponseArrayOutput() SharingProfileGroupResponseArrayOutput
+	ToSharingProfileGroupResponseArrayOutputWithContext(context.Context) SharingProfileGroupResponseArrayOutput
+}
+
+type SharingProfileGroupResponseArray []SharingProfileGroupResponseInput
+
+func (SharingProfileGroupResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharingProfileGroupResponse)(nil)).Elem()
+}
+
+func (i SharingProfileGroupResponseArray) ToSharingProfileGroupResponseArrayOutput() SharingProfileGroupResponseArrayOutput {
+	return i.ToSharingProfileGroupResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SharingProfileGroupResponseArray) ToSharingProfileGroupResponseArrayOutputWithContext(ctx context.Context) SharingProfileGroupResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileGroupResponseArrayOutput)
+}
+
+// Group of the gallery sharing profile
+type SharingProfileGroupResponseOutput struct{ *pulumi.OutputState }
+
+func (SharingProfileGroupResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharingProfileGroupResponse)(nil)).Elem()
+}
+
+func (o SharingProfileGroupResponseOutput) ToSharingProfileGroupResponseOutput() SharingProfileGroupResponseOutput {
+	return o
+}
+
+func (o SharingProfileGroupResponseOutput) ToSharingProfileGroupResponseOutputWithContext(ctx context.Context) SharingProfileGroupResponseOutput {
+	return o
+}
+
+// A list of subscription/tenant ids the gallery is aimed to be shared to.
+func (o SharingProfileGroupResponseOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharingProfileGroupResponse) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+// This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
+func (o SharingProfileGroupResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharingProfileGroupResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type SharingProfileGroupResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SharingProfileGroupResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharingProfileGroupResponse)(nil)).Elem()
+}
+
+func (o SharingProfileGroupResponseArrayOutput) ToSharingProfileGroupResponseArrayOutput() SharingProfileGroupResponseArrayOutput {
+	return o
+}
+
+func (o SharingProfileGroupResponseArrayOutput) ToSharingProfileGroupResponseArrayOutputWithContext(ctx context.Context) SharingProfileGroupResponseArrayOutput {
+	return o
+}
+
+func (o SharingProfileGroupResponseArrayOutput) Index(i pulumi.IntInput) SharingProfileGroupResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharingProfileGroupResponse {
+		return vs[0].([]SharingProfileGroupResponse)[vs[1].(int)]
+	}).(SharingProfileGroupResponseOutput)
+}
+
+// Profile for gallery sharing to subscription or tenant
+type SharingProfileResponse struct {
+	// A list of sharing profile groups.
+	Groups []SharingProfileGroupResponse `pulumi:"groups"`
+	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+	Permissions *string `pulumi:"permissions"`
+}
+
+// SharingProfileResponseInput is an input type that accepts SharingProfileResponseArgs and SharingProfileResponseOutput values.
+// You can construct a concrete instance of `SharingProfileResponseInput` via:
+//
+//          SharingProfileResponseArgs{...}
+type SharingProfileResponseInput interface {
+	pulumi.Input
+
+	ToSharingProfileResponseOutput() SharingProfileResponseOutput
+	ToSharingProfileResponseOutputWithContext(context.Context) SharingProfileResponseOutput
+}
+
+// Profile for gallery sharing to subscription or tenant
+type SharingProfileResponseArgs struct {
+	// A list of sharing profile groups.
+	Groups SharingProfileGroupResponseArrayInput `pulumi:"groups"`
+	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+	Permissions pulumi.StringPtrInput `pulumi:"permissions"`
+}
+
+func (SharingProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharingProfileResponse)(nil)).Elem()
+}
+
+func (i SharingProfileResponseArgs) ToSharingProfileResponseOutput() SharingProfileResponseOutput {
+	return i.ToSharingProfileResponseOutputWithContext(context.Background())
+}
+
+func (i SharingProfileResponseArgs) ToSharingProfileResponseOutputWithContext(ctx context.Context) SharingProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileResponseOutput)
+}
+
+func (i SharingProfileResponseArgs) ToSharingProfileResponsePtrOutput() SharingProfileResponsePtrOutput {
+	return i.ToSharingProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SharingProfileResponseArgs) ToSharingProfileResponsePtrOutputWithContext(ctx context.Context) SharingProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileResponseOutput).ToSharingProfileResponsePtrOutputWithContext(ctx)
+}
+
+// SharingProfileResponsePtrInput is an input type that accepts SharingProfileResponseArgs, SharingProfileResponsePtr and SharingProfileResponsePtrOutput values.
+// You can construct a concrete instance of `SharingProfileResponsePtrInput` via:
+//
+//          SharingProfileResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SharingProfileResponsePtrInput interface {
+	pulumi.Input
+
+	ToSharingProfileResponsePtrOutput() SharingProfileResponsePtrOutput
+	ToSharingProfileResponsePtrOutputWithContext(context.Context) SharingProfileResponsePtrOutput
+}
+
+type sharingProfileResponsePtrType SharingProfileResponseArgs
+
+func SharingProfileResponsePtr(v *SharingProfileResponseArgs) SharingProfileResponsePtrInput {
+	return (*sharingProfileResponsePtrType)(v)
+}
+
+func (*sharingProfileResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharingProfileResponse)(nil)).Elem()
+}
+
+func (i *sharingProfileResponsePtrType) ToSharingProfileResponsePtrOutput() SharingProfileResponsePtrOutput {
+	return i.ToSharingProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sharingProfileResponsePtrType) ToSharingProfileResponsePtrOutputWithContext(ctx context.Context) SharingProfileResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileResponsePtrOutput)
+}
+
+// Profile for gallery sharing to subscription or tenant
+type SharingProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (SharingProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharingProfileResponse)(nil)).Elem()
+}
+
+func (o SharingProfileResponseOutput) ToSharingProfileResponseOutput() SharingProfileResponseOutput {
+	return o
+}
+
+func (o SharingProfileResponseOutput) ToSharingProfileResponseOutputWithContext(ctx context.Context) SharingProfileResponseOutput {
+	return o
+}
+
+func (o SharingProfileResponseOutput) ToSharingProfileResponsePtrOutput() SharingProfileResponsePtrOutput {
+	return o.ToSharingProfileResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SharingProfileResponseOutput) ToSharingProfileResponsePtrOutputWithContext(ctx context.Context) SharingProfileResponsePtrOutput {
+	return o.ApplyT(func(v SharingProfileResponse) *SharingProfileResponse {
+		return &v
+	}).(SharingProfileResponsePtrOutput)
+}
+
+// A list of sharing profile groups.
+func (o SharingProfileResponseOutput) Groups() SharingProfileGroupResponseArrayOutput {
+	return o.ApplyT(func(v SharingProfileResponse) []SharingProfileGroupResponse { return v.Groups }).(SharingProfileGroupResponseArrayOutput)
+}
+
+// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+func (o SharingProfileResponseOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharingProfileResponse) *string { return v.Permissions }).(pulumi.StringPtrOutput)
+}
+
+type SharingProfileResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SharingProfileResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharingProfileResponse)(nil)).Elem()
+}
+
+func (o SharingProfileResponsePtrOutput) ToSharingProfileResponsePtrOutput() SharingProfileResponsePtrOutput {
+	return o
+}
+
+func (o SharingProfileResponsePtrOutput) ToSharingProfileResponsePtrOutputWithContext(ctx context.Context) SharingProfileResponsePtrOutput {
+	return o
+}
+
+func (o SharingProfileResponsePtrOutput) Elem() SharingProfileResponseOutput {
+	return o.ApplyT(func(v *SharingProfileResponse) SharingProfileResponse { return *v }).(SharingProfileResponseOutput)
+}
+
+// A list of sharing profile groups.
+func (o SharingProfileResponsePtrOutput) Groups() SharingProfileGroupResponseArrayOutput {
+	return o.ApplyT(func(v *SharingProfileResponse) []SharingProfileGroupResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(SharingProfileGroupResponseArrayOutput)
+}
+
+// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+func (o SharingProfileResponsePtrOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharingProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Permissions
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
@@ -38695,6 +39347,10 @@ func init() {
 	pulumi.RegisterOutputType(GalleryDataDiskImageResponseArrayOutput{})
 	pulumi.RegisterOutputType(GalleryIdentifierResponseOutput{})
 	pulumi.RegisterOutputType(GalleryIdentifierResponsePtrOutput{})
+	pulumi.RegisterOutputType(GalleryImageFeatureOutput{})
+	pulumi.RegisterOutputType(GalleryImageFeatureArrayOutput{})
+	pulumi.RegisterOutputType(GalleryImageFeatureResponseOutput{})
+	pulumi.RegisterOutputType(GalleryImageFeatureResponseArrayOutput{})
 	pulumi.RegisterOutputType(GalleryImageIdentifierOutput{})
 	pulumi.RegisterOutputType(GalleryImageIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageIdentifierResponseOutput{})
@@ -38847,6 +39503,12 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ShareInfoElementResponseOutput{})
 	pulumi.RegisterOutputType(ShareInfoElementResponseArrayOutput{})
+	pulumi.RegisterOutputType(SharingProfileOutput{})
+	pulumi.RegisterOutputType(SharingProfilePtrOutput{})
+	pulumi.RegisterOutputType(SharingProfileGroupResponseOutput{})
+	pulumi.RegisterOutputType(SharingProfileGroupResponseArrayOutput{})
+	pulumi.RegisterOutputType(SharingProfileResponseOutput{})
+	pulumi.RegisterOutputType(SharingProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
