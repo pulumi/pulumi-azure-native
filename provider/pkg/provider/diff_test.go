@@ -136,13 +136,13 @@ func TestCalculateDiffReplacesPathParameters(t *testing.T) {
 }
 
 func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
-	res := AzureApiResource{
-		PutParameters: []AzureApiParameter{
+	res := AzureAPIResource{
+		PutParameters: []AzureAPIParameter{
 			{
 				Location: "body",
 				Name:     "bodyProperties",
-				Body: &AzureApiType{
-					Properties: map[string]AzureApiProperty{
+				Body: &AzureAPIType{
+					Properties: map[string]AzureAPIProperty{
 						"p1": {Type: "string"},
 						"p2": {Type: "number", ForceNew: true},
 						"p3": {Ref: "#/types/azurerm:foobar/v20200101:FooType"},
