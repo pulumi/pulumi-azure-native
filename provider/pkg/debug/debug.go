@@ -9,7 +9,7 @@ var Debug *bool
 
 // Log logs debug info to stdout if debug.Debug is set to true
 func Log(format string, args ...interface{}) {
-	if *Debug {
+	if Debug != nil && *Debug {
 		fmt.Printf(format, args...)
 	}
 }

@@ -105,6 +105,23 @@ func main() {
 }
 
 func emitMetadata(metadata *provider.AzureApiMetadata, outDir string) error {
+	formatted, err := json.MarshalIndent(metadata, "", "    ")
+	if err != nil {
+		return errors.Wrap(err, "marshaling metadata")
+	}
+
+	if err := writeCompressedMetadata(
+		metadata,
+		"./provider/cmd/pulumi-resource-azurerm/metadata.go",
+		"./provider/cmd/arm2pulumi/metadata.go",
+	); err != nil {
+		return err
+	}
+
+	return emitFile(outDir, "metadata.json", formatted)
+}
+
+func writeCompressedMetadata(metadata *provider.AzureApiMetadata, paths ...string) error {
 	compressedMeta := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedMeta)
 	err := json.NewEncoder(compressedWriter).Encode(metadata)
@@ -116,19 +133,15 @@ func emitMetadata(metadata *provider.AzureApiMetadata, outDir string) error {
 		return err
 	}
 
-	formatted, err := json.MarshalIndent(metadata, "", "    ")
-	if err != nil {
-		return errors.Wrap(err, "marshaling metadata")
-	}
-
-	err = ioutil.WriteFile("./provider/cmd/pulumi-resource-azurerm/metadata.go", []byte(fmt.Sprintf(`package main
+	for _, path := range paths {
+		err := ioutil.WriteFile(path, []byte(fmt.Sprintf(`package main
 var azureApiResources = %#v
 `, compressedMeta.Bytes())), 0600)
-	if err != nil {
-		return err
+		if err != nil {
+			return fmt.Errorf("failed to write compressed metadata to '%s': %w", path, err)
+		}
 	}
-
-	return emitFile(outDir, "metadata.json", formatted)
+	return nil
 }
 
 func emitSchema(pkgSpec schema.PackageSpec, version string, outdir string) error {
