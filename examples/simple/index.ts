@@ -40,7 +40,6 @@ const staticSite = new web.StaticSite("staticsite", {
 
 const container = new containerinstance.ContainerGroup("containergroup", {
     resourceGroupName: resourceGroup.name,
-    // should be autonamed?
     containerGroupName: randomString.result,
     location: "westus2",
     osType: "Linux",
@@ -87,6 +86,17 @@ const networkInterface = new network.NetworkInterface("nic", {
         },
         privateIPAllocationMethod: "Dynamic",
     }],
+});
+
+const publicIP = new network.PublicIPAddress("pip", {
+    resourceGroupName: resourceGroup.name,
+    publicIpAddressName: randomString.result,
+    location: "westus2",
+    sku: {
+        name: "Basic",  
+    },
+    publicIPAddressVersion: "IPv4",
+    publicIPAllocationMethod: "Dynamic",
 });
 
 const virtualmachine  = new compute.VirtualMachine("vm", {
@@ -152,7 +162,7 @@ var queue = new storage.Queue("queue", {
     queueName: "event-grid-dest",
 });
 
-export const eventGridSub = new eventgrid.EventSubscription("egsub", {
+const eventGridSub = new eventgrid.EventSubscription("egsub", {
     eventSubscriptionName: randomString.result,
     scope: resourceGroup.id,
     destination: {        

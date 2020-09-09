@@ -194,11 +194,7 @@ func (ctx *ReferenceContext) resolveReference(ref spec.Ref) (*reference, bool, e
 }
 
 // Cache of parsed Swagger specifications for a location.
-var specCache map[string]*spec.Swagger
-
-func init() {
-	specCache = map[string]*spec.Swagger{}
-}
+var specCache = map[string]*spec.Swagger{}
 
 func loadSwaggerSpec(path string) (*spec.Swagger, error) {
 	if cached, ok := specCache[path]; ok {

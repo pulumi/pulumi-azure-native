@@ -97,17 +97,12 @@ func ResourceProvider(path string) string {
 	return "Resources"
 }
 
-var verbReplacer *strings.Replacer
-var wellKnownNames map[string]string
-
-func init() {
-	verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "List", "")
-	wellKnownNames = map[string]string{
-		"Redis":               "Redis",
-		"Caches":              "Cache",
-		"AssessmentsMetadata": "AssessmentMetadata",
-		"Mediaservices":       "MediaService",
-	}
+var verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "List", "")
+var wellKnownNames = map[string]string{
+	"Redis":               "Redis",
+	"Caches":              "Cache",
+	"AssessmentsMetadata": "AssessmentMetadata",
+	"Mediaservices":       "MediaService",
 }
 
 // ResourceName constructs a name of a resource based on Get or List operation ID,

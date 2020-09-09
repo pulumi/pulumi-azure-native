@@ -162,6 +162,8 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 		pkg:           g.pkg,
 		metadata:      g.metadata,
 		module:        module,
+		prov:          prov,
+		resourceName:  typeName,
 		resourceToken: resourceTok,
 		visitedTypes:  make(map[string]bool),
 	}
@@ -263,6 +265,8 @@ func (g *packageGenerator) genListFunctions(prov, typeName, path string, pathIte
 		metadata:      g.metadata,
 		module:        module,
 		resourceToken: fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
+		prov:          prov,
+		resourceName:  typeName,
 		visitedTypes:  make(map[string]bool),
 	}
 
@@ -320,6 +324,8 @@ type moduleGenerator struct {
 	pkg           *pschema.PackageSpec
 	metadata      *provider.AzureAPIMetadata
 	module        string
+	prov          string
+	resourceName  string
 	resourceToken string
 	visitedTypes  map[string]bool
 }
@@ -582,6 +588,11 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				operations := codegen.NewStringSet(mutability...)
 				apiProperty.ForceNew = operations.Has(extensionMutabilityCreate) && !operations.Has(extensionMutabilityUpdate)
 			}
+
+			// Apply manual metadata about Force New properties.
+			if m.forceNew(name) {
+				apiProperty.ForceNew = true
+			}
 		}
 
 		if sdkName != name {
@@ -641,6 +652,20 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 	}
 	return result, nil
+}
+
+// forceNew return true if a property with a given name requires a replacement in the resource
+// that is currently being generated, based on forceNewMap.
+func (m *moduleGenerator) forceNew(propertyName string) bool {
+	if resourceMap, ok := forceNewMap[m.prov]; ok {
+		if properties, ok := resourceMap[m.resourceName]; ok {
+			if properties.Has(propertyName) {
+				return true
+			}
+		}
+	}
+
+	return false
 }
 
 func (m *moduleGenerator) getEnumValues(property *spec.Schema) (enum []string) {
