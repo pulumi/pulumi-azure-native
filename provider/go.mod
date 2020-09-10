@@ -12,8 +12,8 @@ require (
 	github.com/golang/protobuf v1.4.2
 	github.com/hashicorp/go-azure-helpers v0.10.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v2 v2.9.3-0.20200903165723-46da25492e38
-	github.com/pulumi/pulumi/sdk/v2 v2.9.3-0.20200903165723-46da25492e38
+	github.com/pulumi/pulumi/pkg/v2 v2.9.3-0.20200910001350-51c235352cef
+	github.com/pulumi/pulumi/sdk/v2 v2.9.3-0.20200910001350-51c235352cef
 	github.com/stretchr/testify v1.6.1
 )
 
