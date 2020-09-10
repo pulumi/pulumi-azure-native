@@ -16,7 +16,14 @@ import (
 
 type TemplateElement interface {
 	Name() string
+	Args() interface{}
+	SetArgs(interface{})
 	PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error)
+}
+
+type pclRenderContext struct {
+	vars     map[string]*model.Variable
+	metadata *provider.AzureApiMetadata
 }
 
 func newDependencyTracking(e TemplateElement) *dependencyTracking {
@@ -62,6 +69,14 @@ type parameter struct {
 
 func (p *parameter) Name() string {
 	return p.paramName
+}
+
+func (p *parameter) Args() interface{} {
+	return p.rawBody
+}
+
+func (p *parameter) SetArgs(body interface{}) {
+	p.rawBody = body.(map[string]interface{})
 }
 
 func (p *parameter) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
@@ -112,6 +127,14 @@ func (v *variable) Name() string {
 	return v.varName
 }
 
+func (v *variable) Args() interface{} {
+	return v.rawBody
+}
+
+func (v *variable) SetArgs(body interface{}) {
+	v.rawBody = body.(map[string]interface{})
+}
+
 func (v *variable) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
 	fObj := v.rawBody
 	m, err := pcl.RenderValue(fObj)
@@ -139,6 +162,14 @@ type output struct {
 
 func (o *output) Name() string {
 	return o.outputName
+}
+
+func (o *output) Args() interface{} {
+	return o.rawBody
+}
+
+func (o *output) SetArgs(body interface{}) {
+	o.rawBody = body.(map[string]interface{})
 }
 
 func (o *output) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
@@ -338,11 +369,21 @@ func toResourceToken(resourceType, apiVersion string) string {
 	return fmt.Sprintf("azurerm:%s/%s:%s", prov, apiVersion, res)
 }
 
+func NewTemplateElements() *TemplateElements {
+	return &TemplateElements{
+		elements:                 map[string]*dependencyTracking{},
+		knownTemplateExpressions: map[string]*model.Variable{},
+	}
+}
+
 // TemplateElements keeps an internal state of template elements to be rendered to PCL,
 // including maintaining dependency ordering of the elements
-type TemplateElements map[string]*dependencyTracking
+type TemplateElements struct {
+	elements                 map[string]*dependencyTracking
+	knownTemplateExpressions map[string]*model.Variable
+}
 
-func (t TemplateElements) extractTemplateExpressionsAsVars(args interface{}, crumbs []string, excludeKeys ...string) (interface{}, map[string]model.Expression, error) {
+func (t *TemplateElements) extractTemplateExpressionsAsVars(args interface{}, crumbs []string, excludeKeys ...string) (interface{}, map[string]model.Expression, error) {
 	variables := map[string]model.Expression{}
 	val := reflect.ValueOf(args)
 	exclusions := codegen.NewStringSet()
@@ -387,6 +428,14 @@ func (t TemplateElements) extractTemplateExpressionsAsVars(args interface{}, cru
 	case reflect.String:
 		s := val.String()
 		if isTemplateExpression(s) {
+			// Check if we already have an existing variable tracking
+			// the template expression
+			if exprVar, seen := t.knownTemplateExpressions[s]; seen {
+				return model.VariableReference(exprVar),
+					map[string]model.Expression{
+						exprVar.Name: nil, // No need for tracking params since var already exists
+					}, nil
+			}
 			varName := t.assignName(crumbs)
 			v := &model.Variable{
 				Name:         varName,
@@ -396,6 +445,9 @@ func (t TemplateElements) extractTemplateExpressionsAsVars(args interface{}, cru
 			if err != nil {
 				return nil, nil, err
 			}
+			// Record template to variable mapping so we avoid
+			// emitting duplicates
+			t.knownTemplateExpressions[s] = v
 			return model.VariableReference(v),
 				map[string]model.Expression{
 					varName: val,
@@ -406,13 +458,13 @@ func (t TemplateElements) extractTemplateExpressionsAsVars(args interface{}, cru
 	return args, nil, nil
 }
 
-func (t TemplateElements) assignName(crumbs []string) string {
+func (t *TemplateElements) assignName(crumbs []string) string {
 	varName := ""
 	for _, c := range crumbs {
 		varName += strings.Title(c)
 	}
 	varName = toLowerCamel(makeLegalIdentifier(varName))
-	if _, has := t[varName]; !has {
+	if _, has := t.elements[varName]; !has {
 		return varName
 	}
 
@@ -420,7 +472,7 @@ func (t TemplateElements) assignName(crumbs []string) string {
 	i := 0
 	for {
 		varName = fmt.Sprintf("%s%d", base, i)
-		if _, has := t[varName]; !has {
+		if _, has := t.elements[varName]; !has {
 			break
 		}
 		i++
@@ -428,7 +480,7 @@ func (t TemplateElements) assignName(crumbs []string) string {
 	return varName
 }
 
-func (t TemplateElements) detectTemplateExpressions(srcName string, in *dependencyTracking, args interface{}, exclusionList ...string) (interface{}, error) {
+func (t *TemplateElements) detectTemplateExpressions(srcName string, in *dependencyTracking, args interface{}, exclusionList ...string) (interface{}, error) {
 	typ := reflect.TypeOf(args)
 	kind := typ.Kind()
 
@@ -436,10 +488,6 @@ func (t TemplateElements) detectTemplateExpressions(srcName string, in *dependen
 	var err error
 	switch kind {
 	case reflect.Map, reflect.Slice, reflect.String:
-		assigned := codegen.NewStringSet()
-		for k := range t {
-			assigned.Add(k)
-		}
 		args, exprs, err = t.extractTemplateExpressionsAsVars(
 			args,
 			[]string{srcName},
@@ -450,17 +498,20 @@ func (t TemplateElements) detectTemplateExpressions(srcName string, in *dependen
 	}
 
 	for name, expr := range exprs {
-		v := newVariable(name, expr)
-		dep := newDependencyTracking(v)
-		t[name] = dep
+		dep, ok := t.elements[name]
+		if !ok {
+			v := newVariable(name, expr)
+			dep = newDependencyTracking(v)
+			t.elements[name] = dep
+		}
 		in.RefersTo(dep)
 	}
 
 	return args, nil
 }
 
-func (t TemplateElements) AddParameter(name string, args map[string]interface{}) error {
-	if _, exists := t[name]; exists {
+func (t *TemplateElements) AddParameter(name string, args map[string]interface{}) error {
+	if _, exists := t.elements[name]; exists {
 		// Don't expect name collision with params
 		return fmt.Errorf("another item with the same name as parameter %s already defined", name)
 	}
@@ -477,12 +528,12 @@ func (t TemplateElements) AddParameter(name string, args map[string]interface{})
 	}
 	p.rawBody = args
 
-	t[name] = dep
+	t.elements[name] = dep
 	return nil
 }
 
-func (t TemplateElements) AddVariable(name string, args interface{}) error {
-	if _, exists := t[name]; exists {
+func (t *TemplateElements) AddVariable(name string, args interface{}) error {
+	if _, exists := t.elements[name]; exists {
 		return fmt.Errorf("another item with the same name as variable %s already defined", name)
 	}
 	v := newVariable(name, args)
@@ -493,12 +544,12 @@ func (t TemplateElements) AddVariable(name string, args interface{}) error {
 		return fmt.Errorf("failed to extract templates in variable %s: %w", name, err)
 	}
 
-	t[name] = dep
+	t.elements[name] = dep
 	return nil
 }
 
-func (t TemplateElements) AddOutput(name string, args map[string]interface{}) error {
-	if _, exists := t[name]; exists {
+func (t *TemplateElements) AddOutput(name string, args map[string]interface{}) error {
+	if _, exists := t.elements[name]; exists {
 		// Don't expect name collision with outputs
 		return fmt.Errorf("another item with the same name as output %s already defined", name)
 	}
@@ -515,11 +566,11 @@ func (t TemplateElements) AddOutput(name string, args map[string]interface{}) er
 	}
 	o.rawBody = args
 
-	t[name] = dep
+	t.elements[name] = dep
 	return nil
 }
 
-func (t TemplateElements) AddResource(args map[string]interface{}) error {
+func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 	name, ok := args["name"]
 	if !ok {
 		return errors.New("missing required name field in resource")
@@ -548,7 +599,7 @@ func (t TemplateElements) AddResource(args map[string]interface{}) error {
 
 	varName := t.assignName(prefix)
 
-	if _, exists := t[varName]; exists {
+	if _, exists := t.elements[varName]; exists {
 		// Don't expect name collision with resources
 		return fmt.Errorf("another resource with name: %s already defined", name)
 	}
@@ -563,21 +614,16 @@ func (t TemplateElements) AddResource(args map[string]interface{}) error {
 
 	r.rawBody = replaced.(map[string]interface{})
 
-	t[varName] = dep
+	t.elements[varName] = dep
 	return nil
 }
 
-type pclRenderContext struct {
-	vars     map[string]*model.Variable
-	metadata *provider.AzureApiMetadata
-}
-
-func (t TemplateElements) RenderPCL(metadata *provider.AzureApiMetadata) (*model.Body, error) {
+func (t *TemplateElements) RenderPCL(metadata *provider.AzureApiMetadata) (*model.Body, error) {
 	ctx := pclRenderContext{
 		vars:     map[string]*model.Variable{},
 		metadata: metadata,
 	}
-	for k := range t {
+	for k := range t.elements {
 		ctx.vars[k] = &model.Variable{
 			Name:         k,
 			VariableType: model.DynamicType,
@@ -603,12 +649,12 @@ func (t TemplateElements) RenderPCL(metadata *provider.AzureApiMetadata) (*model
 	}, nil
 }
 
-func (t TemplateElements) topologicalOrder() ([]*dependencyTracking, error) {
+func (t *TemplateElements) topologicalOrder() ([]*dependencyTracking, error) {
 	visited := map[*dependencyTracking]bool{}
 	var orderedElements []*dependencyTracking
-	keys := codegen.SortedKeys(t)
+	keys := codegen.SortedKeys(t.elements)
 	for _, k := range keys {
-		v := t[k]
+		v := t.elements[k]
 		var err error
 		var ordered []*dependencyTracking
 		ordered, err = topoSort(v, visited, nil)
@@ -673,9 +719,4 @@ func extractType(info map[string]interface{}) (string, error) {
 	default:
 		return "", fmt.Errorf("unexpected type: %s", typeStr)
 	}
-}
-
-func isTemplateExpression(s string) bool {
-	s = strings.TrimSpace(s)
-	return strings.HasPrefix(s, "[") && strings.HasSuffix(s, "]")
 }

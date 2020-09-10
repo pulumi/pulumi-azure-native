@@ -62,7 +62,7 @@ func RenderTemplate(templates map[string]*jsonx.Node, metadata *provider.AzureAp
 		return &model.Body{}, nil
 	}
 
-	templ := TemplateElements{}
+	templ := NewTemplateElements()
 
 	for _, root := range templates {
 		rootValue := jsonx.NodeValue(*root).(map[string]interface{})
@@ -72,7 +72,7 @@ func RenderTemplate(templates map[string]*jsonx.Node, metadata *provider.AzureAp
 			if !ok {
 				return nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
 			}
-
+			
 			for param, f := range fObj {
 				fMap, ok := f.(map[string]interface{})
 				if !ok {
@@ -131,6 +131,10 @@ func RenderTemplate(templates map[string]*jsonx.Node, metadata *provider.AzureAp
 				}
 			}
 		}
+	}
+
+	if err := templ.EvalTemplateExpressions(); err != nil {
+		return nil, err
 	}
 
 	body, err := templ.RenderPCL(metadata)

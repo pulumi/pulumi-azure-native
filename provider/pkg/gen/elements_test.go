@@ -48,15 +48,17 @@ func TestTopologicalSort(t *testing.T) {
 		h.RefersTo(e)
 
 		els := TemplateElements{
-			"a": a,
-			"b": b,
-			"c": c,
-			"d": d,
-			"e": e,
-			"f": f,
-			"g": g,
-			"h": h,
-			"i": i,
+			elements: map[string]*dependencyTracking{
+				"a": a,
+				"b": b,
+				"c": c,
+				"d": d,
+				"e": e,
+				"f": f,
+				"g": g,
+				"h": h,
+				"i": i,
+			},
 		}
 
 		ordered, err := els.topologicalOrder()
@@ -93,17 +95,19 @@ func TestTopologicalSort(t *testing.T) {
 		g.RefersTo(b)
 
 		els := TemplateElements{
-			"a": a,
-			"b": b,
-			"c": c,
-			"d": d,
-			"e": e,
-			"f": f,
-			"g": g,
-			"h": h,
+			elements: map[string]*dependencyTracking{
+				"a": a,
+				"b": b,
+				"c": c,
+				"d": d,
+				"e": e,
+				"f": f,
+				"g": g,
+				"h": h,
+			},
 		}
 
 		_, err := els.topologicalOrder()
-		require.Error(t, err)
+		require.EqualError(t, err, "detected cycle at element B")
 	})
 }
