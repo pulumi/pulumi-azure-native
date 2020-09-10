@@ -705,7 +705,7 @@ func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*
 }
 
 // Construct creates a new component resource.
-func (k *azurermProvider) Construct(ctx context.Context, request *rpc.ConstructRequest) (*rpc.ConstructResponse, error) {
+func (k *azurermProvider) Construct(_ context.Context, _ *rpc.ConstructRequest) (*rpc.ConstructResponse, error) {
 	panic("Construct not implemented")
 }
 
