@@ -704,6 +704,11 @@ func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*
 	return &pbempty.Empty{}, nil
 }
 
+// Construct creates a new component resource.
+func (k *azurermProvider) Construct(_ context.Context, _ *rpc.ConstructRequest) (*rpc.ConstructResponse, error) {
+	panic("Construct not implemented")
+}
+
 // GetPluginInfo returns generic information about this plugin, like its version.
 func (k *azurermProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*rpc.PluginInfo, error) {
 	return &rpc.PluginInfo{
