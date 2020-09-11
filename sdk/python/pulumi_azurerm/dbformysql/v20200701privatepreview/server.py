@@ -22,14 +22,11 @@ class Server(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  delegated_subnet_arguments: Optional[pulumi.Input[pulumi.InputType['DelegatedSubnetArgumentsArgs']]] = None,
-                 earliest_restore_date: Optional[pulumi.Input[str]] = None,
                  ha_enabled: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  infrastructure_encryption: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None,
-                 replica_capacity: Optional[pulumi.Input[float]] = None,
                  replication_role: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
@@ -53,14 +50,11 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: availability Zone information of the server.
         :param pulumi.Input[str] create_mode: The mode to create a new MySQL server.
         :param pulumi.Input[pulumi.InputType['DelegatedSubnetArgumentsArgs']] delegated_subnet_arguments: Delegated subnet arguments.
-        :param pulumi.Input[str] earliest_restore_date: Earliest restore point creation time (ISO8601 format)
         :param pulumi.Input[str] ha_enabled: Enable HA or not for a server.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] infrastructure_encryption: Status showing whether the server enabled infrastructure encryption.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a server.
-        :param pulumi.Input[str] public_network_access: Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        :param pulumi.Input[float] replica_capacity: The maximum number of replicas that a primary server can have.
         :param pulumi.Input[str] replication_role: The replication role.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] restore_point_in_time: Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -94,7 +88,6 @@ class Server(pulumi.CustomResource):
             __props__['availability_zone'] = availability_zone
             __props__['create_mode'] = create_mode
             __props__['delegated_subnet_arguments'] = delegated_subnet_arguments
-            __props__['earliest_restore_date'] = earliest_restore_date
             __props__['ha_enabled'] = ha_enabled
             __props__['identity'] = identity
             __props__['infrastructure_encryption'] = infrastructure_encryption
@@ -102,8 +95,6 @@ class Server(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['maintenance_window'] = maintenance_window
-            __props__['public_network_access'] = public_network_access
-            __props__['replica_capacity'] = replica_capacity
             __props__['replication_role'] = replication_role
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -119,10 +110,13 @@ class Server(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['version'] = version
             __props__['byok_enforcement'] = None
+            __props__['earliest_restore_date'] = None
             __props__['fully_qualified_domain_name'] = None
             __props__['ha_state'] = None
             __props__['name'] = None
-            __props__['stand_by_availability_zone'] = None
+            __props__['public_network_access'] = None
+            __props__['replica_capacity'] = None
+            __props__['standby_availability_zone'] = None
             __props__['state'] = None
             __props__['type'] = None
         super(Server, __self__).__init__(
@@ -199,7 +193,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="earliestRestoreDate")
-    def earliest_restore_date(self) -> pulumi.Output[Optional[str]]:
+    def earliest_restore_date(self) -> pulumi.Output[str]:
         """
         Earliest restore point creation time (ISO8601 format)
         """
@@ -271,7 +265,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+    def public_network_access(self) -> pulumi.Output[str]:
         """
         Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
@@ -279,7 +273,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicaCapacity")
-    def replica_capacity(self) -> pulumi.Output[Optional[float]]:
+    def replica_capacity(self) -> pulumi.Output[float]:
         """
         The maximum number of replicas that a primary server can have.
         """
@@ -326,12 +320,12 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "ssl_enforcement")
 
     @property
-    @pulumi.getter(name="standByAvailabilityZone")
-    def stand_by_availability_zone(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="standbyAvailabilityZone")
+    def standby_availability_zone(self) -> pulumi.Output[str]:
         """
         availability Zone information of the server.
         """
-        return pulumi.get(self, "stand_by_availability_zone")
+        return pulumi.get(self, "standby_availability_zone")
 
     @property
     @pulumi.getter

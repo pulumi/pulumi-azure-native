@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20180601PrivatePreview
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20180601PrivatePreview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
 

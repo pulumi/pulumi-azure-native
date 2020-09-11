@@ -10,7 +10,8 @@ from ... import _utilities, _tables
 
 __all__ = [
     'IdentityArgs',
-    'ServerPropertiesVnetInjArgsArgs',
+    'MaintenanceWindowArgs',
+    'ServerPropertiesDelegatedSubnetArgumentsArgs',
     'SkuArgs',
     'StorageProfileArgs',
 ]
@@ -40,113 +41,135 @@ class IdentityArgs:
 
 
 @pulumi.input_type
-class ServerPropertiesVnetInjArgsArgs:
+class MaintenanceWindowArgs:
     def __init__(__self__, *,
-                 delegated_subnet_name: Optional[pulumi.Input[str]] = None,
-                 delegated_vnet_id: Optional[pulumi.Input[str]] = None,
-                 delegated_vnet_name: Optional[pulumi.Input[str]] = None,
-                 delegated_vnet_resource_group: Optional[pulumi.Input[str]] = None):
+                 custom_window: Optional[pulumi.Input[str]] = None,
+                 day_of_week: Optional[pulumi.Input[float]] = None,
+                 start_hour: Optional[pulumi.Input[float]] = None,
+                 start_minute: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] delegated_subnet_name: delegated subnet name
-        :param pulumi.Input[str] delegated_vnet_id: delegated vNet ID
-        :param pulumi.Input[str] delegated_vnet_name: delegated vNet name
-        :param pulumi.Input[str] delegated_vnet_resource_group: delegated vNet resource group name
+        Maintenance window of a server.
+        :param pulumi.Input[str] custom_window: indicates whether custom window is enabled or disabled
+        :param pulumi.Input[float] day_of_week: day of week for maintenance window
+        :param pulumi.Input[float] start_hour: start hour for maintenance window
+        :param pulumi.Input[float] start_minute: start minute for maintenance window
         """
-        if delegated_subnet_name is not None:
-            pulumi.set(__self__, "delegated_subnet_name", delegated_subnet_name)
-        if delegated_vnet_id is not None:
-            pulumi.set(__self__, "delegated_vnet_id", delegated_vnet_id)
-        if delegated_vnet_name is not None:
-            pulumi.set(__self__, "delegated_vnet_name", delegated_vnet_name)
-        if delegated_vnet_resource_group is not None:
-            pulumi.set(__self__, "delegated_vnet_resource_group", delegated_vnet_resource_group)
+        if custom_window is not None:
+            pulumi.set(__self__, "custom_window", custom_window)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is not None:
+            pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is not None:
+            pulumi.set(__self__, "start_minute", start_minute)
 
     @property
-    @pulumi.getter(name="delegatedSubnetName")
-    def delegated_subnet_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="customWindow")
+    def custom_window(self) -> Optional[pulumi.Input[str]]:
         """
-        delegated subnet name
+        indicates whether custom window is enabled or disabled
         """
-        return pulumi.get(self, "delegated_subnet_name")
+        return pulumi.get(self, "custom_window")
 
-    @delegated_subnet_name.setter
-    def delegated_subnet_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "delegated_subnet_name", value)
-
-    @property
-    @pulumi.getter(name="delegatedVnetID")
-    def delegated_vnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        delegated vNet ID
-        """
-        return pulumi.get(self, "delegated_vnet_id")
-
-    @delegated_vnet_id.setter
-    def delegated_vnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "delegated_vnet_id", value)
+    @custom_window.setter
+    def custom_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_window", value)
 
     @property
-    @pulumi.getter(name="delegatedVnetName")
-    def delegated_vnet_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[pulumi.Input[float]]:
         """
-        delegated vNet name
+        day of week for maintenance window
         """
-        return pulumi.get(self, "delegated_vnet_name")
+        return pulumi.get(self, "day_of_week")
 
-    @delegated_vnet_name.setter
-    def delegated_vnet_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "delegated_vnet_name", value)
+    @day_of_week.setter
+    def day_of_week(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "day_of_week", value)
 
     @property
-    @pulumi.getter(name="delegatedVnetResourceGroup")
-    def delegated_vnet_resource_group(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> Optional[pulumi.Input[float]]:
         """
-        delegated vNet resource group name
+        start hour for maintenance window
         """
-        return pulumi.get(self, "delegated_vnet_resource_group")
+        return pulumi.get(self, "start_hour")
 
-    @delegated_vnet_resource_group.setter
-    def delegated_vnet_resource_group(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "delegated_vnet_resource_group", value)
+    @start_hour.setter
+    def start_hour(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "start_hour", value)
+
+    @property
+    @pulumi.getter(name="startMinute")
+    def start_minute(self) -> Optional[pulumi.Input[float]]:
+        """
+        start minute for maintenance window
+        """
+        return pulumi.get(self, "start_minute")
+
+    @start_minute.setter
+    def start_minute(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "start_minute", value)
+
+
+@pulumi.input_type
+class ServerPropertiesDelegatedSubnetArgumentsArgs:
+    def __init__(__self__, *,
+                 subnet_arm_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] subnet_arm_resource_id: delegated subnet arm resource id.
+        """
+        if subnet_arm_resource_id is not None:
+            pulumi.set(__self__, "subnet_arm_resource_id", subnet_arm_resource_id)
+
+    @property
+    @pulumi.getter(name="subnetArmResourceId")
+    def subnet_arm_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        delegated subnet arm resource id.
+        """
+        return pulumi.get(self, "subnet_arm_resource_id")
+
+    @subnet_arm_resource_id.setter
+    def subnet_arm_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_arm_resource_id", value)
 
 
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input[str]] = None):
+                 name: pulumi.Input[str],
+                 tier: pulumi.Input[str]):
         """
         Sku information related properties of a server.
         :param pulumi.Input[str] name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
         :param pulumi.Input[str] tier: The tier of the particular SKU, e.g. Burstable.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> pulumi.Input[str]:
         """
         The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> pulumi.Input[str]:
         """
         The tier of the particular SKU, e.g. Burstable.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: pulumi.Input[str]):
         pulumi.set(self, "tier", value)
 
 

@@ -52,9 +52,14 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
+        /// Status showing whether the data encryption is enabled with customer-managed keys.
+        /// </summary>
+        public readonly string ByokEnforcement;
+        /// <summary>
         /// The mode to create a new PostgreSQL server.
         /// </summary>
         public readonly string? CreateMode;
+        public readonly Outputs.ServerPropertiesResponseDelegatedSubnetArgumentsResult? DelegatedSubnetArguments;
         /// <summary>
         /// The display name of a server.
         /// </summary>
@@ -63,6 +68,10 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// The fully qualified domain name of a server.
         /// </summary>
         public readonly string FullyQualifiedDomainName;
+        /// <summary>
+        /// stand by count value can be either enabled or disabled
+        /// </summary>
+        public readonly string? HaEnabled;
         /// <summary>
         /// A state of a HA server that is visible to user.
         /// </summary>
@@ -76,6 +85,10 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Maintenance window of a server.
+        /// </summary>
+        public readonly Outputs.MaintenanceWindowResponseResult? MaintenanceWindow;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -86,7 +99,7 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// <summary>
         /// public network access is enabled or not
         /// </summary>
-        public readonly string? PublicNetworkAccess;
+        public readonly string PublicNetworkAccess;
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
@@ -96,9 +109,9 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// </summary>
         public readonly string? SourceServerName;
         /// <summary>
-        /// stand by count value can be either 0 or 1
+        /// availability Zone information of the server.
         /// </summary>
-        public readonly int? StandbyCount;
+        public readonly string StandbyAvailabilityZone;
         /// <summary>
         /// A state of a server that is visible to user.
         /// </summary>
@@ -119,7 +132,6 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// PostgreSQL Server version.
         /// </summary>
         public readonly string? Version;
-        public readonly Outputs.ServerPropertiesResponseVnetInjArgsResult? VnetInjArgs;
 
         [OutputConstructor]
         private GetServerResult(
@@ -129,11 +141,17 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
 
             string? availabilityZone,
 
+            string byokEnforcement,
+
             string? createMode,
+
+            Outputs.ServerPropertiesResponseDelegatedSubnetArgumentsResult? delegatedSubnetArguments,
 
             string? displayName,
 
             string fullyQualifiedDomainName,
+
+            string? haEnabled,
 
             string haState,
 
@@ -141,17 +159,19 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
 
             string location,
 
+            Outputs.MaintenanceWindowResponseResult? maintenanceWindow,
+
             string name,
 
             string? pointInTimeUTC,
 
-            string? publicNetworkAccess,
+            string publicNetworkAccess,
 
             Outputs.SkuResponseResult? sku,
 
             string? sourceServerName,
 
-            int? standbyCount,
+            string standbyAvailabilityZone,
 
             string state,
 
@@ -161,31 +181,32 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
 
             string type,
 
-            string? version,
-
-            Outputs.ServerPropertiesResponseVnetInjArgsResult? vnetInjArgs)
+            string? version)
         {
             AdministratorLogin = administratorLogin;
             AdministratorLoginPassword = administratorLoginPassword;
             AvailabilityZone = availabilityZone;
+            ByokEnforcement = byokEnforcement;
             CreateMode = createMode;
+            DelegatedSubnetArguments = delegatedSubnetArguments;
             DisplayName = displayName;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            HaEnabled = haEnabled;
             HaState = haState;
             Identity = identity;
             Location = location;
+            MaintenanceWindow = maintenanceWindow;
             Name = name;
             PointInTimeUTC = pointInTimeUTC;
             PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             SourceServerName = sourceServerName;
-            StandbyCount = standbyCount;
+            StandbyAvailabilityZone = standbyAvailabilityZone;
             State = state;
             StorageProfile = storageProfile;
             Tags = tags;
             Type = type;
             Version = version;
-            VnetInjArgs = vnetInjArgs;
         }
     }
 }

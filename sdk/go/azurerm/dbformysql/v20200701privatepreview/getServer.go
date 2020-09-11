@@ -38,7 +38,7 @@ type LookupServerResult struct {
 	// Delegated subnet arguments.
 	DelegatedSubnetArguments *DelegatedSubnetArgumentsResponse `pulumi:"delegatedSubnetArguments"`
 	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
+	EarliestRestoreDate string `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
 	// Enable HA or not for a server.
@@ -56,9 +56,9 @@ type LookupServerResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a primary server can have.
-	ReplicaCapacity *int `pulumi:"replicaCapacity"`
+	ReplicaCapacity int `pulumi:"replicaCapacity"`
 	// The replication role.
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -70,7 +70,7 @@ type LookupServerResult struct {
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// availability Zone information of the server.
-	StandByAvailabilityZone string `pulumi:"standByAvailabilityZone"`
+	StandbyAvailabilityZone string `pulumi:"standbyAvailabilityZone"`
 	// The state of a server.
 	State string `pulumi:"state"`
 	// Storage profile of a server.

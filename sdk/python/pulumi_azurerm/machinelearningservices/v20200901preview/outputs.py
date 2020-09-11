@@ -22,6 +22,14 @@ __all__ = [
     'AmlComputeNodeInformationResponseResult',
     'AmlComputeResponse',
     'AmlComputeResponseProperties',
+    'AssignedUserResponse',
+    'ComputeInstanceApplicationResponse',
+    'ComputeInstanceConnectivityEndpointsResponse',
+    'ComputeInstanceCreatedByResponse',
+    'ComputeInstanceLastOperationResponse',
+    'ComputeInstanceResponse',
+    'ComputeInstanceResponseProperties',
+    'ComputeInstanceSshSettingsResponse',
     'ContainerResourceRequirementsResponse',
     'DataFactoryResponse',
     'DataLakeAnalyticsResponse',
@@ -49,6 +57,7 @@ __all__ = [
     'ModelResponse',
     'NodeStateCountsResponse',
     'PasswordResponseResult',
+    'PersonalComputeInstanceSettingsResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -1394,6 +1403,553 @@ class AmlComputeResponseProperties(dict):
         Virtual Machine Size
         """
         return pulumi.get(self, "vm_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AssignedUserResponse(dict):
+    """
+    A user that can be assigned to a compute instance.
+    """
+    def __init__(__self__, *,
+                 object_id: str,
+                 tenant_id: str):
+        """
+        A user that can be assigned to a compute instance.
+        :param str object_id: User’s AAD Object Id.
+        :param str tenant_id: User’s AAD Tenant Id.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        User’s AAD Object Id.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        User’s AAD Tenant Id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ComputeInstanceApplicationResponse(dict):
+    """
+    Defines an Aml Instance application and its connectivity endpoint URI.
+    """
+    def __init__(__self__, *,
+                 display_name: Optional[str] = None,
+                 endpoint_uri: Optional[str] = None):
+        """
+        Defines an Aml Instance application and its connectivity endpoint URI.
+        :param str display_name: Name of the ComputeInstance application.
+        :param str endpoint_uri: Application' endpoint URI.
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if endpoint_uri is not None:
+            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Name of the ComputeInstance application.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> Optional[str]:
+        """
+        Application' endpoint URI.
+        """
+        return pulumi.get(self, "endpoint_uri")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ComputeInstanceConnectivityEndpointsResponse(dict):
+    """
+    Defines all connectivity endpoints and properties for an ComputeInstance.
+    """
+    def __init__(__self__, *,
+                 private_ip_address: str,
+                 public_ip_address: str):
+        """
+        Defines all connectivity endpoints and properties for an ComputeInstance.
+        :param str private_ip_address: Private IP Address of this ComputeInstance (local to the VNET in which the compute instance is deployed).
+        :param str public_ip_address: Public IP Address of this ComputeInstance.
+        """
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        """
+        Private IP Address of this ComputeInstance (local to the VNET in which the compute instance is deployed).
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> str:
+        """
+        Public IP Address of this ComputeInstance.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ComputeInstanceCreatedByResponse(dict):
+    """
+    Describes information on user who created this ComputeInstance.
+    """
+    def __init__(__self__, *,
+                 user_id: str,
+                 user_name: str,
+                 user_org_id: str):
+        """
+        Describes information on user who created this ComputeInstance.
+        :param str user_id: Uniquely identifies the user within his/her organization.
+        :param str user_name: Name of the user.
+        :param str user_org_id: Uniquely identifies user' Azure Active Directory organization.
+        """
+        pulumi.set(__self__, "user_id", user_id)
+        pulumi.set(__self__, "user_name", user_name)
+        pulumi.set(__self__, "user_org_id", user_org_id)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> str:
+        """
+        Uniquely identifies the user within his/her organization.
+        """
+        return pulumi.get(self, "user_id")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        Name of the user.
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter(name="userOrgId")
+    def user_org_id(self) -> str:
+        """
+        Uniquely identifies user' Azure Active Directory organization.
+        """
+        return pulumi.get(self, "user_org_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ComputeInstanceLastOperationResponse(dict):
+    """
+    The last operation on ComputeInstance.
+    """
+    def __init__(__self__, *,
+                 operation_name: Optional[str] = None,
+                 operation_status: Optional[str] = None,
+                 operation_time: Optional[str] = None):
+        """
+        The last operation on ComputeInstance.
+        :param str operation_name: Name of the last operation.
+        :param str operation_status: Operation status.
+        :param str operation_time: Time of the last operation.
+        """
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if operation_status is not None:
+            pulumi.set(__self__, "operation_status", operation_status)
+        if operation_time is not None:
+            pulumi.set(__self__, "operation_time", operation_time)
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[str]:
+        """
+        Name of the last operation.
+        """
+        return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter(name="operationStatus")
+    def operation_status(self) -> Optional[str]:
+        """
+        Operation status.
+        """
+        return pulumi.get(self, "operation_status")
+
+    @property
+    @pulumi.getter(name="operationTime")
+    def operation_time(self) -> Optional[str]:
+        """
+        Time of the last operation.
+        """
+        return pulumi.get(self, "operation_time")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ComputeInstanceResponse(dict):
+    """
+    An Azure Machine Learning compute instance.
+    """
+    def __init__(__self__, *,
+                 compute_type: str,
+                 created_on: str,
+                 is_attached_compute: bool,
+                 modified_on: str,
+                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_state: str,
+                 compute_location: Optional[str] = None,
+                 description: Optional[str] = None,
+                 properties: Optional['outputs.ComputeInstanceResponseProperties'] = None,
+                 resource_id: Optional[str] = None):
+        """
+        An Azure Machine Learning compute instance.
+        :param str compute_type: The type of compute
+        :param str created_on: The date and time when the compute was created.
+        :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+        :param str modified_on: The date and time when the compute was last modified.
+        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        :param str compute_location: Location for the underlying compute
+        :param str description: The description of the Machine Learning compute.
+        :param 'ComputeInstanceResponsePropertiesArgs' properties: Compute Instance properties
+        :param str resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'ComputeInstance')
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "is_attached_compute", is_attached_compute)
+        pulumi.set(__self__, "modified_on", modified_on)
+        pulumi.set(__self__, "provisioning_errors", provisioning_errors)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
+        """
+        The type of compute
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        The date and time when the compute was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="isAttachedCompute")
+    def is_attached_compute(self) -> bool:
+        """
+        Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+        """
+        return pulumi.get(self, "is_attached_compute")
+
+    @property
+    @pulumi.getter(name="modifiedOn")
+    def modified_on(self) -> str:
+        """
+        The date and time when the compute was last modified.
+        """
+        return pulumi.get(self, "modified_on")
+
+    @property
+    @pulumi.getter(name="provisioningErrors")
+    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+        """
+        Errors during provisioning
+        """
+        return pulumi.get(self, "provisioning_errors")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[str]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.ComputeInstanceResponseProperties']:
+        """
+        Compute Instance properties
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ComputeInstanceResponseProperties(dict):
+    """
+    Compute Instance properties
+    """
+    def __init__(__self__, *,
+                 applications: List['outputs.ComputeInstanceApplicationResponse'],
+                 connectivity_endpoints: 'outputs.ComputeInstanceConnectivityEndpointsResponse',
+                 created_by: 'outputs.ComputeInstanceCreatedByResponse',
+                 errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 last_operation: 'outputs.ComputeInstanceLastOperationResponse',
+                 state: str,
+                 application_sharing_policy: Optional[str] = None,
+                 compute_instance_authorization_type: Optional[str] = None,
+                 personal_compute_instance_settings: Optional['outputs.PersonalComputeInstanceSettingsResponse'] = None,
+                 ssh_settings: Optional['outputs.ComputeInstanceSshSettingsResponse'] = None,
+                 subnet: Optional['outputs.ResourceIdResponse'] = None,
+                 vm_size: Optional[str] = None):
+        """
+        Compute Instance properties
+        :param List['ComputeInstanceApplicationResponseArgs'] applications: Describes available applications and their endpoints on this ComputeInstance.
+        :param 'ComputeInstanceConnectivityEndpointsResponseArgs' connectivity_endpoints: Describes all connectivity endpoints available for this ComputeInstance.
+        :param 'ComputeInstanceCreatedByResponseArgs' created_by: Describes information on user who created this ComputeInstance.
+        :param List['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered on this ComputeInstance.
+        :param 'ComputeInstanceLastOperationResponseArgs' last_operation: The last operation on ComputeInstance.
+        :param str state: The current state of this ComputeInstance.
+        :param str application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+        :param str compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
+        :param 'PersonalComputeInstanceSettingsResponseArgs' personal_compute_instance_settings: Settings for a personal compute instance.
+        :param 'ComputeInstanceSshSettingsResponseArgs' ssh_settings: Specifies policy and settings for SSH access.
+        :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
+        :param str vm_size: Virtual Machine Size
+        """
+        pulumi.set(__self__, "applications", applications)
+        pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "last_operation", last_operation)
+        pulumi.set(__self__, "state", state)
+        if application_sharing_policy is not None:
+            pulumi.set(__self__, "application_sharing_policy", application_sharing_policy)
+        if compute_instance_authorization_type is not None:
+            pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+        if personal_compute_instance_settings is not None:
+            pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
+        if ssh_settings is not None:
+            pulumi.set(__self__, "ssh_settings", ssh_settings)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter
+    def applications(self) -> List['outputs.ComputeInstanceApplicationResponse']:
+        """
+        Describes available applications and their endpoints on this ComputeInstance.
+        """
+        return pulumi.get(self, "applications")
+
+    @property
+    @pulumi.getter(name="connectivityEndpoints")
+    def connectivity_endpoints(self) -> 'outputs.ComputeInstanceConnectivityEndpointsResponse':
+        """
+        Describes all connectivity endpoints available for this ComputeInstance.
+        """
+        return pulumi.get(self, "connectivity_endpoints")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> 'outputs.ComputeInstanceCreatedByResponse':
+        """
+        Describes information on user who created this ComputeInstance.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+        """
+        Collection of errors encountered on this ComputeInstance.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter(name="lastOperation")
+    def last_operation(self) -> 'outputs.ComputeInstanceLastOperationResponse':
+        """
+        The last operation on ComputeInstance.
+        """
+        return pulumi.get(self, "last_operation")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The current state of this ComputeInstance.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="applicationSharingPolicy")
+    def application_sharing_policy(self) -> Optional[str]:
+        """
+        Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+        """
+        return pulumi.get(self, "application_sharing_policy")
+
+    @property
+    @pulumi.getter(name="computeInstanceAuthorizationType")
+    def compute_instance_authorization_type(self) -> Optional[str]:
+        """
+        The Compute Instance Authorization type. Available values are personal (default).
+        """
+        return pulumi.get(self, "compute_instance_authorization_type")
+
+    @property
+    @pulumi.getter(name="personalComputeInstanceSettings")
+    def personal_compute_instance_settings(self) -> Optional['outputs.PersonalComputeInstanceSettingsResponse']:
+        """
+        Settings for a personal compute instance.
+        """
+        return pulumi.get(self, "personal_compute_instance_settings")
+
+    @property
+    @pulumi.getter(name="sshSettings")
+    def ssh_settings(self) -> Optional['outputs.ComputeInstanceSshSettingsResponse']:
+        """
+        Specifies policy and settings for SSH access.
+        """
+        return pulumi.get(self, "ssh_settings")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.ResourceIdResponse']:
+        """
+        Virtual network subnet resource ID the compute nodes belong to.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[str]:
+        """
+        Virtual Machine Size
+        """
+        return pulumi.get(self, "vm_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ComputeInstanceSshSettingsResponse(dict):
+    """
+    Specifies policy and settings for SSH access.
+    """
+    def __init__(__self__, *,
+                 admin_user_name: str,
+                 ssh_port: float,
+                 admin_public_key: Optional[str] = None,
+                 ssh_public_access: Optional[str] = None):
+        """
+        Specifies policy and settings for SSH access.
+        :param str admin_user_name: Describes the admin user name.
+        :param float ssh_port: Describes the port for connecting through SSH.
+        :param str admin_public_key: Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+        :param str ssh_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+        """
+        pulumi.set(__self__, "admin_user_name", admin_user_name)
+        pulumi.set(__self__, "ssh_port", ssh_port)
+        if admin_public_key is not None:
+            pulumi.set(__self__, "admin_public_key", admin_public_key)
+        if ssh_public_access is not None:
+            pulumi.set(__self__, "ssh_public_access", ssh_public_access)
+
+    @property
+    @pulumi.getter(name="adminUserName")
+    def admin_user_name(self) -> str:
+        """
+        Describes the admin user name.
+        """
+        return pulumi.get(self, "admin_user_name")
+
+    @property
+    @pulumi.getter(name="sshPort")
+    def ssh_port(self) -> float:
+        """
+        Describes the port for connecting through SSH.
+        """
+        return pulumi.get(self, "ssh_port")
+
+    @property
+    @pulumi.getter(name="adminPublicKey")
+    def admin_public_key(self) -> Optional[str]:
+        """
+        Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+        """
+        return pulumi.get(self, "admin_public_key")
+
+    @property
+    @pulumi.getter(name="sshPublicAccess")
+    def ssh_public_access(self) -> Optional[str]:
+        """
+        State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+        """
+        return pulumi.get(self, "ssh_public_access")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3244,6 +3800,32 @@ class PasswordResponseResult(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PersonalComputeInstanceSettingsResponse(dict):
+    """
+    Settings for a personal compute instance.
+    """
+    def __init__(__self__, *,
+                 assigned_user: Optional['outputs.AssignedUserResponse'] = None):
+        """
+        Settings for a personal compute instance.
+        :param 'AssignedUserResponseArgs' assigned_user: A user explicitly assigned to a personal compute instance.
+        """
+        if assigned_user is not None:
+            pulumi.set(__self__, "assigned_user", assigned_user)
+
+    @property
+    @pulumi.getter(name="assignedUser")
+    def assigned_user(self) -> Optional['outputs.AssignedUserResponse']:
+        """
+        A user explicitly assigned to a personal compute instance.
+        """
+        return pulumi.get(self, "assigned_user")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20200101PrivatePreview
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -39,7 +39,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20200101PrivatePreview
         public Output<string> ServerKeyType { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

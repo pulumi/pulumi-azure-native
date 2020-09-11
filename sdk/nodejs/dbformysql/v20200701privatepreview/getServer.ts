@@ -62,7 +62,7 @@ export interface GetServerResult {
     /**
      * Earliest restore point creation time (ISO8601 format)
      */
-    readonly earliestRestoreDate?: string;
+    readonly earliestRestoreDate: string;
     /**
      * The fully qualified domain name of a server.
      */
@@ -98,11 +98,11 @@ export interface GetServerResult {
     /**
      * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    readonly publicNetworkAccess?: string;
+    readonly publicNetworkAccess: string;
     /**
      * The maximum number of replicas that a primary server can have.
      */
-    readonly replicaCapacity?: number;
+    readonly replicaCapacity: number;
     /**
      * The replication role.
      */
@@ -126,7 +126,7 @@ export interface GetServerResult {
     /**
      * availability Zone information of the server.
      */
-    readonly standByAvailabilityZone: string;
+    readonly standbyAvailabilityZone: string;
     /**
      * The state of a server.
      */

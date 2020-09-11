@@ -149,12 +149,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint used by reverse proxy.
-        /// </summary>
-        [Output("reverseProxyEndpointPort")]
-        public Output<int?> ReverseProxyEndpointPort { get; private set; } = null!;
-
-        /// <summary>
         /// The sku of the managed cluster
         /// </summary>
         [Output("sku")]
@@ -171,12 +165,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Use service fabric test vm extension, by default it's false.
-        /// </summary>
-        [Output("useTestExtension")]
-        public Output<bool?> UseTestExtension { get; private set; } = null!;
 
 
         /// <summary>
@@ -335,12 +323,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The endpoint used by reverse proxy.
-        /// </summary>
-        [Input("reverseProxyEndpointPort")]
-        public Input<int>? ReverseProxyEndpointPort { get; set; }
-
-        /// <summary>
         /// The sku of the managed cluster
         /// </summary>
         [Input("sku")]
@@ -357,12 +339,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Use service fabric test vm extension, by default it's false.
-        /// </summary>
-        [Input("useTestExtension")]
-        public Input<bool>? UseTestExtension { get; set; }
 
         public ManagedClusterArgs()
         {

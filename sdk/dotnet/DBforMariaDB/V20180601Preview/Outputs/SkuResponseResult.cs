@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMariaDB.V20180601Preview.Outputs
+namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview.Outputs
 {
 
     [OutputType]
@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601Preview.Outputs
         /// <summary>
         /// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// The size code, to be interpreted by resource as appropriate.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601Preview.Outputs
 
             string? family,
 
-            string? name,
+            string name,
 
             string? size,
 

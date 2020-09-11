@@ -25,7 +25,7 @@ type LookupNamespaceArgs struct {
 
 // Description of a namespace resource.
 type LookupNamespaceResult struct {
-	// The time the namespace was created.
+	// The time the namespace was created
 	CreatedAt string `pulumi:"createdAt"`
 	// Properties of BYOK Encryption description
 	Encryption *EncryptionResponse `pulumi:"encryption"`

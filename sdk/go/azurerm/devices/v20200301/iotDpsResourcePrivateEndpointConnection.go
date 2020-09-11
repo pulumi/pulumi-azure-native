@@ -44,6 +44,9 @@ func NewIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:devices/latest:IotDpsResourcePrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azurerm:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IotDpsResourcePrivateEndpointConnection

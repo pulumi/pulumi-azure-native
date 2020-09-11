@@ -37,11 +37,7 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * Region where the VM is located.
-     */
-    public /*out*/ readonly location!: pulumi.Output<string>;
-    /**
-     * Name of the Automanage assignment.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -49,7 +45,7 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.compute.v20200630preview.ConfigurationProfileAssignmentPropertiesResponse>;
     /**
-     * The type of the resource.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -76,11 +72,9 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["vmName"] = args ? args.vmName : undefined;
-            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -109,7 +103,7 @@ export interface ConfigurationProfileAssignmentArgs {
      */
     readonly properties?: pulumi.Input<inputs.compute.v20200630preview.ConfigurationProfileAssignmentProperties>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

@@ -33,8 +33,8 @@ class RoleAssignment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
-        :param pulumi.Input[str] condition: The conditions on the role assignment
-        :param pulumi.Input[str] condition_version: Version of the condition
+        :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+        :param pulumi.Input[str] condition_version: Version of the condition. Currently accepted value is '2.0'
         :param pulumi.Input[str] description: Description of role assignment
         :param pulumi.Input[str] principal_id: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
         :param pulumi.Input[str] principal_type: The principal type of the assigned principal ID.
@@ -124,7 +124,7 @@ class RoleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="conditionVersion")
     def condition_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Version of the condition. Currently accepted values are '1.0' or '2.0'
+        Version of the condition. Currently accepted value is '2.0'
         """
         return pulumi.get(self, "condition_version")
 

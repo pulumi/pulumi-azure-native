@@ -60,7 +60,7 @@ export interface GetServerResult {
      */
     readonly infrastructureEncryption?: string;
     /**
-     * The location the resource resides in.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -72,7 +72,7 @@ export interface GetServerResult {
      */
     readonly minimalTlsVersion?: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -104,11 +104,11 @@ export interface GetServerResult {
      */
     readonly storageProfile?: outputs.dbformysql.v20171201preview.StorageProfileResponse;
     /**
-     * Application-specific metadata in the form of key-value pairs.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
     /**

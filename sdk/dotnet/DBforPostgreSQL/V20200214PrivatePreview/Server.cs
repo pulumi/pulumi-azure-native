@@ -33,10 +33,19 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
+        /// Status showing whether the data encryption is enabled with customer-managed keys.
+        /// </summary>
+        [Output("byokEnforcement")]
+        public Output<string> ByokEnforcement { get; private set; } = null!;
+
+        /// <summary>
         /// The mode to create a new PostgreSQL server.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
+
+        [Output("delegatedSubnetArguments")]
+        public Output<Outputs.ServerPropertiesResponseDelegatedSubnetArgumentsResult?> DelegatedSubnetArguments { get; private set; } = null!;
 
         /// <summary>
         /// The display name of a server.
@@ -49,6 +58,12 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// </summary>
         [Output("fullyQualifiedDomainName")]
         public Output<string> FullyQualifiedDomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// stand by count value can be either enabled or disabled
+        /// </summary>
+        [Output("haEnabled")]
+        public Output<string?> HaEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A state of a HA server that is visible to user.
@@ -69,6 +84,12 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Maintenance window of a server.
+        /// </summary>
+        [Output("maintenanceWindow")]
+        public Output<Outputs.MaintenanceWindowResponseResult?> MaintenanceWindow { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -84,7 +105,7 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// public network access is enabled or not
         /// </summary>
         [Output("publicNetworkAccess")]
-        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The SKU (pricing tier) of the server.
@@ -99,10 +120,10 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         public Output<string?> SourceServerName { get; private set; } = null!;
 
         /// <summary>
-        /// stand by count value can be either 0 or 1
+        /// availability Zone information of the server.
         /// </summary>
-        [Output("standbyCount")]
-        public Output<int?> StandbyCount { get; private set; } = null!;
+        [Output("standbyAvailabilityZone")]
+        public Output<string> StandbyAvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// A state of a server that is visible to user.
@@ -133,9 +154,6 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
-
-        [Output("vnetInjArgs")]
-        public Output<Outputs.ServerPropertiesResponseVnetInjArgsResult?> VnetInjArgs { get; private set; } = null!;
 
 
         /// <summary>
@@ -206,11 +224,20 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
 
+        [Input("delegatedSubnetArguments")]
+        public Input<Inputs.ServerPropertiesDelegatedSubnetArgumentsArgs>? DelegatedSubnetArguments { get; set; }
+
         /// <summary>
         /// The display name of a server.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// stand by count value can be either enabled or disabled
+        /// </summary>
+        [Input("haEnabled")]
+        public Input<string>? HaEnabled { get; set; }
 
         /// <summary>
         /// The Azure Active Directory identity of the server.
@@ -225,16 +252,16 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// Maintenance window of a server.
+        /// </summary>
+        [Input("maintenanceWindow")]
+        public Input<Inputs.MaintenanceWindowArgs>? MaintenanceWindow { get; set; }
+
+        /// <summary>
         /// Restore point creation time (ISO8601 format), specifying the time to restore from.
         /// </summary>
         [Input("pointInTimeUTC")]
         public Input<string>? PointInTimeUTC { get; set; }
-
-        /// <summary>
-        /// public network access is enabled or not
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -261,12 +288,6 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         public Input<string>? SourceServerName { get; set; }
 
         /// <summary>
-        /// stand by count value can be either 0 or 1
-        /// </summary>
-        [Input("standbyCount")]
-        public Input<int>? StandbyCount { get; set; }
-
-        /// <summary>
         /// Storage profile of a server.
         /// </summary>
         [Input("storageProfile")]
@@ -289,9 +310,6 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
-
-        [Input("vnetInjArgs")]
-        public Input<Inputs.ServerPropertiesVnetInjArgsArgs>? VnetInjArgs { get; set; }
 
         public ServerArgs()
         {

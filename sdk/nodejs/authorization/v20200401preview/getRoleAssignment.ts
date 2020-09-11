@@ -44,7 +44,7 @@ export interface GetRoleAssignmentResult {
      */
     readonly condition?: string;
     /**
-     * Version of the condition. Currently accepted values are '1.0' or '2.0'
+     * Version of the condition. Currently accepted value is '2.0'
      */
     readonly conditionVersion?: string;
     /**

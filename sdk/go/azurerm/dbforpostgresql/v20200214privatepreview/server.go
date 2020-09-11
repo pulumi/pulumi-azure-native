@@ -20,30 +20,37 @@ type Server struct {
 	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
 	// availability Zone information of the server.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
+	// Status showing whether the data encryption is enabled with customer-managed keys.
+	ByokEnforcement pulumi.StringOutput `pulumi:"byokEnforcement"`
 	// The mode to create a new PostgreSQL server.
-	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
+	CreateMode               pulumi.StringPtrOutput                                    `pulumi:"createMode"`
+	DelegatedSubnetArguments ServerPropertiesResponseDelegatedSubnetArgumentsPtrOutput `pulumi:"delegatedSubnetArguments"`
 	// The display name of a server.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
+	// stand by count value can be either enabled or disabled
+	HaEnabled pulumi.StringPtrOutput `pulumi:"haEnabled"`
 	// A state of a HA server that is visible to user.
 	HaState pulumi.StringOutput `pulumi:"haState"`
 	// The Azure Active Directory identity of the server.
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Maintenance window of a server.
+	MaintenanceWindow MaintenanceWindowResponsePtrOutput `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
 	PointInTimeUTC pulumi.StringPtrOutput `pulumi:"pointInTimeUTC"`
 	// public network access is enabled or not
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
+	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
 	// The SKU (pricing tier) of the server.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// The source PostgreSQL server name to restore from.
 	SourceServerName pulumi.StringPtrOutput `pulumi:"sourceServerName"`
-	// stand by count value can be either 0 or 1
-	StandbyCount pulumi.IntPtrOutput `pulumi:"standbyCount"`
+	// availability Zone information of the server.
+	StandbyAvailabilityZone pulumi.StringOutput `pulumi:"standbyAvailabilityZone"`
 	// A state of a server that is visible to user.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Storage profile of a server.
@@ -53,8 +60,7 @@ type Server struct {
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// PostgreSQL Server version.
-	Version     pulumi.StringPtrOutput                       `pulumi:"version"`
-	VnetInjArgs ServerPropertiesResponseVnetInjArgsPtrOutput `pulumi:"vnetInjArgs"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -100,18 +106,25 @@ type serverState struct {
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// availability Zone information of the server.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Status showing whether the data encryption is enabled with customer-managed keys.
+	ByokEnforcement *string `pulumi:"byokEnforcement"`
 	// The mode to create a new PostgreSQL server.
-	CreateMode *string `pulumi:"createMode"`
+	CreateMode               *string                                           `pulumi:"createMode"`
+	DelegatedSubnetArguments *ServerPropertiesResponseDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
 	// The display name of a server.
 	DisplayName *string `pulumi:"displayName"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
+	// stand by count value can be either enabled or disabled
+	HaEnabled *string `pulumi:"haEnabled"`
 	// A state of a HA server that is visible to user.
 	HaState *string `pulumi:"haState"`
 	// The Azure Active Directory identity of the server.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// Maintenance window of a server.
+	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -122,8 +135,8 @@ type serverState struct {
 	Sku *SkuResponse `pulumi:"sku"`
 	// The source PostgreSQL server name to restore from.
 	SourceServerName *string `pulumi:"sourceServerName"`
-	// stand by count value can be either 0 or 1
-	StandbyCount *int `pulumi:"standbyCount"`
+	// availability Zone information of the server.
+	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 	// A state of a server that is visible to user.
 	State *string `pulumi:"state"`
 	// Storage profile of a server.
@@ -133,8 +146,7 @@ type serverState struct {
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 	// PostgreSQL Server version.
-	Version     *string                              `pulumi:"version"`
-	VnetInjArgs *ServerPropertiesResponseVnetInjArgs `pulumi:"vnetInjArgs"`
+	Version *string `pulumi:"version"`
 }
 
 type ServerState struct {
@@ -144,18 +156,25 @@ type ServerState struct {
 	AdministratorLoginPassword pulumi.StringPtrInput
 	// availability Zone information of the server.
 	AvailabilityZone pulumi.StringPtrInput
+	// Status showing whether the data encryption is enabled with customer-managed keys.
+	ByokEnforcement pulumi.StringPtrInput
 	// The mode to create a new PostgreSQL server.
-	CreateMode pulumi.StringPtrInput
+	CreateMode               pulumi.StringPtrInput
+	DelegatedSubnetArguments ServerPropertiesResponseDelegatedSubnetArgumentsPtrInput
 	// The display name of a server.
 	DisplayName pulumi.StringPtrInput
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName pulumi.StringPtrInput
+	// stand by count value can be either enabled or disabled
+	HaEnabled pulumi.StringPtrInput
 	// A state of a HA server that is visible to user.
 	HaState pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
 	Identity IdentityResponsePtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// Maintenance window of a server.
+	MaintenanceWindow MaintenanceWindowResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -166,8 +185,8 @@ type ServerState struct {
 	Sku SkuResponsePtrInput
 	// The source PostgreSQL server name to restore from.
 	SourceServerName pulumi.StringPtrInput
-	// stand by count value can be either 0 or 1
-	StandbyCount pulumi.IntPtrInput
+	// availability Zone information of the server.
+	StandbyAvailabilityZone pulumi.StringPtrInput
 	// A state of a server that is visible to user.
 	State pulumi.StringPtrInput
 	// Storage profile of a server.
@@ -177,8 +196,7 @@ type ServerState struct {
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 	// PostgreSQL Server version.
-	Version     pulumi.StringPtrInput
-	VnetInjArgs ServerPropertiesResponseVnetInjArgsPtrInput
+	Version pulumi.StringPtrInput
 }
 
 func (ServerState) ElementType() reflect.Type {
@@ -193,17 +211,20 @@ type serverArgs struct {
 	// availability Zone information of the server.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The mode to create a new PostgreSQL server.
-	CreateMode *string `pulumi:"createMode"`
+	CreateMode               *string                                   `pulumi:"createMode"`
+	DelegatedSubnetArguments *ServerPropertiesDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
 	// The display name of a server.
 	DisplayName *string `pulumi:"displayName"`
+	// stand by count value can be either enabled or disabled
+	HaEnabled *string `pulumi:"haEnabled"`
 	// The Azure Active Directory identity of the server.
 	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// Maintenance window of a server.
+	MaintenanceWindow *MaintenanceWindow `pulumi:"maintenanceWindow"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
 	PointInTimeUTC *string `pulumi:"pointInTimeUTC"`
-	// public network access is enabled or not
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -212,15 +233,12 @@ type serverArgs struct {
 	Sku *Sku `pulumi:"sku"`
 	// The source PostgreSQL server name to restore from.
 	SourceServerName *string `pulumi:"sourceServerName"`
-	// stand by count value can be either 0 or 1
-	StandbyCount *int `pulumi:"standbyCount"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// PostgreSQL Server version.
-	Version     *string                      `pulumi:"version"`
-	VnetInjArgs *ServerPropertiesVnetInjArgs `pulumi:"vnetInjArgs"`
+	Version *string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Server resource.
@@ -232,17 +250,20 @@ type ServerArgs struct {
 	// availability Zone information of the server.
 	AvailabilityZone pulumi.StringPtrInput
 	// The mode to create a new PostgreSQL server.
-	CreateMode pulumi.StringPtrInput
+	CreateMode               pulumi.StringPtrInput
+	DelegatedSubnetArguments ServerPropertiesDelegatedSubnetArgumentsPtrInput
 	// The display name of a server.
 	DisplayName pulumi.StringPtrInput
+	// stand by count value can be either enabled or disabled
+	HaEnabled pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
 	Identity IdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
+	// Maintenance window of a server.
+	MaintenanceWindow MaintenanceWindowPtrInput
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
 	PointInTimeUTC pulumi.StringPtrInput
-	// public network access is enabled or not
-	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
@@ -251,15 +272,12 @@ type ServerArgs struct {
 	Sku SkuPtrInput
 	// The source PostgreSQL server name to restore from.
 	SourceServerName pulumi.StringPtrInput
-	// stand by count value can be either 0 or 1
-	StandbyCount pulumi.IntPtrInput
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// PostgreSQL Server version.
-	Version     pulumi.StringPtrInput
-	VnetInjArgs ServerPropertiesVnetInjArgsPtrInput
+	Version pulumi.StringPtrInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {

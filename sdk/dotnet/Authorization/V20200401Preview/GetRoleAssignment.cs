@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Authorization.V20200401Preview
         /// </summary>
         public readonly string? Condition;
         /// <summary>
-        /// Version of the condition. Currently accepted values are '1.0' or '2.0'
+        /// Version of the condition. Currently accepted value is '2.0'
         /// </summary>
         public readonly string? ConditionVersion;
         /// <summary>

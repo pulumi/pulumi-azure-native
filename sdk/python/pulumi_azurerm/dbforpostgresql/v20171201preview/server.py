@@ -165,7 +165,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location the resource resides in.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -189,7 +189,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -253,7 +253,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Application-specific metadata in the form of key-value pairs.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -261,7 +261,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 

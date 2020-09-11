@@ -673,29 +673,40 @@ class ServerPropertiesForRestoreArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  capacity: Optional[pulumi.Input[float]] = None,
                  family: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Billing information related properties of a server.
+        :param pulumi.Input[str] name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         :param pulumi.Input[float] capacity: The scale up/out capacity, representing server's compute units.
         :param pulumi.Input[str] family: The family of hardware.
-        :param pulumi.Input[str] name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         :param pulumi.Input[str] size: The size code, to be interpreted by resource as appropriate.
         :param pulumi.Input[str] tier: The tier of the particular SKU, e.g. Basic.
         """
+        pulumi.set(__self__, "name", name)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
         if family is not None:
             pulumi.set(__self__, "family", family)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -720,18 +731,6 @@ class SkuArgs:
     @family.setter
     def family(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "family", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter

@@ -53,7 +53,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly identity!: pulumi.Output<outputs.dbformariadb.v20180601preview.ResourceIdentityResponse | undefined>;
     /**
-     * The location the resource resides in.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -61,7 +61,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly masterServerId!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -85,11 +85,11 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageProfile!: pulumi.Output<outputs.dbformariadb.v20180601preview.StorageProfileResponse | undefined>;
     /**
-     * Application-specific metadata in the form of key-value pairs.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**

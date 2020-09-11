@@ -63,7 +63,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Earliest restore point creation time (ISO8601 format)
      */
-    public readonly earliestRestoreDate!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly earliestRestoreDate!: pulumi.Output<string>;
     /**
      * The fully qualified domain name of a server.
      */
@@ -99,11 +99,11 @@ export class Server extends pulumi.CustomResource {
     /**
      * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
     /**
      * The maximum number of replicas that a primary server can have.
      */
-    public readonly replicaCapacity!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly replicaCapacity!: pulumi.Output<number>;
     /**
      * The replication role.
      */
@@ -127,7 +127,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * availability Zone information of the server.
      */
-    public /*out*/ readonly standByAvailabilityZone!: pulumi.Output<string>;
+    public /*out*/ readonly standbyAvailabilityZone!: pulumi.Output<string>;
     /**
      * The state of a server.
      */
@@ -173,14 +173,11 @@ export class Server extends pulumi.CustomResource {
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["createMode"] = args ? args.createMode : undefined;
             inputs["delegatedSubnetArguments"] = args ? args.delegatedSubnetArguments : undefined;
-            inputs["earliestRestoreDate"] = args ? args.earliestRestoreDate : undefined;
             inputs["haEnabled"] = args ? args.haEnabled : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["infrastructureEncryption"] = args ? args.infrastructureEncryption : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            inputs["replicaCapacity"] = args ? args.replicaCapacity : undefined;
             inputs["replicationRole"] = args ? args.replicationRole : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
@@ -192,10 +189,13 @@ export class Server extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["byokEnforcement"] = undefined /*out*/;
+            inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["haState"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["standByAvailabilityZone"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
+            inputs["replicaCapacity"] = undefined /*out*/;
+            inputs["standbyAvailabilityZone"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -221,7 +221,7 @@ export class Server extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["sourceServerId"] = undefined /*out*/;
             inputs["sslEnforcement"] = undefined /*out*/;
-            inputs["standByAvailabilityZone"] = undefined /*out*/;
+            inputs["standbyAvailabilityZone"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["storageProfile"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -264,10 +264,6 @@ export interface ServerArgs {
      */
     readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.DelegatedSubnetArguments>;
     /**
-     * Earliest restore point creation time (ISO8601 format)
-     */
-    readonly earliestRestoreDate?: pulumi.Input<string>;
-    /**
      * Enable HA or not for a server.
      */
     readonly haEnabled?: pulumi.Input<string>;
@@ -287,14 +283,6 @@ export interface ServerArgs {
      * Maintenance window of a server.
      */
     readonly maintenanceWindow?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.MaintenanceWindow>;
-    /**
-     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-     */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
-    /**
-     * The maximum number of replicas that a primary server can have.
-     */
-    readonly replicaCapacity?: pulumi.Input<number>;
     /**
      * The replication role.
      */

@@ -37,7 +37,7 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
-     * The time the namespace was created.
+     * The time the namespace was created
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**

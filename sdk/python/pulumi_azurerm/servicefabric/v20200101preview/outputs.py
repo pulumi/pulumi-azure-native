@@ -172,7 +172,7 @@ class ClientCertificateResponse(dict):
         Client Certificate definition.
         :param bool is_admin: Whether the certificate is admin or not.
         :param str common_name: Certificate Common name.
-        :param str issuer_thumbprint: Issuer thumbprint for the certificate. Its only use ehn CommonName is used.
+        :param str issuer_thumbprint: Issuer thumbprint for the certificate. Its only use CommonName is used.
         :param str thumbprint: Certificate Thumbprint.
         """
         pulumi.set(__self__, "is_admin", is_admin)
@@ -203,7 +203,7 @@ class ClientCertificateResponse(dict):
     @pulumi.getter(name="issuerThumbprint")
     def issuer_thumbprint(self) -> Optional[str]:
         """
-        Issuer thumbprint for the certificate. Its only use ehn CommonName is used.
+        Issuer thumbprint for the certificate. Its only use CommonName is used.
         """
         return pulumi.get(self, "issuer_thumbprint")
 
@@ -725,7 +725,7 @@ class SkuResponse(dict):
                  name: str):
         """
         Sku definition
-        :param str name: Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        :param str name: Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
         """
         pulumi.set(__self__, "name", name)
 
@@ -733,7 +733,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
         """
         return pulumi.get(self, "name")
 

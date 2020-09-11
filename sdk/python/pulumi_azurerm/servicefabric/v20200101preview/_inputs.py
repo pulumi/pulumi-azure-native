@@ -178,7 +178,7 @@ class ClientCertificateArgs:
         Client Certificate definition.
         :param pulumi.Input[bool] is_admin: Whether the certificate is admin or not.
         :param pulumi.Input[str] common_name: Certificate Common name.
-        :param pulumi.Input[str] issuer_thumbprint: Issuer thumbprint for the certificate. Its only use ehn CommonName is used.
+        :param pulumi.Input[str] issuer_thumbprint: Issuer thumbprint for the certificate. Its only use CommonName is used.
         :param pulumi.Input[str] thumbprint: Certificate Thumbprint.
         """
         pulumi.set(__self__, "is_admin", is_admin)
@@ -217,7 +217,7 @@ class ClientCertificateArgs:
     @pulumi.getter(name="issuerThumbprint")
     def issuer_thumbprint(self) -> Optional[pulumi.Input[str]]:
         """
-        Issuer thumbprint for the certificate. Its only use ehn CommonName is used.
+        Issuer thumbprint for the certificate. Its only use CommonName is used.
         """
         return pulumi.get(self, "issuer_thumbprint")
 
@@ -803,7 +803,7 @@ class SkuArgs:
                  name: pulumi.Input[str]):
         """
         Sku definition
-        :param pulumi.Input[str] name: Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        :param pulumi.Input[str] name: Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
         """
         pulumi.set(__self__, "name", name)
 
@@ -811,7 +811,7 @@ class SkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
         """
         return pulumi.get(self, "name")
 

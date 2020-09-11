@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         public Output<string?> VmImageVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+        /// The number of nodes in the node type.
         /// </summary>
         [Output("vmInstanceCount")]
         public Output<int> VmInstanceCount { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         public Input<string>? VmImageVersion { get; set; }
 
         /// <summary>
-        /// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+        /// The number of nodes in the node type.
         /// </summary>
         [Input("vmInstanceCount", required: true)]
         public Input<int> VmInstanceCount { get; set; } = null!;

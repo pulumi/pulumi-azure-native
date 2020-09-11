@@ -15,7 +15,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
-        /// The time the namespace was created.
+        /// The time the namespace was created
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;

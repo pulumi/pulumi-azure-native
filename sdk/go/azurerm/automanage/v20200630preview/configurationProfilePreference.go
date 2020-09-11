@@ -14,15 +14,15 @@ import (
 type ConfigurationProfilePreference struct {
 	pulumi.CustomResourceState
 
-	// Region where the VM is located.
+	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the Automanage assignment.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the configuration profile preference.
 	Properties ConfigurationProfilePreferencePropertiesResponseOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -31,6 +31,9 @@ func NewConfigurationProfilePreference(ctx *pulumi.Context,
 	name string, args *ConfigurationProfilePreferenceArgs, opts ...pulumi.ResourceOption) (*ConfigurationProfilePreference, error) {
 	if args == nil || args.ConfigurationProfilePreferenceName == nil {
 		return nil, errors.New("missing required argument 'ConfigurationProfilePreferenceName'")
+	}
+	if args == nil || args.Location == nil {
+		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -60,28 +63,28 @@ func GetConfigurationProfilePreference(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationProfilePreference resources.
 type configurationProfilePreferenceState struct {
-	// Region where the VM is located.
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Name of the Automanage assignment.
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Properties of the configuration profile preference.
 	Properties *ConfigurationProfilePreferencePropertiesResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type ConfigurationProfilePreferenceState struct {
-	// Region where the VM is located.
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// Name of the Automanage assignment.
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Properties of the configuration profile preference.
 	Properties ConfigurationProfilePreferencePropertiesResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }
 
@@ -92,11 +95,11 @@ func (ConfigurationProfilePreferenceState) ElementType() reflect.Type {
 type configurationProfilePreferenceArgs struct {
 	// Name of the configuration profile preference.
 	ConfigurationProfilePreferenceName string `pulumi:"configurationProfilePreferenceName"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
 	// Properties of the configuration profile preference.
 	Properties *ConfigurationProfilePreferenceProperties `pulumi:"properties"`
-	// The resource group name.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -106,11 +109,11 @@ type configurationProfilePreferenceArgs struct {
 type ConfigurationProfilePreferenceArgs struct {
 	// Name of the configuration profile preference.
 	ConfigurationProfilePreferenceName pulumi.StringInput
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringInput
 	// Properties of the configuration profile preference.
 	Properties ConfigurationProfilePreferencePropertiesPtrInput
-	// The resource group name.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput

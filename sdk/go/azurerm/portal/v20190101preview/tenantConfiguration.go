@@ -31,6 +31,12 @@ func NewTenantConfiguration(ctx *pulumi.Context,
 	if args == nil {
 		args = &TenantConfigurationArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azurerm:portal/v20200901preview:TenantConfiguration"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TenantConfiguration
 	err := ctx.RegisterResource("azurerm:portal/v20190101preview:TenantConfiguration", name, args, &resource, opts...)
 	if err != nil {

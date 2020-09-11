@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101PrivatePreview
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101PrivatePreview
         /// </summary>
         public readonly string ServerKeyType;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
         /// <summary>

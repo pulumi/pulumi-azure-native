@@ -7,6 +7,8 @@ export * from "./getCluster";
 export * from "./getNamespace";
 export * from "./getNamespaceIpFilterRule";
 export * from "./getNamespaceVirtualNetworkRule";
+export * from "./getPrivateEndpointConnection";
 export * from "./namespace";
 export * from "./namespaceIpFilterRule";
 export * from "./namespaceVirtualNetworkRule";
+export * from "./privateEndpointConnection";

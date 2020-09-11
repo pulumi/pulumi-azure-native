@@ -68,16 +68,12 @@ type ManagedCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state of the managed cluster resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The endpoint used by reverse proxy.
-	ReverseProxyEndpointPort pulumi.IntPtrOutput `pulumi:"reverseProxyEndpointPort"`
 	// The sku of the managed cluster
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Azure resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Use service fabric test vm extension, by default it's false.
-	UseTestExtension pulumi.BoolPtrOutput `pulumi:"useTestExtension"`
 }
 
 // NewManagedCluster registers a new resource with the given unique name, arguments, and options.
@@ -177,16 +173,12 @@ type managedClusterState struct {
 	Name *string `pulumi:"name"`
 	// The provisioning state of the managed cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// The endpoint used by reverse proxy.
-	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
 	// The sku of the managed cluster
 	Sku *SkuResponse `pulumi:"sku"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
 	Type *string `pulumi:"type"`
-	// Use service fabric test vm extension, by default it's false.
-	UseTestExtension *bool `pulumi:"useTestExtension"`
 }
 
 type ManagedClusterState struct {
@@ -244,16 +236,12 @@ type ManagedClusterState struct {
 	Name pulumi.StringPtrInput
 	// The provisioning state of the managed cluster resource.
 	ProvisioningState pulumi.StringPtrInput
-	// The endpoint used by reverse proxy.
-	ReverseProxyEndpointPort pulumi.IntPtrInput
 	// The sku of the managed cluster
 	Sku SkuResponsePtrInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
 	// Azure resource type.
 	Type pulumi.StringPtrInput
-	// Use service fabric test vm extension, by default it's false.
-	UseTestExtension pulumi.BoolPtrInput
 }
 
 func (ManagedClusterState) ElementType() reflect.Type {
@@ -294,14 +282,10 @@ type managedClusterArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The endpoint used by reverse proxy.
-	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
 	// The sku of the managed cluster
 	Sku *Sku `pulumi:"sku"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Use service fabric test vm extension, by default it's false.
-	UseTestExtension *bool `pulumi:"useTestExtension"`
 }
 
 // The set of arguments for constructing a ManagedCluster resource.
@@ -339,14 +323,10 @@ type ManagedClusterArgs struct {
 	Location pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The endpoint used by reverse proxy.
-	ReverseProxyEndpointPort pulumi.IntPtrInput
 	// The sku of the managed cluster
 	Sku SkuPtrInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
-	// Use service fabric test vm extension, by default it's false.
-	UseTestExtension pulumi.BoolPtrInput
 }
 
 func (ManagedClusterArgs) ElementType() reflect.Type {
