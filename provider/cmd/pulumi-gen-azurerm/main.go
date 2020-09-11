@@ -51,6 +51,7 @@ func main() {
 			err = emitMetadata(meta, outdir)
 		default:
 			outdir := path.Join(".", "sdk", language)
+			pkgSpec.Version = version
 			err = emitPackage(pkgSpec, language, outdir)
 		}
 		if err != nil {
