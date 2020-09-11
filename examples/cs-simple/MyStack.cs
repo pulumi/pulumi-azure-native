@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Pulumi;
 using Pulumi.AzureRM.Resources.Latest;
 using Pulumi.AzureRM.Storage.Latest;
@@ -25,7 +26,7 @@ class MyStack : Stack
         {
             ResourceGroupName = resourceGroup.Name,
             AccountName = randomString.Result,
-            Location = "WestUS",
+            Location = resourceGroup.Location,
             Sku = new SkuArgs
             {
                 Name = "Standard_LRS",
@@ -33,5 +34,21 @@ class MyStack : Stack
             },
             Kind = "StorageV2"
         });
+
+        this.PrimaryStorageKey = Output.Tuple(resourceGroup.Name, storageAccount.Name).Apply(names =>
+            Output.CreateSecret(GetStorageAccountPrimaryKey(names.Item1, names.Item2)));
+    }
+
+    [Output]
+    public Output<string> PrimaryStorageKey { get; set; }
+
+    private static async Task<string> GetStorageAccountPrimaryKey(string resourceGroupName, string accountName)
+    {
+        var accountKeys = await ListStorageAccountKeys.InvokeAsync(new ListStorageAccountKeysArgs
+        {
+            ResourceGroupName = resourceGroupName,
+            AccountName = accountName
+        });
+        return accountKeys.Keys[0].Value;
     }
 }
