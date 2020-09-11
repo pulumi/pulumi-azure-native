@@ -101,6 +101,6 @@ func toCamelInitCase(s string, initCase bool) string {
 }
 
 var uppercaseAcronym = map[string]bool{
-	"ID": true,
+	"ID":  true,
 	"TTL": true,
 }

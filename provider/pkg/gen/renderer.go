@@ -72,7 +72,7 @@ func RenderTemplate(templates map[string]*jsonx.Node, metadata *provider.AzureAp
 			if !ok {
 				return nil, fmt.Errorf("expect %s block to be a map, got: %T", key, f)
 			}
-			
+
 			for param, f := range fObj {
 				fMap, ok := f.(map[string]interface{})
 				if !ok {
@@ -133,7 +133,11 @@ func RenderTemplate(templates map[string]*jsonx.Node, metadata *provider.AzureAp
 		}
 	}
 
-	if err := templ.EvalTemplateExpressions(); err != nil {
+	if err := templ.EvaluateExpressions(true); err != nil {
+		return nil, err
+	}
+
+	if err := templ.EvaluateExpressions(false); err != nil {
 		return nil, err
 	}
 

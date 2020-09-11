@@ -29,15 +29,8 @@ func TestRenderTemplate(t *testing.T) {
 	require.NoError(t, json.NewDecoder(f).Decode(&metadata))
 	f.Close()
 
-	for _, test := range []struct {
-		name     string
-		template string
-		err      error
-	}{
-		{
-			name:     "success",
-			template: exampleTemplate,
-		},
+	for _, test := range []testcase{
+		aksCluster,
 	} {
 		t.Run(test.name, func(t *testing.T) {
 			node, err := parseJsonxTree(test.template)
@@ -52,7 +45,7 @@ func TestRenderTemplate(t *testing.T) {
 				assert.EqualError(t, err, test.err.Error())
 			}
 			programBody := fmt.Sprintf("%v", body)
-			t.Logf(programBody)
+			fmt.Println(programBody)
 
 			parser := syntax.NewParser()
 			require.NoError(t, parser.ParseFile(strings.NewReader(programBody), "program.pp"))
@@ -106,6 +99,7 @@ func TestRenderTemplate(t *testing.T) {
 				}
 				languageExample[language(lang)] = programText(buf.String())
 				fmt.Printf("%s\n", buf.String())
+				assert.Equal(t, test.expected, buf.String())
 			}
 		})
 
@@ -113,7 +107,17 @@ func TestRenderTemplate(t *testing.T) {
 
 }
 
-const exampleTemplate = `{
+type testcase struct {
+	name     string
+	template string
+	expected string
+	err      error
+}
+
+var (
+	aksCluster = testcase{
+		name: "aksCluster",
+		template: `{
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
@@ -124,9 +128,10 @@ const exampleTemplate = `{
                 "description": "The name of the Managed Cluster resource."
             }
         },
+        /* Comments!!! */
         "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
+            "type": "string", /* More comments */
+            "defaultValue": "[resourceGroup().location]", // other comments
             "metadata": {
                 "description": "The location of the Managed Cluster resource."
             }
@@ -238,4 +243,49 @@ const exampleTemplate = `{
             "value": "[reference(parameters('clusterName')).fqdn]"
         }
     }
-}`
+}`,
+		expected: `import * as pulumi from "@pulumi/pulumi";
+import * as azurerm from "@pulumi/azurerm";
+
+const config = new pulumi.Config();
+const agentCountParam = config.getNumber("agentCountParam") || "3";
+const agentVMSizeParam = config.get("agentVMSizeParam") || "Standard_DS2_v2";
+const clusterNameParam = config.get("clusterNameParam") || "aks101cluster";
+const dnsPrefixParam = config.require("dnsPrefixParam");
+const linuxAdminUsernameParam = config.require("linuxAdminUsernameParam");
+const resourceGroupNameParam = config.require("resourceGroupNameParam");
+const locationParam = config.get("locationParam") || azurerm.resources.latest.getResourceGroup({
+    resourceGroupName: resourceGroupNameParam,
+}).then(invoke => invoke.location);
+const osDiskSizeGBParam = config.getNumber("osDiskSizeGBParam") || "0";
+const osTypeParam = config.get("osTypeParam") || "Linux";
+const servicePrincipalClientIdParam = config.require("servicePrincipalClientIdParam");
+const servicePrincipalClientSecretParam = config.require("servicePrincipalClientSecretParam");
+const sshRSAPublicKeyParam = config.require("sshRSAPublicKeyParam");
+const managedClusterResource = new azurerm.containerservice.v20200301.ManagedCluster("managedClusterResource", {
+    agentPoolProfiles: [{
+        count: agentCountParam,
+        name: "agentpool",
+        osDiskSizeGB: osDiskSizeGBParam,
+        osType: osTypeParam,
+        vmSize: agentVMSizeParam,
+    }],
+    dnsPrefix: dnsPrefixParam,
+    linuxProfile: {
+        adminUsername: linuxAdminUsernameParam,
+        ssh: {
+            publicKeys: [{
+                keyData: sshRSAPublicKeyParam,
+            }],
+        },
+    },
+    location: locationParam,
+    resourceName: clusterNameParam,
+    servicePrincipalProfile: {
+        clientId: servicePrincipalClientIdParam,
+    },
+});
+export const controlPlaneFQDNOut = managedClusterResource.fqdn;
+`,
+	}
+)

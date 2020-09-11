@@ -12,6 +12,7 @@ import (
 	"github.com/pulumi/pulumi-azurerm/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/model"
+	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/syntax"
 )
 
 type TemplateElement interface {
@@ -96,10 +97,12 @@ func (p *parameter) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error)
 		defaultValue = v
 	}
 
+	comment := extractDescription(p.rawBody)
 	configDef := &model.Block{
 		Type:   "config",
 		Labels: []string{p.paramName, typeExpr},
 		Body:   &model.Body{},
+		Tokens: getLeadingTriviaTokens(comment),
 	}
 
 	if defaultValue != nil {
@@ -132,7 +135,7 @@ func (v *variable) Args() interface{} {
 }
 
 func (v *variable) SetArgs(body interface{}) {
-	v.rawBody = body.(map[string]interface{})
+	v.rawBody = body
 }
 
 func (v *variable) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
@@ -196,6 +199,7 @@ func (o *output) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
 
 	// TODO: Add support for secure variants as type
 
+	comment := extractDescription(o.rawBody)
 	return []model.BodyItem{&model.Block{
 		Type:   "output",
 		Labels: []string{o.outputName},
@@ -207,6 +211,7 @@ func (o *output) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
 				},
 			},
 		},
+		Tokens: getLeadingTriviaTokens(comment),
 	}}, nil
 }
 
@@ -224,6 +229,14 @@ type resource struct {
 
 func (r *resource) Name() string {
 	return r.resourceName
+}
+
+func (r *resource) Args() interface{} {
+	return r.rawBody
+}
+
+func (r *resource) SetArgs(body interface{}) {
+	r.rawBody = body.(map[string]interface{})
 }
 
 func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error) {
@@ -254,6 +267,7 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 		case "properties":
 			resourceParams = v.(map[string]interface{})
 		case "dependsOn":
+			// TODO
 			continue
 			// var arr []string
 			// switch val := reflect.ValueOf(v); val.Kind() {
@@ -325,6 +339,13 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 			bodyField: resourceParams,
 		}
 	}
+	var resourceName interface{} = pcl.QuotedLit(r.resourceName)
+	if _, foundResourceName := metadataResParams["resourceName"]; foundResourceName {
+		resourceName, ok = r.rawBody["name"]
+		if !ok {
+			return nil, fmt.Errorf("required attribute 'name' missing for resource %s", r.resourceName)
+		}
+	}
 
 	flattened, err := flattenInput(resourceParams, metadataResParams, ctx.metadata.Types)
 	if err != nil {
@@ -333,6 +354,10 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 
 	if _, found := flattened["location"]; !found {
 		flattened["location"] = location
+	}
+
+	if _, found := flattened["resourceName"]; !found {
+		flattened["resourceName"] = resourceName
 	}
 
 	keys := codegen.SortedKeys(flattened)
@@ -349,7 +374,10 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 	}
 
 	items = append(items, dependsOn...)
+
+	comment := extractDescription(r.rawBody)
 	block := model.Block{
+		Tokens: getLeadingTriviaTokens(comment),
 		Type:   "resource",
 		Body:   &model.Body{Items: items},
 		Labels: []string{r.resourceName, token},
@@ -372,7 +400,7 @@ func toResourceToken(resourceType, apiVersion string) string {
 func NewTemplateElements() *TemplateElements {
 	return &TemplateElements{
 		elements:                 map[string]*dependencyTracking{},
-		knownTemplateExpressions: map[string]*model.Variable{},
+		knownTemplateExpressions: map[string]*cachedTemplateExpression{},
 	}
 }
 
@@ -380,7 +408,104 @@ func NewTemplateElements() *TemplateElements {
 // including maintaining dependency ordering of the elements
 type TemplateElements struct {
 	elements                 map[string]*dependencyTracking
-	knownTemplateExpressions map[string]*model.Variable
+	knownTemplateExpressions map[string]*cachedTemplateExpression
+}
+
+type cachedTemplateExpression struct {
+	evaled     interface{}
+	referenced codegen.StringSet
+}
+
+func (t *TemplateElements) EvaluateExpressions(preliminaryPhase bool) error {
+	for name, el := range t.elements {
+		args := el.TemplateElement.Args()
+		var referenced codegen.StringSet
+		var err error
+		if preliminaryPhase {
+			args, referenced, err = t.evalTemplateExpressions(args, "", "reference")
+		} else {
+			args, referenced, err = t.evalTemplateExpressions(args, "")
+		}
+		if err != nil {
+			return fmt.Errorf("failed to evaluate template expression for %s: %w", name, err)
+		}
+		el.SetArgs(args)
+		for ref := range referenced {
+			dep, ok := t.elements[ref]
+			if !ok {
+				return fmt.Errorf("unknown element %s referenced in %s", ref, el.Name())
+			}
+			el.RefersTo(dep)
+		}
+	}
+	return nil
+}
+
+func (t *TemplateElements) evalTemplateExpressions(args interface{}, crumbs string, excludeFuncs ...string) (interface{}, codegen.StringSet, error) {
+	referenced := codegen.NewStringSet()
+
+	val := reflect.ValueOf(args)
+	exclusions := codegen.NewStringSet()
+	for _, excl := range excludeFuncs {
+		exclusions.Add(excl)
+	}
+	typ := reflect.TypeOf(args)
+	if typ == nil {
+		return args, nil, nil
+	}
+	switch typ.Kind() {
+	case reflect.Map:
+		ret := map[string]interface{}{}
+		iter := val.MapRange()
+		for iter.Next() {
+			k := iter.Key()
+			v := iter.Value()
+			curr := fmt.Sprintf(".%s", k.String())
+			updated, ref, err := t.evalTemplateExpressions(v.Interface(), curr, excludeFuncs...)
+			if err != nil {
+				return nil, nil, err
+			}
+			ret[k.String()] = updated
+
+			for k := range ref {
+				referenced.Add(k)
+			}
+		}
+		return ret, referenced, nil
+	case reflect.Slice, reflect.Array:
+		var ret []interface{}
+		for i := 0; i < val.Len(); i++ {
+			curr := fmt.Sprintf("%s[%d]", crumbs, i)
+			updated, ref, err := t.evalTemplateExpressions(val.Index(i).Interface(), curr, excludeFuncs...)
+			if err != nil {
+				return nil, nil, err
+			}
+			ret = append(ret, updated)
+			for k := range ref {
+				referenced.Add(k)
+			}
+		}
+		return ret, referenced, nil
+	case reflect.String:
+		s := val.String()
+		//if isTemplateExpression(s) {
+		// Check if we already have a conversion cached
+		//cached, seen := t.knownTemplateExpressions[s]
+		//if seen {
+		//	return cached.evaled, cached.referenced, nil
+		//}
+		evaled, ref, err := t.EvalGlobal(s, exclusions)
+		if err != nil {
+			return nil, nil, err
+		}
+		// Record template to conversion so we avoid
+		// emitting duplicates
+		//t.knownTemplateExpressions[s] = &cachedTemplateExpression{evaled: evaled, referenced: ref}
+		return evaled, ref, nil
+		//}
+	}
+
+	return args, nil, nil
 }
 
 func (t *TemplateElements) extractTemplateExpressionsAsVars(args interface{}, crumbs []string, excludeKeys ...string) (interface{}, map[string]model.Expression, error) {
@@ -428,14 +553,6 @@ func (t *TemplateElements) extractTemplateExpressionsAsVars(args interface{}, cr
 	case reflect.String:
 		s := val.String()
 		if isTemplateExpression(s) {
-			// Check if we already have an existing variable tracking
-			// the template expression
-			if exprVar, seen := t.knownTemplateExpressions[s]; seen {
-				return model.VariableReference(exprVar),
-					map[string]model.Expression{
-						exprVar.Name: nil, // No need for tracking params since var already exists
-					}, nil
-			}
 			varName := t.assignName(crumbs)
 			v := &model.Variable{
 				Name:         varName,
@@ -445,9 +562,6 @@ func (t *TemplateElements) extractTemplateExpressionsAsVars(args interface{}, cr
 			if err != nil {
 				return nil, nil, err
 			}
-			// Record template to variable mapping so we avoid
-			// emitting duplicates
-			t.knownTemplateExpressions[s] = v
 			return model.VariableReference(v),
 				map[string]model.Expression{
 					varName: val,
@@ -511,60 +625,49 @@ func (t *TemplateElements) detectTemplateExpressions(srcName string, in *depende
 }
 
 func (t *TemplateElements) AddParameter(name string, args map[string]interface{}) error {
+	if !strings.HasSuffix(strings.ToLower(name), "param") {
+		name = name + "Param"
+	}
+
 	if _, exists := t.elements[name]; exists {
 		// Don't expect name collision with params
 		return fmt.Errorf("another item with the same name as parameter %s already defined", name)
 	}
-
 	p := newParameter(name, args)
 	dep := newDependencyTracking(p)
-
-	if def, ok := args["defaultValue"]; ok {
-		var err error
-		args["defaultValue"], err = t.detectTemplateExpressions(name+"Default", dep, def)
-		if err != nil {
-			return fmt.Errorf("failed to extract templates in parameter %s: %w", name, err)
-		}
-	}
-	p.rawBody = args
 
 	t.elements[name] = dep
 	return nil
 }
 
 func (t *TemplateElements) AddVariable(name string, args interface{}) error {
+	if !strings.HasSuffix(strings.ToLower(name), "var") {
+		name = name + "Var"
+	}
+
 	if _, exists := t.elements[name]; exists {
 		return fmt.Errorf("another item with the same name as variable %s already defined", name)
 	}
+
 	v := newVariable(name, args)
 	dep := newDependencyTracking(v)
-	var err error
-	v.rawBody, err = t.detectTemplateExpressions(name, dep, args)
-	if err != nil {
-		return fmt.Errorf("failed to extract templates in variable %s: %w", name, err)
-	}
 
 	t.elements[name] = dep
 	return nil
 }
 
 func (t *TemplateElements) AddOutput(name string, args map[string]interface{}) error {
+	if !strings.HasSuffix(strings.ToLower(name), "out") {
+		name = name + "Out"
+	}
+
 	if _, exists := t.elements[name]; exists {
 		// Don't expect name collision with outputs
 		return fmt.Errorf("another item with the same name as output %s already defined", name)
 	}
-	o := newOutput(name, args)
 
+	o := newOutput(name, args)
 	dep := newDependencyTracking(o)
-	var err error
-	val, ok := args["value"]
-	if ok {
-		args["value"], err = t.detectTemplateExpressions(name+"Value", dep, val)
-		if err != nil {
-			return fmt.Errorf("failed to extract templates in output %s: %w", name, err)
-		}
-	}
-	o.rawBody = args
 
 	t.elements[name] = dep
 	return nil
@@ -579,6 +682,11 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 	namestr := name.(string)
 	prefix := []string{}
 
+	// we often have names as template expressions. We don't want to rely on evaluating the name
+	// as the resource variable name so we create a reasonable variable name to house the resource
+	// instead. In this case we use the type to help define the variable name, unless that is also
+	// a template expression - in which case we just add a 'Resource' suffix.
+	// Otherwise just use the resource name field.
 	if !isTemplateExpression(namestr) {
 		prefix = []string{namestr}
 	} else {
@@ -588,13 +696,14 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 		}
 		typestr := typ.(string)
 
+		// Microsoft.ContainerService/managedClusters -> managedClusterResource
 		if !isTemplateExpression(typestr) {
 			resource := strings.Split(typestr, "/")
 			res := resource[len(resource)-1]
 			res = inflector.Singularize((strings.Title(toLowerCamel(res))))
 			prefix = append(prefix, res)
 		}
-		prefix = append(prefix, "resource")
+		prefix = append(prefix, "Resource")
 	}
 
 	varName := t.assignName(prefix)
@@ -604,16 +713,7 @@ func (t *TemplateElements) AddResource(args map[string]interface{}) error {
 		return fmt.Errorf("another resource with name: %s already defined", name)
 	}
 	r := newResource(varName, args)
-
 	dep := newDependencyTracking(r)
-	// Delay processing of dependsOn
-	replaced, err := t.detectTemplateExpressions(varName, dep, args, "dependsOn")
-	if err != nil {
-		return fmt.Errorf("failed to extract templates in resource %s: %w", name, err)
-	}
-
-	r.rawBody = replaced.(map[string]interface{})
-
 	t.elements[varName] = dep
 	return nil
 }
@@ -694,6 +794,29 @@ func topoSort(e *dependencyTracking, visited map[*dependencyTracking]bool, order
 	sorted = append(sorted, e)
 	visited[e] = true // Mark as committed
 	return sorted, nil
+}
+
+func extractDescription(info map[string]interface{}) string {
+	if metadata, ok := info["metadata"]; ok {
+		if metamap, ok := metadata.(map[string]interface{}); ok {
+			if desc, ok := metamap["description"]; ok {
+				return fmt.Sprintf("%s", desc)
+			}
+		}
+	}
+	return ""
+}
+
+// TODO: Looks like trivia is never processed in program gen? :(
+func getLeadingTriviaTokens(comment string) *syntax.BlockTokens {
+	if comment == "" {
+		return nil
+	}
+	return &syntax.BlockTokens{
+		Type: syntax.Token{
+			LeadingTrivia: syntax.TriviaList{&syntax.Comment{Lines: []string{comment}}},
+		},
+	}
 }
 
 func extractType(info map[string]interface{}) (string, error) {
