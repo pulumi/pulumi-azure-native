@@ -82,7 +82,9 @@ func emitSchema(pkgSpec schema.PackageSpec, version, outDir string) error {
 	err = emitFile(outDir, "schema.go", []byte(fmt.Sprintf(`package main
 var pulumiSchema = %#v
 `, compressedSchema.Bytes())))
-
+	if err != nil {
+		return errors.Wrap(err, "saving metadata")
+	}
 
 	return emitFile(outDir, "schema.json", schemaJSON)
 }
