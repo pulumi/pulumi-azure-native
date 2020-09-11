@@ -42,7 +42,174 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		Homepage:    "https://pulumi.com",
 		Repository:  "https://github.com/pulumi/pulumi-azurerm",
 		Config: pschema.ConfigSpec{
-			Variables: map[string]pschema.PropertySpec{},
+			Variables: map[string]pschema.PropertySpec{
+				"subscriptionId": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Subscription ID which should be used.",
+				},
+				"clientId": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Client ID which should be used.",
+				},
+				"clientSecret": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.",
+				},
+				"tenantId": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Tenant ID which should be used.",
+				},
+				"auxiliaryTenantIds": {
+					TypeSpec: pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+				},
+				"environment": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.",
+				},
+				"clientCertificatePath": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.",
+				},
+				"clientCertificatePassword": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate",
+				},
+				"useMsi": {
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					Description: "Allowed Managed Service Identity be used for Authentication.",
+				},
+				"msiEndpoint": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. ",
+				},
+				// Managed Tracking GUID for User-Agent.
+				"partnerId": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.",
+				},
+				"disablePulumiPartnerId": {
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					Description: "This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.",
+				},
+			},
+		},
+		Provider: pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Description: "The provider type for the AzureRM package.",
+				Type:        "object",
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"subscriptionId": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_SUBSCRIPTION_ID",
+						},
+					},
+					Description: "The Subscription ID which should be used.",
+				},
+				"clientId": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_CLIENT_ID",
+						},
+					},
+					Description: "The Client ID which should be used.",
+				},
+				"clientSecret": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_CLIENT_SECRET",
+						},
+					},
+					Description: "The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.",
+				},
+				"tenantId": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_TENANT_ID",
+						},
+					},
+					Description: "The Tenant ID which should be used.",
+				},
+				"auxiliaryTenantIds": {
+					TypeSpec: pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_AUXILIARY_TENANT_IDS",
+						},
+					},
+				},
+				"environment": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					Default:  "public",
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_ENVIRONMENT",
+						},
+					},
+					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.",
+				},
+				"clientCertificatePath": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_CLIENT_CERTIFICATE_PATH",
+						},
+					},
+					Description: "The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.",
+				},
+				"clientCertificatePassword": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_CLIENT_CERTIFICATE_PASSWORD",
+						},
+					},
+					Description: "The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate",
+				},
+				"useMsi": {
+					TypeSpec: pschema.TypeSpec{Type: "boolean"},
+					Default:  false,
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_USE_MSI",
+						},
+					},
+					Description: "Allowed Managed Service Identity be used for Authentication.",
+				},
+				"msiEndpoint": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_MSI_ENDPOINT",
+						},
+					},
+					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. ",
+				},
+				// Managed Tracking GUID for User-Agent.
+				"partnerId": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_PARTNER_ID",
+						},
+					},
+					Description: "A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.",
+				},
+				"disablePulumiPartnerId": {
+					TypeSpec: pschema.TypeSpec{Type: "boolean"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_DISABLE_PULUMI_PARTNER_ID",
+						},
+					},
+					Description: "This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.",
+				},
+			},
 		},
 		Types:     map[string]pschema.ObjectTypeSpec{},
 		Resources: map[string]pschema.ResourceSpec{},

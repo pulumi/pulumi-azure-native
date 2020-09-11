@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The provider type for the AzureRM package.
+ */
 export class Provider extends pulumi.ProviderResource {
     /** @internal */
     public static readonly __pulumiType = 'azurerm';
@@ -30,6 +33,18 @@ export class Provider extends pulumi.ProviderResource {
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
+            inputs["auxiliaryTenantIds"] = pulumi.output((args ? args.auxiliaryTenantIds : undefined) || <any>utilities.getEnv("ARM_AUXILIARY_TENANT_IDS")).apply(JSON.stringify);
+            inputs["clientCertificatePassword"] = (args ? args.clientCertificatePassword : undefined) || utilities.getEnv("ARM_CLIENT_CERTIFICATE_PASSWORD");
+            inputs["clientCertificatePath"] = (args ? args.clientCertificatePath : undefined) || utilities.getEnv("ARM_CLIENT_CERTIFICATE_PATH");
+            inputs["clientId"] = (args ? args.clientId : undefined) || utilities.getEnv("ARM_CLIENT_ID");
+            inputs["clientSecret"] = (args ? args.clientSecret : undefined) || utilities.getEnv("ARM_CLIENT_SECRET");
+            inputs["disablePulumiPartnerId"] = pulumi.output((args ? args.disablePulumiPartnerId : undefined) || <any>utilities.getEnvBoolean("ARM_DISABLE_PULUMI_PARTNER_ID")).apply(JSON.stringify);
+            inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("ARM_ENVIRONMENT") || "public");
+            inputs["msiEndpoint"] = (args ? args.msiEndpoint : undefined) || utilities.getEnv("ARM_MSI_ENDPOINT");
+            inputs["partnerId"] = (args ? args.partnerId : undefined) || utilities.getEnv("ARM_PARTNER_ID");
+            inputs["subscriptionId"] = (args ? args.subscriptionId : undefined) || utilities.getEnv("ARM_SUBSCRIPTION_ID");
+            inputs["tenantId"] = (args ? args.tenantId : undefined) || utilities.getEnv("ARM_TENANT_ID");
+            inputs["useMsi"] = pulumi.output((args ? args.useMsi : undefined) || (<any>utilities.getEnvBoolean("ARM_USE_MSI") || false)).apply(JSON.stringify);
         }
         if (!opts) {
             opts = {}
@@ -46,4 +61,49 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
+    readonly auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+     */
+    readonly clientCertificatePassword?: pulumi.Input<string>;
+    /**
+     * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
+     */
+    readonly clientCertificatePath?: pulumi.Input<string>;
+    /**
+     * The Client ID which should be used.
+     */
+    readonly clientId?: pulumi.Input<string>;
+    /**
+     * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+     */
+    readonly clientSecret?: pulumi.Input<string>;
+    /**
+     * This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
+     */
+    readonly disablePulumiPartnerId?: pulumi.Input<boolean>;
+    /**
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+     */
+    readonly environment?: pulumi.Input<string>;
+    /**
+     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+     */
+    readonly msiEndpoint?: pulumi.Input<string>;
+    /**
+     * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+     */
+    readonly partnerId?: pulumi.Input<string>;
+    /**
+     * The Subscription ID which should be used.
+     */
+    readonly subscriptionId?: pulumi.Input<string>;
+    /**
+     * The Tenant ID which should be used.
+     */
+    readonly tenantId?: pulumi.Input<string>;
+    /**
+     * Allowed Managed Service Identity be used for Authentication.
+     */
+    readonly useMsi?: pulumi.Input<boolean>;
 }
