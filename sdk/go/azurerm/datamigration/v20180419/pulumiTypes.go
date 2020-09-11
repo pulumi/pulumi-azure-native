@@ -95,94 +95,6 @@ func (i *azureActiveDirectoryAppPtrType) ToAzureActiveDirectoryAppPtrOutputWithC
 }
 
 // Azure Active Directory Application
-type AzureActiveDirectoryAppOutput struct{ *pulumi.OutputState }
-
-func (AzureActiveDirectoryAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureActiveDirectoryApp)(nil)).Elem()
-}
-
-func (o AzureActiveDirectoryAppOutput) ToAzureActiveDirectoryAppOutput() AzureActiveDirectoryAppOutput {
-	return o
-}
-
-func (o AzureActiveDirectoryAppOutput) ToAzureActiveDirectoryAppOutputWithContext(ctx context.Context) AzureActiveDirectoryAppOutput {
-	return o
-}
-
-func (o AzureActiveDirectoryAppOutput) ToAzureActiveDirectoryAppPtrOutput() AzureActiveDirectoryAppPtrOutput {
-	return o.ToAzureActiveDirectoryAppPtrOutputWithContext(context.Background())
-}
-
-func (o AzureActiveDirectoryAppOutput) ToAzureActiveDirectoryAppPtrOutputWithContext(ctx context.Context) AzureActiveDirectoryAppPtrOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryApp) *AzureActiveDirectoryApp {
-		return &v
-	}).(AzureActiveDirectoryAppPtrOutput)
-}
-
-// Key used to authenticate to the Azure Active Directory Application
-func (o AzureActiveDirectoryAppOutput) AppKey() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryApp) string { return v.AppKey }).(pulumi.StringOutput)
-}
-
-// Application ID of the Azure Active Directory Application
-func (o AzureActiveDirectoryAppOutput) ApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryApp) string { return v.ApplicationId }).(pulumi.StringOutput)
-}
-
-// Tenant id of the customer
-func (o AzureActiveDirectoryAppOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryApp) string { return v.TenantId }).(pulumi.StringOutput)
-}
-
-type AzureActiveDirectoryAppPtrOutput struct{ *pulumi.OutputState }
-
-func (AzureActiveDirectoryAppPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureActiveDirectoryApp)(nil)).Elem()
-}
-
-func (o AzureActiveDirectoryAppPtrOutput) ToAzureActiveDirectoryAppPtrOutput() AzureActiveDirectoryAppPtrOutput {
-	return o
-}
-
-func (o AzureActiveDirectoryAppPtrOutput) ToAzureActiveDirectoryAppPtrOutputWithContext(ctx context.Context) AzureActiveDirectoryAppPtrOutput {
-	return o
-}
-
-func (o AzureActiveDirectoryAppPtrOutput) Elem() AzureActiveDirectoryAppOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryApp) AzureActiveDirectoryApp { return *v }).(AzureActiveDirectoryAppOutput)
-}
-
-// Key used to authenticate to the Azure Active Directory Application
-func (o AzureActiveDirectoryAppPtrOutput) AppKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryApp) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AppKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// Application ID of the Azure Active Directory Application
-func (o AzureActiveDirectoryAppPtrOutput) ApplicationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryApp) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ApplicationId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Tenant id of the customer
-func (o AzureActiveDirectoryAppPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryApp) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Azure Active Directory Application
 type AzureActiveDirectoryAppResponse struct {
 	// Key used to authenticate to the Azure Active Directory Application
 	AppKey string `pulumi:"appKey"`
@@ -190,80 +102,6 @@ type AzureActiveDirectoryAppResponse struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// Tenant id of the customer
 	TenantId string `pulumi:"tenantId"`
-}
-
-// AzureActiveDirectoryAppResponseInput is an input type that accepts AzureActiveDirectoryAppResponseArgs and AzureActiveDirectoryAppResponseOutput values.
-// You can construct a concrete instance of `AzureActiveDirectoryAppResponseInput` via:
-//
-//          AzureActiveDirectoryAppResponseArgs{...}
-type AzureActiveDirectoryAppResponseInput interface {
-	pulumi.Input
-
-	ToAzureActiveDirectoryAppResponseOutput() AzureActiveDirectoryAppResponseOutput
-	ToAzureActiveDirectoryAppResponseOutputWithContext(context.Context) AzureActiveDirectoryAppResponseOutput
-}
-
-// Azure Active Directory Application
-type AzureActiveDirectoryAppResponseArgs struct {
-	// Key used to authenticate to the Azure Active Directory Application
-	AppKey pulumi.StringInput `pulumi:"appKey"`
-	// Application ID of the Azure Active Directory Application
-	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
-	// Tenant id of the customer
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-}
-
-func (AzureActiveDirectoryAppResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureActiveDirectoryAppResponse)(nil)).Elem()
-}
-
-func (i AzureActiveDirectoryAppResponseArgs) ToAzureActiveDirectoryAppResponseOutput() AzureActiveDirectoryAppResponseOutput {
-	return i.ToAzureActiveDirectoryAppResponseOutputWithContext(context.Background())
-}
-
-func (i AzureActiveDirectoryAppResponseArgs) ToAzureActiveDirectoryAppResponseOutputWithContext(ctx context.Context) AzureActiveDirectoryAppResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryAppResponseOutput)
-}
-
-func (i AzureActiveDirectoryAppResponseArgs) ToAzureActiveDirectoryAppResponsePtrOutput() AzureActiveDirectoryAppResponsePtrOutput {
-	return i.ToAzureActiveDirectoryAppResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AzureActiveDirectoryAppResponseArgs) ToAzureActiveDirectoryAppResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryAppResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryAppResponseOutput).ToAzureActiveDirectoryAppResponsePtrOutputWithContext(ctx)
-}
-
-// AzureActiveDirectoryAppResponsePtrInput is an input type that accepts AzureActiveDirectoryAppResponseArgs, AzureActiveDirectoryAppResponsePtr and AzureActiveDirectoryAppResponsePtrOutput values.
-// You can construct a concrete instance of `AzureActiveDirectoryAppResponsePtrInput` via:
-//
-//          AzureActiveDirectoryAppResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AzureActiveDirectoryAppResponsePtrInput interface {
-	pulumi.Input
-
-	ToAzureActiveDirectoryAppResponsePtrOutput() AzureActiveDirectoryAppResponsePtrOutput
-	ToAzureActiveDirectoryAppResponsePtrOutputWithContext(context.Context) AzureActiveDirectoryAppResponsePtrOutput
-}
-
-type azureActiveDirectoryAppResponsePtrType AzureActiveDirectoryAppResponseArgs
-
-func AzureActiveDirectoryAppResponsePtr(v *AzureActiveDirectoryAppResponseArgs) AzureActiveDirectoryAppResponsePtrInput {
-	return (*azureActiveDirectoryAppResponsePtrType)(v)
-}
-
-func (*azureActiveDirectoryAppResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureActiveDirectoryAppResponse)(nil)).Elem()
-}
-
-func (i *azureActiveDirectoryAppResponsePtrType) ToAzureActiveDirectoryAppResponsePtrOutput() AzureActiveDirectoryAppResponsePtrOutput {
-	return i.ToAzureActiveDirectoryAppResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *azureActiveDirectoryAppResponsePtrType) ToAzureActiveDirectoryAppResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryAppResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryAppResponsePtrOutput)
 }
 
 // Azure Active Directory Application
@@ -364,64 +202,6 @@ type BackupFileInfoResponse struct {
 	Status *string `pulumi:"status"`
 }
 
-// BackupFileInfoResponseInput is an input type that accepts BackupFileInfoResponseArgs and BackupFileInfoResponseOutput values.
-// You can construct a concrete instance of `BackupFileInfoResponseInput` via:
-//
-//          BackupFileInfoResponseArgs{...}
-type BackupFileInfoResponseInput interface {
-	pulumi.Input
-
-	ToBackupFileInfoResponseOutput() BackupFileInfoResponseOutput
-	ToBackupFileInfoResponseOutputWithContext(context.Context) BackupFileInfoResponseOutput
-}
-
-// Information of the backup file
-type BackupFileInfoResponseArgs struct {
-	// Sequence number of the backup file in the backup set
-	FamilySequenceNumber pulumi.IntPtrInput `pulumi:"familySequenceNumber"`
-	// Location of the backup file in shared folder
-	FileLocation pulumi.StringPtrInput `pulumi:"fileLocation"`
-	// Status of the backup file during migration
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (BackupFileInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupFileInfoResponse)(nil)).Elem()
-}
-
-func (i BackupFileInfoResponseArgs) ToBackupFileInfoResponseOutput() BackupFileInfoResponseOutput {
-	return i.ToBackupFileInfoResponseOutputWithContext(context.Background())
-}
-
-func (i BackupFileInfoResponseArgs) ToBackupFileInfoResponseOutputWithContext(ctx context.Context) BackupFileInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupFileInfoResponseOutput)
-}
-
-// BackupFileInfoResponseArrayInput is an input type that accepts BackupFileInfoResponseArray and BackupFileInfoResponseArrayOutput values.
-// You can construct a concrete instance of `BackupFileInfoResponseArrayInput` via:
-//
-//          BackupFileInfoResponseArray{ BackupFileInfoResponseArgs{...} }
-type BackupFileInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToBackupFileInfoResponseArrayOutput() BackupFileInfoResponseArrayOutput
-	ToBackupFileInfoResponseArrayOutputWithContext(context.Context) BackupFileInfoResponseArrayOutput
-}
-
-type BackupFileInfoResponseArray []BackupFileInfoResponseInput
-
-func (BackupFileInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BackupFileInfoResponse)(nil)).Elem()
-}
-
-func (i BackupFileInfoResponseArray) ToBackupFileInfoResponseArrayOutput() BackupFileInfoResponseArrayOutput {
-	return i.ToBackupFileInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i BackupFileInfoResponseArray) ToBackupFileInfoResponseArrayOutputWithContext(ctx context.Context) BackupFileInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupFileInfoResponseArrayOutput)
-}
-
 // Information of the backup file
 type BackupFileInfoResponseOutput struct{ *pulumi.OutputState }
 
@@ -494,78 +274,6 @@ type BackupSetInfoResponse struct {
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// List of files in the backup set
 	ListOfBackupFiles []BackupFileInfoResponse `pulumi:"listOfBackupFiles"`
-}
-
-// BackupSetInfoResponseInput is an input type that accepts BackupSetInfoResponseArgs and BackupSetInfoResponseOutput values.
-// You can construct a concrete instance of `BackupSetInfoResponseInput` via:
-//
-//          BackupSetInfoResponseArgs{...}
-type BackupSetInfoResponseInput interface {
-	pulumi.Input
-
-	ToBackupSetInfoResponseOutput() BackupSetInfoResponseOutput
-	ToBackupSetInfoResponseOutputWithContext(context.Context) BackupSetInfoResponseOutput
-}
-
-// Information of backup set
-type BackupSetInfoResponseArgs struct {
-	// Date and time that the backup operation finished
-	BackupFinishedDate pulumi.StringPtrInput `pulumi:"backupFinishedDate"`
-	// Id for the set of backup files
-	BackupSetId pulumi.StringPtrInput `pulumi:"backupSetId"`
-	// Date and time that the backup operation began
-	BackupStartDate pulumi.StringPtrInput `pulumi:"backupStartDate"`
-	// Enum of the different backup types
-	BackupType pulumi.StringPtrInput `pulumi:"backupType"`
-	// Name of the database to which the backup set belongs
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// First log sequence number of the backup file
-	FirstLsn pulumi.StringPtrInput `pulumi:"firstLsn"`
-	// Whether the backup set is restored or not
-	IsBackupRestored pulumi.BoolPtrInput `pulumi:"isBackupRestored"`
-	// Last log sequence number of the backup file
-	LastLsn pulumi.StringPtrInput `pulumi:"lastLsn"`
-	// Last modified time of the backup file in share location
-	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
-	// List of files in the backup set
-	ListOfBackupFiles BackupFileInfoResponseArrayInput `pulumi:"listOfBackupFiles"`
-}
-
-func (BackupSetInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupSetInfoResponse)(nil)).Elem()
-}
-
-func (i BackupSetInfoResponseArgs) ToBackupSetInfoResponseOutput() BackupSetInfoResponseOutput {
-	return i.ToBackupSetInfoResponseOutputWithContext(context.Background())
-}
-
-func (i BackupSetInfoResponseArgs) ToBackupSetInfoResponseOutputWithContext(ctx context.Context) BackupSetInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupSetInfoResponseOutput)
-}
-
-// BackupSetInfoResponseArrayInput is an input type that accepts BackupSetInfoResponseArray and BackupSetInfoResponseArrayOutput values.
-// You can construct a concrete instance of `BackupSetInfoResponseArrayInput` via:
-//
-//          BackupSetInfoResponseArray{ BackupSetInfoResponseArgs{...} }
-type BackupSetInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToBackupSetInfoResponseArrayOutput() BackupSetInfoResponseArrayOutput
-	ToBackupSetInfoResponseArrayOutputWithContext(context.Context) BackupSetInfoResponseArrayOutput
-}
-
-type BackupSetInfoResponseArray []BackupSetInfoResponseInput
-
-func (BackupSetInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BackupSetInfoResponse)(nil)).Elem()
-}
-
-func (i BackupSetInfoResponseArray) ToBackupSetInfoResponseArrayOutput() BackupSetInfoResponseArrayOutput {
-	return i.ToBackupSetInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i BackupSetInfoResponseArray) ToBackupSetInfoResponseArrayOutputWithContext(ctx context.Context) BackupSetInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupSetInfoResponseArrayOutput)
 }
 
 // Information of backup set
@@ -730,137 +438,9 @@ func (i *blobSharePtrType) ToBlobSharePtrOutputWithContext(ctx context.Context) 
 }
 
 // Blob container storage information.
-type BlobShareOutput struct{ *pulumi.OutputState }
-
-func (BlobShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobShare)(nil)).Elem()
-}
-
-func (o BlobShareOutput) ToBlobShareOutput() BlobShareOutput {
-	return o
-}
-
-func (o BlobShareOutput) ToBlobShareOutputWithContext(ctx context.Context) BlobShareOutput {
-	return o
-}
-
-func (o BlobShareOutput) ToBlobSharePtrOutput() BlobSharePtrOutput {
-	return o.ToBlobSharePtrOutputWithContext(context.Background())
-}
-
-func (o BlobShareOutput) ToBlobSharePtrOutputWithContext(ctx context.Context) BlobSharePtrOutput {
-	return o.ApplyT(func(v BlobShare) *BlobShare {
-		return &v
-	}).(BlobSharePtrOutput)
-}
-
-// SAS URI of Azure Storage Account Container.
-func (o BlobShareOutput) SasUri() pulumi.StringOutput {
-	return o.ApplyT(func(v BlobShare) string { return v.SasUri }).(pulumi.StringOutput)
-}
-
-type BlobSharePtrOutput struct{ *pulumi.OutputState }
-
-func (BlobSharePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BlobShare)(nil)).Elem()
-}
-
-func (o BlobSharePtrOutput) ToBlobSharePtrOutput() BlobSharePtrOutput {
-	return o
-}
-
-func (o BlobSharePtrOutput) ToBlobSharePtrOutputWithContext(ctx context.Context) BlobSharePtrOutput {
-	return o
-}
-
-func (o BlobSharePtrOutput) Elem() BlobShareOutput {
-	return o.ApplyT(func(v *BlobShare) BlobShare { return *v }).(BlobShareOutput)
-}
-
-// SAS URI of Azure Storage Account Container.
-func (o BlobSharePtrOutput) SasUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BlobShare) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SasUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Blob container storage information.
 type BlobShareResponse struct {
 	// SAS URI of Azure Storage Account Container.
 	SasUri string `pulumi:"sasUri"`
-}
-
-// BlobShareResponseInput is an input type that accepts BlobShareResponseArgs and BlobShareResponseOutput values.
-// You can construct a concrete instance of `BlobShareResponseInput` via:
-//
-//          BlobShareResponseArgs{...}
-type BlobShareResponseInput interface {
-	pulumi.Input
-
-	ToBlobShareResponseOutput() BlobShareResponseOutput
-	ToBlobShareResponseOutputWithContext(context.Context) BlobShareResponseOutput
-}
-
-// Blob container storage information.
-type BlobShareResponseArgs struct {
-	// SAS URI of Azure Storage Account Container.
-	SasUri pulumi.StringInput `pulumi:"sasUri"`
-}
-
-func (BlobShareResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobShareResponse)(nil)).Elem()
-}
-
-func (i BlobShareResponseArgs) ToBlobShareResponseOutput() BlobShareResponseOutput {
-	return i.ToBlobShareResponseOutputWithContext(context.Background())
-}
-
-func (i BlobShareResponseArgs) ToBlobShareResponseOutputWithContext(ctx context.Context) BlobShareResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobShareResponseOutput)
-}
-
-func (i BlobShareResponseArgs) ToBlobShareResponsePtrOutput() BlobShareResponsePtrOutput {
-	return i.ToBlobShareResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BlobShareResponseArgs) ToBlobShareResponsePtrOutputWithContext(ctx context.Context) BlobShareResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobShareResponseOutput).ToBlobShareResponsePtrOutputWithContext(ctx)
-}
-
-// BlobShareResponsePtrInput is an input type that accepts BlobShareResponseArgs, BlobShareResponsePtr and BlobShareResponsePtrOutput values.
-// You can construct a concrete instance of `BlobShareResponsePtrInput` via:
-//
-//          BlobShareResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type BlobShareResponsePtrInput interface {
-	pulumi.Input
-
-	ToBlobShareResponsePtrOutput() BlobShareResponsePtrOutput
-	ToBlobShareResponsePtrOutputWithContext(context.Context) BlobShareResponsePtrOutput
-}
-
-type blobShareResponsePtrType BlobShareResponseArgs
-
-func BlobShareResponsePtr(v *BlobShareResponseArgs) BlobShareResponsePtrInput {
-	return (*blobShareResponsePtrType)(v)
-}
-
-func (*blobShareResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BlobShareResponse)(nil)).Elem()
-}
-
-func (i *blobShareResponsePtrType) ToBlobShareResponsePtrOutput() BlobShareResponsePtrOutput {
-	return i.ToBlobShareResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *blobShareResponsePtrType) ToBlobShareResponsePtrOutputWithContext(ctx context.Context) BlobShareResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobShareResponsePtrOutput)
 }
 
 // Blob container storage information.
@@ -998,137 +578,9 @@ func (i *connectToSourcePostgreSqlSyncTaskInputPtrType) ToConnectToSourcePostgre
 }
 
 // Input for the task that validates connection to PostgreSQL and source server requirements
-type ConnectToSourcePostgreSqlSyncTaskInputOutput struct{ *pulumi.OutputState }
-
-func (ConnectToSourcePostgreSqlSyncTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourcePostgreSqlSyncTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToSourcePostgreSqlSyncTaskInputOutput) ToConnectToSourcePostgreSqlSyncTaskInputOutput() ConnectToSourcePostgreSqlSyncTaskInputOutput {
-	return o
-}
-
-func (o ConnectToSourcePostgreSqlSyncTaskInputOutput) ToConnectToSourcePostgreSqlSyncTaskInputOutputWithContext(ctx context.Context) ConnectToSourcePostgreSqlSyncTaskInputOutput {
-	return o
-}
-
-func (o ConnectToSourcePostgreSqlSyncTaskInputOutput) ToConnectToSourcePostgreSqlSyncTaskInputPtrOutput() ConnectToSourcePostgreSqlSyncTaskInputPtrOutput {
-	return o.ToConnectToSourcePostgreSqlSyncTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectToSourcePostgreSqlSyncTaskInputOutput) ToConnectToSourcePostgreSqlSyncTaskInputPtrOutputWithContext(ctx context.Context) ConnectToSourcePostgreSqlSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToSourcePostgreSqlSyncTaskInput) *ConnectToSourcePostgreSqlSyncTaskInput {
-		return &v
-	}).(ConnectToSourcePostgreSqlSyncTaskInputPtrOutput)
-}
-
-// Connection information for source PostgreSQL server
-func (o ConnectToSourcePostgreSqlSyncTaskInputOutput) SourceConnectionInfo() PostgreSqlConnectionInfoOutput {
-	return o.ApplyT(func(v ConnectToSourcePostgreSqlSyncTaskInput) PostgreSqlConnectionInfo { return v.SourceConnectionInfo }).(PostgreSqlConnectionInfoOutput)
-}
-
-type ConnectToSourcePostgreSqlSyncTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectToSourcePostgreSqlSyncTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToSourcePostgreSqlSyncTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToSourcePostgreSqlSyncTaskInputPtrOutput) ToConnectToSourcePostgreSqlSyncTaskInputPtrOutput() ConnectToSourcePostgreSqlSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToSourcePostgreSqlSyncTaskInputPtrOutput) ToConnectToSourcePostgreSqlSyncTaskInputPtrOutputWithContext(ctx context.Context) ConnectToSourcePostgreSqlSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToSourcePostgreSqlSyncTaskInputPtrOutput) Elem() ConnectToSourcePostgreSqlSyncTaskInputOutput {
-	return o.ApplyT(func(v *ConnectToSourcePostgreSqlSyncTaskInput) ConnectToSourcePostgreSqlSyncTaskInput { return *v }).(ConnectToSourcePostgreSqlSyncTaskInputOutput)
-}
-
-// Connection information for source PostgreSQL server
-func (o ConnectToSourcePostgreSqlSyncTaskInputPtrOutput) SourceConnectionInfo() PostgreSqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ConnectToSourcePostgreSqlSyncTaskInput) *PostgreSqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(PostgreSqlConnectionInfoPtrOutput)
-}
-
-// Input for the task that validates connection to PostgreSQL and source server requirements
 type ConnectToSourcePostgreSqlSyncTaskInputResponse struct {
 	// Connection information for source PostgreSQL server
 	SourceConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
-}
-
-// ConnectToSourcePostgreSqlSyncTaskInputResponseInput is an input type that accepts ConnectToSourcePostgreSqlSyncTaskInputResponseArgs and ConnectToSourcePostgreSqlSyncTaskInputResponseOutput values.
-// You can construct a concrete instance of `ConnectToSourcePostgreSqlSyncTaskInputResponseInput` via:
-//
-//          ConnectToSourcePostgreSqlSyncTaskInputResponseArgs{...}
-type ConnectToSourcePostgreSqlSyncTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToSourcePostgreSqlSyncTaskInputResponseOutput() ConnectToSourcePostgreSqlSyncTaskInputResponseOutput
-	ToConnectToSourcePostgreSqlSyncTaskInputResponseOutputWithContext(context.Context) ConnectToSourcePostgreSqlSyncTaskInputResponseOutput
-}
-
-// Input for the task that validates connection to PostgreSQL and source server requirements
-type ConnectToSourcePostgreSqlSyncTaskInputResponseArgs struct {
-	// Connection information for source PostgreSQL server
-	SourceConnectionInfo PostgreSqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-}
-
-func (ConnectToSourcePostgreSqlSyncTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourcePostgreSqlSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i ConnectToSourcePostgreSqlSyncTaskInputResponseArgs) ToConnectToSourcePostgreSqlSyncTaskInputResponseOutput() ConnectToSourcePostgreSqlSyncTaskInputResponseOutput {
-	return i.ToConnectToSourcePostgreSqlSyncTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourcePostgreSqlSyncTaskInputResponseArgs) ToConnectToSourcePostgreSqlSyncTaskInputResponseOutputWithContext(ctx context.Context) ConnectToSourcePostgreSqlSyncTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourcePostgreSqlSyncTaskInputResponseOutput)
-}
-
-func (i ConnectToSourcePostgreSqlSyncTaskInputResponseArgs) ToConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutput() ConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutput {
-	return i.ToConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourcePostgreSqlSyncTaskInputResponseArgs) ToConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourcePostgreSqlSyncTaskInputResponseOutput).ToConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// ConnectToSourcePostgreSqlSyncTaskInputResponsePtrInput is an input type that accepts ConnectToSourcePostgreSqlSyncTaskInputResponseArgs, ConnectToSourcePostgreSqlSyncTaskInputResponsePtr and ConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `ConnectToSourcePostgreSqlSyncTaskInputResponsePtrInput` via:
-//
-//          ConnectToSourcePostgreSqlSyncTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectToSourcePostgreSqlSyncTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutput() ConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutput
-	ToConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutputWithContext(context.Context) ConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutput
-}
-
-type connectToSourcePostgreSqlSyncTaskInputResponsePtrType ConnectToSourcePostgreSqlSyncTaskInputResponseArgs
-
-func ConnectToSourcePostgreSqlSyncTaskInputResponsePtr(v *ConnectToSourcePostgreSqlSyncTaskInputResponseArgs) ConnectToSourcePostgreSqlSyncTaskInputResponsePtrInput {
-	return (*connectToSourcePostgreSqlSyncTaskInputResponsePtrType)(v)
-}
-
-func (*connectToSourcePostgreSqlSyncTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToSourcePostgreSqlSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i *connectToSourcePostgreSqlSyncTaskInputResponsePtrType) ToConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutput() ConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutput {
-	return i.ToConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectToSourcePostgreSqlSyncTaskInputResponsePtrType) ToConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourcePostgreSqlSyncTaskInputResponsePtrOutput)
 }
 
 // Input for the task that validates connection to PostgreSQL and source server requirements
@@ -1205,68 +657,6 @@ type ConnectToSourcePostgreSqlSyncTaskOutputResponse struct {
 	SourceServerVersion string `pulumi:"sourceServerVersion"`
 	// Validation errors associated with the task
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
-}
-
-// ConnectToSourcePostgreSqlSyncTaskOutputResponseInput is an input type that accepts ConnectToSourcePostgreSqlSyncTaskOutputResponseArgs and ConnectToSourcePostgreSqlSyncTaskOutputResponseOutput values.
-// You can construct a concrete instance of `ConnectToSourcePostgreSqlSyncTaskOutputResponseInput` via:
-//
-//          ConnectToSourcePostgreSqlSyncTaskOutputResponseArgs{...}
-type ConnectToSourcePostgreSqlSyncTaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToSourcePostgreSqlSyncTaskOutputResponseOutput() ConnectToSourcePostgreSqlSyncTaskOutputResponseOutput
-	ToConnectToSourcePostgreSqlSyncTaskOutputResponseOutputWithContext(context.Context) ConnectToSourcePostgreSqlSyncTaskOutputResponseOutput
-}
-
-// Output for the task that validates connection to PostgreSQL and source server requirements
-type ConnectToSourcePostgreSqlSyncTaskOutputResponseArgs struct {
-	// List of databases on source server
-	Databases pulumi.StringArrayInput `pulumi:"databases"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Source server brand version
-	SourceServerBrandVersion pulumi.StringInput `pulumi:"sourceServerBrandVersion"`
-	// Version of the source server
-	SourceServerVersion pulumi.StringInput `pulumi:"sourceServerVersion"`
-	// Validation errors associated with the task
-	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
-}
-
-func (ConnectToSourcePostgreSqlSyncTaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourcePostgreSqlSyncTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToSourcePostgreSqlSyncTaskOutputResponseArgs) ToConnectToSourcePostgreSqlSyncTaskOutputResponseOutput() ConnectToSourcePostgreSqlSyncTaskOutputResponseOutput {
-	return i.ToConnectToSourcePostgreSqlSyncTaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourcePostgreSqlSyncTaskOutputResponseArgs) ToConnectToSourcePostgreSqlSyncTaskOutputResponseOutputWithContext(ctx context.Context) ConnectToSourcePostgreSqlSyncTaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourcePostgreSqlSyncTaskOutputResponseOutput)
-}
-
-// ConnectToSourcePostgreSqlSyncTaskOutputResponseArrayInput is an input type that accepts ConnectToSourcePostgreSqlSyncTaskOutputResponseArray and ConnectToSourcePostgreSqlSyncTaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `ConnectToSourcePostgreSqlSyncTaskOutputResponseArrayInput` via:
-//
-//          ConnectToSourcePostgreSqlSyncTaskOutputResponseArray{ ConnectToSourcePostgreSqlSyncTaskOutputResponseArgs{...} }
-type ConnectToSourcePostgreSqlSyncTaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToConnectToSourcePostgreSqlSyncTaskOutputResponseArrayOutput() ConnectToSourcePostgreSqlSyncTaskOutputResponseArrayOutput
-	ToConnectToSourcePostgreSqlSyncTaskOutputResponseArrayOutputWithContext(context.Context) ConnectToSourcePostgreSqlSyncTaskOutputResponseArrayOutput
-}
-
-type ConnectToSourcePostgreSqlSyncTaskOutputResponseArray []ConnectToSourcePostgreSqlSyncTaskOutputResponseInput
-
-func (ConnectToSourcePostgreSqlSyncTaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectToSourcePostgreSqlSyncTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToSourcePostgreSqlSyncTaskOutputResponseArray) ToConnectToSourcePostgreSqlSyncTaskOutputResponseArrayOutput() ConnectToSourcePostgreSqlSyncTaskOutputResponseArrayOutput {
-	return i.ToConnectToSourcePostgreSqlSyncTaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourcePostgreSqlSyncTaskOutputResponseArray) ToConnectToSourcePostgreSqlSyncTaskOutputResponseArrayOutputWithContext(ctx context.Context) ConnectToSourcePostgreSqlSyncTaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourcePostgreSqlSyncTaskOutputResponseArrayOutput)
 }
 
 // Output for the task that validates connection to PostgreSQL and source server requirements
@@ -1371,33 +761,6 @@ func (i ConnectToSourcePostgreSqlSyncTaskPropertiesArgs) ToConnectToSourcePostgr
 }
 
 // Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration
-type ConnectToSourcePostgreSqlSyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectToSourcePostgreSqlSyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourcePostgreSqlSyncTaskProperties)(nil)).Elem()
-}
-
-func (o ConnectToSourcePostgreSqlSyncTaskPropertiesOutput) ToConnectToSourcePostgreSqlSyncTaskPropertiesOutput() ConnectToSourcePostgreSqlSyncTaskPropertiesOutput {
-	return o
-}
-
-func (o ConnectToSourcePostgreSqlSyncTaskPropertiesOutput) ToConnectToSourcePostgreSqlSyncTaskPropertiesOutputWithContext(ctx context.Context) ConnectToSourcePostgreSqlSyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ConnectToSourcePostgreSqlSyncTaskPropertiesOutput) Input() ConnectToSourcePostgreSqlSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToSourcePostgreSqlSyncTaskProperties) *ConnectToSourcePostgreSqlSyncTaskInput {
-		return v.Input
-	}).(ConnectToSourcePostgreSqlSyncTaskInputPtrOutput)
-}
-
-// Task type.
-func (o ConnectToSourcePostgreSqlSyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToSourcePostgreSqlSyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration
 type ConnectToSourcePostgreSqlSyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -1411,45 +774,6 @@ type ConnectToSourcePostgreSqlSyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ConnectToSourcePostgreSqlSyncTaskPropertiesResponseInput is an input type that accepts ConnectToSourcePostgreSqlSyncTaskPropertiesResponseArgs and ConnectToSourcePostgreSqlSyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ConnectToSourcePostgreSqlSyncTaskPropertiesResponseInput` via:
-//
-//          ConnectToSourcePostgreSqlSyncTaskPropertiesResponseArgs{...}
-type ConnectToSourcePostgreSqlSyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConnectToSourcePostgreSqlSyncTaskPropertiesResponseOutput() ConnectToSourcePostgreSqlSyncTaskPropertiesResponseOutput
-	ToConnectToSourcePostgreSqlSyncTaskPropertiesResponseOutputWithContext(context.Context) ConnectToSourcePostgreSqlSyncTaskPropertiesResponseOutput
-}
-
-// Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration
-type ConnectToSourcePostgreSqlSyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ConnectToSourcePostgreSqlSyncTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output ConnectToSourcePostgreSqlSyncTaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ConnectToSourcePostgreSqlSyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourcePostgreSqlSyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConnectToSourcePostgreSqlSyncTaskPropertiesResponseArgs) ToConnectToSourcePostgreSqlSyncTaskPropertiesResponseOutput() ConnectToSourcePostgreSqlSyncTaskPropertiesResponseOutput {
-	return i.ToConnectToSourcePostgreSqlSyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourcePostgreSqlSyncTaskPropertiesResponseArgs) ToConnectToSourcePostgreSqlSyncTaskPropertiesResponseOutputWithContext(ctx context.Context) ConnectToSourcePostgreSqlSyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourcePostgreSqlSyncTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that validates connection to PostgreSQL server and source server requirements for online migration
@@ -1541,31 +865,6 @@ func (i ConnectToSourceSqlServerSyncTaskPropertiesArgs) ToConnectToSourceSqlServ
 }
 
 // Properties for the task that validates connection to SQL Server and source server requirements for online migration
-type ConnectToSourceSqlServerSyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectToSourceSqlServerSyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourceSqlServerSyncTaskProperties)(nil)).Elem()
-}
-
-func (o ConnectToSourceSqlServerSyncTaskPropertiesOutput) ToConnectToSourceSqlServerSyncTaskPropertiesOutput() ConnectToSourceSqlServerSyncTaskPropertiesOutput {
-	return o
-}
-
-func (o ConnectToSourceSqlServerSyncTaskPropertiesOutput) ToConnectToSourceSqlServerSyncTaskPropertiesOutputWithContext(ctx context.Context) ConnectToSourceSqlServerSyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ConnectToSourceSqlServerSyncTaskPropertiesOutput) Input() ConnectToSourceSqlServerTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerSyncTaskProperties) *ConnectToSourceSqlServerTaskInput { return v.Input }).(ConnectToSourceSqlServerTaskInputPtrOutput)
-}
-
-// Task type.
-func (o ConnectToSourceSqlServerSyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerSyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that validates connection to SQL Server and source server requirements for online migration
 type ConnectToSourceSqlServerSyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -1579,45 +878,6 @@ type ConnectToSourceSqlServerSyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ConnectToSourceSqlServerSyncTaskPropertiesResponseInput is an input type that accepts ConnectToSourceSqlServerSyncTaskPropertiesResponseArgs and ConnectToSourceSqlServerSyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ConnectToSourceSqlServerSyncTaskPropertiesResponseInput` via:
-//
-//          ConnectToSourceSqlServerSyncTaskPropertiesResponseArgs{...}
-type ConnectToSourceSqlServerSyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConnectToSourceSqlServerSyncTaskPropertiesResponseOutput() ConnectToSourceSqlServerSyncTaskPropertiesResponseOutput
-	ToConnectToSourceSqlServerSyncTaskPropertiesResponseOutputWithContext(context.Context) ConnectToSourceSqlServerSyncTaskPropertiesResponseOutput
-}
-
-// Properties for the task that validates connection to SQL Server and source server requirements for online migration
-type ConnectToSourceSqlServerSyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ConnectToSourceSqlServerTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output pulumi.ArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ConnectToSourceSqlServerSyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourceSqlServerSyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConnectToSourceSqlServerSyncTaskPropertiesResponseArgs) ToConnectToSourceSqlServerSyncTaskPropertiesResponseOutput() ConnectToSourceSqlServerSyncTaskPropertiesResponseOutput {
-	return i.ToConnectToSourceSqlServerSyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourceSqlServerSyncTaskPropertiesResponseArgs) ToConnectToSourceSqlServerSyncTaskPropertiesResponseOutputWithContext(ctx context.Context) ConnectToSourceSqlServerSyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourceSqlServerSyncTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that validates connection to SQL Server and source server requirements for online migration
@@ -1756,109 +1016,6 @@ func (i *connectToSourceSqlServerTaskInputPtrType) ToConnectToSourceSqlServerTas
 }
 
 // Input for the task that validates connection to SQL Server and also validates source server requirements
-type ConnectToSourceSqlServerTaskInputOutput struct{ *pulumi.OutputState }
-
-func (ConnectToSourceSqlServerTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourceSqlServerTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToSourceSqlServerTaskInputOutput) ToConnectToSourceSqlServerTaskInputOutput() ConnectToSourceSqlServerTaskInputOutput {
-	return o
-}
-
-func (o ConnectToSourceSqlServerTaskInputOutput) ToConnectToSourceSqlServerTaskInputOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskInputOutput {
-	return o
-}
-
-func (o ConnectToSourceSqlServerTaskInputOutput) ToConnectToSourceSqlServerTaskInputPtrOutput() ConnectToSourceSqlServerTaskInputPtrOutput {
-	return o.ToConnectToSourceSqlServerTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectToSourceSqlServerTaskInputOutput) ToConnectToSourceSqlServerTaskInputPtrOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerTaskInput) *ConnectToSourceSqlServerTaskInput {
-		return &v
-	}).(ConnectToSourceSqlServerTaskInputPtrOutput)
-}
-
-// Permission group for validations
-func (o ConnectToSourceSqlServerTaskInputOutput) CheckPermissionsGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerTaskInput) *string { return v.CheckPermissionsGroup }).(pulumi.StringPtrOutput)
-}
-
-// Flag for whether to collect agent jobs from source server.
-func (o ConnectToSourceSqlServerTaskInputOutput) CollectAgentJobs() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerTaskInput) *bool { return v.CollectAgentJobs }).(pulumi.BoolPtrOutput)
-}
-
-// Flag for whether to collect logins from source server.
-func (o ConnectToSourceSqlServerTaskInputOutput) CollectLogins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerTaskInput) *bool { return v.CollectLogins }).(pulumi.BoolPtrOutput)
-}
-
-// Connection information for Source SQL Server
-func (o ConnectToSourceSqlServerTaskInputOutput) SourceConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerTaskInput) SqlConnectionInfo { return v.SourceConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-type ConnectToSourceSqlServerTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectToSourceSqlServerTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToSourceSqlServerTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToSourceSqlServerTaskInputPtrOutput) ToConnectToSourceSqlServerTaskInputPtrOutput() ConnectToSourceSqlServerTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToSourceSqlServerTaskInputPtrOutput) ToConnectToSourceSqlServerTaskInputPtrOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToSourceSqlServerTaskInputPtrOutput) Elem() ConnectToSourceSqlServerTaskInputOutput {
-	return o.ApplyT(func(v *ConnectToSourceSqlServerTaskInput) ConnectToSourceSqlServerTaskInput { return *v }).(ConnectToSourceSqlServerTaskInputOutput)
-}
-
-// Permission group for validations
-func (o ConnectToSourceSqlServerTaskInputPtrOutput) CheckPermissionsGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectToSourceSqlServerTaskInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CheckPermissionsGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-// Flag for whether to collect agent jobs from source server.
-func (o ConnectToSourceSqlServerTaskInputPtrOutput) CollectAgentJobs() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ConnectToSourceSqlServerTaskInput) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.CollectAgentJobs
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Flag for whether to collect logins from source server.
-func (o ConnectToSourceSqlServerTaskInputPtrOutput) CollectLogins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ConnectToSourceSqlServerTaskInput) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.CollectLogins
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Connection information for Source SQL Server
-func (o ConnectToSourceSqlServerTaskInputPtrOutput) SourceConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ConnectToSourceSqlServerTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Input for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskInputResponse struct {
 	// Permission group for validations
 	CheckPermissionsGroup *string `pulumi:"checkPermissionsGroup"`
@@ -1868,82 +1025,6 @@ type ConnectToSourceSqlServerTaskInputResponse struct {
 	CollectLogins *bool `pulumi:"collectLogins"`
 	// Connection information for Source SQL Server
 	SourceConnectionInfo SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
-}
-
-// ConnectToSourceSqlServerTaskInputResponseInput is an input type that accepts ConnectToSourceSqlServerTaskInputResponseArgs and ConnectToSourceSqlServerTaskInputResponseOutput values.
-// You can construct a concrete instance of `ConnectToSourceSqlServerTaskInputResponseInput` via:
-//
-//          ConnectToSourceSqlServerTaskInputResponseArgs{...}
-type ConnectToSourceSqlServerTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToSourceSqlServerTaskInputResponseOutput() ConnectToSourceSqlServerTaskInputResponseOutput
-	ToConnectToSourceSqlServerTaskInputResponseOutputWithContext(context.Context) ConnectToSourceSqlServerTaskInputResponseOutput
-}
-
-// Input for the task that validates connection to SQL Server and also validates source server requirements
-type ConnectToSourceSqlServerTaskInputResponseArgs struct {
-	// Permission group for validations
-	CheckPermissionsGroup pulumi.StringPtrInput `pulumi:"checkPermissionsGroup"`
-	// Flag for whether to collect agent jobs from source server.
-	CollectAgentJobs pulumi.BoolPtrInput `pulumi:"collectAgentJobs"`
-	// Flag for whether to collect logins from source server.
-	CollectLogins pulumi.BoolPtrInput `pulumi:"collectLogins"`
-	// Connection information for Source SQL Server
-	SourceConnectionInfo SqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-}
-
-func (ConnectToSourceSqlServerTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourceSqlServerTaskInputResponse)(nil)).Elem()
-}
-
-func (i ConnectToSourceSqlServerTaskInputResponseArgs) ToConnectToSourceSqlServerTaskInputResponseOutput() ConnectToSourceSqlServerTaskInputResponseOutput {
-	return i.ToConnectToSourceSqlServerTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourceSqlServerTaskInputResponseArgs) ToConnectToSourceSqlServerTaskInputResponseOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourceSqlServerTaskInputResponseOutput)
-}
-
-func (i ConnectToSourceSqlServerTaskInputResponseArgs) ToConnectToSourceSqlServerTaskInputResponsePtrOutput() ConnectToSourceSqlServerTaskInputResponsePtrOutput {
-	return i.ToConnectToSourceSqlServerTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourceSqlServerTaskInputResponseArgs) ToConnectToSourceSqlServerTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourceSqlServerTaskInputResponseOutput).ToConnectToSourceSqlServerTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// ConnectToSourceSqlServerTaskInputResponsePtrInput is an input type that accepts ConnectToSourceSqlServerTaskInputResponseArgs, ConnectToSourceSqlServerTaskInputResponsePtr and ConnectToSourceSqlServerTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `ConnectToSourceSqlServerTaskInputResponsePtrInput` via:
-//
-//          ConnectToSourceSqlServerTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectToSourceSqlServerTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectToSourceSqlServerTaskInputResponsePtrOutput() ConnectToSourceSqlServerTaskInputResponsePtrOutput
-	ToConnectToSourceSqlServerTaskInputResponsePtrOutputWithContext(context.Context) ConnectToSourceSqlServerTaskInputResponsePtrOutput
-}
-
-type connectToSourceSqlServerTaskInputResponsePtrType ConnectToSourceSqlServerTaskInputResponseArgs
-
-func ConnectToSourceSqlServerTaskInputResponsePtr(v *ConnectToSourceSqlServerTaskInputResponseArgs) ConnectToSourceSqlServerTaskInputResponsePtrInput {
-	return (*connectToSourceSqlServerTaskInputResponsePtrType)(v)
-}
-
-func (*connectToSourceSqlServerTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToSourceSqlServerTaskInputResponse)(nil)).Elem()
-}
-
-func (i *connectToSourceSqlServerTaskInputResponsePtrType) ToConnectToSourceSqlServerTaskInputResponsePtrOutput() ConnectToSourceSqlServerTaskInputResponsePtrOutput {
-	return i.ToConnectToSourceSqlServerTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectToSourceSqlServerTaskInputResponsePtrType) ToConnectToSourceSqlServerTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourceSqlServerTaskInputResponsePtrOutput)
 }
 
 // Input for the task that validates connection to SQL Server and also validates source server requirements
@@ -2073,49 +1154,6 @@ type ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse struct {
 	ResultType string `pulumi:"resultType"`
 }
 
-// ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseInput is an input type that accepts ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseArgs and ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutput values.
-// You can construct a concrete instance of `ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseInput` via:
-//
-//          ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseArgs{...}
-type ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseInput interface {
-	pulumi.Input
-
-	ToConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutput() ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutput
-	ToConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutputWithContext(context.Context) ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutput
-}
-
-// AgentJob level output for the task that validates connection to SQL Server and also validates source server requirements
-type ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseArgs struct {
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// The state of the original AgentJob.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The type of AgentJob.
-	JobCategory pulumi.StringInput `pulumi:"jobCategory"`
-	// The owner of the AgentJob
-	JobOwner pulumi.StringInput `pulumi:"jobOwner"`
-	// UTC Date and time when the AgentJob was last executed.
-	LastExecutedOn pulumi.StringInput `pulumi:"lastExecutedOn"`
-	// Information about eligibility of agent job for migration.
-	MigrationEligibility MigrationEligibilityInfoResponseInput `pulumi:"migrationEligibility"`
-	// AgentJob name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Type of result - database level or task level
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-}
-
-func (ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse)(nil)).Elem()
-}
-
-func (i ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseArgs) ToConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutput() ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutput {
-	return i.ToConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseArgs) ToConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutput)
-}
-
 // AgentJob level output for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskOutputAgentJobLevelResponseOutput struct{ *pulumi.OutputState }
 
@@ -2191,47 +1229,6 @@ type ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse struct {
 	SizeMB float64 `pulumi:"sizeMB"`
 }
 
-// ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseInput is an input type that accepts ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs and ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutput values.
-// You can construct a concrete instance of `ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseInput` via:
-//
-//          ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs{...}
-type ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseInput interface {
-	pulumi.Input
-
-	ToConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutput() ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutput
-	ToConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutputWithContext(context.Context) ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutput
-}
-
-// Database level output for the task that validates connection to SQL Server and also validates source server requirements
-type ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs struct {
-	// SQL Server compatibility level of database
-	CompatibilityLevel pulumi.StringInput `pulumi:"compatibilityLevel"`
-	// The list of database files
-	DatabaseFiles DatabaseFileInfoResponseArrayInput `pulumi:"databaseFiles"`
-	// State of the database
-	DatabaseState pulumi.StringInput `pulumi:"databaseState"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Database name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Type of result - database level or task level
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Size of the file in megabytes
-	SizeMB pulumi.Float64Input `pulumi:"sizeMB"`
-}
-
-func (ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse)(nil)).Elem()
-}
-
-func (i ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs) ToConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutput() ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutput {
-	return i.ToConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseArgs) ToConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutput)
-}
-
 // Database level output for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskOutputDatabaseLevelResponseOutput struct{ *pulumi.OutputState }
 
@@ -2300,47 +1297,6 @@ type ConnectToSourceSqlServerTaskOutputLoginLevelResponse struct {
 	Name string `pulumi:"name"`
 	// Type of result - database level or task level
 	ResultType string `pulumi:"resultType"`
-}
-
-// ConnectToSourceSqlServerTaskOutputLoginLevelResponseInput is an input type that accepts ConnectToSourceSqlServerTaskOutputLoginLevelResponseArgs and ConnectToSourceSqlServerTaskOutputLoginLevelResponseOutput values.
-// You can construct a concrete instance of `ConnectToSourceSqlServerTaskOutputLoginLevelResponseInput` via:
-//
-//          ConnectToSourceSqlServerTaskOutputLoginLevelResponseArgs{...}
-type ConnectToSourceSqlServerTaskOutputLoginLevelResponseInput interface {
-	pulumi.Input
-
-	ToConnectToSourceSqlServerTaskOutputLoginLevelResponseOutput() ConnectToSourceSqlServerTaskOutputLoginLevelResponseOutput
-	ToConnectToSourceSqlServerTaskOutputLoginLevelResponseOutputWithContext(context.Context) ConnectToSourceSqlServerTaskOutputLoginLevelResponseOutput
-}
-
-// Login level output for the task that validates connection to SQL Server and also validates source server requirements
-type ConnectToSourceSqlServerTaskOutputLoginLevelResponseArgs struct {
-	// The default database for the login.
-	DefaultDatabase pulumi.StringInput `pulumi:"defaultDatabase"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// The state of the login.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The type of login.
-	LoginType pulumi.StringInput `pulumi:"loginType"`
-	// Information about eligibility of login for migration.
-	MigrationEligibility MigrationEligibilityInfoResponseInput `pulumi:"migrationEligibility"`
-	// Login name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Type of result - database level or task level
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-}
-
-func (ConnectToSourceSqlServerTaskOutputLoginLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourceSqlServerTaskOutputLoginLevelResponse)(nil)).Elem()
-}
-
-func (i ConnectToSourceSqlServerTaskOutputLoginLevelResponseArgs) ToConnectToSourceSqlServerTaskOutputLoginLevelResponseOutput() ConnectToSourceSqlServerTaskOutputLoginLevelResponseOutput {
-	return i.ToConnectToSourceSqlServerTaskOutputLoginLevelResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourceSqlServerTaskOutputLoginLevelResponseArgs) ToConnectToSourceSqlServerTaskOutputLoginLevelResponseOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskOutputLoginLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourceSqlServerTaskOutputLoginLevelResponseOutput)
 }
 
 // Login level output for the task that validates connection to SQL Server and also validates source server requirements
@@ -2413,49 +1369,6 @@ type ConnectToSourceSqlServerTaskOutputTaskLevelResponse struct {
 	SourceServerVersion string `pulumi:"sourceServerVersion"`
 	// Validation errors
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
-}
-
-// ConnectToSourceSqlServerTaskOutputTaskLevelResponseInput is an input type that accepts ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs and ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput values.
-// You can construct a concrete instance of `ConnectToSourceSqlServerTaskOutputTaskLevelResponseInput` via:
-//
-//          ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs{...}
-type ConnectToSourceSqlServerTaskOutputTaskLevelResponseInput interface {
-	pulumi.Input
-
-	ToConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput() ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput
-	ToConnectToSourceSqlServerTaskOutputTaskLevelResponseOutputWithContext(context.Context) ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput
-}
-
-// Task level output for the task that validates connection to SQL Server and also validates source server requirements
-type ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs struct {
-	// Source agent jobs as a map from agent job name to id.
-	AgentJobs pulumi.StringInput `pulumi:"agentJobs"`
-	// Source databases as a map from database name to database id
-	Databases pulumi.StringInput `pulumi:"databases"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Source logins as a map from login name to login id.
-	Logins pulumi.StringInput `pulumi:"logins"`
-	// Type of result - database level or task level
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Source server brand version
-	SourceServerBrandVersion pulumi.StringInput `pulumi:"sourceServerBrandVersion"`
-	// Source server version
-	SourceServerVersion pulumi.StringInput `pulumi:"sourceServerVersion"`
-	// Validation errors
-	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
-}
-
-func (ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourceSqlServerTaskOutputTaskLevelResponse)(nil)).Elem()
-}
-
-func (i ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs) ToConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput() ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput {
-	return i.ToConnectToSourceSqlServerTaskOutputTaskLevelResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourceSqlServerTaskOutputTaskLevelResponseArgs) ToConnectToSourceSqlServerTaskOutputTaskLevelResponseOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourceSqlServerTaskOutputTaskLevelResponseOutput)
 }
 
 // Task level output for the task that validates connection to SQL Server and also validates source server requirements
@@ -2555,31 +1468,6 @@ func (i ConnectToSourceSqlServerTaskPropertiesArgs) ToConnectToSourceSqlServerTa
 }
 
 // Properties for the task that validates connection to SQL Server and also validates source server requirements
-type ConnectToSourceSqlServerTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectToSourceSqlServerTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourceSqlServerTaskProperties)(nil)).Elem()
-}
-
-func (o ConnectToSourceSqlServerTaskPropertiesOutput) ToConnectToSourceSqlServerTaskPropertiesOutput() ConnectToSourceSqlServerTaskPropertiesOutput {
-	return o
-}
-
-func (o ConnectToSourceSqlServerTaskPropertiesOutput) ToConnectToSourceSqlServerTaskPropertiesOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ConnectToSourceSqlServerTaskPropertiesOutput) Input() ConnectToSourceSqlServerTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerTaskProperties) *ConnectToSourceSqlServerTaskInput { return v.Input }).(ConnectToSourceSqlServerTaskInputPtrOutput)
-}
-
-// Task type.
-func (o ConnectToSourceSqlServerTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -2593,45 +1481,6 @@ type ConnectToSourceSqlServerTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ConnectToSourceSqlServerTaskPropertiesResponseInput is an input type that accepts ConnectToSourceSqlServerTaskPropertiesResponseArgs and ConnectToSourceSqlServerTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ConnectToSourceSqlServerTaskPropertiesResponseInput` via:
-//
-//          ConnectToSourceSqlServerTaskPropertiesResponseArgs{...}
-type ConnectToSourceSqlServerTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConnectToSourceSqlServerTaskPropertiesResponseOutput() ConnectToSourceSqlServerTaskPropertiesResponseOutput
-	ToConnectToSourceSqlServerTaskPropertiesResponseOutputWithContext(context.Context) ConnectToSourceSqlServerTaskPropertiesResponseOutput
-}
-
-// Properties for the task that validates connection to SQL Server and also validates source server requirements
-type ConnectToSourceSqlServerTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ConnectToSourceSqlServerTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output pulumi.ArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ConnectToSourceSqlServerTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToSourceSqlServerTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConnectToSourceSqlServerTaskPropertiesResponseArgs) ToConnectToSourceSqlServerTaskPropertiesResponseOutput() ConnectToSourceSqlServerTaskPropertiesResponseOutput {
-	return i.ToConnectToSourceSqlServerTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToSourceSqlServerTaskPropertiesResponseArgs) ToConnectToSourceSqlServerTaskPropertiesResponseOutputWithContext(ctx context.Context) ConnectToSourceSqlServerTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToSourceSqlServerTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that validates connection to SQL Server and also validates source server requirements
@@ -2762,156 +1611,11 @@ func (i *connectToTargetAzureDbForMySqlTaskInputPtrType) ToConnectToTargetAzureD
 }
 
 // Input for the task that validates connection to Azure Database for MySQL and target server requirements
-type ConnectToTargetAzureDbForMySqlTaskInputOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetAzureDbForMySqlTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetAzureDbForMySqlTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetAzureDbForMySqlTaskInputOutput) ToConnectToTargetAzureDbForMySqlTaskInputOutput() ConnectToTargetAzureDbForMySqlTaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetAzureDbForMySqlTaskInputOutput) ToConnectToTargetAzureDbForMySqlTaskInputOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForMySqlTaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetAzureDbForMySqlTaskInputOutput) ToConnectToTargetAzureDbForMySqlTaskInputPtrOutput() ConnectToTargetAzureDbForMySqlTaskInputPtrOutput {
-	return o.ToConnectToTargetAzureDbForMySqlTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectToTargetAzureDbForMySqlTaskInputOutput) ToConnectToTargetAzureDbForMySqlTaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForMySqlTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetAzureDbForMySqlTaskInput) *ConnectToTargetAzureDbForMySqlTaskInput {
-		return &v
-	}).(ConnectToTargetAzureDbForMySqlTaskInputPtrOutput)
-}
-
-// Connection information for source MySQL server
-func (o ConnectToTargetAzureDbForMySqlTaskInputOutput) SourceConnectionInfo() MySqlConnectionInfoOutput {
-	return o.ApplyT(func(v ConnectToTargetAzureDbForMySqlTaskInput) MySqlConnectionInfo { return v.SourceConnectionInfo }).(MySqlConnectionInfoOutput)
-}
-
-// Connection information for target Azure Database for MySQL server
-func (o ConnectToTargetAzureDbForMySqlTaskInputOutput) TargetConnectionInfo() MySqlConnectionInfoOutput {
-	return o.ApplyT(func(v ConnectToTargetAzureDbForMySqlTaskInput) MySqlConnectionInfo { return v.TargetConnectionInfo }).(MySqlConnectionInfoOutput)
-}
-
-type ConnectToTargetAzureDbForMySqlTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetAzureDbForMySqlTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetAzureDbForMySqlTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetAzureDbForMySqlTaskInputPtrOutput) ToConnectToTargetAzureDbForMySqlTaskInputPtrOutput() ConnectToTargetAzureDbForMySqlTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetAzureDbForMySqlTaskInputPtrOutput) ToConnectToTargetAzureDbForMySqlTaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForMySqlTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetAzureDbForMySqlTaskInputPtrOutput) Elem() ConnectToTargetAzureDbForMySqlTaskInputOutput {
-	return o.ApplyT(func(v *ConnectToTargetAzureDbForMySqlTaskInput) ConnectToTargetAzureDbForMySqlTaskInput { return *v }).(ConnectToTargetAzureDbForMySqlTaskInputOutput)
-}
-
-// Connection information for source MySQL server
-func (o ConnectToTargetAzureDbForMySqlTaskInputPtrOutput) SourceConnectionInfo() MySqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ConnectToTargetAzureDbForMySqlTaskInput) *MySqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(MySqlConnectionInfoPtrOutput)
-}
-
-// Connection information for target Azure Database for MySQL server
-func (o ConnectToTargetAzureDbForMySqlTaskInputPtrOutput) TargetConnectionInfo() MySqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ConnectToTargetAzureDbForMySqlTaskInput) *MySqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(MySqlConnectionInfoPtrOutput)
-}
-
-// Input for the task that validates connection to Azure Database for MySQL and target server requirements
 type ConnectToTargetAzureDbForMySqlTaskInputResponse struct {
 	// Connection information for source MySQL server
 	SourceConnectionInfo MySqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Connection information for target Azure Database for MySQL server
 	TargetConnectionInfo MySqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// ConnectToTargetAzureDbForMySqlTaskInputResponseInput is an input type that accepts ConnectToTargetAzureDbForMySqlTaskInputResponseArgs and ConnectToTargetAzureDbForMySqlTaskInputResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetAzureDbForMySqlTaskInputResponseInput` via:
-//
-//          ConnectToTargetAzureDbForMySqlTaskInputResponseArgs{...}
-type ConnectToTargetAzureDbForMySqlTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetAzureDbForMySqlTaskInputResponseOutput() ConnectToTargetAzureDbForMySqlTaskInputResponseOutput
-	ToConnectToTargetAzureDbForMySqlTaskInputResponseOutputWithContext(context.Context) ConnectToTargetAzureDbForMySqlTaskInputResponseOutput
-}
-
-// Input for the task that validates connection to Azure Database for MySQL and target server requirements
-type ConnectToTargetAzureDbForMySqlTaskInputResponseArgs struct {
-	// Connection information for source MySQL server
-	SourceConnectionInfo MySqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Connection information for target Azure Database for MySQL server
-	TargetConnectionInfo MySqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (ConnectToTargetAzureDbForMySqlTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetAzureDbForMySqlTaskInputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetAzureDbForMySqlTaskInputResponseArgs) ToConnectToTargetAzureDbForMySqlTaskInputResponseOutput() ConnectToTargetAzureDbForMySqlTaskInputResponseOutput {
-	return i.ToConnectToTargetAzureDbForMySqlTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetAzureDbForMySqlTaskInputResponseArgs) ToConnectToTargetAzureDbForMySqlTaskInputResponseOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForMySqlTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForMySqlTaskInputResponseOutput)
-}
-
-func (i ConnectToTargetAzureDbForMySqlTaskInputResponseArgs) ToConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutput() ConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutput {
-	return i.ToConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetAzureDbForMySqlTaskInputResponseArgs) ToConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForMySqlTaskInputResponseOutput).ToConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// ConnectToTargetAzureDbForMySqlTaskInputResponsePtrInput is an input type that accepts ConnectToTargetAzureDbForMySqlTaskInputResponseArgs, ConnectToTargetAzureDbForMySqlTaskInputResponsePtr and ConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `ConnectToTargetAzureDbForMySqlTaskInputResponsePtrInput` via:
-//
-//          ConnectToTargetAzureDbForMySqlTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectToTargetAzureDbForMySqlTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutput() ConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutput
-	ToConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutputWithContext(context.Context) ConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutput
-}
-
-type connectToTargetAzureDbForMySqlTaskInputResponsePtrType ConnectToTargetAzureDbForMySqlTaskInputResponseArgs
-
-func ConnectToTargetAzureDbForMySqlTaskInputResponsePtr(v *ConnectToTargetAzureDbForMySqlTaskInputResponseArgs) ConnectToTargetAzureDbForMySqlTaskInputResponsePtrInput {
-	return (*connectToTargetAzureDbForMySqlTaskInputResponsePtrType)(v)
-}
-
-func (*connectToTargetAzureDbForMySqlTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetAzureDbForMySqlTaskInputResponse)(nil)).Elem()
-}
-
-func (i *connectToTargetAzureDbForMySqlTaskInputResponsePtrType) ToConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutput() ConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutput {
-	return i.ToConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectToTargetAzureDbForMySqlTaskInputResponsePtrType) ToConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForMySqlTaskInputResponsePtrOutput)
 }
 
 // Input for the task that validates connection to Azure Database for MySQL and target server requirements
@@ -3005,68 +1709,6 @@ type ConnectToTargetAzureDbForMySqlTaskOutputResponse struct {
 	TargetServerBrandVersion string `pulumi:"targetServerBrandVersion"`
 	// Validation errors associated with the task
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
-}
-
-// ConnectToTargetAzureDbForMySqlTaskOutputResponseInput is an input type that accepts ConnectToTargetAzureDbForMySqlTaskOutputResponseArgs and ConnectToTargetAzureDbForMySqlTaskOutputResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetAzureDbForMySqlTaskOutputResponseInput` via:
-//
-//          ConnectToTargetAzureDbForMySqlTaskOutputResponseArgs{...}
-type ConnectToTargetAzureDbForMySqlTaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetAzureDbForMySqlTaskOutputResponseOutput() ConnectToTargetAzureDbForMySqlTaskOutputResponseOutput
-	ToConnectToTargetAzureDbForMySqlTaskOutputResponseOutputWithContext(context.Context) ConnectToTargetAzureDbForMySqlTaskOutputResponseOutput
-}
-
-// Output for the task that validates connection to Azure Database for MySQL and target server requirements
-type ConnectToTargetAzureDbForMySqlTaskOutputResponseArgs struct {
-	// List of databases on target server
-	Databases pulumi.StringArrayInput `pulumi:"databases"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Version of the target server
-	ServerVersion pulumi.StringInput `pulumi:"serverVersion"`
-	// Target server brand version
-	TargetServerBrandVersion pulumi.StringInput `pulumi:"targetServerBrandVersion"`
-	// Validation errors associated with the task
-	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
-}
-
-func (ConnectToTargetAzureDbForMySqlTaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetAzureDbForMySqlTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetAzureDbForMySqlTaskOutputResponseArgs) ToConnectToTargetAzureDbForMySqlTaskOutputResponseOutput() ConnectToTargetAzureDbForMySqlTaskOutputResponseOutput {
-	return i.ToConnectToTargetAzureDbForMySqlTaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetAzureDbForMySqlTaskOutputResponseArgs) ToConnectToTargetAzureDbForMySqlTaskOutputResponseOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForMySqlTaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForMySqlTaskOutputResponseOutput)
-}
-
-// ConnectToTargetAzureDbForMySqlTaskOutputResponseArrayInput is an input type that accepts ConnectToTargetAzureDbForMySqlTaskOutputResponseArray and ConnectToTargetAzureDbForMySqlTaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `ConnectToTargetAzureDbForMySqlTaskOutputResponseArrayInput` via:
-//
-//          ConnectToTargetAzureDbForMySqlTaskOutputResponseArray{ ConnectToTargetAzureDbForMySqlTaskOutputResponseArgs{...} }
-type ConnectToTargetAzureDbForMySqlTaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToConnectToTargetAzureDbForMySqlTaskOutputResponseArrayOutput() ConnectToTargetAzureDbForMySqlTaskOutputResponseArrayOutput
-	ToConnectToTargetAzureDbForMySqlTaskOutputResponseArrayOutputWithContext(context.Context) ConnectToTargetAzureDbForMySqlTaskOutputResponseArrayOutput
-}
-
-type ConnectToTargetAzureDbForMySqlTaskOutputResponseArray []ConnectToTargetAzureDbForMySqlTaskOutputResponseInput
-
-func (ConnectToTargetAzureDbForMySqlTaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectToTargetAzureDbForMySqlTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetAzureDbForMySqlTaskOutputResponseArray) ToConnectToTargetAzureDbForMySqlTaskOutputResponseArrayOutput() ConnectToTargetAzureDbForMySqlTaskOutputResponseArrayOutput {
-	return i.ToConnectToTargetAzureDbForMySqlTaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetAzureDbForMySqlTaskOutputResponseArray) ToConnectToTargetAzureDbForMySqlTaskOutputResponseArrayOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForMySqlTaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForMySqlTaskOutputResponseArrayOutput)
 }
 
 // Output for the task that validates connection to Azure Database for MySQL and target server requirements
@@ -3171,33 +1813,6 @@ func (i ConnectToTargetAzureDbForMySqlTaskPropertiesArgs) ToConnectToTargetAzure
 }
 
 // Properties for the task that validates connection to Azure Database for MySQL and target server requirements
-type ConnectToTargetAzureDbForMySqlTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetAzureDbForMySqlTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetAzureDbForMySqlTaskProperties)(nil)).Elem()
-}
-
-func (o ConnectToTargetAzureDbForMySqlTaskPropertiesOutput) ToConnectToTargetAzureDbForMySqlTaskPropertiesOutput() ConnectToTargetAzureDbForMySqlTaskPropertiesOutput {
-	return o
-}
-
-func (o ConnectToTargetAzureDbForMySqlTaskPropertiesOutput) ToConnectToTargetAzureDbForMySqlTaskPropertiesOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForMySqlTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ConnectToTargetAzureDbForMySqlTaskPropertiesOutput) Input() ConnectToTargetAzureDbForMySqlTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetAzureDbForMySqlTaskProperties) *ConnectToTargetAzureDbForMySqlTaskInput {
-		return v.Input
-	}).(ConnectToTargetAzureDbForMySqlTaskInputPtrOutput)
-}
-
-// Task type.
-func (o ConnectToTargetAzureDbForMySqlTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToTargetAzureDbForMySqlTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that validates connection to Azure Database for MySQL and target server requirements
 type ConnectToTargetAzureDbForMySqlTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -3211,45 +1826,6 @@ type ConnectToTargetAzureDbForMySqlTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ConnectToTargetAzureDbForMySqlTaskPropertiesResponseInput is an input type that accepts ConnectToTargetAzureDbForMySqlTaskPropertiesResponseArgs and ConnectToTargetAzureDbForMySqlTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetAzureDbForMySqlTaskPropertiesResponseInput` via:
-//
-//          ConnectToTargetAzureDbForMySqlTaskPropertiesResponseArgs{...}
-type ConnectToTargetAzureDbForMySqlTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetAzureDbForMySqlTaskPropertiesResponseOutput() ConnectToTargetAzureDbForMySqlTaskPropertiesResponseOutput
-	ToConnectToTargetAzureDbForMySqlTaskPropertiesResponseOutputWithContext(context.Context) ConnectToTargetAzureDbForMySqlTaskPropertiesResponseOutput
-}
-
-// Properties for the task that validates connection to Azure Database for MySQL and target server requirements
-type ConnectToTargetAzureDbForMySqlTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ConnectToTargetAzureDbForMySqlTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output ConnectToTargetAzureDbForMySqlTaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ConnectToTargetAzureDbForMySqlTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetAzureDbForMySqlTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetAzureDbForMySqlTaskPropertiesResponseArgs) ToConnectToTargetAzureDbForMySqlTaskPropertiesResponseOutput() ConnectToTargetAzureDbForMySqlTaskPropertiesResponseOutput {
-	return i.ToConnectToTargetAzureDbForMySqlTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetAzureDbForMySqlTaskPropertiesResponseArgs) ToConnectToTargetAzureDbForMySqlTaskPropertiesResponseOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForMySqlTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForMySqlTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that validates connection to Azure Database for MySQL and target server requirements
@@ -3382,162 +1958,11 @@ func (i *connectToTargetAzureDbForPostgreSqlSyncTaskInputPtrType) ToConnectToTar
 }
 
 // Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetAzureDbForPostgreSqlSyncTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput {
-	return o.ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetAzureDbForPostgreSqlSyncTaskInput) *ConnectToTargetAzureDbForPostgreSqlSyncTaskInput {
-		return &v
-	}).(ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput)
-}
-
-// Connection information for source PostgreSQL server
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput) SourceConnectionInfo() PostgreSqlConnectionInfoOutput {
-	return o.ApplyT(func(v ConnectToTargetAzureDbForPostgreSqlSyncTaskInput) PostgreSqlConnectionInfo {
-		return v.SourceConnectionInfo
-	}).(PostgreSqlConnectionInfoOutput)
-}
-
-// Connection information for target Azure Database for PostgreSQL server
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput) TargetConnectionInfo() PostgreSqlConnectionInfoOutput {
-	return o.ApplyT(func(v ConnectToTargetAzureDbForPostgreSqlSyncTaskInput) PostgreSqlConnectionInfo {
-		return v.TargetConnectionInfo
-	}).(PostgreSqlConnectionInfoOutput)
-}
-
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetAzureDbForPostgreSqlSyncTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput) Elem() ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput {
-	return o.ApplyT(func(v *ConnectToTargetAzureDbForPostgreSqlSyncTaskInput) ConnectToTargetAzureDbForPostgreSqlSyncTaskInput {
-		return *v
-	}).(ConnectToTargetAzureDbForPostgreSqlSyncTaskInputOutput)
-}
-
-// Connection information for source PostgreSQL server
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput) SourceConnectionInfo() PostgreSqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ConnectToTargetAzureDbForPostgreSqlSyncTaskInput) *PostgreSqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(PostgreSqlConnectionInfoPtrOutput)
-}
-
-// Connection information for target Azure Database for PostgreSQL server
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput) TargetConnectionInfo() PostgreSqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ConnectToTargetAzureDbForPostgreSqlSyncTaskInput) *PostgreSqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(PostgreSqlConnectionInfoPtrOutput)
-}
-
-// Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements
 type ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse struct {
 	// Connection information for source PostgreSQL server
 	SourceConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Connection information for target Azure Database for PostgreSQL server
 	TargetConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseInput is an input type that accepts ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs and ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseInput` via:
-//
-//          ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs{...}
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutput
-	ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutputWithContext(context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutput
-}
-
-// Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs struct {
-	// Connection information for source PostgreSQL server
-	SourceConnectionInfo PostgreSqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Connection information for target Azure Database for PostgreSQL server
-	TargetConnectionInfo PostgreSqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutput {
-	return i.ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutput)
-}
-
-func (i ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput {
-	return i.ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseOutput).ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrInput is an input type that accepts ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs, ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtr and ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrInput` via:
-//
-//          ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput
-	ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput
-}
-
-type connectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrType ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs
-
-func ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtr(v *ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponseArgs) ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrInput {
-	return (*connectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrType)(v)
-}
-
-func (*connectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i *connectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrType) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput {
-	return i.ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrType) ToConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput)
 }
 
 // Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements
@@ -3631,68 +2056,6 @@ type ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse struct {
 	TargetServerVersion string `pulumi:"targetServerVersion"`
 	// Validation errors associated with the task
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
-}
-
-// ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseInput is an input type that accepts ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArgs and ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseInput` via:
-//
-//          ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArgs{...}
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseOutput
-	ToConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseOutputWithContext(context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseOutput
-}
-
-// Output for the task that validates connection to Azure Database for PostgreSQL and target server requirements
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArgs struct {
-	// List of databases on target server
-	Databases pulumi.StringArrayInput `pulumi:"databases"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Target server brand version
-	TargetServerBrandVersion pulumi.StringInput `pulumi:"targetServerBrandVersion"`
-	// Version of the target server
-	TargetServerVersion pulumi.StringInput `pulumi:"targetServerVersion"`
-	// Validation errors associated with the task
-	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
-}
-
-func (ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArgs) ToConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseOutput {
-	return i.ToConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArgs) ToConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseOutput)
-}
-
-// ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayInput is an input type that accepts ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArray and ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayInput` via:
-//
-//          ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArray{ ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArgs{...} }
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayOutput
-	ToConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayOutputWithContext(context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayOutput
-}
-
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArray []ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseInput
-
-func (ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArray) ToConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayOutput {
-	return i.ToConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArray) ToConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayOutput)
 }
 
 // Output for the task that validates connection to Azure Database for PostgreSQL and target server requirements
@@ -3799,33 +2162,6 @@ func (i ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs) ToConnectToTa
 }
 
 // Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties)(nil)).Elem()
-}
-
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesOutput) ToConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesOutput {
-	return o
-}
-
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesOutput) ToConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesOutput) Input() ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties) *ConnectToTargetAzureDbForPostgreSqlSyncTaskInput {
-		return v.Input
-	}).(ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput)
-}
-
-// Task type.
-func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
 type ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -3839,45 +2175,6 @@ type ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseInput is an input type that accepts ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs and ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseInput` via:
-//
-//          ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs{...}
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput
-	ToConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutputWithContext(context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput
-}
-
-// Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
-type ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs) ToConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput() ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput {
-	return i.ToConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs) ToConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutputWithContext(ctx context.Context) ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that validates connection to Azure Database For PostgreSQL server and target server requirements for online migration
@@ -4008,137 +2305,9 @@ func (i *connectToTargetSqlDbTaskInputPtrType) ToConnectToTargetSqlDbTaskInputPt
 }
 
 // Input for the task that validates connection to SQL DB and target server requirements
-type ConnectToTargetSqlDbTaskInputOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlDbTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlDbTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlDbTaskInputOutput) ToConnectToTargetSqlDbTaskInputOutput() ConnectToTargetSqlDbTaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlDbTaskInputOutput) ToConnectToTargetSqlDbTaskInputOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlDbTaskInputOutput) ToConnectToTargetSqlDbTaskInputPtrOutput() ConnectToTargetSqlDbTaskInputPtrOutput {
-	return o.ToConnectToTargetSqlDbTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectToTargetSqlDbTaskInputOutput) ToConnectToTargetSqlDbTaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlDbTaskInput) *ConnectToTargetSqlDbTaskInput {
-		return &v
-	}).(ConnectToTargetSqlDbTaskInputPtrOutput)
-}
-
-// Connection information for target SQL DB
-func (o ConnectToTargetSqlDbTaskInputOutput) TargetConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlDbTaskInput) SqlConnectionInfo { return v.TargetConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-type ConnectToTargetSqlDbTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlDbTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetSqlDbTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlDbTaskInputPtrOutput) ToConnectToTargetSqlDbTaskInputPtrOutput() ConnectToTargetSqlDbTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlDbTaskInputPtrOutput) ToConnectToTargetSqlDbTaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlDbTaskInputPtrOutput) Elem() ConnectToTargetSqlDbTaskInputOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlDbTaskInput) ConnectToTargetSqlDbTaskInput { return *v }).(ConnectToTargetSqlDbTaskInputOutput)
-}
-
-// Connection information for target SQL DB
-func (o ConnectToTargetSqlDbTaskInputPtrOutput) TargetConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlDbTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Input for the task that validates connection to SQL DB and target server requirements
 type ConnectToTargetSqlDbTaskInputResponse struct {
 	// Connection information for target SQL DB
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// ConnectToTargetSqlDbTaskInputResponseInput is an input type that accepts ConnectToTargetSqlDbTaskInputResponseArgs and ConnectToTargetSqlDbTaskInputResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlDbTaskInputResponseInput` via:
-//
-//          ConnectToTargetSqlDbTaskInputResponseArgs{...}
-type ConnectToTargetSqlDbTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlDbTaskInputResponseOutput() ConnectToTargetSqlDbTaskInputResponseOutput
-	ToConnectToTargetSqlDbTaskInputResponseOutputWithContext(context.Context) ConnectToTargetSqlDbTaskInputResponseOutput
-}
-
-// Input for the task that validates connection to SQL DB and target server requirements
-type ConnectToTargetSqlDbTaskInputResponseArgs struct {
-	// Connection information for target SQL DB
-	TargetConnectionInfo SqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (ConnectToTargetSqlDbTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlDbTaskInputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlDbTaskInputResponseArgs) ToConnectToTargetSqlDbTaskInputResponseOutput() ConnectToTargetSqlDbTaskInputResponseOutput {
-	return i.ToConnectToTargetSqlDbTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlDbTaskInputResponseArgs) ToConnectToTargetSqlDbTaskInputResponseOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlDbTaskInputResponseOutput)
-}
-
-func (i ConnectToTargetSqlDbTaskInputResponseArgs) ToConnectToTargetSqlDbTaskInputResponsePtrOutput() ConnectToTargetSqlDbTaskInputResponsePtrOutput {
-	return i.ToConnectToTargetSqlDbTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlDbTaskInputResponseArgs) ToConnectToTargetSqlDbTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlDbTaskInputResponseOutput).ToConnectToTargetSqlDbTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// ConnectToTargetSqlDbTaskInputResponsePtrInput is an input type that accepts ConnectToTargetSqlDbTaskInputResponseArgs, ConnectToTargetSqlDbTaskInputResponsePtr and ConnectToTargetSqlDbTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlDbTaskInputResponsePtrInput` via:
-//
-//          ConnectToTargetSqlDbTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectToTargetSqlDbTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlDbTaskInputResponsePtrOutput() ConnectToTargetSqlDbTaskInputResponsePtrOutput
-	ToConnectToTargetSqlDbTaskInputResponsePtrOutputWithContext(context.Context) ConnectToTargetSqlDbTaskInputResponsePtrOutput
-}
-
-type connectToTargetSqlDbTaskInputResponsePtrType ConnectToTargetSqlDbTaskInputResponseArgs
-
-func ConnectToTargetSqlDbTaskInputResponsePtr(v *ConnectToTargetSqlDbTaskInputResponseArgs) ConnectToTargetSqlDbTaskInputResponsePtrInput {
-	return (*connectToTargetSqlDbTaskInputResponsePtrType)(v)
-}
-
-func (*connectToTargetSqlDbTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetSqlDbTaskInputResponse)(nil)).Elem()
-}
-
-func (i *connectToTargetSqlDbTaskInputResponsePtrType) ToConnectToTargetSqlDbTaskInputResponsePtrOutput() ConnectToTargetSqlDbTaskInputResponsePtrOutput {
-	return i.ToConnectToTargetSqlDbTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectToTargetSqlDbTaskInputResponsePtrType) ToConnectToTargetSqlDbTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlDbTaskInputResponsePtrOutput)
 }
 
 // Input for the task that validates connection to SQL DB and target server requirements
@@ -4209,66 +2378,6 @@ type ConnectToTargetSqlDbTaskOutputResponse struct {
 	TargetServerBrandVersion string `pulumi:"targetServerBrandVersion"`
 	// Version of the target server
 	TargetServerVersion string `pulumi:"targetServerVersion"`
-}
-
-// ConnectToTargetSqlDbTaskOutputResponseInput is an input type that accepts ConnectToTargetSqlDbTaskOutputResponseArgs and ConnectToTargetSqlDbTaskOutputResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlDbTaskOutputResponseInput` via:
-//
-//          ConnectToTargetSqlDbTaskOutputResponseArgs{...}
-type ConnectToTargetSqlDbTaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlDbTaskOutputResponseOutput() ConnectToTargetSqlDbTaskOutputResponseOutput
-	ToConnectToTargetSqlDbTaskOutputResponseOutputWithContext(context.Context) ConnectToTargetSqlDbTaskOutputResponseOutput
-}
-
-// Output for the task that validates connection to SQL DB and target server requirements
-type ConnectToTargetSqlDbTaskOutputResponseArgs struct {
-	// Source databases as a map from database name to database id
-	Databases pulumi.StringInput `pulumi:"databases"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Target server brand version
-	TargetServerBrandVersion pulumi.StringInput `pulumi:"targetServerBrandVersion"`
-	// Version of the target server
-	TargetServerVersion pulumi.StringInput `pulumi:"targetServerVersion"`
-}
-
-func (ConnectToTargetSqlDbTaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlDbTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlDbTaskOutputResponseArgs) ToConnectToTargetSqlDbTaskOutputResponseOutput() ConnectToTargetSqlDbTaskOutputResponseOutput {
-	return i.ToConnectToTargetSqlDbTaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlDbTaskOutputResponseArgs) ToConnectToTargetSqlDbTaskOutputResponseOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlDbTaskOutputResponseOutput)
-}
-
-// ConnectToTargetSqlDbTaskOutputResponseArrayInput is an input type that accepts ConnectToTargetSqlDbTaskOutputResponseArray and ConnectToTargetSqlDbTaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlDbTaskOutputResponseArrayInput` via:
-//
-//          ConnectToTargetSqlDbTaskOutputResponseArray{ ConnectToTargetSqlDbTaskOutputResponseArgs{...} }
-type ConnectToTargetSqlDbTaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlDbTaskOutputResponseArrayOutput() ConnectToTargetSqlDbTaskOutputResponseArrayOutput
-	ToConnectToTargetSqlDbTaskOutputResponseArrayOutputWithContext(context.Context) ConnectToTargetSqlDbTaskOutputResponseArrayOutput
-}
-
-type ConnectToTargetSqlDbTaskOutputResponseArray []ConnectToTargetSqlDbTaskOutputResponseInput
-
-func (ConnectToTargetSqlDbTaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectToTargetSqlDbTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlDbTaskOutputResponseArray) ToConnectToTargetSqlDbTaskOutputResponseArrayOutput() ConnectToTargetSqlDbTaskOutputResponseArrayOutput {
-	return i.ToConnectToTargetSqlDbTaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlDbTaskOutputResponseArray) ToConnectToTargetSqlDbTaskOutputResponseArrayOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlDbTaskOutputResponseArrayOutput)
 }
 
 // Output for the task that validates connection to SQL DB and target server requirements
@@ -4366,31 +2475,6 @@ func (i ConnectToTargetSqlDbTaskPropertiesArgs) ToConnectToTargetSqlDbTaskProper
 }
 
 // Properties for the task that validates connection to SQL DB and target server requirements
-type ConnectToTargetSqlDbTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlDbTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlDbTaskProperties)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlDbTaskPropertiesOutput) ToConnectToTargetSqlDbTaskPropertiesOutput() ConnectToTargetSqlDbTaskPropertiesOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlDbTaskPropertiesOutput) ToConnectToTargetSqlDbTaskPropertiesOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ConnectToTargetSqlDbTaskPropertiesOutput) Input() ConnectToTargetSqlDbTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlDbTaskProperties) *ConnectToTargetSqlDbTaskInput { return v.Input }).(ConnectToTargetSqlDbTaskInputPtrOutput)
-}
-
-// Task type.
-func (o ConnectToTargetSqlDbTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlDbTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that validates connection to SQL DB and target server requirements
 type ConnectToTargetSqlDbTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -4404,45 +2488,6 @@ type ConnectToTargetSqlDbTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ConnectToTargetSqlDbTaskPropertiesResponseInput is an input type that accepts ConnectToTargetSqlDbTaskPropertiesResponseArgs and ConnectToTargetSqlDbTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlDbTaskPropertiesResponseInput` via:
-//
-//          ConnectToTargetSqlDbTaskPropertiesResponseArgs{...}
-type ConnectToTargetSqlDbTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlDbTaskPropertiesResponseOutput() ConnectToTargetSqlDbTaskPropertiesResponseOutput
-	ToConnectToTargetSqlDbTaskPropertiesResponseOutputWithContext(context.Context) ConnectToTargetSqlDbTaskPropertiesResponseOutput
-}
-
-// Properties for the task that validates connection to SQL DB and target server requirements
-type ConnectToTargetSqlDbTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ConnectToTargetSqlDbTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output ConnectToTargetSqlDbTaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ConnectToTargetSqlDbTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlDbTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlDbTaskPropertiesResponseArgs) ToConnectToTargetSqlDbTaskPropertiesResponseOutput() ConnectToTargetSqlDbTaskPropertiesResponseOutput {
-	return i.ToConnectToTargetSqlDbTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlDbTaskPropertiesResponseArgs) ToConnectToTargetSqlDbTaskPropertiesResponseOutputWithContext(ctx context.Context) ConnectToTargetSqlDbTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlDbTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that validates connection to SQL DB and target server requirements
@@ -4575,156 +2620,11 @@ func (i *connectToTargetSqlMISyncTaskInputPtrType) ToConnectToTargetSqlMISyncTas
 }
 
 // Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.
-type ConnectToTargetSqlMISyncTaskInputOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlMISyncTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlMISyncTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlMISyncTaskInputOutput) ToConnectToTargetSqlMISyncTaskInputOutput() ConnectToTargetSqlMISyncTaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlMISyncTaskInputOutput) ToConnectToTargetSqlMISyncTaskInputOutputWithContext(ctx context.Context) ConnectToTargetSqlMISyncTaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlMISyncTaskInputOutput) ToConnectToTargetSqlMISyncTaskInputPtrOutput() ConnectToTargetSqlMISyncTaskInputPtrOutput {
-	return o.ToConnectToTargetSqlMISyncTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectToTargetSqlMISyncTaskInputOutput) ToConnectToTargetSqlMISyncTaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetSqlMISyncTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlMISyncTaskInput) *ConnectToTargetSqlMISyncTaskInput {
-		return &v
-	}).(ConnectToTargetSqlMISyncTaskInputPtrOutput)
-}
-
-// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-func (o ConnectToTargetSqlMISyncTaskInputOutput) AzureApp() AzureActiveDirectoryAppOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlMISyncTaskInput) AzureActiveDirectoryApp { return v.AzureApp }).(AzureActiveDirectoryAppOutput)
-}
-
-// Connection information for Azure SQL Database Managed Instance
-func (o ConnectToTargetSqlMISyncTaskInputOutput) TargetConnectionInfo() MiSqlConnectionInfoOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlMISyncTaskInput) MiSqlConnectionInfo { return v.TargetConnectionInfo }).(MiSqlConnectionInfoOutput)
-}
-
-type ConnectToTargetSqlMISyncTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlMISyncTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetSqlMISyncTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlMISyncTaskInputPtrOutput) ToConnectToTargetSqlMISyncTaskInputPtrOutput() ConnectToTargetSqlMISyncTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlMISyncTaskInputPtrOutput) ToConnectToTargetSqlMISyncTaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetSqlMISyncTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlMISyncTaskInputPtrOutput) Elem() ConnectToTargetSqlMISyncTaskInputOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlMISyncTaskInput) ConnectToTargetSqlMISyncTaskInput { return *v }).(ConnectToTargetSqlMISyncTaskInputOutput)
-}
-
-// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-func (o ConnectToTargetSqlMISyncTaskInputPtrOutput) AzureApp() AzureActiveDirectoryAppPtrOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlMISyncTaskInput) *AzureActiveDirectoryApp {
-		if v == nil {
-			return nil
-		}
-		return &v.AzureApp
-	}).(AzureActiveDirectoryAppPtrOutput)
-}
-
-// Connection information for Azure SQL Database Managed Instance
-func (o ConnectToTargetSqlMISyncTaskInputPtrOutput) TargetConnectionInfo() MiSqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlMISyncTaskInput) *MiSqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(MiSqlConnectionInfoPtrOutput)
-}
-
-// Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.
 type ConnectToTargetSqlMISyncTaskInputResponse struct {
 	// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
 	AzureApp AzureActiveDirectoryAppResponse `pulumi:"azureApp"`
 	// Connection information for Azure SQL Database Managed Instance
 	TargetConnectionInfo MiSqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// ConnectToTargetSqlMISyncTaskInputResponseInput is an input type that accepts ConnectToTargetSqlMISyncTaskInputResponseArgs and ConnectToTargetSqlMISyncTaskInputResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlMISyncTaskInputResponseInput` via:
-//
-//          ConnectToTargetSqlMISyncTaskInputResponseArgs{...}
-type ConnectToTargetSqlMISyncTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlMISyncTaskInputResponseOutput() ConnectToTargetSqlMISyncTaskInputResponseOutput
-	ToConnectToTargetSqlMISyncTaskInputResponseOutputWithContext(context.Context) ConnectToTargetSqlMISyncTaskInputResponseOutput
-}
-
-// Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.
-type ConnectToTargetSqlMISyncTaskInputResponseArgs struct {
-	// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-	AzureApp AzureActiveDirectoryAppResponseInput `pulumi:"azureApp"`
-	// Connection information for Azure SQL Database Managed Instance
-	TargetConnectionInfo MiSqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (ConnectToTargetSqlMISyncTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlMISyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlMISyncTaskInputResponseArgs) ToConnectToTargetSqlMISyncTaskInputResponseOutput() ConnectToTargetSqlMISyncTaskInputResponseOutput {
-	return i.ToConnectToTargetSqlMISyncTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlMISyncTaskInputResponseArgs) ToConnectToTargetSqlMISyncTaskInputResponseOutputWithContext(ctx context.Context) ConnectToTargetSqlMISyncTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMISyncTaskInputResponseOutput)
-}
-
-func (i ConnectToTargetSqlMISyncTaskInputResponseArgs) ToConnectToTargetSqlMISyncTaskInputResponsePtrOutput() ConnectToTargetSqlMISyncTaskInputResponsePtrOutput {
-	return i.ToConnectToTargetSqlMISyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlMISyncTaskInputResponseArgs) ToConnectToTargetSqlMISyncTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetSqlMISyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMISyncTaskInputResponseOutput).ToConnectToTargetSqlMISyncTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// ConnectToTargetSqlMISyncTaskInputResponsePtrInput is an input type that accepts ConnectToTargetSqlMISyncTaskInputResponseArgs, ConnectToTargetSqlMISyncTaskInputResponsePtr and ConnectToTargetSqlMISyncTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlMISyncTaskInputResponsePtrInput` via:
-//
-//          ConnectToTargetSqlMISyncTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectToTargetSqlMISyncTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlMISyncTaskInputResponsePtrOutput() ConnectToTargetSqlMISyncTaskInputResponsePtrOutput
-	ToConnectToTargetSqlMISyncTaskInputResponsePtrOutputWithContext(context.Context) ConnectToTargetSqlMISyncTaskInputResponsePtrOutput
-}
-
-type connectToTargetSqlMISyncTaskInputResponsePtrType ConnectToTargetSqlMISyncTaskInputResponseArgs
-
-func ConnectToTargetSqlMISyncTaskInputResponsePtr(v *ConnectToTargetSqlMISyncTaskInputResponseArgs) ConnectToTargetSqlMISyncTaskInputResponsePtrInput {
-	return (*connectToTargetSqlMISyncTaskInputResponsePtrType)(v)
-}
-
-func (*connectToTargetSqlMISyncTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetSqlMISyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i *connectToTargetSqlMISyncTaskInputResponsePtrType) ToConnectToTargetSqlMISyncTaskInputResponsePtrOutput() ConnectToTargetSqlMISyncTaskInputResponsePtrOutput {
-	return i.ToConnectToTargetSqlMISyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectToTargetSqlMISyncTaskInputResponsePtrType) ToConnectToTargetSqlMISyncTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetSqlMISyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMISyncTaskInputResponsePtrOutput)
 }
 
 // Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.
@@ -4812,64 +2712,6 @@ type ConnectToTargetSqlMISyncTaskOutputResponse struct {
 	TargetServerVersion string `pulumi:"targetServerVersion"`
 	// Validation errors
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
-}
-
-// ConnectToTargetSqlMISyncTaskOutputResponseInput is an input type that accepts ConnectToTargetSqlMISyncTaskOutputResponseArgs and ConnectToTargetSqlMISyncTaskOutputResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlMISyncTaskOutputResponseInput` via:
-//
-//          ConnectToTargetSqlMISyncTaskOutputResponseArgs{...}
-type ConnectToTargetSqlMISyncTaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlMISyncTaskOutputResponseOutput() ConnectToTargetSqlMISyncTaskOutputResponseOutput
-	ToConnectToTargetSqlMISyncTaskOutputResponseOutputWithContext(context.Context) ConnectToTargetSqlMISyncTaskOutputResponseOutput
-}
-
-// Output for the task that validates connection to Azure SQL Database Managed Instance.
-type ConnectToTargetSqlMISyncTaskOutputResponseArgs struct {
-	// Target server brand version
-	TargetServerBrandVersion pulumi.StringInput `pulumi:"targetServerBrandVersion"`
-	// Target server version
-	TargetServerVersion pulumi.StringInput `pulumi:"targetServerVersion"`
-	// Validation errors
-	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
-}
-
-func (ConnectToTargetSqlMISyncTaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlMISyncTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlMISyncTaskOutputResponseArgs) ToConnectToTargetSqlMISyncTaskOutputResponseOutput() ConnectToTargetSqlMISyncTaskOutputResponseOutput {
-	return i.ToConnectToTargetSqlMISyncTaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlMISyncTaskOutputResponseArgs) ToConnectToTargetSqlMISyncTaskOutputResponseOutputWithContext(ctx context.Context) ConnectToTargetSqlMISyncTaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMISyncTaskOutputResponseOutput)
-}
-
-// ConnectToTargetSqlMISyncTaskOutputResponseArrayInput is an input type that accepts ConnectToTargetSqlMISyncTaskOutputResponseArray and ConnectToTargetSqlMISyncTaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlMISyncTaskOutputResponseArrayInput` via:
-//
-//          ConnectToTargetSqlMISyncTaskOutputResponseArray{ ConnectToTargetSqlMISyncTaskOutputResponseArgs{...} }
-type ConnectToTargetSqlMISyncTaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlMISyncTaskOutputResponseArrayOutput() ConnectToTargetSqlMISyncTaskOutputResponseArrayOutput
-	ToConnectToTargetSqlMISyncTaskOutputResponseArrayOutputWithContext(context.Context) ConnectToTargetSqlMISyncTaskOutputResponseArrayOutput
-}
-
-type ConnectToTargetSqlMISyncTaskOutputResponseArray []ConnectToTargetSqlMISyncTaskOutputResponseInput
-
-func (ConnectToTargetSqlMISyncTaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectToTargetSqlMISyncTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlMISyncTaskOutputResponseArray) ToConnectToTargetSqlMISyncTaskOutputResponseArrayOutput() ConnectToTargetSqlMISyncTaskOutputResponseArrayOutput {
-	return i.ToConnectToTargetSqlMISyncTaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlMISyncTaskOutputResponseArray) ToConnectToTargetSqlMISyncTaskOutputResponseArrayOutputWithContext(ctx context.Context) ConnectToTargetSqlMISyncTaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMISyncTaskOutputResponseArrayOutput)
 }
 
 // Output for the task that validates connection to Azure SQL Database Managed Instance.
@@ -4964,31 +2806,6 @@ func (i ConnectToTargetSqlMISyncTaskPropertiesArgs) ToConnectToTargetSqlMISyncTa
 }
 
 // Properties for the task that validates connection to Azure SQL Database Managed Instance
-type ConnectToTargetSqlMISyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlMISyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlMISyncTaskProperties)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlMISyncTaskPropertiesOutput) ToConnectToTargetSqlMISyncTaskPropertiesOutput() ConnectToTargetSqlMISyncTaskPropertiesOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlMISyncTaskPropertiesOutput) ToConnectToTargetSqlMISyncTaskPropertiesOutputWithContext(ctx context.Context) ConnectToTargetSqlMISyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ConnectToTargetSqlMISyncTaskPropertiesOutput) Input() ConnectToTargetSqlMISyncTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlMISyncTaskProperties) *ConnectToTargetSqlMISyncTaskInput { return v.Input }).(ConnectToTargetSqlMISyncTaskInputPtrOutput)
-}
-
-// Task type.
-func (o ConnectToTargetSqlMISyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlMISyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that validates connection to Azure SQL Database Managed Instance
 type ConnectToTargetSqlMISyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -5002,45 +2819,6 @@ type ConnectToTargetSqlMISyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ConnectToTargetSqlMISyncTaskPropertiesResponseInput is an input type that accepts ConnectToTargetSqlMISyncTaskPropertiesResponseArgs and ConnectToTargetSqlMISyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlMISyncTaskPropertiesResponseInput` via:
-//
-//          ConnectToTargetSqlMISyncTaskPropertiesResponseArgs{...}
-type ConnectToTargetSqlMISyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlMISyncTaskPropertiesResponseOutput() ConnectToTargetSqlMISyncTaskPropertiesResponseOutput
-	ToConnectToTargetSqlMISyncTaskPropertiesResponseOutputWithContext(context.Context) ConnectToTargetSqlMISyncTaskPropertiesResponseOutput
-}
-
-// Properties for the task that validates connection to Azure SQL Database Managed Instance
-type ConnectToTargetSqlMISyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ConnectToTargetSqlMISyncTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output ConnectToTargetSqlMISyncTaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ConnectToTargetSqlMISyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlMISyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlMISyncTaskPropertiesResponseArgs) ToConnectToTargetSqlMISyncTaskPropertiesResponseOutput() ConnectToTargetSqlMISyncTaskPropertiesResponseOutput {
-	return i.ToConnectToTargetSqlMISyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlMISyncTaskPropertiesResponseArgs) ToConnectToTargetSqlMISyncTaskPropertiesResponseOutputWithContext(ctx context.Context) ConnectToTargetSqlMISyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMISyncTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that validates connection to Azure SQL Database Managed Instance
@@ -5169,137 +2947,9 @@ func (i *connectToTargetSqlMITaskInputPtrType) ToConnectToTargetSqlMITaskInputPt
 }
 
 // Input for the task that validates connection to Azure SQL Database Managed Instance.
-type ConnectToTargetSqlMITaskInputOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlMITaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlMITaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlMITaskInputOutput) ToConnectToTargetSqlMITaskInputOutput() ConnectToTargetSqlMITaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlMITaskInputOutput) ToConnectToTargetSqlMITaskInputOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlMITaskInputOutput) ToConnectToTargetSqlMITaskInputPtrOutput() ConnectToTargetSqlMITaskInputPtrOutput {
-	return o.ToConnectToTargetSqlMITaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectToTargetSqlMITaskInputOutput) ToConnectToTargetSqlMITaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlMITaskInput) *ConnectToTargetSqlMITaskInput {
-		return &v
-	}).(ConnectToTargetSqlMITaskInputPtrOutput)
-}
-
-// Connection information for target SQL Server
-func (o ConnectToTargetSqlMITaskInputOutput) TargetConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlMITaskInput) SqlConnectionInfo { return v.TargetConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-type ConnectToTargetSqlMITaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlMITaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetSqlMITaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlMITaskInputPtrOutput) ToConnectToTargetSqlMITaskInputPtrOutput() ConnectToTargetSqlMITaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlMITaskInputPtrOutput) ToConnectToTargetSqlMITaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlMITaskInputPtrOutput) Elem() ConnectToTargetSqlMITaskInputOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlMITaskInput) ConnectToTargetSqlMITaskInput { return *v }).(ConnectToTargetSqlMITaskInputOutput)
-}
-
-// Connection information for target SQL Server
-func (o ConnectToTargetSqlMITaskInputPtrOutput) TargetConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlMITaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Input for the task that validates connection to Azure SQL Database Managed Instance.
 type ConnectToTargetSqlMITaskInputResponse struct {
 	// Connection information for target SQL Server
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// ConnectToTargetSqlMITaskInputResponseInput is an input type that accepts ConnectToTargetSqlMITaskInputResponseArgs and ConnectToTargetSqlMITaskInputResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlMITaskInputResponseInput` via:
-//
-//          ConnectToTargetSqlMITaskInputResponseArgs{...}
-type ConnectToTargetSqlMITaskInputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlMITaskInputResponseOutput() ConnectToTargetSqlMITaskInputResponseOutput
-	ToConnectToTargetSqlMITaskInputResponseOutputWithContext(context.Context) ConnectToTargetSqlMITaskInputResponseOutput
-}
-
-// Input for the task that validates connection to Azure SQL Database Managed Instance.
-type ConnectToTargetSqlMITaskInputResponseArgs struct {
-	// Connection information for target SQL Server
-	TargetConnectionInfo SqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (ConnectToTargetSqlMITaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlMITaskInputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlMITaskInputResponseArgs) ToConnectToTargetSqlMITaskInputResponseOutput() ConnectToTargetSqlMITaskInputResponseOutput {
-	return i.ToConnectToTargetSqlMITaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlMITaskInputResponseArgs) ToConnectToTargetSqlMITaskInputResponseOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMITaskInputResponseOutput)
-}
-
-func (i ConnectToTargetSqlMITaskInputResponseArgs) ToConnectToTargetSqlMITaskInputResponsePtrOutput() ConnectToTargetSqlMITaskInputResponsePtrOutput {
-	return i.ToConnectToTargetSqlMITaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlMITaskInputResponseArgs) ToConnectToTargetSqlMITaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMITaskInputResponseOutput).ToConnectToTargetSqlMITaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// ConnectToTargetSqlMITaskInputResponsePtrInput is an input type that accepts ConnectToTargetSqlMITaskInputResponseArgs, ConnectToTargetSqlMITaskInputResponsePtr and ConnectToTargetSqlMITaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlMITaskInputResponsePtrInput` via:
-//
-//          ConnectToTargetSqlMITaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectToTargetSqlMITaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlMITaskInputResponsePtrOutput() ConnectToTargetSqlMITaskInputResponsePtrOutput
-	ToConnectToTargetSqlMITaskInputResponsePtrOutputWithContext(context.Context) ConnectToTargetSqlMITaskInputResponsePtrOutput
-}
-
-type connectToTargetSqlMITaskInputResponsePtrType ConnectToTargetSqlMITaskInputResponseArgs
-
-func ConnectToTargetSqlMITaskInputResponsePtr(v *ConnectToTargetSqlMITaskInputResponseArgs) ConnectToTargetSqlMITaskInputResponsePtrInput {
-	return (*connectToTargetSqlMITaskInputResponsePtrType)(v)
-}
-
-func (*connectToTargetSqlMITaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetSqlMITaskInputResponse)(nil)).Elem()
-}
-
-func (i *connectToTargetSqlMITaskInputResponsePtrType) ToConnectToTargetSqlMITaskInputResponsePtrOutput() ConnectToTargetSqlMITaskInputResponsePtrOutput {
-	return i.ToConnectToTargetSqlMITaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectToTargetSqlMITaskInputResponsePtrType) ToConnectToTargetSqlMITaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMITaskInputResponsePtrOutput)
 }
 
 // Input for the task that validates connection to Azure SQL Database Managed Instance.
@@ -5374,70 +3024,6 @@ type ConnectToTargetSqlMITaskOutputResponse struct {
 	TargetServerVersion string `pulumi:"targetServerVersion"`
 	// Validation errors
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
-}
-
-// ConnectToTargetSqlMITaskOutputResponseInput is an input type that accepts ConnectToTargetSqlMITaskOutputResponseArgs and ConnectToTargetSqlMITaskOutputResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlMITaskOutputResponseInput` via:
-//
-//          ConnectToTargetSqlMITaskOutputResponseArgs{...}
-type ConnectToTargetSqlMITaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlMITaskOutputResponseOutput() ConnectToTargetSqlMITaskOutputResponseOutput
-	ToConnectToTargetSqlMITaskOutputResponseOutputWithContext(context.Context) ConnectToTargetSqlMITaskOutputResponseOutput
-}
-
-// Output for the task that validates connection to Azure SQL Database Managed Instance.
-type ConnectToTargetSqlMITaskOutputResponseArgs struct {
-	// List of agent jobs on the target server.
-	AgentJobs pulumi.StringArrayInput `pulumi:"agentJobs"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// List of logins on the target server.
-	Logins pulumi.StringArrayInput `pulumi:"logins"`
-	// Target server brand version
-	TargetServerBrandVersion pulumi.StringInput `pulumi:"targetServerBrandVersion"`
-	// Target server version
-	TargetServerVersion pulumi.StringInput `pulumi:"targetServerVersion"`
-	// Validation errors
-	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
-}
-
-func (ConnectToTargetSqlMITaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlMITaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlMITaskOutputResponseArgs) ToConnectToTargetSqlMITaskOutputResponseOutput() ConnectToTargetSqlMITaskOutputResponseOutput {
-	return i.ToConnectToTargetSqlMITaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlMITaskOutputResponseArgs) ToConnectToTargetSqlMITaskOutputResponseOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMITaskOutputResponseOutput)
-}
-
-// ConnectToTargetSqlMITaskOutputResponseArrayInput is an input type that accepts ConnectToTargetSqlMITaskOutputResponseArray and ConnectToTargetSqlMITaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlMITaskOutputResponseArrayInput` via:
-//
-//          ConnectToTargetSqlMITaskOutputResponseArray{ ConnectToTargetSqlMITaskOutputResponseArgs{...} }
-type ConnectToTargetSqlMITaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlMITaskOutputResponseArrayOutput() ConnectToTargetSqlMITaskOutputResponseArrayOutput
-	ToConnectToTargetSqlMITaskOutputResponseArrayOutputWithContext(context.Context) ConnectToTargetSqlMITaskOutputResponseArrayOutput
-}
-
-type ConnectToTargetSqlMITaskOutputResponseArray []ConnectToTargetSqlMITaskOutputResponseInput
-
-func (ConnectToTargetSqlMITaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectToTargetSqlMITaskOutputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlMITaskOutputResponseArray) ToConnectToTargetSqlMITaskOutputResponseArrayOutput() ConnectToTargetSqlMITaskOutputResponseArrayOutput {
-	return i.ToConnectToTargetSqlMITaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlMITaskOutputResponseArray) ToConnectToTargetSqlMITaskOutputResponseArrayOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMITaskOutputResponseArrayOutput)
 }
 
 // Output for the task that validates connection to Azure SQL Database Managed Instance.
@@ -5547,31 +3133,6 @@ func (i ConnectToTargetSqlMITaskPropertiesArgs) ToConnectToTargetSqlMITaskProper
 }
 
 // Properties for the task that validates connection to Azure SQL Database Managed Instance
-type ConnectToTargetSqlMITaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlMITaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlMITaskProperties)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlMITaskPropertiesOutput) ToConnectToTargetSqlMITaskPropertiesOutput() ConnectToTargetSqlMITaskPropertiesOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlMITaskPropertiesOutput) ToConnectToTargetSqlMITaskPropertiesOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ConnectToTargetSqlMITaskPropertiesOutput) Input() ConnectToTargetSqlMITaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlMITaskProperties) *ConnectToTargetSqlMITaskInput { return v.Input }).(ConnectToTargetSqlMITaskInputPtrOutput)
-}
-
-// Task type.
-func (o ConnectToTargetSqlMITaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlMITaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that validates connection to Azure SQL Database Managed Instance
 type ConnectToTargetSqlMITaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -5585,45 +3146,6 @@ type ConnectToTargetSqlMITaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ConnectToTargetSqlMITaskPropertiesResponseInput is an input type that accepts ConnectToTargetSqlMITaskPropertiesResponseArgs and ConnectToTargetSqlMITaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlMITaskPropertiesResponseInput` via:
-//
-//          ConnectToTargetSqlMITaskPropertiesResponseArgs{...}
-type ConnectToTargetSqlMITaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlMITaskPropertiesResponseOutput() ConnectToTargetSqlMITaskPropertiesResponseOutput
-	ToConnectToTargetSqlMITaskPropertiesResponseOutputWithContext(context.Context) ConnectToTargetSqlMITaskPropertiesResponseOutput
-}
-
-// Properties for the task that validates connection to Azure SQL Database Managed Instance
-type ConnectToTargetSqlMITaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ConnectToTargetSqlMITaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output ConnectToTargetSqlMITaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ConnectToTargetSqlMITaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlMITaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlMITaskPropertiesResponseArgs) ToConnectToTargetSqlMITaskPropertiesResponseOutput() ConnectToTargetSqlMITaskPropertiesResponseOutput {
-	return i.ToConnectToTargetSqlMITaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlMITaskPropertiesResponseArgs) ToConnectToTargetSqlMITaskPropertiesResponseOutputWithContext(ctx context.Context) ConnectToTargetSqlMITaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlMITaskPropertiesResponseOutput)
 }
 
 // Properties for the task that validates connection to Azure SQL Database Managed Instance
@@ -5756,156 +3278,11 @@ func (i *connectToTargetSqlSqlDbSyncTaskInputPtrType) ToConnectToTargetSqlSqlDbS
 }
 
 // Input for the task that validates connection to Azure SQL DB and target server requirements
-type ConnectToTargetSqlSqlDbSyncTaskInputOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlSqlDbSyncTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlSqlDbSyncTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlSqlDbSyncTaskInputOutput) ToConnectToTargetSqlSqlDbSyncTaskInputOutput() ConnectToTargetSqlSqlDbSyncTaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlSqlDbSyncTaskInputOutput) ToConnectToTargetSqlSqlDbSyncTaskInputOutputWithContext(ctx context.Context) ConnectToTargetSqlSqlDbSyncTaskInputOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlSqlDbSyncTaskInputOutput) ToConnectToTargetSqlSqlDbSyncTaskInputPtrOutput() ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput {
-	return o.ToConnectToTargetSqlSqlDbSyncTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectToTargetSqlSqlDbSyncTaskInputOutput) ToConnectToTargetSqlSqlDbSyncTaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlSqlDbSyncTaskInput) *ConnectToTargetSqlSqlDbSyncTaskInput {
-		return &v
-	}).(ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput)
-}
-
-// Connection information for source SQL Server
-func (o ConnectToTargetSqlSqlDbSyncTaskInputOutput) SourceConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlSqlDbSyncTaskInput) SqlConnectionInfo { return v.SourceConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// Connection information for target SQL DB
-func (o ConnectToTargetSqlSqlDbSyncTaskInputOutput) TargetConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlSqlDbSyncTaskInput) SqlConnectionInfo { return v.TargetConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-type ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetSqlSqlDbSyncTaskInput)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput) ToConnectToTargetSqlSqlDbSyncTaskInputPtrOutput() ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput) ToConnectToTargetSqlSqlDbSyncTaskInputPtrOutputWithContext(ctx context.Context) ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput) Elem() ConnectToTargetSqlSqlDbSyncTaskInputOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlSqlDbSyncTaskInput) ConnectToTargetSqlSqlDbSyncTaskInput { return *v }).(ConnectToTargetSqlSqlDbSyncTaskInputOutput)
-}
-
-// Connection information for source SQL Server
-func (o ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput) SourceConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlSqlDbSyncTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Connection information for target SQL DB
-func (o ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput) TargetConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ConnectToTargetSqlSqlDbSyncTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Input for the task that validates connection to Azure SQL DB and target server requirements
 type ConnectToTargetSqlSqlDbSyncTaskInputResponse struct {
 	// Connection information for source SQL Server
 	SourceConnectionInfo SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Connection information for target SQL DB
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// ConnectToTargetSqlSqlDbSyncTaskInputResponseInput is an input type that accepts ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs and ConnectToTargetSqlSqlDbSyncTaskInputResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlSqlDbSyncTaskInputResponseInput` via:
-//
-//          ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs{...}
-type ConnectToTargetSqlSqlDbSyncTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlSqlDbSyncTaskInputResponseOutput() ConnectToTargetSqlSqlDbSyncTaskInputResponseOutput
-	ToConnectToTargetSqlSqlDbSyncTaskInputResponseOutputWithContext(context.Context) ConnectToTargetSqlSqlDbSyncTaskInputResponseOutput
-}
-
-// Input for the task that validates connection to Azure SQL DB and target server requirements
-type ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs struct {
-	// Connection information for source SQL Server
-	SourceConnectionInfo SqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Connection information for target SQL DB
-	TargetConnectionInfo SqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlSqlDbSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs) ToConnectToTargetSqlSqlDbSyncTaskInputResponseOutput() ConnectToTargetSqlSqlDbSyncTaskInputResponseOutput {
-	return i.ToConnectToTargetSqlSqlDbSyncTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs) ToConnectToTargetSqlSqlDbSyncTaskInputResponseOutputWithContext(ctx context.Context) ConnectToTargetSqlSqlDbSyncTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlSqlDbSyncTaskInputResponseOutput)
-}
-
-func (i ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs) ToConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutput() ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutput {
-	return i.ToConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs) ToConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlSqlDbSyncTaskInputResponseOutput).ToConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrInput is an input type that accepts ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs, ConnectToTargetSqlSqlDbSyncTaskInputResponsePtr and ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrInput` via:
-//
-//          ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutput() ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutput
-	ToConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutputWithContext(context.Context) ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutput
-}
-
-type connectToTargetSqlSqlDbSyncTaskInputResponsePtrType ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs
-
-func ConnectToTargetSqlSqlDbSyncTaskInputResponsePtr(v *ConnectToTargetSqlSqlDbSyncTaskInputResponseArgs) ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrInput {
-	return (*connectToTargetSqlSqlDbSyncTaskInputResponsePtrType)(v)
-}
-
-func (*connectToTargetSqlSqlDbSyncTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectToTargetSqlSqlDbSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i *connectToTargetSqlSqlDbSyncTaskInputResponsePtrType) ToConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutput() ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutput {
-	return i.ToConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectToTargetSqlSqlDbSyncTaskInputResponsePtrType) ToConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrOutput)
 }
 
 // Input for the task that validates connection to Azure SQL DB and target server requirements
@@ -6027,33 +3404,6 @@ func (i ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs) ToConnectToTargetSqlSqlDb
 }
 
 // Properties for the task that validates connection to SQL DB and target server requirements for online migration
-type ConnectToTargetSqlSqlDbSyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectToTargetSqlSqlDbSyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlSqlDbSyncTaskProperties)(nil)).Elem()
-}
-
-func (o ConnectToTargetSqlSqlDbSyncTaskPropertiesOutput) ToConnectToTargetSqlSqlDbSyncTaskPropertiesOutput() ConnectToTargetSqlSqlDbSyncTaskPropertiesOutput {
-	return o
-}
-
-func (o ConnectToTargetSqlSqlDbSyncTaskPropertiesOutput) ToConnectToTargetSqlSqlDbSyncTaskPropertiesOutputWithContext(ctx context.Context) ConnectToTargetSqlSqlDbSyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ConnectToTargetSqlSqlDbSyncTaskPropertiesOutput) Input() ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlSqlDbSyncTaskProperties) *ConnectToTargetSqlSqlDbSyncTaskInput {
-		return v.Input
-	}).(ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput)
-}
-
-// Task type.
-func (o ConnectToTargetSqlSqlDbSyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectToTargetSqlSqlDbSyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that validates connection to SQL DB and target server requirements for online migration
 type ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -6067,45 +3417,6 @@ type ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseInput is an input type that accepts ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseArgs and ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseInput` via:
-//
-//          ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseArgs{...}
-type ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutput() ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutput
-	ToConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutputWithContext(context.Context) ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutput
-}
-
-// Properties for the task that validates connection to SQL DB and target server requirements for online migration
-type ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ConnectToTargetSqlSqlDbSyncTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output ConnectToTargetSqlDbTaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseArgs) ToConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutput() ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutput {
-	return i.ToConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseArgs) ToConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutputWithContext(ctx context.Context) ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectToTargetSqlSqlDbSyncTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that validates connection to SQL DB and target server requirements for online migration
@@ -6165,37 +3476,6 @@ type DataIntegrityValidationResultResponse struct {
 	ValidationErrors ValidationErrorResponse `pulumi:"validationErrors"`
 }
 
-// DataIntegrityValidationResultResponseInput is an input type that accepts DataIntegrityValidationResultResponseArgs and DataIntegrityValidationResultResponseOutput values.
-// You can construct a concrete instance of `DataIntegrityValidationResultResponseInput` via:
-//
-//          DataIntegrityValidationResultResponseArgs{...}
-type DataIntegrityValidationResultResponseInput interface {
-	pulumi.Input
-
-	ToDataIntegrityValidationResultResponseOutput() DataIntegrityValidationResultResponseOutput
-	ToDataIntegrityValidationResultResponseOutputWithContext(context.Context) DataIntegrityValidationResultResponseOutput
-}
-
-// Results for checksum based Data Integrity validation results
-type DataIntegrityValidationResultResponseArgs struct {
-	// List of failed table names of source and target pair
-	FailedObjects pulumi.StringMapInput `pulumi:"failedObjects"`
-	// List of errors that happened while performing data integrity validation
-	ValidationErrors ValidationErrorResponseInput `pulumi:"validationErrors"`
-}
-
-func (DataIntegrityValidationResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataIntegrityValidationResultResponse)(nil)).Elem()
-}
-
-func (i DataIntegrityValidationResultResponseArgs) ToDataIntegrityValidationResultResponseOutput() DataIntegrityValidationResultResponseOutput {
-	return i.ToDataIntegrityValidationResultResponseOutputWithContext(context.Background())
-}
-
-func (i DataIntegrityValidationResultResponseArgs) ToDataIntegrityValidationResultResponseOutputWithContext(ctx context.Context) DataIntegrityValidationResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrityValidationResultResponseOutput)
-}
-
 // Results for checksum based Data Integrity validation results
 type DataIntegrityValidationResultResponseOutput struct{ *pulumi.OutputState }
 
@@ -6239,90 +3519,6 @@ type DatabaseBackupInfoResponse struct {
 	IsDamaged bool `pulumi:"isDamaged"`
 	// Position of current database backup in the file.
 	Position int `pulumi:"position"`
-}
-
-// DatabaseBackupInfoResponseInput is an input type that accepts DatabaseBackupInfoResponseArgs and DatabaseBackupInfoResponseOutput values.
-// You can construct a concrete instance of `DatabaseBackupInfoResponseInput` via:
-//
-//          DatabaseBackupInfoResponseArgs{...}
-type DatabaseBackupInfoResponseInput interface {
-	pulumi.Input
-
-	ToDatabaseBackupInfoResponseOutput() DatabaseBackupInfoResponseOutput
-	ToDatabaseBackupInfoResponseOutputWithContext(context.Context) DatabaseBackupInfoResponseOutput
-}
-
-// Information about backup files when existing backup mode is used.
-type DatabaseBackupInfoResponseArgs struct {
-	// The list of backup files for the current database.
-	BackupFiles pulumi.StringArrayInput `pulumi:"backupFiles"`
-	// Date and time when the backup operation finished.
-	BackupFinishDate pulumi.StringInput `pulumi:"backupFinishDate"`
-	// Backup Type.
-	BackupType pulumi.StringInput `pulumi:"backupType"`
-	// Database name.
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Number of files in the backup set.
-	FamilyCount pulumi.IntInput `pulumi:"familyCount"`
-	// Whether the backup set is compressed
-	IsCompressed pulumi.BoolInput `pulumi:"isCompressed"`
-	// Database was damaged when backed up, but the backup operation was requested to continue despite errors.
-	IsDamaged pulumi.BoolInput `pulumi:"isDamaged"`
-	// Position of current database backup in the file.
-	Position pulumi.IntInput `pulumi:"position"`
-}
-
-func (DatabaseBackupInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseBackupInfoResponse)(nil)).Elem()
-}
-
-func (i DatabaseBackupInfoResponseArgs) ToDatabaseBackupInfoResponseOutput() DatabaseBackupInfoResponseOutput {
-	return i.ToDatabaseBackupInfoResponseOutputWithContext(context.Background())
-}
-
-func (i DatabaseBackupInfoResponseArgs) ToDatabaseBackupInfoResponseOutputWithContext(ctx context.Context) DatabaseBackupInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBackupInfoResponseOutput)
-}
-
-func (i DatabaseBackupInfoResponseArgs) ToDatabaseBackupInfoResponsePtrOutput() DatabaseBackupInfoResponsePtrOutput {
-	return i.ToDatabaseBackupInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DatabaseBackupInfoResponseArgs) ToDatabaseBackupInfoResponsePtrOutputWithContext(ctx context.Context) DatabaseBackupInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBackupInfoResponseOutput).ToDatabaseBackupInfoResponsePtrOutputWithContext(ctx)
-}
-
-// DatabaseBackupInfoResponsePtrInput is an input type that accepts DatabaseBackupInfoResponseArgs, DatabaseBackupInfoResponsePtr and DatabaseBackupInfoResponsePtrOutput values.
-// You can construct a concrete instance of `DatabaseBackupInfoResponsePtrInput` via:
-//
-//          DatabaseBackupInfoResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DatabaseBackupInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToDatabaseBackupInfoResponsePtrOutput() DatabaseBackupInfoResponsePtrOutput
-	ToDatabaseBackupInfoResponsePtrOutputWithContext(context.Context) DatabaseBackupInfoResponsePtrOutput
-}
-
-type databaseBackupInfoResponsePtrType DatabaseBackupInfoResponseArgs
-
-func DatabaseBackupInfoResponsePtr(v *DatabaseBackupInfoResponseArgs) DatabaseBackupInfoResponsePtrInput {
-	return (*databaseBackupInfoResponsePtrType)(v)
-}
-
-func (*databaseBackupInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseBackupInfoResponse)(nil)).Elem()
-}
-
-func (i *databaseBackupInfoResponsePtrType) ToDatabaseBackupInfoResponsePtrOutput() DatabaseBackupInfoResponsePtrOutput {
-	return i.ToDatabaseBackupInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *databaseBackupInfoResponsePtrType) ToDatabaseBackupInfoResponsePtrOutputWithContext(ctx context.Context) DatabaseBackupInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBackupInfoResponsePtrOutput)
 }
 
 // Information about backup files when existing backup mode is used.
@@ -6506,72 +3702,6 @@ type DatabaseFileInfoResponse struct {
 	SizeMB *float64 `pulumi:"sizeMB"`
 }
 
-// DatabaseFileInfoResponseInput is an input type that accepts DatabaseFileInfoResponseArgs and DatabaseFileInfoResponseOutput values.
-// You can construct a concrete instance of `DatabaseFileInfoResponseInput` via:
-//
-//          DatabaseFileInfoResponseArgs{...}
-type DatabaseFileInfoResponseInput interface {
-	pulumi.Input
-
-	ToDatabaseFileInfoResponseOutput() DatabaseFileInfoResponseOutput
-	ToDatabaseFileInfoResponseOutputWithContext(context.Context) DatabaseFileInfoResponseOutput
-}
-
-// Database file specific information
-type DatabaseFileInfoResponseArgs struct {
-	// Name of the database
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// Database file type
-	FileType pulumi.StringPtrInput `pulumi:"fileType"`
-	// Unique identifier for database file
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Logical name of the file
-	LogicalName pulumi.StringPtrInput `pulumi:"logicalName"`
-	// Operating-system full path of the file
-	PhysicalFullName pulumi.StringPtrInput `pulumi:"physicalFullName"`
-	// Suggested full path of the file for restoring
-	RestoreFullName pulumi.StringPtrInput `pulumi:"restoreFullName"`
-	// Size of the file in megabytes
-	SizeMB pulumi.Float64PtrInput `pulumi:"sizeMB"`
-}
-
-func (DatabaseFileInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseFileInfoResponse)(nil)).Elem()
-}
-
-func (i DatabaseFileInfoResponseArgs) ToDatabaseFileInfoResponseOutput() DatabaseFileInfoResponseOutput {
-	return i.ToDatabaseFileInfoResponseOutputWithContext(context.Background())
-}
-
-func (i DatabaseFileInfoResponseArgs) ToDatabaseFileInfoResponseOutputWithContext(ctx context.Context) DatabaseFileInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseFileInfoResponseOutput)
-}
-
-// DatabaseFileInfoResponseArrayInput is an input type that accepts DatabaseFileInfoResponseArray and DatabaseFileInfoResponseArrayOutput values.
-// You can construct a concrete instance of `DatabaseFileInfoResponseArrayInput` via:
-//
-//          DatabaseFileInfoResponseArray{ DatabaseFileInfoResponseArgs{...} }
-type DatabaseFileInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToDatabaseFileInfoResponseArrayOutput() DatabaseFileInfoResponseArrayOutput
-	ToDatabaseFileInfoResponseArrayOutputWithContext(context.Context) DatabaseFileInfoResponseArrayOutput
-}
-
-type DatabaseFileInfoResponseArray []DatabaseFileInfoResponseInput
-
-func (DatabaseFileInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseFileInfoResponse)(nil)).Elem()
-}
-
-func (i DatabaseFileInfoResponseArray) ToDatabaseFileInfoResponseArrayOutput() DatabaseFileInfoResponseArrayOutput {
-	return i.ToDatabaseFileInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DatabaseFileInfoResponseArray) ToDatabaseFileInfoResponseArrayOutputWithContext(ctx context.Context) DatabaseFileInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseFileInfoResponseArrayOutput)
-}
-
 // Database file specific information
 type DatabaseFileInfoResponseOutput struct{ *pulumi.OutputState }
 
@@ -6703,103 +3833,9 @@ func (i DatabaseInfoArray) ToDatabaseInfoArrayOutputWithContext(ctx context.Cont
 }
 
 // Project Database Details
-type DatabaseInfoOutput struct{ *pulumi.OutputState }
-
-func (DatabaseInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseInfo)(nil)).Elem()
-}
-
-func (o DatabaseInfoOutput) ToDatabaseInfoOutput() DatabaseInfoOutput {
-	return o
-}
-
-func (o DatabaseInfoOutput) ToDatabaseInfoOutputWithContext(ctx context.Context) DatabaseInfoOutput {
-	return o
-}
-
-// Name of the database
-func (o DatabaseInfoOutput) SourceDatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseInfo) string { return v.SourceDatabaseName }).(pulumi.StringOutput)
-}
-
-type DatabaseInfoArrayOutput struct{ *pulumi.OutputState }
-
-func (DatabaseInfoArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseInfo)(nil)).Elem()
-}
-
-func (o DatabaseInfoArrayOutput) ToDatabaseInfoArrayOutput() DatabaseInfoArrayOutput {
-	return o
-}
-
-func (o DatabaseInfoArrayOutput) ToDatabaseInfoArrayOutputWithContext(ctx context.Context) DatabaseInfoArrayOutput {
-	return o
-}
-
-func (o DatabaseInfoArrayOutput) Index(i pulumi.IntInput) DatabaseInfoOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseInfo {
-		return vs[0].([]DatabaseInfo)[vs[1].(int)]
-	}).(DatabaseInfoOutput)
-}
-
-// Project Database Details
 type DatabaseInfoResponse struct {
 	// Name of the database
 	SourceDatabaseName string `pulumi:"sourceDatabaseName"`
-}
-
-// DatabaseInfoResponseInput is an input type that accepts DatabaseInfoResponseArgs and DatabaseInfoResponseOutput values.
-// You can construct a concrete instance of `DatabaseInfoResponseInput` via:
-//
-//          DatabaseInfoResponseArgs{...}
-type DatabaseInfoResponseInput interface {
-	pulumi.Input
-
-	ToDatabaseInfoResponseOutput() DatabaseInfoResponseOutput
-	ToDatabaseInfoResponseOutputWithContext(context.Context) DatabaseInfoResponseOutput
-}
-
-// Project Database Details
-type DatabaseInfoResponseArgs struct {
-	// Name of the database
-	SourceDatabaseName pulumi.StringInput `pulumi:"sourceDatabaseName"`
-}
-
-func (DatabaseInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseInfoResponse)(nil)).Elem()
-}
-
-func (i DatabaseInfoResponseArgs) ToDatabaseInfoResponseOutput() DatabaseInfoResponseOutput {
-	return i.ToDatabaseInfoResponseOutputWithContext(context.Background())
-}
-
-func (i DatabaseInfoResponseArgs) ToDatabaseInfoResponseOutputWithContext(ctx context.Context) DatabaseInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInfoResponseOutput)
-}
-
-// DatabaseInfoResponseArrayInput is an input type that accepts DatabaseInfoResponseArray and DatabaseInfoResponseArrayOutput values.
-// You can construct a concrete instance of `DatabaseInfoResponseArrayInput` via:
-//
-//          DatabaseInfoResponseArray{ DatabaseInfoResponseArgs{...} }
-type DatabaseInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToDatabaseInfoResponseArrayOutput() DatabaseInfoResponseArrayOutput
-	ToDatabaseInfoResponseArrayOutputWithContext(context.Context) DatabaseInfoResponseArrayOutput
-}
-
-type DatabaseInfoResponseArray []DatabaseInfoResponseInput
-
-func (DatabaseInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseInfoResponse)(nil)).Elem()
-}
-
-func (i DatabaseInfoResponseArray) ToDatabaseInfoResponseArrayOutput() DatabaseInfoResponseArrayOutput {
-	return i.ToDatabaseInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DatabaseInfoResponseArray) ToDatabaseInfoResponseArrayOutputWithContext(ctx context.Context) DatabaseInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInfoResponseArrayOutput)
 }
 
 // Project Database Details
@@ -6856,45 +3892,6 @@ type ExecutionStatisticsResponse struct {
 	SqlErrors []string `pulumi:"sqlErrors"`
 	// Dictionary of sql query execution wait types and the respective statistics
 	WaitStats map[string]WaitStatisticsResponse `pulumi:"waitStats"`
-}
-
-// ExecutionStatisticsResponseInput is an input type that accepts ExecutionStatisticsResponseArgs and ExecutionStatisticsResponseOutput values.
-// You can construct a concrete instance of `ExecutionStatisticsResponseInput` via:
-//
-//          ExecutionStatisticsResponseArgs{...}
-type ExecutionStatisticsResponseInput interface {
-	pulumi.Input
-
-	ToExecutionStatisticsResponseOutput() ExecutionStatisticsResponseOutput
-	ToExecutionStatisticsResponseOutputWithContext(context.Context) ExecutionStatisticsResponseOutput
-}
-
-// Description about the errors happen while performing migration validation
-type ExecutionStatisticsResponseArgs struct {
-	// CPU Time in millisecond(s) for the query execution
-	CpuTimeMs pulumi.Float64Input `pulumi:"cpuTimeMs"`
-	// Time taken in millisecond(s) for executing the query
-	ElapsedTimeMs pulumi.Float64Input `pulumi:"elapsedTimeMs"`
-	// No. of query executions
-	ExecutionCount pulumi.IntInput `pulumi:"executionCount"`
-	// Indicates whether the query resulted in an error
-	HasErrors pulumi.BoolInput `pulumi:"hasErrors"`
-	// List of sql Errors
-	SqlErrors pulumi.StringArrayInput `pulumi:"sqlErrors"`
-	// Dictionary of sql query execution wait types and the respective statistics
-	WaitStats WaitStatisticsResponseMapInput `pulumi:"waitStats"`
-}
-
-func (ExecutionStatisticsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExecutionStatisticsResponse)(nil)).Elem()
-}
-
-func (i ExecutionStatisticsResponseArgs) ToExecutionStatisticsResponseOutput() ExecutionStatisticsResponseOutput {
-	return i.ToExecutionStatisticsResponseOutputWithContext(context.Background())
-}
-
-func (i ExecutionStatisticsResponseArgs) ToExecutionStatisticsResponseOutputWithContext(ctx context.Context) ExecutionStatisticsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExecutionStatisticsResponseOutput)
 }
 
 // Description about the errors happen while performing migration validation
@@ -7027,94 +4024,6 @@ func (i *fileSharePtrType) ToFileSharePtrOutputWithContext(ctx context.Context) 
 }
 
 // File share information with Path, Username, and Password.
-type FileShareOutput struct{ *pulumi.OutputState }
-
-func (FileShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileShare)(nil)).Elem()
-}
-
-func (o FileShareOutput) ToFileShareOutput() FileShareOutput {
-	return o
-}
-
-func (o FileShareOutput) ToFileShareOutputWithContext(ctx context.Context) FileShareOutput {
-	return o
-}
-
-func (o FileShareOutput) ToFileSharePtrOutput() FileSharePtrOutput {
-	return o.ToFileSharePtrOutputWithContext(context.Background())
-}
-
-func (o FileShareOutput) ToFileSharePtrOutputWithContext(ctx context.Context) FileSharePtrOutput {
-	return o.ApplyT(func(v FileShare) *FileShare {
-		return &v
-	}).(FileSharePtrOutput)
-}
-
-// Password credential used to connect to the share location.
-func (o FileShareOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileShare) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// The folder path for this share.
-func (o FileShareOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v FileShare) string { return v.Path }).(pulumi.StringOutput)
-}
-
-// User name credential to connect to the share location
-func (o FileShareOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileShare) *string { return v.UserName }).(pulumi.StringPtrOutput)
-}
-
-type FileSharePtrOutput struct{ *pulumi.OutputState }
-
-func (FileSharePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileShare)(nil)).Elem()
-}
-
-func (o FileSharePtrOutput) ToFileSharePtrOutput() FileSharePtrOutput {
-	return o
-}
-
-func (o FileSharePtrOutput) ToFileSharePtrOutputWithContext(ctx context.Context) FileSharePtrOutput {
-	return o
-}
-
-func (o FileSharePtrOutput) Elem() FileShareOutput {
-	return o.ApplyT(func(v *FileShare) FileShare { return *v }).(FileShareOutput)
-}
-
-// Password credential used to connect to the share location.
-func (o FileSharePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileShare) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// The folder path for this share.
-func (o FileSharePtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileShare) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-// User name credential to connect to the share location
-func (o FileSharePtrOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileShare) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserName
-	}).(pulumi.StringPtrOutput)
-}
-
-// File share information with Path, Username, and Password.
 type FileShareResponse struct {
 	// Password credential used to connect to the share location.
 	Password *string `pulumi:"password"`
@@ -7122,80 +4031,6 @@ type FileShareResponse struct {
 	Path string `pulumi:"path"`
 	// User name credential to connect to the share location
 	UserName *string `pulumi:"userName"`
-}
-
-// FileShareResponseInput is an input type that accepts FileShareResponseArgs and FileShareResponseOutput values.
-// You can construct a concrete instance of `FileShareResponseInput` via:
-//
-//          FileShareResponseArgs{...}
-type FileShareResponseInput interface {
-	pulumi.Input
-
-	ToFileShareResponseOutput() FileShareResponseOutput
-	ToFileShareResponseOutputWithContext(context.Context) FileShareResponseOutput
-}
-
-// File share information with Path, Username, and Password.
-type FileShareResponseArgs struct {
-	// Password credential used to connect to the share location.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The folder path for this share.
-	Path pulumi.StringInput `pulumi:"path"`
-	// User name credential to connect to the share location
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
-}
-
-func (FileShareResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileShareResponse)(nil)).Elem()
-}
-
-func (i FileShareResponseArgs) ToFileShareResponseOutput() FileShareResponseOutput {
-	return i.ToFileShareResponseOutputWithContext(context.Background())
-}
-
-func (i FileShareResponseArgs) ToFileShareResponseOutputWithContext(ctx context.Context) FileShareResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileShareResponseOutput)
-}
-
-func (i FileShareResponseArgs) ToFileShareResponsePtrOutput() FileShareResponsePtrOutput {
-	return i.ToFileShareResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FileShareResponseArgs) ToFileShareResponsePtrOutputWithContext(ctx context.Context) FileShareResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileShareResponseOutput).ToFileShareResponsePtrOutputWithContext(ctx)
-}
-
-// FileShareResponsePtrInput is an input type that accepts FileShareResponseArgs, FileShareResponsePtr and FileShareResponsePtrOutput values.
-// You can construct a concrete instance of `FileShareResponsePtrInput` via:
-//
-//          FileShareResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FileShareResponsePtrInput interface {
-	pulumi.Input
-
-	ToFileShareResponsePtrOutput() FileShareResponsePtrOutput
-	ToFileShareResponsePtrOutputWithContext(context.Context) FileShareResponsePtrOutput
-}
-
-type fileShareResponsePtrType FileShareResponseArgs
-
-func FileShareResponsePtr(v *FileShareResponseArgs) FileShareResponsePtrInput {
-	return (*fileShareResponsePtrType)(v)
-}
-
-func (*fileShareResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileShareResponse)(nil)).Elem()
-}
-
-func (i *fileShareResponsePtrType) ToFileShareResponsePtrOutput() FileShareResponsePtrOutput {
-	return i.ToFileShareResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *fileShareResponsePtrType) ToFileShareResponsePtrOutputWithContext(ctx context.Context) FileShareResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileShareResponsePtrOutput)
 }
 
 // File share information with Path, Username, and Password.
@@ -7371,94 +4206,6 @@ func (i *getTdeCertificatesSqlTaskInputPtrType) ToGetTdeCertificatesSqlTaskInput
 }
 
 // Input for the task that gets TDE certificates in Base64 encoded format.
-type GetTdeCertificatesSqlTaskInputOutput struct{ *pulumi.OutputState }
-
-func (GetTdeCertificatesSqlTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTdeCertificatesSqlTaskInput)(nil)).Elem()
-}
-
-func (o GetTdeCertificatesSqlTaskInputOutput) ToGetTdeCertificatesSqlTaskInputOutput() GetTdeCertificatesSqlTaskInputOutput {
-	return o
-}
-
-func (o GetTdeCertificatesSqlTaskInputOutput) ToGetTdeCertificatesSqlTaskInputOutputWithContext(ctx context.Context) GetTdeCertificatesSqlTaskInputOutput {
-	return o
-}
-
-func (o GetTdeCertificatesSqlTaskInputOutput) ToGetTdeCertificatesSqlTaskInputPtrOutput() GetTdeCertificatesSqlTaskInputPtrOutput {
-	return o.ToGetTdeCertificatesSqlTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o GetTdeCertificatesSqlTaskInputOutput) ToGetTdeCertificatesSqlTaskInputPtrOutputWithContext(ctx context.Context) GetTdeCertificatesSqlTaskInputPtrOutput {
-	return o.ApplyT(func(v GetTdeCertificatesSqlTaskInput) *GetTdeCertificatesSqlTaskInput {
-		return &v
-	}).(GetTdeCertificatesSqlTaskInputPtrOutput)
-}
-
-// Backup file share information for file share to be used for temporarily storing files.
-func (o GetTdeCertificatesSqlTaskInputOutput) BackupFileShare() FileShareOutput {
-	return o.ApplyT(func(v GetTdeCertificatesSqlTaskInput) FileShare { return v.BackupFileShare }).(FileShareOutput)
-}
-
-// Connection information for SQL Server
-func (o GetTdeCertificatesSqlTaskInputOutput) ConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v GetTdeCertificatesSqlTaskInput) SqlConnectionInfo { return v.ConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// List containing certificate names and corresponding password to use for encrypting the exported certificate.
-func (o GetTdeCertificatesSqlTaskInputOutput) SelectedCertificates() SelectedCertificateInputArrayOutput {
-	return o.ApplyT(func(v GetTdeCertificatesSqlTaskInput) []SelectedCertificateInput { return v.SelectedCertificates }).(SelectedCertificateInputArrayOutput)
-}
-
-type GetTdeCertificatesSqlTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (GetTdeCertificatesSqlTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetTdeCertificatesSqlTaskInput)(nil)).Elem()
-}
-
-func (o GetTdeCertificatesSqlTaskInputPtrOutput) ToGetTdeCertificatesSqlTaskInputPtrOutput() GetTdeCertificatesSqlTaskInputPtrOutput {
-	return o
-}
-
-func (o GetTdeCertificatesSqlTaskInputPtrOutput) ToGetTdeCertificatesSqlTaskInputPtrOutputWithContext(ctx context.Context) GetTdeCertificatesSqlTaskInputPtrOutput {
-	return o
-}
-
-func (o GetTdeCertificatesSqlTaskInputPtrOutput) Elem() GetTdeCertificatesSqlTaskInputOutput {
-	return o.ApplyT(func(v *GetTdeCertificatesSqlTaskInput) GetTdeCertificatesSqlTaskInput { return *v }).(GetTdeCertificatesSqlTaskInputOutput)
-}
-
-// Backup file share information for file share to be used for temporarily storing files.
-func (o GetTdeCertificatesSqlTaskInputPtrOutput) BackupFileShare() FileSharePtrOutput {
-	return o.ApplyT(func(v *GetTdeCertificatesSqlTaskInput) *FileShare {
-		if v == nil {
-			return nil
-		}
-		return &v.BackupFileShare
-	}).(FileSharePtrOutput)
-}
-
-// Connection information for SQL Server
-func (o GetTdeCertificatesSqlTaskInputPtrOutput) ConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *GetTdeCertificatesSqlTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.ConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// List containing certificate names and corresponding password to use for encrypting the exported certificate.
-func (o GetTdeCertificatesSqlTaskInputPtrOutput) SelectedCertificates() SelectedCertificateInputArrayOutput {
-	return o.ApplyT(func(v *GetTdeCertificatesSqlTaskInput) []SelectedCertificateInput {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedCertificates
-	}).(SelectedCertificateInputArrayOutput)
-}
-
-// Input for the task that gets TDE certificates in Base64 encoded format.
 type GetTdeCertificatesSqlTaskInputResponse struct {
 	// Backup file share information for file share to be used for temporarily storing files.
 	BackupFileShare FileShareResponse `pulumi:"backupFileShare"`
@@ -7466,80 +4213,6 @@ type GetTdeCertificatesSqlTaskInputResponse struct {
 	ConnectionInfo SqlConnectionInfoResponse `pulumi:"connectionInfo"`
 	// List containing certificate names and corresponding password to use for encrypting the exported certificate.
 	SelectedCertificates []SelectedCertificateInputResponse `pulumi:"selectedCertificates"`
-}
-
-// GetTdeCertificatesSqlTaskInputResponseInput is an input type that accepts GetTdeCertificatesSqlTaskInputResponseArgs and GetTdeCertificatesSqlTaskInputResponseOutput values.
-// You can construct a concrete instance of `GetTdeCertificatesSqlTaskInputResponseInput` via:
-//
-//          GetTdeCertificatesSqlTaskInputResponseArgs{...}
-type GetTdeCertificatesSqlTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToGetTdeCertificatesSqlTaskInputResponseOutput() GetTdeCertificatesSqlTaskInputResponseOutput
-	ToGetTdeCertificatesSqlTaskInputResponseOutputWithContext(context.Context) GetTdeCertificatesSqlTaskInputResponseOutput
-}
-
-// Input for the task that gets TDE certificates in Base64 encoded format.
-type GetTdeCertificatesSqlTaskInputResponseArgs struct {
-	// Backup file share information for file share to be used for temporarily storing files.
-	BackupFileShare FileShareResponseInput `pulumi:"backupFileShare"`
-	// Connection information for SQL Server
-	ConnectionInfo SqlConnectionInfoResponseInput `pulumi:"connectionInfo"`
-	// List containing certificate names and corresponding password to use for encrypting the exported certificate.
-	SelectedCertificates SelectedCertificateInputResponseArrayInput `pulumi:"selectedCertificates"`
-}
-
-func (GetTdeCertificatesSqlTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTdeCertificatesSqlTaskInputResponse)(nil)).Elem()
-}
-
-func (i GetTdeCertificatesSqlTaskInputResponseArgs) ToGetTdeCertificatesSqlTaskInputResponseOutput() GetTdeCertificatesSqlTaskInputResponseOutput {
-	return i.ToGetTdeCertificatesSqlTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i GetTdeCertificatesSqlTaskInputResponseArgs) ToGetTdeCertificatesSqlTaskInputResponseOutputWithContext(ctx context.Context) GetTdeCertificatesSqlTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTdeCertificatesSqlTaskInputResponseOutput)
-}
-
-func (i GetTdeCertificatesSqlTaskInputResponseArgs) ToGetTdeCertificatesSqlTaskInputResponsePtrOutput() GetTdeCertificatesSqlTaskInputResponsePtrOutput {
-	return i.ToGetTdeCertificatesSqlTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GetTdeCertificatesSqlTaskInputResponseArgs) ToGetTdeCertificatesSqlTaskInputResponsePtrOutputWithContext(ctx context.Context) GetTdeCertificatesSqlTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTdeCertificatesSqlTaskInputResponseOutput).ToGetTdeCertificatesSqlTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// GetTdeCertificatesSqlTaskInputResponsePtrInput is an input type that accepts GetTdeCertificatesSqlTaskInputResponseArgs, GetTdeCertificatesSqlTaskInputResponsePtr and GetTdeCertificatesSqlTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `GetTdeCertificatesSqlTaskInputResponsePtrInput` via:
-//
-//          GetTdeCertificatesSqlTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type GetTdeCertificatesSqlTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToGetTdeCertificatesSqlTaskInputResponsePtrOutput() GetTdeCertificatesSqlTaskInputResponsePtrOutput
-	ToGetTdeCertificatesSqlTaskInputResponsePtrOutputWithContext(context.Context) GetTdeCertificatesSqlTaskInputResponsePtrOutput
-}
-
-type getTdeCertificatesSqlTaskInputResponsePtrType GetTdeCertificatesSqlTaskInputResponseArgs
-
-func GetTdeCertificatesSqlTaskInputResponsePtr(v *GetTdeCertificatesSqlTaskInputResponseArgs) GetTdeCertificatesSqlTaskInputResponsePtrInput {
-	return (*getTdeCertificatesSqlTaskInputResponsePtrType)(v)
-}
-
-func (*getTdeCertificatesSqlTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetTdeCertificatesSqlTaskInputResponse)(nil)).Elem()
-}
-
-func (i *getTdeCertificatesSqlTaskInputResponsePtrType) ToGetTdeCertificatesSqlTaskInputResponsePtrOutput() GetTdeCertificatesSqlTaskInputResponsePtrOutput {
-	return i.ToGetTdeCertificatesSqlTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *getTdeCertificatesSqlTaskInputResponsePtrType) ToGetTdeCertificatesSqlTaskInputResponsePtrOutputWithContext(ctx context.Context) GetTdeCertificatesSqlTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTdeCertificatesSqlTaskInputResponsePtrOutput)
 }
 
 // Input for the task that gets TDE certificates in Base64 encoded format.
@@ -7640,62 +4313,6 @@ type GetTdeCertificatesSqlTaskOutputResponse struct {
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
 }
 
-// GetTdeCertificatesSqlTaskOutputResponseInput is an input type that accepts GetTdeCertificatesSqlTaskOutputResponseArgs and GetTdeCertificatesSqlTaskOutputResponseOutput values.
-// You can construct a concrete instance of `GetTdeCertificatesSqlTaskOutputResponseInput` via:
-//
-//          GetTdeCertificatesSqlTaskOutputResponseArgs{...}
-type GetTdeCertificatesSqlTaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToGetTdeCertificatesSqlTaskOutputResponseOutput() GetTdeCertificatesSqlTaskOutputResponseOutput
-	ToGetTdeCertificatesSqlTaskOutputResponseOutputWithContext(context.Context) GetTdeCertificatesSqlTaskOutputResponseOutput
-}
-
-// Output of the task that gets TDE certificates in Base64 encoded format.
-type GetTdeCertificatesSqlTaskOutputResponseArgs struct {
-	// Mapping from certificate name to base 64 encoded format.
-	Base64EncodedCertificates pulumi.StringInput `pulumi:"base64EncodedCertificates"`
-	// Validation errors
-	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
-}
-
-func (GetTdeCertificatesSqlTaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTdeCertificatesSqlTaskOutputResponse)(nil)).Elem()
-}
-
-func (i GetTdeCertificatesSqlTaskOutputResponseArgs) ToGetTdeCertificatesSqlTaskOutputResponseOutput() GetTdeCertificatesSqlTaskOutputResponseOutput {
-	return i.ToGetTdeCertificatesSqlTaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i GetTdeCertificatesSqlTaskOutputResponseArgs) ToGetTdeCertificatesSqlTaskOutputResponseOutputWithContext(ctx context.Context) GetTdeCertificatesSqlTaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTdeCertificatesSqlTaskOutputResponseOutput)
-}
-
-// GetTdeCertificatesSqlTaskOutputResponseArrayInput is an input type that accepts GetTdeCertificatesSqlTaskOutputResponseArray and GetTdeCertificatesSqlTaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `GetTdeCertificatesSqlTaskOutputResponseArrayInput` via:
-//
-//          GetTdeCertificatesSqlTaskOutputResponseArray{ GetTdeCertificatesSqlTaskOutputResponseArgs{...} }
-type GetTdeCertificatesSqlTaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToGetTdeCertificatesSqlTaskOutputResponseArrayOutput() GetTdeCertificatesSqlTaskOutputResponseArrayOutput
-	ToGetTdeCertificatesSqlTaskOutputResponseArrayOutputWithContext(context.Context) GetTdeCertificatesSqlTaskOutputResponseArrayOutput
-}
-
-type GetTdeCertificatesSqlTaskOutputResponseArray []GetTdeCertificatesSqlTaskOutputResponseInput
-
-func (GetTdeCertificatesSqlTaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetTdeCertificatesSqlTaskOutputResponse)(nil)).Elem()
-}
-
-func (i GetTdeCertificatesSqlTaskOutputResponseArray) ToGetTdeCertificatesSqlTaskOutputResponseArrayOutput() GetTdeCertificatesSqlTaskOutputResponseArrayOutput {
-	return i.ToGetTdeCertificatesSqlTaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i GetTdeCertificatesSqlTaskOutputResponseArray) ToGetTdeCertificatesSqlTaskOutputResponseArrayOutputWithContext(ctx context.Context) GetTdeCertificatesSqlTaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTdeCertificatesSqlTaskOutputResponseArrayOutput)
-}
-
 // Output of the task that gets TDE certificates in Base64 encoded format.
 type GetTdeCertificatesSqlTaskOutputResponseOutput struct{ *pulumi.OutputState }
 
@@ -7783,31 +4400,6 @@ func (i GetTdeCertificatesSqlTaskPropertiesArgs) ToGetTdeCertificatesSqlTaskProp
 }
 
 // Properties for the task that gets TDE certificates in Base64 encoded format.
-type GetTdeCertificatesSqlTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GetTdeCertificatesSqlTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTdeCertificatesSqlTaskProperties)(nil)).Elem()
-}
-
-func (o GetTdeCertificatesSqlTaskPropertiesOutput) ToGetTdeCertificatesSqlTaskPropertiesOutput() GetTdeCertificatesSqlTaskPropertiesOutput {
-	return o
-}
-
-func (o GetTdeCertificatesSqlTaskPropertiesOutput) ToGetTdeCertificatesSqlTaskPropertiesOutputWithContext(ctx context.Context) GetTdeCertificatesSqlTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o GetTdeCertificatesSqlTaskPropertiesOutput) Input() GetTdeCertificatesSqlTaskInputPtrOutput {
-	return o.ApplyT(func(v GetTdeCertificatesSqlTaskProperties) *GetTdeCertificatesSqlTaskInput { return v.Input }).(GetTdeCertificatesSqlTaskInputPtrOutput)
-}
-
-// Task type.
-func (o GetTdeCertificatesSqlTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTdeCertificatesSqlTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that gets TDE certificates in Base64 encoded format.
 type GetTdeCertificatesSqlTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -7821,45 +4413,6 @@ type GetTdeCertificatesSqlTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// GetTdeCertificatesSqlTaskPropertiesResponseInput is an input type that accepts GetTdeCertificatesSqlTaskPropertiesResponseArgs and GetTdeCertificatesSqlTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `GetTdeCertificatesSqlTaskPropertiesResponseInput` via:
-//
-//          GetTdeCertificatesSqlTaskPropertiesResponseArgs{...}
-type GetTdeCertificatesSqlTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToGetTdeCertificatesSqlTaskPropertiesResponseOutput() GetTdeCertificatesSqlTaskPropertiesResponseOutput
-	ToGetTdeCertificatesSqlTaskPropertiesResponseOutputWithContext(context.Context) GetTdeCertificatesSqlTaskPropertiesResponseOutput
-}
-
-// Properties for the task that gets TDE certificates in Base64 encoded format.
-type GetTdeCertificatesSqlTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input GetTdeCertificatesSqlTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output GetTdeCertificatesSqlTaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (GetTdeCertificatesSqlTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTdeCertificatesSqlTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i GetTdeCertificatesSqlTaskPropertiesResponseArgs) ToGetTdeCertificatesSqlTaskPropertiesResponseOutput() GetTdeCertificatesSqlTaskPropertiesResponseOutput {
-	return i.ToGetTdeCertificatesSqlTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i GetTdeCertificatesSqlTaskPropertiesResponseArgs) ToGetTdeCertificatesSqlTaskPropertiesResponseOutputWithContext(ctx context.Context) GetTdeCertificatesSqlTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTdeCertificatesSqlTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that gets TDE certificates in Base64 encoded format.
@@ -8000,109 +4553,6 @@ func (i *getUserTablesSqlSyncTaskInputPtrType) ToGetUserTablesSqlSyncTaskInputPt
 }
 
 // Input for the task that collects user tables for the given list of databases
-type GetUserTablesSqlSyncTaskInputOutput struct{ *pulumi.OutputState }
-
-func (GetUserTablesSqlSyncTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserTablesSqlSyncTaskInput)(nil)).Elem()
-}
-
-func (o GetUserTablesSqlSyncTaskInputOutput) ToGetUserTablesSqlSyncTaskInputOutput() GetUserTablesSqlSyncTaskInputOutput {
-	return o
-}
-
-func (o GetUserTablesSqlSyncTaskInputOutput) ToGetUserTablesSqlSyncTaskInputOutputWithContext(ctx context.Context) GetUserTablesSqlSyncTaskInputOutput {
-	return o
-}
-
-func (o GetUserTablesSqlSyncTaskInputOutput) ToGetUserTablesSqlSyncTaskInputPtrOutput() GetUserTablesSqlSyncTaskInputPtrOutput {
-	return o.ToGetUserTablesSqlSyncTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o GetUserTablesSqlSyncTaskInputOutput) ToGetUserTablesSqlSyncTaskInputPtrOutputWithContext(ctx context.Context) GetUserTablesSqlSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v GetUserTablesSqlSyncTaskInput) *GetUserTablesSqlSyncTaskInput {
-		return &v
-	}).(GetUserTablesSqlSyncTaskInputPtrOutput)
-}
-
-// List of source database names to collect tables for
-func (o GetUserTablesSqlSyncTaskInputOutput) SelectedSourceDatabases() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetUserTablesSqlSyncTaskInput) []string { return v.SelectedSourceDatabases }).(pulumi.StringArrayOutput)
-}
-
-// List of target database names to collect tables for
-func (o GetUserTablesSqlSyncTaskInputOutput) SelectedTargetDatabases() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetUserTablesSqlSyncTaskInput) []string { return v.SelectedTargetDatabases }).(pulumi.StringArrayOutput)
-}
-
-// Connection information for SQL Server
-func (o GetUserTablesSqlSyncTaskInputOutput) SourceConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v GetUserTablesSqlSyncTaskInput) SqlConnectionInfo { return v.SourceConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// Connection information for SQL DB
-func (o GetUserTablesSqlSyncTaskInputOutput) TargetConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v GetUserTablesSqlSyncTaskInput) SqlConnectionInfo { return v.TargetConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-type GetUserTablesSqlSyncTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (GetUserTablesSqlSyncTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetUserTablesSqlSyncTaskInput)(nil)).Elem()
-}
-
-func (o GetUserTablesSqlSyncTaskInputPtrOutput) ToGetUserTablesSqlSyncTaskInputPtrOutput() GetUserTablesSqlSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o GetUserTablesSqlSyncTaskInputPtrOutput) ToGetUserTablesSqlSyncTaskInputPtrOutputWithContext(ctx context.Context) GetUserTablesSqlSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o GetUserTablesSqlSyncTaskInputPtrOutput) Elem() GetUserTablesSqlSyncTaskInputOutput {
-	return o.ApplyT(func(v *GetUserTablesSqlSyncTaskInput) GetUserTablesSqlSyncTaskInput { return *v }).(GetUserTablesSqlSyncTaskInputOutput)
-}
-
-// List of source database names to collect tables for
-func (o GetUserTablesSqlSyncTaskInputPtrOutput) SelectedSourceDatabases() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GetUserTablesSqlSyncTaskInput) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedSourceDatabases
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of target database names to collect tables for
-func (o GetUserTablesSqlSyncTaskInputPtrOutput) SelectedTargetDatabases() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GetUserTablesSqlSyncTaskInput) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedTargetDatabases
-	}).(pulumi.StringArrayOutput)
-}
-
-// Connection information for SQL Server
-func (o GetUserTablesSqlSyncTaskInputPtrOutput) SourceConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *GetUserTablesSqlSyncTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Connection information for SQL DB
-func (o GetUserTablesSqlSyncTaskInputPtrOutput) TargetConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *GetUserTablesSqlSyncTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Input for the task that collects user tables for the given list of databases
 type GetUserTablesSqlSyncTaskInputResponse struct {
 	// List of source database names to collect tables for
 	SelectedSourceDatabases []string `pulumi:"selectedSourceDatabases"`
@@ -8112,82 +4562,6 @@ type GetUserTablesSqlSyncTaskInputResponse struct {
 	SourceConnectionInfo SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Connection information for SQL DB
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// GetUserTablesSqlSyncTaskInputResponseInput is an input type that accepts GetUserTablesSqlSyncTaskInputResponseArgs and GetUserTablesSqlSyncTaskInputResponseOutput values.
-// You can construct a concrete instance of `GetUserTablesSqlSyncTaskInputResponseInput` via:
-//
-//          GetUserTablesSqlSyncTaskInputResponseArgs{...}
-type GetUserTablesSqlSyncTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToGetUserTablesSqlSyncTaskInputResponseOutput() GetUserTablesSqlSyncTaskInputResponseOutput
-	ToGetUserTablesSqlSyncTaskInputResponseOutputWithContext(context.Context) GetUserTablesSqlSyncTaskInputResponseOutput
-}
-
-// Input for the task that collects user tables for the given list of databases
-type GetUserTablesSqlSyncTaskInputResponseArgs struct {
-	// List of source database names to collect tables for
-	SelectedSourceDatabases pulumi.StringArrayInput `pulumi:"selectedSourceDatabases"`
-	// List of target database names to collect tables for
-	SelectedTargetDatabases pulumi.StringArrayInput `pulumi:"selectedTargetDatabases"`
-	// Connection information for SQL Server
-	SourceConnectionInfo SqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Connection information for SQL DB
-	TargetConnectionInfo SqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (GetUserTablesSqlSyncTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserTablesSqlSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i GetUserTablesSqlSyncTaskInputResponseArgs) ToGetUserTablesSqlSyncTaskInputResponseOutput() GetUserTablesSqlSyncTaskInputResponseOutput {
-	return i.ToGetUserTablesSqlSyncTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i GetUserTablesSqlSyncTaskInputResponseArgs) ToGetUserTablesSqlSyncTaskInputResponseOutputWithContext(ctx context.Context) GetUserTablesSqlSyncTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlSyncTaskInputResponseOutput)
-}
-
-func (i GetUserTablesSqlSyncTaskInputResponseArgs) ToGetUserTablesSqlSyncTaskInputResponsePtrOutput() GetUserTablesSqlSyncTaskInputResponsePtrOutput {
-	return i.ToGetUserTablesSqlSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GetUserTablesSqlSyncTaskInputResponseArgs) ToGetUserTablesSqlSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) GetUserTablesSqlSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlSyncTaskInputResponseOutput).ToGetUserTablesSqlSyncTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// GetUserTablesSqlSyncTaskInputResponsePtrInput is an input type that accepts GetUserTablesSqlSyncTaskInputResponseArgs, GetUserTablesSqlSyncTaskInputResponsePtr and GetUserTablesSqlSyncTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `GetUserTablesSqlSyncTaskInputResponsePtrInput` via:
-//
-//          GetUserTablesSqlSyncTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type GetUserTablesSqlSyncTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToGetUserTablesSqlSyncTaskInputResponsePtrOutput() GetUserTablesSqlSyncTaskInputResponsePtrOutput
-	ToGetUserTablesSqlSyncTaskInputResponsePtrOutputWithContext(context.Context) GetUserTablesSqlSyncTaskInputResponsePtrOutput
-}
-
-type getUserTablesSqlSyncTaskInputResponsePtrType GetUserTablesSqlSyncTaskInputResponseArgs
-
-func GetUserTablesSqlSyncTaskInputResponsePtr(v *GetUserTablesSqlSyncTaskInputResponseArgs) GetUserTablesSqlSyncTaskInputResponsePtrInput {
-	return (*getUserTablesSqlSyncTaskInputResponsePtrType)(v)
-}
-
-func (*getUserTablesSqlSyncTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetUserTablesSqlSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i *getUserTablesSqlSyncTaskInputResponsePtrType) ToGetUserTablesSqlSyncTaskInputResponsePtrOutput() GetUserTablesSqlSyncTaskInputResponsePtrOutput {
-	return i.ToGetUserTablesSqlSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *getUserTablesSqlSyncTaskInputResponsePtrType) ToGetUserTablesSqlSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) GetUserTablesSqlSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlSyncTaskInputResponsePtrOutput)
 }
 
 // Input for the task that collects user tables for the given list of databases
@@ -8305,66 +4679,6 @@ type GetUserTablesSqlSyncTaskOutputResponse struct {
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
 }
 
-// GetUserTablesSqlSyncTaskOutputResponseInput is an input type that accepts GetUserTablesSqlSyncTaskOutputResponseArgs and GetUserTablesSqlSyncTaskOutputResponseOutput values.
-// You can construct a concrete instance of `GetUserTablesSqlSyncTaskOutputResponseInput` via:
-//
-//          GetUserTablesSqlSyncTaskOutputResponseArgs{...}
-type GetUserTablesSqlSyncTaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToGetUserTablesSqlSyncTaskOutputResponseOutput() GetUserTablesSqlSyncTaskOutputResponseOutput
-	ToGetUserTablesSqlSyncTaskOutputResponseOutputWithContext(context.Context) GetUserTablesSqlSyncTaskOutputResponseOutput
-}
-
-// Output of the task that collects user tables for the given list of databases
-type GetUserTablesSqlSyncTaskOutputResponseArgs struct {
-	// Mapping from database name to list of source tables
-	DatabasesToSourceTables pulumi.StringInput `pulumi:"databasesToSourceTables"`
-	// Mapping from database name to list of target tables
-	DatabasesToTargetTables pulumi.StringInput `pulumi:"databasesToTargetTables"`
-	// Mapping from database name to list of validation errors
-	TableValidationErrors pulumi.StringInput `pulumi:"tableValidationErrors"`
-	// Validation errors
-	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
-}
-
-func (GetUserTablesSqlSyncTaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserTablesSqlSyncTaskOutputResponse)(nil)).Elem()
-}
-
-func (i GetUserTablesSqlSyncTaskOutputResponseArgs) ToGetUserTablesSqlSyncTaskOutputResponseOutput() GetUserTablesSqlSyncTaskOutputResponseOutput {
-	return i.ToGetUserTablesSqlSyncTaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i GetUserTablesSqlSyncTaskOutputResponseArgs) ToGetUserTablesSqlSyncTaskOutputResponseOutputWithContext(ctx context.Context) GetUserTablesSqlSyncTaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlSyncTaskOutputResponseOutput)
-}
-
-// GetUserTablesSqlSyncTaskOutputResponseArrayInput is an input type that accepts GetUserTablesSqlSyncTaskOutputResponseArray and GetUserTablesSqlSyncTaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `GetUserTablesSqlSyncTaskOutputResponseArrayInput` via:
-//
-//          GetUserTablesSqlSyncTaskOutputResponseArray{ GetUserTablesSqlSyncTaskOutputResponseArgs{...} }
-type GetUserTablesSqlSyncTaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToGetUserTablesSqlSyncTaskOutputResponseArrayOutput() GetUserTablesSqlSyncTaskOutputResponseArrayOutput
-	ToGetUserTablesSqlSyncTaskOutputResponseArrayOutputWithContext(context.Context) GetUserTablesSqlSyncTaskOutputResponseArrayOutput
-}
-
-type GetUserTablesSqlSyncTaskOutputResponseArray []GetUserTablesSqlSyncTaskOutputResponseInput
-
-func (GetUserTablesSqlSyncTaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetUserTablesSqlSyncTaskOutputResponse)(nil)).Elem()
-}
-
-func (i GetUserTablesSqlSyncTaskOutputResponseArray) ToGetUserTablesSqlSyncTaskOutputResponseArrayOutput() GetUserTablesSqlSyncTaskOutputResponseArrayOutput {
-	return i.ToGetUserTablesSqlSyncTaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i GetUserTablesSqlSyncTaskOutputResponseArray) ToGetUserTablesSqlSyncTaskOutputResponseArrayOutputWithContext(ctx context.Context) GetUserTablesSqlSyncTaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlSyncTaskOutputResponseArrayOutput)
-}
-
 // Output of the task that collects user tables for the given list of databases
 type GetUserTablesSqlSyncTaskOutputResponseOutput struct{ *pulumi.OutputState }
 
@@ -8462,31 +4776,6 @@ func (i GetUserTablesSqlSyncTaskPropertiesArgs) ToGetUserTablesSqlSyncTaskProper
 }
 
 // Properties for the task that collects user tables for the given list of databases
-type GetUserTablesSqlSyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GetUserTablesSqlSyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserTablesSqlSyncTaskProperties)(nil)).Elem()
-}
-
-func (o GetUserTablesSqlSyncTaskPropertiesOutput) ToGetUserTablesSqlSyncTaskPropertiesOutput() GetUserTablesSqlSyncTaskPropertiesOutput {
-	return o
-}
-
-func (o GetUserTablesSqlSyncTaskPropertiesOutput) ToGetUserTablesSqlSyncTaskPropertiesOutputWithContext(ctx context.Context) GetUserTablesSqlSyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o GetUserTablesSqlSyncTaskPropertiesOutput) Input() GetUserTablesSqlSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v GetUserTablesSqlSyncTaskProperties) *GetUserTablesSqlSyncTaskInput { return v.Input }).(GetUserTablesSqlSyncTaskInputPtrOutput)
-}
-
-// Task type.
-func (o GetUserTablesSqlSyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserTablesSqlSyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that collects user tables for the given list of databases
 type GetUserTablesSqlSyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -8500,45 +4789,6 @@ type GetUserTablesSqlSyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// GetUserTablesSqlSyncTaskPropertiesResponseInput is an input type that accepts GetUserTablesSqlSyncTaskPropertiesResponseArgs and GetUserTablesSqlSyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `GetUserTablesSqlSyncTaskPropertiesResponseInput` via:
-//
-//          GetUserTablesSqlSyncTaskPropertiesResponseArgs{...}
-type GetUserTablesSqlSyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToGetUserTablesSqlSyncTaskPropertiesResponseOutput() GetUserTablesSqlSyncTaskPropertiesResponseOutput
-	ToGetUserTablesSqlSyncTaskPropertiesResponseOutputWithContext(context.Context) GetUserTablesSqlSyncTaskPropertiesResponseOutput
-}
-
-// Properties for the task that collects user tables for the given list of databases
-type GetUserTablesSqlSyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input GetUserTablesSqlSyncTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output GetUserTablesSqlSyncTaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (GetUserTablesSqlSyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserTablesSqlSyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i GetUserTablesSqlSyncTaskPropertiesResponseArgs) ToGetUserTablesSqlSyncTaskPropertiesResponseOutput() GetUserTablesSqlSyncTaskPropertiesResponseOutput {
-	return i.ToGetUserTablesSqlSyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i GetUserTablesSqlSyncTaskPropertiesResponseArgs) ToGetUserTablesSqlSyncTaskPropertiesResponseOutputWithContext(ctx context.Context) GetUserTablesSqlSyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlSyncTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that collects user tables for the given list of databases
@@ -8671,156 +4921,11 @@ func (i *getUserTablesSqlTaskInputPtrType) ToGetUserTablesSqlTaskInputPtrOutputW
 }
 
 // Input for the task that collects user tables for the given list of databases
-type GetUserTablesSqlTaskInputOutput struct{ *pulumi.OutputState }
-
-func (GetUserTablesSqlTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserTablesSqlTaskInput)(nil)).Elem()
-}
-
-func (o GetUserTablesSqlTaskInputOutput) ToGetUserTablesSqlTaskInputOutput() GetUserTablesSqlTaskInputOutput {
-	return o
-}
-
-func (o GetUserTablesSqlTaskInputOutput) ToGetUserTablesSqlTaskInputOutputWithContext(ctx context.Context) GetUserTablesSqlTaskInputOutput {
-	return o
-}
-
-func (o GetUserTablesSqlTaskInputOutput) ToGetUserTablesSqlTaskInputPtrOutput() GetUserTablesSqlTaskInputPtrOutput {
-	return o.ToGetUserTablesSqlTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o GetUserTablesSqlTaskInputOutput) ToGetUserTablesSqlTaskInputPtrOutputWithContext(ctx context.Context) GetUserTablesSqlTaskInputPtrOutput {
-	return o.ApplyT(func(v GetUserTablesSqlTaskInput) *GetUserTablesSqlTaskInput {
-		return &v
-	}).(GetUserTablesSqlTaskInputPtrOutput)
-}
-
-// Connection information for SQL Server
-func (o GetUserTablesSqlTaskInputOutput) ConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v GetUserTablesSqlTaskInput) SqlConnectionInfo { return v.ConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// List of database names to collect tables for
-func (o GetUserTablesSqlTaskInputOutput) SelectedDatabases() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetUserTablesSqlTaskInput) []string { return v.SelectedDatabases }).(pulumi.StringArrayOutput)
-}
-
-type GetUserTablesSqlTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (GetUserTablesSqlTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetUserTablesSqlTaskInput)(nil)).Elem()
-}
-
-func (o GetUserTablesSqlTaskInputPtrOutput) ToGetUserTablesSqlTaskInputPtrOutput() GetUserTablesSqlTaskInputPtrOutput {
-	return o
-}
-
-func (o GetUserTablesSqlTaskInputPtrOutput) ToGetUserTablesSqlTaskInputPtrOutputWithContext(ctx context.Context) GetUserTablesSqlTaskInputPtrOutput {
-	return o
-}
-
-func (o GetUserTablesSqlTaskInputPtrOutput) Elem() GetUserTablesSqlTaskInputOutput {
-	return o.ApplyT(func(v *GetUserTablesSqlTaskInput) GetUserTablesSqlTaskInput { return *v }).(GetUserTablesSqlTaskInputOutput)
-}
-
-// Connection information for SQL Server
-func (o GetUserTablesSqlTaskInputPtrOutput) ConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *GetUserTablesSqlTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.ConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// List of database names to collect tables for
-func (o GetUserTablesSqlTaskInputPtrOutput) SelectedDatabases() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GetUserTablesSqlTaskInput) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedDatabases
-	}).(pulumi.StringArrayOutput)
-}
-
-// Input for the task that collects user tables for the given list of databases
 type GetUserTablesSqlTaskInputResponse struct {
 	// Connection information for SQL Server
 	ConnectionInfo SqlConnectionInfoResponse `pulumi:"connectionInfo"`
 	// List of database names to collect tables for
 	SelectedDatabases []string `pulumi:"selectedDatabases"`
-}
-
-// GetUserTablesSqlTaskInputResponseInput is an input type that accepts GetUserTablesSqlTaskInputResponseArgs and GetUserTablesSqlTaskInputResponseOutput values.
-// You can construct a concrete instance of `GetUserTablesSqlTaskInputResponseInput` via:
-//
-//          GetUserTablesSqlTaskInputResponseArgs{...}
-type GetUserTablesSqlTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToGetUserTablesSqlTaskInputResponseOutput() GetUserTablesSqlTaskInputResponseOutput
-	ToGetUserTablesSqlTaskInputResponseOutputWithContext(context.Context) GetUserTablesSqlTaskInputResponseOutput
-}
-
-// Input for the task that collects user tables for the given list of databases
-type GetUserTablesSqlTaskInputResponseArgs struct {
-	// Connection information for SQL Server
-	ConnectionInfo SqlConnectionInfoResponseInput `pulumi:"connectionInfo"`
-	// List of database names to collect tables for
-	SelectedDatabases pulumi.StringArrayInput `pulumi:"selectedDatabases"`
-}
-
-func (GetUserTablesSqlTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserTablesSqlTaskInputResponse)(nil)).Elem()
-}
-
-func (i GetUserTablesSqlTaskInputResponseArgs) ToGetUserTablesSqlTaskInputResponseOutput() GetUserTablesSqlTaskInputResponseOutput {
-	return i.ToGetUserTablesSqlTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i GetUserTablesSqlTaskInputResponseArgs) ToGetUserTablesSqlTaskInputResponseOutputWithContext(ctx context.Context) GetUserTablesSqlTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlTaskInputResponseOutput)
-}
-
-func (i GetUserTablesSqlTaskInputResponseArgs) ToGetUserTablesSqlTaskInputResponsePtrOutput() GetUserTablesSqlTaskInputResponsePtrOutput {
-	return i.ToGetUserTablesSqlTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GetUserTablesSqlTaskInputResponseArgs) ToGetUserTablesSqlTaskInputResponsePtrOutputWithContext(ctx context.Context) GetUserTablesSqlTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlTaskInputResponseOutput).ToGetUserTablesSqlTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// GetUserTablesSqlTaskInputResponsePtrInput is an input type that accepts GetUserTablesSqlTaskInputResponseArgs, GetUserTablesSqlTaskInputResponsePtr and GetUserTablesSqlTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `GetUserTablesSqlTaskInputResponsePtrInput` via:
-//
-//          GetUserTablesSqlTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type GetUserTablesSqlTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToGetUserTablesSqlTaskInputResponsePtrOutput() GetUserTablesSqlTaskInputResponsePtrOutput
-	ToGetUserTablesSqlTaskInputResponsePtrOutputWithContext(context.Context) GetUserTablesSqlTaskInputResponsePtrOutput
-}
-
-type getUserTablesSqlTaskInputResponsePtrType GetUserTablesSqlTaskInputResponseArgs
-
-func GetUserTablesSqlTaskInputResponsePtr(v *GetUserTablesSqlTaskInputResponseArgs) GetUserTablesSqlTaskInputResponsePtrInput {
-	return (*getUserTablesSqlTaskInputResponsePtrType)(v)
-}
-
-func (*getUserTablesSqlTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetUserTablesSqlTaskInputResponse)(nil)).Elem()
-}
-
-func (i *getUserTablesSqlTaskInputResponsePtrType) ToGetUserTablesSqlTaskInputResponsePtrOutput() GetUserTablesSqlTaskInputResponsePtrOutput {
-	return i.ToGetUserTablesSqlTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *getUserTablesSqlTaskInputResponsePtrType) ToGetUserTablesSqlTaskInputResponsePtrOutputWithContext(ctx context.Context) GetUserTablesSqlTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlTaskInputResponsePtrOutput)
 }
 
 // Input for the task that collects user tables for the given list of databases
@@ -8904,64 +5009,6 @@ type GetUserTablesSqlTaskOutputResponse struct {
 	Id string `pulumi:"id"`
 	// Validation errors
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
-}
-
-// GetUserTablesSqlTaskOutputResponseInput is an input type that accepts GetUserTablesSqlTaskOutputResponseArgs and GetUserTablesSqlTaskOutputResponseOutput values.
-// You can construct a concrete instance of `GetUserTablesSqlTaskOutputResponseInput` via:
-//
-//          GetUserTablesSqlTaskOutputResponseArgs{...}
-type GetUserTablesSqlTaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToGetUserTablesSqlTaskOutputResponseOutput() GetUserTablesSqlTaskOutputResponseOutput
-	ToGetUserTablesSqlTaskOutputResponseOutputWithContext(context.Context) GetUserTablesSqlTaskOutputResponseOutput
-}
-
-// Output of the task that collects user tables for the given list of databases
-type GetUserTablesSqlTaskOutputResponseArgs struct {
-	// Mapping from database name to list of tables
-	DatabasesToTables pulumi.StringInput `pulumi:"databasesToTables"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Validation errors
-	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
-}
-
-func (GetUserTablesSqlTaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserTablesSqlTaskOutputResponse)(nil)).Elem()
-}
-
-func (i GetUserTablesSqlTaskOutputResponseArgs) ToGetUserTablesSqlTaskOutputResponseOutput() GetUserTablesSqlTaskOutputResponseOutput {
-	return i.ToGetUserTablesSqlTaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i GetUserTablesSqlTaskOutputResponseArgs) ToGetUserTablesSqlTaskOutputResponseOutputWithContext(ctx context.Context) GetUserTablesSqlTaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlTaskOutputResponseOutput)
-}
-
-// GetUserTablesSqlTaskOutputResponseArrayInput is an input type that accepts GetUserTablesSqlTaskOutputResponseArray and GetUserTablesSqlTaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `GetUserTablesSqlTaskOutputResponseArrayInput` via:
-//
-//          GetUserTablesSqlTaskOutputResponseArray{ GetUserTablesSqlTaskOutputResponseArgs{...} }
-type GetUserTablesSqlTaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToGetUserTablesSqlTaskOutputResponseArrayOutput() GetUserTablesSqlTaskOutputResponseArrayOutput
-	ToGetUserTablesSqlTaskOutputResponseArrayOutputWithContext(context.Context) GetUserTablesSqlTaskOutputResponseArrayOutput
-}
-
-type GetUserTablesSqlTaskOutputResponseArray []GetUserTablesSqlTaskOutputResponseInput
-
-func (GetUserTablesSqlTaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetUserTablesSqlTaskOutputResponse)(nil)).Elem()
-}
-
-func (i GetUserTablesSqlTaskOutputResponseArray) ToGetUserTablesSqlTaskOutputResponseArrayOutput() GetUserTablesSqlTaskOutputResponseArrayOutput {
-	return i.ToGetUserTablesSqlTaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i GetUserTablesSqlTaskOutputResponseArray) ToGetUserTablesSqlTaskOutputResponseArrayOutputWithContext(ctx context.Context) GetUserTablesSqlTaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlTaskOutputResponseArrayOutput)
 }
 
 // Output of the task that collects user tables for the given list of databases
@@ -9054,31 +5101,6 @@ func (i GetUserTablesSqlTaskPropertiesArgs) ToGetUserTablesSqlTaskPropertiesOutp
 }
 
 // Properties for the task that collects user tables for the given list of databases
-type GetUserTablesSqlTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (GetUserTablesSqlTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserTablesSqlTaskProperties)(nil)).Elem()
-}
-
-func (o GetUserTablesSqlTaskPropertiesOutput) ToGetUserTablesSqlTaskPropertiesOutput() GetUserTablesSqlTaskPropertiesOutput {
-	return o
-}
-
-func (o GetUserTablesSqlTaskPropertiesOutput) ToGetUserTablesSqlTaskPropertiesOutputWithContext(ctx context.Context) GetUserTablesSqlTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o GetUserTablesSqlTaskPropertiesOutput) Input() GetUserTablesSqlTaskInputPtrOutput {
-	return o.ApplyT(func(v GetUserTablesSqlTaskProperties) *GetUserTablesSqlTaskInput { return v.Input }).(GetUserTablesSqlTaskInputPtrOutput)
-}
-
-// Task type.
-func (o GetUserTablesSqlTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserTablesSqlTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that collects user tables for the given list of databases
 type GetUserTablesSqlTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -9092,45 +5114,6 @@ type GetUserTablesSqlTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// GetUserTablesSqlTaskPropertiesResponseInput is an input type that accepts GetUserTablesSqlTaskPropertiesResponseArgs and GetUserTablesSqlTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `GetUserTablesSqlTaskPropertiesResponseInput` via:
-//
-//          GetUserTablesSqlTaskPropertiesResponseArgs{...}
-type GetUserTablesSqlTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToGetUserTablesSqlTaskPropertiesResponseOutput() GetUserTablesSqlTaskPropertiesResponseOutput
-	ToGetUserTablesSqlTaskPropertiesResponseOutputWithContext(context.Context) GetUserTablesSqlTaskPropertiesResponseOutput
-}
-
-// Properties for the task that collects user tables for the given list of databases
-type GetUserTablesSqlTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input GetUserTablesSqlTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output GetUserTablesSqlTaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (GetUserTablesSqlTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserTablesSqlTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i GetUserTablesSqlTaskPropertiesResponseArgs) ToGetUserTablesSqlTaskPropertiesResponseOutput() GetUserTablesSqlTaskPropertiesResponseOutput {
-	return i.ToGetUserTablesSqlTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i GetUserTablesSqlTaskPropertiesResponseArgs) ToGetUserTablesSqlTaskPropertiesResponseOutputWithContext(ctx context.Context) GetUserTablesSqlTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserTablesSqlTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that collects user tables for the given list of databases
@@ -9267,109 +5250,6 @@ func (i *miSqlConnectionInfoPtrType) ToMiSqlConnectionInfoPtrOutputWithContext(c
 }
 
 // Properties required to create a connection to Azure SQL database Managed instance
-type MiSqlConnectionInfoOutput struct{ *pulumi.OutputState }
-
-func (MiSqlConnectionInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MiSqlConnectionInfo)(nil)).Elem()
-}
-
-func (o MiSqlConnectionInfoOutput) ToMiSqlConnectionInfoOutput() MiSqlConnectionInfoOutput {
-	return o
-}
-
-func (o MiSqlConnectionInfoOutput) ToMiSqlConnectionInfoOutputWithContext(ctx context.Context) MiSqlConnectionInfoOutput {
-	return o
-}
-
-func (o MiSqlConnectionInfoOutput) ToMiSqlConnectionInfoPtrOutput() MiSqlConnectionInfoPtrOutput {
-	return o.ToMiSqlConnectionInfoPtrOutputWithContext(context.Background())
-}
-
-func (o MiSqlConnectionInfoOutput) ToMiSqlConnectionInfoPtrOutputWithContext(ctx context.Context) MiSqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v MiSqlConnectionInfo) *MiSqlConnectionInfo {
-		return &v
-	}).(MiSqlConnectionInfoPtrOutput)
-}
-
-// Resource id for Azure SQL database Managed instance
-func (o MiSqlConnectionInfoOutput) ManagedInstanceResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v MiSqlConnectionInfo) string { return v.ManagedInstanceResourceId }).(pulumi.StringOutput)
-}
-
-// Password credential.
-func (o MiSqlConnectionInfoOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MiSqlConnectionInfo) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// Type of connection info
-func (o MiSqlConnectionInfoOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MiSqlConnectionInfo) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// User name
-func (o MiSqlConnectionInfoOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MiSqlConnectionInfo) *string { return v.UserName }).(pulumi.StringPtrOutput)
-}
-
-type MiSqlConnectionInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (MiSqlConnectionInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MiSqlConnectionInfo)(nil)).Elem()
-}
-
-func (o MiSqlConnectionInfoPtrOutput) ToMiSqlConnectionInfoPtrOutput() MiSqlConnectionInfoPtrOutput {
-	return o
-}
-
-func (o MiSqlConnectionInfoPtrOutput) ToMiSqlConnectionInfoPtrOutputWithContext(ctx context.Context) MiSqlConnectionInfoPtrOutput {
-	return o
-}
-
-func (o MiSqlConnectionInfoPtrOutput) Elem() MiSqlConnectionInfoOutput {
-	return o.ApplyT(func(v *MiSqlConnectionInfo) MiSqlConnectionInfo { return *v }).(MiSqlConnectionInfoOutput)
-}
-
-// Resource id for Azure SQL database Managed instance
-func (o MiSqlConnectionInfoPtrOutput) ManagedInstanceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MiSqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ManagedInstanceResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Password credential.
-func (o MiSqlConnectionInfoPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MiSqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of connection info
-func (o MiSqlConnectionInfoPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MiSqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// User name
-func (o MiSqlConnectionInfoPtrOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MiSqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Properties required to create a connection to Azure SQL database Managed instance
 type MiSqlConnectionInfoResponse struct {
 	// Resource id for Azure SQL database Managed instance
 	ManagedInstanceResourceId string `pulumi:"managedInstanceResourceId"`
@@ -9379,82 +5259,6 @@ type MiSqlConnectionInfoResponse struct {
 	Type string `pulumi:"type"`
 	// User name
 	UserName *string `pulumi:"userName"`
-}
-
-// MiSqlConnectionInfoResponseInput is an input type that accepts MiSqlConnectionInfoResponseArgs and MiSqlConnectionInfoResponseOutput values.
-// You can construct a concrete instance of `MiSqlConnectionInfoResponseInput` via:
-//
-//          MiSqlConnectionInfoResponseArgs{...}
-type MiSqlConnectionInfoResponseInput interface {
-	pulumi.Input
-
-	ToMiSqlConnectionInfoResponseOutput() MiSqlConnectionInfoResponseOutput
-	ToMiSqlConnectionInfoResponseOutputWithContext(context.Context) MiSqlConnectionInfoResponseOutput
-}
-
-// Properties required to create a connection to Azure SQL database Managed instance
-type MiSqlConnectionInfoResponseArgs struct {
-	// Resource id for Azure SQL database Managed instance
-	ManagedInstanceResourceId pulumi.StringInput `pulumi:"managedInstanceResourceId"`
-	// Password credential.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Type of connection info
-	Type pulumi.StringInput `pulumi:"type"`
-	// User name
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
-}
-
-func (MiSqlConnectionInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MiSqlConnectionInfoResponse)(nil)).Elem()
-}
-
-func (i MiSqlConnectionInfoResponseArgs) ToMiSqlConnectionInfoResponseOutput() MiSqlConnectionInfoResponseOutput {
-	return i.ToMiSqlConnectionInfoResponseOutputWithContext(context.Background())
-}
-
-func (i MiSqlConnectionInfoResponseArgs) ToMiSqlConnectionInfoResponseOutputWithContext(ctx context.Context) MiSqlConnectionInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MiSqlConnectionInfoResponseOutput)
-}
-
-func (i MiSqlConnectionInfoResponseArgs) ToMiSqlConnectionInfoResponsePtrOutput() MiSqlConnectionInfoResponsePtrOutput {
-	return i.ToMiSqlConnectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MiSqlConnectionInfoResponseArgs) ToMiSqlConnectionInfoResponsePtrOutputWithContext(ctx context.Context) MiSqlConnectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MiSqlConnectionInfoResponseOutput).ToMiSqlConnectionInfoResponsePtrOutputWithContext(ctx)
-}
-
-// MiSqlConnectionInfoResponsePtrInput is an input type that accepts MiSqlConnectionInfoResponseArgs, MiSqlConnectionInfoResponsePtr and MiSqlConnectionInfoResponsePtrOutput values.
-// You can construct a concrete instance of `MiSqlConnectionInfoResponsePtrInput` via:
-//
-//          MiSqlConnectionInfoResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MiSqlConnectionInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToMiSqlConnectionInfoResponsePtrOutput() MiSqlConnectionInfoResponsePtrOutput
-	ToMiSqlConnectionInfoResponsePtrOutputWithContext(context.Context) MiSqlConnectionInfoResponsePtrOutput
-}
-
-type miSqlConnectionInfoResponsePtrType MiSqlConnectionInfoResponseArgs
-
-func MiSqlConnectionInfoResponsePtr(v *MiSqlConnectionInfoResponseArgs) MiSqlConnectionInfoResponsePtrInput {
-	return (*miSqlConnectionInfoResponsePtrType)(v)
-}
-
-func (*miSqlConnectionInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MiSqlConnectionInfoResponse)(nil)).Elem()
-}
-
-func (i *miSqlConnectionInfoResponsePtrType) ToMiSqlConnectionInfoResponsePtrOutput() MiSqlConnectionInfoResponsePtrOutput {
-	return i.ToMiSqlConnectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *miSqlConnectionInfoResponsePtrType) ToMiSqlConnectionInfoResponsePtrOutputWithContext(ctx context.Context) MiSqlConnectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MiSqlConnectionInfoResponsePtrOutput)
 }
 
 // Properties required to create a connection to Azure SQL database Managed instance
@@ -9566,76 +5370,6 @@ type MigrateMISyncCompleteCommandInputResponse struct {
 	SourceDatabaseName string `pulumi:"sourceDatabaseName"`
 }
 
-// MigrateMISyncCompleteCommandInputResponseInput is an input type that accepts MigrateMISyncCompleteCommandInputResponseArgs and MigrateMISyncCompleteCommandInputResponseOutput values.
-// You can construct a concrete instance of `MigrateMISyncCompleteCommandInputResponseInput` via:
-//
-//          MigrateMISyncCompleteCommandInputResponseArgs{...}
-type MigrateMISyncCompleteCommandInputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateMISyncCompleteCommandInputResponseOutput() MigrateMISyncCompleteCommandInputResponseOutput
-	ToMigrateMISyncCompleteCommandInputResponseOutputWithContext(context.Context) MigrateMISyncCompleteCommandInputResponseOutput
-}
-
-// Input for command that completes online migration for an Azure SQL Database Managed Instance.
-type MigrateMISyncCompleteCommandInputResponseArgs struct {
-	// Name of managed instance database
-	SourceDatabaseName pulumi.StringInput `pulumi:"sourceDatabaseName"`
-}
-
-func (MigrateMISyncCompleteCommandInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMISyncCompleteCommandInputResponse)(nil)).Elem()
-}
-
-func (i MigrateMISyncCompleteCommandInputResponseArgs) ToMigrateMISyncCompleteCommandInputResponseOutput() MigrateMISyncCompleteCommandInputResponseOutput {
-	return i.ToMigrateMISyncCompleteCommandInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateMISyncCompleteCommandInputResponseArgs) ToMigrateMISyncCompleteCommandInputResponseOutputWithContext(ctx context.Context) MigrateMISyncCompleteCommandInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMISyncCompleteCommandInputResponseOutput)
-}
-
-func (i MigrateMISyncCompleteCommandInputResponseArgs) ToMigrateMISyncCompleteCommandInputResponsePtrOutput() MigrateMISyncCompleteCommandInputResponsePtrOutput {
-	return i.ToMigrateMISyncCompleteCommandInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MigrateMISyncCompleteCommandInputResponseArgs) ToMigrateMISyncCompleteCommandInputResponsePtrOutputWithContext(ctx context.Context) MigrateMISyncCompleteCommandInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMISyncCompleteCommandInputResponseOutput).ToMigrateMISyncCompleteCommandInputResponsePtrOutputWithContext(ctx)
-}
-
-// MigrateMISyncCompleteCommandInputResponsePtrInput is an input type that accepts MigrateMISyncCompleteCommandInputResponseArgs, MigrateMISyncCompleteCommandInputResponsePtr and MigrateMISyncCompleteCommandInputResponsePtrOutput values.
-// You can construct a concrete instance of `MigrateMISyncCompleteCommandInputResponsePtrInput` via:
-//
-//          MigrateMISyncCompleteCommandInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MigrateMISyncCompleteCommandInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToMigrateMISyncCompleteCommandInputResponsePtrOutput() MigrateMISyncCompleteCommandInputResponsePtrOutput
-	ToMigrateMISyncCompleteCommandInputResponsePtrOutputWithContext(context.Context) MigrateMISyncCompleteCommandInputResponsePtrOutput
-}
-
-type migrateMISyncCompleteCommandInputResponsePtrType MigrateMISyncCompleteCommandInputResponseArgs
-
-func MigrateMISyncCompleteCommandInputResponsePtr(v *MigrateMISyncCompleteCommandInputResponseArgs) MigrateMISyncCompleteCommandInputResponsePtrInput {
-	return (*migrateMISyncCompleteCommandInputResponsePtrType)(v)
-}
-
-func (*migrateMISyncCompleteCommandInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateMISyncCompleteCommandInputResponse)(nil)).Elem()
-}
-
-func (i *migrateMISyncCompleteCommandInputResponsePtrType) ToMigrateMISyncCompleteCommandInputResponsePtrOutput() MigrateMISyncCompleteCommandInputResponsePtrOutput {
-	return i.ToMigrateMISyncCompleteCommandInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *migrateMISyncCompleteCommandInputResponsePtrType) ToMigrateMISyncCompleteCommandInputResponsePtrOutputWithContext(ctx context.Context) MigrateMISyncCompleteCommandInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMISyncCompleteCommandInputResponsePtrOutput)
-}
-
 // Input for command that completes online migration for an Azure SQL Database Managed Instance.
 type MigrateMISyncCompleteCommandInputResponseOutput struct{ *pulumi.OutputState }
 
@@ -9702,35 +5436,6 @@ type MigrateMISyncCompleteCommandOutputResponse struct {
 	Errors []ReportableExceptionResponse `pulumi:"errors"`
 }
 
-// MigrateMISyncCompleteCommandOutputResponseInput is an input type that accepts MigrateMISyncCompleteCommandOutputResponseArgs and MigrateMISyncCompleteCommandOutputResponseOutput values.
-// You can construct a concrete instance of `MigrateMISyncCompleteCommandOutputResponseInput` via:
-//
-//          MigrateMISyncCompleteCommandOutputResponseArgs{...}
-type MigrateMISyncCompleteCommandOutputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateMISyncCompleteCommandOutputResponseOutput() MigrateMISyncCompleteCommandOutputResponseOutput
-	ToMigrateMISyncCompleteCommandOutputResponseOutputWithContext(context.Context) MigrateMISyncCompleteCommandOutputResponseOutput
-}
-
-// Output for command that completes online migration for an Azure SQL Database Managed Instance.
-type MigrateMISyncCompleteCommandOutputResponseArgs struct {
-	// List of errors that happened during the command execution
-	Errors ReportableExceptionResponseArrayInput `pulumi:"errors"`
-}
-
-func (MigrateMISyncCompleteCommandOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMISyncCompleteCommandOutputResponse)(nil)).Elem()
-}
-
-func (i MigrateMISyncCompleteCommandOutputResponseArgs) ToMigrateMISyncCompleteCommandOutputResponseOutput() MigrateMISyncCompleteCommandOutputResponseOutput {
-	return i.ToMigrateMISyncCompleteCommandOutputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateMISyncCompleteCommandOutputResponseArgs) ToMigrateMISyncCompleteCommandOutputResponseOutputWithContext(ctx context.Context) MigrateMISyncCompleteCommandOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMISyncCompleteCommandOutputResponseOutput)
-}
-
 // Output for command that completes online migration for an Azure SQL Database Managed Instance.
 type MigrateMISyncCompleteCommandOutputResponseOutput struct{ *pulumi.OutputState }
 
@@ -9763,43 +5468,6 @@ type MigrateMISyncCompleteCommandPropertiesResponse struct {
 	Output MigrateMISyncCompleteCommandOutputResponse `pulumi:"output"`
 	// The state of the command. This is ignored if submitted.
 	State string `pulumi:"state"`
-}
-
-// MigrateMISyncCompleteCommandPropertiesResponseInput is an input type that accepts MigrateMISyncCompleteCommandPropertiesResponseArgs and MigrateMISyncCompleteCommandPropertiesResponseOutput values.
-// You can construct a concrete instance of `MigrateMISyncCompleteCommandPropertiesResponseInput` via:
-//
-//          MigrateMISyncCompleteCommandPropertiesResponseArgs{...}
-type MigrateMISyncCompleteCommandPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMigrateMISyncCompleteCommandPropertiesResponseOutput() MigrateMISyncCompleteCommandPropertiesResponseOutput
-	ToMigrateMISyncCompleteCommandPropertiesResponseOutputWithContext(context.Context) MigrateMISyncCompleteCommandPropertiesResponseOutput
-}
-
-// Properties for the command that completes online migration for an Azure SQL Database Managed Instance.
-type MigrateMISyncCompleteCommandPropertiesResponseArgs struct {
-	// Command type.
-	CommandType pulumi.StringInput `pulumi:"commandType"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Command input
-	Input MigrateMISyncCompleteCommandInputResponsePtrInput `pulumi:"input"`
-	// Command output. This is ignored if submitted.
-	Output MigrateMISyncCompleteCommandOutputResponseInput `pulumi:"output"`
-	// The state of the command. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-}
-
-func (MigrateMISyncCompleteCommandPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMISyncCompleteCommandPropertiesResponse)(nil)).Elem()
-}
-
-func (i MigrateMISyncCompleteCommandPropertiesResponseArgs) ToMigrateMISyncCompleteCommandPropertiesResponseOutput() MigrateMISyncCompleteCommandPropertiesResponseOutput {
-	return i.ToMigrateMISyncCompleteCommandPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateMISyncCompleteCommandPropertiesResponseArgs) ToMigrateMISyncCompleteCommandPropertiesResponseOutputWithContext(ctx context.Context) MigrateMISyncCompleteCommandPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMISyncCompleteCommandPropertiesResponseOutput)
 }
 
 // Properties for the command that completes online migration for an Azure SQL Database Managed Instance.
@@ -9923,66 +5591,6 @@ func (i MigrateMySqlAzureDbForMySqlSyncDatabaseInputArray) ToMigrateMySqlAzureDb
 }
 
 // Database specific information for MySQL to Azure Database for MySQL migration task inputs
-type MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput struct{ *pulumi.OutputState }
-
-func (MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMySqlAzureDbForMySqlSyncDatabaseInput)(nil)).Elem()
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput) ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput() MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput {
-	return o
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput) ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput {
-	return o
-}
-
-// Migration settings which tune the migration behavior
-func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput) MigrationSetting() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncDatabaseInput) map[string]string { return v.MigrationSetting }).(pulumi.StringMapOutput)
-}
-
-// Name of the database
-func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncDatabaseInput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Source settings to tune source endpoint migration behavior
-func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput) SourceSetting() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncDatabaseInput) map[string]string { return v.SourceSetting }).(pulumi.StringMapOutput)
-}
-
-// Name of target database. Note: Target database will be truncated before starting migration.
-func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput) TargetDatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncDatabaseInput) *string { return v.TargetDatabaseName }).(pulumi.StringPtrOutput)
-}
-
-// Target settings to tune target endpoint migration behavior
-func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput) TargetSetting() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncDatabaseInput) map[string]string { return v.TargetSetting }).(pulumi.StringMapOutput)
-}
-
-type MigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput struct{ *pulumi.OutputState }
-
-func (MigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MigrateMySqlAzureDbForMySqlSyncDatabaseInput)(nil)).Elem()
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput) ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput() MigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput {
-	return o
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput) ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput {
-	return o
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput) Index(i pulumi.IntInput) MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigrateMySqlAzureDbForMySqlSyncDatabaseInput {
-		return vs[0].([]MigrateMySqlAzureDbForMySqlSyncDatabaseInput)[vs[1].(int)]
-	}).(MigrateMySqlAzureDbForMySqlSyncDatabaseInputOutput)
-}
-
-// Database specific information for MySQL to Azure Database for MySQL migration task inputs
 type MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse struct {
 	// Migration settings which tune the migration behavior
 	MigrationSetting map[string]string `pulumi:"migrationSetting"`
@@ -9994,68 +5602,6 @@ type MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse struct {
 	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
 	// Target settings to tune target endpoint migration behavior
 	TargetSetting map[string]string `pulumi:"targetSetting"`
-}
-
-// MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseInput is an input type that accepts MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArgs and MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutput values.
-// You can construct a concrete instance of `MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseInput` via:
-//
-//          MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArgs{...}
-type MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutput() MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutput
-	ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutputWithContext(context.Context) MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutput
-}
-
-// Database specific information for MySQL to Azure Database for MySQL migration task inputs
-type MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArgs struct {
-	// Migration settings which tune the migration behavior
-	MigrationSetting pulumi.StringMapInput `pulumi:"migrationSetting"`
-	// Name of the database
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Source settings to tune source endpoint migration behavior
-	SourceSetting pulumi.StringMapInput `pulumi:"sourceSetting"`
-	// Name of target database. Note: Target database will be truncated before starting migration.
-	TargetDatabaseName pulumi.StringPtrInput `pulumi:"targetDatabaseName"`
-	// Target settings to tune target endpoint migration behavior
-	TargetSetting pulumi.StringMapInput `pulumi:"targetSetting"`
-}
-
-func (MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse)(nil)).Elem()
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutput() MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutput {
-	return i.ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseOutput)
-}
-
-// MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayInput is an input type that accepts MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArray and MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayOutput values.
-// You can construct a concrete instance of `MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayInput` via:
-//
-//          MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArray{ MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArgs{...} }
-type MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayInput interface {
-	pulumi.Input
-
-	ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayOutput() MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayOutput
-	ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayOutputWithContext(context.Context) MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayOutput
-}
-
-type MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArray []MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseInput
-
-func (MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse)(nil)).Elem()
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArray) ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayOutput() MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayOutput {
-	return i.ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArray) ToMigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayOutput)
 }
 
 // Database specific information for MySQL to Azure Database for MySQL migration task inputs
@@ -10205,96 +5751,6 @@ func (i *migrateMySqlAzureDbForMySqlSyncTaskInputPtrType) ToMigrateMySqlAzureDbF
 }
 
 // Input for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
-type MigrateMySqlAzureDbForMySqlSyncTaskInputOutput struct{ *pulumi.OutputState }
-
-func (MigrateMySqlAzureDbForMySqlSyncTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMySqlAzureDbForMySqlSyncTaskInput)(nil)).Elem()
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputOutput) ToMigrateMySqlAzureDbForMySqlSyncTaskInputOutput() MigrateMySqlAzureDbForMySqlSyncTaskInputOutput {
-	return o
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputOutput) ToMigrateMySqlAzureDbForMySqlSyncTaskInputOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskInputOutput {
-	return o
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputOutput) ToMigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput() MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput {
-	return o.ToMigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputOutput) ToMigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskInput) *MigrateMySqlAzureDbForMySqlSyncTaskInput {
-		return &v
-	}).(MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput)
-}
-
-// Databases to migrate
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputOutput) SelectedDatabases() MigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskInput) []MigrateMySqlAzureDbForMySqlSyncDatabaseInput {
-		return v.SelectedDatabases
-	}).(MigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput)
-}
-
-// Connection information for source MySQL
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputOutput) SourceConnectionInfo() MySqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskInput) MySqlConnectionInfo { return v.SourceConnectionInfo }).(MySqlConnectionInfoOutput)
-}
-
-// Connection information for target Azure Database for MySQL
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputOutput) TargetConnectionInfo() MySqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskInput) MySqlConnectionInfo { return v.TargetConnectionInfo }).(MySqlConnectionInfoOutput)
-}
-
-type MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateMySqlAzureDbForMySqlSyncTaskInput)(nil)).Elem()
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput) ToMigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput() MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput) ToMigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput) Elem() MigrateMySqlAzureDbForMySqlSyncTaskInputOutput {
-	return o.ApplyT(func(v *MigrateMySqlAzureDbForMySqlSyncTaskInput) MigrateMySqlAzureDbForMySqlSyncTaskInput { return *v }).(MigrateMySqlAzureDbForMySqlSyncTaskInputOutput)
-}
-
-// Databases to migrate
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput) SelectedDatabases() MigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput {
-	return o.ApplyT(func(v *MigrateMySqlAzureDbForMySqlSyncTaskInput) []MigrateMySqlAzureDbForMySqlSyncDatabaseInput {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedDatabases
-	}).(MigrateMySqlAzureDbForMySqlSyncDatabaseInputArrayOutput)
-}
-
-// Connection information for source MySQL
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput) SourceConnectionInfo() MySqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigrateMySqlAzureDbForMySqlSyncTaskInput) *MySqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(MySqlConnectionInfoPtrOutput)
-}
-
-// Connection information for target Azure Database for MySQL
-func (o MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput) TargetConnectionInfo() MySqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigrateMySqlAzureDbForMySqlSyncTaskInput) *MySqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(MySqlConnectionInfoPtrOutput)
-}
-
-// Input for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
 type MigrateMySqlAzureDbForMySqlSyncTaskInputResponse struct {
 	// Databases to migrate
 	SelectedDatabases []MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse `pulumi:"selectedDatabases"`
@@ -10302,80 +5758,6 @@ type MigrateMySqlAzureDbForMySqlSyncTaskInputResponse struct {
 	SourceConnectionInfo MySqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Connection information for target Azure Database for MySQL
 	TargetConnectionInfo MySqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// MigrateMySqlAzureDbForMySqlSyncTaskInputResponseInput is an input type that accepts MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs and MigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutput values.
-// You can construct a concrete instance of `MigrateMySqlAzureDbForMySqlSyncTaskInputResponseInput` via:
-//
-//          MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs{...}
-type MigrateMySqlAzureDbForMySqlSyncTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutput
-	ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutputWithContext(context.Context) MigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutput
-}
-
-// Input for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
-type MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs struct {
-	// Databases to migrate
-	SelectedDatabases MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponseArrayInput `pulumi:"selectedDatabases"`
-	// Connection information for source MySQL
-	SourceConnectionInfo MySqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Connection information for target Azure Database for MySQL
-	TargetConnectionInfo MySqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMySqlAzureDbForMySqlSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutput {
-	return i.ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutput)
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutput() MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutput {
-	return i.ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMySqlAzureDbForMySqlSyncTaskInputResponseOutput).ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrInput is an input type that accepts MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs, MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtr and MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrInput` via:
-//
-//          MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutput() MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutput
-	ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutputWithContext(context.Context) MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutput
-}
-
-type migrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrType MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs
-
-func MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtr(v *MigrateMySqlAzureDbForMySqlSyncTaskInputResponseArgs) MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrInput {
-	return (*migrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrType)(v)
-}
-
-func (*migrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateMySqlAzureDbForMySqlSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i *migrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrType) ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutput() MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutput {
-	return i.ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *migrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrType) ToMigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrOutput)
 }
 
 // Input for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
@@ -10485,40 +5867,6 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse struct {
 	ResultType string `pulumi:"resultType"`
 }
 
-// MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseInput is an input type that accepts MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseArgs and MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutput values.
-// You can construct a concrete instance of `MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseInput` via:
-//
-//          MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseArgs{...}
-type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseInput interface {
-	pulumi.Input
-
-	ToMigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutput
-	ToMigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutputWithContext(context.Context) MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutput
-}
-
-type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseArgs struct {
-	// Error message
-	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
-	// List of error events.
-	Events SyncMigrationDatabaseErrorEventResponseArrayInput `pulumi:"events"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-}
-
-func (MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse)(nil)).Elem()
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutput {
-	return i.ToMigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutput)
-}
-
 type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponseOutput) ElementType() reflect.Type {
@@ -10590,66 +5938,6 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse struct {
 	ResultType string `pulumi:"resultType"`
 	// Migration start time
 	StartedOn string `pulumi:"startedOn"`
-}
-
-// MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseInput is an input type that accepts MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseArgs and MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseInput` via:
-//
-//          MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseArgs{...}
-type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput
-	ToMigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutputWithContext(context.Context) MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput
-}
-
-type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseArgs struct {
-	// Number of applied changes
-	AppliedChanges pulumi.IntInput `pulumi:"appliedChanges"`
-	// Number of cdc deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
-	// Number of cdc inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
-	// Number of cdc updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
-	// Name of the database
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Number of tables completed in full load
-	FullLoadCompletedTables pulumi.IntInput `pulumi:"fullLoadCompletedTables"`
-	// Number of tables errored in full load
-	FullLoadErroredTables pulumi.IntInput `pulumi:"fullLoadErroredTables"`
-	// Number of tables loading in full load
-	FullLoadLoadingTables pulumi.IntInput `pulumi:"fullLoadLoadingTables"`
-	// Number of tables queued in full load
-	FullLoadQueuedTables pulumi.IntInput `pulumi:"fullLoadQueuedTables"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Number of incoming changes
-	IncomingChanges pulumi.IntInput `pulumi:"incomingChanges"`
-	// Indicates if initial load (full load) has been completed
-	InitializationCompleted pulumi.BoolInput `pulumi:"initializationCompleted"`
-	// CDC apply latency
-	Latency pulumi.IntInput `pulumi:"latency"`
-	// Migration state that this database is in
-	MigrationState pulumi.StringInput `pulumi:"migrationState"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-}
-
-func (MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput {
-	return i.ToMigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput)
 }
 
 type MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponseOutput struct{ *pulumi.OutputState }
@@ -10770,38 +6058,6 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse struct {
 	ResultType string `pulumi:"resultType"`
 }
 
-// MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseInput is an input type that accepts MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseArgs and MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutput values.
-// You can construct a concrete instance of `MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseInput` via:
-//
-//          MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseArgs{...}
-type MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseInput interface {
-	pulumi.Input
-
-	ToMigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutput
-	ToMigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutputWithContext(context.Context) MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutput
-}
-
-type MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseArgs struct {
-	// Migration error
-	Error ReportableExceptionResponseInput `pulumi:"error"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-}
-
-func (MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse)(nil)).Elem()
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutput {
-	return i.ToMigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutput)
-}
-
 type MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponseOutput) ElementType() reflect.Type {
@@ -10850,48 +6106,6 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse struct {
 	TargetServer string `pulumi:"targetServer"`
 	// Target server version
 	TargetServerVersion string `pulumi:"targetServerVersion"`
-}
-
-// MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseInput is an input type that accepts MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseArgs and MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseInput` via:
-//
-//          MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseArgs{...}
-type MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutput
-	ToMigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutputWithContext(context.Context) MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutput
-}
-
-type MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseArgs struct {
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Source server name
-	SourceServer pulumi.StringInput `pulumi:"sourceServer"`
-	// Source server version
-	SourceServerVersion pulumi.StringInput `pulumi:"sourceServerVersion"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Target server name
-	TargetServer pulumi.StringInput `pulumi:"targetServer"`
-	// Target server version
-	TargetServerVersion pulumi.StringInput `pulumi:"targetServerVersion"`
-}
-
-func (MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutput {
-	return i.ToMigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutput)
 }
 
 type MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponseOutput struct{ *pulumi.OutputState }
@@ -10983,62 +6197,6 @@ type MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse struct {
 	TableName string `pulumi:"tableName"`
 	// Total number of applied changes
 	TotalChangesApplied int `pulumi:"totalChangesApplied"`
-}
-
-// MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseInput is an input type that accepts MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs and MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseInput` via:
-//
-//          MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs{...}
-type MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput
-	ToMigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutputWithContext(context.Context) MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput
-}
-
-type MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs struct {
-	// Number of applied deletes
-	CdcDeleteCounter pulumi.StringInput `pulumi:"cdcDeleteCounter"`
-	// Number of applied inserts
-	CdcInsertCounter pulumi.StringInput `pulumi:"cdcInsertCounter"`
-	// Number of applied updates
-	CdcUpdateCounter pulumi.StringInput `pulumi:"cdcUpdateCounter"`
-	// Number of data errors occurred
-	DataErrorsCounter pulumi.IntInput `pulumi:"dataErrorsCounter"`
-	// Name of the database
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Full load end time
-	FullLoadEndedOn pulumi.StringInput `pulumi:"fullLoadEndedOn"`
-	// Estimate to finish full load
-	FullLoadEstFinishTime pulumi.StringInput `pulumi:"fullLoadEstFinishTime"`
-	// Full load start time
-	FullLoadStartedOn pulumi.StringInput `pulumi:"fullLoadStartedOn"`
-	// Number of rows applied in full load
-	FullLoadTotalRows pulumi.IntInput `pulumi:"fullLoadTotalRows"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Last modified time on target
-	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Current state of the table migration
-	State pulumi.StringInput `pulumi:"state"`
-	// Name of the table
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// Total number of applied changes
-	TotalChangesApplied pulumi.IntInput `pulumi:"totalChangesApplied"`
-}
-
-func (MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput {
-	return i.ToMigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput)
 }
 
 type MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponseOutput struct{ *pulumi.OutputState }
@@ -11172,33 +6330,6 @@ func (i MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs) ToMigrateMySqlAzureDb
 }
 
 // Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
-type MigrateMySqlAzureDbForMySqlSyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MigrateMySqlAzureDbForMySqlSyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMySqlAzureDbForMySqlSyncTaskProperties)(nil)).Elem()
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncTaskPropertiesOutput) ToMigrateMySqlAzureDbForMySqlSyncTaskPropertiesOutput() MigrateMySqlAzureDbForMySqlSyncTaskPropertiesOutput {
-	return o
-}
-
-func (o MigrateMySqlAzureDbForMySqlSyncTaskPropertiesOutput) ToMigrateMySqlAzureDbForMySqlSyncTaskPropertiesOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o MigrateMySqlAzureDbForMySqlSyncTaskPropertiesOutput) Input() MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskProperties) *MigrateMySqlAzureDbForMySqlSyncTaskInput {
-		return v.Input
-	}).(MigrateMySqlAzureDbForMySqlSyncTaskInputPtrOutput)
-}
-
-// Task type.
-func (o MigrateMySqlAzureDbForMySqlSyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateMySqlAzureDbForMySqlSyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
 type MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -11212,45 +6343,6 @@ type MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseInput is an input type that accepts MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseArgs and MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseInput` via:
-//
-//          MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseArgs{...}
-type MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseOutput
-	ToMigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseOutputWithContext(context.Context) MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseOutput
-}
-
-// Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
-type MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input MigrateMySqlAzureDbForMySqlSyncTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output pulumi.ArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseOutput() MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseOutput {
-	return i.ToMigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseArgs) ToMigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseOutputWithContext(ctx context.Context) MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
@@ -11377,72 +6469,6 @@ func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArray) ToMigratePo
 }
 
 // Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
-type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput struct{ *pulumi.OutputState }
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput)(nil)).Elem()
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput {
-	return o
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput {
-	return o
-}
-
-// Migration settings which tune the migration behavior
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput) MigrationSetting() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput) map[string]string {
-		return v.MigrationSetting
-	}).(pulumi.StringMapOutput)
-}
-
-// Name of the database
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Source settings to tune source endpoint migration behavior
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput) SourceSetting() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput) map[string]string {
-		return v.SourceSetting
-	}).(pulumi.StringMapOutput)
-}
-
-// Name of target database. Note: Target database will be truncated before starting migration.
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput) TargetDatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput) *string { return v.TargetDatabaseName }).(pulumi.StringPtrOutput)
-}
-
-// Target settings to tune target endpoint migration behavior
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput) TargetSetting() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput) map[string]string {
-		return v.TargetSetting
-	}).(pulumi.StringMapOutput)
-}
-
-type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput struct{ *pulumi.OutputState }
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput)(nil)).Elem()
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput {
-	return o
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput {
-	return o
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput) Index(i pulumi.IntInput) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput {
-		return vs[0].([]MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput)[vs[1].(int)]
-	}).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputOutput)
-}
-
-// Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
 type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse struct {
 	// Migration settings which tune the migration behavior
 	MigrationSetting map[string]string `pulumi:"migrationSetting"`
@@ -11454,68 +6480,6 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse struct {
 	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
 	// Target settings to tune target endpoint migration behavior
 	TargetSetting map[string]string `pulumi:"targetSetting"`
-}
-
-// MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArgs and MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput values.
-// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseInput` via:
-//
-//          MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArgs{...}
-type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseInput interface {
-	pulumi.Input
-
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput
-}
-
-// Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
-type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArgs struct {
-	// Migration settings which tune the migration behavior
-	MigrationSetting pulumi.StringMapInput `pulumi:"migrationSetting"`
-	// Name of the database
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Source settings to tune source endpoint migration behavior
-	SourceSetting pulumi.StringMapInput `pulumi:"sourceSetting"`
-	// Name of target database. Note: Target database will be truncated before starting migration.
-	TargetDatabaseName pulumi.StringPtrInput `pulumi:"targetDatabaseName"`
-	// Target settings to tune target endpoint migration behavior
-	TargetSetting pulumi.StringMapInput `pulumi:"targetSetting"`
-}
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse)(nil)).Elem()
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput {
-	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseOutput)
-}
-
-// MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArray and MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutput values.
-// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayInput` via:
-//
-//          MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArray{ MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArgs{...} }
-type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayInput interface {
-	pulumi.Input
-
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutput
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutput
-}
-
-type MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArray []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseInput
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse)(nil)).Elem()
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArray) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutput {
-	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArray) ToMigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayOutput)
 }
 
 // Database specific information for PostgreSQL to Azure Database for PostgreSQL migration task inputs
@@ -11671,102 +6635,6 @@ func (i *migratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrType) ToMigratePos
 }
 
 // Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput struct{ *pulumi.OutputState }
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput)(nil)).Elem()
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput {
-	return o
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput {
-	return o
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput {
-	return o.ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput) *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput {
-		return &v
-	}).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput)
-}
-
-// Databases to migrate
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput) SelectedDatabases() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput) []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput {
-		return v.SelectedDatabases
-	}).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput)
-}
-
-// Connection information for source PostgreSQL
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput) SourceConnectionInfo() PostgreSqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput) PostgreSqlConnectionInfo {
-		return v.SourceConnectionInfo
-	}).(PostgreSqlConnectionInfoOutput)
-}
-
-// Connection information for target Azure Database for PostgreSQL
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput) TargetConnectionInfo() PostgreSqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput) PostgreSqlConnectionInfo {
-		return v.TargetConnectionInfo
-	}).(PostgreSqlConnectionInfoOutput)
-}
-
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput)(nil)).Elem()
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput) Elem() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput {
-	return o.ApplyT(func(v *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput {
-		return *v
-	}).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputOutput)
-}
-
-// Databases to migrate
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput) SelectedDatabases() MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput {
-	return o.ApplyT(func(v *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput) []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInput {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedDatabases
-	}).(MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArrayOutput)
-}
-
-// Connection information for source PostgreSQL
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput) SourceConnectionInfo() PostgreSqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput) *PostgreSqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(PostgreSqlConnectionInfoPtrOutput)
-}
-
-// Connection information for target Azure Database for PostgreSQL
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput) TargetConnectionInfo() PostgreSqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput) *PostgreSqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(PostgreSqlConnectionInfoPtrOutput)
-}
-
-// Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse struct {
 	// Databases to migrate
 	SelectedDatabases []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse `pulumi:"selectedDatabases"`
@@ -11774,80 +6642,6 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse struct {
 	SourceConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Connection information for target Azure Database for PostgreSQL
 	TargetConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs and MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutput values.
-// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseInput` via:
-//
-//          MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs{...}
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutput
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutput
-}
-
-// Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs struct {
-	// Databases to migrate
-	SelectedDatabases MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponseArrayInput `pulumi:"selectedDatabases"`
-	// Connection information for source PostgreSQL
-	SourceConnectionInfo PostgreSqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Connection information for target Azure Database for PostgreSQL
-	TargetConnectionInfo PostgreSqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutput {
-	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutput)
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput {
-	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseOutput).ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs, MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtr and MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrInput` via:
-//
-//          MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput
-}
-
-type migratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrType MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs
-
-func MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtr(v *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponseArgs) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrInput {
-	return (*migratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrType)(v)
-}
-
-func (*migratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i *migratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrType) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput {
-	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *migratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrType) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrOutput)
 }
 
 // Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
@@ -11957,40 +6751,6 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse st
 	ResultType string `pulumi:"resultType"`
 }
 
-// MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseArgs and MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutput values.
-// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseInput` via:
-//
-//          MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseArgs{...}
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseInput interface {
-	pulumi.Input
-
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutput
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutput
-}
-
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseArgs struct {
-	// Error message
-	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
-	// List of error events.
-	Events SyncMigrationDatabaseErrorEventResponseArrayInput `pulumi:"events"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-}
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse)(nil)).Elem()
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutput {
-	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutputWithContext(context.Background())
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutput)
-}
-
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponseOutput) ElementType() reflect.Type {
@@ -12066,66 +6826,6 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse st
 	ResultType string `pulumi:"resultType"`
 	// Migration start time
 	StartedOn string `pulumi:"startedOn"`
-}
-
-// MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs and MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput values.
-// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseInput` via:
-//
-//          MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs{...}
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput
-}
-
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs struct {
-	// Number of applied changes
-	AppliedChanges pulumi.IntInput `pulumi:"appliedChanges"`
-	// Number of cdc deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
-	// Number of cdc inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
-	// Number of cdc updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
-	// Name of the database
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Number of tables completed in full load
-	FullLoadCompletedTables pulumi.IntInput `pulumi:"fullLoadCompletedTables"`
-	// Number of tables errored in full load
-	FullLoadErroredTables pulumi.IntInput `pulumi:"fullLoadErroredTables"`
-	// Number of tables loading in full load
-	FullLoadLoadingTables pulumi.IntInput `pulumi:"fullLoadLoadingTables"`
-	// Number of tables queued in full load
-	FullLoadQueuedTables pulumi.IntInput `pulumi:"fullLoadQueuedTables"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Number of incoming changes
-	IncomingChanges pulumi.IntInput `pulumi:"incomingChanges"`
-	// Indicates if initial load (full load) has been completed
-	InitializationCompleted pulumi.BoolInput `pulumi:"initializationCompleted"`
-	// CDC apply latency
-	Latency pulumi.IntInput `pulumi:"latency"`
-	// Migration state that this database is in
-	MigrationState pulumi.StringInput `pulumi:"migrationState"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-}
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse)(nil)).Elem()
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput {
-	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput)
 }
 
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponseOutput struct{ *pulumi.OutputState }
@@ -12266,38 +6966,6 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse struct {
 	ResultType string `pulumi:"resultType"`
 }
 
-// MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseArgs and MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutput values.
-// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseInput` via:
-//
-//          MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseArgs{...}
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseInput interface {
-	pulumi.Input
-
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutput
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutput
-}
-
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseArgs struct {
-	// Migration error
-	Error ReportableExceptionResponseInput `pulumi:"error"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-}
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse)(nil)).Elem()
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutput {
-	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutputWithContext(context.Background())
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutput)
-}
-
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponseOutput) ElementType() reflect.Type {
@@ -12346,48 +7014,6 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse s
 	TargetServer string `pulumi:"targetServer"`
 	// Target server version
 	TargetServerVersion string `pulumi:"targetServerVersion"`
-}
-
-// MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseArgs and MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutput values.
-// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseInput` via:
-//
-//          MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseArgs{...}
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutput
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutput
-}
-
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseArgs struct {
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Source server name
-	SourceServer pulumi.StringInput `pulumi:"sourceServer"`
-	// Source server version
-	SourceServerVersion pulumi.StringInput `pulumi:"sourceServerVersion"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Target server name
-	TargetServer pulumi.StringInput `pulumi:"targetServer"`
-	// Target server version
-	TargetServerVersion pulumi.StringInput `pulumi:"targetServerVersion"`
-}
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse)(nil)).Elem()
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutput {
-	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutput)
 }
 
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponseOutput struct{ *pulumi.OutputState }
@@ -12489,62 +7115,6 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse struc
 	TableName string `pulumi:"tableName"`
 	// Total number of applied changes
 	TotalChangesApplied int `pulumi:"totalChangesApplied"`
-}
-
-// MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs and MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput values.
-// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseInput` via:
-//
-//          MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs{...}
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput
-}
-
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs struct {
-	// Number of applied deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
-	// Number of applied inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
-	// Number of applied updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
-	// Number of data errors occurred
-	DataErrorsCounter pulumi.IntInput `pulumi:"dataErrorsCounter"`
-	// Name of the database
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Full load end time
-	FullLoadEndedOn pulumi.StringInput `pulumi:"fullLoadEndedOn"`
-	// Estimate to finish full load
-	FullLoadEstFinishTime pulumi.StringInput `pulumi:"fullLoadEstFinishTime"`
-	// Full load start time
-	FullLoadStartedOn pulumi.StringInput `pulumi:"fullLoadStartedOn"`
-	// Number of rows applied in full load
-	FullLoadTotalRows pulumi.IntInput `pulumi:"fullLoadTotalRows"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Last modified time on target
-	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Current state of the table migration
-	State pulumi.StringInput `pulumi:"state"`
-	// Name of the table
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// Total number of applied changes
-	TotalChangesApplied pulumi.IntInput `pulumi:"totalChangesApplied"`
-}
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse)(nil)).Elem()
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput {
-	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput)
 }
 
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponseOutput struct{ *pulumi.OutputState }
@@ -12702,33 +7272,6 @@ func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs) ToMigratePo
 }
 
 // Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties)(nil)).Elem()
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesOutput {
-	return o
-}
-
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesOutput) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesOutput) Input() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties) *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput {
-		return v.Input
-	}).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputPtrOutput)
-}
-
-// Task type.
-func (o MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
 type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -12742,45 +7285,6 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseInput is an input type that accepts MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs and MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseInput` via:
-//
-//          MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs{...}
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput
-	ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseOutputWithContext(context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput
-}
-
-// Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
-type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output pulumi.ArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput() MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput {
-	return i.ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseArgs) ToMigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseOutputWithContext(ctx context.Context) MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
@@ -12907,61 +7411,6 @@ func (i MigrateSqlServerSqlDbDatabaseInputArray) ToMigrateSqlServerSqlDbDatabase
 }
 
 // Database specific information for SQL to Azure SQL DB migration task inputs
-type MigrateSqlServerSqlDbDatabaseInputOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlDbDatabaseInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbDatabaseInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlDbDatabaseInputOutput) ToMigrateSqlServerSqlDbDatabaseInputOutput() MigrateSqlServerSqlDbDatabaseInputOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbDatabaseInputOutput) ToMigrateSqlServerSqlDbDatabaseInputOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbDatabaseInputOutput {
-	return o
-}
-
-// Whether to set database read only before migration
-func (o MigrateSqlServerSqlDbDatabaseInputOutput) MakeSourceDbReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbDatabaseInput) *bool { return v.MakeSourceDbReadOnly }).(pulumi.BoolPtrOutput)
-}
-
-// Name of the database
-func (o MigrateSqlServerSqlDbDatabaseInputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbDatabaseInput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Mapping of source to target tables
-func (o MigrateSqlServerSqlDbDatabaseInputOutput) TableMap() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbDatabaseInput) map[string]string { return v.TableMap }).(pulumi.StringMapOutput)
-}
-
-// Name of target database. Note: Target database will be truncated before starting migration.
-func (o MigrateSqlServerSqlDbDatabaseInputOutput) TargetDatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbDatabaseInput) *string { return v.TargetDatabaseName }).(pulumi.StringPtrOutput)
-}
-
-type MigrateSqlServerSqlDbDatabaseInputArrayOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlDbDatabaseInputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MigrateSqlServerSqlDbDatabaseInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlDbDatabaseInputArrayOutput) ToMigrateSqlServerSqlDbDatabaseInputArrayOutput() MigrateSqlServerSqlDbDatabaseInputArrayOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbDatabaseInputArrayOutput) ToMigrateSqlServerSqlDbDatabaseInputArrayOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbDatabaseInputArrayOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbDatabaseInputArrayOutput) Index(i pulumi.IntInput) MigrateSqlServerSqlDbDatabaseInputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigrateSqlServerSqlDbDatabaseInput {
-		return vs[0].([]MigrateSqlServerSqlDbDatabaseInput)[vs[1].(int)]
-	}).(MigrateSqlServerSqlDbDatabaseInputOutput)
-}
-
-// Database specific information for SQL to Azure SQL DB migration task inputs
 type MigrateSqlServerSqlDbDatabaseInputResponse struct {
 	// Whether to set database read only before migration
 	MakeSourceDbReadOnly *bool `pulumi:"makeSourceDbReadOnly"`
@@ -12971,66 +7420,6 @@ type MigrateSqlServerSqlDbDatabaseInputResponse struct {
 	TableMap map[string]string `pulumi:"tableMap"`
 	// Name of target database. Note: Target database will be truncated before starting migration.
 	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
-}
-
-// MigrateSqlServerSqlDbDatabaseInputResponseInput is an input type that accepts MigrateSqlServerSqlDbDatabaseInputResponseArgs and MigrateSqlServerSqlDbDatabaseInputResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbDatabaseInputResponseInput` via:
-//
-//          MigrateSqlServerSqlDbDatabaseInputResponseArgs{...}
-type MigrateSqlServerSqlDbDatabaseInputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbDatabaseInputResponseOutput() MigrateSqlServerSqlDbDatabaseInputResponseOutput
-	ToMigrateSqlServerSqlDbDatabaseInputResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbDatabaseInputResponseOutput
-}
-
-// Database specific information for SQL to Azure SQL DB migration task inputs
-type MigrateSqlServerSqlDbDatabaseInputResponseArgs struct {
-	// Whether to set database read only before migration
-	MakeSourceDbReadOnly pulumi.BoolPtrInput `pulumi:"makeSourceDbReadOnly"`
-	// Name of the database
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Mapping of source to target tables
-	TableMap pulumi.StringMapInput `pulumi:"tableMap"`
-	// Name of target database. Note: Target database will be truncated before starting migration.
-	TargetDatabaseName pulumi.StringPtrInput `pulumi:"targetDatabaseName"`
-}
-
-func (MigrateSqlServerSqlDbDatabaseInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbDatabaseInputResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbDatabaseInputResponseArgs) ToMigrateSqlServerSqlDbDatabaseInputResponseOutput() MigrateSqlServerSqlDbDatabaseInputResponseOutput {
-	return i.ToMigrateSqlServerSqlDbDatabaseInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbDatabaseInputResponseArgs) ToMigrateSqlServerSqlDbDatabaseInputResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbDatabaseInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbDatabaseInputResponseOutput)
-}
-
-// MigrateSqlServerSqlDbDatabaseInputResponseArrayInput is an input type that accepts MigrateSqlServerSqlDbDatabaseInputResponseArray and MigrateSqlServerSqlDbDatabaseInputResponseArrayOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbDatabaseInputResponseArrayInput` via:
-//
-//          MigrateSqlServerSqlDbDatabaseInputResponseArray{ MigrateSqlServerSqlDbDatabaseInputResponseArgs{...} }
-type MigrateSqlServerSqlDbDatabaseInputResponseArrayInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbDatabaseInputResponseArrayOutput() MigrateSqlServerSqlDbDatabaseInputResponseArrayOutput
-	ToMigrateSqlServerSqlDbDatabaseInputResponseArrayOutputWithContext(context.Context) MigrateSqlServerSqlDbDatabaseInputResponseArrayOutput
-}
-
-type MigrateSqlServerSqlDbDatabaseInputResponseArray []MigrateSqlServerSqlDbDatabaseInputResponseInput
-
-func (MigrateSqlServerSqlDbDatabaseInputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MigrateSqlServerSqlDbDatabaseInputResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbDatabaseInputResponseArray) ToMigrateSqlServerSqlDbDatabaseInputResponseArrayOutput() MigrateSqlServerSqlDbDatabaseInputResponseArrayOutput {
-	return i.ToMigrateSqlServerSqlDbDatabaseInputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbDatabaseInputResponseArray) ToMigrateSqlServerSqlDbDatabaseInputResponseArrayOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbDatabaseInputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbDatabaseInputResponseArrayOutput)
 }
 
 // Database specific information for SQL to Azure SQL DB migration task inputs
@@ -13177,81 +7566,6 @@ func (i MigrateSqlServerSqlDbSyncDatabaseInputArray) ToMigrateSqlServerSqlDbSync
 }
 
 // Database specific information for SQL to Azure SQL DB sync migration task inputs
-type MigrateSqlServerSqlDbSyncDatabaseInputOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlDbSyncDatabaseInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbSyncDatabaseInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlDbSyncDatabaseInputOutput) ToMigrateSqlServerSqlDbSyncDatabaseInputOutput() MigrateSqlServerSqlDbSyncDatabaseInputOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbSyncDatabaseInputOutput) ToMigrateSqlServerSqlDbSyncDatabaseInputOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncDatabaseInputOutput {
-	return o
-}
-
-// Unique identifier for database
-func (o MigrateSqlServerSqlDbSyncDatabaseInputOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncDatabaseInput) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Migration settings which tune the migration behavior
-func (o MigrateSqlServerSqlDbSyncDatabaseInputOutput) MigrationSetting() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncDatabaseInput) map[string]string { return v.MigrationSetting }).(pulumi.StringMapOutput)
-}
-
-// Name of database
-func (o MigrateSqlServerSqlDbSyncDatabaseInputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncDatabaseInput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Schema name to be migrated
-func (o MigrateSqlServerSqlDbSyncDatabaseInputOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncDatabaseInput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
-}
-
-// Source settings to tune source endpoint migration behavior
-func (o MigrateSqlServerSqlDbSyncDatabaseInputOutput) SourceSetting() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncDatabaseInput) map[string]string { return v.SourceSetting }).(pulumi.StringMapOutput)
-}
-
-// Mapping of source to target tables
-func (o MigrateSqlServerSqlDbSyncDatabaseInputOutput) TableMap() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncDatabaseInput) map[string]string { return v.TableMap }).(pulumi.StringMapOutput)
-}
-
-// Target database name
-func (o MigrateSqlServerSqlDbSyncDatabaseInputOutput) TargetDatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncDatabaseInput) *string { return v.TargetDatabaseName }).(pulumi.StringPtrOutput)
-}
-
-// Target settings to tune target endpoint migration behavior
-func (o MigrateSqlServerSqlDbSyncDatabaseInputOutput) TargetSetting() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncDatabaseInput) map[string]string { return v.TargetSetting }).(pulumi.StringMapOutput)
-}
-
-type MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MigrateSqlServerSqlDbSyncDatabaseInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput) ToMigrateSqlServerSqlDbSyncDatabaseInputArrayOutput() MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput) ToMigrateSqlServerSqlDbSyncDatabaseInputArrayOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput) Index(i pulumi.IntInput) MigrateSqlServerSqlDbSyncDatabaseInputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigrateSqlServerSqlDbSyncDatabaseInput {
-		return vs[0].([]MigrateSqlServerSqlDbSyncDatabaseInput)[vs[1].(int)]
-	}).(MigrateSqlServerSqlDbSyncDatabaseInputOutput)
-}
-
-// Database specific information for SQL to Azure SQL DB sync migration task inputs
 type MigrateSqlServerSqlDbSyncDatabaseInputResponse struct {
 	// Unique identifier for database
 	Id *string `pulumi:"id"`
@@ -13269,74 +7583,6 @@ type MigrateSqlServerSqlDbSyncDatabaseInputResponse struct {
 	TargetDatabaseName *string `pulumi:"targetDatabaseName"`
 	// Target settings to tune target endpoint migration behavior
 	TargetSetting map[string]string `pulumi:"targetSetting"`
-}
-
-// MigrateSqlServerSqlDbSyncDatabaseInputResponseInput is an input type that accepts MigrateSqlServerSqlDbSyncDatabaseInputResponseArgs and MigrateSqlServerSqlDbSyncDatabaseInputResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbSyncDatabaseInputResponseInput` via:
-//
-//          MigrateSqlServerSqlDbSyncDatabaseInputResponseArgs{...}
-type MigrateSqlServerSqlDbSyncDatabaseInputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbSyncDatabaseInputResponseOutput() MigrateSqlServerSqlDbSyncDatabaseInputResponseOutput
-	ToMigrateSqlServerSqlDbSyncDatabaseInputResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbSyncDatabaseInputResponseOutput
-}
-
-// Database specific information for SQL to Azure SQL DB sync migration task inputs
-type MigrateSqlServerSqlDbSyncDatabaseInputResponseArgs struct {
-	// Unique identifier for database
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Migration settings which tune the migration behavior
-	MigrationSetting pulumi.StringMapInput `pulumi:"migrationSetting"`
-	// Name of database
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Schema name to be migrated
-	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
-	// Source settings to tune source endpoint migration behavior
-	SourceSetting pulumi.StringMapInput `pulumi:"sourceSetting"`
-	// Mapping of source to target tables
-	TableMap pulumi.StringMapInput `pulumi:"tableMap"`
-	// Target database name
-	TargetDatabaseName pulumi.StringPtrInput `pulumi:"targetDatabaseName"`
-	// Target settings to tune target endpoint migration behavior
-	TargetSetting pulumi.StringMapInput `pulumi:"targetSetting"`
-}
-
-func (MigrateSqlServerSqlDbSyncDatabaseInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbSyncDatabaseInputResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbSyncDatabaseInputResponseArgs) ToMigrateSqlServerSqlDbSyncDatabaseInputResponseOutput() MigrateSqlServerSqlDbSyncDatabaseInputResponseOutput {
-	return i.ToMigrateSqlServerSqlDbSyncDatabaseInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbSyncDatabaseInputResponseArgs) ToMigrateSqlServerSqlDbSyncDatabaseInputResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncDatabaseInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbSyncDatabaseInputResponseOutput)
-}
-
-// MigrateSqlServerSqlDbSyncDatabaseInputResponseArrayInput is an input type that accepts MigrateSqlServerSqlDbSyncDatabaseInputResponseArray and MigrateSqlServerSqlDbSyncDatabaseInputResponseArrayOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbSyncDatabaseInputResponseArrayInput` via:
-//
-//          MigrateSqlServerSqlDbSyncDatabaseInputResponseArray{ MigrateSqlServerSqlDbSyncDatabaseInputResponseArgs{...} }
-type MigrateSqlServerSqlDbSyncDatabaseInputResponseArrayInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbSyncDatabaseInputResponseArrayOutput() MigrateSqlServerSqlDbSyncDatabaseInputResponseArrayOutput
-	ToMigrateSqlServerSqlDbSyncDatabaseInputResponseArrayOutputWithContext(context.Context) MigrateSqlServerSqlDbSyncDatabaseInputResponseArrayOutput
-}
-
-type MigrateSqlServerSqlDbSyncDatabaseInputResponseArray []MigrateSqlServerSqlDbSyncDatabaseInputResponseInput
-
-func (MigrateSqlServerSqlDbSyncDatabaseInputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MigrateSqlServerSqlDbSyncDatabaseInputResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbSyncDatabaseInputResponseArray) ToMigrateSqlServerSqlDbSyncDatabaseInputResponseArrayOutput() MigrateSqlServerSqlDbSyncDatabaseInputResponseArrayOutput {
-	return i.ToMigrateSqlServerSqlDbSyncDatabaseInputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbSyncDatabaseInputResponseArray) ToMigrateSqlServerSqlDbSyncDatabaseInputResponseArrayOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncDatabaseInputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbSyncDatabaseInputResponseArrayOutput)
 }
 
 // Database specific information for SQL to Azure SQL DB sync migration task inputs
@@ -13503,111 +7749,6 @@ func (i *migrateSqlServerSqlDbSyncTaskInputPtrType) ToMigrateSqlServerSqlDbSyncT
 }
 
 // Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
-type MigrateSqlServerSqlDbSyncTaskInputOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlDbSyncTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbSyncTaskInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlDbSyncTaskInputOutput) ToMigrateSqlServerSqlDbSyncTaskInputOutput() MigrateSqlServerSqlDbSyncTaskInputOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbSyncTaskInputOutput) ToMigrateSqlServerSqlDbSyncTaskInputOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskInputOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbSyncTaskInputOutput) ToMigrateSqlServerSqlDbSyncTaskInputPtrOutput() MigrateSqlServerSqlDbSyncTaskInputPtrOutput {
-	return o.ToMigrateSqlServerSqlDbSyncTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o MigrateSqlServerSqlDbSyncTaskInputOutput) ToMigrateSqlServerSqlDbSyncTaskInputPtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskInput) *MigrateSqlServerSqlDbSyncTaskInput {
-		return &v
-	}).(MigrateSqlServerSqlDbSyncTaskInputPtrOutput)
-}
-
-// Databases to migrate
-func (o MigrateSqlServerSqlDbSyncTaskInputOutput) SelectedDatabases() MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskInput) []MigrateSqlServerSqlDbSyncDatabaseInput {
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput)
-}
-
-// Information for connecting to source
-func (o MigrateSqlServerSqlDbSyncTaskInputOutput) SourceConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskInput) SqlConnectionInfo { return v.SourceConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// Information for connecting to target
-func (o MigrateSqlServerSqlDbSyncTaskInputOutput) TargetConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskInput) SqlConnectionInfo { return v.TargetConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// Validation options
-func (o MigrateSqlServerSqlDbSyncTaskInputOutput) ValidationOptions() MigrationValidationOptionsPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskInput) *MigrationValidationOptions { return v.ValidationOptions }).(MigrationValidationOptionsPtrOutput)
-}
-
-type MigrateSqlServerSqlDbSyncTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlDbSyncTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateSqlServerSqlDbSyncTaskInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlDbSyncTaskInputPtrOutput) ToMigrateSqlServerSqlDbSyncTaskInputPtrOutput() MigrateSqlServerSqlDbSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbSyncTaskInputPtrOutput) ToMigrateSqlServerSqlDbSyncTaskInputPtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskInputPtrOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbSyncTaskInputPtrOutput) Elem() MigrateSqlServerSqlDbSyncTaskInputOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbSyncTaskInput) MigrateSqlServerSqlDbSyncTaskInput { return *v }).(MigrateSqlServerSqlDbSyncTaskInputOutput)
-}
-
-// Databases to migrate
-func (o MigrateSqlServerSqlDbSyncTaskInputPtrOutput) SelectedDatabases() MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbSyncTaskInput) []MigrateSqlServerSqlDbSyncDatabaseInput {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput)
-}
-
-// Information for connecting to source
-func (o MigrateSqlServerSqlDbSyncTaskInputPtrOutput) SourceConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbSyncTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Information for connecting to target
-func (o MigrateSqlServerSqlDbSyncTaskInputPtrOutput) TargetConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbSyncTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Validation options
-func (o MigrateSqlServerSqlDbSyncTaskInputPtrOutput) ValidationOptions() MigrationValidationOptionsPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbSyncTaskInput) *MigrationValidationOptions {
-		if v == nil {
-			return nil
-		}
-		return v.ValidationOptions
-	}).(MigrationValidationOptionsPtrOutput)
-}
-
-// Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
 type MigrateSqlServerSqlDbSyncTaskInputResponse struct {
 	// Databases to migrate
 	SelectedDatabases []MigrateSqlServerSqlDbSyncDatabaseInputResponse `pulumi:"selectedDatabases"`
@@ -13617,82 +7758,6 @@ type MigrateSqlServerSqlDbSyncTaskInputResponse struct {
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
 	// Validation options
 	ValidationOptions *MigrationValidationOptionsResponse `pulumi:"validationOptions"`
-}
-
-// MigrateSqlServerSqlDbSyncTaskInputResponseInput is an input type that accepts MigrateSqlServerSqlDbSyncTaskInputResponseArgs and MigrateSqlServerSqlDbSyncTaskInputResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbSyncTaskInputResponseInput` via:
-//
-//          MigrateSqlServerSqlDbSyncTaskInputResponseArgs{...}
-type MigrateSqlServerSqlDbSyncTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbSyncTaskInputResponseOutput() MigrateSqlServerSqlDbSyncTaskInputResponseOutput
-	ToMigrateSqlServerSqlDbSyncTaskInputResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbSyncTaskInputResponseOutput
-}
-
-// Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
-type MigrateSqlServerSqlDbSyncTaskInputResponseArgs struct {
-	// Databases to migrate
-	SelectedDatabases MigrateSqlServerSqlDbSyncDatabaseInputResponseArrayInput `pulumi:"selectedDatabases"`
-	// Information for connecting to source
-	SourceConnectionInfo SqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Information for connecting to target
-	TargetConnectionInfo SqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-	// Validation options
-	ValidationOptions MigrationValidationOptionsResponsePtrInput `pulumi:"validationOptions"`
-}
-
-func (MigrateSqlServerSqlDbSyncTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskInputResponseArgs) ToMigrateSqlServerSqlDbSyncTaskInputResponseOutput() MigrateSqlServerSqlDbSyncTaskInputResponseOutput {
-	return i.ToMigrateSqlServerSqlDbSyncTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskInputResponseArgs) ToMigrateSqlServerSqlDbSyncTaskInputResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbSyncTaskInputResponseOutput)
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskInputResponseArgs) ToMigrateSqlServerSqlDbSyncTaskInputResponsePtrOutput() MigrateSqlServerSqlDbSyncTaskInputResponsePtrOutput {
-	return i.ToMigrateSqlServerSqlDbSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskInputResponseArgs) ToMigrateSqlServerSqlDbSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbSyncTaskInputResponseOutput).ToMigrateSqlServerSqlDbSyncTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// MigrateSqlServerSqlDbSyncTaskInputResponsePtrInput is an input type that accepts MigrateSqlServerSqlDbSyncTaskInputResponseArgs, MigrateSqlServerSqlDbSyncTaskInputResponsePtr and MigrateSqlServerSqlDbSyncTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbSyncTaskInputResponsePtrInput` via:
-//
-//          MigrateSqlServerSqlDbSyncTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MigrateSqlServerSqlDbSyncTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbSyncTaskInputResponsePtrOutput() MigrateSqlServerSqlDbSyncTaskInputResponsePtrOutput
-	ToMigrateSqlServerSqlDbSyncTaskInputResponsePtrOutputWithContext(context.Context) MigrateSqlServerSqlDbSyncTaskInputResponsePtrOutput
-}
-
-type migrateSqlServerSqlDbSyncTaskInputResponsePtrType MigrateSqlServerSqlDbSyncTaskInputResponseArgs
-
-func MigrateSqlServerSqlDbSyncTaskInputResponsePtr(v *MigrateSqlServerSqlDbSyncTaskInputResponseArgs) MigrateSqlServerSqlDbSyncTaskInputResponsePtrInput {
-	return (*migrateSqlServerSqlDbSyncTaskInputResponsePtrType)(v)
-}
-
-func (*migrateSqlServerSqlDbSyncTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateSqlServerSqlDbSyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i *migrateSqlServerSqlDbSyncTaskInputResponsePtrType) ToMigrateSqlServerSqlDbSyncTaskInputResponsePtrOutput() MigrateSqlServerSqlDbSyncTaskInputResponsePtrOutput {
-	return i.ToMigrateSqlServerSqlDbSyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *migrateSqlServerSqlDbSyncTaskInputResponsePtrType) ToMigrateSqlServerSqlDbSyncTaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbSyncTaskInputResponsePtrOutput)
 }
 
 // Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
@@ -13819,40 +7884,6 @@ type MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse struct {
 	ResultType string `pulumi:"resultType"`
 }
 
-// MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseInput is an input type that accepts MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseArgs and MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseInput` via:
-//
-//          MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseArgs{...}
-type MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutput() MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutput
-	ToMigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutput
-}
-
-type MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseArgs struct {
-	// Error message
-	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
-	// List of error events.
-	Events SyncMigrationDatabaseErrorEventResponseArrayInput `pulumi:"events"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-}
-
-func (MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseArgs) ToMigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutput() MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutput {
-	return i.ToMigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseArgs) ToMigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutput)
-}
-
 type MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponseOutput) ElementType() reflect.Type {
@@ -13924,66 +7955,6 @@ type MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse struct {
 	ResultType string `pulumi:"resultType"`
 	// Migration start time
 	StartedOn string `pulumi:"startedOn"`
-}
-
-// MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseInput is an input type that accepts MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseArgs and MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseArgs{...}
-type MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput() MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput
-	ToMigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput
-}
-
-type MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseArgs struct {
-	// Number of applied changes
-	AppliedChanges pulumi.IntInput `pulumi:"appliedChanges"`
-	// Number of cdc deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
-	// Number of cdc inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
-	// Number of cdc updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
-	// Name of the database
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Number of tables completed in full load
-	FullLoadCompletedTables pulumi.IntInput `pulumi:"fullLoadCompletedTables"`
-	// Number of tables errored in full load
-	FullLoadErroredTables pulumi.IntInput `pulumi:"fullLoadErroredTables"`
-	// Number of tables loading in full load
-	FullLoadLoadingTables pulumi.IntInput `pulumi:"fullLoadLoadingTables"`
-	// Number of tables queued in full load
-	FullLoadQueuedTables pulumi.IntInput `pulumi:"fullLoadQueuedTables"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Number of incoming changes
-	IncomingChanges pulumi.IntInput `pulumi:"incomingChanges"`
-	// Indicates if initial load (full load) has been completed
-	InitializationCompleted pulumi.BoolInput `pulumi:"initializationCompleted"`
-	// CDC apply latency
-	Latency pulumi.IntInput `pulumi:"latency"`
-	// Migration state that this database is in
-	MigrationState pulumi.StringInput `pulumi:"migrationState"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-}
-
-func (MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseArgs) ToMigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput() MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseArgs) ToMigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput)
 }
 
 type MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponseOutput struct{ *pulumi.OutputState }
@@ -14096,38 +8067,6 @@ type MigrateSqlServerSqlDbSyncTaskOutputErrorResponse struct {
 	ResultType string `pulumi:"resultType"`
 }
 
-// MigrateSqlServerSqlDbSyncTaskOutputErrorResponseInput is an input type that accepts MigrateSqlServerSqlDbSyncTaskOutputErrorResponseArgs and MigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbSyncTaskOutputErrorResponseInput` via:
-//
-//          MigrateSqlServerSqlDbSyncTaskOutputErrorResponseArgs{...}
-type MigrateSqlServerSqlDbSyncTaskOutputErrorResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutput() MigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutput
-	ToMigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutput
-}
-
-type MigrateSqlServerSqlDbSyncTaskOutputErrorResponseArgs struct {
-	// Migration error
-	Error ReportableExceptionResponseInput `pulumi:"error"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-}
-
-func (MigrateSqlServerSqlDbSyncTaskOutputErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbSyncTaskOutputErrorResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskOutputErrorResponseArgs) ToMigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutput() MigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutput {
-	return i.ToMigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskOutputErrorResponseArgs) ToMigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutput)
-}
-
 type MigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateSqlServerSqlDbSyncTaskOutputErrorResponseOutput) ElementType() reflect.Type {
@@ -14176,50 +8115,6 @@ type MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse struct {
 	TargetServer string `pulumi:"targetServer"`
 	// Target server version
 	TargetServerVersion string `pulumi:"targetServerVersion"`
-}
-
-// MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseInput is an input type that accepts MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseArgs and MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseArgs{...}
-type MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutput() MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutput
-	ToMigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutput
-}
-
-type MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseArgs struct {
-	// Count of databases
-	DatabaseCount pulumi.IntInput `pulumi:"databaseCount"`
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Source server name
-	SourceServer pulumi.StringInput `pulumi:"sourceServer"`
-	// Source server version
-	SourceServerVersion pulumi.StringInput `pulumi:"sourceServerVersion"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Target server name
-	TargetServer pulumi.StringInput `pulumi:"targetServer"`
-	// Target server version
-	TargetServerVersion pulumi.StringInput `pulumi:"targetServerVersion"`
-}
-
-func (MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseArgs) ToMigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutput() MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseArgs) ToMigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutput)
 }
 
 type MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponseOutput struct{ *pulumi.OutputState }
@@ -14312,62 +8207,6 @@ type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse struct {
 	TableName string `pulumi:"tableName"`
 	// Total number of applied changes
 	TotalChangesApplied int `pulumi:"totalChangesApplied"`
-}
-
-// MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseInput is an input type that accepts MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs and MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs{...}
-type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput() MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput
-	ToMigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput
-}
-
-type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs struct {
-	// Number of applied deletes
-	CdcDeleteCounter pulumi.IntInput `pulumi:"cdcDeleteCounter"`
-	// Number of applied inserts
-	CdcInsertCounter pulumi.IntInput `pulumi:"cdcInsertCounter"`
-	// Number of applied updates
-	CdcUpdateCounter pulumi.IntInput `pulumi:"cdcUpdateCounter"`
-	// Number of data errors occurred
-	DataErrorsCounter pulumi.IntInput `pulumi:"dataErrorsCounter"`
-	// Name of the database
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Full load end time
-	FullLoadEndedOn pulumi.StringInput `pulumi:"fullLoadEndedOn"`
-	// Estimate to finish full load
-	FullLoadEstFinishTime pulumi.StringInput `pulumi:"fullLoadEstFinishTime"`
-	// Full load start time
-	FullLoadStartedOn pulumi.StringInput `pulumi:"fullLoadStartedOn"`
-	// Number of rows applied in full load
-	FullLoadTotalRows pulumi.IntInput `pulumi:"fullLoadTotalRows"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Last modified time on target
-	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Current state of the table migration
-	State pulumi.StringInput `pulumi:"state"`
-	// Name of the table
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// Total number of applied changes
-	TotalChangesApplied pulumi.IntInput `pulumi:"totalChangesApplied"`
-}
-
-func (MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs) ToMigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput() MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseArgs) ToMigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput)
 }
 
 type MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponseOutput struct{ *pulumi.OutputState }
@@ -14499,31 +8338,6 @@ func (i MigrateSqlServerSqlDbSyncTaskPropertiesArgs) ToMigrateSqlServerSqlDbSync
 }
 
 // Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
-type MigrateSqlServerSqlDbSyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlDbSyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbSyncTaskProperties)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlDbSyncTaskPropertiesOutput) ToMigrateSqlServerSqlDbSyncTaskPropertiesOutput() MigrateSqlServerSqlDbSyncTaskPropertiesOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbSyncTaskPropertiesOutput) ToMigrateSqlServerSqlDbSyncTaskPropertiesOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o MigrateSqlServerSqlDbSyncTaskPropertiesOutput) Input() MigrateSqlServerSqlDbSyncTaskInputPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskProperties) *MigrateSqlServerSqlDbSyncTaskInput { return v.Input }).(MigrateSqlServerSqlDbSyncTaskInputPtrOutput)
-}
-
-// Task type.
-func (o MigrateSqlServerSqlDbSyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbSyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
 type MigrateSqlServerSqlDbSyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -14537,45 +8351,6 @@ type MigrateSqlServerSqlDbSyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// MigrateSqlServerSqlDbSyncTaskPropertiesResponseInput is an input type that accepts MigrateSqlServerSqlDbSyncTaskPropertiesResponseArgs and MigrateSqlServerSqlDbSyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbSyncTaskPropertiesResponseInput` via:
-//
-//          MigrateSqlServerSqlDbSyncTaskPropertiesResponseArgs{...}
-type MigrateSqlServerSqlDbSyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbSyncTaskPropertiesResponseOutput() MigrateSqlServerSqlDbSyncTaskPropertiesResponseOutput
-	ToMigrateSqlServerSqlDbSyncTaskPropertiesResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbSyncTaskPropertiesResponseOutput
-}
-
-// Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
-type MigrateSqlServerSqlDbSyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input MigrateSqlServerSqlDbSyncTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output pulumi.ArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (MigrateSqlServerSqlDbSyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbSyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskPropertiesResponseArgs) ToMigrateSqlServerSqlDbSyncTaskPropertiesResponseOutput() MigrateSqlServerSqlDbSyncTaskPropertiesResponseOutput {
-	return i.ToMigrateSqlServerSqlDbSyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbSyncTaskPropertiesResponseArgs) ToMigrateSqlServerSqlDbSyncTaskPropertiesResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbSyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbSyncTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
@@ -14718,115 +8493,6 @@ func (i *migrateSqlServerSqlDbTaskInputPtrType) ToMigrateSqlServerSqlDbTaskInput
 }
 
 // Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
-type MigrateSqlServerSqlDbTaskInputOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlDbTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbTaskInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlDbTaskInputOutput) ToMigrateSqlServerSqlDbTaskInputOutput() MigrateSqlServerSqlDbTaskInputOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbTaskInputOutput) ToMigrateSqlServerSqlDbTaskInputOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskInputOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbTaskInputOutput) ToMigrateSqlServerSqlDbTaskInputPtrOutput() MigrateSqlServerSqlDbTaskInputPtrOutput {
-	return o.ToMigrateSqlServerSqlDbTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o MigrateSqlServerSqlDbTaskInputOutput) ToMigrateSqlServerSqlDbTaskInputPtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskInputPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskInput) *MigrateSqlServerSqlDbTaskInput {
-		return &v
-	}).(MigrateSqlServerSqlDbTaskInputPtrOutput)
-}
-
-// Databases to migrate
-func (o MigrateSqlServerSqlDbTaskInputOutput) SelectedDatabases() MigrateSqlServerSqlDbDatabaseInputArrayOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskInput) []MigrateSqlServerSqlDbDatabaseInput {
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlDbDatabaseInputArrayOutput)
-}
-
-// Information for connecting to source
-func (o MigrateSqlServerSqlDbTaskInputOutput) SourceConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskInput) SqlConnectionInfo { return v.SourceConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// Information for connecting to target
-func (o MigrateSqlServerSqlDbTaskInputOutput) TargetConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskInput) SqlConnectionInfo { return v.TargetConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// Options for enabling various post migration validations. Available options,
-//  1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data.
-//  2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
-func (o MigrateSqlServerSqlDbTaskInputOutput) ValidationOptions() MigrationValidationOptionsPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskInput) *MigrationValidationOptions { return v.ValidationOptions }).(MigrationValidationOptionsPtrOutput)
-}
-
-type MigrateSqlServerSqlDbTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlDbTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateSqlServerSqlDbTaskInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlDbTaskInputPtrOutput) ToMigrateSqlServerSqlDbTaskInputPtrOutput() MigrateSqlServerSqlDbTaskInputPtrOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbTaskInputPtrOutput) ToMigrateSqlServerSqlDbTaskInputPtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskInputPtrOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbTaskInputPtrOutput) Elem() MigrateSqlServerSqlDbTaskInputOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbTaskInput) MigrateSqlServerSqlDbTaskInput { return *v }).(MigrateSqlServerSqlDbTaskInputOutput)
-}
-
-// Databases to migrate
-func (o MigrateSqlServerSqlDbTaskInputPtrOutput) SelectedDatabases() MigrateSqlServerSqlDbDatabaseInputArrayOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbTaskInput) []MigrateSqlServerSqlDbDatabaseInput {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlDbDatabaseInputArrayOutput)
-}
-
-// Information for connecting to source
-func (o MigrateSqlServerSqlDbTaskInputPtrOutput) SourceConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Information for connecting to target
-func (o MigrateSqlServerSqlDbTaskInputPtrOutput) TargetConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Options for enabling various post migration validations. Available options,
-//  1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data.
-//  2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
-func (o MigrateSqlServerSqlDbTaskInputPtrOutput) ValidationOptions() MigrationValidationOptionsPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlDbTaskInput) *MigrationValidationOptions {
-		if v == nil {
-			return nil
-		}
-		return v.ValidationOptions
-	}).(MigrationValidationOptionsPtrOutput)
-}
-
-// Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
 type MigrateSqlServerSqlDbTaskInputResponse struct {
 	// Databases to migrate
 	SelectedDatabases []MigrateSqlServerSqlDbDatabaseInputResponse `pulumi:"selectedDatabases"`
@@ -14838,84 +8504,6 @@ type MigrateSqlServerSqlDbTaskInputResponse struct {
 	//  1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data.
 	//  2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
 	ValidationOptions *MigrationValidationOptionsResponse `pulumi:"validationOptions"`
-}
-
-// MigrateSqlServerSqlDbTaskInputResponseInput is an input type that accepts MigrateSqlServerSqlDbTaskInputResponseArgs and MigrateSqlServerSqlDbTaskInputResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbTaskInputResponseInput` via:
-//
-//          MigrateSqlServerSqlDbTaskInputResponseArgs{...}
-type MigrateSqlServerSqlDbTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbTaskInputResponseOutput() MigrateSqlServerSqlDbTaskInputResponseOutput
-	ToMigrateSqlServerSqlDbTaskInputResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbTaskInputResponseOutput
-}
-
-// Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
-type MigrateSqlServerSqlDbTaskInputResponseArgs struct {
-	// Databases to migrate
-	SelectedDatabases MigrateSqlServerSqlDbDatabaseInputResponseArrayInput `pulumi:"selectedDatabases"`
-	// Information for connecting to source
-	SourceConnectionInfo SqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Information for connecting to target
-	TargetConnectionInfo SqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-	// Options for enabling various post migration validations. Available options,
-	//  1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data.
-	//  2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
-	ValidationOptions MigrationValidationOptionsResponsePtrInput `pulumi:"validationOptions"`
-}
-
-func (MigrateSqlServerSqlDbTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbTaskInputResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbTaskInputResponseArgs) ToMigrateSqlServerSqlDbTaskInputResponseOutput() MigrateSqlServerSqlDbTaskInputResponseOutput {
-	return i.ToMigrateSqlServerSqlDbTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbTaskInputResponseArgs) ToMigrateSqlServerSqlDbTaskInputResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbTaskInputResponseOutput)
-}
-
-func (i MigrateSqlServerSqlDbTaskInputResponseArgs) ToMigrateSqlServerSqlDbTaskInputResponsePtrOutput() MigrateSqlServerSqlDbTaskInputResponsePtrOutput {
-	return i.ToMigrateSqlServerSqlDbTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbTaskInputResponseArgs) ToMigrateSqlServerSqlDbTaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbTaskInputResponseOutput).ToMigrateSqlServerSqlDbTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// MigrateSqlServerSqlDbTaskInputResponsePtrInput is an input type that accepts MigrateSqlServerSqlDbTaskInputResponseArgs, MigrateSqlServerSqlDbTaskInputResponsePtr and MigrateSqlServerSqlDbTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbTaskInputResponsePtrInput` via:
-//
-//          MigrateSqlServerSqlDbTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MigrateSqlServerSqlDbTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbTaskInputResponsePtrOutput() MigrateSqlServerSqlDbTaskInputResponsePtrOutput
-	ToMigrateSqlServerSqlDbTaskInputResponsePtrOutputWithContext(context.Context) MigrateSqlServerSqlDbTaskInputResponsePtrOutput
-}
-
-type migrateSqlServerSqlDbTaskInputResponsePtrType MigrateSqlServerSqlDbTaskInputResponseArgs
-
-func MigrateSqlServerSqlDbTaskInputResponsePtr(v *MigrateSqlServerSqlDbTaskInputResponseArgs) MigrateSqlServerSqlDbTaskInputResponsePtrInput {
-	return (*migrateSqlServerSqlDbTaskInputResponsePtrType)(v)
-}
-
-func (*migrateSqlServerSqlDbTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateSqlServerSqlDbTaskInputResponse)(nil)).Elem()
-}
-
-func (i *migrateSqlServerSqlDbTaskInputResponsePtrType) ToMigrateSqlServerSqlDbTaskInputResponsePtrOutput() MigrateSqlServerSqlDbTaskInputResponsePtrOutput {
-	return i.ToMigrateSqlServerSqlDbTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *migrateSqlServerSqlDbTaskInputResponsePtrType) ToMigrateSqlServerSqlDbTaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbTaskInputResponsePtrOutput)
 }
 
 // Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
@@ -15069,65 +8657,6 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse struct {
 	StatusMessage string `pulumi:"statusMessage"`
 }
 
-// MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseInput is an input type that accepts MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs and MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs{...}
-type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput() MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput
-	ToMigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput
-}
-
-// Database level result for Sql Server to Azure Sql DB migration.
-type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs struct {
-	// Name of the item
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Number of database/object errors.
-	ErrorCount pulumi.IntInput `pulumi:"errorCount"`
-	// Wildcard string prefix to use for querying all errors of the item
-	ErrorPrefix pulumi.StringInput `pulumi:"errorPrefix"`
-	// Migration exceptions and warnings.
-	ExceptionsAndWarnings ReportableExceptionResponseArrayInput `pulumi:"exceptionsAndWarnings"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Migration progress message
-	Message pulumi.StringInput `pulumi:"message"`
-	// Number of objects
-	NumberOfObjects pulumi.IntInput `pulumi:"numberOfObjects"`
-	// Number of successfully completed objects
-	NumberOfObjectsCompleted pulumi.IntInput `pulumi:"numberOfObjectsCompleted"`
-	// Summary of object results in the migration
-	ObjectSummary pulumi.StringInput `pulumi:"objectSummary"`
-	// Wildcard string prefix to use for querying all sub-tem results of the item
-	ResultPrefix pulumi.StringInput `pulumi:"resultPrefix"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Migration stage that this database is in
-	Stage pulumi.StringInput `pulumi:"stage"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Current state of migration
-	State pulumi.StringInput `pulumi:"state"`
-	// Status message
-	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
-}
-
-func (MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs) ToMigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput() MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseArgs) ToMigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput)
-}
-
 // Database level result for Sql Server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponseOutput struct{ *pulumi.OutputState }
 
@@ -15251,55 +8780,6 @@ type MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse struct
 	TargetDatabaseName string `pulumi:"targetDatabaseName"`
 }
 
-// MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseInput is an input type that accepts MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseArgs and MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseInput` via:
-//
-//          MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseArgs{...}
-type MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutput() MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutput
-	ToMigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutput
-}
-
-// Database validation result for Sql Server to Azure Sql DB migration.
-type MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseArgs struct {
-	// Provides data integrity validation result between the source and target tables that are migrated.
-	DataIntegrityValidationResult DataIntegrityValidationResultResponseInput `pulumi:"dataIntegrityValidationResult"`
-	// Validation end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Migration Identifier
-	MigrationId pulumi.StringInput `pulumi:"migrationId"`
-	// Results of some of the query execution result between source and target database
-	QueryAnalysisValidationResult QueryAnalysisValidationResultResponseInput `pulumi:"queryAnalysisValidationResult"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Provides schema comparison result between source and target database
-	SchemaValidationResult SchemaComparisonValidationResultResponseInput `pulumi:"schemaValidationResult"`
-	// Name of the source database
-	SourceDatabaseName pulumi.StringInput `pulumi:"sourceDatabaseName"`
-	// Validation start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Current status of validation at the database level
-	Status pulumi.StringInput `pulumi:"status"`
-	// Name of the target database
-	TargetDatabaseName pulumi.StringInput `pulumi:"targetDatabaseName"`
-}
-
-func (MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseArgs) ToMigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutput() MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutput {
-	return i.ToMigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseArgs) ToMigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutput)
-}
-
 // Database validation result for Sql Server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponseOutput struct{ *pulumi.OutputState }
 
@@ -15396,39 +8876,6 @@ type MigrateSqlServerSqlDbTaskOutputErrorResponse struct {
 	ResultType string `pulumi:"resultType"`
 }
 
-// MigrateSqlServerSqlDbTaskOutputErrorResponseInput is an input type that accepts MigrateSqlServerSqlDbTaskOutputErrorResponseArgs and MigrateSqlServerSqlDbTaskOutputErrorResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbTaskOutputErrorResponseInput` via:
-//
-//          MigrateSqlServerSqlDbTaskOutputErrorResponseArgs{...}
-type MigrateSqlServerSqlDbTaskOutputErrorResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbTaskOutputErrorResponseOutput() MigrateSqlServerSqlDbTaskOutputErrorResponseOutput
-	ToMigrateSqlServerSqlDbTaskOutputErrorResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbTaskOutputErrorResponseOutput
-}
-
-// Task errors for Sql Server to Azure Sql DB migration.
-type MigrateSqlServerSqlDbTaskOutputErrorResponseArgs struct {
-	// Migration error
-	Error ReportableExceptionResponseInput `pulumi:"error"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-}
-
-func (MigrateSqlServerSqlDbTaskOutputErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbTaskOutputErrorResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputErrorResponseArgs) ToMigrateSqlServerSqlDbTaskOutputErrorResponseOutput() MigrateSqlServerSqlDbTaskOutputErrorResponseOutput {
-	return i.ToMigrateSqlServerSqlDbTaskOutputErrorResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputErrorResponseArgs) ToMigrateSqlServerSqlDbTaskOutputErrorResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskOutputErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbTaskOutputErrorResponseOutput)
-}
-
 // Task errors for Sql Server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputErrorResponseOutput struct{ *pulumi.OutputState }
 
@@ -15493,65 +8940,6 @@ type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse struct {
 	TargetServerBrandVersion string `pulumi:"targetServerBrandVersion"`
 	// Target server version
 	TargetServerVersion string `pulumi:"targetServerVersion"`
-}
-
-// MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseInput is an input type that accepts MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs and MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs{...}
-type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput() MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput
-	ToMigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput
-}
-
-// Migration level result for Sql server to Azure Sql DB migration.
-type MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs struct {
-	// Summary of database results in the migration
-	DatabaseSummary pulumi.StringInput `pulumi:"databaseSummary"`
-	// Selected databases as a map from database name to database id
-	Databases pulumi.StringInput `pulumi:"databases"`
-	// Duration of task execution in seconds.
-	DurationInSeconds pulumi.IntInput `pulumi:"durationInSeconds"`
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Migration exceptions and warnings.
-	ExceptionsAndWarnings ReportableExceptionResponseArrayInput `pulumi:"exceptionsAndWarnings"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Migration progress message
-	Message pulumi.StringInput `pulumi:"message"`
-	// Migration Report Result, provides unique url for downloading your migration report.
-	MigrationReport MigrationReportResultResponseInput `pulumi:"migrationReport"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Source server brand version
-	SourceServerBrandVersion pulumi.StringInput `pulumi:"sourceServerBrandVersion"`
-	// Source server version
-	SourceServerVersion pulumi.StringInput `pulumi:"sourceServerVersion"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Current status of migration
-	Status pulumi.StringInput `pulumi:"status"`
-	// Migration status message
-	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
-	// Target server brand version
-	TargetServerBrandVersion pulumi.StringInput `pulumi:"targetServerBrandVersion"`
-	// Target server version
-	TargetServerVersion pulumi.StringInput `pulumi:"targetServerVersion"`
-}
-
-func (MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs) ToMigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput() MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseArgs) ToMigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbTaskOutputMigrationLevelResponseOutput)
 }
 
 // Migration level result for Sql server to Azure Sql DB migration.
@@ -15683,55 +9071,6 @@ type MigrateSqlServerSqlDbTaskOutputTableLevelResponse struct {
 	StatusMessage string `pulumi:"statusMessage"`
 }
 
-// MigrateSqlServerSqlDbTaskOutputTableLevelResponseInput is an input type that accepts MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs and MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbTaskOutputTableLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs{...}
-type MigrateSqlServerSqlDbTaskOutputTableLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput() MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput
-	ToMigrateSqlServerSqlDbTaskOutputTableLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput
-}
-
-// Table level result for Sql Server to Azure Sql DB migration.
-type MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs struct {
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Wildcard string prefix to use for querying all errors of the item
-	ErrorPrefix pulumi.StringInput `pulumi:"errorPrefix"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Number of successfully completed items
-	ItemsCompletedCount pulumi.IntInput `pulumi:"itemsCompletedCount"`
-	// Number of items
-	ItemsCount pulumi.IntInput `pulumi:"itemsCount"`
-	// Name of the item
-	ObjectName pulumi.StringInput `pulumi:"objectName"`
-	// Wildcard string prefix to use for querying all sub-tem results of the item
-	ResultPrefix pulumi.StringInput `pulumi:"resultPrefix"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Current state of migration
-	State pulumi.StringInput `pulumi:"state"`
-	// Status message
-	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
-}
-
-func (MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbTaskOutputTableLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs) ToMigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput() MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlDbTaskOutputTableLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputTableLevelResponseArgs) ToMigrateSqlServerSqlDbTaskOutputTableLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput)
-}
-
 // Table level result for Sql Server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputTableLevelResponseOutput struct{ *pulumi.OutputState }
 
@@ -15816,43 +9155,6 @@ type MigrateSqlServerSqlDbTaskOutputValidationResultResponse struct {
 	SummaryResults map[string]MigrationValidationDatabaseSummaryResultResponse `pulumi:"summaryResults"`
 }
 
-// MigrateSqlServerSqlDbTaskOutputValidationResultResponseInput is an input type that accepts MigrateSqlServerSqlDbTaskOutputValidationResultResponseArgs and MigrateSqlServerSqlDbTaskOutputValidationResultResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbTaskOutputValidationResultResponseInput` via:
-//
-//          MigrateSqlServerSqlDbTaskOutputValidationResultResponseArgs{...}
-type MigrateSqlServerSqlDbTaskOutputValidationResultResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbTaskOutputValidationResultResponseOutput() MigrateSqlServerSqlDbTaskOutputValidationResultResponseOutput
-	ToMigrateSqlServerSqlDbTaskOutputValidationResultResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbTaskOutputValidationResultResponseOutput
-}
-
-// Validation result for Sql Server to Azure Sql DB migration.
-type MigrateSqlServerSqlDbTaskOutputValidationResultResponseArgs struct {
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Migration Identifier
-	MigrationId pulumi.StringInput `pulumi:"migrationId"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Current status of validation at the migration level. Status from the database validation result status will be aggregated here.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Validation summary results for each database
-	SummaryResults MigrationValidationDatabaseSummaryResultResponseMapInput `pulumi:"summaryResults"`
-}
-
-func (MigrateSqlServerSqlDbTaskOutputValidationResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbTaskOutputValidationResultResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputValidationResultResponseArgs) ToMigrateSqlServerSqlDbTaskOutputValidationResultResponseOutput() MigrateSqlServerSqlDbTaskOutputValidationResultResponseOutput {
-	return i.ToMigrateSqlServerSqlDbTaskOutputValidationResultResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbTaskOutputValidationResultResponseArgs) ToMigrateSqlServerSqlDbTaskOutputValidationResultResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskOutputValidationResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbTaskOutputValidationResultResponseOutput)
-}
-
 // Validation result for Sql Server to Azure Sql DB migration.
 type MigrateSqlServerSqlDbTaskOutputValidationResultResponseOutput struct{ *pulumi.OutputState }
 
@@ -15935,31 +9237,6 @@ func (i MigrateSqlServerSqlDbTaskPropertiesArgs) ToMigrateSqlServerSqlDbTaskProp
 }
 
 // Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
-type MigrateSqlServerSqlDbTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlDbTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbTaskProperties)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlDbTaskPropertiesOutput) ToMigrateSqlServerSqlDbTaskPropertiesOutput() MigrateSqlServerSqlDbTaskPropertiesOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlDbTaskPropertiesOutput) ToMigrateSqlServerSqlDbTaskPropertiesOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o MigrateSqlServerSqlDbTaskPropertiesOutput) Input() MigrateSqlServerSqlDbTaskInputPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskProperties) *MigrateSqlServerSqlDbTaskInput { return v.Input }).(MigrateSqlServerSqlDbTaskInputPtrOutput)
-}
-
-// Task type.
-func (o MigrateSqlServerSqlDbTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlDbTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
 type MigrateSqlServerSqlDbTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -15973,45 +9250,6 @@ type MigrateSqlServerSqlDbTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// MigrateSqlServerSqlDbTaskPropertiesResponseInput is an input type that accepts MigrateSqlServerSqlDbTaskPropertiesResponseArgs and MigrateSqlServerSqlDbTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlDbTaskPropertiesResponseInput` via:
-//
-//          MigrateSqlServerSqlDbTaskPropertiesResponseArgs{...}
-type MigrateSqlServerSqlDbTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlDbTaskPropertiesResponseOutput() MigrateSqlServerSqlDbTaskPropertiesResponseOutput
-	ToMigrateSqlServerSqlDbTaskPropertiesResponseOutputWithContext(context.Context) MigrateSqlServerSqlDbTaskPropertiesResponseOutput
-}
-
-// Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
-type MigrateSqlServerSqlDbTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input MigrateSqlServerSqlDbTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output pulumi.ArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (MigrateSqlServerSqlDbTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlDbTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlDbTaskPropertiesResponseArgs) ToMigrateSqlServerSqlDbTaskPropertiesResponseOutput() MigrateSqlServerSqlDbTaskPropertiesResponseOutput {
-	return i.ToMigrateSqlServerSqlDbTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlDbTaskPropertiesResponseArgs) ToMigrateSqlServerSqlDbTaskPropertiesResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlDbTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlDbTaskPropertiesResponseOutput)
 }
 
 // Properties for the task that migrates on-prem SQL Server databases to Azure SQL Database
@@ -16134,61 +9372,6 @@ func (i MigrateSqlServerSqlMIDatabaseInputArray) ToMigrateSqlServerSqlMIDatabase
 }
 
 // Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
-type MigrateSqlServerSqlMIDatabaseInputOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlMIDatabaseInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMIDatabaseInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlMIDatabaseInputOutput) ToMigrateSqlServerSqlMIDatabaseInputOutput() MigrateSqlServerSqlMIDatabaseInputOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMIDatabaseInputOutput) ToMigrateSqlServerSqlMIDatabaseInputOutputWithContext(ctx context.Context) MigrateSqlServerSqlMIDatabaseInputOutput {
-	return o
-}
-
-// The list of backup files to be used in case of existing backups.
-func (o MigrateSqlServerSqlMIDatabaseInputOutput) BackupFilePaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMIDatabaseInput) []string { return v.BackupFilePaths }).(pulumi.StringArrayOutput)
-}
-
-// Backup file share information for backing up this database.
-func (o MigrateSqlServerSqlMIDatabaseInputOutput) BackupFileShare() FileSharePtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMIDatabaseInput) *FileShare { return v.BackupFileShare }).(FileSharePtrOutput)
-}
-
-// Name of the database
-func (o MigrateSqlServerSqlMIDatabaseInputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMIDatabaseInput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Name of the database at destination
-func (o MigrateSqlServerSqlMIDatabaseInputOutput) RestoreDatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMIDatabaseInput) string { return v.RestoreDatabaseName }).(pulumi.StringOutput)
-}
-
-type MigrateSqlServerSqlMIDatabaseInputArrayOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlMIDatabaseInputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MigrateSqlServerSqlMIDatabaseInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlMIDatabaseInputArrayOutput) ToMigrateSqlServerSqlMIDatabaseInputArrayOutput() MigrateSqlServerSqlMIDatabaseInputArrayOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMIDatabaseInputArrayOutput) ToMigrateSqlServerSqlMIDatabaseInputArrayOutputWithContext(ctx context.Context) MigrateSqlServerSqlMIDatabaseInputArrayOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMIDatabaseInputArrayOutput) Index(i pulumi.IntInput) MigrateSqlServerSqlMIDatabaseInputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigrateSqlServerSqlMIDatabaseInput {
-		return vs[0].([]MigrateSqlServerSqlMIDatabaseInput)[vs[1].(int)]
-	}).(MigrateSqlServerSqlMIDatabaseInputOutput)
-}
-
-// Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
 type MigrateSqlServerSqlMIDatabaseInputResponse struct {
 	// The list of backup files to be used in case of existing backups.
 	BackupFilePaths []string `pulumi:"backupFilePaths"`
@@ -16198,66 +9381,6 @@ type MigrateSqlServerSqlMIDatabaseInputResponse struct {
 	Name string `pulumi:"name"`
 	// Name of the database at destination
 	RestoreDatabaseName string `pulumi:"restoreDatabaseName"`
-}
-
-// MigrateSqlServerSqlMIDatabaseInputResponseInput is an input type that accepts MigrateSqlServerSqlMIDatabaseInputResponseArgs and MigrateSqlServerSqlMIDatabaseInputResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMIDatabaseInputResponseInput` via:
-//
-//          MigrateSqlServerSqlMIDatabaseInputResponseArgs{...}
-type MigrateSqlServerSqlMIDatabaseInputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMIDatabaseInputResponseOutput() MigrateSqlServerSqlMIDatabaseInputResponseOutput
-	ToMigrateSqlServerSqlMIDatabaseInputResponseOutputWithContext(context.Context) MigrateSqlServerSqlMIDatabaseInputResponseOutput
-}
-
-// Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
-type MigrateSqlServerSqlMIDatabaseInputResponseArgs struct {
-	// The list of backup files to be used in case of existing backups.
-	BackupFilePaths pulumi.StringArrayInput `pulumi:"backupFilePaths"`
-	// Backup file share information for backing up this database.
-	BackupFileShare FileShareResponsePtrInput `pulumi:"backupFileShare"`
-	// Name of the database
-	Name pulumi.StringInput `pulumi:"name"`
-	// Name of the database at destination
-	RestoreDatabaseName pulumi.StringInput `pulumi:"restoreDatabaseName"`
-}
-
-func (MigrateSqlServerSqlMIDatabaseInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMIDatabaseInputResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMIDatabaseInputResponseArgs) ToMigrateSqlServerSqlMIDatabaseInputResponseOutput() MigrateSqlServerSqlMIDatabaseInputResponseOutput {
-	return i.ToMigrateSqlServerSqlMIDatabaseInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMIDatabaseInputResponseArgs) ToMigrateSqlServerSqlMIDatabaseInputResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMIDatabaseInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMIDatabaseInputResponseOutput)
-}
-
-// MigrateSqlServerSqlMIDatabaseInputResponseArrayInput is an input type that accepts MigrateSqlServerSqlMIDatabaseInputResponseArray and MigrateSqlServerSqlMIDatabaseInputResponseArrayOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMIDatabaseInputResponseArrayInput` via:
-//
-//          MigrateSqlServerSqlMIDatabaseInputResponseArray{ MigrateSqlServerSqlMIDatabaseInputResponseArgs{...} }
-type MigrateSqlServerSqlMIDatabaseInputResponseArrayInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMIDatabaseInputResponseArrayOutput() MigrateSqlServerSqlMIDatabaseInputResponseArrayOutput
-	ToMigrateSqlServerSqlMIDatabaseInputResponseArrayOutputWithContext(context.Context) MigrateSqlServerSqlMIDatabaseInputResponseArrayOutput
-}
-
-type MigrateSqlServerSqlMIDatabaseInputResponseArray []MigrateSqlServerSqlMIDatabaseInputResponseInput
-
-func (MigrateSqlServerSqlMIDatabaseInputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MigrateSqlServerSqlMIDatabaseInputResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMIDatabaseInputResponseArray) ToMigrateSqlServerSqlMIDatabaseInputResponseArrayOutput() MigrateSqlServerSqlMIDatabaseInputResponseArrayOutput {
-	return i.ToMigrateSqlServerSqlMIDatabaseInputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMIDatabaseInputResponseArray) ToMigrateSqlServerSqlMIDatabaseInputResponseArrayOutputWithContext(ctx context.Context) MigrateSqlServerSqlMIDatabaseInputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMIDatabaseInputResponseArrayOutput)
 }
 
 // Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
@@ -16412,141 +9535,6 @@ func (i *migrateSqlServerSqlMISyncTaskInputPtrType) ToMigrateSqlServerSqlMISyncT
 }
 
 // Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
-type MigrateSqlServerSqlMISyncTaskInputOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlMISyncTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMISyncTaskInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlMISyncTaskInputOutput) ToMigrateSqlServerSqlMISyncTaskInputOutput() MigrateSqlServerSqlMISyncTaskInputOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMISyncTaskInputOutput) ToMigrateSqlServerSqlMISyncTaskInputOutputWithContext(ctx context.Context) MigrateSqlServerSqlMISyncTaskInputOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMISyncTaskInputOutput) ToMigrateSqlServerSqlMISyncTaskInputPtrOutput() MigrateSqlServerSqlMISyncTaskInputPtrOutput {
-	return o.ToMigrateSqlServerSqlMISyncTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o MigrateSqlServerSqlMISyncTaskInputOutput) ToMigrateSqlServerSqlMISyncTaskInputPtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlMISyncTaskInputPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMISyncTaskInput) *MigrateSqlServerSqlMISyncTaskInput {
-		return &v
-	}).(MigrateSqlServerSqlMISyncTaskInputPtrOutput)
-}
-
-// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-func (o MigrateSqlServerSqlMISyncTaskInputOutput) AzureApp() AzureActiveDirectoryAppOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMISyncTaskInput) AzureActiveDirectoryApp { return v.AzureApp }).(AzureActiveDirectoryAppOutput)
-}
-
-// Backup file share information for all selected databases.
-func (o MigrateSqlServerSqlMISyncTaskInputOutput) BackupFileShare() FileSharePtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMISyncTaskInput) *FileShare { return v.BackupFileShare }).(FileSharePtrOutput)
-}
-
-// Databases to migrate
-func (o MigrateSqlServerSqlMISyncTaskInputOutput) SelectedDatabases() MigrateSqlServerSqlMIDatabaseInputArrayOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMISyncTaskInput) []MigrateSqlServerSqlMIDatabaseInput {
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlMIDatabaseInputArrayOutput)
-}
-
-// Connection information for source SQL Server
-func (o MigrateSqlServerSqlMISyncTaskInputOutput) SourceConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMISyncTaskInput) SqlConnectionInfo { return v.SourceConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// Fully qualified resourceId of storage
-func (o MigrateSqlServerSqlMISyncTaskInputOutput) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMISyncTaskInput) string { return v.StorageResourceId }).(pulumi.StringOutput)
-}
-
-// Connection information for Azure SQL Database Managed Instance
-func (o MigrateSqlServerSqlMISyncTaskInputOutput) TargetConnectionInfo() MiSqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMISyncTaskInput) MiSqlConnectionInfo { return v.TargetConnectionInfo }).(MiSqlConnectionInfoOutput)
-}
-
-type MigrateSqlServerSqlMISyncTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlMISyncTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateSqlServerSqlMISyncTaskInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlMISyncTaskInputPtrOutput) ToMigrateSqlServerSqlMISyncTaskInputPtrOutput() MigrateSqlServerSqlMISyncTaskInputPtrOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMISyncTaskInputPtrOutput) ToMigrateSqlServerSqlMISyncTaskInputPtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlMISyncTaskInputPtrOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMISyncTaskInputPtrOutput) Elem() MigrateSqlServerSqlMISyncTaskInputOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMISyncTaskInput) MigrateSqlServerSqlMISyncTaskInput { return *v }).(MigrateSqlServerSqlMISyncTaskInputOutput)
-}
-
-// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-func (o MigrateSqlServerSqlMISyncTaskInputPtrOutput) AzureApp() AzureActiveDirectoryAppPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMISyncTaskInput) *AzureActiveDirectoryApp {
-		if v == nil {
-			return nil
-		}
-		return &v.AzureApp
-	}).(AzureActiveDirectoryAppPtrOutput)
-}
-
-// Backup file share information for all selected databases.
-func (o MigrateSqlServerSqlMISyncTaskInputPtrOutput) BackupFileShare() FileSharePtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMISyncTaskInput) *FileShare {
-		if v == nil {
-			return nil
-		}
-		return v.BackupFileShare
-	}).(FileSharePtrOutput)
-}
-
-// Databases to migrate
-func (o MigrateSqlServerSqlMISyncTaskInputPtrOutput) SelectedDatabases() MigrateSqlServerSqlMIDatabaseInputArrayOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMISyncTaskInput) []MigrateSqlServerSqlMIDatabaseInput {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlMIDatabaseInputArrayOutput)
-}
-
-// Connection information for source SQL Server
-func (o MigrateSqlServerSqlMISyncTaskInputPtrOutput) SourceConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMISyncTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Fully qualified resourceId of storage
-func (o MigrateSqlServerSqlMISyncTaskInputPtrOutput) StorageResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMISyncTaskInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Connection information for Azure SQL Database Managed Instance
-func (o MigrateSqlServerSqlMISyncTaskInputPtrOutput) TargetConnectionInfo() MiSqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMISyncTaskInput) *MiSqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(MiSqlConnectionInfoPtrOutput)
-}
-
-// Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
 type MigrateSqlServerSqlMISyncTaskInputResponse struct {
 	// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
 	AzureApp AzureActiveDirectoryAppResponse `pulumi:"azureApp"`
@@ -16560,86 +9548,6 @@ type MigrateSqlServerSqlMISyncTaskInputResponse struct {
 	StorageResourceId string `pulumi:"storageResourceId"`
 	// Connection information for Azure SQL Database Managed Instance
 	TargetConnectionInfo MiSqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// MigrateSqlServerSqlMISyncTaskInputResponseInput is an input type that accepts MigrateSqlServerSqlMISyncTaskInputResponseArgs and MigrateSqlServerSqlMISyncTaskInputResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMISyncTaskInputResponseInput` via:
-//
-//          MigrateSqlServerSqlMISyncTaskInputResponseArgs{...}
-type MigrateSqlServerSqlMISyncTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMISyncTaskInputResponseOutput() MigrateSqlServerSqlMISyncTaskInputResponseOutput
-	ToMigrateSqlServerSqlMISyncTaskInputResponseOutputWithContext(context.Context) MigrateSqlServerSqlMISyncTaskInputResponseOutput
-}
-
-// Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
-type MigrateSqlServerSqlMISyncTaskInputResponseArgs struct {
-	// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-	AzureApp AzureActiveDirectoryAppResponseInput `pulumi:"azureApp"`
-	// Backup file share information for all selected databases.
-	BackupFileShare FileShareResponsePtrInput `pulumi:"backupFileShare"`
-	// Databases to migrate
-	SelectedDatabases MigrateSqlServerSqlMIDatabaseInputResponseArrayInput `pulumi:"selectedDatabases"`
-	// Connection information for source SQL Server
-	SourceConnectionInfo SqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Fully qualified resourceId of storage
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
-	// Connection information for Azure SQL Database Managed Instance
-	TargetConnectionInfo MiSqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (MigrateSqlServerSqlMISyncTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMISyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMISyncTaskInputResponseArgs) ToMigrateSqlServerSqlMISyncTaskInputResponseOutput() MigrateSqlServerSqlMISyncTaskInputResponseOutput {
-	return i.ToMigrateSqlServerSqlMISyncTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMISyncTaskInputResponseArgs) ToMigrateSqlServerSqlMISyncTaskInputResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMISyncTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMISyncTaskInputResponseOutput)
-}
-
-func (i MigrateSqlServerSqlMISyncTaskInputResponseArgs) ToMigrateSqlServerSqlMISyncTaskInputResponsePtrOutput() MigrateSqlServerSqlMISyncTaskInputResponsePtrOutput {
-	return i.ToMigrateSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMISyncTaskInputResponseArgs) ToMigrateSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlMISyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMISyncTaskInputResponseOutput).ToMigrateSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// MigrateSqlServerSqlMISyncTaskInputResponsePtrInput is an input type that accepts MigrateSqlServerSqlMISyncTaskInputResponseArgs, MigrateSqlServerSqlMISyncTaskInputResponsePtr and MigrateSqlServerSqlMISyncTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMISyncTaskInputResponsePtrInput` via:
-//
-//          MigrateSqlServerSqlMISyncTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MigrateSqlServerSqlMISyncTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMISyncTaskInputResponsePtrOutput() MigrateSqlServerSqlMISyncTaskInputResponsePtrOutput
-	ToMigrateSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(context.Context) MigrateSqlServerSqlMISyncTaskInputResponsePtrOutput
-}
-
-type migrateSqlServerSqlMISyncTaskInputResponsePtrType MigrateSqlServerSqlMISyncTaskInputResponseArgs
-
-func MigrateSqlServerSqlMISyncTaskInputResponsePtr(v *MigrateSqlServerSqlMISyncTaskInputResponseArgs) MigrateSqlServerSqlMISyncTaskInputResponsePtrInput {
-	return (*migrateSqlServerSqlMISyncTaskInputResponsePtrType)(v)
-}
-
-func (*migrateSqlServerSqlMISyncTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateSqlServerSqlMISyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i *migrateSqlServerSqlMISyncTaskInputResponsePtrType) ToMigrateSqlServerSqlMISyncTaskInputResponsePtrOutput() MigrateSqlServerSqlMISyncTaskInputResponsePtrOutput {
-	return i.ToMigrateSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *migrateSqlServerSqlMISyncTaskInputResponsePtrType) ToMigrateSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlMISyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMISyncTaskInputResponsePtrOutput)
 }
 
 // Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
@@ -16812,58 +9720,6 @@ type MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse struct {
 	StartedOn string `pulumi:"startedOn"`
 }
 
-// MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseInput is an input type that accepts MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseArgs and MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseArgs{...}
-type MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutput() MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutput
-	ToMigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutput
-}
-
-type MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseArgs struct {
-	// Backup sets that are currently active (Either being uploaded or getting restored)
-	ActiveBackupSets BackupSetInfoResponseArrayInput `pulumi:"activeBackupSets"`
-	// Name of container created in the Azure Storage account where backups are copied to
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Database migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// prefix string to use for querying errors for this database
-	ErrorPrefix pulumi.StringInput `pulumi:"errorPrefix"`
-	// Migration exceptions and warnings
-	ExceptionsAndWarnings ReportableExceptionResponseArrayInput `pulumi:"exceptionsAndWarnings"`
-	// Details of full backup set
-	FullBackupSetInfo BackupSetInfoResponseInput `pulumi:"fullBackupSetInfo"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Whether full backup has been applied to the target database or not
-	IsFullBackupRestored pulumi.BoolInput `pulumi:"isFullBackupRestored"`
-	// Last applied backup set information
-	LastRestoredBackupSetInfo BackupSetInfoResponseInput `pulumi:"lastRestoredBackupSetInfo"`
-	// Current state of database
-	MigrationState pulumi.StringInput `pulumi:"migrationState"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Name of the database
-	SourceDatabaseName pulumi.StringInput `pulumi:"sourceDatabaseName"`
-	// Database migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-}
-
-func (MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseArgs) ToMigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutput() MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseArgs) ToMigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutput)
-}
-
 type MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponseOutput) ElementType() reflect.Type {
@@ -16960,38 +9816,6 @@ type MigrateSqlServerSqlMISyncTaskOutputErrorResponse struct {
 	ResultType string `pulumi:"resultType"`
 }
 
-// MigrateSqlServerSqlMISyncTaskOutputErrorResponseInput is an input type that accepts MigrateSqlServerSqlMISyncTaskOutputErrorResponseArgs and MigrateSqlServerSqlMISyncTaskOutputErrorResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMISyncTaskOutputErrorResponseInput` via:
-//
-//          MigrateSqlServerSqlMISyncTaskOutputErrorResponseArgs{...}
-type MigrateSqlServerSqlMISyncTaskOutputErrorResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMISyncTaskOutputErrorResponseOutput() MigrateSqlServerSqlMISyncTaskOutputErrorResponseOutput
-	ToMigrateSqlServerSqlMISyncTaskOutputErrorResponseOutputWithContext(context.Context) MigrateSqlServerSqlMISyncTaskOutputErrorResponseOutput
-}
-
-type MigrateSqlServerSqlMISyncTaskOutputErrorResponseArgs struct {
-	// Migration error
-	Error ReportableExceptionResponseInput `pulumi:"error"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-}
-
-func (MigrateSqlServerSqlMISyncTaskOutputErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMISyncTaskOutputErrorResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMISyncTaskOutputErrorResponseArgs) ToMigrateSqlServerSqlMISyncTaskOutputErrorResponseOutput() MigrateSqlServerSqlMISyncTaskOutputErrorResponseOutput {
-	return i.ToMigrateSqlServerSqlMISyncTaskOutputErrorResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMISyncTaskOutputErrorResponseArgs) ToMigrateSqlServerSqlMISyncTaskOutputErrorResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMISyncTaskOutputErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMISyncTaskOutputErrorResponseOutput)
-}
-
 type MigrateSqlServerSqlMISyncTaskOutputErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateSqlServerSqlMISyncTaskOutputErrorResponseOutput) ElementType() reflect.Type {
@@ -17048,58 +9872,6 @@ type MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse struct {
 	TargetServerName string `pulumi:"targetServerName"`
 	// Target server version
 	TargetServerVersion string `pulumi:"targetServerVersion"`
-}
-
-// MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseInput is an input type that accepts MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseArgs and MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseArgs{...}
-type MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutput() MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutput
-	ToMigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutput
-}
-
-type MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseArgs struct {
-	// Count of databases
-	DatabaseCount pulumi.IntInput `pulumi:"databaseCount"`
-	// Number of database level errors
-	DatabaseErrorCount pulumi.IntInput `pulumi:"databaseErrorCount"`
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Source server brand version
-	SourceServerBrandVersion pulumi.StringInput `pulumi:"sourceServerBrandVersion"`
-	// Source server name
-	SourceServerName pulumi.StringInput `pulumi:"sourceServerName"`
-	// Source server version
-	SourceServerVersion pulumi.StringInput `pulumi:"sourceServerVersion"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Current state of migration
-	State pulumi.StringInput `pulumi:"state"`
-	// Target server brand version
-	TargetServerBrandVersion pulumi.StringInput `pulumi:"targetServerBrandVersion"`
-	// Target server name
-	TargetServerName pulumi.StringInput `pulumi:"targetServerName"`
-	// Target server version
-	TargetServerVersion pulumi.StringInput `pulumi:"targetServerVersion"`
-}
-
-func (MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseArgs) ToMigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutput() MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseArgs) ToMigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutput)
 }
 
 type MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponseOutput struct{ *pulumi.OutputState }
@@ -17225,31 +9997,6 @@ func (i MigrateSqlServerSqlMISyncTaskPropertiesArgs) ToMigrateSqlServerSqlMISync
 }
 
 // Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
-type MigrateSqlServerSqlMISyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlMISyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMISyncTaskProperties)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlMISyncTaskPropertiesOutput) ToMigrateSqlServerSqlMISyncTaskPropertiesOutput() MigrateSqlServerSqlMISyncTaskPropertiesOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMISyncTaskPropertiesOutput) ToMigrateSqlServerSqlMISyncTaskPropertiesOutputWithContext(ctx context.Context) MigrateSqlServerSqlMISyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o MigrateSqlServerSqlMISyncTaskPropertiesOutput) Input() MigrateSqlServerSqlMISyncTaskInputPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMISyncTaskProperties) *MigrateSqlServerSqlMISyncTaskInput { return v.Input }).(MigrateSqlServerSqlMISyncTaskInputPtrOutput)
-}
-
-// Task type.
-func (o MigrateSqlServerSqlMISyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMISyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
 type MigrateSqlServerSqlMISyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -17263,45 +10010,6 @@ type MigrateSqlServerSqlMISyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// MigrateSqlServerSqlMISyncTaskPropertiesResponseInput is an input type that accepts MigrateSqlServerSqlMISyncTaskPropertiesResponseArgs and MigrateSqlServerSqlMISyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMISyncTaskPropertiesResponseInput` via:
-//
-//          MigrateSqlServerSqlMISyncTaskPropertiesResponseArgs{...}
-type MigrateSqlServerSqlMISyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMISyncTaskPropertiesResponseOutput() MigrateSqlServerSqlMISyncTaskPropertiesResponseOutput
-	ToMigrateSqlServerSqlMISyncTaskPropertiesResponseOutputWithContext(context.Context) MigrateSqlServerSqlMISyncTaskPropertiesResponseOutput
-}
-
-// Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
-type MigrateSqlServerSqlMISyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input MigrateSqlServerSqlMISyncTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output pulumi.ArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (MigrateSqlServerSqlMISyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMISyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMISyncTaskPropertiesResponseArgs) ToMigrateSqlServerSqlMISyncTaskPropertiesResponseOutput() MigrateSqlServerSqlMISyncTaskPropertiesResponseOutput {
-	return i.ToMigrateSqlServerSqlMISyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMISyncTaskPropertiesResponseArgs) ToMigrateSqlServerSqlMISyncTaskPropertiesResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMISyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMISyncTaskPropertiesResponseOutput)
 }
 
 // Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance sync scenario
@@ -17456,171 +10164,6 @@ func (i *migrateSqlServerSqlMITaskInputPtrType) ToMigrateSqlServerSqlMITaskInput
 }
 
 // Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
-type MigrateSqlServerSqlMITaskInputOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlMITaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMITaskInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlMITaskInputOutput) ToMigrateSqlServerSqlMITaskInputOutput() MigrateSqlServerSqlMITaskInputOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMITaskInputOutput) ToMigrateSqlServerSqlMITaskInputOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskInputOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMITaskInputOutput) ToMigrateSqlServerSqlMITaskInputPtrOutput() MigrateSqlServerSqlMITaskInputPtrOutput {
-	return o.ToMigrateSqlServerSqlMITaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o MigrateSqlServerSqlMITaskInputOutput) ToMigrateSqlServerSqlMITaskInputPtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskInputPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskInput) *MigrateSqlServerSqlMITaskInput {
-		return &v
-	}).(MigrateSqlServerSqlMITaskInputPtrOutput)
-}
-
-// SAS URI of Azure Storage Account Container to be used for storing backup files.
-func (o MigrateSqlServerSqlMITaskInputOutput) BackupBlobShare() BlobShareOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskInput) BlobShare { return v.BackupBlobShare }).(BlobShareOutput)
-}
-
-// Backup file share information for all selected databases.
-func (o MigrateSqlServerSqlMITaskInputOutput) BackupFileShare() FileSharePtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskInput) *FileShare { return v.BackupFileShare }).(FileSharePtrOutput)
-}
-
-// Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
-func (o MigrateSqlServerSqlMITaskInputOutput) BackupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskInput) *string { return v.BackupMode }).(pulumi.StringPtrOutput)
-}
-
-// Agent Jobs to migrate.
-func (o MigrateSqlServerSqlMITaskInputOutput) SelectedAgentJobs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskInput) []string { return v.SelectedAgentJobs }).(pulumi.StringArrayOutput)
-}
-
-// Databases to migrate
-func (o MigrateSqlServerSqlMITaskInputOutput) SelectedDatabases() MigrateSqlServerSqlMIDatabaseInputArrayOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskInput) []MigrateSqlServerSqlMIDatabaseInput {
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlMIDatabaseInputArrayOutput)
-}
-
-// Logins to migrate.
-func (o MigrateSqlServerSqlMITaskInputOutput) SelectedLogins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskInput) []string { return v.SelectedLogins }).(pulumi.StringArrayOutput)
-}
-
-// Information for connecting to source
-func (o MigrateSqlServerSqlMITaskInputOutput) SourceConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskInput) SqlConnectionInfo { return v.SourceConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// Information for connecting to target
-func (o MigrateSqlServerSqlMITaskInputOutput) TargetConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskInput) SqlConnectionInfo { return v.TargetConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-type MigrateSqlServerSqlMITaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlMITaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateSqlServerSqlMITaskInput)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlMITaskInputPtrOutput) ToMigrateSqlServerSqlMITaskInputPtrOutput() MigrateSqlServerSqlMITaskInputPtrOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMITaskInputPtrOutput) ToMigrateSqlServerSqlMITaskInputPtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskInputPtrOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMITaskInputPtrOutput) Elem() MigrateSqlServerSqlMITaskInputOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInput) MigrateSqlServerSqlMITaskInput { return *v }).(MigrateSqlServerSqlMITaskInputOutput)
-}
-
-// SAS URI of Azure Storage Account Container to be used for storing backup files.
-func (o MigrateSqlServerSqlMITaskInputPtrOutput) BackupBlobShare() BlobSharePtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInput) *BlobShare {
-		if v == nil {
-			return nil
-		}
-		return &v.BackupBlobShare
-	}).(BlobSharePtrOutput)
-}
-
-// Backup file share information for all selected databases.
-func (o MigrateSqlServerSqlMITaskInputPtrOutput) BackupFileShare() FileSharePtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInput) *FileShare {
-		if v == nil {
-			return nil
-		}
-		return v.BackupFileShare
-	}).(FileSharePtrOutput)
-}
-
-// Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
-func (o MigrateSqlServerSqlMITaskInputPtrOutput) BackupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BackupMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Agent Jobs to migrate.
-func (o MigrateSqlServerSqlMITaskInputPtrOutput) SelectedAgentJobs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInput) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedAgentJobs
-	}).(pulumi.StringArrayOutput)
-}
-
-// Databases to migrate
-func (o MigrateSqlServerSqlMITaskInputPtrOutput) SelectedDatabases() MigrateSqlServerSqlMIDatabaseInputArrayOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInput) []MigrateSqlServerSqlMIDatabaseInput {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlMIDatabaseInputArrayOutput)
-}
-
-// Logins to migrate.
-func (o MigrateSqlServerSqlMITaskInputPtrOutput) SelectedLogins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInput) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedLogins
-	}).(pulumi.StringArrayOutput)
-}
-
-// Information for connecting to source
-func (o MigrateSqlServerSqlMITaskInputPtrOutput) SourceConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Information for connecting to target
-func (o MigrateSqlServerSqlMITaskInputPtrOutput) TargetConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *MigrateSqlServerSqlMITaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
 type MigrateSqlServerSqlMITaskInputResponse struct {
 	// SAS URI of Azure Storage Account Container to be used for storing backup files.
 	BackupBlobShare BlobShareResponse `pulumi:"backupBlobShare"`
@@ -17638,90 +10181,6 @@ type MigrateSqlServerSqlMITaskInputResponse struct {
 	SourceConnectionInfo SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Information for connecting to target
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// MigrateSqlServerSqlMITaskInputResponseInput is an input type that accepts MigrateSqlServerSqlMITaskInputResponseArgs and MigrateSqlServerSqlMITaskInputResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMITaskInputResponseInput` via:
-//
-//          MigrateSqlServerSqlMITaskInputResponseArgs{...}
-type MigrateSqlServerSqlMITaskInputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMITaskInputResponseOutput() MigrateSqlServerSqlMITaskInputResponseOutput
-	ToMigrateSqlServerSqlMITaskInputResponseOutputWithContext(context.Context) MigrateSqlServerSqlMITaskInputResponseOutput
-}
-
-// Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
-type MigrateSqlServerSqlMITaskInputResponseArgs struct {
-	// SAS URI of Azure Storage Account Container to be used for storing backup files.
-	BackupBlobShare BlobShareResponseInput `pulumi:"backupBlobShare"`
-	// Backup file share information for all selected databases.
-	BackupFileShare FileShareResponsePtrInput `pulumi:"backupFileShare"`
-	// Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
-	BackupMode pulumi.StringPtrInput `pulumi:"backupMode"`
-	// Agent Jobs to migrate.
-	SelectedAgentJobs pulumi.StringArrayInput `pulumi:"selectedAgentJobs"`
-	// Databases to migrate
-	SelectedDatabases MigrateSqlServerSqlMIDatabaseInputResponseArrayInput `pulumi:"selectedDatabases"`
-	// Logins to migrate.
-	SelectedLogins pulumi.StringArrayInput `pulumi:"selectedLogins"`
-	// Information for connecting to source
-	SourceConnectionInfo SqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Information for connecting to target
-	TargetConnectionInfo SqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (MigrateSqlServerSqlMITaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMITaskInputResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMITaskInputResponseArgs) ToMigrateSqlServerSqlMITaskInputResponseOutput() MigrateSqlServerSqlMITaskInputResponseOutput {
-	return i.ToMigrateSqlServerSqlMITaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMITaskInputResponseArgs) ToMigrateSqlServerSqlMITaskInputResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMITaskInputResponseOutput)
-}
-
-func (i MigrateSqlServerSqlMITaskInputResponseArgs) ToMigrateSqlServerSqlMITaskInputResponsePtrOutput() MigrateSqlServerSqlMITaskInputResponsePtrOutput {
-	return i.ToMigrateSqlServerSqlMITaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMITaskInputResponseArgs) ToMigrateSqlServerSqlMITaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMITaskInputResponseOutput).ToMigrateSqlServerSqlMITaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// MigrateSqlServerSqlMITaskInputResponsePtrInput is an input type that accepts MigrateSqlServerSqlMITaskInputResponseArgs, MigrateSqlServerSqlMITaskInputResponsePtr and MigrateSqlServerSqlMITaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMITaskInputResponsePtrInput` via:
-//
-//          MigrateSqlServerSqlMITaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MigrateSqlServerSqlMITaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMITaskInputResponsePtrOutput() MigrateSqlServerSqlMITaskInputResponsePtrOutput
-	ToMigrateSqlServerSqlMITaskInputResponsePtrOutputWithContext(context.Context) MigrateSqlServerSqlMITaskInputResponsePtrOutput
-}
-
-type migrateSqlServerSqlMITaskInputResponsePtrType MigrateSqlServerSqlMITaskInputResponseArgs
-
-func MigrateSqlServerSqlMITaskInputResponsePtr(v *MigrateSqlServerSqlMITaskInputResponseArgs) MigrateSqlServerSqlMITaskInputResponsePtrInput {
-	return (*migrateSqlServerSqlMITaskInputResponsePtrType)(v)
-}
-
-func (*migrateSqlServerSqlMITaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateSqlServerSqlMITaskInputResponse)(nil)).Elem()
-}
-
-func (i *migrateSqlServerSqlMITaskInputResponsePtrType) ToMigrateSqlServerSqlMITaskInputResponsePtrOutput() MigrateSqlServerSqlMITaskInputResponsePtrOutput {
-	return i.ToMigrateSqlServerSqlMITaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *migrateSqlServerSqlMITaskInputResponsePtrType) ToMigrateSqlServerSqlMITaskInputResponsePtrOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMITaskInputResponsePtrOutput)
 }
 
 // Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
@@ -17914,50 +10373,6 @@ type MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse struct {
 	State string `pulumi:"state"`
 }
 
-// MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseInput is an input type that accepts MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseArgs and MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseArgs{...}
-type MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutput() MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutput
-	ToMigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutput
-}
-
-type MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseArgs struct {
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Migration errors and warnings per job
-	ExceptionsAndWarnings ReportableExceptionResponseArrayInput `pulumi:"exceptionsAndWarnings"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// The state of the original Agent Job.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// Migration progress message
-	Message pulumi.StringInput `pulumi:"message"`
-	// Agent Job name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Current state of migration
-	State pulumi.StringInput `pulumi:"state"`
-}
-
-func (MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseArgs) ToMigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutput() MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseArgs) ToMigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutput)
-}
-
 type MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateSqlServerSqlMITaskOutputAgentJobLevelResponseOutput) ElementType() reflect.Type {
@@ -18042,52 +10457,6 @@ type MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse struct {
 	State string `pulumi:"state"`
 }
 
-// MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseInput is an input type that accepts MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseArgs and MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseArgs{...}
-type MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutput() MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutput
-	ToMigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutput
-}
-
-type MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseArgs struct {
-	// Name of the database
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Migration exceptions and warnings
-	ExceptionsAndWarnings ReportableExceptionResponseArrayInput `pulumi:"exceptionsAndWarnings"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Migration progress message
-	Message pulumi.StringInput `pulumi:"message"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Size of the database in megabytes
-	SizeMB pulumi.Float64Input `pulumi:"sizeMB"`
-	// Current stage of migration
-	Stage pulumi.StringInput `pulumi:"stage"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Current state of migration
-	State pulumi.StringInput `pulumi:"state"`
-}
-
-func (MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseArgs) ToMigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutput() MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseArgs) ToMigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutput)
-}
-
 type MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateSqlServerSqlMITaskOutputDatabaseLevelResponseOutput) ElementType() reflect.Type {
@@ -18163,38 +10532,6 @@ type MigrateSqlServerSqlMITaskOutputErrorResponse struct {
 	ResultType string `pulumi:"resultType"`
 }
 
-// MigrateSqlServerSqlMITaskOutputErrorResponseInput is an input type that accepts MigrateSqlServerSqlMITaskOutputErrorResponseArgs and MigrateSqlServerSqlMITaskOutputErrorResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMITaskOutputErrorResponseInput` via:
-//
-//          MigrateSqlServerSqlMITaskOutputErrorResponseArgs{...}
-type MigrateSqlServerSqlMITaskOutputErrorResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMITaskOutputErrorResponseOutput() MigrateSqlServerSqlMITaskOutputErrorResponseOutput
-	ToMigrateSqlServerSqlMITaskOutputErrorResponseOutputWithContext(context.Context) MigrateSqlServerSqlMITaskOutputErrorResponseOutput
-}
-
-type MigrateSqlServerSqlMITaskOutputErrorResponseArgs struct {
-	// Migration error
-	Error ReportableExceptionResponseInput `pulumi:"error"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-}
-
-func (MigrateSqlServerSqlMITaskOutputErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMITaskOutputErrorResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMITaskOutputErrorResponseArgs) ToMigrateSqlServerSqlMITaskOutputErrorResponseOutput() MigrateSqlServerSqlMITaskOutputErrorResponseOutput {
-	return i.ToMigrateSqlServerSqlMITaskOutputErrorResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMITaskOutputErrorResponseArgs) ToMigrateSqlServerSqlMITaskOutputErrorResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskOutputErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMITaskOutputErrorResponseOutput)
-}
-
 type MigrateSqlServerSqlMITaskOutputErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateSqlServerSqlMITaskOutputErrorResponseOutput) ElementType() reflect.Type {
@@ -18243,50 +10580,6 @@ type MigrateSqlServerSqlMITaskOutputLoginLevelResponse struct {
 	StartedOn string `pulumi:"startedOn"`
 	// Current state of login
 	State string `pulumi:"state"`
-}
-
-// MigrateSqlServerSqlMITaskOutputLoginLevelResponseInput is an input type that accepts MigrateSqlServerSqlMITaskOutputLoginLevelResponseArgs and MigrateSqlServerSqlMITaskOutputLoginLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMITaskOutputLoginLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlMITaskOutputLoginLevelResponseArgs{...}
-type MigrateSqlServerSqlMITaskOutputLoginLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMITaskOutputLoginLevelResponseOutput() MigrateSqlServerSqlMITaskOutputLoginLevelResponseOutput
-	ToMigrateSqlServerSqlMITaskOutputLoginLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlMITaskOutputLoginLevelResponseOutput
-}
-
-type MigrateSqlServerSqlMITaskOutputLoginLevelResponseArgs struct {
-	// Login migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Login migration errors and warnings per login
-	ExceptionsAndWarnings ReportableExceptionResponseArrayInput `pulumi:"exceptionsAndWarnings"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Login name.
-	LoginName pulumi.StringInput `pulumi:"loginName"`
-	// Login migration progress message
-	Message pulumi.StringInput `pulumi:"message"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Current stage of login
-	Stage pulumi.StringInput `pulumi:"stage"`
-	// Login migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Current state of login
-	State pulumi.StringInput `pulumi:"state"`
-}
-
-func (MigrateSqlServerSqlMITaskOutputLoginLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMITaskOutputLoginLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMITaskOutputLoginLevelResponseArgs) ToMigrateSqlServerSqlMITaskOutputLoginLevelResponseOutput() MigrateSqlServerSqlMITaskOutputLoginLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlMITaskOutputLoginLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMITaskOutputLoginLevelResponseArgs) ToMigrateSqlServerSqlMITaskOutputLoginLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskOutputLoginLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMITaskOutputLoginLevelResponseOutput)
 }
 
 type MigrateSqlServerSqlMITaskOutputLoginLevelResponseOutput struct{ *pulumi.OutputState }
@@ -18385,66 +10678,6 @@ type MigrateSqlServerSqlMITaskOutputMigrationLevelResponse struct {
 	TargetServerBrandVersion string `pulumi:"targetServerBrandVersion"`
 	// Target server version
 	TargetServerVersion string `pulumi:"targetServerVersion"`
-}
-
-// MigrateSqlServerSqlMITaskOutputMigrationLevelResponseInput is an input type that accepts MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs and MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMITaskOutputMigrationLevelResponseInput` via:
-//
-//          MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs{...}
-type MigrateSqlServerSqlMITaskOutputMigrationLevelResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput() MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput
-	ToMigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutputWithContext(context.Context) MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput
-}
-
-type MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs struct {
-	// Selected agent jobs as a map from name to id
-	AgentJobs pulumi.StringInput `pulumi:"agentJobs"`
-	// Selected databases as a map from database name to database id
-	Databases pulumi.StringInput `pulumi:"databases"`
-	// Migration end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Migration exceptions and warnings.
-	ExceptionsAndWarnings ReportableExceptionResponseArrayInput `pulumi:"exceptionsAndWarnings"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Selected logins as a map from name to id
-	Logins pulumi.StringInput `pulumi:"logins"`
-	// Migration progress message
-	Message pulumi.StringInput `pulumi:"message"`
-	// List of orphaned users.
-	OrphanedUsersInfo OrphanedUserInfoResponseArrayInput `pulumi:"orphanedUsersInfo"`
-	// Result type
-	ResultType pulumi.StringInput `pulumi:"resultType"`
-	// Map of server role migration results.
-	ServerRoleResults pulumi.StringInput `pulumi:"serverRoleResults"`
-	// Source server brand version
-	SourceServerBrandVersion pulumi.StringInput `pulumi:"sourceServerBrandVersion"`
-	// Source server version
-	SourceServerVersion pulumi.StringInput `pulumi:"sourceServerVersion"`
-	// Migration start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Current state of migration
-	State pulumi.StringInput `pulumi:"state"`
-	// Current status of migration
-	Status pulumi.StringInput `pulumi:"status"`
-	// Target server brand version
-	TargetServerBrandVersion pulumi.StringInput `pulumi:"targetServerBrandVersion"`
-	// Target server version
-	TargetServerVersion pulumi.StringInput `pulumi:"targetServerVersion"`
-}
-
-func (MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMITaskOutputMigrationLevelResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs) ToMigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput() MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput {
-	return i.ToMigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMITaskOutputMigrationLevelResponseArgs) ToMigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput)
 }
 
 type MigrateSqlServerSqlMITaskOutputMigrationLevelResponseOutput struct{ *pulumi.OutputState }
@@ -18594,31 +10827,6 @@ func (i MigrateSqlServerSqlMITaskPropertiesArgs) ToMigrateSqlServerSqlMITaskProp
 }
 
 // Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
-type MigrateSqlServerSqlMITaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MigrateSqlServerSqlMITaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMITaskProperties)(nil)).Elem()
-}
-
-func (o MigrateSqlServerSqlMITaskPropertiesOutput) ToMigrateSqlServerSqlMITaskPropertiesOutput() MigrateSqlServerSqlMITaskPropertiesOutput {
-	return o
-}
-
-func (o MigrateSqlServerSqlMITaskPropertiesOutput) ToMigrateSqlServerSqlMITaskPropertiesOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o MigrateSqlServerSqlMITaskPropertiesOutput) Input() MigrateSqlServerSqlMITaskInputPtrOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskProperties) *MigrateSqlServerSqlMITaskInput { return v.Input }).(MigrateSqlServerSqlMITaskInputPtrOutput)
-}
-
-// Task type.
-func (o MigrateSqlServerSqlMITaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v MigrateSqlServerSqlMITaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
 type MigrateSqlServerSqlMITaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -18632,45 +10840,6 @@ type MigrateSqlServerSqlMITaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// MigrateSqlServerSqlMITaskPropertiesResponseInput is an input type that accepts MigrateSqlServerSqlMITaskPropertiesResponseArgs and MigrateSqlServerSqlMITaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `MigrateSqlServerSqlMITaskPropertiesResponseInput` via:
-//
-//          MigrateSqlServerSqlMITaskPropertiesResponseArgs{...}
-type MigrateSqlServerSqlMITaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSqlServerSqlMITaskPropertiesResponseOutput() MigrateSqlServerSqlMITaskPropertiesResponseOutput
-	ToMigrateSqlServerSqlMITaskPropertiesResponseOutputWithContext(context.Context) MigrateSqlServerSqlMITaskPropertiesResponseOutput
-}
-
-// Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
-type MigrateSqlServerSqlMITaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input MigrateSqlServerSqlMITaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output pulumi.ArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (MigrateSqlServerSqlMITaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSqlServerSqlMITaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i MigrateSqlServerSqlMITaskPropertiesResponseArgs) ToMigrateSqlServerSqlMITaskPropertiesResponseOutput() MigrateSqlServerSqlMITaskPropertiesResponseOutput {
-	return i.ToMigrateSqlServerSqlMITaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSqlServerSqlMITaskPropertiesResponseArgs) ToMigrateSqlServerSqlMITaskPropertiesResponseOutputWithContext(ctx context.Context) MigrateSqlServerSqlMITaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSqlServerSqlMITaskPropertiesResponseOutput)
 }
 
 // Properties for task that migrates SQL Server databases to Azure SQL Database Managed Instance
@@ -18726,78 +10895,6 @@ type MigrateSyncCompleteCommandInputResponse struct {
 	CommitTimeStamp *string `pulumi:"commitTimeStamp"`
 	// Name of database
 	DatabaseName string `pulumi:"databaseName"`
-}
-
-// MigrateSyncCompleteCommandInputResponseInput is an input type that accepts MigrateSyncCompleteCommandInputResponseArgs and MigrateSyncCompleteCommandInputResponseOutput values.
-// You can construct a concrete instance of `MigrateSyncCompleteCommandInputResponseInput` via:
-//
-//          MigrateSyncCompleteCommandInputResponseArgs{...}
-type MigrateSyncCompleteCommandInputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSyncCompleteCommandInputResponseOutput() MigrateSyncCompleteCommandInputResponseOutput
-	ToMigrateSyncCompleteCommandInputResponseOutputWithContext(context.Context) MigrateSyncCompleteCommandInputResponseOutput
-}
-
-// Input for command that completes sync migration for a database.
-type MigrateSyncCompleteCommandInputResponseArgs struct {
-	// Time stamp to complete
-	CommitTimeStamp pulumi.StringPtrInput `pulumi:"commitTimeStamp"`
-	// Name of database
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-}
-
-func (MigrateSyncCompleteCommandInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSyncCompleteCommandInputResponse)(nil)).Elem()
-}
-
-func (i MigrateSyncCompleteCommandInputResponseArgs) ToMigrateSyncCompleteCommandInputResponseOutput() MigrateSyncCompleteCommandInputResponseOutput {
-	return i.ToMigrateSyncCompleteCommandInputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSyncCompleteCommandInputResponseArgs) ToMigrateSyncCompleteCommandInputResponseOutputWithContext(ctx context.Context) MigrateSyncCompleteCommandInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSyncCompleteCommandInputResponseOutput)
-}
-
-func (i MigrateSyncCompleteCommandInputResponseArgs) ToMigrateSyncCompleteCommandInputResponsePtrOutput() MigrateSyncCompleteCommandInputResponsePtrOutput {
-	return i.ToMigrateSyncCompleteCommandInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MigrateSyncCompleteCommandInputResponseArgs) ToMigrateSyncCompleteCommandInputResponsePtrOutputWithContext(ctx context.Context) MigrateSyncCompleteCommandInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSyncCompleteCommandInputResponseOutput).ToMigrateSyncCompleteCommandInputResponsePtrOutputWithContext(ctx)
-}
-
-// MigrateSyncCompleteCommandInputResponsePtrInput is an input type that accepts MigrateSyncCompleteCommandInputResponseArgs, MigrateSyncCompleteCommandInputResponsePtr and MigrateSyncCompleteCommandInputResponsePtrOutput values.
-// You can construct a concrete instance of `MigrateSyncCompleteCommandInputResponsePtrInput` via:
-//
-//          MigrateSyncCompleteCommandInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MigrateSyncCompleteCommandInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToMigrateSyncCompleteCommandInputResponsePtrOutput() MigrateSyncCompleteCommandInputResponsePtrOutput
-	ToMigrateSyncCompleteCommandInputResponsePtrOutputWithContext(context.Context) MigrateSyncCompleteCommandInputResponsePtrOutput
-}
-
-type migrateSyncCompleteCommandInputResponsePtrType MigrateSyncCompleteCommandInputResponseArgs
-
-func MigrateSyncCompleteCommandInputResponsePtr(v *MigrateSyncCompleteCommandInputResponseArgs) MigrateSyncCompleteCommandInputResponsePtrInput {
-	return (*migrateSyncCompleteCommandInputResponsePtrType)(v)
-}
-
-func (*migrateSyncCompleteCommandInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrateSyncCompleteCommandInputResponse)(nil)).Elem()
-}
-
-func (i *migrateSyncCompleteCommandInputResponsePtrType) ToMigrateSyncCompleteCommandInputResponsePtrOutput() MigrateSyncCompleteCommandInputResponsePtrOutput {
-	return i.ToMigrateSyncCompleteCommandInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *migrateSyncCompleteCommandInputResponsePtrType) ToMigrateSyncCompleteCommandInputResponsePtrOutputWithContext(ctx context.Context) MigrateSyncCompleteCommandInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSyncCompleteCommandInputResponsePtrOutput)
 }
 
 // Input for command that completes sync migration for a database.
@@ -18881,37 +10978,6 @@ type MigrateSyncCompleteCommandOutputResponse struct {
 	Id string `pulumi:"id"`
 }
 
-// MigrateSyncCompleteCommandOutputResponseInput is an input type that accepts MigrateSyncCompleteCommandOutputResponseArgs and MigrateSyncCompleteCommandOutputResponseOutput values.
-// You can construct a concrete instance of `MigrateSyncCompleteCommandOutputResponseInput` via:
-//
-//          MigrateSyncCompleteCommandOutputResponseArgs{...}
-type MigrateSyncCompleteCommandOutputResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSyncCompleteCommandOutputResponseOutput() MigrateSyncCompleteCommandOutputResponseOutput
-	ToMigrateSyncCompleteCommandOutputResponseOutputWithContext(context.Context) MigrateSyncCompleteCommandOutputResponseOutput
-}
-
-// Output for command that completes sync migration for a database.
-type MigrateSyncCompleteCommandOutputResponseArgs struct {
-	// List of errors that happened during the command execution
-	Errors ReportableExceptionResponseArrayInput `pulumi:"errors"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-}
-
-func (MigrateSyncCompleteCommandOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSyncCompleteCommandOutputResponse)(nil)).Elem()
-}
-
-func (i MigrateSyncCompleteCommandOutputResponseArgs) ToMigrateSyncCompleteCommandOutputResponseOutput() MigrateSyncCompleteCommandOutputResponseOutput {
-	return i.ToMigrateSyncCompleteCommandOutputResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSyncCompleteCommandOutputResponseArgs) ToMigrateSyncCompleteCommandOutputResponseOutputWithContext(ctx context.Context) MigrateSyncCompleteCommandOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSyncCompleteCommandOutputResponseOutput)
-}
-
 // Output for command that completes sync migration for a database.
 type MigrateSyncCompleteCommandOutputResponseOutput struct{ *pulumi.OutputState }
 
@@ -18949,43 +11015,6 @@ type MigrateSyncCompleteCommandPropertiesResponse struct {
 	Output MigrateSyncCompleteCommandOutputResponse `pulumi:"output"`
 	// The state of the command. This is ignored if submitted.
 	State string `pulumi:"state"`
-}
-
-// MigrateSyncCompleteCommandPropertiesResponseInput is an input type that accepts MigrateSyncCompleteCommandPropertiesResponseArgs and MigrateSyncCompleteCommandPropertiesResponseOutput values.
-// You can construct a concrete instance of `MigrateSyncCompleteCommandPropertiesResponseInput` via:
-//
-//          MigrateSyncCompleteCommandPropertiesResponseArgs{...}
-type MigrateSyncCompleteCommandPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMigrateSyncCompleteCommandPropertiesResponseOutput() MigrateSyncCompleteCommandPropertiesResponseOutput
-	ToMigrateSyncCompleteCommandPropertiesResponseOutputWithContext(context.Context) MigrateSyncCompleteCommandPropertiesResponseOutput
-}
-
-// Properties for the command that completes sync migration for a database.
-type MigrateSyncCompleteCommandPropertiesResponseArgs struct {
-	// Command type.
-	CommandType pulumi.StringInput `pulumi:"commandType"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Command input
-	Input MigrateSyncCompleteCommandInputResponsePtrInput `pulumi:"input"`
-	// Command output. This is ignored if submitted.
-	Output MigrateSyncCompleteCommandOutputResponseInput `pulumi:"output"`
-	// The state of the command. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-}
-
-func (MigrateSyncCompleteCommandPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrateSyncCompleteCommandPropertiesResponse)(nil)).Elem()
-}
-
-func (i MigrateSyncCompleteCommandPropertiesResponseArgs) ToMigrateSyncCompleteCommandPropertiesResponseOutput() MigrateSyncCompleteCommandPropertiesResponseOutput {
-	return i.ToMigrateSyncCompleteCommandPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MigrateSyncCompleteCommandPropertiesResponseArgs) ToMigrateSyncCompleteCommandPropertiesResponseOutputWithContext(ctx context.Context) MigrateSyncCompleteCommandPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrateSyncCompleteCommandPropertiesResponseOutput)
 }
 
 // Properties for the command that completes sync migration for a database.
@@ -19040,37 +11069,6 @@ type MigrationEligibilityInfoResponse struct {
 	ValidationMessages []string `pulumi:"validationMessages"`
 }
 
-// MigrationEligibilityInfoResponseInput is an input type that accepts MigrationEligibilityInfoResponseArgs and MigrationEligibilityInfoResponseOutput values.
-// You can construct a concrete instance of `MigrationEligibilityInfoResponseInput` via:
-//
-//          MigrationEligibilityInfoResponseArgs{...}
-type MigrationEligibilityInfoResponseInput interface {
-	pulumi.Input
-
-	ToMigrationEligibilityInfoResponseOutput() MigrationEligibilityInfoResponseOutput
-	ToMigrationEligibilityInfoResponseOutputWithContext(context.Context) MigrationEligibilityInfoResponseOutput
-}
-
-// Information about migration eligibility of a server object
-type MigrationEligibilityInfoResponseArgs struct {
-	// Whether object is eligible for migration or not.
-	IsEligibleForMigration pulumi.BoolInput `pulumi:"isEligibleForMigration"`
-	// Information about eligibility failure for the server object.
-	ValidationMessages pulumi.StringArrayInput `pulumi:"validationMessages"`
-}
-
-func (MigrationEligibilityInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrationEligibilityInfoResponse)(nil)).Elem()
-}
-
-func (i MigrationEligibilityInfoResponseArgs) ToMigrationEligibilityInfoResponseOutput() MigrationEligibilityInfoResponseOutput {
-	return i.ToMigrationEligibilityInfoResponseOutputWithContext(context.Background())
-}
-
-func (i MigrationEligibilityInfoResponseArgs) ToMigrationEligibilityInfoResponseOutputWithContext(ctx context.Context) MigrationEligibilityInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationEligibilityInfoResponseOutput)
-}
-
 // Information about migration eligibility of a server object
 type MigrationEligibilityInfoResponseOutput struct{ *pulumi.OutputState }
 
@@ -19102,37 +11100,6 @@ type MigrationReportResultResponse struct {
 	Id string `pulumi:"id"`
 	// The url of the report.
 	ReportUrl string `pulumi:"reportUrl"`
-}
-
-// MigrationReportResultResponseInput is an input type that accepts MigrationReportResultResponseArgs and MigrationReportResultResponseOutput values.
-// You can construct a concrete instance of `MigrationReportResultResponseInput` via:
-//
-//          MigrationReportResultResponseArgs{...}
-type MigrationReportResultResponseInput interface {
-	pulumi.Input
-
-	ToMigrationReportResultResponseOutput() MigrationReportResultResponseOutput
-	ToMigrationReportResultResponseOutputWithContext(context.Context) MigrationReportResultResponseOutput
-}
-
-// Migration validation report result, contains the url for downloading the generated report.
-type MigrationReportResultResponseArgs struct {
-	// Migration validation result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// The url of the report.
-	ReportUrl pulumi.StringInput `pulumi:"reportUrl"`
-}
-
-func (MigrationReportResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrationReportResultResponse)(nil)).Elem()
-}
-
-func (i MigrationReportResultResponseArgs) ToMigrationReportResultResponseOutput() MigrationReportResultResponseOutput {
-	return i.ToMigrationReportResultResponseOutputWithContext(context.Background())
-}
-
-func (i MigrationReportResultResponseArgs) ToMigrationReportResultResponseOutputWithContext(ctx context.Context) MigrationReportResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationReportResultResponseOutput)
 }
 
 // Migration validation report result, contains the url for downloading the generated report.
@@ -19176,72 +11143,6 @@ type MigrationValidationDatabaseSummaryResultResponse struct {
 	Status string `pulumi:"status"`
 	// Name of the target database
 	TargetDatabaseName string `pulumi:"targetDatabaseName"`
-}
-
-// MigrationValidationDatabaseSummaryResultResponseInput is an input type that accepts MigrationValidationDatabaseSummaryResultResponseArgs and MigrationValidationDatabaseSummaryResultResponseOutput values.
-// You can construct a concrete instance of `MigrationValidationDatabaseSummaryResultResponseInput` via:
-//
-//          MigrationValidationDatabaseSummaryResultResponseArgs{...}
-type MigrationValidationDatabaseSummaryResultResponseInput interface {
-	pulumi.Input
-
-	ToMigrationValidationDatabaseSummaryResultResponseOutput() MigrationValidationDatabaseSummaryResultResponseOutput
-	ToMigrationValidationDatabaseSummaryResultResponseOutputWithContext(context.Context) MigrationValidationDatabaseSummaryResultResponseOutput
-}
-
-// Migration Validation Database level summary result
-type MigrationValidationDatabaseSummaryResultResponseArgs struct {
-	// Validation end time
-	EndedOn pulumi.StringInput `pulumi:"endedOn"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Migration Identifier
-	MigrationId pulumi.StringInput `pulumi:"migrationId"`
-	// Name of the source database
-	SourceDatabaseName pulumi.StringInput `pulumi:"sourceDatabaseName"`
-	// Validation start time
-	StartedOn pulumi.StringInput `pulumi:"startedOn"`
-	// Current status of validation at the database level
-	Status pulumi.StringInput `pulumi:"status"`
-	// Name of the target database
-	TargetDatabaseName pulumi.StringInput `pulumi:"targetDatabaseName"`
-}
-
-func (MigrationValidationDatabaseSummaryResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrationValidationDatabaseSummaryResultResponse)(nil)).Elem()
-}
-
-func (i MigrationValidationDatabaseSummaryResultResponseArgs) ToMigrationValidationDatabaseSummaryResultResponseOutput() MigrationValidationDatabaseSummaryResultResponseOutput {
-	return i.ToMigrationValidationDatabaseSummaryResultResponseOutputWithContext(context.Background())
-}
-
-func (i MigrationValidationDatabaseSummaryResultResponseArgs) ToMigrationValidationDatabaseSummaryResultResponseOutputWithContext(ctx context.Context) MigrationValidationDatabaseSummaryResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationValidationDatabaseSummaryResultResponseOutput)
-}
-
-// MigrationValidationDatabaseSummaryResultResponseMapInput is an input type that accepts MigrationValidationDatabaseSummaryResultResponseMap and MigrationValidationDatabaseSummaryResultResponseMapOutput values.
-// You can construct a concrete instance of `MigrationValidationDatabaseSummaryResultResponseMapInput` via:
-//
-//          MigrationValidationDatabaseSummaryResultResponseMap{ "key": MigrationValidationDatabaseSummaryResultResponseArgs{...} }
-type MigrationValidationDatabaseSummaryResultResponseMapInput interface {
-	pulumi.Input
-
-	ToMigrationValidationDatabaseSummaryResultResponseMapOutput() MigrationValidationDatabaseSummaryResultResponseMapOutput
-	ToMigrationValidationDatabaseSummaryResultResponseMapOutputWithContext(context.Context) MigrationValidationDatabaseSummaryResultResponseMapOutput
-}
-
-type MigrationValidationDatabaseSummaryResultResponseMap map[string]MigrationValidationDatabaseSummaryResultResponseInput
-
-func (MigrationValidationDatabaseSummaryResultResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MigrationValidationDatabaseSummaryResultResponse)(nil)).Elem()
-}
-
-func (i MigrationValidationDatabaseSummaryResultResponseMap) ToMigrationValidationDatabaseSummaryResultResponseMapOutput() MigrationValidationDatabaseSummaryResultResponseMapOutput {
-	return i.ToMigrationValidationDatabaseSummaryResultResponseMapOutputWithContext(context.Background())
-}
-
-func (i MigrationValidationDatabaseSummaryResultResponseMap) ToMigrationValidationDatabaseSummaryResultResponseMapOutputWithContext(ctx context.Context) MigrationValidationDatabaseSummaryResultResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationValidationDatabaseSummaryResultResponseMapOutput)
 }
 
 // Migration Validation Database level summary result
@@ -19399,94 +11300,6 @@ func (i *migrationValidationOptionsPtrType) ToMigrationValidationOptionsPtrOutpu
 }
 
 // Types of validations to run after the migration
-type MigrationValidationOptionsOutput struct{ *pulumi.OutputState }
-
-func (MigrationValidationOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrationValidationOptions)(nil)).Elem()
-}
-
-func (o MigrationValidationOptionsOutput) ToMigrationValidationOptionsOutput() MigrationValidationOptionsOutput {
-	return o
-}
-
-func (o MigrationValidationOptionsOutput) ToMigrationValidationOptionsOutputWithContext(ctx context.Context) MigrationValidationOptionsOutput {
-	return o
-}
-
-func (o MigrationValidationOptionsOutput) ToMigrationValidationOptionsPtrOutput() MigrationValidationOptionsPtrOutput {
-	return o.ToMigrationValidationOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o MigrationValidationOptionsOutput) ToMigrationValidationOptionsPtrOutputWithContext(ctx context.Context) MigrationValidationOptionsPtrOutput {
-	return o.ApplyT(func(v MigrationValidationOptions) *MigrationValidationOptions {
-		return &v
-	}).(MigrationValidationOptionsPtrOutput)
-}
-
-// Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
-func (o MigrationValidationOptionsOutput) EnableDataIntegrityValidation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MigrationValidationOptions) *bool { return v.EnableDataIntegrityValidation }).(pulumi.BoolPtrOutput)
-}
-
-// Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
-func (o MigrationValidationOptionsOutput) EnableQueryAnalysisValidation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MigrationValidationOptions) *bool { return v.EnableQueryAnalysisValidation }).(pulumi.BoolPtrOutput)
-}
-
-// Allows to compare the schema information between source and target.
-func (o MigrationValidationOptionsOutput) EnableSchemaValidation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MigrationValidationOptions) *bool { return v.EnableSchemaValidation }).(pulumi.BoolPtrOutput)
-}
-
-type MigrationValidationOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (MigrationValidationOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrationValidationOptions)(nil)).Elem()
-}
-
-func (o MigrationValidationOptionsPtrOutput) ToMigrationValidationOptionsPtrOutput() MigrationValidationOptionsPtrOutput {
-	return o
-}
-
-func (o MigrationValidationOptionsPtrOutput) ToMigrationValidationOptionsPtrOutputWithContext(ctx context.Context) MigrationValidationOptionsPtrOutput {
-	return o
-}
-
-func (o MigrationValidationOptionsPtrOutput) Elem() MigrationValidationOptionsOutput {
-	return o.ApplyT(func(v *MigrationValidationOptions) MigrationValidationOptions { return *v }).(MigrationValidationOptionsOutput)
-}
-
-// Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
-func (o MigrationValidationOptionsPtrOutput) EnableDataIntegrityValidation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MigrationValidationOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableDataIntegrityValidation
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
-func (o MigrationValidationOptionsPtrOutput) EnableQueryAnalysisValidation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MigrationValidationOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableQueryAnalysisValidation
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Allows to compare the schema information between source and target.
-func (o MigrationValidationOptionsPtrOutput) EnableSchemaValidation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MigrationValidationOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableSchemaValidation
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Types of validations to run after the migration
 type MigrationValidationOptionsResponse struct {
 	// Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
 	EnableDataIntegrityValidation *bool `pulumi:"enableDataIntegrityValidation"`
@@ -19494,80 +11307,6 @@ type MigrationValidationOptionsResponse struct {
 	EnableQueryAnalysisValidation *bool `pulumi:"enableQueryAnalysisValidation"`
 	// Allows to compare the schema information between source and target.
 	EnableSchemaValidation *bool `pulumi:"enableSchemaValidation"`
-}
-
-// MigrationValidationOptionsResponseInput is an input type that accepts MigrationValidationOptionsResponseArgs and MigrationValidationOptionsResponseOutput values.
-// You can construct a concrete instance of `MigrationValidationOptionsResponseInput` via:
-//
-//          MigrationValidationOptionsResponseArgs{...}
-type MigrationValidationOptionsResponseInput interface {
-	pulumi.Input
-
-	ToMigrationValidationOptionsResponseOutput() MigrationValidationOptionsResponseOutput
-	ToMigrationValidationOptionsResponseOutputWithContext(context.Context) MigrationValidationOptionsResponseOutput
-}
-
-// Types of validations to run after the migration
-type MigrationValidationOptionsResponseArgs struct {
-	// Allows to perform a checksum based data integrity validation between source and target for the selected database / tables .
-	EnableDataIntegrityValidation pulumi.BoolPtrInput `pulumi:"enableDataIntegrityValidation"`
-	// Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
-	EnableQueryAnalysisValidation pulumi.BoolPtrInput `pulumi:"enableQueryAnalysisValidation"`
-	// Allows to compare the schema information between source and target.
-	EnableSchemaValidation pulumi.BoolPtrInput `pulumi:"enableSchemaValidation"`
-}
-
-func (MigrationValidationOptionsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MigrationValidationOptionsResponse)(nil)).Elem()
-}
-
-func (i MigrationValidationOptionsResponseArgs) ToMigrationValidationOptionsResponseOutput() MigrationValidationOptionsResponseOutput {
-	return i.ToMigrationValidationOptionsResponseOutputWithContext(context.Background())
-}
-
-func (i MigrationValidationOptionsResponseArgs) ToMigrationValidationOptionsResponseOutputWithContext(ctx context.Context) MigrationValidationOptionsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationValidationOptionsResponseOutput)
-}
-
-func (i MigrationValidationOptionsResponseArgs) ToMigrationValidationOptionsResponsePtrOutput() MigrationValidationOptionsResponsePtrOutput {
-	return i.ToMigrationValidationOptionsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MigrationValidationOptionsResponseArgs) ToMigrationValidationOptionsResponsePtrOutputWithContext(ctx context.Context) MigrationValidationOptionsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationValidationOptionsResponseOutput).ToMigrationValidationOptionsResponsePtrOutputWithContext(ctx)
-}
-
-// MigrationValidationOptionsResponsePtrInput is an input type that accepts MigrationValidationOptionsResponseArgs, MigrationValidationOptionsResponsePtr and MigrationValidationOptionsResponsePtrOutput values.
-// You can construct a concrete instance of `MigrationValidationOptionsResponsePtrInput` via:
-//
-//          MigrationValidationOptionsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MigrationValidationOptionsResponsePtrInput interface {
-	pulumi.Input
-
-	ToMigrationValidationOptionsResponsePtrOutput() MigrationValidationOptionsResponsePtrOutput
-	ToMigrationValidationOptionsResponsePtrOutputWithContext(context.Context) MigrationValidationOptionsResponsePtrOutput
-}
-
-type migrationValidationOptionsResponsePtrType MigrationValidationOptionsResponseArgs
-
-func MigrationValidationOptionsResponsePtr(v *MigrationValidationOptionsResponseArgs) MigrationValidationOptionsResponsePtrInput {
-	return (*migrationValidationOptionsResponsePtrType)(v)
-}
-
-func (*migrationValidationOptionsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MigrationValidationOptionsResponse)(nil)).Elem()
-}
-
-func (i *migrationValidationOptionsResponsePtrType) ToMigrationValidationOptionsResponsePtrOutput() MigrationValidationOptionsResponsePtrOutput {
-	return i.ToMigrationValidationOptionsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *migrationValidationOptionsResponsePtrType) ToMigrationValidationOptionsResponsePtrOutputWithContext(ctx context.Context) MigrationValidationOptionsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MigrationValidationOptionsResponsePtrOutput)
 }
 
 // Types of validations to run after the migration
@@ -19751,124 +11490,6 @@ func (i *mySqlConnectionInfoPtrType) ToMySqlConnectionInfoPtrOutputWithContext(c
 }
 
 // Information for connecting to MySQL server
-type MySqlConnectionInfoOutput struct{ *pulumi.OutputState }
-
-func (MySqlConnectionInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MySqlConnectionInfo)(nil)).Elem()
-}
-
-func (o MySqlConnectionInfoOutput) ToMySqlConnectionInfoOutput() MySqlConnectionInfoOutput {
-	return o
-}
-
-func (o MySqlConnectionInfoOutput) ToMySqlConnectionInfoOutputWithContext(ctx context.Context) MySqlConnectionInfoOutput {
-	return o
-}
-
-func (o MySqlConnectionInfoOutput) ToMySqlConnectionInfoPtrOutput() MySqlConnectionInfoPtrOutput {
-	return o.ToMySqlConnectionInfoPtrOutputWithContext(context.Background())
-}
-
-func (o MySqlConnectionInfoOutput) ToMySqlConnectionInfoPtrOutputWithContext(ctx context.Context) MySqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v MySqlConnectionInfo) *MySqlConnectionInfo {
-		return &v
-	}).(MySqlConnectionInfoPtrOutput)
-}
-
-// Password credential.
-func (o MySqlConnectionInfoOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MySqlConnectionInfo) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// Port for Server
-func (o MySqlConnectionInfoOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v MySqlConnectionInfo) int { return v.Port }).(pulumi.IntOutput)
-}
-
-// Name of the server
-func (o MySqlConnectionInfoOutput) ServerName() pulumi.StringOutput {
-	return o.ApplyT(func(v MySqlConnectionInfo) string { return v.ServerName }).(pulumi.StringOutput)
-}
-
-// Type of connection info
-func (o MySqlConnectionInfoOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MySqlConnectionInfo) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// User name
-func (o MySqlConnectionInfoOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MySqlConnectionInfo) *string { return v.UserName }).(pulumi.StringPtrOutput)
-}
-
-type MySqlConnectionInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (MySqlConnectionInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MySqlConnectionInfo)(nil)).Elem()
-}
-
-func (o MySqlConnectionInfoPtrOutput) ToMySqlConnectionInfoPtrOutput() MySqlConnectionInfoPtrOutput {
-	return o
-}
-
-func (o MySqlConnectionInfoPtrOutput) ToMySqlConnectionInfoPtrOutputWithContext(ctx context.Context) MySqlConnectionInfoPtrOutput {
-	return o
-}
-
-func (o MySqlConnectionInfoPtrOutput) Elem() MySqlConnectionInfoOutput {
-	return o.ApplyT(func(v *MySqlConnectionInfo) MySqlConnectionInfo { return *v }).(MySqlConnectionInfoOutput)
-}
-
-// Password credential.
-func (o MySqlConnectionInfoPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MySqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// Port for Server
-func (o MySqlConnectionInfoPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MySqlConnectionInfo) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-// Name of the server
-func (o MySqlConnectionInfoPtrOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MySqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ServerName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of connection info
-func (o MySqlConnectionInfoPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MySqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// User name
-func (o MySqlConnectionInfoPtrOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MySqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Information for connecting to MySQL server
 type MySqlConnectionInfoResponse struct {
 	// Password credential.
 	Password *string `pulumi:"password"`
@@ -19880,84 +11501,6 @@ type MySqlConnectionInfoResponse struct {
 	Type string `pulumi:"type"`
 	// User name
 	UserName *string `pulumi:"userName"`
-}
-
-// MySqlConnectionInfoResponseInput is an input type that accepts MySqlConnectionInfoResponseArgs and MySqlConnectionInfoResponseOutput values.
-// You can construct a concrete instance of `MySqlConnectionInfoResponseInput` via:
-//
-//          MySqlConnectionInfoResponseArgs{...}
-type MySqlConnectionInfoResponseInput interface {
-	pulumi.Input
-
-	ToMySqlConnectionInfoResponseOutput() MySqlConnectionInfoResponseOutput
-	ToMySqlConnectionInfoResponseOutputWithContext(context.Context) MySqlConnectionInfoResponseOutput
-}
-
-// Information for connecting to MySQL server
-type MySqlConnectionInfoResponseArgs struct {
-	// Password credential.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Port for Server
-	Port pulumi.IntInput `pulumi:"port"`
-	// Name of the server
-	ServerName pulumi.StringInput `pulumi:"serverName"`
-	// Type of connection info
-	Type pulumi.StringInput `pulumi:"type"`
-	// User name
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
-}
-
-func (MySqlConnectionInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MySqlConnectionInfoResponse)(nil)).Elem()
-}
-
-func (i MySqlConnectionInfoResponseArgs) ToMySqlConnectionInfoResponseOutput() MySqlConnectionInfoResponseOutput {
-	return i.ToMySqlConnectionInfoResponseOutputWithContext(context.Background())
-}
-
-func (i MySqlConnectionInfoResponseArgs) ToMySqlConnectionInfoResponseOutputWithContext(ctx context.Context) MySqlConnectionInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MySqlConnectionInfoResponseOutput)
-}
-
-func (i MySqlConnectionInfoResponseArgs) ToMySqlConnectionInfoResponsePtrOutput() MySqlConnectionInfoResponsePtrOutput {
-	return i.ToMySqlConnectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MySqlConnectionInfoResponseArgs) ToMySqlConnectionInfoResponsePtrOutputWithContext(ctx context.Context) MySqlConnectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MySqlConnectionInfoResponseOutput).ToMySqlConnectionInfoResponsePtrOutputWithContext(ctx)
-}
-
-// MySqlConnectionInfoResponsePtrInput is an input type that accepts MySqlConnectionInfoResponseArgs, MySqlConnectionInfoResponsePtr and MySqlConnectionInfoResponsePtrOutput values.
-// You can construct a concrete instance of `MySqlConnectionInfoResponsePtrInput` via:
-//
-//          MySqlConnectionInfoResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MySqlConnectionInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToMySqlConnectionInfoResponsePtrOutput() MySqlConnectionInfoResponsePtrOutput
-	ToMySqlConnectionInfoResponsePtrOutputWithContext(context.Context) MySqlConnectionInfoResponsePtrOutput
-}
-
-type mySqlConnectionInfoResponsePtrType MySqlConnectionInfoResponseArgs
-
-func MySqlConnectionInfoResponsePtr(v *MySqlConnectionInfoResponseArgs) MySqlConnectionInfoResponsePtrInput {
-	return (*mySqlConnectionInfoResponsePtrType)(v)
-}
-
-func (*mySqlConnectionInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MySqlConnectionInfoResponse)(nil)).Elem()
-}
-
-func (i *mySqlConnectionInfoResponsePtrType) ToMySqlConnectionInfoResponsePtrOutput() MySqlConnectionInfoResponsePtrOutput {
-	return i.ToMySqlConnectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *mySqlConnectionInfoResponsePtrType) ToMySqlConnectionInfoResponsePtrOutputWithContext(ctx context.Context) MySqlConnectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MySqlConnectionInfoResponsePtrOutput)
 }
 
 // Information for connecting to MySQL server
@@ -20088,64 +11631,6 @@ type ODataErrorResponse struct {
 	Message string `pulumi:"message"`
 }
 
-// ODataErrorResponseInput is an input type that accepts ODataErrorResponseArgs and ODataErrorResponseOutput values.
-// You can construct a concrete instance of `ODataErrorResponseInput` via:
-//
-//          ODataErrorResponseArgs{...}
-type ODataErrorResponseInput interface {
-	pulumi.Input
-
-	ToODataErrorResponseOutput() ODataErrorResponseOutput
-	ToODataErrorResponseOutputWithContext(context.Context) ODataErrorResponseOutput
-}
-
-// Error information in OData format.
-type ODataErrorResponseArgs struct {
-	// The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
-	Code pulumi.StringInput `pulumi:"code"`
-	// Inner errors that caused this error
-	Details ODataErrorResponseArrayInput `pulumi:"details"`
-	// The human-readable description of the error
-	Message pulumi.StringInput `pulumi:"message"`
-}
-
-func (ODataErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ODataErrorResponse)(nil)).Elem()
-}
-
-func (i ODataErrorResponseArgs) ToODataErrorResponseOutput() ODataErrorResponseOutput {
-	return i.ToODataErrorResponseOutputWithContext(context.Background())
-}
-
-func (i ODataErrorResponseArgs) ToODataErrorResponseOutputWithContext(ctx context.Context) ODataErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ODataErrorResponseOutput)
-}
-
-// ODataErrorResponseArrayInput is an input type that accepts ODataErrorResponseArray and ODataErrorResponseArrayOutput values.
-// You can construct a concrete instance of `ODataErrorResponseArrayInput` via:
-//
-//          ODataErrorResponseArray{ ODataErrorResponseArgs{...} }
-type ODataErrorResponseArrayInput interface {
-	pulumi.Input
-
-	ToODataErrorResponseArrayOutput() ODataErrorResponseArrayOutput
-	ToODataErrorResponseArrayOutputWithContext(context.Context) ODataErrorResponseArrayOutput
-}
-
-type ODataErrorResponseArray []ODataErrorResponseInput
-
-func (ODataErrorResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ODataErrorResponse)(nil)).Elem()
-}
-
-func (i ODataErrorResponseArray) ToODataErrorResponseArrayOutput() ODataErrorResponseArrayOutput {
-	return i.ToODataErrorResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ODataErrorResponseArray) ToODataErrorResponseArrayOutputWithContext(ctx context.Context) ODataErrorResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ODataErrorResponseArrayOutput)
-}
-
 // Error information in OData format.
 type ODataErrorResponseOutput struct{ *pulumi.OutputState }
 
@@ -20202,62 +11687,6 @@ type OrphanedUserInfoResponse struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// Name of the orphaned user
 	Name *string `pulumi:"name"`
-}
-
-// OrphanedUserInfoResponseInput is an input type that accepts OrphanedUserInfoResponseArgs and OrphanedUserInfoResponseOutput values.
-// You can construct a concrete instance of `OrphanedUserInfoResponseInput` via:
-//
-//          OrphanedUserInfoResponseArgs{...}
-type OrphanedUserInfoResponseInput interface {
-	pulumi.Input
-
-	ToOrphanedUserInfoResponseOutput() OrphanedUserInfoResponseOutput
-	ToOrphanedUserInfoResponseOutputWithContext(context.Context) OrphanedUserInfoResponseOutput
-}
-
-// Information of orphaned users on the SQL server database.
-type OrphanedUserInfoResponseArgs struct {
-	// Parent database of the user
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// Name of the orphaned user
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (OrphanedUserInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrphanedUserInfoResponse)(nil)).Elem()
-}
-
-func (i OrphanedUserInfoResponseArgs) ToOrphanedUserInfoResponseOutput() OrphanedUserInfoResponseOutput {
-	return i.ToOrphanedUserInfoResponseOutputWithContext(context.Background())
-}
-
-func (i OrphanedUserInfoResponseArgs) ToOrphanedUserInfoResponseOutputWithContext(ctx context.Context) OrphanedUserInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrphanedUserInfoResponseOutput)
-}
-
-// OrphanedUserInfoResponseArrayInput is an input type that accepts OrphanedUserInfoResponseArray and OrphanedUserInfoResponseArrayOutput values.
-// You can construct a concrete instance of `OrphanedUserInfoResponseArrayInput` via:
-//
-//          OrphanedUserInfoResponseArray{ OrphanedUserInfoResponseArgs{...} }
-type OrphanedUserInfoResponseArrayInput interface {
-	pulumi.Input
-
-	ToOrphanedUserInfoResponseArrayOutput() OrphanedUserInfoResponseArrayOutput
-	ToOrphanedUserInfoResponseArrayOutputWithContext(context.Context) OrphanedUserInfoResponseArrayOutput
-}
-
-type OrphanedUserInfoResponseArray []OrphanedUserInfoResponseInput
-
-func (OrphanedUserInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OrphanedUserInfoResponse)(nil)).Elem()
-}
-
-func (i OrphanedUserInfoResponseArray) ToOrphanedUserInfoResponseArrayOutput() OrphanedUserInfoResponseArrayOutput {
-	return i.ToOrphanedUserInfoResponseArrayOutputWithContext(context.Background())
-}
-
-func (i OrphanedUserInfoResponseArray) ToOrphanedUserInfoResponseArrayOutputWithContext(ctx context.Context) OrphanedUserInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrphanedUserInfoResponseArrayOutput)
 }
 
 // Information of orphaned users on the SQL server database.
@@ -20402,139 +11831,6 @@ func (i *postgreSqlConnectionInfoPtrType) ToPostgreSqlConnectionInfoPtrOutputWit
 }
 
 // Information for connecting to PostgreSQL server
-type PostgreSqlConnectionInfoOutput struct{ *pulumi.OutputState }
-
-func (PostgreSqlConnectionInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgreSqlConnectionInfo)(nil)).Elem()
-}
-
-func (o PostgreSqlConnectionInfoOutput) ToPostgreSqlConnectionInfoOutput() PostgreSqlConnectionInfoOutput {
-	return o
-}
-
-func (o PostgreSqlConnectionInfoOutput) ToPostgreSqlConnectionInfoOutputWithContext(ctx context.Context) PostgreSqlConnectionInfoOutput {
-	return o
-}
-
-func (o PostgreSqlConnectionInfoOutput) ToPostgreSqlConnectionInfoPtrOutput() PostgreSqlConnectionInfoPtrOutput {
-	return o.ToPostgreSqlConnectionInfoPtrOutputWithContext(context.Background())
-}
-
-func (o PostgreSqlConnectionInfoOutput) ToPostgreSqlConnectionInfoPtrOutputWithContext(ctx context.Context) PostgreSqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v PostgreSqlConnectionInfo) *PostgreSqlConnectionInfo {
-		return &v
-	}).(PostgreSqlConnectionInfoPtrOutput)
-}
-
-// Name of the database
-func (o PostgreSqlConnectionInfoOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgreSqlConnectionInfo) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-// Password credential.
-func (o PostgreSqlConnectionInfoOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgreSqlConnectionInfo) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// Port for Server
-func (o PostgreSqlConnectionInfoOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v PostgreSqlConnectionInfo) int { return v.Port }).(pulumi.IntOutput)
-}
-
-// Name of the server
-func (o PostgreSqlConnectionInfoOutput) ServerName() pulumi.StringOutput {
-	return o.ApplyT(func(v PostgreSqlConnectionInfo) string { return v.ServerName }).(pulumi.StringOutput)
-}
-
-// Type of connection info
-func (o PostgreSqlConnectionInfoOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PostgreSqlConnectionInfo) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// User name
-func (o PostgreSqlConnectionInfoOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgreSqlConnectionInfo) *string { return v.UserName }).(pulumi.StringPtrOutput)
-}
-
-type PostgreSqlConnectionInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (PostgreSqlConnectionInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgreSqlConnectionInfo)(nil)).Elem()
-}
-
-func (o PostgreSqlConnectionInfoPtrOutput) ToPostgreSqlConnectionInfoPtrOutput() PostgreSqlConnectionInfoPtrOutput {
-	return o
-}
-
-func (o PostgreSqlConnectionInfoPtrOutput) ToPostgreSqlConnectionInfoPtrOutputWithContext(ctx context.Context) PostgreSqlConnectionInfoPtrOutput {
-	return o
-}
-
-func (o PostgreSqlConnectionInfoPtrOutput) Elem() PostgreSqlConnectionInfoOutput {
-	return o.ApplyT(func(v *PostgreSqlConnectionInfo) PostgreSqlConnectionInfo { return *v }).(PostgreSqlConnectionInfoOutput)
-}
-
-// Name of the database
-func (o PostgreSqlConnectionInfoPtrOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgreSqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Password credential.
-func (o PostgreSqlConnectionInfoPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgreSqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// Port for Server
-func (o PostgreSqlConnectionInfoPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PostgreSqlConnectionInfo) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-// Name of the server
-func (o PostgreSqlConnectionInfoPtrOutput) ServerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgreSqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ServerName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of connection info
-func (o PostgreSqlConnectionInfoPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgreSqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// User name
-func (o PostgreSqlConnectionInfoPtrOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgreSqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Information for connecting to PostgreSQL server
 type PostgreSqlConnectionInfoResponse struct {
 	// Name of the database
 	DatabaseName *string `pulumi:"databaseName"`
@@ -20548,86 +11844,6 @@ type PostgreSqlConnectionInfoResponse struct {
 	Type string `pulumi:"type"`
 	// User name
 	UserName *string `pulumi:"userName"`
-}
-
-// PostgreSqlConnectionInfoResponseInput is an input type that accepts PostgreSqlConnectionInfoResponseArgs and PostgreSqlConnectionInfoResponseOutput values.
-// You can construct a concrete instance of `PostgreSqlConnectionInfoResponseInput` via:
-//
-//          PostgreSqlConnectionInfoResponseArgs{...}
-type PostgreSqlConnectionInfoResponseInput interface {
-	pulumi.Input
-
-	ToPostgreSqlConnectionInfoResponseOutput() PostgreSqlConnectionInfoResponseOutput
-	ToPostgreSqlConnectionInfoResponseOutputWithContext(context.Context) PostgreSqlConnectionInfoResponseOutput
-}
-
-// Information for connecting to PostgreSQL server
-type PostgreSqlConnectionInfoResponseArgs struct {
-	// Name of the database
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// Password credential.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Port for Server
-	Port pulumi.IntInput `pulumi:"port"`
-	// Name of the server
-	ServerName pulumi.StringInput `pulumi:"serverName"`
-	// Type of connection info
-	Type pulumi.StringInput `pulumi:"type"`
-	// User name
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
-}
-
-func (PostgreSqlConnectionInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgreSqlConnectionInfoResponse)(nil)).Elem()
-}
-
-func (i PostgreSqlConnectionInfoResponseArgs) ToPostgreSqlConnectionInfoResponseOutput() PostgreSqlConnectionInfoResponseOutput {
-	return i.ToPostgreSqlConnectionInfoResponseOutputWithContext(context.Background())
-}
-
-func (i PostgreSqlConnectionInfoResponseArgs) ToPostgreSqlConnectionInfoResponseOutputWithContext(ctx context.Context) PostgreSqlConnectionInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgreSqlConnectionInfoResponseOutput)
-}
-
-func (i PostgreSqlConnectionInfoResponseArgs) ToPostgreSqlConnectionInfoResponsePtrOutput() PostgreSqlConnectionInfoResponsePtrOutput {
-	return i.ToPostgreSqlConnectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PostgreSqlConnectionInfoResponseArgs) ToPostgreSqlConnectionInfoResponsePtrOutputWithContext(ctx context.Context) PostgreSqlConnectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgreSqlConnectionInfoResponseOutput).ToPostgreSqlConnectionInfoResponsePtrOutputWithContext(ctx)
-}
-
-// PostgreSqlConnectionInfoResponsePtrInput is an input type that accepts PostgreSqlConnectionInfoResponseArgs, PostgreSqlConnectionInfoResponsePtr and PostgreSqlConnectionInfoResponsePtrOutput values.
-// You can construct a concrete instance of `PostgreSqlConnectionInfoResponsePtrInput` via:
-//
-//          PostgreSqlConnectionInfoResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type PostgreSqlConnectionInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToPostgreSqlConnectionInfoResponsePtrOutput() PostgreSqlConnectionInfoResponsePtrOutput
-	ToPostgreSqlConnectionInfoResponsePtrOutputWithContext(context.Context) PostgreSqlConnectionInfoResponsePtrOutput
-}
-
-type postgreSqlConnectionInfoResponsePtrType PostgreSqlConnectionInfoResponseArgs
-
-func PostgreSqlConnectionInfoResponsePtr(v *PostgreSqlConnectionInfoResponseArgs) PostgreSqlConnectionInfoResponsePtrInput {
-	return (*postgreSqlConnectionInfoResponsePtrType)(v)
-}
-
-func (*postgreSqlConnectionInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgreSqlConnectionInfoResponse)(nil)).Elem()
-}
-
-func (i *postgreSqlConnectionInfoResponsePtrType) ToPostgreSqlConnectionInfoResponsePtrOutput() PostgreSqlConnectionInfoResponsePtrOutput {
-	return i.ToPostgreSqlConnectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *postgreSqlConnectionInfoResponsePtrType) ToPostgreSqlConnectionInfoResponsePtrOutputWithContext(ctx context.Context) PostgreSqlConnectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgreSqlConnectionInfoResponsePtrOutput)
 }
 
 // Information for connecting to PostgreSQL server
@@ -20771,37 +11987,6 @@ type QueryAnalysisValidationResultResponse struct {
 	ValidationErrors ValidationErrorResponse `pulumi:"validationErrors"`
 }
 
-// QueryAnalysisValidationResultResponseInput is an input type that accepts QueryAnalysisValidationResultResponseArgs and QueryAnalysisValidationResultResponseOutput values.
-// You can construct a concrete instance of `QueryAnalysisValidationResultResponseInput` via:
-//
-//          QueryAnalysisValidationResultResponseArgs{...}
-type QueryAnalysisValidationResultResponseInput interface {
-	pulumi.Input
-
-	ToQueryAnalysisValidationResultResponseOutput() QueryAnalysisValidationResultResponseOutput
-	ToQueryAnalysisValidationResultResponseOutputWithContext(context.Context) QueryAnalysisValidationResultResponseOutput
-}
-
-// Results for query analysis comparison between the source and target
-type QueryAnalysisValidationResultResponseArgs struct {
-	// List of queries executed and it's execution results in source and target
-	QueryResults QueryExecutionResultResponseInput `pulumi:"queryResults"`
-	// Errors that are part of the execution
-	ValidationErrors ValidationErrorResponseInput `pulumi:"validationErrors"`
-}
-
-func (QueryAnalysisValidationResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryAnalysisValidationResultResponse)(nil)).Elem()
-}
-
-func (i QueryAnalysisValidationResultResponseArgs) ToQueryAnalysisValidationResultResponseOutput() QueryAnalysisValidationResultResponseOutput {
-	return i.ToQueryAnalysisValidationResultResponseOutputWithContext(context.Background())
-}
-
-func (i QueryAnalysisValidationResultResponseArgs) ToQueryAnalysisValidationResultResponseOutputWithContext(ctx context.Context) QueryAnalysisValidationResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryAnalysisValidationResultResponseOutput)
-}
-
 // Results for query analysis comparison between the source and target
 type QueryAnalysisValidationResultResponseOutput struct{ *pulumi.OutputState }
 
@@ -20837,41 +12022,6 @@ type QueryExecutionResultResponse struct {
 	StatementsInBatch int `pulumi:"statementsInBatch"`
 	// Query analysis result from the target
 	TargetResult ExecutionStatisticsResponse `pulumi:"targetResult"`
-}
-
-// QueryExecutionResultResponseInput is an input type that accepts QueryExecutionResultResponseArgs and QueryExecutionResultResponseOutput values.
-// You can construct a concrete instance of `QueryExecutionResultResponseInput` via:
-//
-//          QueryExecutionResultResponseArgs{...}
-type QueryExecutionResultResponseInput interface {
-	pulumi.Input
-
-	ToQueryExecutionResultResponseOutput() QueryExecutionResultResponseOutput
-	ToQueryExecutionResultResponseOutputWithContext(context.Context) QueryExecutionResultResponseOutput
-}
-
-// Describes query analysis results for execution in source and target
-type QueryExecutionResultResponseArgs struct {
-	// Query text retrieved from the source server
-	QueryText pulumi.StringInput `pulumi:"queryText"`
-	// Query analysis result from the source
-	SourceResult ExecutionStatisticsResponseInput `pulumi:"sourceResult"`
-	// Total no. of statements in the batch
-	StatementsInBatch pulumi.IntInput `pulumi:"statementsInBatch"`
-	// Query analysis result from the target
-	TargetResult ExecutionStatisticsResponseInput `pulumi:"targetResult"`
-}
-
-func (QueryExecutionResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryExecutionResultResponse)(nil)).Elem()
-}
-
-func (i QueryExecutionResultResponseArgs) ToQueryExecutionResultResponseOutput() QueryExecutionResultResponseOutput {
-	return i.ToQueryExecutionResultResponseOutputWithContext(context.Background())
-}
-
-func (i QueryExecutionResultResponseArgs) ToQueryExecutionResultResponseOutputWithContext(ctx context.Context) QueryExecutionResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryExecutionResultResponseOutput)
 }
 
 // Describes query analysis results for execution in source and target
@@ -20923,70 +12073,6 @@ type ReportableExceptionResponse struct {
 	Message string `pulumi:"message"`
 	// Stack trace
 	StackTrace string `pulumi:"stackTrace"`
-}
-
-// ReportableExceptionResponseInput is an input type that accepts ReportableExceptionResponseArgs and ReportableExceptionResponseOutput values.
-// You can construct a concrete instance of `ReportableExceptionResponseInput` via:
-//
-//          ReportableExceptionResponseArgs{...}
-type ReportableExceptionResponseInput interface {
-	pulumi.Input
-
-	ToReportableExceptionResponseOutput() ReportableExceptionResponseOutput
-	ToReportableExceptionResponseOutputWithContext(context.Context) ReportableExceptionResponseOutput
-}
-
-// Exception object for all custom exceptions
-type ReportableExceptionResponseArgs struct {
-	// Actionable steps for this exception
-	ActionableMessage pulumi.StringPtrInput `pulumi:"actionableMessage"`
-	// The path to the file where exception occurred
-	FilePath pulumi.StringInput `pulumi:"filePath"`
-	// Coded numerical value that is assigned to a specific exception
-	HResult pulumi.IntInput `pulumi:"hResult"`
-	// The line number where exception occurred
-	LineNumber pulumi.StringInput `pulumi:"lineNumber"`
-	// Error message
-	Message pulumi.StringInput `pulumi:"message"`
-	// Stack trace
-	StackTrace pulumi.StringInput `pulumi:"stackTrace"`
-}
-
-func (ReportableExceptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportableExceptionResponse)(nil)).Elem()
-}
-
-func (i ReportableExceptionResponseArgs) ToReportableExceptionResponseOutput() ReportableExceptionResponseOutput {
-	return i.ToReportableExceptionResponseOutputWithContext(context.Background())
-}
-
-func (i ReportableExceptionResponseArgs) ToReportableExceptionResponseOutputWithContext(ctx context.Context) ReportableExceptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportableExceptionResponseOutput)
-}
-
-// ReportableExceptionResponseArrayInput is an input type that accepts ReportableExceptionResponseArray and ReportableExceptionResponseArrayOutput values.
-// You can construct a concrete instance of `ReportableExceptionResponseArrayInput` via:
-//
-//          ReportableExceptionResponseArray{ ReportableExceptionResponseArgs{...} }
-type ReportableExceptionResponseArrayInput interface {
-	pulumi.Input
-
-	ToReportableExceptionResponseArrayOutput() ReportableExceptionResponseArrayOutput
-	ToReportableExceptionResponseArrayOutputWithContext(context.Context) ReportableExceptionResponseArrayOutput
-}
-
-type ReportableExceptionResponseArray []ReportableExceptionResponseInput
-
-func (ReportableExceptionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReportableExceptionResponse)(nil)).Elem()
-}
-
-func (i ReportableExceptionResponseArray) ToReportableExceptionResponseArrayOutput() ReportableExceptionResponseArrayOutput {
-	return i.ToReportableExceptionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ReportableExceptionResponseArray) ToReportableExceptionResponseArrayOutputWithContext(ctx context.Context) ReportableExceptionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportableExceptionResponseArrayOutput)
 }
 
 // Exception object for all custom exceptions
@@ -21066,41 +12152,6 @@ type SchemaComparisonValidationResultResponse struct {
 	ValidationErrors ValidationErrorResponse `pulumi:"validationErrors"`
 }
 
-// SchemaComparisonValidationResultResponseInput is an input type that accepts SchemaComparisonValidationResultResponseArgs and SchemaComparisonValidationResultResponseOutput values.
-// You can construct a concrete instance of `SchemaComparisonValidationResultResponseInput` via:
-//
-//          SchemaComparisonValidationResultResponseArgs{...}
-type SchemaComparisonValidationResultResponseInput interface {
-	pulumi.Input
-
-	ToSchemaComparisonValidationResultResponseOutput() SchemaComparisonValidationResultResponseOutput
-	ToSchemaComparisonValidationResultResponseOutputWithContext(context.Context) SchemaComparisonValidationResultResponseOutput
-}
-
-// Results for schema comparison between the source and target
-type SchemaComparisonValidationResultResponseArgs struct {
-	// List of schema differences between the source and target databases
-	SchemaDifferences SchemaComparisonValidationResultTypeResponseInput `pulumi:"schemaDifferences"`
-	// Count of source database objects
-	SourceDatabaseObjectCount pulumi.IntMapInput `pulumi:"sourceDatabaseObjectCount"`
-	// Count of target database objects
-	TargetDatabaseObjectCount pulumi.IntMapInput `pulumi:"targetDatabaseObjectCount"`
-	// List of errors that happened while performing schema compare validation
-	ValidationErrors ValidationErrorResponseInput `pulumi:"validationErrors"`
-}
-
-func (SchemaComparisonValidationResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaComparisonValidationResultResponse)(nil)).Elem()
-}
-
-func (i SchemaComparisonValidationResultResponseArgs) ToSchemaComparisonValidationResultResponseOutput() SchemaComparisonValidationResultResponseOutput {
-	return i.ToSchemaComparisonValidationResultResponseOutputWithContext(context.Background())
-}
-
-func (i SchemaComparisonValidationResultResponseArgs) ToSchemaComparisonValidationResultResponseOutputWithContext(ctx context.Context) SchemaComparisonValidationResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaComparisonValidationResultResponseOutput)
-}
-
 // Results for schema comparison between the source and target
 type SchemaComparisonValidationResultResponseOutput struct{ *pulumi.OutputState }
 
@@ -21146,39 +12197,6 @@ type SchemaComparisonValidationResultTypeResponse struct {
 	ObjectType string `pulumi:"objectType"`
 	// Update action type with respect to target
 	UpdateAction string `pulumi:"updateAction"`
-}
-
-// SchemaComparisonValidationResultTypeResponseInput is an input type that accepts SchemaComparisonValidationResultTypeResponseArgs and SchemaComparisonValidationResultTypeResponseOutput values.
-// You can construct a concrete instance of `SchemaComparisonValidationResultTypeResponseInput` via:
-//
-//          SchemaComparisonValidationResultTypeResponseArgs{...}
-type SchemaComparisonValidationResultTypeResponseInput interface {
-	pulumi.Input
-
-	ToSchemaComparisonValidationResultTypeResponseOutput() SchemaComparisonValidationResultTypeResponseOutput
-	ToSchemaComparisonValidationResultTypeResponseOutputWithContext(context.Context) SchemaComparisonValidationResultTypeResponseOutput
-}
-
-// Description about the errors happen while performing migration validation
-type SchemaComparisonValidationResultTypeResponseArgs struct {
-	// Name of the object that has the difference
-	ObjectName pulumi.StringInput `pulumi:"objectName"`
-	// Type of the object that has the difference. e.g (Table/View/StoredProcedure)
-	ObjectType pulumi.StringInput `pulumi:"objectType"`
-	// Update action type with respect to target
-	UpdateAction pulumi.StringInput `pulumi:"updateAction"`
-}
-
-func (SchemaComparisonValidationResultTypeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaComparisonValidationResultTypeResponse)(nil)).Elem()
-}
-
-func (i SchemaComparisonValidationResultTypeResponseArgs) ToSchemaComparisonValidationResultTypeResponseOutput() SchemaComparisonValidationResultTypeResponseOutput {
-	return i.ToSchemaComparisonValidationResultTypeResponseOutputWithContext(context.Background())
-}
-
-func (i SchemaComparisonValidationResultTypeResponseArgs) ToSchemaComparisonValidationResultTypeResponseOutputWithContext(ctx context.Context) SchemaComparisonValidationResultTypeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaComparisonValidationResultTypeResponseOutput)
 }
 
 // Description about the errors happen while performing migration validation
@@ -21276,112 +12294,11 @@ func (i SelectedCertificateInputArray) ToSelectedCertificateInputArrayOutputWith
 }
 
 // Info for certificate to be exported for TDE enabled databases.
-type SelectedCertificateInputOutput struct{ *pulumi.OutputState }
-
-func (SelectedCertificateInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SelectedCertificateInput)(nil)).Elem()
-}
-
-func (o SelectedCertificateInputOutput) ToSelectedCertificateInputOutput() SelectedCertificateInputOutput {
-	return o
-}
-
-func (o SelectedCertificateInputOutput) ToSelectedCertificateInputOutputWithContext(ctx context.Context) SelectedCertificateInputOutput {
-	return o
-}
-
-// Name of certificate to be exported.
-func (o SelectedCertificateInputOutput) CertificateName() pulumi.StringOutput {
-	return o.ApplyT(func(v SelectedCertificateInput) string { return v.CertificateName }).(pulumi.StringOutput)
-}
-
-// Password to use for encrypting the exported certificate.
-func (o SelectedCertificateInputOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v SelectedCertificateInput) string { return v.Password }).(pulumi.StringOutput)
-}
-
-type SelectedCertificateInputArrayOutput struct{ *pulumi.OutputState }
-
-func (SelectedCertificateInputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SelectedCertificateInput)(nil)).Elem()
-}
-
-func (o SelectedCertificateInputArrayOutput) ToSelectedCertificateInputArrayOutput() SelectedCertificateInputArrayOutput {
-	return o
-}
-
-func (o SelectedCertificateInputArrayOutput) ToSelectedCertificateInputArrayOutputWithContext(ctx context.Context) SelectedCertificateInputArrayOutput {
-	return o
-}
-
-func (o SelectedCertificateInputArrayOutput) Index(i pulumi.IntInput) SelectedCertificateInputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SelectedCertificateInput {
-		return vs[0].([]SelectedCertificateInput)[vs[1].(int)]
-	}).(SelectedCertificateInputOutput)
-}
-
-// Info for certificate to be exported for TDE enabled databases.
 type SelectedCertificateInputResponse struct {
 	// Name of certificate to be exported.
 	CertificateName string `pulumi:"certificateName"`
 	// Password to use for encrypting the exported certificate.
 	Password string `pulumi:"password"`
-}
-
-// SelectedCertificateInputResponseInput is an input type that accepts SelectedCertificateInputResponseArgs and SelectedCertificateInputResponseOutput values.
-// You can construct a concrete instance of `SelectedCertificateInputResponseInput` via:
-//
-//          SelectedCertificateInputResponseArgs{...}
-type SelectedCertificateInputResponseInput interface {
-	pulumi.Input
-
-	ToSelectedCertificateInputResponseOutput() SelectedCertificateInputResponseOutput
-	ToSelectedCertificateInputResponseOutputWithContext(context.Context) SelectedCertificateInputResponseOutput
-}
-
-// Info for certificate to be exported for TDE enabled databases.
-type SelectedCertificateInputResponseArgs struct {
-	// Name of certificate to be exported.
-	CertificateName pulumi.StringInput `pulumi:"certificateName"`
-	// Password to use for encrypting the exported certificate.
-	Password pulumi.StringInput `pulumi:"password"`
-}
-
-func (SelectedCertificateInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SelectedCertificateInputResponse)(nil)).Elem()
-}
-
-func (i SelectedCertificateInputResponseArgs) ToSelectedCertificateInputResponseOutput() SelectedCertificateInputResponseOutput {
-	return i.ToSelectedCertificateInputResponseOutputWithContext(context.Background())
-}
-
-func (i SelectedCertificateInputResponseArgs) ToSelectedCertificateInputResponseOutputWithContext(ctx context.Context) SelectedCertificateInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SelectedCertificateInputResponseOutput)
-}
-
-// SelectedCertificateInputResponseArrayInput is an input type that accepts SelectedCertificateInputResponseArray and SelectedCertificateInputResponseArrayOutput values.
-// You can construct a concrete instance of `SelectedCertificateInputResponseArrayInput` via:
-//
-//          SelectedCertificateInputResponseArray{ SelectedCertificateInputResponseArgs{...} }
-type SelectedCertificateInputResponseArrayInput interface {
-	pulumi.Input
-
-	ToSelectedCertificateInputResponseArrayOutput() SelectedCertificateInputResponseArrayOutput
-	ToSelectedCertificateInputResponseArrayOutputWithContext(context.Context) SelectedCertificateInputResponseArrayOutput
-}
-
-type SelectedCertificateInputResponseArray []SelectedCertificateInputResponseInput
-
-func (SelectedCertificateInputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SelectedCertificateInputResponse)(nil)).Elem()
-}
-
-func (i SelectedCertificateInputResponseArray) ToSelectedCertificateInputResponseArrayOutput() SelectedCertificateInputResponseArrayOutput {
-	return i.ToSelectedCertificateInputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SelectedCertificateInputResponseArray) ToSelectedCertificateInputResponseArrayOutputWithContext(ctx context.Context) SelectedCertificateInputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SelectedCertificateInputResponseArrayOutput)
 }
 
 // Info for certificate to be exported for TDE enabled databases.
@@ -21522,124 +12439,6 @@ func (i *serviceSkuPtrType) ToServiceSkuPtrOutputWithContext(ctx context.Context
 }
 
 // An Azure SKU instance
-type ServiceSkuOutput struct{ *pulumi.OutputState }
-
-func (ServiceSkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceSku)(nil)).Elem()
-}
-
-func (o ServiceSkuOutput) ToServiceSkuOutput() ServiceSkuOutput {
-	return o
-}
-
-func (o ServiceSkuOutput) ToServiceSkuOutputWithContext(ctx context.Context) ServiceSkuOutput {
-	return o
-}
-
-func (o ServiceSkuOutput) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
-	return o.ToServiceSkuPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceSkuOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return o.ApplyT(func(v ServiceSku) *ServiceSku {
-		return &v
-	}).(ServiceSkuPtrOutput)
-}
-
-// The capacity of the SKU, if it supports scaling
-func (o ServiceSkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
-func (o ServiceSkuOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceSku) *string { return v.Family }).(pulumi.StringPtrOutput)
-}
-
-// The unique name of the SKU, such as 'P3'
-func (o ServiceSkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceSku) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
-func (o ServiceSkuOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceSku) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
-func (o ServiceSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type ServiceSkuPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceSku)(nil)).Elem()
-}
-
-func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
-	return o
-}
-
-func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return o
-}
-
-func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
-	return o.ApplyT(func(v *ServiceSku) ServiceSku { return *v }).(ServiceSkuOutput)
-}
-
-// The capacity of the SKU, if it supports scaling
-func (o ServiceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceSku) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
-func (o ServiceSkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique name of the SKU, such as 'P3'
-func (o ServiceSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
-func (o ServiceSkuPtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
-func (o ServiceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
-// An Azure SKU instance
 type ServiceSkuResponse struct {
 	// The capacity of the SKU, if it supports scaling
 	Capacity *int `pulumi:"capacity"`
@@ -21651,84 +12450,6 @@ type ServiceSkuResponse struct {
 	Size *string `pulumi:"size"`
 	// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
 	Tier *string `pulumi:"tier"`
-}
-
-// ServiceSkuResponseInput is an input type that accepts ServiceSkuResponseArgs and ServiceSkuResponseOutput values.
-// You can construct a concrete instance of `ServiceSkuResponseInput` via:
-//
-//          ServiceSkuResponseArgs{...}
-type ServiceSkuResponseInput interface {
-	pulumi.Input
-
-	ToServiceSkuResponseOutput() ServiceSkuResponseOutput
-	ToServiceSkuResponseOutputWithContext(context.Context) ServiceSkuResponseOutput
-}
-
-// An Azure SKU instance
-type ServiceSkuResponseArgs struct {
-	// The capacity of the SKU, if it supports scaling
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The unique name of the SKU, such as 'P3'
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (ServiceSkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceSkuResponse)(nil)).Elem()
-}
-
-func (i ServiceSkuResponseArgs) ToServiceSkuResponseOutput() ServiceSkuResponseOutput {
-	return i.ToServiceSkuResponseOutputWithContext(context.Background())
-}
-
-func (i ServiceSkuResponseArgs) ToServiceSkuResponseOutputWithContext(ctx context.Context) ServiceSkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuResponseOutput)
-}
-
-func (i ServiceSkuResponseArgs) ToServiceSkuResponsePtrOutput() ServiceSkuResponsePtrOutput {
-	return i.ToServiceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceSkuResponseArgs) ToServiceSkuResponsePtrOutputWithContext(ctx context.Context) ServiceSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuResponseOutput).ToServiceSkuResponsePtrOutputWithContext(ctx)
-}
-
-// ServiceSkuResponsePtrInput is an input type that accepts ServiceSkuResponseArgs, ServiceSkuResponsePtr and ServiceSkuResponsePtrOutput values.
-// You can construct a concrete instance of `ServiceSkuResponsePtrInput` via:
-//
-//          ServiceSkuResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceSkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToServiceSkuResponsePtrOutput() ServiceSkuResponsePtrOutput
-	ToServiceSkuResponsePtrOutputWithContext(context.Context) ServiceSkuResponsePtrOutput
-}
-
-type serviceSkuResponsePtrType ServiceSkuResponseArgs
-
-func ServiceSkuResponsePtr(v *ServiceSkuResponseArgs) ServiceSkuResponsePtrInput {
-	return (*serviceSkuResponsePtrType)(v)
-}
-
-func (*serviceSkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceSkuResponse)(nil)).Elem()
-}
-
-func (i *serviceSkuResponsePtrType) ToServiceSkuResponsePtrOutput() ServiceSkuResponsePtrOutput {
-	return i.ToServiceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceSkuResponsePtrType) ToServiceSkuResponsePtrOutputWithContext(ctx context.Context) ServiceSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuResponsePtrOutput)
 }
 
 // An Azure SKU instance
@@ -21958,184 +12679,6 @@ func (i *sqlConnectionInfoPtrType) ToSqlConnectionInfoPtrOutputWithContext(ctx c
 }
 
 // Information for connecting to SQL database server
-type SqlConnectionInfoOutput struct{ *pulumi.OutputState }
-
-func (SqlConnectionInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlConnectionInfo)(nil)).Elem()
-}
-
-func (o SqlConnectionInfoOutput) ToSqlConnectionInfoOutput() SqlConnectionInfoOutput {
-	return o
-}
-
-func (o SqlConnectionInfoOutput) ToSqlConnectionInfoOutputWithContext(ctx context.Context) SqlConnectionInfoOutput {
-	return o
-}
-
-func (o SqlConnectionInfoOutput) ToSqlConnectionInfoPtrOutput() SqlConnectionInfoPtrOutput {
-	return o.ToSqlConnectionInfoPtrOutputWithContext(context.Background())
-}
-
-func (o SqlConnectionInfoOutput) ToSqlConnectionInfoPtrOutputWithContext(ctx context.Context) SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInfo) *SqlConnectionInfo {
-		return &v
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Additional connection settings
-func (o SqlConnectionInfoOutput) AdditionalSettings() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInfo) *string { return v.AdditionalSettings }).(pulumi.StringPtrOutput)
-}
-
-// Authentication type to use for connection
-func (o SqlConnectionInfoOutput) Authentication() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInfo) *string { return v.Authentication }).(pulumi.StringPtrOutput)
-}
-
-// Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
-func (o SqlConnectionInfoOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlConnectionInfo) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// Whether to encrypt the connection
-func (o SqlConnectionInfoOutput) EncryptConnection() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInfo) *bool { return v.EncryptConnection }).(pulumi.BoolPtrOutput)
-}
-
-// Password credential.
-func (o SqlConnectionInfoOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInfo) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// Server platform type for connection
-func (o SqlConnectionInfoOutput) Platform() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInfo) *string { return v.Platform }).(pulumi.StringPtrOutput)
-}
-
-// Whether to trust the server certificate
-func (o SqlConnectionInfoOutput) TrustServerCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInfo) *bool { return v.TrustServerCertificate }).(pulumi.BoolPtrOutput)
-}
-
-// Type of connection info
-func (o SqlConnectionInfoOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlConnectionInfo) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// User name
-func (o SqlConnectionInfoOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInfo) *string { return v.UserName }).(pulumi.StringPtrOutput)
-}
-
-type SqlConnectionInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (SqlConnectionInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlConnectionInfo)(nil)).Elem()
-}
-
-func (o SqlConnectionInfoPtrOutput) ToSqlConnectionInfoPtrOutput() SqlConnectionInfoPtrOutput {
-	return o
-}
-
-func (o SqlConnectionInfoPtrOutput) ToSqlConnectionInfoPtrOutputWithContext(ctx context.Context) SqlConnectionInfoPtrOutput {
-	return o
-}
-
-func (o SqlConnectionInfoPtrOutput) Elem() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) SqlConnectionInfo { return *v }).(SqlConnectionInfoOutput)
-}
-
-// Additional connection settings
-func (o SqlConnectionInfoPtrOutput) AdditionalSettings() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalSettings
-	}).(pulumi.StringPtrOutput)
-}
-
-// Authentication type to use for connection
-func (o SqlConnectionInfoPtrOutput) Authentication() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Authentication
-	}).(pulumi.StringPtrOutput)
-}
-
-// Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
-func (o SqlConnectionInfoPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to encrypt the connection
-func (o SqlConnectionInfoPtrOutput) EncryptConnection() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptConnection
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Password credential.
-func (o SqlConnectionInfoPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// Server platform type for connection
-func (o SqlConnectionInfoPtrOutput) Platform() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Platform
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to trust the server certificate
-func (o SqlConnectionInfoPtrOutput) TrustServerCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.TrustServerCertificate
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Type of connection info
-func (o SqlConnectionInfoPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// User name
-func (o SqlConnectionInfoPtrOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Information for connecting to SQL database server
 type SqlConnectionInfoResponse struct {
 	// Additional connection settings
 	AdditionalSettings *string `pulumi:"additionalSettings"`
@@ -22155,92 +12698,6 @@ type SqlConnectionInfoResponse struct {
 	Type string `pulumi:"type"`
 	// User name
 	UserName *string `pulumi:"userName"`
-}
-
-// SqlConnectionInfoResponseInput is an input type that accepts SqlConnectionInfoResponseArgs and SqlConnectionInfoResponseOutput values.
-// You can construct a concrete instance of `SqlConnectionInfoResponseInput` via:
-//
-//          SqlConnectionInfoResponseArgs{...}
-type SqlConnectionInfoResponseInput interface {
-	pulumi.Input
-
-	ToSqlConnectionInfoResponseOutput() SqlConnectionInfoResponseOutput
-	ToSqlConnectionInfoResponseOutputWithContext(context.Context) SqlConnectionInfoResponseOutput
-}
-
-// Information for connecting to SQL database server
-type SqlConnectionInfoResponseArgs struct {
-	// Additional connection settings
-	AdditionalSettings pulumi.StringPtrInput `pulumi:"additionalSettings"`
-	// Authentication type to use for connection
-	Authentication pulumi.StringPtrInput `pulumi:"authentication"`
-	// Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Whether to encrypt the connection
-	EncryptConnection pulumi.BoolPtrInput `pulumi:"encryptConnection"`
-	// Password credential.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Server platform type for connection
-	Platform pulumi.StringPtrInput `pulumi:"platform"`
-	// Whether to trust the server certificate
-	TrustServerCertificate pulumi.BoolPtrInput `pulumi:"trustServerCertificate"`
-	// Type of connection info
-	Type pulumi.StringInput `pulumi:"type"`
-	// User name
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
-}
-
-func (SqlConnectionInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlConnectionInfoResponse)(nil)).Elem()
-}
-
-func (i SqlConnectionInfoResponseArgs) ToSqlConnectionInfoResponseOutput() SqlConnectionInfoResponseOutput {
-	return i.ToSqlConnectionInfoResponseOutputWithContext(context.Background())
-}
-
-func (i SqlConnectionInfoResponseArgs) ToSqlConnectionInfoResponseOutputWithContext(ctx context.Context) SqlConnectionInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectionInfoResponseOutput)
-}
-
-func (i SqlConnectionInfoResponseArgs) ToSqlConnectionInfoResponsePtrOutput() SqlConnectionInfoResponsePtrOutput {
-	return i.ToSqlConnectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SqlConnectionInfoResponseArgs) ToSqlConnectionInfoResponsePtrOutputWithContext(ctx context.Context) SqlConnectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectionInfoResponseOutput).ToSqlConnectionInfoResponsePtrOutputWithContext(ctx)
-}
-
-// SqlConnectionInfoResponsePtrInput is an input type that accepts SqlConnectionInfoResponseArgs, SqlConnectionInfoResponsePtr and SqlConnectionInfoResponsePtrOutput values.
-// You can construct a concrete instance of `SqlConnectionInfoResponsePtrInput` via:
-//
-//          SqlConnectionInfoResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SqlConnectionInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToSqlConnectionInfoResponsePtrOutput() SqlConnectionInfoResponsePtrOutput
-	ToSqlConnectionInfoResponsePtrOutputWithContext(context.Context) SqlConnectionInfoResponsePtrOutput
-}
-
-type sqlConnectionInfoResponsePtrType SqlConnectionInfoResponseArgs
-
-func SqlConnectionInfoResponsePtr(v *SqlConnectionInfoResponseArgs) SqlConnectionInfoResponsePtrInput {
-	return (*sqlConnectionInfoResponsePtrType)(v)
-}
-
-func (*sqlConnectionInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlConnectionInfoResponse)(nil)).Elem()
-}
-
-func (i *sqlConnectionInfoResponsePtrType) ToSqlConnectionInfoResponsePtrOutput() SqlConnectionInfoResponsePtrOutput {
-	return i.ToSqlConnectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sqlConnectionInfoResponsePtrType) ToSqlConnectionInfoResponsePtrOutputWithContext(ctx context.Context) SqlConnectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectionInfoResponsePtrOutput)
 }
 
 // Information for connecting to SQL database server
@@ -22431,64 +12888,6 @@ type SyncMigrationDatabaseErrorEventResponse struct {
 	TimestampString string `pulumi:"timestampString"`
 }
 
-// SyncMigrationDatabaseErrorEventResponseInput is an input type that accepts SyncMigrationDatabaseErrorEventResponseArgs and SyncMigrationDatabaseErrorEventResponseOutput values.
-// You can construct a concrete instance of `SyncMigrationDatabaseErrorEventResponseInput` via:
-//
-//          SyncMigrationDatabaseErrorEventResponseArgs{...}
-type SyncMigrationDatabaseErrorEventResponseInput interface {
-	pulumi.Input
-
-	ToSyncMigrationDatabaseErrorEventResponseOutput() SyncMigrationDatabaseErrorEventResponseOutput
-	ToSyncMigrationDatabaseErrorEventResponseOutputWithContext(context.Context) SyncMigrationDatabaseErrorEventResponseOutput
-}
-
-// Database migration errors for online migration
-type SyncMigrationDatabaseErrorEventResponseArgs struct {
-	// Event text.
-	EventText pulumi.StringInput `pulumi:"eventText"`
-	// Event type.
-	EventTypeString pulumi.StringInput `pulumi:"eventTypeString"`
-	// String value of timestamp.
-	TimestampString pulumi.StringInput `pulumi:"timestampString"`
-}
-
-func (SyncMigrationDatabaseErrorEventResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncMigrationDatabaseErrorEventResponse)(nil)).Elem()
-}
-
-func (i SyncMigrationDatabaseErrorEventResponseArgs) ToSyncMigrationDatabaseErrorEventResponseOutput() SyncMigrationDatabaseErrorEventResponseOutput {
-	return i.ToSyncMigrationDatabaseErrorEventResponseOutputWithContext(context.Background())
-}
-
-func (i SyncMigrationDatabaseErrorEventResponseArgs) ToSyncMigrationDatabaseErrorEventResponseOutputWithContext(ctx context.Context) SyncMigrationDatabaseErrorEventResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncMigrationDatabaseErrorEventResponseOutput)
-}
-
-// SyncMigrationDatabaseErrorEventResponseArrayInput is an input type that accepts SyncMigrationDatabaseErrorEventResponseArray and SyncMigrationDatabaseErrorEventResponseArrayOutput values.
-// You can construct a concrete instance of `SyncMigrationDatabaseErrorEventResponseArrayInput` via:
-//
-//          SyncMigrationDatabaseErrorEventResponseArray{ SyncMigrationDatabaseErrorEventResponseArgs{...} }
-type SyncMigrationDatabaseErrorEventResponseArrayInput interface {
-	pulumi.Input
-
-	ToSyncMigrationDatabaseErrorEventResponseArrayOutput() SyncMigrationDatabaseErrorEventResponseArrayOutput
-	ToSyncMigrationDatabaseErrorEventResponseArrayOutputWithContext(context.Context) SyncMigrationDatabaseErrorEventResponseArrayOutput
-}
-
-type SyncMigrationDatabaseErrorEventResponseArray []SyncMigrationDatabaseErrorEventResponseInput
-
-func (SyncMigrationDatabaseErrorEventResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SyncMigrationDatabaseErrorEventResponse)(nil)).Elem()
-}
-
-func (i SyncMigrationDatabaseErrorEventResponseArray) ToSyncMigrationDatabaseErrorEventResponseArrayOutput() SyncMigrationDatabaseErrorEventResponseArrayOutput {
-	return i.ToSyncMigrationDatabaseErrorEventResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SyncMigrationDatabaseErrorEventResponseArray) ToSyncMigrationDatabaseErrorEventResponseArrayOutputWithContext(ctx context.Context) SyncMigrationDatabaseErrorEventResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncMigrationDatabaseErrorEventResponseArrayOutput)
-}
-
 // Database migration errors for online migration
 type SyncMigrationDatabaseErrorEventResponseOutput struct{ *pulumi.OutputState }
 
@@ -22579,33 +12978,6 @@ func (i ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs) ToValidateMi
 }
 
 // Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
-type ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlDbSyncTaskProperties)(nil)).Elem()
-}
-
-func (o ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutput) ToValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutput() ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutput {
-	return o
-}
-
-func (o ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutput) ToValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutput) Input() ValidateSyncMigrationInputSqlServerTaskInputPtrOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlDbSyncTaskProperties) *ValidateSyncMigrationInputSqlServerTaskInput {
-		return v.Input
-	}).(ValidateSyncMigrationInputSqlServerTaskInputPtrOutput)
-}
-
-// Task type.
-func (o ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlDbSyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
 type ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -22619,45 +12991,6 @@ type ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseInput is an input type that accepts ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseArgs and ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseInput` via:
-//
-//          ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseArgs{...}
-type ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutput() ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutput
-	ToValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutputWithContext(context.Context) ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutput
-}
-
-// Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
-type ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ValidateSyncMigrationInputSqlServerTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output ValidateSyncMigrationInputSqlServerTaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseArgs) ToValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutput() ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutput {
-	return i.ToValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseArgs) ToValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponseOutput)
 }
 
 // Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
@@ -22810,147 +13143,6 @@ func (i *validateMigrationInputSqlServerSqlMISyncTaskInputPtrType) ToValidateMig
 }
 
 // Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
-type ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput struct{ *pulumi.OutputState }
-
-func (ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlMISyncTaskInput)(nil)).Elem()
-}
-
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput) ToValidateMigrationInputSqlServerSqlMISyncTaskInputOutput() ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput {
-	return o
-}
-
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput) ToValidateMigrationInputSqlServerSqlMISyncTaskInputOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput {
-	return o
-}
-
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput) ToValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput() ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput {
-	return o.ToValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput) ToValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMISyncTaskInput) *ValidateMigrationInputSqlServerSqlMISyncTaskInput {
-		return &v
-	}).(ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput)
-}
-
-// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput) AzureApp() AzureActiveDirectoryAppOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMISyncTaskInput) AzureActiveDirectoryApp { return v.AzureApp }).(AzureActiveDirectoryAppOutput)
-}
-
-// Backup file share information for all selected databases.
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput) BackupFileShare() FileSharePtrOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMISyncTaskInput) *FileShare { return v.BackupFileShare }).(FileSharePtrOutput)
-}
-
-// Databases to migrate
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput) SelectedDatabases() MigrateSqlServerSqlMIDatabaseInputArrayOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMISyncTaskInput) []MigrateSqlServerSqlMIDatabaseInput {
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlMIDatabaseInputArrayOutput)
-}
-
-// Connection information for source SQL Server
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput) SourceConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMISyncTaskInput) SqlConnectionInfo {
-		return v.SourceConnectionInfo
-	}).(SqlConnectionInfoOutput)
-}
-
-// Fully qualified resourceId of storage
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMISyncTaskInput) string { return v.StorageResourceId }).(pulumi.StringOutput)
-}
-
-// Connection information for Azure SQL Database Managed Instance
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput) TargetConnectionInfo() MiSqlConnectionInfoOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMISyncTaskInput) MiSqlConnectionInfo {
-		return v.TargetConnectionInfo
-	}).(MiSqlConnectionInfoOutput)
-}
-
-type ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ValidateMigrationInputSqlServerSqlMISyncTaskInput)(nil)).Elem()
-}
-
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput) ToValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput() ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput {
-	return o
-}
-
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput) ToValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput {
-	return o
-}
-
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput) Elem() ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMISyncTaskInput) ValidateMigrationInputSqlServerSqlMISyncTaskInput {
-		return *v
-	}).(ValidateMigrationInputSqlServerSqlMISyncTaskInputOutput)
-}
-
-// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput) AzureApp() AzureActiveDirectoryAppPtrOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMISyncTaskInput) *AzureActiveDirectoryApp {
-		if v == nil {
-			return nil
-		}
-		return &v.AzureApp
-	}).(AzureActiveDirectoryAppPtrOutput)
-}
-
-// Backup file share information for all selected databases.
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput) BackupFileShare() FileSharePtrOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMISyncTaskInput) *FileShare {
-		if v == nil {
-			return nil
-		}
-		return v.BackupFileShare
-	}).(FileSharePtrOutput)
-}
-
-// Databases to migrate
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput) SelectedDatabases() MigrateSqlServerSqlMIDatabaseInputArrayOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMISyncTaskInput) []MigrateSqlServerSqlMIDatabaseInput {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlMIDatabaseInputArrayOutput)
-}
-
-// Connection information for source SQL Server
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput) SourceConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMISyncTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Fully qualified resourceId of storage
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput) StorageResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMISyncTaskInput) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Connection information for Azure SQL Database Managed Instance
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput) TargetConnectionInfo() MiSqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMISyncTaskInput) *MiSqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(MiSqlConnectionInfoPtrOutput)
-}
-
-// Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
 type ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse struct {
 	// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
 	AzureApp AzureActiveDirectoryAppResponse `pulumi:"azureApp"`
@@ -22964,86 +13156,6 @@ type ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse struct {
 	StorageResourceId string `pulumi:"storageResourceId"`
 	// Connection information for Azure SQL Database Managed Instance
 	TargetConnectionInfo MiSqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseInput is an input type that accepts ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs and ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutput values.
-// You can construct a concrete instance of `ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseInput` via:
-//
-//          ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs{...}
-type ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutput() ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutput
-	ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutputWithContext(context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutput
-}
-
-// Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
-type ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs struct {
-	// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-	AzureApp AzureActiveDirectoryAppResponseInput `pulumi:"azureApp"`
-	// Backup file share information for all selected databases.
-	BackupFileShare FileShareResponsePtrInput `pulumi:"backupFileShare"`
-	// Databases to migrate
-	SelectedDatabases MigrateSqlServerSqlMIDatabaseInputResponseArrayInput `pulumi:"selectedDatabases"`
-	// Connection information for source SQL Server
-	SourceConnectionInfo SqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Fully qualified resourceId of storage
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
-	// Connection information for Azure SQL Database Managed Instance
-	TargetConnectionInfo MiSqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs) ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutput() ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs) ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutput)
-}
-
-func (i ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs) ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutput() ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs) ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseOutput).ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrInput is an input type that accepts ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs, ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtr and ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrInput` via:
-//
-//          ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutput() ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutput
-	ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutput
-}
-
-type validateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrType ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs
-
-func ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtr(v *ValidateMigrationInputSqlServerSqlMISyncTaskInputResponseArgs) ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrInput {
-	return (*validateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrType)(v)
-}
-
-func (*validateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse)(nil)).Elem()
-}
-
-func (i *validateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrType) ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutput() ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *validateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrType) ToValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrOutput)
 }
 
 // Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
@@ -23201,64 +13313,6 @@ type ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse struct {
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
 }
 
-// ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseInput is an input type that accepts ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArgs and ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutput values.
-// You can construct a concrete instance of `ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseInput` via:
-//
-//          ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArgs{...}
-type ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutput() ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutput
-	ToValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutputWithContext(context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutput
-}
-
-// Output for task that validates migration input for Azure SQL Database Managed Instance online migration
-type ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArgs struct {
-	// Database identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Name of database
-	Name pulumi.StringInput `pulumi:"name"`
-	// Errors associated with a selected database object
-	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
-}
-
-func (ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArgs) ToValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutput() ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArgs) ToValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutput)
-}
-
-// ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayInput is an input type that accepts ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArray and ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayInput` via:
-//
-//          ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArray{ ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArgs{...} }
-type ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayOutput() ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayOutput
-	ToValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayOutputWithContext(context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayOutput
-}
-
-type ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArray []ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseInput
-
-func (ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArray) ToValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayOutput() ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArray) ToValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayOutput)
-}
-
 // Output for task that validates migration input for Azure SQL Database Managed Instance online migration
 type ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseOutput struct{ *pulumi.OutputState }
 
@@ -23351,33 +13405,6 @@ func (i ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs) ToValidateMi
 }
 
 // Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario
-type ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlMISyncTaskProperties)(nil)).Elem()
-}
-
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesOutput) ToValidateMigrationInputSqlServerSqlMISyncTaskPropertiesOutput() ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesOutput {
-	return o
-}
-
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesOutput) ToValidateMigrationInputSqlServerSqlMISyncTaskPropertiesOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesOutput) Input() ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMISyncTaskProperties) *ValidateMigrationInputSqlServerSqlMISyncTaskInput {
-		return v.Input
-	}).(ValidateMigrationInputSqlServerSqlMISyncTaskInputPtrOutput)
-}
-
-// Task type.
-func (o ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMISyncTaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario
 type ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -23391,45 +13418,6 @@ type ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseInput is an input type that accepts ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseArgs and ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseInput` via:
-//
-//          ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseArgs{...}
-type ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseOutput() ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseOutput
-	ToValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseOutputWithContext(context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseOutput
-}
-
-// Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario
-type ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ValidateMigrationInputSqlServerSqlMISyncTaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseArgs) ToValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseOutput() ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseArgs) ToValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponseOutput)
 }
 
 // Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance sync scenario
@@ -23586,158 +13574,6 @@ func (i *validateMigrationInputSqlServerSqlMITaskInputPtrType) ToValidateMigrati
 }
 
 // Input for task that validates migration input for SQL to Azure SQL Managed Instance
-type ValidateMigrationInputSqlServerSqlMITaskInputOutput struct{ *pulumi.OutputState }
-
-func (ValidateMigrationInputSqlServerSqlMITaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlMITaskInput)(nil)).Elem()
-}
-
-func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) ToValidateMigrationInputSqlServerSqlMITaskInputOutput() ValidateMigrationInputSqlServerSqlMITaskInputOutput {
-	return o
-}
-
-func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) ToValidateMigrationInputSqlServerSqlMITaskInputOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskInputOutput {
-	return o
-}
-
-func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) ToValidateMigrationInputSqlServerSqlMITaskInputPtrOutput() ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput {
-	return o.ToValidateMigrationInputSqlServerSqlMITaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) ToValidateMigrationInputSqlServerSqlMITaskInputPtrOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskInput) *ValidateMigrationInputSqlServerSqlMITaskInput {
-		return &v
-	}).(ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput)
-}
-
-// SAS URI of Azure Storage Account Container to be used for storing backup files.
-func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) BackupBlobShare() BlobShareOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskInput) BlobShare { return v.BackupBlobShare }).(BlobShareOutput)
-}
-
-// Backup file share information for all selected databases.
-func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) BackupFileShare() FileSharePtrOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskInput) *FileShare { return v.BackupFileShare }).(FileSharePtrOutput)
-}
-
-// Backup Mode to specify whether to use existing backup or create new backup.
-func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) BackupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskInput) *string { return v.BackupMode }).(pulumi.StringPtrOutput)
-}
-
-// Databases to migrate
-func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) SelectedDatabases() MigrateSqlServerSqlMIDatabaseInputArrayOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskInput) []MigrateSqlServerSqlMIDatabaseInput {
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlMIDatabaseInputArrayOutput)
-}
-
-// Logins to migrate
-func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) SelectedLogins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskInput) []string { return v.SelectedLogins }).(pulumi.StringArrayOutput)
-}
-
-// Information for connecting to source
-func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) SourceConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskInput) SqlConnectionInfo { return v.SourceConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// Information for connecting to target
-func (o ValidateMigrationInputSqlServerSqlMITaskInputOutput) TargetConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskInput) SqlConnectionInfo { return v.TargetConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-type ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ValidateMigrationInputSqlServerSqlMITaskInput)(nil)).Elem()
-}
-
-func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) ToValidateMigrationInputSqlServerSqlMITaskInputPtrOutput() ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput {
-	return o
-}
-
-func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) ToValidateMigrationInputSqlServerSqlMITaskInputPtrOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput {
-	return o
-}
-
-func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) Elem() ValidateMigrationInputSqlServerSqlMITaskInputOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMITaskInput) ValidateMigrationInputSqlServerSqlMITaskInput {
-		return *v
-	}).(ValidateMigrationInputSqlServerSqlMITaskInputOutput)
-}
-
-// SAS URI of Azure Storage Account Container to be used for storing backup files.
-func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) BackupBlobShare() BlobSharePtrOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMITaskInput) *BlobShare {
-		if v == nil {
-			return nil
-		}
-		return &v.BackupBlobShare
-	}).(BlobSharePtrOutput)
-}
-
-// Backup file share information for all selected databases.
-func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) BackupFileShare() FileSharePtrOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMITaskInput) *FileShare {
-		if v == nil {
-			return nil
-		}
-		return v.BackupFileShare
-	}).(FileSharePtrOutput)
-}
-
-// Backup Mode to specify whether to use existing backup or create new backup.
-func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) BackupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMITaskInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BackupMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Databases to migrate
-func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) SelectedDatabases() MigrateSqlServerSqlMIDatabaseInputArrayOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMITaskInput) []MigrateSqlServerSqlMIDatabaseInput {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlMIDatabaseInputArrayOutput)
-}
-
-// Logins to migrate
-func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) SelectedLogins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMITaskInput) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedLogins
-	}).(pulumi.StringArrayOutput)
-}
-
-// Information for connecting to source
-func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) SourceConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMITaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Information for connecting to target
-func (o ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput) TargetConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ValidateMigrationInputSqlServerSqlMITaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Input for task that validates migration input for SQL to Azure SQL Managed Instance
 type ValidateMigrationInputSqlServerSqlMITaskInputResponse struct {
 	// SAS URI of Azure Storage Account Container to be used for storing backup files.
 	BackupBlobShare BlobShareResponse `pulumi:"backupBlobShare"`
@@ -23753,88 +13589,6 @@ type ValidateMigrationInputSqlServerSqlMITaskInputResponse struct {
 	SourceConnectionInfo SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Information for connecting to target
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// ValidateMigrationInputSqlServerSqlMITaskInputResponseInput is an input type that accepts ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs and ValidateMigrationInputSqlServerSqlMITaskInputResponseOutput values.
-// You can construct a concrete instance of `ValidateMigrationInputSqlServerSqlMITaskInputResponseInput` via:
-//
-//          ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs{...}
-type ValidateMigrationInputSqlServerSqlMITaskInputResponseInput interface {
-	pulumi.Input
-
-	ToValidateMigrationInputSqlServerSqlMITaskInputResponseOutput() ValidateMigrationInputSqlServerSqlMITaskInputResponseOutput
-	ToValidateMigrationInputSqlServerSqlMITaskInputResponseOutputWithContext(context.Context) ValidateMigrationInputSqlServerSqlMITaskInputResponseOutput
-}
-
-// Input for task that validates migration input for SQL to Azure SQL Managed Instance
-type ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs struct {
-	// SAS URI of Azure Storage Account Container to be used for storing backup files.
-	BackupBlobShare BlobShareResponseInput `pulumi:"backupBlobShare"`
-	// Backup file share information for all selected databases.
-	BackupFileShare FileShareResponsePtrInput `pulumi:"backupFileShare"`
-	// Backup Mode to specify whether to use existing backup or create new backup.
-	BackupMode pulumi.StringPtrInput `pulumi:"backupMode"`
-	// Databases to migrate
-	SelectedDatabases MigrateSqlServerSqlMIDatabaseInputResponseArrayInput `pulumi:"selectedDatabases"`
-	// Logins to migrate
-	SelectedLogins pulumi.StringArrayInput `pulumi:"selectedLogins"`
-	// Information for connecting to source
-	SourceConnectionInfo SqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Information for connecting to target
-	TargetConnectionInfo SqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlMITaskInputResponse)(nil)).Elem()
-}
-
-func (i ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs) ToValidateMigrationInputSqlServerSqlMITaskInputResponseOutput() ValidateMigrationInputSqlServerSqlMITaskInputResponseOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMITaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs) ToValidateMigrationInputSqlServerSqlMITaskInputResponseOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMITaskInputResponseOutput)
-}
-
-func (i ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs) ToValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput() ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs) ToValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMITaskInputResponseOutput).ToValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrInput is an input type that accepts ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs, ValidateMigrationInputSqlServerSqlMITaskInputResponsePtr and ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrInput` via:
-//
-//          ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput() ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput
-	ToValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutputWithContext(context.Context) ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput
-}
-
-type validateMigrationInputSqlServerSqlMITaskInputResponsePtrType ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs
-
-func ValidateMigrationInputSqlServerSqlMITaskInputResponsePtr(v *ValidateMigrationInputSqlServerSqlMITaskInputResponseArgs) ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrInput {
-	return (*validateMigrationInputSqlServerSqlMITaskInputResponsePtrType)(v)
-}
-
-func (*validateMigrationInputSqlServerSqlMITaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ValidateMigrationInputSqlServerSqlMITaskInputResponse)(nil)).Elem()
-}
-
-func (i *validateMigrationInputSqlServerSqlMITaskInputResponsePtrType) ToValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput() ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *validateMigrationInputSqlServerSqlMITaskInputResponsePtrType) ToValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrOutput)
 }
 
 // Input for task that validates migration input for SQL to Azure SQL Managed Instance
@@ -24017,74 +13771,6 @@ type ValidateMigrationInputSqlServerSqlMITaskOutputResponse struct {
 	RestoreDatabaseNameErrors []ReportableExceptionResponse `pulumi:"restoreDatabaseNameErrors"`
 }
 
-// ValidateMigrationInputSqlServerSqlMITaskOutputResponseInput is an input type that accepts ValidateMigrationInputSqlServerSqlMITaskOutputResponseArgs and ValidateMigrationInputSqlServerSqlMITaskOutputResponseOutput values.
-// You can construct a concrete instance of `ValidateMigrationInputSqlServerSqlMITaskOutputResponseInput` via:
-//
-//          ValidateMigrationInputSqlServerSqlMITaskOutputResponseArgs{...}
-type ValidateMigrationInputSqlServerSqlMITaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToValidateMigrationInputSqlServerSqlMITaskOutputResponseOutput() ValidateMigrationInputSqlServerSqlMITaskOutputResponseOutput
-	ToValidateMigrationInputSqlServerSqlMITaskOutputResponseOutputWithContext(context.Context) ValidateMigrationInputSqlServerSqlMITaskOutputResponseOutput
-}
-
-// Output for task that validates migration input for SQL to Azure SQL Managed Instance migrations
-type ValidateMigrationInputSqlServerSqlMITaskOutputResponseArgs struct {
-	// Errors associated with the BackupFolder path
-	BackupFolderErrors ReportableExceptionResponseArrayInput `pulumi:"backupFolderErrors"`
-	// Errors associated with backup share user name and password credentials
-	BackupShareCredentialsErrors ReportableExceptionResponseArrayInput `pulumi:"backupShareCredentialsErrors"`
-	// Errors associated with the storage account provided.
-	BackupStorageAccountErrors ReportableExceptionResponseArrayInput `pulumi:"backupStorageAccountErrors"`
-	// Information about backup files when existing backup mode is used.
-	DatabaseBackupInfo DatabaseBackupInfoResponsePtrInput `pulumi:"databaseBackupInfo"`
-	// Errors associated with existing backup files.
-	ExistingBackupErrors ReportableExceptionResponseArrayInput `pulumi:"existingBackupErrors"`
-	// Result identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Name of database
-	Name pulumi.StringInput `pulumi:"name"`
-	// Errors associated with the RestoreDatabaseName
-	RestoreDatabaseNameErrors ReportableExceptionResponseArrayInput `pulumi:"restoreDatabaseNameErrors"`
-}
-
-func (ValidateMigrationInputSqlServerSqlMITaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlMITaskOutputResponse)(nil)).Elem()
-}
-
-func (i ValidateMigrationInputSqlServerSqlMITaskOutputResponseArgs) ToValidateMigrationInputSqlServerSqlMITaskOutputResponseOutput() ValidateMigrationInputSqlServerSqlMITaskOutputResponseOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMITaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i ValidateMigrationInputSqlServerSqlMITaskOutputResponseArgs) ToValidateMigrationInputSqlServerSqlMITaskOutputResponseOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMITaskOutputResponseOutput)
-}
-
-// ValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayInput is an input type that accepts ValidateMigrationInputSqlServerSqlMITaskOutputResponseArray and ValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `ValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayInput` via:
-//
-//          ValidateMigrationInputSqlServerSqlMITaskOutputResponseArray{ ValidateMigrationInputSqlServerSqlMITaskOutputResponseArgs{...} }
-type ValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutput() ValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutput
-	ToValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutputWithContext(context.Context) ValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutput
-}
-
-type ValidateMigrationInputSqlServerSqlMITaskOutputResponseArray []ValidateMigrationInputSqlServerSqlMITaskOutputResponseInput
-
-func (ValidateMigrationInputSqlServerSqlMITaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ValidateMigrationInputSqlServerSqlMITaskOutputResponse)(nil)).Elem()
-}
-
-func (i ValidateMigrationInputSqlServerSqlMITaskOutputResponseArray) ToValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutput() ValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ValidateMigrationInputSqlServerSqlMITaskOutputResponseArray) ToValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayOutput)
-}
-
 // Output for task that validates migration input for SQL to Azure SQL Managed Instance migrations
 type ValidateMigrationInputSqlServerSqlMITaskOutputResponseOutput struct{ *pulumi.OutputState }
 
@@ -24212,33 +13898,6 @@ func (i ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs) ToValidateMigrat
 }
 
 // Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
-type ValidateMigrationInputSqlServerSqlMITaskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ValidateMigrationInputSqlServerSqlMITaskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlMITaskProperties)(nil)).Elem()
-}
-
-func (o ValidateMigrationInputSqlServerSqlMITaskPropertiesOutput) ToValidateMigrationInputSqlServerSqlMITaskPropertiesOutput() ValidateMigrationInputSqlServerSqlMITaskPropertiesOutput {
-	return o
-}
-
-func (o ValidateMigrationInputSqlServerSqlMITaskPropertiesOutput) ToValidateMigrationInputSqlServerSqlMITaskPropertiesOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskPropertiesOutput {
-	return o
-}
-
-// Task input
-func (o ValidateMigrationInputSqlServerSqlMITaskPropertiesOutput) Input() ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskProperties) *ValidateMigrationInputSqlServerSqlMITaskInput {
-		return v.Input
-	}).(ValidateMigrationInputSqlServerSqlMITaskInputPtrOutput)
-}
-
-// Task type.
-func (o ValidateMigrationInputSqlServerSqlMITaskPropertiesOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v ValidateMigrationInputSqlServerSqlMITaskProperties) string { return v.TaskType }).(pulumi.StringOutput)
-}
-
-// Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
 type ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse struct {
 	// Array of command properties.
 	Commands []interface{} `pulumi:"commands"`
@@ -24252,45 +13911,6 @@ type ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse struct {
 	State string `pulumi:"state"`
 	// Task type.
 	TaskType string `pulumi:"taskType"`
-}
-
-// ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseInput is an input type that accepts ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseArgs and ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutput values.
-// You can construct a concrete instance of `ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseInput` via:
-//
-//          ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseArgs{...}
-type ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutput() ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutput
-	ToValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutputWithContext(context.Context) ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutput
-}
-
-// Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
-type ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseArgs struct {
-	// Array of command properties.
-	Commands pulumi.ArrayInput `pulumi:"commands"`
-	// Array of errors. This is ignored if submitted.
-	Errors ODataErrorResponseArrayInput `pulumi:"errors"`
-	// Task input
-	Input ValidateMigrationInputSqlServerSqlMITaskInputResponsePtrInput `pulumi:"input"`
-	// Task output. This is ignored if submitted.
-	Output ValidateMigrationInputSqlServerSqlMITaskOutputResponseArrayInput `pulumi:"output"`
-	// The state of the task. This is ignored if submitted.
-	State pulumi.StringInput `pulumi:"state"`
-	// Task type.
-	TaskType pulumi.StringInput `pulumi:"taskType"`
-}
-
-func (ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseArgs) ToValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutput() ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutput {
-	return i.ToValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseArgs) ToValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutputWithContext(ctx context.Context) ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseOutput)
 }
 
 // Properties for task that validates migration input for SQL to Azure SQL Database Managed Instance
@@ -24429,98 +14049,6 @@ func (i *validateSyncMigrationInputSqlServerTaskInputPtrType) ToValidateSyncMigr
 }
 
 // Input for task that validates migration input for SQL sync migrations
-type ValidateSyncMigrationInputSqlServerTaskInputOutput struct{ *pulumi.OutputState }
-
-func (ValidateSyncMigrationInputSqlServerTaskInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateSyncMigrationInputSqlServerTaskInput)(nil)).Elem()
-}
-
-func (o ValidateSyncMigrationInputSqlServerTaskInputOutput) ToValidateSyncMigrationInputSqlServerTaskInputOutput() ValidateSyncMigrationInputSqlServerTaskInputOutput {
-	return o
-}
-
-func (o ValidateSyncMigrationInputSqlServerTaskInputOutput) ToValidateSyncMigrationInputSqlServerTaskInputOutputWithContext(ctx context.Context) ValidateSyncMigrationInputSqlServerTaskInputOutput {
-	return o
-}
-
-func (o ValidateSyncMigrationInputSqlServerTaskInputOutput) ToValidateSyncMigrationInputSqlServerTaskInputPtrOutput() ValidateSyncMigrationInputSqlServerTaskInputPtrOutput {
-	return o.ToValidateSyncMigrationInputSqlServerTaskInputPtrOutputWithContext(context.Background())
-}
-
-func (o ValidateSyncMigrationInputSqlServerTaskInputOutput) ToValidateSyncMigrationInputSqlServerTaskInputPtrOutputWithContext(ctx context.Context) ValidateSyncMigrationInputSqlServerTaskInputPtrOutput {
-	return o.ApplyT(func(v ValidateSyncMigrationInputSqlServerTaskInput) *ValidateSyncMigrationInputSqlServerTaskInput {
-		return &v
-	}).(ValidateSyncMigrationInputSqlServerTaskInputPtrOutput)
-}
-
-// Databases to migrate
-func (o ValidateSyncMigrationInputSqlServerTaskInputOutput) SelectedDatabases() MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput {
-	return o.ApplyT(func(v ValidateSyncMigrationInputSqlServerTaskInput) []MigrateSqlServerSqlDbSyncDatabaseInput {
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput)
-}
-
-// Information for connecting to source SQL server
-func (o ValidateSyncMigrationInputSqlServerTaskInputOutput) SourceConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v ValidateSyncMigrationInputSqlServerTaskInput) SqlConnectionInfo { return v.SourceConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-// Information for connecting to target
-func (o ValidateSyncMigrationInputSqlServerTaskInputOutput) TargetConnectionInfo() SqlConnectionInfoOutput {
-	return o.ApplyT(func(v ValidateSyncMigrationInputSqlServerTaskInput) SqlConnectionInfo { return v.TargetConnectionInfo }).(SqlConnectionInfoOutput)
-}
-
-type ValidateSyncMigrationInputSqlServerTaskInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ValidateSyncMigrationInputSqlServerTaskInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ValidateSyncMigrationInputSqlServerTaskInput)(nil)).Elem()
-}
-
-func (o ValidateSyncMigrationInputSqlServerTaskInputPtrOutput) ToValidateSyncMigrationInputSqlServerTaskInputPtrOutput() ValidateSyncMigrationInputSqlServerTaskInputPtrOutput {
-	return o
-}
-
-func (o ValidateSyncMigrationInputSqlServerTaskInputPtrOutput) ToValidateSyncMigrationInputSqlServerTaskInputPtrOutputWithContext(ctx context.Context) ValidateSyncMigrationInputSqlServerTaskInputPtrOutput {
-	return o
-}
-
-func (o ValidateSyncMigrationInputSqlServerTaskInputPtrOutput) Elem() ValidateSyncMigrationInputSqlServerTaskInputOutput {
-	return o.ApplyT(func(v *ValidateSyncMigrationInputSqlServerTaskInput) ValidateSyncMigrationInputSqlServerTaskInput {
-		return *v
-	}).(ValidateSyncMigrationInputSqlServerTaskInputOutput)
-}
-
-// Databases to migrate
-func (o ValidateSyncMigrationInputSqlServerTaskInputPtrOutput) SelectedDatabases() MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput {
-	return o.ApplyT(func(v *ValidateSyncMigrationInputSqlServerTaskInput) []MigrateSqlServerSqlDbSyncDatabaseInput {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedDatabases
-	}).(MigrateSqlServerSqlDbSyncDatabaseInputArrayOutput)
-}
-
-// Information for connecting to source SQL server
-func (o ValidateSyncMigrationInputSqlServerTaskInputPtrOutput) SourceConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ValidateSyncMigrationInputSqlServerTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Information for connecting to target
-func (o ValidateSyncMigrationInputSqlServerTaskInputPtrOutput) TargetConnectionInfo() SqlConnectionInfoPtrOutput {
-	return o.ApplyT(func(v *ValidateSyncMigrationInputSqlServerTaskInput) *SqlConnectionInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetConnectionInfo
-	}).(SqlConnectionInfoPtrOutput)
-}
-
-// Input for task that validates migration input for SQL sync migrations
 type ValidateSyncMigrationInputSqlServerTaskInputResponse struct {
 	// Databases to migrate
 	SelectedDatabases []MigrateSqlServerSqlDbSyncDatabaseInputResponse `pulumi:"selectedDatabases"`
@@ -24528,80 +14056,6 @@ type ValidateSyncMigrationInputSqlServerTaskInputResponse struct {
 	SourceConnectionInfo SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	// Information for connecting to target
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-}
-
-// ValidateSyncMigrationInputSqlServerTaskInputResponseInput is an input type that accepts ValidateSyncMigrationInputSqlServerTaskInputResponseArgs and ValidateSyncMigrationInputSqlServerTaskInputResponseOutput values.
-// You can construct a concrete instance of `ValidateSyncMigrationInputSqlServerTaskInputResponseInput` via:
-//
-//          ValidateSyncMigrationInputSqlServerTaskInputResponseArgs{...}
-type ValidateSyncMigrationInputSqlServerTaskInputResponseInput interface {
-	pulumi.Input
-
-	ToValidateSyncMigrationInputSqlServerTaskInputResponseOutput() ValidateSyncMigrationInputSqlServerTaskInputResponseOutput
-	ToValidateSyncMigrationInputSqlServerTaskInputResponseOutputWithContext(context.Context) ValidateSyncMigrationInputSqlServerTaskInputResponseOutput
-}
-
-// Input for task that validates migration input for SQL sync migrations
-type ValidateSyncMigrationInputSqlServerTaskInputResponseArgs struct {
-	// Databases to migrate
-	SelectedDatabases MigrateSqlServerSqlDbSyncDatabaseInputResponseArrayInput `pulumi:"selectedDatabases"`
-	// Information for connecting to source SQL server
-	SourceConnectionInfo SqlConnectionInfoResponseInput `pulumi:"sourceConnectionInfo"`
-	// Information for connecting to target
-	TargetConnectionInfo SqlConnectionInfoResponseInput `pulumi:"targetConnectionInfo"`
-}
-
-func (ValidateSyncMigrationInputSqlServerTaskInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateSyncMigrationInputSqlServerTaskInputResponse)(nil)).Elem()
-}
-
-func (i ValidateSyncMigrationInputSqlServerTaskInputResponseArgs) ToValidateSyncMigrationInputSqlServerTaskInputResponseOutput() ValidateSyncMigrationInputSqlServerTaskInputResponseOutput {
-	return i.ToValidateSyncMigrationInputSqlServerTaskInputResponseOutputWithContext(context.Background())
-}
-
-func (i ValidateSyncMigrationInputSqlServerTaskInputResponseArgs) ToValidateSyncMigrationInputSqlServerTaskInputResponseOutputWithContext(ctx context.Context) ValidateSyncMigrationInputSqlServerTaskInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateSyncMigrationInputSqlServerTaskInputResponseOutput)
-}
-
-func (i ValidateSyncMigrationInputSqlServerTaskInputResponseArgs) ToValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutput() ValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutput {
-	return i.ToValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ValidateSyncMigrationInputSqlServerTaskInputResponseArgs) ToValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutputWithContext(ctx context.Context) ValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateSyncMigrationInputSqlServerTaskInputResponseOutput).ToValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutputWithContext(ctx)
-}
-
-// ValidateSyncMigrationInputSqlServerTaskInputResponsePtrInput is an input type that accepts ValidateSyncMigrationInputSqlServerTaskInputResponseArgs, ValidateSyncMigrationInputSqlServerTaskInputResponsePtr and ValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutput values.
-// You can construct a concrete instance of `ValidateSyncMigrationInputSqlServerTaskInputResponsePtrInput` via:
-//
-//          ValidateSyncMigrationInputSqlServerTaskInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ValidateSyncMigrationInputSqlServerTaskInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutput() ValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutput
-	ToValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutputWithContext(context.Context) ValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutput
-}
-
-type validateSyncMigrationInputSqlServerTaskInputResponsePtrType ValidateSyncMigrationInputSqlServerTaskInputResponseArgs
-
-func ValidateSyncMigrationInputSqlServerTaskInputResponsePtr(v *ValidateSyncMigrationInputSqlServerTaskInputResponseArgs) ValidateSyncMigrationInputSqlServerTaskInputResponsePtrInput {
-	return (*validateSyncMigrationInputSqlServerTaskInputResponsePtrType)(v)
-}
-
-func (*validateSyncMigrationInputSqlServerTaskInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ValidateSyncMigrationInputSqlServerTaskInputResponse)(nil)).Elem()
-}
-
-func (i *validateSyncMigrationInputSqlServerTaskInputResponsePtrType) ToValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutput() ValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutput {
-	return i.ToValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *validateSyncMigrationInputSqlServerTaskInputResponsePtrType) ToValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutputWithContext(ctx context.Context) ValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateSyncMigrationInputSqlServerTaskInputResponsePtrOutput)
 }
 
 // Input for task that validates migration input for SQL sync migrations
@@ -24710,64 +14164,6 @@ type ValidateSyncMigrationInputSqlServerTaskOutputResponse struct {
 	ValidationErrors []ReportableExceptionResponse `pulumi:"validationErrors"`
 }
 
-// ValidateSyncMigrationInputSqlServerTaskOutputResponseInput is an input type that accepts ValidateSyncMigrationInputSqlServerTaskOutputResponseArgs and ValidateSyncMigrationInputSqlServerTaskOutputResponseOutput values.
-// You can construct a concrete instance of `ValidateSyncMigrationInputSqlServerTaskOutputResponseInput` via:
-//
-//          ValidateSyncMigrationInputSqlServerTaskOutputResponseArgs{...}
-type ValidateSyncMigrationInputSqlServerTaskOutputResponseInput interface {
-	pulumi.Input
-
-	ToValidateSyncMigrationInputSqlServerTaskOutputResponseOutput() ValidateSyncMigrationInputSqlServerTaskOutputResponseOutput
-	ToValidateSyncMigrationInputSqlServerTaskOutputResponseOutputWithContext(context.Context) ValidateSyncMigrationInputSqlServerTaskOutputResponseOutput
-}
-
-// Output for task that validates migration input for SQL sync migrations
-type ValidateSyncMigrationInputSqlServerTaskOutputResponseArgs struct {
-	// Database identifier
-	Id pulumi.StringInput `pulumi:"id"`
-	// Name of database
-	Name pulumi.StringInput `pulumi:"name"`
-	// Errors associated with a selected database object
-	ValidationErrors ReportableExceptionResponseArrayInput `pulumi:"validationErrors"`
-}
-
-func (ValidateSyncMigrationInputSqlServerTaskOutputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidateSyncMigrationInputSqlServerTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ValidateSyncMigrationInputSqlServerTaskOutputResponseArgs) ToValidateSyncMigrationInputSqlServerTaskOutputResponseOutput() ValidateSyncMigrationInputSqlServerTaskOutputResponseOutput {
-	return i.ToValidateSyncMigrationInputSqlServerTaskOutputResponseOutputWithContext(context.Background())
-}
-
-func (i ValidateSyncMigrationInputSqlServerTaskOutputResponseArgs) ToValidateSyncMigrationInputSqlServerTaskOutputResponseOutputWithContext(ctx context.Context) ValidateSyncMigrationInputSqlServerTaskOutputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateSyncMigrationInputSqlServerTaskOutputResponseOutput)
-}
-
-// ValidateSyncMigrationInputSqlServerTaskOutputResponseArrayInput is an input type that accepts ValidateSyncMigrationInputSqlServerTaskOutputResponseArray and ValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutput values.
-// You can construct a concrete instance of `ValidateSyncMigrationInputSqlServerTaskOutputResponseArrayInput` via:
-//
-//          ValidateSyncMigrationInputSqlServerTaskOutputResponseArray{ ValidateSyncMigrationInputSqlServerTaskOutputResponseArgs{...} }
-type ValidateSyncMigrationInputSqlServerTaskOutputResponseArrayInput interface {
-	pulumi.Input
-
-	ToValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutput() ValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutput
-	ToValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutputWithContext(context.Context) ValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutput
-}
-
-type ValidateSyncMigrationInputSqlServerTaskOutputResponseArray []ValidateSyncMigrationInputSqlServerTaskOutputResponseInput
-
-func (ValidateSyncMigrationInputSqlServerTaskOutputResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ValidateSyncMigrationInputSqlServerTaskOutputResponse)(nil)).Elem()
-}
-
-func (i ValidateSyncMigrationInputSqlServerTaskOutputResponseArray) ToValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutput() ValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutput {
-	return i.ToValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ValidateSyncMigrationInputSqlServerTaskOutputResponseArray) ToValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutputWithContext(ctx context.Context) ValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidateSyncMigrationInputSqlServerTaskOutputResponseArrayOutput)
-}
-
 // Output for task that validates migration input for SQL sync migrations
 type ValidateSyncMigrationInputSqlServerTaskOutputResponseOutput struct{ *pulumi.OutputState }
 
@@ -24828,37 +14224,6 @@ type ValidationErrorResponse struct {
 	Text string `pulumi:"text"`
 }
 
-// ValidationErrorResponseInput is an input type that accepts ValidationErrorResponseArgs and ValidationErrorResponseOutput values.
-// You can construct a concrete instance of `ValidationErrorResponseInput` via:
-//
-//          ValidationErrorResponseArgs{...}
-type ValidationErrorResponseInput interface {
-	pulumi.Input
-
-	ToValidationErrorResponseOutput() ValidationErrorResponseOutput
-	ToValidationErrorResponseOutputWithContext(context.Context) ValidationErrorResponseOutput
-}
-
-// Description about the errors happen while performing migration validation
-type ValidationErrorResponseArgs struct {
-	// Severity of the error
-	Severity pulumi.StringInput `pulumi:"severity"`
-	// Error Text
-	Text pulumi.StringInput `pulumi:"text"`
-}
-
-func (ValidationErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ValidationErrorResponse)(nil)).Elem()
-}
-
-func (i ValidationErrorResponseArgs) ToValidationErrorResponseOutput() ValidationErrorResponseOutput {
-	return i.ToValidationErrorResponseOutputWithContext(context.Background())
-}
-
-func (i ValidationErrorResponseArgs) ToValidationErrorResponseOutputWithContext(ctx context.Context) ValidationErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ValidationErrorResponseOutput)
-}
-
 // Description about the errors happen while performing migration validation
 type ValidationErrorResponseOutput struct{ *pulumi.OutputState }
 
@@ -24892,64 +14257,6 @@ type WaitStatisticsResponse struct {
 	WaitTimeMs float64 `pulumi:"waitTimeMs"`
 	// Type of the Wait
 	WaitType string `pulumi:"waitType"`
-}
-
-// WaitStatisticsResponseInput is an input type that accepts WaitStatisticsResponseArgs and WaitStatisticsResponseOutput values.
-// You can construct a concrete instance of `WaitStatisticsResponseInput` via:
-//
-//          WaitStatisticsResponseArgs{...}
-type WaitStatisticsResponseInput interface {
-	pulumi.Input
-
-	ToWaitStatisticsResponseOutput() WaitStatisticsResponseOutput
-	ToWaitStatisticsResponseOutputWithContext(context.Context) WaitStatisticsResponseOutput
-}
-
-// Wait statistics gathered during query batch execution
-type WaitStatisticsResponseArgs struct {
-	// Total no. of waits
-	WaitCount pulumi.IntInput `pulumi:"waitCount"`
-	// Total wait time in millisecond(s)
-	WaitTimeMs pulumi.Float64Input `pulumi:"waitTimeMs"`
-	// Type of the Wait
-	WaitType pulumi.StringInput `pulumi:"waitType"`
-}
-
-func (WaitStatisticsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WaitStatisticsResponse)(nil)).Elem()
-}
-
-func (i WaitStatisticsResponseArgs) ToWaitStatisticsResponseOutput() WaitStatisticsResponseOutput {
-	return i.ToWaitStatisticsResponseOutputWithContext(context.Background())
-}
-
-func (i WaitStatisticsResponseArgs) ToWaitStatisticsResponseOutputWithContext(ctx context.Context) WaitStatisticsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WaitStatisticsResponseOutput)
-}
-
-// WaitStatisticsResponseMapInput is an input type that accepts WaitStatisticsResponseMap and WaitStatisticsResponseMapOutput values.
-// You can construct a concrete instance of `WaitStatisticsResponseMapInput` via:
-//
-//          WaitStatisticsResponseMap{ "key": WaitStatisticsResponseArgs{...} }
-type WaitStatisticsResponseMapInput interface {
-	pulumi.Input
-
-	ToWaitStatisticsResponseMapOutput() WaitStatisticsResponseMapOutput
-	ToWaitStatisticsResponseMapOutputWithContext(context.Context) WaitStatisticsResponseMapOutput
-}
-
-type WaitStatisticsResponseMap map[string]WaitStatisticsResponseInput
-
-func (WaitStatisticsResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WaitStatisticsResponse)(nil)).Elem()
-}
-
-func (i WaitStatisticsResponseMap) ToWaitStatisticsResponseMapOutput() WaitStatisticsResponseMapOutput {
-	return i.ToWaitStatisticsResponseMapOutputWithContext(context.Background())
-}
-
-func (i WaitStatisticsResponseMap) ToWaitStatisticsResponseMapOutputWithContext(ctx context.Context) WaitStatisticsResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WaitStatisticsResponseMapOutput)
 }
 
 // Wait statistics gathered during query batch execution

@@ -75,112 +75,11 @@ func (i ManagementGroupLogSettingsArray) ToManagementGroupLogSettingsArrayOutput
 }
 
 // Part of Management Group diagnostic setting. Specifies the settings for a particular log.
-type ManagementGroupLogSettingsOutput struct{ *pulumi.OutputState }
-
-func (ManagementGroupLogSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupLogSettings)(nil)).Elem()
-}
-
-func (o ManagementGroupLogSettingsOutput) ToManagementGroupLogSettingsOutput() ManagementGroupLogSettingsOutput {
-	return o
-}
-
-func (o ManagementGroupLogSettingsOutput) ToManagementGroupLogSettingsOutputWithContext(ctx context.Context) ManagementGroupLogSettingsOutput {
-	return o
-}
-
-// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
-func (o ManagementGroupLogSettingsOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagementGroupLogSettings) string { return v.Category }).(pulumi.StringOutput)
-}
-
-// a value indicating whether this log is enabled.
-func (o ManagementGroupLogSettingsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v ManagementGroupLogSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type ManagementGroupLogSettingsArrayOutput struct{ *pulumi.OutputState }
-
-func (ManagementGroupLogSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagementGroupLogSettings)(nil)).Elem()
-}
-
-func (o ManagementGroupLogSettingsArrayOutput) ToManagementGroupLogSettingsArrayOutput() ManagementGroupLogSettingsArrayOutput {
-	return o
-}
-
-func (o ManagementGroupLogSettingsArrayOutput) ToManagementGroupLogSettingsArrayOutputWithContext(ctx context.Context) ManagementGroupLogSettingsArrayOutput {
-	return o
-}
-
-func (o ManagementGroupLogSettingsArrayOutput) Index(i pulumi.IntInput) ManagementGroupLogSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagementGroupLogSettings {
-		return vs[0].([]ManagementGroupLogSettings)[vs[1].(int)]
-	}).(ManagementGroupLogSettingsOutput)
-}
-
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettingsResponse struct {
 	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 	Category string `pulumi:"category"`
 	// a value indicating whether this log is enabled.
 	Enabled bool `pulumi:"enabled"`
-}
-
-// ManagementGroupLogSettingsResponseInput is an input type that accepts ManagementGroupLogSettingsResponseArgs and ManagementGroupLogSettingsResponseOutput values.
-// You can construct a concrete instance of `ManagementGroupLogSettingsResponseInput` via:
-//
-//          ManagementGroupLogSettingsResponseArgs{...}
-type ManagementGroupLogSettingsResponseInput interface {
-	pulumi.Input
-
-	ToManagementGroupLogSettingsResponseOutput() ManagementGroupLogSettingsResponseOutput
-	ToManagementGroupLogSettingsResponseOutputWithContext(context.Context) ManagementGroupLogSettingsResponseOutput
-}
-
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
-type ManagementGroupLogSettingsResponseArgs struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
-	Category pulumi.StringInput `pulumi:"category"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (ManagementGroupLogSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupLogSettingsResponse)(nil)).Elem()
-}
-
-func (i ManagementGroupLogSettingsResponseArgs) ToManagementGroupLogSettingsResponseOutput() ManagementGroupLogSettingsResponseOutput {
-	return i.ToManagementGroupLogSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i ManagementGroupLogSettingsResponseArgs) ToManagementGroupLogSettingsResponseOutputWithContext(ctx context.Context) ManagementGroupLogSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupLogSettingsResponseOutput)
-}
-
-// ManagementGroupLogSettingsResponseArrayInput is an input type that accepts ManagementGroupLogSettingsResponseArray and ManagementGroupLogSettingsResponseArrayOutput values.
-// You can construct a concrete instance of `ManagementGroupLogSettingsResponseArrayInput` via:
-//
-//          ManagementGroupLogSettingsResponseArray{ ManagementGroupLogSettingsResponseArgs{...} }
-type ManagementGroupLogSettingsResponseArrayInput interface {
-	pulumi.Input
-
-	ToManagementGroupLogSettingsResponseArrayOutput() ManagementGroupLogSettingsResponseArrayOutput
-	ToManagementGroupLogSettingsResponseArrayOutputWithContext(context.Context) ManagementGroupLogSettingsResponseArrayOutput
-}
-
-type ManagementGroupLogSettingsResponseArray []ManagementGroupLogSettingsResponseInput
-
-func (ManagementGroupLogSettingsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagementGroupLogSettingsResponse)(nil)).Elem()
-}
-
-func (i ManagementGroupLogSettingsResponseArray) ToManagementGroupLogSettingsResponseArrayOutput() ManagementGroupLogSettingsResponseArrayOutput {
-	return i.ToManagementGroupLogSettingsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ManagementGroupLogSettingsResponseArray) ToManagementGroupLogSettingsResponseArrayOutputWithContext(ctx context.Context) ManagementGroupLogSettingsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupLogSettingsResponseArrayOutput)
 }
 
 // Part of Management Group diagnostic setting. Specifies the settings for a particular log.
