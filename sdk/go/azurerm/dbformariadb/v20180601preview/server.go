@@ -22,11 +22,11 @@ type Server struct {
 	FullyQualifiedDomainName pulumi.StringPtrOutput `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the server.
 	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The location the resource resides in.
+	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId pulumi.StringPtrOutput `pulumi:"masterServerId"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The maximum number of replicas that a master server can have.
 	ReplicaCapacity pulumi.IntPtrOutput `pulumi:"replicaCapacity"`
@@ -38,9 +38,9 @@ type Server struct {
 	SslEnforcement pulumi.StringPtrOutput `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfileResponsePtrOutput `pulumi:"storageProfile"`
-	// Application-specific metadata in the form of key-value pairs.
+	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A state of a server that is visible to user.
 	UserVisibleState pulumi.StringPtrOutput `pulumi:"userVisibleState"`
@@ -105,11 +105,11 @@ type serverState struct {
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the server.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The location the resource resides in.
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId *string `pulumi:"masterServerId"`
-	// Resource name.
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The maximum number of replicas that a master server can have.
 	ReplicaCapacity *int `pulumi:"replicaCapacity"`
@@ -121,9 +121,9 @@ type serverState struct {
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
-	// Application-specific metadata in the form of key-value pairs.
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 	// A state of a server that is visible to user.
 	UserVisibleState *string `pulumi:"userVisibleState"`
@@ -140,11 +140,11 @@ type ServerState struct {
 	FullyQualifiedDomainName pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
 	Identity ResourceIdentityResponsePtrInput
-	// The location the resource resides in.
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The master server id of a replica server.
 	MasterServerId pulumi.StringPtrInput
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The maximum number of replicas that a master server can have.
 	ReplicaCapacity pulumi.IntPtrInput
@@ -156,9 +156,9 @@ type ServerState struct {
 	SslEnforcement pulumi.StringPtrInput
 	// Storage profile of a server.
 	StorageProfile StorageProfileResponsePtrInput
-	// Application-specific metadata in the form of key-value pairs.
+	// Resource tags.
 	Tags pulumi.StringMapInput
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 	// A state of a server that is visible to user.
 	UserVisibleState pulumi.StringPtrInput

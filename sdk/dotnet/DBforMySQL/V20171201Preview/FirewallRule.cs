@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMySQL.V20171201Preview
+namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
 {
     /// <summary>
     /// Represents a server firewall rule.
@@ -21,7 +21,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201Preview
         public Output<string> EndIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -33,7 +33,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201Preview
         public Output<string> StartIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

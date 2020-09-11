@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// Earliest restore point creation time (ISO8601 format)
         /// </summary>
         [Output("earliestRestoreDate")]
-        public Output<string?> EarliestRestoreDate { get; private set; } = null!;
+        public Output<string> EarliestRestoreDate { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified domain name of a server.
@@ -108,13 +108,13 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Output("publicNetworkAccess")]
-        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of replicas that a primary server can have.
         /// </summary>
         [Output("replicaCapacity")]
-        public Output<int?> ReplicaCapacity { get; private set; } = null!;
+        public Output<int> ReplicaCapacity { get; private set; } = null!;
 
         /// <summary>
         /// The replication role.
@@ -149,8 +149,8 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// <summary>
         /// availability Zone information of the server.
         /// </summary>
-        [Output("standByAvailabilityZone")]
-        public Output<string> StandByAvailabilityZone { get; private set; } = null!;
+        [Output("standbyAvailabilityZone")]
+        public Output<string> StandbyAvailabilityZone { get; private set; } = null!;
 
         /// <summary>
         /// The state of a server.
@@ -258,12 +258,6 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         public Input<Inputs.DelegatedSubnetArgumentsArgs>? DelegatedSubnetArguments { get; set; }
 
         /// <summary>
-        /// Earliest restore point creation time (ISO8601 format)
-        /// </summary>
-        [Input("earliestRestoreDate")]
-        public Input<string>? EarliestRestoreDate { get; set; }
-
-        /// <summary>
         /// Enable HA or not for a server.
         /// </summary>
         [Input("haEnabled")]
@@ -292,18 +286,6 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.MaintenanceWindowArgs>? MaintenanceWindow { get; set; }
-
-        /// <summary>
-        /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
-
-        /// <summary>
-        /// The maximum number of replicas that a primary server can have.
-        /// </summary>
-        [Input("replicaCapacity")]
-        public Input<int>? ReplicaCapacity { get; set; }
 
         /// <summary>
         /// The replication role.

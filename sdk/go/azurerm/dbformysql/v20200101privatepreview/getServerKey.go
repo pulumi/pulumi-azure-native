@@ -31,11 +31,11 @@ type LookupServerKeyResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The key type like 'AzureKeyVault'.
 	ServerKeyType string `pulumi:"serverKeyType"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 	// The URI of the key.
 	Uri *string `pulumi:"uri"`

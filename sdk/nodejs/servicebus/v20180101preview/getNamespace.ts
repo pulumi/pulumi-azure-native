@@ -36,7 +36,7 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
-     * The time the namespace was created.
+     * The time the namespace was created
      */
     readonly createdAt: string;
     /**

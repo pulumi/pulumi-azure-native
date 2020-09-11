@@ -29,12 +29,12 @@ type LookupServerAdministratorResult struct {
 	AdministratorType string `pulumi:"administratorType"`
 	// The server administrator login account name.
 	Login string `pulumi:"login"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The server administrator Sid (Secure ID).
 	Sid string `pulumi:"sid"`
 	// The server Active Directory Administrator tenant id.
 	TenantId string `pulumi:"tenantId"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

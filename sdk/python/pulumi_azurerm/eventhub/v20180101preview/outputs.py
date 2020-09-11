@@ -11,9 +11,11 @@ from . import outputs
 
 __all__ = [
     'ClusterSkuResponse',
+    'ConnectionStateResponse',
     'EncryptionResponse',
     'IdentityResponse',
     'KeyVaultPropertiesResponse',
+    'PrivateEndpointResponse',
     'SkuResponse',
 ]
 
@@ -49,6 +51,44 @@ class ClusterSkuResponse(dict):
         The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
         """
         return pulumi.get(self, "capacity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ConnectionStateResponse(dict):
+    """
+    ConnectionState information.
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        ConnectionState information.
+        :param str description: Description of the connection state.
+        :param str status: Status of the connection.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the connection state.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of the connection.
+        """
+        return pulumi.get(self, "status")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -187,6 +227,32 @@ class KeyVaultPropertiesResponse(dict):
         Key Version
         """
         return pulumi.get(self, "key_version")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    PrivateEndpoint information.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        PrivateEndpoint information.
+        :param str id: The ARM identifier for Private Endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ARM identifier for Private Endpoint.
+        """
+        return pulumi.get(self, "id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

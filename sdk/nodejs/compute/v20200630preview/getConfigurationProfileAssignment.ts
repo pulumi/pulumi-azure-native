@@ -27,7 +27,7 @@ export interface GetConfigurationProfileAssignmentArgs {
      */
     readonly configurationProfileAssignmentName: string;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
     /**
@@ -41,11 +41,7 @@ export interface GetConfigurationProfileAssignmentArgs {
  */
 export interface GetConfigurationProfileAssignmentResult {
     /**
-     * Region where the VM is located.
-     */
-    readonly location: string;
-    /**
-     * Name of the Automanage assignment.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -53,7 +49,7 @@ export interface GetConfigurationProfileAssignmentResult {
      */
     readonly properties: outputs.compute.v20200630preview.ConfigurationProfileAssignmentPropertiesResponse;
     /**
-     * The type of the resource.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
 }

@@ -27,7 +27,7 @@ type Server struct {
 	// Delegated subnet arguments.
 	DelegatedSubnetArguments DelegatedSubnetArgumentsResponsePtrOutput `pulumi:"delegatedSubnetArguments"`
 	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate pulumi.StringPtrOutput `pulumi:"earliestRestoreDate"`
+	EarliestRestoreDate pulumi.StringOutput `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// Enable HA or not for a server.
@@ -45,9 +45,9 @@ type Server struct {
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
+	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a primary server can have.
-	ReplicaCapacity pulumi.IntPtrOutput `pulumi:"replicaCapacity"`
+	ReplicaCapacity pulumi.IntOutput `pulumi:"replicaCapacity"`
 	// The replication role.
 	ReplicationRole pulumi.StringPtrOutput `pulumi:"replicationRole"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -59,7 +59,7 @@ type Server struct {
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement pulumi.StringPtrOutput `pulumi:"sslEnforcement"`
 	// availability Zone information of the server.
-	StandByAvailabilityZone pulumi.StringOutput `pulumi:"standByAvailabilityZone"`
+	StandbyAvailabilityZone pulumi.StringOutput `pulumi:"standbyAvailabilityZone"`
 	// The state of a server.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Storage profile of a server.
@@ -154,7 +154,7 @@ type serverState struct {
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// availability Zone information of the server.
-	StandByAvailabilityZone *string `pulumi:"standByAvailabilityZone"`
+	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
 	// The state of a server.
 	State *string `pulumi:"state"`
 	// Storage profile of a server.
@@ -213,7 +213,7 @@ type ServerState struct {
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement pulumi.StringPtrInput
 	// availability Zone information of the server.
-	StandByAvailabilityZone pulumi.StringPtrInput
+	StandbyAvailabilityZone pulumi.StringPtrInput
 	// The state of a server.
 	State pulumi.StringPtrInput
 	// Storage profile of a server.
@@ -241,8 +241,6 @@ type serverArgs struct {
 	CreateMode *string `pulumi:"createMode"`
 	// Delegated subnet arguments.
 	DelegatedSubnetArguments *DelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
-	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
 	// Enable HA or not for a server.
 	HaEnabled *string `pulumi:"haEnabled"`
 	// The Azure Active Directory identity of the server.
@@ -253,10 +251,6 @@ type serverArgs struct {
 	Location string `pulumi:"location"`
 	// Maintenance window of a server.
 	MaintenanceWindow *MaintenanceWindow `pulumi:"maintenanceWindow"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The maximum number of replicas that a primary server can have.
-	ReplicaCapacity *int `pulumi:"replicaCapacity"`
 	// The replication role.
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// The name of the resource group. The name is case insensitive.
@@ -291,8 +285,6 @@ type ServerArgs struct {
 	CreateMode pulumi.StringPtrInput
 	// Delegated subnet arguments.
 	DelegatedSubnetArguments DelegatedSubnetArgumentsPtrInput
-	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate pulumi.StringPtrInput
 	// Enable HA or not for a server.
 	HaEnabled pulumi.StringPtrInput
 	// The Azure Active Directory identity of the server.
@@ -303,10 +295,6 @@ type ServerArgs struct {
 	Location pulumi.StringInput
 	// Maintenance window of a server.
 	MaintenanceWindow MaintenanceWindowPtrInput
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The maximum number of replicas that a primary server can have.
-	ReplicaCapacity pulumi.IntPtrInput
 	// The replication role.
 	ReplicationRole pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.

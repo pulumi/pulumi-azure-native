@@ -26,7 +26,7 @@ export interface GetAccountArgs {
      */
     readonly accountName: string;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: string;
 }
@@ -40,11 +40,11 @@ export interface GetAccountResult {
      */
     readonly identity?: outputs.automanage.v20200630preview.AccountIdentityResponse;
     /**
-     * Region where the VM is located.
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Name of the Automanage assignment.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -52,7 +52,7 @@ export interface GetAccountResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
 }

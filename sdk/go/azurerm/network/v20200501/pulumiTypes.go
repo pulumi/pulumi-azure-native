@@ -7268,6 +7268,451 @@ func (o ApplicationGatewayRequestRoutingRuleResponseArrayOutput) Index(i pulumi.
 	}).(ApplicationGatewayRequestRoutingRuleResponseOutput)
 }
 
+// Application gateway resource.
+type ApplicationGatewayResponse struct {
+	// Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	AuthenticationCertificates []ApplicationGatewayAuthenticationCertificateResponse `pulumi:"authenticationCertificates"`
+	// Autoscale Configuration.
+	AutoscaleConfiguration *ApplicationGatewayAutoscaleConfigurationResponse `pulumi:"autoscaleConfiguration"`
+	// Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	BackendAddressPools []ApplicationGatewayBackendAddressPoolResponse `pulumi:"backendAddressPools"`
+	// Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettingsResponse `pulumi:"backendHttpSettingsCollection"`
+	// Custom error configurations of the application gateway resource.
+	CustomErrorConfigurations []ApplicationGatewayCustomErrorResponse `pulumi:"customErrorConfigurations"`
+	// Whether FIPS is enabled on the application gateway resource.
+	EnableFips *bool `pulumi:"enableFips"`
+	// Whether HTTP2 is enabled on the application gateway resource.
+	EnableHttp2 *bool `pulumi:"enableHttp2"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag string `pulumi:"etag"`
+	// Reference to the FirewallPolicy resource.
+	FirewallPolicy *SubResourceResponse `pulumi:"firewallPolicy"`
+	// If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
+	ForceFirewallPolicyAssociation *bool `pulumi:"forceFirewallPolicyAssociation"`
+	// Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
+	// Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	FrontendPorts []ApplicationGatewayFrontendPortResponse `pulumi:"frontendPorts"`
+	// Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	GatewayIPConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"gatewayIPConfigurations"`
+	// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	HttpListeners []ApplicationGatewayHttpListenerResponse `pulumi:"httpListeners"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// The identity of the application gateway, if configured.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Operational state of the application gateway resource.
+	OperationalState string `pulumi:"operationalState"`
+	// Private Endpoint connections on application gateway.
+	PrivateEndpointConnections []ApplicationGatewayPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// PrivateLink configurations on application gateway.
+	PrivateLinkConfigurations []ApplicationGatewayPrivateLinkConfigurationResponse `pulumi:"privateLinkConfigurations"`
+	// Probes of the application gateway resource.
+	Probes []ApplicationGatewayProbeResponse `pulumi:"probes"`
+	// The provisioning state of the application gateway resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	RedirectConfigurations []ApplicationGatewayRedirectConfigurationResponse `pulumi:"redirectConfigurations"`
+	// Request routing rules of the application gateway resource.
+	RequestRoutingRules []ApplicationGatewayRequestRoutingRuleResponse `pulumi:"requestRoutingRules"`
+	// The resource GUID property of the application gateway resource.
+	ResourceGuid string `pulumi:"resourceGuid"`
+	// Rewrite rules for the application gateway resource.
+	RewriteRuleSets []ApplicationGatewayRewriteRuleSetResponse `pulumi:"rewriteRuleSets"`
+	// SKU of the application gateway resource.
+	Sku *ApplicationGatewaySkuResponse `pulumi:"sku"`
+	// SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	SslCertificates []ApplicationGatewaySslCertificateResponse `pulumi:"sslCertificates"`
+	// SSL policy of the application gateway resource.
+	SslPolicy *ApplicationGatewaySslPolicyResponse `pulumi:"sslPolicy"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	TrustedRootCertificates []ApplicationGatewayTrustedRootCertificateResponse `pulumi:"trustedRootCertificates"`
+	// Resource type.
+	Type string `pulumi:"type"`
+	// URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	UrlPathMaps []ApplicationGatewayUrlPathMapResponse `pulumi:"urlPathMaps"`
+	// Web application firewall configuration.
+	WebApplicationFirewallConfiguration *ApplicationGatewayWebApplicationFirewallConfigurationResponse `pulumi:"webApplicationFirewallConfiguration"`
+	// A list of availability zones denoting where the resource needs to come from.
+	Zones []string `pulumi:"zones"`
+}
+
+// ApplicationGatewayResponseInput is an input type that accepts ApplicationGatewayResponseArgs and ApplicationGatewayResponseOutput values.
+// You can construct a concrete instance of `ApplicationGatewayResponseInput` via:
+//
+//          ApplicationGatewayResponseArgs{...}
+type ApplicationGatewayResponseInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayResponseOutput() ApplicationGatewayResponseOutput
+	ToApplicationGatewayResponseOutputWithContext(context.Context) ApplicationGatewayResponseOutput
+}
+
+// Application gateway resource.
+type ApplicationGatewayResponseArgs struct {
+	// Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	AuthenticationCertificates ApplicationGatewayAuthenticationCertificateResponseArrayInput `pulumi:"authenticationCertificates"`
+	// Autoscale Configuration.
+	AutoscaleConfiguration ApplicationGatewayAutoscaleConfigurationResponsePtrInput `pulumi:"autoscaleConfiguration"`
+	// Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	BackendAddressPools ApplicationGatewayBackendAddressPoolResponseArrayInput `pulumi:"backendAddressPools"`
+	// Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	BackendHttpSettingsCollection ApplicationGatewayBackendHttpSettingsResponseArrayInput `pulumi:"backendHttpSettingsCollection"`
+	// Custom error configurations of the application gateway resource.
+	CustomErrorConfigurations ApplicationGatewayCustomErrorResponseArrayInput `pulumi:"customErrorConfigurations"`
+	// Whether FIPS is enabled on the application gateway resource.
+	EnableFips pulumi.BoolPtrInput `pulumi:"enableFips"`
+	// Whether HTTP2 is enabled on the application gateway resource.
+	EnableHttp2 pulumi.BoolPtrInput `pulumi:"enableHttp2"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Reference to the FirewallPolicy resource.
+	FirewallPolicy SubResourceResponsePtrInput `pulumi:"firewallPolicy"`
+	// If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
+	ForceFirewallPolicyAssociation pulumi.BoolPtrInput `pulumi:"forceFirewallPolicyAssociation"`
+	// Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	FrontendIPConfigurations ApplicationGatewayFrontendIPConfigurationResponseArrayInput `pulumi:"frontendIPConfigurations"`
+	// Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	FrontendPorts ApplicationGatewayFrontendPortResponseArrayInput `pulumi:"frontendPorts"`
+	// Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	GatewayIPConfigurations ApplicationGatewayIPConfigurationResponseArrayInput `pulumi:"gatewayIPConfigurations"`
+	// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	HttpListeners ApplicationGatewayHttpListenerResponseArrayInput `pulumi:"httpListeners"`
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The identity of the application gateway, if configured.
+	Identity ManagedServiceIdentityResponsePtrInput `pulumi:"identity"`
+	// Resource location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Operational state of the application gateway resource.
+	OperationalState pulumi.StringInput `pulumi:"operationalState"`
+	// Private Endpoint connections on application gateway.
+	PrivateEndpointConnections ApplicationGatewayPrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
+	// PrivateLink configurations on application gateway.
+	PrivateLinkConfigurations ApplicationGatewayPrivateLinkConfigurationResponseArrayInput `pulumi:"privateLinkConfigurations"`
+	// Probes of the application gateway resource.
+	Probes ApplicationGatewayProbeResponseArrayInput `pulumi:"probes"`
+	// The provisioning state of the application gateway resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	RedirectConfigurations ApplicationGatewayRedirectConfigurationResponseArrayInput `pulumi:"redirectConfigurations"`
+	// Request routing rules of the application gateway resource.
+	RequestRoutingRules ApplicationGatewayRequestRoutingRuleResponseArrayInput `pulumi:"requestRoutingRules"`
+	// The resource GUID property of the application gateway resource.
+	ResourceGuid pulumi.StringInput `pulumi:"resourceGuid"`
+	// Rewrite rules for the application gateway resource.
+	RewriteRuleSets ApplicationGatewayRewriteRuleSetResponseArrayInput `pulumi:"rewriteRuleSets"`
+	// SKU of the application gateway resource.
+	Sku ApplicationGatewaySkuResponsePtrInput `pulumi:"sku"`
+	// SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	SslCertificates ApplicationGatewaySslCertificateResponseArrayInput `pulumi:"sslCertificates"`
+	// SSL policy of the application gateway resource.
+	SslPolicy ApplicationGatewaySslPolicyResponsePtrInput `pulumi:"sslPolicy"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	TrustedRootCertificates ApplicationGatewayTrustedRootCertificateResponseArrayInput `pulumi:"trustedRootCertificates"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	UrlPathMaps ApplicationGatewayUrlPathMapResponseArrayInput `pulumi:"urlPathMaps"`
+	// Web application firewall configuration.
+	WebApplicationFirewallConfiguration ApplicationGatewayWebApplicationFirewallConfigurationResponsePtrInput `pulumi:"webApplicationFirewallConfiguration"`
+	// A list of availability zones denoting where the resource needs to come from.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (ApplicationGatewayResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayResponse)(nil)).Elem()
+}
+
+func (i ApplicationGatewayResponseArgs) ToApplicationGatewayResponseOutput() ApplicationGatewayResponseOutput {
+	return i.ToApplicationGatewayResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayResponseArgs) ToApplicationGatewayResponseOutputWithContext(ctx context.Context) ApplicationGatewayResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayResponseOutput)
+}
+
+// ApplicationGatewayResponseArrayInput is an input type that accepts ApplicationGatewayResponseArray and ApplicationGatewayResponseArrayOutput values.
+// You can construct a concrete instance of `ApplicationGatewayResponseArrayInput` via:
+//
+//          ApplicationGatewayResponseArray{ ApplicationGatewayResponseArgs{...} }
+type ApplicationGatewayResponseArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayResponseArrayOutput() ApplicationGatewayResponseArrayOutput
+	ToApplicationGatewayResponseArrayOutputWithContext(context.Context) ApplicationGatewayResponseArrayOutput
+}
+
+type ApplicationGatewayResponseArray []ApplicationGatewayResponseInput
+
+func (ApplicationGatewayResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayResponse)(nil)).Elem()
+}
+
+func (i ApplicationGatewayResponseArray) ToApplicationGatewayResponseArrayOutput() ApplicationGatewayResponseArrayOutput {
+	return i.ToApplicationGatewayResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayResponseArray) ToApplicationGatewayResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewayResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayResponseArrayOutput)
+}
+
+// Application gateway resource.
+type ApplicationGatewayResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayResponseOutput) ToApplicationGatewayResponseOutput() ApplicationGatewayResponseOutput {
+	return o
+}
+
+func (o ApplicationGatewayResponseOutput) ToApplicationGatewayResponseOutputWithContext(ctx context.Context) ApplicationGatewayResponseOutput {
+	return o
+}
+
+// Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayResponseOutput) AuthenticationCertificates() ApplicationGatewayAuthenticationCertificateResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayAuthenticationCertificateResponse {
+		return v.AuthenticationCertificates
+	}).(ApplicationGatewayAuthenticationCertificateResponseArrayOutput)
+}
+
+// Autoscale Configuration.
+func (o ApplicationGatewayResponseOutput) AutoscaleConfiguration() ApplicationGatewayAutoscaleConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) *ApplicationGatewayAutoscaleConfigurationResponse {
+		return v.AutoscaleConfiguration
+	}).(ApplicationGatewayAutoscaleConfigurationResponsePtrOutput)
+}
+
+// Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayResponseOutput) BackendAddressPools() ApplicationGatewayBackendAddressPoolResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayBackendAddressPoolResponse {
+		return v.BackendAddressPools
+	}).(ApplicationGatewayBackendAddressPoolResponseArrayOutput)
+}
+
+// Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayResponseOutput) BackendHttpSettingsCollection() ApplicationGatewayBackendHttpSettingsResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayBackendHttpSettingsResponse {
+		return v.BackendHttpSettingsCollection
+	}).(ApplicationGatewayBackendHttpSettingsResponseArrayOutput)
+}
+
+// Custom error configurations of the application gateway resource.
+func (o ApplicationGatewayResponseOutput) CustomErrorConfigurations() ApplicationGatewayCustomErrorResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayCustomErrorResponse {
+		return v.CustomErrorConfigurations
+	}).(ApplicationGatewayCustomErrorResponseArrayOutput)
+}
+
+// Whether FIPS is enabled on the application gateway resource.
+func (o ApplicationGatewayResponseOutput) EnableFips() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) *bool { return v.EnableFips }).(pulumi.BoolPtrOutput)
+}
+
+// Whether HTTP2 is enabled on the application gateway resource.
+func (o ApplicationGatewayResponseOutput) EnableHttp2() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) *bool { return v.EnableHttp2 }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ApplicationGatewayResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Reference to the FirewallPolicy resource.
+func (o ApplicationGatewayResponseOutput) FirewallPolicy() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) *SubResourceResponse { return v.FirewallPolicy }).(SubResourceResponsePtrOutput)
+}
+
+// If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
+func (o ApplicationGatewayResponseOutput) ForceFirewallPolicyAssociation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) *bool { return v.ForceFirewallPolicyAssociation }).(pulumi.BoolPtrOutput)
+}
+
+// Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayResponseOutput) FrontendIPConfigurations() ApplicationGatewayFrontendIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayFrontendIPConfigurationResponse {
+		return v.FrontendIPConfigurations
+	}).(ApplicationGatewayFrontendIPConfigurationResponseArrayOutput)
+}
+
+// Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayResponseOutput) FrontendPorts() ApplicationGatewayFrontendPortResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayFrontendPortResponse { return v.FrontendPorts }).(ApplicationGatewayFrontendPortResponseArrayOutput)
+}
+
+// Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayResponseOutput) GatewayIPConfigurations() ApplicationGatewayIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayIPConfigurationResponse {
+		return v.GatewayIPConfigurations
+	}).(ApplicationGatewayIPConfigurationResponseArrayOutput)
+}
+
+// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayResponseOutput) HttpListeners() ApplicationGatewayHttpListenerResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayHttpListenerResponse { return v.HttpListeners }).(ApplicationGatewayHttpListenerResponseArrayOutput)
+}
+
+// Resource ID.
+func (o ApplicationGatewayResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The identity of the application gateway, if configured.
+func (o ApplicationGatewayResponseOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// Resource location.
+func (o ApplicationGatewayResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ApplicationGatewayResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operational state of the application gateway resource.
+func (o ApplicationGatewayResponseOutput) OperationalState() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) string { return v.OperationalState }).(pulumi.StringOutput)
+}
+
+// Private Endpoint connections on application gateway.
+func (o ApplicationGatewayResponseOutput) PrivateEndpointConnections() ApplicationGatewayPrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayPrivateEndpointConnectionResponse {
+		return v.PrivateEndpointConnections
+	}).(ApplicationGatewayPrivateEndpointConnectionResponseArrayOutput)
+}
+
+// PrivateLink configurations on application gateway.
+func (o ApplicationGatewayResponseOutput) PrivateLinkConfigurations() ApplicationGatewayPrivateLinkConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayPrivateLinkConfigurationResponse {
+		return v.PrivateLinkConfigurations
+	}).(ApplicationGatewayPrivateLinkConfigurationResponseArrayOutput)
+}
+
+// Probes of the application gateway resource.
+func (o ApplicationGatewayResponseOutput) Probes() ApplicationGatewayProbeResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayProbeResponse { return v.Probes }).(ApplicationGatewayProbeResponseArrayOutput)
+}
+
+// The provisioning state of the application gateway resource.
+func (o ApplicationGatewayResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayResponseOutput) RedirectConfigurations() ApplicationGatewayRedirectConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayRedirectConfigurationResponse {
+		return v.RedirectConfigurations
+	}).(ApplicationGatewayRedirectConfigurationResponseArrayOutput)
+}
+
+// Request routing rules of the application gateway resource.
+func (o ApplicationGatewayResponseOutput) RequestRoutingRules() ApplicationGatewayRequestRoutingRuleResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayRequestRoutingRuleResponse {
+		return v.RequestRoutingRules
+	}).(ApplicationGatewayRequestRoutingRuleResponseArrayOutput)
+}
+
+// The resource GUID property of the application gateway resource.
+func (o ApplicationGatewayResponseOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) string { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Rewrite rules for the application gateway resource.
+func (o ApplicationGatewayResponseOutput) RewriteRuleSets() ApplicationGatewayRewriteRuleSetResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayRewriteRuleSetResponse {
+		return v.RewriteRuleSets
+	}).(ApplicationGatewayRewriteRuleSetResponseArrayOutput)
+}
+
+// SKU of the application gateway resource.
+func (o ApplicationGatewayResponseOutput) Sku() ApplicationGatewaySkuResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) *ApplicationGatewaySkuResponse { return v.Sku }).(ApplicationGatewaySkuResponsePtrOutput)
+}
+
+// SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayResponseOutput) SslCertificates() ApplicationGatewaySslCertificateResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewaySslCertificateResponse {
+		return v.SslCertificates
+	}).(ApplicationGatewaySslCertificateResponseArrayOutput)
+}
+
+// SSL policy of the application gateway resource.
+func (o ApplicationGatewayResponseOutput) SslPolicy() ApplicationGatewaySslPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) *ApplicationGatewaySslPolicyResponse { return v.SslPolicy }).(ApplicationGatewaySslPolicyResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ApplicationGatewayResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayResponseOutput) TrustedRootCertificates() ApplicationGatewayTrustedRootCertificateResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayTrustedRootCertificateResponse {
+		return v.TrustedRootCertificates
+	}).(ApplicationGatewayTrustedRootCertificateResponseArrayOutput)
+}
+
+// Resource type.
+func (o ApplicationGatewayResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayResponseOutput) UrlPathMaps() ApplicationGatewayUrlPathMapResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []ApplicationGatewayUrlPathMapResponse { return v.UrlPathMaps }).(ApplicationGatewayUrlPathMapResponseArrayOutput)
+}
+
+// Web application firewall configuration.
+func (o ApplicationGatewayResponseOutput) WebApplicationFirewallConfiguration() ApplicationGatewayWebApplicationFirewallConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) *ApplicationGatewayWebApplicationFirewallConfigurationResponse {
+		return v.WebApplicationFirewallConfiguration
+	}).(ApplicationGatewayWebApplicationFirewallConfigurationResponsePtrOutput)
+}
+
+// A list of availability zones denoting where the resource needs to come from.
+func (o ApplicationGatewayResponseOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayResponse) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+type ApplicationGatewayResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayResponse)(nil)).Elem()
+}
+
+func (o ApplicationGatewayResponseArrayOutput) ToApplicationGatewayResponseArrayOutput() ApplicationGatewayResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayResponseArrayOutput) ToApplicationGatewayResponseArrayOutputWithContext(ctx context.Context) ApplicationGatewayResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayResponseArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayResponse {
+		return vs[0].([]ApplicationGatewayResponse)[vs[1].(int)]
+	}).(ApplicationGatewayResponseOutput)
+}
+
 // Rewrite rule of an application gateway.
 type ApplicationGatewayRewriteRule struct {
 	// Set of actions to be done as part of the rewrite Rule.
@@ -39172,6 +39617,984 @@ func (o LocalNetworkGatewayResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines a managed rule group override setting.
+type ManagedRuleGroupOverride struct {
+	// The managed rule group to override.
+	RuleGroupName string `pulumi:"ruleGroupName"`
+	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+	Rules []ManagedRuleOverride `pulumi:"rules"`
+}
+
+// ManagedRuleGroupOverrideInput is an input type that accepts ManagedRuleGroupOverrideArgs and ManagedRuleGroupOverrideOutput values.
+// You can construct a concrete instance of `ManagedRuleGroupOverrideInput` via:
+//
+//          ManagedRuleGroupOverrideArgs{...}
+type ManagedRuleGroupOverrideInput interface {
+	pulumi.Input
+
+	ToManagedRuleGroupOverrideOutput() ManagedRuleGroupOverrideOutput
+	ToManagedRuleGroupOverrideOutputWithContext(context.Context) ManagedRuleGroupOverrideOutput
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleGroupOverrideArgs struct {
+	// The managed rule group to override.
+	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+	Rules ManagedRuleOverrideArrayInput `pulumi:"rules"`
+}
+
+func (ManagedRuleGroupOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleGroupOverride)(nil)).Elem()
+}
+
+func (i ManagedRuleGroupOverrideArgs) ToManagedRuleGroupOverrideOutput() ManagedRuleGroupOverrideOutput {
+	return i.ToManagedRuleGroupOverrideOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleGroupOverrideArgs) ToManagedRuleGroupOverrideOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleGroupOverrideOutput)
+}
+
+// ManagedRuleGroupOverrideArrayInput is an input type that accepts ManagedRuleGroupOverrideArray and ManagedRuleGroupOverrideArrayOutput values.
+// You can construct a concrete instance of `ManagedRuleGroupOverrideArrayInput` via:
+//
+//          ManagedRuleGroupOverrideArray{ ManagedRuleGroupOverrideArgs{...} }
+type ManagedRuleGroupOverrideArrayInput interface {
+	pulumi.Input
+
+	ToManagedRuleGroupOverrideArrayOutput() ManagedRuleGroupOverrideArrayOutput
+	ToManagedRuleGroupOverrideArrayOutputWithContext(context.Context) ManagedRuleGroupOverrideArrayOutput
+}
+
+type ManagedRuleGroupOverrideArray []ManagedRuleGroupOverrideInput
+
+func (ManagedRuleGroupOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleGroupOverride)(nil)).Elem()
+}
+
+func (i ManagedRuleGroupOverrideArray) ToManagedRuleGroupOverrideArrayOutput() ManagedRuleGroupOverrideArrayOutput {
+	return i.ToManagedRuleGroupOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleGroupOverrideArray) ToManagedRuleGroupOverrideArrayOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleGroupOverrideArrayOutput)
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleGroupOverrideOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleGroupOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleGroupOverride)(nil)).Elem()
+}
+
+func (o ManagedRuleGroupOverrideOutput) ToManagedRuleGroupOverrideOutput() ManagedRuleGroupOverrideOutput {
+	return o
+}
+
+func (o ManagedRuleGroupOverrideOutput) ToManagedRuleGroupOverrideOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideOutput {
+	return o
+}
+
+// The managed rule group to override.
+func (o ManagedRuleGroupOverrideOutput) RuleGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleGroupOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
+}
+
+// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+func (o ManagedRuleGroupOverrideOutput) Rules() ManagedRuleOverrideArrayOutput {
+	return o.ApplyT(func(v ManagedRuleGroupOverride) []ManagedRuleOverride { return v.Rules }).(ManagedRuleOverrideArrayOutput)
+}
+
+type ManagedRuleGroupOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleGroupOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleGroupOverride)(nil)).Elem()
+}
+
+func (o ManagedRuleGroupOverrideArrayOutput) ToManagedRuleGroupOverrideArrayOutput() ManagedRuleGroupOverrideArrayOutput {
+	return o
+}
+
+func (o ManagedRuleGroupOverrideArrayOutput) ToManagedRuleGroupOverrideArrayOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideArrayOutput {
+	return o
+}
+
+func (o ManagedRuleGroupOverrideArrayOutput) Index(i pulumi.IntInput) ManagedRuleGroupOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleGroupOverride {
+		return vs[0].([]ManagedRuleGroupOverride)[vs[1].(int)]
+	}).(ManagedRuleGroupOverrideOutput)
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleGroupOverrideResponse struct {
+	// The managed rule group to override.
+	RuleGroupName string `pulumi:"ruleGroupName"`
+	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+	Rules []ManagedRuleOverrideResponse `pulumi:"rules"`
+}
+
+// ManagedRuleGroupOverrideResponseInput is an input type that accepts ManagedRuleGroupOverrideResponseArgs and ManagedRuleGroupOverrideResponseOutput values.
+// You can construct a concrete instance of `ManagedRuleGroupOverrideResponseInput` via:
+//
+//          ManagedRuleGroupOverrideResponseArgs{...}
+type ManagedRuleGroupOverrideResponseInput interface {
+	pulumi.Input
+
+	ToManagedRuleGroupOverrideResponseOutput() ManagedRuleGroupOverrideResponseOutput
+	ToManagedRuleGroupOverrideResponseOutputWithContext(context.Context) ManagedRuleGroupOverrideResponseOutput
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleGroupOverrideResponseArgs struct {
+	// The managed rule group to override.
+	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+	Rules ManagedRuleOverrideResponseArrayInput `pulumi:"rules"`
+}
+
+func (ManagedRuleGroupOverrideResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleGroupOverrideResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleGroupOverrideResponseArgs) ToManagedRuleGroupOverrideResponseOutput() ManagedRuleGroupOverrideResponseOutput {
+	return i.ToManagedRuleGroupOverrideResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleGroupOverrideResponseArgs) ToManagedRuleGroupOverrideResponseOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleGroupOverrideResponseOutput)
+}
+
+// ManagedRuleGroupOverrideResponseArrayInput is an input type that accepts ManagedRuleGroupOverrideResponseArray and ManagedRuleGroupOverrideResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedRuleGroupOverrideResponseArrayInput` via:
+//
+//          ManagedRuleGroupOverrideResponseArray{ ManagedRuleGroupOverrideResponseArgs{...} }
+type ManagedRuleGroupOverrideResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedRuleGroupOverrideResponseArrayOutput() ManagedRuleGroupOverrideResponseArrayOutput
+	ToManagedRuleGroupOverrideResponseArrayOutputWithContext(context.Context) ManagedRuleGroupOverrideResponseArrayOutput
+}
+
+type ManagedRuleGroupOverrideResponseArray []ManagedRuleGroupOverrideResponseInput
+
+func (ManagedRuleGroupOverrideResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleGroupOverrideResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleGroupOverrideResponseArray) ToManagedRuleGroupOverrideResponseArrayOutput() ManagedRuleGroupOverrideResponseArrayOutput {
+	return i.ToManagedRuleGroupOverrideResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleGroupOverrideResponseArray) ToManagedRuleGroupOverrideResponseArrayOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleGroupOverrideResponseArrayOutput)
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleGroupOverrideResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleGroupOverrideResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleGroupOverrideResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleGroupOverrideResponseOutput) ToManagedRuleGroupOverrideResponseOutput() ManagedRuleGroupOverrideResponseOutput {
+	return o
+}
+
+func (o ManagedRuleGroupOverrideResponseOutput) ToManagedRuleGroupOverrideResponseOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideResponseOutput {
+	return o
+}
+
+// The managed rule group to override.
+func (o ManagedRuleGroupOverrideResponseOutput) RuleGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleGroupOverrideResponse) string { return v.RuleGroupName }).(pulumi.StringOutput)
+}
+
+// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+func (o ManagedRuleGroupOverrideResponseOutput) Rules() ManagedRuleOverrideResponseArrayOutput {
+	return o.ApplyT(func(v ManagedRuleGroupOverrideResponse) []ManagedRuleOverrideResponse { return v.Rules }).(ManagedRuleOverrideResponseArrayOutput)
+}
+
+type ManagedRuleGroupOverrideResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleGroupOverrideResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleGroupOverrideResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleGroupOverrideResponseArrayOutput) ToManagedRuleGroupOverrideResponseArrayOutput() ManagedRuleGroupOverrideResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleGroupOverrideResponseArrayOutput) ToManagedRuleGroupOverrideResponseArrayOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleGroupOverrideResponseArrayOutput) Index(i pulumi.IntInput) ManagedRuleGroupOverrideResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleGroupOverrideResponse {
+		return vs[0].([]ManagedRuleGroupOverrideResponse)[vs[1].(int)]
+	}).(ManagedRuleGroupOverrideResponseOutput)
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleOverride struct {
+	// Identifier for the managed rule.
+	RuleId string `pulumi:"ruleId"`
+	// The state of the managed rule. Defaults to Disabled if not specified.
+	State *string `pulumi:"state"`
+}
+
+// ManagedRuleOverrideInput is an input type that accepts ManagedRuleOverrideArgs and ManagedRuleOverrideOutput values.
+// You can construct a concrete instance of `ManagedRuleOverrideInput` via:
+//
+//          ManagedRuleOverrideArgs{...}
+type ManagedRuleOverrideInput interface {
+	pulumi.Input
+
+	ToManagedRuleOverrideOutput() ManagedRuleOverrideOutput
+	ToManagedRuleOverrideOutputWithContext(context.Context) ManagedRuleOverrideOutput
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleOverrideArgs struct {
+	// Identifier for the managed rule.
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
+	// The state of the managed rule. Defaults to Disabled if not specified.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (ManagedRuleOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleOverride)(nil)).Elem()
+}
+
+func (i ManagedRuleOverrideArgs) ToManagedRuleOverrideOutput() ManagedRuleOverrideOutput {
+	return i.ToManagedRuleOverrideOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleOverrideArgs) ToManagedRuleOverrideOutputWithContext(ctx context.Context) ManagedRuleOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleOverrideOutput)
+}
+
+// ManagedRuleOverrideArrayInput is an input type that accepts ManagedRuleOverrideArray and ManagedRuleOverrideArrayOutput values.
+// You can construct a concrete instance of `ManagedRuleOverrideArrayInput` via:
+//
+//          ManagedRuleOverrideArray{ ManagedRuleOverrideArgs{...} }
+type ManagedRuleOverrideArrayInput interface {
+	pulumi.Input
+
+	ToManagedRuleOverrideArrayOutput() ManagedRuleOverrideArrayOutput
+	ToManagedRuleOverrideArrayOutputWithContext(context.Context) ManagedRuleOverrideArrayOutput
+}
+
+type ManagedRuleOverrideArray []ManagedRuleOverrideInput
+
+func (ManagedRuleOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleOverride)(nil)).Elem()
+}
+
+func (i ManagedRuleOverrideArray) ToManagedRuleOverrideArrayOutput() ManagedRuleOverrideArrayOutput {
+	return i.ToManagedRuleOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleOverrideArray) ToManagedRuleOverrideArrayOutputWithContext(ctx context.Context) ManagedRuleOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleOverrideArrayOutput)
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleOverrideOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleOverride)(nil)).Elem()
+}
+
+func (o ManagedRuleOverrideOutput) ToManagedRuleOverrideOutput() ManagedRuleOverrideOutput {
+	return o
+}
+
+func (o ManagedRuleOverrideOutput) ToManagedRuleOverrideOutputWithContext(ctx context.Context) ManagedRuleOverrideOutput {
+	return o
+}
+
+// Identifier for the managed rule.
+func (o ManagedRuleOverrideOutput) RuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleOverride) string { return v.RuleId }).(pulumi.StringOutput)
+}
+
+// The state of the managed rule. Defaults to Disabled if not specified.
+func (o ManagedRuleOverrideOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedRuleOverride) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type ManagedRuleOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleOverride)(nil)).Elem()
+}
+
+func (o ManagedRuleOverrideArrayOutput) ToManagedRuleOverrideArrayOutput() ManagedRuleOverrideArrayOutput {
+	return o
+}
+
+func (o ManagedRuleOverrideArrayOutput) ToManagedRuleOverrideArrayOutputWithContext(ctx context.Context) ManagedRuleOverrideArrayOutput {
+	return o
+}
+
+func (o ManagedRuleOverrideArrayOutput) Index(i pulumi.IntInput) ManagedRuleOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleOverride {
+		return vs[0].([]ManagedRuleOverride)[vs[1].(int)]
+	}).(ManagedRuleOverrideOutput)
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleOverrideResponse struct {
+	// Identifier for the managed rule.
+	RuleId string `pulumi:"ruleId"`
+	// The state of the managed rule. Defaults to Disabled if not specified.
+	State *string `pulumi:"state"`
+}
+
+// ManagedRuleOverrideResponseInput is an input type that accepts ManagedRuleOverrideResponseArgs and ManagedRuleOverrideResponseOutput values.
+// You can construct a concrete instance of `ManagedRuleOverrideResponseInput` via:
+//
+//          ManagedRuleOverrideResponseArgs{...}
+type ManagedRuleOverrideResponseInput interface {
+	pulumi.Input
+
+	ToManagedRuleOverrideResponseOutput() ManagedRuleOverrideResponseOutput
+	ToManagedRuleOverrideResponseOutputWithContext(context.Context) ManagedRuleOverrideResponseOutput
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleOverrideResponseArgs struct {
+	// Identifier for the managed rule.
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
+	// The state of the managed rule. Defaults to Disabled if not specified.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (ManagedRuleOverrideResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleOverrideResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleOverrideResponseArgs) ToManagedRuleOverrideResponseOutput() ManagedRuleOverrideResponseOutput {
+	return i.ToManagedRuleOverrideResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleOverrideResponseArgs) ToManagedRuleOverrideResponseOutputWithContext(ctx context.Context) ManagedRuleOverrideResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleOverrideResponseOutput)
+}
+
+// ManagedRuleOverrideResponseArrayInput is an input type that accepts ManagedRuleOverrideResponseArray and ManagedRuleOverrideResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedRuleOverrideResponseArrayInput` via:
+//
+//          ManagedRuleOverrideResponseArray{ ManagedRuleOverrideResponseArgs{...} }
+type ManagedRuleOverrideResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedRuleOverrideResponseArrayOutput() ManagedRuleOverrideResponseArrayOutput
+	ToManagedRuleOverrideResponseArrayOutputWithContext(context.Context) ManagedRuleOverrideResponseArrayOutput
+}
+
+type ManagedRuleOverrideResponseArray []ManagedRuleOverrideResponseInput
+
+func (ManagedRuleOverrideResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleOverrideResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleOverrideResponseArray) ToManagedRuleOverrideResponseArrayOutput() ManagedRuleOverrideResponseArrayOutput {
+	return i.ToManagedRuleOverrideResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleOverrideResponseArray) ToManagedRuleOverrideResponseArrayOutputWithContext(ctx context.Context) ManagedRuleOverrideResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleOverrideResponseArrayOutput)
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleOverrideResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleOverrideResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleOverrideResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleOverrideResponseOutput) ToManagedRuleOverrideResponseOutput() ManagedRuleOverrideResponseOutput {
+	return o
+}
+
+func (o ManagedRuleOverrideResponseOutput) ToManagedRuleOverrideResponseOutputWithContext(ctx context.Context) ManagedRuleOverrideResponseOutput {
+	return o
+}
+
+// Identifier for the managed rule.
+func (o ManagedRuleOverrideResponseOutput) RuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleOverrideResponse) string { return v.RuleId }).(pulumi.StringOutput)
+}
+
+// The state of the managed rule. Defaults to Disabled if not specified.
+func (o ManagedRuleOverrideResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedRuleOverrideResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type ManagedRuleOverrideResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleOverrideResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleOverrideResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleOverrideResponseArrayOutput) ToManagedRuleOverrideResponseArrayOutput() ManagedRuleOverrideResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleOverrideResponseArrayOutput) ToManagedRuleOverrideResponseArrayOutputWithContext(ctx context.Context) ManagedRuleOverrideResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleOverrideResponseArrayOutput) Index(i pulumi.IntInput) ManagedRuleOverrideResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleOverrideResponse {
+		return vs[0].([]ManagedRuleOverrideResponse)[vs[1].(int)]
+	}).(ManagedRuleOverrideResponseOutput)
+}
+
+// Defines a managed rule set.
+type ManagedRuleSet struct {
+	// Defines the rule group overrides to apply to the rule set.
+	RuleGroupOverrides []ManagedRuleGroupOverride `pulumi:"ruleGroupOverrides"`
+	// Defines the rule set type to use.
+	RuleSetType string `pulumi:"ruleSetType"`
+	// Defines the version of the rule set to use.
+	RuleSetVersion string `pulumi:"ruleSetVersion"`
+}
+
+// ManagedRuleSetInput is an input type that accepts ManagedRuleSetArgs and ManagedRuleSetOutput values.
+// You can construct a concrete instance of `ManagedRuleSetInput` via:
+//
+//          ManagedRuleSetArgs{...}
+type ManagedRuleSetInput interface {
+	pulumi.Input
+
+	ToManagedRuleSetOutput() ManagedRuleSetOutput
+	ToManagedRuleSetOutputWithContext(context.Context) ManagedRuleSetOutput
+}
+
+// Defines a managed rule set.
+type ManagedRuleSetArgs struct {
+	// Defines the rule group overrides to apply to the rule set.
+	RuleGroupOverrides ManagedRuleGroupOverrideArrayInput `pulumi:"ruleGroupOverrides"`
+	// Defines the rule set type to use.
+	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
+	// Defines the version of the rule set to use.
+	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
+}
+
+func (ManagedRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleSet)(nil)).Elem()
+}
+
+func (i ManagedRuleSetArgs) ToManagedRuleSetOutput() ManagedRuleSetOutput {
+	return i.ToManagedRuleSetOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleSetArgs) ToManagedRuleSetOutputWithContext(ctx context.Context) ManagedRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetOutput)
+}
+
+// ManagedRuleSetArrayInput is an input type that accepts ManagedRuleSetArray and ManagedRuleSetArrayOutput values.
+// You can construct a concrete instance of `ManagedRuleSetArrayInput` via:
+//
+//          ManagedRuleSetArray{ ManagedRuleSetArgs{...} }
+type ManagedRuleSetArrayInput interface {
+	pulumi.Input
+
+	ToManagedRuleSetArrayOutput() ManagedRuleSetArrayOutput
+	ToManagedRuleSetArrayOutputWithContext(context.Context) ManagedRuleSetArrayOutput
+}
+
+type ManagedRuleSetArray []ManagedRuleSetInput
+
+func (ManagedRuleSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleSet)(nil)).Elem()
+}
+
+func (i ManagedRuleSetArray) ToManagedRuleSetArrayOutput() ManagedRuleSetArrayOutput {
+	return i.ToManagedRuleSetArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleSetArray) ToManagedRuleSetArrayOutputWithContext(ctx context.Context) ManagedRuleSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetArrayOutput)
+}
+
+// Defines a managed rule set.
+type ManagedRuleSetOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleSet)(nil)).Elem()
+}
+
+func (o ManagedRuleSetOutput) ToManagedRuleSetOutput() ManagedRuleSetOutput {
+	return o
+}
+
+func (o ManagedRuleSetOutput) ToManagedRuleSetOutputWithContext(ctx context.Context) ManagedRuleSetOutput {
+	return o
+}
+
+// Defines the rule group overrides to apply to the rule set.
+func (o ManagedRuleSetOutput) RuleGroupOverrides() ManagedRuleGroupOverrideArrayOutput {
+	return o.ApplyT(func(v ManagedRuleSet) []ManagedRuleGroupOverride { return v.RuleGroupOverrides }).(ManagedRuleGroupOverrideArrayOutput)
+}
+
+// Defines the rule set type to use.
+func (o ManagedRuleSetOutput) RuleSetType() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleSet) string { return v.RuleSetType }).(pulumi.StringOutput)
+}
+
+// Defines the version of the rule set to use.
+func (o ManagedRuleSetOutput) RuleSetVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleSet) string { return v.RuleSetVersion }).(pulumi.StringOutput)
+}
+
+type ManagedRuleSetArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleSet)(nil)).Elem()
+}
+
+func (o ManagedRuleSetArrayOutput) ToManagedRuleSetArrayOutput() ManagedRuleSetArrayOutput {
+	return o
+}
+
+func (o ManagedRuleSetArrayOutput) ToManagedRuleSetArrayOutputWithContext(ctx context.Context) ManagedRuleSetArrayOutput {
+	return o
+}
+
+func (o ManagedRuleSetArrayOutput) Index(i pulumi.IntInput) ManagedRuleSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleSet {
+		return vs[0].([]ManagedRuleSet)[vs[1].(int)]
+	}).(ManagedRuleSetOutput)
+}
+
+// Defines a managed rule set.
+type ManagedRuleSetResponse struct {
+	// Defines the rule group overrides to apply to the rule set.
+	RuleGroupOverrides []ManagedRuleGroupOverrideResponse `pulumi:"ruleGroupOverrides"`
+	// Defines the rule set type to use.
+	RuleSetType string `pulumi:"ruleSetType"`
+	// Defines the version of the rule set to use.
+	RuleSetVersion string `pulumi:"ruleSetVersion"`
+}
+
+// ManagedRuleSetResponseInput is an input type that accepts ManagedRuleSetResponseArgs and ManagedRuleSetResponseOutput values.
+// You can construct a concrete instance of `ManagedRuleSetResponseInput` via:
+//
+//          ManagedRuleSetResponseArgs{...}
+type ManagedRuleSetResponseInput interface {
+	pulumi.Input
+
+	ToManagedRuleSetResponseOutput() ManagedRuleSetResponseOutput
+	ToManagedRuleSetResponseOutputWithContext(context.Context) ManagedRuleSetResponseOutput
+}
+
+// Defines a managed rule set.
+type ManagedRuleSetResponseArgs struct {
+	// Defines the rule group overrides to apply to the rule set.
+	RuleGroupOverrides ManagedRuleGroupOverrideResponseArrayInput `pulumi:"ruleGroupOverrides"`
+	// Defines the rule set type to use.
+	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
+	// Defines the version of the rule set to use.
+	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
+}
+
+func (ManagedRuleSetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleSetResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleSetResponseArgs) ToManagedRuleSetResponseOutput() ManagedRuleSetResponseOutput {
+	return i.ToManagedRuleSetResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleSetResponseArgs) ToManagedRuleSetResponseOutputWithContext(ctx context.Context) ManagedRuleSetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetResponseOutput)
+}
+
+// ManagedRuleSetResponseArrayInput is an input type that accepts ManagedRuleSetResponseArray and ManagedRuleSetResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedRuleSetResponseArrayInput` via:
+//
+//          ManagedRuleSetResponseArray{ ManagedRuleSetResponseArgs{...} }
+type ManagedRuleSetResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedRuleSetResponseArrayOutput() ManagedRuleSetResponseArrayOutput
+	ToManagedRuleSetResponseArrayOutputWithContext(context.Context) ManagedRuleSetResponseArrayOutput
+}
+
+type ManagedRuleSetResponseArray []ManagedRuleSetResponseInput
+
+func (ManagedRuleSetResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleSetResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleSetResponseArray) ToManagedRuleSetResponseArrayOutput() ManagedRuleSetResponseArrayOutput {
+	return i.ToManagedRuleSetResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleSetResponseArray) ToManagedRuleSetResponseArrayOutputWithContext(ctx context.Context) ManagedRuleSetResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetResponseArrayOutput)
+}
+
+// Defines a managed rule set.
+type ManagedRuleSetResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleSetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleSetResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleSetResponseOutput) ToManagedRuleSetResponseOutput() ManagedRuleSetResponseOutput {
+	return o
+}
+
+func (o ManagedRuleSetResponseOutput) ToManagedRuleSetResponseOutputWithContext(ctx context.Context) ManagedRuleSetResponseOutput {
+	return o
+}
+
+// Defines the rule group overrides to apply to the rule set.
+func (o ManagedRuleSetResponseOutput) RuleGroupOverrides() ManagedRuleGroupOverrideResponseArrayOutput {
+	return o.ApplyT(func(v ManagedRuleSetResponse) []ManagedRuleGroupOverrideResponse { return v.RuleGroupOverrides }).(ManagedRuleGroupOverrideResponseArrayOutput)
+}
+
+// Defines the rule set type to use.
+func (o ManagedRuleSetResponseOutput) RuleSetType() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleSetResponse) string { return v.RuleSetType }).(pulumi.StringOutput)
+}
+
+// Defines the version of the rule set to use.
+func (o ManagedRuleSetResponseOutput) RuleSetVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleSetResponse) string { return v.RuleSetVersion }).(pulumi.StringOutput)
+}
+
+type ManagedRuleSetResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleSetResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleSetResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleSetResponseArrayOutput) ToManagedRuleSetResponseArrayOutput() ManagedRuleSetResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleSetResponseArrayOutput) ToManagedRuleSetResponseArrayOutputWithContext(ctx context.Context) ManagedRuleSetResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleSetResponseArrayOutput) Index(i pulumi.IntInput) ManagedRuleSetResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleSetResponse {
+		return vs[0].([]ManagedRuleSetResponse)[vs[1].(int)]
+	}).(ManagedRuleSetResponseOutput)
+}
+
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type ManagedRulesDefinition struct {
+	// The Exclusions that are applied on the policy.
+	Exclusions []OwaspCrsExclusionEntry `pulumi:"exclusions"`
+	// The managed rule sets that are associated with the policy.
+	ManagedRuleSets []ManagedRuleSet `pulumi:"managedRuleSets"`
+}
+
+// ManagedRulesDefinitionInput is an input type that accepts ManagedRulesDefinitionArgs and ManagedRulesDefinitionOutput values.
+// You can construct a concrete instance of `ManagedRulesDefinitionInput` via:
+//
+//          ManagedRulesDefinitionArgs{...}
+type ManagedRulesDefinitionInput interface {
+	pulumi.Input
+
+	ToManagedRulesDefinitionOutput() ManagedRulesDefinitionOutput
+	ToManagedRulesDefinitionOutputWithContext(context.Context) ManagedRulesDefinitionOutput
+}
+
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type ManagedRulesDefinitionArgs struct {
+	// The Exclusions that are applied on the policy.
+	Exclusions OwaspCrsExclusionEntryArrayInput `pulumi:"exclusions"`
+	// The managed rule sets that are associated with the policy.
+	ManagedRuleSets ManagedRuleSetArrayInput `pulumi:"managedRuleSets"`
+}
+
+func (ManagedRulesDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRulesDefinition)(nil)).Elem()
+}
+
+func (i ManagedRulesDefinitionArgs) ToManagedRulesDefinitionOutput() ManagedRulesDefinitionOutput {
+	return i.ToManagedRulesDefinitionOutputWithContext(context.Background())
+}
+
+func (i ManagedRulesDefinitionArgs) ToManagedRulesDefinitionOutputWithContext(ctx context.Context) ManagedRulesDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRulesDefinitionOutput)
+}
+
+func (i ManagedRulesDefinitionArgs) ToManagedRulesDefinitionPtrOutput() ManagedRulesDefinitionPtrOutput {
+	return i.ToManagedRulesDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedRulesDefinitionArgs) ToManagedRulesDefinitionPtrOutputWithContext(ctx context.Context) ManagedRulesDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRulesDefinitionOutput).ToManagedRulesDefinitionPtrOutputWithContext(ctx)
+}
+
+// ManagedRulesDefinitionPtrInput is an input type that accepts ManagedRulesDefinitionArgs, ManagedRulesDefinitionPtr and ManagedRulesDefinitionPtrOutput values.
+// You can construct a concrete instance of `ManagedRulesDefinitionPtrInput` via:
+//
+//          ManagedRulesDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedRulesDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToManagedRulesDefinitionPtrOutput() ManagedRulesDefinitionPtrOutput
+	ToManagedRulesDefinitionPtrOutputWithContext(context.Context) ManagedRulesDefinitionPtrOutput
+}
+
+type managedRulesDefinitionPtrType ManagedRulesDefinitionArgs
+
+func ManagedRulesDefinitionPtr(v *ManagedRulesDefinitionArgs) ManagedRulesDefinitionPtrInput {
+	return (*managedRulesDefinitionPtrType)(v)
+}
+
+func (*managedRulesDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedRulesDefinition)(nil)).Elem()
+}
+
+func (i *managedRulesDefinitionPtrType) ToManagedRulesDefinitionPtrOutput() ManagedRulesDefinitionPtrOutput {
+	return i.ToManagedRulesDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *managedRulesDefinitionPtrType) ToManagedRulesDefinitionPtrOutputWithContext(ctx context.Context) ManagedRulesDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRulesDefinitionPtrOutput)
+}
+
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type ManagedRulesDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ManagedRulesDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRulesDefinition)(nil)).Elem()
+}
+
+func (o ManagedRulesDefinitionOutput) ToManagedRulesDefinitionOutput() ManagedRulesDefinitionOutput {
+	return o
+}
+
+func (o ManagedRulesDefinitionOutput) ToManagedRulesDefinitionOutputWithContext(ctx context.Context) ManagedRulesDefinitionOutput {
+	return o
+}
+
+func (o ManagedRulesDefinitionOutput) ToManagedRulesDefinitionPtrOutput() ManagedRulesDefinitionPtrOutput {
+	return o.ToManagedRulesDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedRulesDefinitionOutput) ToManagedRulesDefinitionPtrOutputWithContext(ctx context.Context) ManagedRulesDefinitionPtrOutput {
+	return o.ApplyT(func(v ManagedRulesDefinition) *ManagedRulesDefinition {
+		return &v
+	}).(ManagedRulesDefinitionPtrOutput)
+}
+
+// The Exclusions that are applied on the policy.
+func (o ManagedRulesDefinitionOutput) Exclusions() OwaspCrsExclusionEntryArrayOutput {
+	return o.ApplyT(func(v ManagedRulesDefinition) []OwaspCrsExclusionEntry { return v.Exclusions }).(OwaspCrsExclusionEntryArrayOutput)
+}
+
+// The managed rule sets that are associated with the policy.
+func (o ManagedRulesDefinitionOutput) ManagedRuleSets() ManagedRuleSetArrayOutput {
+	return o.ApplyT(func(v ManagedRulesDefinition) []ManagedRuleSet { return v.ManagedRuleSets }).(ManagedRuleSetArrayOutput)
+}
+
+type ManagedRulesDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedRulesDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedRulesDefinition)(nil)).Elem()
+}
+
+func (o ManagedRulesDefinitionPtrOutput) ToManagedRulesDefinitionPtrOutput() ManagedRulesDefinitionPtrOutput {
+	return o
+}
+
+func (o ManagedRulesDefinitionPtrOutput) ToManagedRulesDefinitionPtrOutputWithContext(ctx context.Context) ManagedRulesDefinitionPtrOutput {
+	return o
+}
+
+func (o ManagedRulesDefinitionPtrOutput) Elem() ManagedRulesDefinitionOutput {
+	return o.ApplyT(func(v *ManagedRulesDefinition) ManagedRulesDefinition { return *v }).(ManagedRulesDefinitionOutput)
+}
+
+// The Exclusions that are applied on the policy.
+func (o ManagedRulesDefinitionPtrOutput) Exclusions() OwaspCrsExclusionEntryArrayOutput {
+	return o.ApplyT(func(v *ManagedRulesDefinition) []OwaspCrsExclusionEntry {
+		if v == nil {
+			return nil
+		}
+		return v.Exclusions
+	}).(OwaspCrsExclusionEntryArrayOutput)
+}
+
+// The managed rule sets that are associated with the policy.
+func (o ManagedRulesDefinitionPtrOutput) ManagedRuleSets() ManagedRuleSetArrayOutput {
+	return o.ApplyT(func(v *ManagedRulesDefinition) []ManagedRuleSet {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedRuleSets
+	}).(ManagedRuleSetArrayOutput)
+}
+
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type ManagedRulesDefinitionResponse struct {
+	// The Exclusions that are applied on the policy.
+	Exclusions []OwaspCrsExclusionEntryResponse `pulumi:"exclusions"`
+	// The managed rule sets that are associated with the policy.
+	ManagedRuleSets []ManagedRuleSetResponse `pulumi:"managedRuleSets"`
+}
+
+// ManagedRulesDefinitionResponseInput is an input type that accepts ManagedRulesDefinitionResponseArgs and ManagedRulesDefinitionResponseOutput values.
+// You can construct a concrete instance of `ManagedRulesDefinitionResponseInput` via:
+//
+//          ManagedRulesDefinitionResponseArgs{...}
+type ManagedRulesDefinitionResponseInput interface {
+	pulumi.Input
+
+	ToManagedRulesDefinitionResponseOutput() ManagedRulesDefinitionResponseOutput
+	ToManagedRulesDefinitionResponseOutputWithContext(context.Context) ManagedRulesDefinitionResponseOutput
+}
+
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type ManagedRulesDefinitionResponseArgs struct {
+	// The Exclusions that are applied on the policy.
+	Exclusions OwaspCrsExclusionEntryResponseArrayInput `pulumi:"exclusions"`
+	// The managed rule sets that are associated with the policy.
+	ManagedRuleSets ManagedRuleSetResponseArrayInput `pulumi:"managedRuleSets"`
+}
+
+func (ManagedRulesDefinitionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRulesDefinitionResponse)(nil)).Elem()
+}
+
+func (i ManagedRulesDefinitionResponseArgs) ToManagedRulesDefinitionResponseOutput() ManagedRulesDefinitionResponseOutput {
+	return i.ToManagedRulesDefinitionResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedRulesDefinitionResponseArgs) ToManagedRulesDefinitionResponseOutputWithContext(ctx context.Context) ManagedRulesDefinitionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRulesDefinitionResponseOutput)
+}
+
+func (i ManagedRulesDefinitionResponseArgs) ToManagedRulesDefinitionResponsePtrOutput() ManagedRulesDefinitionResponsePtrOutput {
+	return i.ToManagedRulesDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedRulesDefinitionResponseArgs) ToManagedRulesDefinitionResponsePtrOutputWithContext(ctx context.Context) ManagedRulesDefinitionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRulesDefinitionResponseOutput).ToManagedRulesDefinitionResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedRulesDefinitionResponsePtrInput is an input type that accepts ManagedRulesDefinitionResponseArgs, ManagedRulesDefinitionResponsePtr and ManagedRulesDefinitionResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedRulesDefinitionResponsePtrInput` via:
+//
+//          ManagedRulesDefinitionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedRulesDefinitionResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedRulesDefinitionResponsePtrOutput() ManagedRulesDefinitionResponsePtrOutput
+	ToManagedRulesDefinitionResponsePtrOutputWithContext(context.Context) ManagedRulesDefinitionResponsePtrOutput
+}
+
+type managedRulesDefinitionResponsePtrType ManagedRulesDefinitionResponseArgs
+
+func ManagedRulesDefinitionResponsePtr(v *ManagedRulesDefinitionResponseArgs) ManagedRulesDefinitionResponsePtrInput {
+	return (*managedRulesDefinitionResponsePtrType)(v)
+}
+
+func (*managedRulesDefinitionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedRulesDefinitionResponse)(nil)).Elem()
+}
+
+func (i *managedRulesDefinitionResponsePtrType) ToManagedRulesDefinitionResponsePtrOutput() ManagedRulesDefinitionResponsePtrOutput {
+	return i.ToManagedRulesDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedRulesDefinitionResponsePtrType) ToManagedRulesDefinitionResponsePtrOutputWithContext(ctx context.Context) ManagedRulesDefinitionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRulesDefinitionResponsePtrOutput)
+}
+
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type ManagedRulesDefinitionResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedRulesDefinitionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRulesDefinitionResponse)(nil)).Elem()
+}
+
+func (o ManagedRulesDefinitionResponseOutput) ToManagedRulesDefinitionResponseOutput() ManagedRulesDefinitionResponseOutput {
+	return o
+}
+
+func (o ManagedRulesDefinitionResponseOutput) ToManagedRulesDefinitionResponseOutputWithContext(ctx context.Context) ManagedRulesDefinitionResponseOutput {
+	return o
+}
+
+func (o ManagedRulesDefinitionResponseOutput) ToManagedRulesDefinitionResponsePtrOutput() ManagedRulesDefinitionResponsePtrOutput {
+	return o.ToManagedRulesDefinitionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedRulesDefinitionResponseOutput) ToManagedRulesDefinitionResponsePtrOutputWithContext(ctx context.Context) ManagedRulesDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v ManagedRulesDefinitionResponse) *ManagedRulesDefinitionResponse {
+		return &v
+	}).(ManagedRulesDefinitionResponsePtrOutput)
+}
+
+// The Exclusions that are applied on the policy.
+func (o ManagedRulesDefinitionResponseOutput) Exclusions() OwaspCrsExclusionEntryResponseArrayOutput {
+	return o.ApplyT(func(v ManagedRulesDefinitionResponse) []OwaspCrsExclusionEntryResponse { return v.Exclusions }).(OwaspCrsExclusionEntryResponseArrayOutput)
+}
+
+// The managed rule sets that are associated with the policy.
+func (o ManagedRulesDefinitionResponseOutput) ManagedRuleSets() ManagedRuleSetResponseArrayOutput {
+	return o.ApplyT(func(v ManagedRulesDefinitionResponse) []ManagedRuleSetResponse { return v.ManagedRuleSets }).(ManagedRuleSetResponseArrayOutput)
+}
+
+type ManagedRulesDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedRulesDefinitionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedRulesDefinitionResponse)(nil)).Elem()
+}
+
+func (o ManagedRulesDefinitionResponsePtrOutput) ToManagedRulesDefinitionResponsePtrOutput() ManagedRulesDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ManagedRulesDefinitionResponsePtrOutput) ToManagedRulesDefinitionResponsePtrOutputWithContext(ctx context.Context) ManagedRulesDefinitionResponsePtrOutput {
+	return o
+}
+
+func (o ManagedRulesDefinitionResponsePtrOutput) Elem() ManagedRulesDefinitionResponseOutput {
+	return o.ApplyT(func(v *ManagedRulesDefinitionResponse) ManagedRulesDefinitionResponse { return *v }).(ManagedRulesDefinitionResponseOutput)
+}
+
+// The Exclusions that are applied on the policy.
+func (o ManagedRulesDefinitionResponsePtrOutput) Exclusions() OwaspCrsExclusionEntryResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedRulesDefinitionResponse) []OwaspCrsExclusionEntryResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Exclusions
+	}).(OwaspCrsExclusionEntryResponseArrayOutput)
+}
+
+// The managed rule sets that are associated with the policy.
+func (o ManagedRulesDefinitionResponsePtrOutput) ManagedRuleSets() ManagedRuleSetResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedRulesDefinitionResponse) []ManagedRuleSetResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedRuleSets
+	}).(ManagedRuleSetResponseArrayOutput)
+}
+
 // Identity for the resource.
 type ManagedServiceIdentity struct {
 	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
@@ -39603,6 +41026,496 @@ func (o ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedServiceIdentityResponseUserAssignedIdentities {
 		return vs[0].(map[string]ManagedServiceIdentityResponseUserAssignedIdentities)[vs[1].(string)]
 	}).(ManagedServiceIdentityResponseUserAssignedIdentitiesOutput)
+}
+
+// Define match conditions.
+type MatchCondition struct {
+	// Match value.
+	MatchValues []string `pulumi:"matchValues"`
+	// List of match variables.
+	MatchVariables []MatchVariable `pulumi:"matchVariables"`
+	// Whether this is negate condition or not.
+	NegationConditon *bool `pulumi:"negationConditon"`
+	// The operator to be matched.
+	Operator string `pulumi:"operator"`
+	// List of transforms.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// MatchConditionInput is an input type that accepts MatchConditionArgs and MatchConditionOutput values.
+// You can construct a concrete instance of `MatchConditionInput` via:
+//
+//          MatchConditionArgs{...}
+type MatchConditionInput interface {
+	pulumi.Input
+
+	ToMatchConditionOutput() MatchConditionOutput
+	ToMatchConditionOutputWithContext(context.Context) MatchConditionOutput
+}
+
+// Define match conditions.
+type MatchConditionArgs struct {
+	// Match value.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// List of match variables.
+	MatchVariables MatchVariableArrayInput `pulumi:"matchVariables"`
+	// Whether this is negate condition or not.
+	NegationConditon pulumi.BoolPtrInput `pulumi:"negationConditon"`
+	// The operator to be matched.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (MatchConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchCondition)(nil)).Elem()
+}
+
+func (i MatchConditionArgs) ToMatchConditionOutput() MatchConditionOutput {
+	return i.ToMatchConditionOutputWithContext(context.Background())
+}
+
+func (i MatchConditionArgs) ToMatchConditionOutputWithContext(ctx context.Context) MatchConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchConditionOutput)
+}
+
+// MatchConditionArrayInput is an input type that accepts MatchConditionArray and MatchConditionArrayOutput values.
+// You can construct a concrete instance of `MatchConditionArrayInput` via:
+//
+//          MatchConditionArray{ MatchConditionArgs{...} }
+type MatchConditionArrayInput interface {
+	pulumi.Input
+
+	ToMatchConditionArrayOutput() MatchConditionArrayOutput
+	ToMatchConditionArrayOutputWithContext(context.Context) MatchConditionArrayOutput
+}
+
+type MatchConditionArray []MatchConditionInput
+
+func (MatchConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchCondition)(nil)).Elem()
+}
+
+func (i MatchConditionArray) ToMatchConditionArrayOutput() MatchConditionArrayOutput {
+	return i.ToMatchConditionArrayOutputWithContext(context.Background())
+}
+
+func (i MatchConditionArray) ToMatchConditionArrayOutputWithContext(ctx context.Context) MatchConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchConditionArrayOutput)
+}
+
+// Define match conditions.
+type MatchConditionOutput struct{ *pulumi.OutputState }
+
+func (MatchConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchCondition)(nil)).Elem()
+}
+
+func (o MatchConditionOutput) ToMatchConditionOutput() MatchConditionOutput {
+	return o
+}
+
+func (o MatchConditionOutput) ToMatchConditionOutputWithContext(ctx context.Context) MatchConditionOutput {
+	return o
+}
+
+// Match value.
+func (o MatchConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// List of match variables.
+func (o MatchConditionOutput) MatchVariables() MatchVariableArrayOutput {
+	return o.ApplyT(func(v MatchCondition) []MatchVariable { return v.MatchVariables }).(MatchVariableArrayOutput)
+}
+
+// Whether this is negate condition or not.
+func (o MatchConditionOutput) NegationConditon() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MatchCondition) *bool { return v.NegationConditon }).(pulumi.BoolPtrOutput)
+}
+
+// The operator to be matched.
+func (o MatchConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms.
+func (o MatchConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type MatchConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (MatchConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchCondition)(nil)).Elem()
+}
+
+func (o MatchConditionArrayOutput) ToMatchConditionArrayOutput() MatchConditionArrayOutput {
+	return o
+}
+
+func (o MatchConditionArrayOutput) ToMatchConditionArrayOutputWithContext(ctx context.Context) MatchConditionArrayOutput {
+	return o
+}
+
+func (o MatchConditionArrayOutput) Index(i pulumi.IntInput) MatchConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchCondition {
+		return vs[0].([]MatchCondition)[vs[1].(int)]
+	}).(MatchConditionOutput)
+}
+
+// Define match conditions.
+type MatchConditionResponse struct {
+	// Match value.
+	MatchValues []string `pulumi:"matchValues"`
+	// List of match variables.
+	MatchVariables []MatchVariableResponse `pulumi:"matchVariables"`
+	// Whether this is negate condition or not.
+	NegationConditon *bool `pulumi:"negationConditon"`
+	// The operator to be matched.
+	Operator string `pulumi:"operator"`
+	// List of transforms.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// MatchConditionResponseInput is an input type that accepts MatchConditionResponseArgs and MatchConditionResponseOutput values.
+// You can construct a concrete instance of `MatchConditionResponseInput` via:
+//
+//          MatchConditionResponseArgs{...}
+type MatchConditionResponseInput interface {
+	pulumi.Input
+
+	ToMatchConditionResponseOutput() MatchConditionResponseOutput
+	ToMatchConditionResponseOutputWithContext(context.Context) MatchConditionResponseOutput
+}
+
+// Define match conditions.
+type MatchConditionResponseArgs struct {
+	// Match value.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// List of match variables.
+	MatchVariables MatchVariableResponseArrayInput `pulumi:"matchVariables"`
+	// Whether this is negate condition or not.
+	NegationConditon pulumi.BoolPtrInput `pulumi:"negationConditon"`
+	// The operator to be matched.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (MatchConditionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchConditionResponse)(nil)).Elem()
+}
+
+func (i MatchConditionResponseArgs) ToMatchConditionResponseOutput() MatchConditionResponseOutput {
+	return i.ToMatchConditionResponseOutputWithContext(context.Background())
+}
+
+func (i MatchConditionResponseArgs) ToMatchConditionResponseOutputWithContext(ctx context.Context) MatchConditionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchConditionResponseOutput)
+}
+
+// MatchConditionResponseArrayInput is an input type that accepts MatchConditionResponseArray and MatchConditionResponseArrayOutput values.
+// You can construct a concrete instance of `MatchConditionResponseArrayInput` via:
+//
+//          MatchConditionResponseArray{ MatchConditionResponseArgs{...} }
+type MatchConditionResponseArrayInput interface {
+	pulumi.Input
+
+	ToMatchConditionResponseArrayOutput() MatchConditionResponseArrayOutput
+	ToMatchConditionResponseArrayOutputWithContext(context.Context) MatchConditionResponseArrayOutput
+}
+
+type MatchConditionResponseArray []MatchConditionResponseInput
+
+func (MatchConditionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchConditionResponse)(nil)).Elem()
+}
+
+func (i MatchConditionResponseArray) ToMatchConditionResponseArrayOutput() MatchConditionResponseArrayOutput {
+	return i.ToMatchConditionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MatchConditionResponseArray) ToMatchConditionResponseArrayOutputWithContext(ctx context.Context) MatchConditionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchConditionResponseArrayOutput)
+}
+
+// Define match conditions.
+type MatchConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (MatchConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchConditionResponse)(nil)).Elem()
+}
+
+func (o MatchConditionResponseOutput) ToMatchConditionResponseOutput() MatchConditionResponseOutput {
+	return o
+}
+
+func (o MatchConditionResponseOutput) ToMatchConditionResponseOutputWithContext(ctx context.Context) MatchConditionResponseOutput {
+	return o
+}
+
+// Match value.
+func (o MatchConditionResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MatchConditionResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// List of match variables.
+func (o MatchConditionResponseOutput) MatchVariables() MatchVariableResponseArrayOutput {
+	return o.ApplyT(func(v MatchConditionResponse) []MatchVariableResponse { return v.MatchVariables }).(MatchVariableResponseArrayOutput)
+}
+
+// Whether this is negate condition or not.
+func (o MatchConditionResponseOutput) NegationConditon() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MatchConditionResponse) *bool { return v.NegationConditon }).(pulumi.BoolPtrOutput)
+}
+
+// The operator to be matched.
+func (o MatchConditionResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchConditionResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms.
+func (o MatchConditionResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MatchConditionResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type MatchConditionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MatchConditionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchConditionResponse)(nil)).Elem()
+}
+
+func (o MatchConditionResponseArrayOutput) ToMatchConditionResponseArrayOutput() MatchConditionResponseArrayOutput {
+	return o
+}
+
+func (o MatchConditionResponseArrayOutput) ToMatchConditionResponseArrayOutputWithContext(ctx context.Context) MatchConditionResponseArrayOutput {
+	return o
+}
+
+func (o MatchConditionResponseArrayOutput) Index(i pulumi.IntInput) MatchConditionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchConditionResponse {
+		return vs[0].([]MatchConditionResponse)[vs[1].(int)]
+	}).(MatchConditionResponseOutput)
+}
+
+// Define match variables.
+type MatchVariable struct {
+	// The selector of match variable.
+	Selector *string `pulumi:"selector"`
+	// Match Variable.
+	VariableName string `pulumi:"variableName"`
+}
+
+// MatchVariableInput is an input type that accepts MatchVariableArgs and MatchVariableOutput values.
+// You can construct a concrete instance of `MatchVariableInput` via:
+//
+//          MatchVariableArgs{...}
+type MatchVariableInput interface {
+	pulumi.Input
+
+	ToMatchVariableOutput() MatchVariableOutput
+	ToMatchVariableOutputWithContext(context.Context) MatchVariableOutput
+}
+
+// Define match variables.
+type MatchVariableArgs struct {
+	// The selector of match variable.
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// Match Variable.
+	VariableName pulumi.StringInput `pulumi:"variableName"`
+}
+
+func (MatchVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchVariable)(nil)).Elem()
+}
+
+func (i MatchVariableArgs) ToMatchVariableOutput() MatchVariableOutput {
+	return i.ToMatchVariableOutputWithContext(context.Background())
+}
+
+func (i MatchVariableArgs) ToMatchVariableOutputWithContext(ctx context.Context) MatchVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchVariableOutput)
+}
+
+// MatchVariableArrayInput is an input type that accepts MatchVariableArray and MatchVariableArrayOutput values.
+// You can construct a concrete instance of `MatchVariableArrayInput` via:
+//
+//          MatchVariableArray{ MatchVariableArgs{...} }
+type MatchVariableArrayInput interface {
+	pulumi.Input
+
+	ToMatchVariableArrayOutput() MatchVariableArrayOutput
+	ToMatchVariableArrayOutputWithContext(context.Context) MatchVariableArrayOutput
+}
+
+type MatchVariableArray []MatchVariableInput
+
+func (MatchVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchVariable)(nil)).Elem()
+}
+
+func (i MatchVariableArray) ToMatchVariableArrayOutput() MatchVariableArrayOutput {
+	return i.ToMatchVariableArrayOutputWithContext(context.Background())
+}
+
+func (i MatchVariableArray) ToMatchVariableArrayOutputWithContext(ctx context.Context) MatchVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchVariableArrayOutput)
+}
+
+// Define match variables.
+type MatchVariableOutput struct{ *pulumi.OutputState }
+
+func (MatchVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchVariable)(nil)).Elem()
+}
+
+func (o MatchVariableOutput) ToMatchVariableOutput() MatchVariableOutput {
+	return o
+}
+
+func (o MatchVariableOutput) ToMatchVariableOutputWithContext(ctx context.Context) MatchVariableOutput {
+	return o
+}
+
+// The selector of match variable.
+func (o MatchVariableOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MatchVariable) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// Match Variable.
+func (o MatchVariableOutput) VariableName() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchVariable) string { return v.VariableName }).(pulumi.StringOutput)
+}
+
+type MatchVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (MatchVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchVariable)(nil)).Elem()
+}
+
+func (o MatchVariableArrayOutput) ToMatchVariableArrayOutput() MatchVariableArrayOutput {
+	return o
+}
+
+func (o MatchVariableArrayOutput) ToMatchVariableArrayOutputWithContext(ctx context.Context) MatchVariableArrayOutput {
+	return o
+}
+
+func (o MatchVariableArrayOutput) Index(i pulumi.IntInput) MatchVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchVariable {
+		return vs[0].([]MatchVariable)[vs[1].(int)]
+	}).(MatchVariableOutput)
+}
+
+// Define match variables.
+type MatchVariableResponse struct {
+	// The selector of match variable.
+	Selector *string `pulumi:"selector"`
+	// Match Variable.
+	VariableName string `pulumi:"variableName"`
+}
+
+// MatchVariableResponseInput is an input type that accepts MatchVariableResponseArgs and MatchVariableResponseOutput values.
+// You can construct a concrete instance of `MatchVariableResponseInput` via:
+//
+//          MatchVariableResponseArgs{...}
+type MatchVariableResponseInput interface {
+	pulumi.Input
+
+	ToMatchVariableResponseOutput() MatchVariableResponseOutput
+	ToMatchVariableResponseOutputWithContext(context.Context) MatchVariableResponseOutput
+}
+
+// Define match variables.
+type MatchVariableResponseArgs struct {
+	// The selector of match variable.
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// Match Variable.
+	VariableName pulumi.StringInput `pulumi:"variableName"`
+}
+
+func (MatchVariableResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchVariableResponse)(nil)).Elem()
+}
+
+func (i MatchVariableResponseArgs) ToMatchVariableResponseOutput() MatchVariableResponseOutput {
+	return i.ToMatchVariableResponseOutputWithContext(context.Background())
+}
+
+func (i MatchVariableResponseArgs) ToMatchVariableResponseOutputWithContext(ctx context.Context) MatchVariableResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchVariableResponseOutput)
+}
+
+// MatchVariableResponseArrayInput is an input type that accepts MatchVariableResponseArray and MatchVariableResponseArrayOutput values.
+// You can construct a concrete instance of `MatchVariableResponseArrayInput` via:
+//
+//          MatchVariableResponseArray{ MatchVariableResponseArgs{...} }
+type MatchVariableResponseArrayInput interface {
+	pulumi.Input
+
+	ToMatchVariableResponseArrayOutput() MatchVariableResponseArrayOutput
+	ToMatchVariableResponseArrayOutputWithContext(context.Context) MatchVariableResponseArrayOutput
+}
+
+type MatchVariableResponseArray []MatchVariableResponseInput
+
+func (MatchVariableResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchVariableResponse)(nil)).Elem()
+}
+
+func (i MatchVariableResponseArray) ToMatchVariableResponseArrayOutput() MatchVariableResponseArrayOutput {
+	return i.ToMatchVariableResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MatchVariableResponseArray) ToMatchVariableResponseArrayOutputWithContext(ctx context.Context) MatchVariableResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchVariableResponseArrayOutput)
+}
+
+// Define match variables.
+type MatchVariableResponseOutput struct{ *pulumi.OutputState }
+
+func (MatchVariableResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchVariableResponse)(nil)).Elem()
+}
+
+func (o MatchVariableResponseOutput) ToMatchVariableResponseOutput() MatchVariableResponseOutput {
+	return o
+}
+
+func (o MatchVariableResponseOutput) ToMatchVariableResponseOutputWithContext(ctx context.Context) MatchVariableResponseOutput {
+	return o
+}
+
+// The selector of match variable.
+func (o MatchVariableResponseOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MatchVariableResponse) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// Match Variable.
+func (o MatchVariableResponseOutput) VariableName() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchVariableResponse) string { return v.VariableName }).(pulumi.StringOutput)
+}
+
+type MatchVariableResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MatchVariableResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchVariableResponse)(nil)).Elem()
+}
+
+func (o MatchVariableResponseArrayOutput) ToMatchVariableResponseArrayOutput() MatchVariableResponseArrayOutput {
+	return o
+}
+
+func (o MatchVariableResponseArrayOutput) ToMatchVariableResponseArrayOutputWithContext(ctx context.Context) MatchVariableResponseArrayOutput {
+	return o
+}
+
+func (o MatchVariableResponseArrayOutput) Index(i pulumi.IntInput) MatchVariableResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchVariableResponse {
+		return vs[0].([]MatchVariableResponse)[vs[1].(int)]
+	}).(MatchVariableResponseOutput)
 }
 
 // SKU of nat gateway.
@@ -43434,6 +45347,242 @@ func (o OutboundRuleResponseArrayOutput) Index(i pulumi.IntInput) OutboundRuleRe
 	}).(OutboundRuleResponseOutput)
 }
 
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type OwaspCrsExclusionEntry struct {
+	// The variable to be excluded.
+	MatchVariable string `pulumi:"matchVariable"`
+	// When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+	Selector string `pulumi:"selector"`
+	// When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+	SelectorMatchOperator string `pulumi:"selectorMatchOperator"`
+}
+
+// OwaspCrsExclusionEntryInput is an input type that accepts OwaspCrsExclusionEntryArgs and OwaspCrsExclusionEntryOutput values.
+// You can construct a concrete instance of `OwaspCrsExclusionEntryInput` via:
+//
+//          OwaspCrsExclusionEntryArgs{...}
+type OwaspCrsExclusionEntryInput interface {
+	pulumi.Input
+
+	ToOwaspCrsExclusionEntryOutput() OwaspCrsExclusionEntryOutput
+	ToOwaspCrsExclusionEntryOutputWithContext(context.Context) OwaspCrsExclusionEntryOutput
+}
+
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type OwaspCrsExclusionEntryArgs struct {
+	// The variable to be excluded.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+	SelectorMatchOperator pulumi.StringInput `pulumi:"selectorMatchOperator"`
+}
+
+func (OwaspCrsExclusionEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwaspCrsExclusionEntry)(nil)).Elem()
+}
+
+func (i OwaspCrsExclusionEntryArgs) ToOwaspCrsExclusionEntryOutput() OwaspCrsExclusionEntryOutput {
+	return i.ToOwaspCrsExclusionEntryOutputWithContext(context.Background())
+}
+
+func (i OwaspCrsExclusionEntryArgs) ToOwaspCrsExclusionEntryOutputWithContext(ctx context.Context) OwaspCrsExclusionEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OwaspCrsExclusionEntryOutput)
+}
+
+// OwaspCrsExclusionEntryArrayInput is an input type that accepts OwaspCrsExclusionEntryArray and OwaspCrsExclusionEntryArrayOutput values.
+// You can construct a concrete instance of `OwaspCrsExclusionEntryArrayInput` via:
+//
+//          OwaspCrsExclusionEntryArray{ OwaspCrsExclusionEntryArgs{...} }
+type OwaspCrsExclusionEntryArrayInput interface {
+	pulumi.Input
+
+	ToOwaspCrsExclusionEntryArrayOutput() OwaspCrsExclusionEntryArrayOutput
+	ToOwaspCrsExclusionEntryArrayOutputWithContext(context.Context) OwaspCrsExclusionEntryArrayOutput
+}
+
+type OwaspCrsExclusionEntryArray []OwaspCrsExclusionEntryInput
+
+func (OwaspCrsExclusionEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OwaspCrsExclusionEntry)(nil)).Elem()
+}
+
+func (i OwaspCrsExclusionEntryArray) ToOwaspCrsExclusionEntryArrayOutput() OwaspCrsExclusionEntryArrayOutput {
+	return i.ToOwaspCrsExclusionEntryArrayOutputWithContext(context.Background())
+}
+
+func (i OwaspCrsExclusionEntryArray) ToOwaspCrsExclusionEntryArrayOutputWithContext(ctx context.Context) OwaspCrsExclusionEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OwaspCrsExclusionEntryArrayOutput)
+}
+
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type OwaspCrsExclusionEntryOutput struct{ *pulumi.OutputState }
+
+func (OwaspCrsExclusionEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwaspCrsExclusionEntry)(nil)).Elem()
+}
+
+func (o OwaspCrsExclusionEntryOutput) ToOwaspCrsExclusionEntryOutput() OwaspCrsExclusionEntryOutput {
+	return o
+}
+
+func (o OwaspCrsExclusionEntryOutput) ToOwaspCrsExclusionEntryOutputWithContext(ctx context.Context) OwaspCrsExclusionEntryOutput {
+	return o
+}
+
+// The variable to be excluded.
+func (o OwaspCrsExclusionEntryOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v OwaspCrsExclusionEntry) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+func (o OwaspCrsExclusionEntryOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v OwaspCrsExclusionEntry) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+func (o OwaspCrsExclusionEntryOutput) SelectorMatchOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v OwaspCrsExclusionEntry) string { return v.SelectorMatchOperator }).(pulumi.StringOutput)
+}
+
+type OwaspCrsExclusionEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (OwaspCrsExclusionEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OwaspCrsExclusionEntry)(nil)).Elem()
+}
+
+func (o OwaspCrsExclusionEntryArrayOutput) ToOwaspCrsExclusionEntryArrayOutput() OwaspCrsExclusionEntryArrayOutput {
+	return o
+}
+
+func (o OwaspCrsExclusionEntryArrayOutput) ToOwaspCrsExclusionEntryArrayOutputWithContext(ctx context.Context) OwaspCrsExclusionEntryArrayOutput {
+	return o
+}
+
+func (o OwaspCrsExclusionEntryArrayOutput) Index(i pulumi.IntInput) OwaspCrsExclusionEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OwaspCrsExclusionEntry {
+		return vs[0].([]OwaspCrsExclusionEntry)[vs[1].(int)]
+	}).(OwaspCrsExclusionEntryOutput)
+}
+
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type OwaspCrsExclusionEntryResponse struct {
+	// The variable to be excluded.
+	MatchVariable string `pulumi:"matchVariable"`
+	// When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+	Selector string `pulumi:"selector"`
+	// When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+	SelectorMatchOperator string `pulumi:"selectorMatchOperator"`
+}
+
+// OwaspCrsExclusionEntryResponseInput is an input type that accepts OwaspCrsExclusionEntryResponseArgs and OwaspCrsExclusionEntryResponseOutput values.
+// You can construct a concrete instance of `OwaspCrsExclusionEntryResponseInput` via:
+//
+//          OwaspCrsExclusionEntryResponseArgs{...}
+type OwaspCrsExclusionEntryResponseInput interface {
+	pulumi.Input
+
+	ToOwaspCrsExclusionEntryResponseOutput() OwaspCrsExclusionEntryResponseOutput
+	ToOwaspCrsExclusionEntryResponseOutputWithContext(context.Context) OwaspCrsExclusionEntryResponseOutput
+}
+
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type OwaspCrsExclusionEntryResponseArgs struct {
+	// The variable to be excluded.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+	SelectorMatchOperator pulumi.StringInput `pulumi:"selectorMatchOperator"`
+}
+
+func (OwaspCrsExclusionEntryResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwaspCrsExclusionEntryResponse)(nil)).Elem()
+}
+
+func (i OwaspCrsExclusionEntryResponseArgs) ToOwaspCrsExclusionEntryResponseOutput() OwaspCrsExclusionEntryResponseOutput {
+	return i.ToOwaspCrsExclusionEntryResponseOutputWithContext(context.Background())
+}
+
+func (i OwaspCrsExclusionEntryResponseArgs) ToOwaspCrsExclusionEntryResponseOutputWithContext(ctx context.Context) OwaspCrsExclusionEntryResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OwaspCrsExclusionEntryResponseOutput)
+}
+
+// OwaspCrsExclusionEntryResponseArrayInput is an input type that accepts OwaspCrsExclusionEntryResponseArray and OwaspCrsExclusionEntryResponseArrayOutput values.
+// You can construct a concrete instance of `OwaspCrsExclusionEntryResponseArrayInput` via:
+//
+//          OwaspCrsExclusionEntryResponseArray{ OwaspCrsExclusionEntryResponseArgs{...} }
+type OwaspCrsExclusionEntryResponseArrayInput interface {
+	pulumi.Input
+
+	ToOwaspCrsExclusionEntryResponseArrayOutput() OwaspCrsExclusionEntryResponseArrayOutput
+	ToOwaspCrsExclusionEntryResponseArrayOutputWithContext(context.Context) OwaspCrsExclusionEntryResponseArrayOutput
+}
+
+type OwaspCrsExclusionEntryResponseArray []OwaspCrsExclusionEntryResponseInput
+
+func (OwaspCrsExclusionEntryResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OwaspCrsExclusionEntryResponse)(nil)).Elem()
+}
+
+func (i OwaspCrsExclusionEntryResponseArray) ToOwaspCrsExclusionEntryResponseArrayOutput() OwaspCrsExclusionEntryResponseArrayOutput {
+	return i.ToOwaspCrsExclusionEntryResponseArrayOutputWithContext(context.Background())
+}
+
+func (i OwaspCrsExclusionEntryResponseArray) ToOwaspCrsExclusionEntryResponseArrayOutputWithContext(ctx context.Context) OwaspCrsExclusionEntryResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OwaspCrsExclusionEntryResponseArrayOutput)
+}
+
+// Allow to exclude some variable satisfy the condition for the WAF check.
+type OwaspCrsExclusionEntryResponseOutput struct{ *pulumi.OutputState }
+
+func (OwaspCrsExclusionEntryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwaspCrsExclusionEntryResponse)(nil)).Elem()
+}
+
+func (o OwaspCrsExclusionEntryResponseOutput) ToOwaspCrsExclusionEntryResponseOutput() OwaspCrsExclusionEntryResponseOutput {
+	return o
+}
+
+func (o OwaspCrsExclusionEntryResponseOutput) ToOwaspCrsExclusionEntryResponseOutputWithContext(ctx context.Context) OwaspCrsExclusionEntryResponseOutput {
+	return o
+}
+
+// The variable to be excluded.
+func (o OwaspCrsExclusionEntryResponseOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v OwaspCrsExclusionEntryResponse) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+func (o OwaspCrsExclusionEntryResponseOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v OwaspCrsExclusionEntryResponse) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+func (o OwaspCrsExclusionEntryResponseOutput) SelectorMatchOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v OwaspCrsExclusionEntryResponse) string { return v.SelectorMatchOperator }).(pulumi.StringOutput)
+}
+
+type OwaspCrsExclusionEntryResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (OwaspCrsExclusionEntryResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OwaspCrsExclusionEntryResponse)(nil)).Elem()
+}
+
+func (o OwaspCrsExclusionEntryResponseArrayOutput) ToOwaspCrsExclusionEntryResponseArrayOutput() OwaspCrsExclusionEntryResponseArrayOutput {
+	return o
+}
+
+func (o OwaspCrsExclusionEntryResponseArrayOutput) ToOwaspCrsExclusionEntryResponseArrayOutputWithContext(ctx context.Context) OwaspCrsExclusionEntryResponseArrayOutput {
+	return o
+}
+
+func (o OwaspCrsExclusionEntryResponseArrayOutput) Index(i pulumi.IntInput) OwaspCrsExclusionEntryResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OwaspCrsExclusionEntryResponse {
+		return vs[0].([]OwaspCrsExclusionEntryResponse)[vs[1].(int)]
+	}).(OwaspCrsExclusionEntryResponseOutput)
+}
+
 // P2SConnectionConfiguration Resource.
 type P2SConnectionConfiguration struct {
 	// Resource ID.
@@ -44726,6 +46875,426 @@ func (o PeerExpressRouteCircuitConnectionResponseArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PeerExpressRouteCircuitConnectionResponse {
 		return vs[0].([]PeerExpressRouteCircuitConnectionResponse)[vs[1].(int)]
 	}).(PeerExpressRouteCircuitConnectionResponseOutput)
+}
+
+// Defines contents of a web application firewall global configuration.
+type PolicySettings struct {
+	// Maximum file upload size in Mb for WAF.
+	FileUploadLimitInMb *int `pulumi:"fileUploadLimitInMb"`
+	// Maximum request body size in Kb for WAF.
+	MaxRequestBodySizeInKb *int `pulumi:"maxRequestBodySizeInKb"`
+	// The mode of the policy.
+	Mode *string `pulumi:"mode"`
+	// Whether to allow WAF to check request Body.
+	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
+	// The state of the policy.
+	State *string `pulumi:"state"`
+}
+
+// PolicySettingsInput is an input type that accepts PolicySettingsArgs and PolicySettingsOutput values.
+// You can construct a concrete instance of `PolicySettingsInput` via:
+//
+//          PolicySettingsArgs{...}
+type PolicySettingsInput interface {
+	pulumi.Input
+
+	ToPolicySettingsOutput() PolicySettingsOutput
+	ToPolicySettingsOutputWithContext(context.Context) PolicySettingsOutput
+}
+
+// Defines contents of a web application firewall global configuration.
+type PolicySettingsArgs struct {
+	// Maximum file upload size in Mb for WAF.
+	FileUploadLimitInMb pulumi.IntPtrInput `pulumi:"fileUploadLimitInMb"`
+	// Maximum request body size in Kb for WAF.
+	MaxRequestBodySizeInKb pulumi.IntPtrInput `pulumi:"maxRequestBodySizeInKb"`
+	// The mode of the policy.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// Whether to allow WAF to check request Body.
+	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
+	// The state of the policy.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (PolicySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySettings)(nil)).Elem()
+}
+
+func (i PolicySettingsArgs) ToPolicySettingsOutput() PolicySettingsOutput {
+	return i.ToPolicySettingsOutputWithContext(context.Background())
+}
+
+func (i PolicySettingsArgs) ToPolicySettingsOutputWithContext(ctx context.Context) PolicySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsOutput)
+}
+
+func (i PolicySettingsArgs) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
+	return i.ToPolicySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i PolicySettingsArgs) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsOutput).ToPolicySettingsPtrOutputWithContext(ctx)
+}
+
+// PolicySettingsPtrInput is an input type that accepts PolicySettingsArgs, PolicySettingsPtr and PolicySettingsPtrOutput values.
+// You can construct a concrete instance of `PolicySettingsPtrInput` via:
+//
+//          PolicySettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicySettingsPtrInput interface {
+	pulumi.Input
+
+	ToPolicySettingsPtrOutput() PolicySettingsPtrOutput
+	ToPolicySettingsPtrOutputWithContext(context.Context) PolicySettingsPtrOutput
+}
+
+type policySettingsPtrType PolicySettingsArgs
+
+func PolicySettingsPtr(v *PolicySettingsArgs) PolicySettingsPtrInput {
+	return (*policySettingsPtrType)(v)
+}
+
+func (*policySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySettings)(nil)).Elem()
+}
+
+func (i *policySettingsPtrType) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
+	return i.ToPolicySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *policySettingsPtrType) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsPtrOutput)
+}
+
+// Defines contents of a web application firewall global configuration.
+type PolicySettingsOutput struct{ *pulumi.OutputState }
+
+func (PolicySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySettings)(nil)).Elem()
+}
+
+func (o PolicySettingsOutput) ToPolicySettingsOutput() PolicySettingsOutput {
+	return o
+}
+
+func (o PolicySettingsOutput) ToPolicySettingsOutputWithContext(ctx context.Context) PolicySettingsOutput {
+	return o
+}
+
+func (o PolicySettingsOutput) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
+	return o.ToPolicySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o PolicySettingsOutput) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
+	return o.ApplyT(func(v PolicySettings) *PolicySettings {
+		return &v
+	}).(PolicySettingsPtrOutput)
+}
+
+// Maximum file upload size in Mb for WAF.
+func (o PolicySettingsOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySettings) *int { return v.FileUploadLimitInMb }).(pulumi.IntPtrOutput)
+}
+
+// Maximum request body size in Kb for WAF.
+func (o PolicySettingsOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySettings) *int { return v.MaxRequestBodySizeInKb }).(pulumi.IntPtrOutput)
+}
+
+// The mode of the policy.
+func (o PolicySettingsOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// Whether to allow WAF to check request Body.
+func (o PolicySettingsOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicySettings) *bool { return v.RequestBodyCheck }).(pulumi.BoolPtrOutput)
+}
+
+// The state of the policy.
+func (o PolicySettingsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettings) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type PolicySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySettings)(nil)).Elem()
+}
+
+func (o PolicySettingsPtrOutput) ToPolicySettingsPtrOutput() PolicySettingsPtrOutput {
+	return o
+}
+
+func (o PolicySettingsPtrOutput) ToPolicySettingsPtrOutputWithContext(ctx context.Context) PolicySettingsPtrOutput {
+	return o
+}
+
+func (o PolicySettingsPtrOutput) Elem() PolicySettingsOutput {
+	return o.ApplyT(func(v *PolicySettings) PolicySettings { return *v }).(PolicySettingsOutput)
+}
+
+// Maximum file upload size in Mb for WAF.
+func (o PolicySettingsPtrOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicySettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FileUploadLimitInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum request body size in Kb for WAF.
+func (o PolicySettingsPtrOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicySettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxRequestBodySizeInKb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The mode of the policy.
+func (o PolicySettingsPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to allow WAF to check request Body.
+func (o PolicySettingsPtrOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicySettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequestBodyCheck
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The state of the policy.
+func (o PolicySettingsPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines contents of a web application firewall global configuration.
+type PolicySettingsResponse struct {
+	// Maximum file upload size in Mb for WAF.
+	FileUploadLimitInMb *int `pulumi:"fileUploadLimitInMb"`
+	// Maximum request body size in Kb for WAF.
+	MaxRequestBodySizeInKb *int `pulumi:"maxRequestBodySizeInKb"`
+	// The mode of the policy.
+	Mode *string `pulumi:"mode"`
+	// Whether to allow WAF to check request Body.
+	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
+	// The state of the policy.
+	State *string `pulumi:"state"`
+}
+
+// PolicySettingsResponseInput is an input type that accepts PolicySettingsResponseArgs and PolicySettingsResponseOutput values.
+// You can construct a concrete instance of `PolicySettingsResponseInput` via:
+//
+//          PolicySettingsResponseArgs{...}
+type PolicySettingsResponseInput interface {
+	pulumi.Input
+
+	ToPolicySettingsResponseOutput() PolicySettingsResponseOutput
+	ToPolicySettingsResponseOutputWithContext(context.Context) PolicySettingsResponseOutput
+}
+
+// Defines contents of a web application firewall global configuration.
+type PolicySettingsResponseArgs struct {
+	// Maximum file upload size in Mb for WAF.
+	FileUploadLimitInMb pulumi.IntPtrInput `pulumi:"fileUploadLimitInMb"`
+	// Maximum request body size in Kb for WAF.
+	MaxRequestBodySizeInKb pulumi.IntPtrInput `pulumi:"maxRequestBodySizeInKb"`
+	// The mode of the policy.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// Whether to allow WAF to check request Body.
+	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
+	// The state of the policy.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (PolicySettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySettingsResponse)(nil)).Elem()
+}
+
+func (i PolicySettingsResponseArgs) ToPolicySettingsResponseOutput() PolicySettingsResponseOutput {
+	return i.ToPolicySettingsResponseOutputWithContext(context.Background())
+}
+
+func (i PolicySettingsResponseArgs) ToPolicySettingsResponseOutputWithContext(ctx context.Context) PolicySettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsResponseOutput)
+}
+
+func (i PolicySettingsResponseArgs) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
+	return i.ToPolicySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PolicySettingsResponseArgs) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsResponseOutput).ToPolicySettingsResponsePtrOutputWithContext(ctx)
+}
+
+// PolicySettingsResponsePtrInput is an input type that accepts PolicySettingsResponseArgs, PolicySettingsResponsePtr and PolicySettingsResponsePtrOutput values.
+// You can construct a concrete instance of `PolicySettingsResponsePtrInput` via:
+//
+//          PolicySettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicySettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput
+	ToPolicySettingsResponsePtrOutputWithContext(context.Context) PolicySettingsResponsePtrOutput
+}
+
+type policySettingsResponsePtrType PolicySettingsResponseArgs
+
+func PolicySettingsResponsePtr(v *PolicySettingsResponseArgs) PolicySettingsResponsePtrInput {
+	return (*policySettingsResponsePtrType)(v)
+}
+
+func (*policySettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySettingsResponse)(nil)).Elem()
+}
+
+func (i *policySettingsResponsePtrType) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
+	return i.ToPolicySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *policySettingsResponsePtrType) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsResponsePtrOutput)
+}
+
+// Defines contents of a web application firewall global configuration.
+type PolicySettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (PolicySettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySettingsResponse)(nil)).Elem()
+}
+
+func (o PolicySettingsResponseOutput) ToPolicySettingsResponseOutput() PolicySettingsResponseOutput {
+	return o
+}
+
+func (o PolicySettingsResponseOutput) ToPolicySettingsResponseOutputWithContext(ctx context.Context) PolicySettingsResponseOutput {
+	return o
+}
+
+func (o PolicySettingsResponseOutput) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
+	return o.ToPolicySettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PolicySettingsResponseOutput) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
+	return o.ApplyT(func(v PolicySettingsResponse) *PolicySettingsResponse {
+		return &v
+	}).(PolicySettingsResponsePtrOutput)
+}
+
+// Maximum file upload size in Mb for WAF.
+func (o PolicySettingsResponseOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySettingsResponse) *int { return v.FileUploadLimitInMb }).(pulumi.IntPtrOutput)
+}
+
+// Maximum request body size in Kb for WAF.
+func (o PolicySettingsResponseOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySettingsResponse) *int { return v.MaxRequestBodySizeInKb }).(pulumi.IntPtrOutput)
+}
+
+// The mode of the policy.
+func (o PolicySettingsResponseOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettingsResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// Whether to allow WAF to check request Body.
+func (o PolicySettingsResponseOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicySettingsResponse) *bool { return v.RequestBodyCheck }).(pulumi.BoolPtrOutput)
+}
+
+// The state of the policy.
+func (o PolicySettingsResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettingsResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type PolicySettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySettingsResponse)(nil)).Elem()
+}
+
+func (o PolicySettingsResponsePtrOutput) ToPolicySettingsResponsePtrOutput() PolicySettingsResponsePtrOutput {
+	return o
+}
+
+func (o PolicySettingsResponsePtrOutput) ToPolicySettingsResponsePtrOutputWithContext(ctx context.Context) PolicySettingsResponsePtrOutput {
+	return o
+}
+
+func (o PolicySettingsResponsePtrOutput) Elem() PolicySettingsResponseOutput {
+	return o.ApplyT(func(v *PolicySettingsResponse) PolicySettingsResponse { return *v }).(PolicySettingsResponseOutput)
+}
+
+// Maximum file upload size in Mb for WAF.
+func (o PolicySettingsResponsePtrOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicySettingsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FileUploadLimitInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum request body size in Kb for WAF.
+func (o PolicySettingsResponsePtrOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicySettingsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxRequestBodySizeInKb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The mode of the policy.
+func (o PolicySettingsResponsePtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to allow WAF to check request Body.
+func (o PolicySettingsResponsePtrOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicySettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequestBodyCheck
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The state of the policy.
+func (o PolicySettingsResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
 }
 
 // PrivateDnsZoneConfig resource.
@@ -66942,6 +69511,287 @@ func (o VpnSiteLinkResponseArrayOutput) Index(i pulumi.IntInput) VpnSiteLinkResp
 	}).(VpnSiteLinkResponseOutput)
 }
 
+// Defines contents of a web application rule.
+type WebApplicationFirewallCustomRule struct {
+	// Type of Actions.
+	Action string `pulumi:"action"`
+	// List of match conditions.
+	MatchConditions []MatchCondition `pulumi:"matchConditions"`
+	// The name of the resource that is unique within a policy. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
+	// Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+	Priority int `pulumi:"priority"`
+	// The rule type.
+	RuleType string `pulumi:"ruleType"`
+}
+
+// WebApplicationFirewallCustomRuleInput is an input type that accepts WebApplicationFirewallCustomRuleArgs and WebApplicationFirewallCustomRuleOutput values.
+// You can construct a concrete instance of `WebApplicationFirewallCustomRuleInput` via:
+//
+//          WebApplicationFirewallCustomRuleArgs{...}
+type WebApplicationFirewallCustomRuleInput interface {
+	pulumi.Input
+
+	ToWebApplicationFirewallCustomRuleOutput() WebApplicationFirewallCustomRuleOutput
+	ToWebApplicationFirewallCustomRuleOutputWithContext(context.Context) WebApplicationFirewallCustomRuleOutput
+}
+
+// Defines contents of a web application rule.
+type WebApplicationFirewallCustomRuleArgs struct {
+	// Type of Actions.
+	Action pulumi.StringInput `pulumi:"action"`
+	// List of match conditions.
+	MatchConditions MatchConditionArrayInput `pulumi:"matchConditions"`
+	// The name of the resource that is unique within a policy. This name can be used to access the resource.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The rule type.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+}
+
+func (WebApplicationFirewallCustomRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebApplicationFirewallCustomRule)(nil)).Elem()
+}
+
+func (i WebApplicationFirewallCustomRuleArgs) ToWebApplicationFirewallCustomRuleOutput() WebApplicationFirewallCustomRuleOutput {
+	return i.ToWebApplicationFirewallCustomRuleOutputWithContext(context.Background())
+}
+
+func (i WebApplicationFirewallCustomRuleArgs) ToWebApplicationFirewallCustomRuleOutputWithContext(ctx context.Context) WebApplicationFirewallCustomRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebApplicationFirewallCustomRuleOutput)
+}
+
+// WebApplicationFirewallCustomRuleArrayInput is an input type that accepts WebApplicationFirewallCustomRuleArray and WebApplicationFirewallCustomRuleArrayOutput values.
+// You can construct a concrete instance of `WebApplicationFirewallCustomRuleArrayInput` via:
+//
+//          WebApplicationFirewallCustomRuleArray{ WebApplicationFirewallCustomRuleArgs{...} }
+type WebApplicationFirewallCustomRuleArrayInput interface {
+	pulumi.Input
+
+	ToWebApplicationFirewallCustomRuleArrayOutput() WebApplicationFirewallCustomRuleArrayOutput
+	ToWebApplicationFirewallCustomRuleArrayOutputWithContext(context.Context) WebApplicationFirewallCustomRuleArrayOutput
+}
+
+type WebApplicationFirewallCustomRuleArray []WebApplicationFirewallCustomRuleInput
+
+func (WebApplicationFirewallCustomRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebApplicationFirewallCustomRule)(nil)).Elem()
+}
+
+func (i WebApplicationFirewallCustomRuleArray) ToWebApplicationFirewallCustomRuleArrayOutput() WebApplicationFirewallCustomRuleArrayOutput {
+	return i.ToWebApplicationFirewallCustomRuleArrayOutputWithContext(context.Background())
+}
+
+func (i WebApplicationFirewallCustomRuleArray) ToWebApplicationFirewallCustomRuleArrayOutputWithContext(ctx context.Context) WebApplicationFirewallCustomRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebApplicationFirewallCustomRuleArrayOutput)
+}
+
+// Defines contents of a web application rule.
+type WebApplicationFirewallCustomRuleOutput struct{ *pulumi.OutputState }
+
+func (WebApplicationFirewallCustomRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebApplicationFirewallCustomRule)(nil)).Elem()
+}
+
+func (o WebApplicationFirewallCustomRuleOutput) ToWebApplicationFirewallCustomRuleOutput() WebApplicationFirewallCustomRuleOutput {
+	return o
+}
+
+func (o WebApplicationFirewallCustomRuleOutput) ToWebApplicationFirewallCustomRuleOutputWithContext(ctx context.Context) WebApplicationFirewallCustomRuleOutput {
+	return o
+}
+
+// Type of Actions.
+func (o WebApplicationFirewallCustomRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v WebApplicationFirewallCustomRule) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// List of match conditions.
+func (o WebApplicationFirewallCustomRuleOutput) MatchConditions() MatchConditionArrayOutput {
+	return o.ApplyT(func(v WebApplicationFirewallCustomRule) []MatchCondition { return v.MatchConditions }).(MatchConditionArrayOutput)
+}
+
+// The name of the resource that is unique within a policy. This name can be used to access the resource.
+func (o WebApplicationFirewallCustomRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebApplicationFirewallCustomRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+func (o WebApplicationFirewallCustomRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebApplicationFirewallCustomRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The rule type.
+func (o WebApplicationFirewallCustomRuleOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebApplicationFirewallCustomRule) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+type WebApplicationFirewallCustomRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (WebApplicationFirewallCustomRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebApplicationFirewallCustomRule)(nil)).Elem()
+}
+
+func (o WebApplicationFirewallCustomRuleArrayOutput) ToWebApplicationFirewallCustomRuleArrayOutput() WebApplicationFirewallCustomRuleArrayOutput {
+	return o
+}
+
+func (o WebApplicationFirewallCustomRuleArrayOutput) ToWebApplicationFirewallCustomRuleArrayOutputWithContext(ctx context.Context) WebApplicationFirewallCustomRuleArrayOutput {
+	return o
+}
+
+func (o WebApplicationFirewallCustomRuleArrayOutput) Index(i pulumi.IntInput) WebApplicationFirewallCustomRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebApplicationFirewallCustomRule {
+		return vs[0].([]WebApplicationFirewallCustomRule)[vs[1].(int)]
+	}).(WebApplicationFirewallCustomRuleOutput)
+}
+
+// Defines contents of a web application rule.
+type WebApplicationFirewallCustomRuleResponse struct {
+	// Type of Actions.
+	Action string `pulumi:"action"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag string `pulumi:"etag"`
+	// List of match conditions.
+	MatchConditions []MatchConditionResponse `pulumi:"matchConditions"`
+	// The name of the resource that is unique within a policy. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
+	// Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+	Priority int `pulumi:"priority"`
+	// The rule type.
+	RuleType string `pulumi:"ruleType"`
+}
+
+// WebApplicationFirewallCustomRuleResponseInput is an input type that accepts WebApplicationFirewallCustomRuleResponseArgs and WebApplicationFirewallCustomRuleResponseOutput values.
+// You can construct a concrete instance of `WebApplicationFirewallCustomRuleResponseInput` via:
+//
+//          WebApplicationFirewallCustomRuleResponseArgs{...}
+type WebApplicationFirewallCustomRuleResponseInput interface {
+	pulumi.Input
+
+	ToWebApplicationFirewallCustomRuleResponseOutput() WebApplicationFirewallCustomRuleResponseOutput
+	ToWebApplicationFirewallCustomRuleResponseOutputWithContext(context.Context) WebApplicationFirewallCustomRuleResponseOutput
+}
+
+// Defines contents of a web application rule.
+type WebApplicationFirewallCustomRuleResponseArgs struct {
+	// Type of Actions.
+	Action pulumi.StringInput `pulumi:"action"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// List of match conditions.
+	MatchConditions MatchConditionResponseArrayInput `pulumi:"matchConditions"`
+	// The name of the resource that is unique within a policy. This name can be used to access the resource.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The rule type.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+}
+
+func (WebApplicationFirewallCustomRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebApplicationFirewallCustomRuleResponse)(nil)).Elem()
+}
+
+func (i WebApplicationFirewallCustomRuleResponseArgs) ToWebApplicationFirewallCustomRuleResponseOutput() WebApplicationFirewallCustomRuleResponseOutput {
+	return i.ToWebApplicationFirewallCustomRuleResponseOutputWithContext(context.Background())
+}
+
+func (i WebApplicationFirewallCustomRuleResponseArgs) ToWebApplicationFirewallCustomRuleResponseOutputWithContext(ctx context.Context) WebApplicationFirewallCustomRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebApplicationFirewallCustomRuleResponseOutput)
+}
+
+// WebApplicationFirewallCustomRuleResponseArrayInput is an input type that accepts WebApplicationFirewallCustomRuleResponseArray and WebApplicationFirewallCustomRuleResponseArrayOutput values.
+// You can construct a concrete instance of `WebApplicationFirewallCustomRuleResponseArrayInput` via:
+//
+//          WebApplicationFirewallCustomRuleResponseArray{ WebApplicationFirewallCustomRuleResponseArgs{...} }
+type WebApplicationFirewallCustomRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToWebApplicationFirewallCustomRuleResponseArrayOutput() WebApplicationFirewallCustomRuleResponseArrayOutput
+	ToWebApplicationFirewallCustomRuleResponseArrayOutputWithContext(context.Context) WebApplicationFirewallCustomRuleResponseArrayOutput
+}
+
+type WebApplicationFirewallCustomRuleResponseArray []WebApplicationFirewallCustomRuleResponseInput
+
+func (WebApplicationFirewallCustomRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebApplicationFirewallCustomRuleResponse)(nil)).Elem()
+}
+
+func (i WebApplicationFirewallCustomRuleResponseArray) ToWebApplicationFirewallCustomRuleResponseArrayOutput() WebApplicationFirewallCustomRuleResponseArrayOutput {
+	return i.ToWebApplicationFirewallCustomRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i WebApplicationFirewallCustomRuleResponseArray) ToWebApplicationFirewallCustomRuleResponseArrayOutputWithContext(ctx context.Context) WebApplicationFirewallCustomRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebApplicationFirewallCustomRuleResponseArrayOutput)
+}
+
+// Defines contents of a web application rule.
+type WebApplicationFirewallCustomRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (WebApplicationFirewallCustomRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebApplicationFirewallCustomRuleResponse)(nil)).Elem()
+}
+
+func (o WebApplicationFirewallCustomRuleResponseOutput) ToWebApplicationFirewallCustomRuleResponseOutput() WebApplicationFirewallCustomRuleResponseOutput {
+	return o
+}
+
+func (o WebApplicationFirewallCustomRuleResponseOutput) ToWebApplicationFirewallCustomRuleResponseOutputWithContext(ctx context.Context) WebApplicationFirewallCustomRuleResponseOutput {
+	return o
+}
+
+// Type of Actions.
+func (o WebApplicationFirewallCustomRuleResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v WebApplicationFirewallCustomRuleResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o WebApplicationFirewallCustomRuleResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v WebApplicationFirewallCustomRuleResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// List of match conditions.
+func (o WebApplicationFirewallCustomRuleResponseOutput) MatchConditions() MatchConditionResponseArrayOutput {
+	return o.ApplyT(func(v WebApplicationFirewallCustomRuleResponse) []MatchConditionResponse { return v.MatchConditions }).(MatchConditionResponseArrayOutput)
+}
+
+// The name of the resource that is unique within a policy. This name can be used to access the resource.
+func (o WebApplicationFirewallCustomRuleResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebApplicationFirewallCustomRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+func (o WebApplicationFirewallCustomRuleResponseOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebApplicationFirewallCustomRuleResponse) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The rule type.
+func (o WebApplicationFirewallCustomRuleResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebApplicationFirewallCustomRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+type WebApplicationFirewallCustomRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WebApplicationFirewallCustomRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebApplicationFirewallCustomRuleResponse)(nil)).Elem()
+}
+
+func (o WebApplicationFirewallCustomRuleResponseArrayOutput) ToWebApplicationFirewallCustomRuleResponseArrayOutput() WebApplicationFirewallCustomRuleResponseArrayOutput {
+	return o
+}
+
+func (o WebApplicationFirewallCustomRuleResponseArrayOutput) ToWebApplicationFirewallCustomRuleResponseArrayOutputWithContext(ctx context.Context) WebApplicationFirewallCustomRuleResponseArrayOutput {
+	return o
+}
+
+func (o WebApplicationFirewallCustomRuleResponseArrayOutput) Index(i pulumi.IntInput) WebApplicationFirewallCustomRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebApplicationFirewallCustomRuleResponse {
+		return vs[0].([]WebApplicationFirewallCustomRuleResponse)[vs[1].(int)]
+	}).(WebApplicationFirewallCustomRuleResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AadAuthenticationParametersOutput{})
 	pulumi.RegisterOutputType(AadAuthenticationParametersPtrOutput{})
@@ -67037,6 +69887,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayRequestRoutingRuleArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayRequestRoutingRuleResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayRequestRoutingRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleActionSetOutput{})
@@ -67433,12 +70285,36 @@ func init() {
 	pulumi.RegisterOutputType(LocalNetworkGatewayTypePtrOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayResponseOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedRuleGroupOverrideOutput{})
+	pulumi.RegisterOutputType(ManagedRuleGroupOverrideArrayOutput{})
+	pulumi.RegisterOutputType(ManagedRuleGroupOverrideResponseOutput{})
+	pulumi.RegisterOutputType(ManagedRuleGroupOverrideResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedRuleOverrideOutput{})
+	pulumi.RegisterOutputType(ManagedRuleOverrideArrayOutput{})
+	pulumi.RegisterOutputType(ManagedRuleOverrideResponseOutput{})
+	pulumi.RegisterOutputType(ManagedRuleOverrideResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedRuleSetOutput{})
+	pulumi.RegisterOutputType(ManagedRuleSetArrayOutput{})
+	pulumi.RegisterOutputType(ManagedRuleSetResponseOutput{})
+	pulumi.RegisterOutputType(ManagedRuleSetResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedRulesDefinitionOutput{})
+	pulumi.RegisterOutputType(ManagedRulesDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ManagedRulesDefinitionResponseOutput{})
+	pulumi.RegisterOutputType(ManagedRulesDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseUserAssignedIdentitiesOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput{})
+	pulumi.RegisterOutputType(MatchConditionOutput{})
+	pulumi.RegisterOutputType(MatchConditionArrayOutput{})
+	pulumi.RegisterOutputType(MatchConditionResponseOutput{})
+	pulumi.RegisterOutputType(MatchConditionResponseArrayOutput{})
+	pulumi.RegisterOutputType(MatchVariableOutput{})
+	pulumi.RegisterOutputType(MatchVariableArrayOutput{})
+	pulumi.RegisterOutputType(MatchVariableResponseOutput{})
+	pulumi.RegisterOutputType(MatchVariableResponseArrayOutput{})
 	pulumi.RegisterOutputType(NatGatewaySkuOutput{})
 	pulumi.RegisterOutputType(NatGatewaySkuPtrOutput{})
 	pulumi.RegisterOutputType(NatGatewaySkuResponseOutput{})
@@ -67475,6 +70351,10 @@ func init() {
 	pulumi.RegisterOutputType(OutboundRuleArrayOutput{})
 	pulumi.RegisterOutputType(OutboundRuleResponseOutput{})
 	pulumi.RegisterOutputType(OutboundRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(OwaspCrsExclusionEntryOutput{})
+	pulumi.RegisterOutputType(OwaspCrsExclusionEntryArrayOutput{})
+	pulumi.RegisterOutputType(OwaspCrsExclusionEntryResponseOutput{})
+	pulumi.RegisterOutputType(OwaspCrsExclusionEntryResponseArrayOutput{})
 	pulumi.RegisterOutputType(P2SConnectionConfigurationOutput{})
 	pulumi.RegisterOutputType(P2SConnectionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(P2SConnectionConfigurationResponseOutput{})
@@ -67491,6 +70371,10 @@ func init() {
 	pulumi.RegisterOutputType(PacketCaptureStorageLocationResponsePtrOutput{})
 	pulumi.RegisterOutputType(PeerExpressRouteCircuitConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PeerExpressRouteCircuitConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PolicySettingsOutput{})
+	pulumi.RegisterOutputType(PolicySettingsPtrOutput{})
+	pulumi.RegisterOutputType(PolicySettingsResponseOutput{})
+	pulumi.RegisterOutputType(PolicySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateDnsZoneConfigOutput{})
 	pulumi.RegisterOutputType(PrivateDnsZoneConfigArrayOutput{})
 	pulumi.RegisterOutputType(PrivateDnsZoneConfigResponseOutput{})
@@ -67754,4 +70638,8 @@ func init() {
 	pulumi.RegisterOutputType(VpnSiteLinkConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkResponseOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkResponseArrayOutput{})
+	pulumi.RegisterOutputType(WebApplicationFirewallCustomRuleOutput{})
+	pulumi.RegisterOutputType(WebApplicationFirewallCustomRuleArrayOutput{})
+	pulumi.RegisterOutputType(WebApplicationFirewallCustomRuleResponseOutput{})
+	pulumi.RegisterOutputType(WebApplicationFirewallCustomRuleResponseArrayOutput{})
 }

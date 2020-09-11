@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
+namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
 {
     public static class GetServerAdministrator
     {
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
         /// </summary>
         public readonly string Login;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
 

@@ -49,7 +49,7 @@ export interface GetServerKeyResult {
      */
     readonly kind: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -57,7 +57,7 @@ export interface GetServerKeyResult {
      */
     readonly serverKeyType: string;
     /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
     /**

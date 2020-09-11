@@ -808,7 +808,7 @@ type ClientCertificate struct {
 	CommonName *string `pulumi:"commonName"`
 	// Whether the certificate is admin or not.
 	IsAdmin bool `pulumi:"isAdmin"`
-	// Issuer thumbprint for the certificate. Its only use ehn CommonName is used.
+	// Issuer thumbprint for the certificate. Its only use CommonName is used.
 	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
 	// Certificate Thumbprint.
 	Thumbprint *string `pulumi:"thumbprint"`
@@ -831,7 +831,7 @@ type ClientCertificateArgs struct {
 	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
 	// Whether the certificate is admin or not.
 	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
-	// Issuer thumbprint for the certificate. Its only use ehn CommonName is used.
+	// Issuer thumbprint for the certificate. Its only use CommonName is used.
 	IssuerThumbprint pulumi.StringPtrInput `pulumi:"issuerThumbprint"`
 	// Certificate Thumbprint.
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
@@ -899,7 +899,7 @@ func (o ClientCertificateOutput) IsAdmin() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClientCertificate) bool { return v.IsAdmin }).(pulumi.BoolOutput)
 }
 
-// Issuer thumbprint for the certificate. Its only use ehn CommonName is used.
+// Issuer thumbprint for the certificate. Its only use CommonName is used.
 func (o ClientCertificateOutput) IssuerThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificate) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
 }
@@ -935,7 +935,7 @@ type ClientCertificateResponse struct {
 	CommonName *string `pulumi:"commonName"`
 	// Whether the certificate is admin or not.
 	IsAdmin bool `pulumi:"isAdmin"`
-	// Issuer thumbprint for the certificate. Its only use ehn CommonName is used.
+	// Issuer thumbprint for the certificate. Its only use CommonName is used.
 	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
 	// Certificate Thumbprint.
 	Thumbprint *string `pulumi:"thumbprint"`
@@ -958,7 +958,7 @@ type ClientCertificateResponseArgs struct {
 	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
 	// Whether the certificate is admin or not.
 	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
-	// Issuer thumbprint for the certificate. Its only use ehn CommonName is used.
+	// Issuer thumbprint for the certificate. Its only use CommonName is used.
 	IssuerThumbprint pulumi.StringPtrInput `pulumi:"issuerThumbprint"`
 	// Certificate Thumbprint.
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
@@ -1026,7 +1026,7 @@ func (o ClientCertificateResponseOutput) IsAdmin() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClientCertificateResponse) bool { return v.IsAdmin }).(pulumi.BoolOutput)
 }
 
-// Issuer thumbprint for the certificate. Its only use ehn CommonName is used.
+// Issuer thumbprint for the certificate. Its only use CommonName is used.
 func (o ClientCertificateResponseOutput) IssuerThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificateResponse) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
 }
@@ -4256,7 +4256,7 @@ func (o SettingsSectionDescriptionResponseArrayOutput) Index(i pulumi.IntInput) 
 
 // Sku definition
 type Sku struct {
-	// Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+	// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
 	Name string `pulumi:"name"`
 }
 
@@ -4273,7 +4273,7 @@ type SkuInput interface {
 
 // Sku definition
 type SkuArgs struct {
-	// Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+	// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -4355,7 +4355,7 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4378,7 +4378,7 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
-// Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -4390,7 +4390,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 
 // Sku definition
 type SkuResponse struct {
-	// Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+	// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
 	Name string `pulumi:"name"`
 }
 
@@ -4407,7 +4407,7 @@ type SkuResponseInput interface {
 
 // Sku definition
 type SkuResponseArgs struct {
-	// Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+	// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -4489,7 +4489,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4512,7 +4512,7 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
-// Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

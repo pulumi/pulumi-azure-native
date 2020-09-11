@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMariaDB.V20180601Preview.Outputs
+namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview.Outputs
 {
 
     [OutputType]

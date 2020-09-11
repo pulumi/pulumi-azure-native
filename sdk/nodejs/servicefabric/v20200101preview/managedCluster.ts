@@ -131,10 +131,6 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The endpoint used by reverse proxy.
-     */
-    public readonly reverseProxyEndpointPort!: pulumi.Output<number | undefined>;
-    /**
      * The sku of the managed cluster
      */
     public readonly sku!: pulumi.Output<outputs.servicefabric.v20200101preview.SkuResponse | undefined>;
@@ -146,10 +142,6 @@ export class ManagedCluster extends pulumi.CustomResource {
      * Azure resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Use service fabric test vm extension, by default it's false.
-     */
-    public readonly useTestExtension!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ManagedCluster resource with the given unique name, arguments, and options.
@@ -191,10 +183,8 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["reverseProxyEndpointPort"] = args ? args.reverseProxyEndpointPort : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["useTestExtension"] = args ? args.useTestExtension : undefined;
             inputs["clusterCertificateThumbprint"] = undefined /*out*/;
             inputs["clusterId"] = undefined /*out*/;
             inputs["clusterState"] = undefined /*out*/;
@@ -224,11 +214,9 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["reverseProxyEndpointPort"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["useTestExtension"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -309,10 +297,6 @@ export interface ManagedClusterArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The endpoint used by reverse proxy.
-     */
-    readonly reverseProxyEndpointPort?: pulumi.Input<number>;
-    /**
      * The sku of the managed cluster
      */
     readonly sku?: pulumi.Input<inputs.servicefabric.v20200101preview.Sku>;
@@ -320,8 +304,4 @@ export interface ManagedClusterArgs {
      * Azure resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Use service fabric test vm extension, by default it's false.
-     */
-    readonly useTestExtension?: pulumi.Input<boolean>;
 }

@@ -31,7 +31,7 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_profile_assignment_name: Name of the configuration profile assignment. Only default is supported.
         :param pulumi.Input[pulumi.InputType['ConfigurationProfileAssignmentPropertiesArgs']] properties: Properties of the configuration profile assignment.
-        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] vm_name: The name of the virtual machine.
         """
         if __name__ is not None:
@@ -61,7 +61,6 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
             if vm_name is None:
                 raise TypeError("Missing required property 'vm_name'")
             __props__['vm_name'] = vm_name
-            __props__['location'] = None
             __props__['name'] = None
             __props__['type'] = None
         super(ConfigurationProfileAssignment, __self__).__init__(
@@ -90,17 +89,9 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        Region where the VM is located.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Automanage assignment.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -116,7 +107,7 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 

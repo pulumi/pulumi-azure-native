@@ -3286,6 +3286,2069 @@ func (o AmlComputeResponsePropertiesPtrOutput) VmSize() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A user that can be assigned to a compute instance.
+type AssignedUser struct {
+	// User’s AAD Object Id.
+	ObjectId string `pulumi:"objectId"`
+	// User’s AAD Tenant Id.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// AssignedUserInput is an input type that accepts AssignedUserArgs and AssignedUserOutput values.
+// You can construct a concrete instance of `AssignedUserInput` via:
+//
+//          AssignedUserArgs{...}
+type AssignedUserInput interface {
+	pulumi.Input
+
+	ToAssignedUserOutput() AssignedUserOutput
+	ToAssignedUserOutputWithContext(context.Context) AssignedUserOutput
+}
+
+// A user that can be assigned to a compute instance.
+type AssignedUserArgs struct {
+	// User’s AAD Object Id.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// User’s AAD Tenant Id.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (AssignedUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignedUser)(nil)).Elem()
+}
+
+func (i AssignedUserArgs) ToAssignedUserOutput() AssignedUserOutput {
+	return i.ToAssignedUserOutputWithContext(context.Background())
+}
+
+func (i AssignedUserArgs) ToAssignedUserOutputWithContext(ctx context.Context) AssignedUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignedUserOutput)
+}
+
+func (i AssignedUserArgs) ToAssignedUserPtrOutput() AssignedUserPtrOutput {
+	return i.ToAssignedUserPtrOutputWithContext(context.Background())
+}
+
+func (i AssignedUserArgs) ToAssignedUserPtrOutputWithContext(ctx context.Context) AssignedUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignedUserOutput).ToAssignedUserPtrOutputWithContext(ctx)
+}
+
+// AssignedUserPtrInput is an input type that accepts AssignedUserArgs, AssignedUserPtr and AssignedUserPtrOutput values.
+// You can construct a concrete instance of `AssignedUserPtrInput` via:
+//
+//          AssignedUserArgs{...}
+//
+//  or:
+//
+//          nil
+type AssignedUserPtrInput interface {
+	pulumi.Input
+
+	ToAssignedUserPtrOutput() AssignedUserPtrOutput
+	ToAssignedUserPtrOutputWithContext(context.Context) AssignedUserPtrOutput
+}
+
+type assignedUserPtrType AssignedUserArgs
+
+func AssignedUserPtr(v *AssignedUserArgs) AssignedUserPtrInput {
+	return (*assignedUserPtrType)(v)
+}
+
+func (*assignedUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignedUser)(nil)).Elem()
+}
+
+func (i *assignedUserPtrType) ToAssignedUserPtrOutput() AssignedUserPtrOutput {
+	return i.ToAssignedUserPtrOutputWithContext(context.Background())
+}
+
+func (i *assignedUserPtrType) ToAssignedUserPtrOutputWithContext(ctx context.Context) AssignedUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignedUserPtrOutput)
+}
+
+// A user that can be assigned to a compute instance.
+type AssignedUserOutput struct{ *pulumi.OutputState }
+
+func (AssignedUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignedUser)(nil)).Elem()
+}
+
+func (o AssignedUserOutput) ToAssignedUserOutput() AssignedUserOutput {
+	return o
+}
+
+func (o AssignedUserOutput) ToAssignedUserOutputWithContext(ctx context.Context) AssignedUserOutput {
+	return o
+}
+
+func (o AssignedUserOutput) ToAssignedUserPtrOutput() AssignedUserPtrOutput {
+	return o.ToAssignedUserPtrOutputWithContext(context.Background())
+}
+
+func (o AssignedUserOutput) ToAssignedUserPtrOutputWithContext(ctx context.Context) AssignedUserPtrOutput {
+	return o.ApplyT(func(v AssignedUser) *AssignedUser {
+		return &v
+	}).(AssignedUserPtrOutput)
+}
+
+// User’s AAD Object Id.
+func (o AssignedUserOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignedUser) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// User’s AAD Tenant Id.
+func (o AssignedUserOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignedUser) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type AssignedUserPtrOutput struct{ *pulumi.OutputState }
+
+func (AssignedUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignedUser)(nil)).Elem()
+}
+
+func (o AssignedUserPtrOutput) ToAssignedUserPtrOutput() AssignedUserPtrOutput {
+	return o
+}
+
+func (o AssignedUserPtrOutput) ToAssignedUserPtrOutputWithContext(ctx context.Context) AssignedUserPtrOutput {
+	return o
+}
+
+func (o AssignedUserPtrOutput) Elem() AssignedUserOutput {
+	return o.ApplyT(func(v *AssignedUser) AssignedUser { return *v }).(AssignedUserOutput)
+}
+
+// User’s AAD Object Id.
+func (o AssignedUserPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignedUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// User’s AAD Tenant Id.
+func (o AssignedUserPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignedUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A user that can be assigned to a compute instance.
+type AssignedUserResponse struct {
+	// User’s AAD Object Id.
+	ObjectId string `pulumi:"objectId"`
+	// User’s AAD Tenant Id.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// AssignedUserResponseInput is an input type that accepts AssignedUserResponseArgs and AssignedUserResponseOutput values.
+// You can construct a concrete instance of `AssignedUserResponseInput` via:
+//
+//          AssignedUserResponseArgs{...}
+type AssignedUserResponseInput interface {
+	pulumi.Input
+
+	ToAssignedUserResponseOutput() AssignedUserResponseOutput
+	ToAssignedUserResponseOutputWithContext(context.Context) AssignedUserResponseOutput
+}
+
+// A user that can be assigned to a compute instance.
+type AssignedUserResponseArgs struct {
+	// User’s AAD Object Id.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// User’s AAD Tenant Id.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (AssignedUserResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignedUserResponse)(nil)).Elem()
+}
+
+func (i AssignedUserResponseArgs) ToAssignedUserResponseOutput() AssignedUserResponseOutput {
+	return i.ToAssignedUserResponseOutputWithContext(context.Background())
+}
+
+func (i AssignedUserResponseArgs) ToAssignedUserResponseOutputWithContext(ctx context.Context) AssignedUserResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignedUserResponseOutput)
+}
+
+func (i AssignedUserResponseArgs) ToAssignedUserResponsePtrOutput() AssignedUserResponsePtrOutput {
+	return i.ToAssignedUserResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AssignedUserResponseArgs) ToAssignedUserResponsePtrOutputWithContext(ctx context.Context) AssignedUserResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignedUserResponseOutput).ToAssignedUserResponsePtrOutputWithContext(ctx)
+}
+
+// AssignedUserResponsePtrInput is an input type that accepts AssignedUserResponseArgs, AssignedUserResponsePtr and AssignedUserResponsePtrOutput values.
+// You can construct a concrete instance of `AssignedUserResponsePtrInput` via:
+//
+//          AssignedUserResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AssignedUserResponsePtrInput interface {
+	pulumi.Input
+
+	ToAssignedUserResponsePtrOutput() AssignedUserResponsePtrOutput
+	ToAssignedUserResponsePtrOutputWithContext(context.Context) AssignedUserResponsePtrOutput
+}
+
+type assignedUserResponsePtrType AssignedUserResponseArgs
+
+func AssignedUserResponsePtr(v *AssignedUserResponseArgs) AssignedUserResponsePtrInput {
+	return (*assignedUserResponsePtrType)(v)
+}
+
+func (*assignedUserResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignedUserResponse)(nil)).Elem()
+}
+
+func (i *assignedUserResponsePtrType) ToAssignedUserResponsePtrOutput() AssignedUserResponsePtrOutput {
+	return i.ToAssignedUserResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *assignedUserResponsePtrType) ToAssignedUserResponsePtrOutputWithContext(ctx context.Context) AssignedUserResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignedUserResponsePtrOutput)
+}
+
+// A user that can be assigned to a compute instance.
+type AssignedUserResponseOutput struct{ *pulumi.OutputState }
+
+func (AssignedUserResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignedUserResponse)(nil)).Elem()
+}
+
+func (o AssignedUserResponseOutput) ToAssignedUserResponseOutput() AssignedUserResponseOutput {
+	return o
+}
+
+func (o AssignedUserResponseOutput) ToAssignedUserResponseOutputWithContext(ctx context.Context) AssignedUserResponseOutput {
+	return o
+}
+
+func (o AssignedUserResponseOutput) ToAssignedUserResponsePtrOutput() AssignedUserResponsePtrOutput {
+	return o.ToAssignedUserResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AssignedUserResponseOutput) ToAssignedUserResponsePtrOutputWithContext(ctx context.Context) AssignedUserResponsePtrOutput {
+	return o.ApplyT(func(v AssignedUserResponse) *AssignedUserResponse {
+		return &v
+	}).(AssignedUserResponsePtrOutput)
+}
+
+// User’s AAD Object Id.
+func (o AssignedUserResponseOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignedUserResponse) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// User’s AAD Tenant Id.
+func (o AssignedUserResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignedUserResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type AssignedUserResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AssignedUserResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignedUserResponse)(nil)).Elem()
+}
+
+func (o AssignedUserResponsePtrOutput) ToAssignedUserResponsePtrOutput() AssignedUserResponsePtrOutput {
+	return o
+}
+
+func (o AssignedUserResponsePtrOutput) ToAssignedUserResponsePtrOutputWithContext(ctx context.Context) AssignedUserResponsePtrOutput {
+	return o
+}
+
+func (o AssignedUserResponsePtrOutput) Elem() AssignedUserResponseOutput {
+	return o.ApplyT(func(v *AssignedUserResponse) AssignedUserResponse { return *v }).(AssignedUserResponseOutput)
+}
+
+// User’s AAD Object Id.
+func (o AssignedUserResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignedUserResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// User’s AAD Tenant Id.
+func (o AssignedUserResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignedUserResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// An Azure Machine Learning compute instance.
+type ComputeInstance struct {
+	// Location for the underlying compute
+	ComputeLocation *string `pulumi:"computeLocation"`
+	// The type of compute
+	ComputeType string `pulumi:"computeType"`
+	// The description of the Machine Learning compute.
+	Description *string `pulumi:"description"`
+	// Compute Instance properties
+	Properties *ComputeInstanceProperties `pulumi:"properties"`
+	// ARM resource id of the underlying compute
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// ComputeInstanceInput is an input type that accepts ComputeInstanceArgs and ComputeInstanceOutput values.
+// You can construct a concrete instance of `ComputeInstanceInput` via:
+//
+//          ComputeInstanceArgs{...}
+type ComputeInstanceInput interface {
+	pulumi.Input
+
+	ToComputeInstanceOutput() ComputeInstanceOutput
+	ToComputeInstanceOutputWithContext(context.Context) ComputeInstanceOutput
+}
+
+// An Azure Machine Learning compute instance.
+type ComputeInstanceArgs struct {
+	// Location for the underlying compute
+	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
+	// The type of compute
+	ComputeType pulumi.StringInput `pulumi:"computeType"`
+	// The description of the Machine Learning compute.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Compute Instance properties
+	Properties ComputeInstancePropertiesPtrInput `pulumi:"properties"`
+	// ARM resource id of the underlying compute
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (ComputeInstanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstance)(nil)).Elem()
+}
+
+func (i ComputeInstanceArgs) ToComputeInstanceOutput() ComputeInstanceOutput {
+	return i.ToComputeInstanceOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceArgs) ToComputeInstanceOutputWithContext(ctx context.Context) ComputeInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceOutput)
+}
+
+// An Azure Machine Learning compute instance.
+type ComputeInstanceOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstance)(nil)).Elem()
+}
+
+func (o ComputeInstanceOutput) ToComputeInstanceOutput() ComputeInstanceOutput {
+	return o
+}
+
+func (o ComputeInstanceOutput) ToComputeInstanceOutputWithContext(ctx context.Context) ComputeInstanceOutput {
+	return o
+}
+
+// Location for the underlying compute
+func (o ComputeInstanceOutput) ComputeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstance) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
+}
+
+// The type of compute
+func (o ComputeInstanceOutput) ComputeType() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstance) string { return v.ComputeType }).(pulumi.StringOutput)
+}
+
+// The description of the Machine Learning compute.
+func (o ComputeInstanceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstance) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Compute Instance properties
+func (o ComputeInstanceOutput) Properties() ComputeInstancePropertiesPtrOutput {
+	return o.ApplyT(func(v ComputeInstance) *ComputeInstanceProperties { return v.Properties }).(ComputeInstancePropertiesPtrOutput)
+}
+
+// ARM resource id of the underlying compute
+func (o ComputeInstanceOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstance) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Defines an Aml Instance application and its connectivity endpoint URI.
+type ComputeInstanceApplicationResponse struct {
+	// Name of the ComputeInstance application.
+	DisplayName *string `pulumi:"displayName"`
+	// Application' endpoint URI.
+	EndpointUri *string `pulumi:"endpointUri"`
+}
+
+// ComputeInstanceApplicationResponseInput is an input type that accepts ComputeInstanceApplicationResponseArgs and ComputeInstanceApplicationResponseOutput values.
+// You can construct a concrete instance of `ComputeInstanceApplicationResponseInput` via:
+//
+//          ComputeInstanceApplicationResponseArgs{...}
+type ComputeInstanceApplicationResponseInput interface {
+	pulumi.Input
+
+	ToComputeInstanceApplicationResponseOutput() ComputeInstanceApplicationResponseOutput
+	ToComputeInstanceApplicationResponseOutputWithContext(context.Context) ComputeInstanceApplicationResponseOutput
+}
+
+// Defines an Aml Instance application and its connectivity endpoint URI.
+type ComputeInstanceApplicationResponseArgs struct {
+	// Name of the ComputeInstance application.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Application' endpoint URI.
+	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
+}
+
+func (ComputeInstanceApplicationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceApplicationResponse)(nil)).Elem()
+}
+
+func (i ComputeInstanceApplicationResponseArgs) ToComputeInstanceApplicationResponseOutput() ComputeInstanceApplicationResponseOutput {
+	return i.ToComputeInstanceApplicationResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceApplicationResponseArgs) ToComputeInstanceApplicationResponseOutputWithContext(ctx context.Context) ComputeInstanceApplicationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceApplicationResponseOutput)
+}
+
+// ComputeInstanceApplicationResponseArrayInput is an input type that accepts ComputeInstanceApplicationResponseArray and ComputeInstanceApplicationResponseArrayOutput values.
+// You can construct a concrete instance of `ComputeInstanceApplicationResponseArrayInput` via:
+//
+//          ComputeInstanceApplicationResponseArray{ ComputeInstanceApplicationResponseArgs{...} }
+type ComputeInstanceApplicationResponseArrayInput interface {
+	pulumi.Input
+
+	ToComputeInstanceApplicationResponseArrayOutput() ComputeInstanceApplicationResponseArrayOutput
+	ToComputeInstanceApplicationResponseArrayOutputWithContext(context.Context) ComputeInstanceApplicationResponseArrayOutput
+}
+
+type ComputeInstanceApplicationResponseArray []ComputeInstanceApplicationResponseInput
+
+func (ComputeInstanceApplicationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeInstanceApplicationResponse)(nil)).Elem()
+}
+
+func (i ComputeInstanceApplicationResponseArray) ToComputeInstanceApplicationResponseArrayOutput() ComputeInstanceApplicationResponseArrayOutput {
+	return i.ToComputeInstanceApplicationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceApplicationResponseArray) ToComputeInstanceApplicationResponseArrayOutputWithContext(ctx context.Context) ComputeInstanceApplicationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceApplicationResponseArrayOutput)
+}
+
+// Defines an Aml Instance application and its connectivity endpoint URI.
+type ComputeInstanceApplicationResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceApplicationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceApplicationResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceApplicationResponseOutput) ToComputeInstanceApplicationResponseOutput() ComputeInstanceApplicationResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceApplicationResponseOutput) ToComputeInstanceApplicationResponseOutputWithContext(ctx context.Context) ComputeInstanceApplicationResponseOutput {
+	return o
+}
+
+// Name of the ComputeInstance application.
+func (o ComputeInstanceApplicationResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceApplicationResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Application' endpoint URI.
+func (o ComputeInstanceApplicationResponseOutput) EndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceApplicationResponse) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
+}
+
+type ComputeInstanceApplicationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceApplicationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeInstanceApplicationResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceApplicationResponseArrayOutput) ToComputeInstanceApplicationResponseArrayOutput() ComputeInstanceApplicationResponseArrayOutput {
+	return o
+}
+
+func (o ComputeInstanceApplicationResponseArrayOutput) ToComputeInstanceApplicationResponseArrayOutputWithContext(ctx context.Context) ComputeInstanceApplicationResponseArrayOutput {
+	return o
+}
+
+func (o ComputeInstanceApplicationResponseArrayOutput) Index(i pulumi.IntInput) ComputeInstanceApplicationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputeInstanceApplicationResponse {
+		return vs[0].([]ComputeInstanceApplicationResponse)[vs[1].(int)]
+	}).(ComputeInstanceApplicationResponseOutput)
+}
+
+// Defines all connectivity endpoints and properties for an ComputeInstance.
+type ComputeInstanceConnectivityEndpointsResponse struct {
+	// Private IP Address of this ComputeInstance (local to the VNET in which the compute instance is deployed).
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// Public IP Address of this ComputeInstance.
+	PublicIpAddress string `pulumi:"publicIpAddress"`
+}
+
+// ComputeInstanceConnectivityEndpointsResponseInput is an input type that accepts ComputeInstanceConnectivityEndpointsResponseArgs and ComputeInstanceConnectivityEndpointsResponseOutput values.
+// You can construct a concrete instance of `ComputeInstanceConnectivityEndpointsResponseInput` via:
+//
+//          ComputeInstanceConnectivityEndpointsResponseArgs{...}
+type ComputeInstanceConnectivityEndpointsResponseInput interface {
+	pulumi.Input
+
+	ToComputeInstanceConnectivityEndpointsResponseOutput() ComputeInstanceConnectivityEndpointsResponseOutput
+	ToComputeInstanceConnectivityEndpointsResponseOutputWithContext(context.Context) ComputeInstanceConnectivityEndpointsResponseOutput
+}
+
+// Defines all connectivity endpoints and properties for an ComputeInstance.
+type ComputeInstanceConnectivityEndpointsResponseArgs struct {
+	// Private IP Address of this ComputeInstance (local to the VNET in which the compute instance is deployed).
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// Public IP Address of this ComputeInstance.
+	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
+}
+
+func (ComputeInstanceConnectivityEndpointsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceConnectivityEndpointsResponse)(nil)).Elem()
+}
+
+func (i ComputeInstanceConnectivityEndpointsResponseArgs) ToComputeInstanceConnectivityEndpointsResponseOutput() ComputeInstanceConnectivityEndpointsResponseOutput {
+	return i.ToComputeInstanceConnectivityEndpointsResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceConnectivityEndpointsResponseArgs) ToComputeInstanceConnectivityEndpointsResponseOutputWithContext(ctx context.Context) ComputeInstanceConnectivityEndpointsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceConnectivityEndpointsResponseOutput)
+}
+
+func (i ComputeInstanceConnectivityEndpointsResponseArgs) ToComputeInstanceConnectivityEndpointsResponsePtrOutput() ComputeInstanceConnectivityEndpointsResponsePtrOutput {
+	return i.ToComputeInstanceConnectivityEndpointsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceConnectivityEndpointsResponseArgs) ToComputeInstanceConnectivityEndpointsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceConnectivityEndpointsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceConnectivityEndpointsResponseOutput).ToComputeInstanceConnectivityEndpointsResponsePtrOutputWithContext(ctx)
+}
+
+// ComputeInstanceConnectivityEndpointsResponsePtrInput is an input type that accepts ComputeInstanceConnectivityEndpointsResponseArgs, ComputeInstanceConnectivityEndpointsResponsePtr and ComputeInstanceConnectivityEndpointsResponsePtrOutput values.
+// You can construct a concrete instance of `ComputeInstanceConnectivityEndpointsResponsePtrInput` via:
+//
+//          ComputeInstanceConnectivityEndpointsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeInstanceConnectivityEndpointsResponsePtrInput interface {
+	pulumi.Input
+
+	ToComputeInstanceConnectivityEndpointsResponsePtrOutput() ComputeInstanceConnectivityEndpointsResponsePtrOutput
+	ToComputeInstanceConnectivityEndpointsResponsePtrOutputWithContext(context.Context) ComputeInstanceConnectivityEndpointsResponsePtrOutput
+}
+
+type computeInstanceConnectivityEndpointsResponsePtrType ComputeInstanceConnectivityEndpointsResponseArgs
+
+func ComputeInstanceConnectivityEndpointsResponsePtr(v *ComputeInstanceConnectivityEndpointsResponseArgs) ComputeInstanceConnectivityEndpointsResponsePtrInput {
+	return (*computeInstanceConnectivityEndpointsResponsePtrType)(v)
+}
+
+func (*computeInstanceConnectivityEndpointsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceConnectivityEndpointsResponse)(nil)).Elem()
+}
+
+func (i *computeInstanceConnectivityEndpointsResponsePtrType) ToComputeInstanceConnectivityEndpointsResponsePtrOutput() ComputeInstanceConnectivityEndpointsResponsePtrOutput {
+	return i.ToComputeInstanceConnectivityEndpointsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *computeInstanceConnectivityEndpointsResponsePtrType) ToComputeInstanceConnectivityEndpointsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceConnectivityEndpointsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceConnectivityEndpointsResponsePtrOutput)
+}
+
+// Defines all connectivity endpoints and properties for an ComputeInstance.
+type ComputeInstanceConnectivityEndpointsResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceConnectivityEndpointsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceConnectivityEndpointsResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceConnectivityEndpointsResponseOutput) ToComputeInstanceConnectivityEndpointsResponseOutput() ComputeInstanceConnectivityEndpointsResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceConnectivityEndpointsResponseOutput) ToComputeInstanceConnectivityEndpointsResponseOutputWithContext(ctx context.Context) ComputeInstanceConnectivityEndpointsResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceConnectivityEndpointsResponseOutput) ToComputeInstanceConnectivityEndpointsResponsePtrOutput() ComputeInstanceConnectivityEndpointsResponsePtrOutput {
+	return o.ToComputeInstanceConnectivityEndpointsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeInstanceConnectivityEndpointsResponseOutput) ToComputeInstanceConnectivityEndpointsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceConnectivityEndpointsResponsePtrOutput {
+	return o.ApplyT(func(v ComputeInstanceConnectivityEndpointsResponse) *ComputeInstanceConnectivityEndpointsResponse {
+		return &v
+	}).(ComputeInstanceConnectivityEndpointsResponsePtrOutput)
+}
+
+// Private IP Address of this ComputeInstance (local to the VNET in which the compute instance is deployed).
+func (o ComputeInstanceConnectivityEndpointsResponseOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceConnectivityEndpointsResponse) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// Public IP Address of this ComputeInstance.
+func (o ComputeInstanceConnectivityEndpointsResponseOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceConnectivityEndpointsResponse) string { return v.PublicIpAddress }).(pulumi.StringOutput)
+}
+
+type ComputeInstanceConnectivityEndpointsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceConnectivityEndpointsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceConnectivityEndpointsResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceConnectivityEndpointsResponsePtrOutput) ToComputeInstanceConnectivityEndpointsResponsePtrOutput() ComputeInstanceConnectivityEndpointsResponsePtrOutput {
+	return o
+}
+
+func (o ComputeInstanceConnectivityEndpointsResponsePtrOutput) ToComputeInstanceConnectivityEndpointsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceConnectivityEndpointsResponsePtrOutput {
+	return o
+}
+
+func (o ComputeInstanceConnectivityEndpointsResponsePtrOutput) Elem() ComputeInstanceConnectivityEndpointsResponseOutput {
+	return o.ApplyT(func(v *ComputeInstanceConnectivityEndpointsResponse) ComputeInstanceConnectivityEndpointsResponse {
+		return *v
+	}).(ComputeInstanceConnectivityEndpointsResponseOutput)
+}
+
+// Private IP Address of this ComputeInstance (local to the VNET in which the compute instance is deployed).
+func (o ComputeInstanceConnectivityEndpointsResponsePtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceConnectivityEndpointsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Public IP Address of this ComputeInstance.
+func (o ComputeInstanceConnectivityEndpointsResponsePtrOutput) PublicIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceConnectivityEndpointsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes information on user who created this ComputeInstance.
+type ComputeInstanceCreatedByResponse struct {
+	// Uniquely identifies the user within his/her organization.
+	UserId string `pulumi:"userId"`
+	// Name of the user.
+	UserName string `pulumi:"userName"`
+	// Uniquely identifies user' Azure Active Directory organization.
+	UserOrgId string `pulumi:"userOrgId"`
+}
+
+// ComputeInstanceCreatedByResponseInput is an input type that accepts ComputeInstanceCreatedByResponseArgs and ComputeInstanceCreatedByResponseOutput values.
+// You can construct a concrete instance of `ComputeInstanceCreatedByResponseInput` via:
+//
+//          ComputeInstanceCreatedByResponseArgs{...}
+type ComputeInstanceCreatedByResponseInput interface {
+	pulumi.Input
+
+	ToComputeInstanceCreatedByResponseOutput() ComputeInstanceCreatedByResponseOutput
+	ToComputeInstanceCreatedByResponseOutputWithContext(context.Context) ComputeInstanceCreatedByResponseOutput
+}
+
+// Describes information on user who created this ComputeInstance.
+type ComputeInstanceCreatedByResponseArgs struct {
+	// Uniquely identifies the user within his/her organization.
+	UserId pulumi.StringInput `pulumi:"userId"`
+	// Name of the user.
+	UserName pulumi.StringInput `pulumi:"userName"`
+	// Uniquely identifies user' Azure Active Directory organization.
+	UserOrgId pulumi.StringInput `pulumi:"userOrgId"`
+}
+
+func (ComputeInstanceCreatedByResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceCreatedByResponse)(nil)).Elem()
+}
+
+func (i ComputeInstanceCreatedByResponseArgs) ToComputeInstanceCreatedByResponseOutput() ComputeInstanceCreatedByResponseOutput {
+	return i.ToComputeInstanceCreatedByResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceCreatedByResponseArgs) ToComputeInstanceCreatedByResponseOutputWithContext(ctx context.Context) ComputeInstanceCreatedByResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceCreatedByResponseOutput)
+}
+
+func (i ComputeInstanceCreatedByResponseArgs) ToComputeInstanceCreatedByResponsePtrOutput() ComputeInstanceCreatedByResponsePtrOutput {
+	return i.ToComputeInstanceCreatedByResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceCreatedByResponseArgs) ToComputeInstanceCreatedByResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceCreatedByResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceCreatedByResponseOutput).ToComputeInstanceCreatedByResponsePtrOutputWithContext(ctx)
+}
+
+// ComputeInstanceCreatedByResponsePtrInput is an input type that accepts ComputeInstanceCreatedByResponseArgs, ComputeInstanceCreatedByResponsePtr and ComputeInstanceCreatedByResponsePtrOutput values.
+// You can construct a concrete instance of `ComputeInstanceCreatedByResponsePtrInput` via:
+//
+//          ComputeInstanceCreatedByResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeInstanceCreatedByResponsePtrInput interface {
+	pulumi.Input
+
+	ToComputeInstanceCreatedByResponsePtrOutput() ComputeInstanceCreatedByResponsePtrOutput
+	ToComputeInstanceCreatedByResponsePtrOutputWithContext(context.Context) ComputeInstanceCreatedByResponsePtrOutput
+}
+
+type computeInstanceCreatedByResponsePtrType ComputeInstanceCreatedByResponseArgs
+
+func ComputeInstanceCreatedByResponsePtr(v *ComputeInstanceCreatedByResponseArgs) ComputeInstanceCreatedByResponsePtrInput {
+	return (*computeInstanceCreatedByResponsePtrType)(v)
+}
+
+func (*computeInstanceCreatedByResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceCreatedByResponse)(nil)).Elem()
+}
+
+func (i *computeInstanceCreatedByResponsePtrType) ToComputeInstanceCreatedByResponsePtrOutput() ComputeInstanceCreatedByResponsePtrOutput {
+	return i.ToComputeInstanceCreatedByResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *computeInstanceCreatedByResponsePtrType) ToComputeInstanceCreatedByResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceCreatedByResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceCreatedByResponsePtrOutput)
+}
+
+// Describes information on user who created this ComputeInstance.
+type ComputeInstanceCreatedByResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceCreatedByResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceCreatedByResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceCreatedByResponseOutput) ToComputeInstanceCreatedByResponseOutput() ComputeInstanceCreatedByResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceCreatedByResponseOutput) ToComputeInstanceCreatedByResponseOutputWithContext(ctx context.Context) ComputeInstanceCreatedByResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceCreatedByResponseOutput) ToComputeInstanceCreatedByResponsePtrOutput() ComputeInstanceCreatedByResponsePtrOutput {
+	return o.ToComputeInstanceCreatedByResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeInstanceCreatedByResponseOutput) ToComputeInstanceCreatedByResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceCreatedByResponsePtrOutput {
+	return o.ApplyT(func(v ComputeInstanceCreatedByResponse) *ComputeInstanceCreatedByResponse {
+		return &v
+	}).(ComputeInstanceCreatedByResponsePtrOutput)
+}
+
+// Uniquely identifies the user within his/her organization.
+func (o ComputeInstanceCreatedByResponseOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceCreatedByResponse) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+// Name of the user.
+func (o ComputeInstanceCreatedByResponseOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceCreatedByResponse) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+// Uniquely identifies user' Azure Active Directory organization.
+func (o ComputeInstanceCreatedByResponseOutput) UserOrgId() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceCreatedByResponse) string { return v.UserOrgId }).(pulumi.StringOutput)
+}
+
+type ComputeInstanceCreatedByResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceCreatedByResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceCreatedByResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceCreatedByResponsePtrOutput) ToComputeInstanceCreatedByResponsePtrOutput() ComputeInstanceCreatedByResponsePtrOutput {
+	return o
+}
+
+func (o ComputeInstanceCreatedByResponsePtrOutput) ToComputeInstanceCreatedByResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceCreatedByResponsePtrOutput {
+	return o
+}
+
+func (o ComputeInstanceCreatedByResponsePtrOutput) Elem() ComputeInstanceCreatedByResponseOutput {
+	return o.ApplyT(func(v *ComputeInstanceCreatedByResponse) ComputeInstanceCreatedByResponse { return *v }).(ComputeInstanceCreatedByResponseOutput)
+}
+
+// Uniquely identifies the user within his/her organization.
+func (o ComputeInstanceCreatedByResponsePtrOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceCreatedByResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the user.
+func (o ComputeInstanceCreatedByResponsePtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceCreatedByResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Uniquely identifies user' Azure Active Directory organization.
+func (o ComputeInstanceCreatedByResponsePtrOutput) UserOrgId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceCreatedByResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserOrgId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last operation on ComputeInstance.
+type ComputeInstanceLastOperationResponse struct {
+	// Name of the last operation.
+	OperationName *string `pulumi:"operationName"`
+	// Operation status.
+	OperationStatus *string `pulumi:"operationStatus"`
+	// Time of the last operation.
+	OperationTime *string `pulumi:"operationTime"`
+}
+
+// ComputeInstanceLastOperationResponseInput is an input type that accepts ComputeInstanceLastOperationResponseArgs and ComputeInstanceLastOperationResponseOutput values.
+// You can construct a concrete instance of `ComputeInstanceLastOperationResponseInput` via:
+//
+//          ComputeInstanceLastOperationResponseArgs{...}
+type ComputeInstanceLastOperationResponseInput interface {
+	pulumi.Input
+
+	ToComputeInstanceLastOperationResponseOutput() ComputeInstanceLastOperationResponseOutput
+	ToComputeInstanceLastOperationResponseOutputWithContext(context.Context) ComputeInstanceLastOperationResponseOutput
+}
+
+// The last operation on ComputeInstance.
+type ComputeInstanceLastOperationResponseArgs struct {
+	// Name of the last operation.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// Operation status.
+	OperationStatus pulumi.StringPtrInput `pulumi:"operationStatus"`
+	// Time of the last operation.
+	OperationTime pulumi.StringPtrInput `pulumi:"operationTime"`
+}
+
+func (ComputeInstanceLastOperationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceLastOperationResponse)(nil)).Elem()
+}
+
+func (i ComputeInstanceLastOperationResponseArgs) ToComputeInstanceLastOperationResponseOutput() ComputeInstanceLastOperationResponseOutput {
+	return i.ToComputeInstanceLastOperationResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceLastOperationResponseArgs) ToComputeInstanceLastOperationResponseOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceLastOperationResponseOutput)
+}
+
+func (i ComputeInstanceLastOperationResponseArgs) ToComputeInstanceLastOperationResponsePtrOutput() ComputeInstanceLastOperationResponsePtrOutput {
+	return i.ToComputeInstanceLastOperationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceLastOperationResponseArgs) ToComputeInstanceLastOperationResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceLastOperationResponseOutput).ToComputeInstanceLastOperationResponsePtrOutputWithContext(ctx)
+}
+
+// ComputeInstanceLastOperationResponsePtrInput is an input type that accepts ComputeInstanceLastOperationResponseArgs, ComputeInstanceLastOperationResponsePtr and ComputeInstanceLastOperationResponsePtrOutput values.
+// You can construct a concrete instance of `ComputeInstanceLastOperationResponsePtrInput` via:
+//
+//          ComputeInstanceLastOperationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeInstanceLastOperationResponsePtrInput interface {
+	pulumi.Input
+
+	ToComputeInstanceLastOperationResponsePtrOutput() ComputeInstanceLastOperationResponsePtrOutput
+	ToComputeInstanceLastOperationResponsePtrOutputWithContext(context.Context) ComputeInstanceLastOperationResponsePtrOutput
+}
+
+type computeInstanceLastOperationResponsePtrType ComputeInstanceLastOperationResponseArgs
+
+func ComputeInstanceLastOperationResponsePtr(v *ComputeInstanceLastOperationResponseArgs) ComputeInstanceLastOperationResponsePtrInput {
+	return (*computeInstanceLastOperationResponsePtrType)(v)
+}
+
+func (*computeInstanceLastOperationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceLastOperationResponse)(nil)).Elem()
+}
+
+func (i *computeInstanceLastOperationResponsePtrType) ToComputeInstanceLastOperationResponsePtrOutput() ComputeInstanceLastOperationResponsePtrOutput {
+	return i.ToComputeInstanceLastOperationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *computeInstanceLastOperationResponsePtrType) ToComputeInstanceLastOperationResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceLastOperationResponsePtrOutput)
+}
+
+// The last operation on ComputeInstance.
+type ComputeInstanceLastOperationResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceLastOperationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceLastOperationResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceLastOperationResponseOutput) ToComputeInstanceLastOperationResponseOutput() ComputeInstanceLastOperationResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceLastOperationResponseOutput) ToComputeInstanceLastOperationResponseOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceLastOperationResponseOutput) ToComputeInstanceLastOperationResponsePtrOutput() ComputeInstanceLastOperationResponsePtrOutput {
+	return o.ToComputeInstanceLastOperationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeInstanceLastOperationResponseOutput) ToComputeInstanceLastOperationResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponsePtrOutput {
+	return o.ApplyT(func(v ComputeInstanceLastOperationResponse) *ComputeInstanceLastOperationResponse {
+		return &v
+	}).(ComputeInstanceLastOperationResponsePtrOutput)
+}
+
+// Name of the last operation.
+func (o ComputeInstanceLastOperationResponseOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceLastOperationResponse) *string { return v.OperationName }).(pulumi.StringPtrOutput)
+}
+
+// Operation status.
+func (o ComputeInstanceLastOperationResponseOutput) OperationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceLastOperationResponse) *string { return v.OperationStatus }).(pulumi.StringPtrOutput)
+}
+
+// Time of the last operation.
+func (o ComputeInstanceLastOperationResponseOutput) OperationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceLastOperationResponse) *string { return v.OperationTime }).(pulumi.StringPtrOutput)
+}
+
+type ComputeInstanceLastOperationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceLastOperationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceLastOperationResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceLastOperationResponsePtrOutput) ToComputeInstanceLastOperationResponsePtrOutput() ComputeInstanceLastOperationResponsePtrOutput {
+	return o
+}
+
+func (o ComputeInstanceLastOperationResponsePtrOutput) ToComputeInstanceLastOperationResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceLastOperationResponsePtrOutput {
+	return o
+}
+
+func (o ComputeInstanceLastOperationResponsePtrOutput) Elem() ComputeInstanceLastOperationResponseOutput {
+	return o.ApplyT(func(v *ComputeInstanceLastOperationResponse) ComputeInstanceLastOperationResponse { return *v }).(ComputeInstanceLastOperationResponseOutput)
+}
+
+// Name of the last operation.
+func (o ComputeInstanceLastOperationResponsePtrOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceLastOperationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Operation status.
+func (o ComputeInstanceLastOperationResponsePtrOutput) OperationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceLastOperationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time of the last operation.
+func (o ComputeInstanceLastOperationResponsePtrOutput) OperationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceLastOperationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Compute Instance properties
+type ComputeInstanceProperties struct {
+	// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+	ApplicationSharingPolicy *string `pulumi:"applicationSharingPolicy"`
+	// The Compute Instance Authorization type. Available values are personal (default).
+	ComputeInstanceAuthorizationType *string `pulumi:"computeInstanceAuthorizationType"`
+	// Settings for a personal compute instance.
+	PersonalComputeInstanceSettings *PersonalComputeInstanceSettings `pulumi:"personalComputeInstanceSettings"`
+	// Specifies policy and settings for SSH access.
+	SshSettings *ComputeInstanceSshSettings `pulumi:"sshSettings"`
+	// Virtual network subnet resource ID the compute nodes belong to.
+	Subnet *ResourceId `pulumi:"subnet"`
+	// Virtual Machine Size
+	VmSize *string `pulumi:"vmSize"`
+}
+
+// ComputeInstancePropertiesInput is an input type that accepts ComputeInstancePropertiesArgs and ComputeInstancePropertiesOutput values.
+// You can construct a concrete instance of `ComputeInstancePropertiesInput` via:
+//
+//          ComputeInstancePropertiesArgs{...}
+type ComputeInstancePropertiesInput interface {
+	pulumi.Input
+
+	ToComputeInstancePropertiesOutput() ComputeInstancePropertiesOutput
+	ToComputeInstancePropertiesOutputWithContext(context.Context) ComputeInstancePropertiesOutput
+}
+
+// Compute Instance properties
+type ComputeInstancePropertiesArgs struct {
+	// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+	ApplicationSharingPolicy pulumi.StringPtrInput `pulumi:"applicationSharingPolicy"`
+	// The Compute Instance Authorization type. Available values are personal (default).
+	ComputeInstanceAuthorizationType pulumi.StringPtrInput `pulumi:"computeInstanceAuthorizationType"`
+	// Settings for a personal compute instance.
+	PersonalComputeInstanceSettings PersonalComputeInstanceSettingsPtrInput `pulumi:"personalComputeInstanceSettings"`
+	// Specifies policy and settings for SSH access.
+	SshSettings ComputeInstanceSshSettingsPtrInput `pulumi:"sshSettings"`
+	// Virtual network subnet resource ID the compute nodes belong to.
+	Subnet ResourceIdPtrInput `pulumi:"subnet"`
+	// Virtual Machine Size
+	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
+}
+
+func (ComputeInstancePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceProperties)(nil)).Elem()
+}
+
+func (i ComputeInstancePropertiesArgs) ToComputeInstancePropertiesOutput() ComputeInstancePropertiesOutput {
+	return i.ToComputeInstancePropertiesOutputWithContext(context.Background())
+}
+
+func (i ComputeInstancePropertiesArgs) ToComputeInstancePropertiesOutputWithContext(ctx context.Context) ComputeInstancePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstancePropertiesOutput)
+}
+
+func (i ComputeInstancePropertiesArgs) ToComputeInstancePropertiesPtrOutput() ComputeInstancePropertiesPtrOutput {
+	return i.ToComputeInstancePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeInstancePropertiesArgs) ToComputeInstancePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstancePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstancePropertiesOutput).ToComputeInstancePropertiesPtrOutputWithContext(ctx)
+}
+
+// ComputeInstancePropertiesPtrInput is an input type that accepts ComputeInstancePropertiesArgs, ComputeInstancePropertiesPtr and ComputeInstancePropertiesPtrOutput values.
+// You can construct a concrete instance of `ComputeInstancePropertiesPtrInput` via:
+//
+//          ComputeInstancePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeInstancePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToComputeInstancePropertiesPtrOutput() ComputeInstancePropertiesPtrOutput
+	ToComputeInstancePropertiesPtrOutputWithContext(context.Context) ComputeInstancePropertiesPtrOutput
+}
+
+type computeInstancePropertiesPtrType ComputeInstancePropertiesArgs
+
+func ComputeInstancePropertiesPtr(v *ComputeInstancePropertiesArgs) ComputeInstancePropertiesPtrInput {
+	return (*computeInstancePropertiesPtrType)(v)
+}
+
+func (*computeInstancePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceProperties)(nil)).Elem()
+}
+
+func (i *computeInstancePropertiesPtrType) ToComputeInstancePropertiesPtrOutput() ComputeInstancePropertiesPtrOutput {
+	return i.ToComputeInstancePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *computeInstancePropertiesPtrType) ToComputeInstancePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstancePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstancePropertiesPtrOutput)
+}
+
+// Compute Instance properties
+type ComputeInstancePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstancePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceProperties)(nil)).Elem()
+}
+
+func (o ComputeInstancePropertiesOutput) ToComputeInstancePropertiesOutput() ComputeInstancePropertiesOutput {
+	return o
+}
+
+func (o ComputeInstancePropertiesOutput) ToComputeInstancePropertiesOutputWithContext(ctx context.Context) ComputeInstancePropertiesOutput {
+	return o
+}
+
+func (o ComputeInstancePropertiesOutput) ToComputeInstancePropertiesPtrOutput() ComputeInstancePropertiesPtrOutput {
+	return o.ToComputeInstancePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeInstancePropertiesOutput) ToComputeInstancePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstancePropertiesPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceProperties) *ComputeInstanceProperties {
+		return &v
+	}).(ComputeInstancePropertiesPtrOutput)
+}
+
+// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+func (o ComputeInstancePropertiesOutput) ApplicationSharingPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceProperties) *string { return v.ApplicationSharingPolicy }).(pulumi.StringPtrOutput)
+}
+
+// The Compute Instance Authorization type. Available values are personal (default).
+func (o ComputeInstancePropertiesOutput) ComputeInstanceAuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceProperties) *string { return v.ComputeInstanceAuthorizationType }).(pulumi.StringPtrOutput)
+}
+
+// Settings for a personal compute instance.
+func (o ComputeInstancePropertiesOutput) PersonalComputeInstanceSettings() PersonalComputeInstanceSettingsPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceProperties) *PersonalComputeInstanceSettings {
+		return v.PersonalComputeInstanceSettings
+	}).(PersonalComputeInstanceSettingsPtrOutput)
+}
+
+// Specifies policy and settings for SSH access.
+func (o ComputeInstancePropertiesOutput) SshSettings() ComputeInstanceSshSettingsPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceProperties) *ComputeInstanceSshSettings { return v.SshSettings }).(ComputeInstanceSshSettingsPtrOutput)
+}
+
+// Virtual network subnet resource ID the compute nodes belong to.
+func (o ComputeInstancePropertiesOutput) Subnet() ResourceIdPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceProperties) *ResourceId { return v.Subnet }).(ResourceIdPtrOutput)
+}
+
+// Virtual Machine Size
+func (o ComputeInstancePropertiesOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceProperties) *string { return v.VmSize }).(pulumi.StringPtrOutput)
+}
+
+type ComputeInstancePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstancePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceProperties)(nil)).Elem()
+}
+
+func (o ComputeInstancePropertiesPtrOutput) ToComputeInstancePropertiesPtrOutput() ComputeInstancePropertiesPtrOutput {
+	return o
+}
+
+func (o ComputeInstancePropertiesPtrOutput) ToComputeInstancePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstancePropertiesPtrOutput {
+	return o
+}
+
+func (o ComputeInstancePropertiesPtrOutput) Elem() ComputeInstancePropertiesOutput {
+	return o.ApplyT(func(v *ComputeInstanceProperties) ComputeInstanceProperties { return *v }).(ComputeInstancePropertiesOutput)
+}
+
+// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+func (o ComputeInstancePropertiesPtrOutput) ApplicationSharingPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationSharingPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Compute Instance Authorization type. Available values are personal (default).
+func (o ComputeInstancePropertiesPtrOutput) ComputeInstanceAuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeInstanceAuthorizationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for a personal compute instance.
+func (o ComputeInstancePropertiesPtrOutput) PersonalComputeInstanceSettings() PersonalComputeInstanceSettingsPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceProperties) *PersonalComputeInstanceSettings {
+		if v == nil {
+			return nil
+		}
+		return v.PersonalComputeInstanceSettings
+	}).(PersonalComputeInstanceSettingsPtrOutput)
+}
+
+// Specifies policy and settings for SSH access.
+func (o ComputeInstancePropertiesPtrOutput) SshSettings() ComputeInstanceSshSettingsPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceProperties) *ComputeInstanceSshSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SshSettings
+	}).(ComputeInstanceSshSettingsPtrOutput)
+}
+
+// Virtual network subnet resource ID the compute nodes belong to.
+func (o ComputeInstancePropertiesPtrOutput) Subnet() ResourceIdPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceProperties) *ResourceId {
+		if v == nil {
+			return nil
+		}
+		return v.Subnet
+	}).(ResourceIdPtrOutput)
+}
+
+// Virtual Machine Size
+func (o ComputeInstancePropertiesPtrOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VmSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// An Azure Machine Learning compute instance.
+type ComputeInstanceResponse struct {
+	// Location for the underlying compute
+	ComputeLocation *string `pulumi:"computeLocation"`
+	// The type of compute
+	ComputeType string `pulumi:"computeType"`
+	// The date and time when the compute was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// The description of the Machine Learning compute.
+	Description *string `pulumi:"description"`
+	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+	IsAttachedCompute bool `pulumi:"isAttachedCompute"`
+	// The date and time when the compute was last modified.
+	ModifiedOn string `pulumi:"modifiedOn"`
+	// Compute Instance properties
+	Properties *ComputeInstanceResponseProperties `pulumi:"properties"`
+	// Errors during provisioning
+	ProvisioningErrors []MachineLearningServiceErrorResponse `pulumi:"provisioningErrors"`
+	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// ARM resource id of the underlying compute
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// ComputeInstanceResponseInput is an input type that accepts ComputeInstanceResponseArgs and ComputeInstanceResponseOutput values.
+// You can construct a concrete instance of `ComputeInstanceResponseInput` via:
+//
+//          ComputeInstanceResponseArgs{...}
+type ComputeInstanceResponseInput interface {
+	pulumi.Input
+
+	ToComputeInstanceResponseOutput() ComputeInstanceResponseOutput
+	ToComputeInstanceResponseOutputWithContext(context.Context) ComputeInstanceResponseOutput
+}
+
+// An Azure Machine Learning compute instance.
+type ComputeInstanceResponseArgs struct {
+	// Location for the underlying compute
+	ComputeLocation pulumi.StringPtrInput `pulumi:"computeLocation"`
+	// The type of compute
+	ComputeType pulumi.StringInput `pulumi:"computeType"`
+	// The date and time when the compute was created.
+	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
+	// The description of the Machine Learning compute.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+	IsAttachedCompute pulumi.BoolInput `pulumi:"isAttachedCompute"`
+	// The date and time when the compute was last modified.
+	ModifiedOn pulumi.StringInput `pulumi:"modifiedOn"`
+	// Compute Instance properties
+	Properties ComputeInstanceResponsePropertiesPtrInput `pulumi:"properties"`
+	// Errors during provisioning
+	ProvisioningErrors MachineLearningServiceErrorResponseArrayInput `pulumi:"provisioningErrors"`
+	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// ARM resource id of the underlying compute
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (ComputeInstanceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceResponse)(nil)).Elem()
+}
+
+func (i ComputeInstanceResponseArgs) ToComputeInstanceResponseOutput() ComputeInstanceResponseOutput {
+	return i.ToComputeInstanceResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceResponseArgs) ToComputeInstanceResponseOutputWithContext(ctx context.Context) ComputeInstanceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceResponseOutput)
+}
+
+// An Azure Machine Learning compute instance.
+type ComputeInstanceResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceResponseOutput) ToComputeInstanceResponseOutput() ComputeInstanceResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceResponseOutput) ToComputeInstanceResponseOutputWithContext(ctx context.Context) ComputeInstanceResponseOutput {
+	return o
+}
+
+// Location for the underlying compute
+func (o ComputeInstanceResponseOutput) ComputeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponse) *string { return v.ComputeLocation }).(pulumi.StringPtrOutput)
+}
+
+// The type of compute
+func (o ComputeInstanceResponseOutput) ComputeType() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceResponse) string { return v.ComputeType }).(pulumi.StringOutput)
+}
+
+// The date and time when the compute was created.
+func (o ComputeInstanceResponseOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// The description of the Machine Learning compute.
+func (o ComputeInstanceResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+func (o ComputeInstanceResponseOutput) IsAttachedCompute() pulumi.BoolOutput {
+	return o.ApplyT(func(v ComputeInstanceResponse) bool { return v.IsAttachedCompute }).(pulumi.BoolOutput)
+}
+
+// The date and time when the compute was last modified.
+func (o ComputeInstanceResponseOutput) ModifiedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceResponse) string { return v.ModifiedOn }).(pulumi.StringOutput)
+}
+
+// Compute Instance properties
+func (o ComputeInstanceResponseOutput) Properties() ComputeInstanceResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponse) *ComputeInstanceResponseProperties { return v.Properties }).(ComputeInstanceResponsePropertiesPtrOutput)
+}
+
+// Errors during provisioning
+func (o ComputeInstanceResponseOutput) ProvisioningErrors() MachineLearningServiceErrorResponseArrayOutput {
+	return o.ApplyT(func(v ComputeInstanceResponse) []MachineLearningServiceErrorResponse { return v.ProvisioningErrors }).(MachineLearningServiceErrorResponseArrayOutput)
+}
+
+// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+func (o ComputeInstanceResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// ARM resource id of the underlying compute
+func (o ComputeInstanceResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Compute Instance properties
+type ComputeInstanceResponseProperties struct {
+	// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+	ApplicationSharingPolicy *string `pulumi:"applicationSharingPolicy"`
+	// Describes available applications and their endpoints on this ComputeInstance.
+	Applications []ComputeInstanceApplicationResponse `pulumi:"applications"`
+	// The Compute Instance Authorization type. Available values are personal (default).
+	ComputeInstanceAuthorizationType *string `pulumi:"computeInstanceAuthorizationType"`
+	// Describes all connectivity endpoints available for this ComputeInstance.
+	ConnectivityEndpoints ComputeInstanceConnectivityEndpointsResponse `pulumi:"connectivityEndpoints"`
+	// Describes information on user who created this ComputeInstance.
+	CreatedBy ComputeInstanceCreatedByResponse `pulumi:"createdBy"`
+	// Collection of errors encountered on this ComputeInstance.
+	Errors []MachineLearningServiceErrorResponse `pulumi:"errors"`
+	// The last operation on ComputeInstance.
+	LastOperation ComputeInstanceLastOperationResponse `pulumi:"lastOperation"`
+	// Settings for a personal compute instance.
+	PersonalComputeInstanceSettings *PersonalComputeInstanceSettingsResponse `pulumi:"personalComputeInstanceSettings"`
+	// Specifies policy and settings for SSH access.
+	SshSettings *ComputeInstanceSshSettingsResponse `pulumi:"sshSettings"`
+	// The current state of this ComputeInstance.
+	State string `pulumi:"state"`
+	// Virtual network subnet resource ID the compute nodes belong to.
+	Subnet *ResourceIdResponse `pulumi:"subnet"`
+	// Virtual Machine Size
+	VmSize *string `pulumi:"vmSize"`
+}
+
+// ComputeInstanceResponsePropertiesInput is an input type that accepts ComputeInstanceResponsePropertiesArgs and ComputeInstanceResponsePropertiesOutput values.
+// You can construct a concrete instance of `ComputeInstanceResponsePropertiesInput` via:
+//
+//          ComputeInstanceResponsePropertiesArgs{...}
+type ComputeInstanceResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToComputeInstanceResponsePropertiesOutput() ComputeInstanceResponsePropertiesOutput
+	ToComputeInstanceResponsePropertiesOutputWithContext(context.Context) ComputeInstanceResponsePropertiesOutput
+}
+
+// Compute Instance properties
+type ComputeInstanceResponsePropertiesArgs struct {
+	// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+	ApplicationSharingPolicy pulumi.StringPtrInput `pulumi:"applicationSharingPolicy"`
+	// Describes available applications and their endpoints on this ComputeInstance.
+	Applications ComputeInstanceApplicationResponseArrayInput `pulumi:"applications"`
+	// The Compute Instance Authorization type. Available values are personal (default).
+	ComputeInstanceAuthorizationType pulumi.StringPtrInput `pulumi:"computeInstanceAuthorizationType"`
+	// Describes all connectivity endpoints available for this ComputeInstance.
+	ConnectivityEndpoints ComputeInstanceConnectivityEndpointsResponseInput `pulumi:"connectivityEndpoints"`
+	// Describes information on user who created this ComputeInstance.
+	CreatedBy ComputeInstanceCreatedByResponseInput `pulumi:"createdBy"`
+	// Collection of errors encountered on this ComputeInstance.
+	Errors MachineLearningServiceErrorResponseArrayInput `pulumi:"errors"`
+	// The last operation on ComputeInstance.
+	LastOperation ComputeInstanceLastOperationResponseInput `pulumi:"lastOperation"`
+	// Settings for a personal compute instance.
+	PersonalComputeInstanceSettings PersonalComputeInstanceSettingsResponsePtrInput `pulumi:"personalComputeInstanceSettings"`
+	// Specifies policy and settings for SSH access.
+	SshSettings ComputeInstanceSshSettingsResponsePtrInput `pulumi:"sshSettings"`
+	// The current state of this ComputeInstance.
+	State pulumi.StringInput `pulumi:"state"`
+	// Virtual network subnet resource ID the compute nodes belong to.
+	Subnet ResourceIdResponsePtrInput `pulumi:"subnet"`
+	// Virtual Machine Size
+	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
+}
+
+func (ComputeInstanceResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceResponseProperties)(nil)).Elem()
+}
+
+func (i ComputeInstanceResponsePropertiesArgs) ToComputeInstanceResponsePropertiesOutput() ComputeInstanceResponsePropertiesOutput {
+	return i.ToComputeInstanceResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceResponsePropertiesArgs) ToComputeInstanceResponsePropertiesOutputWithContext(ctx context.Context) ComputeInstanceResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceResponsePropertiesOutput)
+}
+
+func (i ComputeInstanceResponsePropertiesArgs) ToComputeInstanceResponsePropertiesPtrOutput() ComputeInstanceResponsePropertiesPtrOutput {
+	return i.ToComputeInstanceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceResponsePropertiesArgs) ToComputeInstanceResponsePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstanceResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceResponsePropertiesOutput).ToComputeInstanceResponsePropertiesPtrOutputWithContext(ctx)
+}
+
+// ComputeInstanceResponsePropertiesPtrInput is an input type that accepts ComputeInstanceResponsePropertiesArgs, ComputeInstanceResponsePropertiesPtr and ComputeInstanceResponsePropertiesPtrOutput values.
+// You can construct a concrete instance of `ComputeInstanceResponsePropertiesPtrInput` via:
+//
+//          ComputeInstanceResponsePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeInstanceResponsePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToComputeInstanceResponsePropertiesPtrOutput() ComputeInstanceResponsePropertiesPtrOutput
+	ToComputeInstanceResponsePropertiesPtrOutputWithContext(context.Context) ComputeInstanceResponsePropertiesPtrOutput
+}
+
+type computeInstanceResponsePropertiesPtrType ComputeInstanceResponsePropertiesArgs
+
+func ComputeInstanceResponsePropertiesPtr(v *ComputeInstanceResponsePropertiesArgs) ComputeInstanceResponsePropertiesPtrInput {
+	return (*computeInstanceResponsePropertiesPtrType)(v)
+}
+
+func (*computeInstanceResponsePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceResponseProperties)(nil)).Elem()
+}
+
+func (i *computeInstanceResponsePropertiesPtrType) ToComputeInstanceResponsePropertiesPtrOutput() ComputeInstanceResponsePropertiesPtrOutput {
+	return i.ToComputeInstanceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *computeInstanceResponsePropertiesPtrType) ToComputeInstanceResponsePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstanceResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceResponsePropertiesPtrOutput)
+}
+
+// Compute Instance properties
+type ComputeInstanceResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceResponseProperties)(nil)).Elem()
+}
+
+func (o ComputeInstanceResponsePropertiesOutput) ToComputeInstanceResponsePropertiesOutput() ComputeInstanceResponsePropertiesOutput {
+	return o
+}
+
+func (o ComputeInstanceResponsePropertiesOutput) ToComputeInstanceResponsePropertiesOutputWithContext(ctx context.Context) ComputeInstanceResponsePropertiesOutput {
+	return o
+}
+
+func (o ComputeInstanceResponsePropertiesOutput) ToComputeInstanceResponsePropertiesPtrOutput() ComputeInstanceResponsePropertiesPtrOutput {
+	return o.ToComputeInstanceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeInstanceResponsePropertiesOutput) ToComputeInstanceResponsePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstanceResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *ComputeInstanceResponseProperties {
+		return &v
+	}).(ComputeInstanceResponsePropertiesPtrOutput)
+}
+
+// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+func (o ComputeInstanceResponsePropertiesOutput) ApplicationSharingPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *string { return v.ApplicationSharingPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Describes available applications and their endpoints on this ComputeInstance.
+func (o ComputeInstanceResponsePropertiesOutput) Applications() ComputeInstanceApplicationResponseArrayOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) []ComputeInstanceApplicationResponse { return v.Applications }).(ComputeInstanceApplicationResponseArrayOutput)
+}
+
+// The Compute Instance Authorization type. Available values are personal (default).
+func (o ComputeInstanceResponsePropertiesOutput) ComputeInstanceAuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *string { return v.ComputeInstanceAuthorizationType }).(pulumi.StringPtrOutput)
+}
+
+// Describes all connectivity endpoints available for this ComputeInstance.
+func (o ComputeInstanceResponsePropertiesOutput) ConnectivityEndpoints() ComputeInstanceConnectivityEndpointsResponseOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) ComputeInstanceConnectivityEndpointsResponse {
+		return v.ConnectivityEndpoints
+	}).(ComputeInstanceConnectivityEndpointsResponseOutput)
+}
+
+// Describes information on user who created this ComputeInstance.
+func (o ComputeInstanceResponsePropertiesOutput) CreatedBy() ComputeInstanceCreatedByResponseOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) ComputeInstanceCreatedByResponse { return v.CreatedBy }).(ComputeInstanceCreatedByResponseOutput)
+}
+
+// Collection of errors encountered on this ComputeInstance.
+func (o ComputeInstanceResponsePropertiesOutput) Errors() MachineLearningServiceErrorResponseArrayOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) []MachineLearningServiceErrorResponse { return v.Errors }).(MachineLearningServiceErrorResponseArrayOutput)
+}
+
+// The last operation on ComputeInstance.
+func (o ComputeInstanceResponsePropertiesOutput) LastOperation() ComputeInstanceLastOperationResponseOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) ComputeInstanceLastOperationResponse { return v.LastOperation }).(ComputeInstanceLastOperationResponseOutput)
+}
+
+// Settings for a personal compute instance.
+func (o ComputeInstanceResponsePropertiesOutput) PersonalComputeInstanceSettings() PersonalComputeInstanceSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *PersonalComputeInstanceSettingsResponse {
+		return v.PersonalComputeInstanceSettings
+	}).(PersonalComputeInstanceSettingsResponsePtrOutput)
+}
+
+// Specifies policy and settings for SSH access.
+func (o ComputeInstanceResponsePropertiesOutput) SshSettings() ComputeInstanceSshSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *ComputeInstanceSshSettingsResponse { return v.SshSettings }).(ComputeInstanceSshSettingsResponsePtrOutput)
+}
+
+// The current state of this ComputeInstance.
+func (o ComputeInstanceResponsePropertiesOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Virtual network subnet resource ID the compute nodes belong to.
+func (o ComputeInstanceResponsePropertiesOutput) Subnet() ResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *ResourceIdResponse { return v.Subnet }).(ResourceIdResponsePtrOutput)
+}
+
+// Virtual Machine Size
+func (o ComputeInstanceResponsePropertiesOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceResponseProperties) *string { return v.VmSize }).(pulumi.StringPtrOutput)
+}
+
+type ComputeInstanceResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceResponsePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceResponseProperties)(nil)).Elem()
+}
+
+func (o ComputeInstanceResponsePropertiesPtrOutput) ToComputeInstanceResponsePropertiesPtrOutput() ComputeInstanceResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o ComputeInstanceResponsePropertiesPtrOutput) ToComputeInstanceResponsePropertiesPtrOutputWithContext(ctx context.Context) ComputeInstanceResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o ComputeInstanceResponsePropertiesPtrOutput) Elem() ComputeInstanceResponsePropertiesOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) ComputeInstanceResponseProperties { return *v }).(ComputeInstanceResponsePropertiesOutput)
+}
+
+// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+func (o ComputeInstanceResponsePropertiesPtrOutput) ApplicationSharingPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationSharingPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes available applications and their endpoints on this ComputeInstance.
+func (o ComputeInstanceResponsePropertiesPtrOutput) Applications() ComputeInstanceApplicationResponseArrayOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) []ComputeInstanceApplicationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Applications
+	}).(ComputeInstanceApplicationResponseArrayOutput)
+}
+
+// The Compute Instance Authorization type. Available values are personal (default).
+func (o ComputeInstanceResponsePropertiesPtrOutput) ComputeInstanceAuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeInstanceAuthorizationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes all connectivity endpoints available for this ComputeInstance.
+func (o ComputeInstanceResponsePropertiesPtrOutput) ConnectivityEndpoints() ComputeInstanceConnectivityEndpointsResponsePtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *ComputeInstanceConnectivityEndpointsResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectivityEndpoints
+	}).(ComputeInstanceConnectivityEndpointsResponsePtrOutput)
+}
+
+// Describes information on user who created this ComputeInstance.
+func (o ComputeInstanceResponsePropertiesPtrOutput) CreatedBy() ComputeInstanceCreatedByResponsePtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *ComputeInstanceCreatedByResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedBy
+	}).(ComputeInstanceCreatedByResponsePtrOutput)
+}
+
+// Collection of errors encountered on this ComputeInstance.
+func (o ComputeInstanceResponsePropertiesPtrOutput) Errors() MachineLearningServiceErrorResponseArrayOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) []MachineLearningServiceErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(MachineLearningServiceErrorResponseArrayOutput)
+}
+
+// The last operation on ComputeInstance.
+func (o ComputeInstanceResponsePropertiesPtrOutput) LastOperation() ComputeInstanceLastOperationResponsePtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *ComputeInstanceLastOperationResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.LastOperation
+	}).(ComputeInstanceLastOperationResponsePtrOutput)
+}
+
+// Settings for a personal compute instance.
+func (o ComputeInstanceResponsePropertiesPtrOutput) PersonalComputeInstanceSettings() PersonalComputeInstanceSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *PersonalComputeInstanceSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PersonalComputeInstanceSettings
+	}).(PersonalComputeInstanceSettingsResponsePtrOutput)
+}
+
+// Specifies policy and settings for SSH access.
+func (o ComputeInstanceResponsePropertiesPtrOutput) SshSettings() ComputeInstanceSshSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *ComputeInstanceSshSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SshSettings
+	}).(ComputeInstanceSshSettingsResponsePtrOutput)
+}
+
+// The current state of this ComputeInstance.
+func (o ComputeInstanceResponsePropertiesPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Virtual network subnet resource ID the compute nodes belong to.
+func (o ComputeInstanceResponsePropertiesPtrOutput) Subnet() ResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *ResourceIdResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Subnet
+	}).(ResourceIdResponsePtrOutput)
+}
+
+// Virtual Machine Size
+func (o ComputeInstanceResponsePropertiesPtrOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VmSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies policy and settings for SSH access.
+type ComputeInstanceSshSettings struct {
+	// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+	AdminPublicKey *string `pulumi:"adminPublicKey"`
+	// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+	SshPublicAccess *string `pulumi:"sshPublicAccess"`
+}
+
+// ComputeInstanceSshSettingsInput is an input type that accepts ComputeInstanceSshSettingsArgs and ComputeInstanceSshSettingsOutput values.
+// You can construct a concrete instance of `ComputeInstanceSshSettingsInput` via:
+//
+//          ComputeInstanceSshSettingsArgs{...}
+type ComputeInstanceSshSettingsInput interface {
+	pulumi.Input
+
+	ToComputeInstanceSshSettingsOutput() ComputeInstanceSshSettingsOutput
+	ToComputeInstanceSshSettingsOutputWithContext(context.Context) ComputeInstanceSshSettingsOutput
+}
+
+// Specifies policy and settings for SSH access.
+type ComputeInstanceSshSettingsArgs struct {
+	// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+	AdminPublicKey pulumi.StringPtrInput `pulumi:"adminPublicKey"`
+	// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+	SshPublicAccess pulumi.StringPtrInput `pulumi:"sshPublicAccess"`
+}
+
+func (ComputeInstanceSshSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceSshSettings)(nil)).Elem()
+}
+
+func (i ComputeInstanceSshSettingsArgs) ToComputeInstanceSshSettingsOutput() ComputeInstanceSshSettingsOutput {
+	return i.ToComputeInstanceSshSettingsOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceSshSettingsArgs) ToComputeInstanceSshSettingsOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceSshSettingsOutput)
+}
+
+func (i ComputeInstanceSshSettingsArgs) ToComputeInstanceSshSettingsPtrOutput() ComputeInstanceSshSettingsPtrOutput {
+	return i.ToComputeInstanceSshSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceSshSettingsArgs) ToComputeInstanceSshSettingsPtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceSshSettingsOutput).ToComputeInstanceSshSettingsPtrOutputWithContext(ctx)
+}
+
+// ComputeInstanceSshSettingsPtrInput is an input type that accepts ComputeInstanceSshSettingsArgs, ComputeInstanceSshSettingsPtr and ComputeInstanceSshSettingsPtrOutput values.
+// You can construct a concrete instance of `ComputeInstanceSshSettingsPtrInput` via:
+//
+//          ComputeInstanceSshSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeInstanceSshSettingsPtrInput interface {
+	pulumi.Input
+
+	ToComputeInstanceSshSettingsPtrOutput() ComputeInstanceSshSettingsPtrOutput
+	ToComputeInstanceSshSettingsPtrOutputWithContext(context.Context) ComputeInstanceSshSettingsPtrOutput
+}
+
+type computeInstanceSshSettingsPtrType ComputeInstanceSshSettingsArgs
+
+func ComputeInstanceSshSettingsPtr(v *ComputeInstanceSshSettingsArgs) ComputeInstanceSshSettingsPtrInput {
+	return (*computeInstanceSshSettingsPtrType)(v)
+}
+
+func (*computeInstanceSshSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceSshSettings)(nil)).Elem()
+}
+
+func (i *computeInstanceSshSettingsPtrType) ToComputeInstanceSshSettingsPtrOutput() ComputeInstanceSshSettingsPtrOutput {
+	return i.ToComputeInstanceSshSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *computeInstanceSshSettingsPtrType) ToComputeInstanceSshSettingsPtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceSshSettingsPtrOutput)
+}
+
+// Specifies policy and settings for SSH access.
+type ComputeInstanceSshSettingsOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceSshSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceSshSettings)(nil)).Elem()
+}
+
+func (o ComputeInstanceSshSettingsOutput) ToComputeInstanceSshSettingsOutput() ComputeInstanceSshSettingsOutput {
+	return o
+}
+
+func (o ComputeInstanceSshSettingsOutput) ToComputeInstanceSshSettingsOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsOutput {
+	return o
+}
+
+func (o ComputeInstanceSshSettingsOutput) ToComputeInstanceSshSettingsPtrOutput() ComputeInstanceSshSettingsPtrOutput {
+	return o.ToComputeInstanceSshSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeInstanceSshSettingsOutput) ToComputeInstanceSshSettingsPtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceSshSettings) *ComputeInstanceSshSettings {
+		return &v
+	}).(ComputeInstanceSshSettingsPtrOutput)
+}
+
+// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+func (o ComputeInstanceSshSettingsOutput) AdminPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceSshSettings) *string { return v.AdminPublicKey }).(pulumi.StringPtrOutput)
+}
+
+// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+func (o ComputeInstanceSshSettingsOutput) SshPublicAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceSshSettings) *string { return v.SshPublicAccess }).(pulumi.StringPtrOutput)
+}
+
+type ComputeInstanceSshSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceSshSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceSshSettings)(nil)).Elem()
+}
+
+func (o ComputeInstanceSshSettingsPtrOutput) ToComputeInstanceSshSettingsPtrOutput() ComputeInstanceSshSettingsPtrOutput {
+	return o
+}
+
+func (o ComputeInstanceSshSettingsPtrOutput) ToComputeInstanceSshSettingsPtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsPtrOutput {
+	return o
+}
+
+func (o ComputeInstanceSshSettingsPtrOutput) Elem() ComputeInstanceSshSettingsOutput {
+	return o.ApplyT(func(v *ComputeInstanceSshSettings) ComputeInstanceSshSettings { return *v }).(ComputeInstanceSshSettingsOutput)
+}
+
+// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+func (o ComputeInstanceSshSettingsPtrOutput) AdminPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceSshSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminPublicKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+func (o ComputeInstanceSshSettingsPtrOutput) SshPublicAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceSshSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SshPublicAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies policy and settings for SSH access.
+type ComputeInstanceSshSettingsResponse struct {
+	// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+	AdminPublicKey *string `pulumi:"adminPublicKey"`
+	// Describes the admin user name.
+	AdminUserName string `pulumi:"adminUserName"`
+	// Describes the port for connecting through SSH.
+	SshPort int `pulumi:"sshPort"`
+	// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+	SshPublicAccess *string `pulumi:"sshPublicAccess"`
+}
+
+// ComputeInstanceSshSettingsResponseInput is an input type that accepts ComputeInstanceSshSettingsResponseArgs and ComputeInstanceSshSettingsResponseOutput values.
+// You can construct a concrete instance of `ComputeInstanceSshSettingsResponseInput` via:
+//
+//          ComputeInstanceSshSettingsResponseArgs{...}
+type ComputeInstanceSshSettingsResponseInput interface {
+	pulumi.Input
+
+	ToComputeInstanceSshSettingsResponseOutput() ComputeInstanceSshSettingsResponseOutput
+	ToComputeInstanceSshSettingsResponseOutputWithContext(context.Context) ComputeInstanceSshSettingsResponseOutput
+}
+
+// Specifies policy and settings for SSH access.
+type ComputeInstanceSshSettingsResponseArgs struct {
+	// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+	AdminPublicKey pulumi.StringPtrInput `pulumi:"adminPublicKey"`
+	// Describes the admin user name.
+	AdminUserName pulumi.StringInput `pulumi:"adminUserName"`
+	// Describes the port for connecting through SSH.
+	SshPort pulumi.IntInput `pulumi:"sshPort"`
+	// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+	SshPublicAccess pulumi.StringPtrInput `pulumi:"sshPublicAccess"`
+}
+
+func (ComputeInstanceSshSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceSshSettingsResponse)(nil)).Elem()
+}
+
+func (i ComputeInstanceSshSettingsResponseArgs) ToComputeInstanceSshSettingsResponseOutput() ComputeInstanceSshSettingsResponseOutput {
+	return i.ToComputeInstanceSshSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceSshSettingsResponseArgs) ToComputeInstanceSshSettingsResponseOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceSshSettingsResponseOutput)
+}
+
+func (i ComputeInstanceSshSettingsResponseArgs) ToComputeInstanceSshSettingsResponsePtrOutput() ComputeInstanceSshSettingsResponsePtrOutput {
+	return i.ToComputeInstanceSshSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ComputeInstanceSshSettingsResponseArgs) ToComputeInstanceSshSettingsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceSshSettingsResponseOutput).ToComputeInstanceSshSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// ComputeInstanceSshSettingsResponsePtrInput is an input type that accepts ComputeInstanceSshSettingsResponseArgs, ComputeInstanceSshSettingsResponsePtr and ComputeInstanceSshSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `ComputeInstanceSshSettingsResponsePtrInput` via:
+//
+//          ComputeInstanceSshSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeInstanceSshSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToComputeInstanceSshSettingsResponsePtrOutput() ComputeInstanceSshSettingsResponsePtrOutput
+	ToComputeInstanceSshSettingsResponsePtrOutputWithContext(context.Context) ComputeInstanceSshSettingsResponsePtrOutput
+}
+
+type computeInstanceSshSettingsResponsePtrType ComputeInstanceSshSettingsResponseArgs
+
+func ComputeInstanceSshSettingsResponsePtr(v *ComputeInstanceSshSettingsResponseArgs) ComputeInstanceSshSettingsResponsePtrInput {
+	return (*computeInstanceSshSettingsResponsePtrType)(v)
+}
+
+func (*computeInstanceSshSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceSshSettingsResponse)(nil)).Elem()
+}
+
+func (i *computeInstanceSshSettingsResponsePtrType) ToComputeInstanceSshSettingsResponsePtrOutput() ComputeInstanceSshSettingsResponsePtrOutput {
+	return i.ToComputeInstanceSshSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *computeInstanceSshSettingsResponsePtrType) ToComputeInstanceSshSettingsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeInstanceSshSettingsResponsePtrOutput)
+}
+
+// Specifies policy and settings for SSH access.
+type ComputeInstanceSshSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceSshSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeInstanceSshSettingsResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceSshSettingsResponseOutput) ToComputeInstanceSshSettingsResponseOutput() ComputeInstanceSshSettingsResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceSshSettingsResponseOutput) ToComputeInstanceSshSettingsResponseOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsResponseOutput {
+	return o
+}
+
+func (o ComputeInstanceSshSettingsResponseOutput) ToComputeInstanceSshSettingsResponsePtrOutput() ComputeInstanceSshSettingsResponsePtrOutput {
+	return o.ToComputeInstanceSshSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeInstanceSshSettingsResponseOutput) ToComputeInstanceSshSettingsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ComputeInstanceSshSettingsResponse) *ComputeInstanceSshSettingsResponse {
+		return &v
+	}).(ComputeInstanceSshSettingsResponsePtrOutput)
+}
+
+// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+func (o ComputeInstanceSshSettingsResponseOutput) AdminPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceSshSettingsResponse) *string { return v.AdminPublicKey }).(pulumi.StringPtrOutput)
+}
+
+// Describes the admin user name.
+func (o ComputeInstanceSshSettingsResponseOutput) AdminUserName() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeInstanceSshSettingsResponse) string { return v.AdminUserName }).(pulumi.StringOutput)
+}
+
+// Describes the port for connecting through SSH.
+func (o ComputeInstanceSshSettingsResponseOutput) SshPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ComputeInstanceSshSettingsResponse) int { return v.SshPort }).(pulumi.IntOutput)
+}
+
+// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+func (o ComputeInstanceSshSettingsResponseOutput) SshPublicAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeInstanceSshSettingsResponse) *string { return v.SshPublicAccess }).(pulumi.StringPtrOutput)
+}
+
+type ComputeInstanceSshSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeInstanceSshSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeInstanceSshSettingsResponse)(nil)).Elem()
+}
+
+func (o ComputeInstanceSshSettingsResponsePtrOutput) ToComputeInstanceSshSettingsResponsePtrOutput() ComputeInstanceSshSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ComputeInstanceSshSettingsResponsePtrOutput) ToComputeInstanceSshSettingsResponsePtrOutputWithContext(ctx context.Context) ComputeInstanceSshSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ComputeInstanceSshSettingsResponsePtrOutput) Elem() ComputeInstanceSshSettingsResponseOutput {
+	return o.ApplyT(func(v *ComputeInstanceSshSettingsResponse) ComputeInstanceSshSettingsResponse { return *v }).(ComputeInstanceSshSettingsResponseOutput)
+}
+
+// Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+func (o ComputeInstanceSshSettingsResponsePtrOutput) AdminPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceSshSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminPublicKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the admin user name.
+func (o ComputeInstanceSshSettingsResponsePtrOutput) AdminUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceSshSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdminUserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the port for connecting through SSH.
+func (o ComputeInstanceSshSettingsResponsePtrOutput) SshPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceSshSettingsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SshPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+func (o ComputeInstanceSshSettingsResponsePtrOutput) SshPublicAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeInstanceSshSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SshPublicAccess
+	}).(pulumi.StringPtrOutput)
+}
+
 // The resource requirements for the container (cpu and memory).
 type ContainerResourceRequirements struct {
 	// The number of CPU cores on the container.
@@ -11542,6 +13605,274 @@ func (o PasswordResponseArrayOutput) Index(i pulumi.IntInput) PasswordResponseOu
 	}).(PasswordResponseOutput)
 }
 
+// Settings for a personal compute instance.
+type PersonalComputeInstanceSettings struct {
+	// A user explicitly assigned to a personal compute instance.
+	AssignedUser *AssignedUser `pulumi:"assignedUser"`
+}
+
+// PersonalComputeInstanceSettingsInput is an input type that accepts PersonalComputeInstanceSettingsArgs and PersonalComputeInstanceSettingsOutput values.
+// You can construct a concrete instance of `PersonalComputeInstanceSettingsInput` via:
+//
+//          PersonalComputeInstanceSettingsArgs{...}
+type PersonalComputeInstanceSettingsInput interface {
+	pulumi.Input
+
+	ToPersonalComputeInstanceSettingsOutput() PersonalComputeInstanceSettingsOutput
+	ToPersonalComputeInstanceSettingsOutputWithContext(context.Context) PersonalComputeInstanceSettingsOutput
+}
+
+// Settings for a personal compute instance.
+type PersonalComputeInstanceSettingsArgs struct {
+	// A user explicitly assigned to a personal compute instance.
+	AssignedUser AssignedUserPtrInput `pulumi:"assignedUser"`
+}
+
+func (PersonalComputeInstanceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersonalComputeInstanceSettings)(nil)).Elem()
+}
+
+func (i PersonalComputeInstanceSettingsArgs) ToPersonalComputeInstanceSettingsOutput() PersonalComputeInstanceSettingsOutput {
+	return i.ToPersonalComputeInstanceSettingsOutputWithContext(context.Background())
+}
+
+func (i PersonalComputeInstanceSettingsArgs) ToPersonalComputeInstanceSettingsOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersonalComputeInstanceSettingsOutput)
+}
+
+func (i PersonalComputeInstanceSettingsArgs) ToPersonalComputeInstanceSettingsPtrOutput() PersonalComputeInstanceSettingsPtrOutput {
+	return i.ToPersonalComputeInstanceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i PersonalComputeInstanceSettingsArgs) ToPersonalComputeInstanceSettingsPtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersonalComputeInstanceSettingsOutput).ToPersonalComputeInstanceSettingsPtrOutputWithContext(ctx)
+}
+
+// PersonalComputeInstanceSettingsPtrInput is an input type that accepts PersonalComputeInstanceSettingsArgs, PersonalComputeInstanceSettingsPtr and PersonalComputeInstanceSettingsPtrOutput values.
+// You can construct a concrete instance of `PersonalComputeInstanceSettingsPtrInput` via:
+//
+//          PersonalComputeInstanceSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type PersonalComputeInstanceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToPersonalComputeInstanceSettingsPtrOutput() PersonalComputeInstanceSettingsPtrOutput
+	ToPersonalComputeInstanceSettingsPtrOutputWithContext(context.Context) PersonalComputeInstanceSettingsPtrOutput
+}
+
+type personalComputeInstanceSettingsPtrType PersonalComputeInstanceSettingsArgs
+
+func PersonalComputeInstanceSettingsPtr(v *PersonalComputeInstanceSettingsArgs) PersonalComputeInstanceSettingsPtrInput {
+	return (*personalComputeInstanceSettingsPtrType)(v)
+}
+
+func (*personalComputeInstanceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersonalComputeInstanceSettings)(nil)).Elem()
+}
+
+func (i *personalComputeInstanceSettingsPtrType) ToPersonalComputeInstanceSettingsPtrOutput() PersonalComputeInstanceSettingsPtrOutput {
+	return i.ToPersonalComputeInstanceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *personalComputeInstanceSettingsPtrType) ToPersonalComputeInstanceSettingsPtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersonalComputeInstanceSettingsPtrOutput)
+}
+
+// Settings for a personal compute instance.
+type PersonalComputeInstanceSettingsOutput struct{ *pulumi.OutputState }
+
+func (PersonalComputeInstanceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersonalComputeInstanceSettings)(nil)).Elem()
+}
+
+func (o PersonalComputeInstanceSettingsOutput) ToPersonalComputeInstanceSettingsOutput() PersonalComputeInstanceSettingsOutput {
+	return o
+}
+
+func (o PersonalComputeInstanceSettingsOutput) ToPersonalComputeInstanceSettingsOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsOutput {
+	return o
+}
+
+func (o PersonalComputeInstanceSettingsOutput) ToPersonalComputeInstanceSettingsPtrOutput() PersonalComputeInstanceSettingsPtrOutput {
+	return o.ToPersonalComputeInstanceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o PersonalComputeInstanceSettingsOutput) ToPersonalComputeInstanceSettingsPtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsPtrOutput {
+	return o.ApplyT(func(v PersonalComputeInstanceSettings) *PersonalComputeInstanceSettings {
+		return &v
+	}).(PersonalComputeInstanceSettingsPtrOutput)
+}
+
+// A user explicitly assigned to a personal compute instance.
+func (o PersonalComputeInstanceSettingsOutput) AssignedUser() AssignedUserPtrOutput {
+	return o.ApplyT(func(v PersonalComputeInstanceSettings) *AssignedUser { return v.AssignedUser }).(AssignedUserPtrOutput)
+}
+
+type PersonalComputeInstanceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (PersonalComputeInstanceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersonalComputeInstanceSettings)(nil)).Elem()
+}
+
+func (o PersonalComputeInstanceSettingsPtrOutput) ToPersonalComputeInstanceSettingsPtrOutput() PersonalComputeInstanceSettingsPtrOutput {
+	return o
+}
+
+func (o PersonalComputeInstanceSettingsPtrOutput) ToPersonalComputeInstanceSettingsPtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsPtrOutput {
+	return o
+}
+
+func (o PersonalComputeInstanceSettingsPtrOutput) Elem() PersonalComputeInstanceSettingsOutput {
+	return o.ApplyT(func(v *PersonalComputeInstanceSettings) PersonalComputeInstanceSettings { return *v }).(PersonalComputeInstanceSettingsOutput)
+}
+
+// A user explicitly assigned to a personal compute instance.
+func (o PersonalComputeInstanceSettingsPtrOutput) AssignedUser() AssignedUserPtrOutput {
+	return o.ApplyT(func(v *PersonalComputeInstanceSettings) *AssignedUser {
+		if v == nil {
+			return nil
+		}
+		return v.AssignedUser
+	}).(AssignedUserPtrOutput)
+}
+
+// Settings for a personal compute instance.
+type PersonalComputeInstanceSettingsResponse struct {
+	// A user explicitly assigned to a personal compute instance.
+	AssignedUser *AssignedUserResponse `pulumi:"assignedUser"`
+}
+
+// PersonalComputeInstanceSettingsResponseInput is an input type that accepts PersonalComputeInstanceSettingsResponseArgs and PersonalComputeInstanceSettingsResponseOutput values.
+// You can construct a concrete instance of `PersonalComputeInstanceSettingsResponseInput` via:
+//
+//          PersonalComputeInstanceSettingsResponseArgs{...}
+type PersonalComputeInstanceSettingsResponseInput interface {
+	pulumi.Input
+
+	ToPersonalComputeInstanceSettingsResponseOutput() PersonalComputeInstanceSettingsResponseOutput
+	ToPersonalComputeInstanceSettingsResponseOutputWithContext(context.Context) PersonalComputeInstanceSettingsResponseOutput
+}
+
+// Settings for a personal compute instance.
+type PersonalComputeInstanceSettingsResponseArgs struct {
+	// A user explicitly assigned to a personal compute instance.
+	AssignedUser AssignedUserResponsePtrInput `pulumi:"assignedUser"`
+}
+
+func (PersonalComputeInstanceSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersonalComputeInstanceSettingsResponse)(nil)).Elem()
+}
+
+func (i PersonalComputeInstanceSettingsResponseArgs) ToPersonalComputeInstanceSettingsResponseOutput() PersonalComputeInstanceSettingsResponseOutput {
+	return i.ToPersonalComputeInstanceSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i PersonalComputeInstanceSettingsResponseArgs) ToPersonalComputeInstanceSettingsResponseOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersonalComputeInstanceSettingsResponseOutput)
+}
+
+func (i PersonalComputeInstanceSettingsResponseArgs) ToPersonalComputeInstanceSettingsResponsePtrOutput() PersonalComputeInstanceSettingsResponsePtrOutput {
+	return i.ToPersonalComputeInstanceSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PersonalComputeInstanceSettingsResponseArgs) ToPersonalComputeInstanceSettingsResponsePtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersonalComputeInstanceSettingsResponseOutput).ToPersonalComputeInstanceSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// PersonalComputeInstanceSettingsResponsePtrInput is an input type that accepts PersonalComputeInstanceSettingsResponseArgs, PersonalComputeInstanceSettingsResponsePtr and PersonalComputeInstanceSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `PersonalComputeInstanceSettingsResponsePtrInput` via:
+//
+//          PersonalComputeInstanceSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PersonalComputeInstanceSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToPersonalComputeInstanceSettingsResponsePtrOutput() PersonalComputeInstanceSettingsResponsePtrOutput
+	ToPersonalComputeInstanceSettingsResponsePtrOutputWithContext(context.Context) PersonalComputeInstanceSettingsResponsePtrOutput
+}
+
+type personalComputeInstanceSettingsResponsePtrType PersonalComputeInstanceSettingsResponseArgs
+
+func PersonalComputeInstanceSettingsResponsePtr(v *PersonalComputeInstanceSettingsResponseArgs) PersonalComputeInstanceSettingsResponsePtrInput {
+	return (*personalComputeInstanceSettingsResponsePtrType)(v)
+}
+
+func (*personalComputeInstanceSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersonalComputeInstanceSettingsResponse)(nil)).Elem()
+}
+
+func (i *personalComputeInstanceSettingsResponsePtrType) ToPersonalComputeInstanceSettingsResponsePtrOutput() PersonalComputeInstanceSettingsResponsePtrOutput {
+	return i.ToPersonalComputeInstanceSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *personalComputeInstanceSettingsResponsePtrType) ToPersonalComputeInstanceSettingsResponsePtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersonalComputeInstanceSettingsResponsePtrOutput)
+}
+
+// Settings for a personal compute instance.
+type PersonalComputeInstanceSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (PersonalComputeInstanceSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersonalComputeInstanceSettingsResponse)(nil)).Elem()
+}
+
+func (o PersonalComputeInstanceSettingsResponseOutput) ToPersonalComputeInstanceSettingsResponseOutput() PersonalComputeInstanceSettingsResponseOutput {
+	return o
+}
+
+func (o PersonalComputeInstanceSettingsResponseOutput) ToPersonalComputeInstanceSettingsResponseOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsResponseOutput {
+	return o
+}
+
+func (o PersonalComputeInstanceSettingsResponseOutput) ToPersonalComputeInstanceSettingsResponsePtrOutput() PersonalComputeInstanceSettingsResponsePtrOutput {
+	return o.ToPersonalComputeInstanceSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PersonalComputeInstanceSettingsResponseOutput) ToPersonalComputeInstanceSettingsResponsePtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsResponsePtrOutput {
+	return o.ApplyT(func(v PersonalComputeInstanceSettingsResponse) *PersonalComputeInstanceSettingsResponse {
+		return &v
+	}).(PersonalComputeInstanceSettingsResponsePtrOutput)
+}
+
+// A user explicitly assigned to a personal compute instance.
+func (o PersonalComputeInstanceSettingsResponseOutput) AssignedUser() AssignedUserResponsePtrOutput {
+	return o.ApplyT(func(v PersonalComputeInstanceSettingsResponse) *AssignedUserResponse { return v.AssignedUser }).(AssignedUserResponsePtrOutput)
+}
+
+type PersonalComputeInstanceSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PersonalComputeInstanceSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersonalComputeInstanceSettingsResponse)(nil)).Elem()
+}
+
+func (o PersonalComputeInstanceSettingsResponsePtrOutput) ToPersonalComputeInstanceSettingsResponsePtrOutput() PersonalComputeInstanceSettingsResponsePtrOutput {
+	return o
+}
+
+func (o PersonalComputeInstanceSettingsResponsePtrOutput) ToPersonalComputeInstanceSettingsResponsePtrOutputWithContext(ctx context.Context) PersonalComputeInstanceSettingsResponsePtrOutput {
+	return o
+}
+
+func (o PersonalComputeInstanceSettingsResponsePtrOutput) Elem() PersonalComputeInstanceSettingsResponseOutput {
+	return o.ApplyT(func(v *PersonalComputeInstanceSettingsResponse) PersonalComputeInstanceSettingsResponse { return *v }).(PersonalComputeInstanceSettingsResponseOutput)
+}
+
+// A user explicitly assigned to a personal compute instance.
+func (o PersonalComputeInstanceSettingsResponsePtrOutput) AssignedUser() AssignedUserResponsePtrOutput {
+	return o.ApplyT(func(v *PersonalComputeInstanceSettingsResponse) *AssignedUserResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AssignedUser
+	}).(AssignedUserResponsePtrOutput)
+}
+
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
 	// Specifies the resource ID.
@@ -16390,6 +18721,28 @@ func init() {
 	pulumi.RegisterOutputType(AmlComputeResponseOutput{})
 	pulumi.RegisterOutputType(AmlComputeResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(AmlComputeResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AssignedUserOutput{})
+	pulumi.RegisterOutputType(AssignedUserPtrOutput{})
+	pulumi.RegisterOutputType(AssignedUserResponseOutput{})
+	pulumi.RegisterOutputType(AssignedUserResponsePtrOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceApplicationResponseOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceApplicationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceConnectivityEndpointsResponseOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceConnectivityEndpointsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceCreatedByResponseOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceCreatedByResponsePtrOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceLastOperationResponseOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceLastOperationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ComputeInstancePropertiesOutput{})
+	pulumi.RegisterOutputType(ComputeInstancePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceResponseOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceSshSettingsOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceSshSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceSshSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ComputeInstanceSshSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerResourceRequirementsOutput{})
 	pulumi.RegisterOutputType(ContainerResourceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(ContainerResourceRequirementsResponseOutput{})
@@ -16483,6 +18836,10 @@ func init() {
 	pulumi.RegisterOutputType(NodeStateCountsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PasswordResponseOutput{})
 	pulumi.RegisterOutputType(PasswordResponseArrayOutput{})
+	pulumi.RegisterOutputType(PersonalComputeInstanceSettingsOutput{})
+	pulumi.RegisterOutputType(PersonalComputeInstanceSettingsPtrOutput{})
+	pulumi.RegisterOutputType(PersonalComputeInstanceSettingsResponseOutput{})
+	pulumi.RegisterOutputType(PersonalComputeInstanceSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})

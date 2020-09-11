@@ -127,7 +127,13 @@ __all__ = [
     'LoadBalancingRuleArgs',
     'LoadBalancingSettingsModelArgs',
     'LocalNetworkGatewayArgs',
+    'ManagedRuleGroupOverrideArgs',
+    'ManagedRuleOverrideArgs',
+    'ManagedRuleSetArgs',
+    'ManagedRulesDefinitionArgs',
     'ManagedServiceIdentityArgs',
+    'MatchConditionArgs',
+    'MatchVariableArgs',
     'NatGatewaySkuArgs',
     'NatRuleArgs',
     'NetworkInterfaceDnsSettingsArgs',
@@ -136,9 +142,11 @@ __all__ = [
     'NetworkSecurityGroupArgs',
     'Office365PolicyPropertiesArgs',
     'OutboundRuleArgs',
+    'OwaspCrsExclusionEntryArgs',
     'P2SConnectionConfigurationArgs',
     'PacketCaptureFilterArgs',
     'PacketCaptureStorageLocationArgs',
+    'PolicySettingsArgs',
     'PrivateDnsZoneConfigArgs',
     'PrivateLinkServiceConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
@@ -199,6 +207,7 @@ __all__ = [
     'VpnServerConfigVpnClientRootCertificateArgs',
     'VpnSiteLinkArgs',
     'VpnSiteLinkConnectionArgs',
+    'WebApplicationFirewallCustomRuleArgs',
 ]
 
 @pulumi.input_type
@@ -9336,6 +9345,177 @@ class LocalNetworkGatewayArgs:
 
 
 @pulumi.input_type
+class ManagedRuleGroupOverrideArgs:
+    def __init__(__self__, *,
+                 rule_group_name: pulumi.Input[str],
+                 rules: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleOverrideArgs']]]] = None):
+        """
+        Defines a managed rule group override setting.
+        :param pulumi.Input[str] rule_group_name: The managed rule group to override.
+        :param pulumi.Input[List[pulumi.Input['ManagedRuleOverrideArgs']]] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        """
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> pulumi.Input[str]:
+        """
+        The managed rule group to override.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @rule_group_name.setter
+    def rule_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_group_name", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[List[pulumi.Input['ManagedRuleOverrideArgs']]]]:
+        """
+        List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleOverrideArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class ManagedRuleOverrideArgs:
+    def __init__(__self__, *,
+                 rule_id: pulumi.Input[str],
+                 state: Optional[pulumi.Input[str]] = None):
+        """
+        Defines a managed rule group override setting.
+        :param pulumi.Input[str] rule_id: Identifier for the managed rule.
+        :param pulumi.Input[str] state: The state of the managed rule. Defaults to Disabled if not specified.
+        """
+        pulumi.set(__self__, "rule_id", rule_id)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> pulumi.Input[str]:
+        """
+        Identifier for the managed rule.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @rule_id.setter
+    def rule_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_id", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the managed rule. Defaults to Disabled if not specified.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class ManagedRuleSetArgs:
+    def __init__(__self__, *,
+                 rule_set_type: pulumi.Input[str],
+                 rule_set_version: pulumi.Input[str],
+                 rule_group_overrides: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleGroupOverrideArgs']]]] = None):
+        """
+        Defines a managed rule set.
+        :param pulumi.Input[str] rule_set_type: Defines the rule set type to use.
+        :param pulumi.Input[str] rule_set_version: Defines the version of the rule set to use.
+        :param pulumi.Input[List[pulumi.Input['ManagedRuleGroupOverrideArgs']]] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
+        """
+        pulumi.set(__self__, "rule_set_type", rule_set_type)
+        pulumi.set(__self__, "rule_set_version", rule_set_version)
+        if rule_group_overrides is not None:
+            pulumi.set(__self__, "rule_group_overrides", rule_group_overrides)
+
+    @property
+    @pulumi.getter(name="ruleSetType")
+    def rule_set_type(self) -> pulumi.Input[str]:
+        """
+        Defines the rule set type to use.
+        """
+        return pulumi.get(self, "rule_set_type")
+
+    @rule_set_type.setter
+    def rule_set_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_set_type", value)
+
+    @property
+    @pulumi.getter(name="ruleSetVersion")
+    def rule_set_version(self) -> pulumi.Input[str]:
+        """
+        Defines the version of the rule set to use.
+        """
+        return pulumi.get(self, "rule_set_version")
+
+    @rule_set_version.setter
+    def rule_set_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_set_version", value)
+
+    @property
+    @pulumi.getter(name="ruleGroupOverrides")
+    def rule_group_overrides(self) -> Optional[pulumi.Input[List[pulumi.Input['ManagedRuleGroupOverrideArgs']]]]:
+        """
+        Defines the rule group overrides to apply to the rule set.
+        """
+        return pulumi.get(self, "rule_group_overrides")
+
+    @rule_group_overrides.setter
+    def rule_group_overrides(self, value: Optional[pulumi.Input[List[pulumi.Input['ManagedRuleGroupOverrideArgs']]]]):
+        pulumi.set(self, "rule_group_overrides", value)
+
+
+@pulumi.input_type
+class ManagedRulesDefinitionArgs:
+    def __init__(__self__, *,
+                 managed_rule_sets: pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]],
+                 exclusions: Optional[pulumi.Input[List[pulumi.Input['OwaspCrsExclusionEntryArgs']]]] = None):
+        """
+        Allow to exclude some variable satisfy the condition for the WAF check.
+        :param pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]] managed_rule_sets: The managed rule sets that are associated with the policy.
+        :param pulumi.Input[List[pulumi.Input['OwaspCrsExclusionEntryArgs']]] exclusions: The Exclusions that are applied on the policy.
+        """
+        pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter(name="managedRuleSets")
+    def managed_rule_sets(self) -> pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]]:
+        """
+        The managed rule sets that are associated with the policy.
+        """
+        return pulumi.get(self, "managed_rule_sets")
+
+    @managed_rule_sets.setter
+    def managed_rule_sets(self, value: pulumi.Input[List[pulumi.Input['ManagedRuleSetArgs']]]):
+        pulumi.set(self, "managed_rule_sets", value)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[List[pulumi.Input['OwaspCrsExclusionEntryArgs']]]]:
+        """
+        The Exclusions that are applied on the policy.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[List[pulumi.Input['OwaspCrsExclusionEntryArgs']]]]):
+        pulumi.set(self, "exclusions", value)
+
+
+@pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
@@ -9357,6 +9537,130 @@ class ManagedServiceIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class MatchConditionArgs:
+    def __init__(__self__, *,
+                 match_values: pulumi.Input[List[pulumi.Input[str]]],
+                 match_variables: pulumi.Input[List[pulumi.Input['MatchVariableArgs']]],
+                 operator: pulumi.Input[str],
+                 negation_conditon: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        Define match conditions.
+        :param pulumi.Input[List[pulumi.Input[str]]] match_values: Match value.
+        :param pulumi.Input[List[pulumi.Input['MatchVariableArgs']]] match_variables: List of match variables.
+        :param pulumi.Input[str] operator: The operator to be matched.
+        :param pulumi.Input[bool] negation_conditon: Whether this is negate condition or not.
+        :param pulumi.Input[List[pulumi.Input[str]]] transforms: List of transforms.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "match_variables", match_variables)
+        pulumi.set(__self__, "operator", operator)
+        if negation_conditon is not None:
+            pulumi.set(__self__, "negation_conditon", negation_conditon)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        Match value.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="matchVariables")
+    def match_variables(self) -> pulumi.Input[List[pulumi.Input['MatchVariableArgs']]]:
+        """
+        List of match variables.
+        """
+        return pulumi.get(self, "match_variables")
+
+    @match_variables.setter
+    def match_variables(self, value: pulumi.Input[List[pulumi.Input['MatchVariableArgs']]]):
+        pulumi.set(self, "match_variables", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator to be matched.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="negationConditon")
+    def negation_conditon(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this is negate condition or not.
+        """
+        return pulumi.get(self, "negation_conditon")
+
+    @negation_conditon.setter
+    def negation_conditon(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negation_conditon", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        List of transforms.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+
+@pulumi.input_type
+class MatchVariableArgs:
+    def __init__(__self__, *,
+                 variable_name: pulumi.Input[str],
+                 selector: Optional[pulumi.Input[str]] = None):
+        """
+        Define match variables.
+        :param pulumi.Input[str] variable_name: Match Variable.
+        :param pulumi.Input[str] selector: The selector of match variable.
+        """
+        pulumi.set(__self__, "variable_name", variable_name)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+
+    @property
+    @pulumi.getter(name="variableName")
+    def variable_name(self) -> pulumi.Input[str]:
+        """
+        Match Variable.
+        """
+        return pulumi.get(self, "variable_name")
+
+    @variable_name.setter
+    def variable_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "variable_name", value)
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[pulumi.Input[str]]:
+        """
+        The selector of match variable.
+        """
+        return pulumi.get(self, "selector")
+
+    @selector.setter
+    def selector(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "selector", value)
 
 
 @pulumi.input_type
@@ -10203,6 +10507,59 @@ class OutboundRuleArgs:
 
 
 @pulumi.input_type
+class OwaspCrsExclusionEntryArgs:
+    def __init__(__self__, *,
+                 match_variable: pulumi.Input[str],
+                 selector: pulumi.Input[str],
+                 selector_match_operator: pulumi.Input[str]):
+        """
+        Allow to exclude some variable satisfy the condition for the WAF check.
+        :param pulumi.Input[str] match_variable: The variable to be excluded.
+        :param pulumi.Input[str] selector: When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+        :param pulumi.Input[str] selector_match_operator: When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "selector", selector)
+        pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> pulumi.Input[str]:
+        """
+        The variable to be excluded.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @match_variable.setter
+    def match_variable(self, value: pulumi.Input[str]):
+        pulumi.set(self, "match_variable", value)
+
+    @property
+    @pulumi.getter
+    def selector(self) -> pulumi.Input[str]:
+        """
+        When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+        """
+        return pulumi.get(self, "selector")
+
+    @selector.setter
+    def selector(self, value: pulumi.Input[str]):
+        pulumi.set(self, "selector", value)
+
+    @property
+    @pulumi.getter(name="selectorMatchOperator")
+    def selector_match_operator(self) -> pulumi.Input[str]:
+        """
+        When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+        """
+        return pulumi.get(self, "selector_match_operator")
+
+    @selector_match_operator.setter
+    def selector_match_operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "selector_match_operator", value)
+
+
+@pulumi.input_type
 class P2SConnectionConfigurationArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
@@ -10416,6 +10773,94 @@ class PacketCaptureStorageLocationArgs:
     @storage_path.setter
     def storage_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_path", value)
+
+
+@pulumi.input_type
+class PolicySettingsArgs:
+    def __init__(__self__, *,
+                 file_upload_limit_in_mb: Optional[pulumi.Input[float]] = None,
+                 max_request_body_size_in_kb: Optional[pulumi.Input[float]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 request_body_check: Optional[pulumi.Input[bool]] = None,
+                 state: Optional[pulumi.Input[str]] = None):
+        """
+        Defines contents of a web application firewall global configuration.
+        :param pulumi.Input[float] file_upload_limit_in_mb: Maximum file upload size in Mb for WAF.
+        :param pulumi.Input[float] max_request_body_size_in_kb: Maximum request body size in Kb for WAF.
+        :param pulumi.Input[str] mode: The mode of the policy.
+        :param pulumi.Input[bool] request_body_check: Whether to allow WAF to check request Body.
+        :param pulumi.Input[str] state: The state of the policy.
+        """
+        if file_upload_limit_in_mb is not None:
+            pulumi.set(__self__, "file_upload_limit_in_mb", file_upload_limit_in_mb)
+        if max_request_body_size_in_kb is not None:
+            pulumi.set(__self__, "max_request_body_size_in_kb", max_request_body_size_in_kb)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if request_body_check is not None:
+            pulumi.set(__self__, "request_body_check", request_body_check)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="fileUploadLimitInMb")
+    def file_upload_limit_in_mb(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum file upload size in Mb for WAF.
+        """
+        return pulumi.get(self, "file_upload_limit_in_mb")
+
+    @file_upload_limit_in_mb.setter
+    def file_upload_limit_in_mb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "file_upload_limit_in_mb", value)
+
+    @property
+    @pulumi.getter(name="maxRequestBodySizeInKb")
+    def max_request_body_size_in_kb(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum request body size in Kb for WAF.
+        """
+        return pulumi.get(self, "max_request_body_size_in_kb")
+
+    @max_request_body_size_in_kb.setter
+    def max_request_body_size_in_kb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_request_body_size_in_kb", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode of the policy.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="requestBodyCheck")
+    def request_body_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to allow WAF to check request Body.
+        """
+        return pulumi.get(self, "request_body_check")
+
+    @request_body_check.setter
+    def request_body_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "request_body_check", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the policy.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
 
 
 @pulumi.input_type
@@ -15351,5 +15796,89 @@ class VpnSiteLinkConnectionArgs:
     @vpn_site_link.setter
     def vpn_site_link(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "vpn_site_link", value)
+
+
+@pulumi.input_type
+class WebApplicationFirewallCustomRuleArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 match_conditions: pulumi.Input[List[pulumi.Input['MatchConditionArgs']]],
+                 priority: pulumi.Input[float],
+                 rule_type: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Defines contents of a web application rule.
+        :param pulumi.Input[str] action: Type of Actions.
+        :param pulumi.Input[List[pulumi.Input['MatchConditionArgs']]] match_conditions: List of match conditions.
+        :param pulumi.Input[float] priority: Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        :param pulumi.Input[str] rule_type: The rule type.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match_conditions", match_conditions)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "rule_type", rule_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        Type of Actions.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="matchConditions")
+    def match_conditions(self) -> pulumi.Input[List[pulumi.Input['MatchConditionArgs']]]:
+        """
+        List of match conditions.
+        """
+        return pulumi.get(self, "match_conditions")
+
+    @match_conditions.setter
+    def match_conditions(self, value: pulumi.Input[List[pulumi.Input['MatchConditionArgs']]]):
+        pulumi.set(self, "match_conditions", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[float]:
+        """
+        Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[float]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The rule type.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 

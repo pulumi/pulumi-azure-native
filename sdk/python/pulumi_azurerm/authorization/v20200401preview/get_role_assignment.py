@@ -71,7 +71,7 @@ class GetRoleAssignmentResult:
     @pulumi.getter(name="conditionVersion")
     def condition_version(self) -> Optional[str]:
         """
-        Version of the condition. Currently accepted values are '1.0' or '2.0'
+        Version of the condition. Currently accepted value is '2.0'
         """
         return pulumi.get(self, "condition_version")
 

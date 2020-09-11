@@ -58,7 +58,7 @@ class NodeType(pulumi.CustomResource):
         :param pulumi.Input[str] vm_image_publisher: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
         :param pulumi.Input[str] vm_image_sku: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
         :param pulumi.Input[str] vm_image_version: The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
-        :param pulumi.Input[float] vm_instance_count: The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+        :param pulumi.Input[float] vm_instance_count: The number of nodes in the node type.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]] vm_secrets: The secrets to install in the virtual machines.
         :param pulumi.Input[str] vm_size: The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         """
@@ -260,7 +260,7 @@ class NodeType(pulumi.CustomResource):
     @pulumi.getter(name="vmInstanceCount")
     def vm_instance_count(self) -> pulumi.Output[float]:
         """
-        The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+        The number of nodes in the node type.
         """
         return pulumi.get(self, "vm_instance_count")
 

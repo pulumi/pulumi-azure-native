@@ -167,7 +167,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location the resource resides in.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -255,7 +255,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Application-specific metadata in the form of key-value pairs.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 

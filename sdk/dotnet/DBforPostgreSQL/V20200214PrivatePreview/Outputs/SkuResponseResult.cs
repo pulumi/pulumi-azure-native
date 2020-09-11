@@ -16,17 +16,17 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview.Outputs
         /// <summary>
         /// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// The tier of the particular SKU, e.g. Burstable.
         /// </summary>
-        public readonly string? Tier;
+        public readonly string Tier;
 
         [OutputConstructor]
         private SkuResponseResult(
-            string? name,
+            string name,
 
-            string? tier)
+            string tier)
         {
             Name = name;
             Tier = tier;

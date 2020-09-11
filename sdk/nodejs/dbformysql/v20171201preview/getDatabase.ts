@@ -49,11 +49,11 @@ export interface GetDatabaseResult {
      */
     readonly collation?: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
 }

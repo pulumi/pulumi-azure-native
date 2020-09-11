@@ -200,7 +200,7 @@ class GetNodeTypeResult:
     @pulumi.getter(name="vmInstanceCount")
     def vm_instance_count(self) -> float:
         """
-        The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+        The number of nodes in the node type.
         """
         return pulumi.get(self, "vm_instance_count")
 

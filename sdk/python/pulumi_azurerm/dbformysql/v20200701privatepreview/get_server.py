@@ -20,7 +20,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, byok_enforcement=None, create_mode=None, delegated_subnet_arguments=None, earliest_restore_date=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, identity=None, infrastructure_encryption=None, location=None, maintenance_window=None, name=None, public_network_access=None, replica_capacity=None, replication_role=None, restore_point_in_time=None, sku=None, source_server_id=None, ssl_enforcement=None, stand_by_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, byok_enforcement=None, create_mode=None, delegated_subnet_arguments=None, earliest_restore_date=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, identity=None, infrastructure_encryption=None, location=None, maintenance_window=None, name=None, public_network_access=None, replica_capacity=None, replication_role=None, restore_point_in_time=None, sku=None, source_server_id=None, ssl_enforcement=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -87,9 +87,9 @@ class GetServerResult:
         if ssl_enforcement and not isinstance(ssl_enforcement, str):
             raise TypeError("Expected argument 'ssl_enforcement' to be a str")
         pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
-        if stand_by_availability_zone and not isinstance(stand_by_availability_zone, str):
-            raise TypeError("Expected argument 'stand_by_availability_zone' to be a str")
-        pulumi.set(__self__, "stand_by_availability_zone", stand_by_availability_zone)
+        if standby_availability_zone and not isinstance(standby_availability_zone, str):
+            raise TypeError("Expected argument 'standby_availability_zone' to be a str")
+        pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -156,7 +156,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="earliestRestoreDate")
-    def earliest_restore_date(self) -> Optional[str]:
+    def earliest_restore_date(self) -> str:
         """
         Earliest restore point creation time (ISO8601 format)
         """
@@ -228,7 +228,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
+    def public_network_access(self) -> str:
         """
         Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
@@ -236,7 +236,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="replicaCapacity")
-    def replica_capacity(self) -> Optional[float]:
+    def replica_capacity(self) -> float:
         """
         The maximum number of replicas that a primary server can have.
         """
@@ -283,12 +283,12 @@ class GetServerResult:
         return pulumi.get(self, "ssl_enforcement")
 
     @property
-    @pulumi.getter(name="standByAvailabilityZone")
-    def stand_by_availability_zone(self) -> str:
+    @pulumi.getter(name="standbyAvailabilityZone")
+    def standby_availability_zone(self) -> str:
         """
         availability Zone information of the server.
         """
-        return pulumi.get(self, "stand_by_availability_zone")
+        return pulumi.get(self, "standby_availability_zone")
 
     @property
     @pulumi.getter
@@ -359,7 +359,7 @@ class AwaitableGetServerResult(GetServerResult):
             sku=self.sku,
             source_server_id=self.source_server_id,
             ssl_enforcement=self.ssl_enforcement,
-            stand_by_availability_zone=self.stand_by_availability_zone,
+            standby_availability_zone=self.standby_availability_zone,
             state=self.state,
             storage_profile=self.storage_profile,
             tags=self.tags,
@@ -408,7 +408,7 @@ def get_server(resource_group_name: Optional[str] = None,
         sku=__ret__.sku,
         source_server_id=__ret__.source_server_id,
         ssl_enforcement=__ret__.ssl_enforcement,
-        stand_by_availability_zone=__ret__.stand_by_availability_zone,
+        standby_availability_zone=__ret__.standby_availability_zone,
         state=__ret__.state,
         storage_profile=__ret__.storage_profile,
         tags=__ret__.tags,

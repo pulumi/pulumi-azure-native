@@ -3667,6 +3667,8 @@ type NetworkProfileResponse struct {
 	AppNetworkResourceGroup *string `pulumi:"appNetworkResourceGroup"`
 	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
 	AppSubnetId *string `pulumi:"appSubnetId"`
+	// Desired outbound IP resources for Azure Spring Cloud instance.
+	OutboundIPs NetworkProfileResponseOutboundIPs `pulumi:"outboundIPs"`
 	// Azure Spring Cloud service reserved CIDR
 	ServiceCidr *string `pulumi:"serviceCidr"`
 	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
@@ -3692,6 +3694,8 @@ type NetworkProfileResponseArgs struct {
 	AppNetworkResourceGroup pulumi.StringPtrInput `pulumi:"appNetworkResourceGroup"`
 	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
 	AppSubnetId pulumi.StringPtrInput `pulumi:"appSubnetId"`
+	// Desired outbound IP resources for Azure Spring Cloud instance.
+	OutboundIPs NetworkProfileResponseOutboundIPsInput `pulumi:"outboundIPs"`
 	// Azure Spring Cloud service reserved CIDR
 	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
 	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
@@ -3788,6 +3792,11 @@ func (o NetworkProfileResponseOutput) AppSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.AppSubnetId }).(pulumi.StringPtrOutput)
 }
 
+// Desired outbound IP resources for Azure Spring Cloud instance.
+func (o NetworkProfileResponseOutput) OutboundIPs() NetworkProfileResponseOutboundIPsOutput {
+	return o.ApplyT(func(v NetworkProfileResponse) NetworkProfileResponseOutboundIPs { return v.OutboundIPs }).(NetworkProfileResponseOutboundIPsOutput)
+}
+
 // Azure Spring Cloud service reserved CIDR
 func (o NetworkProfileResponseOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
@@ -3841,6 +3850,16 @@ func (o NetworkProfileResponsePtrOutput) AppSubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Desired outbound IP resources for Azure Spring Cloud instance.
+func (o NetworkProfileResponsePtrOutput) OutboundIPs() NetworkProfileResponseOutboundIPsPtrOutput {
+	return o.ApplyT(func(v *NetworkProfileResponse) *NetworkProfileResponseOutboundIPs {
+		if v == nil {
+			return nil
+		}
+		return &v.OutboundIPs
+	}).(NetworkProfileResponseOutboundIPsPtrOutput)
+}
+
 // Azure Spring Cloud service reserved CIDR
 func (o NetworkProfileResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
@@ -3869,6 +3888,140 @@ func (o NetworkProfileResponsePtrOutput) ServiceRuntimeSubnetId() pulumi.StringP
 		}
 		return v.ServiceRuntimeSubnetId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Desired outbound IP resources for Azure Spring Cloud instance.
+type NetworkProfileResponseOutboundIPs struct {
+	// A list of public IP addresses.
+	PublicIPs []string `pulumi:"publicIPs"`
+}
+
+// NetworkProfileResponseOutboundIPsInput is an input type that accepts NetworkProfileResponseOutboundIPsArgs and NetworkProfileResponseOutboundIPsOutput values.
+// You can construct a concrete instance of `NetworkProfileResponseOutboundIPsInput` via:
+//
+//          NetworkProfileResponseOutboundIPsArgs{...}
+type NetworkProfileResponseOutboundIPsInput interface {
+	pulumi.Input
+
+	ToNetworkProfileResponseOutboundIPsOutput() NetworkProfileResponseOutboundIPsOutput
+	ToNetworkProfileResponseOutboundIPsOutputWithContext(context.Context) NetworkProfileResponseOutboundIPsOutput
+}
+
+// Desired outbound IP resources for Azure Spring Cloud instance.
+type NetworkProfileResponseOutboundIPsArgs struct {
+	// A list of public IP addresses.
+	PublicIPs pulumi.StringArrayInput `pulumi:"publicIPs"`
+}
+
+func (NetworkProfileResponseOutboundIPsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileResponseOutboundIPs)(nil)).Elem()
+}
+
+func (i NetworkProfileResponseOutboundIPsArgs) ToNetworkProfileResponseOutboundIPsOutput() NetworkProfileResponseOutboundIPsOutput {
+	return i.ToNetworkProfileResponseOutboundIPsOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileResponseOutboundIPsArgs) ToNetworkProfileResponseOutboundIPsOutputWithContext(ctx context.Context) NetworkProfileResponseOutboundIPsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponseOutboundIPsOutput)
+}
+
+func (i NetworkProfileResponseOutboundIPsArgs) ToNetworkProfileResponseOutboundIPsPtrOutput() NetworkProfileResponseOutboundIPsPtrOutput {
+	return i.ToNetworkProfileResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileResponseOutboundIPsArgs) ToNetworkProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) NetworkProfileResponseOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponseOutboundIPsOutput).ToNetworkProfileResponseOutboundIPsPtrOutputWithContext(ctx)
+}
+
+// NetworkProfileResponseOutboundIPsPtrInput is an input type that accepts NetworkProfileResponseOutboundIPsArgs, NetworkProfileResponseOutboundIPsPtr and NetworkProfileResponseOutboundIPsPtrOutput values.
+// You can construct a concrete instance of `NetworkProfileResponseOutboundIPsPtrInput` via:
+//
+//          NetworkProfileResponseOutboundIPsArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkProfileResponseOutboundIPsPtrInput interface {
+	pulumi.Input
+
+	ToNetworkProfileResponseOutboundIPsPtrOutput() NetworkProfileResponseOutboundIPsPtrOutput
+	ToNetworkProfileResponseOutboundIPsPtrOutputWithContext(context.Context) NetworkProfileResponseOutboundIPsPtrOutput
+}
+
+type networkProfileResponseOutboundIPsPtrType NetworkProfileResponseOutboundIPsArgs
+
+func NetworkProfileResponseOutboundIPsPtr(v *NetworkProfileResponseOutboundIPsArgs) NetworkProfileResponseOutboundIPsPtrInput {
+	return (*networkProfileResponseOutboundIPsPtrType)(v)
+}
+
+func (*networkProfileResponseOutboundIPsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkProfileResponseOutboundIPs)(nil)).Elem()
+}
+
+func (i *networkProfileResponseOutboundIPsPtrType) ToNetworkProfileResponseOutboundIPsPtrOutput() NetworkProfileResponseOutboundIPsPtrOutput {
+	return i.ToNetworkProfileResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i *networkProfileResponseOutboundIPsPtrType) ToNetworkProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) NetworkProfileResponseOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponseOutboundIPsPtrOutput)
+}
+
+// Desired outbound IP resources for Azure Spring Cloud instance.
+type NetworkProfileResponseOutboundIPsOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileResponseOutboundIPsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileResponseOutboundIPs)(nil)).Elem()
+}
+
+func (o NetworkProfileResponseOutboundIPsOutput) ToNetworkProfileResponseOutboundIPsOutput() NetworkProfileResponseOutboundIPsOutput {
+	return o
+}
+
+func (o NetworkProfileResponseOutboundIPsOutput) ToNetworkProfileResponseOutboundIPsOutputWithContext(ctx context.Context) NetworkProfileResponseOutboundIPsOutput {
+	return o
+}
+
+func (o NetworkProfileResponseOutboundIPsOutput) ToNetworkProfileResponseOutboundIPsPtrOutput() NetworkProfileResponseOutboundIPsPtrOutput {
+	return o.ToNetworkProfileResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkProfileResponseOutboundIPsOutput) ToNetworkProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) NetworkProfileResponseOutboundIPsPtrOutput {
+	return o.ApplyT(func(v NetworkProfileResponseOutboundIPs) *NetworkProfileResponseOutboundIPs {
+		return &v
+	}).(NetworkProfileResponseOutboundIPsPtrOutput)
+}
+
+// A list of public IP addresses.
+func (o NetworkProfileResponseOutboundIPsOutput) PublicIPs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkProfileResponseOutboundIPs) []string { return v.PublicIPs }).(pulumi.StringArrayOutput)
+}
+
+type NetworkProfileResponseOutboundIPsPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileResponseOutboundIPsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkProfileResponseOutboundIPs)(nil)).Elem()
+}
+
+func (o NetworkProfileResponseOutboundIPsPtrOutput) ToNetworkProfileResponseOutboundIPsPtrOutput() NetworkProfileResponseOutboundIPsPtrOutput {
+	return o
+}
+
+func (o NetworkProfileResponseOutboundIPsPtrOutput) ToNetworkProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) NetworkProfileResponseOutboundIPsPtrOutput {
+	return o
+}
+
+func (o NetworkProfileResponseOutboundIPsPtrOutput) Elem() NetworkProfileResponseOutboundIPsOutput {
+	return o.ApplyT(func(v *NetworkProfileResponseOutboundIPs) NetworkProfileResponseOutboundIPs { return *v }).(NetworkProfileResponseOutboundIPsOutput)
+}
+
+// A list of public IP addresses.
+func (o NetworkProfileResponseOutboundIPsPtrOutput) PublicIPs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkProfileResponseOutboundIPs) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIPs
+	}).(pulumi.StringArrayOutput)
 }
 
 // Persistent disk payload
@@ -5275,6 +5428,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(NetworkProfileResponseOutboundIPsOutput{})
+	pulumi.RegisterOutputType(NetworkProfileResponseOutboundIPsPtrOutput{})
 	pulumi.RegisterOutputType(PersistentDiskOutput{})
 	pulumi.RegisterOutputType(PersistentDiskPtrOutput{})
 	pulumi.RegisterOutputType(PersistentDiskResponseOutput{})

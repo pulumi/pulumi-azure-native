@@ -57,7 +57,7 @@ type LookupNodeTypeResult struct {
 	VmImageSku *string `pulumi:"vmImageSku"`
 	// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
 	VmImageVersion *string `pulumi:"vmImageVersion"`
-	// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+	// The number of nodes in the node type.
 	VmInstanceCount int `pulumi:"vmInstanceCount"`
 	// The secrets to install in the virtual machines.
 	VmSecrets []VaultSecretGroupResponse `pulumi:"vmSecrets"`

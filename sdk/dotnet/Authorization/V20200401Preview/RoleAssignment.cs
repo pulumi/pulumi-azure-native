@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.Authorization.V20200401Preview
         public Output<string?> Condition { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the condition. Currently accepted values are '1.0' or '2.0'
+        /// Version of the condition. Currently accepted value is '2.0'
         /// </summary>
         [Output("conditionVersion")]
         public Output<string?> ConditionVersion { get; private set; } = null!;
@@ -134,13 +134,13 @@ namespace Pulumi.AzureRM.Authorization.V20200401Preview
         public Input<bool>? CanDelegate { get; set; }
 
         /// <summary>
-        /// The conditions on the role assignment
+        /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
         /// <summary>
-        /// Version of the condition
+        /// Version of the condition. Currently accepted value is '2.0'
         /// </summary>
         [Input("conditionVersion")]
         public Input<string>? ConditionVersion { get; set; }

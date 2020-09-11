@@ -14,7 +14,7 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// The time the namespace was created.
+	// The time the namespace was created
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Properties of BYOK Encryption description
 	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
@@ -92,7 +92,7 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// The time the namespace was created.
+	// The time the namespace was created
 	CreatedAt *string `pulumi:"createdAt"`
 	// Properties of BYOK Encryption description
 	Encryption *EncryptionResponse `pulumi:"encryption"`
@@ -119,7 +119,7 @@ type namespaceState struct {
 }
 
 type NamespaceState struct {
-	// The time the namespace was created.
+	// The time the namespace was created
 	CreatedAt pulumi.StringPtrInput
 	// Properties of BYOK Encryption description
 	Encryption EncryptionResponsePtrInput

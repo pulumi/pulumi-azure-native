@@ -22,6 +22,10 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701.Outputs
         /// </summary>
         public readonly string? AppSubnetId;
         /// <summary>
+        /// Desired outbound IP resources for Azure Spring Cloud instance.
+        /// </summary>
+        public readonly Outputs.NetworkProfileResponseOutboundIPsResult OutboundIPs;
+        /// <summary>
         /// Azure Spring Cloud service reserved CIDR
         /// </summary>
         public readonly string? ServiceCidr;
@@ -40,6 +44,8 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701.Outputs
 
             string? appSubnetId,
 
+            Outputs.NetworkProfileResponseOutboundIPsResult outboundIPs,
+
             string? serviceCidr,
 
             string? serviceRuntimeNetworkResourceGroup,
@@ -48,6 +54,7 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701.Outputs
         {
             AppNetworkResourceGroup = appNetworkResourceGroup;
             AppSubnetId = appSubnetId;
+            OutboundIPs = outboundIPs;
             ServiceCidr = serviceCidr;
             ServiceRuntimeNetworkResourceGroup = serviceRuntimeNetworkResourceGroup;
             ServiceRuntimeSubnetId = serviceRuntimeSubnetId;

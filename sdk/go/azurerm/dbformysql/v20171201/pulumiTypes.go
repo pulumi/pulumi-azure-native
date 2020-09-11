@@ -1303,7 +1303,7 @@ type Sku struct {
 	// The family of hardware.
 	Family *string `pulumi:"family"`
 	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The size code, to be interpreted by resource as appropriate.
 	Size *string `pulumi:"size"`
 	// The tier of the particular SKU, e.g. Basic.
@@ -1328,7 +1328,7 @@ type SkuArgs struct {
 	// The family of hardware.
 	Family pulumi.StringPtrInput `pulumi:"family"`
 	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// The size code, to be interpreted by resource as appropriate.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// The tier of the particular SKU, e.g. Basic.
@@ -1424,8 +1424,8 @@ func (o SkuOutput) Family() pulumi.StringPtrOutput {
 }
 
 // The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-func (o SkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The size code, to be interpreted by resource as appropriate.
@@ -1482,7 +1482,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1513,7 +1513,7 @@ type SkuResponse struct {
 	// The family of hardware.
 	Family *string `pulumi:"family"`
 	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The size code, to be interpreted by resource as appropriate.
 	Size *string `pulumi:"size"`
 	// The tier of the particular SKU, e.g. Basic.
@@ -1538,7 +1538,7 @@ type SkuResponseArgs struct {
 	// The family of hardware.
 	Family pulumi.StringPtrInput `pulumi:"family"`
 	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// The size code, to be interpreted by resource as appropriate.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// The tier of the particular SKU, e.g. Basic.
@@ -1634,8 +1634,8 @@ func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 }
 
 // The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The size code, to be interpreted by resource as appropriate.
@@ -1692,7 +1692,7 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 

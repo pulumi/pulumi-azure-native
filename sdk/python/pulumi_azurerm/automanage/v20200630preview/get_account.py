@@ -49,7 +49,7 @@ class GetAccountResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Region where the VM is located.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -57,7 +57,7 @@ class GetAccountResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the Automanage assignment.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -73,7 +73,7 @@ class GetAccountResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 
@@ -98,7 +98,7 @@ def get_account(account_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str account_name: The Automanage account name.
-    :param str resource_group_name: The resource group name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name

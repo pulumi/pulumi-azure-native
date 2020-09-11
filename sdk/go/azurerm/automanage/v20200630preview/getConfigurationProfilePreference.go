@@ -19,20 +19,20 @@ func LookupConfigurationProfilePreference(ctx *pulumi.Context, args *LookupConfi
 type LookupConfigurationProfilePreferenceArgs struct {
 	// The configuration profile preference name.
 	ConfigurationProfilePreferenceName string `pulumi:"configurationProfilePreferenceName"`
-	// The resource group name.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Definition of the configuration profile preference.
 type LookupConfigurationProfilePreferenceResult struct {
-	// Region where the VM is located.
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// Name of the Automanage assignment.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Properties of the configuration profile preference.
 	Properties ConfigurationProfilePreferencePropertiesResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

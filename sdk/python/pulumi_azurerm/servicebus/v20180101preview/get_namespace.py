@@ -62,7 +62,7 @@ class GetNamespaceResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
         """
-        The time the namespace was created.
+        The time the namespace was created
         """
         return pulumi.get(self, "created_at")
 

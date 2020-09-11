@@ -44,7 +44,7 @@ export interface GetServerAdministratorResult {
      */
     readonly login: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -56,7 +56,7 @@ export interface GetServerAdministratorResult {
      */
     readonly tenantId: string;
     /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
 }

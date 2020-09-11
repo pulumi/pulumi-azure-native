@@ -43,7 +43,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
      */
     public readonly login!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -55,7 +55,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
      */
     public readonly tenantId!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

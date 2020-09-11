@@ -20,6 +20,7 @@ __all__ = [
     'DeploymentSettingsResponse',
     'ManagedIdentityPropertiesResponse',
     'NetworkProfileResponse',
+    'NetworkProfileResponseOutboundIPs',
     'PersistentDiskResponse',
     'SkuResponse',
     'TemporaryDiskResponse',
@@ -798,6 +799,7 @@ class NetworkProfileResponse(dict):
     Service network profile payload
     """
     def __init__(__self__, *,
+                 outbound_ips: 'outputs.NetworkProfileResponseOutboundIPs',
                  app_network_resource_group: Optional[str] = None,
                  app_subnet_id: Optional[str] = None,
                  service_cidr: Optional[str] = None,
@@ -805,12 +807,14 @@ class NetworkProfileResponse(dict):
                  service_runtime_subnet_id: Optional[str] = None):
         """
         Service network profile payload
+        :param 'NetworkProfileResponseOutboundIPsArgs' outbound_ips: Desired outbound IP resources for Azure Spring Cloud instance.
         :param str app_network_resource_group: Name of the resource group containing network resources of Azure Spring Cloud Apps
         :param str app_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
         :param str service_cidr: Azure Spring Cloud service reserved CIDR
         :param str service_runtime_network_resource_group: Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
         :param str service_runtime_subnet_id: Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
         """
+        pulumi.set(__self__, "outbound_ips", outbound_ips)
         if app_network_resource_group is not None:
             pulumi.set(__self__, "app_network_resource_group", app_network_resource_group)
         if app_subnet_id is not None:
@@ -821,6 +825,14 @@ class NetworkProfileResponse(dict):
             pulumi.set(__self__, "service_runtime_network_resource_group", service_runtime_network_resource_group)
         if service_runtime_subnet_id is not None:
             pulumi.set(__self__, "service_runtime_subnet_id", service_runtime_subnet_id)
+
+    @property
+    @pulumi.getter(name="outboundIPs")
+    def outbound_ips(self) -> 'outputs.NetworkProfileResponseOutboundIPs':
+        """
+        Desired outbound IP resources for Azure Spring Cloud instance.
+        """
+        return pulumi.get(self, "outbound_ips")
 
     @property
     @pulumi.getter(name="appNetworkResourceGroup")
@@ -861,6 +873,31 @@ class NetworkProfileResponse(dict):
         Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
         """
         return pulumi.get(self, "service_runtime_subnet_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetworkProfileResponseOutboundIPs(dict):
+    """
+    Desired outbound IP resources for Azure Spring Cloud instance.
+    """
+    def __init__(__self__, *,
+                 public_ips: List[str]):
+        """
+        Desired outbound IP resources for Azure Spring Cloud instance.
+        :param List[str] public_ips: A list of public IP addresses.
+        """
+        pulumi.set(__self__, "public_ips", public_ips)
+
+    @property
+    @pulumi.getter(name="publicIPs")
+    def public_ips(self) -> List[str]:
+        """
+        A list of public IP addresses.
+        """
+        return pulumi.get(self, "public_ips")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

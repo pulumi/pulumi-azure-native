@@ -37,7 +37,7 @@ type LookupServerResult struct {
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
-	// The location the resource resides in.
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId *string `pulumi:"masterServerId"`
@@ -59,7 +59,7 @@ type LookupServerResult struct {
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
-	// Application-specific metadata in the form of key-value pairs.
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`

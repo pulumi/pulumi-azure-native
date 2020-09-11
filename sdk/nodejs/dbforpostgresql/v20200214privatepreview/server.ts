@@ -49,9 +49,14 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
+     * Status showing whether the data encryption is enabled with customer-managed keys.
+     */
+    public /*out*/ readonly byokEnforcement!: pulumi.Output<string>;
+    /**
      * The mode to create a new PostgreSQL server.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
+    public readonly delegatedSubnetArguments!: pulumi.Output<outputs.dbforpostgresql.v20200214privatepreview.ServerPropertiesResponseDelegatedSubnetArguments | undefined>;
     /**
      * The display name of a server.
      */
@@ -60,6 +65,10 @@ export class Server extends pulumi.CustomResource {
      * The fully qualified domain name of a server.
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
+    /**
+     * stand by count value can be either enabled or disabled
+     */
+    public readonly haEnabled!: pulumi.Output<string | undefined>;
     /**
      * A state of a HA server that is visible to user.
      */
@@ -73,6 +82,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Maintenance window of a server.
+     */
+    public readonly maintenanceWindow!: pulumi.Output<outputs.dbforpostgresql.v20200214privatepreview.MaintenanceWindowResponse | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -83,7 +96,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * public network access is enabled or not
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
     /**
      * The SKU (pricing tier) of the server.
      */
@@ -93,9 +106,9 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly sourceServerName!: pulumi.Output<string | undefined>;
     /**
-     * stand by count value can be either 0 or 1
+     * availability Zone information of the server.
      */
-    public readonly standbyCount!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly standbyAvailabilityZone!: pulumi.Output<string>;
     /**
      * A state of a server that is visible to user.
      */
@@ -116,7 +129,6 @@ export class Server extends pulumi.CustomResource {
      * PostgreSQL Server version.
      */
     public readonly version!: pulumi.Output<string | undefined>;
-    public readonly vnetInjArgs!: pulumi.Output<outputs.dbforpostgresql.v20200214privatepreview.ServerPropertiesResponseVnetInjArgs | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -141,47 +153,53 @@ export class Server extends pulumi.CustomResource {
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["createMode"] = args ? args.createMode : undefined;
+            inputs["delegatedSubnetArguments"] = args ? args.delegatedSubnetArguments : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["haEnabled"] = args ? args.haEnabled : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["sourceServerName"] = args ? args.sourceServerName : undefined;
-            inputs["standbyCount"] = args ? args.standbyCount : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
-            inputs["vnetInjArgs"] = args ? args.vnetInjArgs : undefined;
+            inputs["byokEnforcement"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["haState"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
+            inputs["standbyAvailabilityZone"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
             inputs["administratorLoginPassword"] = undefined /*out*/;
             inputs["availabilityZone"] = undefined /*out*/;
+            inputs["byokEnforcement"] = undefined /*out*/;
             inputs["createMode"] = undefined /*out*/;
+            inputs["delegatedSubnetArguments"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            inputs["haEnabled"] = undefined /*out*/;
             inputs["haState"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["maintenanceWindow"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["pointInTimeUTC"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["sourceServerName"] = undefined /*out*/;
-            inputs["standbyCount"] = undefined /*out*/;
+            inputs["standbyAvailabilityZone"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["storageProfile"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
-            inputs["vnetInjArgs"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -214,10 +232,15 @@ export interface ServerArgs {
      * The mode to create a new PostgreSQL server.
      */
     readonly createMode?: pulumi.Input<string>;
+    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.ServerPropertiesDelegatedSubnetArguments>;
     /**
      * The display name of a server.
      */
     readonly displayName?: pulumi.Input<string>;
+    /**
+     * stand by count value can be either enabled or disabled
+     */
+    readonly haEnabled?: pulumi.Input<string>;
     /**
      * The Azure Active Directory identity of the server.
      */
@@ -227,13 +250,13 @@ export interface ServerArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * Maintenance window of a server.
+     */
+    readonly maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.MaintenanceWindow>;
+    /**
      * Restore point creation time (ISO8601 format), specifying the time to restore from.
      */
     readonly pointInTimeUTC?: pulumi.Input<string>;
-    /**
-     * public network access is enabled or not
-     */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -251,10 +274,6 @@ export interface ServerArgs {
      */
     readonly sourceServerName?: pulumi.Input<string>;
     /**
-     * stand by count value can be either 0 or 1
-     */
-    readonly standbyCount?: pulumi.Input<number>;
-    /**
      * Storage profile of a server.
      */
     readonly storageProfile?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.StorageProfile>;
@@ -266,5 +285,4 @@ export interface ServerArgs {
      * PostgreSQL Server version.
      */
     readonly version?: pulumi.Input<string>;
-    readonly vnetInjArgs?: pulumi.Input<inputs.dbforpostgresql.v20200214privatepreview.ServerPropertiesVnetInjArgs>;
 }

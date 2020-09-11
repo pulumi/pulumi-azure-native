@@ -29,11 +29,11 @@ type LookupVirtualNetworkRuleArgs struct {
 type LookupVirtualNetworkRuleResult struct {
 	// Create firewall rule before the virtual network has vnet service endpoint enabled.
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Virtual Network Rule State
 	State string `pulumi:"state"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 	// The ARM resource id of the virtual network subnet.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`

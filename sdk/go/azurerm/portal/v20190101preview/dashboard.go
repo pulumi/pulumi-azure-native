@@ -50,6 +50,9 @@ func NewDashboard(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:portal/v20181001preview:Dashboard"),
 		},
+		{
+			Type: pulumi.String("azurerm:portal/v20200901preview:Dashboard"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Dashboard

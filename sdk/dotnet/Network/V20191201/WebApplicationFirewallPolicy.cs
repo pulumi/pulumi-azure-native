@@ -128,6 +128,7 @@ namespace Pulumi.AzureRM.Network.V20191201
                     new Pulumi.Alias { Type = "azurerm:network/v20191101:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200301:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200401:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azurerm:network/v20200501:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azurerm:network/v20200601:WebApplicationFirewallPolicy"},
                 },
             };

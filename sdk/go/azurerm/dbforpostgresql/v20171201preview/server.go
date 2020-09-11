@@ -26,13 +26,13 @@ type Server struct {
 	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption pulumi.StringPtrOutput `pulumi:"infrastructureEncryption"`
-	// The location the resource resides in.
+	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId pulumi.StringPtrOutput `pulumi:"masterServerId"`
 	// Enforce a minimal Tls version for the server.
 	MinimalTlsVersion pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of private endpoint connections on a server
 	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
@@ -48,9 +48,9 @@ type Server struct {
 	SslEnforcement pulumi.StringPtrOutput `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfileResponsePtrOutput `pulumi:"storageProfile"`
-	// Application-specific metadata in the form of key-value pairs.
+	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A state of a server that is visible to user.
 	UserVisibleState pulumi.StringPtrOutput `pulumi:"userVisibleState"`
@@ -119,13 +119,13 @@ type serverState struct {
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
-	// The location the resource resides in.
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId *string `pulumi:"masterServerId"`
 	// Enforce a minimal Tls version for the server.
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// Resource name.
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// List of private endpoint connections on a server
 	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
@@ -141,9 +141,9 @@ type serverState struct {
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
-	// Application-specific metadata in the form of key-value pairs.
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 	// A state of a server that is visible to user.
 	UserVisibleState *string `pulumi:"userVisibleState"`
@@ -164,13 +164,13 @@ type ServerState struct {
 	Identity ResourceIdentityResponsePtrInput
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption pulumi.StringPtrInput
-	// The location the resource resides in.
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The master server id of a replica server.
 	MasterServerId pulumi.StringPtrInput
 	// Enforce a minimal Tls version for the server.
 	MinimalTlsVersion pulumi.StringPtrInput
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// List of private endpoint connections on a server
 	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayInput
@@ -186,9 +186,9 @@ type ServerState struct {
 	SslEnforcement pulumi.StringPtrInput
 	// Storage profile of a server.
 	StorageProfile StorageProfileResponsePtrInput
-	// Application-specific metadata in the form of key-value pairs.
+	// Resource tags.
 	Tags pulumi.StringMapInput
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 	// A state of a server that is visible to user.
 	UserVisibleState pulumi.StringPtrInput

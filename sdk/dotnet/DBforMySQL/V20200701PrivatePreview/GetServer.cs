@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// <summary>
         /// Earliest restore point creation time (ISO8601 format)
         /// </summary>
-        public readonly string? EarliestRestoreDate;
+        public readonly string EarliestRestoreDate;
         /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
@@ -102,11 +102,11 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// <summary>
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
-        public readonly string? PublicNetworkAccess;
+        public readonly string PublicNetworkAccess;
         /// <summary>
         /// The maximum number of replicas that a primary server can have.
         /// </summary>
-        public readonly int? ReplicaCapacity;
+        public readonly int ReplicaCapacity;
         /// <summary>
         /// The replication role.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
         /// <summary>
         /// availability Zone information of the server.
         /// </summary>
-        public readonly string StandByAvailabilityZone;
+        public readonly string StandbyAvailabilityZone;
         /// <summary>
         /// The state of a server.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
 
             Outputs.DelegatedSubnetArgumentsResponseResult? delegatedSubnetArguments,
 
-            string? earliestRestoreDate,
+            string earliestRestoreDate,
 
             string fullyQualifiedDomainName,
 
@@ -184,9 +184,9 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
 
             string name,
 
-            string? publicNetworkAccess,
+            string publicNetworkAccess,
 
-            int? replicaCapacity,
+            int replicaCapacity,
 
             string? replicationRole,
 
@@ -198,7 +198,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
 
             string? sslEnforcement,
 
-            string standByAvailabilityZone,
+            string standbyAvailabilityZone,
 
             string state,
 
@@ -232,7 +232,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
             Sku = sku;
             SourceServerId = sourceServerId;
             SslEnforcement = sslEnforcement;
-            StandByAvailabilityZone = standByAvailabilityZone;
+            StandbyAvailabilityZone = standbyAvailabilityZone;
             State = state;
             StorageProfile = storageProfile;
             Tags = tags;

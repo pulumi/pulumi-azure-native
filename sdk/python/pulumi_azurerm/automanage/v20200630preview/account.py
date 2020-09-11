@@ -32,8 +32,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of the Automanage account.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: The identity of the Automanage account.
-        :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -57,6 +57,8 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['identity'] = identity
+            if location is None:
+                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -100,7 +102,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Region where the VM is located.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -108,7 +110,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Automanage assignment.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -124,7 +126,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 

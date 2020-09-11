@@ -16,11 +16,11 @@ type FirewallRule struct {
 
 	// The end IP address of the server firewall rule. Must be IPv4 format.
 	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The start IP address of the server firewall rule. Must be IPv4 format.
 	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -78,22 +78,22 @@ func GetFirewallRule(ctx *pulumi.Context,
 type firewallRuleState struct {
 	// The end IP address of the server firewall rule. Must be IPv4 format.
 	EndIpAddress *string `pulumi:"endIpAddress"`
-	// Resource name.
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The start IP address of the server firewall rule. Must be IPv4 format.
 	StartIpAddress *string `pulumi:"startIpAddress"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type FirewallRuleState struct {
 	// The end IP address of the server firewall rule. Must be IPv4 format.
 	EndIpAddress pulumi.StringPtrInput
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The start IP address of the server firewall rule. Must be IPv4 format.
 	StartIpAddress pulumi.StringPtrInput
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }
 

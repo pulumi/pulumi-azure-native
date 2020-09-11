@@ -37,11 +37,11 @@ export class ConfigurationProfilePreference extends pulumi.CustomResource {
     }
 
     /**
-     * Region where the VM is located.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Name of the Automanage assignment.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -53,7 +53,7 @@ export class ConfigurationProfilePreference extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -69,6 +69,9 @@ export class ConfigurationProfilePreference extends pulumi.CustomResource {
         if (!(opts && opts.id)) {
             if (!args || args.configurationProfilePreferenceName === undefined) {
                 throw new Error("Missing required property 'configurationProfilePreferenceName'");
+            }
+            if (!args || args.location === undefined) {
+                throw new Error("Missing required property 'location'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -107,15 +110,15 @@ export interface ConfigurationProfilePreferenceArgs {
      */
     readonly configurationProfilePreferenceName: pulumi.Input<string>;
     /**
-     * The Azure Region where the resource lives
+     * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    readonly location: pulumi.Input<string>;
     /**
      * Properties of the configuration profile preference.
      */
     readonly properties?: pulumi.Input<inputs.automanage.v20200630preview.ConfigurationProfilePreferenceProperties>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

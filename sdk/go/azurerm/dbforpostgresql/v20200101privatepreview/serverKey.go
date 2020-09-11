@@ -18,11 +18,11 @@ type ServerKey struct {
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The key type like 'AzureKeyVault'.
 	ServerKeyType pulumi.StringOutput `pulumi:"serverKeyType"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The URI of the key.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
@@ -81,11 +81,11 @@ type serverKeyState struct {
 	CreationDate *string `pulumi:"creationDate"`
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
 	Kind *string `pulumi:"kind"`
-	// Resource name.
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The key type like 'AzureKeyVault'.
 	ServerKeyType *string `pulumi:"serverKeyType"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 	// The URI of the key.
 	Uri *string `pulumi:"uri"`
@@ -96,11 +96,11 @@ type ServerKeyState struct {
 	CreationDate pulumi.StringPtrInput
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
 	Kind pulumi.StringPtrInput
-	// Resource name.
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The key type like 'AzureKeyVault'.
 	ServerKeyType pulumi.StringPtrInput
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 	// The URI of the key.
 	Uri pulumi.StringPtrInput

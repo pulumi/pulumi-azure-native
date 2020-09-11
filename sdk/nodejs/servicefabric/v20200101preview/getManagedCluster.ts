@@ -130,10 +130,6 @@ export interface GetManagedClusterResult {
      */
     readonly provisioningState: string;
     /**
-     * The endpoint used by reverse proxy.
-     */
-    readonly reverseProxyEndpointPort?: number;
-    /**
      * The sku of the managed cluster
      */
     readonly sku?: outputs.servicefabric.v20200101preview.SkuResponse;
@@ -145,8 +141,4 @@ export interface GetManagedClusterResult {
      * Azure resource type.
      */
     readonly type: string;
-    /**
-     * Use service fabric test vm extension, by default it's false.
-     */
-    readonly useTestExtension?: boolean;
 }

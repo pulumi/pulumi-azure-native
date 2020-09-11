@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./customerMaintenanceWindow";
 export * from "./firewallRule";
-export * from "./getCustomerMaintenanceWindow";
 export * from "./getFirewallRule";
 export * from "./getServer";
+export * from "./getServerKey";
 export * from "./server";
+export * from "./serverKey";

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
+namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
 {
     public static class GetServer
     {
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
         /// </summary>
         public readonly string? InfrastructureEncryption;
         /// <summary>
-        /// The location the resource resides in.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
         /// </summary>
         public readonly string? MinimalTlsVersion;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -108,11 +108,11 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
         /// </summary>
         public readonly Outputs.StorageProfileResponseResult? StorageProfile;
         /// <summary>
-        /// Application-specific metadata in the form of key-value pairs.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
         /// <summary>

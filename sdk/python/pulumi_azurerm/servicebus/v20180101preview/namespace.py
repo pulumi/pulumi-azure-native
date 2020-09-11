@@ -107,7 +107,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
         """
-        The time the namespace was created.
+        The time the namespace was created
         """
         return pulumi.get(self, "created_at")
 
