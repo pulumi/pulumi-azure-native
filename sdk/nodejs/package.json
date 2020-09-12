@@ -3,11 +3,12 @@
     "version": "${VERSION}",
     "keywords": [
         "pulumi",
-        "azure"
+        "azure",
+        "azurerm"
     ],
     "homepage": "https://pulumi.com",
     "repository": "https://github.com/pulumi/pulumi-azurerm",
-    "license": "TODO",
+    "license": "Apache-2.0",
     "scripts": {
         "build": "tsc"
     },

@@ -39,12 +39,12 @@ setup(name='pulumi_azurerm',
       cmdclass={
           'install': InstallPluginCommand,
       },
-      keywords='pulumi azure',
+      keywords='pulumi azure azurerm',
       url='https://pulumi.com',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-azurerm'
       },
-      license='TODO',
+      license='Apache-2.0',
       packages=find_packages(),
       package_data={
           'pulumi_azurerm': [

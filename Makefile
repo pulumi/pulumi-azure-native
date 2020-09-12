@@ -37,7 +37,7 @@ local_generate::
 
 generate_schema::
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema
+	$(WORKING_DIR)/bin/$(CODEGEN) schema ${VERSION}
 	echo "Finished generating schema."
 
 codegen::
@@ -53,7 +53,7 @@ lint_provider:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 generate_nodejs::
-	$(WORKING_DIR)/bin/$(CODEGEN) nodejs
+	$(WORKING_DIR)/bin/$(CODEGEN) nodejs ${VERSION}
 
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
@@ -63,7 +63,7 @@ build_nodejs::
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 generate_python::
-	$(WORKING_DIR)/bin/$(CODEGEN) python
+	$(WORKING_DIR)/bin/$(CODEGEN) python ${VERSION}
 
 build_python::
 	cd sdk/python/ && \
@@ -75,7 +75,7 @@ build_python::
         cd ./bin && python3 setup.py build sdist
 
 generate_dotnet::
-	$(WORKING_DIR)/bin/$(CODEGEN) dotnet
+	$(WORKING_DIR)/bin/$(CODEGEN) dotnet ${VERSION}
 
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
@@ -83,7 +83,7 @@ build_dotnet::
 		dotnet build
 
 generate_go::
-	$(WORKING_DIR)/bin/$(CODEGEN) go
+	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}
 
 build_go::
 
