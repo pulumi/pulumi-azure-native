@@ -43,7 +43,7 @@ export class ArtifactSource extends pulumi.CustomResource {
     /**
      * The authentication method to use to access the artifact source.
      */
-    public readonly authentication!: pulumi.Output<outputs.deploymentmanager.v20191101preview.AuthenticationResponse>;
+    public readonly authentication!: pulumi.Output<outputs.deploymentmanager.v20191101preview.SasAuthenticationResponse>;
     /**
      * The geo-location where the resource lives
      */
@@ -136,7 +136,7 @@ export interface ArtifactSourceArgs {
     /**
      * The authentication method to use to access the artifact source.
      */
-    readonly authentication: pulumi.Input<inputs.deploymentmanager.v20191101preview.Authentication>;
+    readonly authentication: pulumi.Input<inputs.deploymentmanager.v20191101preview.SasAuthentication>;
     /**
      * The geo-location where the resource lives
      */

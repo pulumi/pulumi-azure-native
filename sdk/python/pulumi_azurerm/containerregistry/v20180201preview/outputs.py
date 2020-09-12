@@ -10,15 +10,90 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'BuildArgumentResponseResult',
-    'BuildStepPropertiesResponse',
+    'BaseImageDependencyResponse',
+    'BuildArgumentResponse',
+    'DockerBuildStepResponse',
     'PlatformPropertiesResponse',
     'SourceControlAuthInfoResponse',
     'SourceRepositoryPropertiesResponse',
 ]
 
 @pulumi.output_type
-class BuildArgumentResponseResult(dict):
+class BaseImageDependencyResponse(dict):
+    """
+    Properties that describe a base image dependency.
+    """
+    def __init__(__self__, *,
+                 digest: Optional[str] = None,
+                 registry: Optional[str] = None,
+                 repository: Optional[str] = None,
+                 tag: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Properties that describe a base image dependency.
+        :param str digest: The sha256-based digest of the image manifest.
+        :param str registry: The registry login server.
+        :param str repository: The repository name.
+        :param str tag: The tag name.
+        :param str type: The type of the base image dependency.
+        """
+        if digest is not None:
+            pulumi.set(__self__, "digest", digest)
+        if registry is not None:
+            pulumi.set(__self__, "registry", registry)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def digest(self) -> Optional[str]:
+        """
+        The sha256-based digest of the image manifest.
+        """
+        return pulumi.get(self, "digest")
+
+    @property
+    @pulumi.getter
+    def registry(self) -> Optional[str]:
+        """
+        The registry login server.
+        """
+        return pulumi.get(self, "registry")
+
+    @property
+    @pulumi.getter
+    def repository(self) -> Optional[str]:
+        """
+        The repository name.
+        """
+        return pulumi.get(self, "repository")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[str]:
+        """
+        The tag name.
+        """
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the base image dependency.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class BuildArgumentResponse(dict):
     """
     Properties of a build argument.
     """
@@ -72,22 +147,68 @@ class BuildArgumentResponseResult(dict):
         """
         return pulumi.get(self, "is_secret")
 
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
-class BuildStepPropertiesResponse(dict):
+class DockerBuildStepResponse(dict):
     """
-    Base properties for any build step.
+    The Docker build step.
     """
     def __init__(__self__, *,
+                 base_image_dependencies: List['outputs.BaseImageDependencyResponse'],
                  provisioning_state: str,
-                 type: str):
+                 type: str,
+                 base_image_trigger: Optional[str] = None,
+                 branch: Optional[str] = None,
+                 build_arguments: Optional[List['outputs.BuildArgumentResponse']] = None,
+                 context_path: Optional[str] = None,
+                 docker_file_path: Optional[str] = None,
+                 image_names: Optional[List[str]] = None,
+                 is_push_enabled: Optional[bool] = None,
+                 no_cache: Optional[bool] = None):
         """
-        Base properties for any build step.
+        The Docker build step.
+        :param List['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str provisioning_state: The provisioning state of the build step.
         :param str type: The type of the step.
+        :param str base_image_trigger: The type of the auto trigger for base image dependency updates.
+        :param str branch: The repository branch name.
+        :param List['BuildArgumentResponseArgs'] build_arguments: The custom arguments for building this build step.
+        :param str context_path: The relative context path for a docker build in the source.
+        :param str docker_file_path: The Docker file path relative to the source control root.
+        :param List[str] image_names: The fully qualified image names including the repository and tag.
+        :param bool is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
+        :param bool no_cache: The value of this property indicates whether the image cache is enabled or not.
         """
+        pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type", 'Docker')
+        if base_image_trigger is not None:
+            pulumi.set(__self__, "base_image_trigger", base_image_trigger)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if build_arguments is not None:
+            pulumi.set(__self__, "build_arguments", build_arguments)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if docker_file_path is not None:
+            pulumi.set(__self__, "docker_file_path", docker_file_path)
+        if image_names is not None:
+            pulumi.set(__self__, "image_names", image_names)
+        if is_push_enabled is not None:
+            pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        if no_cache is not None:
+            pulumi.set(__self__, "no_cache", no_cache)
+
+    @property
+    @pulumi.getter(name="baseImageDependencies")
+    def base_image_dependencies(self) -> List['outputs.BaseImageDependencyResponse']:
+        """
+        List of base image dependencies for a step.
+        """
+        return pulumi.get(self, "base_image_dependencies")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -104,6 +225,70 @@ class BuildStepPropertiesResponse(dict):
         The type of the step.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="baseImageTrigger")
+    def base_image_trigger(self) -> Optional[str]:
+        """
+        The type of the auto trigger for base image dependency updates.
+        """
+        return pulumi.get(self, "base_image_trigger")
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        """
+        The repository branch name.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="buildArguments")
+    def build_arguments(self) -> Optional[List['outputs.BuildArgumentResponse']]:
+        """
+        The custom arguments for building this build step.
+        """
+        return pulumi.get(self, "build_arguments")
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[str]:
+        """
+        The relative context path for a docker build in the source.
+        """
+        return pulumi.get(self, "context_path")
+
+    @property
+    @pulumi.getter(name="dockerFilePath")
+    def docker_file_path(self) -> Optional[str]:
+        """
+        The Docker file path relative to the source control root.
+        """
+        return pulumi.get(self, "docker_file_path")
+
+    @property
+    @pulumi.getter(name="imageNames")
+    def image_names(self) -> Optional[List[str]]:
+        """
+        The fully qualified image names including the repository and tag.
+        """
+        return pulumi.get(self, "image_names")
+
+    @property
+    @pulumi.getter(name="isPushEnabled")
+    def is_push_enabled(self) -> Optional[bool]:
+        """
+        The value of this property indicates whether the image built should be pushed to the registry or not.
+        """
+        return pulumi.get(self, "is_push_enabled")
+
+    @property
+    @pulumi.getter(name="noCache")
+    def no_cache(self) -> Optional[bool]:
+        """
+        The value of this property indicates whether the image cache is enabled or not.
+        """
+        return pulumi.get(self, "no_cache")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

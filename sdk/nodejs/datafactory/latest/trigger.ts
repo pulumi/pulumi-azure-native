@@ -75,7 +75,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * Properties of the trigger.
      */
-    public readonly properties!: pulumi.Output<outputs.datafactory.latest.TriggerResponse>;
+    public readonly properties!: pulumi.Output<outputs.datafactory.latest.ChainingTriggerResponse | outputs.datafactory.latest.MultiplePipelineTriggerResponse | outputs.datafactory.latest.RerunTumblingWindowTriggerResponse | outputs.datafactory.latest.TumblingWindowTriggerResponse>;
     /**
      * The resource type.
      */
@@ -140,7 +140,7 @@ export interface TriggerArgs {
     /**
      * Properties of the trigger.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.latest.Trigger>;
+    readonly properties: pulumi.Input<inputs.datafactory.latest.ChainingTrigger | inputs.datafactory.latest.MultiplePipelineTrigger | inputs.datafactory.latest.RerunTumblingWindowTrigger | inputs.datafactory.latest.TumblingWindowTrigger>;
     /**
      * The resource group name.
      */

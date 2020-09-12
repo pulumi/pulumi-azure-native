@@ -43,7 +43,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
         /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
-        public readonly Outputs.DeadLetterDestinationResponseResult? DeadLetterDestination;
+        public readonly Outputs.StorageBlobDeadLetterDestinationResponseResult? DeadLetterDestination;
         /// <summary>
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
         /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
         /// Information about the destination where events have to be delivered for the event subscription.
         /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
-        public readonly Outputs.EventSubscriptionDestinationResponseResult? Destination;
+        public readonly Union<Outputs.AzureFunctionEventSubscriptionDestinationResponseResult, Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusTopicEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>>>>? Destination;
         /// <summary>
         /// The event delivery schema for the event subscription.
         /// </summary>
@@ -98,13 +98,13 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
-            Outputs.DeadLetterDestinationResponseResult? deadLetterDestination,
+            Outputs.StorageBlobDeadLetterDestinationResponseResult? deadLetterDestination,
 
             Outputs.DeadLetterWithResourceIdentityResponseResult? deadLetterWithResourceIdentity,
 
             Outputs.DeliveryWithResourceIdentityResponseResult? deliveryWithResourceIdentity,
 
-            Outputs.EventSubscriptionDestinationResponseResult? destination,
+            Union<Outputs.AzureFunctionEventSubscriptionDestinationResponseResult, Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusTopicEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>>>>? destination,
 
             string? eventDeliverySchema,
 

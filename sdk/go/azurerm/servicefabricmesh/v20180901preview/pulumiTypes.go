@@ -10,10 +10,174 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+type AddRemoveReplicaScalingMechanism struct {
+	// The type of auto scaling mechanism.
+	Kind string `pulumi:"kind"`
+	// Maximum number of containers (scale up won't be performed above this number).
+	MaxCount int `pulumi:"maxCount"`
+	// Minimum number of containers (scale down won't be performed below this number).
+	MinCount int `pulumi:"minCount"`
+	// Each time auto scaling is performed, this number of containers will be added or removed.
+	ScaleIncrement int `pulumi:"scaleIncrement"`
+}
+
+// AddRemoveReplicaScalingMechanismInput is an input type that accepts AddRemoveReplicaScalingMechanismArgs and AddRemoveReplicaScalingMechanismOutput values.
+// You can construct a concrete instance of `AddRemoveReplicaScalingMechanismInput` via:
+//
+//          AddRemoveReplicaScalingMechanismArgs{...}
+type AddRemoveReplicaScalingMechanismInput interface {
+	pulumi.Input
+
+	ToAddRemoveReplicaScalingMechanismOutput() AddRemoveReplicaScalingMechanismOutput
+	ToAddRemoveReplicaScalingMechanismOutputWithContext(context.Context) AddRemoveReplicaScalingMechanismOutput
+}
+
+// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+type AddRemoveReplicaScalingMechanismArgs struct {
+	// The type of auto scaling mechanism.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Maximum number of containers (scale up won't be performed above this number).
+	MaxCount pulumi.IntInput `pulumi:"maxCount"`
+	// Minimum number of containers (scale down won't be performed below this number).
+	MinCount pulumi.IntInput `pulumi:"minCount"`
+	// Each time auto scaling is performed, this number of containers will be added or removed.
+	ScaleIncrement pulumi.IntInput `pulumi:"scaleIncrement"`
+}
+
+func (AddRemoveReplicaScalingMechanismArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddRemoveReplicaScalingMechanism)(nil)).Elem()
+}
+
+func (i AddRemoveReplicaScalingMechanismArgs) ToAddRemoveReplicaScalingMechanismOutput() AddRemoveReplicaScalingMechanismOutput {
+	return i.ToAddRemoveReplicaScalingMechanismOutputWithContext(context.Background())
+}
+
+func (i AddRemoveReplicaScalingMechanismArgs) ToAddRemoveReplicaScalingMechanismOutputWithContext(ctx context.Context) AddRemoveReplicaScalingMechanismOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddRemoveReplicaScalingMechanismOutput)
+}
+
+// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+type AddRemoveReplicaScalingMechanismOutput struct{ *pulumi.OutputState }
+
+func (AddRemoveReplicaScalingMechanismOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddRemoveReplicaScalingMechanism)(nil)).Elem()
+}
+
+func (o AddRemoveReplicaScalingMechanismOutput) ToAddRemoveReplicaScalingMechanismOutput() AddRemoveReplicaScalingMechanismOutput {
+	return o
+}
+
+func (o AddRemoveReplicaScalingMechanismOutput) ToAddRemoveReplicaScalingMechanismOutputWithContext(ctx context.Context) AddRemoveReplicaScalingMechanismOutput {
+	return o
+}
+
+// The type of auto scaling mechanism.
+func (o AddRemoveReplicaScalingMechanismOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v AddRemoveReplicaScalingMechanism) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Maximum number of containers (scale up won't be performed above this number).
+func (o AddRemoveReplicaScalingMechanismOutput) MaxCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AddRemoveReplicaScalingMechanism) int { return v.MaxCount }).(pulumi.IntOutput)
+}
+
+// Minimum number of containers (scale down won't be performed below this number).
+func (o AddRemoveReplicaScalingMechanismOutput) MinCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AddRemoveReplicaScalingMechanism) int { return v.MinCount }).(pulumi.IntOutput)
+}
+
+// Each time auto scaling is performed, this number of containers will be added or removed.
+func (o AddRemoveReplicaScalingMechanismOutput) ScaleIncrement() pulumi.IntOutput {
+	return o.ApplyT(func(v AddRemoveReplicaScalingMechanism) int { return v.ScaleIncrement }).(pulumi.IntOutput)
+}
+
+// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+type AddRemoveReplicaScalingMechanismResponse struct {
+	// The type of auto scaling mechanism.
+	Kind string `pulumi:"kind"`
+	// Maximum number of containers (scale up won't be performed above this number).
+	MaxCount int `pulumi:"maxCount"`
+	// Minimum number of containers (scale down won't be performed below this number).
+	MinCount int `pulumi:"minCount"`
+	// Each time auto scaling is performed, this number of containers will be added or removed.
+	ScaleIncrement int `pulumi:"scaleIncrement"`
+}
+
+// AddRemoveReplicaScalingMechanismResponseInput is an input type that accepts AddRemoveReplicaScalingMechanismResponseArgs and AddRemoveReplicaScalingMechanismResponseOutput values.
+// You can construct a concrete instance of `AddRemoveReplicaScalingMechanismResponseInput` via:
+//
+//          AddRemoveReplicaScalingMechanismResponseArgs{...}
+type AddRemoveReplicaScalingMechanismResponseInput interface {
+	pulumi.Input
+
+	ToAddRemoveReplicaScalingMechanismResponseOutput() AddRemoveReplicaScalingMechanismResponseOutput
+	ToAddRemoveReplicaScalingMechanismResponseOutputWithContext(context.Context) AddRemoveReplicaScalingMechanismResponseOutput
+}
+
+// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+type AddRemoveReplicaScalingMechanismResponseArgs struct {
+	// The type of auto scaling mechanism.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Maximum number of containers (scale up won't be performed above this number).
+	MaxCount pulumi.IntInput `pulumi:"maxCount"`
+	// Minimum number of containers (scale down won't be performed below this number).
+	MinCount pulumi.IntInput `pulumi:"minCount"`
+	// Each time auto scaling is performed, this number of containers will be added or removed.
+	ScaleIncrement pulumi.IntInput `pulumi:"scaleIncrement"`
+}
+
+func (AddRemoveReplicaScalingMechanismResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddRemoveReplicaScalingMechanismResponse)(nil)).Elem()
+}
+
+func (i AddRemoveReplicaScalingMechanismResponseArgs) ToAddRemoveReplicaScalingMechanismResponseOutput() AddRemoveReplicaScalingMechanismResponseOutput {
+	return i.ToAddRemoveReplicaScalingMechanismResponseOutputWithContext(context.Background())
+}
+
+func (i AddRemoveReplicaScalingMechanismResponseArgs) ToAddRemoveReplicaScalingMechanismResponseOutputWithContext(ctx context.Context) AddRemoveReplicaScalingMechanismResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddRemoveReplicaScalingMechanismResponseOutput)
+}
+
+// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+type AddRemoveReplicaScalingMechanismResponseOutput struct{ *pulumi.OutputState }
+
+func (AddRemoveReplicaScalingMechanismResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddRemoveReplicaScalingMechanismResponse)(nil)).Elem()
+}
+
+func (o AddRemoveReplicaScalingMechanismResponseOutput) ToAddRemoveReplicaScalingMechanismResponseOutput() AddRemoveReplicaScalingMechanismResponseOutput {
+	return o
+}
+
+func (o AddRemoveReplicaScalingMechanismResponseOutput) ToAddRemoveReplicaScalingMechanismResponseOutputWithContext(ctx context.Context) AddRemoveReplicaScalingMechanismResponseOutput {
+	return o
+}
+
+// The type of auto scaling mechanism.
+func (o AddRemoveReplicaScalingMechanismResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v AddRemoveReplicaScalingMechanismResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Maximum number of containers (scale up won't be performed above this number).
+func (o AddRemoveReplicaScalingMechanismResponseOutput) MaxCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AddRemoveReplicaScalingMechanismResponse) int { return v.MaxCount }).(pulumi.IntOutput)
+}
+
+// Minimum number of containers (scale down won't be performed below this number).
+func (o AddRemoveReplicaScalingMechanismResponseOutput) MinCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AddRemoveReplicaScalingMechanismResponse) int { return v.MinCount }).(pulumi.IntOutput)
+}
+
+// Each time auto scaling is performed, this number of containers will be added or removed.
+func (o AddRemoveReplicaScalingMechanismResponseOutput) ScaleIncrement() pulumi.IntOutput {
+	return o.ApplyT(func(v AddRemoveReplicaScalingMechanismResponse) int { return v.ScaleIncrement }).(pulumi.IntOutput)
+}
+
 // Describes a volume whose lifetime is scoped to the application's lifetime.
 type ApplicationScopedVolume struct {
 	// Describes parameters for creating application-scoped volumes.
-	CreationParameters ApplicationScopedVolumeCreationParameters `pulumi:"creationParameters"`
+	CreationParameters ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk `pulumi:"creationParameters"`
 	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
 	DestinationPath string `pulumi:"destinationPath"`
 	// Name of the volume being referenced.
@@ -36,7 +200,7 @@ type ApplicationScopedVolumeInput interface {
 // Describes a volume whose lifetime is scoped to the application's lifetime.
 type ApplicationScopedVolumeArgs struct {
 	// Describes parameters for creating application-scoped volumes.
-	CreationParameters ApplicationScopedVolumeCreationParametersInput `pulumi:"creationParameters"`
+	CreationParameters ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskInput `pulumi:"creationParameters"`
 	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
 	DestinationPath pulumi.StringInput `pulumi:"destinationPath"`
 	// Name of the volume being referenced.
@@ -98,8 +262,10 @@ func (o ApplicationScopedVolumeOutput) ToApplicationScopedVolumeOutputWithContex
 }
 
 // Describes parameters for creating application-scoped volumes.
-func (o ApplicationScopedVolumeOutput) CreationParameters() ApplicationScopedVolumeCreationParametersOutput {
-	return o.ApplyT(func(v ApplicationScopedVolume) ApplicationScopedVolumeCreationParameters { return v.CreationParameters }).(ApplicationScopedVolumeCreationParametersOutput)
+func (o ApplicationScopedVolumeOutput) CreationParameters() ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput {
+	return o.ApplyT(func(v ApplicationScopedVolume) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk {
+		return v.CreationParameters
+	}).(ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput)
 }
 
 // The path within the container at which the volume should be mounted. Only valid path characters are allowed.
@@ -137,138 +303,160 @@ func (o ApplicationScopedVolumeArrayOutput) Index(i pulumi.IntInput) Application
 	}).(ApplicationScopedVolumeOutput)
 }
 
-// Describes parameters for creating application-scoped volumes.
-type ApplicationScopedVolumeCreationParameters struct {
+// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk struct {
 	// User readable description of the volume.
 	Description *string `pulumi:"description"`
 	// Specifies the application-scoped volume kind.
 	Kind string `pulumi:"kind"`
+	// Volume size
+	SizeDisk string `pulumi:"sizeDisk"`
 }
 
-// ApplicationScopedVolumeCreationParametersInput is an input type that accepts ApplicationScopedVolumeCreationParametersArgs and ApplicationScopedVolumeCreationParametersOutput values.
-// You can construct a concrete instance of `ApplicationScopedVolumeCreationParametersInput` via:
+// ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskInput is an input type that accepts ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs and ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput values.
+// You can construct a concrete instance of `ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskInput` via:
 //
-//          ApplicationScopedVolumeCreationParametersArgs{...}
-type ApplicationScopedVolumeCreationParametersInput interface {
+//          ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs{...}
+type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskInput interface {
 	pulumi.Input
 
-	ToApplicationScopedVolumeCreationParametersOutput() ApplicationScopedVolumeCreationParametersOutput
-	ToApplicationScopedVolumeCreationParametersOutputWithContext(context.Context) ApplicationScopedVolumeCreationParametersOutput
+	ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput() ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput
+	ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutputWithContext(context.Context) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput
 }
 
-// Describes parameters for creating application-scoped volumes.
-type ApplicationScopedVolumeCreationParametersArgs struct {
+// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs struct {
 	// User readable description of the volume.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies the application-scoped volume kind.
 	Kind pulumi.StringInput `pulumi:"kind"`
+	// Volume size
+	SizeDisk pulumi.StringInput `pulumi:"sizeDisk"`
 }
 
-func (ApplicationScopedVolumeCreationParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationScopedVolumeCreationParameters)(nil)).Elem()
+func (ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk)(nil)).Elem()
 }
 
-func (i ApplicationScopedVolumeCreationParametersArgs) ToApplicationScopedVolumeCreationParametersOutput() ApplicationScopedVolumeCreationParametersOutput {
-	return i.ToApplicationScopedVolumeCreationParametersOutputWithContext(context.Background())
+func (i ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs) ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput() ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput {
+	return i.ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutputWithContext(context.Background())
 }
 
-func (i ApplicationScopedVolumeCreationParametersArgs) ToApplicationScopedVolumeCreationParametersOutputWithContext(ctx context.Context) ApplicationScopedVolumeCreationParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationScopedVolumeCreationParametersOutput)
+func (i ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs) ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutputWithContext(ctx context.Context) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput)
 }
 
-// Describes parameters for creating application-scoped volumes.
-type ApplicationScopedVolumeCreationParametersOutput struct{ *pulumi.OutputState }
+// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput struct{ *pulumi.OutputState }
 
-func (ApplicationScopedVolumeCreationParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationScopedVolumeCreationParameters)(nil)).Elem()
+func (ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk)(nil)).Elem()
 }
 
-func (o ApplicationScopedVolumeCreationParametersOutput) ToApplicationScopedVolumeCreationParametersOutput() ApplicationScopedVolumeCreationParametersOutput {
+func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput() ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput {
 	return o
 }
 
-func (o ApplicationScopedVolumeCreationParametersOutput) ToApplicationScopedVolumeCreationParametersOutputWithContext(ctx context.Context) ApplicationScopedVolumeCreationParametersOutput {
+func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutputWithContext(ctx context.Context) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput {
 	return o
 }
 
 // User readable description of the volume.
-func (o ApplicationScopedVolumeCreationParametersOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationScopedVolumeCreationParameters) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the application-scoped volume kind.
-func (o ApplicationScopedVolumeCreationParametersOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationScopedVolumeCreationParameters) string { return v.Kind }).(pulumi.StringOutput)
+func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Describes parameters for creating application-scoped volumes.
-type ApplicationScopedVolumeCreationParametersResponse struct {
+// Volume size
+func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput) SizeDisk() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDisk) string { return v.SizeDisk }).(pulumi.StringOutput)
+}
+
+// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse struct {
 	// User readable description of the volume.
 	Description *string `pulumi:"description"`
 	// Specifies the application-scoped volume kind.
 	Kind string `pulumi:"kind"`
+	// Volume size
+	SizeDisk string `pulumi:"sizeDisk"`
 }
 
-// ApplicationScopedVolumeCreationParametersResponseInput is an input type that accepts ApplicationScopedVolumeCreationParametersResponseArgs and ApplicationScopedVolumeCreationParametersResponseOutput values.
-// You can construct a concrete instance of `ApplicationScopedVolumeCreationParametersResponseInput` via:
+// ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseInput is an input type that accepts ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs and ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput values.
+// You can construct a concrete instance of `ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseInput` via:
 //
-//          ApplicationScopedVolumeCreationParametersResponseArgs{...}
-type ApplicationScopedVolumeCreationParametersResponseInput interface {
+//          ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs{...}
+type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseInput interface {
 	pulumi.Input
 
-	ToApplicationScopedVolumeCreationParametersResponseOutput() ApplicationScopedVolumeCreationParametersResponseOutput
-	ToApplicationScopedVolumeCreationParametersResponseOutputWithContext(context.Context) ApplicationScopedVolumeCreationParametersResponseOutput
+	ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput() ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput
+	ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutputWithContext(context.Context) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput
 }
 
-// Describes parameters for creating application-scoped volumes.
-type ApplicationScopedVolumeCreationParametersResponseArgs struct {
+// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs struct {
 	// User readable description of the volume.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies the application-scoped volume kind.
 	Kind pulumi.StringInput `pulumi:"kind"`
+	// Volume size
+	SizeDisk pulumi.StringInput `pulumi:"sizeDisk"`
 }
 
-func (ApplicationScopedVolumeCreationParametersResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationScopedVolumeCreationParametersResponse)(nil)).Elem()
+func (ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse)(nil)).Elem()
 }
 
-func (i ApplicationScopedVolumeCreationParametersResponseArgs) ToApplicationScopedVolumeCreationParametersResponseOutput() ApplicationScopedVolumeCreationParametersResponseOutput {
-	return i.ToApplicationScopedVolumeCreationParametersResponseOutputWithContext(context.Background())
+func (i ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs) ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput() ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput {
+	return i.ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutputWithContext(context.Background())
 }
 
-func (i ApplicationScopedVolumeCreationParametersResponseArgs) ToApplicationScopedVolumeCreationParametersResponseOutputWithContext(ctx context.Context) ApplicationScopedVolumeCreationParametersResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationScopedVolumeCreationParametersResponseOutput)
+func (i ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs) ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutputWithContext(ctx context.Context) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput)
 }
 
-// Describes parameters for creating application-scoped volumes.
-type ApplicationScopedVolumeCreationParametersResponseOutput struct{ *pulumi.OutputState }
+// Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+type ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput struct{ *pulumi.OutputState }
 
-func (ApplicationScopedVolumeCreationParametersResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationScopedVolumeCreationParametersResponse)(nil)).Elem()
+func (ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse)(nil)).Elem()
 }
 
-func (o ApplicationScopedVolumeCreationParametersResponseOutput) ToApplicationScopedVolumeCreationParametersResponseOutput() ApplicationScopedVolumeCreationParametersResponseOutput {
+func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput) ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput() ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput {
 	return o
 }
 
-func (o ApplicationScopedVolumeCreationParametersResponseOutput) ToApplicationScopedVolumeCreationParametersResponseOutputWithContext(ctx context.Context) ApplicationScopedVolumeCreationParametersResponseOutput {
+func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput) ToApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutputWithContext(ctx context.Context) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput {
 	return o
 }
 
 // User readable description of the volume.
-func (o ApplicationScopedVolumeCreationParametersResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the application-scoped volume kind.
-func (o ApplicationScopedVolumeCreationParametersResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersResponse) string { return v.Kind }).(pulumi.StringOutput)
+func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Volume size
+func (o ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput) SizeDisk() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse) string {
+		return v.SizeDisk
+	}).(pulumi.StringOutput)
 }
 
 // Describes a volume whose lifetime is scoped to the application's lifetime.
 type ApplicationScopedVolumeResponse struct {
 	// Describes parameters for creating application-scoped volumes.
-	CreationParameters ApplicationScopedVolumeCreationParametersResponse `pulumi:"creationParameters"`
+	CreationParameters ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse `pulumi:"creationParameters"`
 	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
 	DestinationPath string `pulumi:"destinationPath"`
 	// Name of the volume being referenced.
@@ -291,7 +479,7 @@ type ApplicationScopedVolumeResponseInput interface {
 // Describes a volume whose lifetime is scoped to the application's lifetime.
 type ApplicationScopedVolumeResponseArgs struct {
 	// Describes parameters for creating application-scoped volumes.
-	CreationParameters ApplicationScopedVolumeCreationParametersResponseInput `pulumi:"creationParameters"`
+	CreationParameters ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseInput `pulumi:"creationParameters"`
 	// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
 	DestinationPath pulumi.StringInput `pulumi:"destinationPath"`
 	// Name of the volume being referenced.
@@ -353,10 +541,10 @@ func (o ApplicationScopedVolumeResponseOutput) ToApplicationScopedVolumeResponse
 }
 
 // Describes parameters for creating application-scoped volumes.
-func (o ApplicationScopedVolumeResponseOutput) CreationParameters() ApplicationScopedVolumeCreationParametersResponseOutput {
-	return o.ApplyT(func(v ApplicationScopedVolumeResponse) ApplicationScopedVolumeCreationParametersResponse {
+func (o ApplicationScopedVolumeResponseOutput) CreationParameters() ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput {
+	return o.ApplyT(func(v ApplicationScopedVolumeResponse) ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse {
 		return v.CreationParameters
-	}).(ApplicationScopedVolumeCreationParametersResponseOutput)
+	}).(ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput)
 }
 
 // The path within the container at which the volume should be mounted. Only valid path characters are allowed.
@@ -394,124 +582,14 @@ func (o ApplicationScopedVolumeResponseArrayOutput) Index(i pulumi.IntInput) App
 	}).(ApplicationScopedVolumeResponseOutput)
 }
 
-// Describes the mechanism for performing auto scaling operation. Derived classes will describe the actual mechanism.
-type AutoScalingMechanism struct {
-	// The type of auto scaling mechanism.
-	Kind string `pulumi:"kind"`
-}
-
-// AutoScalingMechanismInput is an input type that accepts AutoScalingMechanismArgs and AutoScalingMechanismOutput values.
-// You can construct a concrete instance of `AutoScalingMechanismInput` via:
-//
-//          AutoScalingMechanismArgs{...}
-type AutoScalingMechanismInput interface {
-	pulumi.Input
-
-	ToAutoScalingMechanismOutput() AutoScalingMechanismOutput
-	ToAutoScalingMechanismOutputWithContext(context.Context) AutoScalingMechanismOutput
-}
-
-// Describes the mechanism for performing auto scaling operation. Derived classes will describe the actual mechanism.
-type AutoScalingMechanismArgs struct {
-	// The type of auto scaling mechanism.
-	Kind pulumi.StringInput `pulumi:"kind"`
-}
-
-func (AutoScalingMechanismArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingMechanism)(nil)).Elem()
-}
-
-func (i AutoScalingMechanismArgs) ToAutoScalingMechanismOutput() AutoScalingMechanismOutput {
-	return i.ToAutoScalingMechanismOutputWithContext(context.Background())
-}
-
-func (i AutoScalingMechanismArgs) ToAutoScalingMechanismOutputWithContext(ctx context.Context) AutoScalingMechanismOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingMechanismOutput)
-}
-
-// Describes the mechanism for performing auto scaling operation. Derived classes will describe the actual mechanism.
-type AutoScalingMechanismOutput struct{ *pulumi.OutputState }
-
-func (AutoScalingMechanismOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingMechanism)(nil)).Elem()
-}
-
-func (o AutoScalingMechanismOutput) ToAutoScalingMechanismOutput() AutoScalingMechanismOutput {
-	return o
-}
-
-func (o AutoScalingMechanismOutput) ToAutoScalingMechanismOutputWithContext(ctx context.Context) AutoScalingMechanismOutput {
-	return o
-}
-
-// The type of auto scaling mechanism.
-func (o AutoScalingMechanismOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoScalingMechanism) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Describes the mechanism for performing auto scaling operation. Derived classes will describe the actual mechanism.
-type AutoScalingMechanismResponse struct {
-	// The type of auto scaling mechanism.
-	Kind string `pulumi:"kind"`
-}
-
-// AutoScalingMechanismResponseInput is an input type that accepts AutoScalingMechanismResponseArgs and AutoScalingMechanismResponseOutput values.
-// You can construct a concrete instance of `AutoScalingMechanismResponseInput` via:
-//
-//          AutoScalingMechanismResponseArgs{...}
-type AutoScalingMechanismResponseInput interface {
-	pulumi.Input
-
-	ToAutoScalingMechanismResponseOutput() AutoScalingMechanismResponseOutput
-	ToAutoScalingMechanismResponseOutputWithContext(context.Context) AutoScalingMechanismResponseOutput
-}
-
-// Describes the mechanism for performing auto scaling operation. Derived classes will describe the actual mechanism.
-type AutoScalingMechanismResponseArgs struct {
-	// The type of auto scaling mechanism.
-	Kind pulumi.StringInput `pulumi:"kind"`
-}
-
-func (AutoScalingMechanismResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingMechanismResponse)(nil)).Elem()
-}
-
-func (i AutoScalingMechanismResponseArgs) ToAutoScalingMechanismResponseOutput() AutoScalingMechanismResponseOutput {
-	return i.ToAutoScalingMechanismResponseOutputWithContext(context.Background())
-}
-
-func (i AutoScalingMechanismResponseArgs) ToAutoScalingMechanismResponseOutputWithContext(ctx context.Context) AutoScalingMechanismResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingMechanismResponseOutput)
-}
-
-// Describes the mechanism for performing auto scaling operation. Derived classes will describe the actual mechanism.
-type AutoScalingMechanismResponseOutput struct{ *pulumi.OutputState }
-
-func (AutoScalingMechanismResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingMechanismResponse)(nil)).Elem()
-}
-
-func (o AutoScalingMechanismResponseOutput) ToAutoScalingMechanismResponseOutput() AutoScalingMechanismResponseOutput {
-	return o
-}
-
-func (o AutoScalingMechanismResponseOutput) ToAutoScalingMechanismResponseOutputWithContext(ctx context.Context) AutoScalingMechanismResponseOutput {
-	return o
-}
-
-// The type of auto scaling mechanism.
-func (o AutoScalingMechanismResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoScalingMechanismResponse) string { return v.Kind }).(pulumi.StringOutput)
-}
-
 // Describes the auto scaling policy
 type AutoScalingPolicy struct {
 	// The mechanism that is used to scale when auto scaling operation is invoked.
-	Mechanism AutoScalingMechanism `pulumi:"mechanism"`
+	Mechanism AddRemoveReplicaScalingMechanism `pulumi:"mechanism"`
 	// The name of the auto scaling policy.
 	Name string `pulumi:"name"`
 	// Determines when auto scaling operation will be invoked.
-	Trigger AutoScalingTrigger `pulumi:"trigger"`
+	Trigger AverageLoadScalingTrigger `pulumi:"trigger"`
 }
 
 // AutoScalingPolicyInput is an input type that accepts AutoScalingPolicyArgs and AutoScalingPolicyOutput values.
@@ -528,11 +606,11 @@ type AutoScalingPolicyInput interface {
 // Describes the auto scaling policy
 type AutoScalingPolicyArgs struct {
 	// The mechanism that is used to scale when auto scaling operation is invoked.
-	Mechanism AutoScalingMechanismInput `pulumi:"mechanism"`
+	Mechanism AddRemoveReplicaScalingMechanismInput `pulumi:"mechanism"`
 	// The name of the auto scaling policy.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Determines when auto scaling operation will be invoked.
-	Trigger AutoScalingTriggerInput `pulumi:"trigger"`
+	Trigger AverageLoadScalingTriggerInput `pulumi:"trigger"`
 }
 
 func (AutoScalingPolicyArgs) ElementType() reflect.Type {
@@ -588,8 +666,8 @@ func (o AutoScalingPolicyOutput) ToAutoScalingPolicyOutputWithContext(ctx contex
 }
 
 // The mechanism that is used to scale when auto scaling operation is invoked.
-func (o AutoScalingPolicyOutput) Mechanism() AutoScalingMechanismOutput {
-	return o.ApplyT(func(v AutoScalingPolicy) AutoScalingMechanism { return v.Mechanism }).(AutoScalingMechanismOutput)
+func (o AutoScalingPolicyOutput) Mechanism() AddRemoveReplicaScalingMechanismOutput {
+	return o.ApplyT(func(v AutoScalingPolicy) AddRemoveReplicaScalingMechanism { return v.Mechanism }).(AddRemoveReplicaScalingMechanismOutput)
 }
 
 // The name of the auto scaling policy.
@@ -598,8 +676,8 @@ func (o AutoScalingPolicyOutput) Name() pulumi.StringOutput {
 }
 
 // Determines when auto scaling operation will be invoked.
-func (o AutoScalingPolicyOutput) Trigger() AutoScalingTriggerOutput {
-	return o.ApplyT(func(v AutoScalingPolicy) AutoScalingTrigger { return v.Trigger }).(AutoScalingTriggerOutput)
+func (o AutoScalingPolicyOutput) Trigger() AverageLoadScalingTriggerOutput {
+	return o.ApplyT(func(v AutoScalingPolicy) AverageLoadScalingTrigger { return v.Trigger }).(AverageLoadScalingTriggerOutput)
 }
 
 type AutoScalingPolicyArrayOutput struct{ *pulumi.OutputState }
@@ -625,11 +703,11 @@ func (o AutoScalingPolicyArrayOutput) Index(i pulumi.IntInput) AutoScalingPolicy
 // Describes the auto scaling policy
 type AutoScalingPolicyResponse struct {
 	// The mechanism that is used to scale when auto scaling operation is invoked.
-	Mechanism AutoScalingMechanismResponse `pulumi:"mechanism"`
+	Mechanism AddRemoveReplicaScalingMechanismResponse `pulumi:"mechanism"`
 	// The name of the auto scaling policy.
 	Name string `pulumi:"name"`
 	// Determines when auto scaling operation will be invoked.
-	Trigger AutoScalingTriggerResponse `pulumi:"trigger"`
+	Trigger AverageLoadScalingTriggerResponse `pulumi:"trigger"`
 }
 
 // AutoScalingPolicyResponseInput is an input type that accepts AutoScalingPolicyResponseArgs and AutoScalingPolicyResponseOutput values.
@@ -646,11 +724,11 @@ type AutoScalingPolicyResponseInput interface {
 // Describes the auto scaling policy
 type AutoScalingPolicyResponseArgs struct {
 	// The mechanism that is used to scale when auto scaling operation is invoked.
-	Mechanism AutoScalingMechanismResponseInput `pulumi:"mechanism"`
+	Mechanism AddRemoveReplicaScalingMechanismResponseInput `pulumi:"mechanism"`
 	// The name of the auto scaling policy.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Determines when auto scaling operation will be invoked.
-	Trigger AutoScalingTriggerResponseInput `pulumi:"trigger"`
+	Trigger AverageLoadScalingTriggerResponseInput `pulumi:"trigger"`
 }
 
 func (AutoScalingPolicyResponseArgs) ElementType() reflect.Type {
@@ -706,8 +784,8 @@ func (o AutoScalingPolicyResponseOutput) ToAutoScalingPolicyResponseOutputWithCo
 }
 
 // The mechanism that is used to scale when auto scaling operation is invoked.
-func (o AutoScalingPolicyResponseOutput) Mechanism() AutoScalingMechanismResponseOutput {
-	return o.ApplyT(func(v AutoScalingPolicyResponse) AutoScalingMechanismResponse { return v.Mechanism }).(AutoScalingMechanismResponseOutput)
+func (o AutoScalingPolicyResponseOutput) Mechanism() AddRemoveReplicaScalingMechanismResponseOutput {
+	return o.ApplyT(func(v AutoScalingPolicyResponse) AddRemoveReplicaScalingMechanismResponse { return v.Mechanism }).(AddRemoveReplicaScalingMechanismResponseOutput)
 }
 
 // The name of the auto scaling policy.
@@ -716,8 +794,8 @@ func (o AutoScalingPolicyResponseOutput) Name() pulumi.StringOutput {
 }
 
 // Determines when auto scaling operation will be invoked.
-func (o AutoScalingPolicyResponseOutput) Trigger() AutoScalingTriggerResponseOutput {
-	return o.ApplyT(func(v AutoScalingPolicyResponse) AutoScalingTriggerResponse { return v.Trigger }).(AutoScalingTriggerResponseOutput)
+func (o AutoScalingPolicyResponseOutput) Trigger() AverageLoadScalingTriggerResponseOutput {
+	return o.ApplyT(func(v AutoScalingPolicyResponse) AverageLoadScalingTriggerResponse { return v.Trigger }).(AverageLoadScalingTriggerResponseOutput)
 }
 
 type AutoScalingPolicyResponseArrayOutput struct{ *pulumi.OutputState }
@@ -740,114 +818,644 @@ func (o AutoScalingPolicyResponseArrayOutput) Index(i pulumi.IntInput) AutoScali
 	}).(AutoScalingPolicyResponseOutput)
 }
 
-// Describes the trigger for performing auto scaling operation.
-type AutoScalingTrigger struct {
-	// The type of auto scaling trigger
+// Describes the resource that is used for triggering auto scaling.
+type AutoScalingResourceMetric struct {
+	// The type of auto scaling metric
 	Kind string `pulumi:"kind"`
+	// Name of the resource.
+	Name string `pulumi:"name"`
 }
 
-// AutoScalingTriggerInput is an input type that accepts AutoScalingTriggerArgs and AutoScalingTriggerOutput values.
-// You can construct a concrete instance of `AutoScalingTriggerInput` via:
+// AutoScalingResourceMetricInput is an input type that accepts AutoScalingResourceMetricArgs and AutoScalingResourceMetricOutput values.
+// You can construct a concrete instance of `AutoScalingResourceMetricInput` via:
 //
-//          AutoScalingTriggerArgs{...}
-type AutoScalingTriggerInput interface {
+//          AutoScalingResourceMetricArgs{...}
+type AutoScalingResourceMetricInput interface {
 	pulumi.Input
 
-	ToAutoScalingTriggerOutput() AutoScalingTriggerOutput
-	ToAutoScalingTriggerOutputWithContext(context.Context) AutoScalingTriggerOutput
+	ToAutoScalingResourceMetricOutput() AutoScalingResourceMetricOutput
+	ToAutoScalingResourceMetricOutputWithContext(context.Context) AutoScalingResourceMetricOutput
 }
 
-// Describes the trigger for performing auto scaling operation.
-type AutoScalingTriggerArgs struct {
-	// The type of auto scaling trigger
+// Describes the resource that is used for triggering auto scaling.
+type AutoScalingResourceMetricArgs struct {
+	// The type of auto scaling metric
 	Kind pulumi.StringInput `pulumi:"kind"`
+	// Name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
-func (AutoScalingTriggerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingTrigger)(nil)).Elem()
+func (AutoScalingResourceMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingResourceMetric)(nil)).Elem()
 }
 
-func (i AutoScalingTriggerArgs) ToAutoScalingTriggerOutput() AutoScalingTriggerOutput {
-	return i.ToAutoScalingTriggerOutputWithContext(context.Background())
+func (i AutoScalingResourceMetricArgs) ToAutoScalingResourceMetricOutput() AutoScalingResourceMetricOutput {
+	return i.ToAutoScalingResourceMetricOutputWithContext(context.Background())
 }
 
-func (i AutoScalingTriggerArgs) ToAutoScalingTriggerOutputWithContext(ctx context.Context) AutoScalingTriggerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingTriggerOutput)
+func (i AutoScalingResourceMetricArgs) ToAutoScalingResourceMetricOutputWithContext(ctx context.Context) AutoScalingResourceMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingResourceMetricOutput)
 }
 
-// Describes the trigger for performing auto scaling operation.
-type AutoScalingTriggerOutput struct{ *pulumi.OutputState }
+// Describes the resource that is used for triggering auto scaling.
+type AutoScalingResourceMetricOutput struct{ *pulumi.OutputState }
 
-func (AutoScalingTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingTrigger)(nil)).Elem()
+func (AutoScalingResourceMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingResourceMetric)(nil)).Elem()
 }
 
-func (o AutoScalingTriggerOutput) ToAutoScalingTriggerOutput() AutoScalingTriggerOutput {
+func (o AutoScalingResourceMetricOutput) ToAutoScalingResourceMetricOutput() AutoScalingResourceMetricOutput {
 	return o
 }
 
-func (o AutoScalingTriggerOutput) ToAutoScalingTriggerOutputWithContext(ctx context.Context) AutoScalingTriggerOutput {
+func (o AutoScalingResourceMetricOutput) ToAutoScalingResourceMetricOutputWithContext(ctx context.Context) AutoScalingResourceMetricOutput {
+	return o
+}
+
+// The type of auto scaling metric
+func (o AutoScalingResourceMetricOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingResourceMetric) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o AutoScalingResourceMetricOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingResourceMetric) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes the resource that is used for triggering auto scaling.
+type AutoScalingResourceMetricResponse struct {
+	// The type of auto scaling metric
+	Kind string `pulumi:"kind"`
+	// Name of the resource.
+	Name string `pulumi:"name"`
+}
+
+// AutoScalingResourceMetricResponseInput is an input type that accepts AutoScalingResourceMetricResponseArgs and AutoScalingResourceMetricResponseOutput values.
+// You can construct a concrete instance of `AutoScalingResourceMetricResponseInput` via:
+//
+//          AutoScalingResourceMetricResponseArgs{...}
+type AutoScalingResourceMetricResponseInput interface {
+	pulumi.Input
+
+	ToAutoScalingResourceMetricResponseOutput() AutoScalingResourceMetricResponseOutput
+	ToAutoScalingResourceMetricResponseOutputWithContext(context.Context) AutoScalingResourceMetricResponseOutput
+}
+
+// Describes the resource that is used for triggering auto scaling.
+type AutoScalingResourceMetricResponseArgs struct {
+	// The type of auto scaling metric
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AutoScalingResourceMetricResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingResourceMetricResponse)(nil)).Elem()
+}
+
+func (i AutoScalingResourceMetricResponseArgs) ToAutoScalingResourceMetricResponseOutput() AutoScalingResourceMetricResponseOutput {
+	return i.ToAutoScalingResourceMetricResponseOutputWithContext(context.Background())
+}
+
+func (i AutoScalingResourceMetricResponseArgs) ToAutoScalingResourceMetricResponseOutputWithContext(ctx context.Context) AutoScalingResourceMetricResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingResourceMetricResponseOutput)
+}
+
+// Describes the resource that is used for triggering auto scaling.
+type AutoScalingResourceMetricResponseOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingResourceMetricResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingResourceMetricResponse)(nil)).Elem()
+}
+
+func (o AutoScalingResourceMetricResponseOutput) ToAutoScalingResourceMetricResponseOutput() AutoScalingResourceMetricResponseOutput {
+	return o
+}
+
+func (o AutoScalingResourceMetricResponseOutput) ToAutoScalingResourceMetricResponseOutputWithContext(ctx context.Context) AutoScalingResourceMetricResponseOutput {
+	return o
+}
+
+// The type of auto scaling metric
+func (o AutoScalingResourceMetricResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingResourceMetricResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o AutoScalingResourceMetricResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingResourceMetricResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes the average load trigger used for auto scaling.
+type AverageLoadScalingTrigger struct {
+	// The type of auto scaling trigger
+	Kind string `pulumi:"kind"`
+	// Lower load threshold (if average load is below this threshold, service will scale down).
+	LowerLoadThreshold float64 `pulumi:"lowerLoadThreshold"`
+	// Description of the metric that is used for scaling.
+	Metric AutoScalingResourceMetric `pulumi:"metric"`
+	// Scale interval that indicates how often will this trigger be checked.
+	ScaleIntervalInSeconds int `pulumi:"scaleIntervalInSeconds"`
+	// Upper load threshold (if average load is above this threshold, service will scale up).
+	UpperLoadThreshold float64 `pulumi:"upperLoadThreshold"`
+}
+
+// AverageLoadScalingTriggerInput is an input type that accepts AverageLoadScalingTriggerArgs and AverageLoadScalingTriggerOutput values.
+// You can construct a concrete instance of `AverageLoadScalingTriggerInput` via:
+//
+//          AverageLoadScalingTriggerArgs{...}
+type AverageLoadScalingTriggerInput interface {
+	pulumi.Input
+
+	ToAverageLoadScalingTriggerOutput() AverageLoadScalingTriggerOutput
+	ToAverageLoadScalingTriggerOutputWithContext(context.Context) AverageLoadScalingTriggerOutput
+}
+
+// Describes the average load trigger used for auto scaling.
+type AverageLoadScalingTriggerArgs struct {
+	// The type of auto scaling trigger
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Lower load threshold (if average load is below this threshold, service will scale down).
+	LowerLoadThreshold pulumi.Float64Input `pulumi:"lowerLoadThreshold"`
+	// Description of the metric that is used for scaling.
+	Metric AutoScalingResourceMetricInput `pulumi:"metric"`
+	// Scale interval that indicates how often will this trigger be checked.
+	ScaleIntervalInSeconds pulumi.IntInput `pulumi:"scaleIntervalInSeconds"`
+	// Upper load threshold (if average load is above this threshold, service will scale up).
+	UpperLoadThreshold pulumi.Float64Input `pulumi:"upperLoadThreshold"`
+}
+
+func (AverageLoadScalingTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AverageLoadScalingTrigger)(nil)).Elem()
+}
+
+func (i AverageLoadScalingTriggerArgs) ToAverageLoadScalingTriggerOutput() AverageLoadScalingTriggerOutput {
+	return i.ToAverageLoadScalingTriggerOutputWithContext(context.Background())
+}
+
+func (i AverageLoadScalingTriggerArgs) ToAverageLoadScalingTriggerOutputWithContext(ctx context.Context) AverageLoadScalingTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AverageLoadScalingTriggerOutput)
+}
+
+// Describes the average load trigger used for auto scaling.
+type AverageLoadScalingTriggerOutput struct{ *pulumi.OutputState }
+
+func (AverageLoadScalingTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AverageLoadScalingTrigger)(nil)).Elem()
+}
+
+func (o AverageLoadScalingTriggerOutput) ToAverageLoadScalingTriggerOutput() AverageLoadScalingTriggerOutput {
+	return o
+}
+
+func (o AverageLoadScalingTriggerOutput) ToAverageLoadScalingTriggerOutputWithContext(ctx context.Context) AverageLoadScalingTriggerOutput {
 	return o
 }
 
 // The type of auto scaling trigger
-func (o AutoScalingTriggerOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoScalingTrigger) string { return v.Kind }).(pulumi.StringOutput)
+func (o AverageLoadScalingTriggerOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v AverageLoadScalingTrigger) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Describes the trigger for performing auto scaling operation.
-type AutoScalingTriggerResponse struct {
+// Lower load threshold (if average load is below this threshold, service will scale down).
+func (o AverageLoadScalingTriggerOutput) LowerLoadThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v AverageLoadScalingTrigger) float64 { return v.LowerLoadThreshold }).(pulumi.Float64Output)
+}
+
+// Description of the metric that is used for scaling.
+func (o AverageLoadScalingTriggerOutput) Metric() AutoScalingResourceMetricOutput {
+	return o.ApplyT(func(v AverageLoadScalingTrigger) AutoScalingResourceMetric { return v.Metric }).(AutoScalingResourceMetricOutput)
+}
+
+// Scale interval that indicates how often will this trigger be checked.
+func (o AverageLoadScalingTriggerOutput) ScaleIntervalInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v AverageLoadScalingTrigger) int { return v.ScaleIntervalInSeconds }).(pulumi.IntOutput)
+}
+
+// Upper load threshold (if average load is above this threshold, service will scale up).
+func (o AverageLoadScalingTriggerOutput) UpperLoadThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v AverageLoadScalingTrigger) float64 { return v.UpperLoadThreshold }).(pulumi.Float64Output)
+}
+
+// Describes the average load trigger used for auto scaling.
+type AverageLoadScalingTriggerResponse struct {
 	// The type of auto scaling trigger
 	Kind string `pulumi:"kind"`
+	// Lower load threshold (if average load is below this threshold, service will scale down).
+	LowerLoadThreshold float64 `pulumi:"lowerLoadThreshold"`
+	// Description of the metric that is used for scaling.
+	Metric AutoScalingResourceMetricResponse `pulumi:"metric"`
+	// Scale interval that indicates how often will this trigger be checked.
+	ScaleIntervalInSeconds int `pulumi:"scaleIntervalInSeconds"`
+	// Upper load threshold (if average load is above this threshold, service will scale up).
+	UpperLoadThreshold float64 `pulumi:"upperLoadThreshold"`
 }
 
-// AutoScalingTriggerResponseInput is an input type that accepts AutoScalingTriggerResponseArgs and AutoScalingTriggerResponseOutput values.
-// You can construct a concrete instance of `AutoScalingTriggerResponseInput` via:
+// AverageLoadScalingTriggerResponseInput is an input type that accepts AverageLoadScalingTriggerResponseArgs and AverageLoadScalingTriggerResponseOutput values.
+// You can construct a concrete instance of `AverageLoadScalingTriggerResponseInput` via:
 //
-//          AutoScalingTriggerResponseArgs{...}
-type AutoScalingTriggerResponseInput interface {
+//          AverageLoadScalingTriggerResponseArgs{...}
+type AverageLoadScalingTriggerResponseInput interface {
 	pulumi.Input
 
-	ToAutoScalingTriggerResponseOutput() AutoScalingTriggerResponseOutput
-	ToAutoScalingTriggerResponseOutputWithContext(context.Context) AutoScalingTriggerResponseOutput
+	ToAverageLoadScalingTriggerResponseOutput() AverageLoadScalingTriggerResponseOutput
+	ToAverageLoadScalingTriggerResponseOutputWithContext(context.Context) AverageLoadScalingTriggerResponseOutput
 }
 
-// Describes the trigger for performing auto scaling operation.
-type AutoScalingTriggerResponseArgs struct {
+// Describes the average load trigger used for auto scaling.
+type AverageLoadScalingTriggerResponseArgs struct {
 	// The type of auto scaling trigger
 	Kind pulumi.StringInput `pulumi:"kind"`
+	// Lower load threshold (if average load is below this threshold, service will scale down).
+	LowerLoadThreshold pulumi.Float64Input `pulumi:"lowerLoadThreshold"`
+	// Description of the metric that is used for scaling.
+	Metric AutoScalingResourceMetricResponseInput `pulumi:"metric"`
+	// Scale interval that indicates how often will this trigger be checked.
+	ScaleIntervalInSeconds pulumi.IntInput `pulumi:"scaleIntervalInSeconds"`
+	// Upper load threshold (if average load is above this threshold, service will scale up).
+	UpperLoadThreshold pulumi.Float64Input `pulumi:"upperLoadThreshold"`
 }
 
-func (AutoScalingTriggerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingTriggerResponse)(nil)).Elem()
+func (AverageLoadScalingTriggerResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AverageLoadScalingTriggerResponse)(nil)).Elem()
 }
 
-func (i AutoScalingTriggerResponseArgs) ToAutoScalingTriggerResponseOutput() AutoScalingTriggerResponseOutput {
-	return i.ToAutoScalingTriggerResponseOutputWithContext(context.Background())
+func (i AverageLoadScalingTriggerResponseArgs) ToAverageLoadScalingTriggerResponseOutput() AverageLoadScalingTriggerResponseOutput {
+	return i.ToAverageLoadScalingTriggerResponseOutputWithContext(context.Background())
 }
 
-func (i AutoScalingTriggerResponseArgs) ToAutoScalingTriggerResponseOutputWithContext(ctx context.Context) AutoScalingTriggerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingTriggerResponseOutput)
+func (i AverageLoadScalingTriggerResponseArgs) ToAverageLoadScalingTriggerResponseOutputWithContext(ctx context.Context) AverageLoadScalingTriggerResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AverageLoadScalingTriggerResponseOutput)
 }
 
-// Describes the trigger for performing auto scaling operation.
-type AutoScalingTriggerResponseOutput struct{ *pulumi.OutputState }
+// Describes the average load trigger used for auto scaling.
+type AverageLoadScalingTriggerResponseOutput struct{ *pulumi.OutputState }
 
-func (AutoScalingTriggerResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScalingTriggerResponse)(nil)).Elem()
+func (AverageLoadScalingTriggerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AverageLoadScalingTriggerResponse)(nil)).Elem()
 }
 
-func (o AutoScalingTriggerResponseOutput) ToAutoScalingTriggerResponseOutput() AutoScalingTriggerResponseOutput {
+func (o AverageLoadScalingTriggerResponseOutput) ToAverageLoadScalingTriggerResponseOutput() AverageLoadScalingTriggerResponseOutput {
 	return o
 }
 
-func (o AutoScalingTriggerResponseOutput) ToAutoScalingTriggerResponseOutputWithContext(ctx context.Context) AutoScalingTriggerResponseOutput {
+func (o AverageLoadScalingTriggerResponseOutput) ToAverageLoadScalingTriggerResponseOutputWithContext(ctx context.Context) AverageLoadScalingTriggerResponseOutput {
 	return o
 }
 
 // The type of auto scaling trigger
-func (o AutoScalingTriggerResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoScalingTriggerResponse) string { return v.Kind }).(pulumi.StringOutput)
+func (o AverageLoadScalingTriggerResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Lower load threshold (if average load is below this threshold, service will scale down).
+func (o AverageLoadScalingTriggerResponseOutput) LowerLoadThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) float64 { return v.LowerLoadThreshold }).(pulumi.Float64Output)
+}
+
+// Description of the metric that is used for scaling.
+func (o AverageLoadScalingTriggerResponseOutput) Metric() AutoScalingResourceMetricResponseOutput {
+	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) AutoScalingResourceMetricResponse { return v.Metric }).(AutoScalingResourceMetricResponseOutput)
+}
+
+// Scale interval that indicates how often will this trigger be checked.
+func (o AverageLoadScalingTriggerResponseOutput) ScaleIntervalInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) int { return v.ScaleIntervalInSeconds }).(pulumi.IntOutput)
+}
+
+// Upper load threshold (if average load is above this threshold, service will scale up).
+func (o AverageLoadScalingTriggerResponseOutput) UpperLoadThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v AverageLoadScalingTriggerResponse) float64 { return v.UpperLoadThreshold }).(pulumi.Float64Output)
+}
+
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescription struct {
+	// Azure Internal monitoring pipeline account.
+	AccountName *string `pulumi:"accountName"`
+	// Azure Internal monitoring pipeline autokey associated with the certificate.
+	AutoKeyConfigUrl *string `pulumi:"autoKeyConfigUrl"`
+	// A description of the sink.
+	Description *string `pulumi:"description"`
+	// Azure Internal monitoring agent fluentd configuration.
+	FluentdConfigUrl map[string]interface{} `pulumi:"fluentdConfigUrl"`
+	// The kind of DiagnosticsSink.
+	Kind string `pulumi:"kind"`
+	// Azure Internal monitoring agent configuration.
+	MaConfigUrl *string `pulumi:"maConfigUrl"`
+	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+	Name *string `pulumi:"name"`
+	// Azure Internal monitoring pipeline account namespace.
+	Namespace *string `pulumi:"namespace"`
+}
+
+// AzureInternalMonitoringPipelineSinkDescriptionInput is an input type that accepts AzureInternalMonitoringPipelineSinkDescriptionArgs and AzureInternalMonitoringPipelineSinkDescriptionOutput values.
+// You can construct a concrete instance of `AzureInternalMonitoringPipelineSinkDescriptionInput` via:
+//
+//          AzureInternalMonitoringPipelineSinkDescriptionArgs{...}
+type AzureInternalMonitoringPipelineSinkDescriptionInput interface {
+	pulumi.Input
+
+	ToAzureInternalMonitoringPipelineSinkDescriptionOutput() AzureInternalMonitoringPipelineSinkDescriptionOutput
+	ToAzureInternalMonitoringPipelineSinkDescriptionOutputWithContext(context.Context) AzureInternalMonitoringPipelineSinkDescriptionOutput
+}
+
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescriptionArgs struct {
+	// Azure Internal monitoring pipeline account.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Azure Internal monitoring pipeline autokey associated with the certificate.
+	AutoKeyConfigUrl pulumi.StringPtrInput `pulumi:"autoKeyConfigUrl"`
+	// A description of the sink.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Azure Internal monitoring agent fluentd configuration.
+	FluentdConfigUrl pulumi.MapInput `pulumi:"fluentdConfigUrl"`
+	// The kind of DiagnosticsSink.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Azure Internal monitoring agent configuration.
+	MaConfigUrl pulumi.StringPtrInput `pulumi:"maConfigUrl"`
+	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Azure Internal monitoring pipeline account namespace.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (AzureInternalMonitoringPipelineSinkDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureInternalMonitoringPipelineSinkDescription)(nil)).Elem()
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionArgs) ToAzureInternalMonitoringPipelineSinkDescriptionOutput() AzureInternalMonitoringPipelineSinkDescriptionOutput {
+	return i.ToAzureInternalMonitoringPipelineSinkDescriptionOutputWithContext(context.Background())
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionArgs) ToAzureInternalMonitoringPipelineSinkDescriptionOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureInternalMonitoringPipelineSinkDescriptionOutput)
+}
+
+// AzureInternalMonitoringPipelineSinkDescriptionArrayInput is an input type that accepts AzureInternalMonitoringPipelineSinkDescriptionArray and AzureInternalMonitoringPipelineSinkDescriptionArrayOutput values.
+// You can construct a concrete instance of `AzureInternalMonitoringPipelineSinkDescriptionArrayInput` via:
+//
+//          AzureInternalMonitoringPipelineSinkDescriptionArray{ AzureInternalMonitoringPipelineSinkDescriptionArgs{...} }
+type AzureInternalMonitoringPipelineSinkDescriptionArrayInput interface {
+	pulumi.Input
+
+	ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput
+	ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutputWithContext(context.Context) AzureInternalMonitoringPipelineSinkDescriptionArrayOutput
+}
+
+type AzureInternalMonitoringPipelineSinkDescriptionArray []AzureInternalMonitoringPipelineSinkDescriptionInput
+
+func (AzureInternalMonitoringPipelineSinkDescriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureInternalMonitoringPipelineSinkDescription)(nil)).Elem()
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionArray) ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return i.ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutputWithContext(context.Background())
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionArray) ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureInternalMonitoringPipelineSinkDescriptionArrayOutput)
+}
+
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescriptionOutput struct{ *pulumi.OutputState }
+
+func (AzureInternalMonitoringPipelineSinkDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureInternalMonitoringPipelineSinkDescription)(nil)).Elem()
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) ToAzureInternalMonitoringPipelineSinkDescriptionOutput() AzureInternalMonitoringPipelineSinkDescriptionOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) ToAzureInternalMonitoringPipelineSinkDescriptionOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionOutput {
+	return o
+}
+
+// Azure Internal monitoring pipeline account.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring pipeline autokey associated with the certificate.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) AutoKeyConfigUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.AutoKeyConfigUrl }).(pulumi.StringPtrOutput)
+}
+
+// A description of the sink.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring agent fluentd configuration.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) FluentdConfigUrl() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) map[string]interface{} {
+		return v.FluentdConfigUrl
+	}).(pulumi.MapOutput)
+}
+
+// The kind of DiagnosticsSink.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure Internal monitoring agent configuration.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) MaConfigUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.MaConfigUrl }).(pulumi.StringPtrOutput)
+}
+
+// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring pipeline account namespace.
+func (o AzureInternalMonitoringPipelineSinkDescriptionOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescription) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type AzureInternalMonitoringPipelineSinkDescriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureInternalMonitoringPipelineSinkDescriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureInternalMonitoringPipelineSinkDescription)(nil)).Elem()
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionArrayOutput) ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionArrayOutput) ToAzureInternalMonitoringPipelineSinkDescriptionArrayOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionArrayOutput) Index(i pulumi.IntInput) AzureInternalMonitoringPipelineSinkDescriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureInternalMonitoringPipelineSinkDescription {
+		return vs[0].([]AzureInternalMonitoringPipelineSinkDescription)[vs[1].(int)]
+	}).(AzureInternalMonitoringPipelineSinkDescriptionOutput)
+}
+
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescriptionResponse struct {
+	// Azure Internal monitoring pipeline account.
+	AccountName *string `pulumi:"accountName"`
+	// Azure Internal monitoring pipeline autokey associated with the certificate.
+	AutoKeyConfigUrl *string `pulumi:"autoKeyConfigUrl"`
+	// A description of the sink.
+	Description *string `pulumi:"description"`
+	// Azure Internal monitoring agent fluentd configuration.
+	FluentdConfigUrl map[string]interface{} `pulumi:"fluentdConfigUrl"`
+	// The kind of DiagnosticsSink.
+	Kind string `pulumi:"kind"`
+	// Azure Internal monitoring agent configuration.
+	MaConfigUrl *string `pulumi:"maConfigUrl"`
+	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+	Name *string `pulumi:"name"`
+	// Azure Internal monitoring pipeline account namespace.
+	Namespace *string `pulumi:"namespace"`
+}
+
+// AzureInternalMonitoringPipelineSinkDescriptionResponseInput is an input type that accepts AzureInternalMonitoringPipelineSinkDescriptionResponseArgs and AzureInternalMonitoringPipelineSinkDescriptionResponseOutput values.
+// You can construct a concrete instance of `AzureInternalMonitoringPipelineSinkDescriptionResponseInput` via:
+//
+//          AzureInternalMonitoringPipelineSinkDescriptionResponseArgs{...}
+type AzureInternalMonitoringPipelineSinkDescriptionResponseInput interface {
+	pulumi.Input
+
+	ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseOutput
+	ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutputWithContext(context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseOutput
+}
+
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescriptionResponseArgs struct {
+	// Azure Internal monitoring pipeline account.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Azure Internal monitoring pipeline autokey associated with the certificate.
+	AutoKeyConfigUrl pulumi.StringPtrInput `pulumi:"autoKeyConfigUrl"`
+	// A description of the sink.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Azure Internal monitoring agent fluentd configuration.
+	FluentdConfigUrl pulumi.MapInput `pulumi:"fluentdConfigUrl"`
+	// The kind of DiagnosticsSink.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Azure Internal monitoring agent configuration.
+	MaConfigUrl pulumi.StringPtrInput `pulumi:"maConfigUrl"`
+	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Azure Internal monitoring pipeline account namespace.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (AzureInternalMonitoringPipelineSinkDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureInternalMonitoringPipelineSinkDescriptionResponse)(nil)).Elem()
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionResponseArgs) ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseOutput {
+	return i.ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutputWithContext(context.Background())
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionResponseArgs) ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureInternalMonitoringPipelineSinkDescriptionResponseOutput)
+}
+
+// AzureInternalMonitoringPipelineSinkDescriptionResponseArrayInput is an input type that accepts AzureInternalMonitoringPipelineSinkDescriptionResponseArray and AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput values.
+// You can construct a concrete instance of `AzureInternalMonitoringPipelineSinkDescriptionResponseArrayInput` via:
+//
+//          AzureInternalMonitoringPipelineSinkDescriptionResponseArray{ AzureInternalMonitoringPipelineSinkDescriptionResponseArgs{...} }
+type AzureInternalMonitoringPipelineSinkDescriptionResponseArrayInput interface {
+	pulumi.Input
+
+	ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput
+	ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutputWithContext(context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput
+}
+
+type AzureInternalMonitoringPipelineSinkDescriptionResponseArray []AzureInternalMonitoringPipelineSinkDescriptionResponseInput
+
+func (AzureInternalMonitoringPipelineSinkDescriptionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureInternalMonitoringPipelineSinkDescriptionResponse)(nil)).Elem()
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionResponseArray) ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return i.ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AzureInternalMonitoringPipelineSinkDescriptionResponseArray) ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput)
+}
+
+// Diagnostics settings for Geneva.
+type AzureInternalMonitoringPipelineSinkDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureInternalMonitoringPipelineSinkDescriptionResponse)(nil)).Elem()
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) ToAzureInternalMonitoringPipelineSinkDescriptionResponseOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseOutput {
+	return o
+}
+
+// Azure Internal monitoring pipeline account.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring pipeline autokey associated with the certificate.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) AutoKeyConfigUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.AutoKeyConfigUrl }).(pulumi.StringPtrOutput)
+}
+
+// A description of the sink.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring agent fluentd configuration.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) FluentdConfigUrl() pulumi.MapOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) map[string]interface{} {
+		return v.FluentdConfigUrl
+	}).(pulumi.MapOutput)
+}
+
+// The kind of DiagnosticsSink.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure Internal monitoring agent configuration.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) MaConfigUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.MaConfigUrl }).(pulumi.StringPtrOutput)
+}
+
+// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Azure Internal monitoring pipeline account namespace.
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureInternalMonitoringPipelineSinkDescriptionResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureInternalMonitoringPipelineSinkDescriptionResponse)(nil)).Elem()
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput) ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput) ToAzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutputWithContext(ctx context.Context) AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput) Index(i pulumi.IntInput) AzureInternalMonitoringPipelineSinkDescriptionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureInternalMonitoringPipelineSinkDescriptionResponse {
+		return vs[0].([]AzureInternalMonitoringPipelineSinkDescriptionResponse)[vs[1].(int)]
+	}).(AzureInternalMonitoringPipelineSinkDescriptionResponseOutput)
 }
 
 // Describes a container and its runtime properties.
@@ -1961,7 +2569,7 @@ type DiagnosticsDescription struct {
 	// Status of whether or not sinks are enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// List of supported sinks that can be referenced.
-	Sinks []DiagnosticsSinkProperties `pulumi:"sinks"`
+	Sinks []AzureInternalMonitoringPipelineSinkDescription `pulumi:"sinks"`
 }
 
 // DiagnosticsDescriptionInput is an input type that accepts DiagnosticsDescriptionArgs and DiagnosticsDescriptionOutput values.
@@ -1982,7 +2590,7 @@ type DiagnosticsDescriptionArgs struct {
 	// Status of whether or not sinks are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of supported sinks that can be referenced.
-	Sinks DiagnosticsSinkPropertiesArrayInput `pulumi:"sinks"`
+	Sinks AzureInternalMonitoringPipelineSinkDescriptionArrayInput `pulumi:"sinks"`
 }
 
 func (DiagnosticsDescriptionArgs) ElementType() reflect.Type {
@@ -2074,8 +2682,8 @@ func (o DiagnosticsDescriptionOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // List of supported sinks that can be referenced.
-func (o DiagnosticsDescriptionOutput) Sinks() DiagnosticsSinkPropertiesArrayOutput {
-	return o.ApplyT(func(v DiagnosticsDescription) []DiagnosticsSinkProperties { return v.Sinks }).(DiagnosticsSinkPropertiesArrayOutput)
+func (o DiagnosticsDescriptionOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return o.ApplyT(func(v DiagnosticsDescription) []AzureInternalMonitoringPipelineSinkDescription { return v.Sinks }).(AzureInternalMonitoringPipelineSinkDescriptionArrayOutput)
 }
 
 type DiagnosticsDescriptionPtrOutput struct{ *pulumi.OutputState }
@@ -2117,13 +2725,13 @@ func (o DiagnosticsDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // List of supported sinks that can be referenced.
-func (o DiagnosticsDescriptionPtrOutput) Sinks() DiagnosticsSinkPropertiesArrayOutput {
-	return o.ApplyT(func(v *DiagnosticsDescription) []DiagnosticsSinkProperties {
+func (o DiagnosticsDescriptionPtrOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionArrayOutput {
+	return o.ApplyT(func(v *DiagnosticsDescription) []AzureInternalMonitoringPipelineSinkDescription {
 		if v == nil {
 			return nil
 		}
 		return v.Sinks
-	}).(DiagnosticsSinkPropertiesArrayOutput)
+	}).(AzureInternalMonitoringPipelineSinkDescriptionArrayOutput)
 }
 
 // Describes the diagnostics options available
@@ -2133,7 +2741,7 @@ type DiagnosticsDescriptionResponse struct {
 	// Status of whether or not sinks are enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// List of supported sinks that can be referenced.
-	Sinks []DiagnosticsSinkPropertiesResponse `pulumi:"sinks"`
+	Sinks []AzureInternalMonitoringPipelineSinkDescriptionResponse `pulumi:"sinks"`
 }
 
 // DiagnosticsDescriptionResponseInput is an input type that accepts DiagnosticsDescriptionResponseArgs and DiagnosticsDescriptionResponseOutput values.
@@ -2154,7 +2762,7 @@ type DiagnosticsDescriptionResponseArgs struct {
 	// Status of whether or not sinks are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of supported sinks that can be referenced.
-	Sinks DiagnosticsSinkPropertiesResponseArrayInput `pulumi:"sinks"`
+	Sinks AzureInternalMonitoringPipelineSinkDescriptionResponseArrayInput `pulumi:"sinks"`
 }
 
 func (DiagnosticsDescriptionResponseArgs) ElementType() reflect.Type {
@@ -2246,8 +2854,10 @@ func (o DiagnosticsDescriptionResponseOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // List of supported sinks that can be referenced.
-func (o DiagnosticsDescriptionResponseOutput) Sinks() DiagnosticsSinkPropertiesResponseArrayOutput {
-	return o.ApplyT(func(v DiagnosticsDescriptionResponse) []DiagnosticsSinkPropertiesResponse { return v.Sinks }).(DiagnosticsSinkPropertiesResponseArrayOutput)
+func (o DiagnosticsDescriptionResponseOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v DiagnosticsDescriptionResponse) []AzureInternalMonitoringPipelineSinkDescriptionResponse {
+		return v.Sinks
+	}).(AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput)
 }
 
 type DiagnosticsDescriptionResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2289,13 +2899,13 @@ func (o DiagnosticsDescriptionResponsePtrOutput) Enabled() pulumi.BoolPtrOutput 
 }
 
 // List of supported sinks that can be referenced.
-func (o DiagnosticsDescriptionResponsePtrOutput) Sinks() DiagnosticsSinkPropertiesResponseArrayOutput {
-	return o.ApplyT(func(v *DiagnosticsDescriptionResponse) []DiagnosticsSinkPropertiesResponse {
+func (o DiagnosticsDescriptionResponsePtrOutput) Sinks() AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *DiagnosticsDescriptionResponse) []AzureInternalMonitoringPipelineSinkDescriptionResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Sinks
-	}).(DiagnosticsSinkPropertiesResponseArrayOutput)
+	}).(AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput)
 }
 
 // Reference to sinks in DiagnosticsDescription.
@@ -2602,242 +3212,6 @@ func (o DiagnosticsRefResponsePtrOutput) SinkRefs() pulumi.StringArrayOutput {
 		}
 		return v.SinkRefs
 	}).(pulumi.StringArrayOutput)
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkProperties struct {
-	// A description of the sink.
-	Description *string `pulumi:"description"`
-	// The kind of DiagnosticsSink.
-	Kind string `pulumi:"kind"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name *string `pulumi:"name"`
-}
-
-// DiagnosticsSinkPropertiesInput is an input type that accepts DiagnosticsSinkPropertiesArgs and DiagnosticsSinkPropertiesOutput values.
-// You can construct a concrete instance of `DiagnosticsSinkPropertiesInput` via:
-//
-//          DiagnosticsSinkPropertiesArgs{...}
-type DiagnosticsSinkPropertiesInput interface {
-	pulumi.Input
-
-	ToDiagnosticsSinkPropertiesOutput() DiagnosticsSinkPropertiesOutput
-	ToDiagnosticsSinkPropertiesOutputWithContext(context.Context) DiagnosticsSinkPropertiesOutput
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkPropertiesArgs struct {
-	// A description of the sink.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The kind of DiagnosticsSink.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (DiagnosticsSinkPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsSinkProperties)(nil)).Elem()
-}
-
-func (i DiagnosticsSinkPropertiesArgs) ToDiagnosticsSinkPropertiesOutput() DiagnosticsSinkPropertiesOutput {
-	return i.ToDiagnosticsSinkPropertiesOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsSinkPropertiesArgs) ToDiagnosticsSinkPropertiesOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsSinkPropertiesOutput)
-}
-
-// DiagnosticsSinkPropertiesArrayInput is an input type that accepts DiagnosticsSinkPropertiesArray and DiagnosticsSinkPropertiesArrayOutput values.
-// You can construct a concrete instance of `DiagnosticsSinkPropertiesArrayInput` via:
-//
-//          DiagnosticsSinkPropertiesArray{ DiagnosticsSinkPropertiesArgs{...} }
-type DiagnosticsSinkPropertiesArrayInput interface {
-	pulumi.Input
-
-	ToDiagnosticsSinkPropertiesArrayOutput() DiagnosticsSinkPropertiesArrayOutput
-	ToDiagnosticsSinkPropertiesArrayOutputWithContext(context.Context) DiagnosticsSinkPropertiesArrayOutput
-}
-
-type DiagnosticsSinkPropertiesArray []DiagnosticsSinkPropertiesInput
-
-func (DiagnosticsSinkPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiagnosticsSinkProperties)(nil)).Elem()
-}
-
-func (i DiagnosticsSinkPropertiesArray) ToDiagnosticsSinkPropertiesArrayOutput() DiagnosticsSinkPropertiesArrayOutput {
-	return i.ToDiagnosticsSinkPropertiesArrayOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsSinkPropertiesArray) ToDiagnosticsSinkPropertiesArrayOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsSinkPropertiesArrayOutput)
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkPropertiesOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsSinkPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsSinkProperties)(nil)).Elem()
-}
-
-func (o DiagnosticsSinkPropertiesOutput) ToDiagnosticsSinkPropertiesOutput() DiagnosticsSinkPropertiesOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesOutput) ToDiagnosticsSinkPropertiesOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesOutput {
-	return o
-}
-
-// A description of the sink.
-func (o DiagnosticsSinkPropertiesOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticsSinkProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The kind of DiagnosticsSink.
-func (o DiagnosticsSinkPropertiesOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsSinkProperties) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-func (o DiagnosticsSinkPropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticsSinkProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type DiagnosticsSinkPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsSinkPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiagnosticsSinkProperties)(nil)).Elem()
-}
-
-func (o DiagnosticsSinkPropertiesArrayOutput) ToDiagnosticsSinkPropertiesArrayOutput() DiagnosticsSinkPropertiesArrayOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesArrayOutput) ToDiagnosticsSinkPropertiesArrayOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesArrayOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesArrayOutput) Index(i pulumi.IntInput) DiagnosticsSinkPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticsSinkProperties {
-		return vs[0].([]DiagnosticsSinkProperties)[vs[1].(int)]
-	}).(DiagnosticsSinkPropertiesOutput)
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkPropertiesResponse struct {
-	// A description of the sink.
-	Description *string `pulumi:"description"`
-	// The kind of DiagnosticsSink.
-	Kind string `pulumi:"kind"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name *string `pulumi:"name"`
-}
-
-// DiagnosticsSinkPropertiesResponseInput is an input type that accepts DiagnosticsSinkPropertiesResponseArgs and DiagnosticsSinkPropertiesResponseOutput values.
-// You can construct a concrete instance of `DiagnosticsSinkPropertiesResponseInput` via:
-//
-//          DiagnosticsSinkPropertiesResponseArgs{...}
-type DiagnosticsSinkPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDiagnosticsSinkPropertiesResponseOutput() DiagnosticsSinkPropertiesResponseOutput
-	ToDiagnosticsSinkPropertiesResponseOutputWithContext(context.Context) DiagnosticsSinkPropertiesResponseOutput
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkPropertiesResponseArgs struct {
-	// A description of the sink.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The kind of DiagnosticsSink.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (DiagnosticsSinkPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsSinkPropertiesResponse)(nil)).Elem()
-}
-
-func (i DiagnosticsSinkPropertiesResponseArgs) ToDiagnosticsSinkPropertiesResponseOutput() DiagnosticsSinkPropertiesResponseOutput {
-	return i.ToDiagnosticsSinkPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsSinkPropertiesResponseArgs) ToDiagnosticsSinkPropertiesResponseOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsSinkPropertiesResponseOutput)
-}
-
-// DiagnosticsSinkPropertiesResponseArrayInput is an input type that accepts DiagnosticsSinkPropertiesResponseArray and DiagnosticsSinkPropertiesResponseArrayOutput values.
-// You can construct a concrete instance of `DiagnosticsSinkPropertiesResponseArrayInput` via:
-//
-//          DiagnosticsSinkPropertiesResponseArray{ DiagnosticsSinkPropertiesResponseArgs{...} }
-type DiagnosticsSinkPropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToDiagnosticsSinkPropertiesResponseArrayOutput() DiagnosticsSinkPropertiesResponseArrayOutput
-	ToDiagnosticsSinkPropertiesResponseArrayOutputWithContext(context.Context) DiagnosticsSinkPropertiesResponseArrayOutput
-}
-
-type DiagnosticsSinkPropertiesResponseArray []DiagnosticsSinkPropertiesResponseInput
-
-func (DiagnosticsSinkPropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiagnosticsSinkPropertiesResponse)(nil)).Elem()
-}
-
-func (i DiagnosticsSinkPropertiesResponseArray) ToDiagnosticsSinkPropertiesResponseArrayOutput() DiagnosticsSinkPropertiesResponseArrayOutput {
-	return i.ToDiagnosticsSinkPropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsSinkPropertiesResponseArray) ToDiagnosticsSinkPropertiesResponseArrayOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsSinkPropertiesResponseArrayOutput)
-}
-
-// Properties of a DiagnosticsSink.
-type DiagnosticsSinkPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsSinkPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsSinkPropertiesResponse)(nil)).Elem()
-}
-
-func (o DiagnosticsSinkPropertiesResponseOutput) ToDiagnosticsSinkPropertiesResponseOutput() DiagnosticsSinkPropertiesResponseOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesResponseOutput) ToDiagnosticsSinkPropertiesResponseOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesResponseOutput {
-	return o
-}
-
-// A description of the sink.
-func (o DiagnosticsSinkPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticsSinkPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The kind of DiagnosticsSink.
-func (o DiagnosticsSinkPropertiesResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticsSinkPropertiesResponse) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-func (o DiagnosticsSinkPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiagnosticsSinkPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type DiagnosticsSinkPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsSinkPropertiesResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiagnosticsSinkPropertiesResponse)(nil)).Elem()
-}
-
-func (o DiagnosticsSinkPropertiesResponseArrayOutput) ToDiagnosticsSinkPropertiesResponseArrayOutput() DiagnosticsSinkPropertiesResponseArrayOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesResponseArrayOutput) ToDiagnosticsSinkPropertiesResponseArrayOutputWithContext(ctx context.Context) DiagnosticsSinkPropertiesResponseArrayOutput {
-	return o
-}
-
-func (o DiagnosticsSinkPropertiesResponseArrayOutput) Index(i pulumi.IntInput) DiagnosticsSinkPropertiesResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticsSinkPropertiesResponse {
-		return vs[0].([]DiagnosticsSinkPropertiesResponse)[vs[1].(int)]
-	}).(DiagnosticsSinkPropertiesResponseOutput)
 }
 
 // Describes a container endpoint.
@@ -8534,20 +8908,26 @@ func (o VolumeReferenceResponseArrayOutput) Index(i pulumi.IntInput) VolumeRefer
 }
 
 func init() {
+	pulumi.RegisterOutputType(AddRemoveReplicaScalingMechanismOutput{})
+	pulumi.RegisterOutputType(AddRemoveReplicaScalingMechanismResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationScopedVolumeOutput{})
 	pulumi.RegisterOutputType(ApplicationScopedVolumeArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationScopedVolumeCreationParametersOutput{})
-	pulumi.RegisterOutputType(ApplicationScopedVolumeCreationParametersResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskOutput{})
+	pulumi.RegisterOutputType(ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationScopedVolumeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationScopedVolumeResponseArrayOutput{})
-	pulumi.RegisterOutputType(AutoScalingMechanismOutput{})
-	pulumi.RegisterOutputType(AutoScalingMechanismResponseOutput{})
 	pulumi.RegisterOutputType(AutoScalingPolicyOutput{})
 	pulumi.RegisterOutputType(AutoScalingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(AutoScalingPolicyResponseOutput{})
 	pulumi.RegisterOutputType(AutoScalingPolicyResponseArrayOutput{})
-	pulumi.RegisterOutputType(AutoScalingTriggerOutput{})
-	pulumi.RegisterOutputType(AutoScalingTriggerResponseOutput{})
+	pulumi.RegisterOutputType(AutoScalingResourceMetricOutput{})
+	pulumi.RegisterOutputType(AutoScalingResourceMetricResponseOutput{})
+	pulumi.RegisterOutputType(AverageLoadScalingTriggerOutput{})
+	pulumi.RegisterOutputType(AverageLoadScalingTriggerResponseOutput{})
+	pulumi.RegisterOutputType(AzureInternalMonitoringPipelineSinkDescriptionOutput{})
+	pulumi.RegisterOutputType(AzureInternalMonitoringPipelineSinkDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(AzureInternalMonitoringPipelineSinkDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(AzureInternalMonitoringPipelineSinkDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerCodePackagePropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerCodePackagePropertiesArrayOutput{})
 	pulumi.RegisterOutputType(ContainerCodePackagePropertiesResponseOutput{})
@@ -8569,10 +8949,6 @@ func init() {
 	pulumi.RegisterOutputType(DiagnosticsRefPtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticsRefResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticsRefResponsePtrOutput{})
-	pulumi.RegisterOutputType(DiagnosticsSinkPropertiesOutput{})
-	pulumi.RegisterOutputType(DiagnosticsSinkPropertiesArrayOutput{})
-	pulumi.RegisterOutputType(DiagnosticsSinkPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(DiagnosticsSinkPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesResponseOutput{})

@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.Devices.Latest.Inputs
         public Input<bool>? ApplyAllocationPolicy { get; set; }
 
         /// <summary>
-        /// Connection string og the IoT hub.
+        /// Connection string of the IoT hub.
         /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;

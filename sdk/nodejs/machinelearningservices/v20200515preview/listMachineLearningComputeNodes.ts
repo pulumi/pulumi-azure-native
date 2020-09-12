@@ -43,7 +43,7 @@ export interface ListMachineLearningComputeNodesResult {
     /**
      * The type of compute
      */
-    readonly computeType: string;
+    readonly computeType: "AmlCompute";
     /**
      * The continuation token.
      */

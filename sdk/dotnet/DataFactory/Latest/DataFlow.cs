@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// Data flow properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DataFlowResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.MappingDataFlowResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -145,7 +145,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// Data flow properties.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.DataFlowArgs> Properties { get; set; } = null!;
+        public Input<Inputs.MappingDataFlowArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

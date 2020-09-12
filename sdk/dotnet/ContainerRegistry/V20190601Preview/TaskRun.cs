@@ -49,7 +49,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The request (parameters) for the run
         /// </summary>
         [Output("runRequest")]
-        public Output<Outputs.RunRequestResponseResult?> RunRequest { get; private set; } = null!;
+        public Output<Union<Outputs.DockerBuildRequestResponseResult, Union<Outputs.EncodedTaskRunRequestResponseResult, Union<Outputs.FileTaskRunRequestResponseResult, Outputs.TaskRunRequestResponseResult>>>?> RunRequest { get; private set; } = null!;
 
         /// <summary>
         /// The result of this task run
@@ -142,7 +142,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
         /// The request (parameters) for the run
         /// </summary>
         [Input("runRequest")]
-        public Input<Inputs.RunRequestArgs>? RunRequest { get; set; }
+        public InputUnion<Inputs.DockerBuildRequestArgs, InputUnion<Inputs.EncodedTaskRunRequestArgs, InputUnion<Inputs.FileTaskRunRequestArgs, Inputs.TaskRunRequestArgs>>>? RunRequest { get; set; }
 
         /// <summary>
         /// The name of the task run.

@@ -148,7 +148,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly infrastructureEncryption!: pulumi.Output<string | undefined>;
     /**
-     * The location the resource resides in.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -192,7 +192,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageProfile!: pulumi.Output<outputs.dbforpostgresql.v20171201.StorageProfileResponse | undefined>;
     /**
-     * Application-specific metadata in the form of key-value pairs.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -305,7 +305,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbforpostgresql.v20171201.ServerPropertiesForCreate>;
+    readonly properties: pulumi.Input<inputs.dbforpostgresql.v20171201.ServerPropertiesForDefaultCreate | inputs.dbforpostgresql.v20171201.ServerPropertiesForGeoRestore | inputs.dbforpostgresql.v20171201.ServerPropertiesForReplica | inputs.dbforpostgresql.v20171201.ServerPropertiesForRestore>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

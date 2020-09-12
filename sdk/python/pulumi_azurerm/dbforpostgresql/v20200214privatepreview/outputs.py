@@ -10,7 +10,8 @@ from ... import _utilities, _tables
 
 __all__ = [
     'IdentityResponse',
-    'ServerPropertiesResponseVnetInjArgs',
+    'MaintenanceWindowResponse',
+    'ServerPropertiesResponseDelegatedSubnetArguments',
     'SkuResponse',
     'StorageProfileResponse',
 ]
@@ -64,58 +65,84 @@ class IdentityResponse(dict):
 
 
 @pulumi.output_type
-class ServerPropertiesResponseVnetInjArgs(dict):
+class MaintenanceWindowResponse(dict):
+    """
+    Maintenance window of a server.
+    """
     def __init__(__self__, *,
-                 delegated_subnet_name: Optional[str] = None,
-                 delegated_vnet_id: Optional[str] = None,
-                 delegated_vnet_name: Optional[str] = None,
-                 delegated_vnet_resource_group: Optional[str] = None):
+                 custom_window: Optional[str] = None,
+                 day_of_week: Optional[float] = None,
+                 start_hour: Optional[float] = None,
+                 start_minute: Optional[float] = None):
         """
-        :param str delegated_subnet_name: delegated subnet name
-        :param str delegated_vnet_id: delegated vNet ID
-        :param str delegated_vnet_name: delegated vNet name
-        :param str delegated_vnet_resource_group: delegated vNet resource group name
+        Maintenance window of a server.
+        :param str custom_window: indicates whether custom window is enabled or disabled
+        :param float day_of_week: day of week for maintenance window
+        :param float start_hour: start hour for maintenance window
+        :param float start_minute: start minute for maintenance window
         """
-        if delegated_subnet_name is not None:
-            pulumi.set(__self__, "delegated_subnet_name", delegated_subnet_name)
-        if delegated_vnet_id is not None:
-            pulumi.set(__self__, "delegated_vnet_id", delegated_vnet_id)
-        if delegated_vnet_name is not None:
-            pulumi.set(__self__, "delegated_vnet_name", delegated_vnet_name)
-        if delegated_vnet_resource_group is not None:
-            pulumi.set(__self__, "delegated_vnet_resource_group", delegated_vnet_resource_group)
+        if custom_window is not None:
+            pulumi.set(__self__, "custom_window", custom_window)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is not None:
+            pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is not None:
+            pulumi.set(__self__, "start_minute", start_minute)
 
     @property
-    @pulumi.getter(name="delegatedSubnetName")
-    def delegated_subnet_name(self) -> Optional[str]:
+    @pulumi.getter(name="customWindow")
+    def custom_window(self) -> Optional[str]:
         """
-        delegated subnet name
+        indicates whether custom window is enabled or disabled
         """
-        return pulumi.get(self, "delegated_subnet_name")
+        return pulumi.get(self, "custom_window")
 
     @property
-    @pulumi.getter(name="delegatedVnetID")
-    def delegated_vnet_id(self) -> Optional[str]:
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[float]:
         """
-        delegated vNet ID
+        day of week for maintenance window
         """
-        return pulumi.get(self, "delegated_vnet_id")
+        return pulumi.get(self, "day_of_week")
 
     @property
-    @pulumi.getter(name="delegatedVnetName")
-    def delegated_vnet_name(self) -> Optional[str]:
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> Optional[float]:
         """
-        delegated vNet name
+        start hour for maintenance window
         """
-        return pulumi.get(self, "delegated_vnet_name")
+        return pulumi.get(self, "start_hour")
 
     @property
-    @pulumi.getter(name="delegatedVnetResourceGroup")
-    def delegated_vnet_resource_group(self) -> Optional[str]:
+    @pulumi.getter(name="startMinute")
+    def start_minute(self) -> Optional[float]:
         """
-        delegated vNet resource group name
+        start minute for maintenance window
         """
-        return pulumi.get(self, "delegated_vnet_resource_group")
+        return pulumi.get(self, "start_minute")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServerPropertiesResponseDelegatedSubnetArguments(dict):
+    def __init__(__self__, *,
+                 subnet_arm_resource_id: Optional[str] = None):
+        """
+        :param str subnet_arm_resource_id: delegated subnet arm resource id.
+        """
+        if subnet_arm_resource_id is not None:
+            pulumi.set(__self__, "subnet_arm_resource_id", subnet_arm_resource_id)
+
+    @property
+    @pulumi.getter(name="subnetArmResourceId")
+    def subnet_arm_resource_id(self) -> Optional[str]:
+        """
+        delegated subnet arm resource id.
+        """
+        return pulumi.get(self, "subnet_arm_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -127,21 +154,19 @@ class SkuResponse(dict):
     Sku information related properties of a server.
     """
     def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 tier: Optional[str] = None):
+                 name: str,
+                 tier: str):
         """
         Sku information related properties of a server.
         :param str name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
         :param str tier: The tier of the particular SKU, e.g. Burstable.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
         The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
         """
@@ -149,7 +174,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[str]:
+    def tier(self) -> str:
         """
         The tier of the particular SKU, e.g. Burstable.
         """

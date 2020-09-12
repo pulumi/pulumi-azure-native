@@ -90,6 +90,9 @@ func NewGalleryImage(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:compute/v20190701:GalleryImage"),
 		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200930:GalleryImage"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GalleryImage

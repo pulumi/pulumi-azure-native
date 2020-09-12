@@ -66,7 +66,7 @@ class GetProtectionContainerResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProtectionContainerResponse':
+    def properties(self) -> Any:
         """
         ProtectionContainerResource properties
         """

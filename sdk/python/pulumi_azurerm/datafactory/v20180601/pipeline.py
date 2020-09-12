@@ -17,7 +17,7 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActivityArgs']]]]] = None,
+                 activities: Optional[pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['ControlActivityArgs'], pulumi.InputType['ExecutionActivityArgs']]]]]] = None,
                  annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
                  concurrency: Optional[pulumi.Input[float]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ActivityArgs']]]] activities: List of activities in pipeline.
+        :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['ControlActivityArgs'], pulumi.InputType['ExecutionActivityArgs']]]]] activities: List of activities in pipeline.
         :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Pipeline.
         :param pulumi.Input[float] concurrency: The max number of concurrent runs for the pipeline.
         :param pulumi.Input[str] description: The description of the pipeline.
@@ -172,7 +172,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def activities(self) -> pulumi.Output[Optional[List['outputs.ActivityResponse']]]:
+    def activities(self) -> pulumi.Output[Optional[List[Any]]]:
         """
         List of activities in pipeline.
         """

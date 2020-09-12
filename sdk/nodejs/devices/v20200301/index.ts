@@ -3,12 +3,20 @@
 
 // Export members:
 export * from "./certificate";
+export * from "./dpsCertificate";
 export * from "./getCertificate";
+export * from "./getDpsCertificate";
+export * from "./getIotDpsResource";
+export * from "./getIotDpsResourcePrivateEndpointConnection";
 export * from "./getIotHubResource";
 export * from "./getIotHubResourceEventHubConsumerGroup";
 export * from "./getPrivateEndpointConnection";
+export * from "./iotDpsResource";
+export * from "./iotDpsResourcePrivateEndpointConnection";
 export * from "./iotHubResource";
 export * from "./iotHubResourceEventHubConsumerGroup";
+export * from "./listIotDpsResourceKeys";
+export * from "./listIotDpsResourceKeysForKeyName";
 export * from "./listIotHubResourceKeys";
 export * from "./listIotHubResourceKeysForKeyName";
 export * from "./privateEndpointConnection";

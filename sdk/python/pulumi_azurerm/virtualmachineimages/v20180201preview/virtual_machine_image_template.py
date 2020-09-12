@@ -17,12 +17,12 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customize: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateCustomizerArgs']]]]] = None,
-                 distribute: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateDistributorArgs']]]]] = None,
+                 customize: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateShellCustomizerArgs']]]]] = None,
+                 distribute: Optional[pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageDistributorArgs'], pulumi.InputType['ImageTemplateSharedImageDistributorArgs']]]]]] = None,
                  image_template_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ImageTemplateSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union[pulumi.InputType['ImageTemplateIsoSourceArgs'], pulumi.InputType['ImageTemplatePlatformImageSourceArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -31,12 +31,12 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         Create a VirtualMachineImageTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateCustomizerArgs']]]] customize: Specifies the properties used to describe the customization steps of the image, like Image source etc
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateDistributorArgs']]]] distribute: The distribution targets where the image output needs to go to.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateShellCustomizerArgs']]]] customize: Specifies the properties used to describe the customization steps of the image, like Image source etc
+        :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageDistributorArgs'], pulumi.InputType['ImageTemplateSharedImageDistributorArgs']]]]] distribute: The distribution targets where the image output needs to go to.
         :param pulumi.Input[str] image_template_name: The name of the image Template
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['ImageTemplateSourceArgs']] source: Specifies the properties used to describe the source image.
+        :param pulumi.Input[Union[pulumi.InputType['ImageTemplateIsoSourceArgs'], pulumi.InputType['ImageTemplatePlatformImageSourceArgs']]] source: Specifies the properties used to describe the source image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
@@ -106,7 +106,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def customize(self) -> pulumi.Output[Optional[List['outputs.ImageTemplateCustomizerResponse']]]:
+    def customize(self) -> pulumi.Output[Optional[List['outputs.ImageTemplateShellCustomizerResponse']]]:
         """
         Specifies the properties used to describe the customization steps of the image, like Image source etc
         """
@@ -114,7 +114,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def distribute(self) -> pulumi.Output[List['outputs.ImageTemplateDistributorResponse']]:
+    def distribute(self) -> pulumi.Output[List[Any]]:
         """
         The distribution targets where the image output needs to go to.
         """
@@ -162,7 +162,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Output['outputs.ImageTemplateSourceResponse']:
+    def source(self) -> pulumi.Output[Any]:
         """
         Specifies the properties used to describe the source image.
         """

@@ -36,7 +36,7 @@ type LookupTaskResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Custom task properties
-	Properties ProjectTaskPropertiesResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

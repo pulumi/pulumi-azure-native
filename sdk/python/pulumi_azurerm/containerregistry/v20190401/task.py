@@ -420,7 +420,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def step(self) -> pulumi.Output['outputs.TaskStepPropertiesResponse']:
+    def step(self) -> pulumi.Output[Any]:
         """
         The properties of a task step.
         """

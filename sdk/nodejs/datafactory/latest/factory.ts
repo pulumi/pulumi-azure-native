@@ -82,7 +82,7 @@ export class Factory extends pulumi.CustomResource {
     /**
      * Git repo information of the factory.
      */
-    public readonly repoConfiguration!: pulumi.Output<outputs.datafactory.latest.FactoryRepoConfigurationResponse | undefined>;
+    public readonly repoConfiguration!: pulumi.Output<outputs.datafactory.latest.FactoryGitHubConfigurationResponse | outputs.datafactory.latest.FactoryVSTSConfigurationResponse | undefined>;
     /**
      * The resource tags.
      */
@@ -174,7 +174,7 @@ export interface FactoryArgs {
     /**
      * Git repo information of the factory.
      */
-    readonly repoConfiguration?: pulumi.Input<inputs.datafactory.latest.FactoryRepoConfiguration>;
+    readonly repoConfiguration?: pulumi.Input<inputs.datafactory.latest.FactoryGitHubConfiguration | inputs.datafactory.latest.FactoryVSTSConfiguration>;
     /**
      * The resource group name.
      */

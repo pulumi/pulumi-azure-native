@@ -233,13 +233,13 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
         /// The DeadLetter destination of the event subscription.
         /// </summary>
         [Output("deadLetterDestination")]
-        public Output<Outputs.DeadLetterDestinationResponseResult?> DeadLetterDestination { get; private set; } = null!;
+        public Output<Outputs.StorageBlobDeadLetterDestinationResponseResult?> DeadLetterDestination { get; private set; } = null!;
 
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Output("destination")]
-        public Output<Outputs.EventSubscriptionDestinationResponseResult?> Destination { get; private set; } = null!;
+        public Output<Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>>?> Destination { get; private set; } = null!;
 
         /// <summary>
         /// Expiration time of the event subscription.
@@ -352,13 +352,13 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
         /// The DeadLetter destination of the event subscription.
         /// </summary>
         [Input("deadLetterDestination")]
-        public Input<Inputs.DeadLetterDestinationArgs>? DeadLetterDestination { get; set; }
+        public Input<Inputs.StorageBlobDeadLetterDestinationArgs>? DeadLetterDestination { get; set; }
 
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Input("destination")]
-        public Input<Inputs.EventSubscriptionDestinationArgs>? Destination { get; set; }
+        public InputUnion<Inputs.EventHubEventSubscriptionDestinationArgs, InputUnion<Inputs.HybridConnectionEventSubscriptionDestinationArgs, InputUnion<Inputs.ServiceBusQueueEventSubscriptionDestinationArgs, InputUnion<Inputs.StorageQueueEventSubscriptionDestinationArgs, Inputs.WebHookEventSubscriptionDestinationArgs>>>>? Destination { get; set; }
 
         /// <summary>
         /// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.

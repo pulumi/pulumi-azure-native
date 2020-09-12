@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview
         /// Service properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ServiceResponseBaseResponseResult> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.ACIServiceResponseResponseResult, Outputs.AKSVariantResponseResponseResult>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the workspace.

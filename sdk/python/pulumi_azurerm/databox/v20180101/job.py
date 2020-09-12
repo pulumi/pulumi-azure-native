@@ -17,7 +17,7 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 details: Optional[pulumi.Input[pulumi.InputType['JobDetailsArgs']]] = None,
+                 details: Optional[pulumi.Input[Union[pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -71,7 +71,7 @@ class Job(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['JobDetailsArgs']] details: Details of a job run. This field will only be sent for expand details filter.
+        :param pulumi.Input[Union[pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]] details: Details of a job run. This field will only be sent for expand details filter.
         :param pulumi.Input[str] job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
@@ -154,7 +154,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def details(self) -> pulumi.Output[Optional['outputs.JobDetailsResponse']]:
+    def details(self) -> pulumi.Output[Optional[Any]]:
         """
         Details of a job run. This field will only be sent for expand details filter.
         """

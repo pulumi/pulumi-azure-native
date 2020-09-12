@@ -256,7 +256,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Output("datasource")]
-        public Output<Outputs.OutputDataSourceResponseResult?> Datasource { get; private set; } = null!;
+        public Output<Union<Outputs.AzureDataLakeStoreOutputDataSourceResponseResult, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponseResult, Union<Outputs.AzureTableOutputDataSourceResponseResult, Union<Outputs.BlobOutputDataSourceResponseResult, Union<Outputs.DocumentDbOutputDataSourceResponseResult, Union<Outputs.EventHubOutputDataSourceResponseResult, Union<Outputs.PowerBIOutputDataSourceResponseResult, Union<Outputs.ServiceBusQueueOutputDataSourceResponseResult, Outputs.ServiceBusTopicOutputDataSourceResponseResult>>>>>>>>?> Datasource { get; private set; } = null!;
 
         /// <summary>
         /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
@@ -280,7 +280,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Output("serialization")]
-        public Output<Outputs.SerializationResponseResult?> Serialization { get; private set; } = null!;
+        public Output<Union<Outputs.AvroSerializationResponseResult, Union<Outputs.CsvSerializationResponseResult, Outputs.JsonSerializationResponseResult>>?> Serialization { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -341,7 +341,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("datasource")]
-        public Input<Inputs.OutputDataSourceArgs>? Datasource { get; set; }
+        public InputUnion<Inputs.AzureDataLakeStoreOutputDataSourceArgs, InputUnion<Inputs.AzureSqlDatabaseOutputDataSourceArgs, InputUnion<Inputs.AzureTableOutputDataSourceArgs, InputUnion<Inputs.BlobOutputDataSourceArgs, InputUnion<Inputs.DocumentDbOutputDataSourceArgs, InputUnion<Inputs.EventHubOutputDataSourceArgs, InputUnion<Inputs.PowerBIOutputDataSourceArgs, InputUnion<Inputs.ServiceBusQueueOutputDataSourceArgs, Inputs.ServiceBusTopicOutputDataSourceArgs>>>>>>>>? Datasource { get; set; }
 
         /// <summary>
         /// The name of the streaming job.
@@ -371,7 +371,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("serialization")]
-        public Input<Inputs.SerializationArgs>? Serialization { get; set; }
+        public InputUnion<Inputs.AvroSerializationArgs, InputUnion<Inputs.CsvSerializationArgs, Inputs.JsonSerializationArgs>>? Serialization { get; set; }
 
         public OutputArgs()
         {

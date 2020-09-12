@@ -34,7 +34,7 @@ type LookupMachineLearningComputeResult struct {
 	// Specifies the name of the resource.
 	Name string `pulumi:"name"`
 	// Compute properties
-	Properties ComputeResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.

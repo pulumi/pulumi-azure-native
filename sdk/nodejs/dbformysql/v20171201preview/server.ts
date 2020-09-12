@@ -61,7 +61,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly infrastructureEncryption!: pulumi.Output<string | undefined>;
     /**
-     * The location the resource resides in.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -73,7 +73,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -105,11 +105,11 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageProfile!: pulumi.Output<outputs.dbformysql.v20171201preview.StorageProfileResponse | undefined>;
     /**
-     * Application-specific metadata in the form of key-value pairs.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -214,7 +214,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbformysql.v20171201preview.ServerPropertiesForCreate>;
+    readonly properties: pulumi.Input<inputs.dbformysql.v20171201preview.ServerPropertiesForDefaultCreate | inputs.dbformysql.v20171201preview.ServerPropertiesForGeoRestore | inputs.dbformysql.v20171201preview.ServerPropertiesForReplica | inputs.dbformysql.v20171201preview.ServerPropertiesForRestore>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

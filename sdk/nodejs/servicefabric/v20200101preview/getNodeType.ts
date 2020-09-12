@@ -101,7 +101,7 @@ export interface GetNodeTypeResult {
      */
     readonly vmImageVersion?: string;
     /**
-     * The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+     * The number of nodes in the node type.
      */
     readonly vmInstanceCount: number;
     /**

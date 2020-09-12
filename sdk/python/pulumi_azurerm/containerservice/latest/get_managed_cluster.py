@@ -20,7 +20,7 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, private_fqdn=None, provisioning_state=None, service_principal_profile=None, sku=None, tags=None, type=None, windows_profile=None):
+    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, power_state=None, private_fqdn=None, provisioning_state=None, service_principal_profile=None, sku=None, tags=None, type=None, windows_profile=None):
         if aad_profile and not isinstance(aad_profile, dict):
             raise TypeError("Expected argument 'aad_profile' to be a dict")
         pulumi.set(__self__, "aad_profile", aad_profile)
@@ -78,6 +78,9 @@ class GetManagedClusterResult:
         if node_resource_group and not isinstance(node_resource_group, str):
             raise TypeError("Expected argument 'node_resource_group' to be a str")
         pulumi.set(__self__, "node_resource_group", node_resource_group)
+        if power_state and not isinstance(power_state, dict):
+            raise TypeError("Expected argument 'power_state' to be a dict")
+        pulumi.set(__self__, "power_state", power_state)
         if private_fqdn and not isinstance(private_fqdn, str):
             raise TypeError("Expected argument 'private_fqdn' to be a str")
         pulumi.set(__self__, "private_fqdn", private_fqdn)
@@ -253,6 +256,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "node_resource_group")
 
     @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> 'outputs.PowerStateResponse':
+        """
+        Represents the Power State of the cluster
+        """
+        return pulumi.get(self, "power_state")
+
+    @property
     @pulumi.getter(name="privateFQDN")
     def private_fqdn(self) -> str:
         """
@@ -334,6 +345,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             name=self.name,
             network_profile=self.network_profile,
             node_resource_group=self.node_resource_group,
+            power_state=self.power_state,
             private_fqdn=self.private_fqdn,
             provisioning_state=self.provisioning_state,
             service_principal_profile=self.service_principal_profile,
@@ -381,6 +393,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         name=__ret__.name,
         network_profile=__ret__.network_profile,
         node_resource_group=__ret__.node_resource_group,
+        power_state=__ret__.power_state,
         private_fqdn=__ret__.private_fqdn,
         provisioning_state=__ret__.provisioning_state,
         service_principal_profile=__ret__.service_principal_profile,

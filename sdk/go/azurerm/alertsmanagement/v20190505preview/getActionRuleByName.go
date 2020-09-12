@@ -30,7 +30,7 @@ type LookupActionRuleByNameResult struct {
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// action rule properties
-	Properties ActionRulePropertiesResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type

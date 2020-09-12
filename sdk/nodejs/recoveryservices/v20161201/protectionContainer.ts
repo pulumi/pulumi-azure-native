@@ -67,7 +67,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
     /**
      * ProtectionContainerResource properties
      */
-    public readonly properties!: pulumi.Output<outputs.recoveryservices.v20161201.ProtectionContainerResponse>;
+    public readonly properties!: pulumi.Output<outputs.recoveryservices.v20161201.AzureSqlContainerResponse | outputs.recoveryservices.v20161201.AzureStorageContainerResponse | outputs.recoveryservices.v20161201.AzureWorkloadContainerResponse | outputs.recoveryservices.v20161201.DpmContainerResponse | outputs.recoveryservices.v20161201.GenericContainerResponse | outputs.recoveryservices.v20161201.IaaSVMContainerResponse | outputs.recoveryservices.v20161201.MabContainerResponse>;
     /**
      * Resource tags.
      */
@@ -153,7 +153,7 @@ export interface ProtectionContainerArgs {
     /**
      * ProtectionContainerResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20161201.ProtectionContainer>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20161201.AzureSqlContainer | inputs.recoveryservices.v20161201.AzureStorageContainer | inputs.recoveryservices.v20161201.AzureWorkloadContainer | inputs.recoveryservices.v20161201.DpmContainer | inputs.recoveryservices.v20161201.GenericContainer | inputs.recoveryservices.v20161201.IaaSVMContainer | inputs.recoveryservices.v20161201.MabContainer>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

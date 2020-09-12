@@ -34,14 +34,14 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview.Inputs
         public Input<bool>? Enabled { get; set; }
 
         [Input("sinks")]
-        private InputList<Inputs.DiagnosticsSinkPropertiesArgs>? _sinks;
+        private InputList<Inputs.AzureInternalMonitoringPipelineSinkDescriptionArgs>? _sinks;
 
         /// <summary>
         /// List of supported sinks that can be referenced.
         /// </summary>
-        public InputList<Inputs.DiagnosticsSinkPropertiesArgs> Sinks
+        public InputList<Inputs.AzureInternalMonitoringPipelineSinkDescriptionArgs> Sinks
         {
-            get => _sinks ?? (_sinks = new InputList<Inputs.DiagnosticsSinkPropertiesArgs>());
+            get => _sinks ?? (_sinks = new InputList<Inputs.AzureInternalMonitoringPipelineSinkDescriptionArgs>());
             set => _sinks = value;
         }
 

@@ -9,22 +9,27 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'EventSubscriptionDestinationResponse',
+    'EventHubEventSubscriptionDestinationResponse',
     'EventSubscriptionFilterResponse',
+    'WebHookEventSubscriptionDestinationResponse',
 ]
 
 @pulumi.output_type
-class EventSubscriptionDestinationResponse(dict):
+class EventHubEventSubscriptionDestinationResponse(dict):
     """
-    Information about the destination for an event subscription
+    Information about the event hub destination for an event subscription
     """
     def __init__(__self__, *,
-                 endpoint_type: str):
+                 endpoint_type: str,
+                 resource_id: Optional[str] = None):
         """
-        Information about the destination for an event subscription
+        Information about the event hub destination for an event subscription
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "endpoint_type", 'EventHub')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -33,6 +38,14 @@ class EventSubscriptionDestinationResponse(dict):
         Type of the endpoint for the event subscription destination
         """
         return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -105,6 +118,54 @@ class EventSubscriptionFilterResponse(dict):
         Wildcard characters are not supported in this path.
         """
         return pulumi.get(self, "subject_ends_with")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WebHookEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the webhook destination for an event subscription
+    """
+    def __init__(__self__, *,
+                 endpoint_base_url: str,
+                 endpoint_type: str,
+                 endpoint_url: Optional[str] = None):
+        """
+        Information about the webhook destination for an event subscription
+        :param str endpoint_base_url: The base URL that represents the endpoint of the destination of an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
+        pulumi.set(__self__, "endpoint_type", 'WebHook')
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+
+    @property
+    @pulumi.getter(name="endpointBaseUrl")
+    def endpoint_base_url(self) -> str:
+        """
+        The base URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_base_url")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[str]:
+        """
+        The URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_url")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

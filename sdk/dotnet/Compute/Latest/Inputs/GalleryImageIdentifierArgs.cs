@@ -11,24 +11,24 @@ namespace Pulumi.AzureRM.Compute.Latest.Inputs
 {
 
     /// <summary>
-    /// This is the gallery Image Definition identifier.
+    /// This is the gallery image definition identifier.
     /// </summary>
     public sealed class GalleryImageIdentifierArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the gallery Image Definition offer.
+        /// The name of the gallery image definition offer.
         /// </summary>
         [Input("offer", required: true)]
         public Input<string> Offer { get; set; } = null!;
 
         /// <summary>
-        /// The name of the gallery Image Definition publisher.
+        /// The name of the gallery image definition publisher.
         /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
         /// <summary>
-        /// The name of the gallery Image Definition SKU.
+        /// The name of the gallery image definition SKU.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;

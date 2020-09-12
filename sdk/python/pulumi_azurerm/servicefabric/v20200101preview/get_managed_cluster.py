@@ -20,7 +20,7 @@ class GetManagedClusterResult:
     """
     The manged cluster resource
     """
-    def __init__(__self__, admin_password=None, admin_user_name=None, azure_active_directory=None, client_connection_port=None, clients=None, cluster_certificate_thumbprint=None, cluster_code_version=None, cluster_id=None, cluster_state=None, cluster_upgrade_description=None, cluster_upgrade_mode=None, dns_name=None, etag=None, fabric_settings=None, fqdn=None, http_gateway_connection_port=None, load_balancing_rules=None, location=None, name=None, provisioning_state=None, reverse_proxy_endpoint_port=None, sku=None, tags=None, type=None, use_test_extension=None):
+    def __init__(__self__, admin_password=None, admin_user_name=None, azure_active_directory=None, client_connection_port=None, clients=None, cluster_certificate_thumbprint=None, cluster_code_version=None, cluster_id=None, cluster_state=None, cluster_upgrade_description=None, cluster_upgrade_mode=None, dns_name=None, etag=None, fabric_settings=None, fqdn=None, http_gateway_connection_port=None, load_balancing_rules=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
         if admin_password and not isinstance(admin_password, str):
             raise TypeError("Expected argument 'admin_password' to be a str")
         pulumi.set(__self__, "admin_password", admin_password)
@@ -81,9 +81,6 @@ class GetManagedClusterResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if reverse_proxy_endpoint_port and not isinstance(reverse_proxy_endpoint_port, float):
-            raise TypeError("Expected argument 'reverse_proxy_endpoint_port' to be a float")
-        pulumi.set(__self__, "reverse_proxy_endpoint_port", reverse_proxy_endpoint_port)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -93,9 +90,6 @@ class GetManagedClusterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if use_test_extension and not isinstance(use_test_extension, bool):
-            raise TypeError("Expected argument 'use_test_extension' to be a bool")
-        pulumi.set(__self__, "use_test_extension", use_test_extension)
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -272,14 +266,6 @@ class GetManagedClusterResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="reverseProxyEndpointPort")
-    def reverse_proxy_endpoint_port(self) -> Optional[float]:
-        """
-        The endpoint used by reverse proxy.
-        """
-        return pulumi.get(self, "reverse_proxy_endpoint_port")
-
-    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
@@ -302,14 +288,6 @@ class GetManagedClusterResult:
         Azure resource type.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="useTestExtension")
-    def use_test_extension(self) -> Optional[bool]:
-        """
-        Use service fabric test vm extension, by default it's false.
-        """
-        return pulumi.get(self, "use_test_extension")
 
 
 class AwaitableGetManagedClusterResult(GetManagedClusterResult):
@@ -338,11 +316,9 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
-            reverse_proxy_endpoint_port=self.reverse_proxy_endpoint_port,
             sku=self.sku,
             tags=self.tags,
-            type=self.type,
-            use_test_extension=self.use_test_extension)
+            type=self.type)
 
 
 def get_managed_cluster(cluster_name: Optional[str] = None,
@@ -384,8 +360,6 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
-        reverse_proxy_endpoint_port=__ret__.reverse_proxy_endpoint_port,
         sku=__ret__.sku,
         tags=__ret__.tags,
-        type=__ret__.type,
-        use_test_extension=__ret__.use_test_extension)
+        type=__ret__.type)

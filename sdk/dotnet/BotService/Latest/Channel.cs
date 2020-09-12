@@ -132,7 +132,7 @@ namespace Pulumi.AzureRM.BotService.Latest
         /// The set of properties specific to bot channel resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ChannelResponseResult> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.AlexaChannelResponseResult, Union<Outputs.DirectLineChannelResponseResult, Union<Outputs.DirectLineSpeechChannelResponseResult, Union<Outputs.EmailChannelResponseResult, Union<Outputs.FacebookChannelResponseResult, Union<Outputs.KikChannelResponseResult, Union<Outputs.LineChannelResponseResult, Union<Outputs.MsTeamsChannelResponseResult, Union<Outputs.SkypeChannelResponseResult, Union<Outputs.SlackChannelResponseResult, Union<Outputs.SmsChannelResponseResult, Union<Outputs.TelegramChannelResponseResult, Outputs.WebChatChannelResponseResult>>>>>>>>>>>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the SKU of the resource.
@@ -231,7 +231,7 @@ namespace Pulumi.AzureRM.BotService.Latest
         /// The set of properties specific to bot channel resource
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.ChannelArgs>? Properties { get; set; }
+        public InputUnion<Inputs.AlexaChannelArgs, InputUnion<Inputs.DirectLineChannelArgs, InputUnion<Inputs.DirectLineSpeechChannelArgs, InputUnion<Inputs.EmailChannelArgs, InputUnion<Inputs.FacebookChannelArgs, InputUnion<Inputs.KikChannelArgs, InputUnion<Inputs.LineChannelArgs, InputUnion<Inputs.MsTeamsChannelArgs, InputUnion<Inputs.SkypeChannelArgs, InputUnion<Inputs.SlackChannelArgs, InputUnion<Inputs.SmsChannelArgs, InputUnion<Inputs.TelegramChannelArgs, Inputs.WebChatChannelArgs>>>>>>>>>>>>? Properties { get; set; }
 
         /// <summary>
         /// The name of the Bot resource group in the user subscription.

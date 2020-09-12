@@ -4,7 +4,7 @@
 // Export members:
 export * from "./getHierarchySetting";
 export * from "./getManagementGroup";
-export * from "./getManagementGroupSubscriptionSubscription";
+export * from "./getManagementGroupSubscription";
 export * from "./hierarchySetting";
 export * from "./managementGroup";
-export * from "./managementGroupSubscriptionSubscription";
+export * from "./managementGroupSubscription";

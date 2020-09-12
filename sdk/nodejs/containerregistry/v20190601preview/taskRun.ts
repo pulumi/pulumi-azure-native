@@ -60,7 +60,7 @@ export class TaskRun extends pulumi.CustomResource {
     /**
      * The request (parameters) for the run
      */
-    public readonly runRequest!: pulumi.Output<outputs.containerregistry.v20190601preview.RunRequestResponse | undefined>;
+    public readonly runRequest!: pulumi.Output<outputs.containerregistry.v20190601preview.DockerBuildRequestResponse | outputs.containerregistry.v20190601preview.EncodedTaskRunRequestResponse | outputs.containerregistry.v20190601preview.FileTaskRunRequestResponse | outputs.containerregistry.v20190601preview.TaskRunRequestResponse | undefined>;
     /**
      * The result of this task run
      */
@@ -148,7 +148,7 @@ export interface TaskRunArgs {
     /**
      * The request (parameters) for the run
      */
-    readonly runRequest?: pulumi.Input<inputs.containerregistry.v20190601preview.RunRequest>;
+    readonly runRequest?: pulumi.Input<inputs.containerregistry.v20190601preview.DockerBuildRequest | inputs.containerregistry.v20190601preview.EncodedTaskRunRequest | inputs.containerregistry.v20190601preview.FileTaskRunRequest | inputs.containerregistry.v20190601preview.TaskRunRequest>;
     /**
      * The name of the task run.
      */

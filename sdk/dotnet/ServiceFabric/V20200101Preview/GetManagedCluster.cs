@@ -134,10 +134,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The endpoint used by reverse proxy.
-        /// </summary>
-        public readonly int? ReverseProxyEndpointPort;
-        /// <summary>
         /// The sku of the managed cluster
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
@@ -149,10 +145,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// Azure resource type.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Use service fabric test vm extension, by default it's false.
-        /// </summary>
-        public readonly bool? UseTestExtension;
 
         [OutputConstructor]
         private GetManagedClusterResult(
@@ -196,15 +188,11 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
 
             string provisioningState,
 
-            int? reverseProxyEndpointPort,
-
             Outputs.SkuResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            bool? useTestExtension)
+            string type)
         {
             AdminPassword = adminPassword;
             AdminUserName = adminUserName;
@@ -226,11 +214,9 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
-            ReverseProxyEndpointPort = reverseProxyEndpointPort;
             Sku = sku;
             Tags = tags;
             Type = type;
-            UseTestExtension = useTestExtension;
         }
     }
 }

@@ -55,7 +55,7 @@ export class Topic extends pulumi.CustomResource {
     /**
      * This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
      */
-    public readonly inputSchemaMapping!: pulumi.Output<outputs.eventgrid.v20200401preview.InputSchemaMappingResponse | undefined>;
+    public readonly inputSchemaMapping!: pulumi.Output<outputs.eventgrid.v20200401preview.JsonInputSchemaMappingResponse | undefined>;
     /**
      * Location of the resource.
      */
@@ -174,7 +174,7 @@ export interface TopicArgs {
     /**
      * This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
      */
-    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20200401preview.InputSchemaMapping>;
+    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20200401preview.JsonInputSchemaMapping>;
     /**
      * Location of the resource.
      */

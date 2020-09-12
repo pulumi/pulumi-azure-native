@@ -77,6 +77,7 @@ namespace Pulumi.AzureRM.Portal.V20190101Preview
                 {
                     new Pulumi.Alias { Type = "azurerm:portal/v20150801preview:Dashboard"},
                     new Pulumi.Alias { Type = "azurerm:portal/v20181001preview:Dashboard"},
+                    new Pulumi.Alias { Type = "azurerm:portal/v20200901preview:Dashboard"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

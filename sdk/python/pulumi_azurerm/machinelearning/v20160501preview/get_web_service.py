@@ -55,7 +55,7 @@ class GetWebServiceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.WebServicePropertiesResponse':
+    def properties(self) -> 'outputs.WebServicePropertiesForGraphResponse':
         """
         Contains the property payload that describes the web service.
         """

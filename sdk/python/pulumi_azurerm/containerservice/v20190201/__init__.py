@@ -7,8 +7,8 @@ from .agent_pool import *
 from .get_agent_pool import *
 from .get_managed_cluster import *
 from .list_managed_cluster_access_profile import *
-from .list_managed_cluster_cluster_admin_credentials import *
-from .list_managed_cluster_cluster_user_credentials import *
+from .list_managed_cluster_admin_credentials import *
+from .list_managed_cluster_user_credentials import *
 from .managed_cluster import *
 from ._inputs import *
 from . import outputs

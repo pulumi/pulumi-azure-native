@@ -14,14 +14,22 @@ namespace Pulumi.AzureRM.Compute.Latest.Outputs
     public sealed class GalleryArtifactVersionSourceResponseResult
     {
         /// <summary>
-        /// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+        /// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+        /// </summary>
+        public readonly string? Uri;
 
         [OutputConstructor]
-        private GalleryArtifactVersionSourceResponseResult(string? id)
+        private GalleryArtifactVersionSourceResponseResult(
+            string? id,
+
+            string? uri)
         {
             Id = id;
+            Uri = uri;
         }
     }
 }

@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810.Outputs
         /// <summary>
         /// The Replication provider custom settings.
         /// </summary>
-        public readonly Outputs.ReplicationProviderSpecificSettingsResponseResult? ProviderSpecificDetails;
+        public readonly Union<Outputs.A2AReplicationDetailsResponseResult, Union<Outputs.HyperVReplicaAzureReplicationDetailsResponseResult, Union<Outputs.HyperVReplicaBaseReplicationDetailsResponseResult, Union<Outputs.HyperVReplicaBlueReplicationDetailsResponseResult, Union<Outputs.HyperVReplicaReplicationDetailsResponseResult, Union<Outputs.InMageAzureV2ReplicationDetailsResponseResult, Outputs.InMageReplicationDetailsResponseResult>>>>>>? ProviderSpecificDetails;
         /// <summary>
         /// The recovery container Id.
         /// </summary>
@@ -158,7 +158,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810.Outputs
 
             string? protectionStateDescription,
 
-            Outputs.ReplicationProviderSpecificSettingsResponseResult? providerSpecificDetails,
+            Union<Outputs.A2AReplicationDetailsResponseResult, Union<Outputs.HyperVReplicaAzureReplicationDetailsResponseResult, Union<Outputs.HyperVReplicaBaseReplicationDetailsResponseResult, Union<Outputs.HyperVReplicaBlueReplicationDetailsResponseResult, Union<Outputs.HyperVReplicaReplicationDetailsResponseResult, Union<Outputs.InMageAzureV2ReplicationDetailsResponseResult, Outputs.InMageReplicationDetailsResponseResult>>>>>>? providerSpecificDetails,
 
             string? recoveryContainerId,
 

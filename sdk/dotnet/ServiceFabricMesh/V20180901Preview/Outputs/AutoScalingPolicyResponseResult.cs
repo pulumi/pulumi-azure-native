@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview.Outputs
         /// <summary>
         /// The mechanism that is used to scale when auto scaling operation is invoked.
         /// </summary>
-        public readonly Outputs.AutoScalingMechanismResponseResult Mechanism;
+        public readonly Outputs.AddRemoveReplicaScalingMechanismResponseResult Mechanism;
         /// <summary>
         /// The name of the auto scaling policy.
         /// </summary>
@@ -24,15 +24,15 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview.Outputs
         /// <summary>
         /// Determines when auto scaling operation will be invoked.
         /// </summary>
-        public readonly Outputs.AutoScalingTriggerResponseResult Trigger;
+        public readonly Outputs.AverageLoadScalingTriggerResponseResult Trigger;
 
         [OutputConstructor]
         private AutoScalingPolicyResponseResult(
-            Outputs.AutoScalingMechanismResponseResult mechanism,
+            Outputs.AddRemoveReplicaScalingMechanismResponseResult mechanism,
 
             string name,
 
-            Outputs.AutoScalingTriggerResponseResult trigger)
+            Outputs.AverageLoadScalingTriggerResponseResult trigger)
         {
             Mechanism = mechanism;
             Name = name;

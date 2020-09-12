@@ -189,9 +189,17 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly osDiskSizeGB!: pulumi.Output<number | undefined>;
     /**
+     * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+     */
+    public readonly osDiskType!: pulumi.Output<string | undefined>;
+    /**
      * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
+    /**
+     * Describes whether the Agent Pool is Running or Stopped
+     */
+    public /*out*/ readonly powerState!: pulumi.Output<outputs.containerservice.latest.PowerStateResponse>;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
@@ -265,6 +273,7 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["nodeTaints"] = args ? args.nodeTaints : undefined;
             inputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
             inputs["osDiskSizeGB"] = args ? args.osDiskSizeGB : undefined;
+            inputs["osDiskType"] = args ? args.osDiskType : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["proximityPlacementGroupID"] = args ? args.proximityPlacementGroupID : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -279,6 +288,7 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["nodeImageVersion"] = undefined /*out*/;
+            inputs["powerState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
         } else {
             inputs["availabilityZones"] = undefined /*out*/;
@@ -295,7 +305,9 @@ export class AgentPool extends pulumi.CustomResource {
             inputs["nodeTaints"] = undefined /*out*/;
             inputs["orchestratorVersion"] = undefined /*out*/;
             inputs["osDiskSizeGB"] = undefined /*out*/;
+            inputs["osDiskType"] = undefined /*out*/;
             inputs["osType"] = undefined /*out*/;
+            inputs["powerState"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["proximityPlacementGroupID"] = undefined /*out*/;
             inputs["scaleSetEvictionPolicy"] = undefined /*out*/;
@@ -314,7 +326,7 @@ export class AgentPool extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:containerservice/v20190201:AgentPool" }, { type: "azurerm:containerservice/v20190401:AgentPool" }, { type: "azurerm:containerservice/v20190601:AgentPool" }, { type: "azurerm:containerservice/v20190801:AgentPool" }, { type: "azurerm:containerservice/v20191001:AgentPool" }, { type: "azurerm:containerservice/v20191101:AgentPool" }, { type: "azurerm:containerservice/v20200101:AgentPool" }, { type: "azurerm:containerservice/v20200201:AgentPool" }, { type: "azurerm:containerservice/v20200301:AgentPool" }, { type: "azurerm:containerservice/v20200401:AgentPool" }, { type: "azurerm:containerservice/v20200601:AgentPool" }, { type: "azurerm:containerservice/v20200701:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:containerservice/v20190201:AgentPool" }, { type: "azurerm:containerservice/v20190401:AgentPool" }, { type: "azurerm:containerservice/v20190601:AgentPool" }, { type: "azurerm:containerservice/v20190801:AgentPool" }, { type: "azurerm:containerservice/v20191001:AgentPool" }, { type: "azurerm:containerservice/v20191101:AgentPool" }, { type: "azurerm:containerservice/v20200101:AgentPool" }, { type: "azurerm:containerservice/v20200201:AgentPool" }, { type: "azurerm:containerservice/v20200301:AgentPool" }, { type: "azurerm:containerservice/v20200401:AgentPool" }, { type: "azurerm:containerservice/v20200601:AgentPool" }, { type: "azurerm:containerservice/v20200701:AgentPool" }, { type: "azurerm:containerservice/v20200901:AgentPool" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(AgentPool.__pulumiType, name, inputs, opts);
     }
@@ -376,6 +388,10 @@ export interface AgentPoolArgs {
      * OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
      */
     readonly osDiskSizeGB?: pulumi.Input<number>;
+    /**
+     * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+     */
+    readonly osDiskType?: pulumi.Input<string>;
     /**
      * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
      */

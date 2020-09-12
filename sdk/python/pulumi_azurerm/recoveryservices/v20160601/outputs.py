@@ -10,16 +10,236 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'AzureIaaSVMProtectionPolicyResponse',
+    'AzureSqlProtectionPolicyResponse',
+    'DailyRetentionFormatResponse',
+    'DailyRetentionScheduleResponse',
+    'DayResponse',
     'IdentityDataResponse',
+    'LongTermRetentionPolicyResponse',
+    'LongTermSchedulePolicyResponse',
+    'MabProtectionPolicyResponse',
+    'MonthlyRetentionScheduleResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointConnectionVaultPropertiesResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
-    'ProtectionPolicyResponse',
+    'RetentionDurationResponse',
+    'SimpleRetentionPolicyResponse',
+    'SimpleSchedulePolicyResponse',
     'SkuResponse',
     'UpgradeDetailsResponse',
     'VaultPropertiesResponse',
+    'WeeklyRetentionFormatResponse',
+    'WeeklyRetentionScheduleResponse',
+    'YearlyRetentionScheduleResponse',
 ]
+
+@pulumi.output_type
+class AzureIaaSVMProtectionPolicyResponse(dict):
+    """
+    Azure VM (also known as IaaS VM) workload-specific backup policy.
+    """
+    def __init__(__self__, *,
+                 backup_management_type: Optional[str] = None,
+                 protected_items_count: Optional[float] = None,
+                 retention_policy: Optional[Any] = None,
+                 schedule_policy: Optional[Any] = None):
+        """
+        Azure VM (also known as IaaS VM) workload-specific backup policy.
+        :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param float protected_items_count: The number of items associated with this policy.
+        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The retention policy with the details on backup copy retention ranges.
+        :param Union['LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: The backup schedule specified as part of backup policy.
+        """
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", 'AzureIaasVM')
+        if protected_items_count is not None:
+            pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if schedule_policy is not None:
+            pulumi.set(__self__, "schedule_policy", schedule_policy)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="protectedItemsCount")
+    def protected_items_count(self) -> Optional[float]:
+        """
+        The number of items associated with this policy.
+        """
+        return pulumi.get(self, "protected_items_count")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[Any]:
+        """
+        The retention policy with the details on backup copy retention ranges.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="schedulePolicy")
+    def schedule_policy(self) -> Optional[Any]:
+        """
+        The backup schedule specified as part of backup policy.
+        """
+        return pulumi.get(self, "schedule_policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureSqlProtectionPolicyResponse(dict):
+    """
+     The Azure SQL workload-specific backup policy.
+    """
+    def __init__(__self__, *,
+                 backup_management_type: Optional[str] = None,
+                 protected_items_count: Optional[float] = None,
+                 retention_policy: Optional[Any] = None):
+        """
+         The Azure SQL workload-specific backup policy.
+        :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param float protected_items_count: The number of items associated with this policy.
+        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The retention policy details.
+        """
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", 'AzureSql')
+        if protected_items_count is not None:
+            pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="protectedItemsCount")
+    def protected_items_count(self) -> Optional[float]:
+        """
+        The number of items associated with this policy.
+        """
+        return pulumi.get(self, "protected_items_count")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[Any]:
+        """
+        The retention policy details.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DailyRetentionFormatResponse(dict):
+    """
+    Daily retention format.
+    """
+    def __init__(__self__, *,
+                 days_of_the_month: Optional[List['outputs.DayResponse']] = None):
+        """
+        Daily retention format.
+        :param List['DayResponseArgs'] days_of_the_month: List of days of the month.
+        """
+        if days_of_the_month is not None:
+            pulumi.set(__self__, "days_of_the_month", days_of_the_month)
+
+    @property
+    @pulumi.getter(name="daysOfTheMonth")
+    def days_of_the_month(self) -> Optional[List['outputs.DayResponse']]:
+        """
+        List of days of the month.
+        """
+        return pulumi.get(self, "days_of_the_month")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DailyRetentionScheduleResponse(dict):
+    """
+    Daily retention schedule.
+    """
+    def __init__(__self__, *,
+                 retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
+                 retention_times: Optional[List[str]] = None):
+        """
+        Daily retention schedule.
+        :param 'RetentionDurationResponseArgs' retention_duration: The retention duration of retention policy.
+        :param List[str] retention_times: The retention times of retention policy.
+        """
+        if retention_duration is not None:
+            pulumi.set(__self__, "retention_duration", retention_duration)
+        if retention_times is not None:
+            pulumi.set(__self__, "retention_times", retention_times)
+
+    @property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> Optional['outputs.RetentionDurationResponse']:
+        """
+        The retention duration of retention policy.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @property
+    @pulumi.getter(name="retentionTimes")
+    def retention_times(self) -> Optional[List[str]]:
+        """
+        The retention times of retention policy.
+        """
+        return pulumi.get(self, "retention_times")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DayResponse(dict):
+    """
+    Day of the week.
+    """
+    def __init__(__self__, *,
+                 date: Optional[float] = None,
+                 is_last: Optional[bool] = None):
+        """
+        Day of the week.
+        """
+        if date is not None:
+            pulumi.set(__self__, "date", date)
+        if is_last is not None:
+            pulumi.set(__self__, "is_last", is_last)
+
+    @property
+    @pulumi.getter
+    def date(self) -> Optional[float]:
+        return pulumi.get(self, "date")
+
+    @property
+    @pulumi.getter(name="isLast")
+    def is_last(self) -> Optional[bool]:
+        return pulumi.get(self, "is_last")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class IdentityDataResponse(dict):
@@ -63,6 +283,242 @@ class IdentityDataResponse(dict):
         The identity type.
         """
         return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LongTermRetentionPolicyResponse(dict):
+    """
+    Long-term retention policy.
+    """
+    def __init__(__self__, *,
+                 daily_schedule: Optional['outputs.DailyRetentionScheduleResponse'] = None,
+                 monthly_schedule: Optional['outputs.MonthlyRetentionScheduleResponse'] = None,
+                 retention_policy_type: Optional[str] = None,
+                 weekly_schedule: Optional['outputs.WeeklyRetentionScheduleResponse'] = None,
+                 yearly_schedule: Optional['outputs.YearlyRetentionScheduleResponse'] = None):
+        """
+        Long-term retention policy.
+        :param 'DailyRetentionScheduleResponseArgs' daily_schedule: Daily retention schedule of the backup policy.
+        :param 'MonthlyRetentionScheduleResponseArgs' monthly_schedule: Monthly retention schedule of the backup policy.
+        :param str retention_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param 'WeeklyRetentionScheduleResponseArgs' weekly_schedule: Weekly retention schedule of the backup policy.
+        :param 'YearlyRetentionScheduleResponseArgs' yearly_schedule: Yearly retention schedule of the backup policy.
+        """
+        if daily_schedule is not None:
+            pulumi.set(__self__, "daily_schedule", daily_schedule)
+        if monthly_schedule is not None:
+            pulumi.set(__self__, "monthly_schedule", monthly_schedule)
+        if retention_policy_type is not None:
+            pulumi.set(__self__, "retention_policy_type", 'LongTermRetentionPolicy')
+        if weekly_schedule is not None:
+            pulumi.set(__self__, "weekly_schedule", weekly_schedule)
+        if yearly_schedule is not None:
+            pulumi.set(__self__, "yearly_schedule", yearly_schedule)
+
+    @property
+    @pulumi.getter(name="dailySchedule")
+    def daily_schedule(self) -> Optional['outputs.DailyRetentionScheduleResponse']:
+        """
+        Daily retention schedule of the backup policy.
+        """
+        return pulumi.get(self, "daily_schedule")
+
+    @property
+    @pulumi.getter(name="monthlySchedule")
+    def monthly_schedule(self) -> Optional['outputs.MonthlyRetentionScheduleResponse']:
+        """
+        Monthly retention schedule of the backup policy.
+        """
+        return pulumi.get(self, "monthly_schedule")
+
+    @property
+    @pulumi.getter(name="retentionPolicyType")
+    def retention_policy_type(self) -> Optional[str]:
+        """
+        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        return pulumi.get(self, "retention_policy_type")
+
+    @property
+    @pulumi.getter(name="weeklySchedule")
+    def weekly_schedule(self) -> Optional['outputs.WeeklyRetentionScheduleResponse']:
+        """
+        Weekly retention schedule of the backup policy.
+        """
+        return pulumi.get(self, "weekly_schedule")
+
+    @property
+    @pulumi.getter(name="yearlySchedule")
+    def yearly_schedule(self) -> Optional['outputs.YearlyRetentionScheduleResponse']:
+        """
+        Yearly retention schedule of the backup policy.
+        """
+        return pulumi.get(self, "yearly_schedule")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LongTermSchedulePolicyResponse(dict):
+    """
+    Long-term policy schedule.
+    """
+    def __init__(__self__, *,
+                 schedule_policy_type: Optional[str] = None):
+        """
+        Long-term policy schedule.
+        :param str schedule_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        if schedule_policy_type is not None:
+            pulumi.set(__self__, "schedule_policy_type", 'LongTermSchedulePolicy')
+
+    @property
+    @pulumi.getter(name="schedulePolicyType")
+    def schedule_policy_type(self) -> Optional[str]:
+        """
+        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        return pulumi.get(self, "schedule_policy_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MabProtectionPolicyResponse(dict):
+    """
+    The backup policy for the file or folder container.
+    """
+    def __init__(__self__, *,
+                 backup_management_type: Optional[str] = None,
+                 protected_items_count: Optional[float] = None,
+                 retention_policy: Optional[Any] = None,
+                 schedule_policy: Optional[Any] = None):
+        """
+        The backup policy for the file or folder container.
+        :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param float protected_items_count: The number of items associated with this policy.
+        :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The details specified in the Retention policy.
+        :param Union['LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: The schedule specified in the backup policy.
+        """
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", 'MAB')
+        if protected_items_count is not None:
+            pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if schedule_policy is not None:
+            pulumi.set(__self__, "schedule_policy", schedule_policy)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="protectedItemsCount")
+    def protected_items_count(self) -> Optional[float]:
+        """
+        The number of items associated with this policy.
+        """
+        return pulumi.get(self, "protected_items_count")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[Any]:
+        """
+        The details specified in the Retention policy.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter(name="schedulePolicy")
+    def schedule_policy(self) -> Optional[Any]:
+        """
+        The schedule specified in the backup policy.
+        """
+        return pulumi.get(self, "schedule_policy")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MonthlyRetentionScheduleResponse(dict):
+    """
+    The monthly retention schedule.
+    """
+    def __init__(__self__, *,
+                 retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
+                 retention_schedule_daily: Optional['outputs.DailyRetentionFormatResponse'] = None,
+                 retention_schedule_format_type: Optional[str] = None,
+                 retention_schedule_weekly: Optional['outputs.WeeklyRetentionFormatResponse'] = None,
+                 retention_times: Optional[List[str]] = None):
+        """
+        The monthly retention schedule.
+        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of the retention policy.
+        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for the monthly retention policy.
+        :param str retention_schedule_format_type: Retention schedule format type for monthly retention policy.
+        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for the monthly retention policy.
+        :param List[str] retention_times: Retention times of the retention policy.
+        """
+        if retention_duration is not None:
+            pulumi.set(__self__, "retention_duration", retention_duration)
+        if retention_schedule_daily is not None:
+            pulumi.set(__self__, "retention_schedule_daily", retention_schedule_daily)
+        if retention_schedule_format_type is not None:
+            pulumi.set(__self__, "retention_schedule_format_type", retention_schedule_format_type)
+        if retention_schedule_weekly is not None:
+            pulumi.set(__self__, "retention_schedule_weekly", retention_schedule_weekly)
+        if retention_times is not None:
+            pulumi.set(__self__, "retention_times", retention_times)
+
+    @property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> Optional['outputs.RetentionDurationResponse']:
+        """
+        Retention duration of the retention policy.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @property
+    @pulumi.getter(name="retentionScheduleDaily")
+    def retention_schedule_daily(self) -> Optional['outputs.DailyRetentionFormatResponse']:
+        """
+        Daily retention format for the monthly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_daily")
+
+    @property
+    @pulumi.getter(name="retentionScheduleFormatType")
+    def retention_schedule_format_type(self) -> Optional[str]:
+        """
+        Retention schedule format type for monthly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_format_type")
+
+    @property
+    @pulumi.getter(name="retentionScheduleWeekly")
+    def retention_schedule_weekly(self) -> Optional['outputs.WeeklyRetentionFormatResponse']:
+        """
+        Weekly retention format for the monthly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_weekly")
+
+    @property
+    @pulumi.getter(name="retentionTimes")
+    def retention_times(self) -> Optional[List[str]]:
+        """
+        Retention times of the retention policy.
+        """
+        return pulumi.get(self, "retention_times")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -227,38 +683,152 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
-class ProtectionPolicyResponse(dict):
+class RetentionDurationResponse(dict):
     """
-    The base class for a backup policy. Workload-specific backup policies are derived from this class.
+    Retention duration.
     """
     def __init__(__self__, *,
-                 backup_management_type: Optional[str] = None,
-                 protected_items_count: Optional[float] = None):
+                 count: Optional[float] = None,
+                 duration_type: Optional[str] = None):
         """
-        The base class for a backup policy. Workload-specific backup policies are derived from this class.
-        :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param float protected_items_count: The number of items associated with this policy.
+        Retention duration.
+        :param float count: Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
+                  For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
+        :param str duration_type: The retention duration type of the retention policy.
         """
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
-        if protected_items_count is not None:
-            pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if duration_type is not None:
+            pulumi.set(__self__, "duration_type", duration_type)
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter
+    def count(self) -> Optional[float]:
+        """
+        Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
+           For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="durationType")
+    def duration_type(self) -> Optional[str]:
+        """
+        The retention duration type of the retention policy.
+        """
+        return pulumi.get(self, "duration_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SimpleRetentionPolicyResponse(dict):
+    """
+    Simple policy retention.
+    """
+    def __init__(__self__, *,
+                 retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
+                 retention_policy_type: Optional[str] = None):
+        """
+        Simple policy retention.
+        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of the protection policy.
+        :param str retention_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        """
+        if retention_duration is not None:
+            pulumi.set(__self__, "retention_duration", retention_duration)
+        if retention_policy_type is not None:
+            pulumi.set(__self__, "retention_policy_type", 'SimpleRetentionPolicy')
+
+    @property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> Optional['outputs.RetentionDurationResponse']:
+        """
+        Retention duration of the protection policy.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @property
+    @pulumi.getter(name="retentionPolicyType")
+    def retention_policy_type(self) -> Optional[str]:
         """
         This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "retention_policy_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SimpleSchedulePolicyResponse(dict):
+    """
+    Simple policy schedule.
+    """
+    def __init__(__self__, *,
+                 schedule_policy_type: Optional[str] = None,
+                 schedule_run_days: Optional[List[str]] = None,
+                 schedule_run_frequency: Optional[str] = None,
+                 schedule_run_times: Optional[List[str]] = None,
+                 schedule_weekly_frequency: Optional[float] = None):
+        """
+        Simple policy schedule.
+        :param str schedule_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        :param List[str] schedule_run_days: This list is the days of the week when the schedule runs.
+        :param str schedule_run_frequency: Defines the frequency interval (daily or weekly) for the schedule policy.
+        :param List[str] schedule_run_times: List of times, during a day, when the schedule runs.
+        :param float schedule_weekly_frequency: The number of times per week the schedule runs.
+        """
+        if schedule_policy_type is not None:
+            pulumi.set(__self__, "schedule_policy_type", 'SimpleSchedulePolicy')
+        if schedule_run_days is not None:
+            pulumi.set(__self__, "schedule_run_days", schedule_run_days)
+        if schedule_run_frequency is not None:
+            pulumi.set(__self__, "schedule_run_frequency", schedule_run_frequency)
+        if schedule_run_times is not None:
+            pulumi.set(__self__, "schedule_run_times", schedule_run_times)
+        if schedule_weekly_frequency is not None:
+            pulumi.set(__self__, "schedule_weekly_frequency", schedule_weekly_frequency)
 
     @property
-    @pulumi.getter(name="protectedItemsCount")
-    def protected_items_count(self) -> Optional[float]:
+    @pulumi.getter(name="schedulePolicyType")
+    def schedule_policy_type(self) -> Optional[str]:
         """
-        The number of items associated with this policy.
+        This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
         """
-        return pulumi.get(self, "protected_items_count")
+        return pulumi.get(self, "schedule_policy_type")
+
+    @property
+    @pulumi.getter(name="scheduleRunDays")
+    def schedule_run_days(self) -> Optional[List[str]]:
+        """
+        This list is the days of the week when the schedule runs.
+        """
+        return pulumi.get(self, "schedule_run_days")
+
+    @property
+    @pulumi.getter(name="scheduleRunFrequency")
+    def schedule_run_frequency(self) -> Optional[str]:
+        """
+        Defines the frequency interval (daily or weekly) for the schedule policy.
+        """
+        return pulumi.get(self, "schedule_run_frequency")
+
+    @property
+    @pulumi.getter(name="scheduleRunTimes")
+    def schedule_run_times(self) -> Optional[List[str]]:
+        """
+        List of times, during a day, when the schedule runs.
+        """
+        return pulumi.get(self, "schedule_run_times")
+
+    @property
+    @pulumi.getter(name="scheduleWeeklyFrequency")
+    def schedule_weekly_frequency(self) -> Optional[float]:
+        """
+        The number of times per week the schedule runs.
+        """
+        return pulumi.get(self, "schedule_weekly_frequency")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -467,6 +1037,180 @@ class VaultPropertiesResponse(dict):
         Details for upgrading vault.
         """
         return pulumi.get(self, "upgrade_details")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WeeklyRetentionFormatResponse(dict):
+    """
+    Weekly retention format.
+    """
+    def __init__(__self__, *,
+                 days_of_the_week: Optional[List[str]] = None,
+                 weeks_of_the_month: Optional[List[str]] = None):
+        """
+        Weekly retention format.
+        :param List[str] days_of_the_week: List of days of the week.
+        :param List[str] weeks_of_the_month: List of weeks of the month.
+        """
+        if days_of_the_week is not None:
+            pulumi.set(__self__, "days_of_the_week", days_of_the_week)
+        if weeks_of_the_month is not None:
+            pulumi.set(__self__, "weeks_of_the_month", weeks_of_the_month)
+
+    @property
+    @pulumi.getter(name="daysOfTheWeek")
+    def days_of_the_week(self) -> Optional[List[str]]:
+        """
+        List of days of the week.
+        """
+        return pulumi.get(self, "days_of_the_week")
+
+    @property
+    @pulumi.getter(name="weeksOfTheMonth")
+    def weeks_of_the_month(self) -> Optional[List[str]]:
+        """
+        List of weeks of the month.
+        """
+        return pulumi.get(self, "weeks_of_the_month")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WeeklyRetentionScheduleResponse(dict):
+    """
+    Weekly retention schedule.
+    """
+    def __init__(__self__, *,
+                 days_of_the_week: Optional[List[str]] = None,
+                 retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
+                 retention_times: Optional[List[str]] = None):
+        """
+        Weekly retention schedule.
+        :param List[str] days_of_the_week: List of the days of the week for the weekly retention policy.
+        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention policy.
+        :param List[str] retention_times: Retention times of the retention policy.
+        """
+        if days_of_the_week is not None:
+            pulumi.set(__self__, "days_of_the_week", days_of_the_week)
+        if retention_duration is not None:
+            pulumi.set(__self__, "retention_duration", retention_duration)
+        if retention_times is not None:
+            pulumi.set(__self__, "retention_times", retention_times)
+
+    @property
+    @pulumi.getter(name="daysOfTheWeek")
+    def days_of_the_week(self) -> Optional[List[str]]:
+        """
+        List of the days of the week for the weekly retention policy.
+        """
+        return pulumi.get(self, "days_of_the_week")
+
+    @property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> Optional['outputs.RetentionDurationResponse']:
+        """
+        Retention duration of retention policy.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @property
+    @pulumi.getter(name="retentionTimes")
+    def retention_times(self) -> Optional[List[str]]:
+        """
+        Retention times of the retention policy.
+        """
+        return pulumi.get(self, "retention_times")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class YearlyRetentionScheduleResponse(dict):
+    """
+    Yearly retention schedule.
+    """
+    def __init__(__self__, *,
+                 months_of_year: Optional[List[str]] = None,
+                 retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
+                 retention_schedule_daily: Optional['outputs.DailyRetentionFormatResponse'] = None,
+                 retention_schedule_format_type: Optional[str] = None,
+                 retention_schedule_weekly: Optional['outputs.WeeklyRetentionFormatResponse'] = None,
+                 retention_times: Optional[List[str]] = None):
+        """
+        Yearly retention schedule.
+        :param List[str] months_of_year: List of the months of year for the yearly retention policy.
+        :param 'RetentionDurationResponseArgs' retention_duration: Retention duration for the retention policy.
+        :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for the yearly retention policy.
+        :param str retention_schedule_format_type: Retention schedule format for the yearly retention policy.
+        :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for the yearly retention policy.
+        :param List[str] retention_times: Retention times for the retention policy.
+        """
+        if months_of_year is not None:
+            pulumi.set(__self__, "months_of_year", months_of_year)
+        if retention_duration is not None:
+            pulumi.set(__self__, "retention_duration", retention_duration)
+        if retention_schedule_daily is not None:
+            pulumi.set(__self__, "retention_schedule_daily", retention_schedule_daily)
+        if retention_schedule_format_type is not None:
+            pulumi.set(__self__, "retention_schedule_format_type", retention_schedule_format_type)
+        if retention_schedule_weekly is not None:
+            pulumi.set(__self__, "retention_schedule_weekly", retention_schedule_weekly)
+        if retention_times is not None:
+            pulumi.set(__self__, "retention_times", retention_times)
+
+    @property
+    @pulumi.getter(name="monthsOfYear")
+    def months_of_year(self) -> Optional[List[str]]:
+        """
+        List of the months of year for the yearly retention policy.
+        """
+        return pulumi.get(self, "months_of_year")
+
+    @property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> Optional['outputs.RetentionDurationResponse']:
+        """
+        Retention duration for the retention policy.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @property
+    @pulumi.getter(name="retentionScheduleDaily")
+    def retention_schedule_daily(self) -> Optional['outputs.DailyRetentionFormatResponse']:
+        """
+        Daily retention format for the yearly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_daily")
+
+    @property
+    @pulumi.getter(name="retentionScheduleFormatType")
+    def retention_schedule_format_type(self) -> Optional[str]:
+        """
+        Retention schedule format for the yearly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_format_type")
+
+    @property
+    @pulumi.getter(name="retentionScheduleWeekly")
+    def retention_schedule_weekly(self) -> Optional['outputs.WeeklyRetentionFormatResponse']:
+        """
+        Weekly retention format for the yearly retention policy.
+        """
+        return pulumi.get(self, "retention_schedule_weekly")
+
+    @property
+    @pulumi.getter(name="retentionTimes")
+    def retention_times(self) -> Optional[List[str]]:
+        """
+        Retention times for the retention policy.
+        """
+        return pulumi.get(self, "retention_times")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

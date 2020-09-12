@@ -1794,6 +1794,1312 @@ func (o ExampleRequestResponsePtrOutput) Inputs() pulumi.MapArrayArrayMapOutput 
 	}).(pulumi.MapArrayArrayMapOutput)
 }
 
+// Defines an edge within the web service's graph.
+type GraphEdge struct {
+	// The source graph node's identifier.
+	SourceNodeId *string `pulumi:"sourceNodeId"`
+	// The identifier of the source node's port that the edge connects from.
+	SourcePortId *string `pulumi:"sourcePortId"`
+	// The destination graph node's identifier.
+	TargetNodeId *string `pulumi:"targetNodeId"`
+	// The identifier of the destination node's port that the edge connects into.
+	TargetPortId *string `pulumi:"targetPortId"`
+}
+
+// GraphEdgeInput is an input type that accepts GraphEdgeArgs and GraphEdgeOutput values.
+// You can construct a concrete instance of `GraphEdgeInput` via:
+//
+//          GraphEdgeArgs{...}
+type GraphEdgeInput interface {
+	pulumi.Input
+
+	ToGraphEdgeOutput() GraphEdgeOutput
+	ToGraphEdgeOutputWithContext(context.Context) GraphEdgeOutput
+}
+
+// Defines an edge within the web service's graph.
+type GraphEdgeArgs struct {
+	// The source graph node's identifier.
+	SourceNodeId pulumi.StringPtrInput `pulumi:"sourceNodeId"`
+	// The identifier of the source node's port that the edge connects from.
+	SourcePortId pulumi.StringPtrInput `pulumi:"sourcePortId"`
+	// The destination graph node's identifier.
+	TargetNodeId pulumi.StringPtrInput `pulumi:"targetNodeId"`
+	// The identifier of the destination node's port that the edge connects into.
+	TargetPortId pulumi.StringPtrInput `pulumi:"targetPortId"`
+}
+
+func (GraphEdgeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphEdge)(nil)).Elem()
+}
+
+func (i GraphEdgeArgs) ToGraphEdgeOutput() GraphEdgeOutput {
+	return i.ToGraphEdgeOutputWithContext(context.Background())
+}
+
+func (i GraphEdgeArgs) ToGraphEdgeOutputWithContext(ctx context.Context) GraphEdgeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphEdgeOutput)
+}
+
+// GraphEdgeArrayInput is an input type that accepts GraphEdgeArray and GraphEdgeArrayOutput values.
+// You can construct a concrete instance of `GraphEdgeArrayInput` via:
+//
+//          GraphEdgeArray{ GraphEdgeArgs{...} }
+type GraphEdgeArrayInput interface {
+	pulumi.Input
+
+	ToGraphEdgeArrayOutput() GraphEdgeArrayOutput
+	ToGraphEdgeArrayOutputWithContext(context.Context) GraphEdgeArrayOutput
+}
+
+type GraphEdgeArray []GraphEdgeInput
+
+func (GraphEdgeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphEdge)(nil)).Elem()
+}
+
+func (i GraphEdgeArray) ToGraphEdgeArrayOutput() GraphEdgeArrayOutput {
+	return i.ToGraphEdgeArrayOutputWithContext(context.Background())
+}
+
+func (i GraphEdgeArray) ToGraphEdgeArrayOutputWithContext(ctx context.Context) GraphEdgeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphEdgeArrayOutput)
+}
+
+// Defines an edge within the web service's graph.
+type GraphEdgeOutput struct{ *pulumi.OutputState }
+
+func (GraphEdgeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphEdge)(nil)).Elem()
+}
+
+func (o GraphEdgeOutput) ToGraphEdgeOutput() GraphEdgeOutput {
+	return o
+}
+
+func (o GraphEdgeOutput) ToGraphEdgeOutputWithContext(ctx context.Context) GraphEdgeOutput {
+	return o
+}
+
+// The source graph node's identifier.
+func (o GraphEdgeOutput) SourceNodeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdge) *string { return v.SourceNodeId }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source node's port that the edge connects from.
+func (o GraphEdgeOutput) SourcePortId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdge) *string { return v.SourcePortId }).(pulumi.StringPtrOutput)
+}
+
+// The destination graph node's identifier.
+func (o GraphEdgeOutput) TargetNodeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdge) *string { return v.TargetNodeId }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the destination node's port that the edge connects into.
+func (o GraphEdgeOutput) TargetPortId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdge) *string { return v.TargetPortId }).(pulumi.StringPtrOutput)
+}
+
+type GraphEdgeArrayOutput struct{ *pulumi.OutputState }
+
+func (GraphEdgeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphEdge)(nil)).Elem()
+}
+
+func (o GraphEdgeArrayOutput) ToGraphEdgeArrayOutput() GraphEdgeArrayOutput {
+	return o
+}
+
+func (o GraphEdgeArrayOutput) ToGraphEdgeArrayOutputWithContext(ctx context.Context) GraphEdgeArrayOutput {
+	return o
+}
+
+func (o GraphEdgeArrayOutput) Index(i pulumi.IntInput) GraphEdgeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphEdge {
+		return vs[0].([]GraphEdge)[vs[1].(int)]
+	}).(GraphEdgeOutput)
+}
+
+// Defines an edge within the web service's graph.
+type GraphEdgeResponse struct {
+	// The source graph node's identifier.
+	SourceNodeId *string `pulumi:"sourceNodeId"`
+	// The identifier of the source node's port that the edge connects from.
+	SourcePortId *string `pulumi:"sourcePortId"`
+	// The destination graph node's identifier.
+	TargetNodeId *string `pulumi:"targetNodeId"`
+	// The identifier of the destination node's port that the edge connects into.
+	TargetPortId *string `pulumi:"targetPortId"`
+}
+
+// GraphEdgeResponseInput is an input type that accepts GraphEdgeResponseArgs and GraphEdgeResponseOutput values.
+// You can construct a concrete instance of `GraphEdgeResponseInput` via:
+//
+//          GraphEdgeResponseArgs{...}
+type GraphEdgeResponseInput interface {
+	pulumi.Input
+
+	ToGraphEdgeResponseOutput() GraphEdgeResponseOutput
+	ToGraphEdgeResponseOutputWithContext(context.Context) GraphEdgeResponseOutput
+}
+
+// Defines an edge within the web service's graph.
+type GraphEdgeResponseArgs struct {
+	// The source graph node's identifier.
+	SourceNodeId pulumi.StringPtrInput `pulumi:"sourceNodeId"`
+	// The identifier of the source node's port that the edge connects from.
+	SourcePortId pulumi.StringPtrInput `pulumi:"sourcePortId"`
+	// The destination graph node's identifier.
+	TargetNodeId pulumi.StringPtrInput `pulumi:"targetNodeId"`
+	// The identifier of the destination node's port that the edge connects into.
+	TargetPortId pulumi.StringPtrInput `pulumi:"targetPortId"`
+}
+
+func (GraphEdgeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphEdgeResponse)(nil)).Elem()
+}
+
+func (i GraphEdgeResponseArgs) ToGraphEdgeResponseOutput() GraphEdgeResponseOutput {
+	return i.ToGraphEdgeResponseOutputWithContext(context.Background())
+}
+
+func (i GraphEdgeResponseArgs) ToGraphEdgeResponseOutputWithContext(ctx context.Context) GraphEdgeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphEdgeResponseOutput)
+}
+
+// GraphEdgeResponseArrayInput is an input type that accepts GraphEdgeResponseArray and GraphEdgeResponseArrayOutput values.
+// You can construct a concrete instance of `GraphEdgeResponseArrayInput` via:
+//
+//          GraphEdgeResponseArray{ GraphEdgeResponseArgs{...} }
+type GraphEdgeResponseArrayInput interface {
+	pulumi.Input
+
+	ToGraphEdgeResponseArrayOutput() GraphEdgeResponseArrayOutput
+	ToGraphEdgeResponseArrayOutputWithContext(context.Context) GraphEdgeResponseArrayOutput
+}
+
+type GraphEdgeResponseArray []GraphEdgeResponseInput
+
+func (GraphEdgeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphEdgeResponse)(nil)).Elem()
+}
+
+func (i GraphEdgeResponseArray) ToGraphEdgeResponseArrayOutput() GraphEdgeResponseArrayOutput {
+	return i.ToGraphEdgeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GraphEdgeResponseArray) ToGraphEdgeResponseArrayOutputWithContext(ctx context.Context) GraphEdgeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphEdgeResponseArrayOutput)
+}
+
+// Defines an edge within the web service's graph.
+type GraphEdgeResponseOutput struct{ *pulumi.OutputState }
+
+func (GraphEdgeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphEdgeResponse)(nil)).Elem()
+}
+
+func (o GraphEdgeResponseOutput) ToGraphEdgeResponseOutput() GraphEdgeResponseOutput {
+	return o
+}
+
+func (o GraphEdgeResponseOutput) ToGraphEdgeResponseOutputWithContext(ctx context.Context) GraphEdgeResponseOutput {
+	return o
+}
+
+// The source graph node's identifier.
+func (o GraphEdgeResponseOutput) SourceNodeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdgeResponse) *string { return v.SourceNodeId }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source node's port that the edge connects from.
+func (o GraphEdgeResponseOutput) SourcePortId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdgeResponse) *string { return v.SourcePortId }).(pulumi.StringPtrOutput)
+}
+
+// The destination graph node's identifier.
+func (o GraphEdgeResponseOutput) TargetNodeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdgeResponse) *string { return v.TargetNodeId }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the destination node's port that the edge connects into.
+func (o GraphEdgeResponseOutput) TargetPortId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdgeResponse) *string { return v.TargetPortId }).(pulumi.StringPtrOutput)
+}
+
+type GraphEdgeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GraphEdgeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphEdgeResponse)(nil)).Elem()
+}
+
+func (o GraphEdgeResponseArrayOutput) ToGraphEdgeResponseArrayOutput() GraphEdgeResponseArrayOutput {
+	return o
+}
+
+func (o GraphEdgeResponseArrayOutput) ToGraphEdgeResponseArrayOutputWithContext(ctx context.Context) GraphEdgeResponseArrayOutput {
+	return o
+}
+
+func (o GraphEdgeResponseArrayOutput) Index(i pulumi.IntInput) GraphEdgeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphEdgeResponse {
+		return vs[0].([]GraphEdgeResponse)[vs[1].(int)]
+	}).(GraphEdgeResponseOutput)
+}
+
+// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+type GraphNode struct {
+	// The id of the asset represented by this node.
+	AssetId *string `pulumi:"assetId"`
+	// The id of the input element represented by this node.
+	InputId *string `pulumi:"inputId"`
+	// The id of the output element represented by this node.
+	OutputId *string `pulumi:"outputId"`
+	// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+	Parameters map[string]WebServiceParameter `pulumi:"parameters"`
+}
+
+// GraphNodeInput is an input type that accepts GraphNodeArgs and GraphNodeOutput values.
+// You can construct a concrete instance of `GraphNodeInput` via:
+//
+//          GraphNodeArgs{...}
+type GraphNodeInput interface {
+	pulumi.Input
+
+	ToGraphNodeOutput() GraphNodeOutput
+	ToGraphNodeOutputWithContext(context.Context) GraphNodeOutput
+}
+
+// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+type GraphNodeArgs struct {
+	// The id of the asset represented by this node.
+	AssetId pulumi.StringPtrInput `pulumi:"assetId"`
+	// The id of the input element represented by this node.
+	InputId pulumi.StringPtrInput `pulumi:"inputId"`
+	// The id of the output element represented by this node.
+	OutputId pulumi.StringPtrInput `pulumi:"outputId"`
+	// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+	Parameters WebServiceParameterMapInput `pulumi:"parameters"`
+}
+
+func (GraphNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphNode)(nil)).Elem()
+}
+
+func (i GraphNodeArgs) ToGraphNodeOutput() GraphNodeOutput {
+	return i.ToGraphNodeOutputWithContext(context.Background())
+}
+
+func (i GraphNodeArgs) ToGraphNodeOutputWithContext(ctx context.Context) GraphNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphNodeOutput)
+}
+
+// GraphNodeMapInput is an input type that accepts GraphNodeMap and GraphNodeMapOutput values.
+// You can construct a concrete instance of `GraphNodeMapInput` via:
+//
+//          GraphNodeMap{ "key": GraphNodeArgs{...} }
+type GraphNodeMapInput interface {
+	pulumi.Input
+
+	ToGraphNodeMapOutput() GraphNodeMapOutput
+	ToGraphNodeMapOutputWithContext(context.Context) GraphNodeMapOutput
+}
+
+type GraphNodeMap map[string]GraphNodeInput
+
+func (GraphNodeMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphNode)(nil)).Elem()
+}
+
+func (i GraphNodeMap) ToGraphNodeMapOutput() GraphNodeMapOutput {
+	return i.ToGraphNodeMapOutputWithContext(context.Background())
+}
+
+func (i GraphNodeMap) ToGraphNodeMapOutputWithContext(ctx context.Context) GraphNodeMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphNodeMapOutput)
+}
+
+// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+type GraphNodeOutput struct{ *pulumi.OutputState }
+
+func (GraphNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphNode)(nil)).Elem()
+}
+
+func (o GraphNodeOutput) ToGraphNodeOutput() GraphNodeOutput {
+	return o
+}
+
+func (o GraphNodeOutput) ToGraphNodeOutputWithContext(ctx context.Context) GraphNodeOutput {
+	return o
+}
+
+// The id of the asset represented by this node.
+func (o GraphNodeOutput) AssetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphNode) *string { return v.AssetId }).(pulumi.StringPtrOutput)
+}
+
+// The id of the input element represented by this node.
+func (o GraphNodeOutput) InputId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphNode) *string { return v.InputId }).(pulumi.StringPtrOutput)
+}
+
+// The id of the output element represented by this node.
+func (o GraphNodeOutput) OutputId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphNode) *string { return v.OutputId }).(pulumi.StringPtrOutput)
+}
+
+// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+func (o GraphNodeOutput) Parameters() WebServiceParameterMapOutput {
+	return o.ApplyT(func(v GraphNode) map[string]WebServiceParameter { return v.Parameters }).(WebServiceParameterMapOutput)
+}
+
+type GraphNodeMapOutput struct{ *pulumi.OutputState }
+
+func (GraphNodeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphNode)(nil)).Elem()
+}
+
+func (o GraphNodeMapOutput) ToGraphNodeMapOutput() GraphNodeMapOutput {
+	return o
+}
+
+func (o GraphNodeMapOutput) ToGraphNodeMapOutputWithContext(ctx context.Context) GraphNodeMapOutput {
+	return o
+}
+
+func (o GraphNodeMapOutput) MapIndex(k pulumi.StringInput) GraphNodeOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GraphNode {
+		return vs[0].(map[string]GraphNode)[vs[1].(string)]
+	}).(GraphNodeOutput)
+}
+
+// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+type GraphNodeResponse struct {
+	// The id of the asset represented by this node.
+	AssetId *string `pulumi:"assetId"`
+	// The id of the input element represented by this node.
+	InputId *string `pulumi:"inputId"`
+	// The id of the output element represented by this node.
+	OutputId *string `pulumi:"outputId"`
+	// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+	Parameters map[string]WebServiceParameterResponse `pulumi:"parameters"`
+}
+
+// GraphNodeResponseInput is an input type that accepts GraphNodeResponseArgs and GraphNodeResponseOutput values.
+// You can construct a concrete instance of `GraphNodeResponseInput` via:
+//
+//          GraphNodeResponseArgs{...}
+type GraphNodeResponseInput interface {
+	pulumi.Input
+
+	ToGraphNodeResponseOutput() GraphNodeResponseOutput
+	ToGraphNodeResponseOutputWithContext(context.Context) GraphNodeResponseOutput
+}
+
+// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+type GraphNodeResponseArgs struct {
+	// The id of the asset represented by this node.
+	AssetId pulumi.StringPtrInput `pulumi:"assetId"`
+	// The id of the input element represented by this node.
+	InputId pulumi.StringPtrInput `pulumi:"inputId"`
+	// The id of the output element represented by this node.
+	OutputId pulumi.StringPtrInput `pulumi:"outputId"`
+	// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+	Parameters WebServiceParameterResponseMapInput `pulumi:"parameters"`
+}
+
+func (GraphNodeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphNodeResponse)(nil)).Elem()
+}
+
+func (i GraphNodeResponseArgs) ToGraphNodeResponseOutput() GraphNodeResponseOutput {
+	return i.ToGraphNodeResponseOutputWithContext(context.Background())
+}
+
+func (i GraphNodeResponseArgs) ToGraphNodeResponseOutputWithContext(ctx context.Context) GraphNodeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphNodeResponseOutput)
+}
+
+// GraphNodeResponseMapInput is an input type that accepts GraphNodeResponseMap and GraphNodeResponseMapOutput values.
+// You can construct a concrete instance of `GraphNodeResponseMapInput` via:
+//
+//          GraphNodeResponseMap{ "key": GraphNodeResponseArgs{...} }
+type GraphNodeResponseMapInput interface {
+	pulumi.Input
+
+	ToGraphNodeResponseMapOutput() GraphNodeResponseMapOutput
+	ToGraphNodeResponseMapOutputWithContext(context.Context) GraphNodeResponseMapOutput
+}
+
+type GraphNodeResponseMap map[string]GraphNodeResponseInput
+
+func (GraphNodeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphNodeResponse)(nil)).Elem()
+}
+
+func (i GraphNodeResponseMap) ToGraphNodeResponseMapOutput() GraphNodeResponseMapOutput {
+	return i.ToGraphNodeResponseMapOutputWithContext(context.Background())
+}
+
+func (i GraphNodeResponseMap) ToGraphNodeResponseMapOutputWithContext(ctx context.Context) GraphNodeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphNodeResponseMapOutput)
+}
+
+// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+type GraphNodeResponseOutput struct{ *pulumi.OutputState }
+
+func (GraphNodeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphNodeResponse)(nil)).Elem()
+}
+
+func (o GraphNodeResponseOutput) ToGraphNodeResponseOutput() GraphNodeResponseOutput {
+	return o
+}
+
+func (o GraphNodeResponseOutput) ToGraphNodeResponseOutputWithContext(ctx context.Context) GraphNodeResponseOutput {
+	return o
+}
+
+// The id of the asset represented by this node.
+func (o GraphNodeResponseOutput) AssetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphNodeResponse) *string { return v.AssetId }).(pulumi.StringPtrOutput)
+}
+
+// The id of the input element represented by this node.
+func (o GraphNodeResponseOutput) InputId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphNodeResponse) *string { return v.InputId }).(pulumi.StringPtrOutput)
+}
+
+// The id of the output element represented by this node.
+func (o GraphNodeResponseOutput) OutputId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphNodeResponse) *string { return v.OutputId }).(pulumi.StringPtrOutput)
+}
+
+// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+func (o GraphNodeResponseOutput) Parameters() WebServiceParameterResponseMapOutput {
+	return o.ApplyT(func(v GraphNodeResponse) map[string]WebServiceParameterResponse { return v.Parameters }).(WebServiceParameterResponseMapOutput)
+}
+
+type GraphNodeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (GraphNodeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphNodeResponse)(nil)).Elem()
+}
+
+func (o GraphNodeResponseMapOutput) ToGraphNodeResponseMapOutput() GraphNodeResponseMapOutput {
+	return o
+}
+
+func (o GraphNodeResponseMapOutput) ToGraphNodeResponseMapOutputWithContext(ctx context.Context) GraphNodeResponseMapOutput {
+	return o
+}
+
+func (o GraphNodeResponseMapOutput) MapIndex(k pulumi.StringInput) GraphNodeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GraphNodeResponse {
+		return vs[0].(map[string]GraphNodeResponse)[vs[1].(string)]
+	}).(GraphNodeResponseOutput)
+}
+
+// Defines the graph of modules making up the machine learning solution.
+type GraphPackage struct {
+	// The list of edges making up the graph.
+	Edges []GraphEdge `pulumi:"edges"`
+	// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+	GraphParameters map[string]GraphParameter `pulumi:"graphParameters"`
+	// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+	Nodes map[string]GraphNode `pulumi:"nodes"`
+}
+
+// GraphPackageInput is an input type that accepts GraphPackageArgs and GraphPackageOutput values.
+// You can construct a concrete instance of `GraphPackageInput` via:
+//
+//          GraphPackageArgs{...}
+type GraphPackageInput interface {
+	pulumi.Input
+
+	ToGraphPackageOutput() GraphPackageOutput
+	ToGraphPackageOutputWithContext(context.Context) GraphPackageOutput
+}
+
+// Defines the graph of modules making up the machine learning solution.
+type GraphPackageArgs struct {
+	// The list of edges making up the graph.
+	Edges GraphEdgeArrayInput `pulumi:"edges"`
+	// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+	GraphParameters GraphParameterMapInput `pulumi:"graphParameters"`
+	// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+	Nodes GraphNodeMapInput `pulumi:"nodes"`
+}
+
+func (GraphPackageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphPackage)(nil)).Elem()
+}
+
+func (i GraphPackageArgs) ToGraphPackageOutput() GraphPackageOutput {
+	return i.ToGraphPackageOutputWithContext(context.Background())
+}
+
+func (i GraphPackageArgs) ToGraphPackageOutputWithContext(ctx context.Context) GraphPackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageOutput)
+}
+
+func (i GraphPackageArgs) ToGraphPackagePtrOutput() GraphPackagePtrOutput {
+	return i.ToGraphPackagePtrOutputWithContext(context.Background())
+}
+
+func (i GraphPackageArgs) ToGraphPackagePtrOutputWithContext(ctx context.Context) GraphPackagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageOutput).ToGraphPackagePtrOutputWithContext(ctx)
+}
+
+// GraphPackagePtrInput is an input type that accepts GraphPackageArgs, GraphPackagePtr and GraphPackagePtrOutput values.
+// You can construct a concrete instance of `GraphPackagePtrInput` via:
+//
+//          GraphPackageArgs{...}
+//
+//  or:
+//
+//          nil
+type GraphPackagePtrInput interface {
+	pulumi.Input
+
+	ToGraphPackagePtrOutput() GraphPackagePtrOutput
+	ToGraphPackagePtrOutputWithContext(context.Context) GraphPackagePtrOutput
+}
+
+type graphPackagePtrType GraphPackageArgs
+
+func GraphPackagePtr(v *GraphPackageArgs) GraphPackagePtrInput {
+	return (*graphPackagePtrType)(v)
+}
+
+func (*graphPackagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphPackage)(nil)).Elem()
+}
+
+func (i *graphPackagePtrType) ToGraphPackagePtrOutput() GraphPackagePtrOutput {
+	return i.ToGraphPackagePtrOutputWithContext(context.Background())
+}
+
+func (i *graphPackagePtrType) ToGraphPackagePtrOutputWithContext(ctx context.Context) GraphPackagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphPackagePtrOutput)
+}
+
+// Defines the graph of modules making up the machine learning solution.
+type GraphPackageOutput struct{ *pulumi.OutputState }
+
+func (GraphPackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphPackage)(nil)).Elem()
+}
+
+func (o GraphPackageOutput) ToGraphPackageOutput() GraphPackageOutput {
+	return o
+}
+
+func (o GraphPackageOutput) ToGraphPackageOutputWithContext(ctx context.Context) GraphPackageOutput {
+	return o
+}
+
+func (o GraphPackageOutput) ToGraphPackagePtrOutput() GraphPackagePtrOutput {
+	return o.ToGraphPackagePtrOutputWithContext(context.Background())
+}
+
+func (o GraphPackageOutput) ToGraphPackagePtrOutputWithContext(ctx context.Context) GraphPackagePtrOutput {
+	return o.ApplyT(func(v GraphPackage) *GraphPackage {
+		return &v
+	}).(GraphPackagePtrOutput)
+}
+
+// The list of edges making up the graph.
+func (o GraphPackageOutput) Edges() GraphEdgeArrayOutput {
+	return o.ApplyT(func(v GraphPackage) []GraphEdge { return v.Edges }).(GraphEdgeArrayOutput)
+}
+
+// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+func (o GraphPackageOutput) GraphParameters() GraphParameterMapOutput {
+	return o.ApplyT(func(v GraphPackage) map[string]GraphParameter { return v.GraphParameters }).(GraphParameterMapOutput)
+}
+
+// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+func (o GraphPackageOutput) Nodes() GraphNodeMapOutput {
+	return o.ApplyT(func(v GraphPackage) map[string]GraphNode { return v.Nodes }).(GraphNodeMapOutput)
+}
+
+type GraphPackagePtrOutput struct{ *pulumi.OutputState }
+
+func (GraphPackagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphPackage)(nil)).Elem()
+}
+
+func (o GraphPackagePtrOutput) ToGraphPackagePtrOutput() GraphPackagePtrOutput {
+	return o
+}
+
+func (o GraphPackagePtrOutput) ToGraphPackagePtrOutputWithContext(ctx context.Context) GraphPackagePtrOutput {
+	return o
+}
+
+func (o GraphPackagePtrOutput) Elem() GraphPackageOutput {
+	return o.ApplyT(func(v *GraphPackage) GraphPackage { return *v }).(GraphPackageOutput)
+}
+
+// The list of edges making up the graph.
+func (o GraphPackagePtrOutput) Edges() GraphEdgeArrayOutput {
+	return o.ApplyT(func(v *GraphPackage) []GraphEdge {
+		if v == nil {
+			return nil
+		}
+		return v.Edges
+	}).(GraphEdgeArrayOutput)
+}
+
+// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+func (o GraphPackagePtrOutput) GraphParameters() GraphParameterMapOutput {
+	return o.ApplyT(func(v *GraphPackage) map[string]GraphParameter {
+		if v == nil {
+			return nil
+		}
+		return v.GraphParameters
+	}).(GraphParameterMapOutput)
+}
+
+// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+func (o GraphPackagePtrOutput) Nodes() GraphNodeMapOutput {
+	return o.ApplyT(func(v *GraphPackage) map[string]GraphNode {
+		if v == nil {
+			return nil
+		}
+		return v.Nodes
+	}).(GraphNodeMapOutput)
+}
+
+// Defines the graph of modules making up the machine learning solution.
+type GraphPackageResponse struct {
+	// The list of edges making up the graph.
+	Edges []GraphEdgeResponse `pulumi:"edges"`
+	// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+	GraphParameters map[string]GraphParameterResponse `pulumi:"graphParameters"`
+	// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+	Nodes map[string]GraphNodeResponse `pulumi:"nodes"`
+}
+
+// GraphPackageResponseInput is an input type that accepts GraphPackageResponseArgs and GraphPackageResponseOutput values.
+// You can construct a concrete instance of `GraphPackageResponseInput` via:
+//
+//          GraphPackageResponseArgs{...}
+type GraphPackageResponseInput interface {
+	pulumi.Input
+
+	ToGraphPackageResponseOutput() GraphPackageResponseOutput
+	ToGraphPackageResponseOutputWithContext(context.Context) GraphPackageResponseOutput
+}
+
+// Defines the graph of modules making up the machine learning solution.
+type GraphPackageResponseArgs struct {
+	// The list of edges making up the graph.
+	Edges GraphEdgeResponseArrayInput `pulumi:"edges"`
+	// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+	GraphParameters GraphParameterResponseMapInput `pulumi:"graphParameters"`
+	// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+	Nodes GraphNodeResponseMapInput `pulumi:"nodes"`
+}
+
+func (GraphPackageResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphPackageResponse)(nil)).Elem()
+}
+
+func (i GraphPackageResponseArgs) ToGraphPackageResponseOutput() GraphPackageResponseOutput {
+	return i.ToGraphPackageResponseOutputWithContext(context.Background())
+}
+
+func (i GraphPackageResponseArgs) ToGraphPackageResponseOutputWithContext(ctx context.Context) GraphPackageResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageResponseOutput)
+}
+
+func (i GraphPackageResponseArgs) ToGraphPackageResponsePtrOutput() GraphPackageResponsePtrOutput {
+	return i.ToGraphPackageResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GraphPackageResponseArgs) ToGraphPackageResponsePtrOutputWithContext(ctx context.Context) GraphPackageResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageResponseOutput).ToGraphPackageResponsePtrOutputWithContext(ctx)
+}
+
+// GraphPackageResponsePtrInput is an input type that accepts GraphPackageResponseArgs, GraphPackageResponsePtr and GraphPackageResponsePtrOutput values.
+// You can construct a concrete instance of `GraphPackageResponsePtrInput` via:
+//
+//          GraphPackageResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GraphPackageResponsePtrInput interface {
+	pulumi.Input
+
+	ToGraphPackageResponsePtrOutput() GraphPackageResponsePtrOutput
+	ToGraphPackageResponsePtrOutputWithContext(context.Context) GraphPackageResponsePtrOutput
+}
+
+type graphPackageResponsePtrType GraphPackageResponseArgs
+
+func GraphPackageResponsePtr(v *GraphPackageResponseArgs) GraphPackageResponsePtrInput {
+	return (*graphPackageResponsePtrType)(v)
+}
+
+func (*graphPackageResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphPackageResponse)(nil)).Elem()
+}
+
+func (i *graphPackageResponsePtrType) ToGraphPackageResponsePtrOutput() GraphPackageResponsePtrOutput {
+	return i.ToGraphPackageResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *graphPackageResponsePtrType) ToGraphPackageResponsePtrOutputWithContext(ctx context.Context) GraphPackageResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageResponsePtrOutput)
+}
+
+// Defines the graph of modules making up the machine learning solution.
+type GraphPackageResponseOutput struct{ *pulumi.OutputState }
+
+func (GraphPackageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphPackageResponse)(nil)).Elem()
+}
+
+func (o GraphPackageResponseOutput) ToGraphPackageResponseOutput() GraphPackageResponseOutput {
+	return o
+}
+
+func (o GraphPackageResponseOutput) ToGraphPackageResponseOutputWithContext(ctx context.Context) GraphPackageResponseOutput {
+	return o
+}
+
+func (o GraphPackageResponseOutput) ToGraphPackageResponsePtrOutput() GraphPackageResponsePtrOutput {
+	return o.ToGraphPackageResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GraphPackageResponseOutput) ToGraphPackageResponsePtrOutputWithContext(ctx context.Context) GraphPackageResponsePtrOutput {
+	return o.ApplyT(func(v GraphPackageResponse) *GraphPackageResponse {
+		return &v
+	}).(GraphPackageResponsePtrOutput)
+}
+
+// The list of edges making up the graph.
+func (o GraphPackageResponseOutput) Edges() GraphEdgeResponseArrayOutput {
+	return o.ApplyT(func(v GraphPackageResponse) []GraphEdgeResponse { return v.Edges }).(GraphEdgeResponseArrayOutput)
+}
+
+// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+func (o GraphPackageResponseOutput) GraphParameters() GraphParameterResponseMapOutput {
+	return o.ApplyT(func(v GraphPackageResponse) map[string]GraphParameterResponse { return v.GraphParameters }).(GraphParameterResponseMapOutput)
+}
+
+// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+func (o GraphPackageResponseOutput) Nodes() GraphNodeResponseMapOutput {
+	return o.ApplyT(func(v GraphPackageResponse) map[string]GraphNodeResponse { return v.Nodes }).(GraphNodeResponseMapOutput)
+}
+
+type GraphPackageResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GraphPackageResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphPackageResponse)(nil)).Elem()
+}
+
+func (o GraphPackageResponsePtrOutput) ToGraphPackageResponsePtrOutput() GraphPackageResponsePtrOutput {
+	return o
+}
+
+func (o GraphPackageResponsePtrOutput) ToGraphPackageResponsePtrOutputWithContext(ctx context.Context) GraphPackageResponsePtrOutput {
+	return o
+}
+
+func (o GraphPackageResponsePtrOutput) Elem() GraphPackageResponseOutput {
+	return o.ApplyT(func(v *GraphPackageResponse) GraphPackageResponse { return *v }).(GraphPackageResponseOutput)
+}
+
+// The list of edges making up the graph.
+func (o GraphPackageResponsePtrOutput) Edges() GraphEdgeResponseArrayOutput {
+	return o.ApplyT(func(v *GraphPackageResponse) []GraphEdgeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Edges
+	}).(GraphEdgeResponseArrayOutput)
+}
+
+// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+func (o GraphPackageResponsePtrOutput) GraphParameters() GraphParameterResponseMapOutput {
+	return o.ApplyT(func(v *GraphPackageResponse) map[string]GraphParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.GraphParameters
+	}).(GraphParameterResponseMapOutput)
+}
+
+// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+func (o GraphPackageResponsePtrOutput) Nodes() GraphNodeResponseMapOutput {
+	return o.ApplyT(func(v *GraphPackageResponse) map[string]GraphNodeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Nodes
+	}).(GraphNodeResponseMapOutput)
+}
+
+// Defines a global parameter in the graph.
+type GraphParameter struct {
+	// Description of this graph parameter.
+	Description *string `pulumi:"description"`
+	// Association links for this parameter to nodes in the graph.
+	Links []GraphParameterLink `pulumi:"links"`
+	// Graph parameter's type.
+	Type string `pulumi:"type"`
+}
+
+// GraphParameterInput is an input type that accepts GraphParameterArgs and GraphParameterOutput values.
+// You can construct a concrete instance of `GraphParameterInput` via:
+//
+//          GraphParameterArgs{...}
+type GraphParameterInput interface {
+	pulumi.Input
+
+	ToGraphParameterOutput() GraphParameterOutput
+	ToGraphParameterOutputWithContext(context.Context) GraphParameterOutput
+}
+
+// Defines a global parameter in the graph.
+type GraphParameterArgs struct {
+	// Description of this graph parameter.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Association links for this parameter to nodes in the graph.
+	Links GraphParameterLinkArrayInput `pulumi:"links"`
+	// Graph parameter's type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GraphParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameter)(nil)).Elem()
+}
+
+func (i GraphParameterArgs) ToGraphParameterOutput() GraphParameterOutput {
+	return i.ToGraphParameterOutputWithContext(context.Background())
+}
+
+func (i GraphParameterArgs) ToGraphParameterOutputWithContext(ctx context.Context) GraphParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterOutput)
+}
+
+// GraphParameterMapInput is an input type that accepts GraphParameterMap and GraphParameterMapOutput values.
+// You can construct a concrete instance of `GraphParameterMapInput` via:
+//
+//          GraphParameterMap{ "key": GraphParameterArgs{...} }
+type GraphParameterMapInput interface {
+	pulumi.Input
+
+	ToGraphParameterMapOutput() GraphParameterMapOutput
+	ToGraphParameterMapOutputWithContext(context.Context) GraphParameterMapOutput
+}
+
+type GraphParameterMap map[string]GraphParameterInput
+
+func (GraphParameterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphParameter)(nil)).Elem()
+}
+
+func (i GraphParameterMap) ToGraphParameterMapOutput() GraphParameterMapOutput {
+	return i.ToGraphParameterMapOutputWithContext(context.Background())
+}
+
+func (i GraphParameterMap) ToGraphParameterMapOutputWithContext(ctx context.Context) GraphParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterMapOutput)
+}
+
+// Defines a global parameter in the graph.
+type GraphParameterOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameter)(nil)).Elem()
+}
+
+func (o GraphParameterOutput) ToGraphParameterOutput() GraphParameterOutput {
+	return o
+}
+
+func (o GraphParameterOutput) ToGraphParameterOutputWithContext(ctx context.Context) GraphParameterOutput {
+	return o
+}
+
+// Description of this graph parameter.
+func (o GraphParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Association links for this parameter to nodes in the graph.
+func (o GraphParameterOutput) Links() GraphParameterLinkArrayOutput {
+	return o.ApplyT(func(v GraphParameter) []GraphParameterLink { return v.Links }).(GraphParameterLinkArrayOutput)
+}
+
+// Graph parameter's type.
+func (o GraphParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GraphParameterMapOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphParameter)(nil)).Elem()
+}
+
+func (o GraphParameterMapOutput) ToGraphParameterMapOutput() GraphParameterMapOutput {
+	return o
+}
+
+func (o GraphParameterMapOutput) ToGraphParameterMapOutputWithContext(ctx context.Context) GraphParameterMapOutput {
+	return o
+}
+
+func (o GraphParameterMapOutput) MapIndex(k pulumi.StringInput) GraphParameterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GraphParameter {
+		return vs[0].(map[string]GraphParameter)[vs[1].(string)]
+	}).(GraphParameterOutput)
+}
+
+// Association link for a graph global parameter to a node in the graph.
+type GraphParameterLink struct {
+	// The graph node's identifier
+	NodeId string `pulumi:"nodeId"`
+	// The identifier of the node parameter that the global parameter maps to.
+	ParameterKey string `pulumi:"parameterKey"`
+}
+
+// GraphParameterLinkInput is an input type that accepts GraphParameterLinkArgs and GraphParameterLinkOutput values.
+// You can construct a concrete instance of `GraphParameterLinkInput` via:
+//
+//          GraphParameterLinkArgs{...}
+type GraphParameterLinkInput interface {
+	pulumi.Input
+
+	ToGraphParameterLinkOutput() GraphParameterLinkOutput
+	ToGraphParameterLinkOutputWithContext(context.Context) GraphParameterLinkOutput
+}
+
+// Association link for a graph global parameter to a node in the graph.
+type GraphParameterLinkArgs struct {
+	// The graph node's identifier
+	NodeId pulumi.StringInput `pulumi:"nodeId"`
+	// The identifier of the node parameter that the global parameter maps to.
+	ParameterKey pulumi.StringInput `pulumi:"parameterKey"`
+}
+
+func (GraphParameterLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameterLink)(nil)).Elem()
+}
+
+func (i GraphParameterLinkArgs) ToGraphParameterLinkOutput() GraphParameterLinkOutput {
+	return i.ToGraphParameterLinkOutputWithContext(context.Background())
+}
+
+func (i GraphParameterLinkArgs) ToGraphParameterLinkOutputWithContext(ctx context.Context) GraphParameterLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterLinkOutput)
+}
+
+// GraphParameterLinkArrayInput is an input type that accepts GraphParameterLinkArray and GraphParameterLinkArrayOutput values.
+// You can construct a concrete instance of `GraphParameterLinkArrayInput` via:
+//
+//          GraphParameterLinkArray{ GraphParameterLinkArgs{...} }
+type GraphParameterLinkArrayInput interface {
+	pulumi.Input
+
+	ToGraphParameterLinkArrayOutput() GraphParameterLinkArrayOutput
+	ToGraphParameterLinkArrayOutputWithContext(context.Context) GraphParameterLinkArrayOutput
+}
+
+type GraphParameterLinkArray []GraphParameterLinkInput
+
+func (GraphParameterLinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphParameterLink)(nil)).Elem()
+}
+
+func (i GraphParameterLinkArray) ToGraphParameterLinkArrayOutput() GraphParameterLinkArrayOutput {
+	return i.ToGraphParameterLinkArrayOutputWithContext(context.Background())
+}
+
+func (i GraphParameterLinkArray) ToGraphParameterLinkArrayOutputWithContext(ctx context.Context) GraphParameterLinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterLinkArrayOutput)
+}
+
+// Association link for a graph global parameter to a node in the graph.
+type GraphParameterLinkOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameterLink)(nil)).Elem()
+}
+
+func (o GraphParameterLinkOutput) ToGraphParameterLinkOutput() GraphParameterLinkOutput {
+	return o
+}
+
+func (o GraphParameterLinkOutput) ToGraphParameterLinkOutputWithContext(ctx context.Context) GraphParameterLinkOutput {
+	return o
+}
+
+// The graph node's identifier
+func (o GraphParameterLinkOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphParameterLink) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// The identifier of the node parameter that the global parameter maps to.
+func (o GraphParameterLinkOutput) ParameterKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphParameterLink) string { return v.ParameterKey }).(pulumi.StringOutput)
+}
+
+type GraphParameterLinkArrayOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterLinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphParameterLink)(nil)).Elem()
+}
+
+func (o GraphParameterLinkArrayOutput) ToGraphParameterLinkArrayOutput() GraphParameterLinkArrayOutput {
+	return o
+}
+
+func (o GraphParameterLinkArrayOutput) ToGraphParameterLinkArrayOutputWithContext(ctx context.Context) GraphParameterLinkArrayOutput {
+	return o
+}
+
+func (o GraphParameterLinkArrayOutput) Index(i pulumi.IntInput) GraphParameterLinkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphParameterLink {
+		return vs[0].([]GraphParameterLink)[vs[1].(int)]
+	}).(GraphParameterLinkOutput)
+}
+
+// Association link for a graph global parameter to a node in the graph.
+type GraphParameterLinkResponse struct {
+	// The graph node's identifier
+	NodeId string `pulumi:"nodeId"`
+	// The identifier of the node parameter that the global parameter maps to.
+	ParameterKey string `pulumi:"parameterKey"`
+}
+
+// GraphParameterLinkResponseInput is an input type that accepts GraphParameterLinkResponseArgs and GraphParameterLinkResponseOutput values.
+// You can construct a concrete instance of `GraphParameterLinkResponseInput` via:
+//
+//          GraphParameterLinkResponseArgs{...}
+type GraphParameterLinkResponseInput interface {
+	pulumi.Input
+
+	ToGraphParameterLinkResponseOutput() GraphParameterLinkResponseOutput
+	ToGraphParameterLinkResponseOutputWithContext(context.Context) GraphParameterLinkResponseOutput
+}
+
+// Association link for a graph global parameter to a node in the graph.
+type GraphParameterLinkResponseArgs struct {
+	// The graph node's identifier
+	NodeId pulumi.StringInput `pulumi:"nodeId"`
+	// The identifier of the node parameter that the global parameter maps to.
+	ParameterKey pulumi.StringInput `pulumi:"parameterKey"`
+}
+
+func (GraphParameterLinkResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameterLinkResponse)(nil)).Elem()
+}
+
+func (i GraphParameterLinkResponseArgs) ToGraphParameterLinkResponseOutput() GraphParameterLinkResponseOutput {
+	return i.ToGraphParameterLinkResponseOutputWithContext(context.Background())
+}
+
+func (i GraphParameterLinkResponseArgs) ToGraphParameterLinkResponseOutputWithContext(ctx context.Context) GraphParameterLinkResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterLinkResponseOutput)
+}
+
+// GraphParameterLinkResponseArrayInput is an input type that accepts GraphParameterLinkResponseArray and GraphParameterLinkResponseArrayOutput values.
+// You can construct a concrete instance of `GraphParameterLinkResponseArrayInput` via:
+//
+//          GraphParameterLinkResponseArray{ GraphParameterLinkResponseArgs{...} }
+type GraphParameterLinkResponseArrayInput interface {
+	pulumi.Input
+
+	ToGraphParameterLinkResponseArrayOutput() GraphParameterLinkResponseArrayOutput
+	ToGraphParameterLinkResponseArrayOutputWithContext(context.Context) GraphParameterLinkResponseArrayOutput
+}
+
+type GraphParameterLinkResponseArray []GraphParameterLinkResponseInput
+
+func (GraphParameterLinkResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphParameterLinkResponse)(nil)).Elem()
+}
+
+func (i GraphParameterLinkResponseArray) ToGraphParameterLinkResponseArrayOutput() GraphParameterLinkResponseArrayOutput {
+	return i.ToGraphParameterLinkResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GraphParameterLinkResponseArray) ToGraphParameterLinkResponseArrayOutputWithContext(ctx context.Context) GraphParameterLinkResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterLinkResponseArrayOutput)
+}
+
+// Association link for a graph global parameter to a node in the graph.
+type GraphParameterLinkResponseOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterLinkResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameterLinkResponse)(nil)).Elem()
+}
+
+func (o GraphParameterLinkResponseOutput) ToGraphParameterLinkResponseOutput() GraphParameterLinkResponseOutput {
+	return o
+}
+
+func (o GraphParameterLinkResponseOutput) ToGraphParameterLinkResponseOutputWithContext(ctx context.Context) GraphParameterLinkResponseOutput {
+	return o
+}
+
+// The graph node's identifier
+func (o GraphParameterLinkResponseOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphParameterLinkResponse) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// The identifier of the node parameter that the global parameter maps to.
+func (o GraphParameterLinkResponseOutput) ParameterKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphParameterLinkResponse) string { return v.ParameterKey }).(pulumi.StringOutput)
+}
+
+type GraphParameterLinkResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterLinkResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphParameterLinkResponse)(nil)).Elem()
+}
+
+func (o GraphParameterLinkResponseArrayOutput) ToGraphParameterLinkResponseArrayOutput() GraphParameterLinkResponseArrayOutput {
+	return o
+}
+
+func (o GraphParameterLinkResponseArrayOutput) ToGraphParameterLinkResponseArrayOutputWithContext(ctx context.Context) GraphParameterLinkResponseArrayOutput {
+	return o
+}
+
+func (o GraphParameterLinkResponseArrayOutput) Index(i pulumi.IntInput) GraphParameterLinkResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphParameterLinkResponse {
+		return vs[0].([]GraphParameterLinkResponse)[vs[1].(int)]
+	}).(GraphParameterLinkResponseOutput)
+}
+
+// Defines a global parameter in the graph.
+type GraphParameterResponse struct {
+	// Description of this graph parameter.
+	Description *string `pulumi:"description"`
+	// Association links for this parameter to nodes in the graph.
+	Links []GraphParameterLinkResponse `pulumi:"links"`
+	// Graph parameter's type.
+	Type string `pulumi:"type"`
+}
+
+// GraphParameterResponseInput is an input type that accepts GraphParameterResponseArgs and GraphParameterResponseOutput values.
+// You can construct a concrete instance of `GraphParameterResponseInput` via:
+//
+//          GraphParameterResponseArgs{...}
+type GraphParameterResponseInput interface {
+	pulumi.Input
+
+	ToGraphParameterResponseOutput() GraphParameterResponseOutput
+	ToGraphParameterResponseOutputWithContext(context.Context) GraphParameterResponseOutput
+}
+
+// Defines a global parameter in the graph.
+type GraphParameterResponseArgs struct {
+	// Description of this graph parameter.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Association links for this parameter to nodes in the graph.
+	Links GraphParameterLinkResponseArrayInput `pulumi:"links"`
+	// Graph parameter's type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GraphParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameterResponse)(nil)).Elem()
+}
+
+func (i GraphParameterResponseArgs) ToGraphParameterResponseOutput() GraphParameterResponseOutput {
+	return i.ToGraphParameterResponseOutputWithContext(context.Background())
+}
+
+func (i GraphParameterResponseArgs) ToGraphParameterResponseOutputWithContext(ctx context.Context) GraphParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterResponseOutput)
+}
+
+// GraphParameterResponseMapInput is an input type that accepts GraphParameterResponseMap and GraphParameterResponseMapOutput values.
+// You can construct a concrete instance of `GraphParameterResponseMapInput` via:
+//
+//          GraphParameterResponseMap{ "key": GraphParameterResponseArgs{...} }
+type GraphParameterResponseMapInput interface {
+	pulumi.Input
+
+	ToGraphParameterResponseMapOutput() GraphParameterResponseMapOutput
+	ToGraphParameterResponseMapOutputWithContext(context.Context) GraphParameterResponseMapOutput
+}
+
+type GraphParameterResponseMap map[string]GraphParameterResponseInput
+
+func (GraphParameterResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphParameterResponse)(nil)).Elem()
+}
+
+func (i GraphParameterResponseMap) ToGraphParameterResponseMapOutput() GraphParameterResponseMapOutput {
+	return i.ToGraphParameterResponseMapOutputWithContext(context.Background())
+}
+
+func (i GraphParameterResponseMap) ToGraphParameterResponseMapOutputWithContext(ctx context.Context) GraphParameterResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterResponseMapOutput)
+}
+
+// Defines a global parameter in the graph.
+type GraphParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameterResponse)(nil)).Elem()
+}
+
+func (o GraphParameterResponseOutput) ToGraphParameterResponseOutput() GraphParameterResponseOutput {
+	return o
+}
+
+func (o GraphParameterResponseOutput) ToGraphParameterResponseOutputWithContext(ctx context.Context) GraphParameterResponseOutput {
+	return o
+}
+
+// Description of this graph parameter.
+func (o GraphParameterResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphParameterResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Association links for this parameter to nodes in the graph.
+func (o GraphParameterResponseOutput) Links() GraphParameterLinkResponseArrayOutput {
+	return o.ApplyT(func(v GraphParameterResponse) []GraphParameterLinkResponse { return v.Links }).(GraphParameterLinkResponseArrayOutput)
+}
+
+// Graph parameter's type.
+func (o GraphParameterResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphParameterResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GraphParameterResponseMapOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphParameterResponse)(nil)).Elem()
+}
+
+func (o GraphParameterResponseMapOutput) ToGraphParameterResponseMapOutput() GraphParameterResponseMapOutput {
+	return o
+}
+
+func (o GraphParameterResponseMapOutput) ToGraphParameterResponseMapOutputWithContext(ctx context.Context) GraphParameterResponseMapOutput {
+	return o
+}
+
+func (o GraphParameterResponseMapOutput) MapIndex(k pulumi.StringInput) GraphParameterResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GraphParameterResponse {
+		return vs[0].(map[string]GraphParameterResponse)[vs[1].(string)]
+	}).(GraphParameterResponseOutput)
+}
+
 // Asset input port
 type InputPort struct {
 	// Port data type.
@@ -4670,8 +5976,8 @@ func (o WebServiceParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Web
 	}).(WebServiceParameterResponseOutput)
 }
 
-// The set of properties specific to the Azure ML web service resource.
-type WebServiceProperties struct {
+// Properties specific to a Graph based web service.
+type WebServicePropertiesForGraph struct {
 	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
 	Assets map[string]AssetItem `pulumi:"assets"`
 	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
@@ -4692,6 +5998,8 @@ type WebServiceProperties struct {
 	MachineLearningWorkspace *MachineLearningWorkspace `pulumi:"machineLearningWorkspace"`
 	// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
 	Output *ServiceInputOutputSpecification `pulumi:"output"`
+	// The definition of the graph package making up this web service.
+	Package *GraphPackage `pulumi:"package"`
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
 	PackageType string `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
@@ -4710,19 +6018,19 @@ type WebServiceProperties struct {
 	Title *string `pulumi:"title"`
 }
 
-// WebServicePropertiesInput is an input type that accepts WebServicePropertiesArgs and WebServicePropertiesOutput values.
-// You can construct a concrete instance of `WebServicePropertiesInput` via:
+// WebServicePropertiesForGraphInput is an input type that accepts WebServicePropertiesForGraphArgs and WebServicePropertiesForGraphOutput values.
+// You can construct a concrete instance of `WebServicePropertiesForGraphInput` via:
 //
-//          WebServicePropertiesArgs{...}
-type WebServicePropertiesInput interface {
+//          WebServicePropertiesForGraphArgs{...}
+type WebServicePropertiesForGraphInput interface {
 	pulumi.Input
 
-	ToWebServicePropertiesOutput() WebServicePropertiesOutput
-	ToWebServicePropertiesOutputWithContext(context.Context) WebServicePropertiesOutput
+	ToWebServicePropertiesForGraphOutput() WebServicePropertiesForGraphOutput
+	ToWebServicePropertiesForGraphOutputWithContext(context.Context) WebServicePropertiesForGraphOutput
 }
 
-// The set of properties specific to the Azure ML web service resource.
-type WebServicePropertiesArgs struct {
+// Properties specific to a Graph based web service.
+type WebServicePropertiesForGraphArgs struct {
 	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
 	Assets AssetItemMapInput `pulumi:"assets"`
 	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
@@ -4743,6 +6051,8 @@ type WebServicePropertiesArgs struct {
 	MachineLearningWorkspace MachineLearningWorkspacePtrInput `pulumi:"machineLearningWorkspace"`
 	// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
 	Output ServiceInputOutputSpecificationPtrInput `pulumi:"output"`
+	// The definition of the graph package making up this web service.
+	Package GraphPackagePtrInput `pulumi:"package"`
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
 	PackageType pulumi.StringInput `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
@@ -4761,195 +6071,200 @@ type WebServicePropertiesArgs struct {
 	Title pulumi.StringPtrInput `pulumi:"title"`
 }
 
-func (WebServicePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebServiceProperties)(nil)).Elem()
+func (WebServicePropertiesForGraphArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServicePropertiesForGraph)(nil)).Elem()
 }
 
-func (i WebServicePropertiesArgs) ToWebServicePropertiesOutput() WebServicePropertiesOutput {
-	return i.ToWebServicePropertiesOutputWithContext(context.Background())
+func (i WebServicePropertiesForGraphArgs) ToWebServicePropertiesForGraphOutput() WebServicePropertiesForGraphOutput {
+	return i.ToWebServicePropertiesForGraphOutputWithContext(context.Background())
 }
 
-func (i WebServicePropertiesArgs) ToWebServicePropertiesOutputWithContext(ctx context.Context) WebServicePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesOutput)
+func (i WebServicePropertiesForGraphArgs) ToWebServicePropertiesForGraphOutputWithContext(ctx context.Context) WebServicePropertiesForGraphOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphOutput)
 }
 
-func (i WebServicePropertiesArgs) ToWebServicePropertiesPtrOutput() WebServicePropertiesPtrOutput {
-	return i.ToWebServicePropertiesPtrOutputWithContext(context.Background())
+func (i WebServicePropertiesForGraphArgs) ToWebServicePropertiesForGraphPtrOutput() WebServicePropertiesForGraphPtrOutput {
+	return i.ToWebServicePropertiesForGraphPtrOutputWithContext(context.Background())
 }
 
-func (i WebServicePropertiesArgs) ToWebServicePropertiesPtrOutputWithContext(ctx context.Context) WebServicePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesOutput).ToWebServicePropertiesPtrOutputWithContext(ctx)
+func (i WebServicePropertiesForGraphArgs) ToWebServicePropertiesForGraphPtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphOutput).ToWebServicePropertiesForGraphPtrOutputWithContext(ctx)
 }
 
-// WebServicePropertiesPtrInput is an input type that accepts WebServicePropertiesArgs, WebServicePropertiesPtr and WebServicePropertiesPtrOutput values.
-// You can construct a concrete instance of `WebServicePropertiesPtrInput` via:
+// WebServicePropertiesForGraphPtrInput is an input type that accepts WebServicePropertiesForGraphArgs, WebServicePropertiesForGraphPtr and WebServicePropertiesForGraphPtrOutput values.
+// You can construct a concrete instance of `WebServicePropertiesForGraphPtrInput` via:
 //
-//          WebServicePropertiesArgs{...}
+//          WebServicePropertiesForGraphArgs{...}
 //
 //  or:
 //
 //          nil
-type WebServicePropertiesPtrInput interface {
+type WebServicePropertiesForGraphPtrInput interface {
 	pulumi.Input
 
-	ToWebServicePropertiesPtrOutput() WebServicePropertiesPtrOutput
-	ToWebServicePropertiesPtrOutputWithContext(context.Context) WebServicePropertiesPtrOutput
+	ToWebServicePropertiesForGraphPtrOutput() WebServicePropertiesForGraphPtrOutput
+	ToWebServicePropertiesForGraphPtrOutputWithContext(context.Context) WebServicePropertiesForGraphPtrOutput
 }
 
-type webServicePropertiesPtrType WebServicePropertiesArgs
+type webServicePropertiesForGraphPtrType WebServicePropertiesForGraphArgs
 
-func WebServicePropertiesPtr(v *WebServicePropertiesArgs) WebServicePropertiesPtrInput {
-	return (*webServicePropertiesPtrType)(v)
+func WebServicePropertiesForGraphPtr(v *WebServicePropertiesForGraphArgs) WebServicePropertiesForGraphPtrInput {
+	return (*webServicePropertiesForGraphPtrType)(v)
 }
 
-func (*webServicePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebServiceProperties)(nil)).Elem()
+func (*webServicePropertiesForGraphPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebServicePropertiesForGraph)(nil)).Elem()
 }
 
-func (i *webServicePropertiesPtrType) ToWebServicePropertiesPtrOutput() WebServicePropertiesPtrOutput {
-	return i.ToWebServicePropertiesPtrOutputWithContext(context.Background())
+func (i *webServicePropertiesForGraphPtrType) ToWebServicePropertiesForGraphPtrOutput() WebServicePropertiesForGraphPtrOutput {
+	return i.ToWebServicePropertiesForGraphPtrOutputWithContext(context.Background())
 }
 
-func (i *webServicePropertiesPtrType) ToWebServicePropertiesPtrOutputWithContext(ctx context.Context) WebServicePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesPtrOutput)
+func (i *webServicePropertiesForGraphPtrType) ToWebServicePropertiesForGraphPtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphPtrOutput)
 }
 
-// The set of properties specific to the Azure ML web service resource.
-type WebServicePropertiesOutput struct{ *pulumi.OutputState }
+// Properties specific to a Graph based web service.
+type WebServicePropertiesForGraphOutput struct{ *pulumi.OutputState }
 
-func (WebServicePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebServiceProperties)(nil)).Elem()
+func (WebServicePropertiesForGraphOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServicePropertiesForGraph)(nil)).Elem()
 }
 
-func (o WebServicePropertiesOutput) ToWebServicePropertiesOutput() WebServicePropertiesOutput {
+func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphOutput() WebServicePropertiesForGraphOutput {
 	return o
 }
 
-func (o WebServicePropertiesOutput) ToWebServicePropertiesOutputWithContext(ctx context.Context) WebServicePropertiesOutput {
+func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphOutputWithContext(ctx context.Context) WebServicePropertiesForGraphOutput {
 	return o
 }
 
-func (o WebServicePropertiesOutput) ToWebServicePropertiesPtrOutput() WebServicePropertiesPtrOutput {
-	return o.ToWebServicePropertiesPtrOutputWithContext(context.Background())
+func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphPtrOutput() WebServicePropertiesForGraphPtrOutput {
+	return o.ToWebServicePropertiesForGraphPtrOutputWithContext(context.Background())
 }
 
-func (o WebServicePropertiesOutput) ToWebServicePropertiesPtrOutputWithContext(ctx context.Context) WebServicePropertiesPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *WebServiceProperties {
+func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphPtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *WebServicePropertiesForGraph {
 		return &v
-	}).(WebServicePropertiesPtrOutput)
+	}).(WebServicePropertiesForGraphPtrOutput)
 }
 
 // Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-func (o WebServicePropertiesOutput) Assets() AssetItemMapOutput {
-	return o.ApplyT(func(v WebServiceProperties) map[string]AssetItem { return v.Assets }).(AssetItemMapOutput)
+func (o WebServicePropertiesForGraphOutput) Assets() AssetItemMapOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) map[string]AssetItem { return v.Assets }).(AssetItemMapOutput)
 }
 
 // Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-func (o WebServicePropertiesOutput) CommitmentPlan() CommitmentPlanPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *CommitmentPlan { return v.CommitmentPlan }).(CommitmentPlanPtrOutput)
+func (o WebServicePropertiesForGraphOutput) CommitmentPlan() CommitmentPlanPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *CommitmentPlan { return v.CommitmentPlan }).(CommitmentPlanPtrOutput)
 }
 
 // The description of the web service.
-func (o WebServicePropertiesOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o WebServicePropertiesForGraphOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Settings controlling the diagnostics traces collection for the web service.
-func (o WebServicePropertiesOutput) Diagnostics() DiagnosticsConfigurationPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *DiagnosticsConfiguration { return v.Diagnostics }).(DiagnosticsConfigurationPtrOutput)
+func (o WebServicePropertiesForGraphOutput) Diagnostics() DiagnosticsConfigurationPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *DiagnosticsConfiguration { return v.Diagnostics }).(DiagnosticsConfigurationPtrOutput)
 }
 
 // Defines sample input data for one or more of the service's inputs.
-func (o WebServicePropertiesOutput) ExampleRequest() ExampleRequestPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *ExampleRequest { return v.ExampleRequest }).(ExampleRequestPtrOutput)
+func (o WebServicePropertiesForGraphOutput) ExampleRequest() ExampleRequestPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *ExampleRequest { return v.ExampleRequest }).(ExampleRequestPtrOutput)
 }
 
 // When set to true, sample data is included in the web service's swagger definition. The default value is true.
-func (o WebServicePropertiesOutput) ExposeSampleData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *bool { return v.ExposeSampleData }).(pulumi.BoolPtrOutput)
+func (o WebServicePropertiesForGraphOutput) ExposeSampleData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *bool { return v.ExposeSampleData }).(pulumi.BoolPtrOutput)
 }
 
 // Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
-func (o WebServicePropertiesOutput) Input() ServiceInputOutputSpecificationPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *ServiceInputOutputSpecification { return v.Input }).(ServiceInputOutputSpecificationPtrOutput)
+func (o WebServicePropertiesForGraphOutput) Input() ServiceInputOutputSpecificationPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *ServiceInputOutputSpecification { return v.Input }).(ServiceInputOutputSpecificationPtrOutput)
 }
 
 // Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
-func (o WebServicePropertiesOutput) Keys() WebServiceKeysPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *WebServiceKeys { return v.Keys }).(WebServiceKeysPtrOutput)
+func (o WebServicePropertiesForGraphOutput) Keys() WebServiceKeysPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *WebServiceKeys { return v.Keys }).(WebServiceKeysPtrOutput)
 }
 
 // Specifies the Machine Learning workspace containing the experiment that is source for the web service.
-func (o WebServicePropertiesOutput) MachineLearningWorkspace() MachineLearningWorkspacePtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *MachineLearningWorkspace { return v.MachineLearningWorkspace }).(MachineLearningWorkspacePtrOutput)
+func (o WebServicePropertiesForGraphOutput) MachineLearningWorkspace() MachineLearningWorkspacePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *MachineLearningWorkspace { return v.MachineLearningWorkspace }).(MachineLearningWorkspacePtrOutput)
 }
 
 // Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
-func (o WebServicePropertiesOutput) Output() ServiceInputOutputSpecificationPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *ServiceInputOutputSpecification { return v.Output }).(ServiceInputOutputSpecificationPtrOutput)
+func (o WebServicePropertiesForGraphOutput) Output() ServiceInputOutputSpecificationPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *ServiceInputOutputSpecification { return v.Output }).(ServiceInputOutputSpecificationPtrOutput)
+}
+
+// The definition of the graph package making up this web service.
+func (o WebServicePropertiesForGraphOutput) Package() GraphPackagePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *GraphPackage { return v.Package }).(GraphPackagePtrOutput)
 }
 
 // Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-func (o WebServicePropertiesOutput) PackageType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebServiceProperties) string { return v.PackageType }).(pulumi.StringOutput)
+func (o WebServicePropertiesForGraphOutput) PackageType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) string { return v.PackageType }).(pulumi.StringOutput)
 }
 
 // The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-func (o WebServicePropertiesOutput) Parameters() WebServiceParameterMapOutput {
-	return o.ApplyT(func(v WebServiceProperties) map[string]WebServiceParameter { return v.Parameters }).(WebServiceParameterMapOutput)
+func (o WebServicePropertiesForGraphOutput) Parameters() WebServiceParameterMapOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) map[string]WebServiceParameter { return v.Parameters }).(WebServiceParameterMapOutput)
 }
 
 // When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
-func (o WebServicePropertiesOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *bool { return v.PayloadsInBlobStorage }).(pulumi.BoolPtrOutput)
+func (o WebServicePropertiesForGraphOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *bool { return v.PayloadsInBlobStorage }).(pulumi.BoolPtrOutput)
 }
 
 // The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
-func (o WebServicePropertiesOutput) PayloadsLocation() BlobLocationPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *BlobLocation { return v.PayloadsLocation }).(BlobLocationPtrOutput)
+func (o WebServicePropertiesForGraphOutput) PayloadsLocation() BlobLocationPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *BlobLocation { return v.PayloadsLocation }).(BlobLocationPtrOutput)
 }
 
 // When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
-func (o WebServicePropertiesOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+func (o WebServicePropertiesForGraphOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
 // Contains the configuration settings for the web service endpoint.
-func (o WebServicePropertiesOutput) RealtimeConfiguration() RealtimeConfigurationPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *RealtimeConfiguration { return v.RealtimeConfiguration }).(RealtimeConfigurationPtrOutput)
+func (o WebServicePropertiesForGraphOutput) RealtimeConfiguration() RealtimeConfigurationPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *RealtimeConfiguration { return v.RealtimeConfiguration }).(RealtimeConfigurationPtrOutput)
 }
 
 // Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
-func (o WebServicePropertiesOutput) StorageAccount() StorageAccountPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *StorageAccount { return v.StorageAccount }).(StorageAccountPtrOutput)
+func (o WebServicePropertiesForGraphOutput) StorageAccount() StorageAccountPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *StorageAccount { return v.StorageAccount }).(StorageAccountPtrOutput)
 }
 
 // The title of the web service.
-func (o WebServicePropertiesOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebServiceProperties) *string { return v.Title }).(pulumi.StringPtrOutput)
+func (o WebServicePropertiesForGraphOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraph) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-type WebServicePropertiesPtrOutput struct{ *pulumi.OutputState }
+type WebServicePropertiesForGraphPtrOutput struct{ *pulumi.OutputState }
 
-func (WebServicePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebServiceProperties)(nil)).Elem()
+func (WebServicePropertiesForGraphPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebServicePropertiesForGraph)(nil)).Elem()
 }
 
-func (o WebServicePropertiesPtrOutput) ToWebServicePropertiesPtrOutput() WebServicePropertiesPtrOutput {
+func (o WebServicePropertiesForGraphPtrOutput) ToWebServicePropertiesForGraphPtrOutput() WebServicePropertiesForGraphPtrOutput {
 	return o
 }
 
-func (o WebServicePropertiesPtrOutput) ToWebServicePropertiesPtrOutputWithContext(ctx context.Context) WebServicePropertiesPtrOutput {
+func (o WebServicePropertiesForGraphPtrOutput) ToWebServicePropertiesForGraphPtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphPtrOutput {
 	return o
 }
 
-func (o WebServicePropertiesPtrOutput) Elem() WebServicePropertiesOutput {
-	return o.ApplyT(func(v *WebServiceProperties) WebServiceProperties { return *v }).(WebServicePropertiesOutput)
+func (o WebServicePropertiesForGraphPtrOutput) Elem() WebServicePropertiesForGraphOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) WebServicePropertiesForGraph { return *v }).(WebServicePropertiesForGraphOutput)
 }
 
 // Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-func (o WebServicePropertiesPtrOutput) Assets() AssetItemMapOutput {
-	return o.ApplyT(func(v *WebServiceProperties) map[string]AssetItem {
+func (o WebServicePropertiesForGraphPtrOutput) Assets() AssetItemMapOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) map[string]AssetItem {
 		if v == nil {
 			return nil
 		}
@@ -4958,8 +6273,8 @@ func (o WebServicePropertiesPtrOutput) Assets() AssetItemMapOutput {
 }
 
 // Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-func (o WebServicePropertiesPtrOutput) CommitmentPlan() CommitmentPlanPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *CommitmentPlan {
+func (o WebServicePropertiesForGraphPtrOutput) CommitmentPlan() CommitmentPlanPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *CommitmentPlan {
 		if v == nil {
 			return nil
 		}
@@ -4968,8 +6283,8 @@ func (o WebServicePropertiesPtrOutput) CommitmentPlan() CommitmentPlanPtrOutput 
 }
 
 // The description of the web service.
-func (o WebServicePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *string {
+func (o WebServicePropertiesForGraphPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *string {
 		if v == nil {
 			return nil
 		}
@@ -4978,8 +6293,8 @@ func (o WebServicePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Settings controlling the diagnostics traces collection for the web service.
-func (o WebServicePropertiesPtrOutput) Diagnostics() DiagnosticsConfigurationPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *DiagnosticsConfiguration {
+func (o WebServicePropertiesForGraphPtrOutput) Diagnostics() DiagnosticsConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *DiagnosticsConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -4988,8 +6303,8 @@ func (o WebServicePropertiesPtrOutput) Diagnostics() DiagnosticsConfigurationPtr
 }
 
 // Defines sample input data for one or more of the service's inputs.
-func (o WebServicePropertiesPtrOutput) ExampleRequest() ExampleRequestPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *ExampleRequest {
+func (o WebServicePropertiesForGraphPtrOutput) ExampleRequest() ExampleRequestPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *ExampleRequest {
 		if v == nil {
 			return nil
 		}
@@ -4998,8 +6313,8 @@ func (o WebServicePropertiesPtrOutput) ExampleRequest() ExampleRequestPtrOutput 
 }
 
 // When set to true, sample data is included in the web service's swagger definition. The default value is true.
-func (o WebServicePropertiesPtrOutput) ExposeSampleData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *bool {
+func (o WebServicePropertiesForGraphPtrOutput) ExposeSampleData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *bool {
 		if v == nil {
 			return nil
 		}
@@ -5008,8 +6323,8 @@ func (o WebServicePropertiesPtrOutput) ExposeSampleData() pulumi.BoolPtrOutput {
 }
 
 // Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
-func (o WebServicePropertiesPtrOutput) Input() ServiceInputOutputSpecificationPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *ServiceInputOutputSpecification {
+func (o WebServicePropertiesForGraphPtrOutput) Input() ServiceInputOutputSpecificationPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *ServiceInputOutputSpecification {
 		if v == nil {
 			return nil
 		}
@@ -5018,8 +6333,8 @@ func (o WebServicePropertiesPtrOutput) Input() ServiceInputOutputSpecificationPt
 }
 
 // Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
-func (o WebServicePropertiesPtrOutput) Keys() WebServiceKeysPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *WebServiceKeys {
+func (o WebServicePropertiesForGraphPtrOutput) Keys() WebServiceKeysPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *WebServiceKeys {
 		if v == nil {
 			return nil
 		}
@@ -5028,8 +6343,8 @@ func (o WebServicePropertiesPtrOutput) Keys() WebServiceKeysPtrOutput {
 }
 
 // Specifies the Machine Learning workspace containing the experiment that is source for the web service.
-func (o WebServicePropertiesPtrOutput) MachineLearningWorkspace() MachineLearningWorkspacePtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *MachineLearningWorkspace {
+func (o WebServicePropertiesForGraphPtrOutput) MachineLearningWorkspace() MachineLearningWorkspacePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *MachineLearningWorkspace {
 		if v == nil {
 			return nil
 		}
@@ -5038,8 +6353,8 @@ func (o WebServicePropertiesPtrOutput) MachineLearningWorkspace() MachineLearnin
 }
 
 // Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
-func (o WebServicePropertiesPtrOutput) Output() ServiceInputOutputSpecificationPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *ServiceInputOutputSpecification {
+func (o WebServicePropertiesForGraphPtrOutput) Output() ServiceInputOutputSpecificationPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *ServiceInputOutputSpecification {
 		if v == nil {
 			return nil
 		}
@@ -5047,9 +6362,19 @@ func (o WebServicePropertiesPtrOutput) Output() ServiceInputOutputSpecificationP
 	}).(ServiceInputOutputSpecificationPtrOutput)
 }
 
+// The definition of the graph package making up this web service.
+func (o WebServicePropertiesForGraphPtrOutput) Package() GraphPackagePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *GraphPackage {
+		if v == nil {
+			return nil
+		}
+		return v.Package
+	}).(GraphPackagePtrOutput)
+}
+
 // Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-func (o WebServicePropertiesPtrOutput) PackageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *string {
+func (o WebServicePropertiesForGraphPtrOutput) PackageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *string {
 		if v == nil {
 			return nil
 		}
@@ -5058,8 +6383,8 @@ func (o WebServicePropertiesPtrOutput) PackageType() pulumi.StringPtrOutput {
 }
 
 // The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-func (o WebServicePropertiesPtrOutput) Parameters() WebServiceParameterMapOutput {
-	return o.ApplyT(func(v *WebServiceProperties) map[string]WebServiceParameter {
+func (o WebServicePropertiesForGraphPtrOutput) Parameters() WebServiceParameterMapOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) map[string]WebServiceParameter {
 		if v == nil {
 			return nil
 		}
@@ -5068,8 +6393,8 @@ func (o WebServicePropertiesPtrOutput) Parameters() WebServiceParameterMapOutput
 }
 
 // When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
-func (o WebServicePropertiesPtrOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *bool {
+func (o WebServicePropertiesForGraphPtrOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *bool {
 		if v == nil {
 			return nil
 		}
@@ -5078,8 +6403,8 @@ func (o WebServicePropertiesPtrOutput) PayloadsInBlobStorage() pulumi.BoolPtrOut
 }
 
 // The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
-func (o WebServicePropertiesPtrOutput) PayloadsLocation() BlobLocationPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *BlobLocation {
+func (o WebServicePropertiesForGraphPtrOutput) PayloadsLocation() BlobLocationPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *BlobLocation {
 		if v == nil {
 			return nil
 		}
@@ -5088,8 +6413,8 @@ func (o WebServicePropertiesPtrOutput) PayloadsLocation() BlobLocationPtrOutput 
 }
 
 // When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
-func (o WebServicePropertiesPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *bool {
+func (o WebServicePropertiesForGraphPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *bool {
 		if v == nil {
 			return nil
 		}
@@ -5098,8 +6423,8 @@ func (o WebServicePropertiesPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
 }
 
 // Contains the configuration settings for the web service endpoint.
-func (o WebServicePropertiesPtrOutput) RealtimeConfiguration() RealtimeConfigurationPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *RealtimeConfiguration {
+func (o WebServicePropertiesForGraphPtrOutput) RealtimeConfiguration() RealtimeConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *RealtimeConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -5108,8 +6433,8 @@ func (o WebServicePropertiesPtrOutput) RealtimeConfiguration() RealtimeConfigura
 }
 
 // Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
-func (o WebServicePropertiesPtrOutput) StorageAccount() StorageAccountPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *StorageAccount {
+func (o WebServicePropertiesForGraphPtrOutput) StorageAccount() StorageAccountPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *StorageAccount {
 		if v == nil {
 			return nil
 		}
@@ -5118,8 +6443,8 @@ func (o WebServicePropertiesPtrOutput) StorageAccount() StorageAccountPtrOutput 
 }
 
 // The title of the web service.
-func (o WebServicePropertiesPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServiceProperties) *string {
+func (o WebServicePropertiesForGraphPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) *string {
 		if v == nil {
 			return nil
 		}
@@ -5127,8 +6452,8 @@ func (o WebServicePropertiesPtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The set of properties specific to the Azure ML web service resource.
-type WebServicePropertiesResponse struct {
+// Properties specific to a Graph based web service.
+type WebServicePropertiesForGraphResponse struct {
 	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
 	Assets map[string]AssetItemResponse `pulumi:"assets"`
 	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
@@ -5153,6 +6478,8 @@ type WebServicePropertiesResponse struct {
 	ModifiedOn string `pulumi:"modifiedOn"`
 	// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
 	Output *ServiceInputOutputSpecificationResponse `pulumi:"output"`
+	// The definition of the graph package making up this web service.
+	Package *GraphPackageResponse `pulumi:"package"`
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
 	PackageType string `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
@@ -5175,19 +6502,19 @@ type WebServicePropertiesResponse struct {
 	Title *string `pulumi:"title"`
 }
 
-// WebServicePropertiesResponseInput is an input type that accepts WebServicePropertiesResponseArgs and WebServicePropertiesResponseOutput values.
-// You can construct a concrete instance of `WebServicePropertiesResponseInput` via:
+// WebServicePropertiesForGraphResponseInput is an input type that accepts WebServicePropertiesForGraphResponseArgs and WebServicePropertiesForGraphResponseOutput values.
+// You can construct a concrete instance of `WebServicePropertiesForGraphResponseInput` via:
 //
-//          WebServicePropertiesResponseArgs{...}
-type WebServicePropertiesResponseInput interface {
+//          WebServicePropertiesForGraphResponseArgs{...}
+type WebServicePropertiesForGraphResponseInput interface {
 	pulumi.Input
 
-	ToWebServicePropertiesResponseOutput() WebServicePropertiesResponseOutput
-	ToWebServicePropertiesResponseOutputWithContext(context.Context) WebServicePropertiesResponseOutput
+	ToWebServicePropertiesForGraphResponseOutput() WebServicePropertiesForGraphResponseOutput
+	ToWebServicePropertiesForGraphResponseOutputWithContext(context.Context) WebServicePropertiesForGraphResponseOutput
 }
 
-// The set of properties specific to the Azure ML web service resource.
-type WebServicePropertiesResponseArgs struct {
+// Properties specific to a Graph based web service.
+type WebServicePropertiesForGraphResponseArgs struct {
 	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
 	Assets AssetItemResponseMapInput `pulumi:"assets"`
 	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
@@ -5212,6 +6539,8 @@ type WebServicePropertiesResponseArgs struct {
 	ModifiedOn pulumi.StringInput `pulumi:"modifiedOn"`
 	// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
 	Output ServiceInputOutputSpecificationResponsePtrInput `pulumi:"output"`
+	// The definition of the graph package making up this web service.
+	Package GraphPackageResponsePtrInput `pulumi:"package"`
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
 	PackageType pulumi.StringInput `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
@@ -5234,217 +6563,226 @@ type WebServicePropertiesResponseArgs struct {
 	Title pulumi.StringPtrInput `pulumi:"title"`
 }
 
-func (WebServicePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebServicePropertiesResponse)(nil)).Elem()
+func (WebServicePropertiesForGraphResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServicePropertiesForGraphResponse)(nil)).Elem()
 }
 
-func (i WebServicePropertiesResponseArgs) ToWebServicePropertiesResponseOutput() WebServicePropertiesResponseOutput {
-	return i.ToWebServicePropertiesResponseOutputWithContext(context.Background())
+func (i WebServicePropertiesForGraphResponseArgs) ToWebServicePropertiesForGraphResponseOutput() WebServicePropertiesForGraphResponseOutput {
+	return i.ToWebServicePropertiesForGraphResponseOutputWithContext(context.Background())
 }
 
-func (i WebServicePropertiesResponseArgs) ToWebServicePropertiesResponseOutputWithContext(ctx context.Context) WebServicePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesResponseOutput)
+func (i WebServicePropertiesForGraphResponseArgs) ToWebServicePropertiesForGraphResponseOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphResponseOutput)
 }
 
-func (i WebServicePropertiesResponseArgs) ToWebServicePropertiesResponsePtrOutput() WebServicePropertiesResponsePtrOutput {
-	return i.ToWebServicePropertiesResponsePtrOutputWithContext(context.Background())
+func (i WebServicePropertiesForGraphResponseArgs) ToWebServicePropertiesForGraphResponsePtrOutput() WebServicePropertiesForGraphResponsePtrOutput {
+	return i.ToWebServicePropertiesForGraphResponsePtrOutputWithContext(context.Background())
 }
 
-func (i WebServicePropertiesResponseArgs) ToWebServicePropertiesResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesResponseOutput).ToWebServicePropertiesResponsePtrOutputWithContext(ctx)
+func (i WebServicePropertiesForGraphResponseArgs) ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphResponseOutput).ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx)
 }
 
-// WebServicePropertiesResponsePtrInput is an input type that accepts WebServicePropertiesResponseArgs, WebServicePropertiesResponsePtr and WebServicePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `WebServicePropertiesResponsePtrInput` via:
+// WebServicePropertiesForGraphResponsePtrInput is an input type that accepts WebServicePropertiesForGraphResponseArgs, WebServicePropertiesForGraphResponsePtr and WebServicePropertiesForGraphResponsePtrOutput values.
+// You can construct a concrete instance of `WebServicePropertiesForGraphResponsePtrInput` via:
 //
-//          WebServicePropertiesResponseArgs{...}
+//          WebServicePropertiesForGraphResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type WebServicePropertiesResponsePtrInput interface {
+type WebServicePropertiesForGraphResponsePtrInput interface {
 	pulumi.Input
 
-	ToWebServicePropertiesResponsePtrOutput() WebServicePropertiesResponsePtrOutput
-	ToWebServicePropertiesResponsePtrOutputWithContext(context.Context) WebServicePropertiesResponsePtrOutput
+	ToWebServicePropertiesForGraphResponsePtrOutput() WebServicePropertiesForGraphResponsePtrOutput
+	ToWebServicePropertiesForGraphResponsePtrOutputWithContext(context.Context) WebServicePropertiesForGraphResponsePtrOutput
 }
 
-type webServicePropertiesResponsePtrType WebServicePropertiesResponseArgs
+type webServicePropertiesForGraphResponsePtrType WebServicePropertiesForGraphResponseArgs
 
-func WebServicePropertiesResponsePtr(v *WebServicePropertiesResponseArgs) WebServicePropertiesResponsePtrInput {
-	return (*webServicePropertiesResponsePtrType)(v)
+func WebServicePropertiesForGraphResponsePtr(v *WebServicePropertiesForGraphResponseArgs) WebServicePropertiesForGraphResponsePtrInput {
+	return (*webServicePropertiesForGraphResponsePtrType)(v)
 }
 
-func (*webServicePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebServicePropertiesResponse)(nil)).Elem()
+func (*webServicePropertiesForGraphResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebServicePropertiesForGraphResponse)(nil)).Elem()
 }
 
-func (i *webServicePropertiesResponsePtrType) ToWebServicePropertiesResponsePtrOutput() WebServicePropertiesResponsePtrOutput {
-	return i.ToWebServicePropertiesResponsePtrOutputWithContext(context.Background())
+func (i *webServicePropertiesForGraphResponsePtrType) ToWebServicePropertiesForGraphResponsePtrOutput() WebServicePropertiesForGraphResponsePtrOutput {
+	return i.ToWebServicePropertiesForGraphResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *webServicePropertiesResponsePtrType) ToWebServicePropertiesResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesResponsePtrOutput)
+func (i *webServicePropertiesForGraphResponsePtrType) ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphResponsePtrOutput)
 }
 
-// The set of properties specific to the Azure ML web service resource.
-type WebServicePropertiesResponseOutput struct{ *pulumi.OutputState }
+// Properties specific to a Graph based web service.
+type WebServicePropertiesForGraphResponseOutput struct{ *pulumi.OutputState }
 
-func (WebServicePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebServicePropertiesResponse)(nil)).Elem()
+func (WebServicePropertiesForGraphResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServicePropertiesForGraphResponse)(nil)).Elem()
 }
 
-func (o WebServicePropertiesResponseOutput) ToWebServicePropertiesResponseOutput() WebServicePropertiesResponseOutput {
+func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGraphResponseOutput() WebServicePropertiesForGraphResponseOutput {
 	return o
 }
 
-func (o WebServicePropertiesResponseOutput) ToWebServicePropertiesResponseOutputWithContext(ctx context.Context) WebServicePropertiesResponseOutput {
+func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGraphResponseOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponseOutput {
 	return o
 }
 
-func (o WebServicePropertiesResponseOutput) ToWebServicePropertiesResponsePtrOutput() WebServicePropertiesResponsePtrOutput {
-	return o.ToWebServicePropertiesResponsePtrOutputWithContext(context.Background())
+func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGraphResponsePtrOutput() WebServicePropertiesForGraphResponsePtrOutput {
+	return o.ToWebServicePropertiesForGraphResponsePtrOutputWithContext(context.Background())
 }
 
-func (o WebServicePropertiesResponseOutput) ToWebServicePropertiesResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *WebServicePropertiesResponse {
+func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *WebServicePropertiesForGraphResponse {
 		return &v
-	}).(WebServicePropertiesResponsePtrOutput)
+	}).(WebServicePropertiesForGraphResponsePtrOutput)
 }
 
 // Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-func (o WebServicePropertiesResponseOutput) Assets() AssetItemResponseMapOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) map[string]AssetItemResponse { return v.Assets }).(AssetItemResponseMapOutput)
+func (o WebServicePropertiesForGraphResponseOutput) Assets() AssetItemResponseMapOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) map[string]AssetItemResponse { return v.Assets }).(AssetItemResponseMapOutput)
 }
 
 // Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-func (o WebServicePropertiesResponseOutput) CommitmentPlan() CommitmentPlanResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *CommitmentPlanResponse { return v.CommitmentPlan }).(CommitmentPlanResponsePtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) CommitmentPlan() CommitmentPlanResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *CommitmentPlanResponse { return v.CommitmentPlan }).(CommitmentPlanResponsePtrOutput)
 }
 
 // Read Only: The date and time when the web service was created.
-func (o WebServicePropertiesResponseOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
+func (o WebServicePropertiesForGraphResponseOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
 // The description of the web service.
-func (o WebServicePropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Settings controlling the diagnostics traces collection for the web service.
-func (o WebServicePropertiesResponseOutput) Diagnostics() DiagnosticsConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *DiagnosticsConfigurationResponse { return v.Diagnostics }).(DiagnosticsConfigurationResponsePtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) Diagnostics() DiagnosticsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *DiagnosticsConfigurationResponse { return v.Diagnostics }).(DiagnosticsConfigurationResponsePtrOutput)
 }
 
 // Defines sample input data for one or more of the service's inputs.
-func (o WebServicePropertiesResponseOutput) ExampleRequest() ExampleRequestResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *ExampleRequestResponse { return v.ExampleRequest }).(ExampleRequestResponsePtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) ExampleRequest() ExampleRequestResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *ExampleRequestResponse { return v.ExampleRequest }).(ExampleRequestResponsePtrOutput)
 }
 
 // When set to true, sample data is included in the web service's swagger definition. The default value is true.
-func (o WebServicePropertiesResponseOutput) ExposeSampleData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *bool { return v.ExposeSampleData }).(pulumi.BoolPtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) ExposeSampleData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *bool { return v.ExposeSampleData }).(pulumi.BoolPtrOutput)
 }
 
 // Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
-func (o WebServicePropertiesResponseOutput) Input() ServiceInputOutputSpecificationResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *ServiceInputOutputSpecificationResponse { return v.Input }).(ServiceInputOutputSpecificationResponsePtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) Input() ServiceInputOutputSpecificationResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *ServiceInputOutputSpecificationResponse { return v.Input }).(ServiceInputOutputSpecificationResponsePtrOutput)
 }
 
 // Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
-func (o WebServicePropertiesResponseOutput) Keys() WebServiceKeysResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *WebServiceKeysResponse { return v.Keys }).(WebServiceKeysResponsePtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) Keys() WebServiceKeysResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *WebServiceKeysResponse { return v.Keys }).(WebServiceKeysResponsePtrOutput)
 }
 
 // Specifies the Machine Learning workspace containing the experiment that is source for the web service.
-func (o WebServicePropertiesResponseOutput) MachineLearningWorkspace() MachineLearningWorkspaceResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *MachineLearningWorkspaceResponse {
+func (o WebServicePropertiesForGraphResponseOutput) MachineLearningWorkspace() MachineLearningWorkspaceResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *MachineLearningWorkspaceResponse {
 		return v.MachineLearningWorkspace
 	}).(MachineLearningWorkspaceResponsePtrOutput)
 }
 
 // Read Only: The date and time when the web service was last modified.
-func (o WebServicePropertiesResponseOutput) ModifiedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) string { return v.ModifiedOn }).(pulumi.StringOutput)
+func (o WebServicePropertiesForGraphResponseOutput) ModifiedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) string { return v.ModifiedOn }).(pulumi.StringOutput)
 }
 
 // Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
-func (o WebServicePropertiesResponseOutput) Output() ServiceInputOutputSpecificationResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *ServiceInputOutputSpecificationResponse { return v.Output }).(ServiceInputOutputSpecificationResponsePtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) Output() ServiceInputOutputSpecificationResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *ServiceInputOutputSpecificationResponse { return v.Output }).(ServiceInputOutputSpecificationResponsePtrOutput)
+}
+
+// The definition of the graph package making up this web service.
+func (o WebServicePropertiesForGraphResponseOutput) Package() GraphPackageResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *GraphPackageResponse { return v.Package }).(GraphPackageResponsePtrOutput)
 }
 
 // Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-func (o WebServicePropertiesResponseOutput) PackageType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) string { return v.PackageType }).(pulumi.StringOutput)
+func (o WebServicePropertiesForGraphResponseOutput) PackageType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) string { return v.PackageType }).(pulumi.StringOutput)
 }
 
 // The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-func (o WebServicePropertiesResponseOutput) Parameters() WebServiceParameterResponseMapOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) map[string]WebServiceParameterResponse { return v.Parameters }).(WebServiceParameterResponseMapOutput)
+func (o WebServicePropertiesForGraphResponseOutput) Parameters() WebServiceParameterResponseMapOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) map[string]WebServiceParameterResponse {
+		return v.Parameters
+	}).(WebServiceParameterResponseMapOutput)
 }
 
 // When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
-func (o WebServicePropertiesResponseOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *bool { return v.PayloadsInBlobStorage }).(pulumi.BoolPtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *bool { return v.PayloadsInBlobStorage }).(pulumi.BoolPtrOutput)
 }
 
 // The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
-func (o WebServicePropertiesResponseOutput) PayloadsLocation() BlobLocationResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *BlobLocationResponse { return v.PayloadsLocation }).(BlobLocationResponsePtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) PayloadsLocation() BlobLocationResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *BlobLocationResponse { return v.PayloadsLocation }).(BlobLocationResponsePtrOutput)
 }
 
 // Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
-func (o WebServicePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+func (o WebServicePropertiesForGraphResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
-func (o WebServicePropertiesResponseOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
 // Contains the configuration settings for the web service endpoint.
-func (o WebServicePropertiesResponseOutput) RealtimeConfiguration() RealtimeConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *RealtimeConfigurationResponse { return v.RealtimeConfiguration }).(RealtimeConfigurationResponsePtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) RealtimeConfiguration() RealtimeConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *RealtimeConfigurationResponse {
+		return v.RealtimeConfiguration
+	}).(RealtimeConfigurationResponsePtrOutput)
 }
 
 // Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
-func (o WebServicePropertiesResponseOutput) StorageAccount() StorageAccountResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *StorageAccountResponse { return v.StorageAccount }).(StorageAccountResponsePtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) StorageAccount() StorageAccountResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *StorageAccountResponse { return v.StorageAccount }).(StorageAccountResponsePtrOutput)
 }
 
 // Read Only: Contains the URI of the swagger spec associated with this web service.
-func (o WebServicePropertiesResponseOutput) SwaggerLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) string { return v.SwaggerLocation }).(pulumi.StringOutput)
+func (o WebServicePropertiesForGraphResponseOutput) SwaggerLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) string { return v.SwaggerLocation }).(pulumi.StringOutput)
 }
 
 // The title of the web service.
-func (o WebServicePropertiesResponseOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
+func (o WebServicePropertiesForGraphResponseOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-type WebServicePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+type WebServicePropertiesForGraphResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (WebServicePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebServicePropertiesResponse)(nil)).Elem()
+func (WebServicePropertiesForGraphResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebServicePropertiesForGraphResponse)(nil)).Elem()
 }
 
-func (o WebServicePropertiesResponsePtrOutput) ToWebServicePropertiesResponsePtrOutput() WebServicePropertiesResponsePtrOutput {
+func (o WebServicePropertiesForGraphResponsePtrOutput) ToWebServicePropertiesForGraphResponsePtrOutput() WebServicePropertiesForGraphResponsePtrOutput {
 	return o
 }
 
-func (o WebServicePropertiesResponsePtrOutput) ToWebServicePropertiesResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesResponsePtrOutput {
+func (o WebServicePropertiesForGraphResponsePtrOutput) ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponsePtrOutput {
 	return o
 }
 
-func (o WebServicePropertiesResponsePtrOutput) Elem() WebServicePropertiesResponseOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) WebServicePropertiesResponse { return *v }).(WebServicePropertiesResponseOutput)
+func (o WebServicePropertiesForGraphResponsePtrOutput) Elem() WebServicePropertiesForGraphResponseOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) WebServicePropertiesForGraphResponse { return *v }).(WebServicePropertiesForGraphResponseOutput)
 }
 
 // Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-func (o WebServicePropertiesResponsePtrOutput) Assets() AssetItemResponseMapOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) map[string]AssetItemResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) Assets() AssetItemResponseMapOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) map[string]AssetItemResponse {
 		if v == nil {
 			return nil
 		}
@@ -5453,8 +6791,8 @@ func (o WebServicePropertiesResponsePtrOutput) Assets() AssetItemResponseMapOutp
 }
 
 // Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-func (o WebServicePropertiesResponsePtrOutput) CommitmentPlan() CommitmentPlanResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *CommitmentPlanResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) CommitmentPlan() CommitmentPlanResponsePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *CommitmentPlanResponse {
 		if v == nil {
 			return nil
 		}
@@ -5463,8 +6801,8 @@ func (o WebServicePropertiesResponsePtrOutput) CommitmentPlan() CommitmentPlanRe
 }
 
 // Read Only: The date and time when the web service was created.
-func (o WebServicePropertiesResponsePtrOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *string {
+func (o WebServicePropertiesForGraphResponsePtrOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5473,8 +6811,8 @@ func (o WebServicePropertiesResponsePtrOutput) CreatedOn() pulumi.StringPtrOutpu
 }
 
 // The description of the web service.
-func (o WebServicePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *string {
+func (o WebServicePropertiesForGraphResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5483,8 +6821,8 @@ func (o WebServicePropertiesResponsePtrOutput) Description() pulumi.StringPtrOut
 }
 
 // Settings controlling the diagnostics traces collection for the web service.
-func (o WebServicePropertiesResponsePtrOutput) Diagnostics() DiagnosticsConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *DiagnosticsConfigurationResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) Diagnostics() DiagnosticsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *DiagnosticsConfigurationResponse {
 		if v == nil {
 			return nil
 		}
@@ -5493,8 +6831,8 @@ func (o WebServicePropertiesResponsePtrOutput) Diagnostics() DiagnosticsConfigur
 }
 
 // Defines sample input data for one or more of the service's inputs.
-func (o WebServicePropertiesResponsePtrOutput) ExampleRequest() ExampleRequestResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *ExampleRequestResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) ExampleRequest() ExampleRequestResponsePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *ExampleRequestResponse {
 		if v == nil {
 			return nil
 		}
@@ -5503,8 +6841,8 @@ func (o WebServicePropertiesResponsePtrOutput) ExampleRequest() ExampleRequestRe
 }
 
 // When set to true, sample data is included in the web service's swagger definition. The default value is true.
-func (o WebServicePropertiesResponsePtrOutput) ExposeSampleData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *bool {
+func (o WebServicePropertiesForGraphResponsePtrOutput) ExposeSampleData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -5513,8 +6851,8 @@ func (o WebServicePropertiesResponsePtrOutput) ExposeSampleData() pulumi.BoolPtr
 }
 
 // Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
-func (o WebServicePropertiesResponsePtrOutput) Input() ServiceInputOutputSpecificationResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *ServiceInputOutputSpecificationResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) Input() ServiceInputOutputSpecificationResponsePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *ServiceInputOutputSpecificationResponse {
 		if v == nil {
 			return nil
 		}
@@ -5523,8 +6861,8 @@ func (o WebServicePropertiesResponsePtrOutput) Input() ServiceInputOutputSpecifi
 }
 
 // Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
-func (o WebServicePropertiesResponsePtrOutput) Keys() WebServiceKeysResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *WebServiceKeysResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) Keys() WebServiceKeysResponsePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *WebServiceKeysResponse {
 		if v == nil {
 			return nil
 		}
@@ -5533,8 +6871,8 @@ func (o WebServicePropertiesResponsePtrOutput) Keys() WebServiceKeysResponsePtrO
 }
 
 // Specifies the Machine Learning workspace containing the experiment that is source for the web service.
-func (o WebServicePropertiesResponsePtrOutput) MachineLearningWorkspace() MachineLearningWorkspaceResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *MachineLearningWorkspaceResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) MachineLearningWorkspace() MachineLearningWorkspaceResponsePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *MachineLearningWorkspaceResponse {
 		if v == nil {
 			return nil
 		}
@@ -5543,8 +6881,8 @@ func (o WebServicePropertiesResponsePtrOutput) MachineLearningWorkspace() Machin
 }
 
 // Read Only: The date and time when the web service was last modified.
-func (o WebServicePropertiesResponsePtrOutput) ModifiedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *string {
+func (o WebServicePropertiesForGraphResponsePtrOutput) ModifiedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5553,8 +6891,8 @@ func (o WebServicePropertiesResponsePtrOutput) ModifiedOn() pulumi.StringPtrOutp
 }
 
 // Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
-func (o WebServicePropertiesResponsePtrOutput) Output() ServiceInputOutputSpecificationResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *ServiceInputOutputSpecificationResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) Output() ServiceInputOutputSpecificationResponsePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *ServiceInputOutputSpecificationResponse {
 		if v == nil {
 			return nil
 		}
@@ -5562,9 +6900,19 @@ func (o WebServicePropertiesResponsePtrOutput) Output() ServiceInputOutputSpecif
 	}).(ServiceInputOutputSpecificationResponsePtrOutput)
 }
 
+// The definition of the graph package making up this web service.
+func (o WebServicePropertiesForGraphResponsePtrOutput) Package() GraphPackageResponsePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *GraphPackageResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Package
+	}).(GraphPackageResponsePtrOutput)
+}
+
 // Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-func (o WebServicePropertiesResponsePtrOutput) PackageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *string {
+func (o WebServicePropertiesForGraphResponsePtrOutput) PackageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5573,8 +6921,8 @@ func (o WebServicePropertiesResponsePtrOutput) PackageType() pulumi.StringPtrOut
 }
 
 // The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-func (o WebServicePropertiesResponsePtrOutput) Parameters() WebServiceParameterResponseMapOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) map[string]WebServiceParameterResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) Parameters() WebServiceParameterResponseMapOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) map[string]WebServiceParameterResponse {
 		if v == nil {
 			return nil
 		}
@@ -5583,8 +6931,8 @@ func (o WebServicePropertiesResponsePtrOutput) Parameters() WebServiceParameterR
 }
 
 // When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
-func (o WebServicePropertiesResponsePtrOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *bool {
+func (o WebServicePropertiesForGraphResponsePtrOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -5593,8 +6941,8 @@ func (o WebServicePropertiesResponsePtrOutput) PayloadsInBlobStorage() pulumi.Bo
 }
 
 // The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
-func (o WebServicePropertiesResponsePtrOutput) PayloadsLocation() BlobLocationResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *BlobLocationResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) PayloadsLocation() BlobLocationResponsePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *BlobLocationResponse {
 		if v == nil {
 			return nil
 		}
@@ -5603,8 +6951,8 @@ func (o WebServicePropertiesResponsePtrOutput) PayloadsLocation() BlobLocationRe
 }
 
 // Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
-func (o WebServicePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *string {
+func (o WebServicePropertiesForGraphResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5613,8 +6961,8 @@ func (o WebServicePropertiesResponsePtrOutput) ProvisioningState() pulumi.String
 }
 
 // When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
-func (o WebServicePropertiesResponsePtrOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *bool {
+func (o WebServicePropertiesForGraphResponsePtrOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -5623,8 +6971,8 @@ func (o WebServicePropertiesResponsePtrOutput) ReadOnly() pulumi.BoolPtrOutput {
 }
 
 // Contains the configuration settings for the web service endpoint.
-func (o WebServicePropertiesResponsePtrOutput) RealtimeConfiguration() RealtimeConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *RealtimeConfigurationResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) RealtimeConfiguration() RealtimeConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *RealtimeConfigurationResponse {
 		if v == nil {
 			return nil
 		}
@@ -5633,8 +6981,8 @@ func (o WebServicePropertiesResponsePtrOutput) RealtimeConfiguration() RealtimeC
 }
 
 // Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
-func (o WebServicePropertiesResponsePtrOutput) StorageAccount() StorageAccountResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *StorageAccountResponse {
+func (o WebServicePropertiesForGraphResponsePtrOutput) StorageAccount() StorageAccountResponsePtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *StorageAccountResponse {
 		if v == nil {
 			return nil
 		}
@@ -5643,8 +6991,8 @@ func (o WebServicePropertiesResponsePtrOutput) StorageAccount() StorageAccountRe
 }
 
 // Read Only: Contains the URI of the swagger spec associated with this web service.
-func (o WebServicePropertiesResponsePtrOutput) SwaggerLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *string {
+func (o WebServicePropertiesForGraphResponsePtrOutput) SwaggerLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5653,8 +7001,8 @@ func (o WebServicePropertiesResponsePtrOutput) SwaggerLocation() pulumi.StringPt
 }
 
 // The title of the web service.
-func (o WebServicePropertiesResponsePtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) *string {
+func (o WebServicePropertiesForGraphResponsePtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5687,6 +7035,26 @@ func init() {
 	pulumi.RegisterOutputType(ExampleRequestPtrOutput{})
 	pulumi.RegisterOutputType(ExampleRequestResponseOutput{})
 	pulumi.RegisterOutputType(ExampleRequestResponsePtrOutput{})
+	pulumi.RegisterOutputType(GraphEdgeOutput{})
+	pulumi.RegisterOutputType(GraphEdgeArrayOutput{})
+	pulumi.RegisterOutputType(GraphEdgeResponseOutput{})
+	pulumi.RegisterOutputType(GraphEdgeResponseArrayOutput{})
+	pulumi.RegisterOutputType(GraphNodeOutput{})
+	pulumi.RegisterOutputType(GraphNodeMapOutput{})
+	pulumi.RegisterOutputType(GraphNodeResponseOutput{})
+	pulumi.RegisterOutputType(GraphNodeResponseMapOutput{})
+	pulumi.RegisterOutputType(GraphPackageOutput{})
+	pulumi.RegisterOutputType(GraphPackagePtrOutput{})
+	pulumi.RegisterOutputType(GraphPackageResponseOutput{})
+	pulumi.RegisterOutputType(GraphPackageResponsePtrOutput{})
+	pulumi.RegisterOutputType(GraphParameterOutput{})
+	pulumi.RegisterOutputType(GraphParameterMapOutput{})
+	pulumi.RegisterOutputType(GraphParameterLinkOutput{})
+	pulumi.RegisterOutputType(GraphParameterLinkArrayOutput{})
+	pulumi.RegisterOutputType(GraphParameterLinkResponseOutput{})
+	pulumi.RegisterOutputType(GraphParameterLinkResponseArrayOutput{})
+	pulumi.RegisterOutputType(GraphParameterResponseOutput{})
+	pulumi.RegisterOutputType(GraphParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(InputPortOutput{})
 	pulumi.RegisterOutputType(InputPortMapOutput{})
 	pulumi.RegisterOutputType(InputPortResponseOutput{})
@@ -5731,8 +7099,8 @@ func init() {
 	pulumi.RegisterOutputType(WebServiceParameterMapOutput{})
 	pulumi.RegisterOutputType(WebServiceParameterResponseOutput{})
 	pulumi.RegisterOutputType(WebServiceParameterResponseMapOutput{})
-	pulumi.RegisterOutputType(WebServicePropertiesOutput{})
-	pulumi.RegisterOutputType(WebServicePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(WebServicePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(WebServicePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(WebServicePropertiesForGraphOutput{})
+	pulumi.RegisterOutputType(WebServicePropertiesForGraphPtrOutput{})
+	pulumi.RegisterOutputType(WebServicePropertiesForGraphResponseOutput{})
+	pulumi.RegisterOutputType(WebServicePropertiesForGraphResponsePtrOutput{})
 }

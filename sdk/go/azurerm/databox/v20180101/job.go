@@ -17,7 +17,7 @@ type Job struct {
 	// Reason for cancellation.
 	CancellationReason pulumi.StringOutput `pulumi:"cancellationReason"`
 	// Details of a job run. This field will only be sent for expand details filter.
-	Details JobDetailsResponsePtrOutput `pulumi:"details"`
+	Details pulumi.AnyOutput `pulumi:"details"`
 	// Top level error for the job.
 	Error ErrorResponseOutput `pulumi:"error"`
 	// Describes whether the job is cancellable or not.
@@ -97,7 +97,7 @@ type jobState struct {
 	// Reason for cancellation.
 	CancellationReason *string `pulumi:"cancellationReason"`
 	// Details of a job run. This field will only be sent for expand details filter.
-	Details *JobDetailsResponse `pulumi:"details"`
+	Details interface{} `pulumi:"details"`
 	// Top level error for the job.
 	Error *ErrorResponse `pulumi:"error"`
 	// Describes whether the job is cancellable or not.
@@ -126,7 +126,7 @@ type JobState struct {
 	// Reason for cancellation.
 	CancellationReason pulumi.StringPtrInput
 	// Details of a job run. This field will only be sent for expand details filter.
-	Details JobDetailsResponsePtrInput
+	Details pulumi.Input
 	// Top level error for the job.
 	Error ErrorResponsePtrInput
 	// Describes whether the job is cancellable or not.
@@ -157,7 +157,7 @@ func (JobState) ElementType() reflect.Type {
 
 type jobArgs struct {
 	// Details of a job run. This field will only be sent for expand details filter.
-	Details *JobDetails `pulumi:"details"`
+	Details interface{} `pulumi:"details"`
 	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	JobName string `pulumi:"jobName"`
 	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
@@ -173,7 +173,7 @@ type jobArgs struct {
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
 	// Details of a job run. This field will only be sent for expand details filter.
-	Details JobDetailsPtrInput
+	Details pulumi.Input
 	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	JobName pulumi.StringInput
 	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
         /// The inputs for the Job.
         /// </summary>
         [Output("input")]
-        public Output<Outputs.JobInputResponseResult> Input { get; private set; } = null!;
+        public Output<Union<Outputs.JobInputClipResponseResult, Outputs.JobInputsResponseResult>> Input { get; private set; } = null!;
 
         /// <summary>
         /// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
         /// The outputs for the Job.
         /// </summary>
         [Output("outputs")]
-        public Output<ImmutableArray<Outputs.JobOutputResponseResult>> Outputs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.JobOutputAssetResponseResult>> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
@@ -136,7 +136,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
         /// The inputs for the Job.
         /// </summary>
         [Input("input", required: true)]
-        public Input<Inputs.JobInputArgs> Input { get; set; } = null!;
+        public InputUnion<Inputs.JobInputClipArgs, Inputs.JobInputsArgs> Input { get; set; } = null!;
 
         /// <summary>
         /// The Job name.
@@ -145,14 +145,14 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
         public Input<string> JobName { get; set; } = null!;
 
         [Input("outputs", required: true)]
-        private InputList<Inputs.JobOutputArgs>? _outputs;
+        private InputList<Inputs.JobOutputAssetArgs>? _outputs;
 
         /// <summary>
         /// The outputs for the Job.
         /// </summary>
-        public InputList<Inputs.JobOutputArgs> Outputs
+        public InputList<Inputs.JobOutputAssetArgs> Outputs
         {
-            get => _outputs ?? (_outputs = new InputList<Inputs.JobOutputArgs>());
+            get => _outputs ?? (_outputs = new InputList<Inputs.JobOutputAssetArgs>());
             set => _outputs = value;
         }
 

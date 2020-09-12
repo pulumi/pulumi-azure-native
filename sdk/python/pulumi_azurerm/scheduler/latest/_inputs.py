@@ -9,7 +9,8 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'HttpAuthenticationArgs',
+    'BasicAuthenticationArgs',
+    'ClientCertAuthenticationArgs',
     'HttpRequestArgs',
     'JobActionArgs',
     'JobCollectionPropertiesArgs',
@@ -20,6 +21,7 @@ __all__ = [
     'JobRecurrenceArgs',
     'JobRecurrenceScheduleArgs',
     'JobRecurrenceScheduleMonthlyOccurrenceArgs',
+    'OAuthAuthenticationArgs',
     'RetryPolicyArgs',
     'ServiceBusAuthenticationArgs',
     'ServiceBusBrokeredMessagePropertiesArgs',
@@ -30,13 +32,21 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class HttpAuthenticationArgs:
+class BasicAuthenticationArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Gets or sets the HTTP authentication type.
+        :param pulumi.Input[str] password: Gets or sets the password, return value will always be empty.
+        :param pulumi.Input[str] username: Gets or sets the username.
         """
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type", 'Basic')
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -50,17 +60,143 @@ class HttpAuthenticationArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the password, return value will always be empty.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the username.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class ClientCertAuthenticationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 certificate_expiration_date: Optional[pulumi.Input[str]] = None,
+                 certificate_subject_name: Optional[pulumi.Input[str]] = None,
+                 certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 pfx: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Gets or sets the HTTP authentication type.
+        :param pulumi.Input[str] certificate_expiration_date: Gets or sets the certificate expiration date.
+        :param pulumi.Input[str] certificate_subject_name: Gets or sets the certificate subject name.
+        :param pulumi.Input[str] certificate_thumbprint: Gets or sets the certificate thumbprint.
+        :param pulumi.Input[str] password: Gets or sets the certificate password, return value will always be empty.
+        :param pulumi.Input[str] pfx: Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+        """
+        pulumi.set(__self__, "type", 'ClientCertificate')
+        if certificate_expiration_date is not None:
+            pulumi.set(__self__, "certificate_expiration_date", certificate_expiration_date)
+        if certificate_subject_name is not None:
+            pulumi.set(__self__, "certificate_subject_name", certificate_subject_name)
+        if certificate_thumbprint is not None:
+            pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if pfx is not None:
+            pulumi.set(__self__, "pfx", pfx)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the HTTP authentication type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="certificateExpirationDate")
+    def certificate_expiration_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the certificate expiration date.
+        """
+        return pulumi.get(self, "certificate_expiration_date")
+
+    @certificate_expiration_date.setter
+    def certificate_expiration_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_expiration_date", value)
+
+    @property
+    @pulumi.getter(name="certificateSubjectName")
+    def certificate_subject_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the certificate subject name.
+        """
+        return pulumi.get(self, "certificate_subject_name")
+
+    @certificate_subject_name.setter
+    def certificate_subject_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_subject_name", value)
+
+    @property
+    @pulumi.getter(name="certificateThumbprint")
+    def certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the certificate thumbprint.
+        """
+        return pulumi.get(self, "certificate_thumbprint")
+
+    @certificate_thumbprint.setter
+    def certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_thumbprint", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the certificate password, return value will always be empty.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def pfx(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+        """
+        return pulumi.get(self, "pfx")
+
+    @pfx.setter
+    def pfx(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pfx", value)
+
 
 @pulumi.input_type
 class HttpRequestArgs:
     def __init__(__self__, *,
-                 authentication: Optional[pulumi.Input['HttpAuthenticationArgs']] = None,
+                 authentication: Optional[pulumi.Input[Union['BasicAuthenticationArgs', 'ClientCertAuthenticationArgs', 'OAuthAuthenticationArgs']]] = None,
                  body: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  method: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['HttpAuthenticationArgs'] authentication: Gets or sets the authentication method of the request.
+        :param pulumi.Input[Union['BasicAuthenticationArgs', 'ClientCertAuthenticationArgs', 'OAuthAuthenticationArgs']] authentication: Gets or sets the authentication method of the request.
         :param pulumi.Input[str] body: Gets or sets the request body.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: Gets or sets the headers.
         :param pulumi.Input[str] method: Gets or sets the method of the request.
@@ -79,14 +215,14 @@ class HttpRequestArgs:
 
     @property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['HttpAuthenticationArgs']]:
+    def authentication(self) -> Optional[pulumi.Input[Union['BasicAuthenticationArgs', 'ClientCertAuthenticationArgs', 'OAuthAuthenticationArgs']]]:
         """
         Gets or sets the authentication method of the request.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['HttpAuthenticationArgs']]):
+    def authentication(self, value: Optional[pulumi.Input[Union['BasicAuthenticationArgs', 'ClientCertAuthenticationArgs', 'OAuthAuthenticationArgs']]]):
         pulumi.set(self, "authentication", value)
 
     @property
@@ -787,6 +923,92 @@ class JobRecurrenceScheduleMonthlyOccurrenceArgs:
     @occurrence.setter
     def occurrence(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "occurrence", value)
+
+
+@pulumi.input_type
+class OAuthAuthenticationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 audience: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 secret: Optional[pulumi.Input[str]] = None,
+                 tenant: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Gets or sets the HTTP authentication type.
+        :param pulumi.Input[str] audience: Gets or sets the audience.
+        :param pulumi.Input[str] client_id: Gets or sets the client identifier.
+        :param pulumi.Input[str] secret: Gets or sets the secret, return value will always be empty.
+        :param pulumi.Input[str] tenant: Gets or sets the tenant.
+        """
+        pulumi.set(__self__, "type", 'ActiveDirectoryOAuth')
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if tenant is not None:
+            pulumi.set(__self__, "tenant", tenant)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the HTTP authentication type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the audience.
+        """
+        return pulumi.get(self, "audience")
+
+    @audience.setter
+    def audience(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "audience", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the client identifier.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the secret, return value will always be empty.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter
+    def tenant(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the tenant.
+        """
+        return pulumi.get(self, "tenant")
+
+    @tenant.setter
+    def tenant(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant", value)
 
 
 @pulumi.input_type

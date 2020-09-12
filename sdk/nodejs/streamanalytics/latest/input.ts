@@ -97,7 +97,7 @@ export class Input extends pulumi.CustomResource {
     /**
      * The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
      */
-    public readonly properties!: pulumi.Output<outputs.streamanalytics.latest.InputPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.streamanalytics.latest.ReferenceInputPropertiesResponse | outputs.streamanalytics.latest.StreamInputPropertiesResponse>;
     /**
      * Resource type
      */
@@ -165,7 +165,7 @@ export interface InputArgs {
     /**
      * The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
      */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.latest.InputProperties>;
+    readonly properties?: pulumi.Input<inputs.streamanalytics.latest.ReferenceInputProperties | inputs.streamanalytics.latest.StreamInputProperties>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

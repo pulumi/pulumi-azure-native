@@ -22,7 +22,7 @@ class Service(pulumi.CustomResource):
                  correlation_scheme: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCorrelationDescriptionArgs']]]]] = None,
                  default_move_cost: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 partition_description: Optional[pulumi.Input[pulumi.InputType['PartitionSchemeDescriptionArgs']]] = None,
+                 partition_description: Optional[pulumi.Input[Union[pulumi.InputType['NamedPartitionSchemeDescriptionArgs'], pulumi.InputType['SingletonPartitionSchemeDescriptionArgs'], pulumi.InputType['UniformInt64RangePartitionSchemeDescriptionArgs']]]] = None,
                  placement_constraints: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_dns_name: Optional[pulumi.Input[str]] = None,
@@ -46,7 +46,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCorrelationDescriptionArgs']]]] correlation_scheme: A list that describes the correlation of the service with other services.
         :param pulumi.Input[str] default_move_cost: Specifies the move cost for the service.
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
-        :param pulumi.Input[pulumi.InputType['PartitionSchemeDescriptionArgs']] partition_description: Describes how the service is partitioned.
+        :param pulumi.Input[Union[pulumi.InputType['NamedPartitionSchemeDescriptionArgs'], pulumi.InputType['SingletonPartitionSchemeDescriptionArgs'], pulumi.InputType['UniformInt64RangePartitionSchemeDescriptionArgs']]] partition_description: Describes how the service is partitioned.
         :param pulumi.Input[str] placement_constraints: The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_dns_name: Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
@@ -173,7 +173,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionDescription")
-    def partition_description(self) -> pulumi.Output[Optional['outputs.PartitionSchemeDescriptionResponse']]:
+    def partition_description(self) -> pulumi.Output[Optional[Any]]:
         """
         Describes how the service is partitioned.
         """

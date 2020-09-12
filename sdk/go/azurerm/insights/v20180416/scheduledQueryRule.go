@@ -15,7 +15,7 @@ type ScheduledQueryRule struct {
 	pulumi.CustomResourceState
 
 	// Action needs to be taken on rule execution.
-	Action ActionResponseOutput `pulumi:"action"`
+	Action pulumi.AnyOutput `pulumi:"action"`
 	// The description of the Log Search rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
@@ -91,7 +91,7 @@ func GetScheduledQueryRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ScheduledQueryRule resources.
 type scheduledQueryRuleState struct {
 	// Action needs to be taken on rule execution.
-	Action *ActionResponse `pulumi:"action"`
+	Action interface{} `pulumi:"action"`
 	// The description of the Log Search rule.
 	Description *string `pulumi:"description"`
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
@@ -116,7 +116,7 @@ type scheduledQueryRuleState struct {
 
 type ScheduledQueryRuleState struct {
 	// Action needs to be taken on rule execution.
-	Action ActionResponsePtrInput
+	Action pulumi.Input
 	// The description of the Log Search rule.
 	Description pulumi.StringPtrInput
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
@@ -145,7 +145,7 @@ func (ScheduledQueryRuleState) ElementType() reflect.Type {
 
 type scheduledQueryRuleArgs struct {
 	// Action needs to be taken on rule execution.
-	Action Action `pulumi:"action"`
+	Action interface{} `pulumi:"action"`
 	// The description of the Log Search rule.
 	Description *string `pulumi:"description"`
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
@@ -167,7 +167,7 @@ type scheduledQueryRuleArgs struct {
 // The set of arguments for constructing a ScheduledQueryRule resource.
 type ScheduledQueryRuleArgs struct {
 	// Action needs to be taken on rule execution.
-	Action ActionInput
+	Action pulumi.Input
 	// The description of the Log Search rule.
 	Description pulumi.StringPtrInput
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false

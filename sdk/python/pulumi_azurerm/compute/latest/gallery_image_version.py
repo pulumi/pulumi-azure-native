@@ -29,7 +29,7 @@ class GalleryImageVersion(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Specifies information about the gallery Image Version that you want to create or update.
+        Specifies information about the gallery image version that you want to create or update.
 
         ## Example Usage
         ### Create or update a simple Gallery Image Version (Managed Image as source).
@@ -133,11 +133,11 @@ class GalleryImageVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] gallery_image_name: The name of the gallery Image Definition in which the Image Version is to be created.
-        :param pulumi.Input[str] gallery_image_version_name: The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+        :param pulumi.Input[str] gallery_image_name: The name of the gallery image definition in which the Image Version is to be created.
+        :param pulumi.Input[str] gallery_image_version_name: The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition resides.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[pulumi.InputType['GalleryImageVersionPublishingProfileArgs']] publishing_profile: The publishing profile of a gallery Image Version.
+        :param pulumi.Input[pulumi.InputType['GalleryImageVersionPublishingProfileArgs']] publishing_profile: The publishing profile of a gallery image Version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['GalleryImageVersionStorageProfileArgs']] storage_profile: This is the storage profile of a Gallery Image Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -183,7 +183,7 @@ class GalleryImageVersion(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['replication_status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20180601:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20190301:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20190701:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryImageVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20180601:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20190301:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20190701:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryImageVersion"), pulumi.Alias(type_="azurerm:compute/v20200930:GalleryImageVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImageVersion, __self__).__init__(
             'azurerm:compute/latest:GalleryImageVersion',
@@ -237,7 +237,7 @@ class GalleryImageVersion(pulumi.CustomResource):
     @pulumi.getter(name="publishingProfile")
     def publishing_profile(self) -> pulumi.Output[Optional['outputs.GalleryImageVersionPublishingProfileResponse']]:
         """
-        The publishing profile of a gallery Image Version.
+        The publishing profile of a gallery image Version.
         """
         return pulumi.get(self, "publishing_profile")
 
@@ -245,7 +245,7 @@ class GalleryImageVersion(pulumi.CustomResource):
     @pulumi.getter(name="replicationStatus")
     def replication_status(self) -> pulumi.Output['outputs.ReplicationStatusResponse']:
         """
-        This is the replication status of the gallery Image Version.
+        This is the replication status of the gallery image version.
         """
         return pulumi.get(self, "replication_status")
 

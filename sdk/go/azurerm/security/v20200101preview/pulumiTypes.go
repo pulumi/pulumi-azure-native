@@ -10,310 +10,680 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Settings for cloud authentication management
-type AuthenticationDetailsProperties struct {
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsProperties struct {
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	AuthenticationType string `pulumi:"authenticationType"`
+	// Assumed role ID is an identifier that you can use to create temporary security credentials.
+	AwsAssumeRoleArn string `pulumi:"awsAssumeRoleArn"`
+	// A unique identifier that is required when you assume a role in another account.
+	AwsExternalId string `pulumi:"awsExternalId"`
 }
 
-// AuthenticationDetailsPropertiesInput is an input type that accepts AuthenticationDetailsPropertiesArgs and AuthenticationDetailsPropertiesOutput values.
-// You can construct a concrete instance of `AuthenticationDetailsPropertiesInput` via:
+// AwAssumeRoleAuthenticationDetailsPropertiesInput is an input type that accepts AwAssumeRoleAuthenticationDetailsPropertiesArgs and AwAssumeRoleAuthenticationDetailsPropertiesOutput values.
+// You can construct a concrete instance of `AwAssumeRoleAuthenticationDetailsPropertiesInput` via:
 //
-//          AuthenticationDetailsPropertiesArgs{...}
-type AuthenticationDetailsPropertiesInput interface {
+//          AwAssumeRoleAuthenticationDetailsPropertiesArgs{...}
+type AwAssumeRoleAuthenticationDetailsPropertiesInput interface {
 	pulumi.Input
 
-	ToAuthenticationDetailsPropertiesOutput() AuthenticationDetailsPropertiesOutput
-	ToAuthenticationDetailsPropertiesOutputWithContext(context.Context) AuthenticationDetailsPropertiesOutput
+	ToAwAssumeRoleAuthenticationDetailsPropertiesOutput() AwAssumeRoleAuthenticationDetailsPropertiesOutput
+	ToAwAssumeRoleAuthenticationDetailsPropertiesOutputWithContext(context.Context) AwAssumeRoleAuthenticationDetailsPropertiesOutput
 }
 
-// Settings for cloud authentication management
-type AuthenticationDetailsPropertiesArgs struct {
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesArgs struct {
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Assumed role ID is an identifier that you can use to create temporary security credentials.
+	AwsAssumeRoleArn pulumi.StringInput `pulumi:"awsAssumeRoleArn"`
+	// A unique identifier that is required when you assume a role in another account.
+	AwsExternalId pulumi.StringInput `pulumi:"awsExternalId"`
 }
 
-func (AuthenticationDetailsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthenticationDetailsProperties)(nil)).Elem()
+func (AwAssumeRoleAuthenticationDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwAssumeRoleAuthenticationDetailsProperties)(nil)).Elem()
 }
 
-func (i AuthenticationDetailsPropertiesArgs) ToAuthenticationDetailsPropertiesOutput() AuthenticationDetailsPropertiesOutput {
-	return i.ToAuthenticationDetailsPropertiesOutputWithContext(context.Background())
+func (i AwAssumeRoleAuthenticationDetailsPropertiesArgs) ToAwAssumeRoleAuthenticationDetailsPropertiesOutput() AwAssumeRoleAuthenticationDetailsPropertiesOutput {
+	return i.ToAwAssumeRoleAuthenticationDetailsPropertiesOutputWithContext(context.Background())
 }
 
-func (i AuthenticationDetailsPropertiesArgs) ToAuthenticationDetailsPropertiesOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationDetailsPropertiesOutput)
+func (i AwAssumeRoleAuthenticationDetailsPropertiesArgs) ToAwAssumeRoleAuthenticationDetailsPropertiesOutputWithContext(ctx context.Context) AwAssumeRoleAuthenticationDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwAssumeRoleAuthenticationDetailsPropertiesOutput)
 }
 
-func (i AuthenticationDetailsPropertiesArgs) ToAuthenticationDetailsPropertiesPtrOutput() AuthenticationDetailsPropertiesPtrOutput {
-	return i.ToAuthenticationDetailsPropertiesPtrOutputWithContext(context.Background())
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AwAssumeRoleAuthenticationDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwAssumeRoleAuthenticationDetailsProperties)(nil)).Elem()
 }
 
-func (i AuthenticationDetailsPropertiesArgs) ToAuthenticationDetailsPropertiesPtrOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationDetailsPropertiesOutput).ToAuthenticationDetailsPropertiesPtrOutputWithContext(ctx)
-}
-
-// AuthenticationDetailsPropertiesPtrInput is an input type that accepts AuthenticationDetailsPropertiesArgs, AuthenticationDetailsPropertiesPtr and AuthenticationDetailsPropertiesPtrOutput values.
-// You can construct a concrete instance of `AuthenticationDetailsPropertiesPtrInput` via:
-//
-//          AuthenticationDetailsPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type AuthenticationDetailsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToAuthenticationDetailsPropertiesPtrOutput() AuthenticationDetailsPropertiesPtrOutput
-	ToAuthenticationDetailsPropertiesPtrOutputWithContext(context.Context) AuthenticationDetailsPropertiesPtrOutput
-}
-
-type authenticationDetailsPropertiesPtrType AuthenticationDetailsPropertiesArgs
-
-func AuthenticationDetailsPropertiesPtr(v *AuthenticationDetailsPropertiesArgs) AuthenticationDetailsPropertiesPtrInput {
-	return (*authenticationDetailsPropertiesPtrType)(v)
-}
-
-func (*authenticationDetailsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthenticationDetailsProperties)(nil)).Elem()
-}
-
-func (i *authenticationDetailsPropertiesPtrType) ToAuthenticationDetailsPropertiesPtrOutput() AuthenticationDetailsPropertiesPtrOutput {
-	return i.ToAuthenticationDetailsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *authenticationDetailsPropertiesPtrType) ToAuthenticationDetailsPropertiesPtrOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationDetailsPropertiesPtrOutput)
-}
-
-// Settings for cloud authentication management
-type AuthenticationDetailsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (AuthenticationDetailsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthenticationDetailsProperties)(nil)).Elem()
-}
-
-func (o AuthenticationDetailsPropertiesOutput) ToAuthenticationDetailsPropertiesOutput() AuthenticationDetailsPropertiesOutput {
+func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) ToAwAssumeRoleAuthenticationDetailsPropertiesOutput() AwAssumeRoleAuthenticationDetailsPropertiesOutput {
 	return o
 }
 
-func (o AuthenticationDetailsPropertiesOutput) ToAuthenticationDetailsPropertiesOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesOutput {
+func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) ToAwAssumeRoleAuthenticationDetailsPropertiesOutputWithContext(ctx context.Context) AwAssumeRoleAuthenticationDetailsPropertiesOutput {
 	return o
-}
-
-func (o AuthenticationDetailsPropertiesOutput) ToAuthenticationDetailsPropertiesPtrOutput() AuthenticationDetailsPropertiesPtrOutput {
-	return o.ToAuthenticationDetailsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o AuthenticationDetailsPropertiesOutput) ToAuthenticationDetailsPropertiesPtrOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesPtrOutput {
-	return o.ApplyT(func(v AuthenticationDetailsProperties) *AuthenticationDetailsProperties {
-		return &v
-	}).(AuthenticationDetailsPropertiesPtrOutput)
 }
 
 // Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-func (o AuthenticationDetailsPropertiesOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v AuthenticationDetailsProperties) string { return v.AuthenticationType }).(pulumi.StringOutput)
+func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsProperties) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-type AuthenticationDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (AuthenticationDetailsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthenticationDetailsProperties)(nil)).Elem()
+// Assumed role ID is an identifier that you can use to create temporary security credentials.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AwsAssumeRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsProperties) string { return v.AwsAssumeRoleArn }).(pulumi.StringOutput)
 }
 
-func (o AuthenticationDetailsPropertiesPtrOutput) ToAuthenticationDetailsPropertiesPtrOutput() AuthenticationDetailsPropertiesPtrOutput {
-	return o
+// A unique identifier that is required when you assume a role in another account.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AwsExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsProperties) string { return v.AwsExternalId }).(pulumi.StringOutput)
 }
 
-func (o AuthenticationDetailsPropertiesPtrOutput) ToAuthenticationDetailsPropertiesPtrOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesPtrOutput {
-	return o
-}
-
-func (o AuthenticationDetailsPropertiesPtrOutput) Elem() AuthenticationDetailsPropertiesOutput {
-	return o.ApplyT(func(v *AuthenticationDetailsProperties) AuthenticationDetailsProperties { return *v }).(AuthenticationDetailsPropertiesOutput)
-}
-
-// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-func (o AuthenticationDetailsPropertiesPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AuthenticationDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AuthenticationType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Settings for cloud authentication management
-type AuthenticationDetailsPropertiesResponse struct {
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesResponse struct {
+	// The ID of the cloud account
+	AccountId string `pulumi:"accountId"`
 	// State of the multi-cloud connector
 	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	AuthenticationType string `pulumi:"authenticationType"`
+	// Assumed role ID is an identifier that you can use to create temporary security credentials.
+	AwsAssumeRoleArn string `pulumi:"awsAssumeRoleArn"`
+	// A unique identifier that is required when you assume a role in another account.
+	AwsExternalId string `pulumi:"awsExternalId"`
 	// The permissions detected in the cloud account.
 	GrantedPermissions []string `pulumi:"grantedPermissions"`
 }
 
-// AuthenticationDetailsPropertiesResponseInput is an input type that accepts AuthenticationDetailsPropertiesResponseArgs and AuthenticationDetailsPropertiesResponseOutput values.
-// You can construct a concrete instance of `AuthenticationDetailsPropertiesResponseInput` via:
+// AwAssumeRoleAuthenticationDetailsPropertiesResponseInput is an input type that accepts AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs and AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput values.
+// You can construct a concrete instance of `AwAssumeRoleAuthenticationDetailsPropertiesResponseInput` via:
 //
-//          AuthenticationDetailsPropertiesResponseArgs{...}
-type AuthenticationDetailsPropertiesResponseInput interface {
+//          AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs{...}
+type AwAssumeRoleAuthenticationDetailsPropertiesResponseInput interface {
 	pulumi.Input
 
-	ToAuthenticationDetailsPropertiesResponseOutput() AuthenticationDetailsPropertiesResponseOutput
-	ToAuthenticationDetailsPropertiesResponseOutputWithContext(context.Context) AuthenticationDetailsPropertiesResponseOutput
+	ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutput() AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput
+	ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutputWithContext(context.Context) AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput
 }
 
-// Settings for cloud authentication management
-type AuthenticationDetailsPropertiesResponseArgs struct {
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs struct {
+	// The ID of the cloud account
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// State of the multi-cloud connector
 	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
 	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Assumed role ID is an identifier that you can use to create temporary security credentials.
+	AwsAssumeRoleArn pulumi.StringInput `pulumi:"awsAssumeRoleArn"`
+	// A unique identifier that is required when you assume a role in another account.
+	AwsExternalId pulumi.StringInput `pulumi:"awsExternalId"`
 	// The permissions detected in the cloud account.
 	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
 }
 
-func (AuthenticationDetailsPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthenticationDetailsPropertiesResponse)(nil)).Elem()
+func (AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwAssumeRoleAuthenticationDetailsPropertiesResponse)(nil)).Elem()
 }
 
-func (i AuthenticationDetailsPropertiesResponseArgs) ToAuthenticationDetailsPropertiesResponseOutput() AuthenticationDetailsPropertiesResponseOutput {
-	return i.ToAuthenticationDetailsPropertiesResponseOutputWithContext(context.Background())
+func (i AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs) ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutput() AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput {
+	return i.ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutputWithContext(context.Background())
 }
 
-func (i AuthenticationDetailsPropertiesResponseArgs) ToAuthenticationDetailsPropertiesResponseOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationDetailsPropertiesResponseOutput)
+func (i AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs) ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutputWithContext(ctx context.Context) AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput)
 }
 
-func (i AuthenticationDetailsPropertiesResponseArgs) ToAuthenticationDetailsPropertiesResponsePtrOutput() AuthenticationDetailsPropertiesResponsePtrOutput {
-	return i.ToAuthenticationDetailsPropertiesResponsePtrOutputWithContext(context.Background())
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwAssumeRoleAuthenticationDetailsPropertiesResponse)(nil)).Elem()
 }
 
-func (i AuthenticationDetailsPropertiesResponseArgs) ToAuthenticationDetailsPropertiesResponsePtrOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationDetailsPropertiesResponseOutput).ToAuthenticationDetailsPropertiesResponsePtrOutputWithContext(ctx)
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutput() AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput {
+	return o
 }
 
-// AuthenticationDetailsPropertiesResponsePtrInput is an input type that accepts AuthenticationDetailsPropertiesResponseArgs, AuthenticationDetailsPropertiesResponsePtr and AuthenticationDetailsPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `AuthenticationDetailsPropertiesResponsePtrInput` via:
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutputWithContext(ctx context.Context) AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput {
+	return o
+}
+
+// The ID of the cloud account
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// State of the multi-cloud connector
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string {
+		return v.AuthenticationProvisioningState
+	}).(pulumi.StringOutput)
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Assumed role ID is an identifier that you can use to create temporary security credentials.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AwsAssumeRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AwsAssumeRoleArn }).(pulumi.StringOutput)
+}
+
+// A unique identifier that is required when you assume a role in another account.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AwsExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AwsExternalId }).(pulumi.StringOutput)
+}
+
+// The permissions detected in the cloud account.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsProperties struct {
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Public key element of the AWS credential object (write only)
+	AwsAccessKeyId string `pulumi:"awsAccessKeyId"`
+	// Secret key element of the AWS credential object (write only)
+	AwsSecretAccessKey string `pulumi:"awsSecretAccessKey"`
+}
+
+// AwsCredsAuthenticationDetailsPropertiesInput is an input type that accepts AwsCredsAuthenticationDetailsPropertiesArgs and AwsCredsAuthenticationDetailsPropertiesOutput values.
+// You can construct a concrete instance of `AwsCredsAuthenticationDetailsPropertiesInput` via:
 //
-//          AuthenticationDetailsPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AuthenticationDetailsPropertiesResponsePtrInput interface {
+//          AwsCredsAuthenticationDetailsPropertiesArgs{...}
+type AwsCredsAuthenticationDetailsPropertiesInput interface {
 	pulumi.Input
 
-	ToAuthenticationDetailsPropertiesResponsePtrOutput() AuthenticationDetailsPropertiesResponsePtrOutput
-	ToAuthenticationDetailsPropertiesResponsePtrOutputWithContext(context.Context) AuthenticationDetailsPropertiesResponsePtrOutput
+	ToAwsCredsAuthenticationDetailsPropertiesOutput() AwsCredsAuthenticationDetailsPropertiesOutput
+	ToAwsCredsAuthenticationDetailsPropertiesOutputWithContext(context.Context) AwsCredsAuthenticationDetailsPropertiesOutput
 }
 
-type authenticationDetailsPropertiesResponsePtrType AuthenticationDetailsPropertiesResponseArgs
-
-func AuthenticationDetailsPropertiesResponsePtr(v *AuthenticationDetailsPropertiesResponseArgs) AuthenticationDetailsPropertiesResponsePtrInput {
-	return (*authenticationDetailsPropertiesResponsePtrType)(v)
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesArgs struct {
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Public key element of the AWS credential object (write only)
+	AwsAccessKeyId pulumi.StringInput `pulumi:"awsAccessKeyId"`
+	// Secret key element of the AWS credential object (write only)
+	AwsSecretAccessKey pulumi.StringInput `pulumi:"awsSecretAccessKey"`
 }
 
-func (*authenticationDetailsPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthenticationDetailsPropertiesResponse)(nil)).Elem()
+func (AwsCredsAuthenticationDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCredsAuthenticationDetailsProperties)(nil)).Elem()
 }
 
-func (i *authenticationDetailsPropertiesResponsePtrType) ToAuthenticationDetailsPropertiesResponsePtrOutput() AuthenticationDetailsPropertiesResponsePtrOutput {
-	return i.ToAuthenticationDetailsPropertiesResponsePtrOutputWithContext(context.Background())
+func (i AwsCredsAuthenticationDetailsPropertiesArgs) ToAwsCredsAuthenticationDetailsPropertiesOutput() AwsCredsAuthenticationDetailsPropertiesOutput {
+	return i.ToAwsCredsAuthenticationDetailsPropertiesOutputWithContext(context.Background())
 }
 
-func (i *authenticationDetailsPropertiesResponsePtrType) ToAuthenticationDetailsPropertiesResponsePtrOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationDetailsPropertiesResponsePtrOutput)
+func (i AwsCredsAuthenticationDetailsPropertiesArgs) ToAwsCredsAuthenticationDetailsPropertiesOutputWithContext(ctx context.Context) AwsCredsAuthenticationDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCredsAuthenticationDetailsPropertiesOutput)
 }
 
-// Settings for cloud authentication management
-type AuthenticationDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
-func (AuthenticationDetailsPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthenticationDetailsPropertiesResponse)(nil)).Elem()
+func (AwsCredsAuthenticationDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCredsAuthenticationDetailsProperties)(nil)).Elem()
 }
 
-func (o AuthenticationDetailsPropertiesResponseOutput) ToAuthenticationDetailsPropertiesResponseOutput() AuthenticationDetailsPropertiesResponseOutput {
+func (o AwsCredsAuthenticationDetailsPropertiesOutput) ToAwsCredsAuthenticationDetailsPropertiesOutput() AwsCredsAuthenticationDetailsPropertiesOutput {
 	return o
 }
 
-func (o AuthenticationDetailsPropertiesResponseOutput) ToAuthenticationDetailsPropertiesResponseOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesResponseOutput {
+func (o AwsCredsAuthenticationDetailsPropertiesOutput) ToAwsCredsAuthenticationDetailsPropertiesOutputWithContext(ctx context.Context) AwsCredsAuthenticationDetailsPropertiesOutput {
 	return o
-}
-
-func (o AuthenticationDetailsPropertiesResponseOutput) ToAuthenticationDetailsPropertiesResponsePtrOutput() AuthenticationDetailsPropertiesResponsePtrOutput {
-	return o.ToAuthenticationDetailsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AuthenticationDetailsPropertiesResponseOutput) ToAuthenticationDetailsPropertiesResponsePtrOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AuthenticationDetailsPropertiesResponse) *AuthenticationDetailsPropertiesResponse {
-		return &v
-	}).(AuthenticationDetailsPropertiesResponsePtrOutput)
-}
-
-// State of the multi-cloud connector
-func (o AuthenticationDetailsPropertiesResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v AuthenticationDetailsPropertiesResponse) string { return v.AuthenticationProvisioningState }).(pulumi.StringOutput)
 }
 
 // Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-func (o AuthenticationDetailsPropertiesResponseOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v AuthenticationDetailsPropertiesResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
+func (o AwsCredsAuthenticationDetailsPropertiesOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// The permissions detected in the cloud account.
-func (o AuthenticationDetailsPropertiesResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AuthenticationDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
+// Public key element of the AWS credential object (write only)
+func (o AwsCredsAuthenticationDetailsPropertiesOutput) AwsAccessKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AwsAccessKeyId }).(pulumi.StringOutput)
 }
 
-type AuthenticationDetailsPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AuthenticationDetailsPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthenticationDetailsPropertiesResponse)(nil)).Elem()
+// Secret key element of the AWS credential object (write only)
+func (o AwsCredsAuthenticationDetailsPropertiesOutput) AwsSecretAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AwsSecretAccessKey }).(pulumi.StringOutput)
 }
 
-func (o AuthenticationDetailsPropertiesResponsePtrOutput) ToAuthenticationDetailsPropertiesResponsePtrOutput() AuthenticationDetailsPropertiesResponsePtrOutput {
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesResponse struct {
+	// The ID of the cloud account
+	AccountId string `pulumi:"accountId"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Public key element of the AWS credential object (write only)
+	AwsAccessKeyId string `pulumi:"awsAccessKeyId"`
+	// Secret key element of the AWS credential object (write only)
+	AwsSecretAccessKey string `pulumi:"awsSecretAccessKey"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions []string `pulumi:"grantedPermissions"`
+}
+
+// AwsCredsAuthenticationDetailsPropertiesResponseInput is an input type that accepts AwsCredsAuthenticationDetailsPropertiesResponseArgs and AwsCredsAuthenticationDetailsPropertiesResponseOutput values.
+// You can construct a concrete instance of `AwsCredsAuthenticationDetailsPropertiesResponseInput` via:
+//
+//          AwsCredsAuthenticationDetailsPropertiesResponseArgs{...}
+type AwsCredsAuthenticationDetailsPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToAwsCredsAuthenticationDetailsPropertiesResponseOutput() AwsCredsAuthenticationDetailsPropertiesResponseOutput
+	ToAwsCredsAuthenticationDetailsPropertiesResponseOutputWithContext(context.Context) AwsCredsAuthenticationDetailsPropertiesResponseOutput
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesResponseArgs struct {
+	// The ID of the cloud account
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Public key element of the AWS credential object (write only)
+	AwsAccessKeyId pulumi.StringInput `pulumi:"awsAccessKeyId"`
+	// Secret key element of the AWS credential object (write only)
+	AwsSecretAccessKey pulumi.StringInput `pulumi:"awsSecretAccessKey"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
+}
+
+func (AwsCredsAuthenticationDetailsPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCredsAuthenticationDetailsPropertiesResponse)(nil)).Elem()
+}
+
+func (i AwsCredsAuthenticationDetailsPropertiesResponseArgs) ToAwsCredsAuthenticationDetailsPropertiesResponseOutput() AwsCredsAuthenticationDetailsPropertiesResponseOutput {
+	return i.ToAwsCredsAuthenticationDetailsPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i AwsCredsAuthenticationDetailsPropertiesResponseArgs) ToAwsCredsAuthenticationDetailsPropertiesResponseOutputWithContext(ctx context.Context) AwsCredsAuthenticationDetailsPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCredsAuthenticationDetailsPropertiesResponseOutput)
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (AwsCredsAuthenticationDetailsPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCredsAuthenticationDetailsPropertiesResponse)(nil)).Elem()
+}
+
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) ToAwsCredsAuthenticationDetailsPropertiesResponseOutput() AwsCredsAuthenticationDetailsPropertiesResponseOutput {
 	return o
 }
 
-func (o AuthenticationDetailsPropertiesResponsePtrOutput) ToAuthenticationDetailsPropertiesResponsePtrOutputWithContext(ctx context.Context) AuthenticationDetailsPropertiesResponsePtrOutput {
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) ToAwsCredsAuthenticationDetailsPropertiesResponseOutputWithContext(ctx context.Context) AwsCredsAuthenticationDetailsPropertiesResponseOutput {
 	return o
 }
 
-func (o AuthenticationDetailsPropertiesResponsePtrOutput) Elem() AuthenticationDetailsPropertiesResponseOutput {
-	return o.ApplyT(func(v *AuthenticationDetailsPropertiesResponse) AuthenticationDetailsPropertiesResponse { return *v }).(AuthenticationDetailsPropertiesResponseOutput)
+// The ID of the cloud account
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // State of the multi-cloud connector
-func (o AuthenticationDetailsPropertiesResponsePtrOutput) AuthenticationProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AuthenticationDetailsPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AuthenticationProvisioningState
-	}).(pulumi.StringPtrOutput)
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string {
+		return v.AuthenticationProvisioningState
+	}).(pulumi.StringOutput)
 }
 
 // Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-func (o AuthenticationDetailsPropertiesResponsePtrOutput) AuthenticationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AuthenticationDetailsPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AuthenticationType
-	}).(pulumi.StringPtrOutput)
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Public key element of the AWS credential object (write only)
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AwsAccessKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AwsAccessKeyId }).(pulumi.StringOutput)
+}
+
+// Secret key element of the AWS credential object (write only)
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AwsSecretAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AwsSecretAccessKey }).(pulumi.StringOutput)
 }
 
 // The permissions detected in the cloud account.
-func (o AuthenticationDetailsPropertiesResponsePtrOutput) GrantedPermissions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AuthenticationDetailsPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.GrantedPermissions
-	}).(pulumi.StringArrayOutput)
+func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsProperties struct {
+	// Auth provider x509 certificate url field of the API key (write only)
+	AuthProviderX509CertUrl string `pulumi:"authProviderX509CertUrl"`
+	// Auth Uri field of the API key (write only)
+	AuthUri string `pulumi:"authUri"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Client email field of the API key (write only)
+	ClientEmail string `pulumi:"clientEmail"`
+	// Client Id field of the API key (write only)
+	ClientId string `pulumi:"clientId"`
+	// Client x509 certificate url field of the API key (write only)
+	ClientX509CertUrl string `pulumi:"clientX509CertUrl"`
+	// The Organization ID of the GCP cloud account
+	OrganizationId string `pulumi:"organizationId"`
+	// Private key field of the API key (write only)
+	PrivateKey string `pulumi:"privateKey"`
+	// Private key Id field of the API key (write only)
+	PrivateKeyId string `pulumi:"privateKeyId"`
+	// Project Id field of the API key (write only)
+	ProjectId string `pulumi:"projectId"`
+	// Token Uri field of the API key (write only)
+	TokenUri string `pulumi:"tokenUri"`
+	// Type field of the API key (write only)
+	Type string `pulumi:"type"`
+}
+
+// GcpCredentialsDetailsPropertiesInput is an input type that accepts GcpCredentialsDetailsPropertiesArgs and GcpCredentialsDetailsPropertiesOutput values.
+// You can construct a concrete instance of `GcpCredentialsDetailsPropertiesInput` via:
+//
+//          GcpCredentialsDetailsPropertiesArgs{...}
+type GcpCredentialsDetailsPropertiesInput interface {
+	pulumi.Input
+
+	ToGcpCredentialsDetailsPropertiesOutput() GcpCredentialsDetailsPropertiesOutput
+	ToGcpCredentialsDetailsPropertiesOutputWithContext(context.Context) GcpCredentialsDetailsPropertiesOutput
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsPropertiesArgs struct {
+	// Auth provider x509 certificate url field of the API key (write only)
+	AuthProviderX509CertUrl pulumi.StringInput `pulumi:"authProviderX509CertUrl"`
+	// Auth Uri field of the API key (write only)
+	AuthUri pulumi.StringInput `pulumi:"authUri"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Client email field of the API key (write only)
+	ClientEmail pulumi.StringInput `pulumi:"clientEmail"`
+	// Client Id field of the API key (write only)
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Client x509 certificate url field of the API key (write only)
+	ClientX509CertUrl pulumi.StringInput `pulumi:"clientX509CertUrl"`
+	// The Organization ID of the GCP cloud account
+	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
+	// Private key field of the API key (write only)
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	// Private key Id field of the API key (write only)
+	PrivateKeyId pulumi.StringInput `pulumi:"privateKeyId"`
+	// Project Id field of the API key (write only)
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+	// Token Uri field of the API key (write only)
+	TokenUri pulumi.StringInput `pulumi:"tokenUri"`
+	// Type field of the API key (write only)
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GcpCredentialsDetailsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpCredentialsDetailsProperties)(nil)).Elem()
+}
+
+func (i GcpCredentialsDetailsPropertiesArgs) ToGcpCredentialsDetailsPropertiesOutput() GcpCredentialsDetailsPropertiesOutput {
+	return i.ToGcpCredentialsDetailsPropertiesOutputWithContext(context.Background())
+}
+
+func (i GcpCredentialsDetailsPropertiesArgs) ToGcpCredentialsDetailsPropertiesOutputWithContext(ctx context.Context) GcpCredentialsDetailsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpCredentialsDetailsPropertiesOutput)
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GcpCredentialsDetailsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpCredentialsDetailsProperties)(nil)).Elem()
+}
+
+func (o GcpCredentialsDetailsPropertiesOutput) ToGcpCredentialsDetailsPropertiesOutput() GcpCredentialsDetailsPropertiesOutput {
+	return o
+}
+
+func (o GcpCredentialsDetailsPropertiesOutput) ToGcpCredentialsDetailsPropertiesOutputWithContext(ctx context.Context) GcpCredentialsDetailsPropertiesOutput {
+	return o
+}
+
+// Auth provider x509 certificate url field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) AuthProviderX509CertUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.AuthProviderX509CertUrl }).(pulumi.StringOutput)
+}
+
+// Auth Uri field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) AuthUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.AuthUri }).(pulumi.StringOutput)
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+func (o GcpCredentialsDetailsPropertiesOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Client email field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) ClientEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientEmail }).(pulumi.StringOutput)
+}
+
+// Client Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Client x509 certificate url field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) ClientX509CertUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientX509CertUrl }).(pulumi.StringOutput)
+}
+
+// The Organization ID of the GCP cloud account
+func (o GcpCredentialsDetailsPropertiesOutput) OrganizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.OrganizationId }).(pulumi.StringOutput)
+}
+
+// Private key field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+// Private key Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) PrivateKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.PrivateKeyId }).(pulumi.StringOutput)
+}
+
+// Project Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// Token Uri field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) TokenUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.TokenUri }).(pulumi.StringOutput)
+}
+
+// Type field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsPropertiesResponse struct {
+	// Auth provider x509 certificate url field of the API key (write only)
+	AuthProviderX509CertUrl string `pulumi:"authProviderX509CertUrl"`
+	// Auth Uri field of the API key (write only)
+	AuthUri string `pulumi:"authUri"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Client email field of the API key (write only)
+	ClientEmail string `pulumi:"clientEmail"`
+	// Client Id field of the API key (write only)
+	ClientId string `pulumi:"clientId"`
+	// Client x509 certificate url field of the API key (write only)
+	ClientX509CertUrl string `pulumi:"clientX509CertUrl"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions []string `pulumi:"grantedPermissions"`
+	// The Organization ID of the GCP cloud account
+	OrganizationId string `pulumi:"organizationId"`
+	// Private key field of the API key (write only)
+	PrivateKey string `pulumi:"privateKey"`
+	// Private key Id field of the API key (write only)
+	PrivateKeyId string `pulumi:"privateKeyId"`
+	// Project Id field of the API key (write only)
+	ProjectId string `pulumi:"projectId"`
+	// Token Uri field of the API key (write only)
+	TokenUri string `pulumi:"tokenUri"`
+	// Type field of the API key (write only)
+	Type string `pulumi:"type"`
+}
+
+// GcpCredentialsDetailsPropertiesResponseInput is an input type that accepts GcpCredentialsDetailsPropertiesResponseArgs and GcpCredentialsDetailsPropertiesResponseOutput values.
+// You can construct a concrete instance of `GcpCredentialsDetailsPropertiesResponseInput` via:
+//
+//          GcpCredentialsDetailsPropertiesResponseArgs{...}
+type GcpCredentialsDetailsPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToGcpCredentialsDetailsPropertiesResponseOutput() GcpCredentialsDetailsPropertiesResponseOutput
+	ToGcpCredentialsDetailsPropertiesResponseOutputWithContext(context.Context) GcpCredentialsDetailsPropertiesResponseOutput
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsPropertiesResponseArgs struct {
+	// Auth provider x509 certificate url field of the API key (write only)
+	AuthProviderX509CertUrl pulumi.StringInput `pulumi:"authProviderX509CertUrl"`
+	// Auth Uri field of the API key (write only)
+	AuthUri pulumi.StringInput `pulumi:"authUri"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Client email field of the API key (write only)
+	ClientEmail pulumi.StringInput `pulumi:"clientEmail"`
+	// Client Id field of the API key (write only)
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Client x509 certificate url field of the API key (write only)
+	ClientX509CertUrl pulumi.StringInput `pulumi:"clientX509CertUrl"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
+	// The Organization ID of the GCP cloud account
+	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
+	// Private key field of the API key (write only)
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	// Private key Id field of the API key (write only)
+	PrivateKeyId pulumi.StringInput `pulumi:"privateKeyId"`
+	// Project Id field of the API key (write only)
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+	// Token Uri field of the API key (write only)
+	TokenUri pulumi.StringInput `pulumi:"tokenUri"`
+	// Type field of the API key (write only)
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GcpCredentialsDetailsPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpCredentialsDetailsPropertiesResponse)(nil)).Elem()
+}
+
+func (i GcpCredentialsDetailsPropertiesResponseArgs) ToGcpCredentialsDetailsPropertiesResponseOutput() GcpCredentialsDetailsPropertiesResponseOutput {
+	return i.ToGcpCredentialsDetailsPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i GcpCredentialsDetailsPropertiesResponseArgs) ToGcpCredentialsDetailsPropertiesResponseOutputWithContext(ctx context.Context) GcpCredentialsDetailsPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpCredentialsDetailsPropertiesResponseOutput)
+}
+
+// GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+type GcpCredentialsDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (GcpCredentialsDetailsPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpCredentialsDetailsPropertiesResponse)(nil)).Elem()
+}
+
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ToGcpCredentialsDetailsPropertiesResponseOutput() GcpCredentialsDetailsPropertiesResponseOutput {
+	return o
+}
+
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ToGcpCredentialsDetailsPropertiesResponseOutputWithContext(ctx context.Context) GcpCredentialsDetailsPropertiesResponseOutput {
+	return o
+}
+
+// Auth provider x509 certificate url field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthProviderX509CertUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthProviderX509CertUrl }).(pulumi.StringOutput)
+}
+
+// Auth Uri field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthUri }).(pulumi.StringOutput)
+}
+
+// State of the multi-cloud connector
+func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthenticationProvisioningState }).(pulumi.StringOutput)
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Client email field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientEmail }).(pulumi.StringOutput)
+}
+
+// Client Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Client x509 certificate url field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientX509CertUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientX509CertUrl }).(pulumi.StringOutput)
+}
+
+// The permissions detected in the cloud account.
+func (o GcpCredentialsDetailsPropertiesResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
+}
+
+// The Organization ID of the GCP cloud account
+func (o GcpCredentialsDetailsPropertiesResponseOutput) OrganizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.OrganizationId }).(pulumi.StringOutput)
+}
+
+// Private key field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+// Private key Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) PrivateKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.PrivateKeyId }).(pulumi.StringOutput)
+}
+
+// Project Id field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// Token Uri field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) TokenUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.TokenUri }).(pulumi.StringOutput)
+}
+
+// Type field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Settings for hybrid compute management
@@ -1680,10 +2050,12 @@ func (o ServicePrincipalPropertiesResponsePtrOutput) Secret() pulumi.StringPtrOu
 }
 
 func init() {
-	pulumi.RegisterOutputType(AuthenticationDetailsPropertiesOutput{})
-	pulumi.RegisterOutputType(AuthenticationDetailsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(AuthenticationDetailsPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(AuthenticationDetailsPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(AwAssumeRoleAuthenticationDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(AwsCredsAuthenticationDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(AwsCredsAuthenticationDetailsPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(GcpCredentialsDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(GcpCredentialsDetailsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesResponseOutput{})

@@ -403,10 +403,11 @@ class ManagedCluster(pulumi.CustomResource):
             __props__['fqdn'] = None
             __props__['max_agent_pools'] = None
             __props__['name'] = None
+            __props__['power_state'] = None
             __props__['private_fqdn'] = None
             __props__['provisioning_state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/v20170831:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20180331:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20180801preview:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190201:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190401:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190601:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190801:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20191001:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20191101:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200101:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200201:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200301:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200401:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200601:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200701:ManagedCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/v20170831:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20180331:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20180801preview:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190201:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190401:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190601:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20190801:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20191001:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20191101:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200101:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200201:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200301:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200401:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200601:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200701:ManagedCluster"), pulumi.Alias(type_="azurerm:containerservice/v20200901:ManagedCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedCluster, __self__).__init__(
             'azurerm:containerservice/latest:ManagedCluster',
@@ -583,6 +584,14 @@ class ManagedCluster(pulumi.CustomResource):
         Name of the resource group containing agent pool nodes.
         """
         return pulumi.get(self, "node_resource_group")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> pulumi.Output['outputs.PowerStateResponse']:
+        """
+        Represents the Power State of the cluster
+        """
+        return pulumi.get(self, "power_state")
 
     @property
     @pulumi.getter(name="privateFQDN")

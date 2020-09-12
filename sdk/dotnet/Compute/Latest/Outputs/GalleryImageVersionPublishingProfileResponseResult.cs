@@ -14,7 +14,7 @@ namespace Pulumi.AzureRM.Compute.Latest.Outputs
     public sealed class GalleryImageVersionPublishingProfileResponseResult
     {
         /// <summary>
-        /// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+        /// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         /// </summary>
         public readonly string? EndOfLifeDate;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.Compute.Latest.Outputs
         /// </summary>
         public readonly bool? ExcludeFromLatest;
         /// <summary>
-        /// The timestamp for when the gallery Image Version is published.
+        /// The timestamp for when the gallery image version is published.
         /// </summary>
         public readonly string PublishedDate;
         /// <summary>

@@ -422,7 +422,9 @@ class IotDpsPropertiesDescriptionResponse(dict):
                  authorization_policies: Optional[List['outputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse']] = None,
                  iot_hubs: Optional[List['outputs.IotHubDefinitionDescriptionResponse']] = None,
                  ip_filter_rules: Optional[List['outputs.IpFilterRuleResponse']] = None,
+                 private_endpoint_connections: Optional[List['outputs.PrivateEndpointConnectionResponse']] = None,
                  provisioning_state: Optional[str] = None,
+                 public_network_access: Optional[str] = None,
                  state: Optional[str] = None):
         """
         the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
@@ -433,7 +435,9 @@ class IotDpsPropertiesDescriptionResponse(dict):
         :param List['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs'] authorization_policies: List of authorization keys for a provisioning service.
         :param List['IotHubDefinitionDescriptionResponseArgs'] iot_hubs: List of IoT hubs associated with this provisioning service.
         :param List['IpFilterRuleResponseArgs'] ip_filter_rules: The IP filter rules.
+        :param List['PrivateEndpointConnectionResponseArgs'] private_endpoint_connections: Private endpoint connections created on this IotHub
         :param str provisioning_state: The ARM provisioning state of the provisioning service.
+        :param str public_network_access: Whether requests from Public Network are allowed
         :param str state: Current state of the provisioning service.
         """
         pulumi.set(__self__, "device_provisioning_host_name", device_provisioning_host_name)
@@ -447,8 +451,12 @@ class IotDpsPropertiesDescriptionResponse(dict):
             pulumi.set(__self__, "iot_hubs", iot_hubs)
         if ip_filter_rules is not None:
             pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
+        if private_endpoint_connections is not None:
+            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -509,12 +517,28 @@ class IotDpsPropertiesDescriptionResponse(dict):
         return pulumi.get(self, "ip_filter_rules")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[List['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        Private endpoint connections created on this IotHub
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
         """
         The ARM provisioning state of the provisioning service.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether requests from Public Network are allowed
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter
@@ -590,7 +614,7 @@ class IotHubDefinitionDescriptionResponse(dict):
                  apply_allocation_policy: Optional[bool] = None):
         """
         Description of the IoT hub.
-        :param str connection_string: Connection string og the IoT hub.
+        :param str connection_string: Connection string of the IoT hub.
         :param str location: ARM region of the IoT hub.
         :param str name: Host name of the IoT hub.
         :param float allocation_weight: weight to apply for a given iot h.
@@ -608,7 +632,7 @@ class IotHubDefinitionDescriptionResponse(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> str:
         """
-        Connection string og the IoT hub.
+        Connection string of the IoT hub.
         """
         return pulumi.get(self, "connection_string")
 

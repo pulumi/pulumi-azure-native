@@ -20,10 +20,7 @@ class GetConfigurationProfileAssignmentResult:
     """
     Configuration profile assignment is an association between a VM and automanage profile configuration.
     """
-    def __init__(__self__, location=None, name=None, properties=None, type=None):
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
+    def __init__(__self__, name=None, properties=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -36,17 +33,9 @@ class GetConfigurationProfileAssignmentResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
-        """
-        Region where the VM is located.
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
-        Name of the Automanage assignment.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -62,7 +51,7 @@ class GetConfigurationProfileAssignmentResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 
@@ -73,7 +62,6 @@ class AwaitableGetConfigurationProfileAssignmentResult(GetConfigurationProfileAs
         if False:
             yield self
         return GetConfigurationProfileAssignmentResult(
-            location=self.location,
             name=self.name,
             properties=self.properties,
             type=self.type)
@@ -87,7 +75,7 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
     Use this data source to access information about an existing resource.
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.
-    :param str resource_group_name: The resource group name.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vm_name: The name of the virtual machine.
     """
     __args__ = dict()
@@ -101,7 +89,6 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20200630preview:getConfigurationProfileAssignment', __args__, opts=opts, typ=GetConfigurationProfileAssignmentResult).value
 
     return AwaitableGetConfigurationProfileAssignmentResult(
-        location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

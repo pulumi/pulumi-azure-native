@@ -51,7 +51,7 @@ export class ProtectionPolicy extends pulumi.CustomResource {
     /**
      * The base class for a backup policy. Workload-specific backup policies are derived from this class.
      */
-    public readonly properties!: pulumi.Output<outputs.recoveryservices.latest.ProtectionPolicyResponse>;
+    public readonly properties!: pulumi.Output<outputs.recoveryservices.latest.AzureIaaSVMProtectionPolicyResponse | outputs.recoveryservices.latest.AzureSqlProtectionPolicyResponse | outputs.recoveryservices.latest.MabProtectionPolicyResponse>;
     /**
      * Resource tags.
      */
@@ -138,7 +138,7 @@ export interface ProtectionPolicyArgs {
     /**
      * The base class for a backup policy. Workload-specific backup policies are derived from this class.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.latest.ProtectionPolicy>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.latest.AzureIaaSVMProtectionPolicy | inputs.recoveryservices.latest.AzureSqlProtectionPolicy | inputs.recoveryservices.latest.MabProtectionPolicy>;
     /**
      * The name of the resource group associated with the Recovery Services vault.
      */

@@ -12,17 +12,20 @@ __all__ = [
     'AzureFileFilterDetailsArgs',
     'BlobFilterDetailsArgs',
     'ContactDetailsArgs',
-    'DataAccountDetailsArgs',
+    'DataBoxDiskJobDetailsArgs',
+    'DataBoxHeavyJobDetailsArgs',
+    'DataBoxJobDetailsArgs',
     'DataExportDetailsArgs',
     'DataImportDetailsArgs',
     'FilterFileDetailsArgs',
     'JobDeliveryInfoArgs',
-    'JobDetailsArgs',
+    'ManagedDiskDetailsArgs',
     'NotificationPreferenceArgs',
     'PreferencesArgs',
     'ResourceIdentityArgs',
     'ShippingAddressArgs',
     'SkuArgs',
+    'StorageAccountDetailsArgs',
     'TransferAllDetailsArgs',
     'TransferConfigurationArgs',
     'TransferConfigurationTransferAllDetailsArgs',
@@ -245,53 +248,432 @@ class ContactDetailsArgs:
 
 
 @pulumi.input_type
-class DataAccountDetailsArgs:
+class DataBoxDiskJobDetailsArgs:
     def __init__(__self__, *,
-                 data_account_type: pulumi.Input[str],
-                 share_password: Optional[pulumi.Input[str]] = None):
+                 contact_details: pulumi.Input['ContactDetailsArgs'],
+                 job_details_type: pulumi.Input[str],
+                 data_export_details: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]] = None,
+                 data_import_details: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]] = None,
+                 expected_data_size_in_terabytes: Optional[pulumi.Input[float]] = None,
+                 passkey: Optional[pulumi.Input[str]] = None,
+                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+                 preferred_disks: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]] = None,
+                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
-        Account details of the data to be transferred
-        :param pulumi.Input[str] data_account_type: Account Type of the data to be transferred.
-        :param pulumi.Input[str] share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        DataBox Disk Job Details.
+        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
+        :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+        :param pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
+        :param pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
+        :param pulumi.Input[float] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input[str] passkey: User entered passkey for DataBox Disk job.
+        :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
+        :param pulumi.Input[Mapping[str, pulumi.Input[float]]] preferred_disks: User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+        :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "data_account_type", data_account_type)
-        if share_password is not None:
-            pulumi.set(__self__, "share_password", share_password)
+        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "job_details_type", 'DataBoxDisk')
+        if data_export_details is not None:
+            pulumi.set(__self__, "data_export_details", data_export_details)
+        if data_import_details is not None:
+            pulumi.set(__self__, "data_import_details", data_import_details)
+        if expected_data_size_in_terabytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if passkey is not None:
+            pulumi.set(__self__, "passkey", passkey)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+        if preferred_disks is not None:
+            pulumi.set(__self__, "preferred_disks", preferred_disks)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
 
     @property
-    @pulumi.getter(name="dataAccountType")
-    def data_account_type(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> pulumi.Input['ContactDetailsArgs']:
         """
-        Account Type of the data to be transferred.
+        Contact details for notification and shipping.
         """
-        return pulumi.get(self, "data_account_type")
+        return pulumi.get(self, "contact_details")
 
-    @data_account_type.setter
-    def data_account_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_account_type", value)
+    @contact_details.setter
+    def contact_details(self, value: pulumi.Input['ContactDetailsArgs']):
+        pulumi.set(self, "contact_details", value)
 
     @property
-    @pulumi.getter(name="sharePassword")
-    def share_password(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="jobDetailsType")
+    def job_details_type(self) -> pulumi.Input[str]:
         """
-        Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        Indicates the type of job details.
         """
-        return pulumi.get(self, "share_password")
+        return pulumi.get(self, "job_details_type")
 
-    @share_password.setter
-    def share_password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "share_password", value)
+    @job_details_type.setter
+    def job_details_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "job_details_type", value)
+
+    @property
+    @pulumi.getter(name="dataExportDetails")
+    def data_export_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]:
+        """
+        Details of the data to be exported from azure.
+        """
+        return pulumi.get(self, "data_export_details")
+
+    @data_export_details.setter
+    def data_export_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]):
+        pulumi.set(self, "data_export_details", value)
+
+    @property
+    @pulumi.getter(name="dataImportDetails")
+    def data_import_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]:
+        """
+        Details of the data to be imported into azure.
+        """
+        return pulumi.get(self, "data_import_details")
+
+    @data_import_details.setter
+    def data_import_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]):
+        pulumi.set(self, "data_import_details", value)
+
+    @property
+    @pulumi.getter(name="expectedDataSizeInTerabytes")
+    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        """
+        return pulumi.get(self, "expected_data_size_in_terabytes")
+
+    @expected_data_size_in_terabytes.setter
+    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "expected_data_size_in_terabytes", value)
+
+    @property
+    @pulumi.getter
+    def passkey(self) -> Optional[pulumi.Input[str]]:
+        """
+        User entered passkey for DataBox Disk job.
+        """
+        return pulumi.get(self, "passkey")
+
+    @passkey.setter
+    def passkey(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "passkey", value)
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
+        """
+        Preferences for the order.
+        """
+        return pulumi.get(self, "preferences")
+
+    @preferences.setter
+    def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
+        pulumi.set(self, "preferences", value)
+
+    @property
+    @pulumi.getter(name="preferredDisks")
+    def preferred_disks(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]:
+        """
+        User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+        """
+        return pulumi.get(self, "preferred_disks")
+
+    @preferred_disks.setter
+    def preferred_disks(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]):
+        pulumi.set(self, "preferred_disks", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+        """
+        Shipping address of the customer.
+        """
+        return pulumi.get(self, "shipping_address")
+
+    @shipping_address.setter
+    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
+        pulumi.set(self, "shipping_address", value)
+
+
+@pulumi.input_type
+class DataBoxHeavyJobDetailsArgs:
+    def __init__(__self__, *,
+                 contact_details: pulumi.Input['ContactDetailsArgs'],
+                 job_details_type: pulumi.Input[str],
+                 data_export_details: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]] = None,
+                 data_import_details: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]] = None,
+                 device_password: Optional[pulumi.Input[str]] = None,
+                 expected_data_size_in_terabytes: Optional[pulumi.Input[float]] = None,
+                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
+        """
+        Databox Heavy Device Job Details
+        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
+        :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+        :param pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
+        :param pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
+        :param pulumi.Input[str] device_password: Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        :param pulumi.Input[float] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
+        :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
+        """
+        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "job_details_type", 'DataBoxHeavy')
+        if data_export_details is not None:
+            pulumi.set(__self__, "data_export_details", data_export_details)
+        if data_import_details is not None:
+            pulumi.set(__self__, "data_import_details", data_import_details)
+        if device_password is not None:
+            pulumi.set(__self__, "device_password", device_password)
+        if expected_data_size_in_terabytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> pulumi.Input['ContactDetailsArgs']:
+        """
+        Contact details for notification and shipping.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @contact_details.setter
+    def contact_details(self, value: pulumi.Input['ContactDetailsArgs']):
+        pulumi.set(self, "contact_details", value)
+
+    @property
+    @pulumi.getter(name="jobDetailsType")
+    def job_details_type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of job details.
+        """
+        return pulumi.get(self, "job_details_type")
+
+    @job_details_type.setter
+    def job_details_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "job_details_type", value)
+
+    @property
+    @pulumi.getter(name="dataExportDetails")
+    def data_export_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]:
+        """
+        Details of the data to be exported from azure.
+        """
+        return pulumi.get(self, "data_export_details")
+
+    @data_export_details.setter
+    def data_export_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]):
+        pulumi.set(self, "data_export_details", value)
+
+    @property
+    @pulumi.getter(name="dataImportDetails")
+    def data_import_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]:
+        """
+        Details of the data to be imported into azure.
+        """
+        return pulumi.get(self, "data_import_details")
+
+    @data_import_details.setter
+    def data_import_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]):
+        pulumi.set(self, "data_import_details", value)
+
+    @property
+    @pulumi.getter(name="devicePassword")
+    def device_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        """
+        return pulumi.get(self, "device_password")
+
+    @device_password.setter
+    def device_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_password", value)
+
+    @property
+    @pulumi.getter(name="expectedDataSizeInTerabytes")
+    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        """
+        return pulumi.get(self, "expected_data_size_in_terabytes")
+
+    @expected_data_size_in_terabytes.setter
+    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "expected_data_size_in_terabytes", value)
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
+        """
+        Preferences for the order.
+        """
+        return pulumi.get(self, "preferences")
+
+    @preferences.setter
+    def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
+        pulumi.set(self, "preferences", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+        """
+        Shipping address of the customer.
+        """
+        return pulumi.get(self, "shipping_address")
+
+    @shipping_address.setter
+    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
+        pulumi.set(self, "shipping_address", value)
+
+
+@pulumi.input_type
+class DataBoxJobDetailsArgs:
+    def __init__(__self__, *,
+                 contact_details: pulumi.Input['ContactDetailsArgs'],
+                 job_details_type: pulumi.Input[str],
+                 data_export_details: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]] = None,
+                 data_import_details: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]] = None,
+                 device_password: Optional[pulumi.Input[str]] = None,
+                 expected_data_size_in_terabytes: Optional[pulumi.Input[float]] = None,
+                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
+        """
+        Databox Job Details
+        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
+        :param pulumi.Input[str] job_details_type: Indicates the type of job details.
+        :param pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
+        :param pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
+        :param pulumi.Input[str] device_password: Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        :param pulumi.Input[float] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
+        :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
+        :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
+        """
+        pulumi.set(__self__, "contact_details", contact_details)
+        pulumi.set(__self__, "job_details_type", 'DataBox')
+        if data_export_details is not None:
+            pulumi.set(__self__, "data_export_details", data_export_details)
+        if data_import_details is not None:
+            pulumi.set(__self__, "data_import_details", data_import_details)
+        if device_password is not None:
+            pulumi.set(__self__, "device_password", device_password)
+        if expected_data_size_in_terabytes is not None:
+            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> pulumi.Input['ContactDetailsArgs']:
+        """
+        Contact details for notification and shipping.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @contact_details.setter
+    def contact_details(self, value: pulumi.Input['ContactDetailsArgs']):
+        pulumi.set(self, "contact_details", value)
+
+    @property
+    @pulumi.getter(name="jobDetailsType")
+    def job_details_type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of job details.
+        """
+        return pulumi.get(self, "job_details_type")
+
+    @job_details_type.setter
+    def job_details_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "job_details_type", value)
+
+    @property
+    @pulumi.getter(name="dataExportDetails")
+    def data_export_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]:
+        """
+        Details of the data to be exported from azure.
+        """
+        return pulumi.get(self, "data_export_details")
+
+    @data_export_details.setter
+    def data_export_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]):
+        pulumi.set(self, "data_export_details", value)
+
+    @property
+    @pulumi.getter(name="dataImportDetails")
+    def data_import_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]:
+        """
+        Details of the data to be imported into azure.
+        """
+        return pulumi.get(self, "data_import_details")
+
+    @data_import_details.setter
+    def data_import_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]):
+        pulumi.set(self, "data_import_details", value)
+
+    @property
+    @pulumi.getter(name="devicePassword")
+    def device_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        """
+        return pulumi.get(self, "device_password")
+
+    @device_password.setter
+    def device_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_password", value)
+
+    @property
+    @pulumi.getter(name="expectedDataSizeInTerabytes")
+    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        """
+        return pulumi.get(self, "expected_data_size_in_terabytes")
+
+    @expected_data_size_in_terabytes.setter
+    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "expected_data_size_in_terabytes", value)
+
+    @property
+    @pulumi.getter
+    def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
+        """
+        Preferences for the order.
+        """
+        return pulumi.get(self, "preferences")
+
+    @preferences.setter
+    def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
+        pulumi.set(self, "preferences", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+        """
+        Shipping address of the customer.
+        """
+        return pulumi.get(self, "shipping_address")
+
+    @shipping_address.setter
+    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
+        pulumi.set(self, "shipping_address", value)
 
 
 @pulumi.input_type
 class DataExportDetailsArgs:
     def __init__(__self__, *,
-                 account_details: pulumi.Input['DataAccountDetailsArgs'],
+                 account_details: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']],
                  transfer_configuration: pulumi.Input['TransferConfigurationArgs'],
                  log_collection_level: Optional[pulumi.Input[str]] = None):
         """
         Details of the data to be used for exporting data from azure.
-        :param pulumi.Input['DataAccountDetailsArgs'] account_details: Account details of the data to be transferred
+        :param pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']] account_details: Account details of the data to be transferred
         :param pulumi.Input['TransferConfigurationArgs'] transfer_configuration: Configuration for the data transfer.
         :param pulumi.Input[str] log_collection_level: Level of the logs to be collected.
         """
@@ -302,14 +684,14 @@ class DataExportDetailsArgs:
 
     @property
     @pulumi.getter(name="accountDetails")
-    def account_details(self) -> pulumi.Input['DataAccountDetailsArgs']:
+    def account_details(self) -> pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']]:
         """
         Account details of the data to be transferred
         """
         return pulumi.get(self, "account_details")
 
     @account_details.setter
-    def account_details(self, value: pulumi.Input['DataAccountDetailsArgs']):
+    def account_details(self, value: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']]):
         pulumi.set(self, "account_details", value)
 
     @property
@@ -340,23 +722,23 @@ class DataExportDetailsArgs:
 @pulumi.input_type
 class DataImportDetailsArgs:
     def __init__(__self__, *,
-                 account_details: pulumi.Input['DataAccountDetailsArgs']):
+                 account_details: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']]):
         """
         Details of the data to be used for importing data to azure.
-        :param pulumi.Input['DataAccountDetailsArgs'] account_details: Account details of the data to be transferred
+        :param pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']] account_details: Account details of the data to be transferred
         """
         pulumi.set(__self__, "account_details", account_details)
 
     @property
     @pulumi.getter(name="accountDetails")
-    def account_details(self) -> pulumi.Input['DataAccountDetailsArgs']:
+    def account_details(self) -> pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']]:
         """
         Account details of the data to be transferred
         """
         return pulumi.get(self, "account_details")
 
     @account_details.setter
-    def account_details(self, value: pulumi.Input['DataAccountDetailsArgs']):
+    def account_details(self, value: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']]):
         pulumi.set(self, "account_details", value)
 
 
@@ -423,121 +805,72 @@ class JobDeliveryInfoArgs:
 
 
 @pulumi.input_type
-class JobDetailsArgs:
+class ManagedDiskDetailsArgs:
     def __init__(__self__, *,
-                 contact_details: pulumi.Input['ContactDetailsArgs'],
-                 job_details_type: pulumi.Input[str],
-                 data_export_details: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]] = None,
-                 data_import_details: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]] = None,
-                 expected_data_size_in_terabytes: Optional[pulumi.Input[float]] = None,
-                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
-                 shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
+                 data_account_type: pulumi.Input[str],
+                 resource_group_id: pulumi.Input[str],
+                 staging_storage_account_id: pulumi.Input[str],
+                 share_password: Optional[pulumi.Input[str]] = None):
         """
-        Job details.
-        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for notification and shipping.
-        :param pulumi.Input[str] job_details_type: Indicates the type of job details.
-        :param pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]] data_export_details: Details of the data to be exported from azure.
-        :param pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]] data_import_details: Details of the data to be imported into azure.
-        :param pulumi.Input[float] expected_data_size_in_terabytes: The expected size of the data, which needs to be transferred in this job, in terabytes.
-        :param pulumi.Input['PreferencesArgs'] preferences: Preferences for the order.
-        :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping address of the customer.
+        Details of the managed disks.
+        :param pulumi.Input[str] data_account_type: Account Type of the data to be transferred.
+        :param pulumi.Input[str] resource_group_id: Resource Group Id of the compute disks.
+        :param pulumi.Input[str] staging_storage_account_id: Resource Id of the storage account that can be used to copy the vhd for staging.
+        :param pulumi.Input[str] share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         """
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "job_details_type", job_details_type)
-        if data_export_details is not None:
-            pulumi.set(__self__, "data_export_details", data_export_details)
-        if data_import_details is not None:
-            pulumi.set(__self__, "data_import_details", data_import_details)
-        if expected_data_size_in_terabytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_terabytes", expected_data_size_in_terabytes)
-        if preferences is not None:
-            pulumi.set(__self__, "preferences", preferences)
-        if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+        pulumi.set(__self__, "data_account_type", 'ManagedDisk')
+        pulumi.set(__self__, "resource_group_id", resource_group_id)
+        pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
+        if share_password is not None:
+            pulumi.set(__self__, "share_password", share_password)
 
     @property
-    @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> pulumi.Input['ContactDetailsArgs']:
+    @pulumi.getter(name="dataAccountType")
+    def data_account_type(self) -> pulumi.Input[str]:
         """
-        Contact details for notification and shipping.
+        Account Type of the data to be transferred.
         """
-        return pulumi.get(self, "contact_details")
+        return pulumi.get(self, "data_account_type")
 
-    @contact_details.setter
-    def contact_details(self, value: pulumi.Input['ContactDetailsArgs']):
-        pulumi.set(self, "contact_details", value)
-
-    @property
-    @pulumi.getter(name="jobDetailsType")
-    def job_details_type(self) -> pulumi.Input[str]:
-        """
-        Indicates the type of job details.
-        """
-        return pulumi.get(self, "job_details_type")
-
-    @job_details_type.setter
-    def job_details_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "job_details_type", value)
+    @data_account_type.setter
+    def data_account_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_account_type", value)
 
     @property
-    @pulumi.getter(name="dataExportDetails")
-    def data_export_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]:
+    @pulumi.getter(name="resourceGroupId")
+    def resource_group_id(self) -> pulumi.Input[str]:
         """
-        Details of the data to be exported from azure.
+        Resource Group Id of the compute disks.
         """
-        return pulumi.get(self, "data_export_details")
+        return pulumi.get(self, "resource_group_id")
 
-    @data_export_details.setter
-    def data_export_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataExportDetailsArgs']]]]):
-        pulumi.set(self, "data_export_details", value)
-
-    @property
-    @pulumi.getter(name="dataImportDetails")
-    def data_import_details(self) -> Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]:
-        """
-        Details of the data to be imported into azure.
-        """
-        return pulumi.get(self, "data_import_details")
-
-    @data_import_details.setter
-    def data_import_details(self, value: Optional[pulumi.Input[List[pulumi.Input['DataImportDetailsArgs']]]]):
-        pulumi.set(self, "data_import_details", value)
+    @resource_group_id.setter
+    def resource_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_id", value)
 
     @property
-    @pulumi.getter(name="expectedDataSizeInTerabytes")
-    def expected_data_size_in_terabytes(self) -> Optional[pulumi.Input[float]]:
+    @pulumi.getter(name="stagingStorageAccountId")
+    def staging_storage_account_id(self) -> pulumi.Input[str]:
         """
-        The expected size of the data, which needs to be transferred in this job, in terabytes.
+        Resource Id of the storage account that can be used to copy the vhd for staging.
         """
-        return pulumi.get(self, "expected_data_size_in_terabytes")
+        return pulumi.get(self, "staging_storage_account_id")
 
-    @expected_data_size_in_terabytes.setter
-    def expected_data_size_in_terabytes(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "expected_data_size_in_terabytes", value)
-
-    @property
-    @pulumi.getter
-    def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
-        """
-        Preferences for the order.
-        """
-        return pulumi.get(self, "preferences")
-
-    @preferences.setter
-    def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
-        pulumi.set(self, "preferences", value)
+    @staging_storage_account_id.setter
+    def staging_storage_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "staging_storage_account_id", value)
 
     @property
-    @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
+    @pulumi.getter(name="sharePassword")
+    def share_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Shipping address of the customer.
+        Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
         """
-        return pulumi.get(self, "shipping_address")
+        return pulumi.get(self, "share_password")
 
-    @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['ShippingAddressArgs']]):
-        pulumi.set(self, "shipping_address", value)
+    @share_password.setter
+    def share_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_password", value)
 
 
 @pulumi.input_type
@@ -860,6 +1193,60 @@ class SkuArgs:
     @family.setter
     def family(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "family", value)
+
+
+@pulumi.input_type
+class StorageAccountDetailsArgs:
+    def __init__(__self__, *,
+                 data_account_type: pulumi.Input[str],
+                 storage_account_id: pulumi.Input[str],
+                 share_password: Optional[pulumi.Input[str]] = None):
+        """
+        Details for the storage account.
+        :param pulumi.Input[str] data_account_type: Account Type of the data to be transferred.
+        :param pulumi.Input[str] storage_account_id: Storage Account Resource Id.
+        :param pulumi.Input[str] share_password: Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        """
+        pulumi.set(__self__, "data_account_type", 'StorageAccount')
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if share_password is not None:
+            pulumi.set(__self__, "share_password", share_password)
+
+    @property
+    @pulumi.getter(name="dataAccountType")
+    def data_account_type(self) -> pulumi.Input[str]:
+        """
+        Account Type of the data to be transferred.
+        """
+        return pulumi.get(self, "data_account_type")
+
+    @data_account_type.setter
+    def data_account_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_account_type", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Input[str]:
+        """
+        Storage Account Resource Id.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="sharePassword")
+    def share_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+        """
+        return pulumi.get(self, "share_password")
+
+    @share_password.setter
+    def share_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "share_password", value)
 
 
 @pulumi.input_type

@@ -45,17 +45,33 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
     /**
+     * availability Zone information of the server.
+     */
+    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    /**
+     * Status showing whether the data encryption is enabled with customer-managed keys.
+     */
+    public /*out*/ readonly byokEnforcement!: pulumi.Output<string>;
+    /**
      * The mode to create a new MySQL server.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
+     * Delegated subnet arguments.
+     */
+    public readonly delegatedSubnetArguments!: pulumi.Output<outputs.dbformysql.v20200701privatepreview.DelegatedSubnetArgumentsResponse | undefined>;
+    /**
      * Earliest restore point creation time (ISO8601 format)
      */
-    public readonly earliestRestoreDate!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly earliestRestoreDate!: pulumi.Output<string>;
     /**
      * The fully qualified domain name of a server.
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
+    /**
+     * Enable HA or not for a server.
+     */
+    public readonly haEnabled!: pulumi.Output<string | undefined>;
     /**
      * The state of a HA server.
      */
@@ -73,21 +89,21 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Maintenance window of a server.
+     */
+    public readonly maintenanceWindow!: pulumi.Output<outputs.dbformysql.v20200701privatepreview.MaintenanceWindowResponse | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The primary server id of a replica server.
-     */
-    public /*out*/ readonly primaryServerId!: pulumi.Output<string>;
-    /**
      * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
     /**
      * The maximum number of replicas that a primary server can have.
      */
-    public readonly replicaCapacity!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly replicaCapacity!: pulumi.Output<number>;
     /**
      * The replication role.
      */
@@ -101,7 +117,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.dbformysql.v20200701privatepreview.SkuResponse | undefined>;
     /**
-     * The source MySQL server name to restore from.
+     * The source MySQL server id.
      */
     public readonly sourceServerId!: pulumi.Output<string | undefined>;
     /**
@@ -109,9 +125,9 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly sslEnforcement!: pulumi.Output<string | undefined>;
     /**
-     * stand by count value can be either 0 or 1
+     * availability Zone information of the server.
      */
-    public readonly standbyCount!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly standbyAvailabilityZone!: pulumi.Output<string>;
     /**
      * The state of a server.
      */
@@ -132,10 +148,6 @@ export class Server extends pulumi.CustomResource {
      * Server version.
      */
     public readonly version!: pulumi.Output<string | undefined>;
-    /**
-     * Vnet arguments.
-     */
-    public readonly vnetInjArgs!: pulumi.Output<outputs.dbformysql.v20200701privatepreview.VnetInjArgsResponse | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -158,13 +170,14 @@ export class Server extends pulumi.CustomResource {
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["earliestRestoreDate"] = args ? args.earliestRestoreDate : undefined;
+            inputs["delegatedSubnetArguments"] = args ? args.delegatedSubnetArguments : undefined;
+            inputs["haEnabled"] = args ? args.haEnabled : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["infrastructureEncryption"] = args ? args.infrastructureEncryption : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            inputs["replicaCapacity"] = args ? args.replicaCapacity : undefined;
+            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["replicationRole"] = args ? args.replicationRole : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
@@ -172,29 +185,35 @@ export class Server extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["sourceServerId"] = args ? args.sourceServerId : undefined;
             inputs["sslEnforcement"] = args ? args.sslEnforcement : undefined;
-            inputs["standbyCount"] = args ? args.standbyCount : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
-            inputs["vnetInjArgs"] = args ? args.vnetInjArgs : undefined;
+            inputs["byokEnforcement"] = undefined /*out*/;
+            inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["haState"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["primaryServerId"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
+            inputs["replicaCapacity"] = undefined /*out*/;
+            inputs["standbyAvailabilityZone"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administratorLogin"] = undefined /*out*/;
             inputs["administratorLoginPassword"] = undefined /*out*/;
+            inputs["availabilityZone"] = undefined /*out*/;
+            inputs["byokEnforcement"] = undefined /*out*/;
             inputs["createMode"] = undefined /*out*/;
+            inputs["delegatedSubnetArguments"] = undefined /*out*/;
             inputs["earliestRestoreDate"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            inputs["haEnabled"] = undefined /*out*/;
             inputs["haState"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["infrastructureEncryption"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["maintenanceWindow"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["primaryServerId"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["replicaCapacity"] = undefined /*out*/;
             inputs["replicationRole"] = undefined /*out*/;
@@ -202,13 +221,12 @@ export class Server extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["sourceServerId"] = undefined /*out*/;
             inputs["sslEnforcement"] = undefined /*out*/;
-            inputs["standbyCount"] = undefined /*out*/;
+            inputs["standbyAvailabilityZone"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["storageProfile"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
-            inputs["vnetInjArgs"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -234,13 +252,21 @@ export interface ServerArgs {
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
     /**
+     * availability Zone information of the server.
+     */
+    readonly availabilityZone?: pulumi.Input<string>;
+    /**
      * The mode to create a new MySQL server.
      */
     readonly createMode?: pulumi.Input<string>;
     /**
-     * Earliest restore point creation time (ISO8601 format)
+     * Delegated subnet arguments.
      */
-    readonly earliestRestoreDate?: pulumi.Input<string>;
+    readonly delegatedSubnetArguments?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.DelegatedSubnetArguments>;
+    /**
+     * Enable HA or not for a server.
+     */
+    readonly haEnabled?: pulumi.Input<string>;
     /**
      * The Azure Active Directory identity of the server.
      */
@@ -254,13 +280,9 @@ export interface ServerArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     * Maintenance window of a server.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
-    /**
-     * The maximum number of replicas that a primary server can have.
-     */
-    readonly replicaCapacity?: pulumi.Input<number>;
+    readonly maintenanceWindow?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.MaintenanceWindow>;
     /**
      * The replication role.
      */
@@ -282,17 +304,13 @@ export interface ServerArgs {
      */
     readonly sku?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.Sku>;
     /**
-     * The source MySQL server name to restore from.
+     * The source MySQL server id.
      */
     readonly sourceServerId?: pulumi.Input<string>;
     /**
      * Enable ssl enforcement or not when connect to server.
      */
     readonly sslEnforcement?: pulumi.Input<string>;
-    /**
-     * stand by count value can be either 0 or 1
-     */
-    readonly standbyCount?: pulumi.Input<number>;
     /**
      * Storage profile of a server.
      */
@@ -305,8 +323,4 @@ export interface ServerArgs {
      * Server version.
      */
     readonly version?: pulumi.Input<string>;
-    /**
-     * Vnet arguments.
-     */
-    readonly vnetInjArgs?: pulumi.Input<inputs.dbformysql.v20200701privatepreview.VnetInjArgs>;
 }

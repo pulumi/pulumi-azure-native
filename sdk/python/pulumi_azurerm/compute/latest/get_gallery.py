@@ -20,7 +20,7 @@ class GetGalleryResult:
     """
     Specifies information about the Shared Image Gallery that you want to create or update.
     """
-    def __init__(__self__, description=None, identifier=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, description=None, identifier=None, location=None, name=None, provisioning_state=None, sharing_profile=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -36,6 +36,9 @@ class GetGalleryResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sharing_profile and not isinstance(sharing_profile, dict):
+            raise TypeError("Expected argument 'sharing_profile' to be a dict")
+        pulumi.set(__self__, "sharing_profile", sharing_profile)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -84,6 +87,14 @@ class GetGalleryResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="sharingProfile")
+    def sharing_profile(self) -> Optional['outputs.SharingProfileResponse']:
+        """
+        Profile for gallery sharing to subscription or tenant
+        """
+        return pulumi.get(self, "sharing_profile")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -111,22 +122,26 @@ class AwaitableGetGalleryResult(GetGalleryResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            sharing_profile=self.sharing_profile,
             tags=self.tags,
             type=self.type)
 
 
 def get_gallery(gallery_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
+                select: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str gallery_name: The name of the Shared Image Gallery.
     :param str resource_group_name: The name of the resource group.
+    :param str select: The select expression to apply on the operation.
     """
     __args__ = dict()
     __args__['galleryName'] = gallery_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['select'] = select
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -139,5 +154,6 @@ def get_gallery(gallery_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        sharing_profile=__ret__.sharing_profile,
         tags=__ret__.tags,
         type=__ret__.type)

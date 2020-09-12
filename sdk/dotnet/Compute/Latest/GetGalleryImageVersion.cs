@@ -25,13 +25,13 @@ namespace Pulumi.AzureRM.Compute.Latest
         public string? Expand { get; set; }
 
         /// <summary>
-        /// The name of the gallery Image Definition in which the Image Version resides.
+        /// The name of the gallery image definition in which the Image Version resides.
         /// </summary>
         [Input("galleryImageName", required: true)]
         public string GalleryImageName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the gallery Image Version to be retrieved.
+        /// The name of the gallery image version to be retrieved.
         /// </summary>
         [Input("galleryImageVersionName", required: true)]
         public string GalleryImageVersionName { get; set; } = null!;
@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The publishing profile of a gallery Image Version.
+        /// The publishing profile of a gallery image Version.
         /// </summary>
         public readonly Outputs.GalleryImageVersionPublishingProfileResponseResult? PublishingProfile;
         /// <summary>
-        /// This is the replication status of the gallery Image Version.
+        /// This is the replication status of the gallery image version.
         /// </summary>
         public readonly Outputs.ReplicationStatusResponseResult ReplicationStatus;
         /// <summary>

@@ -20,7 +20,7 @@ class GetAgentPoolResult:
     """
     Agent Pool.
     """
-    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_node_public_ip=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_type=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
+    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_node_public_ip=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -63,9 +63,15 @@ class GetAgentPoolResult:
         if os_disk_size_gb and not isinstance(os_disk_size_gb, float):
             raise TypeError("Expected argument 'os_disk_size_gb' to be a float")
         pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if os_disk_type and not isinstance(os_disk_type, str):
+            raise TypeError("Expected argument 'os_disk_type' to be a str")
+        pulumi.set(__self__, "os_disk_type", os_disk_type)
         if os_type and not isinstance(os_type, str):
             raise TypeError("Expected argument 'os_type' to be a str")
         pulumi.set(__self__, "os_type", os_type)
+        if power_state and not isinstance(power_state, dict):
+            raise TypeError("Expected argument 'power_state' to be a dict")
+        pulumi.set(__self__, "power_state", power_state)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -210,12 +216,28 @@ class GetAgentPoolResult:
         return pulumi.get(self, "os_disk_size_gb")
 
     @property
+    @pulumi.getter(name="osDiskType")
+    def os_disk_type(self) -> Optional[str]:
+        """
+        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        """
+        return pulumi.get(self, "os_disk_type")
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[str]:
         """
         OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         """
         return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> 'outputs.PowerStateResponse':
+        """
+        Describes whether the Agent Pool is Running or Stopped
+        """
+        return pulumi.get(self, "power_state")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -318,7 +340,9 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             node_taints=self.node_taints,
             orchestrator_version=self.orchestrator_version,
             os_disk_size_gb=self.os_disk_size_gb,
+            os_disk_type=self.os_disk_type,
             os_type=self.os_type,
+            power_state=self.power_state,
             provisioning_state=self.provisioning_state,
             proximity_placement_group_id=self.proximity_placement_group_id,
             scale_set_eviction_policy=self.scale_set_eviction_policy,
@@ -367,7 +391,9 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         node_taints=__ret__.node_taints,
         orchestrator_version=__ret__.orchestrator_version,
         os_disk_size_gb=__ret__.os_disk_size_gb,
+        os_disk_type=__ret__.os_disk_type,
         os_type=__ret__.os_type,
+        power_state=__ret__.power_state,
         provisioning_state=__ret__.provisioning_state,
         proximity_placement_group_id=__ret__.proximity_placement_group_id,
         scale_set_eviction_policy=__ret__.scale_set_eviction_policy,

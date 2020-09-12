@@ -26,7 +26,7 @@ type LookupAutomationArgs struct {
 // The security automation resource.
 type LookupAutomationResult struct {
 	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
-	Actions []AutomationActionResponse `pulumi:"actions"`
+	Actions []interface{} `pulumi:"actions"`
 	// The security automation description.
 	Description *string `pulumi:"description"`
 	// Entity tag is used for comparing two or more entities from the same requested resource.

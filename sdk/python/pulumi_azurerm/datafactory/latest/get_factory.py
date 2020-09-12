@@ -113,7 +113,7 @@ class GetFactoryResult:
 
     @property
     @pulumi.getter(name="repoConfiguration")
-    def repo_configuration(self) -> Optional['outputs.FactoryRepoConfigurationResponse']:
+    def repo_configuration(self) -> Optional[Any]:
         """
         Git repo information of the factory.
         """

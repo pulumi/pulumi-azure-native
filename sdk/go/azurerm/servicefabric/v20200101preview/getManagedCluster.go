@@ -79,14 +79,10 @@ type LookupManagedClusterResult struct {
 	Name string `pulumi:"name"`
 	// The provisioning state of the managed cluster resource.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The endpoint used by reverse proxy.
-	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
 	// The sku of the managed cluster
 	Sku *SkuResponse `pulumi:"sku"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
 	Type string `pulumi:"type"`
-	// Use service fabric test vm extension, by default it's false.
-	UseTestExtension *bool `pulumi:"useTestExtension"`
 }

@@ -93,6 +93,7 @@ from .get_vpn_connection import *
 from .get_vpn_gateway import *
 from .get_vpn_server_configuration import *
 from .get_vpn_site import *
+from .get_web_application_firewall_policy import *
 from .hub_route_table import *
 from .hub_virtual_network_connection import *
 from .inbound_nat_rule import *
@@ -143,5 +144,6 @@ from .vpn_connection import *
 from .vpn_gateway import *
 from .vpn_server_configuration import *
 from .vpn_site import *
+from .web_application_firewall_policy import *
 from ._inputs import *
 from . import outputs

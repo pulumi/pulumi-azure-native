@@ -19,7 +19,7 @@ type IntegrationRuntime struct {
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Integration runtime properties.
-	Properties IntegrationRuntimeResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -78,7 +78,7 @@ type integrationRuntimeState struct {
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// Integration runtime properties.
-	Properties *IntegrationRuntimeResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
@@ -89,7 +89,7 @@ type IntegrationRuntimeState struct {
 	// The resource name.
 	Name pulumi.StringPtrInput
 	// Integration runtime properties.
-	Properties IntegrationRuntimeResponsePtrInput
+	Properties pulumi.Input
 	// The resource type.
 	Type pulumi.StringPtrInput
 }
@@ -104,7 +104,7 @@ type integrationRuntimeArgs struct {
 	// The integration runtime name.
 	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
 	// Integration runtime properties.
-	Properties IntegrationRuntimeType `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -116,7 +116,7 @@ type IntegrationRuntimeArgs struct {
 	// The integration runtime name.
 	IntegrationRuntimeName pulumi.StringInput
 	// Integration runtime properties.
-	Properties IntegrationRuntimeTypeInput
+	Properties pulumi.Input
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 }

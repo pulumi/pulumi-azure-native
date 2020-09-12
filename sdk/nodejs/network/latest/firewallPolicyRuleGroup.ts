@@ -93,7 +93,7 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
     /**
      * Group of Firewall Policy rules.
      */
-    public readonly rules!: pulumi.Output<outputs.network.latest.FirewallPolicyRuleResponse[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.network.latest.FirewallPolicyFilterRuleResponse | outputs.network.latest.FirewallPolicyNatRuleResponse[] | undefined>;
     /**
      * Rule Group type.
      */
@@ -180,5 +180,5 @@ export interface FirewallPolicyRuleGroupArgs {
     /**
      * Group of Firewall Policy rules.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.latest.FirewallPolicyRule>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.latest.FirewallPolicyFilterRule | inputs.network.latest.FirewallPolicyNatRule>[]>;
 }

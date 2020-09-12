@@ -39,7 +39,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * Settings for authentication management, these settings are relevant only for the cloud connector.
      */
-    public readonly authenticationDetails!: pulumi.Output<outputs.security.v20200101preview.AuthenticationDetailsPropertiesResponse | undefined>;
+    public readonly authenticationDetails!: pulumi.Output<outputs.security.v20200101preview.AwAssumeRoleAuthenticationDetailsPropertiesResponse | outputs.security.v20200101preview.AwsCredsAuthenticationDetailsPropertiesResponse | outputs.security.v20200101preview.GcpCredentialsDetailsPropertiesResponse | undefined>;
     /**
      * Settings for hybrid compute management, these settings are relevant only Arc autoProvision (Hybrid Compute).
      */
@@ -95,7 +95,7 @@ export interface ConnectorArgs {
     /**
      * Settings for authentication management, these settings are relevant only for the cloud connector.
      */
-    readonly authenticationDetails?: pulumi.Input<inputs.security.v20200101preview.AuthenticationDetailsProperties>;
+    readonly authenticationDetails?: pulumi.Input<inputs.security.v20200101preview.AwAssumeRoleAuthenticationDetailsProperties | inputs.security.v20200101preview.AwsCredsAuthenticationDetailsProperties | inputs.security.v20200101preview.GcpCredentialsDetailsProperties>;
     /**
      * Name of the cloud account connector
      */

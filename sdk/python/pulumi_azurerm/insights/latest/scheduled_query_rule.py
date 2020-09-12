@@ -17,7 +17,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['ActionArgs']]] = None,
+                 action: Optional[pulumi.Input[Union[pulumi.InputType['AlertingActionArgs'], pulumi.InputType['LogToMetricActionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ActionArgs']] action: Action needs to be taken on rule execution.
+        :param pulumi.Input[Union[pulumi.InputType['AlertingActionArgs'], pulumi.InputType['LogToMetricActionArgs']]] action: Action needs to be taken on rule execution.
         :param pulumi.Input[str] description: The description of the Log Search rule.
         :param pulumi.Input[str] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         :param pulumi.Input[str] location: Resource location
@@ -193,7 +193,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Output['outputs.ActionResponse']:
+    def action(self) -> pulumi.Output[Any]:
         """
         Action needs to be taken on rule execution.
         """

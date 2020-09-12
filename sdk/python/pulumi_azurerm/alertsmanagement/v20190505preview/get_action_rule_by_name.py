@@ -55,7 +55,7 @@ class GetActionRuleByNameResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ActionRulePropertiesResponse':
+    def properties(self) -> Any:
         """
         action rule properties
         """

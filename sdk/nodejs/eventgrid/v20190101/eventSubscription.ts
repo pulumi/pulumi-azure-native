@@ -191,11 +191,11 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20190101.DeadLetterDestinationResponse | undefined>;
+    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20190101.StorageBlobDeadLetterDestinationResponse | undefined>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    public readonly destination!: pulumi.Output<outputs.eventgrid.v20190101.EventSubscriptionDestinationResponse | undefined>;
+    public readonly destination!: pulumi.Output<outputs.eventgrid.v20190101.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20190101.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20190101.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20190101.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
      * Information about the filter for the event subscription.
      */
@@ -283,11 +283,11 @@ export interface EventSubscriptionArgs {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20190101.DeadLetterDestination>;
+    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20190101.StorageBlobDeadLetterDestination>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20190101.EventSubscriptionDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.v20190101.EventHubEventSubscriptionDestination | inputs.eventgrid.v20190101.HybridConnectionEventSubscriptionDestination | inputs.eventgrid.v20190101.StorageQueueEventSubscriptionDestination | inputs.eventgrid.v20190101.WebHookEventSubscriptionDestination>;
     /**
      * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
      */

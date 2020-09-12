@@ -74,7 +74,7 @@ class GetFirewallPolicyRuleGroupResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.FirewallPolicyRuleResponse']]:
+    def rules(self) -> Optional[List[Any]]:
         """
         Group of Firewall Policy rules.
         """

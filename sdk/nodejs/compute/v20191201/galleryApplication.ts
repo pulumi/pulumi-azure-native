@@ -153,7 +153,7 @@ export class GalleryApplication extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:GalleryApplication" }, { type: "azurerm:compute/v20190301:GalleryApplication" }, { type: "azurerm:compute/v20190701:GalleryApplication" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:GalleryApplication" }, { type: "azurerm:compute/v20190301:GalleryApplication" }, { type: "azurerm:compute/v20190701:GalleryApplication" }, { type: "azurerm:compute/v20200930:GalleryApplication" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryApplication.__pulumiType, name, inputs, opts);
     }

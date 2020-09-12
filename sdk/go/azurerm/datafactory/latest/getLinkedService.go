@@ -32,7 +32,7 @@ type LookupLinkedServiceResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// Properties of linked service.
-	Properties LinkedServiceResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

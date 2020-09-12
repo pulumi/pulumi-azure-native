@@ -18,7 +18,7 @@ type RoleAssignment struct {
 	CanDelegate pulumi.BoolPtrOutput `pulumi:"canDelegate"`
 	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
 	Condition pulumi.StringPtrOutput `pulumi:"condition"`
-	// Version of the condition. Currently accepted values are '1.0' or '2.0'
+	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion pulumi.StringPtrOutput `pulumi:"conditionVersion"`
 	// Description of role assignment
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -98,7 +98,7 @@ type roleAssignmentState struct {
 	CanDelegate *bool `pulumi:"canDelegate"`
 	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
 	Condition *string `pulumi:"condition"`
-	// Version of the condition. Currently accepted values are '1.0' or '2.0'
+	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion *string `pulumi:"conditionVersion"`
 	// Description of role assignment
 	Description *string `pulumi:"description"`
@@ -121,7 +121,7 @@ type RoleAssignmentState struct {
 	CanDelegate pulumi.BoolPtrInput
 	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
 	Condition pulumi.StringPtrInput
-	// Version of the condition. Currently accepted values are '1.0' or '2.0'
+	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion pulumi.StringPtrInput
 	// Description of role assignment
 	Description pulumi.StringPtrInput
@@ -146,9 +146,9 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 type roleAssignmentArgs struct {
 	// The delegation flag used for creating a role assignment
 	CanDelegate *bool `pulumi:"canDelegate"`
-	// The conditions on the role assignment
+	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
 	Condition *string `pulumi:"condition"`
-	// Version of the condition
+	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion *string `pulumi:"conditionVersion"`
 	// Description of role assignment
 	Description *string `pulumi:"description"`
@@ -168,9 +168,9 @@ type roleAssignmentArgs struct {
 type RoleAssignmentArgs struct {
 	// The delegation flag used for creating a role assignment
 	CanDelegate pulumi.BoolPtrInput
-	// The conditions on the role assignment
+	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
 	Condition pulumi.StringPtrInput
-	// Version of the condition
+	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion pulumi.StringPtrInput
 	// Description of role assignment
 	Description pulumi.StringPtrInput

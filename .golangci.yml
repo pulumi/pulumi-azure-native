@@ -1,0 +1,24 @@
+linters:
+  enable:
+  - deadcode
+  - errcheck
+  - goconst
+  - gofmt
+  - golint
+  - gosec
+  - govet
+  - ineffassign
+  - interfacer
+  - lll
+  - megacheck
+  - misspell
+  - nakedret
+  - structcheck
+  - unconvert
+  - varcheck
+  enable-all: false
+run:
+  skip-files:
+  - metadata.go
+  - schema.go
+  timeout: 30m

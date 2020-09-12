@@ -104,7 +104,7 @@ func main() {
 	}
 }
 
-func emitMetadata(metadata *provider.AzureApiMetadata, outDir string) error {
+func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string) error {
 	compressedMeta := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedMeta)
 	err := json.NewEncoder(compressedWriter).Encode(metadata)

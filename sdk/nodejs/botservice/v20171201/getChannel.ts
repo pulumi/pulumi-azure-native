@@ -59,7 +59,7 @@ export interface GetChannelResult {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties: outputs.botservice.v20171201.ChannelResponse;
+    readonly properties: outputs.botservice.v20171201.DirectLineChannelResponse | outputs.botservice.v20171201.EmailChannelResponse | outputs.botservice.v20171201.FacebookChannelResponse | outputs.botservice.v20171201.KikChannelResponse | outputs.botservice.v20171201.MsTeamsChannelResponse | outputs.botservice.v20171201.SkypeChannelResponse | outputs.botservice.v20171201.SlackChannelResponse | outputs.botservice.v20171201.SmsChannelResponse | outputs.botservice.v20171201.TelegramChannelResponse | outputs.botservice.v20171201.WebChatChannelResponse;
     /**
      * Gets or sets the SKU of the resource.
      */

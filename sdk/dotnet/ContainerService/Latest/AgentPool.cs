@@ -236,10 +236,22 @@ namespace Pulumi.AzureRM.ContainerService.Latest
         public Output<int?> OsDiskSizeGB { get; private set; } = null!;
 
         /// <summary>
+        /// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        /// </summary>
+        [Output("osDiskType")]
+        public Output<string?> OsDiskType { get; private set; } = null!;
+
+        /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes whether the Agent Pool is Running or Stopped
+        /// </summary>
+        [Output("powerState")]
+        public Output<Outputs.PowerStateResponseResult> PowerState { get; private set; } = null!;
 
         /// <summary>
         /// The current deployment or provisioning state, which only appears in the response.
@@ -338,6 +350,7 @@ namespace Pulumi.AzureRM.ContainerService.Latest
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20200401:AgentPool"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20200601:AgentPool"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20200701:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200901:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -456,6 +469,12 @@ namespace Pulumi.AzureRM.ContainerService.Latest
         /// </summary>
         [Input("osDiskSizeGB")]
         public Input<int>? OsDiskSizeGB { get; set; }
+
+        /// <summary>
+        /// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        /// </summary>
+        [Input("osDiskType")]
+        public Input<string>? OsDiskType { get; set; }
 
         /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.

@@ -31,8 +31,6 @@ from .get_web_app_swift_virtual_network_connection import *
 from .get_web_app_swift_virtual_network_connection_slot import *
 from .get_web_app_vnet_connection import *
 from .get_web_app_vnet_connection_slot import *
-from .list_web_app_application_settings import *
-from .list_web_app_application_settings_slot import *
 from .list_web_app_auth_settings import *
 from .list_web_app_auth_settings_slot import *
 from .list_web_app_azure_storage_accounts import *
@@ -55,6 +53,8 @@ from .list_web_app_site_push_settings import *
 from .list_web_app_site_push_settings_slot import *
 from .list_web_app_sync_function_triggers import *
 from .list_web_app_sync_function_triggers_slot import *
+from .list_web_application_settings import *
+from .list_web_application_settings_slot import *
 from .web_app import *
 from .web_app_deployment import *
 from .web_app_deployment_slot import *

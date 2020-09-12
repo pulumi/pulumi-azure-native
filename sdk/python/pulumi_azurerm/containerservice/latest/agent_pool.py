@@ -30,6 +30,7 @@ class AgentPool(pulumi.CustomResource):
                  node_taints: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 os_disk_type: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -155,6 +156,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param pulumi.Input[float] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param pulumi.Input[str] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param pulumi.Input[str] proximity_placement_group_id: The ID for Proximity Placement Group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -200,6 +202,7 @@ class AgentPool(pulumi.CustomResource):
             __props__['node_taints'] = node_taints
             __props__['orchestrator_version'] = orchestrator_version
             __props__['os_disk_size_gb'] = os_disk_size_gb
+            __props__['os_disk_type'] = os_disk_type
             __props__['os_type'] = os_type
             __props__['proximity_placement_group_id'] = proximity_placement_group_id
             if resource_group_name is None:
@@ -218,8 +221,9 @@ class AgentPool(pulumi.CustomResource):
             __props__['vnet_subnet_id'] = vnet_subnet_id
             __props__['name'] = None
             __props__['node_image_version'] = None
+            __props__['power_state'] = None
             __props__['provisioning_state'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200701:AgentPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:containerservice/v20190201:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20190401:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20190601:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20190801:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20191001:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20191101:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200101:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200201:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200301:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200401:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200601:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200701:AgentPool"), pulumi.Alias(type_="azurerm:containerservice/v20200901:AgentPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AgentPool, __self__).__init__(
             'azurerm:containerservice/latest:AgentPool',
@@ -358,12 +362,28 @@ class AgentPool(pulumi.CustomResource):
         return pulumi.get(self, "os_disk_size_gb")
 
     @property
+    @pulumi.getter(name="osDiskType")
+    def os_disk_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        """
+        return pulumi.get(self, "os_disk_type")
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> pulumi.Output[Optional[str]]:
         """
         OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         """
         return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> pulumi.Output['outputs.PowerStateResponse']:
+        """
+        Describes whether the Agent Pool is Running or Stopped
+        """
+        return pulumi.get(self, "power_state")
 
     @property
     @pulumi.getter(name="provisioningState")

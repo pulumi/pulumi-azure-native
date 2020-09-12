@@ -16,13 +16,13 @@ type Account struct {
 
 	// The identity of the Automanage account.
 	Identity AccountIdentityResponsePtrOutput `pulumi:"identity"`
-	// Region where the VM is located.
+	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the Automanage assignment.
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -31,6 +31,9 @@ func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
+	}
+	if args == nil || args.Location == nil {
+		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -62,26 +65,26 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// The identity of the Automanage account.
 	Identity *AccountIdentityResponse `pulumi:"identity"`
-	// Region where the VM is located.
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Name of the Automanage assignment.
+	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type AccountState struct {
 	// The identity of the Automanage account.
 	Identity AccountIdentityResponsePtrInput
-	// Region where the VM is located.
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// Name of the Automanage assignment.
+	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The type of the resource.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }
 
@@ -94,9 +97,9 @@ type accountArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The identity of the Automanage account.
 	Identity *AccountIdentity `pulumi:"identity"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The resource group name.
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -108,9 +111,9 @@ type AccountArgs struct {
 	AccountName pulumi.StringInput
 	// The identity of the Automanage account.
 	Identity AccountIdentityPtrInput
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput
-	// The resource group name.
+	// The geo-location where the resource lives
+	Location pulumi.StringInput
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput

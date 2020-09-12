@@ -14,7 +14,12 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Outputs
     public sealed class ManagedClusterPropertiesResponseAutoScalerProfileResult
     {
         public readonly string? BalanceSimilarNodeGroups;
+        public readonly string? Expander;
+        public readonly string? MaxEmptyBulkDelete;
         public readonly string? MaxGracefulTerminationSec;
+        public readonly string? MaxTotalUnreadyPercentage;
+        public readonly string? NewPodScaleUpDelay;
+        public readonly string? OkTotalUnreadyCount;
         public readonly string? ScaleDownDelayAfterAdd;
         public readonly string? ScaleDownDelayAfterDelete;
         public readonly string? ScaleDownDelayAfterFailure;
@@ -22,12 +27,24 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Outputs
         public readonly string? ScaleDownUnreadyTime;
         public readonly string? ScaleDownUtilizationThreshold;
         public readonly string? ScanInterval;
+        public readonly string? SkipNodesWithLocalStorage;
+        public readonly string? SkipNodesWithSystemPods;
 
         [OutputConstructor]
         private ManagedClusterPropertiesResponseAutoScalerProfileResult(
             string? balanceSimilarNodeGroups,
 
+            string? expander,
+
+            string? maxEmptyBulkDelete,
+
             string? maxGracefulTerminationSec,
+
+            string? maxTotalUnreadyPercentage,
+
+            string? newPodScaleUpDelay,
+
+            string? okTotalUnreadyCount,
 
             string? scaleDownDelayAfterAdd,
 
@@ -41,10 +58,19 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Outputs
 
             string? scaleDownUtilizationThreshold,
 
-            string? scanInterval)
+            string? scanInterval,
+
+            string? skipNodesWithLocalStorage,
+
+            string? skipNodesWithSystemPods)
         {
             BalanceSimilarNodeGroups = balanceSimilarNodeGroups;
+            Expander = expander;
+            MaxEmptyBulkDelete = maxEmptyBulkDelete;
             MaxGracefulTerminationSec = maxGracefulTerminationSec;
+            MaxTotalUnreadyPercentage = maxTotalUnreadyPercentage;
+            NewPodScaleUpDelay = newPodScaleUpDelay;
+            OkTotalUnreadyCount = okTotalUnreadyCount;
             ScaleDownDelayAfterAdd = scaleDownDelayAfterAdd;
             ScaleDownDelayAfterDelete = scaleDownDelayAfterDelete;
             ScaleDownDelayAfterFailure = scaleDownDelayAfterFailure;
@@ -52,6 +78,8 @@ namespace Pulumi.AzureRM.ContainerService.Latest.Outputs
             ScaleDownUnreadyTime = scaleDownUnreadyTime;
             ScaleDownUtilizationThreshold = scaleDownUtilizationThreshold;
             ScanInterval = scanInterval;
+            SkipNodesWithLocalStorage = skipNodesWithLocalStorage;
+            SkipNodesWithSystemPods = skipNodesWithSystemPods;
         }
     }
 }

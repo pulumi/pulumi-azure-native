@@ -19,7 +19,7 @@ class IntegrationRuntime(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ManagedIntegrationRuntimeArgs'], pulumi.InputType['SelfHostedIntegrationRuntimeArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -45,7 +45,7 @@ class IntegrationRuntime(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime name.
-        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeArgs']] properties: Integration runtime properties.
+        :param pulumi.Input[Union[pulumi.InputType['ManagedIntegrationRuntimeArgs'], pulumi.InputType['SelfHostedIntegrationRuntimeArgs']]] properties: Integration runtime properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
         if __name__ is not None:
@@ -124,7 +124,7 @@ class IntegrationRuntime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.IntegrationRuntimeResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         Integration runtime properties.
         """

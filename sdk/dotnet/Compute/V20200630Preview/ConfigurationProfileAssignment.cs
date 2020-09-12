@@ -15,13 +15,7 @@ namespace Pulumi.AzureRM.Compute.V20200630Preview
     public partial class ConfigurationProfileAssignment : Pulumi.CustomResource
     {
         /// <summary>
-        /// Region where the VM is located.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// Name of the Automanage assignment.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -33,7 +27,7 @@ namespace Pulumi.AzureRM.Compute.V20200630Preview
         public Output<Outputs.ConfigurationProfileAssignmentPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -96,7 +90,7 @@ namespace Pulumi.AzureRM.Compute.V20200630Preview
         public Input<Inputs.ConfigurationProfileAssignmentPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

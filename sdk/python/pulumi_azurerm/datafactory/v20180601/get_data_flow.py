@@ -52,7 +52,7 @@ class GetDataFlowResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.DataFlowResponse':
+    def properties(self) -> 'outputs.MappingDataFlowResponse':
         """
         Data flow properties.
         """

@@ -307,6 +307,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200401
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20200301:AgentPool"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20200601:AgentPool"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20200701:AgentPool"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200901:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

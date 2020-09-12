@@ -17,7 +17,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifacts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TemplateSpecArtifactArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TemplateSpecTemplateArtifactArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TemplateSpecArtifactArgs']]]] artifacts: An array of Template Spec artifacts.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TemplateSpecTemplateArtifactArgs']]]] artifacts: An array of Template Spec artifacts.
         :param pulumi.Input[str] description: Template Spec version description.
         :param pulumi.Input[str] location: The location of the Template Spec Version. It must match the location of the parent Template Spec.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -104,7 +104,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> pulumi.Output[Optional[List['outputs.TemplateSpecArtifactResponse']]]:
+    def artifacts(self) -> pulumi.Output[Optional[List['outputs.TemplateSpecTemplateArtifactResponse']]]:
         """
         An array of Template Spec artifacts.
         """

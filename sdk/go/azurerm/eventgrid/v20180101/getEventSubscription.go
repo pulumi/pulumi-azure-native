@@ -26,7 +26,7 @@ type LookupEventSubscriptionArgs struct {
 // Event Subscription
 type LookupEventSubscriptionResult struct {
 	// Information about the destination where events have to be delivered for the event subscription.
-	Destination *EventSubscriptionDestinationResponse `pulumi:"destination"`
+	Destination interface{} `pulumi:"destination"`
 	// Information about the filter for the event subscription.
 	Filter *EventSubscriptionFilterResponse `pulumi:"filter"`
 	// List of user defined labels.

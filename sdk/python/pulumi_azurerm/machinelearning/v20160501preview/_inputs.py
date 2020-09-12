@@ -15,6 +15,11 @@ __all__ = [
     'CommitmentPlanArgs',
     'DiagnosticsConfigurationArgs',
     'ExampleRequestArgs',
+    'GraphEdgeArgs',
+    'GraphNodeArgs',
+    'GraphPackageArgs',
+    'GraphParameterArgs',
+    'GraphParameterLinkArgs',
     'InputPortArgs',
     'MachineLearningWorkspaceArgs',
     'ModeValueInfoArgs',
@@ -26,7 +31,7 @@ __all__ = [
     'StorageAccountArgs',
     'TableSpecificationArgs',
     'WebServiceKeysArgs',
-    'WebServicePropertiesArgs',
+    'WebServicePropertiesForGraphArgs',
 ]
 
 @pulumi.input_type
@@ -388,6 +393,298 @@ class ExampleRequestArgs:
     @inputs.setter
     def inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]]]]]):
         pulumi.set(self, "inputs", value)
+
+
+@pulumi.input_type
+class GraphEdgeArgs:
+    def __init__(__self__, *,
+                 source_node_id: Optional[pulumi.Input[str]] = None,
+                 source_port_id: Optional[pulumi.Input[str]] = None,
+                 target_node_id: Optional[pulumi.Input[str]] = None,
+                 target_port_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines an edge within the web service's graph.
+        :param pulumi.Input[str] source_node_id: The source graph node's identifier.
+        :param pulumi.Input[str] source_port_id: The identifier of the source node's port that the edge connects from.
+        :param pulumi.Input[str] target_node_id: The destination graph node's identifier.
+        :param pulumi.Input[str] target_port_id: The identifier of the destination node's port that the edge connects into.
+        """
+        if source_node_id is not None:
+            pulumi.set(__self__, "source_node_id", source_node_id)
+        if source_port_id is not None:
+            pulumi.set(__self__, "source_port_id", source_port_id)
+        if target_node_id is not None:
+            pulumi.set(__self__, "target_node_id", target_node_id)
+        if target_port_id is not None:
+            pulumi.set(__self__, "target_port_id", target_port_id)
+
+    @property
+    @pulumi.getter(name="sourceNodeId")
+    def source_node_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source graph node's identifier.
+        """
+        return pulumi.get(self, "source_node_id")
+
+    @source_node_id.setter
+    def source_node_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_node_id", value)
+
+    @property
+    @pulumi.getter(name="sourcePortId")
+    def source_port_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the source node's port that the edge connects from.
+        """
+        return pulumi.get(self, "source_port_id")
+
+    @source_port_id.setter
+    def source_port_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_port_id", value)
+
+    @property
+    @pulumi.getter(name="targetNodeId")
+    def target_node_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination graph node's identifier.
+        """
+        return pulumi.get(self, "target_node_id")
+
+    @target_node_id.setter
+    def target_node_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_node_id", value)
+
+    @property
+    @pulumi.getter(name="targetPortId")
+    def target_port_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the destination node's port that the edge connects into.
+        """
+        return pulumi.get(self, "target_port_id")
+
+    @target_port_id.setter
+    def target_port_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_port_id", value)
+
+
+@pulumi.input_type
+class GraphNodeArgs:
+    def __init__(__self__, *,
+                 asset_id: Optional[pulumi.Input[str]] = None,
+                 input_id: Optional[pulumi.Input[str]] = None,
+                 output_id: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+        :param pulumi.Input[str] asset_id: The id of the asset represented by this node.
+        :param pulumi.Input[str] input_id: The id of the input element represented by this node.
+        :param pulumi.Input[str] output_id: The id of the output element represented by this node.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+        """
+        if asset_id is not None:
+            pulumi.set(__self__, "asset_id", asset_id)
+        if input_id is not None:
+            pulumi.set(__self__, "input_id", input_id)
+        if output_id is not None:
+            pulumi.set(__self__, "output_id", output_id)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the asset represented by this node.
+        """
+        return pulumi.get(self, "asset_id")
+
+    @asset_id.setter
+    def asset_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asset_id", value)
+
+    @property
+    @pulumi.getter(name="inputId")
+    def input_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the input element represented by this node.
+        """
+        return pulumi.get(self, "input_id")
+
+    @input_id.setter
+    def input_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_id", value)
+
+    @property
+    @pulumi.getter(name="outputId")
+    def output_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the output element represented by this node.
+        """
+        return pulumi.get(self, "output_id")
+
+    @output_id.setter
+    def output_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_id", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class GraphPackageArgs:
+    def __init__(__self__, *,
+                 edges: Optional[pulumi.Input[List[pulumi.Input['GraphEdgeArgs']]]] = None,
+                 graph_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['GraphParameterArgs']]]] = None,
+                 nodes: Optional[pulumi.Input[Mapping[str, pulumi.Input['GraphNodeArgs']]]] = None):
+        """
+        Defines the graph of modules making up the machine learning solution.
+        :param pulumi.Input[List[pulumi.Input['GraphEdgeArgs']]] edges: The list of edges making up the graph.
+        :param pulumi.Input[Mapping[str, pulumi.Input['GraphParameterArgs']]] graph_parameters: The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+        :param pulumi.Input[Mapping[str, pulumi.Input['GraphNodeArgs']]] nodes: The set of nodes making up the graph, provided as a nodeId to GraphNode map
+        """
+        if edges is not None:
+            pulumi.set(__self__, "edges", edges)
+        if graph_parameters is not None:
+            pulumi.set(__self__, "graph_parameters", graph_parameters)
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
+
+    @property
+    @pulumi.getter
+    def edges(self) -> Optional[pulumi.Input[List[pulumi.Input['GraphEdgeArgs']]]]:
+        """
+        The list of edges making up the graph.
+        """
+        return pulumi.get(self, "edges")
+
+    @edges.setter
+    def edges(self, value: Optional[pulumi.Input[List[pulumi.Input['GraphEdgeArgs']]]]):
+        pulumi.set(self, "edges", value)
+
+    @property
+    @pulumi.getter(name="graphParameters")
+    def graph_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['GraphParameterArgs']]]]:
+        """
+        The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+        """
+        return pulumi.get(self, "graph_parameters")
+
+    @graph_parameters.setter
+    def graph_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['GraphParameterArgs']]]]):
+        pulumi.set(self, "graph_parameters", value)
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['GraphNodeArgs']]]]:
+        """
+        The set of nodes making up the graph, provided as a nodeId to GraphNode map
+        """
+        return pulumi.get(self, "nodes")
+
+    @nodes.setter
+    def nodes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['GraphNodeArgs']]]]):
+        pulumi.set(self, "nodes", value)
+
+
+@pulumi.input_type
+class GraphParameterArgs:
+    def __init__(__self__, *,
+                 links: pulumi.Input[List[pulumi.Input['GraphParameterLinkArgs']]],
+                 type: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        Defines a global parameter in the graph.
+        :param pulumi.Input[List[pulumi.Input['GraphParameterLinkArgs']]] links: Association links for this parameter to nodes in the graph.
+        :param pulumi.Input[str] type: Graph parameter's type.
+        :param pulumi.Input[str] description: Description of this graph parameter.
+        """
+        pulumi.set(__self__, "links", links)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def links(self) -> pulumi.Input[List[pulumi.Input['GraphParameterLinkArgs']]]:
+        """
+        Association links for this parameter to nodes in the graph.
+        """
+        return pulumi.get(self, "links")
+
+    @links.setter
+    def links(self, value: pulumi.Input[List[pulumi.Input['GraphParameterLinkArgs']]]):
+        pulumi.set(self, "links", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Graph parameter's type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of this graph parameter.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class GraphParameterLinkArgs:
+    def __init__(__self__, *,
+                 node_id: pulumi.Input[str],
+                 parameter_key: pulumi.Input[str]):
+        """
+        Association link for a graph global parameter to a node in the graph.
+        :param pulumi.Input[str] node_id: The graph node's identifier
+        :param pulumi.Input[str] parameter_key: The identifier of the node parameter that the global parameter maps to.
+        """
+        pulumi.set(__self__, "node_id", node_id)
+        pulumi.set(__self__, "parameter_key", parameter_key)
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> pulumi.Input[str]:
+        """
+        The graph node's identifier
+        """
+        return pulumi.get(self, "node_id")
+
+    @node_id.setter
+    def node_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "node_id", value)
+
+    @property
+    @pulumi.getter(name="parameterKey")
+    def parameter_key(self) -> pulumi.Input[str]:
+        """
+        The identifier of the node parameter that the global parameter maps to.
+        """
+        return pulumi.get(self, "parameter_key")
+
+    @parameter_key.setter
+    def parameter_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_key", value)
 
 
 @pulumi.input_type
@@ -875,7 +1172,7 @@ class WebServiceKeysArgs:
 
 
 @pulumi.input_type
-class WebServicePropertiesArgs:
+class WebServicePropertiesForGraphArgs:
     def __init__(__self__, *,
                  package_type: pulumi.Input[str],
                  assets: Optional[pulumi.Input[Mapping[str, pulumi.Input['AssetItemArgs']]]] = None,
@@ -888,13 +1185,14 @@ class WebServicePropertiesArgs:
                  keys: Optional[pulumi.Input['WebServiceKeysArgs']] = None,
                  machine_learning_workspace: Optional[pulumi.Input['MachineLearningWorkspaceArgs']] = None,
                  output: Optional[pulumi.Input['ServiceInputOutputSpecificationArgs']] = None,
+                 package: Optional[pulumi.Input['GraphPackageArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  realtime_configuration: Optional[pulumi.Input['RealtimeConfigurationArgs']] = None,
                  storage_account: Optional[pulumi.Input['StorageAccountArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None):
         """
-        The set of properties specific to the Azure ML web service resource.
+        Properties specific to a Graph based web service.
         :param pulumi.Input[str] package_type: Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
         :param pulumi.Input[Mapping[str, pulumi.Input['AssetItemArgs']]] assets: Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
         :param pulumi.Input['CommitmentPlanArgs'] commitment_plan: Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
@@ -906,13 +1204,14 @@ class WebServicePropertiesArgs:
         :param pulumi.Input['WebServiceKeysArgs'] keys: Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
         :param pulumi.Input['MachineLearningWorkspaceArgs'] machine_learning_workspace: Specifies the Machine Learning workspace containing the experiment that is source for the web service.
         :param pulumi.Input['ServiceInputOutputSpecificationArgs'] output: Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
+        :param pulumi.Input['GraphPackageArgs'] package: The definition of the graph package making up this web service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
         :param pulumi.Input[bool] read_only: When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
         :param pulumi.Input['RealtimeConfigurationArgs'] realtime_configuration: Contains the configuration settings for the web service endpoint.
         :param pulumi.Input['StorageAccountArgs'] storage_account: Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
         :param pulumi.Input[str] title: The title of the web service.
         """
-        pulumi.set(__self__, "package_type", package_type)
+        pulumi.set(__self__, "package_type", 'Graph')
         if assets is not None:
             pulumi.set(__self__, "assets", assets)
         if commitment_plan is not None:
@@ -933,6 +1232,8 @@ class WebServicePropertiesArgs:
             pulumi.set(__self__, "machine_learning_workspace", machine_learning_workspace)
         if output is not None:
             pulumi.set(__self__, "output", output)
+        if package is not None:
+            pulumi.set(__self__, "package", package)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if read_only is not None:
@@ -1075,6 +1376,18 @@ class WebServicePropertiesArgs:
     @output.setter
     def output(self, value: Optional[pulumi.Input['ServiceInputOutputSpecificationArgs']]):
         pulumi.set(self, "output", value)
+
+    @property
+    @pulumi.getter
+    def package(self) -> Optional[pulumi.Input['GraphPackageArgs']]:
+        """
+        The definition of the graph package making up this web service.
+        """
+        return pulumi.get(self, "package")
+
+    @package.setter
+    def package(self, value: Optional[pulumi.Input['GraphPackageArgs']]):
+        pulumi.set(self, "package", value)
 
     @property
     @pulumi.getter

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// Integration runtime properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IntegrationRuntimeResponseResult> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.ManagedIntegrationRuntimeResponseResult, Outputs.SelfHostedIntegrationRuntimeResponseResult>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -93,7 +93,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// Integration runtime properties.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.IntegrationRuntimeArgs> Properties { get; set; } = null!;
+        public InputUnion<Inputs.ManagedIntegrationRuntimeArgs, Inputs.SelfHostedIntegrationRuntimeArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

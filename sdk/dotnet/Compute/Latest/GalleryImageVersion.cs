@@ -10,6 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.Compute.Latest
 {
     /// <summary>
+<<<<<<< HEAD
     /// Specifies information about the gallery Image Version that you want to create or update.
     /// 
     /// ## Example Usage
@@ -156,6 +157,9 @@ namespace Pulumi.AzureRM.Compute.Latest
     /// }
     /// 
     /// ```
+=======
+    /// Specifies information about the gallery image version that you want to create or update.
+>>>>>>> origin/master
     /// </summary>
     public partial class GalleryImageVersion : Pulumi.CustomResource
     {
@@ -178,13 +182,13 @@ namespace Pulumi.AzureRM.Compute.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The publishing profile of a gallery Image Version.
+        /// The publishing profile of a gallery image Version.
         /// </summary>
         [Output("publishingProfile")]
         public Output<Outputs.GalleryImageVersionPublishingProfileResponseResult?> PublishingProfile { get; private set; } = null!;
 
         /// <summary>
-        /// This is the replication status of the gallery Image Version.
+        /// This is the replication status of the gallery image version.
         /// </summary>
         [Output("replicationStatus")]
         public Output<Outputs.ReplicationStatusResponseResult> ReplicationStatus { get; private set; } = null!;
@@ -236,6 +240,7 @@ namespace Pulumi.AzureRM.Compute.Latest
                     new Pulumi.Alias { Type = "azurerm:compute/v20190301:GalleryImageVersion"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20190701:GalleryImageVersion"},
                     new Pulumi.Alias { Type = "azurerm:compute/v20191201:GalleryImageVersion"},
+                    new Pulumi.Alias { Type = "azurerm:compute/v20200930:GalleryImageVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -260,13 +265,13 @@ namespace Pulumi.AzureRM.Compute.Latest
     public sealed class GalleryImageVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the gallery Image Definition in which the Image Version is to be created.
+        /// The name of the gallery image definition in which the Image Version is to be created.
         /// </summary>
         [Input("galleryImageName", required: true)]
         public Input<string> GalleryImageName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: &lt;MajorVersion&gt;.&lt;MinorVersion&gt;.&lt;Patch&gt;
+        /// The name of the gallery image version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: &lt;MajorVersion&gt;.&lt;MinorVersion&gt;.&lt;Patch&gt;
         /// </summary>
         [Input("galleryImageVersionName", required: true)]
         public Input<string> GalleryImageVersionName { get; set; } = null!;
@@ -284,7 +289,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The publishing profile of a gallery Image Version.
+        /// The publishing profile of a gallery image Version.
         /// </summary>
         [Input("publishingProfile")]
         public Input<Inputs.GalleryImageVersionPublishingProfileArgs>? PublishingProfile { get; set; }

@@ -21,7 +21,7 @@ class Channel(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ChannelArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AlexaChannelArgs'], pulumi.InputType['DirectLineChannelArgs'], pulumi.InputType['DirectLineSpeechChannelArgs'], pulumi.InputType['EmailChannelArgs'], pulumi.InputType['FacebookChannelArgs'], pulumi.InputType['KikChannelArgs'], pulumi.InputType['LineChannelArgs'], pulumi.InputType['MsTeamsChannelArgs'], pulumi.InputType['SkypeChannelArgs'], pulumi.InputType['SlackChannelArgs'], pulumi.InputType['SmsChannelArgs'], pulumi.InputType['TelegramChannelArgs'], pulumi.InputType['WebChatChannelArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -96,7 +96,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Entity Tag
         :param pulumi.Input[str] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[pulumi.InputType['ChannelArgs']] properties: The set of properties specific to bot channel resource
+        :param pulumi.Input[Union[pulumi.InputType['AlexaChannelArgs'], pulumi.InputType['DirectLineChannelArgs'], pulumi.InputType['DirectLineSpeechChannelArgs'], pulumi.InputType['EmailChannelArgs'], pulumi.InputType['FacebookChannelArgs'], pulumi.InputType['KikChannelArgs'], pulumi.InputType['LineChannelArgs'], pulumi.InputType['MsTeamsChannelArgs'], pulumi.InputType['SkypeChannelArgs'], pulumi.InputType['SlackChannelArgs'], pulumi.InputType['SmsChannelArgs'], pulumi.InputType['TelegramChannelArgs'], pulumi.InputType['WebChatChannelArgs']]] properties: The set of properties specific to bot channel resource
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
         :param pulumi.Input[str] resource_name_: The name of the Bot resource.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets the SKU of the resource.
@@ -196,7 +196,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ChannelResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         The set of properties specific to bot channel resource
         """

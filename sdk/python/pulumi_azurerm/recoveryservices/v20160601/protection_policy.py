@@ -22,7 +22,7 @@ class ProtectionPolicy(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ProtectionPolicyArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureIaaSVMProtectionPolicyArgs'], pulumi.InputType['AzureSqlProtectionPolicyArgs'], pulumi.InputType['MabProtectionPolicyArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class ProtectionPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: Resource name associated with the resource.
         :param pulumi.Input[str] policy_name: The backup policy to be created.
-        :param pulumi.Input[pulumi.InputType['ProtectionPolicyArgs']] properties: The base class for a backup policy. Workload-specific backup policies are derived from this class.
+        :param pulumi.Input[Union[pulumi.InputType['AzureIaaSVMProtectionPolicyArgs'], pulumi.InputType['AzureSqlProtectionPolicyArgs'], pulumi.InputType['MabProtectionPolicyArgs']]] properties: The base class for a backup policy. Workload-specific backup policies are derived from this class.
         :param pulumi.Input[str] resource_group_name: The name of the resource group associated with the Recovery Services vault.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] type: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
@@ -131,7 +131,7 @@ class ProtectionPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ProtectionPolicyResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         The base class for a backup policy. Workload-specific backup policies are derived from this class.
         """

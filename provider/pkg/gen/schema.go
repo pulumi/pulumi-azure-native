@@ -36,7 +36,7 @@ import (
 )
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureApiMetadata, map[string][]provider.AzureApiExample, error) {
+func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureAPIMetadata, map[string][]provider.AzureApiExample, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azurerm",
 		Version:     "0.1.0", // TODO
@@ -46,19 +46,187 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		Homepage:    "https://pulumi.com",
 		Repository:  "https://github.com/pulumi/pulumi-azurerm",
 		Config: pschema.ConfigSpec{
-			Variables: map[string]pschema.PropertySpec{},
+			Variables: map[string]pschema.PropertySpec{
+				"subscriptionId": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Subscription ID which should be used.",
+				},
+				"clientId": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Client ID which should be used.",
+				},
+				"clientSecret": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.",
+				},
+				"tenantId": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Tenant ID which should be used.",
+				},
+				"auxiliaryTenantIds": {
+					TypeSpec: pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+				},
+				"environment": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.",
+				},
+				"clientCertificatePath": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.",
+				},
+				"clientCertificatePassword": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate",
+				},
+				"useMsi": {
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					Description: "Allowed Managed Service Identity be used for Authentication.",
+				},
+				"msiEndpoint": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. ",
+				},
+				// Managed Tracking GUID for User-Agent.
+				"partnerId": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.",
+				},
+				"disablePulumiPartnerId": {
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					Description: "This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.",
+				},
+			},
+		},
+		Provider: pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Description: "The provider type for the AzureRM package.",
+				Type:        "object",
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"subscriptionId": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_SUBSCRIPTION_ID",
+						},
+					},
+					Description: "The Subscription ID which should be used.",
+				},
+				"clientId": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_CLIENT_ID",
+						},
+					},
+					Description: "The Client ID which should be used.",
+				},
+				"clientSecret": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_CLIENT_SECRET",
+						},
+					},
+					Description: "The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.",
+				},
+				"tenantId": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_TENANT_ID",
+						},
+					},
+					Description: "The Tenant ID which should be used.",
+				},
+				"auxiliaryTenantIds": {
+					TypeSpec: pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_AUXILIARY_TENANT_IDS",
+						},
+					},
+				},
+				"environment": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					Default:  "public",
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_ENVIRONMENT",
+						},
+					},
+					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.",
+				},
+				"clientCertificatePath": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_CLIENT_CERTIFICATE_PATH",
+						},
+					},
+					Description: "The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.",
+				},
+				"clientCertificatePassword": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_CLIENT_CERTIFICATE_PASSWORD",
+						},
+					},
+					Description: "The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate",
+				},
+				"useMsi": {
+					TypeSpec: pschema.TypeSpec{Type: "boolean"},
+					Default:  false,
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_USE_MSI",
+						},
+					},
+					Description: "Allowed Managed Service Identity be used for Authentication.",
+				},
+				"msiEndpoint": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_MSI_ENDPOINT",
+						},
+					},
+					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. ",
+				},
+				// Managed Tracking GUID for User-Agent.
+				"partnerId": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_PARTNER_ID",
+						},
+					},
+					Description: "A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.",
+				},
+				"disablePulumiPartnerId": {
+					TypeSpec: pschema.TypeSpec{Type: "boolean"},
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"ARM_DISABLE_PULUMI_PARTNER_ID",
+						},
+					},
+					Description: "This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.",
+				},
+			},
 		},
 		Types:     map[string]pschema.ObjectTypeSpec{},
 		Resources: map[string]pschema.ResourceSpec{},
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]json.RawMessage{},
 	}
-	metadata := provider.AzureApiMetadata{
-		Types:     map[string]provider.AzureApiType{},
-		Resources: map[string]provider.AzureApiResource{},
-		Invokes:   map[string]provider.AzureApiInvoke{},
+	metadata := provider.AzureAPIMetadata{
+		Types:     map[string]provider.AzureAPIType{},
+		Resources: map[string]provider.AzureAPIResource{},
+		Invokes:   map[string]provider.AzureAPIInvoke{},
 	}
 
+	csharpVersionReplacer := strings.NewReplacer("privatepreview", "PrivatePreview", "preview", "Preview")
 	csharpNamespaces := map[string]string{
 		"azurerm": "AzureRM",
 	}
@@ -89,7 +257,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 
 			// Populate C# and Python module mapping.
 			module := gen.providerToModule(providerName)
-			csVersion := strings.Title(strings.Replace(version, "preview", "Preview", 1))
+			csVersion := strings.Title(csharpVersionReplacer.Replace(version))
 			csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
 			pythonModuleNames[module] = module
 
@@ -182,7 +350,7 @@ const (
 
 type packageGenerator struct {
 	pkg        *pschema.PackageSpec
-	metadata   *provider.AzureApiMetadata
+	metadata   *provider.AzureAPIMetadata
 	examples   map[string][]provider.AzureApiExample
 	apiVersion string
 }
@@ -196,6 +364,8 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 		pkg:           g.pkg,
 		metadata:      g.metadata,
 		module:        module,
+		prov:          prov,
+		resourceName:  typeName,
 		resourceToken: resourceTok,
 		visitedTypes:  make(map[string]bool),
 	}
@@ -271,8 +441,8 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 	}
 	g.pkg.Functions[functionTok] = functionSpec
 
-	r := provider.AzureApiResource{
-		ApiVersion:    swagger.Info.Version,
+	r := provider.AzureAPIResource{
+		APIVersion:    swagger.Info.Version,
 		Path:          key,
 		GetParameters: requestFunction.parameters,
 		PutParameters: resourceRequest.parameters,
@@ -280,8 +450,8 @@ func (g *packageGenerator) genResources(prov, typeName, key string, path *spec.P
 	}
 	g.metadata.Resources[resourceTok] = r
 
-	f := provider.AzureApiInvoke{
-		ApiVersion:    swagger.Info.Version,
+	f := provider.AzureAPIInvoke{
+		APIVersion:    swagger.Info.Version,
 		Path:          key,
 		GetParameters: requestFunction.parameters,
 		Response:      responseFunction.properties,
@@ -352,6 +522,8 @@ func (g *packageGenerator) genListFunctions(prov, typeName, path string, pathIte
 		metadata:      g.metadata,
 		module:        module,
 		resourceToken: fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
+		prov:          prov,
+		resourceName:  typeName,
 		visitedTypes:  make(map[string]bool),
 	}
 
@@ -391,8 +563,8 @@ func (g *packageGenerator) genListFunctions(prov, typeName, path string, pathIte
 	}
 	g.pkg.Functions[functionTok] = functionSpec
 
-	f := provider.AzureApiInvoke{
-		ApiVersion:     swagger.Info.Version,
+	f := provider.AzureAPIInvoke{
+		APIVersion:     swagger.Info.Version,
 		Path:           path,
 		PostParameters: request.parameters,
 		Response:       response.properties,
@@ -407,8 +579,10 @@ func (g *packageGenerator) providerToModule(prov string) string {
 
 type moduleGenerator struct {
 	pkg           *pschema.PackageSpec
-	metadata      *provider.AzureApiMetadata
+	metadata      *provider.AzureAPIMetadata
 	module        string
+	prov          string
+	resourceName  string
 	resourceToken string
 	visitedTypes  map[string]bool
 }
@@ -437,12 +611,12 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 		}
 
 		location, _ := param.Extensions.GetString(extensionParameterLocation)
-		apiParameter := provider.AzureApiParameter{
+		apiParameter := provider.AzureAPIParameter{
 			Name:       param.Name,
 			Location:   param.In,
 			Source:     location,
 			IsRequired: param.Required,
-			Value: &provider.AzureApiProperty{
+			Value: &provider.AzureAPIProperty{
 				Type:      param.Type,
 				MinLength: param.MinLength,
 				MaxLength: param.MaxLength,
@@ -473,7 +647,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			}
 
 			result.merge(props)
-			apiParameter.Body = &provider.AzureApiType{
+			apiParameter.Body = &provider.AzureAPIType{
 				Properties:         props.properties,
 				RequiredProperties: props.requiredProperties.SortedValues(),
 			}
@@ -608,7 +782,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			}
 
 			// Adjust every property to mark them as flattened.
-			newProperties := map[string]provider.AzureApiProperty{}
+			newProperties := map[string]provider.AzureAPIProperty{}
 			for n, value := range bag.properties {
 				value.Container = name
 				newProperties[n] = value
@@ -634,22 +808,24 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
-		var apiProperty provider.AzureApiProperty
+		var apiProperty provider.AzureAPIProperty
 		if isOutput {
 			if property.ReadOnly {
 				result.requiredSpecs.Add(sdkName)
 			}
-			apiProperty = provider.AzureApiProperty{
-				Ref: propertySpec.Ref,
+			apiProperty = provider.AzureAPIProperty{
+				OneOf: m.getOneOfValues(propertySpec),
+				Ref:   propertySpec.Ref,
 			}
 		} else {
 			resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
 			if err != nil {
 				return nil, err
 			}
-			apiProperty = provider.AzureApiProperty{
+			apiProperty = provider.AzureAPIProperty{
 				Type:      propertySpec.Type,
 				Enum:      m.getEnumValues(&property),
+				OneOf:     m.getOneOfValues(propertySpec),
 				Ref:       propertySpec.Ref,
 				Minimum:   resolvedProperty.Minimum,
 				Maximum:   resolvedProperty.Maximum,
@@ -669,13 +845,18 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				operations := codegen.NewStringSet(mutability...)
 				apiProperty.ForceNew = operations.Has(extensionMutabilityCreate) && !operations.Has(extensionMutabilityUpdate)
 			}
+
+			// Apply manual metadata about Force New properties.
+			if m.forceNew(name) {
+				apiProperty.ForceNew = true
+			}
 		}
 
 		if sdkName != name {
 			apiProperty.SdkName = sdkName
 		}
 		if propertySpec.Items != nil {
-			apiProperty.Items = &provider.AzureApiProperty{
+			apiProperty.Items = &provider.AzureAPIProperty{
 				Type: propertySpec.Items.Type,
 				Ref:  propertySpec.Items.Ref,
 			}
@@ -695,6 +876,25 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			return nil, err
 		}
 
+		// For a derived type, set the discriminator property to the const value, if any.
+		if allOfSchema.Discriminator != "" {
+			discriminator := allOfSchema.Discriminator
+			prop := allOfProperties.properties[discriminator]
+			if prop.SdkName != "" {
+				discriminator = prop.SdkName
+			}
+
+			propSpec := allOfProperties.specs[discriminator]
+			discriminatorValue := resolvedSchema.ReferenceContext.ReferenceName
+			if v, ok := resolvedSchema.Extensions.GetString("x-ms-discriminator-value"); ok {
+				discriminatorValue = v
+			}
+			propSpec.Const = discriminatorValue
+			allOfProperties.specs[discriminator] = propSpec
+			prop.Const = discriminatorValue
+			allOfProperties.properties[discriminator] = prop
+		}
+
 		result.merge(allOfProperties)
 	}
 
@@ -709,6 +909,20 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 	}
 	return result, nil
+}
+
+// forceNew return true if a property with a given name requires a replacement in the resource
+// that is currently being generated, based on forceNewMap.
+func (m *moduleGenerator) forceNew(propertyName string) bool {
+	if resourceMap, ok := forceNewMap[m.prov]; ok {
+		if properties, ok := resourceMap[m.resourceName]; ok {
+			if properties.Has(propertyName) {
+				return true
+			}
+		}
+	}
+
+	return false
 }
 
 func (m *moduleGenerator) getEnumValues(property *spec.Schema) (enum []string) {
@@ -731,6 +945,13 @@ func (m *moduleGenerator) getEnumValues(property *spec.Schema) (enum []string) {
 				enum = append(enum, s)
 			}
 		}
+	}
+	return
+}
+
+func (m *moduleGenerator) getOneOfValues(property *pschema.PropertySpec) (values []string) {
+	for _, value := range property.OneOf {
+		values = append(values, value.Ref)
 	}
 	return
 }
@@ -789,6 +1010,14 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 	// If an object type is referenced, add its definition to the type map.
 	if tok != "" {
+		discriminatedType, ok, err := m.genDiscriminatedType(resolvedSchema, isOutput)
+		if err != nil {
+			return nil, err
+		}
+		if ok {
+			return discriminatedType, nil
+		}
+
 		referencedTypeName = fmt.Sprintf("#/types/%s", tok)
 
 		if _, ok := m.visitedTypes[tok]; !ok {
@@ -812,7 +1041,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 				Required:    props.requiredSpecs.SortedValues(),
 			}
 
-			m.metadata.Types[tok] = provider.AzureApiType{
+			m.metadata.Types[tok] = provider.AzureAPIType{
 				Properties:         props.properties,
 				RequiredProperties: props.requiredProperties.SortedValues(),
 			}
@@ -863,6 +1092,47 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 	return &result, nil
 }
 
+// genDiscriminatedType generates polymorphic types (base type and subtypes) if the schema specifies a discriminator property.
+// If no error occurs, the bool result indicates whether a discriminated (union) type is detected. If true, the TypeSpec
+// result points to the specification of the union type.
+func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, isOutput bool) (*pschema.TypeSpec, bool, error) {
+	if resolvedSchema.Discriminator == "" {
+		return nil, false, nil
+	}
+
+	discriminator := resolvedSchema.Discriminator
+	if _, ok := resolvedSchema.Properties[discriminator]; !ok {
+		return nil, false, nil
+	}
+
+	prop := resolvedSchema.Properties[discriminator]
+	if prop.ReadOnly && !isOutput {
+		return nil, false, nil
+	}
+
+	var oneOf []pschema.TypeSpec
+	subtypes := resolvedSchema.FindSubtypes()
+	for _, subtype := range subtypes {
+		typ, err := m.genTypeSpec("", subtype, resolvedSchema.ReferenceContext, isOutput)
+		if err != nil {
+			return nil, false, err
+		}
+		oneOf = append(oneOf, *typ)
+	}
+
+	switch len(oneOf) {
+	case 0:
+		// Type specifies a discriminator but doesn't have actual subtypes. Ignore the discriminator in this case.
+		return nil, false, nil
+	case 1:
+		// There is just one subtype specified: use it as a definite type.
+		return &oneOf[0], true, nil
+	default:
+		// Union type for two or more types.
+		return &pschema.TypeSpec{OneOf: oneOf}, true, nil
+	}
+}
+
 func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool) string {
 	suffix := ""
 	if isOutput {
@@ -875,7 +1145,7 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 type parameterBag struct {
 	description   string
 	specs         map[string]pschema.PropertySpec
-	parameters    []provider.AzureApiParameter
+	parameters    []provider.AzureAPIParameter
 	requiredSpecs codegen.StringSet
 }
 
@@ -899,7 +1169,7 @@ func (bag *parameterBag) merge(other *propertyBag) {
 type propertyBag struct {
 	description        string
 	specs              map[string]pschema.PropertySpec
-	properties         map[string]provider.AzureApiProperty
+	properties         map[string]provider.AzureAPIProperty
 	requiredSpecs      codegen.StringSet
 	requiredProperties codegen.StringSet
 }
@@ -907,7 +1177,7 @@ type propertyBag struct {
 func newPropertyBag() *propertyBag {
 	return &propertyBag{
 		specs:              map[string]pschema.PropertySpec{},
-		properties:         map[string]provider.AzureApiProperty{},
+		properties:         map[string]provider.AzureAPIProperty{},
 		requiredSpecs:      codegen.NewStringSet(),
 		requiredProperties: codegen.NewStringSet(),
 	}

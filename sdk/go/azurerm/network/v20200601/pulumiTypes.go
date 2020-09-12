@@ -12379,6 +12379,260 @@ func (o ApplicationGatewayWebApplicationFirewallConfigurationResponsePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Rule of type application.
+type ApplicationRule struct {
+	// Description of the rule.
+	Description *string `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// List of FQDN Tags for this rule.
+	FqdnTags []string `pulumi:"fqdnTags"`
+	// Name of the rule.
+	Name *string `pulumi:"name"`
+	// Array of Application Protocols.
+	Protocols []FirewallPolicyRuleApplicationProtocol `pulumi:"protocols"`
+	// Rule Type.
+	RuleType string `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
+	// List of FQDNs for this rule.
+	TargetFqdns []string `pulumi:"targetFqdns"`
+}
+
+// ApplicationRuleInput is an input type that accepts ApplicationRuleArgs and ApplicationRuleOutput values.
+// You can construct a concrete instance of `ApplicationRuleInput` via:
+//
+//          ApplicationRuleArgs{...}
+type ApplicationRuleInput interface {
+	pulumi.Input
+
+	ToApplicationRuleOutput() ApplicationRuleOutput
+	ToApplicationRuleOutputWithContext(context.Context) ApplicationRuleOutput
+}
+
+// Rule of type application.
+type ApplicationRuleArgs struct {
+	// Description of the rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// List of FQDN Tags for this rule.
+	FqdnTags pulumi.StringArrayInput `pulumi:"fqdnTags"`
+	// Name of the rule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Array of Application Protocols.
+	Protocols FirewallPolicyRuleApplicationProtocolArrayInput `pulumi:"protocols"`
+	// Rule Type.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+	// List of FQDNs for this rule.
+	TargetFqdns pulumi.StringArrayInput `pulumi:"targetFqdns"`
+}
+
+func (ApplicationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRule)(nil)).Elem()
+}
+
+func (i ApplicationRuleArgs) ToApplicationRuleOutput() ApplicationRuleOutput {
+	return i.ToApplicationRuleOutputWithContext(context.Background())
+}
+
+func (i ApplicationRuleArgs) ToApplicationRuleOutputWithContext(ctx context.Context) ApplicationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRuleOutput)
+}
+
+// Rule of type application.
+type ApplicationRuleOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRule)(nil)).Elem()
+}
+
+func (o ApplicationRuleOutput) ToApplicationRuleOutput() ApplicationRuleOutput {
+	return o
+}
+
+func (o ApplicationRuleOutput) ToApplicationRuleOutputWithContext(ctx context.Context) ApplicationRuleOutput {
+	return o
+}
+
+// Description of the rule.
+func (o ApplicationRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationRule) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// List of destination IP addresses or Service Tags.
+func (o ApplicationRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationRule) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of FQDN Tags for this rule.
+func (o ApplicationRuleOutput) FqdnTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationRule) []string { return v.FqdnTags }).(pulumi.StringArrayOutput)
+}
+
+// Name of the rule.
+func (o ApplicationRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Array of Application Protocols.
+func (o ApplicationRuleOutput) Protocols() FirewallPolicyRuleApplicationProtocolArrayOutput {
+	return o.ApplyT(func(v ApplicationRule) []FirewallPolicyRuleApplicationProtocol { return v.Protocols }).(FirewallPolicyRuleApplicationProtocolArrayOutput)
+}
+
+// Rule Type.
+func (o ApplicationRuleOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationRule) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// List of source IP addresses for this rule.
+func (o ApplicationRuleOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationRule) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of source IpGroups for this rule.
+func (o ApplicationRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
+}
+
+// List of FQDNs for this rule.
+func (o ApplicationRuleOutput) TargetFqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationRule) []string { return v.TargetFqdns }).(pulumi.StringArrayOutput)
+}
+
+// Rule of type application.
+type ApplicationRuleResponse struct {
+	// Description of the rule.
+	Description *string `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// List of FQDN Tags for this rule.
+	FqdnTags []string `pulumi:"fqdnTags"`
+	// Name of the rule.
+	Name *string `pulumi:"name"`
+	// Array of Application Protocols.
+	Protocols []FirewallPolicyRuleApplicationProtocolResponse `pulumi:"protocols"`
+	// Rule Type.
+	RuleType string `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
+	// List of FQDNs for this rule.
+	TargetFqdns []string `pulumi:"targetFqdns"`
+}
+
+// ApplicationRuleResponseInput is an input type that accepts ApplicationRuleResponseArgs and ApplicationRuleResponseOutput values.
+// You can construct a concrete instance of `ApplicationRuleResponseInput` via:
+//
+//          ApplicationRuleResponseArgs{...}
+type ApplicationRuleResponseInput interface {
+	pulumi.Input
+
+	ToApplicationRuleResponseOutput() ApplicationRuleResponseOutput
+	ToApplicationRuleResponseOutputWithContext(context.Context) ApplicationRuleResponseOutput
+}
+
+// Rule of type application.
+type ApplicationRuleResponseArgs struct {
+	// Description of the rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// List of FQDN Tags for this rule.
+	FqdnTags pulumi.StringArrayInput `pulumi:"fqdnTags"`
+	// Name of the rule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Array of Application Protocols.
+	Protocols FirewallPolicyRuleApplicationProtocolResponseArrayInput `pulumi:"protocols"`
+	// Rule Type.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+	// List of FQDNs for this rule.
+	TargetFqdns pulumi.StringArrayInput `pulumi:"targetFqdns"`
+}
+
+func (ApplicationRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRuleResponse)(nil)).Elem()
+}
+
+func (i ApplicationRuleResponseArgs) ToApplicationRuleResponseOutput() ApplicationRuleResponseOutput {
+	return i.ToApplicationRuleResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationRuleResponseArgs) ToApplicationRuleResponseOutputWithContext(ctx context.Context) ApplicationRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationRuleResponseOutput)
+}
+
+// Rule of type application.
+type ApplicationRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRuleResponse)(nil)).Elem()
+}
+
+func (o ApplicationRuleResponseOutput) ToApplicationRuleResponseOutput() ApplicationRuleResponseOutput {
+	return o
+}
+
+func (o ApplicationRuleResponseOutput) ToApplicationRuleResponseOutputWithContext(ctx context.Context) ApplicationRuleResponseOutput {
+	return o
+}
+
+// Description of the rule.
+func (o ApplicationRuleResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// List of destination IP addresses or Service Tags.
+func (o ApplicationRuleResponseOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationRuleResponse) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of FQDN Tags for this rule.
+func (o ApplicationRuleResponseOutput) FqdnTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationRuleResponse) []string { return v.FqdnTags }).(pulumi.StringArrayOutput)
+}
+
+// Name of the rule.
+func (o ApplicationRuleResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Array of Application Protocols.
+func (o ApplicationRuleResponseOutput) Protocols() FirewallPolicyRuleApplicationProtocolResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationRuleResponse) []FirewallPolicyRuleApplicationProtocolResponse { return v.Protocols }).(FirewallPolicyRuleApplicationProtocolResponseArrayOutput)
+}
+
+// Rule Type.
+func (o ApplicationRuleResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// List of source IP addresses for this rule.
+func (o ApplicationRuleResponseOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationRuleResponse) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of source IpGroups for this rule.
+func (o ApplicationRuleResponseOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationRuleResponse) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
+}
+
+// List of FQDNs for this rule.
+func (o ApplicationRuleResponseOutput) TargetFqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationRuleResponse) []string { return v.TargetFqdns }).(pulumi.StringArrayOutput)
+}
+
 // An application security group in a resource group.
 type ApplicationSecurityGroupType struct {
 	// Resource ID.
@@ -29348,240 +29602,1130 @@ func (o ExpressRouteLinkResponseArrayOutput) Index(i pulumi.IntInput) ExpressRou
 	}).(ExpressRouteLinkResponseOutput)
 }
 
-// Properties of the rule collection.
-type FirewallPolicyRuleCollection struct {
+// Firewall Policy Filter Rule Collection.
+type FirewallPolicyFilterRuleCollection struct {
+	// The action type of a Filter rule collection.
+	Action *FirewallPolicyFilterRuleCollectionAction `pulumi:"action"`
 	// The name of the rule collection.
 	Name *string `pulumi:"name"`
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority *int `pulumi:"priority"`
 	// The type of the rule collection.
 	RuleCollectionType string `pulumi:"ruleCollectionType"`
+	// List of rules included in a rule collection.
+	Rules []interface{} `pulumi:"rules"`
 }
 
-// FirewallPolicyRuleCollectionInput is an input type that accepts FirewallPolicyRuleCollectionArgs and FirewallPolicyRuleCollectionOutput values.
-// You can construct a concrete instance of `FirewallPolicyRuleCollectionInput` via:
+// FirewallPolicyFilterRuleCollectionInput is an input type that accepts FirewallPolicyFilterRuleCollectionArgs and FirewallPolicyFilterRuleCollectionOutput values.
+// You can construct a concrete instance of `FirewallPolicyFilterRuleCollectionInput` via:
 //
-//          FirewallPolicyRuleCollectionArgs{...}
-type FirewallPolicyRuleCollectionInput interface {
+//          FirewallPolicyFilterRuleCollectionArgs{...}
+type FirewallPolicyFilterRuleCollectionInput interface {
 	pulumi.Input
 
-	ToFirewallPolicyRuleCollectionOutput() FirewallPolicyRuleCollectionOutput
-	ToFirewallPolicyRuleCollectionOutputWithContext(context.Context) FirewallPolicyRuleCollectionOutput
+	ToFirewallPolicyFilterRuleCollectionOutput() FirewallPolicyFilterRuleCollectionOutput
+	ToFirewallPolicyFilterRuleCollectionOutputWithContext(context.Context) FirewallPolicyFilterRuleCollectionOutput
 }
 
-// Properties of the rule collection.
-type FirewallPolicyRuleCollectionArgs struct {
+// Firewall Policy Filter Rule Collection.
+type FirewallPolicyFilterRuleCollectionArgs struct {
+	// The action type of a Filter rule collection.
+	Action FirewallPolicyFilterRuleCollectionActionPtrInput `pulumi:"action"`
 	// The name of the rule collection.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The type of the rule collection.
 	RuleCollectionType pulumi.StringInput `pulumi:"ruleCollectionType"`
+	// List of rules included in a rule collection.
+	Rules pulumi.ArrayInput `pulumi:"rules"`
 }
 
-func (FirewallPolicyRuleCollectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyRuleCollection)(nil)).Elem()
+func (FirewallPolicyFilterRuleCollectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFilterRuleCollection)(nil)).Elem()
 }
 
-func (i FirewallPolicyRuleCollectionArgs) ToFirewallPolicyRuleCollectionOutput() FirewallPolicyRuleCollectionOutput {
-	return i.ToFirewallPolicyRuleCollectionOutputWithContext(context.Background())
+func (i FirewallPolicyFilterRuleCollectionArgs) ToFirewallPolicyFilterRuleCollectionOutput() FirewallPolicyFilterRuleCollectionOutput {
+	return i.ToFirewallPolicyFilterRuleCollectionOutputWithContext(context.Background())
 }
 
-func (i FirewallPolicyRuleCollectionArgs) ToFirewallPolicyRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionOutput)
+func (i FirewallPolicyFilterRuleCollectionArgs) ToFirewallPolicyFilterRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFilterRuleCollectionOutput)
 }
 
-// FirewallPolicyRuleCollectionArrayInput is an input type that accepts FirewallPolicyRuleCollectionArray and FirewallPolicyRuleCollectionArrayOutput values.
-// You can construct a concrete instance of `FirewallPolicyRuleCollectionArrayInput` via:
-//
-//          FirewallPolicyRuleCollectionArray{ FirewallPolicyRuleCollectionArgs{...} }
-type FirewallPolicyRuleCollectionArrayInput interface {
-	pulumi.Input
+// Firewall Policy Filter Rule Collection.
+type FirewallPolicyFilterRuleCollectionOutput struct{ *pulumi.OutputState }
 
-	ToFirewallPolicyRuleCollectionArrayOutput() FirewallPolicyRuleCollectionArrayOutput
-	ToFirewallPolicyRuleCollectionArrayOutputWithContext(context.Context) FirewallPolicyRuleCollectionArrayOutput
+func (FirewallPolicyFilterRuleCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFilterRuleCollection)(nil)).Elem()
 }
 
-type FirewallPolicyRuleCollectionArray []FirewallPolicyRuleCollectionInput
-
-func (FirewallPolicyRuleCollectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallPolicyRuleCollection)(nil)).Elem()
-}
-
-func (i FirewallPolicyRuleCollectionArray) ToFirewallPolicyRuleCollectionArrayOutput() FirewallPolicyRuleCollectionArrayOutput {
-	return i.ToFirewallPolicyRuleCollectionArrayOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyRuleCollectionArray) ToFirewallPolicyRuleCollectionArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionArrayOutput)
-}
-
-// Properties of the rule collection.
-type FirewallPolicyRuleCollectionOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyRuleCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyRuleCollection)(nil)).Elem()
-}
-
-func (o FirewallPolicyRuleCollectionOutput) ToFirewallPolicyRuleCollectionOutput() FirewallPolicyRuleCollectionOutput {
+func (o FirewallPolicyFilterRuleCollectionOutput) ToFirewallPolicyFilterRuleCollectionOutput() FirewallPolicyFilterRuleCollectionOutput {
 	return o
 }
 
-func (o FirewallPolicyRuleCollectionOutput) ToFirewallPolicyRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionOutput {
+func (o FirewallPolicyFilterRuleCollectionOutput) ToFirewallPolicyFilterRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionOutput {
 	return o
+}
+
+// The action type of a Filter rule collection.
+func (o FirewallPolicyFilterRuleCollectionOutput) Action() FirewallPolicyFilterRuleCollectionActionPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollection) *FirewallPolicyFilterRuleCollectionAction { return v.Action }).(FirewallPolicyFilterRuleCollectionActionPtrOutput)
 }
 
 // The name of the rule collection.
-func (o FirewallPolicyRuleCollectionOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyRuleCollection) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o FirewallPolicyFilterRuleCollectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollection) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Priority of the Firewall Policy Rule Collection resource.
-func (o FirewallPolicyRuleCollectionOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyRuleCollection) *int { return v.Priority }).(pulumi.IntPtrOutput)
+func (o FirewallPolicyFilterRuleCollectionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollection) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The type of the rule collection.
-func (o FirewallPolicyRuleCollectionOutput) RuleCollectionType() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallPolicyRuleCollection) string { return v.RuleCollectionType }).(pulumi.StringOutput)
+func (o FirewallPolicyFilterRuleCollectionOutput) RuleCollectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollection) string { return v.RuleCollectionType }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyRuleCollectionArrayOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyRuleCollectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallPolicyRuleCollection)(nil)).Elem()
+// List of rules included in a rule collection.
+func (o FirewallPolicyFilterRuleCollectionOutput) Rules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollection) []interface{} { return v.Rules }).(pulumi.ArrayOutput)
 }
 
-func (o FirewallPolicyRuleCollectionArrayOutput) ToFirewallPolicyRuleCollectionArrayOutput() FirewallPolicyRuleCollectionArrayOutput {
+// Properties of the FirewallPolicyFilterRuleCollectionAction.
+type FirewallPolicyFilterRuleCollectionAction struct {
+	// The type of action.
+	Type *string `pulumi:"type"`
+}
+
+// FirewallPolicyFilterRuleCollectionActionInput is an input type that accepts FirewallPolicyFilterRuleCollectionActionArgs and FirewallPolicyFilterRuleCollectionActionOutput values.
+// You can construct a concrete instance of `FirewallPolicyFilterRuleCollectionActionInput` via:
+//
+//          FirewallPolicyFilterRuleCollectionActionArgs{...}
+type FirewallPolicyFilterRuleCollectionActionInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFilterRuleCollectionActionOutput() FirewallPolicyFilterRuleCollectionActionOutput
+	ToFirewallPolicyFilterRuleCollectionActionOutputWithContext(context.Context) FirewallPolicyFilterRuleCollectionActionOutput
+}
+
+// Properties of the FirewallPolicyFilterRuleCollectionAction.
+type FirewallPolicyFilterRuleCollectionActionArgs struct {
+	// The type of action.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (FirewallPolicyFilterRuleCollectionActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFilterRuleCollectionAction)(nil)).Elem()
+}
+
+func (i FirewallPolicyFilterRuleCollectionActionArgs) ToFirewallPolicyFilterRuleCollectionActionOutput() FirewallPolicyFilterRuleCollectionActionOutput {
+	return i.ToFirewallPolicyFilterRuleCollectionActionOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFilterRuleCollectionActionArgs) ToFirewallPolicyFilterRuleCollectionActionOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFilterRuleCollectionActionOutput)
+}
+
+func (i FirewallPolicyFilterRuleCollectionActionArgs) ToFirewallPolicyFilterRuleCollectionActionPtrOutput() FirewallPolicyFilterRuleCollectionActionPtrOutput {
+	return i.ToFirewallPolicyFilterRuleCollectionActionPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFilterRuleCollectionActionArgs) ToFirewallPolicyFilterRuleCollectionActionPtrOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFilterRuleCollectionActionOutput).ToFirewallPolicyFilterRuleCollectionActionPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyFilterRuleCollectionActionPtrInput is an input type that accepts FirewallPolicyFilterRuleCollectionActionArgs, FirewallPolicyFilterRuleCollectionActionPtr and FirewallPolicyFilterRuleCollectionActionPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyFilterRuleCollectionActionPtrInput` via:
+//
+//          FirewallPolicyFilterRuleCollectionActionArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyFilterRuleCollectionActionPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFilterRuleCollectionActionPtrOutput() FirewallPolicyFilterRuleCollectionActionPtrOutput
+	ToFirewallPolicyFilterRuleCollectionActionPtrOutputWithContext(context.Context) FirewallPolicyFilterRuleCollectionActionPtrOutput
+}
+
+type firewallPolicyFilterRuleCollectionActionPtrType FirewallPolicyFilterRuleCollectionActionArgs
+
+func FirewallPolicyFilterRuleCollectionActionPtr(v *FirewallPolicyFilterRuleCollectionActionArgs) FirewallPolicyFilterRuleCollectionActionPtrInput {
+	return (*firewallPolicyFilterRuleCollectionActionPtrType)(v)
+}
+
+func (*firewallPolicyFilterRuleCollectionActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFilterRuleCollectionAction)(nil)).Elem()
+}
+
+func (i *firewallPolicyFilterRuleCollectionActionPtrType) ToFirewallPolicyFilterRuleCollectionActionPtrOutput() FirewallPolicyFilterRuleCollectionActionPtrOutput {
+	return i.ToFirewallPolicyFilterRuleCollectionActionPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyFilterRuleCollectionActionPtrType) ToFirewallPolicyFilterRuleCollectionActionPtrOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFilterRuleCollectionActionPtrOutput)
+}
+
+// Properties of the FirewallPolicyFilterRuleCollectionAction.
+type FirewallPolicyFilterRuleCollectionActionOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFilterRuleCollectionActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFilterRuleCollectionAction)(nil)).Elem()
+}
+
+func (o FirewallPolicyFilterRuleCollectionActionOutput) ToFirewallPolicyFilterRuleCollectionActionOutput() FirewallPolicyFilterRuleCollectionActionOutput {
 	return o
 }
 
-func (o FirewallPolicyRuleCollectionArrayOutput) ToFirewallPolicyRuleCollectionArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionArrayOutput {
+func (o FirewallPolicyFilterRuleCollectionActionOutput) ToFirewallPolicyFilterRuleCollectionActionOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionOutput {
 	return o
 }
 
-func (o FirewallPolicyRuleCollectionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleCollectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleCollection {
-		return vs[0].([]FirewallPolicyRuleCollection)[vs[1].(int)]
-	}).(FirewallPolicyRuleCollectionOutput)
+func (o FirewallPolicyFilterRuleCollectionActionOutput) ToFirewallPolicyFilterRuleCollectionActionPtrOutput() FirewallPolicyFilterRuleCollectionActionPtrOutput {
+	return o.ToFirewallPolicyFilterRuleCollectionActionPtrOutputWithContext(context.Background())
 }
 
-// Properties of the rule collection.
-type FirewallPolicyRuleCollectionResponse struct {
+func (o FirewallPolicyFilterRuleCollectionActionOutput) ToFirewallPolicyFilterRuleCollectionActionPtrOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollectionAction) *FirewallPolicyFilterRuleCollectionAction {
+		return &v
+	}).(FirewallPolicyFilterRuleCollectionActionPtrOutput)
+}
+
+// The type of action.
+func (o FirewallPolicyFilterRuleCollectionActionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollectionAction) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyFilterRuleCollectionActionPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFilterRuleCollectionActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFilterRuleCollectionAction)(nil)).Elem()
+}
+
+func (o FirewallPolicyFilterRuleCollectionActionPtrOutput) ToFirewallPolicyFilterRuleCollectionActionPtrOutput() FirewallPolicyFilterRuleCollectionActionPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFilterRuleCollectionActionPtrOutput) ToFirewallPolicyFilterRuleCollectionActionPtrOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFilterRuleCollectionActionPtrOutput) Elem() FirewallPolicyFilterRuleCollectionActionOutput {
+	return o.ApplyT(func(v *FirewallPolicyFilterRuleCollectionAction) FirewallPolicyFilterRuleCollectionAction { return *v }).(FirewallPolicyFilterRuleCollectionActionOutput)
+}
+
+// The type of action.
+func (o FirewallPolicyFilterRuleCollectionActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFilterRuleCollectionAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the FirewallPolicyFilterRuleCollectionAction.
+type FirewallPolicyFilterRuleCollectionActionResponse struct {
+	// The type of action.
+	Type *string `pulumi:"type"`
+}
+
+// FirewallPolicyFilterRuleCollectionActionResponseInput is an input type that accepts FirewallPolicyFilterRuleCollectionActionResponseArgs and FirewallPolicyFilterRuleCollectionActionResponseOutput values.
+// You can construct a concrete instance of `FirewallPolicyFilterRuleCollectionActionResponseInput` via:
+//
+//          FirewallPolicyFilterRuleCollectionActionResponseArgs{...}
+type FirewallPolicyFilterRuleCollectionActionResponseInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFilterRuleCollectionActionResponseOutput() FirewallPolicyFilterRuleCollectionActionResponseOutput
+	ToFirewallPolicyFilterRuleCollectionActionResponseOutputWithContext(context.Context) FirewallPolicyFilterRuleCollectionActionResponseOutput
+}
+
+// Properties of the FirewallPolicyFilterRuleCollectionAction.
+type FirewallPolicyFilterRuleCollectionActionResponseArgs struct {
+	// The type of action.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (FirewallPolicyFilterRuleCollectionActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFilterRuleCollectionActionResponse)(nil)).Elem()
+}
+
+func (i FirewallPolicyFilterRuleCollectionActionResponseArgs) ToFirewallPolicyFilterRuleCollectionActionResponseOutput() FirewallPolicyFilterRuleCollectionActionResponseOutput {
+	return i.ToFirewallPolicyFilterRuleCollectionActionResponseOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFilterRuleCollectionActionResponseArgs) ToFirewallPolicyFilterRuleCollectionActionResponseOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFilterRuleCollectionActionResponseOutput)
+}
+
+func (i FirewallPolicyFilterRuleCollectionActionResponseArgs) ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutput() FirewallPolicyFilterRuleCollectionActionResponsePtrOutput {
+	return i.ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFilterRuleCollectionActionResponseArgs) ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFilterRuleCollectionActionResponseOutput).ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyFilterRuleCollectionActionResponsePtrInput is an input type that accepts FirewallPolicyFilterRuleCollectionActionResponseArgs, FirewallPolicyFilterRuleCollectionActionResponsePtr and FirewallPolicyFilterRuleCollectionActionResponsePtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyFilterRuleCollectionActionResponsePtrInput` via:
+//
+//          FirewallPolicyFilterRuleCollectionActionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyFilterRuleCollectionActionResponsePtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutput() FirewallPolicyFilterRuleCollectionActionResponsePtrOutput
+	ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutputWithContext(context.Context) FirewallPolicyFilterRuleCollectionActionResponsePtrOutput
+}
+
+type firewallPolicyFilterRuleCollectionActionResponsePtrType FirewallPolicyFilterRuleCollectionActionResponseArgs
+
+func FirewallPolicyFilterRuleCollectionActionResponsePtr(v *FirewallPolicyFilterRuleCollectionActionResponseArgs) FirewallPolicyFilterRuleCollectionActionResponsePtrInput {
+	return (*firewallPolicyFilterRuleCollectionActionResponsePtrType)(v)
+}
+
+func (*firewallPolicyFilterRuleCollectionActionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFilterRuleCollectionActionResponse)(nil)).Elem()
+}
+
+func (i *firewallPolicyFilterRuleCollectionActionResponsePtrType) ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutput() FirewallPolicyFilterRuleCollectionActionResponsePtrOutput {
+	return i.ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyFilterRuleCollectionActionResponsePtrType) ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFilterRuleCollectionActionResponsePtrOutput)
+}
+
+// Properties of the FirewallPolicyFilterRuleCollectionAction.
+type FirewallPolicyFilterRuleCollectionActionResponseOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFilterRuleCollectionActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFilterRuleCollectionActionResponse)(nil)).Elem()
+}
+
+func (o FirewallPolicyFilterRuleCollectionActionResponseOutput) ToFirewallPolicyFilterRuleCollectionActionResponseOutput() FirewallPolicyFilterRuleCollectionActionResponseOutput {
+	return o
+}
+
+func (o FirewallPolicyFilterRuleCollectionActionResponseOutput) ToFirewallPolicyFilterRuleCollectionActionResponseOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionResponseOutput {
+	return o
+}
+
+func (o FirewallPolicyFilterRuleCollectionActionResponseOutput) ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutput() FirewallPolicyFilterRuleCollectionActionResponsePtrOutput {
+	return o.ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyFilterRuleCollectionActionResponseOutput) ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionResponsePtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollectionActionResponse) *FirewallPolicyFilterRuleCollectionActionResponse {
+		return &v
+	}).(FirewallPolicyFilterRuleCollectionActionResponsePtrOutput)
+}
+
+// The type of action.
+func (o FirewallPolicyFilterRuleCollectionActionResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollectionActionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyFilterRuleCollectionActionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFilterRuleCollectionActionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFilterRuleCollectionActionResponse)(nil)).Elem()
+}
+
+func (o FirewallPolicyFilterRuleCollectionActionResponsePtrOutput) ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutput() FirewallPolicyFilterRuleCollectionActionResponsePtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFilterRuleCollectionActionResponsePtrOutput) ToFirewallPolicyFilterRuleCollectionActionResponsePtrOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionActionResponsePtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFilterRuleCollectionActionResponsePtrOutput) Elem() FirewallPolicyFilterRuleCollectionActionResponseOutput {
+	return o.ApplyT(func(v *FirewallPolicyFilterRuleCollectionActionResponse) FirewallPolicyFilterRuleCollectionActionResponse {
+		return *v
+	}).(FirewallPolicyFilterRuleCollectionActionResponseOutput)
+}
+
+// The type of action.
+func (o FirewallPolicyFilterRuleCollectionActionResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFilterRuleCollectionActionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Firewall Policy Filter Rule Collection.
+type FirewallPolicyFilterRuleCollectionResponse struct {
+	// The action type of a Filter rule collection.
+	Action *FirewallPolicyFilterRuleCollectionActionResponse `pulumi:"action"`
 	// The name of the rule collection.
 	Name *string `pulumi:"name"`
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority *int `pulumi:"priority"`
 	// The type of the rule collection.
 	RuleCollectionType string `pulumi:"ruleCollectionType"`
+	// List of rules included in a rule collection.
+	Rules []interface{} `pulumi:"rules"`
 }
 
-// FirewallPolicyRuleCollectionResponseInput is an input type that accepts FirewallPolicyRuleCollectionResponseArgs and FirewallPolicyRuleCollectionResponseOutput values.
-// You can construct a concrete instance of `FirewallPolicyRuleCollectionResponseInput` via:
+// FirewallPolicyFilterRuleCollectionResponseInput is an input type that accepts FirewallPolicyFilterRuleCollectionResponseArgs and FirewallPolicyFilterRuleCollectionResponseOutput values.
+// You can construct a concrete instance of `FirewallPolicyFilterRuleCollectionResponseInput` via:
 //
-//          FirewallPolicyRuleCollectionResponseArgs{...}
-type FirewallPolicyRuleCollectionResponseInput interface {
+//          FirewallPolicyFilterRuleCollectionResponseArgs{...}
+type FirewallPolicyFilterRuleCollectionResponseInput interface {
 	pulumi.Input
 
-	ToFirewallPolicyRuleCollectionResponseOutput() FirewallPolicyRuleCollectionResponseOutput
-	ToFirewallPolicyRuleCollectionResponseOutputWithContext(context.Context) FirewallPolicyRuleCollectionResponseOutput
+	ToFirewallPolicyFilterRuleCollectionResponseOutput() FirewallPolicyFilterRuleCollectionResponseOutput
+	ToFirewallPolicyFilterRuleCollectionResponseOutputWithContext(context.Context) FirewallPolicyFilterRuleCollectionResponseOutput
 }
 
-// Properties of the rule collection.
-type FirewallPolicyRuleCollectionResponseArgs struct {
+// Firewall Policy Filter Rule Collection.
+type FirewallPolicyFilterRuleCollectionResponseArgs struct {
+	// The action type of a Filter rule collection.
+	Action FirewallPolicyFilterRuleCollectionActionResponsePtrInput `pulumi:"action"`
 	// The name of the rule collection.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Priority of the Firewall Policy Rule Collection resource.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The type of the rule collection.
 	RuleCollectionType pulumi.StringInput `pulumi:"ruleCollectionType"`
+	// List of rules included in a rule collection.
+	Rules pulumi.ArrayInput `pulumi:"rules"`
 }
 
-func (FirewallPolicyRuleCollectionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyRuleCollectionResponse)(nil)).Elem()
+func (FirewallPolicyFilterRuleCollectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFilterRuleCollectionResponse)(nil)).Elem()
 }
 
-func (i FirewallPolicyRuleCollectionResponseArgs) ToFirewallPolicyRuleCollectionResponseOutput() FirewallPolicyRuleCollectionResponseOutput {
-	return i.ToFirewallPolicyRuleCollectionResponseOutputWithContext(context.Background())
+func (i FirewallPolicyFilterRuleCollectionResponseArgs) ToFirewallPolicyFilterRuleCollectionResponseOutput() FirewallPolicyFilterRuleCollectionResponseOutput {
+	return i.ToFirewallPolicyFilterRuleCollectionResponseOutputWithContext(context.Background())
 }
 
-func (i FirewallPolicyRuleCollectionResponseArgs) ToFirewallPolicyRuleCollectionResponseOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionResponseOutput)
+func (i FirewallPolicyFilterRuleCollectionResponseArgs) ToFirewallPolicyFilterRuleCollectionResponseOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFilterRuleCollectionResponseOutput)
 }
 
-// FirewallPolicyRuleCollectionResponseArrayInput is an input type that accepts FirewallPolicyRuleCollectionResponseArray and FirewallPolicyRuleCollectionResponseArrayOutput values.
-// You can construct a concrete instance of `FirewallPolicyRuleCollectionResponseArrayInput` via:
-//
-//          FirewallPolicyRuleCollectionResponseArray{ FirewallPolicyRuleCollectionResponseArgs{...} }
-type FirewallPolicyRuleCollectionResponseArrayInput interface {
-	pulumi.Input
+// Firewall Policy Filter Rule Collection.
+type FirewallPolicyFilterRuleCollectionResponseOutput struct{ *pulumi.OutputState }
 
-	ToFirewallPolicyRuleCollectionResponseArrayOutput() FirewallPolicyRuleCollectionResponseArrayOutput
-	ToFirewallPolicyRuleCollectionResponseArrayOutputWithContext(context.Context) FirewallPolicyRuleCollectionResponseArrayOutput
+func (FirewallPolicyFilterRuleCollectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFilterRuleCollectionResponse)(nil)).Elem()
 }
 
-type FirewallPolicyRuleCollectionResponseArray []FirewallPolicyRuleCollectionResponseInput
-
-func (FirewallPolicyRuleCollectionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionResponse)(nil)).Elem()
-}
-
-func (i FirewallPolicyRuleCollectionResponseArray) ToFirewallPolicyRuleCollectionResponseArrayOutput() FirewallPolicyRuleCollectionResponseArrayOutput {
-	return i.ToFirewallPolicyRuleCollectionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyRuleCollectionResponseArray) ToFirewallPolicyRuleCollectionResponseArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionResponseArrayOutput)
-}
-
-// Properties of the rule collection.
-type FirewallPolicyRuleCollectionResponseOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyRuleCollectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyRuleCollectionResponse)(nil)).Elem()
-}
-
-func (o FirewallPolicyRuleCollectionResponseOutput) ToFirewallPolicyRuleCollectionResponseOutput() FirewallPolicyRuleCollectionResponseOutput {
+func (o FirewallPolicyFilterRuleCollectionResponseOutput) ToFirewallPolicyFilterRuleCollectionResponseOutput() FirewallPolicyFilterRuleCollectionResponseOutput {
 	return o
 }
 
-func (o FirewallPolicyRuleCollectionResponseOutput) ToFirewallPolicyRuleCollectionResponseOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionResponseOutput {
+func (o FirewallPolicyFilterRuleCollectionResponseOutput) ToFirewallPolicyFilterRuleCollectionResponseOutputWithContext(ctx context.Context) FirewallPolicyFilterRuleCollectionResponseOutput {
 	return o
+}
+
+// The action type of a Filter rule collection.
+func (o FirewallPolicyFilterRuleCollectionResponseOutput) Action() FirewallPolicyFilterRuleCollectionActionResponsePtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollectionResponse) *FirewallPolicyFilterRuleCollectionActionResponse {
+		return v.Action
+	}).(FirewallPolicyFilterRuleCollectionActionResponsePtrOutput)
 }
 
 // The name of the rule collection.
-func (o FirewallPolicyRuleCollectionResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyRuleCollectionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o FirewallPolicyFilterRuleCollectionResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollectionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Priority of the Firewall Policy Rule Collection resource.
-func (o FirewallPolicyRuleCollectionResponseOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyRuleCollectionResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
+func (o FirewallPolicyFilterRuleCollectionResponseOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollectionResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The type of the rule collection.
-func (o FirewallPolicyRuleCollectionResponseOutput) RuleCollectionType() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallPolicyRuleCollectionResponse) string { return v.RuleCollectionType }).(pulumi.StringOutput)
+func (o FirewallPolicyFilterRuleCollectionResponseOutput) RuleCollectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollectionResponse) string { return v.RuleCollectionType }).(pulumi.StringOutput)
 }
 
-type FirewallPolicyRuleCollectionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyRuleCollectionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionResponse)(nil)).Elem()
+// List of rules included in a rule collection.
+func (o FirewallPolicyFilterRuleCollectionResponseOutput) Rules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFilterRuleCollectionResponse) []interface{} { return v.Rules }).(pulumi.ArrayOutput)
 }
 
-func (o FirewallPolicyRuleCollectionResponseArrayOutput) ToFirewallPolicyRuleCollectionResponseArrayOutput() FirewallPolicyRuleCollectionResponseArrayOutput {
+// Firewall Policy NAT Rule Collection.
+type FirewallPolicyNatRuleCollection struct {
+	// The action type of a Nat rule collection.
+	Action *FirewallPolicyNatRuleCollectionAction `pulumi:"action"`
+	// The name of the rule collection.
+	Name *string `pulumi:"name"`
+	// Priority of the Firewall Policy Rule Collection resource.
+	Priority *int `pulumi:"priority"`
+	// The type of the rule collection.
+	RuleCollectionType string `pulumi:"ruleCollectionType"`
+	// List of rules included in a rule collection.
+	Rules []interface{} `pulumi:"rules"`
+}
+
+// FirewallPolicyNatRuleCollectionInput is an input type that accepts FirewallPolicyNatRuleCollectionArgs and FirewallPolicyNatRuleCollectionOutput values.
+// You can construct a concrete instance of `FirewallPolicyNatRuleCollectionInput` via:
+//
+//          FirewallPolicyNatRuleCollectionArgs{...}
+type FirewallPolicyNatRuleCollectionInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyNatRuleCollectionOutput() FirewallPolicyNatRuleCollectionOutput
+	ToFirewallPolicyNatRuleCollectionOutputWithContext(context.Context) FirewallPolicyNatRuleCollectionOutput
+}
+
+// Firewall Policy NAT Rule Collection.
+type FirewallPolicyNatRuleCollectionArgs struct {
+	// The action type of a Nat rule collection.
+	Action FirewallPolicyNatRuleCollectionActionPtrInput `pulumi:"action"`
+	// The name of the rule collection.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Priority of the Firewall Policy Rule Collection resource.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The type of the rule collection.
+	RuleCollectionType pulumi.StringInput `pulumi:"ruleCollectionType"`
+	// List of rules included in a rule collection.
+	Rules pulumi.ArrayInput `pulumi:"rules"`
+}
+
+func (FirewallPolicyNatRuleCollectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyNatRuleCollection)(nil)).Elem()
+}
+
+func (i FirewallPolicyNatRuleCollectionArgs) ToFirewallPolicyNatRuleCollectionOutput() FirewallPolicyNatRuleCollectionOutput {
+	return i.ToFirewallPolicyNatRuleCollectionOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyNatRuleCollectionArgs) ToFirewallPolicyNatRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyNatRuleCollectionOutput)
+}
+
+// Firewall Policy NAT Rule Collection.
+type FirewallPolicyNatRuleCollectionOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyNatRuleCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyNatRuleCollection)(nil)).Elem()
+}
+
+func (o FirewallPolicyNatRuleCollectionOutput) ToFirewallPolicyNatRuleCollectionOutput() FirewallPolicyNatRuleCollectionOutput {
 	return o
 }
 
-func (o FirewallPolicyRuleCollectionResponseArrayOutput) ToFirewallPolicyRuleCollectionResponseArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionResponseArrayOutput {
+func (o FirewallPolicyNatRuleCollectionOutput) ToFirewallPolicyNatRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionOutput {
 	return o
 }
 
-func (o FirewallPolicyRuleCollectionResponseArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleCollectionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleCollectionResponse {
-		return vs[0].([]FirewallPolicyRuleCollectionResponse)[vs[1].(int)]
-	}).(FirewallPolicyRuleCollectionResponseOutput)
+// The action type of a Nat rule collection.
+func (o FirewallPolicyNatRuleCollectionOutput) Action() FirewallPolicyNatRuleCollectionActionPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollection) *FirewallPolicyNatRuleCollectionAction { return v.Action }).(FirewallPolicyNatRuleCollectionActionPtrOutput)
+}
+
+// The name of the rule collection.
+func (o FirewallPolicyNatRuleCollectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollection) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Priority of the Firewall Policy Rule Collection resource.
+func (o FirewallPolicyNatRuleCollectionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollection) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The type of the rule collection.
+func (o FirewallPolicyNatRuleCollectionOutput) RuleCollectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollection) string { return v.RuleCollectionType }).(pulumi.StringOutput)
+}
+
+// List of rules included in a rule collection.
+func (o FirewallPolicyNatRuleCollectionOutput) Rules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollection) []interface{} { return v.Rules }).(pulumi.ArrayOutput)
+}
+
+// Properties of the FirewallPolicyNatRuleCollectionAction.
+type FirewallPolicyNatRuleCollectionAction struct {
+	// The type of action.
+	Type *string `pulumi:"type"`
+}
+
+// FirewallPolicyNatRuleCollectionActionInput is an input type that accepts FirewallPolicyNatRuleCollectionActionArgs and FirewallPolicyNatRuleCollectionActionOutput values.
+// You can construct a concrete instance of `FirewallPolicyNatRuleCollectionActionInput` via:
+//
+//          FirewallPolicyNatRuleCollectionActionArgs{...}
+type FirewallPolicyNatRuleCollectionActionInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyNatRuleCollectionActionOutput() FirewallPolicyNatRuleCollectionActionOutput
+	ToFirewallPolicyNatRuleCollectionActionOutputWithContext(context.Context) FirewallPolicyNatRuleCollectionActionOutput
+}
+
+// Properties of the FirewallPolicyNatRuleCollectionAction.
+type FirewallPolicyNatRuleCollectionActionArgs struct {
+	// The type of action.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (FirewallPolicyNatRuleCollectionActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyNatRuleCollectionAction)(nil)).Elem()
+}
+
+func (i FirewallPolicyNatRuleCollectionActionArgs) ToFirewallPolicyNatRuleCollectionActionOutput() FirewallPolicyNatRuleCollectionActionOutput {
+	return i.ToFirewallPolicyNatRuleCollectionActionOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyNatRuleCollectionActionArgs) ToFirewallPolicyNatRuleCollectionActionOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyNatRuleCollectionActionOutput)
+}
+
+func (i FirewallPolicyNatRuleCollectionActionArgs) ToFirewallPolicyNatRuleCollectionActionPtrOutput() FirewallPolicyNatRuleCollectionActionPtrOutput {
+	return i.ToFirewallPolicyNatRuleCollectionActionPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyNatRuleCollectionActionArgs) ToFirewallPolicyNatRuleCollectionActionPtrOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyNatRuleCollectionActionOutput).ToFirewallPolicyNatRuleCollectionActionPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyNatRuleCollectionActionPtrInput is an input type that accepts FirewallPolicyNatRuleCollectionActionArgs, FirewallPolicyNatRuleCollectionActionPtr and FirewallPolicyNatRuleCollectionActionPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyNatRuleCollectionActionPtrInput` via:
+//
+//          FirewallPolicyNatRuleCollectionActionArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyNatRuleCollectionActionPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyNatRuleCollectionActionPtrOutput() FirewallPolicyNatRuleCollectionActionPtrOutput
+	ToFirewallPolicyNatRuleCollectionActionPtrOutputWithContext(context.Context) FirewallPolicyNatRuleCollectionActionPtrOutput
+}
+
+type firewallPolicyNatRuleCollectionActionPtrType FirewallPolicyNatRuleCollectionActionArgs
+
+func FirewallPolicyNatRuleCollectionActionPtr(v *FirewallPolicyNatRuleCollectionActionArgs) FirewallPolicyNatRuleCollectionActionPtrInput {
+	return (*firewallPolicyNatRuleCollectionActionPtrType)(v)
+}
+
+func (*firewallPolicyNatRuleCollectionActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyNatRuleCollectionAction)(nil)).Elem()
+}
+
+func (i *firewallPolicyNatRuleCollectionActionPtrType) ToFirewallPolicyNatRuleCollectionActionPtrOutput() FirewallPolicyNatRuleCollectionActionPtrOutput {
+	return i.ToFirewallPolicyNatRuleCollectionActionPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyNatRuleCollectionActionPtrType) ToFirewallPolicyNatRuleCollectionActionPtrOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyNatRuleCollectionActionPtrOutput)
+}
+
+// Properties of the FirewallPolicyNatRuleCollectionAction.
+type FirewallPolicyNatRuleCollectionActionOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyNatRuleCollectionActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyNatRuleCollectionAction)(nil)).Elem()
+}
+
+func (o FirewallPolicyNatRuleCollectionActionOutput) ToFirewallPolicyNatRuleCollectionActionOutput() FirewallPolicyNatRuleCollectionActionOutput {
+	return o
+}
+
+func (o FirewallPolicyNatRuleCollectionActionOutput) ToFirewallPolicyNatRuleCollectionActionOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionOutput {
+	return o
+}
+
+func (o FirewallPolicyNatRuleCollectionActionOutput) ToFirewallPolicyNatRuleCollectionActionPtrOutput() FirewallPolicyNatRuleCollectionActionPtrOutput {
+	return o.ToFirewallPolicyNatRuleCollectionActionPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyNatRuleCollectionActionOutput) ToFirewallPolicyNatRuleCollectionActionPtrOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollectionAction) *FirewallPolicyNatRuleCollectionAction {
+		return &v
+	}).(FirewallPolicyNatRuleCollectionActionPtrOutput)
+}
+
+// The type of action.
+func (o FirewallPolicyNatRuleCollectionActionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollectionAction) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyNatRuleCollectionActionPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyNatRuleCollectionActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyNatRuleCollectionAction)(nil)).Elem()
+}
+
+func (o FirewallPolicyNatRuleCollectionActionPtrOutput) ToFirewallPolicyNatRuleCollectionActionPtrOutput() FirewallPolicyNatRuleCollectionActionPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyNatRuleCollectionActionPtrOutput) ToFirewallPolicyNatRuleCollectionActionPtrOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyNatRuleCollectionActionPtrOutput) Elem() FirewallPolicyNatRuleCollectionActionOutput {
+	return o.ApplyT(func(v *FirewallPolicyNatRuleCollectionAction) FirewallPolicyNatRuleCollectionAction { return *v }).(FirewallPolicyNatRuleCollectionActionOutput)
+}
+
+// The type of action.
+func (o FirewallPolicyNatRuleCollectionActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyNatRuleCollectionAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the FirewallPolicyNatRuleCollectionAction.
+type FirewallPolicyNatRuleCollectionActionResponse struct {
+	// The type of action.
+	Type *string `pulumi:"type"`
+}
+
+// FirewallPolicyNatRuleCollectionActionResponseInput is an input type that accepts FirewallPolicyNatRuleCollectionActionResponseArgs and FirewallPolicyNatRuleCollectionActionResponseOutput values.
+// You can construct a concrete instance of `FirewallPolicyNatRuleCollectionActionResponseInput` via:
+//
+//          FirewallPolicyNatRuleCollectionActionResponseArgs{...}
+type FirewallPolicyNatRuleCollectionActionResponseInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyNatRuleCollectionActionResponseOutput() FirewallPolicyNatRuleCollectionActionResponseOutput
+	ToFirewallPolicyNatRuleCollectionActionResponseOutputWithContext(context.Context) FirewallPolicyNatRuleCollectionActionResponseOutput
+}
+
+// Properties of the FirewallPolicyNatRuleCollectionAction.
+type FirewallPolicyNatRuleCollectionActionResponseArgs struct {
+	// The type of action.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (FirewallPolicyNatRuleCollectionActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyNatRuleCollectionActionResponse)(nil)).Elem()
+}
+
+func (i FirewallPolicyNatRuleCollectionActionResponseArgs) ToFirewallPolicyNatRuleCollectionActionResponseOutput() FirewallPolicyNatRuleCollectionActionResponseOutput {
+	return i.ToFirewallPolicyNatRuleCollectionActionResponseOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyNatRuleCollectionActionResponseArgs) ToFirewallPolicyNatRuleCollectionActionResponseOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyNatRuleCollectionActionResponseOutput)
+}
+
+func (i FirewallPolicyNatRuleCollectionActionResponseArgs) ToFirewallPolicyNatRuleCollectionActionResponsePtrOutput() FirewallPolicyNatRuleCollectionActionResponsePtrOutput {
+	return i.ToFirewallPolicyNatRuleCollectionActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyNatRuleCollectionActionResponseArgs) ToFirewallPolicyNatRuleCollectionActionResponsePtrOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyNatRuleCollectionActionResponseOutput).ToFirewallPolicyNatRuleCollectionActionResponsePtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyNatRuleCollectionActionResponsePtrInput is an input type that accepts FirewallPolicyNatRuleCollectionActionResponseArgs, FirewallPolicyNatRuleCollectionActionResponsePtr and FirewallPolicyNatRuleCollectionActionResponsePtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyNatRuleCollectionActionResponsePtrInput` via:
+//
+//          FirewallPolicyNatRuleCollectionActionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyNatRuleCollectionActionResponsePtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyNatRuleCollectionActionResponsePtrOutput() FirewallPolicyNatRuleCollectionActionResponsePtrOutput
+	ToFirewallPolicyNatRuleCollectionActionResponsePtrOutputWithContext(context.Context) FirewallPolicyNatRuleCollectionActionResponsePtrOutput
+}
+
+type firewallPolicyNatRuleCollectionActionResponsePtrType FirewallPolicyNatRuleCollectionActionResponseArgs
+
+func FirewallPolicyNatRuleCollectionActionResponsePtr(v *FirewallPolicyNatRuleCollectionActionResponseArgs) FirewallPolicyNatRuleCollectionActionResponsePtrInput {
+	return (*firewallPolicyNatRuleCollectionActionResponsePtrType)(v)
+}
+
+func (*firewallPolicyNatRuleCollectionActionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyNatRuleCollectionActionResponse)(nil)).Elem()
+}
+
+func (i *firewallPolicyNatRuleCollectionActionResponsePtrType) ToFirewallPolicyNatRuleCollectionActionResponsePtrOutput() FirewallPolicyNatRuleCollectionActionResponsePtrOutput {
+	return i.ToFirewallPolicyNatRuleCollectionActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyNatRuleCollectionActionResponsePtrType) ToFirewallPolicyNatRuleCollectionActionResponsePtrOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyNatRuleCollectionActionResponsePtrOutput)
+}
+
+// Properties of the FirewallPolicyNatRuleCollectionAction.
+type FirewallPolicyNatRuleCollectionActionResponseOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyNatRuleCollectionActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyNatRuleCollectionActionResponse)(nil)).Elem()
+}
+
+func (o FirewallPolicyNatRuleCollectionActionResponseOutput) ToFirewallPolicyNatRuleCollectionActionResponseOutput() FirewallPolicyNatRuleCollectionActionResponseOutput {
+	return o
+}
+
+func (o FirewallPolicyNatRuleCollectionActionResponseOutput) ToFirewallPolicyNatRuleCollectionActionResponseOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionResponseOutput {
+	return o
+}
+
+func (o FirewallPolicyNatRuleCollectionActionResponseOutput) ToFirewallPolicyNatRuleCollectionActionResponsePtrOutput() FirewallPolicyNatRuleCollectionActionResponsePtrOutput {
+	return o.ToFirewallPolicyNatRuleCollectionActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyNatRuleCollectionActionResponseOutput) ToFirewallPolicyNatRuleCollectionActionResponsePtrOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionResponsePtrOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollectionActionResponse) *FirewallPolicyNatRuleCollectionActionResponse {
+		return &v
+	}).(FirewallPolicyNatRuleCollectionActionResponsePtrOutput)
+}
+
+// The type of action.
+func (o FirewallPolicyNatRuleCollectionActionResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollectionActionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyNatRuleCollectionActionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyNatRuleCollectionActionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyNatRuleCollectionActionResponse)(nil)).Elem()
+}
+
+func (o FirewallPolicyNatRuleCollectionActionResponsePtrOutput) ToFirewallPolicyNatRuleCollectionActionResponsePtrOutput() FirewallPolicyNatRuleCollectionActionResponsePtrOutput {
+	return o
+}
+
+func (o FirewallPolicyNatRuleCollectionActionResponsePtrOutput) ToFirewallPolicyNatRuleCollectionActionResponsePtrOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionActionResponsePtrOutput {
+	return o
+}
+
+func (o FirewallPolicyNatRuleCollectionActionResponsePtrOutput) Elem() FirewallPolicyNatRuleCollectionActionResponseOutput {
+	return o.ApplyT(func(v *FirewallPolicyNatRuleCollectionActionResponse) FirewallPolicyNatRuleCollectionActionResponse {
+		return *v
+	}).(FirewallPolicyNatRuleCollectionActionResponseOutput)
+}
+
+// The type of action.
+func (o FirewallPolicyNatRuleCollectionActionResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyNatRuleCollectionActionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Firewall Policy NAT Rule Collection.
+type FirewallPolicyNatRuleCollectionResponse struct {
+	// The action type of a Nat rule collection.
+	Action *FirewallPolicyNatRuleCollectionActionResponse `pulumi:"action"`
+	// The name of the rule collection.
+	Name *string `pulumi:"name"`
+	// Priority of the Firewall Policy Rule Collection resource.
+	Priority *int `pulumi:"priority"`
+	// The type of the rule collection.
+	RuleCollectionType string `pulumi:"ruleCollectionType"`
+	// List of rules included in a rule collection.
+	Rules []interface{} `pulumi:"rules"`
+}
+
+// FirewallPolicyNatRuleCollectionResponseInput is an input type that accepts FirewallPolicyNatRuleCollectionResponseArgs and FirewallPolicyNatRuleCollectionResponseOutput values.
+// You can construct a concrete instance of `FirewallPolicyNatRuleCollectionResponseInput` via:
+//
+//          FirewallPolicyNatRuleCollectionResponseArgs{...}
+type FirewallPolicyNatRuleCollectionResponseInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyNatRuleCollectionResponseOutput() FirewallPolicyNatRuleCollectionResponseOutput
+	ToFirewallPolicyNatRuleCollectionResponseOutputWithContext(context.Context) FirewallPolicyNatRuleCollectionResponseOutput
+}
+
+// Firewall Policy NAT Rule Collection.
+type FirewallPolicyNatRuleCollectionResponseArgs struct {
+	// The action type of a Nat rule collection.
+	Action FirewallPolicyNatRuleCollectionActionResponsePtrInput `pulumi:"action"`
+	// The name of the rule collection.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Priority of the Firewall Policy Rule Collection resource.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The type of the rule collection.
+	RuleCollectionType pulumi.StringInput `pulumi:"ruleCollectionType"`
+	// List of rules included in a rule collection.
+	Rules pulumi.ArrayInput `pulumi:"rules"`
+}
+
+func (FirewallPolicyNatRuleCollectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyNatRuleCollectionResponse)(nil)).Elem()
+}
+
+func (i FirewallPolicyNatRuleCollectionResponseArgs) ToFirewallPolicyNatRuleCollectionResponseOutput() FirewallPolicyNatRuleCollectionResponseOutput {
+	return i.ToFirewallPolicyNatRuleCollectionResponseOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyNatRuleCollectionResponseArgs) ToFirewallPolicyNatRuleCollectionResponseOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyNatRuleCollectionResponseOutput)
+}
+
+// Firewall Policy NAT Rule Collection.
+type FirewallPolicyNatRuleCollectionResponseOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyNatRuleCollectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyNatRuleCollectionResponse)(nil)).Elem()
+}
+
+func (o FirewallPolicyNatRuleCollectionResponseOutput) ToFirewallPolicyNatRuleCollectionResponseOutput() FirewallPolicyNatRuleCollectionResponseOutput {
+	return o
+}
+
+func (o FirewallPolicyNatRuleCollectionResponseOutput) ToFirewallPolicyNatRuleCollectionResponseOutputWithContext(ctx context.Context) FirewallPolicyNatRuleCollectionResponseOutput {
+	return o
+}
+
+// The action type of a Nat rule collection.
+func (o FirewallPolicyNatRuleCollectionResponseOutput) Action() FirewallPolicyNatRuleCollectionActionResponsePtrOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollectionResponse) *FirewallPolicyNatRuleCollectionActionResponse {
+		return v.Action
+	}).(FirewallPolicyNatRuleCollectionActionResponsePtrOutput)
+}
+
+// The name of the rule collection.
+func (o FirewallPolicyNatRuleCollectionResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollectionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Priority of the Firewall Policy Rule Collection resource.
+func (o FirewallPolicyNatRuleCollectionResponseOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollectionResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The type of the rule collection.
+func (o FirewallPolicyNatRuleCollectionResponseOutput) RuleCollectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollectionResponse) string { return v.RuleCollectionType }).(pulumi.StringOutput)
+}
+
+// List of rules included in a rule collection.
+func (o FirewallPolicyNatRuleCollectionResponseOutput) Rules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyNatRuleCollectionResponse) []interface{} { return v.Rules }).(pulumi.ArrayOutput)
+}
+
+// Properties of the application rule protocol.
+type FirewallPolicyRuleApplicationProtocol struct {
+	// Port number for the protocol, cannot be greater than 64000.
+	Port *int `pulumi:"port"`
+	// Protocol type.
+	ProtocolType *string `pulumi:"protocolType"`
+}
+
+// FirewallPolicyRuleApplicationProtocolInput is an input type that accepts FirewallPolicyRuleApplicationProtocolArgs and FirewallPolicyRuleApplicationProtocolOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleApplicationProtocolInput` via:
+//
+//          FirewallPolicyRuleApplicationProtocolArgs{...}
+type FirewallPolicyRuleApplicationProtocolInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleApplicationProtocolOutput() FirewallPolicyRuleApplicationProtocolOutput
+	ToFirewallPolicyRuleApplicationProtocolOutputWithContext(context.Context) FirewallPolicyRuleApplicationProtocolOutput
+}
+
+// Properties of the application rule protocol.
+type FirewallPolicyRuleApplicationProtocolArgs struct {
+	// Port number for the protocol, cannot be greater than 64000.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Protocol type.
+	ProtocolType pulumi.StringPtrInput `pulumi:"protocolType"`
+}
+
+func (FirewallPolicyRuleApplicationProtocolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleApplicationProtocol)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleApplicationProtocolArgs) ToFirewallPolicyRuleApplicationProtocolOutput() FirewallPolicyRuleApplicationProtocolOutput {
+	return i.ToFirewallPolicyRuleApplicationProtocolOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleApplicationProtocolArgs) ToFirewallPolicyRuleApplicationProtocolOutputWithContext(ctx context.Context) FirewallPolicyRuleApplicationProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleApplicationProtocolOutput)
+}
+
+// FirewallPolicyRuleApplicationProtocolArrayInput is an input type that accepts FirewallPolicyRuleApplicationProtocolArray and FirewallPolicyRuleApplicationProtocolArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleApplicationProtocolArrayInput` via:
+//
+//          FirewallPolicyRuleApplicationProtocolArray{ FirewallPolicyRuleApplicationProtocolArgs{...} }
+type FirewallPolicyRuleApplicationProtocolArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleApplicationProtocolArrayOutput() FirewallPolicyRuleApplicationProtocolArrayOutput
+	ToFirewallPolicyRuleApplicationProtocolArrayOutputWithContext(context.Context) FirewallPolicyRuleApplicationProtocolArrayOutput
+}
+
+type FirewallPolicyRuleApplicationProtocolArray []FirewallPolicyRuleApplicationProtocolInput
+
+func (FirewallPolicyRuleApplicationProtocolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleApplicationProtocol)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleApplicationProtocolArray) ToFirewallPolicyRuleApplicationProtocolArrayOutput() FirewallPolicyRuleApplicationProtocolArrayOutput {
+	return i.ToFirewallPolicyRuleApplicationProtocolArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleApplicationProtocolArray) ToFirewallPolicyRuleApplicationProtocolArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleApplicationProtocolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleApplicationProtocolArrayOutput)
+}
+
+// Properties of the application rule protocol.
+type FirewallPolicyRuleApplicationProtocolOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleApplicationProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleApplicationProtocol)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleApplicationProtocolOutput) ToFirewallPolicyRuleApplicationProtocolOutput() FirewallPolicyRuleApplicationProtocolOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleApplicationProtocolOutput) ToFirewallPolicyRuleApplicationProtocolOutputWithContext(ctx context.Context) FirewallPolicyRuleApplicationProtocolOutput {
+	return o
+}
+
+// Port number for the protocol, cannot be greater than 64000.
+func (o FirewallPolicyRuleApplicationProtocolOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleApplicationProtocol) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Protocol type.
+func (o FirewallPolicyRuleApplicationProtocolOutput) ProtocolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleApplicationProtocol) *string { return v.ProtocolType }).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyRuleApplicationProtocolArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleApplicationProtocolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleApplicationProtocol)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleApplicationProtocolArrayOutput) ToFirewallPolicyRuleApplicationProtocolArrayOutput() FirewallPolicyRuleApplicationProtocolArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleApplicationProtocolArrayOutput) ToFirewallPolicyRuleApplicationProtocolArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleApplicationProtocolArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleApplicationProtocolArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleApplicationProtocolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleApplicationProtocol {
+		return vs[0].([]FirewallPolicyRuleApplicationProtocol)[vs[1].(int)]
+	}).(FirewallPolicyRuleApplicationProtocolOutput)
+}
+
+// Properties of the application rule protocol.
+type FirewallPolicyRuleApplicationProtocolResponse struct {
+	// Port number for the protocol, cannot be greater than 64000.
+	Port *int `pulumi:"port"`
+	// Protocol type.
+	ProtocolType *string `pulumi:"protocolType"`
+}
+
+// FirewallPolicyRuleApplicationProtocolResponseInput is an input type that accepts FirewallPolicyRuleApplicationProtocolResponseArgs and FirewallPolicyRuleApplicationProtocolResponseOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleApplicationProtocolResponseInput` via:
+//
+//          FirewallPolicyRuleApplicationProtocolResponseArgs{...}
+type FirewallPolicyRuleApplicationProtocolResponseInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleApplicationProtocolResponseOutput() FirewallPolicyRuleApplicationProtocolResponseOutput
+	ToFirewallPolicyRuleApplicationProtocolResponseOutputWithContext(context.Context) FirewallPolicyRuleApplicationProtocolResponseOutput
+}
+
+// Properties of the application rule protocol.
+type FirewallPolicyRuleApplicationProtocolResponseArgs struct {
+	// Port number for the protocol, cannot be greater than 64000.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Protocol type.
+	ProtocolType pulumi.StringPtrInput `pulumi:"protocolType"`
+}
+
+func (FirewallPolicyRuleApplicationProtocolResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleApplicationProtocolResponse)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleApplicationProtocolResponseArgs) ToFirewallPolicyRuleApplicationProtocolResponseOutput() FirewallPolicyRuleApplicationProtocolResponseOutput {
+	return i.ToFirewallPolicyRuleApplicationProtocolResponseOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleApplicationProtocolResponseArgs) ToFirewallPolicyRuleApplicationProtocolResponseOutputWithContext(ctx context.Context) FirewallPolicyRuleApplicationProtocolResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleApplicationProtocolResponseOutput)
+}
+
+// FirewallPolicyRuleApplicationProtocolResponseArrayInput is an input type that accepts FirewallPolicyRuleApplicationProtocolResponseArray and FirewallPolicyRuleApplicationProtocolResponseArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleApplicationProtocolResponseArrayInput` via:
+//
+//          FirewallPolicyRuleApplicationProtocolResponseArray{ FirewallPolicyRuleApplicationProtocolResponseArgs{...} }
+type FirewallPolicyRuleApplicationProtocolResponseArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleApplicationProtocolResponseArrayOutput() FirewallPolicyRuleApplicationProtocolResponseArrayOutput
+	ToFirewallPolicyRuleApplicationProtocolResponseArrayOutputWithContext(context.Context) FirewallPolicyRuleApplicationProtocolResponseArrayOutput
+}
+
+type FirewallPolicyRuleApplicationProtocolResponseArray []FirewallPolicyRuleApplicationProtocolResponseInput
+
+func (FirewallPolicyRuleApplicationProtocolResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleApplicationProtocolResponse)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleApplicationProtocolResponseArray) ToFirewallPolicyRuleApplicationProtocolResponseArrayOutput() FirewallPolicyRuleApplicationProtocolResponseArrayOutput {
+	return i.ToFirewallPolicyRuleApplicationProtocolResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleApplicationProtocolResponseArray) ToFirewallPolicyRuleApplicationProtocolResponseArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleApplicationProtocolResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleApplicationProtocolResponseArrayOutput)
+}
+
+// Properties of the application rule protocol.
+type FirewallPolicyRuleApplicationProtocolResponseOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleApplicationProtocolResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleApplicationProtocolResponse)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleApplicationProtocolResponseOutput) ToFirewallPolicyRuleApplicationProtocolResponseOutput() FirewallPolicyRuleApplicationProtocolResponseOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleApplicationProtocolResponseOutput) ToFirewallPolicyRuleApplicationProtocolResponseOutputWithContext(ctx context.Context) FirewallPolicyRuleApplicationProtocolResponseOutput {
+	return o
+}
+
+// Port number for the protocol, cannot be greater than 64000.
+func (o FirewallPolicyRuleApplicationProtocolResponseOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleApplicationProtocolResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Protocol type.
+func (o FirewallPolicyRuleApplicationProtocolResponseOutput) ProtocolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleApplicationProtocolResponse) *string { return v.ProtocolType }).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyRuleApplicationProtocolResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleApplicationProtocolResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleApplicationProtocolResponse)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleApplicationProtocolResponseArrayOutput) ToFirewallPolicyRuleApplicationProtocolResponseArrayOutput() FirewallPolicyRuleApplicationProtocolResponseArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleApplicationProtocolResponseArrayOutput) ToFirewallPolicyRuleApplicationProtocolResponseArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleApplicationProtocolResponseArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleApplicationProtocolResponseArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleApplicationProtocolResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleApplicationProtocolResponse {
+		return vs[0].([]FirewallPolicyRuleApplicationProtocolResponse)[vs[1].(int)]
+	}).(FirewallPolicyRuleApplicationProtocolResponseOutput)
 }
 
 // ThreatIntel Whitelist for Firewall Policy.
@@ -38869,6 +40013,278 @@ func (o NatGatewaySkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Rule of type nat.
+type NatRule struct {
+	// Description of the rule.
+	Description *string `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// List of destination ports.
+	DestinationPorts []string `pulumi:"destinationPorts"`
+	// Array of FirewallPolicyRuleNetworkProtocols.
+	IpProtocols []string `pulumi:"ipProtocols"`
+	// Name of the rule.
+	Name *string `pulumi:"name"`
+	// Rule Type.
+	RuleType string `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
+	// The translated address for this NAT rule.
+	TranslatedAddress *string `pulumi:"translatedAddress"`
+	// The translated port for this NAT rule.
+	TranslatedPort *string `pulumi:"translatedPort"`
+}
+
+// NatRuleInput is an input type that accepts NatRuleArgs and NatRuleOutput values.
+// You can construct a concrete instance of `NatRuleInput` via:
+//
+//          NatRuleArgs{...}
+type NatRuleInput interface {
+	pulumi.Input
+
+	ToNatRuleOutput() NatRuleOutput
+	ToNatRuleOutputWithContext(context.Context) NatRuleOutput
+}
+
+// Rule of type nat.
+type NatRuleArgs struct {
+	// Description of the rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// List of destination ports.
+	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// Array of FirewallPolicyRuleNetworkProtocols.
+	IpProtocols pulumi.StringArrayInput `pulumi:"ipProtocols"`
+	// Name of the rule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Rule Type.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+	// The translated address for this NAT rule.
+	TranslatedAddress pulumi.StringPtrInput `pulumi:"translatedAddress"`
+	// The translated port for this NAT rule.
+	TranslatedPort pulumi.StringPtrInput `pulumi:"translatedPort"`
+}
+
+func (NatRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatRule)(nil)).Elem()
+}
+
+func (i NatRuleArgs) ToNatRuleOutput() NatRuleOutput {
+	return i.ToNatRuleOutputWithContext(context.Background())
+}
+
+func (i NatRuleArgs) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatRuleOutput)
+}
+
+// Rule of type nat.
+type NatRuleOutput struct{ *pulumi.OutputState }
+
+func (NatRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatRule)(nil)).Elem()
+}
+
+func (o NatRuleOutput) ToNatRuleOutput() NatRuleOutput {
+	return o
+}
+
+func (o NatRuleOutput) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput {
+	return o
+}
+
+// Description of the rule.
+func (o NatRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatRule) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// List of destination IP addresses or Service Tags.
+func (o NatRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatRule) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of destination ports.
+func (o NatRuleOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatRule) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
+}
+
+// Array of FirewallPolicyRuleNetworkProtocols.
+func (o NatRuleOutput) IpProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatRule) []string { return v.IpProtocols }).(pulumi.StringArrayOutput)
+}
+
+// Name of the rule.
+func (o NatRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Rule Type.
+func (o NatRuleOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v NatRule) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// List of source IP addresses for this rule.
+func (o NatRuleOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatRule) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of source IpGroups for this rule.
+func (o NatRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
+}
+
+// The translated address for this NAT rule.
+func (o NatRuleOutput) TranslatedAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatRule) *string { return v.TranslatedAddress }).(pulumi.StringPtrOutput)
+}
+
+// The translated port for this NAT rule.
+func (o NatRuleOutput) TranslatedPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatRule) *string { return v.TranslatedPort }).(pulumi.StringPtrOutput)
+}
+
+// Rule of type nat.
+type NatRuleResponse struct {
+	// Description of the rule.
+	Description *string `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// List of destination ports.
+	DestinationPorts []string `pulumi:"destinationPorts"`
+	// Array of FirewallPolicyRuleNetworkProtocols.
+	IpProtocols []string `pulumi:"ipProtocols"`
+	// Name of the rule.
+	Name *string `pulumi:"name"`
+	// Rule Type.
+	RuleType string `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
+	// The translated address for this NAT rule.
+	TranslatedAddress *string `pulumi:"translatedAddress"`
+	// The translated port for this NAT rule.
+	TranslatedPort *string `pulumi:"translatedPort"`
+}
+
+// NatRuleResponseInput is an input type that accepts NatRuleResponseArgs and NatRuleResponseOutput values.
+// You can construct a concrete instance of `NatRuleResponseInput` via:
+//
+//          NatRuleResponseArgs{...}
+type NatRuleResponseInput interface {
+	pulumi.Input
+
+	ToNatRuleResponseOutput() NatRuleResponseOutput
+	ToNatRuleResponseOutputWithContext(context.Context) NatRuleResponseOutput
+}
+
+// Rule of type nat.
+type NatRuleResponseArgs struct {
+	// Description of the rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// List of destination ports.
+	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// Array of FirewallPolicyRuleNetworkProtocols.
+	IpProtocols pulumi.StringArrayInput `pulumi:"ipProtocols"`
+	// Name of the rule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Rule Type.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+	// The translated address for this NAT rule.
+	TranslatedAddress pulumi.StringPtrInput `pulumi:"translatedAddress"`
+	// The translated port for this NAT rule.
+	TranslatedPort pulumi.StringPtrInput `pulumi:"translatedPort"`
+}
+
+func (NatRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatRuleResponse)(nil)).Elem()
+}
+
+func (i NatRuleResponseArgs) ToNatRuleResponseOutput() NatRuleResponseOutput {
+	return i.ToNatRuleResponseOutputWithContext(context.Background())
+}
+
+func (i NatRuleResponseArgs) ToNatRuleResponseOutputWithContext(ctx context.Context) NatRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatRuleResponseOutput)
+}
+
+// Rule of type nat.
+type NatRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (NatRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatRuleResponse)(nil)).Elem()
+}
+
+func (o NatRuleResponseOutput) ToNatRuleResponseOutput() NatRuleResponseOutput {
+	return o
+}
+
+func (o NatRuleResponseOutput) ToNatRuleResponseOutputWithContext(ctx context.Context) NatRuleResponseOutput {
+	return o
+}
+
+// Description of the rule.
+func (o NatRuleResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// List of destination IP addresses or Service Tags.
+func (o NatRuleResponseOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatRuleResponse) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of destination ports.
+func (o NatRuleResponseOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatRuleResponse) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
+}
+
+// Array of FirewallPolicyRuleNetworkProtocols.
+func (o NatRuleResponseOutput) IpProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatRuleResponse) []string { return v.IpProtocols }).(pulumi.StringArrayOutput)
+}
+
+// Name of the rule.
+func (o NatRuleResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Rule Type.
+func (o NatRuleResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v NatRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// List of source IP addresses for this rule.
+func (o NatRuleResponseOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatRuleResponse) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of source IpGroups for this rule.
+func (o NatRuleResponseOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatRuleResponse) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
+}
+
+// The translated address for this NAT rule.
+func (o NatRuleResponseOutput) TranslatedAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatRuleResponse) *string { return v.TranslatedAddress }).(pulumi.StringPtrOutput)
+}
+
+// The translated port for this NAT rule.
+func (o NatRuleResponseOutput) TranslatedPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatRuleResponse) *string { return v.TranslatedPort }).(pulumi.StringPtrOutput)
+}
+
 // DNS settings of a network interface.
 type NetworkInterfaceDnsSettings struct {
 	// List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
@@ -40717,6 +42133,278 @@ func (o NetworkInterfaceTapConfigurationResponseArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceTapConfigurationResponse {
 		return vs[0].([]NetworkInterfaceTapConfigurationResponse)[vs[1].(int)]
 	}).(NetworkInterfaceTapConfigurationResponseOutput)
+}
+
+// Rule of type network.
+type NetworkRule struct {
+	// Description of the rule.
+	Description *string `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// List of destination FQDNs.
+	DestinationFqdns []string `pulumi:"destinationFqdns"`
+	// List of destination IpGroups for this rule.
+	DestinationIpGroups []string `pulumi:"destinationIpGroups"`
+	// List of destination ports.
+	DestinationPorts []string `pulumi:"destinationPorts"`
+	// Array of FirewallPolicyRuleNetworkProtocols.
+	IpProtocols []string `pulumi:"ipProtocols"`
+	// Name of the rule.
+	Name *string `pulumi:"name"`
+	// Rule Type.
+	RuleType string `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
+}
+
+// NetworkRuleInput is an input type that accepts NetworkRuleArgs and NetworkRuleOutput values.
+// You can construct a concrete instance of `NetworkRuleInput` via:
+//
+//          NetworkRuleArgs{...}
+type NetworkRuleInput interface {
+	pulumi.Input
+
+	ToNetworkRuleOutput() NetworkRuleOutput
+	ToNetworkRuleOutputWithContext(context.Context) NetworkRuleOutput
+}
+
+// Rule of type network.
+type NetworkRuleArgs struct {
+	// Description of the rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// List of destination FQDNs.
+	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
+	// List of destination IpGroups for this rule.
+	DestinationIpGroups pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
+	// List of destination ports.
+	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// Array of FirewallPolicyRuleNetworkProtocols.
+	IpProtocols pulumi.StringArrayInput `pulumi:"ipProtocols"`
+	// Name of the rule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Rule Type.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+}
+
+func (NetworkRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRule)(nil)).Elem()
+}
+
+func (i NetworkRuleArgs) ToNetworkRuleOutput() NetworkRuleOutput {
+	return i.ToNetworkRuleOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleArgs) ToNetworkRuleOutputWithContext(ctx context.Context) NetworkRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleOutput)
+}
+
+// Rule of type network.
+type NetworkRuleOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRule)(nil)).Elem()
+}
+
+func (o NetworkRuleOutput) ToNetworkRuleOutput() NetworkRuleOutput {
+	return o
+}
+
+func (o NetworkRuleOutput) ToNetworkRuleOutputWithContext(ctx context.Context) NetworkRuleOutput {
+	return o
+}
+
+// Description of the rule.
+func (o NetworkRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRule) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// List of destination IP addresses or Service Tags.
+func (o NetworkRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRule) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of destination FQDNs.
+func (o NetworkRuleOutput) DestinationFqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRule) []string { return v.DestinationFqdns }).(pulumi.StringArrayOutput)
+}
+
+// List of destination IpGroups for this rule.
+func (o NetworkRuleOutput) DestinationIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRule) []string { return v.DestinationIpGroups }).(pulumi.StringArrayOutput)
+}
+
+// List of destination ports.
+func (o NetworkRuleOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRule) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
+}
+
+// Array of FirewallPolicyRuleNetworkProtocols.
+func (o NetworkRuleOutput) IpProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRule) []string { return v.IpProtocols }).(pulumi.StringArrayOutput)
+}
+
+// Name of the rule.
+func (o NetworkRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Rule Type.
+func (o NetworkRuleOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkRule) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// List of source IP addresses for this rule.
+func (o NetworkRuleOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRule) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of source IpGroups for this rule.
+func (o NetworkRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
+}
+
+// Rule of type network.
+type NetworkRuleResponse struct {
+	// Description of the rule.
+	Description *string `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// List of destination FQDNs.
+	DestinationFqdns []string `pulumi:"destinationFqdns"`
+	// List of destination IpGroups for this rule.
+	DestinationIpGroups []string `pulumi:"destinationIpGroups"`
+	// List of destination ports.
+	DestinationPorts []string `pulumi:"destinationPorts"`
+	// Array of FirewallPolicyRuleNetworkProtocols.
+	IpProtocols []string `pulumi:"ipProtocols"`
+	// Name of the rule.
+	Name *string `pulumi:"name"`
+	// Rule Type.
+	RuleType string `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
+}
+
+// NetworkRuleResponseInput is an input type that accepts NetworkRuleResponseArgs and NetworkRuleResponseOutput values.
+// You can construct a concrete instance of `NetworkRuleResponseInput` via:
+//
+//          NetworkRuleResponseArgs{...}
+type NetworkRuleResponseInput interface {
+	pulumi.Input
+
+	ToNetworkRuleResponseOutput() NetworkRuleResponseOutput
+	ToNetworkRuleResponseOutputWithContext(context.Context) NetworkRuleResponseOutput
+}
+
+// Rule of type network.
+type NetworkRuleResponseArgs struct {
+	// Description of the rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// List of destination IP addresses or Service Tags.
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// List of destination FQDNs.
+	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
+	// List of destination IpGroups for this rule.
+	DestinationIpGroups pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
+	// List of destination ports.
+	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// Array of FirewallPolicyRuleNetworkProtocols.
+	IpProtocols pulumi.StringArrayInput `pulumi:"ipProtocols"`
+	// Name of the rule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Rule Type.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// List of source IP addresses for this rule.
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// List of source IpGroups for this rule.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+}
+
+func (NetworkRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleResponse)(nil)).Elem()
+}
+
+func (i NetworkRuleResponseArgs) ToNetworkRuleResponseOutput() NetworkRuleResponseOutput {
+	return i.ToNetworkRuleResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleResponseArgs) ToNetworkRuleResponseOutputWithContext(ctx context.Context) NetworkRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleResponseOutput)
+}
+
+// Rule of type network.
+type NetworkRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleResponse)(nil)).Elem()
+}
+
+func (o NetworkRuleResponseOutput) ToNetworkRuleResponseOutput() NetworkRuleResponseOutput {
+	return o
+}
+
+func (o NetworkRuleResponseOutput) ToNetworkRuleResponseOutputWithContext(ctx context.Context) NetworkRuleResponseOutput {
+	return o
+}
+
+// Description of the rule.
+func (o NetworkRuleResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// List of destination IP addresses or Service Tags.
+func (o NetworkRuleResponseOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRuleResponse) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of destination FQDNs.
+func (o NetworkRuleResponseOutput) DestinationFqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRuleResponse) []string { return v.DestinationFqdns }).(pulumi.StringArrayOutput)
+}
+
+// List of destination IpGroups for this rule.
+func (o NetworkRuleResponseOutput) DestinationIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRuleResponse) []string { return v.DestinationIpGroups }).(pulumi.StringArrayOutput)
+}
+
+// List of destination ports.
+func (o NetworkRuleResponseOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRuleResponse) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
+}
+
+// Array of FirewallPolicyRuleNetworkProtocols.
+func (o NetworkRuleResponseOutput) IpProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRuleResponse) []string { return v.IpProtocols }).(pulumi.StringArrayOutput)
+}
+
+// Name of the rule.
+func (o NetworkRuleResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Rule Type.
+func (o NetworkRuleResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// List of source IP addresses for this rule.
+func (o NetworkRuleResponseOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRuleResponse) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// List of source IpGroups for this rule.
+func (o NetworkRuleResponseOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkRuleResponse) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
 }
 
 // NetworkSecurityGroup resource.
@@ -65996,6 +67684,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayWebApplicationFirewallConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayWebApplicationFirewallConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayWebApplicationFirewallConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationRuleOutput{})
+	pulumi.RegisterOutputType(ApplicationRuleResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationSecurityGroupTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationSecurityGroupTypeArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationSecurityGroupResponseOutput{})
@@ -66214,10 +67904,22 @@ func init() {
 	pulumi.RegisterOutputType(ExpressRouteLinkMacSecConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteLinkResponseOutput{})
 	pulumi.RegisterOutputType(ExpressRouteLinkResponseArrayOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionArrayOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionResponseOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFilterRuleCollectionOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFilterRuleCollectionActionOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFilterRuleCollectionActionPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFilterRuleCollectionActionResponseOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFilterRuleCollectionActionResponsePtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFilterRuleCollectionResponseOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyNatRuleCollectionOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyNatRuleCollectionActionOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyNatRuleCollectionActionPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyNatRuleCollectionActionResponseOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyNatRuleCollectionActionResponsePtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyNatRuleCollectionResponseOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleApplicationProtocolOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleApplicationProtocolArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleApplicationProtocolResponseOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleApplicationProtocolResponseArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyThreatIntelWhitelistOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyThreatIntelWhitelistPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyThreatIntelWhitelistResponseOutput{})
@@ -66335,6 +68037,8 @@ func init() {
 	pulumi.RegisterOutputType(NatGatewaySkuPtrOutput{})
 	pulumi.RegisterOutputType(NatGatewaySkuResponseOutput{})
 	pulumi.RegisterOutputType(NatGatewaySkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(NatRuleOutput{})
+	pulumi.RegisterOutputType(NatRuleResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceDnsSettingsOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceDnsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceDnsSettingsResponseOutput{})
@@ -66351,6 +68055,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInterfaceResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceTapConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceTapConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(NetworkRuleOutput{})
+	pulumi.RegisterOutputType(NetworkRuleResponseOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupTypeOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupTypePtrOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupResponseOutput{})

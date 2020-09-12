@@ -19,7 +19,7 @@ class WebService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['WebServicePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['WebServicePropertiesForGraphArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  web_service_name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class WebService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[str] name: Specifies the name of the resource.
-        :param pulumi.Input[pulumi.InputType['WebServicePropertiesArgs']] properties: Contains the property payload that describes the web service.
+        :param pulumi.Input[pulumi.InputType['WebServicePropertiesForGraphArgs']] properties: Contains the property payload that describes the web service.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which the web service is located.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
         :param pulumi.Input[str] web_service_name: The name of the web service.
@@ -114,7 +114,7 @@ class WebService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.WebServicePropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.WebServicePropertiesForGraphResponse']:
         """
         Contains the property payload that describes the web service.
         """

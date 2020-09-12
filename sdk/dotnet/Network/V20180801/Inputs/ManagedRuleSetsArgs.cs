@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.Network.V20180801.Inputs
     public sealed class ManagedRuleSetsArgs : Pulumi.ResourceArgs
     {
         [Input("ruleSets")]
-        private InputList<Inputs.ManagedRuleSetArgs>? _ruleSets;
+        private InputList<Inputs.AzureManagedRuleSetArgs>? _ruleSets;
 
         /// <summary>
         /// List of rules
         /// </summary>
-        public InputList<Inputs.ManagedRuleSetArgs> RuleSets
+        public InputList<Inputs.AzureManagedRuleSetArgs> RuleSets
         {
-            get => _ruleSets ?? (_ruleSets = new InputList<Inputs.ManagedRuleSetArgs>());
+            get => _ruleSets ?? (_ruleSets = new InputList<Inputs.AzureManagedRuleSetArgs>());
             set => _ruleSets = value;
         }
 

@@ -32,10 +32,8 @@ class ManagedCluster(pulumi.CustomResource):
                  load_balancing_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 reverse_proxy_endpoint_port: Optional[pulumi.Input[float]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 use_test_extension: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -62,10 +60,8 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancingRuleArgs']]]] load_balancing_rules: Describes load balancing rules.
         :param pulumi.Input[str] location: Azure resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[float] reverse_proxy_endpoint_port: The endpoint used by reverse proxy.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the managed cluster
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
-        :param pulumi.Input[bool] use_test_extension: Use service fabric test vm extension, by default it's false.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,10 +105,8 @@ class ManagedCluster(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['reverse_proxy_endpoint_port'] = reverse_proxy_endpoint_port
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['use_test_extension'] = use_test_extension
             __props__['cluster_certificate_thumbprint'] = None
             __props__['cluster_id'] = None
             __props__['cluster_state'] = None
@@ -320,14 +314,6 @@ class ManagedCluster(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="reverseProxyEndpointPort")
-    def reverse_proxy_endpoint_port(self) -> pulumi.Output[Optional[float]]:
-        """
-        The endpoint used by reverse proxy.
-        """
-        return pulumi.get(self, "reverse_proxy_endpoint_port")
-
-    @property
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
@@ -350,14 +336,6 @@ class ManagedCluster(pulumi.CustomResource):
         Azure resource type.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="useTestExtension")
-    def use_test_extension(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Use service fabric test vm extension, by default it's false.
-        """
-        return pulumi.get(self, "use_test_extension")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

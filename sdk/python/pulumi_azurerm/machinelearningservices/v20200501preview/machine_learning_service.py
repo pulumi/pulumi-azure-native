@@ -138,7 +138,7 @@ class MachineLearningService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ServiceResponseBaseResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         Service properties
         """

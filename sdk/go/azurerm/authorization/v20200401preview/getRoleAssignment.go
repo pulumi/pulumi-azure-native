@@ -29,7 +29,7 @@ type LookupRoleAssignmentResult struct {
 	CanDelegate *bool `pulumi:"canDelegate"`
 	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
 	Condition *string `pulumi:"condition"`
-	// Version of the condition. Currently accepted values are '1.0' or '2.0'
+	// Version of the condition. Currently accepted value is '2.0'
 	ConditionVersion *string `pulumi:"conditionVersion"`
 	// Description of role assignment
 	Description *string `pulumi:"description"`

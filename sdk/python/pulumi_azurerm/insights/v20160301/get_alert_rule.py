@@ -51,7 +51,7 @@ class GetAlertRuleResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List['outputs.RuleActionResponse']]:
+    def actions(self) -> Optional[List[Any]]:
         """
         the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         """
@@ -59,7 +59,7 @@ class GetAlertRuleResult:
 
     @property
     @pulumi.getter
-    def condition(self) -> 'outputs.RuleConditionResponse':
+    def condition(self) -> Any:
         """
         the condition that results in the alert rule being activated.
         """

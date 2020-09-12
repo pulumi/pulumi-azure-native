@@ -19,7 +19,7 @@ type Step struct {
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The properties that define the step.
-	Properties StepPropertiesResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -77,7 +77,7 @@ type stepState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The properties that define the step.
-	Properties *StepPropertiesResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -90,7 +90,7 @@ type StepState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The properties that define the step.
-	Properties StepPropertiesResponsePtrInput
+	Properties pulumi.Input
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -105,7 +105,7 @@ type stepArgs struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The properties that define the step.
-	Properties StepProperties `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the deployment step.
@@ -119,7 +119,7 @@ type StepArgs struct {
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The properties that define the step.
-	Properties StepPropertiesInput
+	Properties pulumi.Input
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the deployment step.

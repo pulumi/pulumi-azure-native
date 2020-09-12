@@ -123,7 +123,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * Action needs to be taken on rule execution.
      */
-    public readonly action!: pulumi.Output<outputs.insights.latest.ActionResponse>;
+    public readonly action!: pulumi.Output<outputs.insights.latest.AlertingActionResponse | outputs.insights.latest.LogToMetricActionResponse>;
     /**
      * The description of the Log Search rule.
      */
@@ -236,7 +236,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * Action needs to be taken on rule execution.
      */
-    readonly action: pulumi.Input<inputs.insights.latest.Action>;
+    readonly action: pulumi.Input<inputs.insights.latest.AlertingAction | inputs.insights.latest.LogToMetricAction>;
     /**
      * The description of the Log Search rule.
      */

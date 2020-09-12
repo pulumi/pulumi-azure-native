@@ -1,17 +1,33 @@
 import pulumi
-import pulumi_random as random
-from pulumi_azurerm import resources, storage
+import pulumi_random
+from pulumi_azurerm.storage import latest as storage
+from pulumi_azurerm.resources import latest as resources
 
-random_string = random.RandomString("random_string", length=12, special=False, upper=False)
+random_string = pulumi_random.RandomString('random',
+    length=12,
+    special=False,
+    upper=False)
 
-resource_group = resources.latest.ResourceGroup('resource_group', resource_group_name='azurerm-py', location='westus')
+# Create an Azure Resource Group
+resource_group = resources.ResourceGroup('resource_group',
+    resource_group_name=random_string.result,
+    location='westus')
 
-storage_account = storage.latest.StorageAccount('sa',
-    account_name='pulumi143pysa',
+# Create an Azure resource (Storage Account)
+account = storage.StorageAccount('sa',
+    account_name=random_string.result,
     resource_group_name=resource_group.name,
-    location='westus2',
-    sku={
-        'name': 'Standard_LRS',
-        'tier': 'Standard',
-    },
+    location=resource_group.location,
+    sku=storage.SkuArgs(
+        name='Standard_LRS',
+        tier='Standard',
+    ),
     kind='StorageV2')
+
+primary_key = pulumi.Output.all(resource_group.name, account.name) \
+    .apply(lambda args: storage.list_storage_account_keys(
+        resource_group_name=args[0],
+        account_name=args[1]
+    )).apply(lambda accountKeys: accountKeys.keys[0].value)
+
+pulumi.export("primary_storage_key", primary_key)

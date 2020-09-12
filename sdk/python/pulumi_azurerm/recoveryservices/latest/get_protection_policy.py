@@ -66,7 +66,7 @@ class GetProtectionPolicyResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ProtectionPolicyResponse':
+    def properties(self) -> Any:
         """
         The base class for a backup policy. Workload-specific backup policies are derived from this class.
         """

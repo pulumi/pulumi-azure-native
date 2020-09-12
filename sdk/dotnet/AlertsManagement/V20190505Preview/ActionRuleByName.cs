@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190505Preview
         /// action rule properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ActionRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.ActionGroupResponseResult, Union<Outputs.DiagnosticsResponseResult, Outputs.SuppressionResponseResult>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -109,7 +109,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190505Preview
         /// action rule properties
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.ActionRulePropertiesArgs>? Properties { get; set; }
+        public InputUnion<Inputs.ActionGroupArgs, InputUnion<Inputs.DiagnosticsArgs, Inputs.SuppressionArgs>>? Properties { get; set; }
 
         /// <summary>
         /// Resource group name where the resource is created.

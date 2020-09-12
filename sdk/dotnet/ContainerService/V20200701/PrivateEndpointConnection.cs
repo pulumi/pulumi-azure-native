@@ -97,6 +97,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200701
                 {
                     new Pulumi.Alias { Type = "azurerm:containerservice/latest:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azurerm:containerservice/v20200601:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azurerm:containerservice/v20200901:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

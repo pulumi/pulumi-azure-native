@@ -36,7 +36,7 @@ class GetConnectorResult:
 
     @property
     @pulumi.getter(name="authenticationDetails")
-    def authentication_details(self) -> Optional['outputs.AuthenticationDetailsPropertiesResponse']:
+    def authentication_details(self) -> Optional[Any]:
         """
         Settings for authentication management, these settings are relevant only for the cloud connector.
         """

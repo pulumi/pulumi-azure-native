@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest.Inputs
         /// The provider specific details.
         /// </summary>
         [Input("providerSpecificDetails", required: true)]
-        public Input<Inputs.EnableMigrationProviderSpecificInputArgs> ProviderSpecificDetails { get; set; } = null!;
+        public Input<Inputs.VMwareCbtEnableMigrationInputArgs> ProviderSpecificDetails { get; set; } = null!;
 
         public EnableMigrationInputPropertiesArgs()
         {

@@ -69,7 +69,7 @@ export * from "./listAuthorizationServerSecrets";
 export * from "./listDelegationSettingSecrets";
 export * from "./listGatewayKeys";
 export * from "./listIdentityProviderSecrets";
-export * from "./listNamedValueValue";
+export * from "./listNamedValue";
 export * from "./listOpenIdConnectProviderSecrets";
 export * from "./listSubscriptionSecrets";
 export * from "./listTenantAccessGitSecrets";

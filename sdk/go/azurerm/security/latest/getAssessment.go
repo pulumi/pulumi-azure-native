@@ -40,7 +40,7 @@ type LookupAssessmentResult struct {
 	// Data regarding 3rd party partner integration
 	PartnersData *SecurityAssessmentPartnerDataResponse `pulumi:"partnersData"`
 	// Details of the resource that was assessed
-	ResourceDetails ResourceDetailsResponse `pulumi:"resourceDetails"`
+	ResourceDetails interface{} `pulumi:"resourceDetails"`
 	// The result of the assessment
 	Status AssessmentStatusResponse `pulumi:"status"`
 	// Resource type

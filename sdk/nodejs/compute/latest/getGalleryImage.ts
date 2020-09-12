@@ -23,7 +23,7 @@ export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeO
 
 export interface GetGalleryImageArgs {
     /**
-     * The name of the gallery Image Definition to be retrieved.
+     * The name of the gallery image definition to be retrieved.
      */
     readonly galleryImageName: string;
     /**
@@ -37,11 +37,11 @@ export interface GetGalleryImageArgs {
 }
 
 /**
- * Specifies information about the gallery Image Definition that you want to create or update.
+ * Specifies information about the gallery image definition that you want to create or update.
  */
 export interface GetGalleryImageResult {
     /**
-     * The description of this gallery Image Definition resource. This property is updatable.
+     * The description of this gallery image definition resource. This property is updatable.
      */
     readonly description?: string;
     /**
@@ -49,19 +49,23 @@ export interface GetGalleryImageResult {
      */
     readonly disallowed?: outputs.compute.latest.DisallowedResponse;
     /**
-     * The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+     * The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
      */
     readonly endOfLifeDate?: string;
     /**
-     * The Eula agreement for the gallery Image Definition.
+     * The Eula agreement for the gallery image definition.
      */
     readonly eula?: string;
+    /**
+     * A list of gallery image features.
+     */
+    readonly features?: outputs.compute.latest.GalleryImageFeatureResponse[];
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
     readonly hyperVGeneration?: string;
     /**
-     * This is the gallery Image Definition identifier.
+     * This is the gallery image definition identifier.
      */
     readonly identifier: outputs.compute.latest.GalleryImageIdentifierResponse;
     /**
@@ -89,7 +93,7 @@ export interface GetGalleryImageResult {
      */
     readonly provisioningState: string;
     /**
-     * Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+     * Describes the gallery image definition purchase plan. This is used by marketplace images.
      */
     readonly purchasePlan?: outputs.compute.latest.ImagePurchasePlanResponse;
     /**

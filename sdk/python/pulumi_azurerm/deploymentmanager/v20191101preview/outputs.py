@@ -10,42 +10,84 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'AuthenticationResponse',
+    'ApiKeyAuthenticationResponse',
     'CloudErrorBodyResponseResult',
+    'HealthCheckStepPropertiesResponse',
     'IdentityResponse',
     'MessageResponseResult',
     'PrePostStepResponse',
     'ResourceOperationResponseResult',
+    'RestHealthCheckResponse',
+    'RestHealthCheckStepAttributesResponse',
+    'RestRequestResponse',
+    'RestResponseResponse',
+    'RestResponseResponseRegex',
+    'RolloutIdentityAuthenticationResponse',
     'RolloutOperationInfoResponseResult',
     'RolloutStepResponseResult',
+    'SasAuthenticationResponse',
     'ServiceResponseResult',
     'ServiceUnitArtifactsResponse',
     'ServiceUnitResponseResult',
     'StepGroupResponse',
     'StepOperationInfoResponseResult',
-    'StepPropertiesResponse',
+    'WaitStepAttributesResponse',
+    'WaitStepPropertiesResponse',
 ]
 
 @pulumi.output_type
-class AuthenticationResponse(dict):
+class ApiKeyAuthenticationResponse(dict):
     """
-    Defines the authentication method and properties to access the artifacts.
+    ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
     """
     def __init__(__self__, *,
-                 type: str):
+                 in_: str,
+                 name: str,
+                 type: str,
+                 value: str):
         """
-        Defines the authentication method and properties to access the artifacts.
-        :param str type: The authentication type
+        ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
+        :param str in_: The location of the authentication key/value pair in the request.
+        :param str name: The key name of the authentication key/value pair.
+        :param str type: The authentication type.
+        :param str value: The value of the authentication key/value pair.
         """
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "in_", in_)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'ApiKey')
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="in")
+    def in_(self) -> str:
+        """
+        The location of the authentication key/value pair in the request.
+        """
+        return pulumi.get(self, "in_")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The key name of the authentication key/value pair.
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The authentication type
+        The authentication type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the authentication key/value pair.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -106,6 +148,42 @@ class CloudErrorBodyResponseResult(dict):
         Error target
         """
         return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class HealthCheckStepPropertiesResponse(dict):
+    """
+    Defines the properties of a health check step.
+    """
+    def __init__(__self__, *,
+                 attributes: 'outputs.RestHealthCheckStepAttributesResponse',
+                 step_type: str):
+        """
+        Defines the properties of a health check step.
+        :param 'RestHealthCheckStepAttributesResponseArgs' attributes: The health check step attributes
+        :param str step_type: The type of step.
+        """
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "step_type", 'HealthCheck')
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> 'outputs.RestHealthCheckStepAttributesResponse':
+        """
+        The health check step attributes
+        """
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="stepType")
+    def step_type(self) -> str:
+        """
+        The type of step.
+        """
+        return pulumi.get(self, "step_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -282,6 +360,273 @@ class ResourceOperationResponseResult(dict):
 
 
 @pulumi.output_type
+class RestHealthCheckResponse(dict):
+    """
+    A REST based health check
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 request: 'outputs.RestRequestResponse',
+                 response: Optional['outputs.RestResponseResponse'] = None):
+        """
+        A REST based health check
+        :param str name: A unique name for this check.
+        :param 'RestRequestResponseArgs' request: The request to the health provider.
+        :param 'RestResponseResponseArgs' response: The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "request", request)
+        if response is not None:
+            pulumi.set(__self__, "response", response)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A unique name for this check.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def request(self) -> 'outputs.RestRequestResponse':
+        """
+        The request to the health provider.
+        """
+        return pulumi.get(self, "request")
+
+    @property
+    @pulumi.getter
+    def response(self) -> Optional['outputs.RestResponseResponse']:
+        """
+        The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+        """
+        return pulumi.get(self, "response")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RestHealthCheckStepAttributesResponse(dict):
+    """
+    Defines the REST health check step properties.
+    """
+    def __init__(__self__, *,
+                 health_checks: List['outputs.RestHealthCheckResponse'],
+                 healthy_state_duration: str,
+                 type: str,
+                 max_elastic_duration: Optional[str] = None,
+                 wait_duration: Optional[str] = None):
+        """
+        Defines the REST health check step properties.
+        :param List['RestHealthCheckResponseArgs'] health_checks: The list of checks that form the health check step.
+        :param str healthy_state_duration: The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+        :param str type: The type of health check.
+        :param str max_elastic_duration: The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+        :param str wait_duration: The duration in ISO 8601 format for which health check waits idly without any checks.
+        """
+        pulumi.set(__self__, "health_checks", health_checks)
+        pulumi.set(__self__, "healthy_state_duration", healthy_state_duration)
+        pulumi.set(__self__, "type", 'REST')
+        if max_elastic_duration is not None:
+            pulumi.set(__self__, "max_elastic_duration", max_elastic_duration)
+        if wait_duration is not None:
+            pulumi.set(__self__, "wait_duration", wait_duration)
+
+    @property
+    @pulumi.getter(name="healthChecks")
+    def health_checks(self) -> List['outputs.RestHealthCheckResponse']:
+        """
+        The list of checks that form the health check step.
+        """
+        return pulumi.get(self, "health_checks")
+
+    @property
+    @pulumi.getter(name="healthyStateDuration")
+    def healthy_state_duration(self) -> str:
+        """
+        The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+        """
+        return pulumi.get(self, "healthy_state_duration")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of health check.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="maxElasticDuration")
+    def max_elastic_duration(self) -> Optional[str]:
+        """
+        The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+        """
+        return pulumi.get(self, "max_elastic_duration")
+
+    @property
+    @pulumi.getter(name="waitDuration")
+    def wait_duration(self) -> Optional[str]:
+        """
+        The duration in ISO 8601 format for which health check waits idly without any checks.
+        """
+        return pulumi.get(self, "wait_duration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RestRequestResponse(dict):
+    """
+    The properties that make up a REST request
+    """
+    def __init__(__self__, *,
+                 authentication: Any,
+                 method: str,
+                 uri: str):
+        """
+        The properties that make up a REST request
+        :param Union['ApiKeyAuthenticationResponseArgs', 'RolloutIdentityAuthenticationResponseArgs'] authentication: The authentication information required in the request to the health provider.
+        :param str method: The HTTP method to use for the request.
+        :param str uri: The HTTP URI to use for the request.
+        """
+        pulumi.set(__self__, "authentication", authentication)
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Any:
+        """
+        The authentication information required in the request to the health provider.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        """
+        The HTTP method to use for the request.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The HTTP URI to use for the request.
+        """
+        return pulumi.get(self, "uri")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RestResponseResponse(dict):
+    """
+    The properties that make up the expected REST response
+    """
+    def __init__(__self__, *,
+                 regex: Optional['outputs.RestResponseResponseRegex'] = None,
+                 success_status_codes: Optional[List[str]] = None):
+        """
+        The properties that make up the expected REST response
+        :param 'RestResponseResponseRegexArgs' regex: The regular expressions to match the response content with.
+        :param List[str] success_status_codes: The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+        """
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if success_status_codes is not None:
+            pulumi.set(__self__, "success_status_codes", success_status_codes)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional['outputs.RestResponseResponseRegex']:
+        """
+        The regular expressions to match the response content with.
+        """
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter(name="successStatusCodes")
+    def success_status_codes(self) -> Optional[List[str]]:
+        """
+        The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+        """
+        return pulumi.get(self, "success_status_codes")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RestResponseResponseRegex(dict):
+    """
+    The regular expressions to match the response content with.
+    """
+    def __init__(__self__, *,
+                 match_quantifier: Optional[str] = None,
+                 matches: Optional[List[str]] = None):
+        """
+        The regular expressions to match the response content with.
+        :param str match_quantifier: Indicates whether any or all of the expressions should match with the response content.
+        :param List[str] matches: The list of regular expressions.
+        """
+        if match_quantifier is not None:
+            pulumi.set(__self__, "match_quantifier", match_quantifier)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+
+    @property
+    @pulumi.getter(name="matchQuantifier")
+    def match_quantifier(self) -> Optional[str]:
+        """
+        Indicates whether any or all of the expressions should match with the response content.
+        """
+        return pulumi.get(self, "match_quantifier")
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Optional[List[str]]:
+        """
+        The list of regular expressions.
+        """
+        return pulumi.get(self, "matches")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RolloutIdentityAuthenticationResponse(dict):
+    """
+    RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
+    """
+    def __init__(__self__, *,
+                 type: str):
+        """
+        RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
+        :param str type: The authentication type.
+        """
+        pulumi.set(__self__, "type", 'RolloutIdentity')
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The authentication type.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class RolloutOperationInfoResponseResult(dict):
     """
     Detailed runtime information of the rollout.
@@ -423,6 +768,42 @@ class RolloutStepResponseResult(dict):
         The step group the current step is part of.
         """
         return pulumi.get(self, "step_group")
+
+
+@pulumi.output_type
+class SasAuthenticationResponse(dict):
+    """
+    Defines the properties to access the artifacts using an Azure Storage SAS URI.
+    """
+    def __init__(__self__, *,
+                 sas_uri: str,
+                 type: str):
+        """
+        Defines the properties to access the artifacts using an Azure Storage SAS URI.
+        :param str sas_uri: The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        :param str type: The authentication type
+        """
+        pulumi.set(__self__, "sas_uri", sas_uri)
+        pulumi.set(__self__, "type", 'Sas')
+
+    @property
+    @pulumi.getter(name="sasUri")
+    def sas_uri(self) -> str:
+        """
+        The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        """
+        return pulumi.get(self, "sas_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The authentication type
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -764,17 +1145,53 @@ class StepOperationInfoResponseResult(dict):
 
 
 @pulumi.output_type
-class StepPropertiesResponse(dict):
+class WaitStepAttributesResponse(dict):
     """
-    The properties of a step resource.
+    The parameters for the wait step.
     """
     def __init__(__self__, *,
+                 duration: str):
+        """
+        The parameters for the wait step.
+        :param str duration: The duration in ISO 8601 format of how long the wait should be.
+        """
+        pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        The duration in ISO 8601 format of how long the wait should be.
+        """
+        return pulumi.get(self, "duration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WaitStepPropertiesResponse(dict):
+    """
+    Defines the properties of a Wait step.
+    """
+    def __init__(__self__, *,
+                 attributes: 'outputs.WaitStepAttributesResponse',
                  step_type: str):
         """
-        The properties of a step resource.
+        Defines the properties of a Wait step.
+        :param 'WaitStepAttributesResponseArgs' attributes: The Wait attributes
         :param str step_type: The type of step.
         """
-        pulumi.set(__self__, "step_type", step_type)
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "step_type", 'Wait')
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> 'outputs.WaitStepAttributesResponse':
+        """
+        The Wait attributes
+        """
+        return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter(name="stepType")

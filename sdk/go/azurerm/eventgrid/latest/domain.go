@@ -21,7 +21,7 @@ type Domain struct {
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
 	InputSchema pulumi.StringPtrOutput `pulumi:"inputSchema"`
 	// Information about the InputSchemaMapping which specified the info about mapping event payload.
-	InputSchemaMapping InputSchemaMappingResponsePtrOutput `pulumi:"inputSchemaMapping"`
+	InputSchemaMapping JsonInputSchemaMappingResponsePtrOutput `pulumi:"inputSchemaMapping"`
 	// Location of the resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Metric resource id for the domain.
@@ -106,7 +106,7 @@ type domainState struct {
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
 	InputSchema *string `pulumi:"inputSchema"`
 	// Information about the InputSchemaMapping which specified the info about mapping event payload.
-	InputSchemaMapping *InputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
+	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// Metric resource id for the domain.
@@ -134,7 +134,7 @@ type DomainState struct {
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
 	InputSchema pulumi.StringPtrInput
 	// Information about the InputSchemaMapping which specified the info about mapping event payload.
-	InputSchemaMapping InputSchemaMappingResponsePtrInput
+	InputSchemaMapping JsonInputSchemaMappingResponsePtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// Metric resource id for the domain.
@@ -166,7 +166,7 @@ type domainArgs struct {
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
 	InputSchema *string `pulumi:"inputSchema"`
 	// Information about the InputSchemaMapping which specified the info about mapping event payload.
-	InputSchemaMapping *InputSchemaMapping `pulumi:"inputSchemaMapping"`
+	InputSchemaMapping *JsonInputSchemaMapping `pulumi:"inputSchemaMapping"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// List of private endpoint connections.
@@ -189,7 +189,7 @@ type DomainArgs struct {
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
 	InputSchema pulumi.StringPtrInput
 	// Information about the InputSchemaMapping which specified the info about mapping event payload.
-	InputSchemaMapping InputSchemaMappingPtrInput
+	InputSchemaMapping JsonInputSchemaMappingPtrInput
 	// Location of the resource.
 	Location pulumi.StringInput
 	// List of private endpoint connections.

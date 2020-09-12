@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.Media.V20180701.Outputs
         /// <summary>
         /// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
         /// </summary>
-        public readonly Outputs.PresetResponseResult Preset;
+        public readonly Union<Outputs.AudioAnalyzerPresetResponseResult, Union<Outputs.BuiltInStandardEncoderPresetResponseResult, Union<Outputs.FaceDetectorPresetResponseResult, Outputs.StandardEncoderPresetResponseResult>>> Preset;
         /// <summary>
         /// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Media.V20180701.Outputs
         private TransformOutputResponseResult(
             string? onError,
 
-            Outputs.PresetResponseResult preset,
+            Union<Outputs.AudioAnalyzerPresetResponseResult, Union<Outputs.BuiltInStandardEncoderPresetResponseResult, Union<Outputs.FaceDetectorPresetResponseResult, Outputs.StandardEncoderPresetResponseResult>>> preset,
 
             string? relativePriority)
         {

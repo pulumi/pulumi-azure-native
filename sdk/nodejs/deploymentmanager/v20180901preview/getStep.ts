@@ -46,7 +46,7 @@ export interface GetStepResult {
     /**
      * The properties that define the step.
      */
-    readonly properties: outputs.deploymentmanager.v20180901preview.StepPropertiesResponse;
+    readonly properties: outputs.deploymentmanager.v20180901preview.WaitStepPropertiesResponse;
     /**
      * Resource tags.
      */

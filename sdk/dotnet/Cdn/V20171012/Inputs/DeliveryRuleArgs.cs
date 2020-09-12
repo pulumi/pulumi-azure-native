@@ -16,26 +16,26 @@ namespace Pulumi.AzureRM.Cdn.V20171012.Inputs
     public sealed class DeliveryRuleArgs : Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
-        private InputList<Inputs.DeliveryRuleActionArgs>? _actions;
+        private InputList<Inputs.DeliveryRuleCacheExpirationActionArgs>? _actions;
 
         /// <summary>
         /// A list of actions that are executed when all the conditions of a rule are satisfied.
         /// </summary>
-        public InputList<Inputs.DeliveryRuleActionArgs> Actions
+        public InputList<Inputs.DeliveryRuleCacheExpirationActionArgs> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.DeliveryRuleActionArgs>());
+            get => _actions ?? (_actions = new InputList<Inputs.DeliveryRuleCacheExpirationActionArgs>());
             set => _actions = value;
         }
 
         [Input("conditions")]
-        private InputList<Inputs.DeliveryRuleConditionArgs>? _conditions;
+        private InputList<Union<Inputs.DeliveryRuleUrlFileExtensionConditionArgs, Inputs.DeliveryRuleUrlPathConditionArgs>>? _conditions;
 
         /// <summary>
         /// A list of conditions that must be matched for the actions to be executed
         /// </summary>
-        public InputList<Inputs.DeliveryRuleConditionArgs> Conditions
+        public InputList<Union<Inputs.DeliveryRuleUrlFileExtensionConditionArgs, Inputs.DeliveryRuleUrlPathConditionArgs>> Conditions
         {
-            get => _conditions ?? (_conditions = new InputList<Inputs.DeliveryRuleConditionArgs>());
+            get => _conditions ?? (_conditions = new InputList<Union<Inputs.DeliveryRuleUrlFileExtensionConditionArgs, Inputs.DeliveryRuleUrlPathConditionArgs>>());
             set => _conditions = value;
         }
 

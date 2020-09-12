@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// Properties of the trigger.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.TriggerResponseResult> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.ChainingTriggerResponseResult, Union<Outputs.MultiplePipelineTriggerResponseResult, Union<Outputs.RerunTumblingWindowTriggerResponseResult, Outputs.TumblingWindowTriggerResponseResult>>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -140,7 +140,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// Properties of the trigger.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.TriggerArgs> Properties { get; set; } = null!;
+        public InputUnion<Inputs.ChainingTriggerArgs, InputUnion<Inputs.MultiplePipelineTriggerArgs, InputUnion<Inputs.RerunTumblingWindowTriggerArgs, Inputs.TumblingWindowTriggerArgs>>> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

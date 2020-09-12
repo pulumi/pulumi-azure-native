@@ -26,7 +26,7 @@ type LookupScheduledQueryRuleArgs struct {
 // The Log Search Rule resource.
 type LookupScheduledQueryRuleResult struct {
 	// Action needs to be taken on rule execution.
-	Action ActionResponse `pulumi:"action"`
+	Action interface{} `pulumi:"action"`
 	// The description of the Log Search rule.
 	Description *string `pulumi:"description"`
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false

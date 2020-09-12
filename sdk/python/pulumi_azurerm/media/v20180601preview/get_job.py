@@ -78,7 +78,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def input(self) -> 'outputs.JobInputResponse':
+    def input(self) -> Any:
         """
         The inputs for the Job.
         """
@@ -102,7 +102,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> List['outputs.JobOutputResponse']:
+    def outputs(self) -> List['outputs.JobOutputAssetResponse']:
         """
         The outputs for the Job.
         """

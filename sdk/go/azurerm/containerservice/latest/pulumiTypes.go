@@ -5912,6 +5912,8 @@ type ManagedClusterAgentPoolProfile struct {
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// The ID for Proximity Placement Group.
@@ -5973,6 +5975,8 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// The ID for Proximity Placement Group.
@@ -6112,6 +6116,11 @@ func (o ManagedClusterAgentPoolProfileOutput) OsDiskSizeGB() pulumi.IntPtrOutput
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
+// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+func (o ManagedClusterAgentPoolProfileOutput) OsDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
+}
+
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o ManagedClusterAgentPoolProfileOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
@@ -6212,8 +6221,12 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType *string `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
+	// Describes whether the Agent Pool is Running or Stopped
+	PowerState PowerStateResponse `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The ID for Proximity Placement Group.
@@ -6277,8 +6290,12 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
+	// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// Describes whether the Agent Pool is Running or Stopped
+	PowerState PowerStateResponseInput `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The ID for Proximity Placement Group.
@@ -6423,9 +6440,19 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskSizeGB() pulumi.IntP
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
+// OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
+}
+
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// Describes whether the Agent Pool is Running or Stopped
+func (o ManagedClusterAgentPoolProfileResponseOutput) PowerState() PowerStateResponseOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) PowerStateResponse { return v.PowerState }).(PowerStateResponseOutput)
 }
 
 // The current deployment or provisioning state, which only appears in the response.
@@ -8232,7 +8259,12 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) PublicIPs
 // Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesAutoScalerProfile struct {
 	BalanceSimilarNodeGroups      *string `pulumi:"balanceSimilarNodeGroups"`
+	Expander                      *string `pulumi:"expander"`
+	MaxEmptyBulkDelete            *string `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     *string `pulumi:"maxGracefulTerminationSec"`
+	MaxTotalUnreadyPercentage     *string `pulumi:"maxTotalUnreadyPercentage"`
+	NewPodScaleUpDelay            *string `pulumi:"newPodScaleUpDelay"`
+	OkTotalUnreadyCount           *string `pulumi:"okTotalUnreadyCount"`
 	ScaleDownDelayAfterAdd        *string `pulumi:"scaleDownDelayAfterAdd"`
 	ScaleDownDelayAfterDelete     *string `pulumi:"scaleDownDelayAfterDelete"`
 	ScaleDownDelayAfterFailure    *string `pulumi:"scaleDownDelayAfterFailure"`
@@ -8240,6 +8272,8 @@ type ManagedClusterPropertiesAutoScalerProfile struct {
 	ScaleDownUnreadyTime          *string `pulumi:"scaleDownUnreadyTime"`
 	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
 	ScanInterval                  *string `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage     *string `pulumi:"skipNodesWithLocalStorage"`
+	SkipNodesWithSystemPods       *string `pulumi:"skipNodesWithSystemPods"`
 }
 
 // ManagedClusterPropertiesAutoScalerProfileInput is an input type that accepts ManagedClusterPropertiesAutoScalerProfileArgs and ManagedClusterPropertiesAutoScalerProfileOutput values.
@@ -8256,7 +8290,12 @@ type ManagedClusterPropertiesAutoScalerProfileInput interface {
 // Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesAutoScalerProfileArgs struct {
 	BalanceSimilarNodeGroups      pulumi.StringPtrInput `pulumi:"balanceSimilarNodeGroups"`
+	Expander                      pulumi.StringPtrInput `pulumi:"expander"`
+	MaxEmptyBulkDelete            pulumi.StringPtrInput `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	MaxTotalUnreadyPercentage     pulumi.StringPtrInput `pulumi:"maxTotalUnreadyPercentage"`
+	NewPodScaleUpDelay            pulumi.StringPtrInput `pulumi:"newPodScaleUpDelay"`
+	OkTotalUnreadyCount           pulumi.StringPtrInput `pulumi:"okTotalUnreadyCount"`
 	ScaleDownDelayAfterAdd        pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterAdd"`
 	ScaleDownDelayAfterDelete     pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterDelete"`
 	ScaleDownDelayAfterFailure    pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterFailure"`
@@ -8264,6 +8303,8 @@ type ManagedClusterPropertiesAutoScalerProfileArgs struct {
 	ScaleDownUnreadyTime          pulumi.StringPtrInput `pulumi:"scaleDownUnreadyTime"`
 	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
 	ScanInterval                  pulumi.StringPtrInput `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage     pulumi.StringPtrInput `pulumi:"skipNodesWithLocalStorage"`
+	SkipNodesWithSystemPods       pulumi.StringPtrInput `pulumi:"skipNodesWithSystemPods"`
 }
 
 func (ManagedClusterPropertiesAutoScalerProfileArgs) ElementType() reflect.Type {
@@ -8347,8 +8388,28 @@ func (o ManagedClusterPropertiesAutoScalerProfileOutput) BalanceSimilarNodeGroup
 	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.BalanceSimilarNodeGroups }).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) Expander() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.Expander }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) MaxEmptyBulkDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.MaxEmptyBulkDelete }).(pulumi.StringPtrOutput)
+}
+
 func (o ManagedClusterPropertiesAutoScalerProfileOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) MaxTotalUnreadyPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.MaxTotalUnreadyPercentage }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) NewPodScaleUpDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.NewPodScaleUpDelay }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) OkTotalUnreadyCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.OkTotalUnreadyCount }).(pulumi.StringPtrOutput)
 }
 
 func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
@@ -8377,6 +8438,14 @@ func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScaleDownUtilizationThr
 
 func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScanInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) SkipNodesWithLocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.SkipNodesWithLocalStorage }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) SkipNodesWithSystemPods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.SkipNodesWithSystemPods }).(pulumi.StringPtrOutput)
 }
 
 type ManagedClusterPropertiesAutoScalerProfilePtrOutput struct{ *pulumi.OutputState }
@@ -8408,12 +8477,57 @@ func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) BalanceSimilarNodeGr
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) Expander() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expander
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) MaxEmptyBulkDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEmptyBulkDelete
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
 		if v == nil {
 			return nil
 		}
 		return v.MaxGracefulTerminationSec
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) MaxTotalUnreadyPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTotalUnreadyPercentage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) NewPodScaleUpDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NewPodScaleUpDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) OkTotalUnreadyCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OkTotalUnreadyCount
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8477,6 +8591,24 @@ func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ScanInterval() pulum
 			return nil
 		}
 		return v.ScanInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) SkipNodesWithLocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SkipNodesWithLocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) SkipNodesWithSystemPods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SkipNodesWithSystemPods
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8598,7 +8730,12 @@ func (o ManagedClusterPropertiesIdentityProfileMapOutput) MapIndex(k pulumi.Stri
 // Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesResponseAutoScalerProfile struct {
 	BalanceSimilarNodeGroups      *string `pulumi:"balanceSimilarNodeGroups"`
+	Expander                      *string `pulumi:"expander"`
+	MaxEmptyBulkDelete            *string `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     *string `pulumi:"maxGracefulTerminationSec"`
+	MaxTotalUnreadyPercentage     *string `pulumi:"maxTotalUnreadyPercentage"`
+	NewPodScaleUpDelay            *string `pulumi:"newPodScaleUpDelay"`
+	OkTotalUnreadyCount           *string `pulumi:"okTotalUnreadyCount"`
 	ScaleDownDelayAfterAdd        *string `pulumi:"scaleDownDelayAfterAdd"`
 	ScaleDownDelayAfterDelete     *string `pulumi:"scaleDownDelayAfterDelete"`
 	ScaleDownDelayAfterFailure    *string `pulumi:"scaleDownDelayAfterFailure"`
@@ -8606,6 +8743,8 @@ type ManagedClusterPropertiesResponseAutoScalerProfile struct {
 	ScaleDownUnreadyTime          *string `pulumi:"scaleDownUnreadyTime"`
 	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
 	ScanInterval                  *string `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage     *string `pulumi:"skipNodesWithLocalStorage"`
+	SkipNodesWithSystemPods       *string `pulumi:"skipNodesWithSystemPods"`
 }
 
 // ManagedClusterPropertiesResponseAutoScalerProfileInput is an input type that accepts ManagedClusterPropertiesResponseAutoScalerProfileArgs and ManagedClusterPropertiesResponseAutoScalerProfileOutput values.
@@ -8622,7 +8761,12 @@ type ManagedClusterPropertiesResponseAutoScalerProfileInput interface {
 // Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesResponseAutoScalerProfileArgs struct {
 	BalanceSimilarNodeGroups      pulumi.StringPtrInput `pulumi:"balanceSimilarNodeGroups"`
+	Expander                      pulumi.StringPtrInput `pulumi:"expander"`
+	MaxEmptyBulkDelete            pulumi.StringPtrInput `pulumi:"maxEmptyBulkDelete"`
 	MaxGracefulTerminationSec     pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	MaxTotalUnreadyPercentage     pulumi.StringPtrInput `pulumi:"maxTotalUnreadyPercentage"`
+	NewPodScaleUpDelay            pulumi.StringPtrInput `pulumi:"newPodScaleUpDelay"`
+	OkTotalUnreadyCount           pulumi.StringPtrInput `pulumi:"okTotalUnreadyCount"`
 	ScaleDownDelayAfterAdd        pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterAdd"`
 	ScaleDownDelayAfterDelete     pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterDelete"`
 	ScaleDownDelayAfterFailure    pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterFailure"`
@@ -8630,6 +8774,8 @@ type ManagedClusterPropertiesResponseAutoScalerProfileArgs struct {
 	ScaleDownUnreadyTime          pulumi.StringPtrInput `pulumi:"scaleDownUnreadyTime"`
 	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
 	ScanInterval                  pulumi.StringPtrInput `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage     pulumi.StringPtrInput `pulumi:"skipNodesWithLocalStorage"`
+	SkipNodesWithSystemPods       pulumi.StringPtrInput `pulumi:"skipNodesWithSystemPods"`
 }
 
 func (ManagedClusterPropertiesResponseAutoScalerProfileArgs) ElementType() reflect.Type {
@@ -8713,8 +8859,28 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) BalanceSimilarN
 	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.BalanceSimilarNodeGroups }).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) Expander() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.Expander }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) MaxEmptyBulkDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.MaxEmptyBulkDelete }).(pulumi.StringPtrOutput)
+}
+
 func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) MaxTotalUnreadyPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.MaxTotalUnreadyPercentage }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) NewPodScaleUpDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.NewPodScaleUpDelay }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) OkTotalUnreadyCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.OkTotalUnreadyCount }).(pulumi.StringPtrOutput)
 }
 
 func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
@@ -8747,6 +8913,14 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ScanInterval() 
 	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) SkipNodesWithLocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.SkipNodesWithLocalStorage }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) SkipNodesWithSystemPods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.SkipNodesWithSystemPods }).(pulumi.StringPtrOutput)
+}
+
 type ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ElementType() reflect.Type {
@@ -8776,12 +8950,57 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) BalanceSimil
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) Expander() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expander
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) MaxEmptyBulkDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEmptyBulkDelete
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
 		if v == nil {
 			return nil
 		}
 		return v.MaxGracefulTerminationSec
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) MaxTotalUnreadyPercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTotalUnreadyPercentage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) NewPodScaleUpDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NewPodScaleUpDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) OkTotalUnreadyCount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OkTotalUnreadyCount
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8845,6 +9064,24 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ScanInterval
 			return nil
 		}
 		return v.ScanInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) SkipNodesWithLocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SkipNodesWithLocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) SkipNodesWithSystemPods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SkipNodesWithSystemPods
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10259,6 +10496,430 @@ func (o NetworkProfileResponsePtrOutput) VnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the Identity provider for MS AAD.
+type OpenShiftManagedClusterAADIdentityProvider struct {
+	// The clientId password associated with the provider.
+	ClientId *string `pulumi:"clientId"`
+	// The groupId to be granted cluster admin role.
+	CustomerAdminGroupId *string `pulumi:"customerAdminGroupId"`
+	// The kind of the provider.
+	Kind string `pulumi:"kind"`
+	// The secret password associated with the provider.
+	Secret *string `pulumi:"secret"`
+	// The tenantId associated with the provider.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// OpenShiftManagedClusterAADIdentityProviderInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderArgs and OpenShiftManagedClusterAADIdentityProviderOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterAADIdentityProviderInput` via:
+//
+//          OpenShiftManagedClusterAADIdentityProviderArgs{...}
+type OpenShiftManagedClusterAADIdentityProviderInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterAADIdentityProviderOutput() OpenShiftManagedClusterAADIdentityProviderOutput
+	ToOpenShiftManagedClusterAADIdentityProviderOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderOutput
+}
+
+// Defines the Identity provider for MS AAD.
+type OpenShiftManagedClusterAADIdentityProviderArgs struct {
+	// The clientId password associated with the provider.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The groupId to be granted cluster admin role.
+	CustomerAdminGroupId pulumi.StringPtrInput `pulumi:"customerAdminGroupId"`
+	// The kind of the provider.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The secret password associated with the provider.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// The tenantId associated with the provider.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (OpenShiftManagedClusterAADIdentityProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterAADIdentityProvider)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderArgs) ToOpenShiftManagedClusterAADIdentityProviderOutput() OpenShiftManagedClusterAADIdentityProviderOutput {
+	return i.ToOpenShiftManagedClusterAADIdentityProviderOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderArgs) ToOpenShiftManagedClusterAADIdentityProviderOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderOutput)
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderArgs) ToOpenShiftManagedClusterAADIdentityProviderPtrOutput() OpenShiftManagedClusterAADIdentityProviderPtrOutput {
+	return i.ToOpenShiftManagedClusterAADIdentityProviderPtrOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderArgs) ToOpenShiftManagedClusterAADIdentityProviderPtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderOutput).ToOpenShiftManagedClusterAADIdentityProviderPtrOutputWithContext(ctx)
+}
+
+// OpenShiftManagedClusterAADIdentityProviderPtrInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderArgs, OpenShiftManagedClusterAADIdentityProviderPtr and OpenShiftManagedClusterAADIdentityProviderPtrOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterAADIdentityProviderPtrInput` via:
+//
+//          OpenShiftManagedClusterAADIdentityProviderArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenShiftManagedClusterAADIdentityProviderPtrInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterAADIdentityProviderPtrOutput() OpenShiftManagedClusterAADIdentityProviderPtrOutput
+	ToOpenShiftManagedClusterAADIdentityProviderPtrOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderPtrOutput
+}
+
+type openShiftManagedClusterAADIdentityProviderPtrType OpenShiftManagedClusterAADIdentityProviderArgs
+
+func OpenShiftManagedClusterAADIdentityProviderPtr(v *OpenShiftManagedClusterAADIdentityProviderArgs) OpenShiftManagedClusterAADIdentityProviderPtrInput {
+	return (*openShiftManagedClusterAADIdentityProviderPtrType)(v)
+}
+
+func (*openShiftManagedClusterAADIdentityProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftManagedClusterAADIdentityProvider)(nil)).Elem()
+}
+
+func (i *openShiftManagedClusterAADIdentityProviderPtrType) ToOpenShiftManagedClusterAADIdentityProviderPtrOutput() OpenShiftManagedClusterAADIdentityProviderPtrOutput {
+	return i.ToOpenShiftManagedClusterAADIdentityProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *openShiftManagedClusterAADIdentityProviderPtrType) ToOpenShiftManagedClusterAADIdentityProviderPtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderPtrOutput)
+}
+
+// Defines the Identity provider for MS AAD.
+type OpenShiftManagedClusterAADIdentityProviderOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterAADIdentityProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterAADIdentityProvider)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderOutput) ToOpenShiftManagedClusterAADIdentityProviderOutput() OpenShiftManagedClusterAADIdentityProviderOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderOutput) ToOpenShiftManagedClusterAADIdentityProviderOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderOutput) ToOpenShiftManagedClusterAADIdentityProviderPtrOutput() OpenShiftManagedClusterAADIdentityProviderPtrOutput {
+	return o.ToOpenShiftManagedClusterAADIdentityProviderPtrOutputWithContext(context.Background())
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderOutput) ToOpenShiftManagedClusterAADIdentityProviderPtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *OpenShiftManagedClusterAADIdentityProvider {
+		return &v
+	}).(OpenShiftManagedClusterAADIdentityProviderPtrOutput)
+}
+
+// The clientId password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The groupId to be granted cluster admin role.
+func (o OpenShiftManagedClusterAADIdentityProviderOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.CustomerAdminGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The secret password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// The tenantId associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type OpenShiftManagedClusterAADIdentityProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterAADIdentityProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftManagedClusterAADIdentityProvider)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) ToOpenShiftManagedClusterAADIdentityProviderPtrOutput() OpenShiftManagedClusterAADIdentityProviderPtrOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) ToOpenShiftManagedClusterAADIdentityProviderPtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderPtrOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Elem() OpenShiftManagedClusterAADIdentityProviderOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) OpenShiftManagedClusterAADIdentityProvider {
+		return *v
+	}).(OpenShiftManagedClusterAADIdentityProviderOutput)
+}
+
+// The clientId password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The groupId to be granted cluster admin role.
+func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerAdminGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The kind of the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secret password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenantId associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the Identity provider for MS AAD.
+type OpenShiftManagedClusterAADIdentityProviderResponse struct {
+	// The clientId password associated with the provider.
+	ClientId *string `pulumi:"clientId"`
+	// The groupId to be granted cluster admin role.
+	CustomerAdminGroupId *string `pulumi:"customerAdminGroupId"`
+	// The kind of the provider.
+	Kind string `pulumi:"kind"`
+	// The secret password associated with the provider.
+	Secret *string `pulumi:"secret"`
+	// The tenantId associated with the provider.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// OpenShiftManagedClusterAADIdentityProviderResponseInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderResponseArgs and OpenShiftManagedClusterAADIdentityProviderResponseOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterAADIdentityProviderResponseInput` via:
+//
+//          OpenShiftManagedClusterAADIdentityProviderResponseArgs{...}
+type OpenShiftManagedClusterAADIdentityProviderResponseInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterAADIdentityProviderResponseOutput() OpenShiftManagedClusterAADIdentityProviderResponseOutput
+	ToOpenShiftManagedClusterAADIdentityProviderResponseOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderResponseOutput
+}
+
+// Defines the Identity provider for MS AAD.
+type OpenShiftManagedClusterAADIdentityProviderResponseArgs struct {
+	// The clientId password associated with the provider.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The groupId to be granted cluster admin role.
+	CustomerAdminGroupId pulumi.StringPtrInput `pulumi:"customerAdminGroupId"`
+	// The kind of the provider.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The secret password associated with the provider.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// The tenantId associated with the provider.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (OpenShiftManagedClusterAADIdentityProviderResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterAADIdentityProviderResponse)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderResponseOutput() OpenShiftManagedClusterAADIdentityProviderResponseOutput {
+	return i.ToOpenShiftManagedClusterAADIdentityProviderResponseOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderResponseOutput)
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
+	return i.ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderResponseOutput).ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(ctx)
+}
+
+// OpenShiftManagedClusterAADIdentityProviderResponsePtrInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderResponseArgs, OpenShiftManagedClusterAADIdentityProviderResponsePtr and OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterAADIdentityProviderResponsePtrInput` via:
+//
+//          OpenShiftManagedClusterAADIdentityProviderResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenShiftManagedClusterAADIdentityProviderResponsePtrInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput
+	ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput
+}
+
+type openShiftManagedClusterAADIdentityProviderResponsePtrType OpenShiftManagedClusterAADIdentityProviderResponseArgs
+
+func OpenShiftManagedClusterAADIdentityProviderResponsePtr(v *OpenShiftManagedClusterAADIdentityProviderResponseArgs) OpenShiftManagedClusterAADIdentityProviderResponsePtrInput {
+	return (*openShiftManagedClusterAADIdentityProviderResponsePtrType)(v)
+}
+
+func (*openShiftManagedClusterAADIdentityProviderResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftManagedClusterAADIdentityProviderResponse)(nil)).Elem()
+}
+
+func (i *openShiftManagedClusterAADIdentityProviderResponsePtrType) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
+	return i.ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *openShiftManagedClusterAADIdentityProviderResponsePtrType) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput)
+}
+
+// Defines the Identity provider for MS AAD.
+type OpenShiftManagedClusterAADIdentityProviderResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterAADIdentityProviderResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterAADIdentityProviderResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderResponseOutput() OpenShiftManagedClusterAADIdentityProviderResponseOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponseOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
+	return o.ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *OpenShiftManagedClusterAADIdentityProviderResponse {
+		return &v
+	}).(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput)
+}
+
+// The clientId password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The groupId to be granted cluster admin role.
+func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.CustomerAdminGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The secret password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// The tenantId associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftManagedClusterAADIdentityProviderResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Elem() OpenShiftManagedClusterAADIdentityProviderResponseOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) OpenShiftManagedClusterAADIdentityProviderResponse {
+		return *v
+	}).(OpenShiftManagedClusterAADIdentityProviderResponseOutput)
+}
+
+// The clientId password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The groupId to be granted cluster admin role.
+func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerAdminGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The kind of the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secret password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenantId associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfile struct {
 	// Number of agents (VMs) to host docker containers.
@@ -10823,284 +11484,12 @@ func (o OpenShiftManagedClusterAuthProfileResponsePtrOutput) IdentityProviders()
 	}).(OpenShiftManagedClusterIdentityProviderResponseArrayOutput)
 }
 
-// Structure for any Identity provider.
-type OpenShiftManagedClusterBaseIdentityProvider struct {
-	// The kind of the provider.
-	Kind string `pulumi:"kind"`
-}
-
-// OpenShiftManagedClusterBaseIdentityProviderInput is an input type that accepts OpenShiftManagedClusterBaseIdentityProviderArgs and OpenShiftManagedClusterBaseIdentityProviderOutput values.
-// You can construct a concrete instance of `OpenShiftManagedClusterBaseIdentityProviderInput` via:
-//
-//          OpenShiftManagedClusterBaseIdentityProviderArgs{...}
-type OpenShiftManagedClusterBaseIdentityProviderInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterBaseIdentityProviderOutput() OpenShiftManagedClusterBaseIdentityProviderOutput
-	ToOpenShiftManagedClusterBaseIdentityProviderOutputWithContext(context.Context) OpenShiftManagedClusterBaseIdentityProviderOutput
-}
-
-// Structure for any Identity provider.
-type OpenShiftManagedClusterBaseIdentityProviderArgs struct {
-	// The kind of the provider.
-	Kind pulumi.StringInput `pulumi:"kind"`
-}
-
-func (OpenShiftManagedClusterBaseIdentityProviderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedClusterBaseIdentityProvider)(nil)).Elem()
-}
-
-func (i OpenShiftManagedClusterBaseIdentityProviderArgs) ToOpenShiftManagedClusterBaseIdentityProviderOutput() OpenShiftManagedClusterBaseIdentityProviderOutput {
-	return i.ToOpenShiftManagedClusterBaseIdentityProviderOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterBaseIdentityProviderArgs) ToOpenShiftManagedClusterBaseIdentityProviderOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterBaseIdentityProviderOutput)
-}
-
-func (i OpenShiftManagedClusterBaseIdentityProviderArgs) ToOpenShiftManagedClusterBaseIdentityProviderPtrOutput() OpenShiftManagedClusterBaseIdentityProviderPtrOutput {
-	return i.ToOpenShiftManagedClusterBaseIdentityProviderPtrOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterBaseIdentityProviderArgs) ToOpenShiftManagedClusterBaseIdentityProviderPtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterBaseIdentityProviderOutput).ToOpenShiftManagedClusterBaseIdentityProviderPtrOutputWithContext(ctx)
-}
-
-// OpenShiftManagedClusterBaseIdentityProviderPtrInput is an input type that accepts OpenShiftManagedClusterBaseIdentityProviderArgs, OpenShiftManagedClusterBaseIdentityProviderPtr and OpenShiftManagedClusterBaseIdentityProviderPtrOutput values.
-// You can construct a concrete instance of `OpenShiftManagedClusterBaseIdentityProviderPtrInput` via:
-//
-//          OpenShiftManagedClusterBaseIdentityProviderArgs{...}
-//
-//  or:
-//
-//          nil
-type OpenShiftManagedClusterBaseIdentityProviderPtrInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterBaseIdentityProviderPtrOutput() OpenShiftManagedClusterBaseIdentityProviderPtrOutput
-	ToOpenShiftManagedClusterBaseIdentityProviderPtrOutputWithContext(context.Context) OpenShiftManagedClusterBaseIdentityProviderPtrOutput
-}
-
-type openShiftManagedClusterBaseIdentityProviderPtrType OpenShiftManagedClusterBaseIdentityProviderArgs
-
-func OpenShiftManagedClusterBaseIdentityProviderPtr(v *OpenShiftManagedClusterBaseIdentityProviderArgs) OpenShiftManagedClusterBaseIdentityProviderPtrInput {
-	return (*openShiftManagedClusterBaseIdentityProviderPtrType)(v)
-}
-
-func (*openShiftManagedClusterBaseIdentityProviderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenShiftManagedClusterBaseIdentityProvider)(nil)).Elem()
-}
-
-func (i *openShiftManagedClusterBaseIdentityProviderPtrType) ToOpenShiftManagedClusterBaseIdentityProviderPtrOutput() OpenShiftManagedClusterBaseIdentityProviderPtrOutput {
-	return i.ToOpenShiftManagedClusterBaseIdentityProviderPtrOutputWithContext(context.Background())
-}
-
-func (i *openShiftManagedClusterBaseIdentityProviderPtrType) ToOpenShiftManagedClusterBaseIdentityProviderPtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterBaseIdentityProviderPtrOutput)
-}
-
-// Structure for any Identity provider.
-type OpenShiftManagedClusterBaseIdentityProviderOutput struct{ *pulumi.OutputState }
-
-func (OpenShiftManagedClusterBaseIdentityProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedClusterBaseIdentityProvider)(nil)).Elem()
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderOutput) ToOpenShiftManagedClusterBaseIdentityProviderOutput() OpenShiftManagedClusterBaseIdentityProviderOutput {
-	return o
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderOutput) ToOpenShiftManagedClusterBaseIdentityProviderOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderOutput {
-	return o
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderOutput) ToOpenShiftManagedClusterBaseIdentityProviderPtrOutput() OpenShiftManagedClusterBaseIdentityProviderPtrOutput {
-	return o.ToOpenShiftManagedClusterBaseIdentityProviderPtrOutputWithContext(context.Background())
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderOutput) ToOpenShiftManagedClusterBaseIdentityProviderPtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderPtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterBaseIdentityProvider) *OpenShiftManagedClusterBaseIdentityProvider {
-		return &v
-	}).(OpenShiftManagedClusterBaseIdentityProviderPtrOutput)
-}
-
-// The kind of the provider.
-func (o OpenShiftManagedClusterBaseIdentityProviderOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterBaseIdentityProvider) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-type OpenShiftManagedClusterBaseIdentityProviderPtrOutput struct{ *pulumi.OutputState }
-
-func (OpenShiftManagedClusterBaseIdentityProviderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenShiftManagedClusterBaseIdentityProvider)(nil)).Elem()
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderPtrOutput) ToOpenShiftManagedClusterBaseIdentityProviderPtrOutput() OpenShiftManagedClusterBaseIdentityProviderPtrOutput {
-	return o
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderPtrOutput) ToOpenShiftManagedClusterBaseIdentityProviderPtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderPtrOutput {
-	return o
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderPtrOutput) Elem() OpenShiftManagedClusterBaseIdentityProviderOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterBaseIdentityProvider) OpenShiftManagedClusterBaseIdentityProvider {
-		return *v
-	}).(OpenShiftManagedClusterBaseIdentityProviderOutput)
-}
-
-// The kind of the provider.
-func (o OpenShiftManagedClusterBaseIdentityProviderPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterBaseIdentityProvider) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
-// Structure for any Identity provider.
-type OpenShiftManagedClusterBaseIdentityProviderResponse struct {
-	// The kind of the provider.
-	Kind string `pulumi:"kind"`
-}
-
-// OpenShiftManagedClusterBaseIdentityProviderResponseInput is an input type that accepts OpenShiftManagedClusterBaseIdentityProviderResponseArgs and OpenShiftManagedClusterBaseIdentityProviderResponseOutput values.
-// You can construct a concrete instance of `OpenShiftManagedClusterBaseIdentityProviderResponseInput` via:
-//
-//          OpenShiftManagedClusterBaseIdentityProviderResponseArgs{...}
-type OpenShiftManagedClusterBaseIdentityProviderResponseInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterBaseIdentityProviderResponseOutput() OpenShiftManagedClusterBaseIdentityProviderResponseOutput
-	ToOpenShiftManagedClusterBaseIdentityProviderResponseOutputWithContext(context.Context) OpenShiftManagedClusterBaseIdentityProviderResponseOutput
-}
-
-// Structure for any Identity provider.
-type OpenShiftManagedClusterBaseIdentityProviderResponseArgs struct {
-	// The kind of the provider.
-	Kind pulumi.StringInput `pulumi:"kind"`
-}
-
-func (OpenShiftManagedClusterBaseIdentityProviderResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedClusterBaseIdentityProviderResponse)(nil)).Elem()
-}
-
-func (i OpenShiftManagedClusterBaseIdentityProviderResponseArgs) ToOpenShiftManagedClusterBaseIdentityProviderResponseOutput() OpenShiftManagedClusterBaseIdentityProviderResponseOutput {
-	return i.ToOpenShiftManagedClusterBaseIdentityProviderResponseOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterBaseIdentityProviderResponseArgs) ToOpenShiftManagedClusterBaseIdentityProviderResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterBaseIdentityProviderResponseOutput)
-}
-
-func (i OpenShiftManagedClusterBaseIdentityProviderResponseArgs) ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput() OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput {
-	return i.ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterBaseIdentityProviderResponseArgs) ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterBaseIdentityProviderResponseOutput).ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutputWithContext(ctx)
-}
-
-// OpenShiftManagedClusterBaseIdentityProviderResponsePtrInput is an input type that accepts OpenShiftManagedClusterBaseIdentityProviderResponseArgs, OpenShiftManagedClusterBaseIdentityProviderResponsePtr and OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput values.
-// You can construct a concrete instance of `OpenShiftManagedClusterBaseIdentityProviderResponsePtrInput` via:
-//
-//          OpenShiftManagedClusterBaseIdentityProviderResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type OpenShiftManagedClusterBaseIdentityProviderResponsePtrInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput() OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput
-	ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutputWithContext(context.Context) OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput
-}
-
-type openShiftManagedClusterBaseIdentityProviderResponsePtrType OpenShiftManagedClusterBaseIdentityProviderResponseArgs
-
-func OpenShiftManagedClusterBaseIdentityProviderResponsePtr(v *OpenShiftManagedClusterBaseIdentityProviderResponseArgs) OpenShiftManagedClusterBaseIdentityProviderResponsePtrInput {
-	return (*openShiftManagedClusterBaseIdentityProviderResponsePtrType)(v)
-}
-
-func (*openShiftManagedClusterBaseIdentityProviderResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenShiftManagedClusterBaseIdentityProviderResponse)(nil)).Elem()
-}
-
-func (i *openShiftManagedClusterBaseIdentityProviderResponsePtrType) ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput() OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput {
-	return i.ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *openShiftManagedClusterBaseIdentityProviderResponsePtrType) ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput)
-}
-
-// Structure for any Identity provider.
-type OpenShiftManagedClusterBaseIdentityProviderResponseOutput struct{ *pulumi.OutputState }
-
-func (OpenShiftManagedClusterBaseIdentityProviderResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedClusterBaseIdentityProviderResponse)(nil)).Elem()
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderResponseOutput) ToOpenShiftManagedClusterBaseIdentityProviderResponseOutput() OpenShiftManagedClusterBaseIdentityProviderResponseOutput {
-	return o
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderResponseOutput) ToOpenShiftManagedClusterBaseIdentityProviderResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderResponseOutput {
-	return o
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderResponseOutput) ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput() OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput {
-	return o.ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderResponseOutput) ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterBaseIdentityProviderResponse) *OpenShiftManagedClusterBaseIdentityProviderResponse {
-		return &v
-	}).(OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput)
-}
-
-// The kind of the provider.
-func (o OpenShiftManagedClusterBaseIdentityProviderResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterBaseIdentityProviderResponse) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-type OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenShiftManagedClusterBaseIdentityProviderResponse)(nil)).Elem()
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput) ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput() OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput {
-	return o
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput) ToOpenShiftManagedClusterBaseIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput {
-	return o
-}
-
-func (o OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput) Elem() OpenShiftManagedClusterBaseIdentityProviderResponseOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterBaseIdentityProviderResponse) OpenShiftManagedClusterBaseIdentityProviderResponse {
-		return *v
-	}).(OpenShiftManagedClusterBaseIdentityProviderResponseOutput)
-}
-
-// The kind of the provider.
-func (o OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterBaseIdentityProviderResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProvider struct {
 	// Name of the provider.
 	Name *string `pulumi:"name"`
 	// Configuration of the provider.
-	Provider *OpenShiftManagedClusterBaseIdentityProvider `pulumi:"provider"`
+	Provider *OpenShiftManagedClusterAADIdentityProvider `pulumi:"provider"`
 }
 
 // OpenShiftManagedClusterIdentityProviderInput is an input type that accepts OpenShiftManagedClusterIdentityProviderArgs and OpenShiftManagedClusterIdentityProviderOutput values.
@@ -11119,7 +11508,7 @@ type OpenShiftManagedClusterIdentityProviderArgs struct {
 	// Name of the provider.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Configuration of the provider.
-	Provider OpenShiftManagedClusterBaseIdentityProviderPtrInput `pulumi:"provider"`
+	Provider OpenShiftManagedClusterAADIdentityProviderPtrInput `pulumi:"provider"`
 }
 
 func (OpenShiftManagedClusterIdentityProviderArgs) ElementType() reflect.Type {
@@ -11180,10 +11569,10 @@ func (o OpenShiftManagedClusterIdentityProviderOutput) Name() pulumi.StringPtrOu
 }
 
 // Configuration of the provider.
-func (o OpenShiftManagedClusterIdentityProviderOutput) Provider() OpenShiftManagedClusterBaseIdentityProviderPtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProvider) *OpenShiftManagedClusterBaseIdentityProvider {
+func (o OpenShiftManagedClusterIdentityProviderOutput) Provider() OpenShiftManagedClusterAADIdentityProviderPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProvider) *OpenShiftManagedClusterAADIdentityProvider {
 		return v.Provider
-	}).(OpenShiftManagedClusterBaseIdentityProviderPtrOutput)
+	}).(OpenShiftManagedClusterAADIdentityProviderPtrOutput)
 }
 
 type OpenShiftManagedClusterIdentityProviderArrayOutput struct{ *pulumi.OutputState }
@@ -11211,7 +11600,7 @@ type OpenShiftManagedClusterIdentityProviderResponse struct {
 	// Name of the provider.
 	Name *string `pulumi:"name"`
 	// Configuration of the provider.
-	Provider *OpenShiftManagedClusterBaseIdentityProviderResponse `pulumi:"provider"`
+	Provider *OpenShiftManagedClusterAADIdentityProviderResponse `pulumi:"provider"`
 }
 
 // OpenShiftManagedClusterIdentityProviderResponseInput is an input type that accepts OpenShiftManagedClusterIdentityProviderResponseArgs and OpenShiftManagedClusterIdentityProviderResponseOutput values.
@@ -11230,7 +11619,7 @@ type OpenShiftManagedClusterIdentityProviderResponseArgs struct {
 	// Name of the provider.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Configuration of the provider.
-	Provider OpenShiftManagedClusterBaseIdentityProviderResponsePtrInput `pulumi:"provider"`
+	Provider OpenShiftManagedClusterAADIdentityProviderResponsePtrInput `pulumi:"provider"`
 }
 
 func (OpenShiftManagedClusterIdentityProviderResponseArgs) ElementType() reflect.Type {
@@ -11291,10 +11680,10 @@ func (o OpenShiftManagedClusterIdentityProviderResponseOutput) Name() pulumi.Str
 }
 
 // Configuration of the provider.
-func (o OpenShiftManagedClusterIdentityProviderResponseOutput) Provider() OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProviderResponse) *OpenShiftManagedClusterBaseIdentityProviderResponse {
+func (o OpenShiftManagedClusterIdentityProviderResponseOutput) Provider() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProviderResponse) *OpenShiftManagedClusterAADIdentityProviderResponse {
 		return v.Provider
-	}).(OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput)
+	}).(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput)
 }
 
 type OpenShiftManagedClusterIdentityProviderResponseArrayOutput struct{ *pulumi.OutputState }
@@ -11955,6 +12344,140 @@ func (o OpenShiftRouterProfileResponseArrayOutput) Index(i pulumi.IntInput) Open
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenShiftRouterProfileResponse {
 		return vs[0].([]OpenShiftRouterProfileResponse)[vs[1].(int)]
 	}).(OpenShiftRouterProfileResponseOutput)
+}
+
+// Describes the Power State of the cluster
+type PowerStateResponse struct {
+	// Tells whether the cluster is Running or Stopped
+	Code *string `pulumi:"code"`
+}
+
+// PowerStateResponseInput is an input type that accepts PowerStateResponseArgs and PowerStateResponseOutput values.
+// You can construct a concrete instance of `PowerStateResponseInput` via:
+//
+//          PowerStateResponseArgs{...}
+type PowerStateResponseInput interface {
+	pulumi.Input
+
+	ToPowerStateResponseOutput() PowerStateResponseOutput
+	ToPowerStateResponseOutputWithContext(context.Context) PowerStateResponseOutput
+}
+
+// Describes the Power State of the cluster
+type PowerStateResponseArgs struct {
+	// Tells whether the cluster is Running or Stopped
+	Code pulumi.StringPtrInput `pulumi:"code"`
+}
+
+func (PowerStateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerStateResponse)(nil)).Elem()
+}
+
+func (i PowerStateResponseArgs) ToPowerStateResponseOutput() PowerStateResponseOutput {
+	return i.ToPowerStateResponseOutputWithContext(context.Background())
+}
+
+func (i PowerStateResponseArgs) ToPowerStateResponseOutputWithContext(ctx context.Context) PowerStateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerStateResponseOutput)
+}
+
+func (i PowerStateResponseArgs) ToPowerStateResponsePtrOutput() PowerStateResponsePtrOutput {
+	return i.ToPowerStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PowerStateResponseArgs) ToPowerStateResponsePtrOutputWithContext(ctx context.Context) PowerStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerStateResponseOutput).ToPowerStateResponsePtrOutputWithContext(ctx)
+}
+
+// PowerStateResponsePtrInput is an input type that accepts PowerStateResponseArgs, PowerStateResponsePtr and PowerStateResponsePtrOutput values.
+// You can construct a concrete instance of `PowerStateResponsePtrInput` via:
+//
+//          PowerStateResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PowerStateResponsePtrInput interface {
+	pulumi.Input
+
+	ToPowerStateResponsePtrOutput() PowerStateResponsePtrOutput
+	ToPowerStateResponsePtrOutputWithContext(context.Context) PowerStateResponsePtrOutput
+}
+
+type powerStateResponsePtrType PowerStateResponseArgs
+
+func PowerStateResponsePtr(v *PowerStateResponseArgs) PowerStateResponsePtrInput {
+	return (*powerStateResponsePtrType)(v)
+}
+
+func (*powerStateResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerStateResponse)(nil)).Elem()
+}
+
+func (i *powerStateResponsePtrType) ToPowerStateResponsePtrOutput() PowerStateResponsePtrOutput {
+	return i.ToPowerStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *powerStateResponsePtrType) ToPowerStateResponsePtrOutputWithContext(ctx context.Context) PowerStateResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerStateResponsePtrOutput)
+}
+
+// Describes the Power State of the cluster
+type PowerStateResponseOutput struct{ *pulumi.OutputState }
+
+func (PowerStateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerStateResponse)(nil)).Elem()
+}
+
+func (o PowerStateResponseOutput) ToPowerStateResponseOutput() PowerStateResponseOutput {
+	return o
+}
+
+func (o PowerStateResponseOutput) ToPowerStateResponseOutputWithContext(ctx context.Context) PowerStateResponseOutput {
+	return o
+}
+
+func (o PowerStateResponseOutput) ToPowerStateResponsePtrOutput() PowerStateResponsePtrOutput {
+	return o.ToPowerStateResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PowerStateResponseOutput) ToPowerStateResponsePtrOutputWithContext(ctx context.Context) PowerStateResponsePtrOutput {
+	return o.ApplyT(func(v PowerStateResponse) *PowerStateResponse {
+		return &v
+	}).(PowerStateResponsePtrOutput)
+}
+
+// Tells whether the cluster is Running or Stopped
+func (o PowerStateResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerStateResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+type PowerStateResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerStateResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerStateResponse)(nil)).Elem()
+}
+
+func (o PowerStateResponsePtrOutput) ToPowerStateResponsePtrOutput() PowerStateResponsePtrOutput {
+	return o
+}
+
+func (o PowerStateResponsePtrOutput) ToPowerStateResponsePtrOutputWithContext(ctx context.Context) PowerStateResponsePtrOutput {
+	return o
+}
+
+func (o PowerStateResponsePtrOutput) Elem() PowerStateResponseOutput {
+	return o.ApplyT(func(v *PowerStateResponse) PowerStateResponse { return *v }).(PowerStateResponseOutput)
+}
+
+// Tells whether the cluster is Running or Stopped
+func (o PowerStateResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerStateResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
 }
 
 // Private endpoint which a connection belongs to.
@@ -13237,6 +13760,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderPtrOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderResponseOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileResponseOutput{})
@@ -13245,10 +13772,6 @@ func init() {
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAuthProfilePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAuthProfileResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAuthProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(OpenShiftManagedClusterBaseIdentityProviderOutput{})
-	pulumi.RegisterOutputType(OpenShiftManagedClusterBaseIdentityProviderPtrOutput{})
-	pulumi.RegisterOutputType(OpenShiftManagedClusterBaseIdentityProviderResponseOutput{})
-	pulumi.RegisterOutputType(OpenShiftManagedClusterBaseIdentityProviderResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterIdentityProviderOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterIdentityProviderArrayOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterIdentityProviderResponseOutput{})
@@ -13261,6 +13784,8 @@ func init() {
 	pulumi.RegisterOutputType(OpenShiftRouterProfileArrayOutput{})
 	pulumi.RegisterOutputType(OpenShiftRouterProfileResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftRouterProfileResponseArrayOutput{})
+	pulumi.RegisterOutputType(PowerStateResponseOutput{})
+	pulumi.RegisterOutputType(PowerStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})

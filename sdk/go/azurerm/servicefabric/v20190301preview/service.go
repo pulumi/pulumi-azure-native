@@ -25,7 +25,7 @@ type Service struct {
 	// Azure resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Describes how the service is partitioned.
-	PartitionDescription PartitionSchemeDescriptionResponsePtrOutput `pulumi:"partitionDescription"`
+	PartitionDescription pulumi.AnyOutput `pulumi:"partitionDescription"`
 	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
 	PlacementConstraints pulumi.StringPtrOutput `pulumi:"placementConstraints"`
 	// The current deployment or provisioning state, which only appears in the response
@@ -121,7 +121,7 @@ type serviceState struct {
 	// Azure resource name.
 	Name *string `pulumi:"name"`
 	// Describes how the service is partitioned.
-	PartitionDescription *PartitionSchemeDescriptionResponse `pulumi:"partitionDescription"`
+	PartitionDescription interface{} `pulumi:"partitionDescription"`
 	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
 	PlacementConstraints *string `pulumi:"placementConstraints"`
 	// The current deployment or provisioning state, which only appears in the response
@@ -154,7 +154,7 @@ type ServiceState struct {
 	// Azure resource name.
 	Name pulumi.StringPtrInput
 	// Describes how the service is partitioned.
-	PartitionDescription PartitionSchemeDescriptionResponsePtrInput
+	PartitionDescription pulumi.Input
 	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
 	PlacementConstraints pulumi.StringPtrInput
 	// The current deployment or provisioning state, which only appears in the response
@@ -191,7 +191,7 @@ type serviceArgs struct {
 	// Azure resource location.
 	Location *string `pulumi:"location"`
 	// Describes how the service is partitioned.
-	PartitionDescription *PartitionSchemeDescription `pulumi:"partitionDescription"`
+	PartitionDescription interface{} `pulumi:"partitionDescription"`
 	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
 	PlacementConstraints *string `pulumi:"placementConstraints"`
 	// The name of the resource group.
@@ -225,7 +225,7 @@ type ServiceArgs struct {
 	// Azure resource location.
 	Location pulumi.StringPtrInput
 	// Describes how the service is partitioned.
-	PartitionDescription PartitionSchemeDescriptionPtrInput
+	PartitionDescription pulumi.Input
 	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
 	PlacementConstraints pulumi.StringPtrInput
 	// The name of the resource group.

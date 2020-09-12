@@ -77,7 +77,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information for connecting to source
      */
-    public readonly sourceConnectionInfo!: pulumi.Output<outputs.datamigration.v20180419.ConnectionInfoResponse | undefined>;
+    public readonly sourceConnectionInfo!: pulumi.Output<outputs.datamigration.v20180419.MiSqlConnectionInfoResponse | outputs.datamigration.v20180419.MySqlConnectionInfoResponse | outputs.datamigration.v20180419.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180419.SqlConnectionInfoResponse | undefined>;
     /**
      * Source platform for the project
      */
@@ -89,7 +89,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information for connecting to target
      */
-    public readonly targetConnectionInfo!: pulumi.Output<outputs.datamigration.v20180419.ConnectionInfoResponse | undefined>;
+    public readonly targetConnectionInfo!: pulumi.Output<outputs.datamigration.v20180419.MiSqlConnectionInfoResponse | outputs.datamigration.v20180419.MySqlConnectionInfoResponse | outputs.datamigration.v20180419.PostgreSqlConnectionInfoResponse | outputs.datamigration.v20180419.SqlConnectionInfoResponse | undefined>;
     /**
      * Target platform for the project
      */
@@ -194,7 +194,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180419.ConnectionInfo>;
+    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.v20180419.MiSqlConnectionInfo | inputs.datamigration.v20180419.MySqlConnectionInfo | inputs.datamigration.v20180419.PostgreSqlConnectionInfo | inputs.datamigration.v20180419.SqlConnectionInfo>;
     /**
      * Source platform for the project
      */
@@ -206,7 +206,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180419.ConnectionInfo>;
+    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.v20180419.MiSqlConnectionInfo | inputs.datamigration.v20180419.MySqlConnectionInfo | inputs.datamigration.v20180419.PostgreSqlConnectionInfo | inputs.datamigration.v20180419.SqlConnectionInfo>;
     /**
      * Target platform for the project
      */

@@ -46,7 +46,7 @@ export interface GetMetricAlertResult {
     /**
      * defines the specific alert criteria information.
      */
-    readonly criteria: outputs.insights.latest.MetricAlertCriteriaResponse;
+    readonly criteria: outputs.insights.latest.MetricAlertMultipleResourceMultipleMetricCriteriaResponse | outputs.insights.latest.MetricAlertSingleResourceMultipleMetricCriteriaResponse | outputs.insights.latest.WebtestLocationAvailabilityCriteriaResponse;
     /**
      * the description of the metric alert that will be included in the alert email.
      */

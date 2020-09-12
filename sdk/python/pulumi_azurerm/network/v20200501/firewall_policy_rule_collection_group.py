@@ -23,7 +23,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_collection_group_name: Optional[pulumi.Input[str]] = None,
-                 rule_collections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionArgs']]]]] = None,
+                 rule_collections: Optional[pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleCollectionArgs'], pulumi.InputType['FirewallPolicyNatRuleCollectionArgs']]]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -74,7 +74,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         :param pulumi.Input[float] priority: Priority of the Firewall Policy Rule Collection Group resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_collection_group_name: The name of the FirewallPolicyRuleCollectionGroup.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionArgs']]]] rule_collections: Group of Firewall Policy rule collections.
+        :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['FirewallPolicyFilterRuleCollectionArgs'], pulumi.InputType['FirewallPolicyNatRuleCollectionArgs']]]]] rule_collections: Group of Firewall Policy rule collections.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -169,7 +169,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleCollections")
-    def rule_collections(self) -> pulumi.Output[Optional[List['outputs.FirewallPolicyRuleCollectionResponse']]]:
+    def rule_collections(self) -> pulumi.Output[Optional[List[Any]]]:
         """
         Group of Firewall Policy rule collections.
         """

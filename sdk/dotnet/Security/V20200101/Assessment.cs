@@ -83,7 +83,7 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// Details of the resource that was assessed
         /// </summary>
         [Output("resourceDetails")]
-        public Output<Outputs.ResourceDetailsResponseResult> ResourceDetails { get; private set; } = null!;
+        public Output<Union<Outputs.AzureResourceDetailsResponseResult, Outputs.OnPremiseResourceDetailsResponseResult>> ResourceDetails { get; private set; } = null!;
 
         /// <summary>
         /// The result of the assessment
@@ -181,7 +181,7 @@ namespace Pulumi.AzureRM.Security.V20200101
         /// Details of the resource that was assessed
         /// </summary>
         [Input("resourceDetails", required: true)]
-        public Input<Inputs.ResourceDetailsArgs> ResourceDetails { get; set; } = null!;
+        public InputUnion<Inputs.AzureResourceDetailsArgs, Inputs.OnPremiseResourceDetailsArgs> ResourceDetails { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the resource.

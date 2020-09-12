@@ -64,7 +64,7 @@ export interface ListTaskRunDetailsResult {
     /**
      * The request (parameters) for the run
      */
-    readonly runRequest?: outputs.containerregistry.v20190601preview.RunRequestResponse;
+    readonly runRequest?: outputs.containerregistry.v20190601preview.DockerBuildRequestResponse | outputs.containerregistry.v20190601preview.EncodedTaskRunRequestResponse | outputs.containerregistry.v20190601preview.FileTaskRunRequestResponse | outputs.containerregistry.v20190601preview.TaskRunRequestResponse;
     /**
      * The result of this task run
      */

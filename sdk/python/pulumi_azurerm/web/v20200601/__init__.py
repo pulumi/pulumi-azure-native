@@ -44,8 +44,6 @@ from .list_static_site_build_function_app_settings import *
 from .list_static_site_function_app_settings import *
 from .list_static_site_secrets import *
 from .list_static_site_users import *
-from .list_web_app_application_settings import *
-from .list_web_app_application_settings_slot import *
 from .list_web_app_auth_settings import *
 from .list_web_app_auth_settings_slot import *
 from .list_web_app_azure_storage_accounts import *
@@ -72,6 +70,8 @@ from .list_web_app_site_push_settings import *
 from .list_web_app_site_push_settings_slot import *
 from .list_web_app_sync_function_triggers import *
 from .list_web_app_sync_function_triggers_slot import *
+from .list_web_application_settings import *
+from .list_web_application_settings_slot import *
 from .static_site import *
 from .web_app import *
 from .web_app_deployment import *

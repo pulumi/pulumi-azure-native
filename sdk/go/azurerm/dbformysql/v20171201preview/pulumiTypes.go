@@ -673,7 +673,11 @@ func (o ServerPrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntIn
 }
 
 // The properties used to create a new server.
-type ServerPropertiesForCreate struct {
+type ServerPropertiesForDefaultCreate struct {
+	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin string `pulumi:"administratorLogin"`
+	// The password of the administrator login.
+	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
 	// The mode to create a new server.
 	CreateMode string `pulumi:"createMode"`
 	// Enforce a minimal Tls version for the server.
@@ -686,19 +690,23 @@ type ServerPropertiesForCreate struct {
 	Version *string `pulumi:"version"`
 }
 
-// ServerPropertiesForCreateInput is an input type that accepts ServerPropertiesForCreateArgs and ServerPropertiesForCreateOutput values.
-// You can construct a concrete instance of `ServerPropertiesForCreateInput` via:
+// ServerPropertiesForDefaultCreateInput is an input type that accepts ServerPropertiesForDefaultCreateArgs and ServerPropertiesForDefaultCreateOutput values.
+// You can construct a concrete instance of `ServerPropertiesForDefaultCreateInput` via:
 //
-//          ServerPropertiesForCreateArgs{...}
-type ServerPropertiesForCreateInput interface {
+//          ServerPropertiesForDefaultCreateArgs{...}
+type ServerPropertiesForDefaultCreateInput interface {
 	pulumi.Input
 
-	ToServerPropertiesForCreateOutput() ServerPropertiesForCreateOutput
-	ToServerPropertiesForCreateOutputWithContext(context.Context) ServerPropertiesForCreateOutput
+	ToServerPropertiesForDefaultCreateOutput() ServerPropertiesForDefaultCreateOutput
+	ToServerPropertiesForDefaultCreateOutputWithContext(context.Context) ServerPropertiesForDefaultCreateOutput
 }
 
 // The properties used to create a new server.
-type ServerPropertiesForCreateArgs struct {
+type ServerPropertiesForDefaultCreateArgs struct {
+	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
+	// The password of the administrator login.
+	AdministratorLoginPassword pulumi.StringInput `pulumi:"administratorLoginPassword"`
 	// The mode to create a new server.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
 	// Enforce a minimal Tls version for the server.
@@ -711,175 +719,375 @@ type ServerPropertiesForCreateArgs struct {
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
-func (ServerPropertiesForCreateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPropertiesForCreate)(nil)).Elem()
+func (ServerPropertiesForDefaultCreateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPropertiesForDefaultCreate)(nil)).Elem()
 }
 
-func (i ServerPropertiesForCreateArgs) ToServerPropertiesForCreateOutput() ServerPropertiesForCreateOutput {
-	return i.ToServerPropertiesForCreateOutputWithContext(context.Background())
+func (i ServerPropertiesForDefaultCreateArgs) ToServerPropertiesForDefaultCreateOutput() ServerPropertiesForDefaultCreateOutput {
+	return i.ToServerPropertiesForDefaultCreateOutputWithContext(context.Background())
 }
 
-func (i ServerPropertiesForCreateArgs) ToServerPropertiesForCreateOutputWithContext(ctx context.Context) ServerPropertiesForCreateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesForCreateOutput)
-}
-
-func (i ServerPropertiesForCreateArgs) ToServerPropertiesForCreatePtrOutput() ServerPropertiesForCreatePtrOutput {
-	return i.ToServerPropertiesForCreatePtrOutputWithContext(context.Background())
-}
-
-func (i ServerPropertiesForCreateArgs) ToServerPropertiesForCreatePtrOutputWithContext(ctx context.Context) ServerPropertiesForCreatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesForCreateOutput).ToServerPropertiesForCreatePtrOutputWithContext(ctx)
-}
-
-// ServerPropertiesForCreatePtrInput is an input type that accepts ServerPropertiesForCreateArgs, ServerPropertiesForCreatePtr and ServerPropertiesForCreatePtrOutput values.
-// You can construct a concrete instance of `ServerPropertiesForCreatePtrInput` via:
-//
-//          ServerPropertiesForCreateArgs{...}
-//
-//  or:
-//
-//          nil
-type ServerPropertiesForCreatePtrInput interface {
-	pulumi.Input
-
-	ToServerPropertiesForCreatePtrOutput() ServerPropertiesForCreatePtrOutput
-	ToServerPropertiesForCreatePtrOutputWithContext(context.Context) ServerPropertiesForCreatePtrOutput
-}
-
-type serverPropertiesForCreatePtrType ServerPropertiesForCreateArgs
-
-func ServerPropertiesForCreatePtr(v *ServerPropertiesForCreateArgs) ServerPropertiesForCreatePtrInput {
-	return (*serverPropertiesForCreatePtrType)(v)
-}
-
-func (*serverPropertiesForCreatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerPropertiesForCreate)(nil)).Elem()
-}
-
-func (i *serverPropertiesForCreatePtrType) ToServerPropertiesForCreatePtrOutput() ServerPropertiesForCreatePtrOutput {
-	return i.ToServerPropertiesForCreatePtrOutputWithContext(context.Background())
-}
-
-func (i *serverPropertiesForCreatePtrType) ToServerPropertiesForCreatePtrOutputWithContext(ctx context.Context) ServerPropertiesForCreatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesForCreatePtrOutput)
+func (i ServerPropertiesForDefaultCreateArgs) ToServerPropertiesForDefaultCreateOutputWithContext(ctx context.Context) ServerPropertiesForDefaultCreateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesForDefaultCreateOutput)
 }
 
 // The properties used to create a new server.
-type ServerPropertiesForCreateOutput struct{ *pulumi.OutputState }
+type ServerPropertiesForDefaultCreateOutput struct{ *pulumi.OutputState }
 
-func (ServerPropertiesForCreateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerPropertiesForCreate)(nil)).Elem()
+func (ServerPropertiesForDefaultCreateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPropertiesForDefaultCreate)(nil)).Elem()
 }
 
-func (o ServerPropertiesForCreateOutput) ToServerPropertiesForCreateOutput() ServerPropertiesForCreateOutput {
+func (o ServerPropertiesForDefaultCreateOutput) ToServerPropertiesForDefaultCreateOutput() ServerPropertiesForDefaultCreateOutput {
 	return o
 }
 
-func (o ServerPropertiesForCreateOutput) ToServerPropertiesForCreateOutputWithContext(ctx context.Context) ServerPropertiesForCreateOutput {
+func (o ServerPropertiesForDefaultCreateOutput) ToServerPropertiesForDefaultCreateOutputWithContext(ctx context.Context) ServerPropertiesForDefaultCreateOutput {
 	return o
 }
 
-func (o ServerPropertiesForCreateOutput) ToServerPropertiesForCreatePtrOutput() ServerPropertiesForCreatePtrOutput {
-	return o.ToServerPropertiesForCreatePtrOutputWithContext(context.Background())
+// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+func (o ServerPropertiesForDefaultCreateOutput) AdministratorLogin() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
-func (o ServerPropertiesForCreateOutput) ToServerPropertiesForCreatePtrOutputWithContext(ctx context.Context) ServerPropertiesForCreatePtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForCreate) *ServerPropertiesForCreate {
-		return &v
-	}).(ServerPropertiesForCreatePtrOutput)
+// The password of the administrator login.
+func (o ServerPropertiesForDefaultCreateOutput) AdministratorLoginPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) string { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
 }
 
 // The mode to create a new server.
-func (o ServerPropertiesForCreateOutput) CreateMode() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerPropertiesForCreate) string { return v.CreateMode }).(pulumi.StringOutput)
+func (o ServerPropertiesForDefaultCreateOutput) CreateMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
 // Enforce a minimal Tls version for the server.
-func (o ServerPropertiesForCreateOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForCreate) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
+func (o ServerPropertiesForDefaultCreateOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
 }
 
 // Enable ssl enforcement or not when connect to server.
-func (o ServerPropertiesForCreateOutput) SslEnforcement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForCreate) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
+func (o ServerPropertiesForDefaultCreateOutput) SslEnforcement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
 }
 
 // Storage profile of a server.
-func (o ServerPropertiesForCreateOutput) StorageProfile() StorageProfilePtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForCreate) *StorageProfile { return v.StorageProfile }).(StorageProfilePtrOutput)
+func (o ServerPropertiesForDefaultCreateOutput) StorageProfile() StorageProfilePtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *StorageProfile { return v.StorageProfile }).(StorageProfilePtrOutput)
 }
 
 // Server version.
-func (o ServerPropertiesForCreateOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForCreate) *string { return v.Version }).(pulumi.StringPtrOutput)
+func (o ServerPropertiesForDefaultCreateOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type ServerPropertiesForCreatePtrOutput struct{ *pulumi.OutputState }
-
-func (ServerPropertiesForCreatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerPropertiesForCreate)(nil)).Elem()
+// The properties used to create a new server by restoring to a different region from a geo replicated backup.
+type ServerPropertiesForGeoRestore struct {
+	// The mode to create a new server.
+	CreateMode string `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
+	// The source server id to restore from.
+	SourceServerId string `pulumi:"sourceServerId"`
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement *string `pulumi:"sslEnforcement"`
+	// Storage profile of a server.
+	StorageProfile *StorageProfile `pulumi:"storageProfile"`
+	// Server version.
+	Version *string `pulumi:"version"`
 }
 
-func (o ServerPropertiesForCreatePtrOutput) ToServerPropertiesForCreatePtrOutput() ServerPropertiesForCreatePtrOutput {
+// ServerPropertiesForGeoRestoreInput is an input type that accepts ServerPropertiesForGeoRestoreArgs and ServerPropertiesForGeoRestoreOutput values.
+// You can construct a concrete instance of `ServerPropertiesForGeoRestoreInput` via:
+//
+//          ServerPropertiesForGeoRestoreArgs{...}
+type ServerPropertiesForGeoRestoreInput interface {
+	pulumi.Input
+
+	ToServerPropertiesForGeoRestoreOutput() ServerPropertiesForGeoRestoreOutput
+	ToServerPropertiesForGeoRestoreOutputWithContext(context.Context) ServerPropertiesForGeoRestoreOutput
+}
+
+// The properties used to create a new server by restoring to a different region from a geo replicated backup.
+type ServerPropertiesForGeoRestoreArgs struct {
+	// The mode to create a new server.
+	CreateMode pulumi.StringInput `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
+	// The source server id to restore from.
+	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement pulumi.StringPtrInput `pulumi:"sslEnforcement"`
+	// Storage profile of a server.
+	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
+	// Server version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ServerPropertiesForGeoRestoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPropertiesForGeoRestore)(nil)).Elem()
+}
+
+func (i ServerPropertiesForGeoRestoreArgs) ToServerPropertiesForGeoRestoreOutput() ServerPropertiesForGeoRestoreOutput {
+	return i.ToServerPropertiesForGeoRestoreOutputWithContext(context.Background())
+}
+
+func (i ServerPropertiesForGeoRestoreArgs) ToServerPropertiesForGeoRestoreOutputWithContext(ctx context.Context) ServerPropertiesForGeoRestoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesForGeoRestoreOutput)
+}
+
+// The properties used to create a new server by restoring to a different region from a geo replicated backup.
+type ServerPropertiesForGeoRestoreOutput struct{ *pulumi.OutputState }
+
+func (ServerPropertiesForGeoRestoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPropertiesForGeoRestore)(nil)).Elem()
+}
+
+func (o ServerPropertiesForGeoRestoreOutput) ToServerPropertiesForGeoRestoreOutput() ServerPropertiesForGeoRestoreOutput {
 	return o
 }
 
-func (o ServerPropertiesForCreatePtrOutput) ToServerPropertiesForCreatePtrOutputWithContext(ctx context.Context) ServerPropertiesForCreatePtrOutput {
+func (o ServerPropertiesForGeoRestoreOutput) ToServerPropertiesForGeoRestoreOutputWithContext(ctx context.Context) ServerPropertiesForGeoRestoreOutput {
 	return o
-}
-
-func (o ServerPropertiesForCreatePtrOutput) Elem() ServerPropertiesForCreateOutput {
-	return o.ApplyT(func(v *ServerPropertiesForCreate) ServerPropertiesForCreate { return *v }).(ServerPropertiesForCreateOutput)
 }
 
 // The mode to create a new server.
-func (o ServerPropertiesForCreatePtrOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesForCreate) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreateMode
-	}).(pulumi.StringPtrOutput)
+func (o ServerPropertiesForGeoRestoreOutput) CreateMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPropertiesForGeoRestore) string { return v.CreateMode }).(pulumi.StringOutput)
 }
 
 // Enforce a minimal Tls version for the server.
-func (o ServerPropertiesForCreatePtrOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesForCreate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MinimalTlsVersion
-	}).(pulumi.StringPtrOutput)
+func (o ServerPropertiesForGeoRestoreOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// The source server id to restore from.
+func (o ServerPropertiesForGeoRestoreOutput) SourceServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPropertiesForGeoRestore) string { return v.SourceServerId }).(pulumi.StringOutput)
 }
 
 // Enable ssl enforcement or not when connect to server.
-func (o ServerPropertiesForCreatePtrOutput) SslEnforcement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesForCreate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SslEnforcement
-	}).(pulumi.StringPtrOutput)
+func (o ServerPropertiesForGeoRestoreOutput) SslEnforcement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
 }
 
 // Storage profile of a server.
-func (o ServerPropertiesForCreatePtrOutput) StorageProfile() StorageProfilePtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesForCreate) *StorageProfile {
-		if v == nil {
-			return nil
-		}
-		return v.StorageProfile
-	}).(StorageProfilePtrOutput)
+func (o ServerPropertiesForGeoRestoreOutput) StorageProfile() StorageProfilePtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *StorageProfile { return v.StorageProfile }).(StorageProfilePtrOutput)
 }
 
 // Server version.
-func (o ServerPropertiesForCreatePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerPropertiesForCreate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
+func (o ServerPropertiesForGeoRestoreOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// The properties to create a new replica.
+type ServerPropertiesForReplica struct {
+	// The mode to create a new server.
+	CreateMode string `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
+	// The master server id to create replica from.
+	SourceServerId string `pulumi:"sourceServerId"`
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement *string `pulumi:"sslEnforcement"`
+	// Storage profile of a server.
+	StorageProfile *StorageProfile `pulumi:"storageProfile"`
+	// Server version.
+	Version *string `pulumi:"version"`
+}
+
+// ServerPropertiesForReplicaInput is an input type that accepts ServerPropertiesForReplicaArgs and ServerPropertiesForReplicaOutput values.
+// You can construct a concrete instance of `ServerPropertiesForReplicaInput` via:
+//
+//          ServerPropertiesForReplicaArgs{...}
+type ServerPropertiesForReplicaInput interface {
+	pulumi.Input
+
+	ToServerPropertiesForReplicaOutput() ServerPropertiesForReplicaOutput
+	ToServerPropertiesForReplicaOutputWithContext(context.Context) ServerPropertiesForReplicaOutput
+}
+
+// The properties to create a new replica.
+type ServerPropertiesForReplicaArgs struct {
+	// The mode to create a new server.
+	CreateMode pulumi.StringInput `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
+	// The master server id to create replica from.
+	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement pulumi.StringPtrInput `pulumi:"sslEnforcement"`
+	// Storage profile of a server.
+	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
+	// Server version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ServerPropertiesForReplicaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPropertiesForReplica)(nil)).Elem()
+}
+
+func (i ServerPropertiesForReplicaArgs) ToServerPropertiesForReplicaOutput() ServerPropertiesForReplicaOutput {
+	return i.ToServerPropertiesForReplicaOutputWithContext(context.Background())
+}
+
+func (i ServerPropertiesForReplicaArgs) ToServerPropertiesForReplicaOutputWithContext(ctx context.Context) ServerPropertiesForReplicaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesForReplicaOutput)
+}
+
+// The properties to create a new replica.
+type ServerPropertiesForReplicaOutput struct{ *pulumi.OutputState }
+
+func (ServerPropertiesForReplicaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPropertiesForReplica)(nil)).Elem()
+}
+
+func (o ServerPropertiesForReplicaOutput) ToServerPropertiesForReplicaOutput() ServerPropertiesForReplicaOutput {
+	return o
+}
+
+func (o ServerPropertiesForReplicaOutput) ToServerPropertiesForReplicaOutputWithContext(ctx context.Context) ServerPropertiesForReplicaOutput {
+	return o
+}
+
+// The mode to create a new server.
+func (o ServerPropertiesForReplicaOutput) CreateMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPropertiesForReplica) string { return v.CreateMode }).(pulumi.StringOutput)
+}
+
+// Enforce a minimal Tls version for the server.
+func (o ServerPropertiesForReplicaOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForReplica) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// The master server id to create replica from.
+func (o ServerPropertiesForReplicaOutput) SourceServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPropertiesForReplica) string { return v.SourceServerId }).(pulumi.StringOutput)
+}
+
+// Enable ssl enforcement or not when connect to server.
+func (o ServerPropertiesForReplicaOutput) SslEnforcement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForReplica) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
+}
+
+// Storage profile of a server.
+func (o ServerPropertiesForReplicaOutput) StorageProfile() StorageProfilePtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForReplica) *StorageProfile { return v.StorageProfile }).(StorageProfilePtrOutput)
+}
+
+// Server version.
+func (o ServerPropertiesForReplicaOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForReplica) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// The properties used to create a new server by restoring from a backup.
+type ServerPropertiesForRestore struct {
+	// The mode to create a new server.
+	CreateMode string `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
+	// Restore point creation time (ISO8601 format), specifying the time to restore from.
+	RestorePointInTime string `pulumi:"restorePointInTime"`
+	// The source server id to restore from.
+	SourceServerId string `pulumi:"sourceServerId"`
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement *string `pulumi:"sslEnforcement"`
+	// Storage profile of a server.
+	StorageProfile *StorageProfile `pulumi:"storageProfile"`
+	// Server version.
+	Version *string `pulumi:"version"`
+}
+
+// ServerPropertiesForRestoreInput is an input type that accepts ServerPropertiesForRestoreArgs and ServerPropertiesForRestoreOutput values.
+// You can construct a concrete instance of `ServerPropertiesForRestoreInput` via:
+//
+//          ServerPropertiesForRestoreArgs{...}
+type ServerPropertiesForRestoreInput interface {
+	pulumi.Input
+
+	ToServerPropertiesForRestoreOutput() ServerPropertiesForRestoreOutput
+	ToServerPropertiesForRestoreOutputWithContext(context.Context) ServerPropertiesForRestoreOutput
+}
+
+// The properties used to create a new server by restoring from a backup.
+type ServerPropertiesForRestoreArgs struct {
+	// The mode to create a new server.
+	CreateMode pulumi.StringInput `pulumi:"createMode"`
+	// Enforce a minimal Tls version for the server.
+	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
+	// Restore point creation time (ISO8601 format), specifying the time to restore from.
+	RestorePointInTime pulumi.StringInput `pulumi:"restorePointInTime"`
+	// The source server id to restore from.
+	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement pulumi.StringPtrInput `pulumi:"sslEnforcement"`
+	// Storage profile of a server.
+	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
+	// Server version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ServerPropertiesForRestoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPropertiesForRestore)(nil)).Elem()
+}
+
+func (i ServerPropertiesForRestoreArgs) ToServerPropertiesForRestoreOutput() ServerPropertiesForRestoreOutput {
+	return i.ToServerPropertiesForRestoreOutputWithContext(context.Background())
+}
+
+func (i ServerPropertiesForRestoreArgs) ToServerPropertiesForRestoreOutputWithContext(ctx context.Context) ServerPropertiesForRestoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesForRestoreOutput)
+}
+
+// The properties used to create a new server by restoring from a backup.
+type ServerPropertiesForRestoreOutput struct{ *pulumi.OutputState }
+
+func (ServerPropertiesForRestoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPropertiesForRestore)(nil)).Elem()
+}
+
+func (o ServerPropertiesForRestoreOutput) ToServerPropertiesForRestoreOutput() ServerPropertiesForRestoreOutput {
+	return o
+}
+
+func (o ServerPropertiesForRestoreOutput) ToServerPropertiesForRestoreOutputWithContext(ctx context.Context) ServerPropertiesForRestoreOutput {
+	return o
+}
+
+// The mode to create a new server.
+func (o ServerPropertiesForRestoreOutput) CreateMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPropertiesForRestore) string { return v.CreateMode }).(pulumi.StringOutput)
+}
+
+// Enforce a minimal Tls version for the server.
+func (o ServerPropertiesForRestoreOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForRestore) *string { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// Restore point creation time (ISO8601 format), specifying the time to restore from.
+func (o ServerPropertiesForRestoreOutput) RestorePointInTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPropertiesForRestore) string { return v.RestorePointInTime }).(pulumi.StringOutput)
+}
+
+// The source server id to restore from.
+func (o ServerPropertiesForRestoreOutput) SourceServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPropertiesForRestore) string { return v.SourceServerId }).(pulumi.StringOutput)
+}
+
+// Enable ssl enforcement or not when connect to server.
+func (o ServerPropertiesForRestoreOutput) SslEnforcement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForRestore) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
+}
+
+// Storage profile of a server.
+func (o ServerPropertiesForRestoreOutput) StorageProfile() StorageProfilePtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForRestore) *StorageProfile { return v.StorageProfile }).(StorageProfilePtrOutput)
+}
+
+// Server version.
+func (o ServerPropertiesForRestoreOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForRestore) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // Billing information related properties of a server.
@@ -889,7 +1097,7 @@ type Sku struct {
 	// The family of hardware.
 	Family *string `pulumi:"family"`
 	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The size code, to be interpreted by resource as appropriate.
 	Size *string `pulumi:"size"`
 	// The tier of the particular SKU, e.g. Basic.
@@ -914,7 +1122,7 @@ type SkuArgs struct {
 	// The family of hardware.
 	Family pulumi.StringPtrInput `pulumi:"family"`
 	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// The size code, to be interpreted by resource as appropriate.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// The tier of the particular SKU, e.g. Basic.
@@ -1010,8 +1218,8 @@ func (o SkuOutput) Family() pulumi.StringPtrOutput {
 }
 
 // The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-func (o SkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The size code, to be interpreted by resource as appropriate.
@@ -1068,7 +1276,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1099,7 +1307,7 @@ type SkuResponse struct {
 	// The family of hardware.
 	Family *string `pulumi:"family"`
 	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The size code, to be interpreted by resource as appropriate.
 	Size *string `pulumi:"size"`
 	// The tier of the particular SKU, e.g. Basic.
@@ -1124,7 +1332,7 @@ type SkuResponseArgs struct {
 	// The family of hardware.
 	Family pulumi.StringPtrInput `pulumi:"family"`
 	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// The size code, to be interpreted by resource as appropriate.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// The tier of the particular SKU, e.g. Basic.
@@ -1220,8 +1428,8 @@ func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 }
 
 // The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The size code, to be interpreted by resource as appropriate.
@@ -1278,7 +1486,7 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1694,8 +1902,10 @@ func init() {
 	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ServerPropertiesForCreateOutput{})
-	pulumi.RegisterOutputType(ServerPropertiesForCreatePtrOutput{})
+	pulumi.RegisterOutputType(ServerPropertiesForDefaultCreateOutput{})
+	pulumi.RegisterOutputType(ServerPropertiesForGeoRestoreOutput{})
+	pulumi.RegisterOutputType(ServerPropertiesForReplicaOutput{})
+	pulumi.RegisterOutputType(ServerPropertiesForRestoreOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

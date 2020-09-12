@@ -20,7 +20,7 @@ class MachineLearningCompute(pulumi.CustomResource):
                  compute_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ComputeArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AKSArgs'], pulumi.InputType['AmlComputeArgs'], pulumi.InputType['ComputeInstanceArgs'], pulumi.InputType['DataFactoryArgs'], pulumi.InputType['DataLakeAnalyticsArgs'], pulumi.InputType['DatabricksArgs'], pulumi.InputType['HDInsightArgs'], pulumi.InputType['VirtualMachineArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -140,7 +140,7 @@ class MachineLearningCompute(pulumi.CustomResource):
         :param pulumi.Input[str] compute_name: Name of the Azure Machine Learning compute.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[pulumi.InputType['ComputeArgs']] properties: Compute properties
+        :param pulumi.Input[Union[pulumi.InputType['AKSArgs'], pulumi.InputType['AmlComputeArgs'], pulumi.InputType['ComputeInstanceArgs'], pulumi.InputType['DataFactoryArgs'], pulumi.InputType['DataLakeAnalyticsArgs'], pulumi.InputType['DatabricksArgs'], pulumi.InputType['HDInsightArgs'], pulumi.InputType['VirtualMachineArgs']]] properties: Compute properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
@@ -231,7 +231,7 @@ class MachineLearningCompute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ComputeResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         Compute properties
         """

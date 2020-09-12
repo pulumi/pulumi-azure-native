@@ -218,29 +218,36 @@ class SkuResponse(dict):
     Billing information related properties of a server.
     """
     def __init__(__self__, *,
+                 name: str,
                  capacity: Optional[float] = None,
                  family: Optional[str] = None,
-                 name: Optional[str] = None,
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         Billing information related properties of a server.
+        :param str name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         :param float capacity: The scale up/out capacity, representing server's compute units.
         :param str family: The family of hardware.
-        :param str name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         :param str size: The size code, to be interpreted by resource as appropriate.
         :param str tier: The tier of the particular SKU, e.g. Basic.
         """
+        pulumi.set(__self__, "name", name)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
         if family is not None:
             pulumi.set(__self__, "family", family)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
@@ -257,14 +264,6 @@ class SkuResponse(dict):
         The family of hardware.
         """
         return pulumi.get(self, "family")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-        """
-        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter

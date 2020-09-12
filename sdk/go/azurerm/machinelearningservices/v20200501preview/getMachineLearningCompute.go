@@ -34,7 +34,7 @@ type LookupMachineLearningComputeResult struct {
 	// Specifies the name of the resource.
 	Name string `pulumi:"name"`
 	// Compute properties
-	Properties ComputeResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The sku of the workspace.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.

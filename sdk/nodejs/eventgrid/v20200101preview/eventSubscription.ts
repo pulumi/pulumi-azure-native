@@ -39,11 +39,11 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20200101preview.DeadLetterDestinationResponse | undefined>;
+    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.v20200101preview.StorageBlobDeadLetterDestinationResponse | undefined>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    public readonly destination!: pulumi.Output<outputs.eventgrid.v20200101preview.EventSubscriptionDestinationResponse | undefined>;
+    public readonly destination!: pulumi.Output<outputs.eventgrid.v20200101preview.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.v20200101preview.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.v20200101preview.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.v20200101preview.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20200101preview.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.v20200101preview.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.v20200101preview.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -143,11 +143,11 @@ export interface EventSubscriptionArgs {
     /**
      * The DeadLetter destination of the event subscription.
      */
-    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20200101preview.DeadLetterDestination>;
+    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20200101preview.StorageBlobDeadLetterDestination>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      */
-    readonly destination?: pulumi.Input<inputs.eventgrid.v20200101preview.EventSubscriptionDestination>;
+    readonly destination?: pulumi.Input<inputs.eventgrid.v20200101preview.AzureFunctionEventSubscriptionDestination | inputs.eventgrid.v20200101preview.EventHubEventSubscriptionDestination | inputs.eventgrid.v20200101preview.HybridConnectionEventSubscriptionDestination | inputs.eventgrid.v20200101preview.ServiceBusQueueEventSubscriptionDestination | inputs.eventgrid.v20200101preview.ServiceBusTopicEventSubscriptionDestination | inputs.eventgrid.v20200101preview.StorageQueueEventSubscriptionDestination | inputs.eventgrid.v20200101preview.WebHookEventSubscriptionDestination>;
     /**
      * The event delivery schema for the event subscription.
      */

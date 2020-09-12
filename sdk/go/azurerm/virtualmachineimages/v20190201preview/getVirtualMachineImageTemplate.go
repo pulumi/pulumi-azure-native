@@ -25,9 +25,9 @@ type LookupVirtualMachineImageTemplateArgs struct {
 
 type LookupVirtualMachineImageTemplateResult struct {
 	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize []ImageTemplateCustomizerResponse `pulumi:"customize"`
+	Customize []interface{} `pulumi:"customize"`
 	// The distribution targets where the image output needs to go to.
-	Distribute []ImageTemplateDistributorResponse `pulumi:"distribute"`
+	Distribute []interface{} `pulumi:"distribute"`
 	// State of 'run' that is currently executing or was last executed.
 	LastRunStatus ImageTemplateLastRunStatusResponse `pulumi:"lastRunStatus"`
 	// Resource location
@@ -39,7 +39,7 @@ type LookupVirtualMachineImageTemplateResult struct {
 	// Provisioning state of the resource
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Specifies the properties used to describe the source image.
-	Source ImageTemplateSourceResponse `pulumi:"source"`
+	Source interface{} `pulumi:"source"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

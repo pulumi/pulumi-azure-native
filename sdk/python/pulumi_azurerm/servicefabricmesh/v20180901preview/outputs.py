@@ -10,11 +10,13 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'ApplicationScopedVolumeCreationParametersResponse',
+    'AddRemoveReplicaScalingMechanismResponse',
+    'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse',
     'ApplicationScopedVolumeResponse',
-    'AutoScalingMechanismResponse',
     'AutoScalingPolicyResponse',
-    'AutoScalingTriggerResponse',
+    'AutoScalingResourceMetricResponse',
+    'AverageLoadScalingTriggerResponse',
+    'AzureInternalMonitoringPipelineSinkDescriptionResponse',
     'ContainerCodePackagePropertiesResponse',
     'ContainerEventResponse',
     'ContainerInstanceViewResponse',
@@ -22,7 +24,6 @@ __all__ = [
     'ContainerStateResponse',
     'DiagnosticsDescriptionResponse',
     'DiagnosticsRefResponse',
-    'DiagnosticsSinkPropertiesResponse',
     'EndpointPropertiesResponse',
     'EndpointRefResponse',
     'EnvironmentVariableResponse',
@@ -49,19 +50,80 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApplicationScopedVolumeCreationParametersResponse(dict):
+class AddRemoveReplicaScalingMechanismResponse(dict):
     """
-    Describes parameters for creating application-scoped volumes.
+    Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
     """
     def __init__(__self__, *,
                  kind: str,
+                 max_count: float,
+                 min_count: float,
+                 scale_increment: float):
+        """
+        Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+        :param str kind: The type of auto scaling mechanism.
+        :param float max_count: Maximum number of containers (scale up won't be performed above this number).
+        :param float min_count: Minimum number of containers (scale down won't be performed below this number).
+        :param float scale_increment: Each time auto scaling is performed, this number of containers will be added or removed.
+        """
+        pulumi.set(__self__, "kind", 'AddRemoveReplica')
+        pulumi.set(__self__, "max_count", max_count)
+        pulumi.set(__self__, "min_count", min_count)
+        pulumi.set(__self__, "scale_increment", scale_increment)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The type of auto scaling mechanism.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="maxCount")
+    def max_count(self) -> float:
+        """
+        Maximum number of containers (scale up won't be performed above this number).
+        """
+        return pulumi.get(self, "max_count")
+
+    @property
+    @pulumi.getter(name="minCount")
+    def min_count(self) -> float:
+        """
+        Minimum number of containers (scale down won't be performed below this number).
+        """
+        return pulumi.get(self, "min_count")
+
+    @property
+    @pulumi.getter(name="scaleIncrement")
+    def scale_increment(self) -> float:
+        """
+        Each time auto scaling is performed, this number of containers will be added or removed.
+        """
+        return pulumi.get(self, "scale_increment")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse(dict):
+    """
+    Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 size_disk: str,
                  description: Optional[str] = None):
         """
-        Describes parameters for creating application-scoped volumes.
+        Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
         :param str kind: Specifies the application-scoped volume kind.
+        :param str size_disk: Volume size
         :param str description: User readable description of the volume.
         """
-        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "kind", 'ServiceFabricVolumeDisk')
+        pulumi.set(__self__, "size_disk", size_disk)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -72,6 +134,14 @@ class ApplicationScopedVolumeCreationParametersResponse(dict):
         Specifies the application-scoped volume kind.
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="sizeDisk")
+    def size_disk(self) -> str:
+        """
+        Volume size
+        """
+        return pulumi.get(self, "size_disk")
 
     @property
     @pulumi.getter
@@ -91,13 +161,13 @@ class ApplicationScopedVolumeResponse(dict):
     Describes a volume whose lifetime is scoped to the application's lifetime.
     """
     def __init__(__self__, *,
-                 creation_parameters: 'outputs.ApplicationScopedVolumeCreationParametersResponse',
+                 creation_parameters: 'outputs.ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse',
                  destination_path: str,
                  name: str,
                  read_only: Optional[bool] = None):
         """
         Describes a volume whose lifetime is scoped to the application's lifetime.
-        :param 'ApplicationScopedVolumeCreationParametersResponseArgs' creation_parameters: Describes parameters for creating application-scoped volumes.
+        :param 'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseArgs' creation_parameters: Describes parameters for creating application-scoped volumes.
         :param str destination_path: The path within the container at which the volume should be mounted. Only valid path characters are allowed.
         :param str name: Name of the volume being referenced.
         :param bool read_only: The flag indicating whether the volume is read only. Default is 'false'.
@@ -110,7 +180,7 @@ class ApplicationScopedVolumeResponse(dict):
 
     @property
     @pulumi.getter(name="creationParameters")
-    def creation_parameters(self) -> 'outputs.ApplicationScopedVolumeCreationParametersResponse':
+    def creation_parameters(self) -> 'outputs.ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponse':
         """
         Describes parameters for creating application-scoped volumes.
         """
@@ -145,44 +215,19 @@ class ApplicationScopedVolumeResponse(dict):
 
 
 @pulumi.output_type
-class AutoScalingMechanismResponse(dict):
-    """
-    Describes the mechanism for performing auto scaling operation. Derived classes will describe the actual mechanism.
-    """
-    def __init__(__self__, *,
-                 kind: str):
-        """
-        Describes the mechanism for performing auto scaling operation. Derived classes will describe the actual mechanism.
-        :param str kind: The type of auto scaling mechanism.
-        """
-        pulumi.set(__self__, "kind", kind)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> str:
-        """
-        The type of auto scaling mechanism.
-        """
-        return pulumi.get(self, "kind")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class AutoScalingPolicyResponse(dict):
     """
     Describes the auto scaling policy
     """
     def __init__(__self__, *,
-                 mechanism: 'outputs.AutoScalingMechanismResponse',
+                 mechanism: 'outputs.AddRemoveReplicaScalingMechanismResponse',
                  name: str,
-                 trigger: 'outputs.AutoScalingTriggerResponse'):
+                 trigger: 'outputs.AverageLoadScalingTriggerResponse'):
         """
         Describes the auto scaling policy
-        :param 'AutoScalingMechanismResponseArgs' mechanism: The mechanism that is used to scale when auto scaling operation is invoked.
+        :param 'AddRemoveReplicaScalingMechanismResponseArgs' mechanism: The mechanism that is used to scale when auto scaling operation is invoked.
         :param str name: The name of the auto scaling policy.
-        :param 'AutoScalingTriggerResponseArgs' trigger: Determines when auto scaling operation will be invoked.
+        :param 'AverageLoadScalingTriggerResponseArgs' trigger: Determines when auto scaling operation will be invoked.
         """
         pulumi.set(__self__, "mechanism", mechanism)
         pulumi.set(__self__, "name", name)
@@ -190,7 +235,7 @@ class AutoScalingPolicyResponse(dict):
 
     @property
     @pulumi.getter
-    def mechanism(self) -> 'outputs.AutoScalingMechanismResponse':
+    def mechanism(self) -> 'outputs.AddRemoveReplicaScalingMechanismResponse':
         """
         The mechanism that is used to scale when auto scaling operation is invoked.
         """
@@ -206,7 +251,7 @@ class AutoScalingPolicyResponse(dict):
 
     @property
     @pulumi.getter
-    def trigger(self) -> 'outputs.AutoScalingTriggerResponse':
+    def trigger(self) -> 'outputs.AverageLoadScalingTriggerResponse':
         """
         Determines when auto scaling operation will be invoked.
         """
@@ -217,17 +262,65 @@ class AutoScalingPolicyResponse(dict):
 
 
 @pulumi.output_type
-class AutoScalingTriggerResponse(dict):
+class AutoScalingResourceMetricResponse(dict):
     """
-    Describes the trigger for performing auto scaling operation.
+    Describes the resource that is used for triggering auto scaling.
     """
     def __init__(__self__, *,
-                 kind: str):
+                 kind: str,
+                 name: str):
         """
-        Describes the trigger for performing auto scaling operation.
+        Describes the resource that is used for triggering auto scaling.
+        :param str kind: The type of auto scaling metric
+        :param str name: Name of the resource.
+        """
+        pulumi.set(__self__, "kind", 'Resource')
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The type of auto scaling metric
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AverageLoadScalingTriggerResponse(dict):
+    """
+    Describes the average load trigger used for auto scaling.
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 lower_load_threshold: float,
+                 metric: 'outputs.AutoScalingResourceMetricResponse',
+                 scale_interval_in_seconds: float,
+                 upper_load_threshold: float):
+        """
+        Describes the average load trigger used for auto scaling.
         :param str kind: The type of auto scaling trigger
+        :param float lower_load_threshold: Lower load threshold (if average load is below this threshold, service will scale down).
+        :param 'AutoScalingResourceMetricResponseArgs' metric: Description of the metric that is used for scaling.
+        :param float scale_interval_in_seconds: Scale interval that indicates how often will this trigger be checked.
+        :param float upper_load_threshold: Upper load threshold (if average load is above this threshold, service will scale up).
         """
-        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "kind", 'AverageLoad')
+        pulumi.set(__self__, "lower_load_threshold", lower_load_threshold)
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "scale_interval_in_seconds", scale_interval_in_seconds)
+        pulumi.set(__self__, "upper_load_threshold", upper_load_threshold)
 
     @property
     @pulumi.getter
@@ -236,6 +329,147 @@ class AutoScalingTriggerResponse(dict):
         The type of auto scaling trigger
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="lowerLoadThreshold")
+    def lower_load_threshold(self) -> float:
+        """
+        Lower load threshold (if average load is below this threshold, service will scale down).
+        """
+        return pulumi.get(self, "lower_load_threshold")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> 'outputs.AutoScalingResourceMetricResponse':
+        """
+        Description of the metric that is used for scaling.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter(name="scaleIntervalInSeconds")
+    def scale_interval_in_seconds(self) -> float:
+        """
+        Scale interval that indicates how often will this trigger be checked.
+        """
+        return pulumi.get(self, "scale_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="upperLoadThreshold")
+    def upper_load_threshold(self) -> float:
+        """
+        Upper load threshold (if average load is above this threshold, service will scale up).
+        """
+        return pulumi.get(self, "upper_load_threshold")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureInternalMonitoringPipelineSinkDescriptionResponse(dict):
+    """
+    Diagnostics settings for Geneva.
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 account_name: Optional[str] = None,
+                 auto_key_config_url: Optional[str] = None,
+                 description: Optional[str] = None,
+                 fluentd_config_url: Optional[Mapping[str, Any]] = None,
+                 ma_config_url: Optional[str] = None,
+                 name: Optional[str] = None,
+                 namespace: Optional[str] = None):
+        """
+        Diagnostics settings for Geneva.
+        :param str kind: The kind of DiagnosticsSink.
+        :param str account_name: Azure Internal monitoring pipeline account.
+        :param str auto_key_config_url: Azure Internal monitoring pipeline autokey associated with the certificate.
+        :param str description: A description of the sink.
+        :param Mapping[str, Any] fluentd_config_url: Azure Internal monitoring agent fluentd configuration.
+        :param str ma_config_url: Azure Internal monitoring agent configuration.
+        :param str name: Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+        :param str namespace: Azure Internal monitoring pipeline account namespace.
+        """
+        pulumi.set(__self__, "kind", 'AzureInternalMonitoringPipeline')
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if auto_key_config_url is not None:
+            pulumi.set(__self__, "auto_key_config_url", auto_key_config_url)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if fluentd_config_url is not None:
+            pulumi.set(__self__, "fluentd_config_url", fluentd_config_url)
+        if ma_config_url is not None:
+            pulumi.set(__self__, "ma_config_url", ma_config_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of DiagnosticsSink.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[str]:
+        """
+        Azure Internal monitoring pipeline account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="autoKeyConfigUrl")
+    def auto_key_config_url(self) -> Optional[str]:
+        """
+        Azure Internal monitoring pipeline autokey associated with the certificate.
+        """
+        return pulumi.get(self, "auto_key_config_url")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the sink.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="fluentdConfigUrl")
+    def fluentd_config_url(self) -> Optional[Mapping[str, Any]]:
+        """
+        Azure Internal monitoring agent fluentd configuration.
+        """
+        return pulumi.get(self, "fluentd_config_url")
+
+    @property
+    @pulumi.getter(name="maConfigUrl")
+    def ma_config_url(self) -> Optional[str]:
+        """
+        Azure Internal monitoring agent configuration.
+        """
+        return pulumi.get(self, "ma_config_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Azure Internal monitoring pipeline account namespace.
+        """
+        return pulumi.get(self, "namespace")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -697,12 +931,12 @@ class DiagnosticsDescriptionResponse(dict):
     def __init__(__self__, *,
                  default_sink_refs: Optional[List[str]] = None,
                  enabled: Optional[bool] = None,
-                 sinks: Optional[List['outputs.DiagnosticsSinkPropertiesResponse']] = None):
+                 sinks: Optional[List['outputs.AzureInternalMonitoringPipelineSinkDescriptionResponse']] = None):
         """
         Describes the diagnostics options available
         :param List[str] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         :param bool enabled: Status of whether or not sinks are enabled.
-        :param List['DiagnosticsSinkPropertiesResponseArgs'] sinks: List of supported sinks that can be referenced.
+        :param List['AzureInternalMonitoringPipelineSinkDescriptionResponseArgs'] sinks: List of supported sinks that can be referenced.
         """
         if default_sink_refs is not None:
             pulumi.set(__self__, "default_sink_refs", default_sink_refs)
@@ -729,7 +963,7 @@ class DiagnosticsDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def sinks(self) -> Optional[List['outputs.DiagnosticsSinkPropertiesResponse']]:
+    def sinks(self) -> Optional[List['outputs.AzureInternalMonitoringPipelineSinkDescriptionResponse']]:
         """
         List of supported sinks that can be referenced.
         """
@@ -772,55 +1006,6 @@ class DiagnosticsRefResponse(dict):
         List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
         return pulumi.get(self, "sink_refs")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DiagnosticsSinkPropertiesResponse(dict):
-    """
-    Properties of a DiagnosticsSink.
-    """
-    def __init__(__self__, *,
-                 kind: str,
-                 description: Optional[str] = None,
-                 name: Optional[str] = None):
-        """
-        Properties of a DiagnosticsSink.
-        :param str kind: The kind of DiagnosticsSink.
-        :param str description: A description of the sink.
-        :param str name: Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-        """
-        pulumi.set(__self__, "kind", kind)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> str:
-        """
-        The kind of DiagnosticsSink.
-        """
-        return pulumi.get(self, "kind")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        A description of the sink.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-        """
-        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1343,7 +1528,7 @@ class NetworkResourcePropertiesResponse(dict):
         :param str status_details: Gives additional information about the current status of the network.
         :param str description: User readable description of the network.
         """
-        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "kind", 'NetworkResourceProperties')
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "status_details", status_details)
@@ -1563,7 +1748,7 @@ class SecretResourcePropertiesResponse(dict):
         :param str content_type: The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
         :param str description: User readable description of the secret.
         """
-        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "kind", 'SecretResourceProperties')
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "status_details", status_details)

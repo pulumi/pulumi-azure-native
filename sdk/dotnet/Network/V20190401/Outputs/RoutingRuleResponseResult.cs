@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
         /// <summary>
         /// A reference to the routing configuration.
         /// </summary>
-        public readonly Outputs.RouteConfigurationResponseResult? RouteConfiguration;
+        public readonly Union<Outputs.ForwardingConfigurationResponseResult, Outputs.RedirectConfigurationResponseResult>? RouteConfiguration;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
 
             string? resourceState,
 
-            Outputs.RouteConfigurationResponseResult? routeConfiguration,
+            Union<Outputs.ForwardingConfigurationResponseResult, Outputs.RedirectConfigurationResponseResult>? routeConfiguration,
 
             string type)
         {

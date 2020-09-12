@@ -7,19 +7,26 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'AutomationRunbookReceiverResponse',
     'AzureAppPushReceiverResponse',
     'AzureFunctionReceiverResponse',
+    'DynamicMetricCriteriaResponse',
+    'DynamicThresholdFailingPeriodsResponse',
     'EmailReceiverResponse',
     'ItsmReceiverResponse',
     'LogicAppReceiverResponse',
     'MetricAlertActionResponse',
-    'MetricAlertCriteriaResponse',
+    'MetricAlertMultipleResourceMultipleMetricCriteriaResponse',
+    'MetricAlertSingleResourceMultipleMetricCriteriaResponse',
+    'MetricCriteriaResponse',
+    'MetricDimensionResponse',
     'SmsReceiverResponse',
     'VoiceReceiverResponse',
     'WebhookReceiverResponse',
+    'WebtestLocationAvailabilityCriteriaResponse',
 ]
 
 @pulumi.output_type
@@ -193,6 +200,181 @@ class AzureFunctionReceiverResponse(dict):
         The name of the azure function receiver. Names must be unique across all receivers within an action group.
         """
         return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DynamicMetricCriteriaResponse(dict):
+    """
+    Criterion for dynamic threshold.
+    """
+    def __init__(__self__, *,
+                 alert_sensitivity: str,
+                 criterion_type: str,
+                 failing_periods: 'outputs.DynamicThresholdFailingPeriodsResponse',
+                 metric_name: str,
+                 name: str,
+                 operator: str,
+                 time_aggregation: Mapping[str, Any],
+                 dimensions: Optional[List['outputs.MetricDimensionResponse']] = None,
+                 ignore_data_before: Optional[str] = None,
+                 metric_namespace: Optional[str] = None,
+                 skip_metric_validation: Optional[bool] = None):
+        """
+        Criterion for dynamic threshold.
+        :param str alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+        :param str criterion_type: Specifies the type of threshold criteria
+        :param 'DynamicThresholdFailingPeriodsResponseArgs' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
+        :param str metric_name: Name of the metric.
+        :param str name: Name of the criteria.
+        :param str operator: The operator used to compare the metric value against the threshold.
+        :param Mapping[str, Any] time_aggregation: the criteria time aggregation types.
+        :param List['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
+        :param str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+        :param str metric_namespace: Namespace of the metric.
+        :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        """
+        pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
+        pulumi.set(__self__, "criterion_type", 'DynamicThresholdCriterion')
+        pulumi.set(__self__, "failing_periods", failing_periods)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "time_aggregation", time_aggregation)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if ignore_data_before is not None:
+            pulumi.set(__self__, "ignore_data_before", ignore_data_before)
+        if metric_namespace is not None:
+            pulumi.set(__self__, "metric_namespace", metric_namespace)
+        if skip_metric_validation is not None:
+            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
+
+    @property
+    @pulumi.getter(name="alertSensitivity")
+    def alert_sensitivity(self) -> str:
+        """
+        The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+        """
+        return pulumi.get(self, "alert_sensitivity")
+
+    @property
+    @pulumi.getter(name="criterionType")
+    def criterion_type(self) -> str:
+        """
+        Specifies the type of threshold criteria
+        """
+        return pulumi.get(self, "criterion_type")
+
+    @property
+    @pulumi.getter(name="failingPeriods")
+    def failing_periods(self) -> 'outputs.DynamicThresholdFailingPeriodsResponse':
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        """
+        return pulumi.get(self, "failing_periods")
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> str:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the criteria.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator used to compare the metric value against the threshold.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="timeAggregation")
+    def time_aggregation(self) -> Mapping[str, Any]:
+        """
+        the criteria time aggregation types.
+        """
+        return pulumi.get(self, "time_aggregation")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[List['outputs.MetricDimensionResponse']]:
+        """
+        List of dimension conditions.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="ignoreDataBefore")
+    def ignore_data_before(self) -> Optional[str]:
+        """
+        Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
+        """
+        return pulumi.get(self, "ignore_data_before")
+
+    @property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> Optional[str]:
+        """
+        Namespace of the metric.
+        """
+        return pulumi.get(self, "metric_namespace")
+
+    @property
+    @pulumi.getter(name="skipMetricValidation")
+    def skip_metric_validation(self) -> Optional[bool]:
+        """
+        Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        """
+        return pulumi.get(self, "skip_metric_validation")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DynamicThresholdFailingPeriodsResponse(dict):
+    """
+    The minimum number of violations required within the selected lookback time window required to raise an alert.
+    """
+    def __init__(__self__, *,
+                 min_failing_periods_to_alert: float,
+                 number_of_evaluation_periods: float):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert.
+        :param float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+        :param float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+        """
+        pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+        pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @property
+    @pulumi.getter(name="minFailingPeriodsToAlert")
+    def min_failing_periods_to_alert(self) -> float:
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
+        """
+        return pulumi.get(self, "min_failing_periods_to_alert")
+
+    @property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> float:
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -400,17 +582,21 @@ class MetricAlertActionResponse(dict):
 
 
 @pulumi.output_type
-class MetricAlertCriteriaResponse(dict):
+class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
     """
-    The rule criteria that defines the conditions of the alert rule.
+    Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
     """
     def __init__(__self__, *,
-                 odata_type: str):
+                 odata_type: str,
+                 all_of: Optional[List[Any]] = None):
         """
-        The rule criteria that defines the conditions of the alert rule.
+        Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
         :param str odata_type: specifies the type of the alert criteria.
+        :param List[Union['DynamicMetricCriteriaResponseArgs', 'MetricCriteriaResponseArgs']] all_of: the list of multiple metric criteria for this 'all of' operation. 
         """
-        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
+        if all_of is not None:
+            pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="odataType")
@@ -419,6 +605,214 @@ class MetricAlertCriteriaResponse(dict):
         specifies the type of the alert criteria.
         """
         return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> Optional[List[Any]]:
+        """
+        the list of multiple metric criteria for this 'all of' operation. 
+        """
+        return pulumi.get(self, "all_of")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MetricAlertSingleResourceMultipleMetricCriteriaResponse(dict):
+    """
+    Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+    """
+    def __init__(__self__, *,
+                 odata_type: str,
+                 all_of: Optional[List['outputs.MetricCriteriaResponse']] = None):
+        """
+        Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+        :param str odata_type: specifies the type of the alert criteria.
+        :param List['MetricCriteriaResponseArgs'] all_of: The list of metric criteria for this 'all of' operation. 
+        """
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
+        if all_of is not None:
+            pulumi.set(__self__, "all_of", all_of)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        specifies the type of the alert criteria.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> Optional[List['outputs.MetricCriteriaResponse']]:
+        """
+        The list of metric criteria for this 'all of' operation. 
+        """
+        return pulumi.get(self, "all_of")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MetricCriteriaResponse(dict):
+    """
+    Criterion to filter metrics.
+    """
+    def __init__(__self__, *,
+                 criterion_type: str,
+                 metric_name: str,
+                 name: str,
+                 operator: str,
+                 threshold: float,
+                 time_aggregation: Mapping[str, Any],
+                 dimensions: Optional[List['outputs.MetricDimensionResponse']] = None,
+                 metric_namespace: Optional[str] = None,
+                 skip_metric_validation: Optional[bool] = None):
+        """
+        Criterion to filter metrics.
+        :param str criterion_type: Specifies the type of threshold criteria
+        :param str metric_name: Name of the metric.
+        :param str name: Name of the criteria.
+        :param str operator: the criteria operator.
+        :param float threshold: the criteria threshold value that activates the alert.
+        :param Mapping[str, Any] time_aggregation: the criteria time aggregation types.
+        :param List['MetricDimensionResponseArgs'] dimensions: List of dimension conditions.
+        :param str metric_namespace: Namespace of the metric.
+        :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        """
+        pulumi.set(__self__, "criterion_type", 'StaticThresholdCriterion')
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "time_aggregation", time_aggregation)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_namespace is not None:
+            pulumi.set(__self__, "metric_namespace", metric_namespace)
+        if skip_metric_validation is not None:
+            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
+
+    @property
+    @pulumi.getter(name="criterionType")
+    def criterion_type(self) -> str:
+        """
+        Specifies the type of threshold criteria
+        """
+        return pulumi.get(self, "criterion_type")
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> str:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the criteria.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        the criteria operator.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> float:
+        """
+        the criteria threshold value that activates the alert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="timeAggregation")
+    def time_aggregation(self) -> Mapping[str, Any]:
+        """
+        the criteria time aggregation types.
+        """
+        return pulumi.get(self, "time_aggregation")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[List['outputs.MetricDimensionResponse']]:
+        """
+        List of dimension conditions.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> Optional[str]:
+        """
+        Namespace of the metric.
+        """
+        return pulumi.get(self, "metric_namespace")
+
+    @property
+    @pulumi.getter(name="skipMetricValidation")
+    def skip_metric_validation(self) -> Optional[bool]:
+        """
+        Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
+        """
+        return pulumi.get(self, "skip_metric_validation")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MetricDimensionResponse(dict):
+    """
+    Specifies a metric dimension.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 operator: str,
+                 values: List[str]):
+        """
+        Specifies a metric dimension.
+        :param str name: Name of the dimension.
+        :param str operator: the dimension operator. Only 'Include' and 'Exclude' are supported
+        :param List[str] values: list of dimension values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the dimension.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        the dimension operator. Only 'Include' and 'Exclude' are supported
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> List[str]:
+        """
+        list of dimension values.
+        """
+        return pulumi.get(self, "values")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -560,6 +954,64 @@ class WebhookReceiverResponse(dict):
         The URI where webhooks should be sent.
         """
         return pulumi.get(self, "service_uri")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WebtestLocationAvailabilityCriteriaResponse(dict):
+    """
+    Specifies the metric alert rule criteria for a web test resource.
+    """
+    def __init__(__self__, *,
+                 component_id: str,
+                 failed_location_count: float,
+                 odata_type: str,
+                 web_test_id: str):
+        """
+        Specifies the metric alert rule criteria for a web test resource.
+        :param str component_id: The Application Insights resource Id.
+        :param float failed_location_count: The number of failed locations.
+        :param str odata_type: specifies the type of the alert criteria.
+        :param str web_test_id: The Application Insights web test Id.
+        """
+        pulumi.set(__self__, "component_id", component_id)
+        pulumi.set(__self__, "failed_location_count", failed_location_count)
+        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria')
+        pulumi.set(__self__, "web_test_id", web_test_id)
+
+    @property
+    @pulumi.getter(name="componentId")
+    def component_id(self) -> str:
+        """
+        The Application Insights resource Id.
+        """
+        return pulumi.get(self, "component_id")
+
+    @property
+    @pulumi.getter(name="failedLocationCount")
+    def failed_location_count(self) -> float:
+        """
+        The number of failed locations.
+        """
+        return pulumi.get(self, "failed_location_count")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        """
+        specifies the type of the alert criteria.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="webTestId")
+    def web_test_id(self) -> str:
+        """
+        The Application Insights web test Id.
+        """
+        return pulumi.get(self, "web_test_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

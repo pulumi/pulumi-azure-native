@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.DataBox.Latest.Inputs
         /// Account details of the data to be transferred
         /// </summary>
         [Input("accountDetails", required: true)]
-        public Input<Inputs.DataAccountDetailsArgs> AccountDetails { get; set; } = null!;
+        public InputUnion<Inputs.ManagedDiskDetailsArgs, Inputs.StorageAccountDetailsArgs> AccountDetails { get; set; } = null!;
 
         public DataImportDetailsArgs()
         {

@@ -89,7 +89,7 @@ class GetTaskRunResult:
 
     @property
     @pulumi.getter(name="runRequest")
-    def run_request(self) -> Optional['outputs.RunRequestResponse']:
+    def run_request(self) -> Optional[Any]:
         """
         The request (parameters) for the run
         """

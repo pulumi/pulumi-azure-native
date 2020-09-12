@@ -31,9 +31,9 @@ class ConfigurationProfilePreference(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_profile_preference_name: Name of the configuration profile preference.
-        :param pulumi.Input[str] location: The Azure Region where the resource lives
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['ConfigurationProfilePreferencePropertiesArgs']] properties: Properties of the configuration profile preference.
-        :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -56,6 +56,8 @@ class ConfigurationProfilePreference(pulumi.CustomResource):
             if configuration_profile_preference_name is None:
                 raise TypeError("Missing required property 'configuration_profile_preference_name'")
             __props__['configuration_profile_preference_name'] = configuration_profile_preference_name
+            if location is None:
+                raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['properties'] = properties
             if resource_group_name is None:
@@ -92,7 +94,7 @@ class ConfigurationProfilePreference(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Region where the VM is located.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -100,7 +102,7 @@ class ConfigurationProfilePreference(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Automanage assignment.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -124,7 +126,7 @@ class ConfigurationProfilePreference(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource.
+        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         return pulumi.get(self, "type")
 

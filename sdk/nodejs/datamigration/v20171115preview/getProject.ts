@@ -63,7 +63,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: outputs.datamigration.v20171115preview.ConnectionInfoResponse;
+    readonly sourceConnectionInfo?: outputs.datamigration.v20171115preview.SqlConnectionInfoResponse;
     /**
      * Source platform for the project
      */
@@ -75,7 +75,7 @@ export interface GetProjectResult {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: outputs.datamigration.v20171115preview.ConnectionInfoResponse;
+    readonly targetConnectionInfo?: outputs.datamigration.v20171115preview.SqlConnectionInfoResponse;
     /**
      * Target platform for the project
      */

@@ -135,7 +135,7 @@ export class IotDpsResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:devices/latest:IotDpsResource" }, { type: "azurerm:devices/v20170821preview:IotDpsResource" }, { type: "azurerm:devices/v20171115:IotDpsResource" }, { type: "azurerm:devices/v20200101:IotDpsResource" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:devices/latest:IotDpsResource" }, { type: "azurerm:devices/v20170821preview:IotDpsResource" }, { type: "azurerm:devices/v20171115:IotDpsResource" }, { type: "azurerm:devices/v20200101:IotDpsResource" }, { type: "azurerm:devices/v20200301:IotDpsResource" }, { type: "azurerm:devices/v20200901preview:IotDpsResource" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(IotDpsResource.__pulumiType, name, inputs, opts);
     }

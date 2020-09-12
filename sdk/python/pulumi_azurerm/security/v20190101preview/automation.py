@@ -17,7 +17,7 @@ class Automation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AutomationActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['AutomationActionEventHubArgs'], pulumi.InputType['AutomationActionLogicAppArgs'], pulumi.InputType['AutomationActionWorkspaceArgs']]]]]] = None,
                  automation_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class Automation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutomationActionArgs']]]] actions: A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
+        :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['AutomationActionEventHubArgs'], pulumi.InputType['AutomationActionLogicAppArgs'], pulumi.InputType['AutomationActionWorkspaceArgs']]]]] actions: A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         :param pulumi.Input[str] automation_name: The security automation name.
         :param pulumi.Input[str] description: The security automation description.
         :param pulumi.Input[str] etag: Entity tag is used for comparing two or more entities from the same requested resource.
@@ -108,7 +108,7 @@ class Automation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Optional[List['outputs.AutomationActionResponse']]]:
+    def actions(self) -> pulumi.Output[Optional[List[Any]]]:
         """
         A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         """

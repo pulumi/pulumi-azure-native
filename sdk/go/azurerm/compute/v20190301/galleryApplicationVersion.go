@@ -64,6 +64,9 @@ func NewGalleryApplicationVersion(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azurerm:compute/v20191201:GalleryApplicationVersion"),
 		},
+		{
+			Type: pulumi.String("azurerm:compute/v20200930:GalleryApplicationVersion"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GalleryApplicationVersion

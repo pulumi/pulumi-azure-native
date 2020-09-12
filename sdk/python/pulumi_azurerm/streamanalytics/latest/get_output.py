@@ -42,7 +42,7 @@ class GetOutputResult:
 
     @property
     @pulumi.getter
-    def datasource(self) -> Optional['outputs.OutputDataSourceResponse']:
+    def datasource(self) -> Optional[Any]:
         """
         Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         """
@@ -74,7 +74,7 @@ class GetOutputResult:
 
     @property
     @pulumi.getter
-    def serialization(self) -> Optional['outputs.SerializationResponse']:
+    def serialization(self) -> Optional[Any]:
         """
         Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """

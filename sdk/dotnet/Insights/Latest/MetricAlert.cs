@@ -367,7 +367,7 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// defines the specific alert criteria information.
         /// </summary>
         [Output("criteria")]
-        public Output<Outputs.MetricAlertCriteriaResponseResult> Criteria { get; private set; } = null!;
+        public Output<Union<Outputs.MetricAlertMultipleResourceMultipleMetricCriteriaResponseResult, Union<Outputs.MetricAlertSingleResourceMultipleMetricCriteriaResponseResult, Outputs.WebtestLocationAvailabilityCriteriaResponseResult>>> Criteria { get; private set; } = null!;
 
         /// <summary>
         /// the description of the metric alert that will be included in the alert email.
@@ -518,7 +518,7 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// defines the specific alert criteria information.
         /// </summary>
         [Input("criteria", required: true)]
-        public Input<Inputs.MetricAlertCriteriaArgs> Criteria { get; set; } = null!;
+        public InputUnion<Inputs.MetricAlertMultipleResourceMultipleMetricCriteriaArgs, InputUnion<Inputs.MetricAlertSingleResourceMultipleMetricCriteriaArgs, Inputs.WebtestLocationAvailabilityCriteriaArgs>> Criteria { get; set; } = null!;
 
         /// <summary>
         /// the description of the metric alert that will be included in the alert email.

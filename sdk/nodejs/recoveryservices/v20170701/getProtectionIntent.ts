@@ -60,7 +60,7 @@ export interface GetProtectionIntentResult {
     /**
      * ProtectionIntentResource properties
      */
-    readonly properties: outputs.recoveryservices.v20170701.ProtectionIntentResponse;
+    readonly properties: outputs.recoveryservices.v20170701.AzureRecoveryServiceVaultProtectionIntentResponse | outputs.recoveryservices.v20170701.AzureResourceProtectionIntentResponse;
     /**
      * Resource tags.
      */

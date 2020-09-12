@@ -39,7 +39,7 @@ export class Automation extends pulumi.CustomResource {
     /**
      * A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
      */
-    public readonly actions!: pulumi.Output<outputs.security.v20190101preview.AutomationActionResponse[] | undefined>;
+    public readonly actions!: pulumi.Output<outputs.security.v20190101preview.AutomationActionEventHubResponse | outputs.security.v20190101preview.AutomationActionLogicAppResponse | outputs.security.v20190101preview.AutomationActionWorkspaceResponse[] | undefined>;
     /**
      * The security automation description.
      */
@@ -141,7 +141,7 @@ export interface AutomationArgs {
     /**
      * A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationAction>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.security.v20190101preview.AutomationActionEventHub | inputs.security.v20190101preview.AutomationActionLogicApp | inputs.security.v20190101preview.AutomationActionWorkspace>[]>;
     /**
      * The security automation name.
      */

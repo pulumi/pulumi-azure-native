@@ -15,9 +15,9 @@ type AlertRule struct {
 	pulumi.CustomResourceState
 
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions RuleActionResponseArrayOutput `pulumi:"actions"`
+	Actions pulumi.ArrayOutput `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
-	Condition RuleConditionResponseOutput `pulumi:"condition"`
+	Condition pulumi.AnyOutput `pulumi:"condition"`
 	// the description of the alert rule that will be included in the alert email.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// the flag that indicates whether the alert rule is enabled.
@@ -87,9 +87,9 @@ func GetAlertRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AlertRule resources.
 type alertRuleState struct {
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions []RuleActionResponse `pulumi:"actions"`
+	Actions []interface{} `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
-	Condition *RuleConditionResponse `pulumi:"condition"`
+	Condition interface{} `pulumi:"condition"`
 	// the description of the alert rule that will be included in the alert email.
 	Description *string `pulumi:"description"`
 	// the flag that indicates whether the alert rule is enabled.
@@ -108,9 +108,9 @@ type alertRuleState struct {
 
 type AlertRuleState struct {
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions RuleActionResponseArrayInput
+	Actions pulumi.ArrayInput
 	// the condition that results in the alert rule being activated.
-	Condition RuleConditionResponsePtrInput
+	Condition pulumi.Input
 	// the description of the alert rule that will be included in the alert email.
 	Description pulumi.StringPtrInput
 	// the flag that indicates whether the alert rule is enabled.
@@ -133,9 +133,9 @@ func (AlertRuleState) ElementType() reflect.Type {
 
 type alertRuleArgs struct {
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions []RuleAction `pulumi:"actions"`
+	Actions []interface{} `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
-	Condition RuleCondition `pulumi:"condition"`
+	Condition interface{} `pulumi:"condition"`
 	// the description of the alert rule that will be included in the alert email.
 	Description *string `pulumi:"description"`
 	// the flag that indicates whether the alert rule is enabled.
@@ -155,9 +155,9 @@ type alertRuleArgs struct {
 // The set of arguments for constructing a AlertRule resource.
 type AlertRuleArgs struct {
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions RuleActionArrayInput
+	Actions pulumi.ArrayInput
 	// the condition that results in the alert rule being activated.
-	Condition RuleConditionInput
+	Condition pulumi.Input
 	// the description of the alert rule that will be included in the alert email.
 	Description pulumi.StringPtrInput
 	// the flag that indicates whether the alert rule is enabled.

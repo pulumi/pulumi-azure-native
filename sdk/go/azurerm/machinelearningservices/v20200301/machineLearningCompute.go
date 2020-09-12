@@ -21,7 +21,7 @@ type MachineLearningCompute struct {
 	// Specifies the name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Compute properties
-	Properties ComputeResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// The sku of the workspace.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
@@ -116,7 +116,7 @@ type machineLearningComputeState struct {
 	// Specifies the name of the resource.
 	Name *string `pulumi:"name"`
 	// Compute properties
-	Properties *ComputeResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The sku of the workspace.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
@@ -133,7 +133,7 @@ type MachineLearningComputeState struct {
 	// Specifies the name of the resource.
 	Name pulumi.StringPtrInput
 	// Compute properties
-	Properties ComputeResponsePtrInput
+	Properties pulumi.Input
 	// The sku of the workspace.
 	Sku SkuResponsePtrInput
 	// Contains resource tags defined as key/value pairs.
@@ -154,7 +154,7 @@ type machineLearningComputeArgs struct {
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
 	// Compute properties
-	Properties *Compute `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku of the workspace.
@@ -174,7 +174,7 @@ type MachineLearningComputeArgs struct {
 	// Specifies the location of the resource.
 	Location pulumi.StringPtrInput
 	// Compute properties
-	Properties ComputePtrInput
+	Properties pulumi.Input
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName pulumi.StringInput
 	// The sku of the workspace.

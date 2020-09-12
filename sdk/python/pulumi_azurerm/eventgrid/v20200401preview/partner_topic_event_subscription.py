@@ -17,10 +17,10 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['DeadLetterDestinationArgs']]] = None,
+                 dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['StorageBlobDeadLetterDestinationArgs']]] = None,
                  dead_letter_with_resource_identity: Optional[pulumi.Input[pulumi.InputType['DeadLetterWithResourceIdentityArgs']]] = None,
                  delivery_with_resource_identity: Optional[pulumi.Input[pulumi.InputType['DeliveryWithResourceIdentityArgs']]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union[pulumi.InputType['AzureFunctionEventSubscriptionDestinationArgs'], pulumi.InputType['EventHubEventSubscriptionDestinationArgs'], pulumi.InputType['HybridConnectionEventSubscriptionDestinationArgs'], pulumi.InputType['ServiceBusQueueEventSubscriptionDestinationArgs'], pulumi.InputType['ServiceBusTopicEventSubscriptionDestinationArgs'], pulumi.InputType['StorageQueueEventSubscriptionDestinationArgs'], pulumi.InputType['WebHookEventSubscriptionDestinationArgs']]]] = None,
                  event_delivery_schema: Optional[pulumi.Input[str]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
@@ -37,13 +37,13 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeadLetterDestinationArgs']] dead_letter_destination: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        :param pulumi.Input[pulumi.InputType['StorageBlobDeadLetterDestinationArgs']] dead_letter_destination: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
                Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input[pulumi.InputType['DeadLetterWithResourceIdentityArgs']] dead_letter_with_resource_identity: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
                Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input[pulumi.InputType['DeliveryWithResourceIdentityArgs']] delivery_with_resource_identity: Information about the destination where events have to be delivered for the event subscription.
                Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-        :param pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input[Union[pulumi.InputType['AzureFunctionEventSubscriptionDestinationArgs'], pulumi.InputType['EventHubEventSubscriptionDestinationArgs'], pulumi.InputType['HybridConnectionEventSubscriptionDestinationArgs'], pulumi.InputType['ServiceBusQueueEventSubscriptionDestinationArgs'], pulumi.InputType['ServiceBusTopicEventSubscriptionDestinationArgs'], pulumi.InputType['StorageQueueEventSubscriptionDestinationArgs'], pulumi.InputType['WebHookEventSubscriptionDestinationArgs']]] destination: Information about the destination where events have to be delivered for the event subscription.
                Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         :param pulumi.Input[str] event_delivery_schema: The event delivery schema for the event subscription.
         :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -119,7 +119,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deadLetterDestination")
-    def dead_letter_destination(self) -> pulumi.Output[Optional['outputs.DeadLetterDestinationResponse']]:
+    def dead_letter_destination(self) -> pulumi.Output[Optional['outputs.StorageBlobDeadLetterDestinationResponse']]:
         """
         The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
         Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -146,7 +146,7 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Output[Optional['outputs.EventSubscriptionDestinationResponse']]:
+    def destination(self) -> pulumi.Output[Optional[Any]]:
         """
         Information about the destination where events have to be delivered for the event subscription.
         Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.

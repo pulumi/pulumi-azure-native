@@ -47,7 +47,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * Custom task properties
      */
-    public readonly properties!: pulumi.Output<outputs.datamigration.v20171115preview.ProjectTaskPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.datamigration.v20171115preview.ConnectToSourceSqlServerTaskPropertiesResponse | outputs.datamigration.v20171115preview.ConnectToTargetSqlDbTaskPropertiesResponse | outputs.datamigration.v20171115preview.GetUserTablesSqlTaskPropertiesResponse | outputs.datamigration.v20171115preview.MigrateSqlServerSqlDbTaskPropertiesResponse>;
     /**
      * Resource type.
      */
@@ -121,7 +121,7 @@ export interface TaskArgs {
     /**
      * Custom task properties
      */
-    readonly properties?: pulumi.Input<inputs.datamigration.v20171115preview.ProjectTaskProperties>;
+    readonly properties?: pulumi.Input<inputs.datamigration.v20171115preview.ConnectToSourceSqlServerTaskProperties | inputs.datamigration.v20171115preview.ConnectToTargetSqlDbTaskProperties | inputs.datamigration.v20171115preview.GetUserTablesSqlTaskProperties | inputs.datamigration.v20171115preview.MigrateSqlServerSqlDbTaskProperties>;
     /**
      * Name of the service
      */

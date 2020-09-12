@@ -8,9 +8,12 @@ import (
 	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"
 )
 
+const body = "body"
+
 // calculateDetailedDiff produced a property diff for a given object diff and a resource definition. It inspects
 // the schema of the resource to find out if the requested diff can be performed in-place or requires a replacement.
-func calculateDetailedDiff(resource *AzureApiResource, diff *resource.ObjectDiff) (map[string]*rpc.PropertyDiff, error) {
+func calculateDetailedDiff(resource *AzureAPIResource,
+	diff *resource.ObjectDiff) (map[string]*rpc.PropertyDiff, error) {
 	replaceKeys := codegen.NewStringSet()
 
 	for _, p := range resource.PutParameters {
@@ -24,7 +27,7 @@ func calculateDetailedDiff(resource *AzureApiResource, diff *resource.ObjectDiff
 		}
 
 		// Force New on resource properties also cause a replacement.
-		if p.Location == "body" {
+		if p.Location == body && p.Body != nil {
 			for propName, prop := range p.Body.Properties {
 				if prop.ForceNew {
 					name := propName
@@ -63,11 +66,15 @@ func (d *differ) calculateDetailedDiff(diff *resource.ObjectDiff, base string) (
 			}
 
 			for sk, sv := range subDiff {
+				if sv.Kind == rpc.PropertyDiff_UPDATE && d.replaceKeys.Has(key) {
+					// If the parent property causes a replacement, all child properties cause a replacement.
+					sv.Kind = rpc.PropertyDiff_UPDATE_REPLACE
+				}
 				detailedDiff[sk] = sv
 			}
 		}
 	}
-	for k, _ := range diff.Adds {
+	for k := range diff.Adds {
 		key := base + string(k)
 		kind := rpc.PropertyDiff_ADD
 		if d.replaceKeys.Has(key) {
@@ -75,7 +82,7 @@ func (d *differ) calculateDetailedDiff(diff *resource.ObjectDiff, base string) (
 		}
 		detailedDiff[key] = &rpc.PropertyDiff{Kind: kind}
 	}
-	for k, _ := range diff.Deletes {
+	for k := range diff.Deletes {
 		key := base + string(k)
 		kind := rpc.PropertyDiff_DELETE
 		if d.replaceKeys.Has(key) {

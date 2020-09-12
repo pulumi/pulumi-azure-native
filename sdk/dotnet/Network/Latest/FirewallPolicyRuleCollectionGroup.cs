@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// Group of Firewall Policy rule collections.
         /// </summary>
         [Output("ruleCollections")]
-        public Output<ImmutableArray<Outputs.FirewallPolicyRuleCollectionResponseResult>> RuleCollections { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.FirewallPolicyFilterRuleCollectionResponseResult, Outputs.FirewallPolicyNatRuleCollectionResponseResult>>> RuleCollections { get; private set; } = null!;
 
         /// <summary>
         /// Rule Group type.
@@ -197,14 +197,14 @@ namespace Pulumi.AzureRM.Network.Latest
         public Input<string> RuleCollectionGroupName { get; set; } = null!;
 
         [Input("ruleCollections")]
-        private InputList<Inputs.FirewallPolicyRuleCollectionArgs>? _ruleCollections;
+        private InputList<Union<Inputs.FirewallPolicyFilterRuleCollectionArgs, Inputs.FirewallPolicyNatRuleCollectionArgs>>? _ruleCollections;
 
         /// <summary>
         /// Group of Firewall Policy rule collections.
         /// </summary>
-        public InputList<Inputs.FirewallPolicyRuleCollectionArgs> RuleCollections
+        public InputList<Union<Inputs.FirewallPolicyFilterRuleCollectionArgs, Inputs.FirewallPolicyNatRuleCollectionArgs>> RuleCollections
         {
-            get => _ruleCollections ?? (_ruleCollections = new InputList<Inputs.FirewallPolicyRuleCollectionArgs>());
+            get => _ruleCollections ?? (_ruleCollections = new InputList<Union<Inputs.FirewallPolicyFilterRuleCollectionArgs, Inputs.FirewallPolicyNatRuleCollectionArgs>>());
             set => _ruleCollections = value;
         }
 

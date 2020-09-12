@@ -284,7 +284,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * defines the specific alert criteria information.
      */
-    public readonly criteria!: pulumi.Output<outputs.insights.v20180301.MetricAlertCriteriaResponse>;
+    public readonly criteria!: pulumi.Output<outputs.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaResponse | outputs.insights.v20180301.MetricAlertSingleResourceMultipleMetricCriteriaResponse | outputs.insights.v20180301.WebtestLocationAvailabilityCriteriaResponse>;
     /**
      * the description of the metric alert that will be included in the alert email.
      */
@@ -439,7 +439,7 @@ export interface MetricAlertArgs {
     /**
      * defines the specific alert criteria information.
      */
-    readonly criteria: pulumi.Input<inputs.insights.v20180301.MetricAlertCriteria>;
+    readonly criteria: pulumi.Input<inputs.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteria | inputs.insights.v20180301.MetricAlertSingleResourceMultipleMetricCriteria | inputs.insights.v20180301.WebtestLocationAvailabilityCriteria>;
     /**
      * the description of the metric alert that will be included in the alert email.
      */

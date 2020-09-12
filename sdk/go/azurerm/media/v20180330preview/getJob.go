@@ -34,13 +34,13 @@ type LookupJobResult struct {
 	// Optional customer supplied description of the Job.
 	Description *string `pulumi:"description"`
 	// The inputs for the Job.
-	Input JobInputResponse `pulumi:"input"`
+	Input interface{} `pulumi:"input"`
 	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified string `pulumi:"lastModified"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The outputs for the Job.
-	Outputs []JobOutputResponse `pulumi:"outputs"`
+	Outputs []JobOutputAssetResponse `pulumi:"outputs"`
 	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
 	Priority *string `pulumi:"priority"`
 	// The current state of the job.

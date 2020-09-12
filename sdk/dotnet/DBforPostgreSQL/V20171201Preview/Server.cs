@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
+namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
 {
     /// <summary>
     /// Represents a server.
@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
         public Output<string?> InfrastructureEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// The location the resource resides in.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
         public Output<string?> MinimalTlsVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -117,13 +117,13 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
         public Output<Outputs.StorageProfileResponseResult?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Application-specific metadata in the form of key-value pairs.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201Preview
         /// Properties of the server.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.ServerPropertiesForCreateArgs> Properties { get; set; } = null!;
+        public InputUnion<Inputs.ServerPropertiesForDefaultCreateArgs, InputUnion<Inputs.ServerPropertiesForGeoRestoreArgs, InputUnion<Inputs.ServerPropertiesForReplicaArgs, Inputs.ServerPropertiesForRestoreArgs>>> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

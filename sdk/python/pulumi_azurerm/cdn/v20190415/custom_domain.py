@@ -119,7 +119,7 @@ class CustomDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customHttpsParameters")
-    def custom_https_parameters(self) -> pulumi.Output[Optional['outputs.CustomDomainHttpsParametersResponse']]:
+    def custom_https_parameters(self) -> pulumi.Output[Optional[Any]]:
         """
         Certificate parameters for securing custom HTTPS
         """

@@ -10,6 +10,274 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Delegated subnet arguments of a server
+type DelegatedSubnetArguments struct {
+	// delegated subnet arm resource id.
+	SubnetArmResourceId *string `pulumi:"subnetArmResourceId"`
+}
+
+// DelegatedSubnetArgumentsInput is an input type that accepts DelegatedSubnetArgumentsArgs and DelegatedSubnetArgumentsOutput values.
+// You can construct a concrete instance of `DelegatedSubnetArgumentsInput` via:
+//
+//          DelegatedSubnetArgumentsArgs{...}
+type DelegatedSubnetArgumentsInput interface {
+	pulumi.Input
+
+	ToDelegatedSubnetArgumentsOutput() DelegatedSubnetArgumentsOutput
+	ToDelegatedSubnetArgumentsOutputWithContext(context.Context) DelegatedSubnetArgumentsOutput
+}
+
+// Delegated subnet arguments of a server
+type DelegatedSubnetArgumentsArgs struct {
+	// delegated subnet arm resource id.
+	SubnetArmResourceId pulumi.StringPtrInput `pulumi:"subnetArmResourceId"`
+}
+
+func (DelegatedSubnetArgumentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegatedSubnetArguments)(nil)).Elem()
+}
+
+func (i DelegatedSubnetArgumentsArgs) ToDelegatedSubnetArgumentsOutput() DelegatedSubnetArgumentsOutput {
+	return i.ToDelegatedSubnetArgumentsOutputWithContext(context.Background())
+}
+
+func (i DelegatedSubnetArgumentsArgs) ToDelegatedSubnetArgumentsOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegatedSubnetArgumentsOutput)
+}
+
+func (i DelegatedSubnetArgumentsArgs) ToDelegatedSubnetArgumentsPtrOutput() DelegatedSubnetArgumentsPtrOutput {
+	return i.ToDelegatedSubnetArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (i DelegatedSubnetArgumentsArgs) ToDelegatedSubnetArgumentsPtrOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegatedSubnetArgumentsOutput).ToDelegatedSubnetArgumentsPtrOutputWithContext(ctx)
+}
+
+// DelegatedSubnetArgumentsPtrInput is an input type that accepts DelegatedSubnetArgumentsArgs, DelegatedSubnetArgumentsPtr and DelegatedSubnetArgumentsPtrOutput values.
+// You can construct a concrete instance of `DelegatedSubnetArgumentsPtrInput` via:
+//
+//          DelegatedSubnetArgumentsArgs{...}
+//
+//  or:
+//
+//          nil
+type DelegatedSubnetArgumentsPtrInput interface {
+	pulumi.Input
+
+	ToDelegatedSubnetArgumentsPtrOutput() DelegatedSubnetArgumentsPtrOutput
+	ToDelegatedSubnetArgumentsPtrOutputWithContext(context.Context) DelegatedSubnetArgumentsPtrOutput
+}
+
+type delegatedSubnetArgumentsPtrType DelegatedSubnetArgumentsArgs
+
+func DelegatedSubnetArgumentsPtr(v *DelegatedSubnetArgumentsArgs) DelegatedSubnetArgumentsPtrInput {
+	return (*delegatedSubnetArgumentsPtrType)(v)
+}
+
+func (*delegatedSubnetArgumentsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DelegatedSubnetArguments)(nil)).Elem()
+}
+
+func (i *delegatedSubnetArgumentsPtrType) ToDelegatedSubnetArgumentsPtrOutput() DelegatedSubnetArgumentsPtrOutput {
+	return i.ToDelegatedSubnetArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (i *delegatedSubnetArgumentsPtrType) ToDelegatedSubnetArgumentsPtrOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegatedSubnetArgumentsPtrOutput)
+}
+
+// Delegated subnet arguments of a server
+type DelegatedSubnetArgumentsOutput struct{ *pulumi.OutputState }
+
+func (DelegatedSubnetArgumentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegatedSubnetArguments)(nil)).Elem()
+}
+
+func (o DelegatedSubnetArgumentsOutput) ToDelegatedSubnetArgumentsOutput() DelegatedSubnetArgumentsOutput {
+	return o
+}
+
+func (o DelegatedSubnetArgumentsOutput) ToDelegatedSubnetArgumentsOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsOutput {
+	return o
+}
+
+func (o DelegatedSubnetArgumentsOutput) ToDelegatedSubnetArgumentsPtrOutput() DelegatedSubnetArgumentsPtrOutput {
+	return o.ToDelegatedSubnetArgumentsPtrOutputWithContext(context.Background())
+}
+
+func (o DelegatedSubnetArgumentsOutput) ToDelegatedSubnetArgumentsPtrOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsPtrOutput {
+	return o.ApplyT(func(v DelegatedSubnetArguments) *DelegatedSubnetArguments {
+		return &v
+	}).(DelegatedSubnetArgumentsPtrOutput)
+}
+
+// delegated subnet arm resource id.
+func (o DelegatedSubnetArgumentsOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DelegatedSubnetArguments) *string { return v.SubnetArmResourceId }).(pulumi.StringPtrOutput)
+}
+
+type DelegatedSubnetArgumentsPtrOutput struct{ *pulumi.OutputState }
+
+func (DelegatedSubnetArgumentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DelegatedSubnetArguments)(nil)).Elem()
+}
+
+func (o DelegatedSubnetArgumentsPtrOutput) ToDelegatedSubnetArgumentsPtrOutput() DelegatedSubnetArgumentsPtrOutput {
+	return o
+}
+
+func (o DelegatedSubnetArgumentsPtrOutput) ToDelegatedSubnetArgumentsPtrOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsPtrOutput {
+	return o
+}
+
+func (o DelegatedSubnetArgumentsPtrOutput) Elem() DelegatedSubnetArgumentsOutput {
+	return o.ApplyT(func(v *DelegatedSubnetArguments) DelegatedSubnetArguments { return *v }).(DelegatedSubnetArgumentsOutput)
+}
+
+// delegated subnet arm resource id.
+func (o DelegatedSubnetArgumentsPtrOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DelegatedSubnetArguments) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetArmResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Delegated subnet arguments of a server
+type DelegatedSubnetArgumentsResponse struct {
+	// delegated subnet arm resource id.
+	SubnetArmResourceId *string `pulumi:"subnetArmResourceId"`
+}
+
+// DelegatedSubnetArgumentsResponseInput is an input type that accepts DelegatedSubnetArgumentsResponseArgs and DelegatedSubnetArgumentsResponseOutput values.
+// You can construct a concrete instance of `DelegatedSubnetArgumentsResponseInput` via:
+//
+//          DelegatedSubnetArgumentsResponseArgs{...}
+type DelegatedSubnetArgumentsResponseInput interface {
+	pulumi.Input
+
+	ToDelegatedSubnetArgumentsResponseOutput() DelegatedSubnetArgumentsResponseOutput
+	ToDelegatedSubnetArgumentsResponseOutputWithContext(context.Context) DelegatedSubnetArgumentsResponseOutput
+}
+
+// Delegated subnet arguments of a server
+type DelegatedSubnetArgumentsResponseArgs struct {
+	// delegated subnet arm resource id.
+	SubnetArmResourceId pulumi.StringPtrInput `pulumi:"subnetArmResourceId"`
+}
+
+func (DelegatedSubnetArgumentsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegatedSubnetArgumentsResponse)(nil)).Elem()
+}
+
+func (i DelegatedSubnetArgumentsResponseArgs) ToDelegatedSubnetArgumentsResponseOutput() DelegatedSubnetArgumentsResponseOutput {
+	return i.ToDelegatedSubnetArgumentsResponseOutputWithContext(context.Background())
+}
+
+func (i DelegatedSubnetArgumentsResponseArgs) ToDelegatedSubnetArgumentsResponseOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegatedSubnetArgumentsResponseOutput)
+}
+
+func (i DelegatedSubnetArgumentsResponseArgs) ToDelegatedSubnetArgumentsResponsePtrOutput() DelegatedSubnetArgumentsResponsePtrOutput {
+	return i.ToDelegatedSubnetArgumentsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DelegatedSubnetArgumentsResponseArgs) ToDelegatedSubnetArgumentsResponsePtrOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegatedSubnetArgumentsResponseOutput).ToDelegatedSubnetArgumentsResponsePtrOutputWithContext(ctx)
+}
+
+// DelegatedSubnetArgumentsResponsePtrInput is an input type that accepts DelegatedSubnetArgumentsResponseArgs, DelegatedSubnetArgumentsResponsePtr and DelegatedSubnetArgumentsResponsePtrOutput values.
+// You can construct a concrete instance of `DelegatedSubnetArgumentsResponsePtrInput` via:
+//
+//          DelegatedSubnetArgumentsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DelegatedSubnetArgumentsResponsePtrInput interface {
+	pulumi.Input
+
+	ToDelegatedSubnetArgumentsResponsePtrOutput() DelegatedSubnetArgumentsResponsePtrOutput
+	ToDelegatedSubnetArgumentsResponsePtrOutputWithContext(context.Context) DelegatedSubnetArgumentsResponsePtrOutput
+}
+
+type delegatedSubnetArgumentsResponsePtrType DelegatedSubnetArgumentsResponseArgs
+
+func DelegatedSubnetArgumentsResponsePtr(v *DelegatedSubnetArgumentsResponseArgs) DelegatedSubnetArgumentsResponsePtrInput {
+	return (*delegatedSubnetArgumentsResponsePtrType)(v)
+}
+
+func (*delegatedSubnetArgumentsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DelegatedSubnetArgumentsResponse)(nil)).Elem()
+}
+
+func (i *delegatedSubnetArgumentsResponsePtrType) ToDelegatedSubnetArgumentsResponsePtrOutput() DelegatedSubnetArgumentsResponsePtrOutput {
+	return i.ToDelegatedSubnetArgumentsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *delegatedSubnetArgumentsResponsePtrType) ToDelegatedSubnetArgumentsResponsePtrOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DelegatedSubnetArgumentsResponsePtrOutput)
+}
+
+// Delegated subnet arguments of a server
+type DelegatedSubnetArgumentsResponseOutput struct{ *pulumi.OutputState }
+
+func (DelegatedSubnetArgumentsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DelegatedSubnetArgumentsResponse)(nil)).Elem()
+}
+
+func (o DelegatedSubnetArgumentsResponseOutput) ToDelegatedSubnetArgumentsResponseOutput() DelegatedSubnetArgumentsResponseOutput {
+	return o
+}
+
+func (o DelegatedSubnetArgumentsResponseOutput) ToDelegatedSubnetArgumentsResponseOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsResponseOutput {
+	return o
+}
+
+func (o DelegatedSubnetArgumentsResponseOutput) ToDelegatedSubnetArgumentsResponsePtrOutput() DelegatedSubnetArgumentsResponsePtrOutput {
+	return o.ToDelegatedSubnetArgumentsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DelegatedSubnetArgumentsResponseOutput) ToDelegatedSubnetArgumentsResponsePtrOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsResponsePtrOutput {
+	return o.ApplyT(func(v DelegatedSubnetArgumentsResponse) *DelegatedSubnetArgumentsResponse {
+		return &v
+	}).(DelegatedSubnetArgumentsResponsePtrOutput)
+}
+
+// delegated subnet arm resource id.
+func (o DelegatedSubnetArgumentsResponseOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DelegatedSubnetArgumentsResponse) *string { return v.SubnetArmResourceId }).(pulumi.StringPtrOutput)
+}
+
+type DelegatedSubnetArgumentsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DelegatedSubnetArgumentsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DelegatedSubnetArgumentsResponse)(nil)).Elem()
+}
+
+func (o DelegatedSubnetArgumentsResponsePtrOutput) ToDelegatedSubnetArgumentsResponsePtrOutput() DelegatedSubnetArgumentsResponsePtrOutput {
+	return o
+}
+
+func (o DelegatedSubnetArgumentsResponsePtrOutput) ToDelegatedSubnetArgumentsResponsePtrOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsResponsePtrOutput {
+	return o
+}
+
+func (o DelegatedSubnetArgumentsResponsePtrOutput) Elem() DelegatedSubnetArgumentsResponseOutput {
+	return o.ApplyT(func(v *DelegatedSubnetArgumentsResponse) DelegatedSubnetArgumentsResponse { return *v }).(DelegatedSubnetArgumentsResponseOutput)
+}
+
+// delegated subnet arm resource id.
+func (o DelegatedSubnetArgumentsResponsePtrOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DelegatedSubnetArgumentsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetArmResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
@@ -316,12 +584,394 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Maintenance window of a server.
+type MaintenanceWindow struct {
+	// indicates whether custom window is enabled or disabled
+	CustomWindow *string `pulumi:"customWindow"`
+	// day of week for maintenance window
+	DayOfWeek *int `pulumi:"dayOfWeek"`
+	// start hour for maintenance window
+	StartHour *int `pulumi:"startHour"`
+	// start minute for maintenance window
+	StartMinute *int `pulumi:"startMinute"`
+}
+
+// MaintenanceWindowInput is an input type that accepts MaintenanceWindowArgs and MaintenanceWindowOutput values.
+// You can construct a concrete instance of `MaintenanceWindowInput` via:
+//
+//          MaintenanceWindowArgs{...}
+type MaintenanceWindowInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowOutput() MaintenanceWindowOutput
+	ToMaintenanceWindowOutputWithContext(context.Context) MaintenanceWindowOutput
+}
+
+// Maintenance window of a server.
+type MaintenanceWindowArgs struct {
+	// indicates whether custom window is enabled or disabled
+	CustomWindow pulumi.StringPtrInput `pulumi:"customWindow"`
+	// day of week for maintenance window
+	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
+	// start hour for maintenance window
+	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
+	// start minute for maintenance window
+	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+}
+
+func (MaintenanceWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindow)(nil)).Elem()
+}
+
+func (i MaintenanceWindowArgs) ToMaintenanceWindowOutput() MaintenanceWindowOutput {
+	return i.ToMaintenanceWindowOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowArgs) ToMaintenanceWindowOutputWithContext(ctx context.Context) MaintenanceWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowOutput)
+}
+
+func (i MaintenanceWindowArgs) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return i.ToMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowArgs) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowOutput).ToMaintenanceWindowPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowPtrInput is an input type that accepts MaintenanceWindowArgs, MaintenanceWindowPtr and MaintenanceWindowPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowPtrInput` via:
+//
+//          MaintenanceWindowArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput
+	ToMaintenanceWindowPtrOutputWithContext(context.Context) MaintenanceWindowPtrOutput
+}
+
+type maintenanceWindowPtrType MaintenanceWindowArgs
+
+func MaintenanceWindowPtr(v *MaintenanceWindowArgs) MaintenanceWindowPtrInput {
+	return (*maintenanceWindowPtrType)(v)
+}
+
+func (*maintenanceWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindow)(nil)).Elem()
+}
+
+func (i *maintenanceWindowPtrType) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return i.ToMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowPtrType) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowPtrOutput)
+}
+
+// Maintenance window of a server.
+type MaintenanceWindowOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindow)(nil)).Elem()
+}
+
+func (o MaintenanceWindowOutput) ToMaintenanceWindowOutput() MaintenanceWindowOutput {
+	return o
+}
+
+func (o MaintenanceWindowOutput) ToMaintenanceWindowOutputWithContext(ctx context.Context) MaintenanceWindowOutput {
+	return o
+}
+
+func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return o.ToMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindow) *MaintenanceWindow {
+		return &v
+	}).(MaintenanceWindowPtrOutput)
+}
+
+// indicates whether custom window is enabled or disabled
+func (o MaintenanceWindowOutput) CustomWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindow) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
+}
+
+// day of week for maintenance window
+func (o MaintenanceWindowOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindow) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
+}
+
+// start hour for maintenance window
+func (o MaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindow) *int { return v.StartHour }).(pulumi.IntPtrOutput)
+}
+
+// start minute for maintenance window
+func (o MaintenanceWindowOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindow) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
+}
+
+type MaintenanceWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindow)(nil)).Elem()
+}
+
+func (o MaintenanceWindowPtrOutput) ToMaintenanceWindowPtrOutput() MaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowPtrOutput) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowPtrOutput) Elem() MaintenanceWindowOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindow { return *v }).(MaintenanceWindowOutput)
+}
+
+// indicates whether custom window is enabled or disabled
+func (o MaintenanceWindowPtrOutput) CustomWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomWindow
+	}).(pulumi.StringPtrOutput)
+}
+
+// day of week for maintenance window
+func (o MaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.IntPtrOutput)
+}
+
+// start hour for maintenance window
+func (o MaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartHour
+	}).(pulumi.IntPtrOutput)
+}
+
+// start minute for maintenance window
+func (o MaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maintenance window of a server.
+type MaintenanceWindowResponse struct {
+	// indicates whether custom window is enabled or disabled
+	CustomWindow *string `pulumi:"customWindow"`
+	// day of week for maintenance window
+	DayOfWeek *int `pulumi:"dayOfWeek"`
+	// start hour for maintenance window
+	StartHour *int `pulumi:"startHour"`
+	// start minute for maintenance window
+	StartMinute *int `pulumi:"startMinute"`
+}
+
+// MaintenanceWindowResponseInput is an input type that accepts MaintenanceWindowResponseArgs and MaintenanceWindowResponseOutput values.
+// You can construct a concrete instance of `MaintenanceWindowResponseInput` via:
+//
+//          MaintenanceWindowResponseArgs{...}
+type MaintenanceWindowResponseInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowResponseOutput() MaintenanceWindowResponseOutput
+	ToMaintenanceWindowResponseOutputWithContext(context.Context) MaintenanceWindowResponseOutput
+}
+
+// Maintenance window of a server.
+type MaintenanceWindowResponseArgs struct {
+	// indicates whether custom window is enabled or disabled
+	CustomWindow pulumi.StringPtrInput `pulumi:"customWindow"`
+	// day of week for maintenance window
+	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
+	// start hour for maintenance window
+	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
+	// start minute for maintenance window
+	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+}
+
+func (MaintenanceWindowResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowResponse)(nil)).Elem()
+}
+
+func (i MaintenanceWindowResponseArgs) ToMaintenanceWindowResponseOutput() MaintenanceWindowResponseOutput {
+	return i.ToMaintenanceWindowResponseOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowResponseArgs) ToMaintenanceWindowResponseOutputWithContext(ctx context.Context) MaintenanceWindowResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowResponseOutput)
+}
+
+func (i MaintenanceWindowResponseArgs) ToMaintenanceWindowResponsePtrOutput() MaintenanceWindowResponsePtrOutput {
+	return i.ToMaintenanceWindowResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowResponseArgs) ToMaintenanceWindowResponsePtrOutputWithContext(ctx context.Context) MaintenanceWindowResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowResponseOutput).ToMaintenanceWindowResponsePtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowResponsePtrInput is an input type that accepts MaintenanceWindowResponseArgs, MaintenanceWindowResponsePtr and MaintenanceWindowResponsePtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowResponsePtrInput` via:
+//
+//          MaintenanceWindowResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowResponsePtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowResponsePtrOutput() MaintenanceWindowResponsePtrOutput
+	ToMaintenanceWindowResponsePtrOutputWithContext(context.Context) MaintenanceWindowResponsePtrOutput
+}
+
+type maintenanceWindowResponsePtrType MaintenanceWindowResponseArgs
+
+func MaintenanceWindowResponsePtr(v *MaintenanceWindowResponseArgs) MaintenanceWindowResponsePtrInput {
+	return (*maintenanceWindowResponsePtrType)(v)
+}
+
+func (*maintenanceWindowResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowResponse)(nil)).Elem()
+}
+
+func (i *maintenanceWindowResponsePtrType) ToMaintenanceWindowResponsePtrOutput() MaintenanceWindowResponsePtrOutput {
+	return i.ToMaintenanceWindowResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowResponsePtrType) ToMaintenanceWindowResponsePtrOutputWithContext(ctx context.Context) MaintenanceWindowResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowResponsePtrOutput)
+}
+
+// Maintenance window of a server.
+type MaintenanceWindowResponseOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowResponse)(nil)).Elem()
+}
+
+func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponseOutput() MaintenanceWindowResponseOutput {
+	return o
+}
+
+func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponseOutputWithContext(ctx context.Context) MaintenanceWindowResponseOutput {
+	return o
+}
+
+func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponsePtrOutput() MaintenanceWindowResponsePtrOutput {
+	return o.ToMaintenanceWindowResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponsePtrOutputWithContext(ctx context.Context) MaintenanceWindowResponsePtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowResponse) *MaintenanceWindowResponse {
+		return &v
+	}).(MaintenanceWindowResponsePtrOutput)
+}
+
+// indicates whether custom window is enabled or disabled
+func (o MaintenanceWindowResponseOutput) CustomWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowResponse) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
+}
+
+// day of week for maintenance window
+func (o MaintenanceWindowResponseOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
+}
+
+// start hour for maintenance window
+func (o MaintenanceWindowResponseOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.StartHour }).(pulumi.IntPtrOutput)
+}
+
+// start minute for maintenance window
+func (o MaintenanceWindowResponseOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
+}
+
+type MaintenanceWindowResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowResponse)(nil)).Elem()
+}
+
+func (o MaintenanceWindowResponsePtrOutput) ToMaintenanceWindowResponsePtrOutput() MaintenanceWindowResponsePtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowResponsePtrOutput) ToMaintenanceWindowResponsePtrOutputWithContext(ctx context.Context) MaintenanceWindowResponsePtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowResponsePtrOutput) Elem() MaintenanceWindowResponseOutput {
+	return o.ApplyT(func(v *MaintenanceWindowResponse) MaintenanceWindowResponse { return *v }).(MaintenanceWindowResponseOutput)
+}
+
+// indicates whether custom window is enabled or disabled
+func (o MaintenanceWindowResponsePtrOutput) CustomWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomWindow
+	}).(pulumi.StringPtrOutput)
+}
+
+// day of week for maintenance window
+func (o MaintenanceWindowResponsePtrOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.IntPtrOutput)
+}
+
+// start hour for maintenance window
+func (o MaintenanceWindowResponsePtrOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartHour
+	}).(pulumi.IntPtrOutput)
+}
+
+// start minute for maintenance window
+func (o MaintenanceWindowResponsePtrOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartMinute
+	}).(pulumi.IntPtrOutput)
+}
+
 // Billing information related properties of a server.
 type Sku struct {
 	// The name of the sku, e.g. Standard_D32s_v3.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The tier of the particular SKU, e.g. GeneralPurpose.
-	Tier *string `pulumi:"tier"`
+	Tier string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -338,9 +988,9 @@ type SkuInput interface {
 // Billing information related properties of a server.
 type SkuArgs struct {
 	// The name of the sku, e.g. Standard_D32s_v3.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// The tier of the particular SKU, e.g. GeneralPurpose.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -422,13 +1072,13 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 }
 
 // The name of the sku, e.g. Standard_D32s_v3.
-func (o SkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The tier of the particular SKU, e.g. GeneralPurpose.
-func (o SkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o SkuOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -455,7 +1105,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -465,16 +1115,16 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Tier
+		return &v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 
 // Billing information related properties of a server.
 type SkuResponse struct {
 	// The name of the sku, e.g. Standard_D32s_v3.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The tier of the particular SKU, e.g. GeneralPurpose.
-	Tier *string `pulumi:"tier"`
+	Tier string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -491,9 +1141,9 @@ type SkuResponseInput interface {
 // Billing information related properties of a server.
 type SkuResponseArgs struct {
 	// The name of the sku, e.g. Standard_D32s_v3.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// The tier of the particular SKU, e.g. GeneralPurpose.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -575,13 +1225,13 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 }
 
 // The name of the sku, e.g. Standard_D32s_v3.
-func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The tier of the particular SKU, e.g. GeneralPurpose.
-func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o SkuResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 type SkuResponsePtrOutput struct{ *pulumi.OutputState }
@@ -608,7 +1258,7 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -618,7 +1268,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Tier
+		return &v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1004,355 +1654,19 @@ func (o StorageProfileResponsePtrOutput) StorageMB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Vnet properties of a server
-type VnetInjArgs struct {
-	// delegated subnet name
-	DelegatedSubnetName *string `pulumi:"delegatedSubnetName"`
-	// delegated vNet ID
-	DelegatedVnetID *string `pulumi:"delegatedVnetID"`
-	// delegated vNet name
-	DelegatedVnetName *string `pulumi:"delegatedVnetName"`
-}
-
-// VnetInjArgsInput is an input type that accepts VnetInjArgsArgs and VnetInjArgsOutput values.
-// You can construct a concrete instance of `VnetInjArgsInput` via:
-//
-//          VnetInjArgsArgs{...}
-type VnetInjArgsInput interface {
-	pulumi.Input
-
-	ToVnetInjArgsOutput() VnetInjArgsOutput
-	ToVnetInjArgsOutputWithContext(context.Context) VnetInjArgsOutput
-}
-
-// Vnet properties of a server
-type VnetInjArgsArgs struct {
-	// delegated subnet name
-	DelegatedSubnetName pulumi.StringPtrInput `pulumi:"delegatedSubnetName"`
-	// delegated vNet ID
-	DelegatedVnetID pulumi.StringPtrInput `pulumi:"delegatedVnetID"`
-	// delegated vNet name
-	DelegatedVnetName pulumi.StringPtrInput `pulumi:"delegatedVnetName"`
-}
-
-func (VnetInjArgsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetInjArgs)(nil)).Elem()
-}
-
-func (i VnetInjArgsArgs) ToVnetInjArgsOutput() VnetInjArgsOutput {
-	return i.ToVnetInjArgsOutputWithContext(context.Background())
-}
-
-func (i VnetInjArgsArgs) ToVnetInjArgsOutputWithContext(ctx context.Context) VnetInjArgsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInjArgsOutput)
-}
-
-func (i VnetInjArgsArgs) ToVnetInjArgsPtrOutput() VnetInjArgsPtrOutput {
-	return i.ToVnetInjArgsPtrOutputWithContext(context.Background())
-}
-
-func (i VnetInjArgsArgs) ToVnetInjArgsPtrOutputWithContext(ctx context.Context) VnetInjArgsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInjArgsOutput).ToVnetInjArgsPtrOutputWithContext(ctx)
-}
-
-// VnetInjArgsPtrInput is an input type that accepts VnetInjArgsArgs, VnetInjArgsPtr and VnetInjArgsPtrOutput values.
-// You can construct a concrete instance of `VnetInjArgsPtrInput` via:
-//
-//          VnetInjArgsArgs{...}
-//
-//  or:
-//
-//          nil
-type VnetInjArgsPtrInput interface {
-	pulumi.Input
-
-	ToVnetInjArgsPtrOutput() VnetInjArgsPtrOutput
-	ToVnetInjArgsPtrOutputWithContext(context.Context) VnetInjArgsPtrOutput
-}
-
-type vnetInjArgsPtrType VnetInjArgsArgs
-
-func VnetInjArgsPtr(v *VnetInjArgsArgs) VnetInjArgsPtrInput {
-	return (*vnetInjArgsPtrType)(v)
-}
-
-func (*vnetInjArgsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetInjArgs)(nil)).Elem()
-}
-
-func (i *vnetInjArgsPtrType) ToVnetInjArgsPtrOutput() VnetInjArgsPtrOutput {
-	return i.ToVnetInjArgsPtrOutputWithContext(context.Background())
-}
-
-func (i *vnetInjArgsPtrType) ToVnetInjArgsPtrOutputWithContext(ctx context.Context) VnetInjArgsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInjArgsPtrOutput)
-}
-
-// Vnet properties of a server
-type VnetInjArgsOutput struct{ *pulumi.OutputState }
-
-func (VnetInjArgsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetInjArgs)(nil)).Elem()
-}
-
-func (o VnetInjArgsOutput) ToVnetInjArgsOutput() VnetInjArgsOutput {
-	return o
-}
-
-func (o VnetInjArgsOutput) ToVnetInjArgsOutputWithContext(ctx context.Context) VnetInjArgsOutput {
-	return o
-}
-
-func (o VnetInjArgsOutput) ToVnetInjArgsPtrOutput() VnetInjArgsPtrOutput {
-	return o.ToVnetInjArgsPtrOutputWithContext(context.Background())
-}
-
-func (o VnetInjArgsOutput) ToVnetInjArgsPtrOutputWithContext(ctx context.Context) VnetInjArgsPtrOutput {
-	return o.ApplyT(func(v VnetInjArgs) *VnetInjArgs {
-		return &v
-	}).(VnetInjArgsPtrOutput)
-}
-
-// delegated subnet name
-func (o VnetInjArgsOutput) DelegatedSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInjArgs) *string { return v.DelegatedSubnetName }).(pulumi.StringPtrOutput)
-}
-
-// delegated vNet ID
-func (o VnetInjArgsOutput) DelegatedVnetID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInjArgs) *string { return v.DelegatedVnetID }).(pulumi.StringPtrOutput)
-}
-
-// delegated vNet name
-func (o VnetInjArgsOutput) DelegatedVnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInjArgs) *string { return v.DelegatedVnetName }).(pulumi.StringPtrOutput)
-}
-
-type VnetInjArgsPtrOutput struct{ *pulumi.OutputState }
-
-func (VnetInjArgsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetInjArgs)(nil)).Elem()
-}
-
-func (o VnetInjArgsPtrOutput) ToVnetInjArgsPtrOutput() VnetInjArgsPtrOutput {
-	return o
-}
-
-func (o VnetInjArgsPtrOutput) ToVnetInjArgsPtrOutputWithContext(ctx context.Context) VnetInjArgsPtrOutput {
-	return o
-}
-
-func (o VnetInjArgsPtrOutput) Elem() VnetInjArgsOutput {
-	return o.ApplyT(func(v *VnetInjArgs) VnetInjArgs { return *v }).(VnetInjArgsOutput)
-}
-
-// delegated subnet name
-func (o VnetInjArgsPtrOutput) DelegatedSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInjArgs) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DelegatedSubnetName
-	}).(pulumi.StringPtrOutput)
-}
-
-// delegated vNet ID
-func (o VnetInjArgsPtrOutput) DelegatedVnetID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInjArgs) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DelegatedVnetID
-	}).(pulumi.StringPtrOutput)
-}
-
-// delegated vNet name
-func (o VnetInjArgsPtrOutput) DelegatedVnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInjArgs) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DelegatedVnetName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Vnet properties of a server
-type VnetInjArgsResponse struct {
-	// delegated subnet name
-	DelegatedSubnetName *string `pulumi:"delegatedSubnetName"`
-	// delegated vNet ID
-	DelegatedVnetID *string `pulumi:"delegatedVnetID"`
-	// delegated vNet name
-	DelegatedVnetName *string `pulumi:"delegatedVnetName"`
-}
-
-// VnetInjArgsResponseInput is an input type that accepts VnetInjArgsResponseArgs and VnetInjArgsResponseOutput values.
-// You can construct a concrete instance of `VnetInjArgsResponseInput` via:
-//
-//          VnetInjArgsResponseArgs{...}
-type VnetInjArgsResponseInput interface {
-	pulumi.Input
-
-	ToVnetInjArgsResponseOutput() VnetInjArgsResponseOutput
-	ToVnetInjArgsResponseOutputWithContext(context.Context) VnetInjArgsResponseOutput
-}
-
-// Vnet properties of a server
-type VnetInjArgsResponseArgs struct {
-	// delegated subnet name
-	DelegatedSubnetName pulumi.StringPtrInput `pulumi:"delegatedSubnetName"`
-	// delegated vNet ID
-	DelegatedVnetID pulumi.StringPtrInput `pulumi:"delegatedVnetID"`
-	// delegated vNet name
-	DelegatedVnetName pulumi.StringPtrInput `pulumi:"delegatedVnetName"`
-}
-
-func (VnetInjArgsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetInjArgsResponse)(nil)).Elem()
-}
-
-func (i VnetInjArgsResponseArgs) ToVnetInjArgsResponseOutput() VnetInjArgsResponseOutput {
-	return i.ToVnetInjArgsResponseOutputWithContext(context.Background())
-}
-
-func (i VnetInjArgsResponseArgs) ToVnetInjArgsResponseOutputWithContext(ctx context.Context) VnetInjArgsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInjArgsResponseOutput)
-}
-
-func (i VnetInjArgsResponseArgs) ToVnetInjArgsResponsePtrOutput() VnetInjArgsResponsePtrOutput {
-	return i.ToVnetInjArgsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VnetInjArgsResponseArgs) ToVnetInjArgsResponsePtrOutputWithContext(ctx context.Context) VnetInjArgsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInjArgsResponseOutput).ToVnetInjArgsResponsePtrOutputWithContext(ctx)
-}
-
-// VnetInjArgsResponsePtrInput is an input type that accepts VnetInjArgsResponseArgs, VnetInjArgsResponsePtr and VnetInjArgsResponsePtrOutput values.
-// You can construct a concrete instance of `VnetInjArgsResponsePtrInput` via:
-//
-//          VnetInjArgsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VnetInjArgsResponsePtrInput interface {
-	pulumi.Input
-
-	ToVnetInjArgsResponsePtrOutput() VnetInjArgsResponsePtrOutput
-	ToVnetInjArgsResponsePtrOutputWithContext(context.Context) VnetInjArgsResponsePtrOutput
-}
-
-type vnetInjArgsResponsePtrType VnetInjArgsResponseArgs
-
-func VnetInjArgsResponsePtr(v *VnetInjArgsResponseArgs) VnetInjArgsResponsePtrInput {
-	return (*vnetInjArgsResponsePtrType)(v)
-}
-
-func (*vnetInjArgsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetInjArgsResponse)(nil)).Elem()
-}
-
-func (i *vnetInjArgsResponsePtrType) ToVnetInjArgsResponsePtrOutput() VnetInjArgsResponsePtrOutput {
-	return i.ToVnetInjArgsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *vnetInjArgsResponsePtrType) ToVnetInjArgsResponsePtrOutputWithContext(ctx context.Context) VnetInjArgsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInjArgsResponsePtrOutput)
-}
-
-// Vnet properties of a server
-type VnetInjArgsResponseOutput struct{ *pulumi.OutputState }
-
-func (VnetInjArgsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetInjArgsResponse)(nil)).Elem()
-}
-
-func (o VnetInjArgsResponseOutput) ToVnetInjArgsResponseOutput() VnetInjArgsResponseOutput {
-	return o
-}
-
-func (o VnetInjArgsResponseOutput) ToVnetInjArgsResponseOutputWithContext(ctx context.Context) VnetInjArgsResponseOutput {
-	return o
-}
-
-func (o VnetInjArgsResponseOutput) ToVnetInjArgsResponsePtrOutput() VnetInjArgsResponsePtrOutput {
-	return o.ToVnetInjArgsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VnetInjArgsResponseOutput) ToVnetInjArgsResponsePtrOutputWithContext(ctx context.Context) VnetInjArgsResponsePtrOutput {
-	return o.ApplyT(func(v VnetInjArgsResponse) *VnetInjArgsResponse {
-		return &v
-	}).(VnetInjArgsResponsePtrOutput)
-}
-
-// delegated subnet name
-func (o VnetInjArgsResponseOutput) DelegatedSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInjArgsResponse) *string { return v.DelegatedSubnetName }).(pulumi.StringPtrOutput)
-}
-
-// delegated vNet ID
-func (o VnetInjArgsResponseOutput) DelegatedVnetID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInjArgsResponse) *string { return v.DelegatedVnetID }).(pulumi.StringPtrOutput)
-}
-
-// delegated vNet name
-func (o VnetInjArgsResponseOutput) DelegatedVnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInjArgsResponse) *string { return v.DelegatedVnetName }).(pulumi.StringPtrOutput)
-}
-
-type VnetInjArgsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VnetInjArgsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetInjArgsResponse)(nil)).Elem()
-}
-
-func (o VnetInjArgsResponsePtrOutput) ToVnetInjArgsResponsePtrOutput() VnetInjArgsResponsePtrOutput {
-	return o
-}
-
-func (o VnetInjArgsResponsePtrOutput) ToVnetInjArgsResponsePtrOutputWithContext(ctx context.Context) VnetInjArgsResponsePtrOutput {
-	return o
-}
-
-func (o VnetInjArgsResponsePtrOutput) Elem() VnetInjArgsResponseOutput {
-	return o.ApplyT(func(v *VnetInjArgsResponse) VnetInjArgsResponse { return *v }).(VnetInjArgsResponseOutput)
-}
-
-// delegated subnet name
-func (o VnetInjArgsResponsePtrOutput) DelegatedSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInjArgsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DelegatedSubnetName
-	}).(pulumi.StringPtrOutput)
-}
-
-// delegated vNet ID
-func (o VnetInjArgsResponsePtrOutput) DelegatedVnetID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInjArgsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DelegatedVnetID
-	}).(pulumi.StringPtrOutput)
-}
-
-// delegated vNet name
-func (o VnetInjArgsResponsePtrOutput) DelegatedVnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInjArgsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DelegatedVnetName
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterOutputType(DelegatedSubnetArgumentsOutput{})
+	pulumi.RegisterOutputType(DelegatedSubnetArgumentsPtrOutput{})
+	pulumi.RegisterOutputType(DelegatedSubnetArgumentsResponseOutput{})
+	pulumi.RegisterOutputType(DelegatedSubnetArgumentsResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowResponseOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
@@ -1361,8 +1675,4 @@ func init() {
 	pulumi.RegisterOutputType(StorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(VnetInjArgsOutput{})
-	pulumi.RegisterOutputType(VnetInjArgsPtrOutput{})
-	pulumi.RegisterOutputType(VnetInjArgsResponseOutput{})
-	pulumi.RegisterOutputType(VnetInjArgsResponsePtrOutput{})
 }

@@ -9,10 +9,52 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
+    'ConnectionStateArgs',
     'EncryptionArgs',
     'KeyVaultPropertiesArgs',
+    'PrivateEndpointArgs',
     'SBSkuArgs',
 ]
+
+@pulumi.input_type
+class ConnectionStateArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        ConnectionState information.
+        :param pulumi.Input[str] description: Description of the connection state.
+        :param pulumi.Input[str] status: Status of the connection.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the connection state.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the connection.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
 
 @pulumi.input_type
 class EncryptionArgs:
@@ -92,6 +134,30 @@ class KeyVaultPropertiesArgs:
     @key_vault_uri.setter
     def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_uri", value)
+
+
+@pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        PrivateEndpoint information.
+        :param pulumi.Input[str] id: The ARM identifier for Private Endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM identifier for Private Endpoint.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

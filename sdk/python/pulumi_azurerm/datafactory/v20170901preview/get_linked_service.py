@@ -52,7 +52,7 @@ class GetLinkedServiceResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.LinkedServiceResponse':
+    def properties(self) -> Any:
         """
         Properties of linked service.
         """

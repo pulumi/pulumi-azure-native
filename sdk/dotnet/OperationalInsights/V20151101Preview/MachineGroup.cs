@@ -71,13 +71,20 @@ namespace Pulumi.AzureRM.OperationalInsights.V20151101Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MachineGroup(string name, MachineGroupArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights/v20151101preview:MachineGroup", name, args ?? new MachineGroupArgs(), MakeResourceOptions(options, ""))
+            : base("azurerm:operationalinsights/v20151101preview:MachineGroup", name, MakeArgs(args), MakeResourceOptions(options, ""))
         {
         }
 
         private MachineGroup(string name, Input<string> id, CustomResourceOptions? options = null)
             : base("azurerm:operationalinsights/v20151101preview:MachineGroup", name, null, MakeResourceOptions(options, id))
         {
+        }
+
+        private static MachineGroupArgs MakeArgs(MachineGroupArgs args)
+        {
+            args ??= new MachineGroupArgs();
+            args.Kind = "machineGroup";
+            return args;
         }
 
         private static CustomResourceOptions MakeResourceOptions(CustomResourceOptions? options, Input<string>? id)

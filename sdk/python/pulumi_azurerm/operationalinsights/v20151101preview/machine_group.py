@@ -69,7 +69,7 @@ class MachineGroup(pulumi.CustomResource):
             __props__['group_type'] = group_type
             if kind is None:
                 raise TypeError("Missing required property 'kind'")
-            __props__['kind'] = kind
+            __props__['kind'] = 'machineGroup'
             if machine_group_name is None:
                 raise TypeError("Missing required property 'machine_group_name'")
             __props__['machine_group_name'] = machine_group_name

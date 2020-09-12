@@ -77,7 +77,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information for connecting to source
      */
-    public readonly sourceConnectionInfo!: pulumi.Output<outputs.datamigration.latest.ConnectionInfoResponse | undefined>;
+    public readonly sourceConnectionInfo!: pulumi.Output<outputs.datamigration.latest.MiSqlConnectionInfoResponse | outputs.datamigration.latest.MySqlConnectionInfoResponse | outputs.datamigration.latest.PostgreSqlConnectionInfoResponse | outputs.datamigration.latest.SqlConnectionInfoResponse | undefined>;
     /**
      * Source platform for the project
      */
@@ -89,7 +89,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Information for connecting to target
      */
-    public readonly targetConnectionInfo!: pulumi.Output<outputs.datamigration.latest.ConnectionInfoResponse | undefined>;
+    public readonly targetConnectionInfo!: pulumi.Output<outputs.datamigration.latest.MiSqlConnectionInfoResponse | outputs.datamigration.latest.MySqlConnectionInfoResponse | outputs.datamigration.latest.PostgreSqlConnectionInfoResponse | outputs.datamigration.latest.SqlConnectionInfoResponse | undefined>;
     /**
      * Target platform for the project
      */
@@ -194,7 +194,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to source
      */
-    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.latest.ConnectionInfo>;
+    readonly sourceConnectionInfo?: pulumi.Input<inputs.datamigration.latest.MiSqlConnectionInfo | inputs.datamigration.latest.MySqlConnectionInfo | inputs.datamigration.latest.PostgreSqlConnectionInfo | inputs.datamigration.latest.SqlConnectionInfo>;
     /**
      * Source platform for the project
      */
@@ -206,7 +206,7 @@ export interface ProjectArgs {
     /**
      * Information for connecting to target
      */
-    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.latest.ConnectionInfo>;
+    readonly targetConnectionInfo?: pulumi.Input<inputs.datamigration.latest.MiSqlConnectionInfo | inputs.datamigration.latest.MySqlConnectionInfo | inputs.datamigration.latest.PostgreSqlConnectionInfo | inputs.datamigration.latest.SqlConnectionInfo>;
     /**
      * Target platform for the project
      */

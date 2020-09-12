@@ -47,7 +47,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * Custom task properties
      */
-    public readonly properties!: pulumi.Output<outputs.datamigration.v20180315preview.ProjectTaskPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.datamigration.v20180315preview.ConnectToSourceSqlServerTaskPropertiesResponse | outputs.datamigration.v20180315preview.ConnectToTargetSqlDbTaskPropertiesResponse | outputs.datamigration.v20180315preview.ConnectToTargetSqlMITaskPropertiesResponse | outputs.datamigration.v20180315preview.GetUserTablesSqlTaskPropertiesResponse | outputs.datamigration.v20180315preview.MigrateSqlServerSqlDbTaskPropertiesResponse | outputs.datamigration.v20180315preview.MigrateSqlServerSqlMITaskPropertiesResponse | outputs.datamigration.v20180315preview.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse>;
     /**
      * Resource type.
      */
@@ -121,7 +121,7 @@ export interface TaskArgs {
     /**
      * Custom task properties
      */
-    readonly properties?: pulumi.Input<inputs.datamigration.v20180315preview.ProjectTaskProperties>;
+    readonly properties?: pulumi.Input<inputs.datamigration.v20180315preview.ConnectToSourceSqlServerTaskProperties | inputs.datamigration.v20180315preview.ConnectToTargetSqlDbTaskProperties | inputs.datamigration.v20180315preview.ConnectToTargetSqlMITaskProperties | inputs.datamigration.v20180315preview.GetUserTablesSqlTaskProperties | inputs.datamigration.v20180315preview.MigrateSqlServerSqlDbTaskProperties | inputs.datamigration.v20180315preview.MigrateSqlServerSqlMITaskProperties | inputs.datamigration.v20180315preview.ValidateMigrationInputSqlServerSqlMITaskProperties>;
     /**
      * Name of the service
      */

@@ -32,7 +32,7 @@ type LookupDatasetResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// Dataset properties.
-	Properties DatasetResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

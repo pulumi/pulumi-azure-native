@@ -21,7 +21,7 @@ type Job struct {
 	// Delivery type of Job.
 	DeliveryType pulumi.StringPtrOutput `pulumi:"deliveryType"`
 	// Details of a job run. This field will only be sent for expand details filter.
-	Details JobDetailsResponsePtrOutput `pulumi:"details"`
+	Details pulumi.AnyOutput `pulumi:"details"`
 	// Top level error for the job.
 	Error CloudErrorResponseOutput `pulumi:"error"`
 	// Msi identity of the resource
@@ -116,7 +116,7 @@ type jobState struct {
 	// Delivery type of Job.
 	DeliveryType *string `pulumi:"deliveryType"`
 	// Details of a job run. This field will only be sent for expand details filter.
-	Details *JobDetailsResponse `pulumi:"details"`
+	Details interface{} `pulumi:"details"`
 	// Top level error for the job.
 	Error *CloudErrorResponse `pulumi:"error"`
 	// Msi identity of the resource
@@ -157,7 +157,7 @@ type JobState struct {
 	// Delivery type of Job.
 	DeliveryType pulumi.StringPtrInput
 	// Details of a job run. This field will only be sent for expand details filter.
-	Details JobDetailsResponsePtrInput
+	Details pulumi.Input
 	// Top level error for the job.
 	Error CloudErrorResponsePtrInput
 	// Msi identity of the resource
@@ -200,7 +200,7 @@ type jobArgs struct {
 	// Delivery type of Job.
 	DeliveryType *string `pulumi:"deliveryType"`
 	// Details of a job run. This field will only be sent for expand details filter.
-	Details *JobDetails `pulumi:"details"`
+	Details interface{} `pulumi:"details"`
 	// Msi identity of the resource
 	Identity *ResourceIdentity `pulumi:"identity"`
 	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -224,7 +224,7 @@ type JobArgs struct {
 	// Delivery type of Job.
 	DeliveryType pulumi.StringPtrInput
 	// Details of a job run. This field will only be sent for expand details filter.
-	Details JobDetailsPtrInput
+	Details pulumi.Input
 	// Msi identity of the resource
 	Identity ResourceIdentityPtrInput
 	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only

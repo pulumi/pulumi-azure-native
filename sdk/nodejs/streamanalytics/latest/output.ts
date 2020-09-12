@@ -200,7 +200,7 @@ export class Output extends pulumi.CustomResource {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    public readonly datasource!: pulumi.Output<outputs.streamanalytics.latest.OutputDataSourceResponse | undefined>;
+    public readonly datasource!: pulumi.Output<outputs.streamanalytics.latest.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.latest.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.latest.AzureTableOutputDataSourceResponse | outputs.streamanalytics.latest.BlobOutputDataSourceResponse | outputs.streamanalytics.latest.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.latest.EventHubOutputDataSourceResponse | outputs.streamanalytics.latest.PowerBIOutputDataSourceResponse | outputs.streamanalytics.latest.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.latest.ServiceBusTopicOutputDataSourceResponse | undefined>;
     /**
      * Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
      */
@@ -216,7 +216,7 @@ export class Output extends pulumi.CustomResource {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    public readonly serialization!: pulumi.Output<outputs.streamanalytics.latest.SerializationResponse | undefined>;
+    public readonly serialization!: pulumi.Output<outputs.streamanalytics.latest.AvroSerializationResponse | outputs.streamanalytics.latest.CsvSerializationResponse | outputs.streamanalytics.latest.JsonSerializationResponse | undefined>;
     /**
      * Resource type
      */
@@ -278,7 +278,7 @@ export interface OutputArgs {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    readonly datasource?: pulumi.Input<inputs.streamanalytics.latest.OutputDataSource>;
+    readonly datasource?: pulumi.Input<inputs.streamanalytics.latest.AzureDataLakeStoreOutputDataSource | inputs.streamanalytics.latest.AzureSqlDatabaseOutputDataSource | inputs.streamanalytics.latest.AzureTableOutputDataSource | inputs.streamanalytics.latest.BlobOutputDataSource | inputs.streamanalytics.latest.DocumentDbOutputDataSource | inputs.streamanalytics.latest.EventHubOutputDataSource | inputs.streamanalytics.latest.PowerBIOutputDataSource | inputs.streamanalytics.latest.ServiceBusQueueOutputDataSource | inputs.streamanalytics.latest.ServiceBusTopicOutputDataSource>;
     /**
      * The name of the streaming job.
      */
@@ -298,5 +298,5 @@ export interface OutputArgs {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    readonly serialization?: pulumi.Input<inputs.streamanalytics.latest.Serialization>;
+    readonly serialization?: pulumi.Input<inputs.streamanalytics.latest.AvroSerialization | inputs.streamanalytics.latest.CsvSerialization | inputs.streamanalytics.latest.JsonSerialization>;
 }

@@ -59,7 +59,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Describes how the service is partitioned.
      */
-    public readonly partitionDescription!: pulumi.Output<outputs.servicefabric.v20191101preview.PartitionSchemeDescriptionResponse | undefined>;
+    public readonly partitionDescription!: pulumi.Output<outputs.servicefabric.v20191101preview.NamedPartitionSchemeDescriptionResponse | outputs.servicefabric.v20191101preview.SingletonPartitionSchemeDescriptionResponse | outputs.servicefabric.v20191101preview.UniformInt64RangePartitionSchemeDescriptionResponse | undefined>;
     /**
      * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
      */
@@ -204,7 +204,7 @@ export interface ServiceArgs {
     /**
      * Describes how the service is partitioned.
      */
-    readonly partitionDescription?: pulumi.Input<inputs.servicefabric.v20191101preview.PartitionSchemeDescription>;
+    readonly partitionDescription?: pulumi.Input<inputs.servicefabric.v20191101preview.NamedPartitionSchemeDescription | inputs.servicefabric.v20191101preview.SingletonPartitionSchemeDescription | inputs.servicefabric.v20191101preview.UniformInt64RangePartitionSchemeDescription>;
     /**
      * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
      */

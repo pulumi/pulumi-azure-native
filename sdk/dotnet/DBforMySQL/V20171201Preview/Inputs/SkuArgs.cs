@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMySQL.V20171201Preview.Inputs
+namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview.Inputs
 {
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201Preview.Inputs
         /// <summary>
         /// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The size code, to be interpreted by resource as appropriate.

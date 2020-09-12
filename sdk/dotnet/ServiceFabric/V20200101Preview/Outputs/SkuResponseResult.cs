@@ -14,7 +14,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview.Outputs
     public sealed class SkuResponseResult
     {
         /// <summary>
-        /// Sku Name. Basic will hav a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
+        /// Sku Name. Basic will have a minimum of 3 seed nodes and Standard a minimum of 5. Basic only allows 1 node type.
         /// </summary>
         public readonly string Name;
 

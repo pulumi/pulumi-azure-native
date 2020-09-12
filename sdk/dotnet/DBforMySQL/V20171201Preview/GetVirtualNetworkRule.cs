@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMySQL.V20171201Preview
+namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
 {
     public static class GetVirtualNetworkRule
     {
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201Preview
         /// </summary>
         public readonly bool? IgnoreMissingVnetServiceEndpoint;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201Preview
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
         /// <summary>

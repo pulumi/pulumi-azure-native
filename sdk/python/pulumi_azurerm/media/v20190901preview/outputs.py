@@ -7,30 +7,43 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
-    'MediaGraphSinkResponse',
-    'MediaGraphSourceResponse',
+    'MediaGraphAssetSinkResponse',
+    'MediaGraphRtspSourceResponse',
+    'MediaGraphUserCredentialsResponse',
 ]
 
 @pulumi.output_type
-class MediaGraphSinkResponse(dict):
+class MediaGraphAssetSinkResponse(dict):
     """
-    Media Sink
+    Asset sink
     """
     def __init__(__self__, *,
+                 asset_name: str,
                  inputs: List[str],
                  name: str,
                  odata_type: str):
         """
-        Media Sink
+        Asset sink
+        :param str asset_name: Asset name
         :param List[str] inputs: Sink inputs
         :param str name: Sink name
         :param str odata_type: The discriminator for derived types.
         """
+        pulumi.set(__self__, "asset_name", asset_name)
         pulumi.set(__self__, "inputs", inputs)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphAssetSink')
+
+    @property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> str:
+        """
+        Asset name
+        """
+        return pulumi.get(self, "asset_name")
 
     @property
     @pulumi.getter
@@ -61,20 +74,27 @@ class MediaGraphSinkResponse(dict):
 
 
 @pulumi.output_type
-class MediaGraphSourceResponse(dict):
+class MediaGraphRtspSourceResponse(dict):
     """
-    Media source
+    RTSP source
     """
     def __init__(__self__, *,
                  name: str,
-                 odata_type: str):
+                 odata_type: str,
+                 rtsp_url: str,
+                 credentials: Optional['outputs.MediaGraphUserCredentialsResponse'] = None):
         """
-        Media source
+        RTSP source
         :param str name: Source name
         :param str odata_type: The discriminator for derived types.
+        :param str rtsp_url: RTSP URL
+        :param 'MediaGraphUserCredentialsResponseArgs' credentials: RTSP Credentials
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphRtspSource')
+        pulumi.set(__self__, "rtsp_url", rtsp_url)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
 
     @property
     @pulumi.getter
@@ -91,6 +111,58 @@ class MediaGraphSourceResponse(dict):
         The discriminator for derived types.
         """
         return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="rtspUrl")
+    def rtsp_url(self) -> str:
+        """
+        RTSP URL
+        """
+        return pulumi.get(self, "rtsp_url")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.MediaGraphUserCredentialsResponse']:
+        """
+        RTSP Credentials
+        """
+        return pulumi.get(self, "credentials")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MediaGraphUserCredentialsResponse(dict):
+    """
+    Credentials to authenticate to Media Graph sources
+    """
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        Credentials to authenticate to Media Graph sources
+        :param str password: Password credential
+        :param str username: User name
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Password credential
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        User name
+        """
+        return pulumi.get(self, "username")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

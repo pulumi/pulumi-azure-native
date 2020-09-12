@@ -30,7 +30,7 @@ type LookupCustomDomainArgs struct {
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 type LookupCustomDomainResult struct {
 	// Certificate parameters for securing custom HTTPS
-	CustomHttpsParameters *CustomDomainHttpsParametersResponse `pulumi:"customHttpsParameters"`
+	CustomHttpsParameters interface{} `pulumi:"customHttpsParameters"`
 	// Provisioning status of Custom Https of the custom domain.
 	CustomHttpsProvisioningState string `pulumi:"customHttpsProvisioningState"`
 	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.

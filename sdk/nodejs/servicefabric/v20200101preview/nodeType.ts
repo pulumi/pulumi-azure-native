@@ -97,7 +97,7 @@ export class NodeType extends pulumi.CustomResource {
      */
     public readonly vmImageVersion!: pulumi.Output<string | undefined>;
     /**
-     * The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+     * The number of nodes in the node type.
      */
     public readonly vmInstanceCount!: pulumi.Output<number>;
     /**
@@ -254,7 +254,7 @@ export interface NodeTypeArgs {
      */
     readonly vmImageVersion?: pulumi.Input<string>;
     /**
-     * The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+     * The number of nodes in the node type.
      */
     readonly vmInstanceCount: pulumi.Input<number>;
     /**

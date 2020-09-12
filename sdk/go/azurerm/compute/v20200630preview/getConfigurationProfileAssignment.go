@@ -19,7 +19,7 @@ func LookupConfigurationProfileAssignment(ctx *pulumi.Context, args *LookupConfi
 type LookupConfigurationProfileAssignmentArgs struct {
 	// The configuration profile assignment name.
 	ConfigurationProfileAssignmentName string `pulumi:"configurationProfileAssignmentName"`
-	// The resource group name.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the virtual machine.
 	VmName string `pulumi:"vmName"`
@@ -27,12 +27,10 @@ type LookupConfigurationProfileAssignmentArgs struct {
 
 // Configuration profile assignment is an association between a VM and automanage profile configuration.
 type LookupConfigurationProfileAssignmentResult struct {
-	// Region where the VM is located.
-	Location string `pulumi:"location"`
-	// Name of the Automanage assignment.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Properties of the configuration profile assignment.
 	Properties ConfigurationProfileAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

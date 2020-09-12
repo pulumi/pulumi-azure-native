@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
     public sealed class GetNamespaceResult
     {
         /// <summary>
-        /// The time the namespace was created.
+        /// The time the namespace was created
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>

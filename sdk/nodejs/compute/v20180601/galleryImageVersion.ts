@@ -160,7 +160,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:GalleryImageVersion" }, { type: "azurerm:compute/v20190301:GalleryImageVersion" }, { type: "azurerm:compute/v20190701:GalleryImageVersion" }, { type: "azurerm:compute/v20191201:GalleryImageVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/latest:GalleryImageVersion" }, { type: "azurerm:compute/v20190301:GalleryImageVersion" }, { type: "azurerm:compute/v20190701:GalleryImageVersion" }, { type: "azurerm:compute/v20191201:GalleryImageVersion" }, { type: "azurerm:compute/v20200930:GalleryImageVersion" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryImageVersion.__pulumiType, name, inputs, opts);
     }

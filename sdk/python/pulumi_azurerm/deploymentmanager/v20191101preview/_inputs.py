@@ -9,35 +9,127 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'AuthenticationArgs',
+    'ApiKeyAuthenticationArgs',
+    'HealthCheckStepPropertiesArgs',
     'IdentityArgs',
     'PrePostStepArgs',
+    'RestHealthCheckArgs',
+    'RestHealthCheckStepAttributesArgs',
+    'RestRequestArgs',
+    'RestResponseArgs',
+    'RestResponseRegexArgs',
+    'RolloutIdentityAuthenticationArgs',
+    'SasAuthenticationArgs',
     'ServiceUnitArtifactsArgs',
     'StepGroupArgs',
-    'StepPropertiesArgs',
+    'WaitStepAttributesArgs',
+    'WaitStepPropertiesArgs',
 ]
 
 @pulumi.input_type
-class AuthenticationArgs:
+class ApiKeyAuthenticationArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 in_: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
         """
-        Defines the authentication method and properties to access the artifacts.
-        :param pulumi.Input[str] type: The authentication type
+        ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
+        :param pulumi.Input[str] in_: The location of the authentication key/value pair in the request.
+        :param pulumi.Input[str] name: The key name of the authentication key/value pair.
+        :param pulumi.Input[str] type: The authentication type.
+        :param pulumi.Input[str] value: The value of the authentication key/value pair.
         """
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "in_", in_)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'ApiKey')
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="in")
+    def in_(self) -> pulumi.Input[str]:
+        """
+        The location of the authentication key/value pair in the request.
+        """
+        return pulumi.get(self, "in_")
+
+    @in_.setter
+    def in_(self, value: pulumi.Input[str]):
+        pulumi.set(self, "in_", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The key name of the authentication key/value pair.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The authentication type
+        The authentication type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the authentication key/value pair.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class HealthCheckStepPropertiesArgs:
+    def __init__(__self__, *,
+                 attributes: pulumi.Input['RestHealthCheckStepAttributesArgs'],
+                 step_type: pulumi.Input[str]):
+        """
+        Defines the properties of a health check step.
+        :param pulumi.Input['RestHealthCheckStepAttributesArgs'] attributes: The health check step attributes
+        :param pulumi.Input[str] step_type: The type of step.
+        """
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "step_type", 'HealthCheck')
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Input['RestHealthCheckStepAttributesArgs']:
+        """
+        The health check step attributes
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: pulumi.Input['RestHealthCheckStepAttributesArgs']):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter(name="stepType")
+    def step_type(self) -> pulumi.Input[str]:
+        """
+        The type of step.
+        """
+        return pulumi.get(self, "step_type")
+
+    @step_type.setter
+    def step_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "step_type", value)
 
 
 @pulumi.input_type
@@ -99,6 +191,339 @@ class PrePostStepArgs:
     @step_id.setter
     def step_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "step_id", value)
+
+
+@pulumi.input_type
+class RestHealthCheckArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 request: pulumi.Input['RestRequestArgs'],
+                 response: Optional[pulumi.Input['RestResponseArgs']] = None):
+        """
+        A REST based health check
+        :param pulumi.Input[str] name: A unique name for this check.
+        :param pulumi.Input['RestRequestArgs'] request: The request to the health provider.
+        :param pulumi.Input['RestResponseArgs'] response: The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "request", request)
+        if response is not None:
+            pulumi.set(__self__, "response", response)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A unique name for this check.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def request(self) -> pulumi.Input['RestRequestArgs']:
+        """
+        The request to the health provider.
+        """
+        return pulumi.get(self, "request")
+
+    @request.setter
+    def request(self, value: pulumi.Input['RestRequestArgs']):
+        pulumi.set(self, "request", value)
+
+    @property
+    @pulumi.getter
+    def response(self) -> Optional[pulumi.Input['RestResponseArgs']]:
+        """
+        The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+        """
+        return pulumi.get(self, "response")
+
+    @response.setter
+    def response(self, value: Optional[pulumi.Input['RestResponseArgs']]):
+        pulumi.set(self, "response", value)
+
+
+@pulumi.input_type
+class RestHealthCheckStepAttributesArgs:
+    def __init__(__self__, *,
+                 health_checks: pulumi.Input[List[pulumi.Input['RestHealthCheckArgs']]],
+                 healthy_state_duration: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 max_elastic_duration: Optional[pulumi.Input[str]] = None,
+                 wait_duration: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the REST health check step properties.
+        :param pulumi.Input[List[pulumi.Input['RestHealthCheckArgs']]] health_checks: The list of checks that form the health check step.
+        :param pulumi.Input[str] healthy_state_duration: The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+        :param pulumi.Input[str] type: The type of health check.
+        :param pulumi.Input[str] max_elastic_duration: The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+        :param pulumi.Input[str] wait_duration: The duration in ISO 8601 format for which health check waits idly without any checks.
+        """
+        pulumi.set(__self__, "health_checks", health_checks)
+        pulumi.set(__self__, "healthy_state_duration", healthy_state_duration)
+        pulumi.set(__self__, "type", 'REST')
+        if max_elastic_duration is not None:
+            pulumi.set(__self__, "max_elastic_duration", max_elastic_duration)
+        if wait_duration is not None:
+            pulumi.set(__self__, "wait_duration", wait_duration)
+
+    @property
+    @pulumi.getter(name="healthChecks")
+    def health_checks(self) -> pulumi.Input[List[pulumi.Input['RestHealthCheckArgs']]]:
+        """
+        The list of checks that form the health check step.
+        """
+        return pulumi.get(self, "health_checks")
+
+    @health_checks.setter
+    def health_checks(self, value: pulumi.Input[List[pulumi.Input['RestHealthCheckArgs']]]):
+        pulumi.set(self, "health_checks", value)
+
+    @property
+    @pulumi.getter(name="healthyStateDuration")
+    def healthy_state_duration(self) -> pulumi.Input[str]:
+        """
+        The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
+        """
+        return pulumi.get(self, "healthy_state_duration")
+
+    @healthy_state_duration.setter
+    def healthy_state_duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "healthy_state_duration", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of health check.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="maxElasticDuration")
+    def max_elastic_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
+        """
+        return pulumi.get(self, "max_elastic_duration")
+
+    @max_elastic_duration.setter
+    def max_elastic_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_elastic_duration", value)
+
+    @property
+    @pulumi.getter(name="waitDuration")
+    def wait_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The duration in ISO 8601 format for which health check waits idly without any checks.
+        """
+        return pulumi.get(self, "wait_duration")
+
+    @wait_duration.setter
+    def wait_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "wait_duration", value)
+
+
+@pulumi.input_type
+class RestRequestArgs:
+    def __init__(__self__, *,
+                 authentication: pulumi.Input[Union['ApiKeyAuthenticationArgs', 'RolloutIdentityAuthenticationArgs']],
+                 method: pulumi.Input[str],
+                 uri: pulumi.Input[str]):
+        """
+        The properties that make up a REST request
+        :param pulumi.Input[Union['ApiKeyAuthenticationArgs', 'RolloutIdentityAuthenticationArgs']] authentication: The authentication information required in the request to the health provider.
+        :param pulumi.Input[str] method: The HTTP method to use for the request.
+        :param pulumi.Input[str] uri: The HTTP URI to use for the request.
+        """
+        pulumi.set(__self__, "authentication", authentication)
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> pulumi.Input[Union['ApiKeyAuthenticationArgs', 'RolloutIdentityAuthenticationArgs']]:
+        """
+        The authentication information required in the request to the health provider.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: pulumi.Input[Union['ApiKeyAuthenticationArgs', 'RolloutIdentityAuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[str]:
+        """
+        The HTTP method to use for the request.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[str]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The HTTP URI to use for the request.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class RestResponseArgs:
+    def __init__(__self__, *,
+                 regex: Optional[pulumi.Input['RestResponseRegexArgs']] = None,
+                 success_status_codes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        The properties that make up the expected REST response
+        :param pulumi.Input['RestResponseRegexArgs'] regex: The regular expressions to match the response content with.
+        :param pulumi.Input[List[pulumi.Input[str]]] success_status_codes: The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+        """
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if success_status_codes is not None:
+            pulumi.set(__self__, "success_status_codes", success_status_codes)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[pulumi.Input['RestResponseRegexArgs']]:
+        """
+        The regular expressions to match the response content with.
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: Optional[pulumi.Input['RestResponseRegexArgs']]):
+        pulumi.set(self, "regex", value)
+
+    @property
+    @pulumi.getter(name="successStatusCodes")
+    def success_status_codes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+        """
+        return pulumi.get(self, "success_status_codes")
+
+    @success_status_codes.setter
+    def success_status_codes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "success_status_codes", value)
+
+
+@pulumi.input_type
+class RestResponseRegexArgs:
+    def __init__(__self__, *,
+                 match_quantifier: Optional[pulumi.Input[str]] = None,
+                 matches: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        The regular expressions to match the response content with.
+        :param pulumi.Input[str] match_quantifier: Indicates whether any or all of the expressions should match with the response content.
+        :param pulumi.Input[List[pulumi.Input[str]]] matches: The list of regular expressions.
+        """
+        if match_quantifier is not None:
+            pulumi.set(__self__, "match_quantifier", match_quantifier)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
+
+    @property
+    @pulumi.getter(name="matchQuantifier")
+    def match_quantifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether any or all of the expressions should match with the response content.
+        """
+        return pulumi.get(self, "match_quantifier")
+
+    @match_quantifier.setter
+    def match_quantifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_quantifier", value)
+
+    @property
+    @pulumi.getter
+    def matches(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The list of regular expressions.
+        """
+        return pulumi.get(self, "matches")
+
+    @matches.setter
+    def matches(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "matches", value)
+
+
+@pulumi.input_type
+class RolloutIdentityAuthenticationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        """
+        RolloutIdentity uses the user-assigned managed identity authentication context specified in the Identity property during rollout creation.
+        :param pulumi.Input[str] type: The authentication type.
+        """
+        pulumi.set(__self__, "type", 'RolloutIdentity')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The authentication type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class SasAuthenticationArgs:
+    def __init__(__self__, *,
+                 sas_uri: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        Defines the properties to access the artifacts using an Azure Storage SAS URI.
+        :param pulumi.Input[str] sas_uri: The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        :param pulumi.Input[str] type: The authentication type
+        """
+        pulumi.set(__self__, "sas_uri", sas_uri)
+        pulumi.set(__self__, "type", 'Sas')
+
+    @property
+    @pulumi.getter(name="sasUri")
+    def sas_uri(self) -> pulumi.Input[str]:
+        """
+        The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        """
+        return pulumi.get(self, "sas_uri")
+
+    @sas_uri.setter
+    def sas_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_uri", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The authentication type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -260,14 +685,52 @@ class StepGroupArgs:
 
 
 @pulumi.input_type
-class StepPropertiesArgs:
+class WaitStepAttributesArgs:
     def __init__(__self__, *,
+                 duration: pulumi.Input[str]):
+        """
+        The parameters for the wait step.
+        :param pulumi.Input[str] duration: The duration in ISO 8601 format of how long the wait should be.
+        """
+        pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[str]:
+        """
+        The duration in ISO 8601 format of how long the wait should be.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "duration", value)
+
+
+@pulumi.input_type
+class WaitStepPropertiesArgs:
+    def __init__(__self__, *,
+                 attributes: pulumi.Input['WaitStepAttributesArgs'],
                  step_type: pulumi.Input[str]):
         """
-        The properties of a step resource.
+        Defines the properties of a Wait step.
+        :param pulumi.Input['WaitStepAttributesArgs'] attributes: The Wait attributes
         :param pulumi.Input[str] step_type: The type of step.
         """
-        pulumi.set(__self__, "step_type", step_type)
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "step_type", 'Wait')
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> pulumi.Input['WaitStepAttributesArgs']:
+        """
+        The Wait attributes
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: pulumi.Input['WaitStepAttributesArgs']):
+        pulumi.set(self, "attributes", value)
 
     @property
     @pulumi.getter(name="stepType")

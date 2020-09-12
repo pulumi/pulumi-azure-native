@@ -9,21 +9,29 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'AuthenticationDetailsPropertiesArgs',
+    'AwAssumeRoleAuthenticationDetailsPropertiesArgs',
+    'AwsCredsAuthenticationDetailsPropertiesArgs',
+    'GcpCredentialsDetailsPropertiesArgs',
     'HybridComputeSettingsPropertiesArgs',
     'ProxyServerPropertiesArgs',
     'ServicePrincipalPropertiesArgs',
 ]
 
 @pulumi.input_type
-class AuthenticationDetailsPropertiesArgs:
+class AwAssumeRoleAuthenticationDetailsPropertiesArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[str]):
+                 authentication_type: pulumi.Input[str],
+                 aws_assume_role_arn: pulumi.Input[str],
+                 aws_external_id: pulumi.Input[str]):
         """
-        Settings for cloud authentication management
+        AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
         :param pulumi.Input[str] authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        :param pulumi.Input[str] aws_assume_role_arn: Assumed role ID is an identifier that you can use to create temporary security credentials.
+        :param pulumi.Input[str] aws_external_id: A unique identifier that is required when you assume a role in another account.
         """
-        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "authentication_type", 'awsAssumeRole')
+        pulumi.set(__self__, "aws_assume_role_arn", aws_assume_role_arn)
+        pulumi.set(__self__, "aws_external_id", aws_external_id)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -36,6 +44,271 @@ class AuthenticationDetailsPropertiesArgs:
     @authentication_type.setter
     def authentication_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="awsAssumeRoleArn")
+    def aws_assume_role_arn(self) -> pulumi.Input[str]:
+        """
+        Assumed role ID is an identifier that you can use to create temporary security credentials.
+        """
+        return pulumi.get(self, "aws_assume_role_arn")
+
+    @aws_assume_role_arn.setter
+    def aws_assume_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_assume_role_arn", value)
+
+    @property
+    @pulumi.getter(name="awsExternalId")
+    def aws_external_id(self) -> pulumi.Input[str]:
+        """
+        A unique identifier that is required when you assume a role in another account.
+        """
+        return pulumi.get(self, "aws_external_id")
+
+    @aws_external_id.setter
+    def aws_external_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_external_id", value)
+
+
+@pulumi.input_type
+class AwsCredsAuthenticationDetailsPropertiesArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input[str],
+                 aws_access_key_id: pulumi.Input[str],
+                 aws_secret_access_key: pulumi.Input[str]):
+        """
+        AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+        :param pulumi.Input[str] authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        :param pulumi.Input[str] aws_access_key_id: Public key element of the AWS credential object (write only)
+        :param pulumi.Input[str] aws_secret_access_key: Secret key element of the AWS credential object (write only)
+        """
+        pulumi.set(__self__, "authentication_type", 'awsCreds')
+        pulumi.set(__self__, "aws_access_key_id", aws_access_key_id)
+        pulumi.set(__self__, "aws_secret_access_key", aws_secret_access_key)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[str]:
+        """
+        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="awsAccessKeyId")
+    def aws_access_key_id(self) -> pulumi.Input[str]:
+        """
+        Public key element of the AWS credential object (write only)
+        """
+        return pulumi.get(self, "aws_access_key_id")
+
+    @aws_access_key_id.setter
+    def aws_access_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_access_key_id", value)
+
+    @property
+    @pulumi.getter(name="awsSecretAccessKey")
+    def aws_secret_access_key(self) -> pulumi.Input[str]:
+        """
+        Secret key element of the AWS credential object (write only)
+        """
+        return pulumi.get(self, "aws_secret_access_key")
+
+    @aws_secret_access_key.setter
+    def aws_secret_access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_secret_access_key", value)
+
+
+@pulumi.input_type
+class GcpCredentialsDetailsPropertiesArgs:
+    def __init__(__self__, *,
+                 auth_provider_x509_cert_url: pulumi.Input[str],
+                 auth_uri: pulumi.Input[str],
+                 authentication_type: pulumi.Input[str],
+                 client_email: pulumi.Input[str],
+                 client_id: pulumi.Input[str],
+                 client_x509_cert_url: pulumi.Input[str],
+                 organization_id: pulumi.Input[str],
+                 private_key: pulumi.Input[str],
+                 private_key_id: pulumi.Input[str],
+                 project_id: pulumi.Input[str],
+                 token_uri: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        GCP cloud account connector based service to service credentials, the credentials is composed of organization id and json api key (write only)</a>
+        :param pulumi.Input[str] auth_provider_x509_cert_url: Auth provider x509 certificate url field of the API key (write only)
+        :param pulumi.Input[str] auth_uri: Auth Uri field of the API key (write only)
+        :param pulumi.Input[str] authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        :param pulumi.Input[str] client_email: Client email field of the API key (write only)
+        :param pulumi.Input[str] client_id: Client Id field of the API key (write only)
+        :param pulumi.Input[str] client_x509_cert_url: Client x509 certificate url field of the API key (write only)
+        :param pulumi.Input[str] organization_id: The Organization ID of the GCP cloud account
+        :param pulumi.Input[str] private_key: Private key field of the API key (write only)
+        :param pulumi.Input[str] private_key_id: Private key Id field of the API key (write only)
+        :param pulumi.Input[str] project_id: Project Id field of the API key (write only)
+        :param pulumi.Input[str] token_uri: Token Uri field of the API key (write only)
+        :param pulumi.Input[str] type: Type field of the API key (write only)
+        """
+        pulumi.set(__self__, "auth_provider_x509_cert_url", auth_provider_x509_cert_url)
+        pulumi.set(__self__, "auth_uri", auth_uri)
+        pulumi.set(__self__, "authentication_type", 'gcpCredentials')
+        pulumi.set(__self__, "client_email", client_email)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_x509_cert_url", client_x509_cert_url)
+        pulumi.set(__self__, "organization_id", organization_id)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "private_key_id", private_key_id)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "token_uri", token_uri)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="authProviderX509CertUrl")
+    def auth_provider_x509_cert_url(self) -> pulumi.Input[str]:
+        """
+        Auth provider x509 certificate url field of the API key (write only)
+        """
+        return pulumi.get(self, "auth_provider_x509_cert_url")
+
+    @auth_provider_x509_cert_url.setter
+    def auth_provider_x509_cert_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_provider_x509_cert_url", value)
+
+    @property
+    @pulumi.getter(name="authUri")
+    def auth_uri(self) -> pulumi.Input[str]:
+        """
+        Auth Uri field of the API key (write only)
+        """
+        return pulumi.get(self, "auth_uri")
+
+    @auth_uri.setter
+    def auth_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_uri", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[str]:
+        """
+        Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="clientEmail")
+    def client_email(self) -> pulumi.Input[str]:
+        """
+        Client email field of the API key (write only)
+        """
+        return pulumi.get(self, "client_email")
+
+    @client_email.setter
+    def client_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_email", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        Client Id field of the API key (write only)
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientX509CertUrl")
+    def client_x509_cert_url(self) -> pulumi.Input[str]:
+        """
+        Client x509 certificate url field of the API key (write only)
+        """
+        return pulumi.get(self, "client_x509_cert_url")
+
+    @client_x509_cert_url.setter
+    def client_x509_cert_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_x509_cert_url", value)
+
+    @property
+    @pulumi.getter(name="organizationId")
+    def organization_id(self) -> pulumi.Input[str]:
+        """
+        The Organization ID of the GCP cloud account
+        """
+        return pulumi.get(self, "organization_id")
+
+    @organization_id.setter
+    def organization_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "organization_id", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> pulumi.Input[str]:
+        """
+        Private key field of the API key (write only)
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter(name="privateKeyId")
+    def private_key_id(self) -> pulumi.Input[str]:
+        """
+        Private key Id field of the API key (write only)
+        """
+        return pulumi.get(self, "private_key_id")
+
+    @private_key_id.setter
+    def private_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_key_id", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        Project Id field of the API key (write only)
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="tokenUri")
+    def token_uri(self) -> pulumi.Input[str]:
+        """
+        Token Uri field of the API key (write only)
+        """
+        return pulumi.get(self, "token_uri")
+
+    @token_uri.setter
+    def token_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token_uri", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type field of the API key (write only)
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

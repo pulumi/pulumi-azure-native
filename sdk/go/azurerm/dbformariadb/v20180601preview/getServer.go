@@ -33,11 +33,11 @@ type LookupServerResult struct {
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// The Azure Active Directory identity of the server.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The location the resource resides in.
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The master server id of a replica server.
 	MasterServerId *string `pulumi:"masterServerId"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The maximum number of replicas that a master server can have.
 	ReplicaCapacity *int `pulumi:"replicaCapacity"`
@@ -49,9 +49,9 @@ type LookupServerResult struct {
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
-	// Application-specific metadata in the form of key-value pairs.
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 	// A state of a server that is visible to user.
 	UserVisibleState *string `pulumi:"userVisibleState"`

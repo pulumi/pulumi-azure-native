@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
         /// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.InputPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.ReferenceInputPropertiesResponseResult, Outputs.StreamInputPropertiesResponseResult>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -185,7 +185,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
         /// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.InputPropertiesArgs>? Properties { get; set; }
+        public InputUnion<Inputs.ReferenceInputPropertiesArgs, Inputs.StreamInputPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

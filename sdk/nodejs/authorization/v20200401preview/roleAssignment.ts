@@ -43,7 +43,7 @@ export class RoleAssignment extends pulumi.CustomResource {
      */
     public readonly condition!: pulumi.Output<string | undefined>;
     /**
-     * Version of the condition. Currently accepted values are '1.0' or '2.0'
+     * Version of the condition. Currently accepted value is '2.0'
      */
     public readonly conditionVersion!: pulumi.Output<string | undefined>;
     /**
@@ -142,11 +142,11 @@ export interface RoleAssignmentArgs {
      */
     readonly canDelegate?: pulumi.Input<boolean>;
     /**
-     * The conditions on the role assignment
+     * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
     readonly condition?: pulumi.Input<string>;
     /**
-     * Version of the condition
+     * Version of the condition. Currently accepted value is '2.0'
      */
     readonly conditionVersion?: pulumi.Input<string>;
     /**

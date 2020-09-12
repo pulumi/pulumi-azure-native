@@ -132,7 +132,7 @@ namespace Pulumi.AzureRM.Insights.V20180416
         /// Action needs to be taken on rule execution.
         /// </summary>
         [Output("action")]
-        public Output<Outputs.ActionResponseResult> Action { get; private set; } = null!;
+        public Output<Union<Outputs.AlertingActionResponseResult, Outputs.LogToMetricActionResponseResult>> Action { get; private set; } = null!;
 
         /// <summary>
         /// The description of the Log Search rule.
@@ -248,7 +248,7 @@ namespace Pulumi.AzureRM.Insights.V20180416
         /// Action needs to be taken on rule execution.
         /// </summary>
         [Input("action", required: true)]
-        public Input<Inputs.ActionArgs> Action { get; set; } = null!;
+        public InputUnion<Inputs.AlertingActionArgs, Inputs.LogToMetricActionArgs> Action { get; set; } = null!;
 
         /// <summary>
         /// The description of the Log Search rule.

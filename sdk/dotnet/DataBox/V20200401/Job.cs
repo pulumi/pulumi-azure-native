@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DataBox.V20200401
         /// Details of a job run. This field will only be sent for expand details filter.
         /// </summary>
         [Output("details")]
-        public Output<Outputs.JobDetailsResponseResult?> Details { get; private set; } = null!;
+        public Output<Union<Outputs.DataBoxDiskJobDetailsResponseResult, Union<Outputs.DataBoxHeavyJobDetailsResponseResult, Outputs.DataBoxJobDetailsResponseResult>>?> Details { get; private set; } = null!;
 
         /// <summary>
         /// Top level error for the job.
@@ -195,7 +195,7 @@ namespace Pulumi.AzureRM.DataBox.V20200401
         /// Details of a job run. This field will only be sent for expand details filter.
         /// </summary>
         [Input("details")]
-        public Input<Inputs.JobDetailsArgs>? Details { get; set; }
+        public InputUnion<Inputs.DataBoxDiskJobDetailsArgs, InputUnion<Inputs.DataBoxHeavyJobDetailsArgs, Inputs.DataBoxJobDetailsArgs>>? Details { get; set; }
 
         /// <summary>
         /// Msi identity of the resource

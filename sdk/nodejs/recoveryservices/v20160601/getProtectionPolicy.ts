@@ -55,7 +55,7 @@ export interface GetProtectionPolicyResult {
     /**
      * The base class for a backup policy. Workload-specific backup policies are derived from this class.
      */
-    readonly properties: outputs.recoveryservices.v20160601.ProtectionPolicyResponse;
+    readonly properties: outputs.recoveryservices.v20160601.AzureIaaSVMProtectionPolicyResponse | outputs.recoveryservices.v20160601.AzureSqlProtectionPolicyResponse | outputs.recoveryservices.v20160601.MabProtectionPolicyResponse;
     /**
      * Resource tags.
      */

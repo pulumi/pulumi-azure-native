@@ -299,7 +299,7 @@ export interface ServerArgs {
     /**
      * Properties of the server.
      */
-    readonly properties: pulumi.Input<inputs.dbformysql.v20171201.ServerPropertiesForCreate>;
+    readonly properties: pulumi.Input<inputs.dbformysql.v20171201.ServerPropertiesForDefaultCreate | inputs.dbformysql.v20171201.ServerPropertiesForGeoRestore | inputs.dbformysql.v20171201.ServerPropertiesForReplica | inputs.dbformysql.v20171201.ServerPropertiesForRestore>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001Preview.Outputs
         /// <summary>
         /// Gets or sets the resource settings.
         /// </summary>
-        public readonly Outputs.ResourceSettingsResponseResult? ResourceSettings;
+        public readonly Union<Outputs.AvailabilitySetResourceSettingsResponseResult, Union<Outputs.LoadBalancerResourceSettingsResponseResult, Union<Outputs.NetworkInterfaceResourceSettingsResponseResult, Union<Outputs.NetworkSecurityGroupResourceSettingsResponseResult, Union<Outputs.PublicIPAddressResourceSettingsResponseResult, Union<Outputs.ResourceGroupResourceSettingsResponseResult, Union<Outputs.SqlDatabaseResourceSettingsResponseResult, Union<Outputs.SqlElasticPoolResourceSettingsResponseResult, Union<Outputs.SqlServerResourceSettingsResponseResult, Union<Outputs.VirtualMachineResourceSettingsResponseResult, Outputs.VirtualNetworkResourceSettingsResponseResult>>>>>>>>>>? ResourceSettings;
         /// <summary>
         /// Gets or sets the Source ARM Id of the resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001Preview.Outputs
 
             string? provisioningState,
 
-            Outputs.ResourceSettingsResponseResult? resourceSettings,
+            Union<Outputs.AvailabilitySetResourceSettingsResponseResult, Union<Outputs.LoadBalancerResourceSettingsResponseResult, Union<Outputs.NetworkInterfaceResourceSettingsResponseResult, Union<Outputs.NetworkSecurityGroupResourceSettingsResponseResult, Union<Outputs.PublicIPAddressResourceSettingsResponseResult, Union<Outputs.ResourceGroupResourceSettingsResponseResult, Union<Outputs.SqlDatabaseResourceSettingsResponseResult, Union<Outputs.SqlElasticPoolResourceSettingsResponseResult, Union<Outputs.SqlServerResourceSettingsResponseResult, Union<Outputs.VirtualMachineResourceSettingsResponseResult, Outputs.VirtualNetworkResourceSettingsResponseResult>>>>>>>>>>? resourceSettings,
 
             string sourceId,
 

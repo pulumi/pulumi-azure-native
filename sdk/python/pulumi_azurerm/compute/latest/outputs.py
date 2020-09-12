@@ -52,6 +52,7 @@ __all__ = [
     'GalleryArtifactVersionSourceResponse',
     'GalleryDataDiskImageResponse',
     'GalleryIdentifierResponse',
+    'GalleryImageFeatureResponse',
     'GalleryImageIdentifierResponse',
     'GalleryImageVersionPublishingProfileResponse',
     'GalleryImageVersionStorageProfileResponse',
@@ -94,6 +95,8 @@ __all__ = [
     'ScheduledEventsProfileResponse',
     'SecurityProfileResponse',
     'ShareInfoElementResponse',
+    'SharingProfileGroupResponse',
+    'SharingProfileResponse',
     'SkuResponse',
     'SnapshotSkuResponse',
     'SourceVaultResponse',
@@ -2049,7 +2052,7 @@ class EncryptionSettingsElementResponse(dict):
 @pulumi.output_type
 class GalleryApplicationVersionPublishingProfileResponse(dict):
     """
-    The publishing profile of a gallery Image Version.
+    The publishing profile of a gallery image version.
     """
     def __init__(__self__, *,
                  published_date: str,
@@ -2062,12 +2065,12 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
                  storage_account_type: Optional[str] = None,
                  target_regions: Optional[List['outputs.TargetRegionResponse']] = None):
         """
-        The publishing profile of a gallery Image Version.
-        :param str published_date: The timestamp for when the gallery Image Version is published.
+        The publishing profile of a gallery image version.
+        :param str published_date: The timestamp for when the gallery image version is published.
         :param 'UserArtifactSourceResponseArgs' source: The source image from which the Image Version is going to be created.
         :param str content_type: Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
         :param bool enable_health_check: Optional. Whether or not this application reports health.
-        :param str end_of_life_date: The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+        :param str end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param float replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
@@ -2094,7 +2097,7 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
     @pulumi.getter(name="publishedDate")
     def published_date(self) -> str:
         """
-        The timestamp for when the gallery Image Version is published.
+        The timestamp for when the gallery image version is published.
         """
         return pulumi.get(self, "published_date")
 
@@ -2126,7 +2129,7 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
     @pulumi.getter(name="endOfLifeDate")
     def end_of_life_date(self) -> Optional[str]:
         """
-        The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+        The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         """
         return pulumi.get(self, "end_of_life_date")
 
@@ -2172,21 +2175,33 @@ class GalleryArtifactVersionSourceResponse(dict):
     The gallery artifact version source.
     """
     def __init__(__self__, *,
-                 id: Optional[str] = None):
+                 id: Optional[str] = None,
+                 uri: Optional[str] = None):
         """
         The gallery artifact version source.
-        :param str id: The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+        :param str id: The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+        :param str uri: The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+        The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+        """
+        return pulumi.get(self, "uri")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -2278,19 +2293,57 @@ class GalleryIdentifierResponse(dict):
 
 
 @pulumi.output_type
+class GalleryImageFeatureResponse(dict):
+    """
+    A feature for gallery image.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        A feature for gallery image.
+        :param str name: The name of the gallery image feature.
+        :param str value: The value of the gallery image feature.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the gallery image feature.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the gallery image feature.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class GalleryImageIdentifierResponse(dict):
     """
-    This is the gallery Image Definition identifier.
+    This is the gallery image definition identifier.
     """
     def __init__(__self__, *,
                  offer: str,
                  publisher: str,
                  sku: str):
         """
-        This is the gallery Image Definition identifier.
-        :param str offer: The name of the gallery Image Definition offer.
-        :param str publisher: The name of the gallery Image Definition publisher.
-        :param str sku: The name of the gallery Image Definition SKU.
+        This is the gallery image definition identifier.
+        :param str offer: The name of the gallery image definition offer.
+        :param str publisher: The name of the gallery image definition publisher.
+        :param str sku: The name of the gallery image definition SKU.
         """
         pulumi.set(__self__, "offer", offer)
         pulumi.set(__self__, "publisher", publisher)
@@ -2300,7 +2353,7 @@ class GalleryImageIdentifierResponse(dict):
     @pulumi.getter
     def offer(self) -> str:
         """
-        The name of the gallery Image Definition offer.
+        The name of the gallery image definition offer.
         """
         return pulumi.get(self, "offer")
 
@@ -2308,7 +2361,7 @@ class GalleryImageIdentifierResponse(dict):
     @pulumi.getter
     def publisher(self) -> str:
         """
-        The name of the gallery Image Definition publisher.
+        The name of the gallery image definition publisher.
         """
         return pulumi.get(self, "publisher")
 
@@ -2316,7 +2369,7 @@ class GalleryImageIdentifierResponse(dict):
     @pulumi.getter
     def sku(self) -> str:
         """
-        The name of the gallery Image Definition SKU.
+        The name of the gallery image definition SKU.
         """
         return pulumi.get(self, "sku")
 
@@ -2327,7 +2380,7 @@ class GalleryImageIdentifierResponse(dict):
 @pulumi.output_type
 class GalleryImageVersionPublishingProfileResponse(dict):
     """
-    The publishing profile of a gallery Image Version.
+    The publishing profile of a gallery image Version.
     """
     def __init__(__self__, *,
                  published_date: str,
@@ -2337,9 +2390,9 @@ class GalleryImageVersionPublishingProfileResponse(dict):
                  storage_account_type: Optional[str] = None,
                  target_regions: Optional[List['outputs.TargetRegionResponse']] = None):
         """
-        The publishing profile of a gallery Image Version.
-        :param str published_date: The timestamp for when the gallery Image Version is published.
-        :param str end_of_life_date: The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+        The publishing profile of a gallery image Version.
+        :param str published_date: The timestamp for when the gallery image version is published.
+        :param str end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param float replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
@@ -2361,7 +2414,7 @@ class GalleryImageVersionPublishingProfileResponse(dict):
     @pulumi.getter(name="publishedDate")
     def published_date(self) -> str:
         """
-        The timestamp for when the gallery Image Version is published.
+        The timestamp for when the gallery image version is published.
         """
         return pulumi.get(self, "published_date")
 
@@ -2369,7 +2422,7 @@ class GalleryImageVersionPublishingProfileResponse(dict):
     @pulumi.getter(name="endOfLifeDate")
     def end_of_life_date(self) -> Optional[str]:
         """
-        The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+        The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         """
         return pulumi.get(self, "end_of_life_date")
 
@@ -3015,14 +3068,14 @@ class ImageOSDiskResponse(dict):
 @pulumi.output_type
 class ImagePurchasePlanResponse(dict):
     """
-    Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+    Describes the gallery image definition purchase plan. This is used by marketplace images.
     """
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  product: Optional[str] = None,
                  publisher: Optional[str] = None):
         """
-        Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        Describes the gallery image definition purchase plan. This is used by marketplace images.
         :param str name: The plan ID.
         :param str product: The product ID.
         :param str publisher: The publisher ID.
@@ -4458,7 +4511,7 @@ class RegionalReplicationStatusResponse(dict):
         This is the regional replication status.
         :param str details: The details of the replication status.
         :param float progress: It indicates progress of the replication job.
-        :param str region: The region to which the gallery Image Version is being replicated to.
+        :param str region: The region to which the gallery image version is being replicated to.
         :param str state: This is the regional replication state.
         """
         pulumi.set(__self__, "details", details)
@@ -4486,7 +4539,7 @@ class RegionalReplicationStatusResponse(dict):
     @pulumi.getter
     def region(self) -> str:
         """
-        The region to which the gallery Image Version is being replicated to.
+        The region to which the gallery image version is being replicated to.
         """
         return pulumi.get(self, "region")
 
@@ -4505,13 +4558,13 @@ class RegionalReplicationStatusResponse(dict):
 @pulumi.output_type
 class ReplicationStatusResponse(dict):
     """
-    This is the replication status of the gallery Image Version.
+    This is the replication status of the gallery image version.
     """
     def __init__(__self__, *,
                  aggregated_state: str,
                  summary: List['outputs.RegionalReplicationStatusResponse']):
         """
-        This is the replication status of the gallery Image Version.
+        This is the replication status of the gallery image version.
         :param str aggregated_state: This is the aggregated replication status based on all the regional replication status flags.
         :param List['RegionalReplicationStatusResponseArgs'] summary: This is a summary of replication status for each region.
         """
@@ -4728,6 +4781,81 @@ class ShareInfoElementResponse(dict):
         A relative URI containing the ID of the VM that has the disk attached.
         """
         return pulumi.get(self, "vm_uri")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SharingProfileGroupResponse(dict):
+    """
+    Group of the gallery sharing profile
+    """
+    def __init__(__self__, *,
+                 ids: Optional[List[str]] = None,
+                 type: Optional[str] = None):
+        """
+        Group of the gallery sharing profile
+        :param List[str] ids: A list of subscription/tenant ids the gallery is aimed to be shared to.
+        :param str type: This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
+        """
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[List[str]]:
+        """
+        A list of subscription/tenant ids the gallery is aimed to be shared to.
+        """
+        return pulumi.get(self, "ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SharingProfileResponse(dict):
+    """
+    Profile for gallery sharing to subscription or tenant
+    """
+    def __init__(__self__, *,
+                 groups: List['outputs.SharingProfileGroupResponse'],
+                 permissions: Optional[str] = None):
+        """
+        Profile for gallery sharing to subscription or tenant
+        :param List['SharingProfileGroupResponseArgs'] groups: A list of sharing profile groups.
+        :param str permissions: This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+        """
+        pulumi.set(__self__, "groups", groups)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> List['outputs.SharingProfileGroupResponse']:
+        """
+        A list of sharing profile groups.
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[str]:
+        """
+        This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+        """
+        return pulumi.get(self, "permissions")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

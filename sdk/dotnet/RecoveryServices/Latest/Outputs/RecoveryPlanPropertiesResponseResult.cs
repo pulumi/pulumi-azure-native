@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest.Outputs
         /// <summary>
         /// The provider id and provider specific details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RecoveryPlanProviderSpecificDetailsResponseResult> ProviderSpecificDetails;
+        public readonly ImmutableArray<Outputs.RecoveryPlanA2ADetailsResponseResult> ProviderSpecificDetails;
         /// <summary>
         /// The recovery fabric friendly name.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest.Outputs
 
             string? primaryFabricId,
 
-            ImmutableArray<Outputs.RecoveryPlanProviderSpecificDetailsResponseResult> providerSpecificDetails,
+            ImmutableArray<Outputs.RecoveryPlanA2ADetailsResponseResult> providerSpecificDetails,
 
             string? recoveryFabricFriendlyName,
 

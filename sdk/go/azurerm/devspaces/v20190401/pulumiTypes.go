@@ -12,7 +12,7 @@ import (
 
 type ControllerConnectionDetailsResponse struct {
 	// Base class for types that supply values used to connect to container orchestrators
-	OrchestratorSpecificConnectionDetails *OrchestratorSpecificConnectionDetailsResponse `pulumi:"orchestratorSpecificConnectionDetails"`
+	OrchestratorSpecificConnectionDetails *KubernetesConnectionDetailsResponse `pulumi:"orchestratorSpecificConnectionDetails"`
 }
 
 // ControllerConnectionDetailsResponseInput is an input type that accepts ControllerConnectionDetailsResponseArgs and ControllerConnectionDetailsResponseOutput values.
@@ -28,7 +28,7 @@ type ControllerConnectionDetailsResponseInput interface {
 
 type ControllerConnectionDetailsResponseArgs struct {
 	// Base class for types that supply values used to connect to container orchestrators
-	OrchestratorSpecificConnectionDetails OrchestratorSpecificConnectionDetailsResponsePtrInput `pulumi:"orchestratorSpecificConnectionDetails"`
+	OrchestratorSpecificConnectionDetails KubernetesConnectionDetailsResponsePtrInput `pulumi:"orchestratorSpecificConnectionDetails"`
 }
 
 func (ControllerConnectionDetailsResponseArgs) ElementType() reflect.Type {
@@ -83,10 +83,10 @@ func (o ControllerConnectionDetailsResponseOutput) ToControllerConnectionDetails
 }
 
 // Base class for types that supply values used to connect to container orchestrators
-func (o ControllerConnectionDetailsResponseOutput) OrchestratorSpecificConnectionDetails() OrchestratorSpecificConnectionDetailsResponsePtrOutput {
-	return o.ApplyT(func(v ControllerConnectionDetailsResponse) *OrchestratorSpecificConnectionDetailsResponse {
+func (o ControllerConnectionDetailsResponseOutput) OrchestratorSpecificConnectionDetails() KubernetesConnectionDetailsResponsePtrOutput {
+	return o.ApplyT(func(v ControllerConnectionDetailsResponse) *KubernetesConnectionDetailsResponse {
 		return v.OrchestratorSpecificConnectionDetails
-	}).(OrchestratorSpecificConnectionDetailsResponsePtrOutput)
+	}).(KubernetesConnectionDetailsResponsePtrOutput)
 }
 
 type ControllerConnectionDetailsResponseArrayOutput struct{ *pulumi.OutputState }
@@ -109,139 +109,156 @@ func (o ControllerConnectionDetailsResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ControllerConnectionDetailsResponseOutput)
 }
 
-// Base class for types that supply values used to connect to container orchestrators
-type OrchestratorSpecificConnectionDetailsResponse struct {
+// Contains information used to connect to a Kubernetes cluster
+type KubernetesConnectionDetailsResponse struct {
 	// Gets the Instance type.
 	InstanceType string `pulumi:"instanceType"`
+	// Gets the kubeconfig for the cluster.
+	KubeConfig *string `pulumi:"kubeConfig"`
 }
 
-// OrchestratorSpecificConnectionDetailsResponseInput is an input type that accepts OrchestratorSpecificConnectionDetailsResponseArgs and OrchestratorSpecificConnectionDetailsResponseOutput values.
-// You can construct a concrete instance of `OrchestratorSpecificConnectionDetailsResponseInput` via:
+// KubernetesConnectionDetailsResponseInput is an input type that accepts KubernetesConnectionDetailsResponseArgs and KubernetesConnectionDetailsResponseOutput values.
+// You can construct a concrete instance of `KubernetesConnectionDetailsResponseInput` via:
 //
-//          OrchestratorSpecificConnectionDetailsResponseArgs{...}
-type OrchestratorSpecificConnectionDetailsResponseInput interface {
+//          KubernetesConnectionDetailsResponseArgs{...}
+type KubernetesConnectionDetailsResponseInput interface {
 	pulumi.Input
 
-	ToOrchestratorSpecificConnectionDetailsResponseOutput() OrchestratorSpecificConnectionDetailsResponseOutput
-	ToOrchestratorSpecificConnectionDetailsResponseOutputWithContext(context.Context) OrchestratorSpecificConnectionDetailsResponseOutput
+	ToKubernetesConnectionDetailsResponseOutput() KubernetesConnectionDetailsResponseOutput
+	ToKubernetesConnectionDetailsResponseOutputWithContext(context.Context) KubernetesConnectionDetailsResponseOutput
 }
 
-// Base class for types that supply values used to connect to container orchestrators
-type OrchestratorSpecificConnectionDetailsResponseArgs struct {
+// Contains information used to connect to a Kubernetes cluster
+type KubernetesConnectionDetailsResponseArgs struct {
 	// Gets the Instance type.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// Gets the kubeconfig for the cluster.
+	KubeConfig pulumi.StringPtrInput `pulumi:"kubeConfig"`
 }
 
-func (OrchestratorSpecificConnectionDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrchestratorSpecificConnectionDetailsResponse)(nil)).Elem()
+func (KubernetesConnectionDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesConnectionDetailsResponse)(nil)).Elem()
 }
 
-func (i OrchestratorSpecificConnectionDetailsResponseArgs) ToOrchestratorSpecificConnectionDetailsResponseOutput() OrchestratorSpecificConnectionDetailsResponseOutput {
-	return i.ToOrchestratorSpecificConnectionDetailsResponseOutputWithContext(context.Background())
+func (i KubernetesConnectionDetailsResponseArgs) ToKubernetesConnectionDetailsResponseOutput() KubernetesConnectionDetailsResponseOutput {
+	return i.ToKubernetesConnectionDetailsResponseOutputWithContext(context.Background())
 }
 
-func (i OrchestratorSpecificConnectionDetailsResponseArgs) ToOrchestratorSpecificConnectionDetailsResponseOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorSpecificConnectionDetailsResponseOutput)
+func (i KubernetesConnectionDetailsResponseArgs) ToKubernetesConnectionDetailsResponseOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConnectionDetailsResponseOutput)
 }
 
-func (i OrchestratorSpecificConnectionDetailsResponseArgs) ToOrchestratorSpecificConnectionDetailsResponsePtrOutput() OrchestratorSpecificConnectionDetailsResponsePtrOutput {
-	return i.ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(context.Background())
+func (i KubernetesConnectionDetailsResponseArgs) ToKubernetesConnectionDetailsResponsePtrOutput() KubernetesConnectionDetailsResponsePtrOutput {
+	return i.ToKubernetesConnectionDetailsResponsePtrOutputWithContext(context.Background())
 }
 
-func (i OrchestratorSpecificConnectionDetailsResponseArgs) ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorSpecificConnectionDetailsResponseOutput).ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(ctx)
+func (i KubernetesConnectionDetailsResponseArgs) ToKubernetesConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConnectionDetailsResponseOutput).ToKubernetesConnectionDetailsResponsePtrOutputWithContext(ctx)
 }
 
-// OrchestratorSpecificConnectionDetailsResponsePtrInput is an input type that accepts OrchestratorSpecificConnectionDetailsResponseArgs, OrchestratorSpecificConnectionDetailsResponsePtr and OrchestratorSpecificConnectionDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `OrchestratorSpecificConnectionDetailsResponsePtrInput` via:
+// KubernetesConnectionDetailsResponsePtrInput is an input type that accepts KubernetesConnectionDetailsResponseArgs, KubernetesConnectionDetailsResponsePtr and KubernetesConnectionDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `KubernetesConnectionDetailsResponsePtrInput` via:
 //
-//          OrchestratorSpecificConnectionDetailsResponseArgs{...}
+//          KubernetesConnectionDetailsResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type OrchestratorSpecificConnectionDetailsResponsePtrInput interface {
+type KubernetesConnectionDetailsResponsePtrInput interface {
 	pulumi.Input
 
-	ToOrchestratorSpecificConnectionDetailsResponsePtrOutput() OrchestratorSpecificConnectionDetailsResponsePtrOutput
-	ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(context.Context) OrchestratorSpecificConnectionDetailsResponsePtrOutput
+	ToKubernetesConnectionDetailsResponsePtrOutput() KubernetesConnectionDetailsResponsePtrOutput
+	ToKubernetesConnectionDetailsResponsePtrOutputWithContext(context.Context) KubernetesConnectionDetailsResponsePtrOutput
 }
 
-type orchestratorSpecificConnectionDetailsResponsePtrType OrchestratorSpecificConnectionDetailsResponseArgs
+type kubernetesConnectionDetailsResponsePtrType KubernetesConnectionDetailsResponseArgs
 
-func OrchestratorSpecificConnectionDetailsResponsePtr(v *OrchestratorSpecificConnectionDetailsResponseArgs) OrchestratorSpecificConnectionDetailsResponsePtrInput {
-	return (*orchestratorSpecificConnectionDetailsResponsePtrType)(v)
+func KubernetesConnectionDetailsResponsePtr(v *KubernetesConnectionDetailsResponseArgs) KubernetesConnectionDetailsResponsePtrInput {
+	return (*kubernetesConnectionDetailsResponsePtrType)(v)
 }
 
-func (*orchestratorSpecificConnectionDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrchestratorSpecificConnectionDetailsResponse)(nil)).Elem()
+func (*kubernetesConnectionDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesConnectionDetailsResponse)(nil)).Elem()
 }
 
-func (i *orchestratorSpecificConnectionDetailsResponsePtrType) ToOrchestratorSpecificConnectionDetailsResponsePtrOutput() OrchestratorSpecificConnectionDetailsResponsePtrOutput {
-	return i.ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(context.Background())
+func (i *kubernetesConnectionDetailsResponsePtrType) ToKubernetesConnectionDetailsResponsePtrOutput() KubernetesConnectionDetailsResponsePtrOutput {
+	return i.ToKubernetesConnectionDetailsResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *orchestratorSpecificConnectionDetailsResponsePtrType) ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorSpecificConnectionDetailsResponsePtrOutput)
+func (i *kubernetesConnectionDetailsResponsePtrType) ToKubernetesConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConnectionDetailsResponsePtrOutput)
 }
 
-// Base class for types that supply values used to connect to container orchestrators
-type OrchestratorSpecificConnectionDetailsResponseOutput struct{ *pulumi.OutputState }
+// Contains information used to connect to a Kubernetes cluster
+type KubernetesConnectionDetailsResponseOutput struct{ *pulumi.OutputState }
 
-func (OrchestratorSpecificConnectionDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrchestratorSpecificConnectionDetailsResponse)(nil)).Elem()
+func (KubernetesConnectionDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesConnectionDetailsResponse)(nil)).Elem()
 }
 
-func (o OrchestratorSpecificConnectionDetailsResponseOutput) ToOrchestratorSpecificConnectionDetailsResponseOutput() OrchestratorSpecificConnectionDetailsResponseOutput {
+func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetailsResponseOutput() KubernetesConnectionDetailsResponseOutput {
 	return o
 }
 
-func (o OrchestratorSpecificConnectionDetailsResponseOutput) ToOrchestratorSpecificConnectionDetailsResponseOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponseOutput {
+func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetailsResponseOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponseOutput {
 	return o
 }
 
-func (o OrchestratorSpecificConnectionDetailsResponseOutput) ToOrchestratorSpecificConnectionDetailsResponsePtrOutput() OrchestratorSpecificConnectionDetailsResponsePtrOutput {
-	return o.ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(context.Background())
+func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetailsResponsePtrOutput() KubernetesConnectionDetailsResponsePtrOutput {
+	return o.ToKubernetesConnectionDetailsResponsePtrOutputWithContext(context.Background())
 }
 
-func (o OrchestratorSpecificConnectionDetailsResponseOutput) ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponsePtrOutput {
-	return o.ApplyT(func(v OrchestratorSpecificConnectionDetailsResponse) *OrchestratorSpecificConnectionDetailsResponse {
+func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponsePtrOutput {
+	return o.ApplyT(func(v KubernetesConnectionDetailsResponse) *KubernetesConnectionDetailsResponse {
 		return &v
-	}).(OrchestratorSpecificConnectionDetailsResponsePtrOutput)
+	}).(KubernetesConnectionDetailsResponsePtrOutput)
 }
 
 // Gets the Instance type.
-func (o OrchestratorSpecificConnectionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v OrchestratorSpecificConnectionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o KubernetesConnectionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesConnectionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-type OrchestratorSpecificConnectionDetailsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (OrchestratorSpecificConnectionDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrchestratorSpecificConnectionDetailsResponse)(nil)).Elem()
+// Gets the kubeconfig for the cluster.
+func (o KubernetesConnectionDetailsResponseOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesConnectionDetailsResponse) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
 }
 
-func (o OrchestratorSpecificConnectionDetailsResponsePtrOutput) ToOrchestratorSpecificConnectionDetailsResponsePtrOutput() OrchestratorSpecificConnectionDetailsResponsePtrOutput {
+type KubernetesConnectionDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesConnectionDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (o KubernetesConnectionDetailsResponsePtrOutput) ToKubernetesConnectionDetailsResponsePtrOutput() KubernetesConnectionDetailsResponsePtrOutput {
 	return o
 }
 
-func (o OrchestratorSpecificConnectionDetailsResponsePtrOutput) ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponsePtrOutput {
+func (o KubernetesConnectionDetailsResponsePtrOutput) ToKubernetesConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponsePtrOutput {
 	return o
 }
 
-func (o OrchestratorSpecificConnectionDetailsResponsePtrOutput) Elem() OrchestratorSpecificConnectionDetailsResponseOutput {
-	return o.ApplyT(func(v *OrchestratorSpecificConnectionDetailsResponse) OrchestratorSpecificConnectionDetailsResponse {
-		return *v
-	}).(OrchestratorSpecificConnectionDetailsResponseOutput)
+func (o KubernetesConnectionDetailsResponsePtrOutput) Elem() KubernetesConnectionDetailsResponseOutput {
+	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) KubernetesConnectionDetailsResponse { return *v }).(KubernetesConnectionDetailsResponseOutput)
 }
 
 // Gets the Instance type.
-func (o OrchestratorSpecificConnectionDetailsResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrchestratorSpecificConnectionDetailsResponse) *string {
+func (o KubernetesConnectionDetailsResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets the kubeconfig for the cluster.
+func (o KubernetesConnectionDetailsResponsePtrOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KubeConfig
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -554,8 +571,8 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseArrayOutput{})
-	pulumi.RegisterOutputType(OrchestratorSpecificConnectionDetailsResponseOutput{})
-	pulumi.RegisterOutputType(OrchestratorSpecificConnectionDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesConnectionDetailsResponseOutput{})
+	pulumi.RegisterOutputType(KubernetesConnectionDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

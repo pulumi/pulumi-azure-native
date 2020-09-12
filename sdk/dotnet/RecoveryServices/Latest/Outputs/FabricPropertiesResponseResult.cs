@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest.Outputs
         /// <summary>
         /// Fabric specific settings.
         /// </summary>
-        public readonly Outputs.FabricSpecificDetailsResponseResult? CustomDetails;
+        public readonly Union<Outputs.AzureFabricSpecificDetailsResponseResult, Union<Outputs.HyperVSiteDetailsResponseResult, Union<Outputs.VMwareDetailsResponseResult, Union<Outputs.VMwareV2FabricSpecificDetailsResponseResult, Outputs.VmmDetailsResponseResult>>>>? CustomDetails;
         /// <summary>
         /// Encryption details for the fabric.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest.Outputs
         private FabricPropertiesResponseResult(
             string? bcdrState,
 
-            Outputs.FabricSpecificDetailsResponseResult? customDetails,
+            Union<Outputs.AzureFabricSpecificDetailsResponseResult, Union<Outputs.HyperVSiteDetailsResponseResult, Union<Outputs.VMwareDetailsResponseResult, Union<Outputs.VMwareV2FabricSpecificDetailsResponseResult, Outputs.VmmDetailsResponseResult>>>>? customDetails,
 
             Outputs.EncryptionDetailsResponseResult? encryptionDetails,
 

@@ -37,6 +37,7 @@ from . import (
     changeanalysis,
     cognitiveservices,
     compute,
+    config,
     consumption,
     containerinstance,
     containerregistry,

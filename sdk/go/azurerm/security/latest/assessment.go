@@ -27,7 +27,7 @@ type Assessment struct {
 	// Data regarding 3rd party partner integration
 	PartnersData SecurityAssessmentPartnerDataResponsePtrOutput `pulumi:"partnersData"`
 	// Details of the resource that was assessed
-	ResourceDetails ResourceDetailsResponseOutput `pulumi:"resourceDetails"`
+	ResourceDetails pulumi.AnyOutput `pulumi:"resourceDetails"`
 	// The result of the assessment
 	Status AssessmentStatusResponseOutput `pulumi:"status"`
 	// Resource type
@@ -96,7 +96,7 @@ type assessmentState struct {
 	// Data regarding 3rd party partner integration
 	PartnersData *SecurityAssessmentPartnerDataResponse `pulumi:"partnersData"`
 	// Details of the resource that was assessed
-	ResourceDetails *ResourceDetailsResponse `pulumi:"resourceDetails"`
+	ResourceDetails interface{} `pulumi:"resourceDetails"`
 	// The result of the assessment
 	Status *AssessmentStatusResponse `pulumi:"status"`
 	// Resource type
@@ -117,7 +117,7 @@ type AssessmentState struct {
 	// Data regarding 3rd party partner integration
 	PartnersData SecurityAssessmentPartnerDataResponsePtrInput
 	// Details of the resource that was assessed
-	ResourceDetails ResourceDetailsResponsePtrInput
+	ResourceDetails pulumi.Input
 	// The result of the assessment
 	Status AssessmentStatusResponsePtrInput
 	// Resource type
@@ -138,7 +138,7 @@ type assessmentArgs struct {
 	// Data regarding 3rd party partner integration
 	PartnersData *SecurityAssessmentPartnerData `pulumi:"partnersData"`
 	// Details of the resource that was assessed
-	ResourceDetails ResourceDetails `pulumi:"resourceDetails"`
+	ResourceDetails interface{} `pulumi:"resourceDetails"`
 	// The identifier of the resource.
 	ResourceId string `pulumi:"resourceId"`
 	// The result of the assessment
@@ -156,7 +156,7 @@ type AssessmentArgs struct {
 	// Data regarding 3rd party partner integration
 	PartnersData SecurityAssessmentPartnerDataPtrInput
 	// Details of the resource that was assessed
-	ResourceDetails ResourceDetailsInput
+	ResourceDetails pulumi.Input
 	// The identifier of the resource.
 	ResourceId pulumi.StringInput
 	// The result of the assessment

@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001Preview.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of identity used for the region move service.
+        /// The type of identity used for the resource mover service.
         /// </summary>
         public readonly string? Type;
 

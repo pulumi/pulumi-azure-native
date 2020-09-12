@@ -7,6 +7,7 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
+<<<<<<< HEAD
  * Specifies information about the gallery Image Definition that you want to create or update.
  *
  * ## Example Usage
@@ -32,6 +33,9 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
+=======
+ * Specifies information about the gallery image definition that you want to create or update.
+>>>>>>> origin/master
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**
@@ -61,7 +65,7 @@ export class GalleryImage extends pulumi.CustomResource {
     }
 
     /**
-     * The description of this gallery Image Definition resource. This property is updatable.
+     * The description of this gallery image definition resource. This property is updatable.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -69,19 +73,23 @@ export class GalleryImage extends pulumi.CustomResource {
      */
     public readonly disallowed!: pulumi.Output<outputs.compute.latest.DisallowedResponse | undefined>;
     /**
-     * The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+     * The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
      */
     public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
     /**
-     * The Eula agreement for the gallery Image Definition.
+     * The Eula agreement for the gallery image definition.
      */
     public readonly eula!: pulumi.Output<string | undefined>;
+    /**
+     * A list of gallery image features.
+     */
+    public readonly features!: pulumi.Output<outputs.compute.latest.GalleryImageFeatureResponse[] | undefined>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
     /**
-     * This is the gallery Image Definition identifier.
+     * This is the gallery image definition identifier.
      */
     public readonly identifier!: pulumi.Output<outputs.compute.latest.GalleryImageIdentifierResponse>;
     /**
@@ -109,7 +117,7 @@ export class GalleryImage extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+     * Describes the gallery image definition purchase plan. This is used by marketplace images.
      */
     public readonly purchasePlan!: pulumi.Output<outputs.compute.latest.ImagePurchasePlanResponse | undefined>;
     /**
@@ -164,6 +172,7 @@ export class GalleryImage extends pulumi.CustomResource {
             inputs["disallowed"] = args ? args.disallowed : undefined;
             inputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
             inputs["eula"] = args ? args.eula : undefined;
+            inputs["features"] = args ? args.features : undefined;
             inputs["galleryImageName"] = args ? args.galleryImageName : undefined;
             inputs["galleryName"] = args ? args.galleryName : undefined;
             inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
@@ -185,6 +194,7 @@ export class GalleryImage extends pulumi.CustomResource {
             inputs["disallowed"] = undefined /*out*/;
             inputs["endOfLifeDate"] = undefined /*out*/;
             inputs["eula"] = undefined /*out*/;
+            inputs["features"] = undefined /*out*/;
             inputs["hyperVGeneration"] = undefined /*out*/;
             inputs["identifier"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
@@ -206,7 +216,7 @@ export class GalleryImage extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20180601:GalleryImage" }, { type: "azurerm:compute/v20190301:GalleryImage" }, { type: "azurerm:compute/v20190701:GalleryImage" }, { type: "azurerm:compute/v20191201:GalleryImage" }] };
+        const aliasOpts = { aliases: [{ type: "azurerm:compute/v20180601:GalleryImage" }, { type: "azurerm:compute/v20190301:GalleryImage" }, { type: "azurerm:compute/v20190701:GalleryImage" }, { type: "azurerm:compute/v20191201:GalleryImage" }, { type: "azurerm:compute/v20200930:GalleryImage" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(GalleryImage.__pulumiType, name, inputs, opts);
     }
@@ -217,7 +227,7 @@ export class GalleryImage extends pulumi.CustomResource {
  */
 export interface GalleryImageArgs {
     /**
-     * The description of this gallery Image Definition resource. This property is updatable.
+     * The description of this gallery image definition resource. This property is updatable.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -225,15 +235,19 @@ export interface GalleryImageArgs {
      */
     readonly disallowed?: pulumi.Input<inputs.compute.latest.Disallowed>;
     /**
-     * The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+     * The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
      */
     readonly endOfLifeDate?: pulumi.Input<string>;
     /**
-     * The Eula agreement for the gallery Image Definition.
+     * The Eula agreement for the gallery image definition.
      */
     readonly eula?: pulumi.Input<string>;
     /**
-     * The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
+     * A list of gallery image features.
+     */
+    readonly features?: pulumi.Input<pulumi.Input<inputs.compute.latest.GalleryImageFeature>[]>;
+    /**
+     * The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
      */
     readonly galleryImageName: pulumi.Input<string>;
     /**
@@ -245,7 +259,7 @@ export interface GalleryImageArgs {
      */
     readonly hyperVGeneration?: pulumi.Input<string>;
     /**
-     * This is the gallery Image Definition identifier.
+     * This is the gallery image definition identifier.
      */
     readonly identifier: pulumi.Input<inputs.compute.latest.GalleryImageIdentifier>;
     /**
@@ -265,7 +279,7 @@ export interface GalleryImageArgs {
      */
     readonly privacyStatementUri?: pulumi.Input<string>;
     /**
-     * Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+     * Describes the gallery image definition purchase plan. This is used by marketplace images.
      */
     readonly purchasePlan?: pulumi.Input<inputs.compute.latest.ImagePurchasePlan>;
     /**

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.DBforMariaDB.V20180601Preview
+namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
 {
     public static class GetServer
     {
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601Preview
         /// </summary>
         public readonly Outputs.ResourceIdentityResponseResult? Identity;
         /// <summary>
-        /// The location the resource resides in.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601Preview
         /// </summary>
         public readonly string? MasterServerId;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -88,11 +88,11 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601Preview
         /// </summary>
         public readonly Outputs.StorageProfileResponseResult? StorageProfile;
         /// <summary>
-        /// Application-specific metadata in the form of key-value pairs.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
         /// <summary>

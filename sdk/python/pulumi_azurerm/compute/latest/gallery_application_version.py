@@ -66,7 +66,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] gallery_application_version_name: The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
         :param pulumi.Input[str] gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']] publishing_profile: The publishing profile of a gallery Image Version.
+        :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']] publishing_profile: The publishing profile of a gallery image version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -110,7 +110,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             __props__['provisioning_state'] = None
             __props__['replication_status'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20190301:GalleryApplicationVersion"), pulumi.Alias(type_="azurerm:compute/v20190701:GalleryApplicationVersion"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryApplicationVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azurerm:compute/v20190301:GalleryApplicationVersion"), pulumi.Alias(type_="azurerm:compute/v20190701:GalleryApplicationVersion"), pulumi.Alias(type_="azurerm:compute/v20191201:GalleryApplicationVersion"), pulumi.Alias(type_="azurerm:compute/v20200930:GalleryApplicationVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryApplicationVersion, __self__).__init__(
             'azurerm:compute/latest:GalleryApplicationVersion',
@@ -164,7 +164,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     @pulumi.getter(name="publishingProfile")
     def publishing_profile(self) -> pulumi.Output['outputs.GalleryApplicationVersionPublishingProfileResponse']:
         """
-        The publishing profile of a gallery Image Version.
+        The publishing profile of a gallery image version.
         """
         return pulumi.get(self, "publishing_profile")
 
@@ -172,7 +172,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     @pulumi.getter(name="replicationStatus")
     def replication_status(self) -> pulumi.Output['outputs.ReplicationStatusResponse']:
         """
-        This is the replication status of the gallery Image Version.
+        This is the replication status of the gallery image version.
         """
         return pulumi.get(self, "replication_status")
 

@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
         /// The properties that are associated with a function.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FunctionPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ScalarFunctionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -147,7 +147,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
         /// The properties that are associated with a function.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.FunctionPropertiesArgs>? Properties { get; set; }
+        public Input<Inputs.ScalarFunctionPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

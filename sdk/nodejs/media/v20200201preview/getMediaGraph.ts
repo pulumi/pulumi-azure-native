@@ -59,11 +59,11 @@ export interface GetMediaGraphResult {
     /**
      * Media Graph sinks.
      */
-    readonly sinks: outputs.media.v20200201preview.MediaGraphSinkResponse[];
+    readonly sinks: outputs.media.v20200201preview.MediaGraphAssetSinkResponse[];
     /**
      * Media Graph sources.
      */
-    readonly sources: outputs.media.v20200201preview.MediaGraphSourceResponse[];
+    readonly sources: outputs.media.v20200201preview.MediaGraphRtspSourceResponse[];
     /**
      * Media Graph state which indicates the resource allocation status for running the media graph pipeline.
      */

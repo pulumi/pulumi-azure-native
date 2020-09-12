@@ -39,7 +39,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * List of activities in pipeline.
      */
-    public readonly activities!: pulumi.Output<outputs.datafactory.v20170901preview.ActivityResponse[] | undefined>;
+    public readonly activities!: pulumi.Output<outputs.datafactory.v20170901preview.ControlActivityResponse | outputs.datafactory.v20170901preview.ExecutionActivityResponse[] | undefined>;
     /**
      * List of tags that can be used for describing the Pipeline.
      */
@@ -129,7 +129,7 @@ export interface PipelineArgs {
     /**
      * List of activities in pipeline.
      */
-    readonly activities?: pulumi.Input<pulumi.Input<inputs.datafactory.v20170901preview.Activity>[]>;
+    readonly activities?: pulumi.Input<pulumi.Input<inputs.datafactory.v20170901preview.ControlActivity | inputs.datafactory.v20170901preview.ExecutionActivity>[]>;
     /**
      * List of tags that can be used for describing the Pipeline.
      */

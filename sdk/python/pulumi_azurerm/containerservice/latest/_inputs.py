@@ -38,9 +38,9 @@ __all__ = [
     'ManagedClusterServicePrincipalProfileArgs',
     'ManagedClusterWindowsProfileArgs',
     'NetworkProfileArgs',
+    'OpenShiftManagedClusterAADIdentityProviderArgs',
     'OpenShiftManagedClusterAgentPoolProfileArgs',
     'OpenShiftManagedClusterAuthProfileArgs',
-    'OpenShiftManagedClusterBaseIdentityProviderArgs',
     'OpenShiftManagedClusterIdentityProviderArgs',
     'OpenShiftManagedClusterMasterPoolProfileArgs',
     'OpenShiftRouterProfileArgs',
@@ -1064,6 +1064,7 @@ class ManagedClusterAgentPoolProfileArgs:
                  node_taints: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 os_disk_type: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  scale_set_eviction_policy: Optional[pulumi.Input[str]] = None,
@@ -1089,6 +1090,7 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[List[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param pulumi.Input[float] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param pulumi.Input[str] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param pulumi.Input[str] proximity_placement_group_id: The ID for Proximity Placement Group.
         :param pulumi.Input[str] scale_set_eviction_policy: ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
@@ -1125,6 +1127,8 @@ class ManagedClusterAgentPoolProfileArgs:
             pulumi.set(__self__, "orchestrator_version", orchestrator_version)
         if os_disk_size_gb is not None:
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if os_disk_type is not None:
+            pulumi.set(__self__, "os_disk_type", os_disk_type)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if proximity_placement_group_id is not None:
@@ -1301,6 +1305,18 @@ class ManagedClusterAgentPoolProfileArgs:
     @os_disk_size_gb.setter
     def os_disk_size_gb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "os_disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="osDiskType")
+    def os_disk_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
+        """
+        return pulumi.get(self, "os_disk_type")
+
+    @os_disk_type.setter
+    def os_disk_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_disk_type", value)
 
     @property
     @pulumi.getter(name="osType")
@@ -1627,21 +1643,38 @@ class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
 class ManagedClusterPropertiesAutoScalerProfileArgs:
     def __init__(__self__, *,
                  balance_similar_node_groups: Optional[pulumi.Input[str]] = None,
+                 expander: Optional[pulumi.Input[str]] = None,
+                 max_empty_bulk_delete: Optional[pulumi.Input[str]] = None,
                  max_graceful_termination_sec: Optional[pulumi.Input[str]] = None,
+                 max_total_unready_percentage: Optional[pulumi.Input[str]] = None,
+                 new_pod_scale_up_delay: Optional[pulumi.Input[str]] = None,
+                 ok_total_unready_count: Optional[pulumi.Input[str]] = None,
                  scale_down_delay_after_add: Optional[pulumi.Input[str]] = None,
                  scale_down_delay_after_delete: Optional[pulumi.Input[str]] = None,
                  scale_down_delay_after_failure: Optional[pulumi.Input[str]] = None,
                  scale_down_unneeded_time: Optional[pulumi.Input[str]] = None,
                  scale_down_unready_time: Optional[pulumi.Input[str]] = None,
                  scale_down_utilization_threshold: Optional[pulumi.Input[str]] = None,
-                 scan_interval: Optional[pulumi.Input[str]] = None):
+                 scan_interval: Optional[pulumi.Input[str]] = None,
+                 skip_nodes_with_local_storage: Optional[pulumi.Input[str]] = None,
+                 skip_nodes_with_system_pods: Optional[pulumi.Input[str]] = None):
         """
         Parameters to be applied to the cluster-autoscaler when enabled
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
+        if expander is not None:
+            pulumi.set(__self__, "expander", expander)
+        if max_empty_bulk_delete is not None:
+            pulumi.set(__self__, "max_empty_bulk_delete", max_empty_bulk_delete)
         if max_graceful_termination_sec is not None:
             pulumi.set(__self__, "max_graceful_termination_sec", max_graceful_termination_sec)
+        if max_total_unready_percentage is not None:
+            pulumi.set(__self__, "max_total_unready_percentage", max_total_unready_percentage)
+        if new_pod_scale_up_delay is not None:
+            pulumi.set(__self__, "new_pod_scale_up_delay", new_pod_scale_up_delay)
+        if ok_total_unready_count is not None:
+            pulumi.set(__self__, "ok_total_unready_count", ok_total_unready_count)
         if scale_down_delay_after_add is not None:
             pulumi.set(__self__, "scale_down_delay_after_add", scale_down_delay_after_add)
         if scale_down_delay_after_delete is not None:
@@ -1656,6 +1689,10 @@ class ManagedClusterPropertiesAutoScalerProfileArgs:
             pulumi.set(__self__, "scale_down_utilization_threshold", scale_down_utilization_threshold)
         if scan_interval is not None:
             pulumi.set(__self__, "scan_interval", scan_interval)
+        if skip_nodes_with_local_storage is not None:
+            pulumi.set(__self__, "skip_nodes_with_local_storage", skip_nodes_with_local_storage)
+        if skip_nodes_with_system_pods is not None:
+            pulumi.set(__self__, "skip_nodes_with_system_pods", skip_nodes_with_system_pods)
 
     @property
     @pulumi.getter(name="balanceSimilarNodeGroups")
@@ -1667,6 +1704,24 @@ class ManagedClusterPropertiesAutoScalerProfileArgs:
         pulumi.set(self, "balance_similar_node_groups", value)
 
     @property
+    @pulumi.getter
+    def expander(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expander")
+
+    @expander.setter
+    def expander(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expander", value)
+
+    @property
+    @pulumi.getter(name="maxEmptyBulkDelete")
+    def max_empty_bulk_delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "max_empty_bulk_delete")
+
+    @max_empty_bulk_delete.setter
+    def max_empty_bulk_delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_empty_bulk_delete", value)
+
+    @property
     @pulumi.getter(name="maxGracefulTerminationSec")
     def max_graceful_termination_sec(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "max_graceful_termination_sec")
@@ -1674,6 +1729,33 @@ class ManagedClusterPropertiesAutoScalerProfileArgs:
     @max_graceful_termination_sec.setter
     def max_graceful_termination_sec(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "max_graceful_termination_sec", value)
+
+    @property
+    @pulumi.getter(name="maxTotalUnreadyPercentage")
+    def max_total_unready_percentage(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "max_total_unready_percentage")
+
+    @max_total_unready_percentage.setter
+    def max_total_unready_percentage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_total_unready_percentage", value)
+
+    @property
+    @pulumi.getter(name="newPodScaleUpDelay")
+    def new_pod_scale_up_delay(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "new_pod_scale_up_delay")
+
+    @new_pod_scale_up_delay.setter
+    def new_pod_scale_up_delay(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "new_pod_scale_up_delay", value)
+
+    @property
+    @pulumi.getter(name="okTotalUnreadyCount")
+    def ok_total_unready_count(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ok_total_unready_count")
+
+    @ok_total_unready_count.setter
+    def ok_total_unready_count(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ok_total_unready_count", value)
 
     @property
     @pulumi.getter(name="scaleDownDelayAfterAdd")
@@ -1737,6 +1819,24 @@ class ManagedClusterPropertiesAutoScalerProfileArgs:
     @scan_interval.setter
     def scan_interval(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scan_interval", value)
+
+    @property
+    @pulumi.getter(name="skipNodesWithLocalStorage")
+    def skip_nodes_with_local_storage(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "skip_nodes_with_local_storage")
+
+    @skip_nodes_with_local_storage.setter
+    def skip_nodes_with_local_storage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "skip_nodes_with_local_storage", value)
+
+    @property
+    @pulumi.getter(name="skipNodesWithSystemPods")
+    def skip_nodes_with_system_pods(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "skip_nodes_with_system_pods")
+
+    @skip_nodes_with_system_pods.setter
+    def skip_nodes_with_system_pods(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "skip_nodes_with_system_pods", value)
 
 
 @pulumi.input_type
@@ -1984,6 +2084,93 @@ class NetworkProfileArgs:
 
 
 @pulumi.input_type
+class OpenShiftManagedClusterAADIdentityProviderArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 customer_admin_group_id: Optional[pulumi.Input[str]] = None,
+                 secret: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the Identity provider for MS AAD.
+        :param pulumi.Input[str] kind: The kind of the provider.
+        :param pulumi.Input[str] client_id: The clientId password associated with the provider.
+        :param pulumi.Input[str] customer_admin_group_id: The groupId to be granted cluster admin role.
+        :param pulumi.Input[str] secret: The secret password associated with the provider.
+        :param pulumi.Input[str] tenant_id: The tenantId associated with the provider.
+        """
+        pulumi.set(__self__, "kind", 'AADIdentityProvider')
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if customer_admin_group_id is not None:
+            pulumi.set(__self__, "customer_admin_group_id", customer_admin_group_id)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The kind of the provider.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The clientId password associated with the provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="customerAdminGroupId")
+    def customer_admin_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The groupId to be granted cluster admin role.
+        """
+        return pulumi.get(self, "customer_admin_group_id")
+
+    @customer_admin_group_id.setter
+    def customer_admin_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_admin_group_id", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secret password associated with the provider.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenantId associated with the provider.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
 class OpenShiftManagedClusterAgentPoolProfileArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[float],
@@ -2109,37 +2296,14 @@ class OpenShiftManagedClusterAuthProfileArgs:
 
 
 @pulumi.input_type
-class OpenShiftManagedClusterBaseIdentityProviderArgs:
-    def __init__(__self__, *,
-                 kind: pulumi.Input[str]):
-        """
-        Structure for any Identity provider.
-        :param pulumi.Input[str] kind: The kind of the provider.
-        """
-        pulumi.set(__self__, "kind", kind)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Input[str]:
-        """
-        The kind of the provider.
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kind", value)
-
-
-@pulumi.input_type
 class OpenShiftManagedClusterIdentityProviderArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 provider: Optional[pulumi.Input['OpenShiftManagedClusterBaseIdentityProviderArgs']] = None):
+                 provider: Optional[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs']] = None):
         """
         Defines the configuration of the identity providers to be used in the OpenShift cluster.
         :param pulumi.Input[str] name: Name of the provider.
-        :param pulumi.Input['OpenShiftManagedClusterBaseIdentityProviderArgs'] provider: Configuration of the provider.
+        :param pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs'] provider: Configuration of the provider.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -2160,14 +2324,14 @@ class OpenShiftManagedClusterIdentityProviderArgs:
 
     @property
     @pulumi.getter
-    def provider(self) -> Optional[pulumi.Input['OpenShiftManagedClusterBaseIdentityProviderArgs']]:
+    def provider(self) -> Optional[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs']]:
         """
         Configuration of the provider.
         """
         return pulumi.get(self, "provider")
 
     @provider.setter
-    def provider(self, value: Optional[pulumi.Input['OpenShiftManagedClusterBaseIdentityProviderArgs']]):
+    def provider(self, value: Optional[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs']]):
         pulumi.set(self, "provider", value)
 
 

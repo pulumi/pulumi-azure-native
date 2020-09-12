@@ -12,12 +12,15 @@ from . import outputs
 __all__ = [
     'AssessmentLinksResponse',
     'AssessmentStatusResponse',
-    'AutomationActionResponse',
+    'AutomationActionEventHubResponse',
+    'AutomationActionLogicAppResponse',
+    'AutomationActionWorkspaceResponse',
     'AutomationRuleSetResponse',
     'AutomationScopeResponse',
     'AutomationSourceResponse',
     'AutomationTriggeringRuleResponse',
-    'ResourceDetailsResponse',
+    'AzureResourceDetailsResponse',
+    'OnPremiseResourceDetailsResponse',
     'ScopeElementResponse',
     'SuppressionAlertsScopeResponse',
 ]
@@ -97,17 +100,28 @@ class AssessmentStatusResponse(dict):
 
 
 @pulumi.output_type
-class AutomationActionResponse(dict):
+class AutomationActionEventHubResponse(dict):
     """
-    The action that should be triggered.
+    The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
     """
     def __init__(__self__, *,
-                 action_type: str):
+                 action_type: str,
+                 sas_policy_name: str,
+                 connection_string: Optional[str] = None,
+                 event_hub_resource_id: Optional[str] = None):
         """
-        The action that should be triggered.
+        The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
         :param str action_type: The type of the action that will be triggered by the Automation
+        :param str sas_policy_name: The target Event Hub SAS policy name.
+        :param str connection_string: The target Event Hub connection string (it will not be included in any response).
+        :param str event_hub_resource_id: The target Event Hub Azure Resource ID.
         """
-        pulumi.set(__self__, "action_type", action_type)
+        pulumi.set(__self__, "action_type", 'EventHub')
+        pulumi.set(__self__, "sas_policy_name", sas_policy_name)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if event_hub_resource_id is not None:
+            pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
 
     @property
     @pulumi.getter(name="actionType")
@@ -116,6 +130,116 @@ class AutomationActionResponse(dict):
         The type of the action that will be triggered by the Automation
         """
         return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="sasPolicyName")
+    def sas_policy_name(self) -> str:
+        """
+        The target Event Hub SAS policy name.
+        """
+        return pulumi.get(self, "sas_policy_name")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[str]:
+        """
+        The target Event Hub connection string (it will not be included in any response).
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="eventHubResourceId")
+    def event_hub_resource_id(self) -> Optional[str]:
+        """
+        The target Event Hub Azure Resource ID.
+        """
+        return pulumi.get(self, "event_hub_resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationActionLogicAppResponse(dict):
+    """
+    The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+    """
+    def __init__(__self__, *,
+                 action_type: str,
+                 logic_app_resource_id: Optional[str] = None,
+                 uri: Optional[str] = None):
+        """
+        The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+        :param str action_type: The type of the action that will be triggered by the Automation
+        :param str logic_app_resource_id: The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+        :param str uri: The Logic App trigger URI endpoint (it will not be included in any response).
+        """
+        pulumi.set(__self__, "action_type", 'LogicApp')
+        if logic_app_resource_id is not None:
+            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        The type of the action that will be triggered by the Automation
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="logicAppResourceId")
+    def logic_app_resource_id(self) -> Optional[str]:
+        """
+        The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+        """
+        return pulumi.get(self, "logic_app_resource_id")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        """
+        The Logic App trigger URI endpoint (it will not be included in any response).
+        """
+        return pulumi.get(self, "uri")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AutomationActionWorkspaceResponse(dict):
+    """
+    The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+    """
+    def __init__(__self__, *,
+                 action_type: str,
+                 workspace_resource_id: Optional[str] = None):
+        """
+        The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+        :param str action_type: The type of the action that will be triggered by the Automation
+        :param str workspace_resource_id: The fully qualified Log Analytics Workspace Azure Resource ID.
+        """
+        pulumi.set(__self__, "action_type", 'Workspace')
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        The type of the action that will be triggered by the Automation
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[str]:
+        """
+        The fully qualified Log Analytics Workspace Azure Resource ID.
+        """
+        return pulumi.get(self, "workspace_resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -282,17 +406,28 @@ class AutomationTriggeringRuleResponse(dict):
 
 
 @pulumi.output_type
-class ResourceDetailsResponse(dict):
+class AzureResourceDetailsResponse(dict):
     """
-    Details of the resource that was assessed
+    Details of the Azure resource that was assessed
     """
     def __init__(__self__, *,
+                 id: str,
                  source: str):
         """
-        Details of the resource that was assessed
+        Details of the Azure resource that was assessed
+        :param str id: Azure resource Id of the assessed resource
         :param str source: The platform where the assessed resource resides
         """
-        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "source", 'Azure')
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id of the assessed resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -301,6 +436,75 @@ class ResourceDetailsResponse(dict):
         The platform where the assessed resource resides
         """
         return pulumi.get(self, "source")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OnPremiseResourceDetailsResponse(dict):
+    """
+    Details of the On Premise resource that was assessed
+    """
+    def __init__(__self__, *,
+                 machine_name: str,
+                 source: str,
+                 source_computer_id: str,
+                 vmuuid: str,
+                 workspace_id: str):
+        """
+        Details of the On Premise resource that was assessed
+        :param str machine_name: The name of the machine
+        :param str source: The platform where the assessed resource resides
+        :param str source_computer_id: The oms agent Id installed on the machine
+        :param str vmuuid: The unique Id of the machine
+        :param str workspace_id: Azure resource Id of the workspace the machine is attached to
+        """
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "source", 'OnPremise')
+        pulumi.set(__self__, "source_computer_id", source_computer_id)
+        pulumi.set(__self__, "vmuuid", vmuuid)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> str:
+        """
+        The name of the machine
+        """
+        return pulumi.get(self, "machine_name")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The platform where the assessed resource resides
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="sourceComputerId")
+    def source_computer_id(self) -> str:
+        """
+        The oms agent Id installed on the machine
+        """
+        return pulumi.get(self, "source_computer_id")
+
+    @property
+    @pulumi.getter
+    def vmuuid(self) -> str:
+        """
+        The unique Id of the machine
+        """
+        return pulumi.get(self, "vmuuid")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+        return pulumi.get(self, "workspace_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

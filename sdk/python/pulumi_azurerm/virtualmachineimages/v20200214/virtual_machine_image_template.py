@@ -18,13 +18,13 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  build_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
-                 customize: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateCustomizerArgs']]]]] = None,
-                 distribute: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateDistributorArgs']]]]] = None,
+                 customize: Optional[pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['ImageTemplateFileCustomizerArgs'], pulumi.InputType['ImageTemplatePowerShellCustomizerArgs'], pulumi.InputType['ImageTemplateRestartCustomizerArgs'], pulumi.InputType['ImageTemplateShellCustomizerArgs'], pulumi.InputType['ImageTemplateWindowsUpdateCustomizerArgs']]]]]] = None,
+                 distribute: Optional[pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageDistributorArgs'], pulumi.InputType['ImageTemplateSharedImageDistributorArgs'], pulumi.InputType['ImageTemplateVhdDistributorArgs']]]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ImageTemplateIdentityArgs']]] = None,
                  image_template_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ImageTemplateSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageSourceArgs'], pulumi.InputType['ImageTemplatePlatformImageSourceArgs'], pulumi.InputType['ImageTemplateSharedImageVersionSourceArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_profile: Optional[pulumi.Input[pulumi.InputType['ImageTemplateVmProfileArgs']]] = None,
                  __props__=None,
@@ -132,13 +132,13 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] build_timeout_in_minutes: Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateCustomizerArgs']]]] customize: Specifies the properties used to describe the customization steps of the image, like Image source etc
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateDistributorArgs']]]] distribute: The distribution targets where the image output needs to go to.
+        :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['ImageTemplateFileCustomizerArgs'], pulumi.InputType['ImageTemplatePowerShellCustomizerArgs'], pulumi.InputType['ImageTemplateRestartCustomizerArgs'], pulumi.InputType['ImageTemplateShellCustomizerArgs'], pulumi.InputType['ImageTemplateWindowsUpdateCustomizerArgs']]]]] customize: Specifies the properties used to describe the customization steps of the image, like Image source etc
+        :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageDistributorArgs'], pulumi.InputType['ImageTemplateSharedImageDistributorArgs'], pulumi.InputType['ImageTemplateVhdDistributorArgs']]]]] distribute: The distribution targets where the image output needs to go to.
         :param pulumi.Input[pulumi.InputType['ImageTemplateIdentityArgs']] identity: The identity of the image template, if configured.
         :param pulumi.Input[str] image_template_name: The name of the image Template
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[pulumi.InputType['ImageTemplateSourceArgs']] source: Specifies the properties used to describe the source image.
+        :param pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageSourceArgs'], pulumi.InputType['ImageTemplatePlatformImageSourceArgs'], pulumi.InputType['ImageTemplateSharedImageVersionSourceArgs']]] source: Specifies the properties used to describe the source image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['ImageTemplateVmProfileArgs']] vm_profile: Describes how virtual machine is set up to build images
         """
@@ -222,7 +222,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def customize(self) -> pulumi.Output[Optional[List['outputs.ImageTemplateCustomizerResponse']]]:
+    def customize(self) -> pulumi.Output[Optional[List[Any]]]:
         """
         Specifies the properties used to describe the customization steps of the image, like Image source etc
         """
@@ -230,7 +230,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def distribute(self) -> pulumi.Output[List['outputs.ImageTemplateDistributorResponse']]:
+    def distribute(self) -> pulumi.Output[List[Any]]:
         """
         The distribution targets where the image output needs to go to.
         """
@@ -286,7 +286,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Output['outputs.ImageTemplateSourceResponse']:
+    def source(self) -> pulumi.Output[Any]:
         """
         Specifies the properties used to describe the source image.
         """

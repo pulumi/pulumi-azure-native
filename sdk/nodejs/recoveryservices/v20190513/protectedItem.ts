@@ -83,7 +83,7 @@ export class ProtectedItem extends pulumi.CustomResource {
     /**
      * ProtectedItemResource properties
      */
-    public readonly properties!: pulumi.Output<outputs.recoveryservices.v20190513.ProtectedItemResponse>;
+    public readonly properties!: pulumi.Output<outputs.recoveryservices.v20190513.AzureFileshareProtectedItemResponse | outputs.recoveryservices.v20190513.AzureIaaSVMProtectedItemResponse | outputs.recoveryservices.v20190513.AzureSqlProtectedItemResponse | outputs.recoveryservices.v20190513.AzureVmWorkloadProtectedItemResponse | outputs.recoveryservices.v20190513.DPMProtectedItemResponse | outputs.recoveryservices.v20190513.GenericProtectedItemResponse | outputs.recoveryservices.v20190513.MabFileFolderProtectedItemResponse>;
     /**
      * Resource tags.
      */
@@ -173,7 +173,7 @@ export interface ProtectedItemArgs {
     /**
      * ProtectedItemResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20190513.ProtectedItem>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20190513.AzureFileshareProtectedItem | inputs.recoveryservices.v20190513.AzureIaaSVMProtectedItem | inputs.recoveryservices.v20190513.AzureSqlProtectedItem | inputs.recoveryservices.v20190513.AzureVmWorkloadProtectedItem | inputs.recoveryservices.v20190513.DPMProtectedItem | inputs.recoveryservices.v20190513.GenericProtectedItem | inputs.recoveryservices.v20190513.MabFileFolderProtectedItem>;
     /**
      * Item name to be backed up.
      */

@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview.Outputs
         /// <summary>
         /// Describes parameters for creating application-scoped volumes.
         /// </summary>
-        public readonly Outputs.ApplicationScopedVolumeCreationParametersResponseResult CreationParameters;
+        public readonly Outputs.ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseResult CreationParameters;
         /// <summary>
         /// The path within the container at which the volume should be mounted. Only valid path characters are allowed.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview.Outputs
 
         [OutputConstructor]
         private ApplicationScopedVolumeResponseResult(
-            Outputs.ApplicationScopedVolumeCreationParametersResponseResult creationParameters,
+            Outputs.ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskResponseResult creationParameters,
 
             string destinationPath,
 

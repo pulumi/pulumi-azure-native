@@ -47,7 +47,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    public readonly inputSchemaMapping!: pulumi.Output<outputs.eventgrid.v20190201preview.InputSchemaMappingResponse | undefined>;
+    public readonly inputSchemaMapping!: pulumi.Output<outputs.eventgrid.v20190201preview.JsonInputSchemaMappingResponse | undefined>;
     /**
      * Location of the resource
      */
@@ -136,7 +136,7 @@ export interface DomainArgs {
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20190201preview.InputSchemaMapping>;
+    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20190201preview.JsonInputSchemaMapping>;
     /**
      * Location of the resource
      */

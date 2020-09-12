@@ -7,7 +7,7 @@ PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
 VERSION         := 0.1.0
 
-GOPATH          := $(shell go env GOPATH)
+PROVIDER_PKGS    := $(shell cd ./provider && go list ./...)
 WORKING_DIR     := $(shell pwd)
 
 VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azurerm/provider/pkg/version.Version=${VERSION}"
@@ -52,13 +52,19 @@ codegen::
 provider::
 	(cd provider && go build -a -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER) && cp $(WORKING_DIR)/bin/$(PROVIDER) $(GOPATH)/bin/)
 
+test_provider::
+	(cd provider && go test -v $(PROVIDER_PKGS))
+
+lint_provider:: provider # lint the provider code
+	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
+
 generate_nodejs::
 	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples=true -sdk=true nodejs
 
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
-		yarn run tsc && \
+		tsc && \
 		cp ../../README.md package.json yarn.lock ./bin/ && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 

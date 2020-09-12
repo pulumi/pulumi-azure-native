@@ -30,7 +30,7 @@ type LookupFunctionResult struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with a function.
-	Properties FunctionPropertiesResponse `pulumi:"properties"`
+	Properties ScalarFunctionPropertiesResponse `pulumi:"properties"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110.Inputs
         /// Provider specific input for pairing.
         /// </summary>
         [Input("providerSpecificInput")]
-        public Input<Inputs.ReplicationProviderSpecificContainerMappingInputArgs>? ProviderSpecificInput { get; set; }
+        public InputUnion<Inputs.A2AContainerMappingInputArgs, Inputs.VMwareCbtContainerMappingInputArgs>? ProviderSpecificInput { get; set; }
 
         /// <summary>
         /// The target unique protection container name.

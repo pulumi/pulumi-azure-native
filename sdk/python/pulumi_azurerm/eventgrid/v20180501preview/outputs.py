@@ -7,52 +7,37 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
+from . import outputs
 
 __all__ = [
-    'DeadLetterDestinationResponse',
-    'EventSubscriptionDestinationResponse',
+    'EventHubEventSubscriptionDestinationResponse',
     'EventSubscriptionFilterResponse',
-    'InputSchemaMappingResponse',
+    'HybridConnectionEventSubscriptionDestinationResponse',
+    'JsonFieldResponse',
+    'JsonFieldWithDefaultResponse',
+    'JsonInputSchemaMappingResponse',
     'RetryPolicyResponse',
+    'StorageBlobDeadLetterDestinationResponse',
+    'StorageQueueEventSubscriptionDestinationResponse',
+    'WebHookEventSubscriptionDestinationResponse',
 ]
 
 @pulumi.output_type
-class DeadLetterDestinationResponse(dict):
+class EventHubEventSubscriptionDestinationResponse(dict):
     """
-    Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-    """
-    def __init__(__self__, *,
-                 endpoint_type: str):
-        """
-        Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
-        :param str endpoint_type: Type of the endpoint for the dead letter destination
-        """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-
-    @property
-    @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> str:
-        """
-        Type of the endpoint for the dead letter destination
-        """
-        return pulumi.get(self, "endpoint_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class EventSubscriptionDestinationResponse(dict):
-    """
-    Information about the destination for an event subscription
+    Information about the event hub destination for an event subscription
     """
     def __init__(__self__, *,
-                 endpoint_type: str):
+                 endpoint_type: str,
+                 resource_id: Optional[str] = None):
         """
-        Information about the destination for an event subscription
+        Information about the event hub destination for an event subscription
         :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str resource_id: The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "endpoint_type", 'EventHub')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -61,6 +46,14 @@ class EventSubscriptionDestinationResponse(dict):
         Type of the endpoint for the event subscription destination
         """
         return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -139,18 +132,175 @@ class EventSubscriptionFilterResponse(dict):
 
 
 @pulumi.output_type
-class InputSchemaMappingResponse(dict):
+class HybridConnectionEventSubscriptionDestinationResponse(dict):
     """
-    By default, Event Grid expects events to be in the Event Grid event schema. Specifying an input schema mapping enables publishing to Event Grid using a custom input schema. Currently, the only supported type of InputSchemaMapping is 'JsonInputSchemaMapping'.
+    Information about the HybridConnection destination for an event subscription.
     """
     def __init__(__self__, *,
-                 input_schema_mapping_type: Optional[str] = None):
+                 endpoint_type: str,
+                 resource_id: Optional[str] = None):
         """
-        By default, Event Grid expects events to be in the Event Grid event schema. Specifying an input schema mapping enables publishing to Event Grid using a custom input schema. Currently, the only supported type of InputSchemaMapping is 'JsonInputSchemaMapping'.
+        Information about the HybridConnection destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str resource_id: The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'HybridConnection')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of an hybrid connection that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JsonFieldResponse(dict):
+    """
+    This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id','topic' and 'eventTime' properties. This represents a field in the input event schema.
+    """
+    def __init__(__self__, *,
+                 source_field: Optional[str] = None):
+        """
+        This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id','topic' and 'eventTime' properties. This represents a field in the input event schema.
+        :param str source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[str]:
+        """
+        Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        return pulumi.get(self, "source_field")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JsonFieldWithDefaultResponse(dict):
+    """
+    This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'subject','eventType' and 'dataVersion' properties. This represents a field in the input event schema along with a default value to be used, and at least one of these two properties should be provided.
+    """
+    def __init__(__self__, *,
+                 default_value: Optional[str] = None,
+                 source_field: Optional[str] = None):
+        """
+        This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'subject','eventType' and 'dataVersion' properties. This represents a field in the input event schema along with a default value to be used, and at least one of these two properties should be provided.
+        :param str default_value: The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
+        :param str source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[str]:
+        """
+        The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
+        """
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[str]:
+        """
+        Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        return pulumi.get(self, "source_field")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class JsonInputSchemaMappingResponse(dict):
+    """
+    This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
+    """
+    def __init__(__self__, *,
+                 data_version: Optional['outputs.JsonFieldWithDefaultResponse'] = None,
+                 event_time: Optional['outputs.JsonFieldResponse'] = None,
+                 event_type: Optional['outputs.JsonFieldWithDefaultResponse'] = None,
+                 id: Optional['outputs.JsonFieldResponse'] = None,
+                 input_schema_mapping_type: Optional[str] = None,
+                 subject: Optional['outputs.JsonFieldWithDefaultResponse'] = None,
+                 topic: Optional['outputs.JsonFieldResponse'] = None):
+        """
+        This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
+        :param 'JsonFieldWithDefaultResponseArgs' data_version: The mapping information for the DataVersion property of the Event Grid Event.
+        :param 'JsonFieldResponseArgs' event_time: The mapping information for the EventTime property of the Event Grid Event.
+        :param 'JsonFieldWithDefaultResponseArgs' event_type: The mapping information for the EventType property of the Event Grid Event.
+        :param 'JsonFieldResponseArgs' id: The mapping information for the Id property of the Event Grid Event.
         :param str input_schema_mapping_type: Type of the custom mapping
+        :param 'JsonFieldWithDefaultResponseArgs' subject: The mapping information for the Subject property of the Event Grid Event.
+        :param 'JsonFieldResponseArgs' topic: The mapping information for the Topic property of the Event Grid Event.
         """
+        if data_version is not None:
+            pulumi.set(__self__, "data_version", data_version)
+        if event_time is not None:
+            pulumi.set(__self__, "event_time", event_time)
+        if event_type is not None:
+            pulumi.set(__self__, "event_type", event_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if input_schema_mapping_type is not None:
-            pulumi.set(__self__, "input_schema_mapping_type", input_schema_mapping_type)
+            pulumi.set(__self__, "input_schema_mapping_type", 'Json')
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter(name="dataVersion")
+    def data_version(self) -> Optional['outputs.JsonFieldWithDefaultResponse']:
+        """
+        The mapping information for the DataVersion property of the Event Grid Event.
+        """
+        return pulumi.get(self, "data_version")
+
+    @property
+    @pulumi.getter(name="eventTime")
+    def event_time(self) -> Optional['outputs.JsonFieldResponse']:
+        """
+        The mapping information for the EventTime property of the Event Grid Event.
+        """
+        return pulumi.get(self, "event_time")
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> Optional['outputs.JsonFieldWithDefaultResponse']:
+        """
+        The mapping information for the EventType property of the Event Grid Event.
+        """
+        return pulumi.get(self, "event_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional['outputs.JsonFieldResponse']:
+        """
+        The mapping information for the Id property of the Event Grid Event.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="inputSchemaMappingType")
@@ -159,6 +309,22 @@ class InputSchemaMappingResponse(dict):
         Type of the custom mapping
         """
         return pulumi.get(self, "input_schema_mapping_type")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional['outputs.JsonFieldWithDefaultResponse']:
+        """
+        The mapping information for the Subject property of the Event Grid Event.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional['outputs.JsonFieldResponse']:
+        """
+        The mapping information for the Topic property of the Event Grid Event.
+        """
+        return pulumi.get(self, "topic")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -197,6 +363,152 @@ class RetryPolicyResponse(dict):
         Maximum number of delivery retry attempts for events.
         """
         return pulumi.get(self, "max_delivery_attempts")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageBlobDeadLetterDestinationResponse(dict):
+    """
+    Information about the storage blob based dead letter destination.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 blob_container_name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the storage blob based dead letter destination.
+        :param str endpoint_type: Type of the endpoint for the dead letter destination
+        :param str blob_container_name: The name of the Storage blob container that is the destination of the deadletter events
+        :param str resource_id: The Azure Resource ID of the storage account that is the destination of the deadletter events
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageBlob')
+        if blob_container_name is not None:
+            pulumi.set(__self__, "blob_container_name", blob_container_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the dead letter destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="blobContainerName")
+    def blob_container_name(self) -> Optional[str]:
+        """
+        The name of the Storage blob container that is the destination of the deadletter events
+        """
+        return pulumi.get(self, "blob_container_name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of the storage account that is the destination of the deadletter events
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class StorageQueueEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the storage queue destination for an event subscription.
+    """
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 queue_name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the storage queue destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
+        :param str resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'StorageQueue')
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[str]:
+        """
+        The name of the Storage queue under a storage account that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WebHookEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the webhook destination for an event subscription
+    """
+    def __init__(__self__, *,
+                 endpoint_base_url: str,
+                 endpoint_type: str,
+                 endpoint_url: Optional[str] = None):
+        """
+        Information about the webhook destination for an event subscription
+        :param str endpoint_base_url: The base URL that represents the endpoint of the destination of an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination
+        :param str endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
+        pulumi.set(__self__, "endpoint_type", 'WebHook')
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+
+    @property
+    @pulumi.getter(name="endpointBaseUrl")
+    def endpoint_base_url(self) -> str:
+        """
+        The base URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_base_url")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[str]:
+        """
+        The URL that represents the endpoint of the destination of an event subscription.
+        """
+        return pulumi.get(self, "endpoint_url")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

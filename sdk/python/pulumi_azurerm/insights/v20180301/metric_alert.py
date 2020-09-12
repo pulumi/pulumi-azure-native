@@ -19,7 +19,7 @@ class MetricAlert(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]] = None,
+                 criteria: Optional[pulumi.Input[Union[pulumi.InputType['MetricAlertMultipleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['MetricAlertSingleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['WebtestLocationAvailabilityCriteriaArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
@@ -272,7 +272,7 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         :param pulumi.Input[bool] auto_mitigate: the flag that indicates whether the alert should be auto resolved or not. The default is true.
-        :param pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']] criteria: defines the specific alert criteria information.
+        :param pulumi.Input[Union[pulumi.InputType['MetricAlertMultipleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['MetricAlertSingleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['WebtestLocationAvailabilityCriteriaArgs']]] criteria: defines the specific alert criteria information.
         :param pulumi.Input[str] description: the description of the metric alert that will be included in the alert email.
         :param pulumi.Input[bool] enabled: the flag that indicates whether the metric alert is enabled.
         :param pulumi.Input[str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
@@ -383,7 +383,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Output['outputs.MetricAlertCriteriaResponse']:
+    def criteria(self) -> pulumi.Output[Any]:
         """
         defines the specific alert criteria information.
         """

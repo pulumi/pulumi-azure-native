@@ -38,13 +38,13 @@ type LookupProjectResult struct {
 	// The project's provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Information for connecting to source
-	SourceConnectionInfo *ConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+	SourceConnectionInfo interface{} `pulumi:"sourceConnectionInfo"`
 	// Source platform for the project
 	SourcePlatform string `pulumi:"sourcePlatform"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Information for connecting to target
-	TargetConnectionInfo *ConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+	TargetConnectionInfo interface{} `pulumi:"targetConnectionInfo"`
 	// Target platform for the project
 	TargetPlatform string `pulumi:"targetPlatform"`
 	// Resource type.

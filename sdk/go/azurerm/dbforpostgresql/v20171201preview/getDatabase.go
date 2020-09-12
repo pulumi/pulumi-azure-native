@@ -31,8 +31,8 @@ type LookupDatabaseResult struct {
 	Charset *string `pulumi:"charset"`
 	// The collation of the database.
 	Collation *string `pulumi:"collation"`
-	// Resource name.
+	// The name of the resource
 	Name string `pulumi:"name"`
-	// Resource type.
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

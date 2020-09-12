@@ -66,7 +66,7 @@ class GetMachineLearningComputeResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ComputeResponse':
+    def properties(self) -> Any:
         """
         Compute properties
         """

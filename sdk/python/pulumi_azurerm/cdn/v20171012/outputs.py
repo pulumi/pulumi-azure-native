@@ -10,14 +10,73 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
+    'CacheExpirationActionParametersResponse',
     'DeepCreatedOriginResponse',
-    'DeliveryRuleActionResponse',
-    'DeliveryRuleConditionResponse',
+    'DeliveryRuleCacheExpirationActionResponse',
     'DeliveryRuleResponse',
+    'DeliveryRuleUrlFileExtensionConditionResponse',
+    'DeliveryRuleUrlPathConditionResponse',
     'EndpointPropertiesUpdateParametersResponseDeliveryPolicy',
     'GeoFilterResponse',
     'SkuResponse',
+    'UrlFileExtensionConditionParametersResponse',
+    'UrlPathConditionParametersResponse',
 ]
+
+@pulumi.output_type
+class CacheExpirationActionParametersResponse(dict):
+    """
+    Defines the parameters for the cache expiration action.
+    """
+    def __init__(__self__, *,
+                 cache_behavior: str,
+                 cache_type: str,
+                 odata_type: str,
+                 cache_duration: Optional[str] = None):
+        """
+        Defines the parameters for the cache expiration action.
+        :param str cache_behavior: Caching behavior for the requests that include query strings.
+        :param str cache_type: The level at which the content needs to be cached.
+        :param str cache_duration: The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+        """
+        pulumi.set(__self__, "cache_behavior", cache_behavior)
+        pulumi.set(__self__, "cache_type", cache_type)
+        pulumi.set(__self__, "odata_type", odata_type)
+        if cache_duration is not None:
+            pulumi.set(__self__, "cache_duration", cache_duration)
+
+    @property
+    @pulumi.getter(name="cacheBehavior")
+    def cache_behavior(self) -> str:
+        """
+        Caching behavior for the requests that include query strings.
+        """
+        return pulumi.get(self, "cache_behavior")
+
+    @property
+    @pulumi.getter(name="cacheType")
+    def cache_type(self) -> str:
+        """
+        The level at which the content needs to be cached.
+        """
+        return pulumi.get(self, "cache_type")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter(name="cacheDuration")
+    def cache_duration(self) -> Optional[str]:
+        """
+        The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+        """
+        return pulumi.get(self, "cache_duration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class DeepCreatedOriginResponse(dict):
@@ -80,17 +139,20 @@ class DeepCreatedOriginResponse(dict):
 
 
 @pulumi.output_type
-class DeliveryRuleActionResponse(dict):
+class DeliveryRuleCacheExpirationActionResponse(dict):
     """
-    An action for the delivery rule.
+    Defines the cache expiration action for the delivery rule.
     """
     def __init__(__self__, *,
-                 name: str):
+                 name: str,
+                 parameters: 'outputs.CacheExpirationActionParametersResponse'):
         """
-        An action for the delivery rule.
+        Defines the cache expiration action for the delivery rule.
         :param str name: The name of the action for the delivery rule.
+        :param 'CacheExpirationActionParametersResponseArgs' parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "name", 'CacheExpiration')
+        pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter
@@ -100,30 +162,13 @@ class DeliveryRuleActionResponse(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
-class DeliveryRuleConditionResponse(dict):
-    """
-    A condition for the delivery rule.
-    """
-    def __init__(__self__, *,
-                 name: str):
-        """
-        A condition for the delivery rule.
-        :param str name: The name of the condition for the delivery rule.
-        """
-        pulumi.set(__self__, "name", name)
-
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def parameters(self) -> 'outputs.CacheExpirationActionParametersResponse':
         """
-        The name of the condition for the delivery rule.
+        Defines the parameters for the action.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "parameters")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -135,14 +180,14 @@ class DeliveryRuleResponse(dict):
     A rule that specifies a set of actions and conditions
     """
     def __init__(__self__, *,
-                 actions: List['outputs.DeliveryRuleActionResponse'],
+                 actions: List['outputs.DeliveryRuleCacheExpirationActionResponse'],
                  order: float,
-                 conditions: Optional[List['outputs.DeliveryRuleConditionResponse']] = None):
+                 conditions: Optional[List[Any]] = None):
         """
         A rule that specifies a set of actions and conditions
-        :param List['DeliveryRuleActionResponseArgs'] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param List['DeliveryRuleCacheExpirationActionResponseArgs'] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
         :param float order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        :param List['DeliveryRuleConditionResponseArgs'] conditions: A list of conditions that must be matched for the actions to be executed
+        :param List[Union['DeliveryRuleUrlFileExtensionConditionResponseArgs', 'DeliveryRuleUrlPathConditionResponseArgs']] conditions: A list of conditions that must be matched for the actions to be executed
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "order", order)
@@ -151,7 +196,7 @@ class DeliveryRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> List['outputs.DeliveryRuleActionResponse']:
+    def actions(self) -> List['outputs.DeliveryRuleCacheExpirationActionResponse']:
         """
         A list of actions that are executed when all the conditions of a rule are satisfied.
         """
@@ -167,11 +212,83 @@ class DeliveryRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[List['outputs.DeliveryRuleConditionResponse']]:
+    def conditions(self) -> Optional[List[Any]]:
         """
         A list of conditions that must be matched for the actions to be executed
         """
         return pulumi.get(self, "conditions")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryRuleUrlFileExtensionConditionResponse(dict):
+    """
+    Defines the URL file extension condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.UrlFileExtensionConditionParametersResponse'):
+        """
+        Defines the URL file extension condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+        :param 'UrlFileExtensionConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'UrlFileExtension')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.UrlFileExtensionConditionParametersResponse':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DeliveryRuleUrlPathConditionResponse(dict):
+    """
+    Defines the URL path condition for the delivery rule.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: 'outputs.UrlPathConditionParametersResponse'):
+        """
+        Defines the URL path condition for the delivery rule.
+        :param str name: The name of the condition for the delivery rule.
+        :param 'UrlPathConditionParametersResponseArgs' parameters: Defines the parameters for the condition.
+        """
+        pulumi.set(__self__, "name", 'UrlPath')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the condition for the delivery rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.UrlPathConditionParametersResponse':
+        """
+        Defines the parameters for the condition.
+        """
+        return pulumi.get(self, "parameters")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -282,6 +399,81 @@ class SkuResponse(dict):
         Name of the pricing tier.
         """
         return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UrlFileExtensionConditionParametersResponse(dict):
+    """
+    Defines the parameters for the URL file extension condition.
+    """
+    def __init__(__self__, *,
+                 extensions: List[str],
+                 odata_type: str):
+        """
+        Defines the parameters for the URL file extension condition.
+        :param List[str] extensions: A list of extensions for the condition of the delivery rule.
+        """
+        pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "odata_type", odata_type)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> List[str]:
+        """
+        A list of extensions for the condition of the delivery rule.
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class UrlPathConditionParametersResponse(dict):
+    """
+    Defines the parameters for the URL path condition.
+    """
+    def __init__(__self__, *,
+                 match_type: str,
+                 odata_type: str,
+                 path: str):
+        """
+        Defines the parameters for the URL path condition.
+        :param str match_type: The match type for the condition of the delivery rule
+        :param str path: A URL path for the condition of the delivery rule
+        """
+        pulumi.set(__self__, "match_type", match_type)
+        pulumi.set(__self__, "odata_type", odata_type)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> str:
+        """
+        The match type for the condition of the delivery rule
+        """
+        return pulumi.get(self, "match_type")
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> str:
+        return pulumi.get(self, "odata_type")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        A URL path for the condition of the delivery rule
+        """
+        return pulumi.get(self, "path")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

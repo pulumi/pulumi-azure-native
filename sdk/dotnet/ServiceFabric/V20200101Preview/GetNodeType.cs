@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200101Preview
         /// </summary>
         public readonly string? VmImageVersion;
         /// <summary>
-        /// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
+        /// The number of nodes in the node type.
         /// </summary>
         public readonly int VmInstanceCount;
         /// <summary>

@@ -41,11 +41,11 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.automanage.v20200630preview.AccountIdentityResponse | undefined>;
     /**
-     * Region where the VM is located.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Name of the Automanage assignment.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -53,7 +53,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -69,6 +69,9 @@ export class Account extends pulumi.CustomResource {
         if (!(opts && opts.id)) {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
+            }
+            if (!args || args.location === undefined) {
+                throw new Error("Missing required property 'location'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -111,11 +114,11 @@ export interface AccountArgs {
      */
     readonly identity?: pulumi.Input<inputs.automanage.v20200630preview.AccountIdentity>;
     /**
-     * The Azure Region where the resource lives
+     * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    readonly location: pulumi.Input<string>;
     /**
-     * The resource group name.
+     * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

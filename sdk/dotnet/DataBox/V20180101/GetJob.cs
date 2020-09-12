@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.DataBox.V20180101
         /// <summary>
         /// Details of a job run. This field will only be sent for expand details filter.
         /// </summary>
-        public readonly Outputs.JobDetailsResponseResult? Details;
+        public readonly Union<Outputs.DataBoxDiskJobDetailsResponseResult, Union<Outputs.DataBoxHeavyJobDetailsResponseResult, Outputs.DataBoxJobDetailsResponseResult>>? Details;
         /// <summary>
         /// Top level error for the job.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.DataBox.V20180101
         private GetJobResult(
             string cancellationReason,
 
-            Outputs.JobDetailsResponseResult? details,
+            Union<Outputs.DataBoxDiskJobDetailsResponseResult, Union<Outputs.DataBoxHeavyJobDetailsResponseResult, Outputs.DataBoxJobDetailsResponseResult>>? details,
 
             Outputs.ErrorResponseResult error,
 

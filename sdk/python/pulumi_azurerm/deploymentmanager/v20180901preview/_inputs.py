@@ -9,36 +9,14 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from ... import _utilities, _tables
 
 __all__ = [
-    'AuthenticationArgs',
     'IdentityArgs',
     'PrePostStepArgs',
+    'SasAuthenticationArgs',
     'ServiceUnitArtifactsArgs',
     'StepArgs',
-    'StepPropertiesArgs',
+    'WaitStepAttributesArgs',
+    'WaitStepPropertiesArgs',
 ]
-
-@pulumi.input_type
-class AuthenticationArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[str]):
-        """
-        Defines the authentication method and properties to access the artifacts.
-        :param pulumi.Input[str] type: The authentication type
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The authentication type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
 
 @pulumi.input_type
 class IdentityArgs:
@@ -99,6 +77,44 @@ class PrePostStepArgs:
     @step_id.setter
     def step_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "step_id", value)
+
+
+@pulumi.input_type
+class SasAuthenticationArgs:
+    def __init__(__self__, *,
+                 sas_uri: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        Defines the properties to access the artifacts using an Azure Storage SAS URI.
+        :param pulumi.Input[str] sas_uri: The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        :param pulumi.Input[str] type: The authentication type
+        """
+        pulumi.set(__self__, "sas_uri", sas_uri)
+        pulumi.set(__self__, "type", 'Sas')
+
+    @property
+    @pulumi.getter(name="sasUri")
+    def sas_uri(self) -> pulumi.Input[str]:
+        """
+        The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        """
+        return pulumi.get(self, "sas_uri")
+
+    @sas_uri.setter
+    def sas_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sas_uri", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The authentication type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -260,14 +276,41 @@ class StepArgs:
 
 
 @pulumi.input_type
-class StepPropertiesArgs:
+class WaitStepAttributesArgs:
     def __init__(__self__, *,
-                 step_type: pulumi.Input[str]):
+                 duration: pulumi.Input[str]):
         """
-        The properties of a step resource.
+        The parameters for the wait step.
+        :param pulumi.Input[str] duration: The duration in ISO 8601 format of how long the wait should be.
+        """
+        pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[str]:
+        """
+        The duration in ISO 8601 format of how long the wait should be.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "duration", value)
+
+
+@pulumi.input_type
+class WaitStepPropertiesArgs:
+    def __init__(__self__, *,
+                 step_type: pulumi.Input[str],
+                 attributes: Optional[pulumi.Input['WaitStepAttributesArgs']] = None):
+        """
+        Defines the properties of a Wait step.
         :param pulumi.Input[str] step_type: The type of step.
+        :param pulumi.Input['WaitStepAttributesArgs'] attributes: The Wait attributes
         """
-        pulumi.set(__self__, "step_type", step_type)
+        pulumi.set(__self__, "step_type", 'Wait')
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter(name="stepType")
@@ -280,5 +323,17 @@ class StepPropertiesArgs:
     @step_type.setter
     def step_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "step_type", value)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input['WaitStepAttributesArgs']]:
+        """
+        The Wait attributes
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input['WaitStepAttributesArgs']]):
+        pulumi.set(self, "attributes", value)
 
 

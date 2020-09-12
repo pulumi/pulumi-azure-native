@@ -10,7 +10,6 @@ from ... import _utilities, _tables
 from . import outputs
 
 __all__ = [
-    'AuthenticationResponse',
     'CloudErrorBodyResponseResult',
     'IdentityResponse',
     'MessageResponseResult',
@@ -18,38 +17,15 @@ __all__ = [
     'ResourceOperationResponseResult',
     'RolloutOperationInfoResponseResult',
     'RolloutStepResponseResult',
+    'SasAuthenticationResponse',
     'ServiceResponseResult',
     'ServiceUnitArtifactsResponse',
     'ServiceUnitResponseResult',
     'StepOperationInfoResponseResult',
-    'StepPropertiesResponse',
     'StepResponse',
+    'WaitStepAttributesResponse',
+    'WaitStepPropertiesResponse',
 ]
-
-@pulumi.output_type
-class AuthenticationResponse(dict):
-    """
-    Defines the authentication method and properties to access the artifacts.
-    """
-    def __init__(__self__, *,
-                 type: str):
-        """
-        Defines the authentication method and properties to access the artifacts.
-        :param str type: The authentication type
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The authentication type
-        """
-        return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CloudErrorBodyResponseResult(dict):
@@ -426,6 +402,42 @@ class RolloutStepResponseResult(dict):
 
 
 @pulumi.output_type
+class SasAuthenticationResponse(dict):
+    """
+    Defines the properties to access the artifacts using an Azure Storage SAS URI.
+    """
+    def __init__(__self__, *,
+                 sas_uri: str,
+                 type: str):
+        """
+        Defines the properties to access the artifacts using an Azure Storage SAS URI.
+        :param str sas_uri: The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        :param str type: The authentication type
+        """
+        pulumi.set(__self__, "sas_uri", sas_uri)
+        pulumi.set(__self__, "type", 'Sas')
+
+    @property
+    @pulumi.getter(name="sasUri")
+    def sas_uri(self) -> str:
+        """
+        The SAS URI to the Azure Storage blob container. Any offset from the root of the container to where the artifacts are located can be defined in the artifactRoot.
+        """
+        return pulumi.get(self, "sas_uri")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The authentication type
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ServiceResponseResult(dict):
     """
     Defines a service.
@@ -692,31 +704,6 @@ class StepOperationInfoResponseResult(dict):
 
 
 @pulumi.output_type
-class StepPropertiesResponse(dict):
-    """
-    The properties of a step resource.
-    """
-    def __init__(__self__, *,
-                 step_type: str):
-        """
-        The properties of a step resource.
-        :param str step_type: The type of step.
-        """
-        pulumi.set(__self__, "step_type", step_type)
-
-    @property
-    @pulumi.getter(name="stepType")
-    def step_type(self) -> str:
-        """
-        The type of step.
-        """
-        return pulumi.get(self, "step_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class StepResponse(dict):
     """
     The properties that define an Azure Deployment Manager step.
@@ -783,6 +770,68 @@ class StepResponse(dict):
         The list of steps to be run before deploying the target.
         """
         return pulumi.get(self, "pre_deployment_steps")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WaitStepAttributesResponse(dict):
+    """
+    The parameters for the wait step.
+    """
+    def __init__(__self__, *,
+                 duration: str):
+        """
+        The parameters for the wait step.
+        :param str duration: The duration in ISO 8601 format of how long the wait should be.
+        """
+        pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        The duration in ISO 8601 format of how long the wait should be.
+        """
+        return pulumi.get(self, "duration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class WaitStepPropertiesResponse(dict):
+    """
+    Defines the properties of a Wait step.
+    """
+    def __init__(__self__, *,
+                 step_type: str,
+                 attributes: Optional['outputs.WaitStepAttributesResponse'] = None):
+        """
+        Defines the properties of a Wait step.
+        :param str step_type: The type of step.
+        :param 'WaitStepAttributesResponseArgs' attributes: The Wait attributes
+        """
+        pulumi.set(__self__, "step_type", 'Wait')
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+
+    @property
+    @pulumi.getter(name="stepType")
+    def step_type(self) -> str:
+        """
+        The type of step.
+        """
+        return pulumi.get(self, "step_type")
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional['outputs.WaitStepAttributesResponse']:
+        """
+        The Wait attributes
+        """
+        return pulumi.get(self, "attributes")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

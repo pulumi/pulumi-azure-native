@@ -11,7 +11,7 @@ namespace Pulumi.AzureRM.Compute.Latest.Inputs
 {
 
     /// <summary>
-    /// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+    /// Describes the gallery image definition purchase plan. This is used by marketplace images.
     /// </summary>
     public sealed class ImagePurchasePlanArgs : Pulumi.ResourceArgs
     {

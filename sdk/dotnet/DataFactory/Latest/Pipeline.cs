@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// List of activities in pipeline.
         /// </summary>
         [Output("activities")]
-        public Output<ImmutableArray<Outputs.ActivityResponseResult>> Activities { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.ControlActivityResponseResult, Outputs.ExecutionActivityResponseResult>>> Activities { get; private set; } = null!;
 
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
@@ -223,14 +223,14 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     public sealed class PipelineArgs : Pulumi.ResourceArgs
     {
         [Input("activities")]
-        private InputList<Inputs.ActivityArgs>? _activities;
+        private InputList<Union<Inputs.ControlActivityArgs, Inputs.ExecutionActivityArgs>>? _activities;
 
         /// <summary>
         /// List of activities in pipeline.
         /// </summary>
-        public InputList<Inputs.ActivityArgs> Activities
+        public InputList<Union<Inputs.ControlActivityArgs, Inputs.ExecutionActivityArgs>> Activities
         {
-            get => _activities ?? (_activities = new InputList<Inputs.ActivityArgs>());
+            get => _activities ?? (_activities = new InputList<Union<Inputs.ControlActivityArgs, Inputs.ExecutionActivityArgs>>());
             set => _activities = value;
         }
 

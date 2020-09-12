@@ -19,7 +19,7 @@ class ArtifactSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_root: Optional[pulumi.Input[str]] = None,
                  artifact_source_name: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['AuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[pulumi.InputType['SasAuthenticationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_type: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class ArtifactSource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_root: The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
         :param pulumi.Input[str] artifact_source_name: The name of the artifact source.
-        :param pulumi.Input[pulumi.InputType['AuthenticationArgs']] authentication: The authentication method to use to access the artifact source.
+        :param pulumi.Input[pulumi.InputType['SasAuthenticationArgs']] authentication: The authentication method to use to access the artifact source.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] source_type: The type of artifact source used.
@@ -112,7 +112,7 @@ class ArtifactSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authentication(self) -> pulumi.Output['outputs.AuthenticationResponse']:
+    def authentication(self) -> pulumi.Output['outputs.SasAuthenticationResponse']:
         """
         The authentication method to use to access the artifact source.
         """

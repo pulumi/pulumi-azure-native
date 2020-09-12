@@ -50,6 +50,10 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview.Outputs
         /// </summary>
         public readonly string? LastUpdatedTime;
         /// <summary>
+        /// The image description for the log artifact.
+        /// </summary>
+        public readonly Outputs.ImageDescriptorResponseResult LogArtifact;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview.Outputs
 
             string? lastUpdatedTime,
 
+            Outputs.ImageDescriptorResponseResult logArtifact,
+
             string name,
 
             ImmutableArray<Outputs.ImageDescriptorResponseResult> outputImages,
@@ -169,6 +175,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview.Outputs
             ImageUpdateTrigger = imageUpdateTrigger;
             IsArchiveEnabled = isArchiveEnabled;
             LastUpdatedTime = lastUpdatedTime;
+            LogArtifact = logArtifact;
             Name = name;
             OutputImages = outputImages;
             Platform = platform;

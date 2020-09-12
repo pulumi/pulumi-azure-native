@@ -105,7 +105,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def details(self) -> Optional['outputs.JobDetailsResponse']:
+    def details(self) -> Optional[Any]:
         """
         Details of a job run. This field will only be sent for expand details filter.
         """

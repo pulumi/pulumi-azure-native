@@ -11,9 +11,9 @@ from . import outputs
 
 __all__ = [
     'NetworkProfileResponse',
+    'OpenShiftManagedClusterAADIdentityProviderResponse',
     'OpenShiftManagedClusterAgentPoolProfileResponse',
     'OpenShiftManagedClusterAuthProfileResponse',
-    'OpenShiftManagedClusterBaseIdentityProviderResponse',
     'OpenShiftManagedClusterIdentityProviderResponse',
     'OpenShiftManagedClusterMasterPoolProfileResponse',
     'OpenShiftManagedClusterMonitorProfileResponse',
@@ -66,6 +66,79 @@ class NetworkProfileResponse(dict):
         ID of the Vnet created for OSA cluster.
         """
         return pulumi.get(self, "vnet_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class OpenShiftManagedClusterAADIdentityProviderResponse(dict):
+    """
+    Defines the Identity provider for MS AAD.
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 client_id: Optional[str] = None,
+                 customer_admin_group_id: Optional[str] = None,
+                 secret: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        Defines the Identity provider for MS AAD.
+        :param str kind: The kind of the provider.
+        :param str client_id: The clientId password associated with the provider.
+        :param str customer_admin_group_id: The groupId to be granted cluster admin role.
+        :param str secret: The secret password associated with the provider.
+        :param str tenant_id: The tenantId associated with the provider.
+        """
+        pulumi.set(__self__, "kind", 'AADIdentityProvider')
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if customer_admin_group_id is not None:
+            pulumi.set(__self__, "customer_admin_group_id", customer_admin_group_id)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        The kind of the provider.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The clientId password associated with the provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="customerAdminGroupId")
+    def customer_admin_group_id(self) -> Optional[str]:
+        """
+        The groupId to be granted cluster admin role.
+        """
+        return pulumi.get(self, "customer_admin_group_id")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[str]:
+        """
+        The secret password associated with the provider.
+        """
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenantId associated with the provider.
+        """
+        return pulumi.get(self, "tenant_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -181,42 +254,17 @@ class OpenShiftManagedClusterAuthProfileResponse(dict):
 
 
 @pulumi.output_type
-class OpenShiftManagedClusterBaseIdentityProviderResponse(dict):
-    """
-    Structure for any Identity provider.
-    """
-    def __init__(__self__, *,
-                 kind: str):
-        """
-        Structure for any Identity provider.
-        :param str kind: The kind of the provider.
-        """
-        pulumi.set(__self__, "kind", kind)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> str:
-        """
-        The kind of the provider.
-        """
-        return pulumi.get(self, "kind")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-
-@pulumi.output_type
 class OpenShiftManagedClusterIdentityProviderResponse(dict):
     """
     Defines the configuration of the identity providers to be used in the OpenShift cluster.
     """
     def __init__(__self__, *,
                  name: Optional[str] = None,
-                 provider: Optional['outputs.OpenShiftManagedClusterBaseIdentityProviderResponse'] = None):
+                 provider: Optional['outputs.OpenShiftManagedClusterAADIdentityProviderResponse'] = None):
         """
         Defines the configuration of the identity providers to be used in the OpenShift cluster.
         :param str name: Name of the provider.
-        :param 'OpenShiftManagedClusterBaseIdentityProviderResponseArgs' provider: Configuration of the provider.
+        :param 'OpenShiftManagedClusterAADIdentityProviderResponseArgs' provider: Configuration of the provider.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -233,7 +281,7 @@ class OpenShiftManagedClusterIdentityProviderResponse(dict):
 
     @property
     @pulumi.getter
-    def provider(self) -> Optional['outputs.OpenShiftManagedClusterBaseIdentityProviderResponse']:
+    def provider(self) -> Optional['outputs.OpenShiftManagedClusterAADIdentityProviderResponse']:
         """
         Configuration of the provider.
         """

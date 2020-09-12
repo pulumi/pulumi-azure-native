@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110.Outputs
         /// <summary>
         /// Provider specific provider details.
         /// </summary>
-        public readonly Outputs.ProtectionContainerMappingProviderSpecificDetailsResponseResult? ProviderSpecificDetails;
+        public readonly Union<Outputs.A2AProtectionContainerMappingDetailsResponseResult, Outputs.VMwareCbtProtectionContainerMappingDetailsResponseResult>? ProviderSpecificDetails;
         /// <summary>
         /// Friendly name of source fabric.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110.Outputs
 
             string? policyId,
 
-            Outputs.ProtectionContainerMappingProviderSpecificDetailsResponseResult? providerSpecificDetails,
+            Union<Outputs.A2AProtectionContainerMappingDetailsResponseResult, Outputs.VMwareCbtProtectionContainerMappingDetailsResponseResult>? providerSpecificDetails,
 
             string? sourceFabricFriendlyName,
 

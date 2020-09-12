@@ -11,8 +11,13 @@ from . import outputs
 
 __all__ = [
     'AutomaticResolutionPropertiesResponse',
+    'AvailabilitySetResourceSettingsResponse',
     'IdentityResponse',
     'JobStatusResponse',
+    'LBBackendAddressPoolResourceSettingsResponse',
+    'LBFrontendIPConfigurationResourceSettingsResponse',
+    'LoadBalancerBackendAddressPoolReferenceResponse',
+    'LoadBalancerResourceSettingsResponse',
     'ManualResolutionPropertiesResponse',
     'MoveCollectionPropertiesResponse',
     'MoveResourceDependencyOverrideResponse',
@@ -23,7 +28,19 @@ __all__ = [
     'MoveResourcePropertiesResponseErrors',
     'MoveResourcePropertiesResponseMoveStatus',
     'MoveResourcePropertiesResponseSourceResourceSettings',
-    'ResourceSettingsResponse',
+    'NetworkInterfaceResourceSettingsResponse',
+    'NetworkSecurityGroupResourceSettingsResponse',
+    'NicIpConfigurationResourceSettingsResponse',
+    'NsgSecurityRuleResponse',
+    'PublicIPAddressResourceSettingsResponse',
+    'ResourceGroupResourceSettingsResponse',
+    'SqlDatabaseResourceSettingsResponse',
+    'SqlElasticPoolResourceSettingsResponse',
+    'SqlServerResourceSettingsResponse',
+    'SubnetReferenceResponse',
+    'SubnetResourceSettingsResponse',
+    'VirtualMachineResourceSettingsResponse',
+    'VirtualNetworkResourceSettingsResponse',
 ]
 
 @pulumi.output_type
@@ -55,6 +72,66 @@ class AutomaticResolutionPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class AvailabilitySetResourceSettingsResponse(dict):
+    """
+    Gets or sets the availability set resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str,
+                 fault_domain: Optional[float] = None,
+                 update_domain: Optional[float] = None):
+        """
+        Gets or sets the availability set resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        :param float fault_domain: Gets or sets the target fault domain.
+        :param float update_domain: Gets or sets the target update domain.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Compute/availabilitySets')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if fault_domain is not None:
+            pulumi.set(__self__, "fault_domain", fault_domain)
+        if update_domain is not None:
+            pulumi.set(__self__, "update_domain", update_domain)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter(name="faultDomain")
+    def fault_domain(self) -> Optional[float]:
+        """
+        Gets or sets the target fault domain.
+        """
+        return pulumi.get(self, "fault_domain")
+
+    @property
+    @pulumi.getter(name="updateDomain")
+    def update_domain(self) -> Optional[float]:
+        """
+        Gets or sets the target update domain.
+        """
+        return pulumi.get(self, "update_domain")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class IdentityResponse(dict):
     """
     Defines the MSI properties of the Move Collection.
@@ -67,7 +144,7 @@ class IdentityResponse(dict):
         Defines the MSI properties of the Move Collection.
         :param str principal_id: Gets or sets the principal id.
         :param str tenant_id: Gets or sets the tenant id.
-        :param str type: The type of identity used for the region move service.
+        :param str type: The type of identity used for the resource mover service.
         """
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
@@ -96,7 +173,7 @@ class IdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of identity used for the region move service.
+        The type of identity used for the resource mover service.
         """
         return pulumi.get(self, "type")
 
@@ -136,6 +213,231 @@ class JobStatusResponse(dict):
         Defines the job name.
         """
         return pulumi.get(self, "job_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LBBackendAddressPoolResourceSettingsResponse(dict):
+    """
+    Defines load balancer backend address pool properties.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Defines load balancer backend address pool properties.
+        :param str name: Gets or sets the backend address pool name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the backend address pool name.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LBFrontendIPConfigurationResourceSettingsResponse(dict):
+    """
+    Defines load balancer frontend IP configuration properties.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 subnet: Optional['outputs.SubnetReferenceResponse'] = None,
+                 zones: Optional[str] = None):
+        """
+        Defines load balancer frontend IP configuration properties.
+        :param str name: Gets or sets the frontend IP configuration name.
+        :param str private_ip_address: Gets or sets the IP address of the Load Balancer.This is only specified if a specific
+               private IP address shall be allocated from the subnet specified in subnetRef.
+        :param str private_ip_allocation_method: Gets or sets PrivateIP allocation method (Static/Dynamic).
+        :param 'SubnetReferenceResponseArgs' subnet: Defines reference to subnet.
+        :param str zones: Gets or sets the csv list of zones.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the frontend IP configuration name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        Gets or sets the IP address of the Load Balancer.This is only specified if a specific
+        private IP address shall be allocated from the subnet specified in subnetRef.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        Gets or sets PrivateIP allocation method (Static/Dynamic).
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetReferenceResponse']:
+        """
+        Defines reference to subnet.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[str]:
+        """
+        Gets or sets the csv list of zones.
+        """
+        return pulumi.get(self, "zones")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LoadBalancerBackendAddressPoolReferenceResponse(dict):
+    """
+    Defines reference to load balancer backend address pools.
+    """
+    def __init__(__self__, *,
+                 source_arm_resource_id: str,
+                 name: Optional[str] = None):
+        """
+        Defines reference to load balancer backend address pools.
+        :param str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
+        :param str name: Gets the name of the proxy resource on the target side.
+        """
+        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="sourceArmResourceId")
+    def source_arm_resource_id(self) -> str:
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        return pulumi.get(self, "source_arm_resource_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets the name of the proxy resource on the target side.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LoadBalancerResourceSettingsResponse(dict):
+    """
+    Defines the load balancer resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str,
+                 backend_address_pools: Optional[List['outputs.LBBackendAddressPoolResourceSettingsResponse']] = None,
+                 frontend_ip_configurations: Optional[List['outputs.LBFrontendIPConfigurationResourceSettingsResponse']] = None,
+                 sku: Optional[str] = None,
+                 zones: Optional[str] = None):
+        """
+        Defines the load balancer resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        :param List['LBBackendAddressPoolResourceSettingsResponseArgs'] backend_address_pools: Gets or sets the backend address pools of the load balancer.
+        :param List['LBFrontendIPConfigurationResourceSettingsResponseArgs'] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
+        :param str sku: Gets or sets load balancer sku (Basic/Standard).
+        :param str zones: Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
+                precedence only if frontend IP configurations settings are not present.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Network/loadBalancers')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if backend_address_pools is not None:
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+        if frontend_ip_configurations is not None:
+            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[List['outputs.LBBackendAddressPoolResourceSettingsResponse']]:
+        """
+        Gets or sets the backend address pools of the load balancer.
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @property
+    @pulumi.getter(name="frontendIPConfigurations")
+    def frontend_ip_configurations(self) -> Optional[List['outputs.LBFrontendIPConfigurationResourceSettingsResponse']]:
+        """
+        Gets or sets the frontend IP configurations of the load balancer.
+        """
+        return pulumi.get(self, "frontend_ip_configurations")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        Gets or sets load balancer sku (Basic/Standard).
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[str]:
+        """
+        Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
+         precedence only if frontend IP configurations settings are not present.
+        """
+        return pulumi.get(self, "zones")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -414,12 +716,12 @@ class MoveResourceErrorBodyResponse(dict):
 @pulumi.output_type
 class MoveResourceErrorResponse(dict):
     """
-    An error response from the azure region move service.
+    An error response from the azure resource mover service.
     """
     def __init__(__self__, *,
                  properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
         """
-        An error response from the azure region move service.
+        An error response from the azure resource mover service.
         :param 'MoveResourceErrorBodyResponseArgs' properties: The move resource error body.
         """
         if properties is not None:
@@ -452,7 +754,7 @@ class MoveResourcePropertiesResponse(dict):
                  depends_on_overrides: Optional[List['outputs.MoveResourceDependencyOverrideResponse']] = None,
                  existing_target_id: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
-                 resource_settings: Optional['outputs.ResourceSettingsResponse'] = None):
+                 resource_settings: Optional[Any] = None):
         """
         Defines the move resource properties.
         :param List['MoveResourceDependencyResponseArgs'] depends_on: Gets or sets the move resource dependencies.
@@ -464,7 +766,7 @@ class MoveResourcePropertiesResponse(dict):
         :param List['MoveResourceDependencyOverrideResponseArgs'] depends_on_overrides: Gets or sets the move resource dependencies overrides.
         :param str existing_target_id: Gets or sets the existing target ARM Id of the resource.
         :param str provisioning_state: Defines the provisioning states.
-        :param 'ResourceSettingsResponseArgs' resource_settings: Gets or sets the resource settings.
+        :param Union['AvailabilitySetResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] resource_settings: Gets or sets the resource settings.
         """
         pulumi.set(__self__, "depends_on", depends_on)
         pulumi.set(__self__, "errors", errors)
@@ -555,7 +857,7 @@ class MoveResourcePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="resourceSettings")
-    def resource_settings(self) -> Optional['outputs.ResourceSettingsResponse']:
+    def resource_settings(self) -> Optional[Any]:
         """
         Gets or sets the resource settings.
         """
@@ -604,7 +906,7 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
         """
         Defines the move resource status.
         :param str target_id: Gets the Target ARM Id of the resource.
-        :param 'MoveResourceErrorResponseArgs' errors: An error response from the azure region move service.
+        :param 'MoveResourceErrorResponseArgs' errors: An error response from the azure resource mover service.
         :param 'JobStatusResponseArgs' job_status: Defines the job status.
         :param str move_state: Defines the MoveResource states.
         """
@@ -628,7 +930,7 @@ class MoveResourcePropertiesResponseMoveStatus(dict):
     @pulumi.getter
     def errors(self) -> Optional['outputs.MoveResourceErrorResponse']:
         """
-        An error response from the azure region move service.
+        An error response from the azure resource mover service.
         """
         return pulumi.get(self, "errors")
 
@@ -665,7 +967,7 @@ class MoveResourcePropertiesResponseSourceResourceSettings(dict):
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param str target_resource_name: Gets or sets the target Resource name.
         """
-        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "resource_type", 'MoveResourceProperties')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
 
     @property
@@ -689,19 +991,465 @@ class MoveResourcePropertiesResponseSourceResourceSettings(dict):
 
 
 @pulumi.output_type
-class ResourceSettingsResponse(dict):
+class NetworkInterfaceResourceSettingsResponse(dict):
     """
-    Gets or sets the resource settings.
+    Defines the network interface resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str,
+                 enable_accelerated_networking: Optional[bool] = None,
+                 ip_configurations: Optional[List['outputs.NicIpConfigurationResourceSettingsResponse']] = None):
+        """
+        Defines the network interface resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        :param bool enable_accelerated_networking: Gets or sets a value indicating whether accelerated networking is enabled.
+        :param List['NicIpConfigurationResourceSettingsResponseArgs'] ip_configurations: Gets or sets the IP configurations of the NIC.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkInterfaces')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if enable_accelerated_networking is not None:
+            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter(name="enableAcceleratedNetworking")
+    def enable_accelerated_networking(self) -> Optional[bool]:
+        """
+        Gets or sets a value indicating whether accelerated networking is enabled.
+        """
+        return pulumi.get(self, "enable_accelerated_networking")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[List['outputs.NicIpConfigurationResourceSettingsResponse']]:
+        """
+        Gets or sets the IP configurations of the NIC.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NetworkSecurityGroupResourceSettingsResponse(dict):
+    """
+    Defines the NSG resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str,
+                 security_rules: Optional[List['outputs.NsgSecurityRuleResponse']] = None):
+        """
+        Defines the NSG resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        :param List['NsgSecurityRuleResponseArgs'] security_rules: Gets or sets Security rules of network security group.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkSecurityGroups')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if security_rules is not None:
+            pulumi.set(__self__, "security_rules", security_rules)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter(name="securityRules")
+    def security_rules(self) -> Optional[List['outputs.NsgSecurityRuleResponse']]:
+        """
+        Gets or sets Security rules of network security group.
+        """
+        return pulumi.get(self, "security_rules")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NicIpConfigurationResourceSettingsResponse(dict):
+    """
+    Defines NIC IP configuration properties.
+    """
+    def __init__(__self__, *,
+                 load_balancer_backend_address_pools: Optional[List['outputs.LoadBalancerBackendAddressPoolReferenceResponse']] = None,
+                 name: Optional[str] = None,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 subnet: Optional['outputs.SubnetReferenceResponse'] = None):
+        """
+        Defines NIC IP configuration properties.
+        :param List['LoadBalancerBackendAddressPoolReferenceResponseArgs'] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
+        :param str name: Gets or sets the IP configuration name.
+        :param bool primary: Gets or sets a value indicating whether this IP configuration is the primary.
+        :param str private_ip_address: Gets or sets the private IP address of the network interface IP Configuration.
+        :param str private_ip_allocation_method: Gets or sets the private IP address allocation method.
+        :param 'SubnetReferenceResponseArgs' subnet: Defines reference to subnet.
+        """
+        if load_balancer_backend_address_pools is not None:
+            pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter(name="loadBalancerBackendAddressPools")
+    def load_balancer_backend_address_pools(self) -> Optional[List['outputs.LoadBalancerBackendAddressPoolReferenceResponse']]:
+        """
+        Gets or sets the references of the load balancer backend address pools.
+        """
+        return pulumi.get(self, "load_balancer_backend_address_pools")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the IP configuration name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        Gets or sets a value indicating whether this IP configuration is the primary.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        Gets or sets the private IP address of the network interface IP Configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        Gets or sets the private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetReferenceResponse']:
+        """
+        Defines reference to subnet.
+        """
+        return pulumi.get(self, "subnet")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class NsgSecurityRuleResponse(dict):
+    """
+    Security Rule data model for Network Security Groups.
+    """
+    def __init__(__self__, *,
+                 access: Optional[str] = None,
+                 description: Optional[str] = None,
+                 destination_address_prefix: Optional[str] = None,
+                 destination_port_range: Optional[str] = None,
+                 direction: Optional[str] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[float] = None,
+                 protocol: Optional[str] = None,
+                 source_address_prefix: Optional[str] = None,
+                 source_port_range: Optional[str] = None):
+        """
+        Security Rule data model for Network Security Groups.
+        :param str access: Gets or sets whether network traffic is allowed or denied.
+               Possible values are “Allow” and “Deny”.
+        :param str description: Gets or sets a description for this rule. Restricted to 140 chars.
+        :param str destination_address_prefix: Gets or sets destination address prefix. CIDR or source IP range.
+                A “*” can also be used to match all source IPs. Default tags such
+               as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used.
+        :param str destination_port_range: Gets or sets Destination Port or Range. Integer or range between
+               0 and 65535. A “*” can also be used to match all ports.
+        :param str direction: Gets or sets the direction of the rule.InBound or Outbound. The
+               direction specifies if rule will be evaluated on incoming or outgoing traffic.
+        :param str name: Gets or sets the Security rule name.
+        :param float priority: Gets or sets the priority of the rule. The value can be between
+               100 and 4096. The priority number must be unique for each rule in the collection.
+               The lower the priority number, the higher the priority of the rule.
+        :param str protocol: Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
+        :param str source_address_prefix: Gets or sets source address prefix. CIDR or source IP range. A
+               “*” can also be used to match all source IPs.  Default tags such as ‘VirtualNetwork’,
+               ‘AzureLoadBalancer’ and ‘Internet’ can also be used. If this is an ingress
+               rule, specifies where network traffic originates from.
+        :param str source_port_range: Gets or sets Source Port or Range. Integer or range between 0 and
+               65535. A “*” can also be used to match all ports.
+        """
+        if access is not None:
+            pulumi.set(__self__, "access", access)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_address_prefix is not None:
+            pulumi.set(__self__, "destination_address_prefix", destination_address_prefix)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_address_prefix is not None:
+            pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+
+    @property
+    @pulumi.getter
+    def access(self) -> Optional[str]:
+        """
+        Gets or sets whether network traffic is allowed or denied.
+        Possible values are “Allow” and “Deny”.
+        """
+        return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Gets or sets a description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationAddressPrefix")
+    def destination_address_prefix(self) -> Optional[str]:
+        """
+        Gets or sets destination address prefix. CIDR or source IP range.
+         A “*” can also be used to match all source IPs. Default tags such
+        as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used.
+        """
+        return pulumi.get(self, "destination_address_prefix")
+
+    @property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional[str]:
+        """
+        Gets or sets Destination Port or Range. Integer or range between
+        0 and 65535. A “*” can also be used to match all ports.
+        """
+        return pulumi.get(self, "destination_port_range")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[str]:
+        """
+        Gets or sets the direction of the rule.InBound or Outbound. The
+        direction specifies if rule will be evaluated on incoming or outgoing traffic.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the Security rule name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        """
+        Gets or sets the priority of the rule. The value can be between
+        100 and 4096. The priority number must be unique for each rule in the collection.
+        The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="sourceAddressPrefix")
+    def source_address_prefix(self) -> Optional[str]:
+        """
+        Gets or sets source address prefix. CIDR or source IP range. A
+        “*” can also be used to match all source IPs.  Default tags such as ‘VirtualNetwork’,
+        ‘AzureLoadBalancer’ and ‘Internet’ can also be used. If this is an ingress
+        rule, specifies where network traffic originates from.
+        """
+        return pulumi.get(self, "source_address_prefix")
+
+    @property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional[str]:
+        """
+        Gets or sets Source Port or Range. Integer or range between 0 and
+        65535. A “*” can also be used to match all ports.
+        """
+        return pulumi.get(self, "source_port_range")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class PublicIPAddressResourceSettingsResponse(dict):
+    """
+    Defines the public IP address resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str,
+                 domain_name_label: Optional[str] = None,
+                 f_qdn: Optional[str] = None,
+                 public_ip_allocation_method: Optional[str] = None,
+                 sku: Optional[str] = None,
+                 zones: Optional[str] = None):
+        """
+        Defines the public IP address resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        :param str domain_name_label: Gets or sets the domain name label.
+        :param str f_qdn: Gets or sets the fully qualified domain name.
+        :param str public_ip_allocation_method: Gets or sets public IP allocation method.
+        :param str sku: Gets or sets public IP sku.
+        :param str zones: Gets or sets public IP zones.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Network/publicIPAddresses')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if domain_name_label is not None:
+            pulumi.set(__self__, "domain_name_label", domain_name_label)
+        if f_qdn is not None:
+            pulumi.set(__self__, "f_qdn", f_qdn)
+        if public_ip_allocation_method is not None:
+            pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter(name="domainNameLabel")
+    def domain_name_label(self) -> Optional[str]:
+        """
+        Gets or sets the domain name label.
+        """
+        return pulumi.get(self, "domain_name_label")
+
+    @property
+    @pulumi.getter(name="fQDN")
+    def f_qdn(self) -> Optional[str]:
+        """
+        Gets or sets the fully qualified domain name.
+        """
+        return pulumi.get(self, "f_qdn")
+
+    @property
+    @pulumi.getter(name="publicIpAllocationMethod")
+    def public_ip_allocation_method(self) -> Optional[str]:
+        """
+        Gets or sets public IP allocation method.
+        """
+        return pulumi.get(self, "public_ip_allocation_method")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        Gets or sets public IP sku.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[str]:
+        """
+        Gets or sets public IP zones.
+        """
+        return pulumi.get(self, "zones")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResourceGroupResourceSettingsResponse(dict):
+    """
+    Defines the resource group resource settings.
     """
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str):
         """
-        Gets or sets the resource settings.
+        Defines the resource group resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param str target_resource_name: Gets or sets the target Resource name.
         """
-        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "resource_type", 'resourceGroups')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
 
     @property
@@ -719,6 +1467,373 @@ class ResourceSettingsResponse(dict):
         Gets or sets the target Resource name.
         """
         return pulumi.get(self, "target_resource_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlDatabaseResourceSettingsResponse(dict):
+    """
+    Defines the Sql Database resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str,
+                 zone_redundant: Optional[str] = None):
+        """
+        Defines the Sql Database resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        :param str zone_redundant: Defines the zone redundant resource setting.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/databases')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[str]:
+        """
+        Defines the zone redundant resource setting.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlElasticPoolResourceSettingsResponse(dict):
+    """
+    Defines the Sql ElasticPool resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str,
+                 zone_redundant: Optional[str] = None):
+        """
+        Defines the Sql ElasticPool resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        :param str zone_redundant: Defines the zone redundant resource setting.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/elasticPools')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[str]:
+        """
+        Defines the zone redundant resource setting.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlServerResourceSettingsResponse(dict):
+    """
+    Defines the SQL Server resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str):
+        """
+        Defines the SQL Server resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SubnetReferenceResponse(dict):
+    """
+    Defines reference to subnet.
+    """
+    def __init__(__self__, *,
+                 source_arm_resource_id: str,
+                 name: Optional[str] = None):
+        """
+        Defines reference to subnet.
+        :param str source_arm_resource_id: Gets the ARM resource ID of the tracked resource being referenced.
+        :param str name: Gets the name of the proxy resource on the target side.
+        """
+        pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="sourceArmResourceId")
+    def source_arm_resource_id(self) -> str:
+        """
+        Gets the ARM resource ID of the tracked resource being referenced.
+        """
+        return pulumi.get(self, "source_arm_resource_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets the name of the proxy resource on the target side.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SubnetResourceSettingsResponse(dict):
+    """
+    Defines the virtual network subnets resource settings.
+    """
+    def __init__(__self__, *,
+                 address_prefix: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Defines the virtual network subnets resource settings.
+        :param str address_prefix: Gets or sets address prefix for the subnet.
+        :param str name: Gets or sets the Subnet name.
+        """
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[str]:
+        """
+        Gets or sets address prefix for the subnet.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the Subnet name.
+        """
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineResourceSettingsResponse(dict):
+    """
+    Gets or sets the virtual machine resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str,
+                 target_availability_set_id: Optional[str] = None,
+                 target_availability_zone: Optional[str] = None,
+                 target_vm_size: Optional[str] = None):
+        """
+        Gets or sets the virtual machine resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        :param str target_availability_set_id: Gets or sets the target availability set id for virtual machines not in an availability set at source.
+        :param str target_availability_zone: Gets or sets the target availability zone.
+        :param str target_vm_size: Gets or sets the target virtual machine size.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Compute/virtualMachines')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if target_availability_set_id is not None:
+            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+        if target_availability_zone is not None:
+            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+        if target_vm_size is not None:
+            pulumi.set(__self__, "target_vm_size", target_vm_size)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter(name="targetAvailabilitySetId")
+    def target_availability_set_id(self) -> Optional[str]:
+        """
+        Gets or sets the target availability set id for virtual machines not in an availability set at source.
+        """
+        return pulumi.get(self, "target_availability_set_id")
+
+    @property
+    @pulumi.getter(name="targetAvailabilityZone")
+    def target_availability_zone(self) -> Optional[str]:
+        """
+        Gets or sets the target availability zone.
+        """
+        return pulumi.get(self, "target_availability_zone")
+
+    @property
+    @pulumi.getter(name="targetVmSize")
+    def target_vm_size(self) -> Optional[str]:
+        """
+        Gets or sets the target virtual machine size.
+        """
+        return pulumi.get(self, "target_vm_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualNetworkResourceSettingsResponse(dict):
+    """
+    Defines the virtual network resource settings.
+    """
+    def __init__(__self__, *,
+                 resource_type: str,
+                 target_resource_name: str,
+                 address_space: Optional[List[str]] = None,
+                 dns_servers: Optional[List[str]] = None,
+                 enable_ddos_protection: Optional[bool] = None,
+                 subnets: Optional[List['outputs.SubnetResourceSettingsResponse']] = None):
+        """
+        Defines the virtual network resource settings.
+        :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        :param str target_resource_name: Gets or sets the target Resource name.
+        :param List[str] address_space: Gets or sets the address prefixes for the virtual network.
+        :param List[str] dns_servers: Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
+               deployed in the virtual network.
+        :param bool enable_ddos_protection: Gets or sets a value indicating whether gets or sets whether the
+               DDOS protection should be switched on.
+        :param List['SubnetResourceSettingsResponseArgs'] subnets: Gets or sets List of subnets in a VirtualNetwork.
+        """
+        pulumi.set(__self__, "resource_type", 'Microsoft.Network/virtualNetworks')
+        pulumi.set(__self__, "target_resource_name", target_resource_name)
+        if address_space is not None:
+            pulumi.set(__self__, "address_space", address_space)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if enable_ddos_protection is not None:
+            pulumi.set(__self__, "enable_ddos_protection", enable_ddos_protection)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> str:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> Optional[List[str]]:
+        """
+        Gets or sets the address prefixes for the virtual network.
+        """
+        return pulumi.get(self, "address_space")
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[List[str]]:
+        """
+        Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
+        deployed in the virtual network.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter(name="enableDdosProtection")
+    def enable_ddos_protection(self) -> Optional[bool]:
+        """
+        Gets or sets a value indicating whether gets or sets whether the
+        DDOS protection should be switched on.
+        """
+        return pulumi.get(self, "enable_ddos_protection")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[List['outputs.SubnetResourceSettingsResponse']]:
+        """
+        Gets or sets List of subnets in a VirtualNetwork.
+        """
+        return pulumi.get(self, "subnets")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

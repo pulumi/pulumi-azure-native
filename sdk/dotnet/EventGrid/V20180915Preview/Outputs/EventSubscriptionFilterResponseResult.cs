@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.EventGrid.V20180915Preview.Outputs
         /// <summary>
         /// A list of advanced filters.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AdvancedFilterResponseResult> AdvancedFilters;
+        public readonly ImmutableArray<Union<Outputs.BoolEqualsAdvancedFilterResponseResult, Union<Outputs.NumberGreaterThanAdvancedFilterResponseResult, Union<Outputs.NumberGreaterThanOrEqualsAdvancedFilterResponseResult, Union<Outputs.NumberInAdvancedFilterResponseResult, Union<Outputs.NumberLessThanAdvancedFilterResponseResult, Union<Outputs.NumberLessThanOrEqualsAdvancedFilterResponseResult, Union<Outputs.NumberNotInAdvancedFilterResponseResult, Union<Outputs.StringBeginsWithAdvancedFilterResponseResult, Union<Outputs.StringContainsAdvancedFilterResponseResult, Union<Outputs.StringEndsWithAdvancedFilterResponseResult, Union<Outputs.StringInAdvancedFilterResponseResult, Outputs.StringNotInAdvancedFilterResponseResult>>>>>>>>>>>> AdvancedFilters;
         /// <summary>
         /// A list of applicable event types that need to be part of the event subscription. 
         /// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
@@ -41,7 +41,7 @@ namespace Pulumi.AzureRM.EventGrid.V20180915Preview.Outputs
 
         [OutputConstructor]
         private EventSubscriptionFilterResponseResult(
-            ImmutableArray<Outputs.AdvancedFilterResponseResult> advancedFilters,
+            ImmutableArray<Union<Outputs.BoolEqualsAdvancedFilterResponseResult, Union<Outputs.NumberGreaterThanAdvancedFilterResponseResult, Union<Outputs.NumberGreaterThanOrEqualsAdvancedFilterResponseResult, Union<Outputs.NumberInAdvancedFilterResponseResult, Union<Outputs.NumberLessThanAdvancedFilterResponseResult, Union<Outputs.NumberLessThanOrEqualsAdvancedFilterResponseResult, Union<Outputs.NumberNotInAdvancedFilterResponseResult, Union<Outputs.StringBeginsWithAdvancedFilterResponseResult, Union<Outputs.StringContainsAdvancedFilterResponseResult, Union<Outputs.StringEndsWithAdvancedFilterResponseResult, Union<Outputs.StringInAdvancedFilterResponseResult, Outputs.StringNotInAdvancedFilterResponseResult>>>>>>>>>>>> advancedFilters,
 
             ImmutableArray<string> includedEventTypes,
 

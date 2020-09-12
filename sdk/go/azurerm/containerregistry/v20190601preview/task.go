@@ -25,18 +25,22 @@ type Task struct {
 	Credentials CredentialsResponsePtrOutput `pulumi:"credentials"`
 	// Identity for the resource.
 	Identity IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
+	// The value of this property indicates whether the task resource is system task or not.
+	IsSystemTask pulumi.BoolPtrOutput `pulumi:"isSystemTask"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrOutput `pulumi:"logTemplate"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesResponseOutput `pulumi:"platform"`
+	Platform PlatformPropertiesResponsePtrOutput `pulumi:"platform"`
 	// The provisioning state of the task.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The current status of task.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The properties of a task step.
-	Step TaskStepPropertiesResponseOutput `pulumi:"step"`
+	Step pulumi.AnyOutput `pulumi:"step"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Run timeout in seconds.
@@ -53,17 +57,11 @@ func NewTask(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.Platform == nil {
-		return nil, errors.New("missing required argument 'Platform'")
-	}
 	if args == nil || args.RegistryName == nil {
 		return nil, errors.New("missing required argument 'RegistryName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Step == nil {
-		return nil, errors.New("missing required argument 'Step'")
 	}
 	if args == nil || args.TaskName == nil {
 		return nil, errors.New("missing required argument 'TaskName'")
@@ -115,8 +113,12 @@ type taskState struct {
 	Credentials *CredentialsResponse `pulumi:"credentials"`
 	// Identity for the resource.
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	// The value of this property indicates whether the task resource is system task or not.
+	IsSystemTask *bool `pulumi:"isSystemTask"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
 	// The platform properties against which the run has to happen.
@@ -126,7 +128,7 @@ type taskState struct {
 	// The current status of task.
 	Status *string `pulumi:"status"`
 	// The properties of a task step.
-	Step *TaskStepPropertiesResponse `pulumi:"step"`
+	Step interface{} `pulumi:"step"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Run timeout in seconds.
@@ -148,8 +150,12 @@ type TaskState struct {
 	Credentials CredentialsResponsePtrInput
 	// Identity for the resource.
 	Identity IdentityPropertiesResponsePtrInput
+	// The value of this property indicates whether the task resource is system task or not.
+	IsSystemTask pulumi.BoolPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
 	// The platform properties against which the run has to happen.
@@ -159,7 +165,7 @@ type TaskState struct {
 	// The current status of task.
 	Status pulumi.StringPtrInput
 	// The properties of a task step.
-	Step TaskStepPropertiesResponsePtrInput
+	Step pulumi.Input
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// Run timeout in seconds.
@@ -183,10 +189,14 @@ type taskArgs struct {
 	Credentials *Credentials `pulumi:"credentials"`
 	// Identity for the resource.
 	Identity *IdentityProperties `pulumi:"identity"`
+	// The value of this property indicates whether the task resource is system task or not.
+	IsSystemTask *bool `pulumi:"isSystemTask"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate *string `pulumi:"logTemplate"`
 	// The platform properties against which the run has to happen.
-	Platform PlatformProperties `pulumi:"platform"`
+	Platform *PlatformProperties `pulumi:"platform"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
@@ -194,7 +204,7 @@ type taskArgs struct {
 	// The current status of task.
 	Status *string `pulumi:"status"`
 	// The properties of a task step.
-	Step TaskStepProperties `pulumi:"step"`
+	Step interface{} `pulumi:"step"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the container registry task.
@@ -215,10 +225,14 @@ type TaskArgs struct {
 	Credentials CredentialsPtrInput
 	// Identity for the resource.
 	Identity IdentityPropertiesPtrInput
+	// The value of this property indicates whether the task resource is system task or not.
+	IsSystemTask pulumi.BoolPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
+	// The template that describes the repository and tag information for run log artifact.
+	LogTemplate pulumi.StringPtrInput
 	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesInput
+	Platform PlatformPropertiesPtrInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The name of the resource group to which the container registry belongs.
@@ -226,7 +240,7 @@ type TaskArgs struct {
 	// The current status of task.
 	Status pulumi.StringPtrInput
 	// The properties of a task step.
-	Step TaskStepPropertiesInput
+	Step pulumi.Input
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The name of the container registry task.

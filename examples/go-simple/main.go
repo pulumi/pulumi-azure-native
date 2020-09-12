@@ -1,6 +1,5 @@
 package main
 
-
 import (
 	resources "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/resources/latest"
 	storage "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storage/latest"
@@ -18,11 +17,12 @@ func main() {
 			return err
 		}
 
-		_, err = storage.NewStorageAccount(ctx, "sa", &storage.StorageAccountArgs{
+		// Create an Azure resource (Storage Account)
+		account, err := storage.NewStorageAccount(ctx, "sa", &storage.StorageAccountArgs{
 			ResourceGroupName: resourceGroup.Name,
-			AccountName: pulumi.String("pulumi14345sago"),
-			Location: pulumi.String("westus2"),
-			Sku: &storage.SkuArgs {
+			AccountName:       pulumi.String("pulumi14345sago"),
+			Location:          resourceGroup.Location,
+			Sku: &storage.SkuArgs{
 				Name: pulumi.String("Standard_LRS"),
 				Tier: pulumi.String("Standard"),
 			},
@@ -31,6 +31,23 @@ func main() {
 		if err != nil {
 			return err
 		}
+
+		// Export the primary key of the Storage Account
+		ctx.Export("primaryStorageKey", pulumi.All(resourceGroup.Name, account.Name).ApplyT(
+			func(args []interface{}) (string, error) {
+				resourceGroupName := args[0].(string)
+				accountName := args[1].(string)
+				accountKeys, err := storage.ListStorageAccountKeys(ctx, &storage.ListStorageAccountKeysArgs{
+					ResourceGroupName: resourceGroupName,
+					AccountName:       accountName,
+				})
+				if err != nil {
+					return "", err
+				}
+
+				return accountKeys.Keys[0].Value, nil
+			},
+		))
 
 		return nil
 	})

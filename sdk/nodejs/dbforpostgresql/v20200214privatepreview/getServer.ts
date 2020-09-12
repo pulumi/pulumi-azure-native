@@ -48,9 +48,14 @@ export interface GetServerResult {
      */
     readonly availabilityZone?: string;
     /**
+     * Status showing whether the data encryption is enabled with customer-managed keys.
+     */
+    readonly byokEnforcement: string;
+    /**
      * The mode to create a new PostgreSQL server.
      */
     readonly createMode?: string;
+    readonly delegatedSubnetArguments?: outputs.dbforpostgresql.v20200214privatepreview.ServerPropertiesResponseDelegatedSubnetArguments;
     /**
      * The display name of a server.
      */
@@ -59,6 +64,10 @@ export interface GetServerResult {
      * The fully qualified domain name of a server.
      */
     readonly fullyQualifiedDomainName: string;
+    /**
+     * stand by count value can be either enabled or disabled
+     */
+    readonly haEnabled?: string;
     /**
      * A state of a HA server that is visible to user.
      */
@@ -72,6 +81,10 @@ export interface GetServerResult {
      */
     readonly location: string;
     /**
+     * Maintenance window of a server.
+     */
+    readonly maintenanceWindow?: outputs.dbforpostgresql.v20200214privatepreview.MaintenanceWindowResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -82,7 +95,7 @@ export interface GetServerResult {
     /**
      * public network access is enabled or not
      */
-    readonly publicNetworkAccess?: string;
+    readonly publicNetworkAccess: string;
     /**
      * The SKU (pricing tier) of the server.
      */
@@ -92,9 +105,9 @@ export interface GetServerResult {
      */
     readonly sourceServerName?: string;
     /**
-     * stand by count value can be either 0 or 1
+     * availability Zone information of the server.
      */
-    readonly standbyCount?: number;
+    readonly standbyAvailabilityZone: string;
     /**
      * A state of a server that is visible to user.
      */
@@ -115,5 +128,4 @@ export interface GetServerResult {
      * PostgreSQL Server version.
      */
     readonly version?: string;
-    readonly vnetInjArgs?: outputs.dbforpostgresql.v20200214privatepreview.ServerPropertiesResponseVnetInjArgs;
 }

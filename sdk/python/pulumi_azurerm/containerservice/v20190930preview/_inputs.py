@@ -10,9 +10,9 @@ from ... import _utilities, _tables
 
 __all__ = [
     'NetworkProfileArgs',
+    'OpenShiftManagedClusterAADIdentityProviderArgs',
     'OpenShiftManagedClusterAgentPoolProfileArgs',
     'OpenShiftManagedClusterAuthProfileArgs',
-    'OpenShiftManagedClusterBaseIdentityProviderArgs',
     'OpenShiftManagedClusterIdentityProviderArgs',
     'OpenShiftManagedClusterMasterPoolProfileArgs',
     'OpenShiftManagedClusterMonitorProfileArgs',
@@ -74,6 +74,93 @@ class NetworkProfileArgs:
     @vnet_id.setter
     def vnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_id", value)
+
+
+@pulumi.input_type
+class OpenShiftManagedClusterAADIdentityProviderArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 customer_admin_group_id: Optional[pulumi.Input[str]] = None,
+                 secret: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the Identity provider for MS AAD.
+        :param pulumi.Input[str] kind: The kind of the provider.
+        :param pulumi.Input[str] client_id: The clientId password associated with the provider.
+        :param pulumi.Input[str] customer_admin_group_id: The groupId to be granted cluster admin role.
+        :param pulumi.Input[str] secret: The secret password associated with the provider.
+        :param pulumi.Input[str] tenant_id: The tenantId associated with the provider.
+        """
+        pulumi.set(__self__, "kind", 'AADIdentityProvider')
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if customer_admin_group_id is not None:
+            pulumi.set(__self__, "customer_admin_group_id", customer_admin_group_id)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The kind of the provider.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The clientId password associated with the provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="customerAdminGroupId")
+    def customer_admin_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The groupId to be granted cluster admin role.
+        """
+        return pulumi.get(self, "customer_admin_group_id")
+
+    @customer_admin_group_id.setter
+    def customer_admin_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_admin_group_id", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secret password associated with the provider.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenantId associated with the provider.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
@@ -202,37 +289,14 @@ class OpenShiftManagedClusterAuthProfileArgs:
 
 
 @pulumi.input_type
-class OpenShiftManagedClusterBaseIdentityProviderArgs:
-    def __init__(__self__, *,
-                 kind: pulumi.Input[str]):
-        """
-        Structure for any Identity provider.
-        :param pulumi.Input[str] kind: The kind of the provider.
-        """
-        pulumi.set(__self__, "kind", kind)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Input[str]:
-        """
-        The kind of the provider.
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kind", value)
-
-
-@pulumi.input_type
 class OpenShiftManagedClusterIdentityProviderArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 provider: Optional[pulumi.Input['OpenShiftManagedClusterBaseIdentityProviderArgs']] = None):
+                 provider: Optional[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs']] = None):
         """
         Defines the configuration of the identity providers to be used in the OpenShift cluster.
         :param pulumi.Input[str] name: Name of the provider.
-        :param pulumi.Input['OpenShiftManagedClusterBaseIdentityProviderArgs'] provider: Configuration of the provider.
+        :param pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs'] provider: Configuration of the provider.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -253,14 +317,14 @@ class OpenShiftManagedClusterIdentityProviderArgs:
 
     @property
     @pulumi.getter
-    def provider(self) -> Optional[pulumi.Input['OpenShiftManagedClusterBaseIdentityProviderArgs']]:
+    def provider(self) -> Optional[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs']]:
         """
         Configuration of the provider.
         """
         return pulumi.get(self, "provider")
 
     @provider.setter
-    def provider(self, value: Optional[pulumi.Input['OpenShiftManagedClusterBaseIdentityProviderArgs']]):
+    def provider(self, value: Optional[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs']]):
         pulumi.set(self, "provider", value)
 
 

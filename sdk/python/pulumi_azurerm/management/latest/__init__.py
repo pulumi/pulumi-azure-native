@@ -7,12 +7,12 @@ from .deployment_at_management_group_scope import *
 from .get_deployment_at_management_group_scope import *
 from .get_hierarchy_setting import *
 from .get_management_group import *
-from .get_management_group_subscription_subscription import *
+from .get_management_group_subscription import *
 from .get_policy_definition_at_management_group import *
 from .get_policy_set_definition_at_management_group import *
 from .hierarchy_setting import *
 from .management_group import *
-from .management_group_subscription_subscription import *
+from .management_group_subscription import *
 from .policy_definition_at_management_group import *
 from .policy_set_definition_at_management_group import *
 from ._inputs import *

@@ -41,7 +41,7 @@ class GetDigitalTwinsEndpointResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.DigitalTwinsEndpointResourcePropertiesResponse':
+    def properties(self) -> Any:
         """
         DigitalTwinsInstance endpoint resource properties.
         """

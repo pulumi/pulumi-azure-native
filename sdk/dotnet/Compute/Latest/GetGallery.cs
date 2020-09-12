@@ -30,6 +30,12 @@ namespace Pulumi.AzureRM.Compute.Latest
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The select expression to apply on the operation.
+        /// </summary>
+        [Input("select")]
+        public string? Select { get; set; }
+
         public GetGalleryArgs()
         {
         }
@@ -60,6 +66,10 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Profile for gallery sharing to subscription or tenant
+        /// </summary>
+        public readonly Outputs.SharingProfileResponseResult? SharingProfile;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -80,6 +90,8 @@ namespace Pulumi.AzureRM.Compute.Latest
 
             string provisioningState,
 
+            Outputs.SharingProfileResponseResult? sharingProfile,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -89,6 +101,7 @@ namespace Pulumi.AzureRM.Compute.Latest
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            SharingProfile = sharingProfile;
             Tags = tags;
             Type = type;
         }

@@ -35,11 +35,11 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    readonly customize?: outputs.virtualmachineimages.v20180201preview.ImageTemplateCustomizerResponse[];
+    readonly customize?: outputs.virtualmachineimages.v20180201preview.ImageTemplateShellCustomizerResponse[];
     /**
      * The distribution targets where the image output needs to go to.
      */
-    readonly distribute: outputs.virtualmachineimages.v20180201preview.ImageTemplateDistributorResponse[];
+    readonly distribute: outputs.virtualmachineimages.v20180201preview.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20180201preview.ImageTemplateSharedImageDistributorResponse[];
     /**
      * State of 'run' that is currently executing or was last executed.
      */
@@ -63,7 +63,7 @@ export interface GetVirtualMachineImageTemplateResult {
     /**
      * Specifies the properties used to describe the source image.
      */
-    readonly source: outputs.virtualmachineimages.v20180201preview.ImageTemplateSourceResponse;
+    readonly source: outputs.virtualmachineimages.v20180201preview.ImageTemplateIsoSourceResponse | outputs.virtualmachineimages.v20180201preview.ImageTemplatePlatformImageSourceResponse;
     /**
      * Resource tags
      */

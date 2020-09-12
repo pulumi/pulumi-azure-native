@@ -42,19 +42,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
-        /// The identity of the resource.
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the location of the resource.
-        /// </summary>
-        [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the name of the resource.
+        /// Friendly name of the private endpoint connection.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -78,19 +66,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
         public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The sku of the workspace.
-        /// </summary>
-        [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// Contains resource tags defined as key/value pairs.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the type of the resource.
+        /// Resource type of private endpoint connection.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -152,18 +128,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity of the resource.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// Specifies the location of the resource.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
         /// The name of the private endpoint connection associated with the workspace
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
@@ -186,24 +150,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The sku of the workspace.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Contains resource tags defined as key/value pairs.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         /// <summary>
         /// Name of Azure Machine Learning workspace.
