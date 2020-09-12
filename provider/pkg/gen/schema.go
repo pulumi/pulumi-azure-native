@@ -21,7 +21,6 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
-	"regexp"
 	"sort"
 	"strings"
 
@@ -34,6 +33,9 @@ import (
 	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 )
+
+// Note - this needs to be kept in sync with the layout in the SDK package
+const goBasePath = "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
 func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureAPIMetadata, map[string][]provider.AzureApiExample, error) {
@@ -231,6 +233,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		"azurerm": "AzureRM",
 	}
 	pythonModuleNames := map[string]string{}
+	golangImportAliases := map[string]string{}
 
 	var providers []string
 	for prov := range providerMap {
@@ -255,11 +258,12 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 				examples:   exampleMap,
 			}
 
-			// Populate C# and Python module mapping.
+			// Populate C#, Python and Go module mapping.
 			module := gen.providerToModule(providerName)
 			csVersion := strings.Title(csharpVersionReplacer.Replace(version))
 			csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
 			pythonModuleNames[module] = module
+			golangImportAliases[filepath.Join(goBasePath, module)] = strings.ToLower(providerName)
 
 			// Populate resources and get invokes.
 			items := versionMap[version]
@@ -286,26 +290,6 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 				gen.genListFunctions(providerName, typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
 			}
 		}
-	}
-
-	const goBasePath = "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
-	golangImportAliases := map[string]string{}
-
-	re := regexp.MustCompile(`(?P<pkgName>.*):(?P<module>.*)/(?P<version>.*):(?P<type>.*)`)
-	for resName := range pkg.Resources {
-		subMatches := re.FindStringSubmatch(resName)
-		subMatchMap := map[string]string{}
-
-		if len(subMatches) != len(re.SubexpNames()) {
-			return nil, nil, nil, fmt.Errorf("unexpected resource format: %s", resName)
-		}
-		for i, name := range re.SubexpNames() {
-			if i != 0 {
-				subMatchMap[name] = subMatches[i]
-			}
-		}
-		packageImport := filepath.Join(goBasePath, subMatchMap["module"], subMatchMap["version"])
-		golangImportAliases[packageImport] = subMatchMap["module"]
 	}
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{

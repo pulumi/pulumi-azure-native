@@ -38,7 +38,7 @@ type resourceExamplesRenderData struct {
 }
 
 // Examples renders Azure API examples to the pkgSpec for the specified list of languages.
-func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureApiMetadata, resExamples map[string][]provider.AzureApiExample, languages []string) error {
+func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, resExamples map[string][]provider.AzureApiExample, languages []string) error {
 	sortedKeys := codegen.SortedKeys(metadata.Resources) // To generate in deterministic order
 
 	pulumiOptions := []hcl2.BindOption{hcl2.Cache(hcl2.NewPackageCache())}
@@ -84,7 +84,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureApiMetadata, 
 				return fmt.Errorf("example %s missing expected key: 'parameters'", example.Location)
 			}
 
-			resourceParams := map[string]provider.AzureApiParameter{}
+			resourceParams := map[string]provider.AzureAPIParameter{}
 			for _, param := range resource.PutParameters {
 				resourceParams[param.Name] = param
 			}
@@ -101,12 +101,10 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureApiMetadata, 
 				continue
 			}
 
-			renderer := pcl.NewRenderContext()
-
 			keys := codegen.SortedKeys(flattened)
 			for _, k := range keys {
 				v := flattened[k]
-				val, err := renderer.RenderValue(v)
+				val, err := pcl.RenderValue(v)
 				if err != nil {
 					return err
 				}
@@ -260,8 +258,8 @@ func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string, exa
 // the metadata generated during schema generation.
 func flattenInput(
 	input map[string]interface{},
-	resourceParams map[string]provider.AzureApiParameter,
-	types map[string]provider.AzureApiType,
+	resourceParams map[string]provider.AzureAPIParameter,
+	types map[string]provider.AzureAPIType,
 ) (map[string]interface{}, error) {
 	containers := map[string]codegen.StringSet{}
 	for k, v := range resourceParams {
@@ -320,7 +318,7 @@ func flattenInput(
 				}
 			}
 			bodyValsMap := bodyVals.(map[string]interface{})
-			bodyProps := map[string]provider.AzureApiProperty{}
+			bodyProps := map[string]provider.AzureAPIProperty{}
 			for k, v := range paramMetadata.Body.Properties {
 				props := v
 				props.Container = ""
@@ -341,7 +339,7 @@ func flattenInput(
 	return out, nil
 }
 
-func transformProperty(prop *provider.AzureApiProperty, types map[string]provider.AzureApiType, val interface{}) interface{} {
+func transformProperty(prop *provider.AzureAPIProperty, types map[string]provider.AzureAPIType, val interface{}) interface{} {
 	switch reflect.TypeOf(val).Kind() {
 	case reflect.Map:
 		if prop.Ref == "" {
@@ -370,7 +368,7 @@ func transformProperty(prop *provider.AzureApiProperty, types map[string]provide
 	return val
 }
 
-func transformProperties(props map[string]provider.AzureApiProperty, types map[string]provider.AzureApiType, values map[string]interface{}) map[string]interface{} {
+func transformProperties(props map[string]provider.AzureAPIProperty, types map[string]provider.AzureAPIType, values map[string]interface{}) map[string]interface{} {
 	containers := codegen.NewStringSet()
 	for _, v := range props {
 		if v.Container != "" {

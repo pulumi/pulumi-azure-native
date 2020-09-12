@@ -1,3 +1,5 @@
+// +build integration
+
 package gen
 
 import (
@@ -11,7 +13,7 @@ import (
 )
 
 func TestFlattenInput(t *testing.T) {
-	var metadata provider.AzureApiMetadata
+	var metadata provider.AzureAPIMetadata
 	// TODO - Requires `make generate_schema` to be run first
 	// turn this into a proper unit test instead
 	f, err := os.Open("../../../sdk/schema/metadata.json")
@@ -319,7 +321,7 @@ func TestFlattenInput(t *testing.T) {
 	}[3:] {
 		t.Run(test.name, func(t *testing.T) {
 			in := test.input["parameters"].(map[string]interface{})
-			params := map[string]provider.AzureApiParameter{}
+			params := map[string]provider.AzureAPIParameter{}
 			for _, param := range metadata.Resources[test.resourceName].PutParameters {
 				params[param.Name] = param
 			}
