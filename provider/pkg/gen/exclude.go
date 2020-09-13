@@ -4,6 +4,7 @@ import (
 	"regexp"
 )
 
+// excludeResourcePatterns lists resources being skipped due to known codegen issues.
 var excludeResourcePatterns = []string{
 	"azurerm:attestation/.*:AttestationProvider",
 
