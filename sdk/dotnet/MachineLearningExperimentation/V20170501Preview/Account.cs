@@ -11,39 +11,6 @@ namespace Pulumi.AzureRM.MachineLearningExperimentation.V20170501Preview
 {
     /// <summary>
     /// An object that represents a machine learning team account.
-    /// 
-    /// ## Example Usage
-    /// ### AccountCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var account = new AzureRM.MachineLearningExperimentation.V20170501Preview.Account("account", new AzureRM.MachineLearningExperimentation.V20170501Preview.AccountArgs
-    ///         {
-    ///             AccountName = "accountcrud5678",
-    ///             KeyVaultId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.KeyVault/vaults/testkv",
-    ///             Location = "East US",
-    ///             ResourceGroupName = "accountcrud-1234",
-    ///             StorageAccount = new AzureRM.MachineLearningExperimentation.V20170501Preview.Inputs.StorageAccountPropertiesArgs
-    ///             {
-    ///                 AccessKey = "key",
-    ///                 StorageAccountId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "tagKey1", "TagValue1" },
-    ///             },
-    ///             VsoAccountId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/microsoft.visualstudio/account/vsotest",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

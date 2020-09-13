@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
 {
     /// <summary>
     /// Represents a Database.
-    /// 
-    /// ## Example Usage
-    /// ### Create a database
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var database = new AzureRM.DBForMySql.V20200701PrivatePreview.Database("database", new AzureRM.DBForMySql.V20200701PrivatePreview.DatabaseArgs
-    ///         {
-    ///             Charset = "utf8",
-    ///             Collation = "utf8_general_ci",
-    ///             DatabaseName = "db1",
-    ///             ResourceGroupName = "TestGroup",
-    ///             ServerName = "testserver",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Database : Pulumi.CustomResource
     {

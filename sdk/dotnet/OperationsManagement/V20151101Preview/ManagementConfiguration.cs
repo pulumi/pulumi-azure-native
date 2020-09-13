@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
 {
     /// <summary>
     /// The container for solution.
-    /// 
-    /// ## Example Usage
-    /// ### ManagementConfigurationCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var managementConfiguration = new AzureRM.OperationsManagement.V20151101Preview.ManagementConfiguration("managementConfiguration", new AzureRM.OperationsManagement.V20151101Preview.ManagementConfigurationArgs
-    ///         {
-    ///             Location = "East US",
-    ///             ManagementConfigurationName = "managementConfiguration1",
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ManagementConfiguration : Pulumi.CustomResource
     {

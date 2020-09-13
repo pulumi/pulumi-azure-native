@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.DataShare.V20191101
 {
     /// <summary>
     /// A Trigger data transfer object.
-    /// 
-    /// ## Example Usage
-    /// ### Triggers_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var trigger = new AzureRM.DataShare.V20191101.Trigger("trigger", new AzureRM.DataShare.V20191101.TriggerArgs
-    ///         {
-    ///             AccountName = "Account1",
-    ///             Kind = "ScheduleBased",
-    ///             ResourceGroupName = "SampleResourceGroup",
-    ///             ShareSubscriptionName = "ShareSubscription1",
-    ///             TriggerName = "Trigger1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Trigger : Pulumi.CustomResource
     {

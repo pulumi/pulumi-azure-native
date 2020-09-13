@@ -11,61 +11,6 @@ namespace Pulumi.AzureRM.Aad.V20200101
 {
     /// <summary>
     /// Domain service.
-    /// 
-    /// ## Example Usage
-    /// ### Create Domain Service
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var domainService = new AzureRM.Aad.V20200101.DomainService("domainService", new AzureRM.Aad.V20200101.DomainServiceArgs
-    ///         {
-    ///             DomainName = "TestDomainService.com",
-    ///             DomainSecuritySettings = new AzureRM.Aad.V20200101.Inputs.DomainSecuritySettingsArgs
-    ///             {
-    ///                 NtlmV1 = "Enabled",
-    ///                 SyncNtlmPasswords = "Enabled",
-    ///                 TlsV1 = "Disabled",
-    ///             },
-    ///             DomainServiceName = "TestDomainService.com",
-    ///             FilteredSync = "Enabled",
-    ///             LdapsSettings = new AzureRM.Aad.V20200101.Inputs.LdapsSettingsArgs
-    ///             {
-    ///                 ExternalAccess = "Enabled",
-    ///                 Ldaps = "Enabled",
-    ///                 PfxCertificate = "MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
-    ///                 PfxCertificatePassword = "Password01",
-    ///             },
-    ///             Location = "West US",
-    ///             NotificationSettings = new AzureRM.Aad.V20200101.Inputs.NotificationSettingsArgs
-    ///             {
-    ///                 AdditionalRecipients = 
-    ///                 {
-    ///                     "jicha@microsoft.com",
-    ///                     "caalmont@microsoft.com",
-    ///                 },
-    ///                 NotifyDcAdmins = "Enabled",
-    ///                 NotifyGlobalAdmins = "Enabled",
-    ///             },
-    ///             ReplicaSets = 
-    ///             {
-    ///                 new AzureRM.Aad.V20200101.Inputs.ReplicaSetArgs
-    ///                 {
-    ///                     Location = "West US",
-    ///                     SubnetId = "/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/TestVnetWUS/subnets/TestSubnetWUS",
-    ///                 },
-    ///             },
-    ///             ResourceGroupName = "TestResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DomainService : Pulumi.CustomResource
     {

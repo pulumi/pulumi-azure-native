@@ -11,36 +11,6 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
 {
     /// <summary>
     /// Dedicated cloud node model
-    /// 
-    /// ## Example Usage
-    /// ### CreateDedicatedCloudNode
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var dedicatedCloudNode = new AzureRM.VMwareCloudSimple.V20190401.DedicatedCloudNode("dedicatedCloudNode", new AzureRM.VMwareCloudSimple.V20190401.DedicatedCloudNodeArgs
-    ///         {
-    ///             AvailabilityZoneId = "az1",
-    ///             DedicatedCloudNodeName = "myNode",
-    ///             Location = "westus",
-    ///             NodesCount = 1,
-    ///             PlacementGroupId = "n1",
-    ///             PurchaseId = "56acbd46-3d36-4bbf-9b08-57c30fdf6932",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Sku = new AzureRM.VMwareCloudSimple.V20190401.Inputs.SkuArgs
-    ///             {
-    ///                 Name = "VMware_CloudSimple_CS28",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DedicatedCloudNode : Pulumi.CustomResource
     {

@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
 {
     /// <summary>
     /// DigitalTwinsInstance endpoint resource.
-    /// 
-    /// ## Example Usage
-    /// ### Put a DigitalTwinsInstance resource
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var digitalTwinsEndpoint = new AzureRM.DigitalTwins.V20200301Preview.DigitalTwinsEndpoint("digitalTwinsEndpoint", new AzureRM.DigitalTwins.V20200301Preview.DigitalTwinsEndpointArgs
-    ///         {
-    ///             EndpointName = "myServiceBus",
-    ///             ResourceGroupName = "resRg",
-    ///             ResourceName = "myDigitalTwinsService",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DigitalTwinsEndpoint : Pulumi.CustomResource
     {

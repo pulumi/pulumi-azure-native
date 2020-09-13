@@ -11,31 +11,6 @@ namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
 {
     /// <summary>
     /// The container for solution.
-    /// 
-    /// ## Example Usage
-    /// ### SolutionCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var managementAssociation = new AzureRM.OperationsManagement.V20151101Preview.ManagementAssociation("managementAssociation", new AzureRM.OperationsManagement.V20151101Preview.ManagementAssociationArgs
-    ///         {
-    ///             Location = "East US",
-    ///             ManagementAssociationName = "managementAssociation1",
-    ///             ProviderName = "providerName",
-    ///             ResourceGroupName = "rg1",
-    ///             ResourceName = "resourceName",
-    ///             ResourceType = "resourceType",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ManagementAssociation : Pulumi.CustomResource
     {

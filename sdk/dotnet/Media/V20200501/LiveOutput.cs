@@ -11,37 +11,6 @@ namespace Pulumi.AzureRM.Media.V20200501
 {
     /// <summary>
     /// The Live Output.
-    /// 
-    /// ## Example Usage
-    /// ### Create a LiveOutput
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var liveOutput = new AzureRM.Media.V20200501.LiveOutput("liveOutput", new AzureRM.Media.V20200501.LiveOutputArgs
-    ///         {
-    ///             AccountName = "slitestmedia10",
-    ///             ArchiveWindowLength = "PT5M",
-    ///             AssetName = "6f3264f5-a189-48b4-a29a-a40f22575212",
-    ///             Description = "test live output 1",
-    ///             Hls = new AzureRM.Media.V20200501.Inputs.HlsArgs
-    ///             {
-    ///                 FragmentsPerTsSegment = 5,
-    ///             },
-    ///             LiveEventName = "myLiveEvent1",
-    ///             LiveOutputName = "myLiveOutput1",
-    ///             ManifestName = "testmanifest",
-    ///             ResourceGroupName = "mediaresources",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class LiveOutput : Pulumi.CustomResource
     {

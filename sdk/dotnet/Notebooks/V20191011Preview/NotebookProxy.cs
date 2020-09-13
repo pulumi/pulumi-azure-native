@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.Notebooks.V20191011Preview
 {
     /// <summary>
     /// A NotebookProxy resource.
-    /// 
-    /// ## Example Usage
-    /// ### Create Notebook Proxy
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var notebookProxy = new AzureRM.Notebooks.V20191011Preview.NotebookProxy("notebookProxy", new AzureRM.Notebooks.V20191011Preview.NotebookProxyArgs
-    ///         {
-    ///             Hostname = "Azure Notebooks",
-    ///             ResourceGroupName = "testRP",
-    ///             ResourceName = "testResource",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class NotebookProxy : Pulumi.CustomResource
     {

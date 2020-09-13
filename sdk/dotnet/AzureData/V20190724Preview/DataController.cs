@@ -11,37 +11,6 @@ namespace Pulumi.AzureRM.AzureData.V20190724Preview
 {
     /// <summary>
     /// Data controller resource
-    /// 
-    /// ## Example Usage
-    /// ### Updates a dataControllers tags.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var dataController = new AzureRM.AzureData.V20190724Preview.DataController("dataController", new AzureRM.AzureData.V20190724Preview.DataControllerArgs
-    ///         {
-    ///             DataControllerName = "testdataController",
-    ///             Location = "northeurope",
-    ///             OnPremiseProperty = new AzureRM.AzureData.V20190724Preview.Inputs.OnPremisePropertyArgs
-    ///             {
-    ///                 Id = "12345678-1234-1234-ab12-1a2b3c4d5e6f",
-    ///                 PublicSigningKey = "publicOnPremSigningKey",
-    ///             },
-    ///             ResourceGroupName = "testrg",
-    ///             Tags = 
-    ///             {
-    ///                 { "mytag", "myval" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DataController : Pulumi.CustomResource
     {

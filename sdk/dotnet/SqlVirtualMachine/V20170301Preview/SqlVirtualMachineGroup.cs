@@ -11,44 +11,6 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
 {
     /// <summary>
     /// A SQL virtual machine group.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates a SQL virtual machine group.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sqlVirtualMachineGroup = new AzureRM.SqlVirtualMachine.V20170301Preview.SqlVirtualMachineGroup("sqlVirtualMachineGroup", new AzureRM.SqlVirtualMachine.V20170301Preview.SqlVirtualMachineGroupArgs
-    ///         {
-    ///             Location = "northeurope",
-    ///             ResourceGroupName = "testrg",
-    ///             SqlImageOffer = "SQL2016-WS2016",
-    ///             SqlImageSku = "Enterprise",
-    ///             SqlVirtualMachineGroupName = "testvmgroup",
-    ///             Tags = 
-    ///             {
-    ///                 { "mytag", "myval" },
-    ///             },
-    ///             WsfcDomainProfile = new AzureRM.SqlVirtualMachine.V20170301Preview.Inputs.WsfcDomainProfileArgs
-    ///             {
-    ///                 ClusterBootstrapAccount = "testrpadmin",
-    ///                 ClusterOperatorAccount = "testrp@testdomain.com",
-    ///                 DomainFqdn = "testdomain.com",
-    ///                 OuPath = "OU=WSCluster,DC=testdomain,DC=com",
-    ///                 SqlServiceAccount = "sqlservice@testdomain.com",
-    ///                 StorageAccountPrimaryKey = "&lt;primary storage access key&gt;",
-    ///                 StorageAccountUrl = "https://storgact.blob.core.windows.net/",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SqlVirtualMachineGroup : Pulumi.CustomResource
     {

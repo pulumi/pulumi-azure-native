@@ -11,34 +11,6 @@ namespace Pulumi.AzureRM.MachineLearningExperimentation.V20170501Preview
 {
     /// <summary>
     /// An object that represents a machine learning team account workspace.
-    /// 
-    /// ## Example Usage
-    /// ### WorkspaceCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var workspace = new AzureRM.MachineLearningExperimentation.V20170501Preview.Workspace("workspace", new AzureRM.MachineLearningExperimentation.V20170501Preview.WorkspaceArgs
-    ///         {
-    ///             AccountName = "testaccount",
-    ///             FriendlyName = "testName",
-    ///             Location = "East US",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Tags = 
-    ///             {
-    ///                 { "tagKey1", "TagValue1" },
-    ///             },
-    ///             WorkspaceName = "testworkspace",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

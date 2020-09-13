@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
 {
     /// <summary>
     /// Integration runtime resource type.
-    /// 
-    /// ## Example Usage
-    /// ### IntegrationRuntimes_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var integrationRuntime = new AzureRM.DataFactory.V20180601.IntegrationRuntime("integrationRuntime", new AzureRM.DataFactory.V20180601.IntegrationRuntimeArgs
-    ///         {
-    ///             FactoryName = "exampleFactoryName",
-    ///             IntegrationRuntimeName = "exampleIntegrationRuntime",
-    ///             ResourceGroupName = "exampleResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class IntegrationRuntime : Pulumi.CustomResource
     {

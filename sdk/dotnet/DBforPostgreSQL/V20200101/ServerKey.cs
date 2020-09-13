@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101
 {
     /// <summary>
     /// A PostgreSQL Server key.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates a PostgreSQL Server key
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var serverKey = new AzureRM.DBforPostgreSQL.V20200101.ServerKey("serverKey", new AzureRM.DBforPostgreSQL.V20200101.ServerKeyArgs
-    ///         {
-    ///             KeyName = "someVault_someKey_01234567890123456789012345678901",
-    ///             ResourceGroupName = "testrg",
-    ///             ServerKeyType = "AzureKeyVault",
-    ///             ServerName = "testserver",
-    ///             Uri = "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ServerKey : Pulumi.CustomResource
     {

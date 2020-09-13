@@ -11,52 +11,6 @@ namespace Pulumi.AzureRM.HardwareSecurityModules.V20181031Preview
 {
     /// <summary>
     /// Resource information with extended details.
-    /// 
-    /// ## Example Usage
-    /// ### Create a new or update an existing dedicated HSM
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var dedicatedHsm = new AzureRM.HardwareSecurityModules.V20181031Preview.DedicatedHsm("dedicatedHsm", new AzureRM.HardwareSecurityModules.V20181031Preview.DedicatedHsmArgs
-    ///         {
-    ///             Location = "westus",
-    ///             Name = "hsm1",
-    ///             NetworkProfile = new AzureRM.HardwareSecurityModules.V20181031Preview.Inputs.NetworkProfileArgs
-    ///             {
-    ///                 NetworkInterfaces = 
-    ///                 {
-    ///                     new AzureRM.HardwareSecurityModules.V20181031Preview.Inputs.NetworkInterfaceArgs
-    ///                     {
-    ///                         PrivateIpAddress = "1.0.0.1",
-    ///                     },
-    ///                 },
-    ///                 Subnet = new AzureRM.HardwareSecurityModules.V20181031Preview.Inputs.ApiEntityReferenceArgs
-    ///                 {
-    ///                     Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
-    ///                 },
-    ///             },
-    ///             ResourceGroupName = "hsm-group",
-    ///             Sku = new AzureRM.HardwareSecurityModules.V20181031Preview.Inputs.SkuArgs
-    ///             {
-    ///                 Name = "SafeNet Luna Network HSM A790",
-    ///             },
-    ///             StampId = "stamp01",
-    ///             Tags = 
-    ///             {
-    ///                 { "Dept", "hsm" },
-    ///                 { "Environment", "dogfood" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DedicatedHsm : Pulumi.CustomResource
     {

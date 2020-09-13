@@ -11,35 +11,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
 {
     /// <summary>
     /// The backup policy.
-    /// 
-    /// ## Example Usage
-    /// ### BackupPoliciesCreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var backupPolicy = new AzureRM.StorSimple.V20170601.BackupPolicy("backupPolicy", new AzureRM.StorSimple.V20170601.BackupPolicyArgs
-    ///         {
-    ///             BackupPolicyName = "BkUpPolicy01ForSDKTest",
-    ///             DeviceName = "Device05ForSDKTest",
-    ///             Kind = "Series8000",
-    ///             ManagerName = "ManagerForSDKTest1",
-    ///             ResourceGroupName = "ResourceGroupForSDKTest",
-    ///             VolumeIds = 
-    ///             {
-    ///                 "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/volumeContainerForSDKTest/volumes/Clonedvolume1",
-    ///                 "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/volumeContainerForSDKTest/volumes/volume1",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class BackupPolicy : Pulumi.CustomResource
     {

@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.Synapse.V20200401Preview
 {
     /// <summary>
     /// A sql database resource.
-    /// 
-    /// ## Example Usage
-    /// ### Creates a sqldatabase.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sqlDatabase = new AzureRM.Synapse.V20200401Preview.SqlDatabase("sqlDatabase", new AzureRM.Synapse.V20200401Preview.SqlDatabaseArgs
-    ///         {
-    ///             Location = "westus",
-    ///             ResourceGroupName = "rg_88eed28c-5243-4f02-8251-bfa1e69e7057",
-    ///             SqlDatabaseName = "73164535-f22d-4daa-b014-1f23bbe361b7",
-    ///             Tags = 
-    ///             {
-    ///                 { "tag1", "val1" },
-    ///             },
-    ///             WorkspaceName = "srv_85d31a1e-718b-4bda-9e53-a91230dd4ce5",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SqlDatabase : Pulumi.CustomResource
     {

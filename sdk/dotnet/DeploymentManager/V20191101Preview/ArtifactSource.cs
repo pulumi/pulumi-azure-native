@@ -11,61 +11,6 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
 {
     /// <summary>
     /// The resource that defines the source location where the artifacts are located.
-    /// 
-    /// ## Example Usage
-    /// ### Create artifact source
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var artifactSource = new AzureRM.DeploymentManager.V20191101Preview.ArtifactSource("artifactSource", new AzureRM.DeploymentManager.V20191101Preview.ArtifactSourceArgs
-    ///         {
-    ///             ArtifactSourceName = "myArtifactSource",
-    ///             Authentication = new AzureRM.DeploymentManager.V20191101Preview.Inputs.SasAuthenticationArgs
-    ///             {
-    ///                 Type = "Sas",
-    ///             },
-    ///             Location = "centralus",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             SourceType = "AzureStorage",
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Create artifact source with artifact root, an offset into the storage container
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var artifactSource = new AzureRM.DeploymentManager.V20191101Preview.ArtifactSource("artifactSource", new AzureRM.DeploymentManager.V20191101Preview.ArtifactSourceArgs
-    ///         {
-    ///             ArtifactRoot = "1.0.0.0",
-    ///             ArtifactSourceName = "myArtifactSource",
-    ///             Authentication = new AzureRM.DeploymentManager.V20191101Preview.Inputs.SasAuthenticationArgs
-    ///             {
-    ///                 Type = "Sas",
-    ///             },
-    ///             Location = "centralus",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             SourceType = "AzureStorage",
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ArtifactSource : Pulumi.CustomResource
     {

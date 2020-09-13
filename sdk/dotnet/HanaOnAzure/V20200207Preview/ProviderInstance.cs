@@ -11,31 +11,6 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20200207Preview
 {
     /// <summary>
     /// A provider instance associated with a SAP monitor.
-    /// 
-    /// ## Example Usage
-    /// ### Create a SAP Monitor
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var providerInstance = new AzureRM.HanaOnAzure.V20200207Preview.ProviderInstance("providerInstance", new AzureRM.HanaOnAzure.V20200207Preview.ProviderInstanceArgs
-    ///         {
-    ///             Metadata = "{\"key\":\"value\"}",
-    ///             Properties = "{\"hostname\":\"10.0.0.10\",\"dbName\":\"SYSTEMDB\",\"sqlPort\":30015,\"dbUsername\":\"SYSTEM\",\"dbPassword\":\"PASSWORD\"}",
-    ///             ProviderInstanceName = "myProviderInstance",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             SapMonitorName = "mySapMonitor",
-    ///             Type = "hana",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ProviderInstance : Pulumi.CustomResource
     {

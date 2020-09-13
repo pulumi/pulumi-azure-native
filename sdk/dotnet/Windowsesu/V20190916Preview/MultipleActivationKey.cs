@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.WindowsESU.V20190916Preview
 {
     /// <summary>
     /// MAK key details.
-    /// 
-    /// ## Example Usage
-    /// ### CreateMultipleActivationKey
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var multipleActivationKey = new AzureRM.WindowsESU.V20190916Preview.MultipleActivationKey("multipleActivationKey", new AzureRM.WindowsESU.V20190916Preview.MultipleActivationKeyArgs
-    ///         {
-    ///             AgreementNumber = "1a2b45ag",
-    ///             InstalledServerNumber = 100,
-    ///             IsEligible = true,
-    ///             Location = "East US",
-    ///             MultipleActivationKeyName = "server08-key-2019",
-    ///             OsType = "WindowsServer2008",
-    ///             ResourceGroupName = "testgr1",
-    ///             SupportType = "SupplementalServicing",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class MultipleActivationKey : Pulumi.CustomResource
     {

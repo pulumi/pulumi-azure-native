@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// Hybrid network device resource.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update hybrid network device
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var device = new AzureRM.HybridNetwork.V20200101Preview.Device("device", new AzureRM.HybridNetwork.V20200101Preview.DeviceArgs
-    ///         {
-    ///             AzureStackEdge = new AzureRM.HybridNetwork.V20200101Preview.Inputs.SubResourceArgs
-    ///             {
-    ///                 Id = "/subscriptions/subid1/resourcegroups/rg2/providers/Microsoft.DataboxEdge/DataboxEdgeDevices/TestDataboxEdgeDeviceName",
-    ///             },
-    ///             DeviceName = "TestDevice",
-    ///             DeviceType = "AzureStackEdge",
-    ///             Location = "eastus",
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Device : Pulumi.CustomResource
     {

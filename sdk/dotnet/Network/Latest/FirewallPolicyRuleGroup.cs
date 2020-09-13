@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Network.Latest
     ///             {
     ///                 
     ///                 {
-    ///                     { "action", new AzureRM.Network.Latest.Inputs.FirewallPolicyFilterRuleActionArgs
+    ///                     { "action", new AzureRM.Network.Latest.Inputs.FirewallPolicyNatRuleActionArgs
     ///                     {
     ///                         Type = "Deny",
     ///                     } },

@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
 {
     /// <summary>
     /// The description of the DigitalTwins service.
-    /// 
-    /// ## Example Usage
-    /// ### Put a DigitalTwinsInstance resource
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var digitalTwin = new AzureRM.DigitalTwins.V20200301Preview.DigitalTwin("digitalTwin", new AzureRM.DigitalTwins.V20200301Preview.DigitalTwinArgs
-    ///         {
-    ///             Location = "WestUS",
-    ///             ResourceGroupName = "resRg",
-    ///             ResourceName = "myDigitalTwinsService",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DigitalTwin : Pulumi.CustomResource
     {

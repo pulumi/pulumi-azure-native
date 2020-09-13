@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.Peering.V20200401
 {
     /// <summary>
     /// The customer's ASN that is registered by the peering service provider.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a registered ASN for the peering
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var registeredAsn = new AzureRM.Peering.V20200401.RegisteredAsn("registeredAsn", new AzureRM.Peering.V20200401.RegisteredAsnArgs
-    ///         {
-    ///             Asn = 65000,
-    ///             PeeringName = "peeringName",
-    ///             RegisteredAsnName = "registeredAsnName",
-    ///             ResourceGroupName = "rgName",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class RegisteredAsn : Pulumi.CustomResource
     {

@@ -11,38 +11,6 @@ namespace Pulumi.AzureRM.Synapse.V20200401Preview
 {
     /// <summary>
     /// A sql pool resource.
-    /// 
-    /// ## Example Usage
-    /// ### Creates a sqlpool.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sqlPoolsV3 = new AzureRM.Synapse.V20200401Preview.SqlPoolsV3("sqlPoolsV3", new AzureRM.Synapse.V20200401Preview.SqlPoolsV3Args
-    ///         {
-    ///             Location = "westus",
-    ///             ResourceGroupName = "rg_fb5ce457-3576-425e-b22d-7300689fbea0",
-    ///             Sku = new AzureRM.Synapse.V20200401Preview.Inputs.SkuArgs
-    ///             {
-    ///                 Name = "DW1000f",
-    ///                 Tier = "Synapse",
-    ///             },
-    ///             SqlPoolName = "22c317e3-97a3-4ae3-9e91-a3456a5fff31",
-    ///             Tags = 
-    ///             {
-    ///                 { "tag1", "val1" },
-    ///             },
-    ///             WorkspaceName = "srv_1e04aaa9-b30e-46ad-af06-7a21202bcc6c",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SqlPoolsV3 : Pulumi.CustomResource
     {

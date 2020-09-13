@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.Logic.V20190501
 {
     /// <summary>
     /// The integration service environment.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update an integration service environment
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var integrationServiceEnvironment = new AzureRM.Logic.V20190501.IntegrationServiceEnvironment("integrationServiceEnvironment", new AzureRM.Logic.V20190501.IntegrationServiceEnvironmentArgs
-    ///         {
-    ///             IntegrationServiceEnvironmentName = "testIntegrationServiceEnvironment",
-    ///             Location = "brazilsouth",
-    ///             ResourceGroup = "testResourceGroup",
-    ///             Sku = new AzureRM.Logic.V20190501.Inputs.IntegrationServiceEnvironmentSkuArgs
-    ///             {
-    ///                 Capacity = 2,
-    ///                 Name = "Premium",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class IntegrationServiceEnvironment : Pulumi.CustomResource
     {

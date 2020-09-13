@@ -11,46 +11,6 @@ namespace Pulumi.AzureRM.Logic.V20190501
 {
     /// <summary>
     /// The integration account partner.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a partner
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var integrationAccountPartner = new AzureRM.Logic.V20190501.IntegrationAccountPartner("integrationAccountPartner", new AzureRM.Logic.V20190501.IntegrationAccountPartnerArgs
-    ///         {
-    ///             Content = new AzureRM.Logic.V20190501.Inputs.PartnerContentArgs
-    ///             {
-    ///                 B2b = new AzureRM.Logic.V20190501.Inputs.B2BPartnerContentArgs
-    ///                 {
-    ///                     BusinessIdentities = 
-    ///                     {
-    ///                         new AzureRM.Logic.V20190501.Inputs.BusinessIdentityArgs
-    ///                         {
-    ///                             Qualifier = "AA",
-    ///                             Value = "ZZ",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             IntegrationAccountName = "testIntegrationAccount",
-    ///             Location = "westus",
-    ///             Metadata = ,
-    ///             PartnerName = "testPartner",
-    ///             PartnerType = "B2B",
-    ///             ResourceGroupName = "testResourceGroup",
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class IntegrationAccountPartner : Pulumi.CustomResource
     {

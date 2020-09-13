@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.Logic.V20190501
 {
     /// <summary>
     /// The managed api definition.
-    /// 
-    /// ## Example Usage
-    /// ### Gets the integration service environment managed Apis
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var integrationServiceEnvironmentManagedApi = new AzureRM.Logic.V20190501.IntegrationServiceEnvironmentManagedApi("integrationServiceEnvironmentManagedApi", new AzureRM.Logic.V20190501.IntegrationServiceEnvironmentManagedApiArgs
-    ///         {
-    ///             ApiName = "servicebus",
-    ///             IntegrationServiceEnvironmentName = "testIntegrationServiceEnvironment",
-    ///             ResourceGroup = "testResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class IntegrationServiceEnvironmentManagedApi : Pulumi.CustomResource
     {

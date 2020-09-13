@@ -11,34 +11,6 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515
 {
     /// <summary>
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
-    /// 
-    /// ## Example Usage
-    /// ### EnvironmentsCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var environment = new AzureRM.TimeSeriesInsights.V20200515.Environment("environment", new AzureRM.TimeSeriesInsights.V20200515.EnvironmentArgs
-    ///         {
-    ///             EnvironmentName = "env1",
-    ///             Kind = "Gen1",
-    ///             Location = "West US",
-    ///             ResourceGroupName = "rg1",
-    ///             Sku = new AzureRM.TimeSeriesInsights.V20200515.Inputs.SkuArgs
-    ///             {
-    ///                 Capacity = 1,
-    ///                 Name = "S1",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Environment : Pulumi.CustomResource
     {

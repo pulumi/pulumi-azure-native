@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.EventHub.V20170401
 {
     /// <summary>
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
-    /// 
-    /// ## Example Usage
-    /// ### EHAliasCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var disasterRecoveryConfig = new AzureRM.EventHub.V20170401.DisasterRecoveryConfig("disasterRecoveryConfig", new AzureRM.EventHub.V20170401.DisasterRecoveryConfigArgs
-    ///         {
-    ///             Alias = "sdk-DisasterRecovery-3814",
-    ///             NamespaceName = "sdk-Namespace-8859",
-    ///             PartnerNamespace = "sdk-Namespace-37",
-    ///             ResourceGroupName = "exampleResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DisasterRecoveryConfig : Pulumi.CustomResource
     {

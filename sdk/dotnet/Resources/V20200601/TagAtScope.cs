@@ -11,44 +11,6 @@ namespace Pulumi.AzureRM.Resources.V20200601
 {
     /// <summary>
     /// Wrapper resource for tags API requests and responses.
-    /// 
-    /// ## Example Usage
-    /// ### Update tags on a resource
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var tagAtScope = new AzureRM.Resources.V20200601.TagAtScope("tagAtScope", new AzureRM.Resources.V20200601.TagAtScopeArgs
-    ///         {
-    ///             Scope = "subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/myPRNameSpace/VM/myVm",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Update tags on a subscription
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var tagAtScope = new AzureRM.Resources.V20200601.TagAtScope("tagAtScope", new AzureRM.Resources.V20200601.TagAtScopeArgs
-    ///         {
-    ///             Scope = "subscriptions/00000000-0000-0000-0000-000000000000",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class TagAtScope : Pulumi.CustomResource
     {

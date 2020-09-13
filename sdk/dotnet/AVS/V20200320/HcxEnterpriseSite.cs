@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.AVS.V20200320
 {
     /// <summary>
     /// An HCX Enterprise Site resource
-    /// 
-    /// ## Example Usage
-    /// ### HcxEnterpriseSites_CreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var hcxEnterpriseSite = new AzureRM.AVS.V20200320.HcxEnterpriseSite("hcxEnterpriseSite", new AzureRM.AVS.V20200320.HcxEnterpriseSiteArgs
-    ///         {
-    ///             HcxEnterpriseSiteName = "site1",
-    ///             PrivateCloudName = "cloud1",
-    ///             ResourceGroupName = "group1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class HcxEnterpriseSite : Pulumi.CustomResource
     {

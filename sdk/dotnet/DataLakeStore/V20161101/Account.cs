@@ -11,66 +11,6 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
 {
     /// <summary>
     /// Data Lake Store account information.
-    /// 
-    /// ## Example Usage
-    /// ### Creates the specified Data Lake Store account
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var account = new AzureRM.DataLakeStore.V20161101.Account("account", new AzureRM.DataLakeStore.V20161101.AccountArgs
-    ///         {
-    ///             AccountName = "contosoadla",
-    ///             DefaultGroup = "test_default_group",
-    ///             EncryptionConfig = new AzureRM.DataLakeStore.V20161101.Inputs.EncryptionConfigArgs
-    ///             {
-    ///                 KeyVaultMetaInfo = new AzureRM.DataLakeStore.V20161101.Inputs.KeyVaultMetaInfoArgs
-    ///                 {
-    ///                     EncryptionKeyName = "test_encryption_key_name",
-    ///                     EncryptionKeyVersion = "encryption_key_version",
-    ///                     KeyVaultResourceId = "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
-    ///                 },
-    ///                 Type = "UserManaged",
-    ///             },
-    ///             EncryptionState = "Enabled",
-    ///             FirewallAllowAzureIps = "Enabled",
-    ///             FirewallRules = 
-    ///             {
-    ///                 new AzureRM.DataLakeStore.V20161101.Inputs.CreateFirewallRuleWithAccountParametersArgs
-    ///                 {
-    ///                     Name = "test_rule",
-    ///                 },
-    ///             },
-    ///             FirewallState = "Enabled",
-    ///             Identity = new AzureRM.DataLakeStore.V20161101.Inputs.EncryptionIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             Location = "eastus2",
-    ///             NewTier = "Consumption",
-    ///             ResourceGroupName = "contosorg",
-    ///             Tags = 
-    ///             {
-    ///                 { "test_key", "test_value" },
-    ///             },
-    ///             TrustedIdProviderState = "Enabled",
-    ///             TrustedIdProviders = 
-    ///             {
-    ///                 new AzureRM.DataLakeStore.V20161101.Inputs.CreateTrustedIdProviderWithAccountParametersArgs
-    ///                 {
-    ///                     Name = "test_trusted_id_provider_name",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

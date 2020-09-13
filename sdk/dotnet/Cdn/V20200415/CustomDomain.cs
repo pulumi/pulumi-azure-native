@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.Cdn.V20200415
 {
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-    /// 
-    /// ## Example Usage
-    /// ### CustomDomains_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var customDomain = new AzureRM.Cdn.V20200415.CustomDomain("customDomain", new AzureRM.Cdn.V20200415.CustomDomainArgs
-    ///         {
-    ///             CustomDomainName = "www-someDomain-net",
-    ///             EndpointName = "endpoint1",
-    ///             HostName = "www.someDomain.net",
-    ///             ProfileName = "profile1",
-    ///             ResourceGroupName = "RG",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class CustomDomain : Pulumi.CustomResource
     {

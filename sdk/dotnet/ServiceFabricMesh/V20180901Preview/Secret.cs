@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
 {
     /// <summary>
     /// This type describes a secret resource.
-    /// 
-    /// ## Example Usage
-    /// ### CreateOrUpdateSecret
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var secret = new AzureRM.ServiceFabricMesh.V20180901Preview.Secret("secret", new AzureRM.ServiceFabricMesh.V20180901Preview.SecretArgs
-    ///         {
-    ///             Location = "EastUS",
-    ///             ResourceGroupName = "sbz_demo",
-    ///             SecretResourceName = "dbConnectionString",
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Secret : Pulumi.CustomResource
     {

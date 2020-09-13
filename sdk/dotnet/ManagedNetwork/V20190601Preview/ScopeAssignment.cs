@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
 {
     /// <summary>
     /// The Managed Network resource
-    /// 
-    /// ## Example Usage
-    /// ### ScopeAssignmentsPut
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var scopeAssignment = new AzureRM.ManagedNetwork.V20190601Preview.ScopeAssignment("scopeAssignment", new AzureRM.ManagedNetwork.V20190601Preview.ScopeAssignmentArgs
-    ///         {
-    ///             AssignedManagedNetwork = "/subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork",
-    ///             Scope = "subscriptions/subscriptionC",
-    ///             ScopeAssignmentName = "subscriptionCAssignment",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ScopeAssignment : Pulumi.CustomResource
     {

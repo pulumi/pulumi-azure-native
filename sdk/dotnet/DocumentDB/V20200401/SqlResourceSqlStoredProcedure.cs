@@ -11,36 +11,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
 {
     /// <summary>
     /// An Azure Cosmos DB storedProcedure.
-    /// 
-    /// ## Example Usage
-    /// ### CosmosDBSqlStoredProcedureCreateUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sqlResourceSqlStoredProcedure = new AzureRM.DocumentDB.V20200401.SqlResourceSqlStoredProcedure("sqlResourceSqlStoredProcedure", new AzureRM.DocumentDB.V20200401.SqlResourceSqlStoredProcedureArgs
-    ///         {
-    ///             AccountName = "ddb1",
-    ///             ContainerName = "containerName",
-    ///             DatabaseName = "databaseName",
-    ///             Options = ,
-    ///             Resource = new AzureRM.DocumentDB.V20200401.Inputs.SqlStoredProcedureResourceArgs
-    ///             {
-    ///                 Body = "body",
-    ///                 Id = "storedProcedureName",
-    ///             },
-    ///             ResourceGroupName = "rg1",
-    ///             StoredProcedureName = "storedProcedureName",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SqlResourceSqlStoredProcedure : Pulumi.CustomResource
     {

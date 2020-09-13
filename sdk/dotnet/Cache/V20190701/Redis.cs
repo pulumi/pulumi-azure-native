@@ -11,48 +11,6 @@ namespace Pulumi.AzureRM.Cache.V20190701
 {
     /// <summary>
     /// A single Redis item in List or Get Operation.
-    /// 
-    /// ## Example Usage
-    /// ### RedisCacheCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var redis = new AzureRM.Cache.V20190701.Redis("redis", new AzureRM.Cache.V20190701.RedisArgs
-    ///         {
-    ///             EnableNonSslPort = true,
-    ///             Location = "West US",
-    ///             MinimumTlsVersion = "1.2",
-    ///             Name = "cache1",
-    ///             RedisConfiguration = 
-    ///             {
-    ///                 { "maxmemory-policy", "allkeys-lru" },
-    ///             },
-    ///             ReplicasPerMaster = 2,
-    ///             ResourceGroupName = "rg1",
-    ///             ShardCount = 2,
-    ///             Sku = new AzureRM.Cache.V20190701.Inputs.SkuArgs
-    ///             {
-    ///                 Capacity = 1,
-    ///                 Family = "P",
-    ///                 Name = "Premium",
-    ///             },
-    ///             StaticIP = "192.168.0.5",
-    ///             SubnetId = "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
-    ///             Zones = 
-    ///             {
-    ///                 "1",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Redis : Pulumi.CustomResource
     {

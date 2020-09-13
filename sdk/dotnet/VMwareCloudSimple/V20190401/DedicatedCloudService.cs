@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
 {
     /// <summary>
     /// Dedicated cloud service model
-    /// 
-    /// ## Example Usage
-    /// ### CreateDedicatedCloudService
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var dedicatedCloudService = new AzureRM.VMwareCloudSimple.V20190401.DedicatedCloudService("dedicatedCloudService", new AzureRM.VMwareCloudSimple.V20190401.DedicatedCloudServiceArgs
-    ///         {
-    ///             DedicatedCloudServiceName = "myService",
-    ///             GatewaySubnet = "10.0.0.0",
-    ///             Location = "westus",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DedicatedCloudService : Pulumi.CustomResource
     {

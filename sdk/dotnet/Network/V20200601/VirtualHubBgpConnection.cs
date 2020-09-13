@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.Network.V20200601
 {
     /// <summary>
     /// Virtual Appliance Site resource.
-    /// 
-    /// ## Example Usage
-    /// ### VirtualHubRouteTableV2Put
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var virtualHubBgpConnection = new AzureRM.Network.V20200601.VirtualHubBgpConnection("virtualHubBgpConnection", new AzureRM.Network.V20200601.VirtualHubBgpConnectionArgs
-    ///         {
-    ///             ConnectionName = "conn1",
-    ///             PeerAsn = 20000,
-    ///             PeerIp = "192.168.1.5",
-    ///             ResourceGroupName = "rg1",
-    ///             VirtualHubName = "hub1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class VirtualHubBgpConnection : Pulumi.CustomResource
     {

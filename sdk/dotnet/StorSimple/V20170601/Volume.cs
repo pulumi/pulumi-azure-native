@@ -11,38 +11,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
 {
     /// <summary>
     /// The volume.
-    /// 
-    /// ## Example Usage
-    /// ### VolumesCreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var volume = new AzureRM.StorSimple.V20170601.Volume("volume", new AzureRM.StorSimple.V20170601.VolumeArgs
-    ///         {
-    ///             AccessControlRecordIds = 
-    ///             {
-    ///                 "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACR2",
-    ///             },
-    ///             DeviceName = "Device05ForSDKTest",
-    ///             ManagerName = "ManagerForSDKTest1",
-    ///             MonitoringStatus = "Enabled",
-    ///             ResourceGroupName = "ResourceGroupForSDKTest",
-    ///             SizeInBytes = 5368709120,
-    ///             VolumeContainerName = "VolumeContainerForSDKTest",
-    ///             VolumeName = "Volume1ForSDKTest",
-    ///             VolumeStatus = "Offline",
-    ///             VolumeType = "Tiered",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {

@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.Automanage.V20200630Preview
 {
     /// <summary>
     /// Definition of the configuration profile preference.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update configuration profile preference
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var configurationProfilePreference = new AzureRM.Automanage.V20200630Preview.ConfigurationProfilePreference("configurationProfilePreference", new AzureRM.Automanage.V20200630Preview.ConfigurationProfilePreferenceArgs
-    ///         {
-    ///             ConfigurationProfilePreferenceName = "defaultProfilePreference",
-    ///             Location = "East US",
-    ///             ResourceGroupName = "myResourceGroupName",
-    ///             Tags = 
-    ///             {
-    ///                 { "Organization", "Administration" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ConfigurationProfilePreference : Pulumi.CustomResource
     {

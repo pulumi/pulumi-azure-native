@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.AVS.V20200320
 {
     /// <summary>
     /// A cluster resource
-    /// 
-    /// ## Example Usage
-    /// ### Clusters_CreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var cluster = new AzureRM.AVS.V20200320.Cluster("cluster", new AzureRM.AVS.V20200320.ClusterArgs
-    ///         {
-    ///             ClusterName = "cluster1",
-    ///             ClusterSize = 3,
-    ///             PrivateCloudName = "cloud1",
-    ///             ResourceGroupName = "group1",
-    ///             Sku = new AzureRM.AVS.V20200320.Inputs.SkuArgs
-    ///             {
-    ///                 Name = "AV20",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

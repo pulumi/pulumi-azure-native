@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.EngagementFabric.V20180901Preview
 {
     /// <summary>
     /// The EngagementFabric account
-    /// 
-    /// ## Example Usage
-    /// ### AccountsCreateOrUpdateExample
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var account = new AzureRM.EngagementFabric.V20180901Preview.Account("account", new AzureRM.EngagementFabric.V20180901Preview.AccountArgs
-    ///         {
-    ///             AccountName = "ExampleAccount",
-    ///             Location = "WestUS",
-    ///             ResourceGroupName = "ExampleRg",
-    ///             Sku = new AzureRM.EngagementFabric.V20180901Preview.Inputs.SKUArgs
-    ///             {
-    ///                 Name = "B1",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

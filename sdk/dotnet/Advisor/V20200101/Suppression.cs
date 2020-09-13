@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.Advisor.V20200101
 {
     /// <summary>
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-    /// 
-    /// ## Example Usage
-    /// ### CreateSuppression
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var suppression = new AzureRM.Advisor.V20200101.Suppression("suppression", new AzureRM.Advisor.V20200101.SuppressionArgs
-    ///         {
-    ///             Name = "suppressionName1",
-    ///             RecommendationId = "recommendationId",
-    ///             ResourceUri = "resourceUri",
-    ///             Ttl = "07:00:00:00",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Suppression : Pulumi.CustomResource
     {
