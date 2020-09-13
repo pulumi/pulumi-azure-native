@@ -37,32 +37,6 @@ class PartnerRegistration(pulumi.CustomResource):
         """
         Information about a partner registration.
 
-        ## Example Usage
-        ### PartnerRegistrations_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        partner_registration = azurerm.eventgrid.v20200401preview.PartnerRegistration("partnerRegistration",
-            authorized_azure_subscription_ids=["d48566a8-2428-4a6c-8347-9675d09fb851"],
-            location="global",
-            logo_uri="https://www.example.com/logo.png",
-            partner_name="ContosoCorp",
-            partner_registration_name="examplePartnerRegistrationName1",
-            partner_resource_type_description="ContocoCorp Accounts Description Text",
-            partner_resource_type_display_name="ContocoCorp Accounts DisplayName Text",
-            partner_resource_type_name="ContosoCorp.Accounts",
-            resource_group_name="examplerg",
-            setup_uri="https://www.example.com/setup.html",
-            tags={
-                "key1": "value1",
-                "key2": "Value2",
-                "key3": "Value3",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] authorized_azure_subscription_ids: List of Azure subscription Ids that are authorized to create a partner namespace

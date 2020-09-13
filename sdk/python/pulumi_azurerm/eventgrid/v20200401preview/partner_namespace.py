@@ -26,25 +26,6 @@ class PartnerNamespace(pulumi.CustomResource):
         """
         EventGrid Partner Namespace.
 
-        ## Example Usage
-        ### PartnerNamespaces_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        partner_namespace = azurerm.eventgrid.v20200401preview.PartnerNamespace("partnerNamespace",
-            location="westus",
-            partner_namespace_name="examplePartnerNamespaceName1",
-            partner_registration_fully_qualified_id="/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerRegistrations/ContosoCorpAccount1",
-            resource_group_name="examplerg",
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the resource.

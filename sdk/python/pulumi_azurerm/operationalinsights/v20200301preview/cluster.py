@@ -31,27 +31,6 @@ class Cluster(pulumi.CustomResource):
         """
         The top level Log Analytics cluster resource container.
 
-        ## Example Usage
-        ### ClustersCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        cluster = azurerm.operationalinsights.v20200301preview.Cluster("cluster",
-            cluster_name="oiautorest6685",
-            location="australiasoutheast",
-            resource_group_name="oiautorest6685",
-            sku={
-                "capacity": 1000,
-                "name": "CapacityReservation",
-            },
-            tags={
-                "tag1": "val1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Log Analytics cluster.

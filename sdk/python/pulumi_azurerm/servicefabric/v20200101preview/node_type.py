@@ -41,68 +41,6 @@ class NodeType(pulumi.CustomResource):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 
-        ## Example Usage
-        ### Put a node type with maximum parameters
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        node_type = azurerm.servicefabric.v20200101preview.NodeType("nodeType",
-            capacities={
-                "ClientConnections": "65536",
-            },
-            cluster_name="myCluster",
-            data_disk_size_gb=200,
-            is_primary=False,
-            node_type_name="BE",
-            placement_properties={
-                "HasSSD": "true",
-                "NodeColor": "green",
-                "SomeProperty": "5",
-            },
-            resource_group_name="resRg",
-            vm_extensions=[{
-                "name": "Microsoft.Azure.Geneva.GenevaMonitoring",
-            }],
-            vm_image_offer="WindowsServer",
-            vm_image_publisher="MicrosoftWindowsServer",
-            vm_image_sku="2016-Datacenter-Server-Core",
-            vm_image_version="latest",
-            vm_instance_count=10,
-            vm_secrets=[{
-                "sourceVault": {
-                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
-                },
-                "vaultCertificates": [{
-                    "certificateStore": "My",
-                    "certificateUrl": "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
-                }],
-            }],
-            vm_size="Standard_D3")
-
-        ```
-        ### Put a node type with minimum parameters
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        node_type = azurerm.servicefabric.v20200101preview.NodeType("nodeType",
-            cluster_name="myCluster",
-            data_disk_size_gb=200,
-            is_primary=False,
-            node_type_name="BE",
-            resource_group_name="resRg",
-            vm_image_offer="WindowsServer",
-            vm_image_publisher="MicrosoftWindowsServer",
-            vm_image_sku="2016-Datacenter-Server-Core",
-            vm_image_version="latest",
-            vm_instance_count=10,
-            vm_size="Standard_D3")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EndpointRangeDescriptionArgs']] application_ports: The range of ports from which cluster assigned port to Service Fabric applications.

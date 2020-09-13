@@ -32,39 +32,6 @@ class ElasticPool(pulumi.CustomResource):
         """
         Represents a database elastic pool.
 
-        ## Example Usage
-        ### Create elastic pool max
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        elastic_pool = azurerm.sql.v20140401.ElasticPool("elasticPool",
-            database_dtu_max=5,
-            database_dtu_min=0,
-            dtu=50,
-            edition="Basic",
-            elastic_pool_name="sqlcrudtest-8102",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-2369",
-            server_name="sqlcrudtest-8069",
-            storage_mb=5000)
-
-        ```
-        ### Create elastic pool min
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        elastic_pool = azurerm.sql.v20140401.ElasticPool("elasticPool",
-            elastic_pool_name="sqlcrudtest-8102",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-2369",
-            server_name="sqlcrudtest-8069")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] database_dtu_max: The maximum DTU any one database can consume.

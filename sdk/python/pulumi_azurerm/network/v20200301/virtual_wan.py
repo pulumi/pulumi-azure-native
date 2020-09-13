@@ -32,25 +32,6 @@ class VirtualWan(pulumi.CustomResource):
         """
         VirtualWAN Resource.
 
-        ## Example Usage
-        ### VirtualWANCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        virtual_wan = azurerm.network.v20200301.VirtualWan("virtualWan",
-            disable_vpn_encryption=False,
-            location="West US",
-            resource_group_name="rg1",
-            tags={
-                "key1": "value1",
-            },
-            type="Basic",
-            virtual_wan_name="wan1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_branch_to_branch_traffic: True if branch to branch traffic is allowed.

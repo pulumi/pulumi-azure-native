@@ -33,40 +33,6 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         The diagnostic setting resource.
 
-        ## Example Usage
-        ### Creates or Updates the diagnostic setting
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        diagnostic_setting = azurerm.insights.v20170501preview.DiagnosticSetting("diagnosticSetting",
-            event_hub_authorization_rule_id="/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
-            event_hub_name="myeventhub",
-            log_analytics_destination_type="Dedicated",
-            logs=[{
-                "category": "WorkflowRuntime",
-                "enabled": True,
-                "retentionPolicy": {
-                    "days": 0,
-                    "enabled": False,
-                },
-            }],
-            metrics=[{
-                "category": "WorkflowMetrics",
-                "enabled": True,
-                "retentionPolicy": {
-                    "days": 0,
-                    "enabled": False,
-                },
-            }],
-            name="mysetting",
-            resource_uri="subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6",
-            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
-            workspace_id="")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.

@@ -31,28 +31,6 @@ class EventChannel(pulumi.CustomResource):
         """
         Event Channel.
 
-        ## Example Usage
-        ### EventChannels_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        event_channel = azurerm.eventgrid.v20200401preview.EventChannel("eventChannel",
-            destination={
-                "azureSubscriptionId": "5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
-                "partnerTopicName": "examplePartnerTopic1",
-                "resourceGroup": "examplerg2",
-            },
-            event_channel_name="exampleEventChannelName1",
-            partner_namespace_name="examplePartnerNamespaceName1",
-            resource_group_name="examplerg",
-            source={
-                "source": "ContosoCorp.Accounts.User1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventChannelDestinationArgs']] destination: Represents the destination of an event channel.

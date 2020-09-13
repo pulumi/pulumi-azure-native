@@ -31,23 +31,6 @@ class Subscription(pulumi.CustomResource):
         """
         Subscription details.
 
-        ## Example Usage
-        ### ApiManagementCreateSubscription
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        subscription = azurerm.apimanagement.v20180101.Subscription("subscription",
-            display_name="testsub",
-            product_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5600b59475ff190048060002",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            sid="testsub",
-            user_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57127d485157a511ace86ae7")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Subscription name.

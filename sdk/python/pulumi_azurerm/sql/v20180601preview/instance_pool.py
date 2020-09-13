@@ -31,49 +31,6 @@ class InstancePool(pulumi.CustomResource):
         """
         An Azure SQL instance pool.
 
-        ## Example Usage
-        ### Create an instance pool with all properties.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        instance_pool = azurerm.sql.v20180601preview.InstancePool("instancePool",
-            instance_pool_name="testIP",
-            license_type="LicenseIncluded",
-            resource_group_name="group1",
-            sku={
-                "family": "Gen5",
-                "name": "GP_Gen5",
-                "tier": "GeneralPurpose",
-            },
-            subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetwork/myvnet/subnets/mysubnet1",
-            tags={
-                "a": "b",
-            },
-            v_cores=8)
-
-        ```
-        ### Create an instance pool with min properties.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        instance_pool = azurerm.sql.v20180601preview.InstancePool("instancePool",
-            instance_pool_name="testIP",
-            license_type="LicenseIncluded",
-            resource_group_name="group1",
-            sku={
-                "family": "Gen5",
-                "name": "GP_Gen5",
-                "tier": "GeneralPurpose",
-            },
-            subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetwork/myvnet/subnets/mysubnet1",
-            v_cores=8)
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_pool_name: The name of the instance pool to be created or updated.

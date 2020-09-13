@@ -24,20 +24,6 @@ class WorkspaceSetting(pulumi.CustomResource):
         """
         Configures where to store the OMS agent data for workspaces under a scope
 
-        ## Example Usage
-        ### Create a workspace setting data for subscription
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        workspace_setting = azurerm.security.v20170801preview.WorkspaceSetting("workspaceSetting",
-            scope="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
-            workspace_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace",
-            workspace_setting_name="default")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] scope: All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope

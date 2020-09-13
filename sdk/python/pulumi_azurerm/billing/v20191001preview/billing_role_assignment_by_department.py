@@ -29,23 +29,6 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
         """
         The role assignment
 
-        ## Example Usage
-        ### PutEnrollmentDepartmentAdministratorRoleAssignment
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        billing_role_assignment_by_department = azurerm.billing.v20191001preview.BillingRoleAssignmentByDepartment("billingRoleAssignmentByDepartment",
-            billing_account_name="{billingAccountName}",
-            billing_role_assignment_name="{billingRoleAssignmentName}",
-            department_name="{departmentName}",
-            principal_id="99a1a759-30dd-42c2-828c-db398826bb67",
-            principal_tenant_id="7ca289b9-c32d-4f01-8566-7ff93261d76f",
-            role_definition_id="/providers/Microsoft.Billing/billingAccounts/7898901/departments/97603/billingRoleDefinitions/fb2cf67f-be5b-42e7-8025-4683c668f840")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.

@@ -28,24 +28,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection
 
-        ## Example Usage
-        ### Approve or reject a private endpoint connection with a given name.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        private_endpoint_connection = azurerm.dbforpostgresql.v20180601.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="private-endpoint-connection-name",
-            private_link_service_connection_state={
-                "description": "Approved by johndoe@contoso.com",
-                "status": "Approved",
-            },
-            resource_group_name="Default",
-            server_name="test-svr")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointPropertyArgs']] private_endpoint: Private endpoint which the connection belongs to.

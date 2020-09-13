@@ -30,27 +30,6 @@ class Registry(pulumi.CustomResource):
         """
         An object that represents a container registry.
 
-        ## Example Usage
-        ### RegistryCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        registry = azurerm.containerregistry.v20170601preview.Registry("registry",
-            admin_user_enabled=True,
-            location="westus",
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": "Managed_Standard",
-            },
-            tags={
-                "key": "value",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.

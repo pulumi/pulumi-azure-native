@@ -32,36 +32,6 @@ class HealthAlert(pulumi.CustomResource):
         """
         The health alert resource.
 
-        ## Example Usage
-        ### CreateResourceHealthAlertRule
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        health_alert = azurerm.alertsmanagement.v20200804preview.HealthAlert("healthAlert",
-            actions=[{
-                "actionGroupId": "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2",
-                "webHookProperties": {
-                    "key11": "value11",
-                    "key12": "value12",
-                },
-            }],
-            criteria={
-                "allOf": [{
-                    "healthMonitorName": "root",
-                    "namespace": "VmGuestHealth",
-                }],
-            },
-            description="This is the description of the rule1",
-            enabled=True,
-            location="global",
-            resource_group_name="gigtest",
-            rule_name="highcpu",
-            scopes=["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme"])
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HealthAlertActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.

@@ -31,61 +31,6 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
         """
         An Azure Cosmos DB container.
 
-        ## Example Usage
-        ### CosmosDBSqlContainerCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        sql_resource_sql_container = azurerm.documentdb.v20190801.SqlResourceSqlContainer("sqlResourceSqlContainer",
-            account_name="ddb1",
-            container_name="containerName",
-            database_name="databaseName",
-            location="West US",
-            options={},
-            resource={
-                "conflictResolutionPolicy": {
-                    "conflictResolutionPath": "/path",
-                    "mode": "LastWriterWins",
-                },
-                "defaultTtl": 100,
-                "id": "containerName",
-                "indexingPolicy": {
-                    "automatic": True,
-                    "excludedPaths": [],
-                    "includedPaths": [{
-                        "indexes": [
-                            {
-                                "dataType": "String",
-                                "kind": "Range",
-                                "precision": -1,
-                            },
-                            {
-                                "dataType": "Number",
-                                "kind": "Range",
-                                "precision": -1,
-                            },
-                        ],
-                        "path": "/*",
-                    }],
-                    "indexingMode": "Consistent",
-                },
-                "partitionKey": {
-                    "kind": "Hash",
-                    "paths": ["/AccountNumber"],
-                },
-                "uniqueKeyPolicy": {
-                    "uniqueKeys": [{
-                        "paths": ["/testPath"],
-                    }],
-                },
-            },
-            resource_group_name="rg1",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

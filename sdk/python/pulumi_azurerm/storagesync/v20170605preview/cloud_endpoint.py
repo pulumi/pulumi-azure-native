@@ -34,27 +34,6 @@ class CloudEndpoint(pulumi.CustomResource):
         """
         Cloud Endpoint object.
 
-        ## Example Usage
-        ### CloudEndpoints_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        cloud_endpoint = azurerm.storagesync.v20170605preview.CloudEndpoint("cloudEndpoint",
-            cloud_endpoint_name="SampleCloudEndpoint_1",
-            provisioning_state="Created",
-            resource_group_name="SampleResourceGroup_1",
-            storage_account="https://storageaccounturl/SampleCloudEndpoint",
-            storage_account_key="storageaccountkeyvalue",
-            storage_account_resource_id="",
-            storage_account_share_name="",
-            storage_account_tenant_id="\"a4d1b191-c1af-4cef-a14b-f670e0beea52\"",
-            storage_sync_service_name="SampleStorageSyncService_1",
-            sync_group_name="SampleSyncGroup_1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_endpoint_name: Name of Cloud Endpoint object.

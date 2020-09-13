@@ -30,26 +30,6 @@ class Vault(pulumi.CustomResource):
         """
         Resource information, as returned by the resource provider.
 
-        ## Example Usage
-        ### Create of Update Recovery Services vault
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        vault = azurerm.recoveryservices.v20160601.Vault("vault",
-            identity={
-                "type": "SystemAssigned",
-            },
-            location="West US",
-            resource_group_name="Default-RecoveryServices-ResourceGroup",
-            sku={
-                "name": "Standard",
-            },
-            vault_name="swaggerExample")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.

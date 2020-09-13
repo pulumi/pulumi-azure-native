@@ -30,43 +30,6 @@ class JobAgent(pulumi.CustomResource):
         """
         An Azure SQL job agent.
 
-        ## Example Usage
-        ### Create or update a job agent with all properties
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        job_agent = azurerm.sql.v20170301preview.JobAgent("jobAgent",
-            database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/db1",
-            job_agent_name="agent1",
-            location="southeastasia",
-            resource_group_name="group1",
-            server_name="server1",
-            sku={
-                "capacity": 100,
-                "name": "Agent",
-            },
-            tags={
-                "octopus": "agent",
-            })
-
-        ```
-        ### Create or update a job agent with minimum properties
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        job_agent = azurerm.sql.v20170301preview.JobAgent("jobAgent",
-            database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/db1",
-            job_agent_name="agent1",
-            location="southeastasia",
-            resource_group_name="group1",
-            server_name="server1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_id: Resource ID of the database to store job metadata in.

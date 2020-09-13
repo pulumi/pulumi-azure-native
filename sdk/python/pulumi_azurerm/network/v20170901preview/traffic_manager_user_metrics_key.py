@@ -21,17 +21,6 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
         """
         Class representing a Traffic Manager Real User Metrics key response.
 
-        ## Example Usage
-        ### TrafficManagerUserMetricsKeys-PUT
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        traffic_manager_user_metrics_key = azurerm.network.v20170901preview.TrafficManagerUserMetricsKey("trafficManagerUserMetricsKey")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

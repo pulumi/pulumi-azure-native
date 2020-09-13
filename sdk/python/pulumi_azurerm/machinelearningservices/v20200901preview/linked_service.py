@@ -30,25 +30,6 @@ class LinkedService(pulumi.CustomResource):
         """
         Linked service.
 
-        ## Example Usage
-        ### CreateLinkedService
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        linked_service = azurerm.machinelearningservices.v20200901preview.LinkedService("linkedService",
-            identity={
-                "type": "SystemAssigned",
-            },
-            link_name="link-1",
-            location="westus",
-            name="link-1",
-            resource_group_name="resourceGroup-1",
-            workspace_name="workspace-1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity for the resource.

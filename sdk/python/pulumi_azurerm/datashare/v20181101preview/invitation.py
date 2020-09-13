@@ -28,22 +28,6 @@ class Invitation(pulumi.CustomResource):
         """
         A Invitation data transfer object.
 
-        ## Example Usage
-        ### Invitations_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        invitation = azurerm.datashare.v20181101preview.Invitation("invitation",
-            account_name="Account1",
-            invitation_name="Invitation1",
-            resource_group_name="SampleResourceGroup",
-            share_name="Share1",
-            target_email="receiver@microsoft.com")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.

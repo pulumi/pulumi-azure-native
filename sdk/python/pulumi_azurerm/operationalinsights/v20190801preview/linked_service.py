@@ -26,21 +26,6 @@ class LinkedService(pulumi.CustomResource):
         """
         The top level Linked service resource container.
 
-        ## Example Usage
-        ### LinkedServicesCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        linked_service = azurerm.operationalinsights.v20190801preview.LinkedService("linkedService",
-            linked_service_name="TestLinkWS/Cluster",
-            resource_group_name="mms-eus",
-            workspace_name="TestLinkWS",
-            write_access_resource_id="/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/automationClusters/testcluster")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_service_name: Name of the linkedServices resource

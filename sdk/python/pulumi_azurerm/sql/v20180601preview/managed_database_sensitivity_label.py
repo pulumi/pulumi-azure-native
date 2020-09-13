@@ -33,28 +33,6 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
         """
         A sensitivity label.
 
-        ## Example Usage
-        ### Updates or creates a sensitivity label of a given column with all parameters in a managed database
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        managed_database_sensitivity_label = azurerm.sql.v20180601preview.ManagedDatabaseSensitivityLabel("managedDatabaseSensitivityLabel",
-            column_name="myColumn",
-            database_name="myDatabase",
-            information_type="PhoneNumber",
-            information_type_id="d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
-            label_id="bf91e08c-f4f0-478a-b016-25164b2a65ff",
-            label_name="PII",
-            managed_instance_name="myManagedInstanceName",
-            resource_group_name="myRG",
-            schema_name="dbo",
-            sensitivity_label_source="current",
-            table_name="myTable")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] column_name: The name of the column.

@@ -38,28 +38,6 @@ class AppServicePlan(pulumi.CustomResource):
         """
         App Service plan.
 
-        ## Example Usage
-        ### Create or Update App Service plan
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        app_service_plan = azurerm.web.v20160901.AppServicePlan("appServicePlan",
-            kind="app",
-            location="East US",
-            name="testsf6141",
-            resource_group_name="testrg123",
-            sku={
-                "capacity": 1,
-                "family": "P",
-                "name": "P1",
-                "size": "P1",
-                "tier": "Premium",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_site_name: App Service plan administration site.

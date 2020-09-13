@@ -37,28 +37,6 @@ class SapMonitor(pulumi.CustomResource):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
 
-        ## Example Usage
-        ### Create a SAP Monitor
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        sap_monitor = azurerm.hanaonazure.v20171103preview.SapMonitor("sapMonitor",
-            enable_customer_analytics=True,
-            hana_db_name="",
-            hana_db_password="",
-            hana_db_sql_port=1234,
-            hana_db_username="",
-            hana_hostname="",
-            hana_subnet="",
-            location="westus",
-            log_analytics_workspace_shared_key="",
-            resource_group_name="myResourceGroup",
-            sap_monitor_name="mySapMonitor")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_customer_analytics: The value indicating whether to send analytics to Microsoft

@@ -31,61 +31,6 @@ class GremlinResourceGremlinGraph(pulumi.CustomResource):
         """
         An Azure Cosmos DB Gremlin graph.
 
-        ## Example Usage
-        ### CosmosDBGremlinGraphCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        gremlin_resource_gremlin_graph = azurerm.documentdb.v20191212.GremlinResourceGremlinGraph("gremlinResourceGremlinGraph",
-            account_name="ddb1",
-            database_name="databaseName",
-            graph_name="graphName",
-            location="West US",
-            options={},
-            resource={
-                "conflictResolutionPolicy": {
-                    "conflictResolutionPath": "/path",
-                    "mode": "LastWriterWins",
-                },
-                "defaultTtl": 100,
-                "id": "graphName",
-                "indexingPolicy": {
-                    "automatic": True,
-                    "excludedPaths": [],
-                    "includedPaths": [{
-                        "indexes": [
-                            {
-                                "dataType": "String",
-                                "kind": "Range",
-                                "precision": -1,
-                            },
-                            {
-                                "dataType": "Number",
-                                "kind": "Range",
-                                "precision": -1,
-                            },
-                        ],
-                        "path": "/*",
-                    }],
-                    "indexingMode": "Consistent",
-                },
-                "partitionKey": {
-                    "kind": "Hash",
-                    "paths": ["/AccountNumber"],
-                },
-                "uniqueKeyPolicy": {
-                    "uniqueKeys": [{
-                        "paths": ["/testPath"],
-                    }],
-                },
-            },
-            resource_group_name="rg1",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

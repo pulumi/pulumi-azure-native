@@ -28,23 +28,6 @@ class IncidentRelation(pulumi.CustomResource):
         """
         Represents a relation between two resources
 
-        ## Example Usage
-        ### Creates or updates an incident relation.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        incident_relation = azurerm.securityinsights.v20190101preview.IncidentRelation("incidentRelation",
-            incident_id="afbd324f-6c48-459c-8710-8d1e1cd03812",
-            operational_insights_resource_provider="Microsoft.OperationalInsights",
-            related_resource_id="/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096",
-            relation_name="4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
-            resource_group_name="myRg",
-            workspace_name="myWorkspace")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Etag of the azure resource

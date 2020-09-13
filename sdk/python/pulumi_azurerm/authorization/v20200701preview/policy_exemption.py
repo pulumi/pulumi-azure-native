@@ -31,27 +31,6 @@ class PolicyExemption(pulumi.CustomResource):
         """
         The policy exemption.
 
-        ## Example Usage
-        ### Create or update a policy exemption
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        policy_exemption = azurerm.authorization.v20200701preview.PolicyExemption("policyExemption",
-            description="Exempt demo cluster from limit sku",
-            display_name="Exempt demo cluster",
-            exemption_category="Waiver",
-            metadata={
-                "reason": "Temporary exemption for a expensive VM demo",
-            },
-            policy_assignment_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
-            policy_definition_reference_ids=["Limit_Skus"],
-            policy_exemption_name="DemoExpensiveVM",
-            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy exemption.

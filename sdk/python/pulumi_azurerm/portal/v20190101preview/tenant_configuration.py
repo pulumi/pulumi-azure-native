@@ -23,19 +23,6 @@ class TenantConfiguration(pulumi.CustomResource):
         """
         Tenant configuration.
 
-        ## Example Usage
-        ### Create or update Tenant configuration
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        tenant_configuration = azurerm.portal.v20190101preview.TenantConfiguration("tenantConfiguration",
-            configuration_name="default",
-            enforce_private_markdown_storage=True)
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The configuration name. Value must be 'default'

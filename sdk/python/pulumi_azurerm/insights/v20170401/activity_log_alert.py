@@ -32,44 +32,6 @@ class ActivityLogAlert(pulumi.CustomResource):
         """
         An activity log alert resource.
 
-        ## Example Usage
-        ### Create or update an activity log alert
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        activity_log_alert = azurerm.insights.v20170401.ActivityLogAlert("activityLogAlert",
-            actions={
-                "actionGroups": [{
-                    "actionGroupId": "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActionGroups/providers/microsoft.insights/actionGroups/SampleActionGroup",
-                    "webhookProperties": {
-                        "sampleWebhookProperty": "samplePropertyValue",
-                    },
-                }],
-            },
-            activity_log_alert_name="SampleActivityLogAlert",
-            condition={
-                "allOf": [
-                    {
-                        "equals": "Administrative",
-                        "field": "Category",
-                    },
-                    {
-                        "equals": "Error",
-                        "field": "Level",
-                    },
-                ],
-            },
-            description="Sample activity log alert description",
-            enabled=True,
-            location="Global",
-            resource_group_name="Default-ActivityLogAlerts",
-            scopes=["subscriptions/187f412d-1758-44d9-b052-169e2564721d"],
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ActivityLogAlertActionListArgs']] actions: The actions that will activate when the condition is met.

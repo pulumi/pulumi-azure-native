@@ -31,38 +31,6 @@ class Zone(pulumi.CustomResource):
         """
         Describes a DNS zone.
 
-        ## Example Usage
-        ### Create private zone
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        zone = azurerm.network.v20180301preview.Zone("zone",
-            location="Global",
-            resource_group_name="rg1",
-            tags={
-                "key1": "value1",
-            },
-            zone_name="zone1")
-
-        ```
-        ### Create zone
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        zone = azurerm.network.v20180301preview.Zone("zone",
-            location="Global",
-            resource_group_name="rg1",
-            tags={
-                "key1": "value1",
-            },
-            zone_name="zone1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The etag of the zone.

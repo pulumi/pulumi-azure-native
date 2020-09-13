@@ -33,28 +33,6 @@ class LiveOutput(pulumi.CustomResource):
         """
         The Live Output.
 
-        ## Example Usage
-        ### Create a LiveOutput
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        live_output = azurerm.media.v20180330preview.LiveOutput("liveOutput",
-            account_name="slitestmedia10",
-            archive_window_length="PT5M",
-            asset_name="6f3264f5-a189-48b4-a29a-a40f22575212",
-            description="test live output 1",
-            hls={
-                "fragmentsPerTsSegment": 5,
-            },
-            live_event_name="myLiveEvent1",
-            live_output_name="myLiveOutput1",
-            manifest_name="testmanifest",
-            resource_group_name="mediaresources")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

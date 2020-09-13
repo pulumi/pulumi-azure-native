@@ -29,46 +29,6 @@ class Service(pulumi.CustomResource):
         """
         Service resource
 
-        ## Example Usage
-        ### Services_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        service = azurerm.appplatform.v20190501preview.Service("service",
-            location="eastus",
-            resource_group_name="myResourceGroup",
-            service_name="myservice",
-            sku={
-                "name": "S0",
-                "tier": "Standard",
-            },
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-        ### Services_CreateOrUpdate_VNetInjection
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        service = azurerm.appplatform.v20190501preview.Service("service",
-            location="eastus",
-            resource_group_name="myResourceGroup",
-            service_name="myservice",
-            sku={
-                "name": "S0",
-                "tier": "Standard",
-            },
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The GEO location of the resource.

@@ -32,28 +32,6 @@ class IscsiDisk(pulumi.CustomResource):
         """
         The iSCSI disk.
 
-        ## Example Usage
-        ### IscsiDisksCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        iscsi_disk = azurerm.storsimple.v20161001.IscsiDisk("iscsiDisk",
-            access_control_records=[],
-            data_policy="Tiered",
-            description="Demo IscsiDisk for SDK Test Tiered",
-            device_name="HSDK-0NZI14MDTF",
-            disk_name="Auto-TestIscsiDisk1",
-            disk_status="Online",
-            iscsi_server_name="HSDK-0NZI14MDTF",
-            manager_name="hAzureSDKOperations",
-            monitoring_status="Enabled",
-            provisioned_capacity_in_bytes=536870912000,
-            resource_group_name="ResourceGroupForSDKTest")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] access_control_records: The access control records.

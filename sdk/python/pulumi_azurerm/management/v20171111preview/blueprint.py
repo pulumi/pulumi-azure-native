@@ -32,49 +32,6 @@ class Blueprint(pulumi.CustomResource):
         """
         Represents a Blueprint definition.
 
-        ## Example Usage
-        ### Blueprint
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        blueprint = azurerm.management.v20171111preview.Blueprint("blueprint",
-            blueprint_name="simpleBlueprint",
-            description="blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
-            management_group_name="ContosoOnlineGroup",
-            parameters={
-                "costCenter": {
-                    "metadata": {
-                        "displayName": "force cost center tag for all resources under given subscription.",
-                    },
-                    "type": "string",
-                },
-                "owners": {
-                    "metadata": {
-                        "displayName": "assign owners to subscription along with blueprint assignment.",
-                    },
-                    "type": "array",
-                },
-                "storageAccountType": {
-                    "metadata": {
-                        "displayName": "storage account type.",
-                    },
-                    "type": "string",
-                },
-            },
-            resource_groups={
-                "storageRG": {
-                    "metadata": {
-                        "description": "Contains storageAccounts that collect all shoebox logs.",
-                        "displayName": "storage resource group",
-                    },
-                },
-            },
-            target_scope="subscription")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blueprint_name: name of the blueprint.

@@ -30,28 +30,6 @@ class ExpressRouteGateway(pulumi.CustomResource):
         """
         ExpressRoute gateway resource.
 
-        ## Example Usage
-        ### ExpressRouteGatewayCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        express_route_gateway = azurerm.network.v20181201.ExpressRouteGateway("expressRouteGateway",
-            auto_scale_configuration={
-                "bounds": {
-                    "min": 3,
-                },
-            },
-            express_route_gateway_name="gateway-2",
-            location="westus",
-            resource_group_name="resourceGroupName",
-            virtual_hub={
-                "id": "/subscriptions/subid/resourceGroups/resourceGroupId/providers/Microsoft.Network/virtualHubs/virtualHubName",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']] auto_scale_configuration: Configuration for auto scaling.

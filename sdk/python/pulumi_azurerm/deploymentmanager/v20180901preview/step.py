@@ -28,21 +28,6 @@ class Step(pulumi.CustomResource):
         """
         The resource representation of a rollout step.
 
-        ## Example Usage
-        ### Create deployment step
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        step = azurerm.deploymentmanager.v20180901preview.Step("step",
-            location="centralus",
-            resource_group_name="myResourceGroup",
-            step_name="deploymentStep1",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives

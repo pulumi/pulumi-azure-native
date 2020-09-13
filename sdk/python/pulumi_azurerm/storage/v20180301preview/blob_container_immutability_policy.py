@@ -26,22 +26,6 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
 
-        ## Example Usage
-        ### CreateOrUpdateImmutabilityPolicy
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        blob_container_immutability_policy = azurerm.storage.v20180301preview.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy",
-            account_name="sto7069",
-            container_name="container6397",
-            immutability_period_since_creation_in_days=3,
-            immutability_policy_name="default",
-            resource_group_name="res1782")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

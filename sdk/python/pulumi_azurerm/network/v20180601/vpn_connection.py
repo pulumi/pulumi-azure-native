@@ -35,24 +35,6 @@ class VpnConnection(pulumi.CustomResource):
         """
         VpnConnection Resource.
 
-        ## Example Usage
-        ### VpnConnectionPut
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        vpn_connection = azurerm.network.v20180601.VpnConnection("vpnConnection",
-            connection_name="vpnConnection1",
-            gateway_name="gateway1",
-            remote_vpn_site={
-                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
-            },
-            resource_group_name="rg1",
-            shared_key="key")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name of the connection.

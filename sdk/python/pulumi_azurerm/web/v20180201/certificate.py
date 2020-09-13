@@ -33,22 +33,6 @@ class Certificate(pulumi.CustomResource):
         """
         SSL certificate for an app.
 
-        ## Example Usage
-        ### Create Or Update Certificate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        certificate = azurerm.web.v20180201.Certificate("certificate",
-            host_names=["ServerCert"],
-            location="East US",
-            name="testc6282",
-            password="SWsSsd__233$Sdsds#%Sd!",
-            resource_group_name="testrg123")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] host_names: Host names the certificate applies to.

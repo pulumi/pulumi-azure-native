@@ -28,25 +28,6 @@ class DedicatedHostGroup(pulumi.CustomResource):
         """
         Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
 
-        ## Example Usage
-        ### Create or update a dedicated host group.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        dedicated_host_group = azurerm.compute.v20190301.DedicatedHostGroup("dedicatedHostGroup",
-            host_group_name="myDedicatedHostGroup",
-            location="westus",
-            platform_fault_domain_count=3,
-            resource_group_name="myResourceGroup",
-            tags={
-                "department": "finance",
-            },
-            zones=["1"])
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] host_group_name: The name of the dedicated host group.

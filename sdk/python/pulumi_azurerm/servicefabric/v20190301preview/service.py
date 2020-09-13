@@ -38,60 +38,6 @@ class Service(pulumi.CustomResource):
         """
         The service resource.
 
-        ## Example Usage
-        ### Put a service with maximum parameters
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        service = azurerm.servicefabric.v20190301preview.Service("service",
-            application_name="myApp",
-            cluster_name="myCluster",
-            correlation_scheme=[{
-                "scheme": "Affinity",
-                "serviceName": "fabric:/app1/app1~svc1",
-            }],
-            default_move_cost="Medium",
-            location="eastus",
-            partition_description={
-                "partitionScheme": "Singleton",
-            },
-            placement_constraints="NodeType==frontend",
-            resource_group_name="resRg",
-            service_kind="Stateless",
-            service_load_metrics=[{
-                "name": "metric1",
-                "weight": "Low",
-            }],
-            service_name="myService",
-            service_package_activation_mode="SharedProcess",
-            service_placement_policies=[],
-            service_type_name="myServiceType",
-            tags={})
-
-        ```
-        ### Put a service with minimum parameters
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        service = azurerm.servicefabric.v20190301preview.Service("service",
-            application_name="myApp",
-            cluster_name="myCluster",
-            location="eastus",
-            partition_description={
-                "partitionScheme": "Singleton",
-            },
-            resource_group_name="resRg",
-            service_kind="Stateless",
-            service_name="myService",
-            service_type_name="myServiceType",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the application resource.

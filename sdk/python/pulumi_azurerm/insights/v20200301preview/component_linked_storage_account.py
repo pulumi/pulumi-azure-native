@@ -25,21 +25,6 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
         """
         An Application Insights component linked storage accounts
 
-        ## Example Usage
-        ### ComponentLinkedStorageAccountsCreateAndUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        component_linked_storage_account = azurerm.insights.v20200301preview.ComponentLinkedStorageAccount("componentLinkedStorageAccount",
-            linked_storage_account="/subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupName/providers/Microsoft.Storage/storageAccounts/storageaccountname",
-            resource_group_name="someResourceGroupName",
-            resource_name="myComponent",
-            storage_type="ServiceProfiler")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_storage_account: Linked storage account resource ID

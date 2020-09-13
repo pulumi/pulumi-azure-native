@@ -28,52 +28,6 @@ class PipelineRun(pulumi.CustomResource):
         """
         An object that represents a pipeline run for a container registry.
 
-        ## Example Usage
-        ### PipelineRunCreate_Export
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        pipeline_run = azurerm.containerregistry.v20191201preview.PipelineRun("pipelineRun",
-            pipeline_run_name="myPipelineRun",
-            registry_name="myRegistry",
-            request={
-                "artifacts": [
-                    "sourceRepository/hello-world",
-                    "sourceRepository2@sha256:00000000000000000000000000000000000",
-                ],
-                "pipelineResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline",
-                "target": {
-                    "name": "myblob.tar.gz",
-                    "type": "AzureStorageBlob",
-                },
-            },
-            resource_group_name="myResourceGroup")
-
-        ```
-        ### PipelineRunCreate_Import
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        pipeline_run = azurerm.containerregistry.v20191201preview.PipelineRun("pipelineRun",
-            force_update_tag="2020-03-04T17:23:21.9261521+00:00",
-            pipeline_run_name="myPipelineRun",
-            registry_name="myRegistry",
-            request={
-                "catalogDigest": "sha256@",
-                "pipelineResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/importPipelines/myImportPipeline",
-                "source": {
-                    "name": "myblob.tar.gz",
-                    "type": "AzureStorageBlob",
-                },
-            },
-            resource_group_name="myResourceGroup")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] force_update_tag: How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.

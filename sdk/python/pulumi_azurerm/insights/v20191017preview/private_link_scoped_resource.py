@@ -25,21 +25,6 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
         """
         A private link scoped resource
 
-        ## Example Usage
-        ### Update a scoped resource in a private link scope.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        private_link_scoped_resource = azurerm.insights.v20191017preview.PrivateLinkScopedResource("privateLinkScopedResource",
-            linked_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/components/my-component",
-            name="scoped-resource-name",
-            resource_group_name="MyResourceGroup",
-            scope_name="MyPrivateLinkScope")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_resource_id: The resource id of the scoped Azure monitor resource.

@@ -31,40 +31,6 @@ class Server(pulumi.CustomResource):
         """
         An Azure SQL Database server.
 
-        ## Example Usage
-        ### Create server with all properties
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        server = azurerm.sql.v20150501preview.Server("server",
-            administrator_login="dummylogin",
-            administrator_login_password="Un53cuRE!",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-7398",
-            server_name="sqlcrudtest-4645",
-            tags={
-                "tagKey1": "TagValue1",
-            },
-            version="12.0")
-
-        ```
-        ### Create server with minimal properties
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        server = azurerm.sql.v20150501preview.Server("server",
-            administrator_login="dummylogin",
-            administrator_login_password="Un53cuRE!",
-            location="Japan East",
-            resource_group_name="sqlcrudtest-7398",
-            server_name="sqlcrudtest-4645")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the server. Once created it cannot be changed.

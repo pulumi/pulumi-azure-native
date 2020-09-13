@@ -21,17 +21,6 @@ class IotDefenderSetting(pulumi.CustomResource):
         """
         IoT Defender settings
 
-        ## Example Usage
-        ### Create or update IoT Defender settings
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        iot_defender_setting = azurerm.security.v20200806preview.IotDefenderSetting("iotDefenderSetting")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

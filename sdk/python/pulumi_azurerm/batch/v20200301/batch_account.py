@@ -32,63 +32,6 @@ class BatchAccount(pulumi.CustomResource):
         """
         Contains information about an Azure Batch account.
 
-        ## Example Usage
-        ### BatchAccountCreate_BYOS
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        batch_account = azurerm.batch.v20200301.BatchAccount("batchAccount",
-            account_name="sampleacct",
-            auto_storage={
-                "storageAccountId": "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
-            },
-            key_vault_reference={
-                "id": "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
-                "url": "http://sample.vault.azure.net/",
-            },
-            location="japaneast",
-            pool_allocation_mode="UserSubscription",
-            resource_group_name="default-azurebatch-japaneast")
-
-        ```
-        ### BatchAccountCreate_Default
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        batch_account = azurerm.batch.v20200301.BatchAccount("batchAccount",
-            account_name="sampleacct",
-            auto_storage={
-                "storageAccountId": "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
-            },
-            location="japaneast",
-            resource_group_name="default-azurebatch-japaneast")
-
-        ```
-        ### PrivateBatchAccountCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        batch_account = azurerm.batch.v20200301.BatchAccount("batchAccount",
-            account_name="sampleacct",
-            auto_storage={
-                "storageAccountId": "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
-            },
-            key_vault_reference={
-                "id": "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
-                "url": "http://sample.vault.azure.net/",
-            },
-            location="japaneast",
-            public_network_access="Disabled",
-            resource_group_name="default-azurebatch-japaneast")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.

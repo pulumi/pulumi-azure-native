@@ -29,22 +29,6 @@ class MigrateProject(pulumi.CustomResource):
         """
         Migrate Project REST Resource.
 
-        ## Example Usage
-        ### MigrateProjects_Put
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        migrate_project = azurerm.migrate.v20180901preview.MigrateProject("migrateProject",
-            e_tag="\"b701c73a-0000-0000-0000-59c12ff00000\"",
-            location="Southeast Asia",
-            migrate_project_name="project01",
-            resource_group_name="myResourceGroup",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Gets or sets the eTag for concurrency control.

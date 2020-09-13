@@ -26,22 +26,6 @@ class ManagedInstanceKey(pulumi.CustomResource):
         """
         A managed instance key.
 
-        ## Example Usage
-        ### Creates or updates a managed instance key
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        managed_instance_key = azurerm.sql.v20171001preview.ManagedInstanceKey("managedInstanceKey",
-            key_name="someVault_someKey_01234567890123456789012345678901",
-            managed_instance_name="sqlcrudtest-4645",
-            resource_group_name="sqlcrudtest-7398",
-            server_key_type="AzureKeyVault",
-            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of the managed instance key to be operated on (updated or created).

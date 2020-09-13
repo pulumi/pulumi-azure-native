@@ -27,23 +27,6 @@ class JobCredential(pulumi.CustomResource):
         """
         A stored credential that can be used by a job to connect to target databases.
 
-        ## Example Usage
-        ### Create or update a credential
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        job_credential = azurerm.sql.v20170301preview.JobCredential("jobCredential",
-            credential_name="cred1",
-            job_agent_name="agent1",
-            password="<password>",
-            resource_group_name="group1",
-            server_name="server1",
-            username="myuser")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] credential_name: The name of the credential.

@@ -29,20 +29,6 @@ class RemediationAtResourceGroup(pulumi.CustomResource):
         """
         The remediation definition.
 
-        ## Example Usage
-        ### Create remediation at resource group scope
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        remediation_at_resource_group = azurerm.policyinsights.v20190701.RemediationAtResourceGroup("remediationAtResourceGroup",
-            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/myResourceGroup/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
-            remediation_name="storageRemediation",
-            resource_group_name="myResourceGroup")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RemediationFiltersArgs']] filters: The filters that will be applied to determine which resources to remediate.

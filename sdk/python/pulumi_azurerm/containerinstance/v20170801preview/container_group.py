@@ -33,27 +33,6 @@ class ContainerGroup(pulumi.CustomResource):
         """
         A container group.
 
-        ## Example Usage
-        ### ContainerGroupsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        container_group = azurerm.containerinstance.v20170801preview.ContainerGroup("containerGroup",
-            container_group_name="demo1",
-            containers=[{
-                "name": "demo1",
-            }],
-            ip_address={
-                "type": "Public",
-            },
-            location="west us",
-            os_type="Linux",
-            resource_group_name="demo")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_group_name: The name of the container group to be created or updated.

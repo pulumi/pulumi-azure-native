@@ -30,25 +30,6 @@ class IotDpsResource(pulumi.CustomResource):
         """
         The description of the provisioning service.
 
-        ## Example Usage
-        ### DPSCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        iot_dps_resource = azurerm.devices.v20180122.IotDpsResource("iotDpsResource",
-            location="East US",
-            provisioning_service_name="myFirstProvisioningService",
-            resource_group_name="myResourceGroup",
-            sku={
-                "capacity": 1,
-                "name": "S1",
-            },
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.

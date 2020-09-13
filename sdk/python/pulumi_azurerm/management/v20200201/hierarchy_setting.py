@@ -24,20 +24,6 @@ class HierarchySetting(pulumi.CustomResource):
         """
         Settings defined at the Management Group scope.
 
-        ## Example Usage
-        ### GetGroupSettings
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        hierarchy_setting = azurerm.management.v20200201.HierarchySetting("hierarchySetting",
-            default_management_group="/providers/Microsoft.Management/managementGroups/DefaultGroup",
-            group_id="root",
-            require_authorization_for_group_creation=True)
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_management_group: Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup

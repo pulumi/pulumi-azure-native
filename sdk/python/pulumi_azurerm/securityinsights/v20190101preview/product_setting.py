@@ -27,23 +27,6 @@ class ProductSetting(pulumi.CustomResource):
         """
         The Setting.
 
-        ## Example Usage
-        ### Update EyesOn settings.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        product_setting = azurerm.securityinsights.v20190101preview.ProductSetting("productSetting",
-            etag="\"0300bf09-0000-0000-0000-5c37296e0000\"",
-            kind="EyesOn",
-            operational_insights_resource_provider="Microsoft.OperationalInsights",
-            resource_group_name="myRg",
-            settings_name="EyesOn",
-            workspace_name="myWorkspace")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Etag of the azure resource

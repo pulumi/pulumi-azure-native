@@ -27,20 +27,6 @@ class Certificate(pulumi.CustomResource):
         """
         The X509 Certificate.
 
-        ## Example Usage
-        ### Certificates_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        certificate = azurerm.devices.v20200615.Certificate("certificate",
-            certificate_name="cert",
-            resource_group_name="myResourceGroup",
-            resource_name="iothub")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: The name of the certificate

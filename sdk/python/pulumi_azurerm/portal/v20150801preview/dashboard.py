@@ -29,59 +29,6 @@ class Dashboard(pulumi.CustomResource):
         """
         The shared dashboard resource definition.
 
-        ## Example Usage
-        ### Create or update a Dashboard
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        dashboard = azurerm.portal.v20150801preview.Dashboard("dashboard",
-            dashboard_name="testDashboard",
-            lenses={
-                "aLens": {
-                    "order": 1,
-                    "parts": {
-                        "aPart": {
-                            "position": {
-                                "colSpan": 3,
-                                "rowSpan": 4,
-                                "x": 1,
-                                "y": 2,
-                            },
-                        },
-                        "bPart": {
-                            "position": {
-                                "colSpan": 6,
-                                "rowSpan": 6,
-                                "x": 5,
-                                "y": 5,
-                            },
-                        },
-                    },
-                },
-                "bLens": {
-                    "order": 2,
-                    "parts": {},
-                },
-            },
-            location="eastus",
-            metadata={
-                "metadata": {
-                    "ColSpan": 2,
-                    "RowSpan": 1,
-                    "X": 4,
-                    "Y": 3,
-                },
-            },
-            resource_group_name="testRG",
-            tags={
-                "aKey": "aValue",
-                "anotherKey": "anotherValue",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dashboard_name: The name of the dashboard.

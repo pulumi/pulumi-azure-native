@@ -30,26 +30,6 @@ class SqlResourceSqlDatabase(pulumi.CustomResource):
         """
         An Azure Cosmos DB SQL database.
 
-        ## Example Usage
-        ### CosmosDBSqlDatabaseCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        sql_resource_sql_database = azurerm.documentdb.v20200301.SqlResourceSqlDatabase("sqlResourceSqlDatabase",
-            account_name="ddb1",
-            database_name="databaseName",
-            location="West US",
-            options={},
-            resource={
-                "id": "databaseName",
-            },
-            resource_group_name="rg1",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

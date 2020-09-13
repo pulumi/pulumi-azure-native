@@ -25,20 +25,6 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         """
         Definition of generic ARM proxy resource.
 
-        ## Example Usage
-        ### Create or update association
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        data_collection_rule_association = azurerm.insights.v20191101preview.DataCollectionRuleAssociation("dataCollectionRuleAssociation",
-            association_name="myAssociation",
-            data_collection_rule_id="/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule",
-            resource_uri="subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] association_name: The name of the association.

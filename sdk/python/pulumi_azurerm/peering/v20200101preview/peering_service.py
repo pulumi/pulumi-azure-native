@@ -30,21 +30,6 @@ class PeeringService(pulumi.CustomResource):
         """
         Peering Service
 
-        ## Example Usage
-        ### Create a  peering service
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        peering_service = azurerm.peering.v20200101preview.PeeringService("peeringService",
-            location="eastus",
-            peering_service_location="state1",
-            peering_service_provider="serviceProvider1",
-            resource_group_name="rgName")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource.

@@ -28,27 +28,6 @@ class Account(pulumi.CustomResource):
         """
         An account data transfer object.
 
-        ## Example Usage
-        ### Accounts_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        account = azurerm.datashare.v20181101preview.Account("account",
-            account_name="Account1",
-            identity={
-                "type": "SystemAssigned",
-            },
-            location="West US 2",
-            resource_group_name="SampleResourceGroup",
-            tags={
-                "tag1": "Red",
-                "tag2": "White",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.

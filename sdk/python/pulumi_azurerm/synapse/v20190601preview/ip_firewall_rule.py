@@ -26,22 +26,6 @@ class IpFirewallRule(pulumi.CustomResource):
         """
         IP firewall rule
 
-        ## Example Usage
-        ### Create an IP firewall rule
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        ip_firewall_rule = azurerm.synapse.v20190601preview.IpFirewallRule("ipFirewallRule",
-            end_ip_address="10.0.0.254",
-            resource_group_name="ExampleResourceGroup",
-            rule_name="ExampleIpFirewallRule",
-            start_ip_address="10.0.0.0",
-            workspace_name="ExampleWorkspace")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress

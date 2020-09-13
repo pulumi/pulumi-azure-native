@@ -28,24 +28,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         An object that represents a private endpoint connection for a container registry.
 
-        ## Example Usage
-        ### PrivateEndpointConnectionCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        private_endpoint_connection = azurerm.containerregistry.v20191201preview.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="myConnection",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": "Approved",
-            },
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: The resource of private endpoint.

@@ -28,25 +28,6 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         """
         Description of a namespace authorization rule.
 
-        ## Example Usage
-        ### TopicAuthorizationRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        topic_authorization_rule = azurerm.servicebus.v20150801.TopicAuthorizationRule("topicAuthorizationRule",
-            authorization_rule_name="sdk-Authrules5067",
-            namespace_name="sdk-Namespace8408",
-            resource_group_name="Default-ServiceBus-WestUS",
-            rights=[
-                "Listen",
-                "Send",
-            ],
-            topic_name="sdk-Topics2075")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.

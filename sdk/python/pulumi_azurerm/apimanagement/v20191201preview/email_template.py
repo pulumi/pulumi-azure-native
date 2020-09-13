@@ -31,21 +31,6 @@ class EmailTemplate(pulumi.CustomResource):
         """
         Email Template details.
 
-        ## Example Usage
-        ### ApiManagementCreateEmailTemplate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        email_template = azurerm.apimanagement.v20191201preview.EmailTemplate("emailTemplate",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            subject="Your request for $IssueName was successfully received.",
-            template_name="newIssueNotificationMessage")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: Email Template Body. This should be a valid XDocument

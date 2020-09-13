@@ -26,22 +26,6 @@ class Trigger(pulumi.CustomResource):
         """
         A Trigger data transfer object.
 
-        ## Example Usage
-        ### Triggers_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        trigger = azurerm.datashare.v20181101preview.Trigger("trigger",
-            account_name="Account1",
-            kind="ScheduleBased",
-            resource_group_name="SampleResourceGroup",
-            share_subscription_name="ShareSubscription1",
-            trigger_name="Trigger1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.

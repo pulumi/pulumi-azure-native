@@ -33,34 +33,6 @@ class AzureFirewall(pulumi.CustomResource):
         """
         Azure Firewall resource
 
-        ## Example Usage
-        ### Create Azure Firewall
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        azure_firewall = azurerm.network.v20180801.AzureFirewall("azureFirewall",
-            application_rule_collections=[{
-                "name": "apprulecoll",
-            }],
-            azure_firewall_name="azurefirewall",
-            ip_configurations=[{
-                "name": "azureFirewallIpConfiguration",
-            }],
-            nat_rule_collections=[{
-                "name": "natrulecoll",
-            }],
-            network_rule_collections=[{
-                "name": "netrulecoll",
-            }],
-            resource_group_name="rg1",
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AzureFirewallApplicationRuleCollectionArgs']]]] application_rule_collections: Collection of application rule collections used by Azure Firewall.

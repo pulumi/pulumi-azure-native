@@ -28,22 +28,6 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         """
         An application type version resource for the specified application type name resource.
 
-        ## Example Usage
-        ### Put an application type version
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        application_type_version = azurerm.servicefabric.v20191101preview.ApplicationTypeVersion("applicationTypeVersion",
-            app_package_url="http://fakelink.test.com/MyAppType",
-            application_type_name="myAppType",
-            cluster_name="myCluster",
-            resource_group_name="resRg",
-            version="1.0")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_package_url: The URL to the application package

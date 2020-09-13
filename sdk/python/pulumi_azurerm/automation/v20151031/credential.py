@@ -28,24 +28,6 @@ class Credential(pulumi.CustomResource):
         """
         Definition of the credential.
 
-        ## Example Usage
-        ### Create a credential
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        credential = azurerm.automation.v20151031.Credential("credential",
-            automation_account_name="myAutomationAccount18",
-            credential_name="myCredential",
-            description="my description goes here",
-            name="myCredential",
-            password="myPassw0rd",
-            resource_group_name="rg",
-            user_name="mylingaiah")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

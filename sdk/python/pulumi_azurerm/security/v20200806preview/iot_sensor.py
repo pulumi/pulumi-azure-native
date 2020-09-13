@@ -23,19 +23,6 @@ class IotSensor(pulumi.CustomResource):
         """
         IoT sensor
 
-        ## Example Usage
-        ### Create or update IoT sensor
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        iot_sensor = azurerm.security.v20200806preview.IotSensor("iotSensor",
-            iot_sensor_name="mySensor",
-            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] iot_sensor_name: Name of the IoT sensor

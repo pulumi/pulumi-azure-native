@@ -34,66 +34,6 @@ class JobStep(pulumi.CustomResource):
         """
         A job step.
 
-        ## Example Usage
-        ### Create or update a job step with all properties specified.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        job_step = azurerm.sql.v20170301preview.JobStep("jobStep",
-            action={
-                "source": "Inline",
-                "type": "TSql",
-                "value": "select 2",
-            },
-            credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred1",
-            execution_options={
-                "initialRetryIntervalSeconds": 11,
-                "maximumRetryIntervalSeconds": 222,
-                "retryAttempts": 42,
-                "retryIntervalBackoffMultiplier": 3,
-                "timeoutSeconds": 1234,
-            },
-            job_agent_name="agent1",
-            job_name="job1",
-            output={
-                "credential": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred0",
-                "databaseName": "database3",
-                "resourceGroupName": "group3",
-                "schemaName": "myschema1234",
-                "serverName": "server3",
-                "subscriptionId": "3501b905-a848-4b5d-96e8-b253f62d735a",
-                "tableName": "mytable5678",
-                "type": "SqlDatabase",
-            },
-            resource_group_name="group1",
-            server_name="server1",
-            step_id=1,
-            step_name="step1",
-            target_group="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup1")
-
-        ```
-        ### Create or update a job step with minimal properties specified.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        job_step = azurerm.sql.v20170301preview.JobStep("jobStep",
-            action={
-                "value": "select 1",
-            },
-            credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred0",
-            job_agent_name="agent1",
-            job_name="job1",
-            resource_group_name="group1",
-            server_name="server1",
-            step_name="step1",
-            target_group="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup0")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['JobStepActionArgs']] action: The action payload of the job step.

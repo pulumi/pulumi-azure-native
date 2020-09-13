@@ -35,37 +35,6 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         """
         NetworkVirtualAppliance Resource.
 
-        ## Example Usage
-        ### Create NetworkVirtualAppliance
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        network_virtual_appliance = azurerm.network.v20200501.NetworkVirtualAppliance("networkVirtualAppliance",
-            boot_strap_configuration_blobs=["https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrbootstrapconfig"],
-            cloud_init_configuration_blobs=["https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrcloudinitconfig"],
-            identity={
-                "type": "UserAssigned",
-            },
-            location="West US",
-            network_virtual_appliance_name="nva",
-            nva_sku={
-                "bundledScaleUnit": "1",
-                "marketPlaceVersion": "12.1",
-                "vendor": "Cisco SDWAN",
-            },
-            resource_group_name="rg1",
-            tags={
-                "key1": "value1",
-            },
-            virtual_appliance_asn=10000,
-            virtual_hub={
-                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] boot_strap_configuration_blobs: BootStrapConfigurationBlobs storage URLs.

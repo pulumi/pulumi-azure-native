@@ -31,28 +31,6 @@ class TemplateSpecVersion(pulumi.CustomResource):
         """
         Template Spec Version object.
 
-        ## Example Usage
-        ### TemplateSpecVersionsCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        template_spec_version = azurerm.resources.v20190601preview.TemplateSpecVersion("templateSpecVersion",
-            description="This is version v1.0 of our template content",
-            location="eastus",
-            resource_group_name="templateSpecRG",
-            template={
-                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                "content_version": "1.0.0.0",
-                "parameters": {},
-                "resources": [],
-            },
-            template_spec_name="simpleTemplateSpec",
-            template_spec_version="v1.0")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TemplateSpecTemplateArtifactArgs']]]] artifacts: An array of Template Spec artifacts.

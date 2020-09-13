@@ -28,24 +28,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection
 
-        ## Example Usage
-        ### Approve or reject a private endpoint connection with a given name.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        private_endpoint_connection = azurerm.automation.v20200113preview.PrivateEndpointConnection("privateEndpointConnection",
-            automation_account_name="ddb1",
-            private_endpoint_connection_name="privateEndpointConnectionName",
-            private_link_service_connection_state={
-                "description": "Approved by johndoe@contoso.com",
-                "status": "Approved",
-            },
-            resource_group_name="rg1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

@@ -33,40 +33,6 @@ class BuildTask(pulumi.CustomResource):
         """
         The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
 
-        ## Example Usage
-        ### BuildTasks_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        build_task = azurerm.containerregistry.v20180201preview.BuildTask("buildTask",
-            alias="myalias",
-            build_task_name="myBuildTask",
-            location="eastus",
-            platform={
-                "cpu": 2,
-                "osType": "Linux",
-            },
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            source_repository={
-                "isCommitTriggerEnabled": True,
-                "repositoryUrl": "https://github.com/Azure/azure-rest-api-specs",
-                "sourceControlAuthProperties": {
-                    "scope": "repo",
-                    "token": "xxxxxx",
-                    "tokenType": "OAuth",
-                },
-                "sourceControlType": "Github",
-            },
-            status="Enabled",
-            tags={
-                "testkey": "value",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The alternative updatable name for a build task.

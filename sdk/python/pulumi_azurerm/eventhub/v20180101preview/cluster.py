@@ -28,28 +28,6 @@ class Cluster(pulumi.CustomResource):
         """
         Single Event Hubs Cluster resource in List or Get operations.
 
-        ## Example Usage
-        ### ClusterPut
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        cluster = azurerm.eventhub.v20180101preview.Cluster("cluster",
-            cluster_name="testCluster",
-            location="South Central US",
-            resource_group_name="myResourceGroup",
-            sku={
-                "capacity": 1,
-                "name": "Dedicated",
-            },
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Event Hubs Cluster.

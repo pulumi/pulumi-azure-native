@@ -28,25 +28,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         """
         Description of a namespace authorization rule.
 
-        ## Example Usage
-        ### QueueAuthorizationRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        queue_authorization_rule = azurerm.servicebus.v20150801.QueueAuthorizationRule("queueAuthorizationRule",
-            authorization_rule_name="sdk-Authrules7319",
-            namespace_name="sdk-Namespace6556",
-            queue_name="sdk-Queues3136",
-            resource_group_name="Default-ServiceBus-WestUS",
-            rights=[
-                "Listen",
-                "Send",
-            ])
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.

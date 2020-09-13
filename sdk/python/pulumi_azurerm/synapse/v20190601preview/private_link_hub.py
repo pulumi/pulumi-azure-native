@@ -25,23 +25,6 @@ class PrivateLinkHub(pulumi.CustomResource):
         """
         A privateLinkHub
 
-        ## Example Usage
-        ### Create or update a privateLinkHub
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        private_link_hub = azurerm.synapse.v20190601preview.PrivateLinkHub("privateLinkHub",
-            location="East US",
-            private_link_hub_name="privateLinkHub1",
-            resource_group_name="resourceGroup1",
-            tags={
-                "key": "value",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives

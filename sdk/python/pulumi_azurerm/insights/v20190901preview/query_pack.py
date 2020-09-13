@@ -25,35 +25,6 @@ class QueryPack(pulumi.CustomResource):
         """
         An Log Analytics QueryPack definition.
 
-        ## Example Usage
-        ### QueryPackCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        query_pack = azurerm.insights.v20190901preview.QueryPack("queryPack",
-            location="South Central US",
-            query_pack_name="my-querypack",
-            resource_group_name="my-resource-group")
-
-        ```
-        ### QueryPackUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        query_pack = azurerm.insights.v20190901preview.QueryPack("queryPack",
-            location="South Central US",
-            query_pack_name="my-querypack",
-            resource_group_name="my-resource-group",
-            tags={
-                "Tag1": "Value1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location

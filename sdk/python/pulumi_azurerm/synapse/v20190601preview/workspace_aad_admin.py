@@ -27,23 +27,6 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         """
         Workspace active directory administrator
 
-        ## Example Usage
-        ### Create or update workspace active directory admin
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        workspace_aad_admin = azurerm.synapse.v20190601preview.WorkspaceAadAdmin("workspaceAadAdmin",
-            administrator_type="ActiveDirectory",
-            login="bob@contoso.com",
-            resource_group_name="resourceGroup1",
-            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-            workspace_name="workspace1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_type: Workspace active directory administrator type

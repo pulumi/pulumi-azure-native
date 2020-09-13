@@ -27,24 +27,6 @@ class Creator(pulumi.CustomResource):
         """
         An Azure resource which represents Maps Creator product and provides ability to manage private location data.
 
-        ## Example Usage
-        ### CreatePrivateAtlas
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        creator = azurerm.maps.v20200201preview.Creator("creator",
-            account_name="myMapsAccount",
-            creator_name="myCreator",
-            location="unitedstates",
-            resource_group_name="myResourceGroup",
-            tags={
-                "test": "true",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Maps Account.

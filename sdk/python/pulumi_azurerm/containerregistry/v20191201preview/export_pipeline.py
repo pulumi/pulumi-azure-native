@@ -30,30 +30,6 @@ class ExportPipeline(pulumi.CustomResource):
         """
         An object that represents an export pipeline for a container registry.
 
-        ## Example Usage
-        ### ExportPipelineCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        export_pipeline = azurerm.containerregistry.v20191201preview.ExportPipeline("exportPipeline",
-            export_pipeline_name="myExportPipeline",
-            identity={
-                "type": "SystemAssigned",
-            },
-            location="westus",
-            options=["OverwriteBlobs"],
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            target={
-                "keyVaultUri": "https://myvault.vault.azure.net/secrets/acrexportsas",
-                "type": "AzureStorageBlobContainer",
-                "uri": "https://accountname.blob.core.windows.net/containername",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] export_pipeline_name: The name of the export pipeline.

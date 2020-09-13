@@ -24,20 +24,6 @@ class ServerDnsAlias(pulumi.CustomResource):
         """
         A server DNS alias.
 
-        ## Example Usage
-        ### Create server DNS alias
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        server_dns_alias = azurerm.sql.v20170301preview.ServerDnsAlias("serverDnsAlias",
-            dns_alias_name="dns-alias-name-1",
-            resource_group_name="Default",
-            server_name="dns-alias-server")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_alias_name: The name of the server DNS alias.

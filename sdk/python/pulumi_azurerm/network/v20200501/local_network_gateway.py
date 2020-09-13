@@ -32,25 +32,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
         """
         A common class for general resource information.
 
-        ## Example Usage
-        ### CreateLocalNetworkGateway
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        local_network_gateway = azurerm.network.v20200501.LocalNetworkGateway("localNetworkGateway",
-            fqdn="site1.contoso.com",
-            gateway_ip_address="11.12.13.14",
-            local_network_address_space={
-                "addressPrefixes": ["10.1.0.0/16"],
-            },
-            local_network_gateway_name="localgw",
-            location="Central US",
-            resource_group_name="rg1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Local network gateway's BGP speaker settings.

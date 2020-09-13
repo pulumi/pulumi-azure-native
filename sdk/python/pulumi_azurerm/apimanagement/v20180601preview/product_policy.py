@@ -27,38 +27,6 @@ class ProductPolicy(pulumi.CustomResource):
         """
         Policy Contract details.
 
-        ## Example Usage
-        ### ApiManagementCreateProductPolicy
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        product_policy = azurerm.apimanagement.v20180601preview.ProductPolicy("productPolicy",
-            content_format="xml",
-            policy_content=\"\"\"<policies>
-          <inbound>
-            <rate-limit calls="{{call-count}}" renewal-period="15"></rate-limit>
-            <log-to-eventhub logger-id="16">
-                              @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) 
-                          </log-to-eventhub>
-            <quota-by-key calls="40" counter-key="cc" renewal-period="3600" increment-count="@(context.Request.Method == &quot;POST&quot; ? 1:2)" />
-            <base />
-          </inbound>
-          <backend>
-            <base />
-          </backend>
-          <outbound>
-            <base />
-          </outbound>
-        </policies>\"\"\",
-            policy_id="policy",
-            product_id="5702e97e5157a50f48dce801",
-            resource_group_name="rg1",
-            service_name="apimService1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_format: Format of the policyContent.

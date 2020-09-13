@@ -29,19 +29,6 @@ class Connection(pulumi.CustomResource):
         """
         API connection
 
-        ## Example Usage
-        ### Replace a connection
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        connection = azurerm.web.v20160601.Connection("connection",
-            connection_name="testManagedApi",
-            resource_group_name="testResourceGroup")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: Connection name

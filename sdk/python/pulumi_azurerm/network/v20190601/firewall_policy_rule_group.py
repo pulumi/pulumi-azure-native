@@ -31,36 +31,6 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
         """
         Rule Group resource
 
-        ## Example Usage
-        ### Create FirewallPolicyRuleGroup
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        firewall_policy_rule_group = azurerm.network.v20190601.FirewallPolicyRuleGroup("firewallPolicyRuleGroup",
-            firewall_policy_name="firewallPolicy",
-            priority=110,
-            resource_group_name="rg1",
-            rule_group_name="ruleGroup1",
-            rules=[{
-                "action": {
-                    "type": "Deny",
-                },
-                "name": "Example-Filter-Rule",
-                "ruleConditions": [{
-                    "destinationAddresses": ["*"],
-                    "destinationPorts": ["*"],
-                    "ipProtocols": ["TCP"],
-                    "name": "network-condition1",
-                    "ruleConditionType": "NetworkRuleCondition",
-                    "sourceAddresses": ["10.1.25.0/24"],
-                }],
-                "ruleType": "FirewallPolicyFilterRule",
-            }])
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.

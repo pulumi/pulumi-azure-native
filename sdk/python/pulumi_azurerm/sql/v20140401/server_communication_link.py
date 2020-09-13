@@ -25,21 +25,6 @@ class ServerCommunicationLink(pulumi.CustomResource):
         """
         Server communication link.
 
-        ## Example Usage
-        ### Create a server communication link
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        server_communication_link = azurerm.sql.v20140401.ServerCommunicationLink("serverCommunicationLink",
-            communication_link_name="link1",
-            partner_server="sqldcrudtest-test",
-            resource_group_name="sqlcrudtest-7398",
-            server_name="sqlcrudtest-4645")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] communication_link_name: The name of the server communication link.

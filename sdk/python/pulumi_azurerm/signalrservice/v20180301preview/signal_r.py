@@ -29,28 +29,6 @@ class SignalR(pulumi.CustomResource):
         """
         A class represent a SignalR service resource.
 
-        ## Example Usage
-        ### CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        signal_r = azurerm.signalrservice.v20180301preview.SignalR("signalR",
-            location="eastus",
-            resource_group_name="myResourceGroup",
-            resource_name="mySignalRService",
-            sku={
-                "capacity": 1,
-                "name": "Standard_S1",
-                "tier": "Standard",
-            },
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc. 

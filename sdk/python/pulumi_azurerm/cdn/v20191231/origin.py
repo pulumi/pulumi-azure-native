@@ -32,28 +32,6 @@ class Origin(pulumi.CustomResource):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 
-        ## Example Usage
-        ### Origins_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        origin = azurerm.cdn.v20191231.Origin("origin",
-            enabled=True,
-            endpoint_name="endpoint1",
-            host_name="www.someDomain.net",
-            http_port=80,
-            https_port=443,
-            origin_host_header="www.someDomain.net",
-            origin_name="www-someDomain-net",
-            priority=1,
-            profile_name="profile1",
-            resource_group_name="RG",
-            weight=50)
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Origin is enabled for load balancing or not

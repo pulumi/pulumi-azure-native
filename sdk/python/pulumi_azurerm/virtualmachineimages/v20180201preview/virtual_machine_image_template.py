@@ -28,43 +28,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## Example Usage
-        ### Create an Image Template.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        virtual_machine_image_template = azurerm.virtualmachineimages.v20180201preview.VirtualMachineImageTemplate("virtualMachineImageTemplate",
-            customize=[{
-                "name": "Shell Customizer Example",
-                "script": "https://example.com/path/to/script.sh",
-                "type": "shell",
-            }],
-            distribute=[{
-                "imageId": "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
-                "location": "1_location",
-                "runOutputName": "image_it_pir_1",
-                "tags": {
-                    "tagName": "value",
-                },
-                "type": "managedImage",
-            }],
-            image_template_name="myImageTemplate",
-            location="westus",
-            resource_group_name="myResourceGroup",
-            source={
-                "sha256Checksum": "120acbca7b3d55465eb9f8ef53ad7365f2997d42d4f83d7cc285bf5c71e1131f",
-                "sourceURI": "http://redhat.com/path/to/installation.iso",
-                "type": "ISO",
-            },
-            tags={
-                "imagetemplate_tag1": "IT_T1",
-                "imagetemplate_tag2": "IT_T2",
-            })
-
-        ```
-
+        Create a VirtualMachineImageTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageTemplateShellCustomizerArgs']]]] customize: Specifies the properties used to describe the customization steps of the image, like Image source etc

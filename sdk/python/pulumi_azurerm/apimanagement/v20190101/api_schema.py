@@ -27,22 +27,6 @@ class ApiSchema(pulumi.CustomResource):
         """
         Schema Contract details.
 
-        ## Example Usage
-        ### ApiManagementCreateApiSchema
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        api_schema = azurerm.apimanagement.v20190101.ApiSchema("apiSchema",
-            api_id="59d6bb8f1f7fab13dc67ec9b",
-            content_type="application/vnd.ms-azure-apim.xsd+xml",
-            resource_group_name="rg1",
-            schema_id="ec12520d-9d48-4e7b-8f39-698ca2ac63f1",
-            service_name="apimService1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.

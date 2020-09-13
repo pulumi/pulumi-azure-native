@@ -28,27 +28,6 @@ class Transform(pulumi.CustomResource):
         """
         A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
 
-        ## Example Usage
-        ### Create or update a Transform
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        transform = azurerm.media.v20180701.Transform("transform",
-            account_name="contosomedia",
-            description="Example Transform to illustrate create and update.",
-            outputs=[{
-                "preset": {
-                    "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
-                    "presetName": "AdaptiveStreaming",
-                },
-            }],
-            resource_group_name="contosoresources",
-            transform_name="createdTransform")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

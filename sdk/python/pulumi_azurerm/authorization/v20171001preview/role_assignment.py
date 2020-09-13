@@ -26,22 +26,6 @@ class RoleAssignment(pulumi.CustomResource):
         """
         Role Assignments
 
-        ## Example Usage
-        ### GetConfigurations
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        role_assignment = azurerm.authorization.v20171001preview.RoleAssignment("roleAssignment",
-            can_delegate=False,
-            principal_id="d93a38bc-d029-4160-bfb0-fbda779ac214",
-            role_assignment_name="roleAssignmentName",
-            role_definition_id="/subscriptions/4004a9fd-d58e-48dc-aeb2-4a4aec58606f/providers/Microsoft.Authorization/roleDefinitions/de139f84-1756-47ae-9be6-808fbbe84772",
-            scope="scope")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment

@@ -26,22 +26,6 @@ class CustomDomain(pulumi.CustomResource):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 
-        ## Example Usage
-        ### CustomDomains_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        custom_domain = azurerm.cdn.v20200331.CustomDomain("customDomain",
-            custom_domain_name="www-someDomain-net",
-            endpoint_name="endpoint1",
-            host_name="www.someDomain.net",
-            profile_name="profile1",
-            resource_group_name="RG")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_domain_name: Name of the custom domain within an endpoint.

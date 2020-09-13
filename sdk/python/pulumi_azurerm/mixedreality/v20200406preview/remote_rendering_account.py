@@ -28,23 +28,6 @@ class RemoteRenderingAccount(pulumi.CustomResource):
         """
         RemoteRenderingAccount Response.
 
-        ## Example Usage
-        ### Create remote rendering account
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        remote_rendering_account = azurerm.mixedreality.v20200406preview.RemoteRenderingAccount("remoteRenderingAccount",
-            account_name="MyAccount",
-            identity={
-                "type": "SystemAssigned",
-            },
-            location="eastus2euap",
-            resource_group_name="MyResourceGroup")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of an Mixed Reality Account.

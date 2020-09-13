@@ -25,24 +25,6 @@ class LinkedStorageAccount(pulumi.CustomResource):
         """
         Linked storage accounts top level resource container.
 
-        ## Example Usage
-        ### LinkedStorageAccountsCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        linked_storage_account = azurerm.operationalinsights.v20190801preview.LinkedStorageAccount("linkedStorageAccount",
-            data_source_type="CustomLogs",
-            resource_group_name="mms-eus",
-            storage_account_ids=[
-                "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageA",
-                "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageB",
-            ],
-            workspace_name="testLinkStorageAccountsWS")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_source_type: Linked storage accounts type.

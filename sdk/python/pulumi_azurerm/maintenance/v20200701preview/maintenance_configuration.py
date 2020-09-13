@@ -34,23 +34,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         """
         Maintenance configuration record type
 
-        ## Example Usage
-        ### MaintenanceConfigurations_CreateOrUpdateForResource
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        maintenance_configuration = azurerm.maintenance.v20200701preview.MaintenanceConfiguration("maintenanceConfiguration",
-            location="westus2",
-            maintenance_scope="OSImage",
-            namespace="Microsoft.Maintenance",
-            resource_group_name="examplerg",
-            resource_name="configuration1",
-            visibility="Custom")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] duration: Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.

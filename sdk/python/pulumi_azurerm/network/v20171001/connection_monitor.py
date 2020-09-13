@@ -32,28 +32,6 @@ class ConnectionMonitor(pulumi.CustomResource):
         """
         Information about the connection monitor.
 
-        ## Example Usage
-        ### Create connection monitor
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        connection_monitor = azurerm.network.v20171001.ConnectionMonitor("connectionMonitor",
-            connection_monitor_name="cm1",
-            destination={
-                "address": "bing.com",
-                "port": 80,
-            },
-            monitoring_interval_in_seconds=60,
-            network_watcher_name="nw1",
-            resource_group_name="rg1",
-            source={
-                "resourceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Determines if the connection monitor will start automatically once created.

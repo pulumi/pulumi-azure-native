@@ -38,33 +38,6 @@ class SqlPool(pulumi.CustomResource):
         """
         A SQL Analytics pool
 
-        ## Example Usage
-        ### Create a SQL Analytics pool
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        sql_pool = azurerm.synapse.v20190601preview.SqlPool("sqlPool",
-            collation="",
-            create_mode="",
-            creation_date="1970-01-01T00:00:00.000Z",
-            location="West US 2",
-            max_size_bytes=0,
-            recoverable_database_id="",
-            resource_group_name="ExampleResourceGroup",
-            restore_point_in_time="1970-01-01T00:00:00.000Z",
-            sku={
-                "name": "",
-                "tier": "",
-            },
-            source_database_id="",
-            sql_pool_name="ExampleSqlPool",
-            tags={},
-            workspace_name="ExampleWorkspace")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: Collation mode

@@ -30,22 +30,6 @@ class Service(pulumi.CustomResource):
         """
         The description of the service.
 
-        ## Example Usage
-        ### ServicePut
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        service = azurerm.healthcareapis.v20180820preview.Service("service",
-            kind="fhir",
-            location="eastus",
-            resource_group_name="rg1",
-            resource_name="service1",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: An etag associated with the resource, used for optimistic concurrency when editing it.

@@ -36,34 +36,6 @@ class Workspace(pulumi.CustomResource):
         """
         A workspace
 
-        ## Example Usage
-        ### Create or update a workspace
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        workspace = azurerm.synapse.v20190601preview.Workspace("workspace",
-            default_data_lake_storage={
-                "accountUrl": "https://accountname.dfs.core.windows.net",
-                "filesystem": "default",
-            },
-            identity={
-                "type": "SystemAssigned",
-            },
-            location="East US",
-            managed_resource_group_name="workspaceManagedResourceGroupUnique",
-            managed_virtual_network="default",
-            resource_group_name="resourceGroup1",
-            sql_administrator_login="login",
-            sql_administrator_login_password="password",
-            tags={
-                "key": "value",
-            },
-            workspace_name="workspace1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: Connectivity endpoints

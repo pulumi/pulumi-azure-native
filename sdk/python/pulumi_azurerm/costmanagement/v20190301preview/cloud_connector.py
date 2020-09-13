@@ -31,22 +31,6 @@ class CloudConnector(pulumi.CustomResource):
         """
         The Connector model definition
 
-        ## Example Usage
-        ### CloudConnector_Put
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        cloud_connector = azurerm.costmanagement.v20190301preview.CloudConnector("cloudConnector",
-            connector_name="aws-123456789012",
-            credentials_key="arn:aws:iam::123456789012:role/AzureCostManagementRole",
-            credentials_secret="external-id",
-            display_name="AWS-Consolidated-1",
-            report_id="HourlyWithResources")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_model: Connector billing model

@@ -30,51 +30,6 @@ class DatabaseAccount(pulumi.CustomResource):
         """
         An Azure Cosmos DB database account.
 
-        ## Example Usage
-        ### CosmosDBDatabaseAccountCreateMax
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        database_account = azurerm.documentdb.v20200601preview.DatabaseAccount("databaseAccount",
-            account_name="ddb1",
-            identity={
-                "type": "SystemAssigned,UserAssigned",
-            },
-            kind="MongoDB",
-            location="westus",
-            resource_group_name="rg1",
-            tags={})
-
-        ```
-        ### CosmosDBDatabaseAccountCreateMin
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        database_account = azurerm.documentdb.v20200601preview.DatabaseAccount("databaseAccount",
-            account_name="ddb1",
-            location="westus",
-            resource_group_name="rg1")
-
-        ```
-        ### CosmosDBRestoreDatabaseAccountCreateUpdate.json
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        database_account = azurerm.documentdb.v20200601preview.DatabaseAccount("databaseAccount",
-            account_name="ddb1",
-            kind="GlobalDocumentDB",
-            location="westus",
-            resource_group_name="rg1",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

@@ -28,24 +28,6 @@ class StorageAccount(pulumi.CustomResource):
         """
         Represents a Storage Account on the  Data Box Edge/Gateway device.
 
-        ## Example Usage
-        ### StorageAccountPut
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        storage_account = azurerm.databoxedge.v20200501preview.StorageAccount("storageAccount",
-            data_policy="Cloud",
-            description="It's an awesome storage account",
-            device_name="testedgedevice",
-            resource_group_name="GroupForEdgeAutomation",
-            storage_account_credential_id="/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/cisbvt",
-            storage_account_name="blobstorageaccount1",
-            storage_account_status="OK")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_policy: Data policy of the storage Account.

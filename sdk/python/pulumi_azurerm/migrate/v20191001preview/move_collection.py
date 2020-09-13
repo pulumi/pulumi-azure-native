@@ -29,19 +29,6 @@ class MoveCollection(pulumi.CustomResource):
         """
         Define the move collection.
 
-        ## Example Usage
-        ### MoveCollections_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        move_collection = azurerm.migrate.v20191001preview.MoveCollection("moveCollection",
-            move_collection_name="movecollection1",
-            resource_group_name="rg1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Defines the MSI properties of the Move Collection.

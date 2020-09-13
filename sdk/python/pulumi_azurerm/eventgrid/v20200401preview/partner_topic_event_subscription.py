@@ -35,31 +35,6 @@ class PartnerTopicEventSubscription(pulumi.CustomResource):
         """
         Event Subscription
 
-        ## Example Usage
-        ### PartnerTopicEventSubscriptions_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        partner_topic_event_subscription = azurerm.eventgrid.v20200401preview.PartnerTopicEventSubscription("partnerTopicEventSubscription",
-            destination={
-                "endpointType": "WebHook",
-                "properties": {
-                    "endpointUrl": "https://requestb.in/15ksip71",
-                },
-            },
-            event_subscription_name="exampleEventSubscriptionName1",
-            filter={
-                "isSubjectCaseSensitive": False,
-                "subjectBeginsWith": "ExamplePrefix",
-                "subjectEndsWith": "ExampleSuffix",
-            },
-            partner_topic_name="examplePartnerTopic1",
-            resource_group_name="examplerg")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['StorageBlobDeadLetterDestinationArgs']] dead_letter_destination: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.

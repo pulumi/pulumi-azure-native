@@ -33,42 +33,6 @@ class SyncGroup(pulumi.CustomResource):
         """
         An Azure SQL Database sync group.
 
-        ## Example Usage
-        ### Create a sync group
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        sync_group = azurerm.sql.v20150501preview.SyncGroup("syncGroup",
-            conflict_resolution_policy="HubWin",
-            database_name="syncgroupcrud-4328",
-            hub_database_user_name="hubUser",
-            interval=-1,
-            resource_group_name="syncgroupcrud-65440",
-            server_name="syncgroupcrud-8475",
-            sync_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
-            sync_group_name="syncgroupcrud-3187")
-
-        ```
-        ### Update a sync group
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        sync_group = azurerm.sql.v20150501preview.SyncGroup("syncGroup",
-            conflict_resolution_policy="HubWin",
-            database_name="syncgroupcrud-4328",
-            hub_database_user_name="hubUser",
-            interval=-1,
-            resource_group_name="syncgroupcrud-65440",
-            server_name="syncgroupcrud-8475",
-            sync_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
-            sync_group_name="syncgroupcrud-3187")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] conflict_resolution_policy: Conflict resolution policy of the sync group.

@@ -33,31 +33,6 @@ class SourceControl(pulumi.CustomResource):
         """
         Definition of the source control.
 
-        ## Example Usage
-        ### Create or update a source control
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        source_control = azurerm.automation.v20170515preview.SourceControl("sourceControl",
-            auto_sync=True,
-            automation_account_name="sampleAccount9",
-            branch="master",
-            description="my description",
-            folder_path="/folderOne/folderTwo",
-            publish_runbook=True,
-            repo_url="https://sampleUser.visualstudio.com/myProject/_git/myRepository",
-            resource_group_name="rg",
-            security_token={
-                "accessToken": "3a326f7a0dcd343ea58fee21f2fd5fb4c1234567",
-                "tokenType": "PersonalAccessToken",
-            },
-            source_control_name="sampleSourceControl",
-            source_type="VsoGit")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_sync: The auto async of the source control. Default is false.

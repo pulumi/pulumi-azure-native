@@ -30,29 +30,6 @@ class Connection(pulumi.CustomResource):
         """
         Definition of the connection.
 
-        ## Example Usage
-        ### Create or update connection
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        connection = azurerm.automation.v20151031.Connection("connection",
-            automation_account_name="myAutomationAccount28",
-            connection_name="mysConnection",
-            connection_type={
-                "name": "Azure",
-            },
-            description="my description goes here",
-            field_definition_values={
-                "AutomationCertificateName": "mysCertificateName",
-                "SubscriptionID": "subid",
-            },
-            name="mysConnection",
-            resource_group_name="rg")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

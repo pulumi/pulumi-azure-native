@@ -32,35 +32,6 @@ class PolicyAssignment(pulumi.CustomResource):
         """
         The policy assignment.
 
-        ## Example Usage
-        ### Put a policy assignment
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        policy_assignment = azurerm.authorization.v20170601preview.PolicyAssignment("policyAssignment",
-            description="Policies required to minimize the risk of accidental cost overruns",
-            display_name="Storage Cost Management",
-            metadata={
-                "category": "Cost Management",
-            },
-            not_scopes=["/subscriptions/subId/resourcegroups/testingResourceGroup"],
-            parameters={
-                "allowedSkus": {
-                    "type": "Array",
-                },
-            },
-            policy_assignment_name="costManagement",
-            policy_definition_id="/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus",
-            scope="subscriptions/subId",
-            sku={
-                "name": "A0",
-                "tier": "Free",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: This message will be part of response in case of policy violation.

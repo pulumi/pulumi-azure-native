@@ -28,23 +28,6 @@ class Project(pulumi.CustomResource):
         """
         Azure Migrate Project.
 
-        ## Example Usage
-        ### Projects_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        project = azurerm.migrate.v20171111preview.Project("project",
-            customer_workspace_id="url-to-customers-service-map",
-            e_tag="\"b701c73a-0000-0000-0000-59c12ff00000\"",
-            location="West Us",
-            project_name="project01",
-            resource_group_name="myResourceGroup",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_workspace_id: ARM ID of the Service Map workspace created by user.

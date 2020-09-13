@@ -31,21 +31,6 @@ class ProtectionContainer(pulumi.CustomResource):
         """
         Base class for container with backup items. Containers with specific workloads are derived from this class.
 
-        ## Example Usage
-        ### RegisterAzure Storage ProtectionContainers
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        protection_container = azurerm.recoveryservices.v20161201.ProtectionContainer("protectionContainer",
-            container_name="VMAppContainer;Compute;testRG;testSQL",
-            fabric_name="Azure",
-            resource_group_name="test-rg",
-            vault_name="testvault")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_name: Name of the container to be registered.

@@ -30,51 +30,6 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
         """
         The policy definition.
 
-        ## Example Usage
-        ### Create or update a policy definition at management group level
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        policy_definition_at_management_group = azurerm.management.v20180501.PolicyDefinitionAtManagementGroup("policyDefinitionAtManagementGroup",
-            description="Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
-            display_name="Enforce resource naming convention",
-            management_group_id="MyManagementGroup",
-            metadata={
-                "category": "Naming",
-            },
-            parameters={
-                "prefix": {
-                    "metadata": {
-                        "description": "Resource name prefix",
-                        "display_name": "Prefix",
-                    },
-                    "type": "String",
-                },
-                "suffix": {
-                    "metadata": {
-                        "description": "Resource name suffix",
-                        "display_name": "Suffix",
-                    },
-                    "type": "String",
-                },
-            },
-            policy_definition_name="ResourceNaming",
-            policy_rule={
-                "if": {
-                    "not_": {
-                        "field": "name",
-                        "like": "[concat(parameters('prefix'), '*', parameters('suffix'))]",
-                    },
-                },
-                "then": {
-                    "effect": "deny",
-                },
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The policy definition description.

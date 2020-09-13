@@ -37,26 +37,6 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
-        ## Example Usage
-        ### ApiManagementCreateService
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        api_management_service = azurerm.apimanagement.v20161010.ApiManagementService("apiManagementService",
-            location="West US",
-            publisher_email="admin@live.com",
-            publisher_name="contoso",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            sku={
-                "capacity": 1,
-                "name": "Premium",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AdditionalRegionArgs']]]] additional_locations: Additional datacenter locations of the API Management service.

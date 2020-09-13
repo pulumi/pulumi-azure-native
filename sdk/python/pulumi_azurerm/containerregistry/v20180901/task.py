@@ -36,55 +36,6 @@ class Task(pulumi.CustomResource):
         The task that has the ARM resource and task properties.
         The task will have all information to schedule a run against it.
 
-        ## Example Usage
-        ### Tasks_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        task = azurerm.containerregistry.v20180901.Task("task",
-            agent_configuration={
-                "cpu": 2,
-            },
-            location="eastus",
-            platform={
-                "architecture": "amd64",
-                "os": "Linux",
-            },
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            status="Enabled",
-            step={
-                "contextPath": "dockerfiles",
-            },
-            tags={
-                "testkey": "value",
-            },
-            task_name="mytTask",
-            trigger={
-                "baseImageTrigger": {
-                    "baseImageTriggerType": "Runtime",
-                    "name": "myBaseImageTrigger",
-                },
-                "sourceTriggers": [{
-                    "name": "mySourceTrigger",
-                    "sourceRepository": {
-                        "branch": "master",
-                        "repositoryUrl": "https://github.com/Azure/azure-rest-api-specs",
-                        "sourceControlAuthProperties": {
-                            "token": "xxxxx",
-                            "tokenType": "PAT",
-                        },
-                        "sourceControlType": "Github",
-                    },
-                    "sourceTriggerEvents": ["commit"],
-                    "status": "Enabled",
-                }],
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AgentPropertiesArgs']] agent_configuration: The machine configuration of the run agent.

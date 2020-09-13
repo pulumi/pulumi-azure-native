@@ -32,61 +32,6 @@ class Rollout(pulumi.CustomResource):
         """
         Defines the PUT rollout request body.
 
-        ## Example Usage
-        ### Create or update rollout
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        rollout = azurerm.deploymentmanager.v20180901preview.Rollout("rollout",
-            artifact_source_id="/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/artifactSources/myArtifactSource",
-            build_version="1.0.0.1",
-            identity={
-                "identityIds": ["/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userassignedidentities/myuseridentity"],
-                "type": "userAssigned",
-            },
-            location="centralus",
-            resource_group_name="myResourceGroup",
-            rollout_name="myRollout",
-            step_groups=[
-                {
-                    "deploymentTargetId": "Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit1'",
-                    "name": "FirstRegion",
-                    "postDeploymentSteps": [{
-                        "stepId": "Microsoft.DeploymentManager/steps/postDeployStep1",
-                    }],
-                    "preDeploymentSteps": [
-                        {
-                            "stepId": "Microsoft.DeploymentManager/steps/preDeployStep1",
-                        },
-                        {
-                            "stepId": "Microsoft.DeploymentManager/steps/preDeployStep2",
-                        },
-                    ],
-                },
-                {
-                    "dependsOnStepGroups": ["FirstRegion"],
-                    "deploymentTargetId": "Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit2'",
-                    "name": "SecondRegion",
-                    "postDeploymentSteps": [{
-                        "stepId": "Microsoft.DeploymentManager/steps/postDeployStep5",
-                    }],
-                    "preDeploymentSteps": [
-                        {
-                            "stepId": "Microsoft.DeploymentManager/steps/preDeployStep3",
-                        },
-                        {
-                            "stepId": "Microsoft.DeploymentManager/steps/preDeployStep4",
-                        },
-                    ],
-                },
-            ],
-            tags={},
-            target_service_topology_id="/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/serviceTopologies/myTopology")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_source_id: The reference to the artifact source resource Id where the payload is located.

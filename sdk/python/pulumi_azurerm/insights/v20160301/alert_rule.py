@@ -32,37 +32,6 @@ class AlertRule(pulumi.CustomResource):
         """
         The alert rule resource.
 
-        ## Example Usage
-        ### Create or update an alert rule
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        alert_rule = azurerm.insights.v20160301.AlertRule("alertRule",
-            actions=[],
-            condition={
-                "dataSource": {
-                    "metricName": "Requests",
-                    "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-                    "resourceUri": "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest",
-                },
-                "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
-                "operator": "GreaterThan",
-                "threshold": 3,
-                "timeAggregation": "Total",
-                "windowSize": "PT5M",
-            },
-            description="Pura Vida",
-            is_enabled=True,
-            location="West US",
-            name="chiricutin",
-            resource_group_name="Rac46PostSwapRG",
-            rule_name="chiricutin",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.

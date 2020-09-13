@@ -37,45 +37,6 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
         """
         P2SVpnServerConfiguration Resource.
 
-        ## Example Usage
-        ### P2SVpnServerConfigurationPut
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        p2s_vpn_server_configuration = azurerm.network.v20190701.P2sVpnServerConfiguration("p2sVpnServerConfiguration",
-            p2_s_vpn_server_config_radius_client_root_certificates=[{
-                "name": "p2sVpnServerConfigRadiusClientRootCert1",
-            }],
-            p2_s_vpn_server_config_radius_server_root_certificates=[{
-                "name": "p2sVpnServerConfigRadiusServerRootCert1",
-            }],
-            p2_s_vpn_server_config_vpn_client_revoked_certificates=[{
-                "name": "p2sVpnServerConfigVpnClientRevokedCert1",
-            }],
-            p2_s_vpn_server_config_vpn_client_root_certificates=[{
-                "name": "p2sVpnServerConfigVpnClientRootCert1",
-            }],
-            p2_s_vpn_server_configuration_name="p2sVpnServerConfiguration1",
-            radius_server_address="8.9.9.9",
-            radius_server_secret="123_abc",
-            resource_group_name="rg1",
-            virtual_wan_name="virtualWan1",
-            vpn_client_ipsec_policies=[{
-                "dhGroup": "DHGroup14",
-                "ikeEncryption": "AES256",
-                "ikeIntegrity": "SHA384",
-                "ipsecEncryption": "AES256",
-                "ipsecIntegrity": "SHA256",
-                "pfsGroup": "PFS14",
-                "saDataSizeKilobytes": 429497,
-                "saLifeTimeSeconds": 86472,
-            }],
-            vpn_protocols=["IkeV2"])
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.

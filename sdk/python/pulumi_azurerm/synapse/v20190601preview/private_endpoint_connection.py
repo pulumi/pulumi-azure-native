@@ -25,20 +25,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection
 
-        ## Example Usage
-        ### Approve private endpoint connection
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        private_endpoint_connection = azurerm.synapse.v20190601preview.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="ExamplePrivateEndpointConnection",
-            resource_group_name="ExampleResourceGroup",
-            workspace_name="ExampleWorkspace")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.

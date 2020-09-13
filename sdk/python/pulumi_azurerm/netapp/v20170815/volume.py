@@ -34,21 +34,6 @@ class Volume(pulumi.CustomResource):
         """
         Volume resource
 
-        ## Example Usage
-        ### Volumes_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        volume = azurerm.netapp.v20170815.Volume("volume",
-            account_name="accountName",
-            pool_name="poolName",
-            resource_group_name="resourceGroup",
-            volume_name="volumeName")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account

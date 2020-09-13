@@ -29,24 +29,6 @@ class AutomationAccount(pulumi.CustomResource):
         """
         Definition of the automation account type.
 
-        ## Example Usage
-        ### Create or update automation account
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        automation_account = azurerm.automation.v20151031.AutomationAccount("automationAccount",
-            automation_account_name="myAutomationAccount9",
-            location="East US 2",
-            name="myAutomationAccount9",
-            resource_group_name="rg",
-            sku={
-                "name": "Free",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

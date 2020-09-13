@@ -27,23 +27,6 @@ class Account(pulumi.CustomResource):
         """
         The response to an account resource GET request.
 
-        ## Example Usage
-        ### Create an account resource
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        account = azurerm.visualstudio.v20171101preview.Account("account",
-            account_name="Example",
-            location="Central US",
-            operation_type="create",
-            resource_group_name="VS-Example-Group",
-            resource_name="Example",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The account name.

@@ -29,21 +29,6 @@ class File(pulumi.CustomResource):
         """
         A file resource
 
-        ## Example Usage
-        ### Files_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        file = azurerm.datamigration.v20180715preview.File("file",
-            file_name="x114d023d8",
-            group_name="DmsSdkRg",
-            project_name="DmsSdkProject",
-            service_name="DmsSdkService")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: HTTP strong entity tag value. This is ignored if submitted.

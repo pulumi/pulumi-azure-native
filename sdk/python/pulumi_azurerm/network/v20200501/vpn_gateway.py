@@ -32,43 +32,6 @@ class VpnGateway(pulumi.CustomResource):
         """
         VpnGateway Resource.
 
-        ## Example Usage
-        ### VpnGatewayPut
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        vpn_gateway = azurerm.network.v20200501.VpnGateway("vpnGateway",
-            bgp_settings={
-                "asn": 65515,
-                "bgpPeeringAddresses": [
-                    {
-                        "customBgpIpAddresses": ["169.254.21.5"],
-                        "ipconfigurationId": "Instance0",
-                    },
-                    {
-                        "customBgpIpAddresses": ["169.254.21.10"],
-                        "ipconfigurationId": "Instance1",
-                    },
-                ],
-                "peerWeight": 0,
-            },
-            connections=[{
-                "name": "vpnConnection1",
-            }],
-            gateway_name="gateway1",
-            location="westcentralus",
-            resource_group_name="rg1",
-            tags={
-                "key1": "value1",
-            },
-            virtual_hub={
-                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Local network gateway's BGP speaker settings.

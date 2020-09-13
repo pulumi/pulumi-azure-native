@@ -25,21 +25,6 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
         """
         Single item in a List or Get VirtualNetworkRules operation
 
-        ## Example Usage
-        ### NameSpaceVirtualNetworkRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        namespace_virtual_network_rule = azurerm.servicebus.v20180101preview.NamespaceVirtualNetworkRule("namespaceVirtualNetworkRule",
-            namespace_name="sdk-Namespace-6019",
-            resource_group_name="ResourceGroup",
-            virtual_network_rule_name="sdk-VirtualNetworkRules-9191",
-            virtual_network_subnet_id="/subscriptions/Subscription/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] namespace_name: The namespace name

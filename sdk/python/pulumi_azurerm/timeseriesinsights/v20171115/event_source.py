@@ -27,22 +27,6 @@ class EventSource(pulumi.CustomResource):
         """
         An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
 
-        ## Example Usage
-        ### CreateEventHubEventSource
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        event_source = azurerm.timeseriesinsights.v20171115.EventSource("eventSource",
-            environment_name="env1",
-            event_source_name="es1",
-            kind="Microsoft.EventHub",
-            location="West US",
-            resource_group_name="rg1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.

@@ -28,28 +28,6 @@ class MediaService(pulumi.CustomResource):
         """
         A Media Services account.
 
-        ## Example Usage
-        ### Create a Media Services account
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        media_service = azurerm.media.v20180601preview.MediaService("mediaService",
-            account_name="contososports",
-            location="South Central US",
-            resource_group_name="contoso",
-            storage_accounts=[{
-                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contososportsstore",
-                "type": "Primary",
-            }],
-            tags={
-                "key1": "value1",
-                "key2": "value2",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

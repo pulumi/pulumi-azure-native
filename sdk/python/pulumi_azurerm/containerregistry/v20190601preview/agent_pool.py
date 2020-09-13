@@ -31,27 +31,6 @@ class AgentPool(pulumi.CustomResource):
         The agentpool that has the ARM resource and properties.
         The agentpool will have all information to create an agent pool.
 
-        ## Example Usage
-        ### AgentPools_Create
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        agent_pool = azurerm.containerregistry.v20190601preview.AgentPool("agentPool",
-            agent_pool_name="myAgentPool",
-            count=1,
-            location="WESTUS",
-            os="Linux",
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            tags={
-                "key": "value",
-            },
-            tier="S1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.

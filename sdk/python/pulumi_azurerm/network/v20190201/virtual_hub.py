@@ -36,27 +36,6 @@ class VirtualHub(pulumi.CustomResource):
         """
         VirtualHub Resource.
 
-        ## Example Usage
-        ### VirtualHubPut
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        virtual_hub = azurerm.network.v20190201.VirtualHub("virtualHub",
-            address_prefix="10.168.0.0/24",
-            location="West US",
-            resource_group_name="rg1",
-            tags={
-                "key1": "value1",
-            },
-            virtual_hub_name="virtualHub2",
-            virtual_wan={
-                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1",
-            })
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: Address-prefix for this VirtualHub.

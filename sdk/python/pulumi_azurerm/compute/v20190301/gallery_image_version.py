@@ -30,40 +30,6 @@ class GalleryImageVersion(pulumi.CustomResource):
         """
         Specifies information about the gallery Image Version that you want to create or update.
 
-        ## Example Usage
-        ### Create or update a simple Gallery Image Version.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        gallery_image_version = azurerm.compute.v20190301.GalleryImageVersion("galleryImageVersion",
-            gallery_image_name="myGalleryImageName",
-            gallery_image_version_name="1.0.0",
-            gallery_name="myGalleryName",
-            location="West US",
-            publishing_profile={
-                "source": {
-                    "managedImage": {
-                        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
-                    },
-                },
-                "targetRegions": [
-                    {
-                        "name": "West US",
-                        "regionalReplicaCount": 1,
-                    },
-                    {
-                        "name": "East US",
-                        "regionalReplicaCount": 2,
-                        "storageAccountType": "Standard_ZRS",
-                    },
-                ],
-            },
-            resource_group_name="myResourceGroup")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gallery_image_name: The name of the gallery Image Definition in which the Image Version is to be created.

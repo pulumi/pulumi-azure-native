@@ -28,24 +28,6 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         """
         Class representing an attached database configuration.
 
-        ## Example Usage
-        ### AttachedDatabaseConfigurationsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        attached_database_configuration = azurerm.kusto.v20200215.AttachedDatabaseConfiguration("attachedDatabaseConfiguration",
-            attached_database_configuration_name="attachedDatabaseConfigurations1",
-            cluster_name="KustoClusterRPTest4",
-            cluster_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterLeader",
-            database_name="db1",
-            default_principals_modification_kind="Union",
-            location="westus",
-            resource_group_name="kustorptest")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] attached_database_configuration_name: The name of the attached database configuration.

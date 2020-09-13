@@ -49,39 +49,6 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         """
         Threat intelligence resource.
 
-        ## Example Usage
-        ### Upsert the Threat Intelligence
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        threat_intelligence_indicator = azurerm.securityinsights.v20190101preview.ThreatIntelligenceIndicator("threatIntelligenceIndicator",
-            confidence=78,
-            created_by_ref="contoso@contoso.com",
-            description="debugging indicators",
-            display_name="new schema",
-            external_references=[],
-            granular_markings=[],
-            kill_chain_phases=[],
-            kind="indicator",
-            labels=[],
-            modified="",
-            name="d9cd6f0b-96b9-3984-17cd-a779d1e15a93",
-            operational_insights_resource_provider="Microsoft.OperationalIinsights",
-            pattern="[url:value = 'https://www.contoso.com']",
-            pattern_type="url",
-            resource_group_name="myRg",
-            revoked=False,
-            source="Azure Sentinel",
-            threat_intelligence_tags=["new schema"],
-            threat_types=["compromised"],
-            valid_from="2020-04-15T17:44:00.114052Z",
-            valid_until="",
-            workspace_name="myWorkspace")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] confidence: Confidence of threat intelligence entity

@@ -26,22 +26,6 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
         """
         Delegated subnet details
 
-        ## Example Usage
-        ### put delegated subnet
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        delegated_subnet_service_details = azurerm.network.v20200808preview.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails",
-            controller_id="a182cbcf-e8ea-4175-ac2b-ad36a73f9801",
-            resource_group_name="TestRG",
-            resource_name="delegated1",
-            subnet_name="testsubnet",
-            vnet_name="testvnet")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] controller_id: Delegated Network Controller ID

@@ -43,41 +43,6 @@ class Watchlist(pulumi.CustomResource):
         """
         Represents a Watchlist in Azure Security Insights.
 
-        ## Example Usage
-        ### Creates a watchlist.
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        watchlist = azurerm.securityinsights.v20190101preview.Watchlist("watchlist",
-            created_by={
-                "objectId": "2046feea-040d-4a46-9e2b-91c2941bfa70",
-            },
-            created_time_utc="2019-01-01T13:15:30Z",
-            default_duration="P1D2H3M4S",
-            description="Watchlist Description",
-            display_name="High Value Assets Watchlist",
-            etag="\"0300bf09-0000-0000-0000-5c37296e0000\"",
-            labels=[
-                "Tag1",
-                "Tag2",
-            ],
-            last_updated_time_utc="2019-01-01T13:15:30Z",
-            notes="A note for the watchlist",
-            operational_insights_resource_provider="Microsoft.OperationalInsights",
-            provider="Azure Sentinel",
-            resource_group_name="myRg",
-            source="Local file",
-            updated_by={
-                "objectId": "2046feea-040d-4a46-9e2b-91c2941bfa70",
-            },
-            watchlist_alias="highValueAsset",
-            watchlist_type="watchlist",
-            workspace_name="myWorkspace")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['UserInfoArgs']] created_by: Describes a user that created the watchlist

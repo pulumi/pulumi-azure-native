@@ -32,21 +32,6 @@ class DataExport(pulumi.CustomResource):
         """
         The top level data export resource container.
 
-        ## Example Usage
-        ### DataExportCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        data_export = azurerm.operationalinsights.v20190801preview.DataExport("dataExport",
-            data_export_name="export1",
-            resource_group_name="RgTest1",
-            table_names=["Heartbeat"],
-            workspace_name="DeWnTest1234")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] all_tables: When ‘true’, all workspace's tables are exported.

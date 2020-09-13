@@ -43,28 +43,6 @@ class SecurityRule(pulumi.CustomResource):
         """
         Network security rule.
 
-        ## Example Usage
-        ### Create security rule
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        security_rule = azurerm.network.v20200501.SecurityRule("securityRule",
-            access="Deny",
-            destination_address_prefix="11.0.0.0/8",
-            destination_port_range="8080",
-            direction="Outbound",
-            network_security_group_name="testnsg",
-            priority=100,
-            protocol="*",
-            resource_group_name="rg1",
-            security_rule_name="rule1",
-            source_address_prefix="10.0.0.0/8",
-            source_port_range="*")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: The network traffic is allowed or denied.

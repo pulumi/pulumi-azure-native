@@ -33,25 +33,6 @@ class IpAllocation(pulumi.CustomResource):
         """
         IpAllocation resource.
 
-        ## Example Usage
-        ### Create IpAllocation
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        ip_allocation = azurerm.network.v20200401.IpAllocation("ipAllocation",
-            allocation_tags={
-                "VNetID": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/HypernetVnet1",
-            },
-            ip_allocation_name="test-ipallocation",
-            location="centraluseuap",
-            prefix="3.2.5.0/24",
-            resource_group_name="rg1",
-            type="Hypernet")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] allocation_tags: IpAllocation tags.

@@ -32,26 +32,6 @@ class Channel(pulumi.CustomResource):
         """
         Bot channel resource definition
 
-        ## Example Usage
-        ### Create Bot
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        channel = azurerm.botservice.v20180712.Channel("channel",
-            channel_name="EmailChannel",
-            location="global",
-            properties={
-                "emailAddress": "a@b.com",
-                "isEnabled": True,
-                "password": "pwd",
-            },
-            resource_group_name="OneResourceGroupName",
-            resource_name="samplebotname")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] channel_name: The name of the Channel resource.

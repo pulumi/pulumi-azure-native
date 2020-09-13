@@ -31,26 +31,6 @@ class CassandraResourceCassandraKeyspace(pulumi.CustomResource):
         """
         An Azure Cosmos DB Cassandra keyspace.
 
-        ## Example Usage
-        ### CosmosDBCassandraKeyspaceCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        cassandra_resource_cassandra_keyspace = azurerm.documentdb.v20200601preview.CassandraResourceCassandraKeyspace("cassandraResourceCassandraKeyspace",
-            account_name="ddb1",
-            keyspace_name="keyspaceName",
-            location="West US",
-            options={},
-            resource={
-                "id": "keyspaceName",
-            },
-            resource_group_name="rg1",
-            tags={})
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

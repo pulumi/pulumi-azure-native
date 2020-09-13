@@ -34,30 +34,6 @@ class Relationship(pulumi.CustomResource):
         """
         The relationship resource format.
 
-        ## Example Usage
-        ### Relationships_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        relationship = azurerm.customerinsights.v20170101.Relationship("relationship",
-            cardinality="OneToOne",
-            description={
-                "en-us": "Relationship Description",
-            },
-            display_name={
-                "en-us": "Relationship DisplayName",
-            },
-            fields=[],
-            hub_name="sdkTestHub",
-            profile_type="testProfile2326994",
-            related_profile_type="testProfile2326994",
-            relationship_name="SomeRelationship",
-            resource_group_name="TestHubRG")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cardinality: The Relationship Cardinality.

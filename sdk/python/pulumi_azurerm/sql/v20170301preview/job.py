@@ -29,42 +29,6 @@ class Job(pulumi.CustomResource):
         """
         A job.
 
-        ## Example Usage
-        ### Create a job with all properties specified
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        job = azurerm.sql.v20170301preview.Job("job",
-            description="my favourite job",
-            job_agent_name="agent1",
-            job_name="job1",
-            resource_group_name="group1",
-            schedule={
-                "enabled": True,
-                "endTime": "2015-09-24T23:59:59Z",
-                "interval": "PT5M",
-                "startTime": "2015-09-24T18:30:01Z",
-                "type": "Recurring",
-            },
-            server_name="server1")
-
-        ```
-        ### Create a job with default properties
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        job = azurerm.sql.v20170301preview.Job("job",
-            job_agent_name="agent1",
-            job_name="job1",
-            resource_group_name="group1",
-            server_name="server1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: User-defined description of the job.

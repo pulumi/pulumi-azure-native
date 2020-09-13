@@ -26,22 +26,6 @@ class FirewallRule(pulumi.CustomResource):
         """
         Represents a server firewall rule.
 
-        ## Example Usage
-        ### FirewallRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        firewall_rule = azurerm.dbforpostgresql.v20171201preview.FirewallRule("firewallRule",
-            end_ip_address="255.255.255.255",
-            firewall_rule_name="rule1",
-            resource_group_name="TestGroup",
-            server_name="testserver",
-            start_ip_address="0.0.0.0")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
