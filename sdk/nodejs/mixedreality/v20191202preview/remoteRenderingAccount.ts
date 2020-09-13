@@ -6,21 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * RemoteRenderingAccount Response.
- *
- * ## Example Usage
- * ### Create remote rendering account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const remoteRenderingAccount = new azurerm.mixedreality.v20191202preview.RemoteRenderingAccount("remoteRenderingAccount", {
- *     accountName: "MyAccount",
- *     location: "eastus2euap",
- *     resourceGroupName: "MyResourceGroup",
- * });
- *
- * ```
  */
 export class RemoteRenderingAccount extends pulumi.CustomResource {
     /**

@@ -8,26 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The Connector model definition
- *
- * ## Example Usage
- * ### Connector_Put
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const connector = new azurerm.costmanagement.v20180801preview.Connector("connector", {
- *     connectorName: "AWSBillingAccount",
- *     credentialsKey: "arn:aws:iam::123456789012:role/AzureCostManagementRole",
- *     credentialsSecret: "external-id",
- *     displayName: "AWS-Consolidated-1",
- *     location: "westus",
- *     reportId: "HourlyWithResources",
- *     resourceGroupName: "rg1",
- *     status: "active",
- * });
- *
- * ```
  */
 export class Connector extends pulumi.CustomResource {
     /**

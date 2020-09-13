@@ -6,23 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Appliance Site resource.
- *
- * ## Example Usage
- * ### VirtualHubRouteTableV2Put
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const virtualHubBgpConnection = new azurerm.network.v20200501.VirtualHubBgpConnection("virtualHubBgpConnection", {
- *     connectionName: "conn1",
- *     peerAsn: 20000,
- *     peerIp: "192.168.1.5",
- *     resourceGroupName: "rg1",
- *     virtualHubName: "hub1",
- * });
- *
- * ```
  */
 export class VirtualHubBgpConnection extends pulumi.CustomResource {
     /**

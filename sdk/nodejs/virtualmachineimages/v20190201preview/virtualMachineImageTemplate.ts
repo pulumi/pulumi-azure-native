@@ -6,44 +6,6 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-/**
- * ## Example Usage
- * ### Create an Image Template.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const virtualMachineImageTemplate = new azurerm.virtualmachineimages.v20190201preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", {
- *     customize: [{
- *         name: "Shell Customizer Example",
- *         script: "https://example.com/path/to/script.sh",
- *         type: "Shell",
- *     }],
- *     distribute: [{
- *         imageId: "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
- *         location: "1_location",
- *         runOutputName: "image_it_pir_1",
- *         tags: {
- *             tagName: "value",
- *         },
- *         type: "ManagedImage",
- *     }],
- *     imageTemplateName: "myImageTemplate",
- *     location: "westus",
- *     resourceGroupName: "myResourceGroup",
- *     source: {
- *         imageId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
- *         type: "ManagedImage",
- *     },
- *     tags: {
- *         imagetemplate_tag1: "IT_T1",
- *         imagetemplate_tag2: "IT_T2",
- *     },
- * });
- *
- * ```
- */
 export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
      * Get an existing VirtualMachineImageTemplate resource's state with the given name, ID, and optional extra

@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Single Event Hubs Cluster resource in List or Get operations.
- *
- * ## Example Usage
- * ### ClusterPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const cluster = new azurerm.eventhub.v20180101preview.Cluster("cluster", {
- *     clusterName: "testCluster",
- *     location: "South Central US",
- *     resourceGroupName: "myResourceGroup",
- *     sku: {
- *         capacity: 1,
- *         name: "Dedicated",
- *     },
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value2",
- *     },
- * });
- *
- * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

@@ -8,31 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a DNS record set (a collection of DNS records with the same name and type).
- *
- * ## Example Usage
- * ### Create CAA recordset
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const recordSet = new azurerm.network.v20170901.RecordSet("recordSet", {
- *     caaRecords: [{
- *         flags: 0,
- *         tag: "issue",
- *         value: "ca.contoso.com",
- *     }],
- *     metadata: {
- *         key1: "value1",
- *     },
- *     recordType: "CAA",
- *     relativeRecordSetName: "record1",
- *     resourceGroupName: "rg1",
- *     ttl: 3600,
- *     zoneName: "zone1",
- * });
- *
- * ```
  */
 export class RecordSet extends pulumi.CustomResource {
     /**

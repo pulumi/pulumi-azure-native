@@ -6,53 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Alert rule.
- *
- * ## Example Usage
- * ### Creates or updates a Fusion alert rule.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const alertRule = new azurerm.operationalinsights.v20200101.AlertRule("alertRule", {
- *     etag: "3d00c3ca-0000-0100-0000-5d42d5010000",
- *     kind: "Fusion",
- *     resourceGroupName: "myRg",
- *     ruleId: "myFirstFusionRule",
- *     workspaceName: "myWorkspace",
- * });
- *
- * ```
- * ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const alertRule = new azurerm.operationalinsights.v20200101.AlertRule("alertRule", {
- *     etag: "\"260097e0-0000-0d00-0000-5d6fa88f0000\"",
- *     kind: "MicrosoftSecurityIncidentCreation",
- *     resourceGroupName: "myRg",
- *     ruleId: "microsoftSecurityIncidentCreationRuleExample",
- *     workspaceName: "myWorkspace",
- * });
- *
- * ```
- * ### Creates or updates a Scheduled alert rule.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const alertRule = new azurerm.operationalinsights.v20200101.AlertRule("alertRule", {
- *     etag: "\"0300bf09-0000-0000-0000-5c37296e0000\"",
- *     kind: "Scheduled",
- *     resourceGroupName: "myRg",
- *     ruleId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
- *     workspaceName: "myWorkspace",
- * });
- *
- * ```
  */
 export class AlertRule extends pulumi.CustomResource {
     /**

@@ -6,24 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Response to put/get linked server (with properties) for Redis cache.
- *
- * ## Example Usage
- * ### LinkedServer_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const linkedServer = new azurerm.cache.v20180301.LinkedServer("linkedServer", {
- *     linkedRedisCacheId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2",
- *     linkedRedisCacheLocation: "West US",
- *     linkedServerName: "cache2",
- *     name: "cache1",
- *     resourceGroupName: "rg1",
- *     serverRole: "Secondary",
- * });
- *
- * ```
  */
 export class LinkedServer extends pulumi.CustomResource {
     /**

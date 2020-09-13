@@ -6,23 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A Invitation data transfer object.
- *
- * ## Example Usage
- * ### Invitations_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const invitation = new azurerm.datashare.v20181101preview.Invitation("invitation", {
- *     accountName: "Account1",
- *     invitationName: "Invitation1",
- *     resourceGroupName: "SampleResourceGroup",
- *     shareName: "Share1",
- *     targetEmail: "receiver@microsoft.com",
- * });
- *
- * ```
  */
 export class Invitation extends pulumi.CustomResource {
     /**

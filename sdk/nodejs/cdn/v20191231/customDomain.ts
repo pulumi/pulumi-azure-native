@@ -6,23 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
- *
- * ## Example Usage
- * ### CustomDomains_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const customDomain = new azurerm.cdn.v20191231.CustomDomain("customDomain", {
- *     customDomainName: "www-someDomain-net",
- *     endpointName: "endpoint1",
- *     hostName: "www.someDomain.net",
- *     profileName: "profile1",
- *     resourceGroupName: "RG",
- * });
- *
- * ```
  */
 export class CustomDomain extends pulumi.CustomResource {
     /**

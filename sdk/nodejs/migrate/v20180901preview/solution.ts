@@ -8,21 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Solution REST Resource.
- *
- * ## Example Usage
- * ### Solutions_Put
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const solution = new azurerm.migrate.v20180901preview.Solution("solution", {
- *     migrateProjectName: "project01",
- *     resourceGroupName: "myResourceGroup",
- *     solutionName: "dbsolution",
- * });
- *
- * ```
  */
 export class Solution extends pulumi.CustomResource {
     /**

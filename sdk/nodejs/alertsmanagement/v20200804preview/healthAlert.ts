@@ -8,37 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The health alert resource.
- *
- * ## Example Usage
- * ### CreateResourceHealthAlertRule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const healthAlert = new azurerm.alertsmanagement.v20200804preview.HealthAlert("healthAlert", {
- *     actions: [{
- *         actionGroupId: "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2",
- *         webHookProperties: {
- *             key11: "value11",
- *             key12: "value12",
- *         },
- *     }],
- *     criteria: {
- *         allOf: [{
- *             healthMonitorName: "root",
- *             namespace: "VmGuestHealth",
- *         }],
- *     },
- *     description: "This is the description of the rule1",
- *     enabled: true,
- *     location: "global",
- *     resourceGroupName: "gigtest",
- *     ruleName: "highcpu",
- *     scopes: ["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme"],
- * });
- *
- * ```
  */
 export class HealthAlert extends pulumi.CustomResource {
     /**

@@ -8,20 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * API connection
- *
- * ## Example Usage
- * ### Replace a connection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const connection = new azurerm.web.v20160601.Connection("connection", {
- *     connectionName: "testManagedApi",
- *     resourceGroupName: "testResourceGroup",
- * });
- *
- * ```
  */
 export class Connection extends pulumi.CustomResource {
     /**

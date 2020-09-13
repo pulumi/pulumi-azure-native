@@ -8,60 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Snapshot resource.
- *
- * ## Example Usage
- * ### Create a snapshot by importing an unmanaged blob from a different subscription.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const snapshot = new azurerm.compute.v20170330.Snapshot("snapshot", {
- *     creationData: {
- *         createOption: "Import",
- *         sourceUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
- *         storageAccountId: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
- *     },
- *     location: "West US",
- *     resourceGroupName: "myResourceGroup",
- *     snapshotName: "mySnapshot1",
- * });
- *
- * ```
- * ### Create a snapshot by importing an unmanaged blob from the same subscription.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const snapshot = new azurerm.compute.v20170330.Snapshot("snapshot", {
- *     creationData: {
- *         createOption: "Import",
- *         sourceUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
- *     },
- *     location: "West US",
- *     resourceGroupName: "myResourceGroup",
- *     snapshotName: "mySnapshot1",
- * });
- *
- * ```
- * ### Create a snapshot from an existing snapshot in the same or a different subscription.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const snapshot = new azurerm.compute.v20170330.Snapshot("snapshot", {
- *     creationData: {
- *         createOption: "Copy",
- *         sourceResourceId: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
- *     },
- *     location: "West US",
- *     resourceGroupName: "myResourceGroup",
- *     snapshotName: "mySnapshot2",
- * });
- *
- * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

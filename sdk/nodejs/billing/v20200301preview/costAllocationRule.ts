@@ -8,32 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The cost allocation rule model definition
- *
- * ## Example Usage
- * ### CostAllocationRulesCreateResourceGroup
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const costAllocationRule = new azurerm.billing.v20200301preview.CostAllocationRule("costAllocationRule", {
- *     billingAccountId: "100",
- *     ruleName: "testRule",
- * });
- *
- * ```
- * ### CostAllocationRulesCreateTag
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const costAllocationRule = new azurerm.billing.v20200301preview.CostAllocationRule("costAllocationRule", {
- *     billingAccountId: "100",
- *     ruleName: "testRule",
- * });
- *
- * ```
  */
 export class CostAllocationRule extends pulumi.CustomResource {
     /**

@@ -8,30 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account credential.
- *
- * ## Example Usage
- * ### SACPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const storageAccountCredential = new azurerm.databoxedge.v20190301.StorageAccountCredential("storageAccountCredential", {
- *     accountKey: {
- *         encryptionAlgorithm: "AES256",
- *         encryptionCertThumbprint: "2A9D8D6BE51574B5461230AEF02F162C5F01AD31",
- *         value: "lAeZEYi6rNP1/EyNaVUYmTSZEYyaIaWmwUsGwek0+xiZj54GM9Ue9/UA2ed/ClC03wuSit2XzM/cLRU5eYiFBwks23rGwiQOr3sruEL2a74EjPD050xYjA6M1I2hu/w2yjVHhn5j+DbXS4Xzi+rHHNZK3DgfDO3PkbECjPck+PbpSBjy9+6Mrjcld5DIZhUAeMlMHrFlg+WKRKB14o/og56u5/xX6WKlrMLEQ+y6E18dUwvWs2elTNoVO8PBE8SM/CfooX4AMNvaNdSObNBPdP+F6Lzc556nFNWXrBLRt0vC7s9qTiVRO4x/qCNaK/B4y7IqXMllwQFf4Np9UQ2ECA==",
- *     },
- *     accountType: "BlobStorage",
- *     alias: "sac1",
- *     deviceName: "testedgedevice",
- *     name: "sac1",
- *     resourceGroupName: "GroupForEdgeAutomation",
- *     sslStatus: "Disabled",
- *     userName: "cisbvt",
- * });
- *
- * ```
  */
 export class StorageAccountCredential extends pulumi.CustomResource {
     /**

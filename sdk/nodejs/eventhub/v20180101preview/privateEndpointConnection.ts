@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the PrivateEndpointConnection.
- *
- * ## Example Usage
- * ### NameSpacePrivateEndPointConnectionCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const privateEndpointConnection = new azurerm.eventhub.v20180101preview.PrivateEndpointConnection("privateEndpointConnection", {
- *     namespaceName: "sdk-Namespace-2924",
- *     privateEndpoint: {
- *         id: "/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-EventHub-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",
- *     },
- *     privateEndpointConnectionName: "privateEndpointConnectionName",
- *     privateLinkServiceConnectionState: {
- *         description: "testing",
- *         status: "Rejected",
- *     },
- *     provisioningState: "Succeeded",
- *     resourceGroupName: "ArunMonocle",
- * });
- *
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

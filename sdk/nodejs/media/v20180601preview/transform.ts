@@ -8,28 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
- *
- * ## Example Usage
- * ### Create or update a Transform
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const transform = new azurerm.media.v20180601preview.Transform("transform", {
- *     accountName: "contosomedia",
- *     description: "Example transform to illustrate create and update.",
- *     outputs: [{
- *         preset: {
- *             "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
- *             presetName: "AdaptiveStreaming",
- *         },
- *     }],
- *     resourceGroupName: "contosoresources",
- *     transformName: "CreatedTransform",
- * });
- *
- * ```
  */
 export class Transform extends pulumi.CustomResource {
     /**

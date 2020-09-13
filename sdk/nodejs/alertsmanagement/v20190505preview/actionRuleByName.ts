@@ -8,22 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Action rule object containing target scope, conditions and suppression logic
- *
- * ## Example Usage
- * ### PutActionRule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const actionRuleByName = new azurerm.alertsmanagement.v20190505preview.ActionRuleByName("actionRuleByName", {
- *     actionRuleName: "DailySuppression",
- *     location: "Global",
- *     resourceGroupName: "alertscorrelationrg",
- *     tags: {},
- * });
- *
- * ```
  */
 export class ActionRuleByName extends pulumi.CustomResource {
     /**

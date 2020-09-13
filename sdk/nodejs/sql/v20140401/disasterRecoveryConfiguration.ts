@@ -6,21 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a disaster recovery configuration.
- *
- * ## Example Usage
- * ### Update a disaster recovery configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const disasterRecoveryConfiguration = new azurerm.sql.v20140401.DisasterRecoveryConfiguration("disasterRecoveryConfiguration", {
- *     disasterRecoveryConfigurationName: "Default",
- *     resourceGroupName: "sqlcrudtest-4799",
- *     serverName: "sqlcrudtest-5961",
- * });
- *
- * ```
  */
 export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     /**

@@ -8,30 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB trigger.
- *
- * ## Example Usage
- * ### CosmosDBSqlTriggerCreateUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const sqlResourceSqlTrigger = new azurerm.documentdb.v20190801.SqlResourceSqlTrigger("sqlResourceSqlTrigger", {
- *     accountName: "ddb1",
- *     containerName: "containerName",
- *     databaseName: "databaseName",
- *     options: {},
- *     resource: {
- *         body: "body",
- *         id: "triggerName",
- *         triggerOperation: "triggerOperation",
- *         triggerType: "triggerType",
- *     },
- *     resourceGroupName: "rg1",
- *     triggerName: "triggerName",
- * });
- *
- * ```
  */
 export class SqlResourceSqlTrigger extends pulumi.CustomResource {
     /**

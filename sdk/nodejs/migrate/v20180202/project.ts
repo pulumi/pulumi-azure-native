@@ -6,25 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Migrate Project.
- *
- * ## Example Usage
- * ### Projects_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const project = new azurerm.migrate.v20180202.Project("project", {
- *     customerWorkspaceId: "url-to-customers-service-map",
- *     customerWorkspaceLocation: "West Us",
- *     eTag: "\"b701c73a-0000-0000-0000-59c12ff00000\"",
- *     location: "West Us",
- *     projectName: "project01",
- *     resourceGroupName: "myResourceGroup",
- *     tags: {},
- * });
- *
- * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

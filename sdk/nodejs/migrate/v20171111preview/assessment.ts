@@ -6,34 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An assessment created for a group in the Migration project.
- *
- * ## Example Usage
- * ### Assessments_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const assessment = new azurerm.migrate.v20171111preview.Assessment("assessment", {
- *     assessmentName: "assessment01",
- *     azureHybridUseBenefit: "Yes",
- *     azureLocation: "WestUs",
- *     azureOfferCode: "MSAZR0003P",
- *     azurePricingTier: "Standard",
- *     azureStorageRedundancy: "LocallyRedundant",
- *     currency: "USD",
- *     discountPercentage: 100,
- *     eTag: "\"1100637e-0000-0000-0000-59f6ed1f0000\"",
- *     groupName: "group01",
- *     percentile: "Percentile50",
- *     projectName: "project01",
- *     resourceGroupName: "myResourceGroup",
- *     scalingFactor: 1.2,
- *     stage: "InProgress",
- *     timeRange: "Day",
- * });
- *
- * ```
  */
 export class Assessment extends pulumi.CustomResource {
     /**

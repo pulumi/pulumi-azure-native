@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Private endpoint connection resource.
- *
- * ## Example Usage
- * ### RelayPutPrivateEndpointConnection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const privateEndpointConnection = new azurerm.relay.v20180101preview.PrivateEndpointConnection("privateEndpointConnection", {
- *     location: "South Central US",
- *     namespaceName: "sdk-Namespace-5849",
- *     privateEndpoint: {
- *         id: "/subscriptions/{subid}/resourceGroups/prod-by3-533-rg/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1",
- *     },
- *     privateEndpointConnectionName: "{privateEndpointConnection name}",
- *     privateLinkServiceConnectionState: {
- *         description: "You may pass",
- *         status: "Approved",
- *     },
- *     resourceGroupName: "ArunMonocle",
- * });
- *
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

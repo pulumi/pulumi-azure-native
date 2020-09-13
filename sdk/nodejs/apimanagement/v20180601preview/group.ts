@@ -6,39 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Contract details.
- *
- * ## Example Usage
- * ### ApiManagementCreateGroup
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const group = new azurerm.apimanagement.v20180601preview.Group("group", {
- *     displayName: "temp group",
- *     groupId: "tempgroup",
- *     resourceGroupName: "rg1",
- *     serviceName: "apimService1",
- * });
- *
- * ```
- * ### ApiManagementCreateGroupExternal
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const group = new azurerm.apimanagement.v20180601preview.Group("group", {
- *     description: "new group to test",
- *     displayName: "NewGroup (samiraad.onmicrosoft.com)",
- *     externalId: "aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d",
- *     groupId: "aadGroup",
- *     resourceGroupName: "rg1",
- *     serviceName: "apimService1",
- *     type: "external",
- * });
- *
- * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

@@ -6,17 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * IoT Defender settings
- *
- * ## Example Usage
- * ### Create or update IoT Defender settings
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const iotDefenderSetting = new azurerm.security.v20200806preview.IotDefenderSetting("iotDefenderSetting", {});
- *
- * ```
  */
 export class IotDefenderSetting extends pulumi.CustomResource {
     /**

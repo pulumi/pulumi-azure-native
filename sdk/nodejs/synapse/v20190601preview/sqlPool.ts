@@ -8,34 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL Analytics pool
- *
- * ## Example Usage
- * ### Create a SQL Analytics pool
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const sqlPool = new azurerm.synapse.v20190601preview.SqlPool("sqlPool", {
- *     collation: "",
- *     createMode: "",
- *     creationDate: "1970-01-01T00:00:00.000Z",
- *     location: "West US 2",
- *     maxSizeBytes: 0,
- *     recoverableDatabaseId: "",
- *     resourceGroupName: "ExampleResourceGroup",
- *     restorePointInTime: "1970-01-01T00:00:00.000Z",
- *     sku: {
- *         name: "",
- *         tier: "",
- *     },
- *     sourceDatabaseId: "",
- *     sqlPoolName: "ExampleSqlPool",
- *     tags: {},
- *     workspaceName: "ExampleWorkspace",
- * });
- *
- * ```
  */
 export class SqlPool extends pulumi.CustomResource {
     /**

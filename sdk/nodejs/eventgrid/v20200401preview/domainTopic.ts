@@ -6,21 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Domain Topic.
- *
- * ## Example Usage
- * ### DomainTopics_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const domainTopic = new azurerm.eventgrid.v20200401preview.DomainTopic("domainTopic", {
- *     domainName: "exampledomain1",
- *     domainTopicName: "exampledomaintopic1",
- *     resourceGroupName: "examplerg",
- * });
- *
- * ```
  */
 export class DomainTopic extends pulumi.CustomResource {
     /**

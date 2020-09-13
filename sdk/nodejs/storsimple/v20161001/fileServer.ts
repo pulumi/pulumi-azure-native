@@ -6,26 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The file server.
- *
- * ## Example Usage
- * ### FileServersCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const fileServer = new azurerm.storsimple.v20161001.FileServer("fileServer", {
- *     backupScheduleGroupId: "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/backupScheduleGroups/BackupSchGroupForSDKTest",
- *     description: "Demo FileServer for SDK Test",
- *     deviceName: "HSDK-4XY4FI2IVG",
- *     domainName: "fareast.corp.microsoft.com",
- *     fileServerName: "HSDK-4XY4FI2IVG",
- *     managerName: "hAzureSDKOperations",
- *     resourceGroupName: "ResourceGroupForSDKTest",
- *     storageDomainId: "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/sd-fs-HSDK-4XY4FI2IVG",
- * });
- *
- * ```
  */
 export class FileServer extends pulumi.CustomResource {
     /**

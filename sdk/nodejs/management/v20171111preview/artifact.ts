@@ -6,50 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Blueprint artifact.
- *
- * ## Example Usage
- * ### ARMTemplateArtifact
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const artifact = new azurerm.management.v20171111preview.Artifact("artifact", {
- *     artifactName: "storageTemplate",
- *     blueprintName: "simpleBlueprint",
- *     kind: "template",
- *     managementGroupName: "ContosoOnlineGroup",
- * });
- *
- * ```
- * ### PolicyAssignmentArtifact
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const artifact = new azurerm.management.v20171111preview.Artifact("artifact", {
- *     artifactName: "costCenterPolicy",
- *     blueprintName: "simpleBlueprint",
- *     kind: "policyAssignment",
- *     managementGroupName: "ContosoOnlineGroup",
- * });
- *
- * ```
- * ### RoleAssignmentArtifact
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const artifact = new azurerm.management.v20171111preview.Artifact("artifact", {
- *     artifactName: "ownerAssignment",
- *     blueprintName: "simpleBlueprint",
- *     kind: "roleAssignment",
- *     managementGroupName: "ContosoOnlineGroup",
- * });
- *
- * ```
  */
 export class Artifact extends pulumi.CustomResource {
     /**

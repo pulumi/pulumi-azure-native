@@ -8,25 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure resource which represents Maps Creator product and provides ability to manage private location data.
- *
- * ## Example Usage
- * ### CreatePrivateAtlas
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const creator = new azurerm.maps.v20200201preview.Creator("creator", {
- *     accountName: "myMapsAccount",
- *     creatorName: "myCreator",
- *     location: "unitedstates",
- *     resourceGroupName: "myResourceGroup",
- *     tags: {
- *         test: "true",
- *     },
- * });
- *
- * ```
  */
 export class Creator extends pulumi.CustomResource {
     /**

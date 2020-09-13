@@ -6,24 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A stored credential that can be used by a job to connect to target databases.
- *
- * ## Example Usage
- * ### Create or update a credential
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const jobCredential = new azurerm.sql.v20170301preview.JobCredential("jobCredential", {
- *     credentialName: "cred1",
- *     jobAgentName: "agent1",
- *     password: "<password>",
- *     resourceGroupName: "group1",
- *     serverName: "server1",
- *     username: "myuser",
- * });
- *
- * ```
  */
 export class JobCredential extends pulumi.CustomResource {
     /**

@@ -8,38 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The alert rule resource.
- *
- * ## Example Usage
- * ### Create or update an alert rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const alertRule = new azurerm.insights.v20160301.AlertRule("alertRule", {
- *     actions: [],
- *     condition: {
- *         dataSource: {
- *             metricName: "Requests",
- *             "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
- *             resourceUri: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest",
- *         },
- *         "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
- *         operator: "GreaterThan",
- *         threshold: 3,
- *         timeAggregation: "Total",
- *         windowSize: "PT5M",
- *     },
- *     description: "Pura Vida",
- *     isEnabled: true,
- *     location: "West US",
- *     name: "chiricutin",
- *     resourceGroupName: "Rac46PostSwapRG",
- *     ruleName: "chiricutin",
- *     tags: {},
- * });
- *
- * ```
  */
 export class AlertRule extends pulumi.CustomResource {
     /**

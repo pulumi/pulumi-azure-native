@@ -8,49 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The policy set definition.
- *
- * ## Example Usage
- * ### Create or update a policy set definition at management group level
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const policySetDefinitionAtManagementGroup = new azurerm.management.v20190101.PolicySetDefinitionAtManagementGroup("policySetDefinitionAtManagementGroup", {
- *     description: "Policies to enforce low cost storage SKUs",
- *     displayName: "Cost Management",
- *     managementGroupId: "MyManagementGroup",
- *     metadata: {
- *         category: "Cost Management",
- *     },
- *     policyDefinitions: [
- *         {
- *             parameters: {
- *                 listOfAllowedSKUs: {
- *                     value: [
- *                         "Standard_GRS",
- *                         "Standard_LRS",
- *                     ],
- *                 },
- *             },
- *             policyDefinitionId: "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
- *         },
- *         {
- *             parameters: {
- *                 prefix: {
- *                     value: "DeptA",
- *                 },
- *                 suffix: {
- *                     value: "-LC",
- *                 },
- *             },
- *             policyDefinitionId: "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
- *         },
- *     ],
- *     policySetDefinitionName: "CostManagement",
- * });
- *
- * ```
  */
 export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**

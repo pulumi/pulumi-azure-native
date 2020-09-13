@@ -6,22 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A private link scoped resource
- *
- * ## Example Usage
- * ### Update a scoped resource in a private link scope.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const privateLinkScopedResource = new azurerm.hybridcompute.v20200815preview.PrivateLinkScopedResource("privateLinkScopedResource", {
- *     linkedResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/Machines/machineName1",
- *     name: "scoped-resource-name",
- *     resourceGroupName: "myResourceGroup",
- *     scopeName: "myPrivateLinkScope",
- * });
- *
- * ```
  */
 export class PrivateLinkScopedResource extends pulumi.CustomResource {
     /**

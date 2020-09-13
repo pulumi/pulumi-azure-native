@@ -8,44 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Application Insights component definition.
- *
- * ## Example Usage
- * ### ComponentCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const component = new azurerm.insights.v20200202preview.Component("component", {
- *     applicationType: "web",
- *     flowType: "Bluefield",
- *     kind: "web",
- *     location: "South Central US",
- *     requestSource: "rest",
- *     resourceGroupName: "my-resource-group",
- *     resourceName: "my-component",
- *     workspaceResourceId: "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
- * });
- *
- * ```
- * ### ComponentUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const component = new azurerm.insights.v20200202preview.Component("component", {
- *     kind: "web",
- *     location: "South Central US",
- *     resourceGroupName: "my-resource-group",
- *     resourceName: "my-component",
- *     tags: {
- *         ApplicationGatewayType: "Internal-Only",
- *         BillingEntity: "Self",
- *     },
- * });
- *
- * ```
  */
 export class Component extends pulumi.CustomResource {
     /**

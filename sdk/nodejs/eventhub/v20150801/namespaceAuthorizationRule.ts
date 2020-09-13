@@ -6,26 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in a List or Get AuthorizationRule operation
- *
- * ## Example Usage
- * ### NameSpaceAuthorizationRuleCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const namespaceAuthorizationRule = new azurerm.eventhub.v20150801.NamespaceAuthorizationRule("namespaceAuthorizationRule", {
- *     authorizationRuleName: "sdk-Authrules4867",
- *     location: "West US",
- *     namespaceName: "sdk-Namespace743",
- *     resourceGroupName: "Default-ServiceBus-WestUS",
- *     rights: [
- *         "Listen",
- *         "Send",
- *     ],
- * });
- *
- * ```
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**

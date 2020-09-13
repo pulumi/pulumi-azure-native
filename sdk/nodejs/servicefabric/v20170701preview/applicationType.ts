@@ -6,22 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The application type name resource
- *
- * ## Example Usage
- * ### Put an application type
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const applicationType = new azurerm.servicefabric.v20170701preview.ApplicationType("applicationType", {
- *     applicationTypeName: "myAppType",
- *     clusterName: "myCluster",
- *     location: "eastus",
- *     resourceGroupName: "resRg",
- * });
- *
- * ```
  */
 export class ApplicationType extends pulumi.CustomResource {
     /**

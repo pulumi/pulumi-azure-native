@@ -8,23 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Graph Query entity definition.
- *
- * ## Example Usage
- * ### Create Graph Query
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const graphQuery = new azurerm.resourcegraph.v20200401preview.GraphQuery("graphQuery", {
- *     description: "Docker VMs in PROD",
- *     query: "where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
- *     resourceGroupName: "my-resource-group",
- *     resourceName: "MyDockerVMs",
- *     tags: {},
- * });
- *
- * ```
  */
 export class GraphQuery extends pulumi.CustomResource {
     /**

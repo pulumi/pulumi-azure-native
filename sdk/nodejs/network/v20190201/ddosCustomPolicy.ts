@@ -8,24 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A DDoS custom policy in a resource group.
- *
- * ## Example Usage
- * ### Create DDoS custom policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const ddosCustomPolicy = new azurerm.network.v20190201.DdosCustomPolicy("ddosCustomPolicy", {
- *     ddosCustomPolicyName: "test-ddos-custom-policy",
- *     location: "westus",
- *     protocolCustomSettings: [{
- *         protocol: "Tcp",
- *     }],
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
  */
 export class DdosCustomPolicy extends pulumi.CustomResource {
     /**

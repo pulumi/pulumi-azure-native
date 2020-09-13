@@ -6,25 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Policy Contract details.
- *
- * ## Example Usage
- * ### ApiManagementCreateApiOperationPolicy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const apiOperationPolicy = new azurerm.apimanagement.v20180601preview.ApiOperationPolicy("apiOperationPolicy", {
- *     apiId: "5600b57e7e8880006a040001",
- *     contentFormat: "xml",
- *     operationId: "5600b57e7e8880006a080001",
- *     policyContent: "<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
- *     policyId: "policy",
- *     resourceGroupName: "rg1",
- *     serviceName: "apimService1",
- * });
- *
- * ```
  */
 export class ApiOperationPolicy extends pulumi.CustomResource {
     /**

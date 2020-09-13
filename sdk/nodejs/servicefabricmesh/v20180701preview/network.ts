@@ -8,30 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * This type describes a network resource.
- *
- * ## Example Usage
- * ### Network_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const network = new azurerm.servicefabricmesh.v20180701preview.Network("network", {
- *     addressPrefix: "10.0.0.4/22",
- *     ingressConfig: {
- *         layer4: [{
- *             applicationName: "helloWorldAppWindows",
- *             endpointName: "helloWorldListener",
- *             publicPort: "80",
- *             serviceName: "helloWorldService",
- *         }],
- *     },
- *     location: "eastus",
- *     networkName: "helloWorldNetworkWindows",
- *     resourceGroupName: "sbz_demo",
- * });
- *
- * ```
  */
 export class Network extends pulumi.CustomResource {
     /**

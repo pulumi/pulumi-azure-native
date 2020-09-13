@@ -8,22 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Custom domain resource payload.
- *
- * ## Example Usage
- * ### CustomDomains_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const customDomain = new azurerm.appplatform.v20190501preview.CustomDomain("customDomain", {
- *     appName: "myapp",
- *     domainName: "mydomain.com",
- *     resourceGroupName: "myResourceGroup",
- *     serviceName: "myservice",
- * });
- *
- * ```
  */
 export class CustomDomain extends pulumi.CustomResource {
     /**

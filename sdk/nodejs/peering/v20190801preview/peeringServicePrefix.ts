@@ -6,22 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The peering service prefix class.
- *
- * ## Example Usage
- * ### Create or update a prefix for the peering service
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const peeringServicePrefix = new azurerm.peering.v20190801preview.PeeringServicePrefix("peeringServicePrefix", {
- *     peeringServiceName: "MyPeeringService",
- *     prefix: "192.168.1.0/24",
- *     prefixName: "MyPeeringServicePrefix",
- *     resourceGroupName: "MyResourceGroup",
- * });
- *
- * ```
  */
 export class PeeringServicePrefix extends pulumi.CustomResource {
     /**

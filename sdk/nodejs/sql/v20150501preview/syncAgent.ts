@@ -6,36 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL Database sync agent.
- *
- * ## Example Usage
- * ### Create a new sync agent
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const syncAgent = new azurerm.sql.v20150501preview.SyncAgent("syncAgent", {
- *     resourceGroupName: "syncagentcrud-65440",
- *     serverName: "syncagentcrud-8475",
- *     syncAgentName: "syncagentcrud-3187",
- *     syncDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync",
- * });
- *
- * ```
- * ### Update a sync agent
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const syncAgent = new azurerm.sql.v20150501preview.SyncAgent("syncAgent", {
- *     resourceGroupName: "syncagentcrud-65440",
- *     serverName: "syncagentcrud-8475",
- *     syncAgentName: "syncagentcrud-3187",
- *     syncDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync",
- * });
- *
- * ```
  */
 export class SyncAgent extends pulumi.CustomResource {
     /**

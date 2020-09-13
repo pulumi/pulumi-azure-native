@@ -8,40 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a DNS zone.
- *
- * ## Example Usage
- * ### Create private zone
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const zone = new azurerm.network.v20180301preview.Zone("zone", {
- *     location: "Global",
- *     resourceGroupName: "rg1",
- *     tags: {
- *         key1: "value1",
- *     },
- *     zoneName: "zone1",
- * });
- *
- * ```
- * ### Create zone
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const zone = new azurerm.network.v20180301preview.Zone("zone", {
- *     location: "Global",
- *     resourceGroupName: "rg1",
- *     tags: {
- *         key1: "value1",
- *     },
- *     zoneName: "zone1",
- * });
- *
- * ```
  */
 export class Zone extends pulumi.CustomResource {
     /**

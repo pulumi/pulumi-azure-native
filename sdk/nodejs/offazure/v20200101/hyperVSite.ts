@@ -8,21 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Site REST Resource.
- *
- * ## Example Usage
- * ### Create Hyper-V site
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const hyperVSite = new azurerm.offazure.v20200101.HyperVSite("hyperVSite", {
- *     location: "eastus",
- *     resourceGroupName: "pajindTest",
- *     siteName: "appliance1e39site",
- * });
- *
- * ```
  */
 export class HyperVSite extends pulumi.CustomResource {
     /**

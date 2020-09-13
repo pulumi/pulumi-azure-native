@@ -6,23 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Delegated subnet details
- *
- * ## Example Usage
- * ### put delegated subnet
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const delegatedSubnetServiceDetails = new azurerm.network.v20200808preview.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails", {
- *     controllerID: "a182cbcf-e8ea-4175-ac2b-ad36a73f9801",
- *     resourceGroupName: "TestRG",
- *     resourceName: "delegated1",
- *     subnetName: "testsubnet",
- *     vnetName: "testvnet",
- * });
- *
- * ```
  */
 export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
     /**

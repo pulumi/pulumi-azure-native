@@ -8,46 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL Database sync group.
- *
- * ## Example Usage
- * ### Create a sync group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const syncGroup = new azurerm.sql.v20190601preview.SyncGroup("syncGroup", {
- *     conflictResolutionPolicy: "HubWin",
- *     databaseName: "syncgroupcrud-4328",
- *     hubDatabaseUserName: "hubUser",
- *     interval: -1,
- *     resourceGroupName: "syncgroupcrud-65440",
- *     serverName: "syncgroupcrud-8475",
- *     syncDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
- *     syncGroupName: "syncgroupcrud-3187",
- *     usePrivateLinkConnection: false,
- * });
- *
- * ```
- * ### Update a sync group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const syncGroup = new azurerm.sql.v20190601preview.SyncGroup("syncGroup", {
- *     conflictResolutionPolicy: "HubWin",
- *     databaseName: "syncgroupcrud-4328",
- *     hubDatabaseUserName: "hubUser",
- *     interval: -1,
- *     resourceGroupName: "syncgroupcrud-65440",
- *     serverName: "syncgroupcrud-8475",
- *     syncDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
- *     syncGroupName: "syncgroupcrud-3187",
- *     usePrivateLinkConnection: false,
- * });
- *
- * ```
  */
 export class SyncGroup extends pulumi.CustomResource {
     /**

@@ -8,28 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The top level Workspace resource container.
- *
- * ## Example Usage
- * ### WorkspacesCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const workspace = new azurerm.operationalinsights.v20200301preview.Workspace("workspace", {
- *     location: "australiasoutheast",
- *     resourceGroupName: "oiautorest6685",
- *     retentionInDays: 30,
- *     sku: {
- *         name: "PerGB2018",
- *     },
- *     tags: {
- *         tag1: "val1",
- *     },
- *     workspaceName: "oiautorest6685",
- * });
- *
- * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

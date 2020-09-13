@@ -8,59 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The connector mapping resource format.
- *
- * ## Example Usage
- * ### ConnectorMappings_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const connectorMapping = new azurerm.customerinsights.v20170101.ConnectorMapping("connectorMapping", {
- *     connectorName: "testConnector8858",
- *     description: "Test mapping",
- *     displayName: "testMapping12491",
- *     entityType: "Interaction",
- *     entityTypeName: "TestInteractionType2967",
- *     hubName: "sdkTestHub",
- *     mappingName: "testMapping12491",
- *     mappingProperties: {
- *         availability: {
- *             frequency: "Hour",
- *             interval: 5,
- *         },
- *         completeOperation: {
- *             completionOperationType: "DeleteFile",
- *             destinationFolder: "fakePath",
- *         },
- *         errorManagement: {
- *             errorLimit: 10,
- *             errorManagementType: "StopImport",
- *         },
- *         fileFilter: "unknown",
- *         folderPath: "http://sample.dne/file",
- *         format: {
- *             columnDelimiter: "|",
- *             formatType: "TextFormat",
- *         },
- *         hasHeader: false,
- *         structure: [
- *             {
- *                 columnName: "unknown1",
- *                 isEncrypted: false,
- *                 propertyName: "unknwon1",
- *             },
- *             {
- *                 columnName: "unknown2",
- *                 isEncrypted: true,
- *                 propertyName: "unknwon2",
- *             },
- *         ],
- *     },
- *     resourceGroupName: "TestHubRG",
- * });
- *
- * ```
  */
 export class ConnectorMapping extends pulumi.CustomResource {
     /**

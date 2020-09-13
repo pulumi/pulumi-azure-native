@@ -6,24 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Capacity pool resource
- *
- * ## Example Usage
- * ### Pools_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const pool = new azurerm.netapp.v20190701.Pool("pool", {
- *     accountName: "accountName",
- *     location: "eastus",
- *     poolName: "poolName",
- *     resourceGroupName: "resourceGroup",
- *     serviceLevel: "Premium",
- *     size: 4398046511104,
- * });
- *
- * ```
  */
 export class Pool extends pulumi.CustomResource {
     /**

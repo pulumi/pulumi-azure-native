@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource information with extended details.
- *
- * ## Example Usage
- * ### Create a new managed HSM Pool or update an existing managed HSM Pool
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const managedHsm = new azurerm.keyvault.v20200401preview.ManagedHsm("managedHsm", {
- *     location: "westus",
- *     name: "hsm1",
- *     resourceGroupName: "hsm-group",
- *     sku: {
- *         family: "B",
- *         name: "Standard_B1",
- *     },
- *     tags: {
- *         Dept: "hsm",
- *         Environment: "dogfood",
- *     },
- * });
- *
- * ```
  */
 export class ManagedHsm extends pulumi.CustomResource {
     /**

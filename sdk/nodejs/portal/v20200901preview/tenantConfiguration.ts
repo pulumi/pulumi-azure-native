@@ -6,20 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Tenant configuration.
- *
- * ## Example Usage
- * ### Create or update Tenant configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const tenantConfiguration = new azurerm.portal.v20200901preview.TenantConfiguration("tenantConfiguration", {
- *     configurationName: "default",
- *     enforcePrivateMarkdownStorage: true,
- * });
- *
- * ```
  */
 export class TenantConfiguration extends pulumi.CustomResource {
     /**

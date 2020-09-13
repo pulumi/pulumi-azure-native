@@ -6,25 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Active Directory administrator.
- *
- * ## Example Usage
- * ### Creates or updates an existing Azure Active Directory administrator.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const serverAzureADAdministrator = new azurerm.sql.v20190601preview.ServerAzureADAdministrator("serverAzureADAdministrator", {
- *     administratorName: "ActiveDirectory",
- *     administratorType: "ActiveDirectory",
- *     login: "bob@contoso.com",
- *     resourceGroupName: "sqlcrudtest-4799",
- *     serverName: "sqlcrudtest-6440",
- *     sid: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
- *     tenantId: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
- * });
- *
- * ```
  */
 export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**

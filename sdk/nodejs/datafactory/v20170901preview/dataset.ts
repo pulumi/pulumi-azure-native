@@ -8,34 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Dataset resource type.
- *
- * ## Example Usage
- * ### Datasets_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const dataset = new azurerm.datafactory.v20170901preview.Dataset("dataset", {
- *     datasetName: "exampleDataset",
- *     factoryName: "exampleFactoryName",
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
- * ### Datasets_Update
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const dataset = new azurerm.datafactory.v20170901preview.Dataset("dataset", {
- *     datasetName: "exampleDataset",
- *     factoryName: "exampleFactoryName",
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
  */
 export class Dataset extends pulumi.CustomResource {
     /**

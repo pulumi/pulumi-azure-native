@@ -8,27 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The StorSimple Manager
- *
- * ## Example Usage
- * ### ManagersCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const manager = new azurerm.storsimple.v20161001.Manager("manager", {
- *     cisIntrinsicSettings: {
- *         type: "HelsinkiV1",
- *     },
- *     location: "westus",
- *     managerName: "hManagerForSDKTest",
- *     resourceGroupName: "ResourceGroupForSDKTest",
- *     sku: {
- *         name: "Standard",
- *     },
- * });
- *
- * ```
  */
 export class Manager extends pulumi.CustomResource {
     /**

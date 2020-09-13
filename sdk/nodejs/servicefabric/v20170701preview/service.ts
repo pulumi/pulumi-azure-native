@@ -8,59 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The service resource.
- *
- * ## Example Usage
- * ### Put a service with maximum parameters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const service = new azurerm.servicefabric.v20170701preview.Service("service", {
- *     applicationName: "myApp",
- *     clusterName: "myCluster",
- *     correlationScheme: [{
- *         scheme: "Affinity",
- *         serviceName: "fabric:/app1/app1~svc1",
- *     }],
- *     defaultMoveCost: "Medium",
- *     location: "eastus",
- *     partitionDescription: {
- *         PartitionScheme: "Singleton",
- *     },
- *     placementConstraints: "NodeType==frontend",
- *     resourceGroupName: "resRg",
- *     serviceKind: "Stateless",
- *     serviceLoadMetrics: [{
- *         name: "metric1",
- *         weight: "Low",
- *     }],
- *     serviceName: "myService",
- *     servicePlacementPolicies: [],
- *     serviceTypeName: "myServiceType",
- * });
- *
- * ```
- * ### Put a service with minimum parameters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const service = new azurerm.servicefabric.v20170701preview.Service("service", {
- *     applicationName: "myApp",
- *     clusterName: "myCluster",
- *     location: "eastus",
- *     partitionDescription: {
- *         PartitionScheme: "Singleton",
- *     },
- *     resourceGroupName: "resRg",
- *     serviceKind: "Stateless",
- *     serviceName: "myService",
- *     serviceTypeName: "myServiceType",
- * });
- *
- * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

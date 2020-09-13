@@ -6,22 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Active Directory only authentication.
- *
- * ## Example Usage
- * ### Creates or updates Azure Active Directory only authentication object.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const managedInstanceAzureADOnlyAuthentication = new azurerm.sql.v20200202preview.ManagedInstanceAzureADOnlyAuthentication("managedInstanceAzureADOnlyAuthentication", {
- *     authenticationName: "Default",
- *     azureADOnlyAuthentication: false,
- *     managedInstanceName: "managedInstance",
- *     resourceGroupName: "Default-SQL-SouthEastAsia",
- * });
- *
- * ```
  */
 export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResource {
     /**

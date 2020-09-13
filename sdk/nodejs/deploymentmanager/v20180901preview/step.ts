@@ -8,22 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource representation of a rollout step.
- *
- * ## Example Usage
- * ### Create deployment step
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const step = new azurerm.deploymentmanager.v20180901preview.Step("step", {
- *     location: "centralus",
- *     resourceGroupName: "myResourceGroup",
- *     stepName: "deploymentStep1",
- *     tags: {},
- * });
- *
- * ```
  */
 export class Step extends pulumi.CustomResource {
     /**

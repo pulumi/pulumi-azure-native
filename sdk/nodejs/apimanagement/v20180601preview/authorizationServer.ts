@@ -8,38 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * External OAuth authorization server settings.
- *
- * ## Example Usage
- * ### ApiManagementCreateAuthorizationServer
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const authorizationServer = new azurerm.apimanagement.v20180601preview.AuthorizationServer("authorizationServer", {
- *     authorizationEndpoint: "https://www.contoso.com/oauth2/auth",
- *     authorizationMethods: ["GET"],
- *     authsid: "newauthServer",
- *     bearerTokenSendingMethods: ["authorizationHeader"],
- *     clientId: "1",
- *     clientRegistrationEndpoint: "https://www.contoso.com/apps",
- *     clientSecret: "2",
- *     defaultScope: "read write",
- *     description: "test server",
- *     displayName: "test2",
- *     grantTypes: [
- *         "authorizationCode",
- *         "implicit",
- *     ],
- *     resourceGroupName: "rg1",
- *     resourceOwnerPassword: "pwd",
- *     resourceOwnerUsername: "un",
- *     serviceName: "apimService1",
- *     supportState: true,
- *     tokenEndpoint: "https://www.contoso.com/oauth2/token",
- * });
- *
- * ```
  */
 export class AuthorizationServer extends pulumi.CustomResource {
     /**

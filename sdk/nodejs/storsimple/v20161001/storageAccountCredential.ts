@@ -8,31 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account credential
- *
- * ## Example Usage
- * ### StorageAccountCredentialsCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const storageAccountCredential = new azurerm.storsimple.v20161001.StorageAccountCredential("storageAccountCredential", {
- *     accessKey: {
- *         encryptionAlgorithm: "RSAES_PKCS1_v_1_5",
- *         encryptionCertificateThumbprint: "D73DB57C4CDD6761E159F8D1E8A7D759424983FD",
- *         value: "Ev1tm0QBmpGGm4a58GkqLqx8veJEEgQtg5K3Jizpmy7JdSv9dlcRwk59THw6KIdMDlEHcS8mPyneBtOEQsh4wkcFB7qrmQz+KsRAyIhEm6bwPEm3qN8+aDDzNcXn/6vu/sqV0AP7zit9/s7SxXGxjKrz4zKnOy16/DbzRRmUHNO+HO6JUM0cUfHXTX0mEecbsXqBq0A8IEG8z+bJgXX1EhoGkzE6yVsObm4S1AcKrLiwWjqmSLji5Q8gGO+y4KTTmC3p45h5GHHXjJyOccHhySWDAffxnTzUD/sOoh+aD2VkAYrL3DdnkVzhAdfcZfVI4soONx7tYMloZIVsfW1M2Q==",
- *     },
- *     cloudType: "Azure",
- *     credentialName: "DummySacForSDKTest",
- *     enableSSL: "Enabled",
- *     endPoint: "blob.core.windows.net",
- *     location: "West US",
- *     login: "SacForSDKTest",
- *     managerName: "hAzureSDKOperations",
- *     resourceGroupName: "ResourceGroupForSDKTest",
- * });
- *
- * ```
  */
 export class StorageAccountCredential extends pulumi.CustomResource {
     /**

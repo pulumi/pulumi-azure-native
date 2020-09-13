@@ -6,22 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of HybridConnection Resource.
- *
- * ## Example Usage
- * ### RelayHybridConnectionCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const hybridConnection = new azurerm.relay.v20160701.HybridConnection("hybridConnection", {
- *     hybridConnectionName: "sdk-Relay-Hybrid-01",
- *     namespaceName: "sdk-RelayNamespace-01",
- *     requiresClientAuthorization: true,
- *     resourceGroupName: "RG-eg",
- * });
- *
- * ```
  */
 export class HybridConnection extends pulumi.CustomResource {
     /**

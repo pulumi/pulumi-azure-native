@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about the connection monitor.
- *
- * ## Example Usage
- * ### Create connection monitor
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const connectionMonitor = new azurerm.network.v20180201.ConnectionMonitor("connectionMonitor", {
- *     connectionMonitorName: "cm1",
- *     destination: {
- *         address: "bing.com",
- *         port: 80,
- *     },
- *     monitoringIntervalInSeconds: 60,
- *     networkWatcherName: "nw1",
- *     resourceGroupName: "rg1",
- *     source: {
- *         resourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
- *     },
- * });
- *
- * ```
  */
 export class ConnectionMonitor extends pulumi.CustomResource {
     /**

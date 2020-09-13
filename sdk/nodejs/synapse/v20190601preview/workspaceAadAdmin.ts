@@ -6,24 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Workspace active directory administrator
- *
- * ## Example Usage
- * ### Create or update workspace active directory admin
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const workspaceAadAdmin = new azurerm.synapse.v20190601preview.WorkspaceAadAdmin("workspaceAadAdmin", {
- *     administratorType: "ActiveDirectory",
- *     login: "bob@contoso.com",
- *     resourceGroupName: "resourceGroup1",
- *     sid: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
- *     tenantId: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
- *     workspaceName: "workspace1",
- * });
- *
- * ```
  */
 export class WorkspaceAadAdmin extends pulumi.CustomResource {
     /**

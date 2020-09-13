@@ -6,48 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL Database sync member.
- *
- * ## Example Usage
- * ### Create a new sync member
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const syncMember = new azurerm.sql.v20190601preview.SyncMember("syncMember", {
- *     databaseName: "syncgroupcrud-4328",
- *     databaseType: "AzureSqlDatabase",
- *     resourceGroupName: "syncgroupcrud-65440",
- *     serverName: "syncgroupcrud-8475",
- *     syncDirection: "Bidirectional",
- *     syncGroupName: "syncgroupcrud-3187",
- *     syncMemberAzureDatabaseResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
- *     syncMemberName: "syncgroupcrud-4879",
- *     usePrivateLinkConnection: true,
- *     userName: "myUser",
- * });
- *
- * ```
- * ### Update a sync member
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const syncMember = new azurerm.sql.v20190601preview.SyncMember("syncMember", {
- *     databaseName: "syncgroupcrud-7421",
- *     databaseType: "AzureSqlDatabase",
- *     resourceGroupName: "syncgroupcrud-65440",
- *     serverName: "syncgroupcrud-3379.database.windows.net",
- *     syncDirection: "Bidirectional",
- *     syncGroupName: "syncgroupcrud-3187",
- *     syncMemberAzureDatabaseResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
- *     syncMemberName: "syncgroupcrud-4879",
- *     usePrivateLinkConnection: true,
- *     userName: "myUser",
- * });
- *
- * ```
  */
 export class SyncMember extends pulumi.CustomResource {
     /**

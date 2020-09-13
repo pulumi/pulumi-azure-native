@@ -6,33 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about a partner registration.
- *
- * ## Example Usage
- * ### PartnerRegistrations_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const partnerRegistration = new azurerm.eventgrid.v20200401preview.PartnerRegistration("partnerRegistration", {
- *     authorizedAzureSubscriptionIds: ["d48566a8-2428-4a6c-8347-9675d09fb851"],
- *     location: "global",
- *     logoUri: "https://www.example.com/logo.png",
- *     partnerName: "ContosoCorp",
- *     partnerRegistrationName: "examplePartnerRegistrationName1",
- *     partnerResourceTypeDescription: "ContocoCorp Accounts Description Text",
- *     partnerResourceTypeDisplayName: "ContocoCorp Accounts DisplayName Text",
- *     partnerResourceTypeName: "ContosoCorp.Accounts",
- *     resourceGroupName: "examplerg",
- *     setupUri: "https://www.example.com/setup.html",
- *     tags: {
- *         key1: "value1",
- *         key2: "Value2",
- *         key3: "Value3",
- *     },
- * });
- *
- * ```
  */
 export class PartnerRegistration extends pulumi.CustomResource {
     /**

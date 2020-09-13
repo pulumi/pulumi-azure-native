@@ -8,20 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource group information.
- *
- * ## Example Usage
- * ### Create or update a resource group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const resourceGroup = new azurerm.resources.v20190701.ResourceGroup("resourceGroup", {
- *     location: "eastus",
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**

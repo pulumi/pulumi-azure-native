@@ -8,20 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The gateway definition
- *
- * ## Example Usage
- * ### Replace a connection gateway definition
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const connectionGateway = new azurerm.web.v20160601.ConnectionGateway("connectionGateway", {
- *     connectionGatewayName: "test123",
- *     resourceGroupName: "testResourceGroup",
- * });
- *
- * ```
  */
 export class ConnectionGateway extends pulumi.CustomResource {
     /**

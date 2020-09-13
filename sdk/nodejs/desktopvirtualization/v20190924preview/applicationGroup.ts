@@ -6,29 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a ApplicationGroup definition.
- *
- * ## Example Usage
- * ### ApplicationGroup_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const applicationGroup = new azurerm.desktopvirtualization.v20190924preview.ApplicationGroup("applicationGroup", {
- *     applicationGroupName: "applicationGroup1",
- *     applicationGroupType: "RemoteApp",
- *     description: "des1",
- *     friendlyName: "friendly",
- *     hostPoolArmPath: "/subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1",
- *     location: "centralus",
- *     resourceGroupName: "resourceGroup1",
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value2",
- *     },
- * });
- *
- * ```
  */
 export class ApplicationGroup extends pulumi.CustomResource {
     /**

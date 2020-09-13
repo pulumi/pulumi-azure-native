@@ -8,35 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about packet capture session.
- *
- * ## Example Usage
- * ### Create Packet Capture
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const packetCapture = new azurerm.network.v20170601.PacketCapture("packetCapture", {
- *     bytesToCapturePerPacket: 10000,
- *     filters: [{
- *         localIPAddress: "10.0.0.4",
- *         localPort: "80",
- *         protocol: "TCP",
- *     }],
- *     networkWatcherName: "nw1",
- *     packetCaptureName: "pc1",
- *     resourceGroupName: "rg1",
- *     storageLocation: {
- *         filePath: "D:\\capture\\pc1.cap",
- *         storageId: "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/pcstore",
- *         storagePath: "https://mytestaccountname.blob.core.windows.net/capture/pc1.cap",
- *     },
- *     target: "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1",
- *     timeLimitInSeconds: 100,
- *     totalBytesPerSession: 100000,
- * });
- *
- * ```
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**

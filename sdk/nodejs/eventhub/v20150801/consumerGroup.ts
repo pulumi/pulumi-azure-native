@@ -6,23 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in List or Get Consumer group operation
- *
- * ## Example Usage
- * ### ConsumerGroupCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const consumerGroup = new azurerm.eventhub.v20150801.ConsumerGroup("consumerGroup", {
- *     consumerGroupName: "sdk-ConsumerGroup115",
- *     eventHubName: "sdk-EventHub5290",
- *     location: "West US",
- *     namespaceName: "sdk-Namespace736",
- *     resourceGroupName: "Default-ServiceBus-WestUS",
- * });
- *
- * ```
  */
 export class ConsumerGroup extends pulumi.CustomResource {
     /**

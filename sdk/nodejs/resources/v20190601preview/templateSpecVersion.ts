@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Template Spec Version object.
- *
- * ## Example Usage
- * ### TemplateSpecVersionsCreateUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const templateSpecVersion = new azurerm.resources.v20190601preview.TemplateSpecVersion("templateSpecVersion", {
- *     description: "This is version v1.0 of our template content",
- *     location: "eastus",
- *     resourceGroupName: "templateSpecRG",
- *     template: {
- *         `$schema`: "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
- *         contentVersion: "1.0.0.0",
- *         parameters: {},
- *         resources: [],
- *     },
- *     templateSpecName: "simpleTemplateSpec",
- *     templateSpecVersion: "v1.0",
- * });
- *
- * ```
  */
 export class TemplateSpecVersion extends pulumi.CustomResource {
     /**

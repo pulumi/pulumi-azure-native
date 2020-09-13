@@ -8,68 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account RosettaNet process configuration.
- *
- * ## Example Usage
- * ### Create or update an RosettaNetProcessConfiguration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const rosettaNetProcessConfiguration = new azurerm.logic.v20160601.RosettaNetProcessConfiguration("rosettaNetProcessConfiguration", {
- *     activitySettings: {
- *         acknowledgmentOfReceiptSettings: {
- *             isNonRepudiationRequired: false,
- *             timeToAcknowledgeInSeconds: 600,
- *         },
- *         activityBehavior: {
- *             actionType: "DoubleAction",
- *             isAuthorizationRequired: false,
- *             isSecuredTransportRequired: false,
- *             nonRepudiationOfOriginAndContent: false,
- *             persistentConfidentialityScope: "None",
- *             responseType: "Async",
- *             retryCount: 2,
- *             timeToPerformInSeconds: 7200,
- *         },
- *         activityType: "RequestResponse",
- *     },
- *     description: "Test description",
- *     initiatorRoleSettings: {
- *         action: "Purchase Order Request",
- *         businessDocument: {
- *             description: "A request to accept a purchase order for fulfillment..",
- *             name: "Purchase Order Request",
- *             version: "V02.02.00",
- *         },
- *         description: "This partner role creates a demand for a product or service.",
- *         role: "Buyer",
- *         roleType: "Functional",
- *         service: "Buyer Service",
- *         serviceClassification: "Business Service",
- *     },
- *     integrationAccountName: "testia123",
- *     processCode: "3A4",
- *     processName: "Request Purchase Order",
- *     processVersion: "V02.02.00",
- *     resourceGroupName: "testrg123",
- *     responderRoleSettings: {
- *         action: "Purchase Order Confirmation Action",
- *         businessDocument: {
- *             description: "Formally confirms the status of line item(s) in a Purchase Order. A Purchase Order line item may have one of the following states: accepted, rejected, or pending.",
- *             name: "Purchase Order Confirmation",
- *             version: "V02.02.00",
- *         },
- *         description: "An organization that sells products to partners in the supply chain.",
- *         role: "Seller",
- *         roleType: "Organizational",
- *         service: "Seller Service",
- *         serviceClassification: "Business Service",
- *     },
- *     rosettaNetProcessConfigurationName: "3A4",
- * });
- *
- * ```
  */
 export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
     /**

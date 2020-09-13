@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * ExpressRoute gateway resource.
- *
- * ## Example Usage
- * ### ExpressRouteGatewayCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const expressRouteGateway = new azurerm.network.v20190601.ExpressRouteGateway("expressRouteGateway", {
- *     autoScaleConfiguration: {
- *         bounds: {
- *             min: 3,
- *         },
- *     },
- *     expressRouteGatewayName: "gateway-2",
- *     location: "westus",
- *     resourceGroupName: "resourceGroupName",
- *     virtualHub: {
- *         id: "/subscriptions/subid/resourceGroups/resourceGroupId/providers/Microsoft.Network/virtualHubs/virtualHubName",
- *     },
- * });
- *
- * ```
  */
 export class ExpressRouteGateway extends pulumi.CustomResource {
     /**

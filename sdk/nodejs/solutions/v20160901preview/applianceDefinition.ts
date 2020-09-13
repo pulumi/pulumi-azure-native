@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about appliance definition.
- *
- * ## Example Usage
- * ### Create or update appliance definition
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const applianceDefinition = new azurerm.solutions.v20160901preview.ApplianceDefinition("applianceDefinition", {
- *     applianceDefinitionName: "myApplianceDef",
- *     authorizations: [{
- *         principalId: "validprincipalguid",
- *         roleDefinitionId: "validroleguid",
- *     }],
- *     description: "myApplianceDef description",
- *     displayName: "myApplianceDef",
- *     location: "East US 2",
- *     lockLevel: "None",
- *     packageFileUri: "https://path/to/packagezipfile",
- *     resourceGroupName: "rg",
- * });
- *
- * ```
  */
 export class ApplianceDefinition extends pulumi.CustomResource {
     /**

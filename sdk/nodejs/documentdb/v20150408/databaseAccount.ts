@@ -8,66 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB database account.
- *
- * ## Example Usage
- * ### CosmosDBDatabaseAccountCreateMax
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const databaseAccount = new azurerm.documentdb.v20150408.DatabaseAccount("databaseAccount", {
- *     accountName: "ddb1",
- *     consistencyPolicy: {
- *         defaultConsistencyLevel: "BoundedStaleness",
- *         maxIntervalInSeconds: 10,
- *         maxStalenessPrefix: 200,
- *     },
- *     databaseAccountOfferType: "Standard",
- *     ipRangeFilter: "10.10.10.10",
- *     isVirtualNetworkFilterEnabled: true,
- *     kind: "GlobalDocumentDB",
- *     location: "westus",
- *     locations: [
- *         {
- *             failoverPriority: 0,
- *             isZoneRedundant: false,
- *             locationName: "southcentralus",
- *         },
- *         {
- *             failoverPriority: 1,
- *             isZoneRedundant: false,
- *             locationName: "eastus",
- *         },
- *     ],
- *     resourceGroupName: "rg1",
- *     tags: {},
- *     virtualNetworkRules: [{
- *         id: "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
- *         ignoreMissingVNetServiceEndpoint: false,
- *     }],
- * });
- *
- * ```
- * ### CosmosDBDatabaseAccountCreateMin
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const databaseAccount = new azurerm.documentdb.v20150408.DatabaseAccount("databaseAccount", {
- *     accountName: "ddb1",
- *     databaseAccountOfferType: "Standard",
- *     location: "westus",
- *     locations: [{
- *         failoverPriority: 0,
- *         isZoneRedundant: false,
- *         locationName: "southcentralus",
- *     }],
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
  */
 export class DatabaseAccount extends pulumi.CustomResource {
     /**

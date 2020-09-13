@@ -6,23 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Route resource
- *
- * ## Example Usage
- * ### Create route
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const route = new azurerm.network.v20180201.Route("route", {
- *     addressPrefix: "10.0.3.0/24",
- *     nextHopType: "VirtualNetworkGateway",
- *     resourceGroupName: "rg1",
- *     routeName: "route1",
- *     routeTableName: "testrt",
- * });
- *
- * ```
  */
 export class Route extends pulumi.CustomResource {
     /**

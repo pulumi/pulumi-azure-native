@@ -8,38 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents an import pipeline for a container registry.
- *
- * ## Example Usage
- * ### ImportPipelineCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const importPipeline = new azurerm.containerregistry.v20191201preview.ImportPipeline("importPipeline", {
- *     identity: {
- *         type: "UserAssigned",
- *         userAssignedIdentities: {
- *             "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
- *         },
- *     },
- *     importPipelineName: "myImportPipeline",
- *     location: "westus",
- *     options: [
- *         "OverwriteTags",
- *         "DeleteSourceBlobOnSuccess",
- *         "ContinueOnErrors",
- *     ],
- *     registryName: "myRegistry",
- *     resourceGroupName: "myResourceGroup",
- *     source: {
- *         keyVaultUri: "https://myvault.vault.azure.net/secrets/acrimportsas",
- *         type: "AzureStorageBlobContainer",
- *         uri: "https://accountname.blob.core.windows.net/containername",
- *     },
- * });
- *
- * ```
  */
 export class ImportPipeline extends pulumi.CustomResource {
     /**

@@ -6,23 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Router Peering resource.
- *
- * ## Example Usage
- * ### Create Virtual Router Peering
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const virtualRouterPeering = new azurerm.network.v20191201.VirtualRouterPeering("virtualRouterPeering", {
- *     peerAsn: 20000,
- *     peerIp: "192.168.1.5",
- *     peeringName: "peering1",
- *     resourceGroupName: "rg1",
- *     virtualRouterName: "virtualRouter",
- * });
- *
- * ```
  */
 export class VirtualRouterPeering extends pulumi.CustomResource {
     /**

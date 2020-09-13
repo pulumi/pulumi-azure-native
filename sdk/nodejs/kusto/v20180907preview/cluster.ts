@@ -8,26 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Kusto cluster.
- *
- * ## Example Usage
- * ### KustoClustersCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const cluster = new azurerm.kusto.v20180907preview.Cluster("cluster", {
- *     clusterName: "KustoClusterRPTest4",
- *     location: "westus",
- *     resourceGroupName: "kustorptest",
- *     sku: {
- *         capacity: 2,
- *         name: "L8",
- *         tier: "Standard",
- *     },
- * });
- *
- * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

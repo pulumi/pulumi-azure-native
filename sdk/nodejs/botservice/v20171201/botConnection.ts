@@ -8,23 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Bot channel resource definition
- *
- * ## Example Usage
- * ### Create Connection Setting
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const botConnection = new azurerm.botservice.v20171201.BotConnection("botConnection", {
- *     connectionName: "sampleConnection",
- *     etag: "etag1",
- *     location: "West US",
- *     resourceGroupName: "OneResourceGroupName",
- *     resourceName: "samplebotname",
- * });
- *
- * ```
  */
 export class BotConnection extends pulumi.CustomResource {
     /**

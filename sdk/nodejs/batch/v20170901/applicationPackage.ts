@@ -6,22 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An application package which represents a particular version of an application.
- *
- * ## Example Usage
- * ### ApplicationPackageCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const applicationPackage = new azurerm.batch.v20170901.ApplicationPackage("applicationPackage", {
- *     accountName: "sampleacct",
- *     applicationId: "app1",
- *     resourceGroupName: "default-azurebatch-japaneast",
- *     version: "1",
- * });
- *
- * ```
  */
 export class ApplicationPackage extends pulumi.CustomResource {
     /**

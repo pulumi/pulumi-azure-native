@@ -8,54 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB database account.
- *
- * ## Example Usage
- * ### CosmosDBDatabaseAccountCreateMax
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const databaseAccount = new azurerm.documentdb.v20200601preview.DatabaseAccount("databaseAccount", {
- *     accountName: "ddb1",
- *     identity: {
- *         type: "SystemAssigned,UserAssigned",
- *     },
- *     kind: "MongoDB",
- *     location: "westus",
- *     resourceGroupName: "rg1",
- *     tags: {},
- * });
- *
- * ```
- * ### CosmosDBDatabaseAccountCreateMin
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const databaseAccount = new azurerm.documentdb.v20200601preview.DatabaseAccount("databaseAccount", {
- *     accountName: "ddb1",
- *     location: "westus",
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
- * ### CosmosDBRestoreDatabaseAccountCreateUpdate.json
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const databaseAccount = new azurerm.documentdb.v20200601preview.DatabaseAccount("databaseAccount", {
- *     accountName: "ddb1",
- *     kind: "GlobalDocumentDB",
- *     location: "westus",
- *     resourceGroupName: "rg1",
- *     tags: {},
- * });
- *
- * ```
  */
 export class DatabaseAccount extends pulumi.CustomResource {
     /**

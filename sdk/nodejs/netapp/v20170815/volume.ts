@@ -8,22 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Volume resource
- *
- * ## Example Usage
- * ### Volumes_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const volume = new azurerm.netapp.v20170815.Volume("volume", {
- *     accountName: "accountName",
- *     poolName: "poolName",
- *     resourceGroupName: "resourceGroup",
- *     volumeName: "volumeName",
- * });
- *
- * ```
  */
 export class Volume extends pulumi.CustomResource {
     /**

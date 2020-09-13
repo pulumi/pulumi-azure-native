@@ -6,21 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Network watcher in a resource group.
- *
- * ## Example Usage
- * ### Create network watcher
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const networkWatcher = new azurerm.network.v20180801.NetworkWatcher("networkWatcher", {
- *     location: "eastus",
- *     networkWatcherName: "nw1",
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
  */
 export class NetworkWatcher extends pulumi.CustomResource {
     /**

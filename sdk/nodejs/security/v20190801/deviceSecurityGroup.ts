@@ -8,27 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The device security group resource
- *
- * ## Example Usage
- * ### Create or update a device security group for the specified IoT hub resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const deviceSecurityGroup = new azurerm.security.v20190801.DeviceSecurityGroup("deviceSecurityGroup", {
- *     deviceSecurityGroupName: "samplesecuritygroup",
- *     resourceId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub",
- *     timeWindowRules: [{
- *         isEnabled: true,
- *         maxThreshold: 30,
- *         minThreshold: 0,
- *         ruleType: "ActiveConnectionsNotInAllowedRange",
- *         timeWindowSize: "PT05M",
- *     }],
- * });
- *
- * ```
  */
 export class DeviceSecurityGroup extends pulumi.CustomResource {
     /**

@@ -8,34 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes the suppression rule
- *
- * ## Example Usage
- * ### Update or create suppression rule for subscription
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const alertsSuppressionRule = new azurerm.security.v20190101preview.AlertsSuppressionRule("alertsSuppressionRule", {
- *     alertType: "IpAnomaly",
- *     alertsSuppressionRuleName: "dismissIpAnomalyAlerts",
- *     comment: "Test VM",
- *     expirationDateUtc: "2019-12-01T19:50:47.083633Z",
- *     reason: "FalsePositive",
- *     state: "Enabled",
- *     suppressionAlertsScope: {
- *         allOf: [
- *             {
- *                 field: "entities.ip.address",
- *             },
- *             {
- *                 field: "entities.process.commandline",
- *             },
- *         ],
- *     },
- * });
- *
- * ```
  */
 export class AlertsSuppressionRule extends pulumi.CustomResource {
     /**

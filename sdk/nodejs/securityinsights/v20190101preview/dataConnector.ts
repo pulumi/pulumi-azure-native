@@ -6,24 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Data connector.
- *
- * ## Example Usage
- * ### Creates or updates an Office365 data connector.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const dataConnector = new azurerm.securityinsights.v20190101preview.DataConnector("dataConnector", {
- *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
- *     etag: "\"0300bf09-0000-0000-0000-5c37296e0000\"",
- *     kind: "Office365",
- *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
- *     resourceGroupName: "myRg",
- *     workspaceName: "myWorkspace",
- * });
- *
- * ```
  */
 export class DataConnector extends pulumi.CustomResource {
     /**

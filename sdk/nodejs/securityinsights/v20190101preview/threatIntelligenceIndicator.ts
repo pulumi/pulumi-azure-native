@@ -8,40 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Threat intelligence resource.
- *
- * ## Example Usage
- * ### Upsert the Threat Intelligence
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const threatIntelligenceIndicator = new azurerm.securityinsights.v20190101preview.ThreatIntelligenceIndicator("threatIntelligenceIndicator", {
- *     confidence: 78,
- *     createdByRef: "contoso@contoso.com",
- *     description: "debugging indicators",
- *     displayName: "new schema",
- *     externalReferences: [],
- *     granularMarkings: [],
- *     killChainPhases: [],
- *     kind: "indicator",
- *     labels: [],
- *     modified: "",
- *     name: "d9cd6f0b-96b9-3984-17cd-a779d1e15a93",
- *     operationalInsightsResourceProvider: "Microsoft.OperationalIinsights",
- *     pattern: "[url:value = 'https://www.contoso.com']",
- *     patternType: "url",
- *     resourceGroupName: "myRg",
- *     revoked: false,
- *     source: "Azure Sentinel",
- *     threatIntelligenceTags: ["new schema"],
- *     threatTypes: ["compromised"],
- *     validFrom: "2020-04-15T17:44:00.114052Z",
- *     validUntil: "",
- *     workspaceName: "myWorkspace",
- * });
- *
- * ```
  */
 export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
     /**

@@ -8,22 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A file resource
- *
- * ## Example Usage
- * ### Files_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const file = new azurerm.datamigration.v20180715preview.File("file", {
- *     fileName: "x114d023d8",
- *     groupName: "DmsSdkRg",
- *     projectName: "DmsSdkProject",
- *     serviceName: "DmsSdkService",
- * });
- *
- * ```
  */
 export class File extends pulumi.CustomResource {
     /**

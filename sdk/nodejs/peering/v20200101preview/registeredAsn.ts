@@ -6,22 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The customer's ASN that is registered by the peering service provider.
- *
- * ## Example Usage
- * ### Create or update a registered ASN for the peering
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const registeredAsn = new azurerm.peering.v20200101preview.RegisteredAsn("registeredAsn", {
- *     asn: 65000,
- *     peeringName: "peeringName",
- *     registeredAsnName: "registeredAsnName",
- *     resourceGroupName: "rgName",
- * });
- *
- * ```
  */
 export class RegisteredAsn extends pulumi.CustomResource {
     /**

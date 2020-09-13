@@ -6,25 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a cluster principal assignment.
- *
- * ## Example Usage
- * ### KustoClusterPrincipalAssignmentsCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const clusterPrincipalAssignment = new azurerm.kusto.v20200215.ClusterPrincipalAssignment("clusterPrincipalAssignment", {
- *     clusterName: "kustoclusterrptest4",
- *     principalAssignmentName: "kustoprincipal1",
- *     principalId: "87654321-1234-1234-1234-123456789123",
- *     principalType: "App",
- *     resourceGroupName: "kustorptest",
- *     role: "Admin",
- *     tenantId: "12345678-1234-1234-1234-123456789123",
- * });
- *
- * ```
  */
 export class ClusterPrincipalAssignment extends pulumi.CustomResource {
     /**

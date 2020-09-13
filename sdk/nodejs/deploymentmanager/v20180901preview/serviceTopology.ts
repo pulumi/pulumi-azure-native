@@ -6,37 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource representation of a service topology.
- *
- * ## Example Usage
- * ### Create a topology with Artifact Source
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const serviceTopology = new azurerm.deploymentmanager.v20180901preview.ServiceTopology("serviceTopology", {
- *     artifactSourceId: "Microsoft.DeploymentManager/artifactSources/myArtifactSource",
- *     location: "centralus",
- *     resourceGroupName: "myResourceGroup",
- *     serviceTopologyName: "myTopology",
- *     tags: {},
- * });
- *
- * ```
- * ### Create a topology without Artifact Source
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const serviceTopology = new azurerm.deploymentmanager.v20180901preview.ServiceTopology("serviceTopology", {
- *     location: "centralus",
- *     resourceGroupName: "myResourceGroup",
- *     serviceTopologyName: "myTopology",
- *     tags: {},
- * });
- *
- * ```
  */
 export class ServiceTopology extends pulumi.CustomResource {
     /**

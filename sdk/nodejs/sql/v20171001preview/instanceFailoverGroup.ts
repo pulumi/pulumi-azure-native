@@ -8,35 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An instance failover group.
- *
- * ## Example Usage
- * ### Create failover group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const instanceFailoverGroup = new azurerm.sql.v20171001preview.InstanceFailoverGroup("instanceFailoverGroup", {
- *     failoverGroupName: "failover-group-test-3",
- *     locationName: "Japan East",
- *     managedInstancePairs: [{
- *         partnerManagedInstanceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-secondary-mngdInstance",
- *         primaryManagedInstanceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-primary-mngdInstance",
- *     }],
- *     partnerRegions: [{
- *         location: "Japan West",
- *     }],
- *     readOnlyEndpoint: {
- *         failoverPolicy: "Disabled",
- *     },
- *     readWriteEndpoint: {
- *         failoverPolicy: "Automatic",
- *         failoverWithDataLossGracePeriodMinutes: 480,
- *     },
- *     resourceGroupName: "Default",
- * });
- *
- * ```
  */
 export class InstanceFailoverGroup extends pulumi.CustomResource {
     /**

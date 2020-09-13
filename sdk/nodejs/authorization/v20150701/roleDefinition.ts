@@ -8,20 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Role definition.
- *
- * ## Example Usage
- * ### GetConfigurations
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const roleDefinition = new azurerm.authorization.v20150701.RoleDefinition("roleDefinition", {
- *     roleDefinitionId: "roleDefinitionId",
- *     scope: "scope",
- * });
- *
- * ```
  */
 export class RoleDefinition extends pulumi.CustomResource {
     /**

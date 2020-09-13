@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a case relation
- *
- * ## Example Usage
- * ### Creates or updates a case relation.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const caseRelation = new azurerm.securityinsights.v20190101preview.CaseRelation("caseRelation", {
- *     caseId: "afbd324f-6c48-459c-8710-8d1e1cd03812",
- *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
- *     relationName: "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
- *     resourceGroupName: "myRg",
- *     sourceRelationNode: {
- *         relationNodeId: "afbd324f-6c48-459c-8710-8d1e1cd03812",
- *     },
- *     targetRelationNode: {
- *         relationNodeId: "2216d0e1-91e3-4902-89fd-d2df8c535096",
- *     },
- *     workspaceName: "myWorkspace",
- * });
- *
- * ```
  */
 export class CaseRelation extends pulumi.CustomResource {
     /**

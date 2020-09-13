@@ -6,29 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A sensitivity label.
- *
- * ## Example Usage
- * ### Updates the sensitivity label of a given column with all parameters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const sensitivityLabel = new azurerm.sql.v20170301preview.SensitivityLabel("sensitivityLabel", {
- *     columnName: "myColumn",
- *     databaseName: "myDatabase",
- *     informationType: "PhoneNumber",
- *     informationTypeId: "d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
- *     labelId: "bf91e08c-f4f0-478a-b016-25164b2a65ff",
- *     labelName: "PII",
- *     resourceGroupName: "myRG",
- *     schemaName: "dbo",
- *     sensitivityLabelSource: "current",
- *     serverName: "myServer",
- *     tableName: "myTable",
- * });
- *
- * ```
  */
 export class SensitivityLabel extends pulumi.CustomResource {
     /**

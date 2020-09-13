@@ -8,31 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the job schedule.
- *
- * ## Example Usage
- * ### Create a job schedule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const jobSchedule = new azurerm.automation.v20151031.JobSchedule("jobSchedule", {
- *     automationAccountName: "ContoseAutomationAccount",
- *     jobScheduleId: "0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc",
- *     parameters: {
- *         jobscheduletag01: "jobschedulevalue01",
- *         jobscheduletag02: "jobschedulevalue02",
- *     },
- *     resourceGroupName: "rg",
- *     runbook: {
- *         name: "TestRunbook",
- *     },
- *     schedule: {
- *         name: "ScheduleNameGoesHere332204b5-debe-4348-a5c7-6357457189f2",
- *     },
- * });
- *
- * ```
  */
 export class JobSchedule extends pulumi.CustomResource {
     /**

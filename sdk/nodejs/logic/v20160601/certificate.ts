@@ -8,30 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account certificate.
- *
- * ## Example Usage
- * ### Create or update a certificate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const certificate = new azurerm.logic.v20160601.Certificate("certificate", {
- *     certificateName: "testCertificate",
- *     integrationAccountName: "testIntegrationAccount",
- *     key: {
- *         keyName: "<keyName>",
- *         keyVault: {
- *             id: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/<keyVaultName>",
- *         },
- *         keyVersion: "87d9764197604449b9b8eb7bd8710868",
- *     },
- *     location: "brazilsouth",
- *     publicCertificate: "<publicCertificateValue>",
- *     resourceGroupName: "testResourceGroup",
- * });
- *
- * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

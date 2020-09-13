@@ -8,22 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Build step resource properties
- *
- * ## Example Usage
- * ### BuildSteps_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const buildStep = new azurerm.containerregistry.v20180201preview.BuildStep("buildStep", {
- *     buildTaskName: "myBuildTask",
- *     registryName: "myRegistry",
- *     resourceGroupName: "myResourceGroup",
- *     stepName: "myStep",
- * });
- *
- * ```
  */
 export class BuildStep extends pulumi.CustomResource {
     /**

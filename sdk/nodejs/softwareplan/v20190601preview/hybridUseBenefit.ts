@@ -8,23 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Response on GET of a hybrid use benefit
- *
- * ## Example Usage
- * ### HybridUseBenefit
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const hybridUseBenefit = new azurerm.softwareplan.v20190601preview.HybridUseBenefit("hybridUseBenefit", {
- *     planId: "94f46eda-45f8-493a-8425-251921463a89",
- *     scope: "subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}",
- *     sku: {
- *         name: "SQL_Server_Perpetual",
- *     },
- * });
- *
- * ```
  */
 export class HybridUseBenefit extends pulumi.CustomResource {
     /**

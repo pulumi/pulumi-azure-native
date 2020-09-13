@@ -8,35 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Firewall resource
- *
- * ## Example Usage
- * ### Create Azure Firewall
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const azureFirewall = new azurerm.network.v20180801.AzureFirewall("azureFirewall", {
- *     applicationRuleCollections: [{
- *         name: "apprulecoll",
- *     }],
- *     azureFirewallName: "azurefirewall",
- *     ipConfigurations: [{
- *         name: "azureFirewallIpConfiguration",
- *     }],
- *     natRuleCollections: [{
- *         name: "natrulecoll",
- *     }],
- *     networkRuleCollections: [{
- *         name: "netrulecoll",
- *     }],
- *     resourceGroupName: "rg1",
- *     tags: {
- *         key1: "value1",
- *     },
- * });
- *
- * ```
  */
 export class AzureFirewall extends pulumi.CustomResource {
     /**

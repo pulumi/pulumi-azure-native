@@ -8,30 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The response to an extension resource GET request.
- *
- * ## Example Usage
- * ### Create an extension resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const extension = new azurerm.visualstudio.v20171101preview.Extension("extension", {
- *     accountResourceName: "ExampleAccount",
- *     extensionResourceName: "ms.example",
- *     location: "Central US",
- *     plan: {
- *         name: "ExamplePlan",
- *         product: "ExampleExtensionName",
- *         promotionCode: "",
- *         publisher: "ExampleExtensionPublisher",
- *         version: "1.0",
- *     },
- *     resourceGroupName: "VS-Example-Group",
- *     tags: {},
- * });
- *
- * ```
  */
 export class Extension extends pulumi.CustomResource {
     /**

@@ -6,22 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The access control record
- *
- * ## Example Usage
- * ### AccessControlRecordsCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const accessControlRecord = new azurerm.storsimple.v20161001.AccessControlRecord("accessControlRecord", {
- *     accessControlRecordName: "AcrForSDKTest",
- *     initiatorName: "iqn.2017-06.com.contoso:ForTest",
- *     managerName: "hAzureSDKOperations",
- *     resourceGroupName: "ResourceGroupForSDKTest",
- * });
- *
- * ```
  */
 export class AccessControlRecord extends pulumi.CustomResource {
     /**

@@ -8,48 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The policy set definition.
- *
- * ## Example Usage
- * ### Create or update a policy set definition
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const policySetDefinition = new azurerm.authorization.v20180301.PolicySetDefinition("policySetDefinition", {
- *     description: "Policies to enforce low cost storage SKUs",
- *     displayName: "Cost Management",
- *     metadata: {
- *         category: "Cost Management",
- *     },
- *     policyDefinitions: [
- *         {
- *             parameters: {
- *                 listOfAllowedSKUs: {
- *                     value: [
- *                         "Standard_GRS",
- *                         "Standard_LRS",
- *                     ],
- *                 },
- *             },
- *             policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
- *         },
- *         {
- *             parameters: {
- *                 prefix: {
- *                     value: "DeptA",
- *                 },
- *                 suffix: {
- *                     value: "-LC",
- *                 },
- *             },
- *             policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
- *         },
- *     ],
- *     policySetDefinitionName: "CostManagement",
- * });
- *
- * ```
  */
 export class PolicySetDefinition extends pulumi.CustomResource {
     /**

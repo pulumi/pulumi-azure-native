@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A class represent a SignalR service resource.
- *
- * ## Example Usage
- * ### CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const signalR = new azurerm.signalrservice.v20180301preview.SignalR("signalR", {
- *     location: "eastus",
- *     resourceGroupName: "myResourceGroup",
- *     resourceName: "mySignalRService",
- *     sku: {
- *         capacity: 1,
- *         name: "Standard_S1",
- *         tier: "Standard",
- *     },
- *     tags: {
- *         key1: "value1",
- *     },
- * });
- *
- * ```
  */
 export class SignalR extends pulumi.CustomResource {
     /**

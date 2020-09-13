@@ -8,45 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An elastic pool.
- *
- * ## Example Usage
- * ### Create or update elastic pool with all parameter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const elasticPool = new azurerm.sql.v20171001preview.ElasticPool("elasticPool", {
- *     elasticPoolName: "sqlcrudtest-8102",
- *     location: "Japan East",
- *     perDatabaseSettings: {
- *         maxCapacity: 2,
- *         minCapacity: 0.25,
- *     },
- *     resourceGroupName: "sqlcrudtest-2369",
- *     serverName: "sqlcrudtest-8069",
- *     sku: {
- *         capacity: 2,
- *         name: "GP_Gen4_2",
- *         tier: "GeneralPurpose",
- *     },
- * });
- *
- * ```
- * ### Create or update elastic pool with minimum parameters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const elasticPool = new azurerm.sql.v20171001preview.ElasticPool("elasticPool", {
- *     elasticPoolName: "sqlcrudtest-8102",
- *     location: "Japan East",
- *     resourceGroupName: "sqlcrudtest-2369",
- *     serverName: "sqlcrudtest-8069",
- * });
- *
- * ```
  */
 export class ElasticPool extends pulumi.CustomResource {
     /**

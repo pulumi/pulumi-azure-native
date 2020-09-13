@@ -8,37 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The Media Graph.
- *
- * ## Example Usage
- * ### Create or update a Media Graph
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const mediaGraph = new azurerm.media.v20190901preview.MediaGraph("mediaGraph", {
- *     accountName: "contosomedia",
- *     description: "updated description",
- *     mediaGraphName: "SampleMediaGraph",
- *     resourceGroupName: "contoso",
- *     sinks: [{
- *         assetName: "SampleAsset",
- *         inputs: ["rtspSource"],
- *         name: "AssetSink",
- *         odataType: "#Microsoft.Media.MediaGraphAssetSink",
- *     }],
- *     sources: [{
- *         credentials: {
- *             password: "examplepassword",
- *             username: "exampleusername",
- *         },
- *         name: "rtspSource",
- *         odataType: "#Microsoft.Media.MediaGraphRtspSource",
- *         rtspUrl: "rtsp://contoso.com:554/stream1",
- *     }],
- * });
- *
- * ```
  */
 export class MediaGraph extends pulumi.CustomResource {
     /**

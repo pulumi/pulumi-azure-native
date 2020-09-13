@@ -8,50 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Api Operation details.
- *
- * ## Example Usage
- * ### ApiManagementCreateApiOperation
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const apiOperation = new azurerm.apimanagement.v20170301.ApiOperation("apiOperation", {
- *     apiId: "PetStoreTemplate2",
- *     description: "This can only be done by the logged in user.",
- *     displayName: "createUser2",
- *     method: "POST",
- *     operationId: "newoperations",
- *     request: {
- *         description: "Created user object",
- *         headers: [],
- *         queryParameters: [],
- *         representations: [{
- *             contentType: "application/json",
- *             schemaId: "592f6c1d0af5840ca8897f0c",
- *             typeName: "User",
- *         }],
- *     },
- *     resourceGroupName: "rg1",
- *     responses: [{
- *         description: "successful operation",
- *         headers: [],
- *         representations: [
- *             {
- *                 contentType: "application/xml",
- *             },
- *             {
- *                 contentType: "application/json",
- *             },
- *         ],
- *         statusCode: 200,
- *     }],
- *     serviceName: "apimService1",
- *     templateParameters: [],
- *     urlTemplate: "/user1",
- * });
- *
- * ```
  */
 export class ApiOperation extends pulumi.CustomResource {
     /**

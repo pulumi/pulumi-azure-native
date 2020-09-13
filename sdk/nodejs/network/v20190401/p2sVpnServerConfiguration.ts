@@ -8,37 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * P2SVpnServerConfiguration Resource.
- *
- * ## Example Usage
- * ### P2SVpnServerConfigurationPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const p2sVpnServerConfiguration = new azurerm.network.v20190401.P2sVpnServerConfiguration("p2sVpnServerConfiguration", {
- *     p2SVpnServerConfigRadiusServerRootCertificates: [{
- *         name: "p2sVpnServerConfigRadiusServerRootCert1",
- *     }],
- *     p2SVpnServerConfigurationName: "p2sVpnServerConfiguration1",
- *     radiusServerAddress: "8.9.9.9",
- *     radiusServerSecret: "123_abc",
- *     resourceGroupName: "rg1",
- *     virtualWanName: "virtualWan1",
- *     vpnClientIpsecPolicies: [{
- *         dhGroup: "DHGroup14",
- *         ikeEncryption: "AES256",
- *         ikeIntegrity: "SHA384",
- *         ipsecEncryption: "AES256",
- *         ipsecIntegrity: "SHA256",
- *         pfsGroup: "PFS14",
- *         saDataSizeKilobytes: 429497,
- *         saLifeTimeSeconds: 86472,
- *     }],
- *     vpnProtocols: ["IkeV2"],
- * });
- *
- * ```
  */
 export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     /**

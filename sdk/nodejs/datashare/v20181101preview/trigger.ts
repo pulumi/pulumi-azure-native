@@ -6,23 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A Trigger data transfer object.
- *
- * ## Example Usage
- * ### Triggers_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const trigger = new azurerm.datashare.v20181101preview.Trigger("trigger", {
- *     accountName: "Account1",
- *     kind: "ScheduleBased",
- *     resourceGroupName: "SampleResourceGroup",
- *     shareSubscriptionName: "ShareSubscription1",
- *     triggerName: "Trigger1",
- * });
- *
- * ```
  */
 export class Trigger extends pulumi.CustomResource {
     /**

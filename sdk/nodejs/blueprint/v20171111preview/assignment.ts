@@ -8,45 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Blueprint assignment.
- *
- * ## Example Usage
- * ### Assignment
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const assignment = new azurerm.blueprint.v20171111preview.Assignment("assignment", {
- *     assignmentName: "assignSimpleBlueprint",
- *     blueprintId: "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
- *     description: "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     location: "eastus",
- *     parameters: {
- *         costCenter: {
- *             value: "Contoso/Online/Shopping/Production",
- *         },
- *         owners: {
- *             value: [
- *                 "johnDoe@contoso.com",
- *                 "johnsteam@contoso.com",
- *             ],
- *         },
- *         storageAccountType: {
- *             value: "Standard_LRS",
- *         },
- *     },
- *     resourceGroups: {
- *         storageRG: {
- *             location: "eastus",
- *             name: "defaultRG",
- *         },
- *     },
- * });
- *
- * ```
  */
 export class Assignment extends pulumi.CustomResource {
     /**

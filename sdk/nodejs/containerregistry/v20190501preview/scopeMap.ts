@@ -6,26 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a scope map for a container registry.
- *
- * ## Example Usage
- * ### ScopeMapCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const scopeMap = new azurerm.containerregistry.v20190501preview.ScopeMap("scopeMap", {
- *     actions: [
- *         "repositories/myrepository/contentWrite",
- *         "repositories/myrepository/delete",
- *     ],
- *     description: "Developer Scopes",
- *     registryName: "myRegistry",
- *     resourceGroupName: "myResourceGroup",
- *     scopeMapName: "myScopeMap",
- * });
- *
- * ```
  */
 export class ScopeMap extends pulumi.CustomResource {
     /**

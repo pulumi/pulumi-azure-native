@@ -6,22 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Diagnostic details.
- *
- * ## Example Usage
- * ### ApiManagementCreateDiagnostic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const diagnostic = new azurerm.apimanagement.v20170301.Diagnostic("diagnostic", {
- *     diagnosticId: "default",
- *     enabled: true,
- *     resourceGroupName: "rg1",
- *     serviceName: "apimService1",
- * });
- *
- * ```
  */
 export class Diagnostic extends pulumi.CustomResource {
     /**

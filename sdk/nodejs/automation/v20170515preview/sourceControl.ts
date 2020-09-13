@@ -8,32 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the source control.
- *
- * ## Example Usage
- * ### Create or update a source control
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const sourceControl = new azurerm.automation.v20170515preview.SourceControl("sourceControl", {
- *     autoSync: true,
- *     automationAccountName: "sampleAccount9",
- *     branch: "master",
- *     description: "my description",
- *     folderPath: "/folderOne/folderTwo",
- *     publishRunbook: true,
- *     repoUrl: "https://sampleUser.visualstudio.com/myProject/_git/myRepository",
- *     resourceGroupName: "rg",
- *     securityToken: {
- *         accessToken: "3a326f7a0dcd343ea58fee21f2fd5fb4c1234567",
- *         tokenType: "PersonalAccessToken",
- *     },
- *     sourceControlName: "sampleSourceControl",
- *     sourceType: "VsoGit",
- * });
- *
- * ```
  */
 export class SourceControl extends pulumi.CustomResource {
     /**

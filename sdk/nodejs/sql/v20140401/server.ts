@@ -6,42 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server.
- *
- * ## Example Usage
- * ### Create server max
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const server = new azurerm.sql.v20140401.Server("server", {
- *     administratorLogin: "dummylogin",
- *     administratorLoginPassword: "Un53cuRE!",
- *     location: "Japan East",
- *     resourceGroupName: "sqlcrudtest-7398",
- *     serverName: "sqlcrudtest-4645",
- *     tags: {
- *         tagKey1: "TagValue1",
- *     },
- *     version: "12.0",
- * });
- *
- * ```
- * ### Create server min
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const server = new azurerm.sql.v20140401.Server("server", {
- *     administratorLogin: "dummylogin",
- *     administratorLoginPassword: "Un53cuRE!",
- *     location: "Japan East",
- *     resourceGroupName: "sqlcrudtest-7398",
- *     serverName: "sqlcrudtest-4645",
- * });
- *
- * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

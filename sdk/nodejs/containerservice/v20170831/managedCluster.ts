@@ -8,28 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Managed cluster.
- *
- * ## Example Usage
- * ### Create/Update Managed Cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const managedCluster = new azurerm.containerservice.v20170831.ManagedCluster("managedCluster", {
- *     agentPoolProfiles: [{
- *         count: 1,
- *         name: "agentpool1",
- *         vmSize: "Standard_D2_v2",
- *     }],
- *     dnsPrefix: "dnsprefix1",
- *     kubernetesVersion: "1.7.7",
- *     location: "location1",
- *     resourceGroupName: "rg1",
- *     resourceName: "clustername1",
- * });
- *
- * ```
  */
 export class ManagedCluster extends pulumi.CustomResource {
     /**

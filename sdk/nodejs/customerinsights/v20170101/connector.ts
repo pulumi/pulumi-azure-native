@@ -6,30 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The connector resource format.
- *
- * ## Example Usage
- * ### Connectors_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const connector = new azurerm.customerinsights.v20170101.Connector("connector", {
- *     connectorName: "testConnector",
- *     connectorProperties: {
- *         connectionKeyVaultUrl: {
- *             organizationId: "XXX",
- *             organizationUrl: "https://XXX.crmlivetie.com/",
- *         },
- *     },
- *     connectorType: "AzureBlob",
- *     description: "Test connector",
- *     displayName: "testConnector",
- *     hubName: "sdkTestHub",
- *     resourceGroupName: "TestHubRG",
- * });
- *
- * ```
  */
 export class Connector extends pulumi.CustomResource {
     /**

@@ -6,24 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in a List or Get IpFilterRules operation
- *
- * ## Example Usage
- * ### NameSpaceIpFilterRuleCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const namespaceIpFilterRule = new azurerm.servicebus.v20180101preview.NamespaceIpFilterRule("namespaceIpFilterRule", {
- *     action: "Accept",
- *     filterName: "sdk-IPFilterRules-7337",
- *     ipFilterRuleName: "sdk-IPFilterRules-7337",
- *     ipMask: "13.78.143.246/32",
- *     namespaceName: "sdk-Namespace-5232",
- *     resourceGroupName: "ResourceGroup",
- * });
- *
- * ```
  */
 export class NamespaceIpFilterRule extends pulumi.CustomResource {
     /**

@@ -6,26 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the watcher type.
- *
- * ## Example Usage
- * ### Create or update watcher
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const watcher = new azurerm.automation.v20151031.Watcher("watcher", {
- *     automationAccountName: "MyTestAutomationAccount",
- *     description: "This is a test watcher.",
- *     executionFrequencyInSeconds: 60,
- *     resourceGroupName: "rg",
- *     scriptName: "MyTestWatcherRunbook",
- *     scriptRunOn: "MyTestHybridWorkerGroup",
- *     tags: {},
- *     watcherName: "MyTestWatcher",
- * });
- *
- * ```
  */
 export class Watcher extends pulumi.CustomResource {
     /**

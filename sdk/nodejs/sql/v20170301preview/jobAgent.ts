@@ -8,45 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL job agent.
- *
- * ## Example Usage
- * ### Create or update a job agent with all properties
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const jobAgent = new azurerm.sql.v20170301preview.JobAgent("jobAgent", {
- *     databaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/db1",
- *     jobAgentName: "agent1",
- *     location: "southeastasia",
- *     resourceGroupName: "group1",
- *     serverName: "server1",
- *     sku: {
- *         capacity: 100,
- *         name: "Agent",
- *     },
- *     tags: {
- *         octopus: "agent",
- *     },
- * });
- *
- * ```
- * ### Create or update a job agent with minimum properties
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const jobAgent = new azurerm.sql.v20170301preview.JobAgent("jobAgent", {
- *     databaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/db1",
- *     jobAgentName: "agent1",
- *     location: "southeastasia",
- *     resourceGroupName: "group1",
- *     serverName: "server1",
- * });
- *
- * ```
  */
 export class JobAgent extends pulumi.CustomResource {
     /**

@@ -6,21 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An application security group in a resource group.
- *
- * ## Example Usage
- * ### Create application security group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const applicationSecurityGroup = new azurerm.network.v20190901.ApplicationSecurityGroup("applicationSecurityGroup", {
- *     applicationSecurityGroupName: "test-asg",
- *     location: "westus",
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
  */
 export class ApplicationSecurityGroup extends pulumi.CustomResource {
     /**

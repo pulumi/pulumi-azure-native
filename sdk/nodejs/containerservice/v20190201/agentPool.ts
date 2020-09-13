@@ -6,25 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Agent Pool.
- *
- * ## Example Usage
- * ### Create/Update Agent Pool
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const agentPool = new azurerm.containerservice.v20190201.AgentPool("agentPool", {
- *     agentPoolName: "agentpool1",
- *     count: 3,
- *     managedClusterName: "clustername1",
- *     orchestratorVersion: "",
- *     osType: "Linux",
- *     resourceGroupName: "rg1",
- *     vmSize: "Standard_DS1_v2",
- * });
- *
- * ```
  */
 export class AgentPool extends pulumi.CustomResource {
     /**

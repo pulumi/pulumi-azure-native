@@ -8,66 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A group of job targets.
- *
- * ## Example Usage
- * ### Create or update a target group with all properties.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const jobTargetGroup = new azurerm.sql.v20170301preview.JobTargetGroup("jobTargetGroup", {
- *     jobAgentName: "agent1",
- *     members: [
- *         {
- *             databaseName: "database1",
- *             membershipType: "Exclude",
- *             serverName: "server1",
- *             type: "SqlDatabase",
- *         },
- *         {
- *             membershipType: "Include",
- *             refreshCredential: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
- *             serverName: "server1",
- *             type: "SqlServer",
- *         },
- *         {
- *             elasticPoolName: "pool1",
- *             membershipType: "Include",
- *             refreshCredential: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
- *             serverName: "server2",
- *             type: "SqlElasticPool",
- *         },
- *         {
- *             databaseName: "database1",
- *             membershipType: "Include",
- *             refreshCredential: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
- *             serverName: "server3",
- *             shardMapName: "shardMap1",
- *             type: "SqlShardMap",
- *         },
- *     ],
- *     resourceGroupName: "group1",
- *     serverName: "server1",
- *     targetGroupName: "targetGroup1",
- * });
- *
- * ```
- * ### Create or update a target group with minimal properties.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const jobTargetGroup = new azurerm.sql.v20170301preview.JobTargetGroup("jobTargetGroup", {
- *     jobAgentName: "agent1",
- *     members: [],
- *     resourceGroupName: "group1",
- *     serverName: "server1",
- *     targetGroupName: "targetGroup1",
- * });
- *
- * ```
  */
 export class JobTargetGroup extends pulumi.CustomResource {
     /**

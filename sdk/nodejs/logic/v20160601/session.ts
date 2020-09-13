@@ -6,25 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account session.
- *
- * ## Example Usage
- * ### SessionsCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const session = new azurerm.logic.v20160601.Session("session", {
- *     content: {
- *         controlNumber: "1234",
- *         controlNumberChangedTime: "2017-02-21T22:30:11.9923759Z",
- *     },
- *     integrationAccountName: "testia123",
- *     resourceGroupName: "testrg123",
- *     sessionName: "testsession123-ICN",
- * });
- *
- * ```
  */
 export class Session extends pulumi.CustomResource {
     /**

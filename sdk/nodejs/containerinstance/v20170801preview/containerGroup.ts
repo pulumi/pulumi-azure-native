@@ -8,28 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A container group.
- *
- * ## Example Usage
- * ### ContainerGroupsCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const containerGroup = new azurerm.containerinstance.v20170801preview.ContainerGroup("containerGroup", {
- *     containerGroupName: "demo1",
- *     containers: [{
- *         name: "demo1",
- *     }],
- *     ipAddress: {
- *         type: "Public",
- *     },
- *     location: "west us",
- *     osType: "Linux",
- *     resourceGroupName: "demo",
- * });
- *
- * ```
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**

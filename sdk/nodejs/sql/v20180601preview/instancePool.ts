@@ -8,51 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL instance pool.
- *
- * ## Example Usage
- * ### Create an instance pool with all properties.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const instancePool = new azurerm.sql.v20180601preview.InstancePool("instancePool", {
- *     instancePoolName: "testIP",
- *     licenseType: "LicenseIncluded",
- *     resourceGroupName: "group1",
- *     sku: {
- *         family: "Gen5",
- *         name: "GP_Gen5",
- *         tier: "GeneralPurpose",
- *     },
- *     subnetId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetwork/myvnet/subnets/mysubnet1",
- *     tags: {
- *         a: "b",
- *     },
- *     vCores: 8,
- * });
- *
- * ```
- * ### Create an instance pool with min properties.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const instancePool = new azurerm.sql.v20180601preview.InstancePool("instancePool", {
- *     instancePoolName: "testIP",
- *     licenseType: "LicenseIncluded",
- *     resourceGroupName: "group1",
- *     sku: {
- *         family: "Gen5",
- *         name: "GP_Gen5",
- *         tier: "GeneralPurpose",
- *     },
- *     subnetId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetwork/myvnet/subnets/mysubnet1",
- *     vCores: 8,
- * });
- *
- * ```
  */
 export class InstancePool extends pulumi.CustomResource {
     /**

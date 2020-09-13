@@ -6,28 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The bandwidth schedule details.
- *
- * ## Example Usage
- * ### BandwidthSchedulePut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const bandwidthSchedule = new azurerm.databoxedge.v20200501preview.BandwidthSchedule("bandwidthSchedule", {
- *     days: [
- *         "Sunday",
- *         "Monday",
- *     ],
- *     deviceName: "testedgedevice",
- *     name: "bandwidth-1",
- *     rateInMbps: 100,
- *     resourceGroupName: "GroupForEdgeAutomation",
- *     start: "0:0:0",
- *     stop: "13:59:0",
- * });
- *
- * ```
  */
 export class BandwidthSchedule extends pulumi.CustomResource {
     /**

@@ -6,23 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A virtual network rule.
- *
- * ## Example Usage
- * ### Create or update a virtual network rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const virtualNetworkRule = new azurerm.sql.v20150501preview.VirtualNetworkRule("virtualNetworkRule", {
- *     ignoreMissingVnetServiceEndpoint: false,
- *     resourceGroupName: "Default",
- *     serverName: "vnet-test-svr",
- *     virtualNetworkRuleName: "vnet-firewall-rule",
- *     virtualNetworkSubnetId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
- * });
- *
- * ```
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**

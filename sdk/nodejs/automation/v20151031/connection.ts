@@ -8,30 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the connection.
- *
- * ## Example Usage
- * ### Create or update connection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const connection = new azurerm.automation.v20151031.Connection("connection", {
- *     automationAccountName: "myAutomationAccount28",
- *     connectionName: "mysConnection",
- *     connectionType: {
- *         name: "Azure",
- *     },
- *     description: "my description goes here",
- *     fieldDefinitionValues: {
- *         AutomationCertificateName: "mysCertificateName",
- *         SubscriptionID: "subid",
- *     },
- *     name: "mysConnection",
- *     resourceGroupName: "rg",
- * });
- *
- * ```
  */
 export class Connection extends pulumi.CustomResource {
     /**

@@ -8,25 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A Database Migration Service resource
- *
- * ## Example Usage
- * ### Services_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const service = new azurerm.datamigration.v20180715preview.Service("service", {
- *     groupName: "DmsSdkRg",
- *     location: "southcentralus",
- *     serviceName: "DmsSdkService",
- *     sku: {
- *         name: "Basic_1vCore",
- *     },
- *     virtualSubnetId: "/subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkTestNetwork/providers/Microsoft.Network/virtualNetworks/DmsSdkTestNetwork/subnets/default",
- * });
- *
- * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

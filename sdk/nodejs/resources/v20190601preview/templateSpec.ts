@@ -8,22 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Template Spec object.
- *
- * ## Example Usage
- * ### TemplateSpecsCreateUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const templateSpec = new azurerm.resources.v20190601preview.TemplateSpec("templateSpec", {
- *     description: "A very simple Template Spec",
- *     location: "eastus",
- *     resourceGroupName: "templateSpecRG",
- *     templateSpecName: "simpleTemplateSpec",
- * });
- *
- * ```
  */
 export class TemplateSpec extends pulumi.CustomResource {
     /**

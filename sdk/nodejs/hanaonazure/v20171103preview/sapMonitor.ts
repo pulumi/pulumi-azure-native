@@ -6,29 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * SAP monitor info on Azure (ARM properties and SAP monitor properties)
- *
- * ## Example Usage
- * ### Create a SAP Monitor
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const sapMonitor = new azurerm.hanaonazure.v20171103preview.SapMonitor("sapMonitor", {
- *     enableCustomerAnalytics: true,
- *     hanaDbName: "",
- *     hanaDbPassword: "",
- *     hanaDbSqlPort: 1234,
- *     hanaDbUsername: "",
- *     hanaHostname: "",
- *     hanaSubnet: "",
- *     location: "westus",
- *     logAnalyticsWorkspaceSharedKey: "",
- *     resourceGroupName: "myResourceGroup",
- *     sapMonitorName: "mySapMonitor",
- * });
- *
- * ```
  */
 export class SapMonitor extends pulumi.CustomResource {
     /**

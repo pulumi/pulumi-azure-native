@@ -8,25 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB MongoDB database.
- *
- * ## Example Usage
- * ### CosmosDBMongoDBDatabaseCreateUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const databaseAccountMongoDBDatabase = new azurerm.documentdb.v20160319.DatabaseAccountMongoDBDatabase("databaseAccountMongoDBDatabase", {
- *     accountName: "ddb1",
- *     databaseName: "databaseName",
- *     options: {},
- *     resource: {
- *         id: "updatedDatabaseName",
- *     },
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
  */
 export class DatabaseAccountMongoDBDatabase extends pulumi.CustomResource {
     /**

@@ -6,25 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing an event hub connection.
- *
- * ## Example Usage
- * ### KustoEventHubConnectionsCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const eventHubConnection = new azurerm.kusto.v20170907privatepreview.EventHubConnection("eventHubConnection", {
- *     clusterName: "KustoClusterRPTest4",
- *     consumerGroup: "testConsumerGroup1",
- *     databaseName: "KustoDatabase8",
- *     eventHubConnectionName: "kustoeventhubconnection1",
- *     eventHubResourceId: "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
- *     location: "westus",
- *     resourceGroupName: "kustorptest",
- * });
- *
- * ```
  */
 export class EventHubConnection extends pulumi.CustomResource {
     /**

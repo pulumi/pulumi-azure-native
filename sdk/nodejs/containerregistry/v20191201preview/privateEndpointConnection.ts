@@ -8,25 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a private endpoint connection for a container registry.
- *
- * ## Example Usage
- * ### PrivateEndpointConnectionCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const privateEndpointConnection = new azurerm.containerregistry.v20191201preview.PrivateEndpointConnection("privateEndpointConnection", {
- *     privateEndpointConnectionName: "myConnection",
- *     privateLinkServiceConnectionState: {
- *         description: "Auto-Approved",
- *         status: "Approved",
- *     },
- *     registryName: "myRegistry",
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

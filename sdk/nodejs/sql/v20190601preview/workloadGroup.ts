@@ -6,45 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Workload group operations for a data warehouse
- *
- * ## Example Usage
- * ### Create a workload group with all properties specified.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const workloadGroup = new azurerm.sql.v20190601preview.WorkloadGroup("workloadGroup", {
- *     databaseName: "testdb",
- *     importance: "normal",
- *     maxResourcePercent: 100,
- *     maxResourcePercentPerRequest: 3,
- *     minResourcePercent: 0,
- *     minResourcePercentPerRequest: 3,
- *     queryExecutionTimeout: 0,
- *     resourceGroupName: "Default-SQL-SouthEastAsia",
- *     serverName: "testsvr",
- *     workloadGroupName: "smallrc",
- * });
- *
- * ```
- * ### Create a workload group with the required properties specified.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const workloadGroup = new azurerm.sql.v20190601preview.WorkloadGroup("workloadGroup", {
- *     databaseName: "testdb",
- *     maxResourcePercent: 100,
- *     minResourcePercent: 0,
- *     minResourcePercentPerRequest: 3,
- *     resourceGroupName: "Default-SQL-SouthEastAsia",
- *     serverName: "testsvr",
- *     workloadGroupName: "smallrc",
- * });
- *
- * ```
  */
 export class WorkloadGroup extends pulumi.CustomResource {
     /**

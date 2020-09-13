@@ -8,34 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The policy assignment.
- *
- * ## Example Usage
- * ### Create or update a policy assignment
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const policyAssignment = new azurerm.authorization.v20180301.PolicyAssignment("policyAssignment", {
- *     description: "Force resource names to begin with given DeptA and end with -LC",
- *     displayName: "Enforce resource naming rules",
- *     metadata: {
- *         assignedBy: "Special Someone",
- *     },
- *     parameters: {
- *         prefix: {
- *             value: "DeptA",
- *         },
- *         suffix: {
- *             value: "-LC",
- *         },
- *     },
- *     policyAssignmentName: "EnforceNaming",
- *     policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
- *     scope: "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
- * });
- *
- * ```
  */
 export class PolicyAssignment extends pulumi.CustomResource {
     /**

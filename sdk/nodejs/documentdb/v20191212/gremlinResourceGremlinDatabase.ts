@@ -8,27 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Gremlin database.
- *
- * ## Example Usage
- * ### CosmosDBGremlinDatabaseCreateUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const gremlinResourceGremlinDatabase = new azurerm.documentdb.v20191212.GremlinResourceGremlinDatabase("gremlinResourceGremlinDatabase", {
- *     accountName: "ddb1",
- *     databaseName: "databaseName",
- *     location: "West US",
- *     options: {},
- *     resource: {
- *         id: "databaseName",
- *     },
- *     resourceGroupName: "rg1",
- *     tags: {},
- * });
- *
- * ```
  */
 export class GremlinResourceGremlinDatabase extends pulumi.CustomResource {
     /**

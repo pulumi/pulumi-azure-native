@@ -8,25 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Gateway details.
- *
- * ## Example Usage
- * ### ApiManagementCreateGateway
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const gateway = new azurerm.apimanagement.v20191201preview.Gateway("gateway", {
- *     description: "my gateway 1",
- *     gatewayId: "gw1",
- *     locationData: {
- *         name: "my location",
- *     },
- *     resourceGroupName: "rg1",
- *     serviceName: "apimService1",
- * });
- *
- * ```
  */
 export class Gateway extends pulumi.CustomResource {
     /**

@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a Namespace resource.
- *
- * ## Example Usage
- * ### RelayNamespaceCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const namespace = new azurerm.relay.v20160701.Namespace("namespace", {
- *     location: "West US",
- *     namespaceName: "sdk-RelayNamespace-01",
- *     resourceGroupName: "RG-eg",
- *     sku: {
- *         name: "Standard",
- *         tier: "Standard",
- *     },
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value2",
- *     },
- * });
- *
- * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**
