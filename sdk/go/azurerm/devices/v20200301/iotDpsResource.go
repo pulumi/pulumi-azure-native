@@ -16,6 +16,31 @@ import (
 // ### DPSCreate
 //
 // ```go
+// package main
+//
+// import (
+// 	devices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/devices/v20200301"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := devices.NewIotDpsResource(ctx, "iotDpsResource", &devices.IotDpsResourceArgs{
+// 			Location:                pulumi.String("East US"),
+// 			ProvisioningServiceName: pulumi.String("myFirstProvisioningService"),
+// 			ResourceGroupName:       pulumi.String("myResourceGroup"),
+// 			Sku: &devices.IotDpsSkuInfoArgs{
+// 				Capacity: pulumi.Int(1),
+// 				Name:     pulumi.String("S1"),
+// 			},
+// 			Tags: nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 type IotDpsResource struct {

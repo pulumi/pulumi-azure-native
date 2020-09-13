@@ -16,11 +16,56 @@ import (
 // ### Create or update a simple gallery with sharing profile.
 //
 // ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200930"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewGallery(ctx, "gallery", &compute.GalleryArgs{
+// 			Description:       pulumi.String("This is the gallery description."),
+// 			GalleryName:       pulumi.String("myGalleryName"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			SharingProfile: &compute.SharingProfileArgs{
+// 				Permissions: pulumi.String("Groups"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 // ### Create or update a simple gallery.
 //
 // ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200930"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewGallery(ctx, "gallery", &compute.GalleryArgs{
+// 			Description:       pulumi.String("This is the gallery description."),
+// 			GalleryName:       pulumi.String("myGalleryName"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 type Gallery struct {

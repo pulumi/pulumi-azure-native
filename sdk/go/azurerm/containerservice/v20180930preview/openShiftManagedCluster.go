@@ -48,7 +48,7 @@ import (
 // 				IdentityProviders: containerservice.OpenShiftManagedClusterIdentityProviderArray{
 // 					&containerservice.OpenShiftManagedClusterIdentityProviderArgs{
 // 						Name: pulumi.String("Azure AD"),
-// 						Provider: &containerservice.OpenShiftManagedClusterBaseIdentityProviderArgs{
+// 						Provider: &containerservice.OpenShiftManagedClusterAADIdentityProviderArgs{
 // 							ClientId:             pulumi.String("{clientId}"),
 // 							CustomerAdminGroupId: pulumi.String("{customerAdminGroupId}"),
 // 							Kind:                 pulumi.String("AADIdentityProvider"),

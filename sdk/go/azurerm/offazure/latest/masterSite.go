@@ -16,6 +16,26 @@ import (
 // ### Create Master site
 //
 // ```go
+// package main
+//
+// import (
+// 	offazure "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/offazure/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := offazure.NewMasterSite(ctx, "masterSite", &offazure.MasterSiteArgs{
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("poshukla"),
+// 			SiteName:          pulumi.String("masterSite1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 type MasterSite struct {

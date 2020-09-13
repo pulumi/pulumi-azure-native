@@ -57,8 +57,8 @@ import (
 // 			AdministratorLogin:         pulumi.String("cloudsa"),
 // 			AdministratorLoginPassword: pulumi.String("password"),
 // 			AvailabilityZone:           pulumi.String("1"),
-// 			DelegatedSubnetArguments: pulumi.StringMap{
-// 				"subnetArmResourceId": pulumi.String("/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet"),
+// 			DelegatedSubnetArguments: &dbforpostgresql.ServerPropertiesDelegatedSubnetArgumentsArgs{
+// 				SubnetArmResourceId: pulumi.String("/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet"),
 // 			},
 // 			HaEnabled:         pulumi.String("Enabled"),
 // 			Location:          pulumi.String("westus"),

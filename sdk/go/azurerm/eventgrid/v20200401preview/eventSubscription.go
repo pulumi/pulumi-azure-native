@@ -16,254 +16,36 @@ import (
 // ### EventSubscriptions_CreateOrUpdateForCustomTopic_EventHubDestination
 //
 // ```go
-// package main
-//
-// import (
-// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200401preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventgrid.NewEventSubscription(ctx, "eventSubscription", &eventgrid.EventSubscriptionArgs{
-// 			DeadLetterDestination: &eventgrid.DeadLetterDestinationArgs{
-// 				EndpointType: pulumi.String("StorageBlob"),
-// 			},
-// 			Destination: &eventgrid.EventSubscriptionDestinationArgs{
-// 				EndpointType: pulumi.String("EventHub"),
-// 				Properties: pulumi.StringMap{
-// 					"resourceId": pulumi.String("/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1"),
-// 				},
-// 			},
-// 			EventSubscriptionName: pulumi.String("examplesubscription1"),
-// 			Filter: &eventgrid.EventSubscriptionFilterArgs{
-// 				IsSubjectCaseSensitive: pulumi.Bool(false),
-// 				SubjectBeginsWith:      pulumi.String("ExamplePrefix"),
-// 				SubjectEndsWith:        pulumi.String("ExampleSuffix"),
-// 			},
-// 			Scope: pulumi.String("subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### EventSubscriptions_CreateOrUpdateForCustomTopic_HybridConnectionDestination
 //
 // ```go
-// package main
-//
-// import (
-// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200401preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventgrid.NewEventSubscription(ctx, "eventSubscription", &eventgrid.EventSubscriptionArgs{
-// 			DeadLetterDestination: &eventgrid.DeadLetterDestinationArgs{
-// 				EndpointType: pulumi.String("StorageBlob"),
-// 			},
-// 			Destination: &eventgrid.EventSubscriptionDestinationArgs{
-// 				EndpointType: pulumi.String("HybridConnection"),
-// 				Properties: pulumi.StringMap{
-// 					"resourceId": pulumi.String("/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Relay/namespaces/ContosoNamespace/hybridConnections/HC1"),
-// 				},
-// 			},
-// 			EventSubscriptionName: pulumi.String("examplesubscription1"),
-// 			Filter: &eventgrid.EventSubscriptionFilterArgs{
-// 				IsSubjectCaseSensitive: pulumi.Bool(false),
-// 				SubjectBeginsWith:      pulumi.String("ExamplePrefix"),
-// 				SubjectEndsWith:        pulumi.String("ExampleSuffix"),
-// 			},
-// 			Scope: pulumi.String("subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### EventSubscriptions_CreateOrUpdateForCustomTopic_StorageQueueDestination
 //
 // ```go
-// package main
-//
-// import (
-// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200401preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventgrid.NewEventSubscription(ctx, "eventSubscription", &eventgrid.EventSubscriptionArgs{
-// 			DeadLetterDestination: &eventgrid.DeadLetterDestinationArgs{
-// 				EndpointType: pulumi.String("StorageBlob"),
-// 			},
-// 			Destination: &eventgrid.EventSubscriptionDestinationArgs{
-// 				EndpointType: pulumi.String("StorageQueue"),
-// 				Properties: pulumi.StringMap{
-// 					"queueName":  pulumi.String("queue1"),
-// 					"resourceId": pulumi.String("/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg"),
-// 				},
-// 			},
-// 			EventSubscriptionName: pulumi.String("examplesubscription1"),
-// 			Filter: &eventgrid.EventSubscriptionFilterArgs{
-// 				IsSubjectCaseSensitive: pulumi.Bool(false),
-// 				SubjectBeginsWith:      pulumi.String("ExamplePrefix"),
-// 				SubjectEndsWith:        pulumi.String("ExampleSuffix"),
-// 			},
-// 			Scope: pulumi.String("subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### EventSubscriptions_CreateOrUpdateForCustomTopic_WebhookDestination
 //
 // ```go
-// package main
-//
-// import (
-// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200401preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventgrid.NewEventSubscription(ctx, "eventSubscription", &eventgrid.EventSubscriptionArgs{
-// 			Destination: &eventgrid.EventSubscriptionDestinationArgs{
-// 				EndpointType: pulumi.String("EventHub"),
-// 				Properties: pulumi.StringMap{
-// 					"resourceId": pulumi.String("/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1"),
-// 				},
-// 			},
-// 			EventSubscriptionName: pulumi.String("examplesubscription1"),
-// 			Filter: &eventgrid.EventSubscriptionFilterArgs{
-// 				IsSubjectCaseSensitive: pulumi.Bool(false),
-// 				SubjectBeginsWith:      pulumi.String("ExamplePrefix"),
-// 				SubjectEndsWith:        pulumi.String("ExampleSuffix"),
-// 			},
-// 			Scope: pulumi.String("subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### EventSubscriptions_CreateOrUpdateForResource
 //
 // ```go
-// package main
-//
-// import (
-// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200401preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventgrid.NewEventSubscription(ctx, "eventSubscription", &eventgrid.EventSubscriptionArgs{
-// 			Destination: &eventgrid.EventSubscriptionDestinationArgs{
-// 				EndpointType: pulumi.String("WebHook"),
-// 				Properties: pulumi.StringMap{
-// 					"endpointUrl": pulumi.String("https://requestb.in/15ksip71"),
-// 				},
-// 			},
-// 			EventSubscriptionName: pulumi.String("examplesubscription10"),
-// 			Filter: &eventgrid.EventSubscriptionFilterArgs{
-// 				IsSubjectCaseSensitive: pulumi.Bool(false),
-// 				SubjectBeginsWith:      pulumi.String("ExamplePrefix"),
-// 				SubjectEndsWith:        pulumi.String("ExampleSuffix"),
-// 			},
-// 			Scope: pulumi.String("subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventHub/namespaces/examplenamespace1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### EventSubscriptions_CreateOrUpdateForResourceGroup
 //
 // ```go
-// package main
-//
-// import (
-// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200401preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventgrid.NewEventSubscription(ctx, "eventSubscription", &eventgrid.EventSubscriptionArgs{
-// 			Destination: &eventgrid.EventSubscriptionDestinationArgs{
-// 				EndpointType: pulumi.String("WebHook"),
-// 				Properties: pulumi.StringMap{
-// 					"endpointUrl": pulumi.String("https://requestb.in/15ksip71"),
-// 				},
-// 			},
-// 			EventSubscriptionName: pulumi.String("examplesubscription2"),
-// 			Filter: &eventgrid.EventSubscriptionFilterArgs{
-// 				IsSubjectCaseSensitive: pulumi.Bool(false),
-// 				SubjectBeginsWith:      pulumi.String("ExamplePrefix"),
-// 				SubjectEndsWith:        pulumi.String("ExampleSuffix"),
-// 			},
-// 			Scope: pulumi.String("subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### EventSubscriptions_CreateOrUpdateForSubscription
 //
 // ```go
-// package main
-//
-// import (
-// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200401preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventgrid.NewEventSubscription(ctx, "eventSubscription", &eventgrid.EventSubscriptionArgs{
-// 			Destination: &eventgrid.EventSubscriptionDestinationArgs{
-// 				EndpointType: pulumi.String("WebHook"),
-// 				Properties: pulumi.StringMap{
-// 					"endpointUrl": pulumi.String("https://requestb.in/15ksip71"),
-// 				},
-// 			},
-// 			EventSubscriptionName: pulumi.String("examplesubscription3"),
-// 			Filter: &eventgrid.EventSubscriptionFilterArgs{
-// 				IsSubjectCaseSensitive: pulumi.Bool(false),
-// 			},
-// 			Scope: pulumi.String("subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 type EventSubscription struct {

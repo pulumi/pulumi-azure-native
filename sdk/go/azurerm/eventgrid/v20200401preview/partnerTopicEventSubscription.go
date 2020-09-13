@@ -16,37 +16,6 @@ import (
 // ### PartnerTopicEventSubscriptions_CreateOrUpdate
 //
 // ```go
-// package main
-//
-// import (
-// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200401preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventgrid.NewPartnerTopicEventSubscription(ctx, "partnerTopicEventSubscription", &eventgrid.PartnerTopicEventSubscriptionArgs{
-// 			Destination: &eventgrid.EventSubscriptionDestinationArgs{
-// 				EndpointType: pulumi.String("WebHook"),
-// 				Properties: pulumi.StringMap{
-// 					"endpointUrl": pulumi.String("https://requestb.in/15ksip71"),
-// 				},
-// 			},
-// 			EventSubscriptionName: pulumi.String("exampleEventSubscriptionName1"),
-// 			Filter: &eventgrid.EventSubscriptionFilterArgs{
-// 				IsSubjectCaseSensitive: pulumi.Bool(false),
-// 				SubjectBeginsWith:      pulumi.String("ExamplePrefix"),
-// 				SubjectEndsWith:        pulumi.String("ExampleSuffix"),
-// 			},
-// 			PartnerTopicName:  pulumi.String("examplePartnerTopic1"),
-// 			ResourceGroupName: pulumi.String("examplerg"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 type PartnerTopicEventSubscription struct {

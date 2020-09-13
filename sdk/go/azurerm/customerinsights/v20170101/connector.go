@@ -29,7 +29,7 @@ import (
 // 			ConnectorName: pulumi.String("testConnector"),
 // 			ConnectorProperties: pulumi.StringMapMap{
 // 				"connectionKeyVaultUrl": pulumi.StringMap{
-// 					"organizationId":  pulumi.String("XXX"),
+// 					"organization_id": pulumi.String("XXX"),
 // 					"organizationUrl": pulumi.String("https://XXX.crmlivetie.com/"),
 // 				},
 // 			},

@@ -30,8 +30,8 @@ import (
 // 			GalleryName:       pulumi.String("myGalleryName"),
 // 			Location:          pulumi.String("West US"),
 // 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			SharingProfile: pulumi.StringMap{
-// 				"permissions": pulumi.String("Groups"),
+// 			SharingProfile: &compute.SharingProfileArgs{
+// 				Permissions: pulumi.String("Groups"),
 // 			},
 // 		})
 // 		if err != nil {

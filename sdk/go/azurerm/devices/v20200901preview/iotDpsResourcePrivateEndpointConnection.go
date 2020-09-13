@@ -16,6 +16,26 @@ import (
 // ### PrivateEndpointConnection_CreateOrUpdate
 //
 // ```go
+// package main
+//
+// import (
+// 	devices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/devices/v20200901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := devices.NewIotDpsResourcePrivateEndpointConnection(ctx, "iotDpsResourcePrivateEndpointConnection", &devices.IotDpsResourcePrivateEndpointConnectionArgs{
+// 			PrivateEndpointConnectionName: pulumi.String("myPrivateEndpointConnection"),
+// 			ResourceGroupName:             pulumi.String("myResourceGroup"),
+// 			ResourceName:                  pulumi.String("myFirstProvisioningService"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 type IotDpsResourcePrivateEndpointConnection struct {

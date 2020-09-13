@@ -42,43 +42,6 @@ import (
 // ### Create a AML Compute
 //
 // ```go
-// package main
-//
-// import (
-// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20200901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
-// 			ComputeName: pulumi.String("compute123"),
-// 			Location:    pulumi.String("eastus"),
-// 			Properties: &machinelearningservices.ComputeArgs{
-// 				EnableNodePublicIp:          pulumi.Bool(true),
-// 				IsolatedNetwork:             pulumi.Bool(false),
-// 				OsType:                      pulumi.String("Windows"),
-// 				RemoteLoginPortPublicAccess: pulumi.String("NotSpecified"),
-// 				ScaleSettings: pulumi.Map{
-// 					"maxNodeCount":                pulumi.Float64(1),
-// 					"minNodeCount":                pulumi.Float64(0),
-// 					"nodeIdleTimeBeforeScaleDown": pulumi.String("PT5M"),
-// 				},
-// 				VirtualMachineImage: pulumi.StringMap{
-// 					"id": pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myImageGallery/images/myImageDefinition/versions/0.0.1"),
-// 				},
-// 				VmPriority: pulumi.String("Dedicated"),
-// 				VmSize:     pulumi.String("STANDARD_NC6"),
-// 			},
-// 			ResourceGroupName: pulumi.String("testrg123"),
-// 			WorkspaceName:     pulumi.String("workspaces123"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Create a DataFactory Compute
@@ -110,133 +73,21 @@ import (
 // ### Create an ComputeInstance Compute
 //
 // ```go
-// package main
-//
-// import (
-// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20200901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
-// 			ComputeName: pulumi.String("compute123"),
-// 			Location:    pulumi.String("eastus"),
-// 			Properties: &machinelearningservices.ComputeArgs{
-// 				ApplicationSharingPolicy:         pulumi.String("Personal"),
-// 				ComputeInstanceAuthorizationType: pulumi.String("personal"),
-// 				PersonalComputeInstanceSettings: pulumi.StringMapMap{
-// 					"assignedUser": pulumi.StringMap{
-// 						"objectId": pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 						"tenantId": pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 					},
-// 				},
-// 				SshSettings: pulumi.StringMap{
-// 					"sshPublicAccess": pulumi.String("Disabled"),
-// 				},
-// 				Subnet: pulumi.String("test-subnet-resource-id"),
-// 				VmSize: pulumi.String("STANDARD_NC6"),
-// 			},
-// 			ResourceGroupName: pulumi.String("testrg123"),
-// 			WorkspaceName:     pulumi.String("workspaces123"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Create an ComputeInstance Compute with minimal inputs
 //
 // ```go
-// package main
-//
-// import (
-// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20200901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
-// 			ComputeName: pulumi.String("compute123"),
-// 			Location:    pulumi.String("eastus"),
-// 			Properties: &machinelearningservices.ComputeArgs{
-// 				VmSize: pulumi.String("STANDARD_NC6"),
-// 			},
-// 			ResourceGroupName: pulumi.String("testrg123"),
-// 			WorkspaceName:     pulumi.String("workspaces123"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Update a AKS Compute
 //
 // ```go
-// package main
-//
-// import (
-// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20200901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
-// 			ComputeName: pulumi.String("compute123"),
-// 			Location:    pulumi.String("eastus"),
-// 			Properties: &machinelearningservices.ComputeArgs{
-// 				AgentCount: pulumi.Float64(4),
-// 			},
-// 			ResourceGroupName: pulumi.String("testrg123"),
-// 			WorkspaceName:     pulumi.String("workspaces123"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Update a AML Compute
 //
 // ```go
-// package main
-//
-// import (
-// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20200901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
-// 			ComputeName: pulumi.String("compute123"),
-// 			Location:    pulumi.String("eastus"),
-// 			Properties: &machinelearningservices.ComputeArgs{
-// 				ScaleSettings: pulumi.Map{
-// 					"maxNodeCount":                pulumi.Float64(4),
-// 					"minNodeCount":                pulumi.Float64(4),
-// 					"nodeIdleTimeBeforeScaleDown": pulumi.String("PT5M"),
-// 				},
-// 			},
-// 			ResourceGroupName: pulumi.String("testrg123"),
-// 			WorkspaceName:     pulumi.String("workspaces123"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 type MachineLearningCompute struct {

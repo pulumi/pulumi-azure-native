@@ -26,7 +26,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := apimanagement.NewApiRelease(ctx, "apiRelease", &apimanagement.ApiReleaseArgs{
-// 			ApiId:             pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/a1"),
+// 			ApiId:             pulumi.String("a1"),
 // 			Notes:             pulumi.String("yahooagain"),
 // 			ReleaseId:         pulumi.String("testrev"),
 // 			ResourceGroupName: pulumi.String("rg1"),

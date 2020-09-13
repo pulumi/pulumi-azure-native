@@ -16,26 +16,180 @@ import (
 // ### Create Agent Pool with Ephemeral OS Disk
 //
 // ```go
+// package main
+//
+// import (
+// 	containerservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerservice/v20200901"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerservice.NewAgentPool(ctx, "agentPool", &containerservice.AgentPoolArgs{
+// 			AgentPoolName:       pulumi.String("agentpool1"),
+// 			Count:               pulumi.Int(3),
+// 			OrchestratorVersion: pulumi.String(""),
+// 			OsDiskSizeGB:        pulumi.Int(64),
+// 			OsDiskType:          pulumi.String("Ephemeral"),
+// 			OsType:              pulumi.String("Linux"),
+// 			ResourceGroupName:   pulumi.String("rg1"),
+// 			ResourceName:        pulumi.String("clustername1"),
+// 			VmSize:              pulumi.String("Standard_DS2_v2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 // ### Create Agent Pool with PPG
 //
 // ```go
+// package main
+//
+// import (
+// 	containerservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerservice/v20200901"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerservice.NewAgentPool(ctx, "agentPool", &containerservice.AgentPoolArgs{
+// 			AgentPoolName:             pulumi.String("agentpool1"),
+// 			Count:                     pulumi.Int(3),
+// 			OrchestratorVersion:       pulumi.String(""),
+// 			OsType:                    pulumi.String("Linux"),
+// 			ProximityPlacementGroupID: pulumi.String("/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/proximityPlacementGroups/ppg1"),
+// 			ResourceGroupName:         pulumi.String("rg1"),
+// 			ResourceName:              pulumi.String("clustername1"),
+// 			VmSize:                    pulumi.String("Standard_DS2_v2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 // ### Create Spot Agent Pool
 //
 // ```go
+// package main
+//
+// import (
+// 	containerservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerservice/v20200901"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerservice.NewAgentPool(ctx, "agentPool", &containerservice.AgentPoolArgs{
+// 			AgentPoolName: pulumi.String("agentpool1"),
+// 			Count:         pulumi.Int(3),
+// 			NodeLabels: pulumi.StringMap{
+// 				"key1": pulumi.String("val1"),
+// 			},
+// 			NodeTaints: pulumi.StringArray{
+// 				pulumi.String("Key1=Value1:NoSchedule"),
+// 			},
+// 			OrchestratorVersion:    pulumi.String(""),
+// 			OsType:                 pulumi.String("Linux"),
+// 			ResourceGroupName:      pulumi.String("rg1"),
+// 			ResourceName:           pulumi.String("clustername1"),
+// 			ScaleSetEvictionPolicy: pulumi.String("Delete"),
+// 			ScaleSetPriority:       pulumi.String("Spot"),
+// 			Tags: pulumi.StringMap{
+// 				"name1": pulumi.String("val1"),
+// 			},
+// 			VmSize: pulumi.String("Standard_DS1_v2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 // ### Create/Update Agent Pool
 //
 // ```go
+// package main
+//
+// import (
+// 	containerservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerservice/v20200901"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerservice.NewAgentPool(ctx, "agentPool", &containerservice.AgentPoolArgs{
+// 			AgentPoolName: pulumi.String("agentpool1"),
+// 			Count:         pulumi.Int(3),
+// 			Mode:          pulumi.String("User"),
+// 			NodeLabels: pulumi.StringMap{
+// 				"key1": pulumi.String("val1"),
+// 			},
+// 			NodeTaints: pulumi.StringArray{
+// 				pulumi.String("Key1=Value1:NoSchedule"),
+// 			},
+// 			OrchestratorVersion:    pulumi.String(""),
+// 			OsType:                 pulumi.String("Linux"),
+// 			ResourceGroupName:      pulumi.String("rg1"),
+// 			ResourceName:           pulumi.String("clustername1"),
+// 			ScaleSetEvictionPolicy: pulumi.String("Delete"),
+// 			ScaleSetPriority:       pulumi.String("Spot"),
+// 			Tags: pulumi.StringMap{
+// 				"name1": pulumi.String("val1"),
+// 			},
+// 			VmSize: pulumi.String("Standard_DS1_v2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 // ### Update Agent Pool
 //
 // ```go
+// package main
+//
+// import (
+// 	containerservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerservice/v20200901"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerservice.NewAgentPool(ctx, "agentPool", &containerservice.AgentPoolArgs{
+// 			AgentPoolName:     pulumi.String("agentpool1"),
+// 			Count:             pulumi.Int(3),
+// 			EnableAutoScaling: pulumi.Bool(true),
+// 			MaxCount:          pulumi.Int(2),
+// 			MinCount:          pulumi.Int(2),
+// 			NodeTaints: pulumi.StringArray{
+// 				pulumi.String("Key1=Value1:NoSchedule"),
+// 			},
+// 			OrchestratorVersion:    pulumi.String(""),
+// 			OsType:                 pulumi.String("Linux"),
+// 			ResourceGroupName:      pulumi.String("rg1"),
+// 			ResourceName:           pulumi.String("clustername1"),
+// 			ScaleSetEvictionPolicy: pulumi.String("Delete"),
+// 			ScaleSetPriority:       pulumi.String("Spot"),
+// 			VmSize:                 pulumi.String("Standard_DS1_v2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 type AgentPool struct {

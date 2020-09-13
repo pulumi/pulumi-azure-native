@@ -71,17 +71,17 @@ import (
 // 				},
 // 			},
 // 			ManagedRules: &network.ManagedRuleSetsArgs{
-// 				RuleSets: network.ManagedRuleSetArray{
-// 					&network.ManagedRuleSetArgs{
+// 				RuleSets: network.AzureManagedRuleSetArray{
+// 					&network.AzureManagedRuleSetArgs{
 // 						Priority: pulumi.Int(1),
-// 						RuleGroupOverrides: pulumi.StringMapArray{
-// 							pulumi.StringMap{
-// 								"action":            pulumi.String("Block"),
-// 								"ruleGroupOverride": pulumi.String("SqlInjection"),
+// 						RuleGroupOverrides: network.AzureManagedOverrideRuleGroupArray{
+// 							&network.AzureManagedOverrideRuleGroupArgs{
+// 								Action:            pulumi.String("Block"),
+// 								RuleGroupOverride: pulumi.String("SqlInjection"),
 // 							},
-// 							pulumi.StringMap{
-// 								"action":            pulumi.String("Log"),
-// 								"ruleGroupOverride": pulumi.String("XSS"),
+// 							&network.AzureManagedOverrideRuleGroupArgs{
+// 								Action:            pulumi.String("Log"),
+// 								RuleGroupOverride: pulumi.String("XSS"),
 // 							},
 // 						},
 // 						RuleSetType: pulumi.String("AzureManagedRuleSet"),

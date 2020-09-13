@@ -30,8 +30,8 @@ import (
 // 			Description:       pulumi.String("updated description"),
 // 			MediaGraphName:    pulumi.String("SampleMediaGraph"),
 // 			ResourceGroupName: pulumi.String("contoso"),
-// 			Sinks: media.MediaGraphSinkArray{
-// 				&media.MediaGraphSinkArgs{
+// 			Sinks: media.MediaGraphAssetSinkArray{
+// 				&media.MediaGraphAssetSinkArgs{
 // 					AssetName: pulumi.String("SampleAsset"),
 // 					Inputs: pulumi.StringArray{
 // 						pulumi.String("rtspSource"),
@@ -40,11 +40,11 @@ import (
 // 					OdataType: pulumi.String("#Microsoft.Media.MediaGraphAssetSink"),
 // 				},
 // 			},
-// 			Sources: media.MediaGraphSourceArray{
-// 				&media.MediaGraphSourceArgs{
-// 					Credentials: pulumi.StringMap{
-// 						"password": pulumi.String("examplepassword"),
-// 						"username": pulumi.String("exampleusername"),
+// 			Sources: media.MediaGraphRtspSourceArray{
+// 				&media.MediaGraphRtspSourceArgs{
+// 					Credentials: &media.MediaGraphUserCredentialsArgs{
+// 						Password: pulumi.String("examplepassword"),
+// 						Username: pulumi.String("exampleusername"),
 // 					},
 // 					Name:      pulumi.String("rtspSource"),
 // 					OdataType: pulumi.String("#Microsoft.Media.MediaGraphRtspSource"),

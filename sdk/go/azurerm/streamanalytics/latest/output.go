@@ -16,369 +16,46 @@ import (
 // ### Create a DocumentDB output
 //
 // ```go
-// package main
-//
-// import (
-// 	streamanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/streamanalytics/latest"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := streamanalytics.NewOutput(ctx, "output", &streamanalytics.OutputArgs{
-// 			Datasource: &streamanalytics.OutputDataSourceArgs{
-// 				Properties: pulumi.StringMap{
-// 					"accountId":             pulumi.String("someAccountId"),
-// 					"accountKey":            pulumi.String("accountKey=="),
-// 					"collectionNamePattern": pulumi.String("collection"),
-// 					"database":              pulumi.String("db01"),
-// 					"documentId":            pulumi.String("documentId"),
-// 					"partitionKey":          pulumi.String("key"),
-// 				},
-// 				Type: pulumi.String("Microsoft.Storage/DocumentDB"),
-// 			},
-// 			JobName:           pulumi.String("sj2331"),
-// 			OutputName:        pulumi.String("output3022"),
-// 			ResourceGroupName: pulumi.String("sjrg7983"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Create a Power BI output
 //
 // ```go
-// package main
-//
-// import (
-// 	streamanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/streamanalytics/latest"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := streamanalytics.NewOutput(ctx, "output", &streamanalytics.OutputArgs{
-// 			Datasource: &streamanalytics.OutputDataSourceArgs{
-// 				Properties: pulumi.StringMap{
-// 					"dataset":                pulumi.String("someDataset"),
-// 					"groupId":                pulumi.String("ac40305e-3e8d-43ac-8161-c33799f43e95"),
-// 					"groupName":              pulumi.String("MyPowerBIGroup"),
-// 					"refreshToken":           pulumi.String("someRefreshToken=="),
-// 					"table":                  pulumi.String("someTable"),
-// 					"tokenUserDisplayName":   pulumi.String("Bob Smith"),
-// 					"tokenUserPrincipalName": pulumi.String("bobsmith@contoso.com"),
-// 				},
-// 				Type: pulumi.String("PowerBI"),
-// 			},
-// 			JobName:           pulumi.String("sj2331"),
-// 			OutputName:        pulumi.String("output3022"),
-// 			ResourceGroupName: pulumi.String("sjrg7983"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Create a Service Bus Queue output with Avro serialization
 //
 // ```go
-// package main
-//
-// import (
-// 	streamanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/streamanalytics/latest"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := streamanalytics.NewOutput(ctx, "output", &streamanalytics.OutputArgs{
-// 			Datasource: &streamanalytics.OutputDataSourceArgs{
-// 				Properties: pulumi.Map{
-// 					"propertyColumns": pulumi.StringArray{
-// 						pulumi.String("column1"),
-// 						pulumi.String("column2"),
-// 					},
-// 					"queueName":              pulumi.String("sdkqueue"),
-// 					"serviceBusNamespace":    pulumi.String("sdktest"),
-// 					"sharedAccessPolicyKey":  pulumi.String("sharedAccessPolicyKey="),
-// 					"sharedAccessPolicyName": pulumi.String("RootManageSharedAccessKey"),
-// 				},
-// 				Type: pulumi.String("Microsoft.ServiceBus/Queue"),
-// 			},
-// 			JobName:           pulumi.String("sj5095"),
-// 			OutputName:        pulumi.String("output3456"),
-// 			ResourceGroupName: pulumi.String("sjrg3410"),
-// 			Serialization: &streamanalytics.SerializationArgs{
-// 				Type: pulumi.String("Avro"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Create a Service Bus Topic output with CSV serialization
 //
 // ```go
-// package main
-//
-// import (
-// 	streamanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/streamanalytics/latest"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := streamanalytics.NewOutput(ctx, "output", &streamanalytics.OutputArgs{
-// 			Datasource: &streamanalytics.OutputDataSourceArgs{
-// 				Properties: pulumi.Map{
-// 					"propertyColumns": pulumi.StringArray{
-// 						pulumi.String("column1"),
-// 						pulumi.String("column2"),
-// 					},
-// 					"serviceBusNamespace":    pulumi.String("sdktest"),
-// 					"sharedAccessPolicyKey":  pulumi.String("sharedAccessPolicyKey="),
-// 					"sharedAccessPolicyName": pulumi.String("RootManageSharedAccessKey"),
-// 					"topicName":              pulumi.String("sdktopic"),
-// 				},
-// 				Type: pulumi.String("Microsoft.ServiceBus/Topic"),
-// 			},
-// 			JobName:           pulumi.String("sj7094"),
-// 			OutputName:        pulumi.String("output7886"),
-// 			ResourceGroupName: pulumi.String("sjrg6450"),
-// 			Serialization: &streamanalytics.SerializationArgs{
-// 				Properties: pulumi.StringMap{
-// 					"encoding":       pulumi.String("UTF8"),
-// 					"fieldDelimiter": pulumi.String(","),
-// 				},
-// 				Type: pulumi.String("Csv"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Create a blob output with CSV serialization
 //
 // ```go
-// package main
-//
-// import (
-// 	streamanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/streamanalytics/latest"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := streamanalytics.NewOutput(ctx, "output", &streamanalytics.OutputArgs{
-// 			Datasource: &streamanalytics.OutputDataSourceArgs{
-// 				Properties: pulumi.Map{
-// 					"container":   pulumi.String("state"),
-// 					"dateFormat":  pulumi.String("yyyy/MM/dd"),
-// 					"pathPattern": pulumi.String("{date}/{time}"),
-// 					"storageAccounts": pulumi.StringMapArray{
-// 						pulumi.StringMap{
-// 							"accountKey":  pulumi.String("accountKey=="),
-// 							"accountName": pulumi.String("someAccountName"),
-// 						},
-// 					},
-// 					"timeFormat": pulumi.String("HH"),
-// 				},
-// 				Type: pulumi.String("Microsoft.Storage/Blob"),
-// 			},
-// 			JobName:           pulumi.String("sj900"),
-// 			OutputName:        pulumi.String("output1623"),
-// 			ResourceGroupName: pulumi.String("sjrg5023"),
-// 			Serialization: &streamanalytics.SerializationArgs{
-// 				Properties: pulumi.StringMap{
-// 					"encoding":       pulumi.String("UTF8"),
-// 					"fieldDelimiter": pulumi.String(","),
-// 				},
-// 				Type: pulumi.String("Csv"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Create an Azure Data Lake Store output with JSON serialization
 //
 // ```go
-// package main
-//
-// import (
-// 	streamanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/streamanalytics/latest"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := streamanalytics.NewOutput(ctx, "output", &streamanalytics.OutputArgs{
-// 			Datasource: &streamanalytics.OutputDataSourceArgs{
-// 				Properties: pulumi.StringMap{
-// 					"accountName":            pulumi.String("someaccount"),
-// 					"dateFormat":             pulumi.String("yyyy/MM/dd"),
-// 					"filePathPrefix":         pulumi.String("{date}/{time}"),
-// 					"refreshToken":           pulumi.String("someRefreshToken=="),
-// 					"tenantId":               pulumi.String("cea4e98b-c798-49e7-8c40-4a2b3beb47dd"),
-// 					"timeFormat":             pulumi.String("HH"),
-// 					"tokenUserDisplayName":   pulumi.String("Bob Smith"),
-// 					"tokenUserPrincipalName": pulumi.String("bobsmith@contoso.com"),
-// 				},
-// 				Type: pulumi.String("Microsoft.DataLake/Accounts"),
-// 			},
-// 			JobName:           pulumi.String("sj3310"),
-// 			OutputName:        pulumi.String("output5195"),
-// 			ResourceGroupName: pulumi.String("sjrg6912"),
-// 			Serialization: &streamanalytics.SerializationArgs{
-// 				Properties: pulumi.StringMap{
-// 					"encoding": pulumi.String("UTF8"),
-// 					"format":   pulumi.String("Array"),
-// 				},
-// 				Type: pulumi.String("Json"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Create an Azure SQL database output
 //
 // ```go
-// package main
-//
-// import (
-// 	streamanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/streamanalytics/latest"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := streamanalytics.NewOutput(ctx, "output", &streamanalytics.OutputArgs{
-// 			Datasource: &streamanalytics.OutputDataSourceArgs{
-// 				Properties: pulumi.StringMap{
-// 					"database": pulumi.String("someDatabase"),
-// 					"password": pulumi.String("somePassword"),
-// 					"server":   pulumi.String("someServer"),
-// 					"table":    pulumi.String("someTable"),
-// 					"user":     pulumi.String("someUser"),
-// 				},
-// 				Type: pulumi.String("Microsoft.Sql/Server/Database"),
-// 			},
-// 			JobName:           pulumi.String("sj6458"),
-// 			OutputName:        pulumi.String("output1755"),
-// 			ResourceGroupName: pulumi.String("sjrg2157"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Create an Azure Table output
 //
 // ```go
-// package main
-//
-// import (
-// 	streamanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/streamanalytics/latest"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := streamanalytics.NewOutput(ctx, "output", &streamanalytics.OutputArgs{
-// 			Datasource: &streamanalytics.OutputDataSourceArgs{
-// 				Properties: pulumi.Map{
-// 					"accountKey":  pulumi.String("accountKey=="),
-// 					"accountName": pulumi.String("someAccountName"),
-// 					"batchSize":   pulumi.Float64(25),
-// 					"columnsToRemove": pulumi.StringArray{
-// 						pulumi.String("column1"),
-// 						pulumi.String("column2"),
-// 					},
-// 					"partitionKey": pulumi.String("partitionKey"),
-// 					"rowKey":       pulumi.String("rowKey"),
-// 					"table":        pulumi.String("samples"),
-// 				},
-// 				Type: pulumi.String("Microsoft.Storage/Table"),
-// 			},
-// 			JobName:           pulumi.String("sj2790"),
-// 			OutputName:        pulumi.String("output958"),
-// 			ResourceGroupName: pulumi.String("sjrg5176"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 // ### Create an Event Hub output with JSON serialization
 //
 // ```go
-// package main
-//
-// import (
-// 	streamanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/streamanalytics/latest"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := streamanalytics.NewOutput(ctx, "output", &streamanalytics.OutputArgs{
-// 			Datasource: &streamanalytics.OutputDataSourceArgs{
-// 				Properties: pulumi.StringMap{
-// 					"eventHubName":           pulumi.String("sdkeventhub"),
-// 					"partitionKey":           pulumi.String("partitionKey"),
-// 					"serviceBusNamespace":    pulumi.String("sdktest"),
-// 					"sharedAccessPolicyKey":  pulumi.String("sharedAccessPolicyKey="),
-// 					"sharedAccessPolicyName": pulumi.String("RootManageSharedAccessKey"),
-// 				},
-// 				Type: pulumi.String("Microsoft.ServiceBus/EventHub"),
-// 			},
-// 			JobName:           pulumi.String("sj3310"),
-// 			OutputName:        pulumi.String("output5195"),
-// 			ResourceGroupName: pulumi.String("sjrg6912"),
-// 			Serialization: &streamanalytics.SerializationArgs{
-// 				Properties: pulumi.StringMap{
-// 					"encoding": pulumi.String("UTF8"),
-// 					"format":   pulumi.String("Array"),
-// 				},
-// 				Type: pulumi.String("Json"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
 //
 // ```
 type Output struct {

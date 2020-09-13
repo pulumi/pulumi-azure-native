@@ -16,6 +16,35 @@ import (
 // ### Create or update a policy exemption
 //
 // ```go
+// package main
+//
+// import (
+// 	authorization "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/authorization/v20200701preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := authorization.NewPolicyExemption(ctx, "policyExemption", &authorization.PolicyExemptionArgs{
+// 			Description:       pulumi.String("Exempt demo cluster from limit sku"),
+// 			DisplayName:       pulumi.String("Exempt demo cluster"),
+// 			ExemptionCategory: pulumi.String("Waiver"),
+// 			Metadata: pulumi.StringMap{
+// 				"reason": pulumi.String("Temporary exemption for a expensive VM demo"),
+// 			},
+// 			PolicyAssignmentId: pulumi.String("/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement"),
+// 			PolicyDefinitionReferenceIds: pulumi.StringArray{
+// 				pulumi.String("Limit_Skus"),
+// 			},
+// 			PolicyExemptionName: pulumi.String("DemoExpensiveVM"),
+// 			Scope:               pulumi.String("subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 type PolicyExemption struct {

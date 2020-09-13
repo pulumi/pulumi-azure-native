@@ -16,6 +16,32 @@ import (
 // ### Create or update a simple gallery Application.
 //
 // ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200930"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewGalleryApplication(ctx, "galleryApplication", &compute.GalleryApplicationArgs{
+// 			Description:            pulumi.String("This is the gallery application description."),
+// 			Eula:                   pulumi.String("This is the gallery application EULA."),
+// 			GalleryApplicationName: pulumi.String("myGalleryApplicationName"),
+// 			GalleryName:            pulumi.String("myGalleryName"),
+// 			Location:               pulumi.String("West US"),
+// 			PrivacyStatementUri:    pulumi.String("myPrivacyStatementUri}"),
+// 			ReleaseNoteUri:         pulumi.String("myReleaseNoteUri"),
+// 			ResourceGroupName:      pulumi.String("myResourceGroup"),
+// 			SupportedOSType:        pulumi.String("Windows"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
 //
 // ```
 type GalleryApplication struct {

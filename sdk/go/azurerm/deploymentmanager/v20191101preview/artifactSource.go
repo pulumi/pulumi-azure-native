@@ -27,7 +27,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := deploymentmanager.NewArtifactSource(ctx, "artifactSource", &deploymentmanager.ArtifactSourceArgs{
 // 			ArtifactSourceName: pulumi.String("myArtifactSource"),
-// 			Authentication: &deploymentmanager.AuthenticationArgs{
+// 			Authentication: &deploymentmanager.SasAuthenticationArgs{
 // 				Type: pulumi.String("Sas"),
 // 			},
 // 			Location:          pulumi.String("centralus"),
@@ -58,7 +58,7 @@ import (
 // 		_, err := deploymentmanager.NewArtifactSource(ctx, "artifactSource", &deploymentmanager.ArtifactSourceArgs{
 // 			ArtifactRoot:       pulumi.String("1.0.0.0"),
 // 			ArtifactSourceName: pulumi.String("myArtifactSource"),
-// 			Authentication: &deploymentmanager.AuthenticationArgs{
+// 			Authentication: &deploymentmanager.SasAuthenticationArgs{
 // 				Type: pulumi.String("Sas"),
 // 			},
 // 			Location:          pulumi.String("centralus"),
