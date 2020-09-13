@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * A private cloud resource
+ *
+ * ## Example Usage
+ * ### PrivateClouds_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateCloud = new azurerm.avs.v20190809preview.PrivateCloud("privateCloud", {
+ *     location: "eastus2",
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class PrivateCloud extends pulumi.CustomResource {
     /**

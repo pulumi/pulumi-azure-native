@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the Windows IoT Device Service.
+ *
+ * ## Example Usage
+ * ### Service_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const service = new azurerm.windowsiot.v20180216preview.Service("service", {
+ *     adminDomainName: "d.e.f",
+ *     deviceName: "service4445",
+ *     notes: "blah",
+ *     quantity: 1000000,
+ *     resourceGroupName: "res9101",
+ * });
+ *
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

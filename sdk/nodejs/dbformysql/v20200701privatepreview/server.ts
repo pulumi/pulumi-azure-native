@@ -8,6 +8,75 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server.
+ *
+ * ## Example Usage
+ * ### Create a new server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const server = new azurerm.dbformysql.v20200701privatepreview.Server("server", {
+ *     administratorLogin: "cloudsa",
+ *     administratorLoginPassword: `pass$w0rd`,
+ *     createMode: "Default",
+ *     location: "westus",
+ *     resourceGroupName: "testrg",
+ *     serverName: "mysqltestsvc4",
+ *     sku: {
+ *         name: "Standard_D14_v2",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     sslEnforcement: "Enabled",
+ *     storageProfile: {
+ *         backupRetentionDays: 7,
+ *         storageIops: 200,
+ *         storageMB: 128000,
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a replica server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const server = new azurerm.dbformysql.v20200701privatepreview.Server("server", {
+ *     createMode: "Replica",
+ *     location: "westus",
+ *     resourceGroupName: "TargetResourceGroup",
+ *     serverName: "targetserver",
+ *     sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/PrimaryResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/primaryserver",
+ * });
+ *
+ * ```
+ * ### Create a server as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const server = new azurerm.dbformysql.v20200701privatepreview.Server("server", {
+ *     createMode: "PointInTimeRestore",
+ *     location: "brazilsouth",
+ *     resourceGroupName: "TargetResourceGroup",
+ *     restorePointInTime: "2017-12-14T00:00:37.467Z",
+ *     serverName: "targetserver",
+ *     sku: {
+ *         name: "Standard_D14_v2",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

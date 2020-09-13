@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Subscription details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateSubscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const subscription = new azurerm.apimanagement.v20180601preview.Subscription("subscription", {
+ *     displayName: "testsub",
+ *     ownerId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57127d485157a511ace86ae7",
+ *     resourceGroupName: "rg1",
+ *     scope: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5600b59475ff190048060002",
+ *     serviceName: "apimService1",
+ *     sid: "testsub",
+ * });
+ *
+ * ```
  */
 export class Subscription extends pulumi.CustomResource {
     /**

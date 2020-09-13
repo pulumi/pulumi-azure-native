@@ -15,7 +15,7 @@ import * as utilities from "../../utilities";
  * import * as azurerm from "@pulumi/azurerm";
  *
  * const apiRelease = new azurerm.apimanagement.v20190101.ApiRelease("apiRelease", {
- *     apiId: "a1",
+ *     apiId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/a1",
  *     notes: "yahooagain",
  *     releaseId: "testrev",
  *     resourceGroupName: "rg1",

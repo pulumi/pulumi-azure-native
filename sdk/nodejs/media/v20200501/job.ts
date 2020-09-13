@@ -23,10 +23,12 @@ import * as utilities from "../../utilities";
  *         key1: "value1",
  *     },
  *     input: {
- *         odataType: "#Microsoft.Media.JobInputAsset",
+ *         "@odata.type": "#Microsoft.Media.JobInputAsset",
+ *         assetName: "job1-InputAsset",
  *     },
  *     jobName: "job1",
  *     outputs: [{
+ *         assetName: "job1-OutputAsset",
  *         odataType: "#Microsoft.Media.JobOutputAsset",
  *     }],
  *     resourceGroupName: "contosoresources",

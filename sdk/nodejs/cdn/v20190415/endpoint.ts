@@ -27,16 +27,43 @@ import * as utilities from "../../utilities";
  *             actions: [
  *                 {
  *                     name: "CacheExpiration",
+ *                     parameters: {
+ *                         "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters",
+ *                         cacheBehavior: "Override",
+ *                         cacheDuration: "10:10:09",
+ *                         cacheType: "All",
+ *                     },
  *                 },
  *                 {
  *                     name: "ModifyResponseHeader",
+ *                     parameters: {
+ *                         "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters",
+ *                         headerAction: "Overwrite",
+ *                         headerName: "Access-Control-Allow-Origin",
+ *                         value: "*",
+ *                     },
  *                 },
  *                 {
  *                     name: "ModifyRequestHeader",
+ *                     parameters: {
+ *                         "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters",
+ *                         headerAction: "Overwrite",
+ *                         headerName: "Accept-Encoding",
+ *                         value: "gzip",
+ *                     },
  *                 },
  *             ],
  *             conditions: [{
  *                 name: "RemoteAddress",
+ *                 parameters: {
+ *                     "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters",
+ *                     matchValues: [
+ *                         "192.168.1.0/24",
+ *                         "10.0.0.0/24",
+ *                     ],
+ *                     negateCondition: true,
+ *                     operator: "IPMatch",
+ *                 },
  *             }],
  *             name: "rule1",
  *             order: 1,

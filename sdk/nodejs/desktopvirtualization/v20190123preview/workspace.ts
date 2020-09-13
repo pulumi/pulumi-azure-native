@@ -6,6 +6,27 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Workspace definition.
+ *
+ * ## Example Usage
+ * ### Workspace_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const workspace = new azurerm.desktopvirtualization.v20190123preview.Workspace("workspace", {
+ *     description: "des1",
+ *     friendlyName: "friendly",
+ *     location: "centralus",
+ *     resourceGroupName: "resourceGroup1",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     workspaceName: "workspace1",
+ * });
+ *
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

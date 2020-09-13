@@ -8,6 +8,35 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL virtual machine group.
+ *
+ * ## Example Usage
+ * ### Creates or updates a SQL virtual machine group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const sqlVirtualMachineGroup = new azurerm.sqlvirtualmachine.v20170301preview.SqlVirtualMachineGroup("sqlVirtualMachineGroup", {
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlImageOffer: "SQL2016-WS2016",
+ *     sqlImageSku: "Enterprise",
+ *     sqlVirtualMachineGroupName: "testvmgroup",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ *     wsfcDomainProfile: {
+ *         clusterBootstrapAccount: "testrpadmin",
+ *         clusterOperatorAccount: "testrp@testdomain.com",
+ *         domainFqdn: "testdomain.com",
+ *         ouPath: "OU=WSCluster,DC=testdomain,DC=com",
+ *         sqlServiceAccount: "sqlservice@testdomain.com",
+ *         storageAccountPrimaryKey: "<primary storage access key>",
+ *         storageAccountUrl: "https://storgact.blob.core.windows.net/",
+ *     },
+ * });
+ *
+ * ```
  */
 export class SqlVirtualMachineGroup extends pulumi.CustomResource {
     /**

@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * An Application Insights component linked storage accounts
+ *
+ * ## Example Usage
+ * ### ComponentLinkedStorageAccountsCreateAndUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const componentLinkedStorageAccount = new azurerm.insights.v20200301preview.ComponentLinkedStorageAccount("componentLinkedStorageAccount", {
+ *     linkedStorageAccount: "/subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupName/providers/Microsoft.Storage/storageAccounts/storageaccountname",
+ *     resourceGroupName: "someResourceGroupName",
+ *     resourceName: "myComponent",
+ *     storageType: "ServiceProfiler",
+ * });
+ *
+ * ```
  */
 export class ComponentLinkedStorageAccount extends pulumi.CustomResource {
     /**

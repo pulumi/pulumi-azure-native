@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * The IoT Central application.
+ *
+ * ## Example Usage
+ * ### Apps_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const app = new azurerm.iotcentral.v20170701privatepreview.App("app", {
+ *     displayName: "My IoT Central App",
+ *     location: "westus",
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myIoTCentralApp",
+ *     sku: {
+ *         name: "F1",
+ *     },
+ *     subdomain: "my-iot-central-app",
+ *     template: "iotc-default@1.0.0",
+ * });
+ *
+ * ```
  */
 export class App extends pulumi.CustomResource {
     /**

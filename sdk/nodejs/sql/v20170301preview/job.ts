@@ -8,6 +8,44 @@ import * as utilities from "../../utilities";
 
 /**
  * A job.
+ *
+ * ## Example Usage
+ * ### Create a job with all properties specified
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const job = new azurerm.sql.v20170301preview.Job("job", {
+ *     description: "my favourite job",
+ *     jobAgentName: "agent1",
+ *     jobName: "job1",
+ *     resourceGroupName: "group1",
+ *     schedule: {
+ *         enabled: true,
+ *         endTime: "2015-09-24T23:59:59Z",
+ *         interval: "PT5M",
+ *         startTime: "2015-09-24T18:30:01Z",
+ *         type: "Recurring",
+ *     },
+ *     serverName: "server1",
+ * });
+ *
+ * ```
+ * ### Create a job with default properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const job = new azurerm.sql.v20170301preview.Job("job", {
+ *     jobAgentName: "agent1",
+ *     jobName: "job1",
+ *     resourceGroupName: "group1",
+ *     serverName: "server1",
+ * });
+ *
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

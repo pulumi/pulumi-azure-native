@@ -8,6 +8,26 @@ import * as utilities from "../../utilities";
 
 /**
  * This type describes an application resource.
+ *
+ * ## Example Usage
+ * ### ApplicationCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const application = new azurerm.servicefabricmesh.v20180701preview.Application("application", {
+ *     applicationName: "helloWorldApp",
+ *     description: "SeaBreeze HelloWorld Application!",
+ *     location: "EastUS",
+ *     resourceGroupName: "sbz_demo",
+ *     services: [{
+ *         name: "helloWorldService",
+ *     }],
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource definition of this association.
+ *
+ * ## Example Usage
+ * ### Create or update an association
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const association = new azurerm.customproviders.v20180901preview.Association("association", {
+ *     associationName: "associationName",
+ *     scope: "scope",
+ *     targetResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/appRG/providers/Microsoft.Solutions/applications/applicationName",
+ * });
+ *
+ * ```
  */
 export class Association extends pulumi.CustomResource {
     /**

@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * The private endpoint connection of a provisioning service
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnection_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as @pulumi from "@pulumi/";
+ *
+ * const iotDpsResourcePrivateEndpointConnection = new .("iotDpsResourcePrivateEndpointConnection", {
+ *     privateEndpointConnectionName: "myPrivateEndpointConnection",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myFirstProvisioningService",
+ * });
+ *
+ * ```
  */
 export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResource {
     /**

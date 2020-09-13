@@ -8,6 +8,129 @@ import * as utilities from "../../utilities";
 
 /**
  * Pipeline resource type.
+ *
+ * ## Example Usage
+ * ### Pipelines_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const pipeline = new azurerm.datafactory.v20170901preview.Pipeline("pipeline", {
+ *     activities: [{
+ *         name: "ExampleForeachActivity",
+ *         type: "ForEach",
+ *         typeProperties: {
+ *             activities: [{
+ *                 inputs: [{
+ *                     parameters: {
+ *                         MyFileName: "examplecontainer.csv",
+ *                         MyFolderPath: "examplecontainer",
+ *                     },
+ *                     referenceName: "exampleDataset",
+ *                     type: "DatasetReference",
+ *                 }],
+ *                 name: "ExampleCopyActivity",
+ *                 outputs: [{
+ *                     parameters: {
+ *                         MyFileName: {
+ *                             type: "Expression",
+ *                             value: "@item()",
+ *                         },
+ *                         MyFolderPath: "examplecontainer",
+ *                     },
+ *                     referenceName: "exampleDataset",
+ *                     type: "DatasetReference",
+ *                 }],
+ *                 type: "Copy",
+ *                 typeProperties: {
+ *                     sink: {
+ *                         type: "BlobSink",
+ *                     },
+ *                     source: {
+ *                         type: "BlobSource",
+ *                     },
+ *                 },
+ *             }],
+ *             isSequential: true,
+ *             items: {
+ *                 type: "Expression",
+ *                 value: "@pipeline().parameters.OutputBlobNameList",
+ *             },
+ *         },
+ *     }],
+ *     factoryName: "exampleFactoryName",
+ *     parameters: {
+ *         OutputBlobNameList: {
+ *             type: "Array",
+ *         },
+ *     },
+ *     pipelineName: "examplePipeline",
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ * ### Pipelines_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const pipeline = new azurerm.datafactory.v20170901preview.Pipeline("pipeline", {
+ *     activities: [{
+ *         name: "ExampleForeachActivity",
+ *         type: "ForEach",
+ *         typeProperties: {
+ *             activities: [{
+ *                 inputs: [{
+ *                     parameters: {
+ *                         MyFileName: "examplecontainer.csv",
+ *                         MyFolderPath: "examplecontainer",
+ *                     },
+ *                     referenceName: "exampleDataset",
+ *                     type: "DatasetReference",
+ *                 }],
+ *                 name: "ExampleCopyActivity",
+ *                 outputs: [{
+ *                     parameters: {
+ *                         MyFileName: {
+ *                             type: "Expression",
+ *                             value: "@item()",
+ *                         },
+ *                         MyFolderPath: "examplecontainer",
+ *                     },
+ *                     referenceName: "exampleDataset",
+ *                     type: "DatasetReference",
+ *                 }],
+ *                 type: "Copy",
+ *                 typeProperties: {
+ *                     sink: {
+ *                         type: "BlobSink",
+ *                     },
+ *                     source: {
+ *                         type: "BlobSource",
+ *                     },
+ *                 },
+ *             }],
+ *             isSequential: true,
+ *             items: {
+ *                 type: "Expression",
+ *                 value: "@pipeline().parameters.OutputBlobNameList",
+ *             },
+ *         },
+ *     }],
+ *     description: "Example description",
+ *     factoryName: "exampleFactoryName",
+ *     parameters: {
+ *         OutputBlobNameList: {
+ *             type: "Array",
+ *         },
+ *     },
+ *     pipelineName: "examplePipeline",
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

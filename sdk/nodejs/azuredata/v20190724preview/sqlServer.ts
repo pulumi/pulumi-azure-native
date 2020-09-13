@@ -6,6 +6,26 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL server.
+ *
+ * ## Example Usage
+ * ### Creates or updates a SQL Server in a Registration group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const sqlServer = new azurerm.azuredata.v20190724preview.SqlServer("sqlServer", {
+ *     cores: 8,
+ *     edition: "Latin",
+ *     propertyBag: "",
+ *     registrationID: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration",
+ *     resourceGroupName: "testrg",
+ *     sqlServerName: "testsqlserver",
+ *     sqlServerRegistrationName: "testsqlregistration",
+ *     version: "2008",
+ * });
+ *
+ * ```
  */
 export class SqlServer extends pulumi.CustomResource {
     /**

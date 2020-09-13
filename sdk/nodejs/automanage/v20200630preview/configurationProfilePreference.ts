@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the configuration profile preference.
+ *
+ * ## Example Usage
+ * ### Create or update configuration profile preference
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const configurationProfilePreference = new azurerm.automanage.v20200630preview.ConfigurationProfilePreference("configurationProfilePreference", {
+ *     configurationProfilePreferenceName: "defaultProfilePreference",
+ *     location: "East US",
+ *     resourceGroupName: "myResourceGroupName",
+ *     tags: {
+ *         Organization: "Administration",
+ *     },
+ * });
+ *
+ * ```
  */
 export class ConfigurationProfilePreference extends pulumi.CustomResource {
     /**

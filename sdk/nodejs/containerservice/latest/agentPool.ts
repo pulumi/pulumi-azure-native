@@ -10,6 +10,25 @@ import * as utilities from "../../utilities";
  * Agent Pool.
  *
  * ## Example Usage
+ * ### Create Agent Pool with Ephemeral OS Disk
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const agentPool = new azurerm.containerservice.latest.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     orchestratorVersion: "",
+ *     osDiskSizeGB: 64,
+ *     osDiskType: "Ephemeral",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     vmSize: "Standard_DS2_v2",
+ * });
+ *
+ * ```
  * ### Create Agent Pool with PPG
  *
  * ```typescript

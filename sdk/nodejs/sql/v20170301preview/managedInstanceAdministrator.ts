@@ -6,6 +6,42 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL managed instance administrator.
+ *
+ * ## Example Usage
+ * ### Create administrator of managed instance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedInstanceAdministrator = new azurerm.sql.v20170301preview.ManagedInstanceAdministrator("managedInstanceAdministrator", {
+ *     administratorName: "ActiveDirectory",
+ *     administratorType: "ActiveDirectory",
+ *     login: "bob@contoso.com",
+ *     managedInstanceName: "managedInstance",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     sid: "44444444-3333-2222-1111-000000000000",
+ *     tenantId: "55555555-4444-3333-2222-111111111111",
+ * });
+ *
+ * ```
+ * ### Update administrator of managed instance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedInstanceAdministrator = new azurerm.sql.v20170301preview.ManagedInstanceAdministrator("managedInstanceAdministrator", {
+ *     administratorName: "ActiveDirectory",
+ *     administratorType: "ActiveDirectory",
+ *     login: "bob@contoso.com",
+ *     managedInstanceName: "managedInstance",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     sid: "44444444-3333-2222-1111-000000000000",
+ *     tenantId: "55555555-4444-3333-2222-111111111111",
+ * });
+ *
+ * ```
  */
 export class ManagedInstanceAdministrator extends pulumi.CustomResource {
     /**

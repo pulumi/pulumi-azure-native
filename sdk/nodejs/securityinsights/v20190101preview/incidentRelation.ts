@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a relation between two resources
+ *
+ * ## Example Usage
+ * ### Creates or updates an incident relation.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as @pulumi from "@pulumi/";
+ *
+ * const incidentRelation = new .("incidentRelation", {
+ *     incidentId: "afbd324f-6c48-459c-8710-8d1e1cd03812",
+ *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
+ *     relatedResourceId: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096",
+ *     relationName: "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
  */
 export class IncidentRelation extends pulumi.CustomResource {
     /**

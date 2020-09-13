@@ -6,6 +6,17 @@ import * as utilities from "../../utilities";
 
 /**
  * this is the management partner operations response
+ *
+ * ## Example Usage
+ * ### PutPartnerDetails
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const partner = new azurerm.managementpartner.latest.Partner("partner", {partnerId: "123456"});
+ *
+ * ```
  */
 export class Partner extends pulumi.CustomResource {
     /**

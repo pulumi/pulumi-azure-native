@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource representation of a service in a service topology.
+ *
+ * ## Example Usage
+ * ### Create service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const service = new azurerm.deploymentmanager.v20180901preview.Service("service", {
+ *     location: "centralus",
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myService",
+ *     serviceTopologyName: "myTopology",
+ *     tags: {},
+ *     targetLocation: "centralus",
+ *     targetSubscriptionId: "600c95c5-3ee5-44fe-b190-ca38a19adcd7",
+ * });
+ *
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

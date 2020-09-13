@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an instance of a DNC controller.
+ *
+ * ## Example Usage
+ * ### Create controller
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const controllerDetails = new azurerm.delegatednetwork.v20200808preview.ControllerDetails("controllerDetails", {
+ *     controllerType: "Kubernetes",
+ *     kubernetesProperties: [{
+ *         apiServerEndpoint: "https://testk8s.cloudapp.net",
+ *         clusterRootCA: "ddsadsad344mfdsfdl",
+ *         serverAppID: "546192d7-503f-477a-9cfe-4efc3ee2b6e1",
+ *         serverTenantID: "da6192d7-503f-477a-9cfe-4efc3ee2b6c3",
+ *     }],
+ *     resourceGroupName: "TestRG",
+ *     resourceName: "dnctestcontroller",
+ * });
+ *
+ * ```
  */
 export class ControllerDetails extends pulumi.CustomResource {
     /**

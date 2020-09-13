@@ -8,40 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A common class for general resource information.
- *
- * ## Example Usage
- * ### CreateVirtualNetworkGatewayConnection_S2S
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const virtualNetworkGatewayConnection = new azurerm.network.v20200501.VirtualNetworkGatewayConnection("virtualNetworkGatewayConnection", {
- *     connectionProtocol: "IKEv2",
- *     connectionType: "IPsec",
- *     dpdTimeoutSeconds: 30,
- *     enableBgp: false,
- *     ipsecPolicies: [],
- *     localNetworkGateway2: {
- *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw",
- *         location: "centralus",
- *         tags: {},
- *     },
- *     location: "centralus",
- *     resourceGroupName: "rg1",
- *     routingWeight: 0,
- *     sharedKey: "Abc123",
- *     trafficSelectorPolicies: [],
- *     usePolicyBasedTrafficSelectors: false,
- *     virtualNetworkGateway1: {
- *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw",
- *         location: "centralus",
- *         tags: {},
- *     },
- *     virtualNetworkGatewayConnectionName: "connS2S",
- * });
- *
- * ```
  */
 export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**

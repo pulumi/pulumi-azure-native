@@ -6,6 +6,26 @@ import * as utilities from "../../utilities";
 
 /**
  * MAK key details.
+ *
+ * ## Example Usage
+ * ### CreateMultipleActivationKey
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const multipleActivationKey = new azurerm.windowsesu.v20190916preview.MultipleActivationKey("multipleActivationKey", {
+ *     agreementNumber: "1a2b45ag",
+ *     installedServerNumber: 100,
+ *     isEligible: true,
+ *     location: "East US",
+ *     multipleActivationKeyName: "server08-key-2019",
+ *     osType: "WindowsServer2008",
+ *     resourceGroupName: "testgr1",
+ *     supportType: "SupplementalServicing",
+ * });
+ *
+ * ```
  */
 export class MultipleActivationKey extends pulumi.CustomResource {
     /**

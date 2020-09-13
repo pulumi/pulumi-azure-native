@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Linked workspace.
+ *
+ * ## Example Usage
+ * ### CreateLinkedWorkspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const linkedWorkspace = new azurerm.machinelearningservices.v20200301.LinkedWorkspace("linkedWorkspace", {
+ *     linkName: "link-1",
+ *     name: "link-1",
+ *     resourceGroupName: "resourceGroup-1",
+ *     workspaceName: "workspace-1",
+ * });
+ *
+ * ```
  */
 export class LinkedWorkspace extends pulumi.CustomResource {
     /**

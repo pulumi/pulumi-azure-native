@@ -8,6 +8,37 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Monitor PrivateLinkScope definition.
+ *
+ * ## Example Usage
+ * ### PrivateLinkScopeCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateLinkScope = new azurerm.insights.v20191017preview.PrivateLinkScope("privateLinkScope", {
+ *     location: "Global",
+ *     resourceGroupName: "my-resource-group",
+ *     scopeName: "my-privatelinkscope",
+ * });
+ *
+ * ```
+ * ### PrivateLinkScopeUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateLinkScope = new azurerm.insights.v20191017preview.PrivateLinkScope("privateLinkScope", {
+ *     location: "Global",
+ *     resourceGroupName: "my-resource-group",
+ *     scopeName: "my-privatelinkscope",
+ *     tags: {
+ *         Tag1: "Value1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class PrivateLinkScope extends pulumi.CustomResource {
     /**

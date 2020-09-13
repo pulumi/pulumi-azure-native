@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * A PostgreSQL Server key.
+ *
+ * ## Example Usage
+ * ### Creates or updates a PostgreSQL Server key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as @pulumi from "@pulumi/";
+ *
+ * const serverKey = new .("serverKey", {
+ *     keyName: "someVault_someKey_01234567890123456789012345678901",
+ *     resourceGroupName: "testrg",
+ *     serverKeyType: "AzureKeyVault",
+ *     serverName: "testserver",
+ *     uri: "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
+ * });
+ *
+ * ```
  */
 export class ServerKey extends pulumi.CustomResource {
     /**

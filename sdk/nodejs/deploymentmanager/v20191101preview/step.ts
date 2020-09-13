@@ -8,6 +8,36 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource representation of a rollout step.
+ *
+ * ## Example Usage
+ * ### Create health check step
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const step = new azurerm.deploymentmanager.v20191101preview.Step("step", {
+ *     location: "centralus",
+ *     resourceGroupName: "myResourceGroup",
+ *     stepName: "healthCheckStep",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create wait step
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const step = new azurerm.deploymentmanager.v20191101preview.Step("step", {
+ *     location: "centralus",
+ *     resourceGroupName: "myResourceGroup",
+ *     stepName: "waitStep",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class Step extends pulumi.CustomResource {
     /**

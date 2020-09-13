@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Define the move collection.
+ *
+ * ## Example Usage
+ * ### MoveCollections_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const moveCollection = new azurerm.migrate.v20191001preview.MoveCollection("moveCollection", {
+ *     moveCollectionName: "movecollection1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class MoveCollection extends pulumi.CustomResource {
     /**

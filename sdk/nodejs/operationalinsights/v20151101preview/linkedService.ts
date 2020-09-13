@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * The top level Linked service resource container.
+ *
+ * ## Example Usage
+ * ### LinkedServicesCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const linkedService = new azurerm.operationalinsights.v20151101preview.LinkedService("linkedService", {
+ *     linkedServiceName: "TestLinkWS/Automation",
+ *     resourceGroupName: "mms-eus",
+ *     resourceId: "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Automation/automationAccounts/testAccount",
+ *     workspaceName: "TestLinkWS",
+ * });
+ *
+ * ```
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

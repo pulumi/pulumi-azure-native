@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * This type describes a secret resource.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdateSecret
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const secret = new azurerm.servicefabricmesh.v20180901preview.Secret("secret", {
+ *     location: "EastUS",
+ *     resourceGroupName: "sbz_demo",
+ *     secretResourceName: "dbConnectionString",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class Secret extends pulumi.CustomResource {
     /**

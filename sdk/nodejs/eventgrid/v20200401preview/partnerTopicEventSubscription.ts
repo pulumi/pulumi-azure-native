@@ -8,6 +8,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Event Subscription
+ *
+ * ## Example Usage
+ * ### PartnerTopicEventSubscriptions_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const partnerTopicEventSubscription = new azurerm.eventgrid.v20200401preview.PartnerTopicEventSubscription("partnerTopicEventSubscription", {
+ *     destination: {
+ *         endpointType: "WebHook",
+ *         properties: {
+ *             endpointUrl: "https://requestb.in/15ksip71",
+ *         },
+ *     },
+ *     eventSubscriptionName: "exampleEventSubscriptionName1",
+ *     filter: {
+ *         isSubjectCaseSensitive: false,
+ *         subjectBeginsWith: "ExamplePrefix",
+ *         subjectEndsWith: "ExampleSuffix",
+ *     },
+ *     partnerTopicName: "examplePartnerTopic1",
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
  */
 export class PartnerTopicEventSubscription extends pulumi.CustomResource {
     /**

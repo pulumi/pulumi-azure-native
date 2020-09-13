@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+ *
+ * ## Example Usage
+ * ### CreateSecretValue
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const secretValue = new azurerm.servicefabricmesh.v20180901preview.SecretValue("secretValue", {
+ *     resourceGroupName: "sbz_demo",
+ *     secretResourceName: "dbConnectionString",
+ *     secretValueResourceName: "v1",
+ *     value: "mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true",
+ * });
+ *
+ * ```
  */
 export class SecretValue extends pulumi.CustomResource {
     /**

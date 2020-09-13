@@ -8,6 +8,26 @@ import * as utilities from "../../utilities";
 
 /**
  * Linked service.
+ *
+ * ## Example Usage
+ * ### CreateLinkedService
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const linkedService = new azurerm.machinelearningservices.v20200901preview.LinkedService("linkedService", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     linkName: "link-1",
+ *     location: "westus",
+ *     name: "link-1",
+ *     resourceGroupName: "resourceGroup-1",
+ *     workspaceName: "workspace-1",
+ * });
+ *
+ * ```
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

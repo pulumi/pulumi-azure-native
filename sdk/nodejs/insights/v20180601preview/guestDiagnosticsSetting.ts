@@ -8,6 +8,77 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual machine guest diagnostics settings resource.
+ *
+ * ## Example Usage
+ * ### Create or update a guest diagnostic settings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const guestDiagnosticsSetting = new azurerm.insights.v20180601preview.GuestDiagnosticsSetting("guestDiagnosticsSetting", {
+ *     dataSources: [
+ *         {
+ *             configuration: {
+ *                 perfCounters: [
+ *                     {
+ *                         name: `\Process(_Total)\%Processor Time`,
+ *                         samplingPeriod: "PT1M",
+ *                     },
+ *                     {
+ *                         name: "\\Process(_Total)\\Working Set",
+ *                         samplingPeriod: "PT1M",
+ *                     },
+ *                 ],
+ *             },
+ *             kind: "PerformanceCounter",
+ *             sinks: [{
+ *                 kind: "LogAnalytics",
+ *             }],
+ *         },
+ *         {
+ *             configuration: {
+ *                 providers: [
+ *                     {
+ *                         id: 1,
+ *                     },
+ *                     {
+ *                         id: 2,
+ *                     },
+ *                 ],
+ *             },
+ *             kind: "ETWProviders",
+ *             sinks: [{
+ *                 kind: "LogAnalytics",
+ *             }],
+ *         },
+ *         {
+ *             configuration: {
+ *                 eventLogs: [
+ *                     {
+ *                         filter: `SourceName == Xyz AND EventId = "100" AND  $Xpath/Column="DCName" = "CatWoman"`,
+ *                         logName: "Application",
+ *                     },
+ *                     {
+ *                         filter: `SourceName == Xyz AND EventId = "100" AND  $Xpath/Column="DCName" = "BatMan"`,
+ *                         logName: "Application",
+ *                     },
+ *                 ],
+ *             },
+ *             kind: "WindowsEventLogs",
+ *             sinks: [{
+ *                 kind: "LogAnalytics",
+ *             }],
+ *         },
+ *     ],
+ *     diagnosticSettingsName: "SampleDiagSetting",
+ *     location: "Global",
+ *     osType: "Windows",
+ *     resourceGroupName: "Default-ResourceGroup",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class GuestDiagnosticsSetting extends pulumi.CustomResource {
     /**

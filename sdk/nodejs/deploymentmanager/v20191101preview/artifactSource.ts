@@ -8,6 +8,45 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource that defines the source location where the artifacts are located.
+ *
+ * ## Example Usage
+ * ### Create artifact source
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const artifactSource = new azurerm.deploymentmanager.v20191101preview.ArtifactSource("artifactSource", {
+ *     artifactSourceName: "myArtifactSource",
+ *     authentication: {
+ *         type: "Sas",
+ *     },
+ *     location: "centralus",
+ *     resourceGroupName: "myResourceGroup",
+ *     sourceType: "AzureStorage",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create artifact source with artifact root, an offset into the storage container
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const artifactSource = new azurerm.deploymentmanager.v20191101preview.ArtifactSource("artifactSource", {
+ *     artifactRoot: "1.0.0.0",
+ *     artifactSourceName: "myArtifactSource",
+ *     authentication: {
+ *         type: "Sas",
+ *     },
+ *     location: "centralus",
+ *     resourceGroupName: "myResourceGroup",
+ *     sourceType: "AzureStorage",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class ArtifactSource extends pulumi.CustomResource {
     /**

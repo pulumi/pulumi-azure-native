@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * A private link scoped resource
+ *
+ * ## Example Usage
+ * ### Update a scoped resource in a private link scope.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateLinkScopedResource = new azurerm.insights.v20191017preview.PrivateLinkScopedResource("privateLinkScopedResource", {
+ *     linkedResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/components/my-component",
+ *     name: "scoped-resource-name",
+ *     resourceGroupName: "MyResourceGroup",
+ *     scopeName: "MyPrivateLinkScope",
+ * });
+ *
+ * ```
  */
 export class PrivateLinkScopedResource extends pulumi.CustomResource {
     /**

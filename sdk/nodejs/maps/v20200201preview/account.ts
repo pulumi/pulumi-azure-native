@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure resource which represents access to a suite of Maps REST APIs.
+ *
+ * ## Example Usage
+ * ### CreateAccount
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const account = new azurerm.maps.v20200201preview.Account("account", {
+ *     accountName: "myMapsAccount",
+ *     location: "global",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "S0",
+ *     },
+ *     tags: {
+ *         test: "true",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

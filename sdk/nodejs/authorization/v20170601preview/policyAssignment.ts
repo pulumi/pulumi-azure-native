@@ -8,6 +8,36 @@ import * as utilities from "../../utilities";
 
 /**
  * The policy assignment.
+ *
+ * ## Example Usage
+ * ### Put a policy assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const policyAssignment = new azurerm.authorization.v20170601preview.PolicyAssignment("policyAssignment", {
+ *     description: "Policies required to minimize the risk of accidental cost overruns",
+ *     displayName: "Storage Cost Management",
+ *     metadata: {
+ *         category: "Cost Management",
+ *     },
+ *     notScopes: ["/subscriptions/subId/resourcegroups/testingResourceGroup"],
+ *     parameters: {
+ *         allowedSkus: {
+ *             type: "Array",
+ *         },
+ *     },
+ *     policyAssignmentName: "costManagement",
+ *     policyDefinitionId: "/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus",
+ *     scope: "subscriptions/subId",
+ *     sku: {
+ *         name: "A0",
+ *         tier: "Free",
+ *     },
+ * });
+ *
+ * ```
  */
 export class PolicyAssignment extends pulumi.CustomResource {
     /**

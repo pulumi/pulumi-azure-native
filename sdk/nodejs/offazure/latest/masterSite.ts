@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Site REST Resource.
+ *
+ * ## Example Usage
+ * ### Create Master site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as @pulumi from "@pulumi/";
+ *
+ * const masterSite = new .("masterSite", {
+ *     location: "eastus",
+ *     resourceGroupName: "poshukla",
+ *     siteName: "masterSite1",
+ * });
+ *
+ * ```
  */
 export class MasterSite extends pulumi.CustomResource {
     /**

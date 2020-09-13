@@ -8,6 +8,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Watchlist in Azure Security Insights.
+ *
+ * ## Example Usage
+ * ### Creates a watchlist.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const watchlist = new azurerm.securityinsights.v20190101preview.Watchlist("watchlist", {
+ *     createdBy: {
+ *         objectId: "2046feea-040d-4a46-9e2b-91c2941bfa70",
+ *     },
+ *     createdTimeUtc: "2019-01-01T13:15:30Z",
+ *     defaultDuration: "P1D2H3M4S",
+ *     description: "Watchlist Description",
+ *     displayName: "High Value Assets Watchlist",
+ *     etag: "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+ *     labels: [
+ *         "Tag1",
+ *         "Tag2",
+ *     ],
+ *     lastUpdatedTimeUtc: "2019-01-01T13:15:30Z",
+ *     notes: "A note for the watchlist",
+ *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
+ *     provider: "Azure Sentinel",
+ *     resourceGroupName: "myRg",
+ *     source: "Local file",
+ *     updatedBy: {
+ *         objectId: "2046feea-040d-4a46-9e2b-91c2941bfa70",
+ *     },
+ *     watchlistAlias: "highValueAsset",
+ *     watchlistType: "watchlist",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
  */
 export class Watchlist extends pulumi.CustomResource {
     /**

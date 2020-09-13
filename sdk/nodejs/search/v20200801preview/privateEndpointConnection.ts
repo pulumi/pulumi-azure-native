@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnectionUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateEndpointConnection = new azurerm.search.v20200801preview.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546",
+ *     resourceGroupName: "rg1",
+ *     searchServiceName: "mysearchservice",
+ * });
+ *
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

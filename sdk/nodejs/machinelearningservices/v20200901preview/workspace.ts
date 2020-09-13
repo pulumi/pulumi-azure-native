@@ -8,6 +8,46 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a machine learning workspace.
+ *
+ * ## Example Usage
+ * ### Create Workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const workspace = new azurerm.machinelearningservices.v20200901preview.Workspace("workspace", {
+ *     applicationInsights: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+ *     containerRegistry: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+ *     description: "test description",
+ *     encryption: {
+ *         keyVaultProperties: {
+ *             identityClientId: "",
+ *             keyIdentifier: "https://testkv.vault.azure.net/keys/testkey/aabbccddee112233445566778899aabb",
+ *             keyVaultArmId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+ *         },
+ *         status: "Enabled",
+ *     },
+ *     friendlyName: "HelloName",
+ *     hbiWorkspace: false,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     keyVault: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+ *     location: "eastus2euap",
+ *     resourceGroupName: "workspace-1234",
+ *     sharedPrivateLinkResources: [{
+ *         name: "testdbresource",
+ *     }],
+ *     sku: {
+ *         name: "Basic",
+ *         tier: "Basic",
+ *     },
+ *     storageAccount: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+ *     workspaceName: "testworkspace",
+ * });
+ *
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

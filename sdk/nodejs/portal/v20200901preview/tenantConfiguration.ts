@@ -6,6 +6,20 @@ import * as utilities from "../../utilities";
 
 /**
  * Tenant configuration.
+ *
+ * ## Example Usage
+ * ### Create or update Tenant configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as @pulumi from "@pulumi/";
+ *
+ * const tenantConfiguration = new .("tenantConfiguration", {
+ *     configurationName: "default",
+ *     enforcePrivateMarkdownStorage: true,
+ * });
+ *
+ * ```
  */
 export class TenantConfiguration extends pulumi.CustomResource {
     /**

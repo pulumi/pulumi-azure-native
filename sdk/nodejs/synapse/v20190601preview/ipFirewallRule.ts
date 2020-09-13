@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * IP firewall rule
+ *
+ * ## Example Usage
+ * ### Create an IP firewall rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const ipFirewallRule = new azurerm.synapse.v20190601preview.IpFirewallRule("ipFirewallRule", {
+ *     endIpAddress: "10.0.0.254",
+ *     resourceGroupName: "ExampleResourceGroup",
+ *     ruleName: "ExampleIpFirewallRule",
+ *     startIpAddress: "10.0.0.0",
+ *     workspaceName: "ExampleWorkspace",
+ * });
+ *
+ * ```
  */
 export class IpFirewallRule extends pulumi.CustomResource {
     /**

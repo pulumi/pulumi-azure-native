@@ -8,6 +8,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The policy set definition.
+ *
+ * ## Example Usage
+ * ### Put a policy set definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const policySetDefinition = new azurerm.authorization.v20170601preview.PolicySetDefinition("policySetDefinition", {
+ *     description: "Policies required to minimize the risk of accidental cost overruns",
+ *     displayName: "VM and Storage Cost Management",
+ *     metadata: {
+ *         category: "Cost Management",
+ *     },
+ *     policyDefinitions: [{
+ *         parameters: {
+ *             listOfAllowedSKUs: {
+ *                 value: [
+ *                     "Standard_GRS",
+ *                     "Standard_LRS",
+ *                 ],
+ *             },
+ *         },
+ *         policyDefinitionId: "/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus",
+ *     }],
+ *     policySetDefinitionName: "costManagement",
+ * });
+ *
+ * ```
  */
 export class PolicySetDefinition extends pulumi.CustomResource {
     /**

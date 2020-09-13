@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection
+ *
+ * ## Example Usage
+ * ### Approve private endpoint connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateEndpointConnection = new azurerm.synapse.v20190601preview.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "ExamplePrivateEndpointConnection",
+ *     resourceGroupName: "ExampleResourceGroup",
+ *     workspaceName: "ExampleWorkspace",
+ * });
+ *
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

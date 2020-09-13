@@ -6,6 +6,26 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a machine learning team account workspace.
+ *
+ * ## Example Usage
+ * ### WorkspaceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const workspace = new azurerm.machinelearningexperimentation.v20170501preview.Workspace("workspace", {
+ *     accountName: "testaccount",
+ *     friendlyName: "testName",
+ *     location: "East US",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         tagKey1: "TagValue1",
+ *     },
+ *     workspaceName: "testworkspace",
+ * });
+ *
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

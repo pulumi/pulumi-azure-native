@@ -8,6 +8,66 @@ import * as utilities from "../../utilities";
 
 /**
  * Sku sub resource.
+ *
+ * ## Example Usage
+ * ### Create or update the sku of Vendor resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const vendorSkus = new azurerm.hybridnetwork.v20200101preview.VendorSkus("vendorSkus", {
+ *     deploymentMode: "PrivateEdgeZone",
+ *     managedApplicationTemplate: {},
+ *     preview: true,
+ *     skuName: "TestSku",
+ *     vendorName: "TestVendor",
+ *     virtualNetworkFunctionTemplate: {
+ *         virutalNetworkFunctionRoleConfigurations: [{
+ *             imageReference: {
+ *                 osType: "Linux",
+ *                 sasUri: "https://<yourstorage>.blob.core.windows.net/<yourcontainer>/<yourfile>?sp=rl&st=st>Z&se=<se>Z&sv=<sv>&sr=b&sig=<signature>",
+ *                 vhdName: "vhdName",
+ *                 vhdType: "VHD",
+ *             },
+ *             networkInterfaces: [
+ *                 {
+ *                     ipConfigurations: [{
+ *                         gateway: "",
+ *                         ipAddress: "",
+ *                         ipAllocationMethod: "Dynamic",
+ *                         ipVersion: "IPv4",
+ *                         subnet: "",
+ *                     }],
+ *                     macAddress: "",
+ *                     networkInterfaceName: "nic1",
+ *                     vmSwitchType: "Wan",
+ *                 },
+ *                 {
+ *                     ipConfigurations: [{
+ *                         gateway: "",
+ *                         ipAddress: "",
+ *                         ipAllocationMethod: "Dynamic",
+ *                         ipVersion: "IPv4",
+ *                         subnet: "",
+ *                     }],
+ *                     macAddress: "",
+ *                     networkInterfaceName: "nic2",
+ *                     vmSwitchType: "Management",
+ *                 },
+ *             ],
+ *             osProfile: {
+ *                 adminPassword: "dummypassword",
+ *                 adminUsername: "dummyuser",
+ *             },
+ *             roleName: "test",
+ *             roleType: "VirtualMachine",
+ *             virtualMachineSize: "Standard_D3_v2",
+ *         }],
+ *     },
+ * });
+ *
+ * ```
  */
 export class VendorSkus extends pulumi.CustomResource {
     /**

@@ -20,6 +20,45 @@ import * as utilities from "../../utilities";
  *     activities: [{
  *         name: "ExampleForeachActivity",
  *         type: "ForEach",
+ *         typeProperties: {
+ *             activities: [{
+ *                 inputs: [{
+ *                     parameters: {
+ *                         MyFileName: "examplecontainer.csv",
+ *                         MyFolderPath: "examplecontainer",
+ *                     },
+ *                     referenceName: "exampleDataset",
+ *                     type: "DatasetReference",
+ *                 }],
+ *                 name: "ExampleCopyActivity",
+ *                 outputs: [{
+ *                     parameters: {
+ *                         MyFileName: {
+ *                             type: "Expression",
+ *                             value: "@item()",
+ *                         },
+ *                         MyFolderPath: "examplecontainer",
+ *                     },
+ *                     referenceName: "exampleDataset",
+ *                     type: "DatasetReference",
+ *                 }],
+ *                 type: "Copy",
+ *                 typeProperties: {
+ *                     dataIntegrationUnits: 32,
+ *                     sink: {
+ *                         type: "BlobSink",
+ *                     },
+ *                     source: {
+ *                         type: "BlobSource",
+ *                     },
+ *                 },
+ *             }],
+ *             isSequential: true,
+ *             items: {
+ *                 type: "Expression",
+ *                 value: "@pipeline().parameters.OutputBlobNameList",
+ *             },
+ *         },
  *     }],
  *     factoryName: "exampleFactoryName",
  *     parameters: {
@@ -56,6 +95,45 @@ import * as utilities from "../../utilities";
  *     activities: [{
  *         name: "ExampleForeachActivity",
  *         type: "ForEach",
+ *         typeProperties: {
+ *             activities: [{
+ *                 inputs: [{
+ *                     parameters: {
+ *                         MyFileName: "examplecontainer.csv",
+ *                         MyFolderPath: "examplecontainer",
+ *                     },
+ *                     referenceName: "exampleDataset",
+ *                     type: "DatasetReference",
+ *                 }],
+ *                 name: "ExampleCopyActivity",
+ *                 outputs: [{
+ *                     parameters: {
+ *                         MyFileName: {
+ *                             type: "Expression",
+ *                             value: "@item()",
+ *                         },
+ *                         MyFolderPath: "examplecontainer",
+ *                     },
+ *                     referenceName: "exampleDataset",
+ *                     type: "DatasetReference",
+ *                 }],
+ *                 type: "Copy",
+ *                 typeProperties: {
+ *                     dataIntegrationUnits: 32,
+ *                     sink: {
+ *                         type: "BlobSink",
+ *                     },
+ *                     source: {
+ *                         type: "BlobSource",
+ *                     },
+ *                 },
+ *             }],
+ *             isSequential: true,
+ *             items: {
+ *                 type: "Expression",
+ *                 value: "@pipeline().parameters.OutputBlobNameList",
+ *             },
+ *         },
  *     }],
  *     description: "Example description",
  *     factoryName: "exampleFactoryName",

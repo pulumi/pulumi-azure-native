@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Payload of the blockchain member which is exposed in the request/response of the resource provider.
+ *
+ * ## Example Usage
+ * ### BlockchainMembers_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const blockchainMember = new azurerm.blockchain.v20180601preview.BlockchainMember("blockchainMember", {
+ *     blockchainMemberName: "contosemember1",
+ *     consortium: "ContoseConsortium",
+ *     consortiumManagementAccountPassword: "1234abcdEFG1",
+ *     location: "southeastasia",
+ *     password: "1234abcdEFG1",
+ *     protocol: "Quorum",
+ *     resourceGroupName: "mygroup",
+ *     validatorNodesSku: {
+ *         capacity: 2,
+ *     },
+ * });
+ *
+ * ```
  */
 export class BlockchainMember extends pulumi.CustomResource {
     /**

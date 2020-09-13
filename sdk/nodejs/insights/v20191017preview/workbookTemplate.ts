@@ -8,6 +8,31 @@ import * as utilities from "../../utilities";
 
 /**
  * An Application Insights workbook template definition.
+ *
+ * ## Example Usage
+ * ### WorkbookTemplateAdd
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const workbookTemplate = new azurerm.insights.v20191017preview.WorkbookTemplate("workbookTemplate", {
+ *     author: "Contoso",
+ *     galleries: [{
+ *         category: "Failures",
+ *         name: "Simple Template",
+ *         order: 100,
+ *         resourceType: "microsoft.insights/components",
+ *         type: "tsg",
+ *     }],
+ *     location: "west us",
+ *     priority: 1,
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "testtemplate2",
+ *     templateData: {},
+ * });
+ *
+ * ```
  */
 export class WorkbookTemplate extends pulumi.CustomResource {
     /**

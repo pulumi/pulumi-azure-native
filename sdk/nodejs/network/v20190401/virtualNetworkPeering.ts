@@ -8,28 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Peerings in a virtual network resource.
- *
- * ## Example Usage
- * ### Create peering
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const virtualNetworkPeering = new azurerm.network.v20190401.VirtualNetworkPeering("virtualNetworkPeering", {
- *     allowForwardedTraffic: true,
- *     allowGatewayTransit: false,
- *     allowVirtualNetworkAccess: true,
- *     remoteVirtualNetwork: {
- *         id: "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
- *     },
- *     resourceGroupName: "peerTest",
- *     useRemoteGateways: false,
- *     virtualNetworkName: "vnet1",
- *     virtualNetworkPeeringName: "peer",
- * });
- *
- * ```
  */
 export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**

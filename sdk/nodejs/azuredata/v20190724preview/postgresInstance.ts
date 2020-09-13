@@ -8,6 +8,20 @@ import * as utilities from "../../utilities";
 
 /**
  * A Postgres Instance.
+ *
+ * ## Example Usage
+ * ### Creates or updates a postgres Instance.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const postgresInstance = new azurerm.azuredata.v20190724preview.PostgresInstance("postgresInstance", {
+ *     postgresInstanceName: "testpostgresInstance",
+ *     resourceGroupName: "testrg",
+ * });
+ *
+ * ```
  */
 export class PostgresInstance extends pulumi.CustomResource {
     /**

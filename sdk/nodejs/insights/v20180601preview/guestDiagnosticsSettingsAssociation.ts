@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual machine guest diagnostic settings resource.
+ *
+ * ## Example Usage
+ * ### Create or update an guest diagnostic settings association
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const guestDiagnosticsSettingsAssociation = new azurerm.insights.v20180601preview.GuestDiagnosticsSettingsAssociation("guestDiagnosticsSettingsAssociation", {
+ *     associationName: "healthSystemMachineConfigAssociation",
+ *     guestDiagnosticSettingsName: "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-Association-ResourceGroup/providers/providers/microsoft.insights/guestDiagnosticSettings/vmSettingForSecurity",
+ *     location: "Global",
+ *     resourceUri: "subscriptions/8498f01b-8064-4e37-856e-318f3c6c685f/resourceGroups/healthsystem/providers/Microsoft.Compute/virtualMachines/eastussojai",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
     /**

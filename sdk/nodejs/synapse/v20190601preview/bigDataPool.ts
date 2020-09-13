@@ -8,6 +8,44 @@ import * as utilities from "../../utilities";
 
 /**
  * A Big Data pool
+ *
+ * ## Example Usage
+ * ### Create or update a Big Data pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const bigDataPool = new azurerm.synapse.v20190601preview.BigDataPool("bigDataPool", {
+ *     autoPause: {
+ *         delayInMinutes: 15,
+ *         enabled: true,
+ *     },
+ *     autoScale: {
+ *         enabled: true,
+ *         maxNodeCount: 50,
+ *         minNodeCount: 3,
+ *     },
+ *     bigDataPoolName: "ExamplePool",
+ *     defaultSparkLogFolder: "/logs",
+ *     libraryRequirements: {
+ *         content: "",
+ *         filename: "requirements.txt",
+ *     },
+ *     location: "West US 2",
+ *     nodeCount: 4,
+ *     nodeSize: "Medium",
+ *     nodeSizeFamily: "MemoryOptimized",
+ *     resourceGroupName: "ExampleResourceGroup",
+ *     sparkEventsFolder: "/events",
+ *     sparkVersion: "2.4",
+ *     tags: {
+ *         key: "value",
+ *     },
+ *     workspaceName: "ExampleWorkspace",
+ * });
+ *
+ * ```
  */
 export class BigDataPool extends pulumi.CustomResource {
     /**

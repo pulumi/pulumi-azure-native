@@ -8,6 +8,47 @@ import * as utilities from "../../utilities";
 
 /**
  * A container group.
+ *
+ * ## Example Usage
+ * ### ContainerGroupsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const containerGroup = new azurerm.containerinstance.v20171001preview.ContainerGroup("containerGroup", {
+ *     containerGroupName: "mycontainers",
+ *     containers: [{
+ *         name: "mycontainers",
+ *     }],
+ *     imageRegistryCredentials: [],
+ *     ipAddress: {
+ *         ports: [{
+ *             port: 80,
+ *             protocol: "TCP",
+ *         }],
+ *         type: "Public",
+ *     },
+ *     location: "westus",
+ *     osType: "Linux",
+ *     resourceGroupName: "demo",
+ *     volumes: [
+ *         {
+ *             azureFile: {
+ *                 shareName: "shareName",
+ *                 storageAccountKey: "",
+ *                 storageAccountName: "accountName",
+ *             },
+ *             name: "volume1",
+ *         },
+ *         {
+ *             emptyDir: {},
+ *             name: "volume2",
+ *         },
+ *     ],
+ * });
+ *
+ * ```
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**

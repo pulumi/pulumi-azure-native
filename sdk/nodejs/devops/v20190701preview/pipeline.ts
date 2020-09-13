@@ -8,6 +8,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure DevOps Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
+ *
+ * ## Example Usage
+ * ### Create an Azure pipeline to deploy a sample ASP.Net application to Azure web-app
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const pipeline = new azurerm.devops.v20190701preview.Pipeline("pipeline", {
+ *     bootstrapConfiguration: {
+ *         template: {
+ *             id: "ms.vss-continuous-delivery-pipeline-templates.aspnet-windowswebapp",
+ *             parameters: {
+ *                 appInsightLocation: "South India",
+ *                 appServicePlan: "S1 Standard",
+ *                 azureAuth: "{\"scheme\":\"ServicePrincipal\",\"parameters\":{\"tenantid\":\"{subscriptionTenantId}\",\"objectid\":\"{appObjectId}\",\"serviceprincipalid\":\"{appId}\",\"serviceprincipalkey\":\"{appSecret}\"}}",
+ *                 location: "South India",
+ *                 resourceGroup: "myAspNetWebAppPipeline-rg",
+ *                 subscriptionId: "{subscriptionId}",
+ *                 webAppName: "myAspNetWebApp",
+ *             },
+ *         },
+ *     },
+ *     location: "South India",
+ *     organization: {
+ *         name: "myAspNetWebAppPipeline-org",
+ *     },
+ *     pipelineName: "myAspNetWebAppPipeline",
+ *     project: {
+ *         name: "myAspNetWebAppPipeline-project",
+ *     },
+ *     resourceGroupName: "myAspNetWebAppPipeline-rg",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

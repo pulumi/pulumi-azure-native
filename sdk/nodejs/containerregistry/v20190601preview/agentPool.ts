@@ -7,6 +7,28 @@ import * as utilities from "../../utilities";
 /**
  * The agentpool that has the ARM resource and properties.
  * The agentpool will have all information to create an agent pool.
+ *
+ * ## Example Usage
+ * ### AgentPools_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const agentPool = new azurerm.containerregistry.v20190601preview.AgentPool("agentPool", {
+ *     agentPoolName: "myAgentPool",
+ *     count: 1,
+ *     location: "WESTUS",
+ *     os: "Linux",
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         key: "value",
+ *     },
+ *     tier: "S1",
+ * });
+ *
+ * ```
  */
 export class AgentPool extends pulumi.CustomResource {
     /**

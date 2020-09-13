@@ -8,6 +8,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The batch configuration resource definition.
+ *
+ * ## Example Usage
+ * ### Create or update a batch configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const integrationAccountBatchConfiguration = new azurerm.logic.v20180701preview.IntegrationAccountBatchConfiguration("integrationAccountBatchConfiguration", {
+ *     batchConfigurationName: "testBatchConfiguration",
+ *     integrationAccountName: "testIntegrationAccount",
+ *     location: "westus",
+ *     properties: {
+ *         batchGroupName: "DEFAULT",
+ *         releaseCriteria: {
+ *             batchSize: 234567,
+ *             messageCount: 10,
+ *             recurrence: {
+ *                 frequency: "Minute",
+ *                 interval: 1,
+ *                 startTime: "2017-03-24T11:43:00",
+ *                 timeZone: "India Standard Time",
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "testResourceGroup",
+ * });
+ *
+ * ```
  */
 export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource {
     /**

@@ -6,28 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Service Endpoint policy definitions.
- *
- * ## Example Usage
- * ### Create service endpoint policy definition
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const serviceEndpointPolicyDefinition = new azurerm.network.v20190801.ServiceEndpointPolicyDefinition("serviceEndpointPolicyDefinition", {
- *     description: "Storage Service EndpointPolicy Definition",
- *     resourceGroupName: "rg1",
- *     service: "Microsoft.Storage",
- *     serviceEndpointPolicyDefinitionName: "testDefinition",
- *     serviceEndpointPolicyName: "testPolicy",
- *     serviceResources: [
- *         "/subscriptions/subid1",
- *         "/subscriptions/subid1/resourceGroups/storageRg",
- *         "/subscriptions/subid1/resourceGroups/storageRg/providers/Microsoft.Storage/storageAccounts/stAccount",
- *     ],
- * });
- *
- * ```
  */
 export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
     /**

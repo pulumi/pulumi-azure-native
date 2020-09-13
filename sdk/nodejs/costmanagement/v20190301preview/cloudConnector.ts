@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * The Connector model definition
+ *
+ * ## Example Usage
+ * ### CloudConnector_Put
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cloudConnector = new azurerm.costmanagement.v20190301preview.CloudConnector("cloudConnector", {
+ *     connectorName: "aws-123456789012",
+ *     credentialsKey: "arn:aws:iam::123456789012:role/AzureCostManagementRole",
+ *     credentialsSecret: "external-id",
+ *     displayName: "AWS-Consolidated-1",
+ *     reportId: "HourlyWithResources",
+ * });
+ *
+ * ```
  */
 export class CloudConnector extends pulumi.CustomResource {
     /**

@@ -8,6 +8,153 @@ import * as utilities from "../../utilities";
 
 /**
  * A Content Key Policy resource.
+ *
+ * ## Example Usage
+ * ### Creates a Content Key Policy with ClearKey option and Token Restriction
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const contentKeyPolicy = new azurerm.media.v20180330preview.ContentKeyPolicy("contentKeyPolicy", {
+ *     accountName: "contosomedia",
+ *     contentKeyPolicyName: "PolicyWithClearKeyOptionAndSwtTokenRestriction",
+ *     description: "ArmPolicyDescription",
+ *     options: [{
+ *         configuration: {
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+ *         },
+ *         name: "ClearKeyOption",
+ *         restriction: {
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+ *             audience: "urn:audience",
+ *             issuer: "urn:issuer",
+ *             primaryVerificationKey: {
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+ *                 keyValue: "AAAAAAAAAAAAAAAAAAAAAA==",
+ *             },
+ *             restrictionTokenType: "Swt",
+ *         },
+ *     }],
+ *     resourceGroupName: "contoso",
+ * });
+ *
+ * ```
+ * ### Creates a Content Key Policy with PlayReady option and Open Restriction
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const contentKeyPolicy = new azurerm.media.v20180330preview.ContentKeyPolicy("contentKeyPolicy", {
+ *     accountName: "contosomedia",
+ *     contentKeyPolicyName: "PolicyWithPlayReadyOptionAndOpenRestriction",
+ *     description: "ArmPolicyDescription",
+ *     options: [{
+ *         configuration: {
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
+ *             licenses: [{
+ *                 allowTestDevices: true,
+ *                 beginDate: "2017-10-16T18:22:53.46Z",
+ *                 contentKeyLocation: {
+ *                     "@odata.type": "#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader",
+ *                 },
+ *                 contentType: "UltraVioletDownload",
+ *                 licenseType: "Persistent",
+ *                 playRight: {
+ *                     allowPassingVideoContentToUnknownOutput: "NotAllowed",
+ *                     imageConstraintForAnalogComponentVideoRestriction: true,
+ *                     scmsRestriction: 2,
+ *                 },
+ *             }],
+ *         },
+ *         name: "ArmPolicyOptionName",
+ *         restriction: {
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+ *         },
+ *     }],
+ *     resourceGroupName: "contoso",
+ * });
+ *
+ * ```
+ * ### Creates a Content Key Policy with Widevine option and Token Restriction
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const contentKeyPolicy = new azurerm.media.v20180330preview.ContentKeyPolicy("contentKeyPolicy", {
+ *     accountName: "contosomedia",
+ *     contentKeyPolicyName: "PolicyWithWidevineOptionAndJwtTokenRestriction",
+ *     description: "ArmPolicyDescription",
+ *     options: [{
+ *         configuration: {
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+ *             widevineTemplate: "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}",
+ *         },
+ *         name: "widevineoption",
+ *         restriction: {
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+ *             alternateVerificationKeys: [{
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+ *                 keyValue: "AAAAAAAAAAAAAAAAAAAAAA==",
+ *             }],
+ *             audience: "urn:audience",
+ *             issuer: "urn:issuer",
+ *             primaryVerificationKey: {
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicyRsaTokenKey",
+ *                 exponent: "AQAB",
+ *                 modulus: "AQAD",
+ *             },
+ *             restrictionTokenType: "Jwt",
+ *         },
+ *     }],
+ *     resourceGroupName: "contoso",
+ * });
+ *
+ * ```
+ * ### Creates a Content Key Policy with multiple options
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const contentKeyPolicy = new azurerm.media.v20180330preview.ContentKeyPolicy("contentKeyPolicy", {
+ *     accountName: "contosomedia",
+ *     contentKeyPolicyName: "PolicyCreatedWithMultipleOptions",
+ *     description: "ArmPolicyDescription",
+ *     options: [
+ *         {
+ *             configuration: {
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+ *             },
+ *             name: "ClearKeyOption",
+ *             restriction: {
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+ *                 audience: "urn:audience",
+ *                 issuer: "urn:issuer",
+ *                 primaryVerificationKey: {
+ *                     "@odata.type": "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+ *                     keyValue: "AAAAAAAAAAAAAAAAAAAAAA==",
+ *                 },
+ *                 restrictionTokenType: "Swt",
+ *             },
+ *         },
+ *         {
+ *             configuration: {
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+ *                 widevineTemplate: "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}",
+ *             },
+ *             name: "widevineoption",
+ *             restriction: {
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+ *             },
+ *         },
+ *     ],
+ *     resourceGroupName: "contoso",
+ * });
+ *
+ * ```
  */
 export class ContentKeyPolicy extends pulumi.CustomResource {
     /**

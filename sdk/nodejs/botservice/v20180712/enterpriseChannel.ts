@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Enterprise Channel resource definition
+ *
+ * ## Example Usage
+ * ### Create Enterprise Channel
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const enterpriseChannel = new azurerm.botservice.v20180712.EnterpriseChannel("enterpriseChannel", {
+ *     etag: "etag1",
+ *     location: "West US",
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "contoso-dl",
+ *     sku: {
+ *         name: "S1",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class EnterpriseChannel extends pulumi.CustomResource {
     /**

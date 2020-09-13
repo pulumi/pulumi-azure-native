@@ -8,6 +8,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Factory resource type.
+ *
+ * ## Example Usage
+ * ### Factories_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const factory = new azurerm.datafactory.v20170901preview.Factory("factory", {
+ *     factoryName: "exampleFactoryName",
+ *     location: "East US",
+ *     resourceGroupName: "exampleResourceGroup",
+ *     vstsConfiguration: {
+ *         accountName: "msdata",
+ *         collaborationBranch: "master",
+ *         lastCommitId: "",
+ *         projectName: "datafactory",
+ *         repositoryName: "exampleRepo",
+ *         rootFolder: "/",
+ *         tenantId: "12f988bf-86d1-41af-91ab-2d7cd011db49",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Factory extends pulumi.CustomResource {
     /**

@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Data controller resource
+ *
+ * ## Example Usage
+ * ### Updates a dataControllers tags.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataController = new azurerm.azuredata.v20190724preview.DataController("dataController", {
+ *     dataControllerName: "testdataController",
+ *     location: "northeurope",
+ *     onPremiseProperty: {
+ *         id: "12345678-1234-1234-ab12-1a2b3c4d5e6f",
+ *         publicSigningKey: "publicOnPremSigningKey",
+ *     },
+ *     resourceGroupName: "testrg",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
  */
 export class DataController extends pulumi.CustomResource {
     /**

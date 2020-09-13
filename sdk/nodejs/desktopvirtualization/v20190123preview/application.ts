@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Schema for Application properties.
+ *
+ * ## Example Usage
+ * ### Application_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const application = new azurerm.desktopvirtualization.v20190123preview.Application("application", {
+ *     applicationGroupName: "applicationGroup1",
+ *     applicationName: "application1",
+ *     commandLineArguments: "arguments",
+ *     commandLineSetting: "Allow",
+ *     description: "des1",
+ *     filePath: "path",
+ *     friendlyName: "friendly",
+ *     iconIndex: 1,
+ *     iconPath: "icon",
+ *     resourceGroupName: "resourceGroup1",
+ *     showInPortal: true,
+ * });
+ *
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

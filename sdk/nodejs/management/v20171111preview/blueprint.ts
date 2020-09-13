@@ -8,6 +8,50 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Blueprint definition.
+ *
+ * ## Example Usage
+ * ### Blueprint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const blueprint = new azurerm.management.v20171111preview.Blueprint("blueprint", {
+ *     blueprintName: "simpleBlueprint",
+ *     description: "blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+ *     managementGroupName: "ContosoOnlineGroup",
+ *     parameters: {
+ *         costCenter: {
+ *             metadata: {
+ *                 displayName: "force cost center tag for all resources under given subscription.",
+ *             },
+ *             type: "string",
+ *         },
+ *         owners: {
+ *             metadata: {
+ *                 displayName: "assign owners to subscription along with blueprint assignment.",
+ *             },
+ *             type: "array",
+ *         },
+ *         storageAccountType: {
+ *             metadata: {
+ *                 displayName: "storage account type.",
+ *             },
+ *             type: "string",
+ *         },
+ *     },
+ *     resourceGroups: {
+ *         storageRG: {
+ *             metadata: {
+ *                 description: "Contains storageAccounts that collect all shoebox logs.",
+ *                 displayName: "storage resource group",
+ *             },
+ *         },
+ *     },
+ *     targetScope: "subscription",
+ * });
+ *
+ * ```
  */
 export class Blueprint extends pulumi.CustomResource {
     /**

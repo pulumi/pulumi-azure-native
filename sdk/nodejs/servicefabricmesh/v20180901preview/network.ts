@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * This type describes a network resource.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdateNetwork
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const network = new azurerm.servicefabricmesh.v20180901preview.Network("network", {
+ *     location: "EastUS",
+ *     networkResourceName: "sampleNetwork",
+ *     resourceGroupName: "sbz_demo",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class Network extends pulumi.CustomResource {
     /**

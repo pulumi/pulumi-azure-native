@@ -6,6 +6,106 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Update an application control VM/server group by adding a new file
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const adaptiveApplicationControl = new azurerm.security.v20150601preview.AdaptiveApplicationControl("adaptiveApplicationControl", {
+ *     ascLocation: "centralus",
+ *     enforcementMode: "Audit",
+ *     groupName: "ERELGROUP1",
+ *     pathRecommendations: [
+ *         {
+ *             action: "Recommended",
+ *             common: true,
+ *             configurationStatus: "Configured",
+ *             fileType: "Exe",
+ *             path: "[Exe] O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US\\*\\*\\0.0.0.0",
+ *             publisherInfo: {
+ *                 binaryName: "*",
+ *                 productName: "*",
+ *                 publisherName: "O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US",
+ *                 version: "0.0.0.0",
+ *             },
+ *             type: "PublisherSignature",
+ *             userSids: ["S-1-1-0"],
+ *             usernames: [{
+ *                 recommendationAction: "Recommended",
+ *                 username: "Everyone",
+ *             }],
+ *         },
+ *         {
+ *             action: "Recommended",
+ *             common: true,
+ *             configurationStatus: "Configured",
+ *             fileType: "Exe",
+ *             path: `%OSDRIVE%\WINDOWSAZURE\SECAGENT\WASECAGENTPROV.EXE`,
+ *             publisherInfo: {
+ *                 binaryName: "*",
+ *                 productName: "MICROSOFT® COREXT",
+ *                 publisherName: "CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+ *                 version: "0.0.0.0",
+ *             },
+ *             type: "ProductSignature",
+ *             userSids: ["S-1-1-0"],
+ *             usernames: [{
+ *                 recommendationAction: "Recommended",
+ *                 username: "NT AUTHORITY\\SYSTEM",
+ *             }],
+ *         },
+ *         {
+ *             action: "Recommended",
+ *             common: true,
+ *             configurationStatus: "Configured",
+ *             fileType: "Exe",
+ *             path: `%OSDRIVE%\WINDOWSAZURE\PACKAGES_201973_7415\COLLECTGUESTLOGS.EXE`,
+ *             publisherInfo: {
+ *                 binaryName: "*",
+ *                 productName: "*",
+ *                 publisherName: "CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+ *                 version: "0.0.0.0",
+ *             },
+ *             type: "PublisherSignature",
+ *             userSids: ["S-1-1-0"],
+ *             usernames: [{
+ *                 recommendationAction: "Recommended",
+ *                 username: "NT AUTHORITY\\SYSTEM",
+ *             }],
+ *         },
+ *         {
+ *             action: "Add",
+ *             common: true,
+ *             path: "C:\\directory\\file.exe",
+ *             type: "File",
+ *         },
+ *     ],
+ *     protectionMode: {
+ *         exe: "Audit",
+ *         msi: "None",
+ *         script: "None",
+ *     },
+ *     vmRecommendations: [
+ *         {
+ *             configurationStatus: "Configured",
+ *             enforcementSupport: "Supported",
+ *             recommendationAction: "Recommended",
+ *             resourceId: "/subscriptions/3eeab341-f466-499c-a8be-85427e154baf/resourcegroups/erelh-stable/providers/microsoft.compute/virtualmachines/erelh-16090",
+ *         },
+ *         {
+ *             configurationStatus: "Configured",
+ *             enforcementSupport: "Supported",
+ *             recommendationAction: "Recommended",
+ *             resourceId: "/subscriptions/3eeab341-f466-499c-a8be-85427e154baf/resourcegroups/matanvs/providers/microsoft.compute/virtualmachines/matanvs19",
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ */
 export class AdaptiveApplicationControl extends pulumi.CustomResource {
     /**
      * Get an existing AdaptiveApplicationControl resource's state with the given name, ID, and optional extra

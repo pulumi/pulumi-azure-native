@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+ *
+ * ## Example Usage
+ * ### ConfigurationStores_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const configurationStore = new azurerm.appconfiguration.v20190201preview.ConfigurationStore("configurationStore", {
+ *     configStoreName: "fayeh",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         myTag: "myTagValue",
+ *     },
+ * });
+ *
+ * ```
  */
 export class ConfigurationStore extends pulumi.CustomResource {
     /**

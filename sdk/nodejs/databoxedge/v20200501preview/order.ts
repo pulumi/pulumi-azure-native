@@ -8,6 +8,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The order details.
+ *
+ * ## Example Usage
+ * ### OrderPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const order = new azurerm.databoxedge.v20200501preview.Order("order", {
+ *     contactInformation: {
+ *         companyName: "Microsoft",
+ *         contactPerson: "John Mcclane",
+ *         emailList: ["john@microsoft.com"],
+ *         phone: "(800) 426-9400",
+ *     },
+ *     deviceName: "testedgedevice",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     shippingAddress: {
+ *         addressLine1: "Microsoft Corporation",
+ *         addressLine2: "One Microsoft Way",
+ *         addressLine3: "Redmond",
+ *         city: "WA",
+ *         country: "USA",
+ *         postalCode: "98052",
+ *         state: "WA",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Order extends pulumi.CustomResource {
     /**

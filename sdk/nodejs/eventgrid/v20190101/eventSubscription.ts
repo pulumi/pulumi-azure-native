@@ -22,6 +22,9 @@ import * as utilities from "../../utilities";
  *     },
  *     destination: {
  *         endpointType: "EventHub",
+ *         properties: {
+ *             resourceId: "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1",
+ *         },
  *     },
  *     eventSubscriptionName: "examplesubscription1",
  *     filter: {
@@ -45,6 +48,9 @@ import * as utilities from "../../utilities";
  *     },
  *     destination: {
  *         endpointType: "HybridConnection",
+ *         properties: {
+ *             resourceId: "/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Relay/namespaces/ContosoNamespace/hybridConnections/HC1",
+ *         },
  *     },
  *     eventSubscriptionName: "examplesubscription1",
  *     filter: {
@@ -68,6 +74,10 @@ import * as utilities from "../../utilities";
  *     },
  *     destination: {
  *         endpointType: "StorageQueue",
+ *         properties: {
+ *             queueName: "queue1",
+ *             resourceId: "/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+ *         },
  *     },
  *     eventSubscriptionName: "examplesubscription1",
  *     filter: {
@@ -91,6 +101,9 @@ import * as utilities from "../../utilities";
  *     },
  *     destination: {
  *         endpointType: "WebHook",
+ *         properties: {
+ *             endpointUrl: "https://contosofunction.azurewebsites.net/api/HttpTriggerCSharp1?code=<HIDDEN>",
+ *         },
  *     },
  *     eventSubscriptionName: "examplesubscription1",
  *     filter: {
@@ -111,6 +124,9 @@ import * as utilities from "../../utilities";
  * const eventSubscription = new azurerm.eventgrid.v20190101.EventSubscription("eventSubscription", {
  *     destination: {
  *         endpointType: "WebHook",
+ *         properties: {
+ *             endpointUrl: "https://requestb.in/15ksip71",
+ *         },
  *     },
  *     eventSubscriptionName: "examplesubscription10",
  *     filter: {
@@ -131,6 +147,9 @@ import * as utilities from "../../utilities";
  * const eventSubscription = new azurerm.eventgrid.v20190101.EventSubscription("eventSubscription", {
  *     destination: {
  *         endpointType: "WebHook",
+ *         properties: {
+ *             endpointUrl: "https://requestb.in/15ksip71",
+ *         },
  *     },
  *     eventSubscriptionName: "examplesubscription2",
  *     filter: {
@@ -151,6 +170,9 @@ import * as utilities from "../../utilities";
  * const eventSubscription = new azurerm.eventgrid.v20190101.EventSubscription("eventSubscription", {
  *     destination: {
  *         endpointType: "WebHook",
+ *         properties: {
+ *             endpointUrl: "https://requestb.in/15ksip71",
+ *         },
  *     },
  *     eventSubscriptionName: "examplesubscription3",
  *     filter: {

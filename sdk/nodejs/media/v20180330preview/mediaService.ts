@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * A Media Services account.
+ *
+ * ## Example Usage
+ * ### Create a Media Services account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const mediaService = new azurerm.media.v20180330preview.MediaService("mediaService", {
+ *     accountName: "contososports",
+ *     location: "South Central US",
+ *     resourceGroupName: "contoso",
+ *     storageAccounts: [{
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contososportsstore",
+ *         type: "Primary",
+ *     }],
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class MediaService extends pulumi.CustomResource {
     /**

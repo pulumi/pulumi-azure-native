@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * The Setting.
+ *
+ * ## Example Usage
+ * ### Update EyesOn settings.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const productSetting = new azurerm.securityinsights.v20190101preview.ProductSetting("productSetting", {
+ *     etag: "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+ *     kind: "EyesOn",
+ *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
+ *     resourceGroupName: "myRg",
+ *     settingsName: "EyesOn",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
  */
 export class ProductSetting extends pulumi.CustomResource {
     /**

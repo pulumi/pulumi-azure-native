@@ -8,6 +8,65 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL managed instance.
+ *
+ * ## Example Usage
+ * ### Create managed instance with all properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedInstance = new azurerm.sql.v20200202preview.ManagedInstance("managedInstance", {
+ *     administratorLogin: "dummylogin",
+ *     administratorLoginPassword: "Un53cuRE!",
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     dnsZonePartner: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance",
+ *     instancePoolId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/instancePools/pool1",
+ *     licenseType: "LicenseIncluded",
+ *     location: "Japan East",
+ *     maintenanceConfigurationId: "/subscriptions/ab0e51c0-83c0-4380-8ae9-025516df392f/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_WestEurope_MI_Mon_Fri_10PM_6AM",
+ *     managedInstanceName: "testinstance",
+ *     proxyOverride: "Redirect",
+ *     publicDataEndpointEnabled: false,
+ *     resourceGroupName: "testrg",
+ *     sku: {
+ *         name: "GP_Gen5",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storageAccountType: "GRS",
+ *     storageSizeInGB: 1024,
+ *     subnetId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+ *     tags: {
+ *         tagKey1: "TagValue1",
+ *     },
+ *     timezoneId: "UTC",
+ *     vCores: 8,
+ * });
+ *
+ * ```
+ * ### Create managed instance with minimal properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedInstance = new azurerm.sql.v20200202preview.ManagedInstance("managedInstance", {
+ *     administratorLogin: "dummylogin",
+ *     administratorLoginPassword: "Un53cuRE!",
+ *     licenseType: "LicenseIncluded",
+ *     location: "Japan East",
+ *     managedInstanceName: "testinstance",
+ *     resourceGroupName: "testrg",
+ *     sku: {
+ *         name: "GP_Gen4",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storageSizeInGB: 1024,
+ *     subnetId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+ *     vCores: 8,
+ * });
+ *
+ * ```
  */
 export class ManagedInstance extends pulumi.CustomResource {
     /**

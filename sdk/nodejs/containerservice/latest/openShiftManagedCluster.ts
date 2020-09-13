@@ -39,7 +39,11 @@ import * as utilities from "../../utilities";
  *         identityProviders: [{
  *             name: "Azure AD",
  *             provider: {
+ *                 clientId: "clientId",
+ *                 customerAdminGroupId: "customerAdminGroupId",
  *                 kind: "AADIdentityProvider",
+ *                 secret: "secret",
+ *                 tenantId: "tenantId",
  *             },
  *         }],
  *     },

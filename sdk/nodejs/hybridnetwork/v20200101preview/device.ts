@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Hybrid network device resource.
+ *
+ * ## Example Usage
+ * ### Create or update hybrid network device
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const device = new azurerm.hybridnetwork.v20200101preview.Device("device", {
+ *     azureStackEdge: {
+ *         id: "/subscriptions/subid1/resourcegroups/rg2/providers/Microsoft.DataboxEdge/DataboxEdgeDevices/TestDataboxEdgeDeviceName",
+ *     },
+ *     deviceName: "TestDevice",
+ *     deviceType: "AzureStackEdge",
+ *     location: "eastus",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class Device extends pulumi.CustomResource {
     /**

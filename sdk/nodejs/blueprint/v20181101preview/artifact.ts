@@ -6,6 +6,92 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a blueprint artifact.
+ *
+ * ## Example Usage
+ * ### MG-ARMTemplateArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const artifact = new azurerm.blueprint.v20181101preview.Artifact("artifact", {
+ *     artifactName: "storageTemplate",
+ *     blueprintName: "simpleBlueprint",
+ *     kind: "template",
+ *     resourceScope: "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+ * });
+ *
+ * ```
+ * ### MG-PolicyAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const artifact = new azurerm.blueprint.v20181101preview.Artifact("artifact", {
+ *     artifactName: "costCenterPolicy",
+ *     blueprintName: "simpleBlueprint",
+ *     kind: "policyAssignment",
+ *     resourceScope: "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+ * });
+ *
+ * ```
+ * ### MG-RoleAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const artifact = new azurerm.blueprint.v20181101preview.Artifact("artifact", {
+ *     artifactName: "ownerAssignment",
+ *     blueprintName: "simpleBlueprint",
+ *     kind: "roleAssignment",
+ *     resourceScope: "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+ * });
+ *
+ * ```
+ * ### Sub-ARMTemplateArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const artifact = new azurerm.blueprint.v20181101preview.Artifact("artifact", {
+ *     artifactName: "storageTemplate",
+ *     blueprintName: "simpleBlueprint",
+ *     kind: "template",
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
+ * ### Sub-PolicyAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const artifact = new azurerm.blueprint.v20181101preview.Artifact("artifact", {
+ *     artifactName: "costCenterPolicy",
+ *     blueprintName: "simpleBlueprint",
+ *     kind: "policyAssignment",
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
+ * ### Sub-RoleAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const artifact = new azurerm.blueprint.v20181101preview.Artifact("artifact", {
+ *     artifactName: "ownerAssignment",
+ *     blueprintName: "simpleBlueprint",
+ *     kind: "roleAssignment",
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
  */
 export class Artifact extends pulumi.CustomResource {
     /**

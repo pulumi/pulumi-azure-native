@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * The Managed Network Peering Policy resource
+ *
+ * ## Example Usage
+ * ### ManagedNetworkPeeringPoliciesPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedNetworkPeeringPolicy = new azurerm.managednetwork.v20190601preview.ManagedNetworkPeeringPolicy("managedNetworkPeeringPolicy", {
+ *     managedNetworkName: "myManagedNetwork",
+ *     managedNetworkPeeringPolicyName: "myHubAndSpoke",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
  */
 export class ManagedNetworkPeeringPolicy extends pulumi.CustomResource {
     /**

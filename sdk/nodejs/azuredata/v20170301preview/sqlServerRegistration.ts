@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL server registration.
+ *
+ * ## Example Usage
+ * ### Creates or updates a SQL Server registration.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const sqlServerRegistration = new azurerm.azuredata.v20170301preview.SqlServerRegistration("sqlServerRegistration", {
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlServerRegistrationName: "testsqlregistration",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
  */
 export class SqlServerRegistration extends pulumi.CustomResource {
     /**

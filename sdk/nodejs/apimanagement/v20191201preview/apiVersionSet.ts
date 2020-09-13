@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Api Version Set Contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiVersionSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiVersionSet = new azurerm.apimanagement.v20191201preview.ApiVersionSet("apiVersionSet", {
+ *     description: "Version configuration",
+ *     displayName: "api set 1",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     versionSetId: "api1",
+ *     versioningScheme: "Segment",
+ * });
+ *
+ * ```
  */
 export class ApiVersionSet extends pulumi.CustomResource {
     /**

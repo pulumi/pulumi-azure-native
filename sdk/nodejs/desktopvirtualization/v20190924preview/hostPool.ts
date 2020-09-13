@@ -8,6 +8,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a HostPool definition.
+ *
+ * ## Example Usage
+ * ### HostPool_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const hostPool = new azurerm.desktopvirtualization.v20190924preview.HostPool("hostPool", {
+ *     description: "des1",
+ *     friendlyName: "friendly",
+ *     hostPoolName: "hostPool1",
+ *     hostPoolType: "Shared",
+ *     loadBalancerType: "BreadthFirst",
+ *     location: "centralus",
+ *     maxSessionLimit: 999999,
+ *     personalDesktopAssignmentType: "Automatic",
+ *     preferredAppGroupType: "Desktop",
+ *     registrationInfo: {
+ *         expirationTime: "2008-09-22T14:01:54.9571247Z",
+ *         registrationTokenOperation: "Update",
+ *     },
+ *     resourceGroupName: "resourceGroup1",
+ *     ssoContext: "KeyVaultPath",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class HostPool extends pulumi.CustomResource {
     /**

@@ -8,6 +8,125 @@ import * as utilities from "../../utilities";
 
 /**
  * The manged cluster resource
+ *
+ * ## Example Usage
+ * ### Put a cluster with maximum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedCluster = new azurerm.servicefabric.v20200101preview.ManagedCluster("managedCluster", {
+ *     adminPassword: "{vm-password}",
+ *     adminUserName: "vmadmin",
+ *     clientConnectionPort: 19000,
+ *     clusterCodeVersion: "7.1.168.9494",
+ *     clusterName: "myCluster",
+ *     clusterUpgradeDescription: {
+ *         deltaHealthPolicy: {
+ *             applicationDeltaHealthPolicies: {
+ *                 "fabric:/myApp1": {
+ *                     defaultServiceTypeDeltaHealthPolicy: {
+ *                         maxPercentDeltaUnhealthyServices: 0,
+ *                     },
+ *                     serviceTypeDeltaHealthPolicies: {
+ *                         myServiceType1: {
+ *                             maxPercentDeltaUnhealthyServices: 0,
+ *                         },
+ *                     },
+ *                 },
+ *             },
+ *             maxPercentDeltaUnhealthyApplications: 0,
+ *             maxPercentDeltaUnhealthyNodes: 0,
+ *             maxPercentUpgradeDomainDeltaUnhealthyNodes: 0,
+ *         },
+ *         forceRestart: false,
+ *         healthCheckRetryTimeout: "00:05:00",
+ *         healthCheckStableDuration: "00:00:30",
+ *         healthCheckWaitDuration: "00:00:30",
+ *         healthPolicy: {
+ *             applicationHealthPolicies: {
+ *                 "fabric:/myApp1": {
+ *                     defaultServiceTypeHealthPolicy: {
+ *                         maxPercentUnhealthyServices: 0,
+ *                     },
+ *                     serviceTypeHealthPolicies: {
+ *                         myServiceType1: {
+ *                             maxPercentUnhealthyServices: 100,
+ *                         },
+ *                     },
+ *                 },
+ *             },
+ *             maxPercentUnhealthyApplications: 0,
+ *             maxPercentUnhealthyNodes: 0,
+ *         },
+ *         upgradeDomainTimeout: "00:15:00",
+ *         upgradeReplicaSetCheckTimeout: "00:10:00",
+ *         upgradeTimeout: "01:00:00",
+ *     },
+ *     clusterUpgradeMode: "Manual",
+ *     dnsName: "myCluster",
+ *     fabricSettings: [{
+ *         name: "ManagedIdentityTokenService",
+ *         parameters: [{
+ *             name: "IsEnabled",
+ *             value: "true",
+ *         }],
+ *     }],
+ *     httpGatewayConnectionPort: 19080,
+ *     loadBalancingRules: [
+ *         {
+ *             backendPort: 80,
+ *             frontendPort: 80,
+ *             probeProtocol: "http",
+ *             protocol: "http",
+ *         },
+ *         {
+ *             backendPort: 443,
+ *             frontendPort: 443,
+ *             probeProtocol: "http",
+ *             protocol: "http",
+ *         },
+ *         {
+ *             backendPort: 10000,
+ *             frontendPort: 10000,
+ *             probeProtocol: "http",
+ *             protocol: "tcp",
+ *         },
+ *     ],
+ *     location: "eastus",
+ *     resourceGroupName: "resRg",
+ *     sku: {
+ *         name: "Basic",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Put a cluster with minimum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedCluster = new azurerm.servicefabric.v20200101preview.ManagedCluster("managedCluster", {
+ *     adminPassword: "{vm-password}",
+ *     adminUserName: "vmadmin",
+ *     clusterCodeVersion: "7.1.168.9494",
+ *     clusterName: "myCluster",
+ *     dnsName: "myCluster",
+ *     fabricSettings: [{
+ *         name: "ManagedIdentityTokenService",
+ *         parameters: [{
+ *             name: "IsEnabled",
+ *             value: "true",
+ *         }],
+ *     }],
+ *     location: "eastus",
+ *     resourceGroupName: "resRg",
+ * });
+ *
+ * ```
  */
 export class ManagedCluster extends pulumi.CustomResource {
     /**

@@ -8,6 +8,31 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents an export pipeline for a container registry.
+ *
+ * ## Example Usage
+ * ### ExportPipelineCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const exportPipeline = new azurerm.containerregistry.v20191201preview.ExportPipeline("exportPipeline", {
+ *     exportPipelineName: "myExportPipeline",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "westus",
+ *     options: ["OverwriteBlobs"],
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     target: {
+ *         keyVaultUri: "https://myvault.vault.azure.net/secrets/acrexportsas",
+ *         type: "AzureStorageBlobContainer",
+ *         uri: "https://accountname.blob.core.windows.net/containername",
+ *     },
+ * });
+ *
+ * ```
  */
 export class ExportPipeline extends pulumi.CustomResource {
     /**

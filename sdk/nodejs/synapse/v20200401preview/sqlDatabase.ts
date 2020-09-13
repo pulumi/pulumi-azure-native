@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * A sql database resource.
+ *
+ * ## Example Usage
+ * ### Creates a sqldatabase.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const sqlDatabase = new azurerm.synapse.v20200401preview.SqlDatabase("sqlDatabase", {
+ *     location: "westus",
+ *     resourceGroupName: "rg_88eed28c-5243-4f02-8251-bfa1e69e7057",
+ *     sqlDatabaseName: "73164535-f22d-4daa-b014-1f23bbe361b7",
+ *     tags: {
+ *         tag1: "val1",
+ *     },
+ *     workspaceName: "srv_85d31a1e-718b-4bda-9e53-a91230dd4ce5",
+ * });
+ *
+ * ```
  */
 export class SqlDatabase extends pulumi.CustomResource {
     /**

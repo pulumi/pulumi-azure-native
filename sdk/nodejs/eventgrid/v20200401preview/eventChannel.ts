@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Event Channel.
+ *
+ * ## Example Usage
+ * ### EventChannels_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const eventChannel = new azurerm.eventgrid.v20200401preview.EventChannel("eventChannel", {
+ *     destination: {
+ *         azureSubscriptionId: "5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+ *         partnerTopicName: "examplePartnerTopic1",
+ *         resourceGroup: "examplerg2",
+ *     },
+ *     eventChannelName: "exampleEventChannelName1",
+ *     partnerNamespaceName: "examplePartnerNamespaceName1",
+ *     resourceGroupName: "examplerg",
+ *     source: {
+ *         source: "ContosoCorp.Accounts.User1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class EventChannel extends pulumi.CustomResource {
     /**

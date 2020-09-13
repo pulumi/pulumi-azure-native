@@ -8,23 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Replication protected item.
- *
- * ## Example Usage
- * ### Enables protection.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const replicationProtectedItem = new azurerm.recoveryservices.v20180710.ReplicationProtectedItem("replicationProtectedItem", {
- *     fabricName: "cloud1",
- *     protectionContainerName: "cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
- *     replicatedProtectedItemName: "f8491e4f-817a-40dd-a90c-af773978c75b",
- *     resourceGroupName: "resourceGroupPS1",
- *     resourceName: "vault1",
- * });
- *
- * ```
  */
 export class ReplicationProtectedItem extends pulumi.CustomResource {
     /**

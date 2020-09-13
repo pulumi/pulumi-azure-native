@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of generic ARM proxy resource.
+ *
+ * ## Example Usage
+ * ### Create or update association
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataCollectionRuleAssociation = new azurerm.insights.v20191101preview.DataCollectionRuleAssociation("dataCollectionRuleAssociation", {
+ *     associationName: "myAssociation",
+ *     dataCollectionRuleId: "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule",
+ *     resourceUri: "subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm",
+ * });
+ *
+ * ```
  */
 export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     /**

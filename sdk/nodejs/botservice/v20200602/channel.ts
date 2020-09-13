@@ -19,7 +19,10 @@ import * as utilities from "../../utilities";
  * const channel = new azurerm.botservice.v20200602.Channel("channel", {
  *     channelName: "AlexaChannel",
  *     location: "global",
- *     properties: {},
+ *     properties: {
+ *         alexaSkillId: "XAlexaSkillIdX",
+ *         isEnabled: true,
+ *     },
  *     resourceGroupName: "OneResourceGroupName",
  *     resourceName: "samplebotname",
  * });
@@ -34,7 +37,11 @@ import * as utilities from "../../utilities";
  * const channel = new azurerm.botservice.v20200602.Channel("channel", {
  *     channelName: "EmailChannel",
  *     location: "global",
- *     properties: {},
+ *     properties: {
+ *         emailAddress: "a@b.com",
+ *         isEnabled: true,
+ *         password: "pwd",
+ *     },
  *     resourceGroupName: "OneResourceGroupName",
  *     resourceName: "samplebotname",
  * });
@@ -49,7 +56,10 @@ import * as utilities from "../../utilities";
  * const channel = new azurerm.botservice.v20200602.Channel("channel", {
  *     channelName: "DirectLineSpeechChannel",
  *     location: "global",
- *     properties: {},
+ *     properties: {
+ *         cognitiveServicesSubscriptionId: "XcognitiveServicesSubscriptionIdX",
+ *         isEnabled: true,
+ *     },
  *     resourceGroupName: "OneResourceGroupName",
  *     resourceName: "samplebotname",
  * });
@@ -64,7 +74,12 @@ import * as utilities from "../../utilities";
  * const channel = new azurerm.botservice.v20200602.Channel("channel", {
  *     channelName: "LineChannel",
  *     location: "global",
- *     properties: {},
+ *     properties: {
+ *         lineRegistrations: [{
+ *             channelAccessToken: "channelAccessToken",
+ *             channelSecret: "channelSecret",
+ *         }],
+ *     },
  *     resourceGroupName: "OneResourceGroupName",
  *     resourceName: "samplebotname",
  * });

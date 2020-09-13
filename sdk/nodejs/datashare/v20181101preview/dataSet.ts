@@ -6,6 +6,83 @@ import * as utilities from "../../utilities";
 
 /**
  * A DataSet data transfer object.
+ *
+ * ## Example Usage
+ * ### DataSets_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataSet = new azurerm.datashare.v20181101preview.DataSet("dataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     kind: "Blob",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoCluster_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataSet = new azurerm.datashare.v20181101preview.DataSet("dataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     kind: "KustoCluster",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoDatabase_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataSet = new azurerm.datashare.v20181101preview.DataSet("dataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     kind: "KustoDatabase",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SqlDBTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataSet = new azurerm.datashare.v20181101preview.DataSet("dataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     kind: "SqlDBTable",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SqlDWTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dataSet = new azurerm.datashare.v20181101preview.DataSet("dataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     kind: "SqlDWTable",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
  */
 export class DataSet extends pulumi.CustomResource {
     /**

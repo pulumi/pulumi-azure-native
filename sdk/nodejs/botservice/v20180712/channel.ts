@@ -8,6 +8,27 @@ import * as utilities from "../../utilities";
 
 /**
  * Bot channel resource definition
+ *
+ * ## Example Usage
+ * ### Create Bot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const channel = new azurerm.botservice.v20180712.Channel("channel", {
+ *     channelName: "EmailChannel",
+ *     location: "global",
+ *     properties: {
+ *         emailAddress: "a@b.com",
+ *         isEnabled: true,
+ *         password: "pwd",
+ *     },
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ * });
+ *
+ * ```
  */
 export class Channel extends pulumi.CustomResource {
     /**

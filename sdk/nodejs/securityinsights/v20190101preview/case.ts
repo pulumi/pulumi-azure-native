@@ -8,6 +8,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a case in Azure Security Insights.
+ *
+ * ## Example Usage
+ * ### Creates or updates a case.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const _case = new azurerm.securityinsights.v20190101preview.Case("case", {
+ *     caseId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     closeReason: "Resolved",
+ *     description: "This is a demo case",
+ *     endTimeUtc: "2019-01-01T13:05:30Z",
+ *     etag: "\"0300bf09-0000-0000-0000-5c37296e0000\"",
+ *     labels: [
+ *         "Tag1",
+ *         "Tag2",
+ *     ],
+ *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
+ *     owner: {
+ *         objectId: "2046feea-040d-4a46-9e2b-91c2941bfa70",
+ *     },
+ *     resourceGroupName: "myRg",
+ *     severity: "High",
+ *     startTimeUtc: "2019-01-01T13:00:30Z",
+ *     status: "Closed",
+ *     title: "My case",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
  */
 export class Case extends pulumi.CustomResource {
     /**

@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * The response to an account resource GET request.
+ *
+ * ## Example Usage
+ * ### Create an account resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const account = new azurerm.visualstudio.v20171101preview.Account("account", {
+ *     accountName: "Example",
+ *     location: "Central US",
+ *     operationType: "create",
+ *     resourceGroupName: "VS-Example-Group",
+ *     resourceName: "Example",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

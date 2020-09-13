@@ -7,8 +7,7 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
-<<<<<<< HEAD
- * Specifies information about the gallery Image Version that you want to create or update.
+ * Specifies information about the gallery image version that you want to create or update.
  *
  * ## Example Usage
  * ### Create or update a simple Gallery Image Version (Managed Image as source).
@@ -111,9 +110,49 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
-=======
- * Specifies information about the gallery image version that you want to create or update.
->>>>>>> origin/master
+ * ### Create or update a simple Gallery Image Version using vhd as a source.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const galleryImageVersion = new azurerm.compute.latest.GalleryImageVersion("galleryImageVersion", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryImageVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         targetRegions: [
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [{
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet",
+ *                         lun: 1,
+ *                     }],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 name: "West US",
+ *                 regionalReplicaCount: 1,
+ *             },
+ *             {
+ *                 name: "East US",
+ *                 regionalReplicaCount: 2,
+ *                 storageAccountType: "Standard_ZRS",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     storageProfile: {
+ *         source: {
+ *             id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
+ *             uri: "https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
+ *         },
+ *     },
+ * });
+ *
+ * ```
  */
 export class GalleryImageVersion extends pulumi.CustomResource {
     /**

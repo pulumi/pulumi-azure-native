@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * The policy exemption.
+ *
+ * ## Example Usage
+ * ### Create or update a policy exemption
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as @pulumi from "@pulumi/";
+ *
+ * const policyExemption = new .("policyExemption", {
+ *     description: "Exempt demo cluster from limit sku",
+ *     displayName: "Exempt demo cluster",
+ *     exemptionCategory: "Waiver",
+ *     metadata: {
+ *         reason: "Temporary exemption for a expensive VM demo",
+ *     },
+ *     policyAssignmentId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+ *     policyDefinitionReferenceIds: ["Limit_Skus"],
+ *     policyExemptionName: "DemoExpensiveVM",
+ *     scope: "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster",
+ * });
+ *
+ * ```
  */
 export class PolicyExemption extends pulumi.CustomResource {
     /**

@@ -8,6 +8,43 @@ import * as utilities from "../../utilities";
 
 /**
  * A Log Analytics QueryPack-Query definition.
+ *
+ * ## Example Usage
+ * ### QueryPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const query = new azurerm.insights.v20190901preview.Query("query", {
+ *     body: `let newExceptionsTimeRange = 1d;
+ * let timeRangeToCheckBefore = 7d;
+ * exceptions
+ * | where timestamp < ago(timeRangeToCheckBefore)
+ * | summarize count() by problemId
+ * | join kind= rightanti (
+ * exceptions
+ * | where timestamp >= ago(newExceptionsTimeRange)
+ * | extend stack = tostring(details[0].rawStack)
+ * | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
+ * ) on problemId 
+ * | order by  count_ desc
+ * `,
+ *     description: "my description",
+ *     displayName: "Exceptions - New in the last 24 hours",
+ *     id: "a449f8af-8e64-4b3a-9b16-5a7165ff98c4",
+ *     queryPackName: "my-querypack",
+ *     related: {
+ *         categories: ["analytics"],
+ *     },
+ *     resourceGroupName: "my-resource-group",
+ *     tags: {
+ *         "my-label": ["label1"],
+ *         "my-other-label": ["label2"],
+ *     },
+ * });
+ *
+ * ```
  */
 export class Query extends pulumi.CustomResource {
     /**

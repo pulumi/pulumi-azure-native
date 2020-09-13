@@ -8,6 +8,37 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Arc PrivateLinkScope definition.
+ *
+ * ## Example Usage
+ * ### PrivateLinkScopeCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateLinkScope = new azurerm.hybridcompute.v20200815preview.PrivateLinkScope("privateLinkScope", {
+ *     location: "westus",
+ *     resourceGroupName: "my-resource-group",
+ *     scopeName: "my-privatelinkscope",
+ * });
+ *
+ * ```
+ * ### PrivateLinkScopeUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateLinkScope = new azurerm.hybridcompute.v20200815preview.PrivateLinkScope("privateLinkScope", {
+ *     location: "westus",
+ *     resourceGroupName: "my-resource-group",
+ *     scopeName: "my-privatelinkscope",
+ *     tags: {
+ *         Tag1: "Value1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class PrivateLinkScope extends pulumi.CustomResource {
     /**

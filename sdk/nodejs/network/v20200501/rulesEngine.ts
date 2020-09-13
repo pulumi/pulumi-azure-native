@@ -23,7 +23,13 @@ import * as utilities from "../../utilities";
  *         {
  *             action: {
  *                 routeConfigurationOverride: {
- *                     odataType: "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration",
+ *                     "@odata.type": "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration",
+ *                     customFragment: "fragment",
+ *                     customHost: "www.bing.com",
+ *                     customPath: "/api",
+ *                     customQueryString: "a=b",
+ *                     redirectProtocol: "HttpsOnly",
+ *                     redirectType: "Moved",
  *                 },
  *             },
  *             matchConditions: [{
@@ -55,7 +61,18 @@ import * as utilities from "../../utilities";
  *         {
  *             action: {
  *                 routeConfigurationOverride: {
- *                     odataType: "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
+ *                     "@odata.type": "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
+ *                     backendPool: {
+ *                         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/backendPools/backendPool1",
+ *                     },
+ *                     cacheConfiguration: {
+ *                         cacheDuration: "P1DT12H20M30S",
+ *                         dynamicCompression: "Disabled",
+ *                         queryParameterStripDirective: "StripOnly",
+ *                         queryParameters: "a=b,p=q",
+ *                     },
+ *                     customForwardingPath: undefined,
+ *                     forwardingProtocol: "HttpsOnly",
  *                 },
  *             },
  *             matchConditions: [{

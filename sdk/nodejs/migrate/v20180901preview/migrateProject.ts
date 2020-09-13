@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Migrate Project REST Resource.
+ *
+ * ## Example Usage
+ * ### MigrateProjects_Put
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const migrateProject = new azurerm.migrate.v20180901preview.MigrateProject("migrateProject", {
+ *     eTag: "\"b701c73a-0000-0000-0000-59c12ff00000\"",
+ *     location: "Southeast Asia",
+ *     migrateProjectName: "project01",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class MigrateProject extends pulumi.CustomResource {
     /**

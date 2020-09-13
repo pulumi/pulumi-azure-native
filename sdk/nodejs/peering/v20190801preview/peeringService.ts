@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Peering Service
+ *
+ * ## Example Usage
+ * ### Create a  peering service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const peeringService = new azurerm.peering.v20190801preview.PeeringService("peeringService", {
+ *     location: "eastus",
+ *     peeringServiceLocation: "state1",
+ *     peeringServiceName: "MyPeeringService",
+ *     peeringServiceProvider: "serviceProvider1",
+ *     resourceGroupName: "MyResourceGroup",
+ * });
+ *
+ * ```
  */
 export class PeeringService extends pulumi.CustomResource {
     /**

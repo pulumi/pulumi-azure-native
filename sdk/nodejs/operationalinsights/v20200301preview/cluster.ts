@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * The top level Log Analytics cluster resource container.
+ *
+ * ## Example Usage
+ * ### ClustersCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const cluster = new azurerm.operationalinsights.v20200301preview.Cluster("cluster", {
+ *     clusterName: "oiautorest6685",
+ *     location: "australiasoutheast",
+ *     resourceGroupName: "oiautorest6685",
+ *     sku: {
+ *         capacity: 1000,
+ *         name: "CapacityReservation",
+ *     },
+ *     tags: {
+ *         tag1: "val1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

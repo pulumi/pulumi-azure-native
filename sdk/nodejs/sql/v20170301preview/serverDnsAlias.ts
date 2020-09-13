@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * A server DNS alias.
+ *
+ * ## Example Usage
+ * ### Create server DNS alias
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const serverDnsAlias = new azurerm.sql.v20170301preview.ServerDnsAlias("serverDnsAlias", {
+ *     dnsAliasName: "dns-alias-name-1",
+ *     resourceGroupName: "Default",
+ *     serverName: "dns-alias-server",
+ * });
+ *
+ * ```
  */
 export class ServerDnsAlias extends pulumi.CustomResource {
     /**

@@ -6,6 +6,38 @@ import * as utilities from "../../utilities";
 
 /**
  * A server firewall rule.
+ *
+ * ## Example Usage
+ * ### Create a firewall rule max/min
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const firewallRule = new azurerm.sql.v20150501preview.FirewallRule("firewallRule", {
+ *     endIpAddress: "0.0.0.3",
+ *     firewallRuleName: "firewallrulecrudtest-5370",
+ *     resourceGroupName: "firewallrulecrudtest-12",
+ *     serverName: "firewallrulecrudtest-6285",
+ *     startIpAddress: "0.0.0.3",
+ * });
+ *
+ * ```
+ * ### Update a firewall rule max/min
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const firewallRule = new azurerm.sql.v20150501preview.FirewallRule("firewallRule", {
+ *     endIpAddress: "0.0.0.1",
+ *     firewallRuleName: "firewallrulecrudtest-3927",
+ *     resourceGroupName: "firewallrulecrudtest-12",
+ *     serverName: "firewallrulecrudtest-6285",
+ *     startIpAddress: "0.0.0.1",
+ * });
+ *
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

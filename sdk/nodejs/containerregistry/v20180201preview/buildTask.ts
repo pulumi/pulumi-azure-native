@@ -8,6 +8,41 @@ import * as utilities from "../../utilities";
 
 /**
  * The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+ *
+ * ## Example Usage
+ * ### BuildTasks_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const buildTask = new azurerm.containerregistry.v20180201preview.BuildTask("buildTask", {
+ *     alias: "myalias",
+ *     buildTaskName: "myBuildTask",
+ *     location: "eastus",
+ *     platform: {
+ *         cpu: 2,
+ *         osType: "Linux",
+ *     },
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     sourceRepository: {
+ *         isCommitTriggerEnabled: true,
+ *         repositoryUrl: "https://github.com/Azure/azure-rest-api-specs",
+ *         sourceControlAuthProperties: {
+ *             scope: "repo",
+ *             token: "xxxxxx",
+ *             tokenType: "OAuth",
+ *         },
+ *         sourceControlType: "Github",
+ *     },
+ *     status: "Enabled",
+ *     tags: {
+ *         testkey: "value",
+ *     },
+ * });
+ *
+ * ```
  */
 export class BuildTask extends pulumi.CustomResource {
     /**

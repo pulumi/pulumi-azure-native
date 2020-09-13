@@ -6,6 +6,108 @@ import * as utilities from "../../utilities";
 
 /**
  * A managed database resource.
+ *
+ * ## Example Usage
+ * ### Creates a new managed database by restoring from an external backup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedDatabase = new azurerm.sql.v20190601preview.ManagedDatabase("managedDatabase", {
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     createMode: "RestoreExternalBackup",
+ *     databaseName: "managedDatabase",
+ *     location: "southeastasia",
+ *     managedInstanceName: "managedInstance",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     storageContainerSasToken: "sv=2015-12-11&sr=c&sp=rl&sig=1234",
+ *     storageContainerUri: "https://myaccountname.blob.core.windows.net/backups",
+ * });
+ *
+ * ```
+ * ### Creates a new managed database from restoring a geo-replicated backup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedDatabase = new azurerm.sql.v20190601preview.ManagedDatabase("managedDatabase", {
+ *     createMode: "Recovery",
+ *     databaseName: "testdb_recovered",
+ *     location: "southeastasia",
+ *     managedInstanceName: "server1",
+ *     recoverableDatabaseId: "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/Default-SQL-WestEurope/providers/Microsoft.Sql/managedInstances/testsvr/recoverableDatabases/testdb",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ * });
+ *
+ * ```
+ * ### Creates a new managed database from restoring a long term retention backup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedDatabase = new azurerm.sql.v20190601preview.ManagedDatabase("managedDatabase", {
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     createMode: "RestoreExternalBackup",
+ *     databaseName: "managedDatabase",
+ *     location: "southeastasia",
+ *     managedInstanceName: "managedInstance",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     storageContainerSasToken: "sv=2015-12-11&sr=c&sp=rl&sig=1234",
+ *     storageContainerUri: "https://myaccountname.blob.core.windows.net/backups",
+ * });
+ *
+ * ```
+ * ### Creates a new managed database using point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedDatabase = new azurerm.sql.v20190601preview.ManagedDatabase("managedDatabase", {
+ *     createMode: "PointInTimeRestore",
+ *     databaseName: "managedDatabase",
+ *     location: "southeastasia",
+ *     managedInstanceName: "managedInstance",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     restorePointInTime: "2017-07-14T05:35:31.503Z",
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr/databases/testdb",
+ * });
+ *
+ * ```
+ * ### Creates a new managed database with maximal properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedDatabase = new azurerm.sql.v20190601preview.ManagedDatabase("managedDatabase", {
+ *     databaseName: "managedDatabase",
+ *     location: "southeastasia",
+ *     managedInstanceName: "managedInstance",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     tags: {
+ *         tagKey1: "TagValue1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Creates a new managed database with minimal properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedDatabase = new azurerm.sql.v20190601preview.ManagedDatabase("managedDatabase", {
+ *     databaseName: "managedDatabase",
+ *     location: "southeastasia",
+ *     managedInstanceName: "managedInstance",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ * });
+ *
+ * ```
  */
 export class ManagedDatabase extends pulumi.CustomResource {
     /**

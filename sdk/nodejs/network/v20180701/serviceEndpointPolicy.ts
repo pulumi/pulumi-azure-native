@@ -8,35 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Service End point policy resource.
- *
- * ## Example Usage
- * ### Create service endpoint policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const serviceEndpointPolicy = new azurerm.network.v20180701.ServiceEndpointPolicy("serviceEndpointPolicy", {
- *     resourceGroupName: "rg1",
- *     serviceEndpointPolicyName: "testPolicy",
- * });
- *
- * ```
- * ### Create service endpoint policy with definition
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const serviceEndpointPolicy = new azurerm.network.v20180701.ServiceEndpointPolicy("serviceEndpointPolicy", {
- *     resourceGroupName: "rg1",
- *     serviceEndpointPolicyDefinitions: [{
- *         name: "StorageServiceEndpointPolicyDefinition",
- *     }],
- *     serviceEndpointPolicyName: "testPolicy",
- * });
- *
- * ```
  */
 export class ServiceEndpointPolicy extends pulumi.CustomResource {
     /**

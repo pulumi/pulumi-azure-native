@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about appliance.
+ *
+ * ## Example Usage
+ * ### Create or update appliance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const appliance = new azurerm.solutions.v20160901preview.Appliance("appliance", {
+ *     applianceDefinitionId: "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myAppDef",
+ *     applianceName: "myAppliance",
+ *     kind: "ServiceCatalog",
+ *     location: "East US 2",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
  */
 export class Appliance extends pulumi.CustomResource {
     /**

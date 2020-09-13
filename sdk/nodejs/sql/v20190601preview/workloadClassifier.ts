@@ -6,6 +6,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Workload classifier operations for a data warehouse
+ *
+ * ## Example Usage
+ * ### Create a workload group with all properties specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const workloadClassifier = new azurerm.sql.v20190601preview.WorkloadClassifier("workloadClassifier", {
+ *     context: "test_context",
+ *     databaseName: "testdb",
+ *     endTime: "14:00",
+ *     importance: "high",
+ *     label: "test_label",
+ *     memberName: "dbo",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     startTime: "12:00",
+ *     workloadClassifierName: "wlm_workloadclassifier",
+ *     workloadGroupName: "wlm_workloadgroup",
+ * });
+ *
+ * ```
+ * ### Create a workload group with the required properties specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const workloadClassifier = new azurerm.sql.v20190601preview.WorkloadClassifier("workloadClassifier", {
+ *     databaseName: "testdb",
+ *     memberName: "dbo",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     workloadClassifierName: "wlm_workloadclassifier",
+ *     workloadGroupName: "wlm_workloadgroup",
+ * });
+ *
+ * ```
  */
 export class WorkloadClassifier extends pulumi.CustomResource {
     /**

@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection
+ *
+ * ## Example Usage
+ * ### Approve or reject a private endpoint connection with a given name.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateEndpointConnection = new azurerm.automation.v20200113preview.PrivateEndpointConnection("privateEndpointConnection", {
+ *     automationAccountName: "ddb1",
+ *     privateEndpointConnectionName: "privateEndpointConnectionName",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Approved by johndoe@contoso.com",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

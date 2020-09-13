@@ -8,6 +8,28 @@ import * as utilities from "../../utilities";
 
 /**
  * A SqlManagedInstance.
+ *
+ * ## Example Usage
+ * ### Updates a SQL Managed Instance tags.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const sqlManagedInstance = new azurerm.azuredata.v20190724preview.SqlManagedInstance("sqlManagedInstance", {
+ *     admin: "Admin user",
+ *     endTime: "Instance end time",
+ *     instanceEndpoint: "The on premise instance endpoint",
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlManagedInstanceName: "testsqlManagedInstance",
+ *     startTime: "Instance start time",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
  */
 export class SqlManagedInstance extends pulumi.CustomResource {
     /**

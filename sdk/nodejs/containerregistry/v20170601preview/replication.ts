@@ -8,6 +8,25 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a replication for a container registry.
+ *
+ * ## Example Usage
+ * ### ReplicationCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const replication = new azurerm.containerregistry.v20170601preview.Replication("replication", {
+ *     location: "eastus",
+ *     registryName: "myRegistry",
+ *     replicationName: "myReplication",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Replication extends pulumi.CustomResource {
     /**

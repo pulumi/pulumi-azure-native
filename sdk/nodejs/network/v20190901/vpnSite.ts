@@ -8,34 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnSite Resource.
- *
- * ## Example Usage
- * ### VpnSiteCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const vpnSite = new azurerm.network.v20190901.VpnSite("vpnSite", {
- *     addressSpace: {
- *         addressPrefixes: ["10.0.0.0/16"],
- *     },
- *     isSecuritySite: false,
- *     location: "West US",
- *     resourceGroupName: "rg1",
- *     tags: {
- *         key1: "value1",
- *     },
- *     virtualWan: {
- *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1",
- *     },
- *     vpnSiteLinks: [{
- *         name: "vpnSiteLink1",
- *     }],
- *     vpnSiteName: "vpnSite1",
- * });
- *
- * ```
  */
 export class VpnSite extends pulumi.CustomResource {
     /**

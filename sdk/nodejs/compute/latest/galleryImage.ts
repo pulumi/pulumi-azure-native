@@ -7,8 +7,7 @@ import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
-<<<<<<< HEAD
- * Specifies information about the gallery Image Definition that you want to create or update.
+ * Specifies information about the gallery image definition that you want to create or update.
  *
  * ## Example Usage
  * ### Create or update a simple gallery image.
@@ -33,9 +32,6 @@ import * as utilities from "../../utilities";
  * });
  *
  * ```
-=======
- * Specifies information about the gallery image definition that you want to create or update.
->>>>>>> origin/master
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**

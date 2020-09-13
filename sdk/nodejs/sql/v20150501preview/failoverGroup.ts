@@ -8,6 +8,35 @@ import * as utilities from "../../utilities";
 
 /**
  * A failover group.
+ *
+ * ## Example Usage
+ * ### Create failover group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const failoverGroup = new azurerm.sql.v20150501preview.FailoverGroup("failoverGroup", {
+ *     databases: [
+ *         "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-1",
+ *         "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-2",
+ *     ],
+ *     failoverGroupName: "failover-group-test-3",
+ *     partnerServers: [{
+ *         id: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-secondary-server",
+ *     }],
+ *     readOnlyEndpoint: {
+ *         failoverPolicy: "Disabled",
+ *     },
+ *     readWriteEndpoint: {
+ *         failoverPolicy: "Automatic",
+ *         failoverWithDataLossGracePeriodMinutes: 480,
+ *     },
+ *     resourceGroupName: "Default",
+ *     serverName: "failover-group-primary-server",
+ * });
+ *
+ * ```
  */
 export class FailoverGroup extends pulumi.CustomResource {
     /**

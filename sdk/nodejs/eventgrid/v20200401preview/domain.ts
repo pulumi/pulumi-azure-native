@@ -8,6 +8,36 @@ import * as utilities from "../../utilities";
 
 /**
  * EventGrid Domain.
+ *
+ * ## Example Usage
+ * ### Domains_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const domain = new azurerm.eventgrid.v20200401preview.Domain("domain", {
+ *     domainName: "exampledomain1",
+ *     inboundIpRules: [
+ *         {
+ *             action: "Allow",
+ *             ipMask: "12.18.30.15",
+ *         },
+ *         {
+ *             action: "Allow",
+ *             ipMask: "12.18.176.1",
+ *         },
+ *     ],
+ *     location: "westus2",
+ *     publicNetworkAccess: "Enabled",
+ *     resourceGroupName: "examplerg",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

@@ -8,28 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Machine Extension.
- *
- * ## Example Usage
- * ### Create or Update a Machine Extension
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const machineExtension = new azurerm.hybridcompute.v20191212.MachineExtension("machineExtension", {
- *     extensionName: "CustomScriptExtension",
- *     location: "eastus2euap",
- *     name: "extdemo",
- *     publisher: "Microsoft.Compute",
- *     resourceGroupName: "extRG",
- *     settings: {
- *         commandToExecute: `powershell.exe -c "Get-Process | Where-Object { $_.CPU -gt 10000 }"`,
- *     },
- *     type: "CustomScriptExtension",
- *     typeHandlerVersion: "1.10",
- * });
- *
- * ```
  */
 export class MachineExtension extends pulumi.CustomResource {
     /**

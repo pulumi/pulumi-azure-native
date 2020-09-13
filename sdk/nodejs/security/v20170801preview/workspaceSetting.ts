@@ -6,6 +6,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Configures where to store the OMS agent data for workspaces under a scope
+ *
+ * ## Example Usage
+ * ### Create a workspace setting data for subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const workspaceSetting = new azurerm.security.v20170801preview.WorkspaceSetting("workspaceSetting", {
+ *     scope: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+ *     workspaceId: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace",
+ *     workspaceSettingName: "default",
+ * });
+ *
+ * ```
  */
 export class WorkspaceSetting extends pulumi.CustomResource {
     /**

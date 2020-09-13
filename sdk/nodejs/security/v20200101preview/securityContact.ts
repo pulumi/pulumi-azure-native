@@ -8,6 +8,17 @@ import * as utilities from "../../utilities";
 
 /**
  * Contact details and configurations for notifications coming from Azure Security Center.
+ *
+ * ## Example Usage
+ * ### Create security contact data
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const securityContact = new azurerm.security.v20200101preview.SecurityContact("securityContact", {securityContactName: "default"});
+ *
+ * ```
  */
 export class SecurityContact extends pulumi.CustomResource {
     /**

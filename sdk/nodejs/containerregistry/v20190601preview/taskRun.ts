@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 /**
  * The task run that has the ARM resource and properties.
  * The task run will have the information of request and result of a run.
+ *
+ * ## Example Usage
+ * ### TaskRuns_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const taskRun = new azurerm.containerregistry.v20190601preview.TaskRun("taskRun", {
+ *     forceUpdateTag: "test",
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     runRequest: {
+ *         credentials: {},
+ *         encodedTaskContent: "c3RlcHM6IAogIC0gY21kOiB7eyAuVmFsdWVzLmNvbW1hbmQgfX0K",
+ *         encodedValuesContent: "Y29tbWFuZDogYmFzaCBlY2hvIHt7LlJ1bi5SZWdpc3RyeX19Cg==",
+ *         platform: {
+ *             architecture: "amd64",
+ *             os: "Linux",
+ *         },
+ *         type: "EncodedTaskRunRequest",
+ *         values: [],
+ *     },
+ *     taskRunName: "myRun",
+ * });
+ *
+ * ```
  */
 export class TaskRun extends pulumi.CustomResource {
     /**

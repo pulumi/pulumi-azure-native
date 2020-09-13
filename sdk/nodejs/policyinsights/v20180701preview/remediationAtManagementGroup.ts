@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * The remediation definition.
+ *
+ * ## Example Usage
+ * ### Create remediation at management group scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const remediationAtManagementGroup = new azurerm.policyinsights.v20180701preview.RemediationAtManagementGroup("remediationAtManagementGroup", {
+ *     managementGroupId: "financeMg",
+ *     managementGroupsNamespace: "Microsoft.Management",
+ *     policyAssignmentId: "/providers/microsoft.management/managementGroups/financeMg/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+ *     remediationName: "storageRemediation",
+ * });
+ *
+ * ```
  */
 export class RemediationAtManagementGroup extends pulumi.CustomResource {
     /**

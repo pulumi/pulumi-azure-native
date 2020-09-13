@@ -8,6 +8,35 @@ import * as utilities from "../../utilities";
 
 /**
  * A workspace
+ *
+ * ## Example Usage
+ * ### Create or update a workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const workspace = new azurerm.synapse.v20190601preview.Workspace("workspace", {
+ *     defaultDataLakeStorage: {
+ *         accountUrl: "https://accountname.dfs.core.windows.net",
+ *         filesystem: "default",
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "East US",
+ *     managedResourceGroupName: "workspaceManagedResourceGroupUnique",
+ *     managedVirtualNetwork: "default",
+ *     resourceGroupName: "resourceGroup1",
+ *     sqlAdministratorLogin: "login",
+ *     sqlAdministratorLoginPassword: "password",
+ *     tags: {
+ *         key: "value",
+ *     },
+ *     workspaceName: "workspace1",
+ * });
+ *
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

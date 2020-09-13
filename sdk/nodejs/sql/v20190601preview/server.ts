@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL Database server.
+ *
+ * ## Example Usage
+ * ### Create server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const server = new azurerm.sql.v20190601preview.Server("server", {
+ *     administratorLogin: "dummylogin",
+ *     administratorLoginPassword: "Un53cuRE!",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-7398",
+ *     serverName: "sqlcrudtest-4645",
+ * });
+ *
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

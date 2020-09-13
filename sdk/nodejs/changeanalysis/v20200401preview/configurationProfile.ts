@@ -8,6 +8,26 @@ import * as utilities from "../../utilities";
 
 /**
  * A profile object that contains change analysis configuration, such as notification settings, for this subscription
+ *
+ * ## Example Usage
+ * ### ConfigurationProfile_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const configurationProfile = new azurerm.changeanalysis.v20200401preview.ConfigurationProfile("configurationProfile", {profileName: "default"});
+ *
+ * ```
+ * ### ConfigurationProfile_CreateWithIdentity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const configurationProfile = new azurerm.changeanalysis.v20200401preview.ConfigurationProfile("configurationProfile", {profileName: "default"});
+ *
+ * ```
  */
 export class ConfigurationProfile extends pulumi.CustomResource {
     /**

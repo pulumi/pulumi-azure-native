@@ -6,6 +6,20 @@ import * as utilities from "../../utilities";
 
 /**
  * IoT sensor
+ *
+ * ## Example Usage
+ * ### Create or update IoT sensor
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const iotSensor = new azurerm.security.v20200806preview.IotSensor("iotSensor", {
+ *     iotSensorName: "mySensor",
+ *     scope: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub",
+ * });
+ *
+ * ```
  */
 export class IotSensor extends pulumi.CustomResource {
     /**

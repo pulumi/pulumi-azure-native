@@ -6,6 +6,37 @@ import * as utilities from "../../utilities";
 
 /**
  * An Log Analytics QueryPack definition.
+ *
+ * ## Example Usage
+ * ### QueryPackCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const queryPack = new azurerm.insights.v20190901preview.QueryPack("queryPack", {
+ *     location: "South Central US",
+ *     queryPackName: "my-querypack",
+ *     resourceGroupName: "my-resource-group",
+ * });
+ *
+ * ```
+ * ### QueryPackUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const queryPack = new azurerm.insights.v20190901preview.QueryPack("queryPack", {
+ *     location: "South Central US",
+ *     queryPackName: "my-querypack",
+ *     resourceGroupName: "my-resource-group",
+ *     tags: {
+ *         Tag1: "Value1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class QueryPack extends pulumi.CustomResource {
     /**

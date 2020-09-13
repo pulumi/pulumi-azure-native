@@ -8,6 +8,60 @@ import * as utilities from "../../utilities";
 
 /**
  * The shared dashboard resource definition.
+ *
+ * ## Example Usage
+ * ### Create or update a Dashboard
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const dashboard = new azurerm.portal.v20181001preview.Dashboard("dashboard", {
+ *     dashboardName: "testDashboard",
+ *     lenses: {
+ *         aLens: {
+ *             order: 1,
+ *             parts: {
+ *                 aPart: {
+ *                     position: {
+ *                         colSpan: 3,
+ *                         rowSpan: 4,
+ *                         x: 1,
+ *                         y: 2,
+ *                     },
+ *                 },
+ *                 bPart: {
+ *                     position: {
+ *                         colSpan: 6,
+ *                         rowSpan: 6,
+ *                         x: 5,
+ *                         y: 5,
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *         bLens: {
+ *             order: 2,
+ *             parts: {},
+ *         },
+ *     },
+ *     location: "eastus",
+ *     metadata: {
+ *         metadata: {
+ *             ColSpan: 2,
+ *             RowSpan: 1,
+ *             X: 4,
+ *             Y: 3,
+ *         },
+ *     },
+ *     resourceGroupName: "testRG",
+ *     tags: {
+ *         aKey: "aValue",
+ *         anotherKey: "anotherValue",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Dashboard extends pulumi.CustomResource {
     /**

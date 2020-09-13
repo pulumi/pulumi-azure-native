@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * The role assignment
+ *
+ * ## Example Usage
+ * ### PutEnrollmentAdministratorRoleAssignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const billingRoleAssignmentByBillingAccount = new azurerm.billing.v20191001preview.BillingRoleAssignmentByBillingAccount("billingRoleAssignmentByBillingAccount", {
+ *     billingAccountName: "{billingAccountName}",
+ *     billingRoleAssignmentName: "{billingRoleAssignmentName}",
+ *     principalId: "99a1a759-30dd-42c2-828c-db398826bb67",
+ *     principalTenantId: "7ca289b9-c32d-4f01-8566-7ff93261d76f",
+ *     roleDefinitionId: "/providers/Microsoft.Billing/billingAccounts/7898901/billingRoleDefinitions/9f1983cb-2574-400c-87e9-34cf8e2280db",
+ * });
+ *
+ * ```
  */
 export class BillingRoleAssignmentByBillingAccount extends pulumi.CustomResource {
     /**

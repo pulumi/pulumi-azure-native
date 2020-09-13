@@ -19,7 +19,20 @@ import * as utilities from "../../utilities";
  * const _function = new azurerm.streamanalytics.latest.Function("function", {
  *     functionName: "function8197",
  *     jobName: "sj8653",
- *     properties: {},
+ *     properties: {
+ *         binding: {
+ *             properties: {
+ *                 script: "function (x, y) { return x + y; }",
+ *             },
+ *             type: "Microsoft.StreamAnalytics/JavascriptUdf",
+ *         },
+ *         inputs: [{
+ *             dataType: "Any",
+ *         }],
+ *         output: {
+ *             dataType: "Any",
+ *         },
+ *     },
  *     resourceGroupName: "sjrg1637",
  * });
  *
@@ -33,7 +46,34 @@ import * as utilities from "../../utilities";
  * const _function = new azurerm.streamanalytics.latest.Function("function", {
  *     functionName: "function588",
  *     jobName: "sj9093",
- *     properties: {},
+ *     properties: {
+ *         binding: {
+ *             properties: {
+ *                 apiKey: "someApiKey==",
+ *                 batchSize: 1000,
+ *                 endpoint: "someAzureMLEndpointURL",
+ *                 inputs: {
+ *                     columnNames: [{
+ *                         dataType: "string",
+ *                         mapTo: 0,
+ *                         name: "tweet",
+ *                     }],
+ *                     name: "input1",
+ *                 },
+ *                 outputs: [{
+ *                     dataType: "string",
+ *                     name: "Sentiment",
+ *                 }],
+ *             },
+ *             type: "Microsoft.MachineLearning/WebService",
+ *         },
+ *         inputs: [{
+ *             dataType: "nvarchar(max)",
+ *         }],
+ *         output: {
+ *             dataType: "nvarchar(max)",
+ *         },
+ *     },
  *     resourceGroupName: "sjrg7",
  * });
  *

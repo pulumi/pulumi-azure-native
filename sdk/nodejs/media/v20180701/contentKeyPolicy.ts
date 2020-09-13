@@ -22,11 +22,18 @@ import * as utilities from "../../utilities";
  *     description: "ArmPolicyDescription",
  *     options: [{
  *         configuration: {
- *             odataType: "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
  *         },
  *         name: "ClearKeyOption",
  *         restriction: {
- *             odataType: "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+ *             audience: "urn:audience",
+ *             issuer: "urn:issuer",
+ *             primaryVerificationKey: {
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+ *                 keyValue: "AAAAAAAAAAAAAAAAAAAAAA==",
+ *             },
+ *             restrictionTokenType: "Swt",
  *         },
  *     }],
  *     resourceGroupName: "contoso",
@@ -45,11 +52,27 @@ import * as utilities from "../../utilities";
  *     description: "ArmPolicyDescription",
  *     options: [{
  *         configuration: {
- *             odataType: "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
+ *             licenses: [{
+ *                 allowTestDevices: true,
+ *                 beginDate: "2017-10-16T18:22:53.46Z",
+ *                 contentKeyLocation: {
+ *                     "@odata.type": "#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader",
+ *                 },
+ *                 contentType: "UltraVioletDownload",
+ *                 licenseType: "Persistent",
+ *                 playRight: {
+ *                     allowPassingVideoContentToUnknownOutput: "NotAllowed",
+ *                     digitalVideoOnlyContentRestriction: false,
+ *                     imageConstraintForAnalogComponentVideoRestriction: true,
+ *                     imageConstraintForAnalogComputerMonitorRestriction: false,
+ *                     scmsRestriction: 2,
+ *                 },
+ *             }],
  *         },
  *         name: "ArmPolicyOptionName",
  *         restriction: {
- *             odataType: "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
  *         },
  *     }],
  *     resourceGroupName: "contoso",
@@ -68,11 +91,24 @@ import * as utilities from "../../utilities";
  *     description: "ArmPolicyDescription",
  *     options: [{
  *         configuration: {
- *             odataType: "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+ *             widevineTemplate: "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}",
  *         },
  *         name: "widevineoption",
  *         restriction: {
- *             odataType: "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+ *             "@odata.type": "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+ *             alternateVerificationKeys: [{
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+ *                 keyValue: "AAAAAAAAAAAAAAAAAAAAAA==",
+ *             }],
+ *             audience: "urn:audience",
+ *             issuer: "urn:issuer",
+ *             primaryVerificationKey: {
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicyRsaTokenKey",
+ *                 exponent: "AQAB",
+ *                 modulus: "AQAD",
+ *             },
+ *             restrictionTokenType: "Jwt",
  *         },
  *     }],
  *     resourceGroupName: "contoso",
@@ -92,20 +128,28 @@ import * as utilities from "../../utilities";
  *     options: [
  *         {
  *             configuration: {
- *                 odataType: "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
  *             },
  *             name: "ClearKeyOption",
  *             restriction: {
- *                 odataType: "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+ *                 audience: "urn:audience",
+ *                 issuer: "urn:issuer",
+ *                 primaryVerificationKey: {
+ *                     "@odata.type": "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+ *                     keyValue: "AAAAAAAAAAAAAAAAAAAAAA==",
+ *                 },
+ *                 restrictionTokenType: "Swt",
  *             },
  *         },
  *         {
  *             configuration: {
- *                 odataType: "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+ *                 widevineTemplate: "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}",
  *             },
  *             name: "widevineoption",
  *             restriction: {
- *                 odataType: "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+ *                 "@odata.type": "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
  *             },
  *         },
  *     ],

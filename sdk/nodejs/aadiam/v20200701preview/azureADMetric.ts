@@ -8,6 +8,22 @@ import * as utilities from "../../utilities";
 
 /**
  * AzureADMetrics resource.
+ *
+ * ## Example Usage
+ * ### azureADMetricsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const azureADMetric = new azurerm.aadiam.v20200701preview.AzureADMetric("azureADMetric", {
+ *     azureADMetricsName: "ddb1",
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class AzureADMetric extends pulumi.CustomResource {
     /**

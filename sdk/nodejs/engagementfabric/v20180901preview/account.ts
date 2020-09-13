@@ -8,6 +8,24 @@ import * as utilities from "../../utilities";
 
 /**
  * The EngagementFabric account
+ *
+ * ## Example Usage
+ * ### AccountsCreateOrUpdateExample
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const account = new azurerm.engagementfabric.v20180901preview.Account("account", {
+ *     accountName: "ExampleAccount",
+ *     location: "WestUS",
+ *     resourceGroupName: "ExampleRg",
+ *     sku: {
+ *         name: "B1",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

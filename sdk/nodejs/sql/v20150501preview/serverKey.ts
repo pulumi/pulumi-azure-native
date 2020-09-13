@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * A server key.
+ *
+ * ## Example Usage
+ * ### Creates or updates a server key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const serverKey = new azurerm.sql.v20150501preview.ServerKey("serverKey", {
+ *     keyName: "someVault_someKey_01234567890123456789012345678901",
+ *     resourceGroupName: "sqlcrudtest-7398",
+ *     serverKeyType: "AzureKeyVault",
+ *     serverName: "sqlcrudtest-4645",
+ *     uri: "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
+ * });
+ *
+ * ```
  */
 export class ServerKey extends pulumi.CustomResource {
     /**

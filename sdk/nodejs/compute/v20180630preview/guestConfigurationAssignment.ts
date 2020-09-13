@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * Guest configuration assignment is an association between a VM and guest configuration.
+ *
+ * ## Example Usage
+ * ### Create or update guest configuration assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const guestConfigurationAssignment = new azurerm.compute.v20180630preview.GuestConfigurationAssignment("guestConfigurationAssignment", {
+ *     guestConfigurationAssignmentName: "SecureProtocol",
+ *     location: "westcentralus",
+ *     name: "multiconfigassignment2",
+ *     resourceGroupName: "myResourceGroupName",
+ *     vmName: "myVMName",
+ * });
+ *
+ * ```
  */
 export class GuestConfigurationAssignment extends pulumi.CustomResource {
     /**

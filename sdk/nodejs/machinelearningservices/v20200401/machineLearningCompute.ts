@@ -36,7 +36,16 @@ import * as utilities from "../../utilities";
  *         type: "SystemAssigned,UserAssigned",
  *     },
  *     location: "eastus",
- *     properties: {},
+ *     properties: {
+ *         remoteLoginPortPublicAccess: "NotSpecified",
+ *         scaleSettings: {
+ *             maxNodeCount: 1,
+ *             minNodeCount: 0,
+ *             nodeIdleTimeBeforeScaleDown: "PT5M",
+ *         },
+ *         vmPriority: "Dedicated",
+ *         vmSize: "STANDARD_NC6",
+ *     },
  *     resourceGroupName: "testrg123",
  *     workspaceName: "workspaces123",
  * });
@@ -65,7 +74,9 @@ import * as utilities from "../../utilities";
  * const machineLearningCompute = new azurerm.machinelearningservices.v20200401.MachineLearningCompute("machineLearningCompute", {
  *     computeName: "compute123",
  *     location: "eastus",
- *     properties: {},
+ *     properties: {
+ *         agentCount: 4,
+ *     },
  *     resourceGroupName: "testrg123",
  *     workspaceName: "workspaces123",
  * });
@@ -83,7 +94,13 @@ import * as utilities from "../../utilities";
  *         type: "SystemAssigned,UserAssigned",
  *     },
  *     location: "eastus",
- *     properties: {},
+ *     properties: {
+ *         scaleSettings: {
+ *             maxNodeCount: 1,
+ *             minNodeCount: 0,
+ *             nodeIdleTimeBeforeScaleDown: "PT5M",
+ *         },
+ *     },
  *     resourceGroupName: "testrg123",
  *     workspaceName: "workspaces123",
  * });

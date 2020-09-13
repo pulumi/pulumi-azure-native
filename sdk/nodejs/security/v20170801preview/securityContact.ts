@@ -6,6 +6,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Contact details for security issues
+ *
+ * ## Example Usage
+ * ### Create security contact data full
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const securityContact = new azurerm.security.v20170801preview.SecurityContact("securityContact", {
+ *     alertNotifications: "On",
+ *     alertsToAdmins: "On",
+ *     email: "john@contoso.com",
+ *     phone: "(214)275-4038",
+ *     securityContactName: "default1",
+ * });
+ *
+ * ```
+ * ### Create security contact data minimal
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const securityContact = new azurerm.security.v20170801preview.SecurityContact("securityContact", {
+ *     alertNotifications: "On",
+ *     alertsToAdmins: "On",
+ *     email: "chen@contoso.com",
+ *     securityContactName: "default2",
+ * });
+ *
+ * ```
  */
 export class SecurityContact extends pulumi.CustomResource {
     /**

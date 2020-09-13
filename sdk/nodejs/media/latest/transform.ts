@@ -21,7 +21,8 @@ import * as utilities from "../../utilities";
  *     description: "Example Transform to illustrate create and update.",
  *     outputs: [{
  *         preset: {
- *             odataType: "#Microsoft.Media.BuiltInStandardEncoderPreset",
+ *             "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+ *             presetName: "AdaptiveStreaming",
  *         },
  *     }],
  *     resourceGroupName: "contosoresources",

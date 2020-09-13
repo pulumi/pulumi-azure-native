@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * A provider instance associated with a SAP monitor.
+ *
+ * ## Example Usage
+ * ### Create a SAP Monitor
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const providerInstance = new azurerm.hanaonazure.v20200207preview.ProviderInstance("providerInstance", {
+ *     metadata: "{\"key\":\"value\"}",
+ *     properties: "{\"hostname\":\"10.0.0.10\",\"dbName\":\"SYSTEMDB\",\"sqlPort\":30015,\"dbUsername\":\"SYSTEM\",\"dbPassword\":\"PASSWORD\"}",
+ *     providerInstanceName: "myProviderInstance",
+ *     resourceGroupName: "myResourceGroup",
+ *     sapMonitorName: "mySapMonitor",
+ *     type: "hana",
+ * });
+ *
+ * ```
  */
 export class ProviderInstance extends pulumi.CustomResource {
     /**

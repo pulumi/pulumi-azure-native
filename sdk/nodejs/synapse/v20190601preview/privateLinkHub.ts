@@ -6,6 +6,24 @@ import * as utilities from "../../utilities";
 
 /**
  * A privateLinkHub
+ *
+ * ## Example Usage
+ * ### Create or update a privateLinkHub
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const privateLinkHub = new azurerm.synapse.v20190601preview.PrivateLinkHub("privateLinkHub", {
+ *     location: "East US",
+ *     privateLinkHubName: "privateLinkHub1",
+ *     resourceGroupName: "resourceGroup1",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
  */
 export class PrivateLinkHub extends pulumi.CustomResource {
     /**

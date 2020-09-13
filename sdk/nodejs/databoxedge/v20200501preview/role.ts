@@ -6,6 +6,22 @@ import * as utilities from "../../utilities";
 
 /**
  * Compute role.
+ *
+ * ## Example Usage
+ * ### RolePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const role = new azurerm.databoxedge.v20200501preview.Role("role", {
+ *     deviceName: "testedgedevice",
+ *     kind: "IOT",
+ *     name: "IoTRole1",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ * });
+ *
+ * ```
  */
 export class Role extends pulumi.CustomResource {
     /**

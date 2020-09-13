@@ -8,6 +8,56 @@ import * as utilities from "../../utilities";
 
 /**
  * Diagnostic details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiDiagnostic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const apiDiagnostic = new azurerm.apimanagement.v20191201preview.ApiDiagnostic("apiDiagnostic", {
+ *     alwaysLog: "allErrors",
+ *     apiId: "57d1f7558aa04f15146d9d8a",
+ *     backend: {
+ *         request: {
+ *             body: {
+ *                 bytes: 512,
+ *             },
+ *             headers: ["Content-type"],
+ *         },
+ *         response: {
+ *             body: {
+ *                 bytes: 512,
+ *             },
+ *             headers: ["Content-type"],
+ *         },
+ *     },
+ *     diagnosticId: "applicationinsights",
+ *     frontend: {
+ *         request: {
+ *             body: {
+ *                 bytes: 512,
+ *             },
+ *             headers: ["Content-type"],
+ *         },
+ *         response: {
+ *             body: {
+ *                 bytes: 512,
+ *             },
+ *             headers: ["Content-type"],
+ *         },
+ *     },
+ *     loggerId: "/loggers/applicationinsights",
+ *     resourceGroupName: "rg1",
+ *     sampling: {
+ *         percentage: 50,
+ *         samplingType: "fixed",
+ *     },
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
  */
 export class ApiDiagnostic extends pulumi.CustomResource {
     /**

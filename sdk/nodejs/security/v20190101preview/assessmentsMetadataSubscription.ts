@@ -6,6 +6,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Security assessment metadata
+ *
+ * ## Example Usage
+ * ### Create security assessment metadata for subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const assessmentsMetadataSubscription = new azurerm.security.v20190101preview.AssessmentsMetadataSubscription("assessmentsMetadataSubscription", {
+ *     assessmentMetadataName: "ca039e75-a276-4175-aebc-bcd41e4b14b7",
+ *     assessmentType: "CustomerManaged",
+ *     category: ["Compute"],
+ *     description: "Install an endpoint protection solution on your virtual machines scale sets, to protect them from threats and vulnerabilities.",
+ *     displayName: "Install endpoint protection solution on virtual machine scale sets",
+ *     implementationEffort: "Low",
+ *     remediationDescription: "To install an endpoint protection solution: 1.  <a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set\">Follow the instructions in How do I turn on antimalware in my virtual machine scale set</a>",
+ *     severity: "Medium",
+ *     threats: [
+ *         "dataExfiltration",
+ *         "dataSpillage",
+ *         "maliciousInsider",
+ *     ],
+ *     userImpact: "Low",
+ * });
+ *
+ * ```
  */
 export class AssessmentsMetadataSubscription extends pulumi.CustomResource {
     /**

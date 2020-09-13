@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * EventGrid System Topic.
+ *
+ * ## Example Usage
+ * ### SystemTopics_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const systemTopic = new azurerm.eventgrid.v20200401preview.SystemTopic("systemTopic", {
+ *     location: "westus2",
+ *     resourceGroupName: "examplerg",
+ *     systemTopicName: "exampleSystemTopic1",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
  */
 export class SystemTopic extends pulumi.CustomResource {
     /**

@@ -8,6 +8,42 @@ import * as utilities from "../../utilities";
 
 /**
  * A budget resource.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdateBudget
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const budget = new azurerm.consumption.v20171230preview.Budget("budget", {
+ *     amount: 100.65,
+ *     category: "Cost",
+ *     eTag: "\"1d34d016a593709\"",
+ *     name: "TestBudget",
+ *     notifications: {
+ *         Actual_GreaterThan_80_Percent: {
+ *             contactEmails: [
+ *                 "johndoe@contoso.com",
+ *                 "janesmith@contoso.com",
+ *             ],
+ *             contactRoles: [
+ *                 "Contributor",
+ *                 "Reader",
+ *             ],
+ *             enabled: true,
+ *             operator: "GreaterThan",
+ *             threshold: 80,
+ *         },
+ *     },
+ *     timeGrain: "Monthly",
+ *     timePeriod: {
+ *         endDate: "2018-10-31T00:00:00Z",
+ *         startDate: "2017-10-01T00:00:00Z",
+ *     },
+ * });
+ *
+ * ```
  */
 export class Budget extends pulumi.CustomResource {
     /**

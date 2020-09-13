@@ -6,6 +6,23 @@ import * as utilities from "../../utilities";
 
 /**
  * A managed instance key.
+ *
+ * ## Example Usage
+ * ### Creates or updates a managed instance key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managedInstanceKey = new azurerm.sql.v20171001preview.ManagedInstanceKey("managedInstanceKey", {
+ *     keyName: "someVault_someKey_01234567890123456789012345678901",
+ *     managedInstanceName: "sqlcrudtest-4645",
+ *     resourceGroupName: "sqlcrudtest-7398",
+ *     serverKeyType: "AzureKeyVault",
+ *     uri: "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
+ * });
+ *
+ * ```
  */
 export class ManagedInstanceKey extends pulumi.CustomResource {
     /**

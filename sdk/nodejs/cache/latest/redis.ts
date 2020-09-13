@@ -24,6 +24,7 @@ import * as utilities from "../../utilities";
  *     redisConfiguration: {
  *         "maxmemory-policy": "allkeys-lru",
  *     },
+ *     replicasPerMaster: 2,
  *     resourceGroupName: "rg1",
  *     shardCount: 2,
  *     sku: {

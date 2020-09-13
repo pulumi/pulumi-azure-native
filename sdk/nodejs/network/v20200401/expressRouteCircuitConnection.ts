@@ -8,33 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
- *
- * ## Example Usage
- * ### ExpressRouteCircuitConnectionCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const expressRouteCircuitConnection = new azurerm.network.v20200401.ExpressRouteCircuitConnection("expressRouteCircuitConnection", {
- *     addressPrefix: "10.0.0.0/29",
- *     authorizationKey: "946a1918-b7a2-4917-b43c-8c4cdaee006a",
- *     circuitName: "ExpressRouteARMCircuitA",
- *     connectionName: "circuitConnectionUSAUS",
- *     expressRouteCircuitPeering: {
- *         id: "/subscriptions/subid1/resourceGroups/dedharcktinit/providers/Microsoft.Network/expressRouteCircuits/dedharcktlocal/peerings/AzurePrivatePeering",
- *     },
- *     ipv6CircuitConnectionConfig: {
- *         addressPrefix: "aa:bb::/125",
- *     },
- *     peerExpressRouteCircuitPeering: {
- *         id: "/subscriptions/subid2/resourceGroups/dedharcktpeer/providers/Microsoft.Network/expressRouteCircuits/dedharcktremote/peerings/AzurePrivatePeering",
- *     },
- *     peeringName: "AzurePrivatePeering",
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
  */
 export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
     /**

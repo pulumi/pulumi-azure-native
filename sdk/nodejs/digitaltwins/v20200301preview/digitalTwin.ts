@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the DigitalTwins service.
+ *
+ * ## Example Usage
+ * ### Put a DigitalTwinsInstance resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const digitalTwin = new azurerm.digitaltwins.v20200301preview.DigitalTwin("digitalTwin", {
+ *     location: "WestUS",
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
  */
 export class DigitalTwin extends pulumi.CustomResource {
     /**

@@ -6,6 +6,44 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL Database sync member.
+ *
+ * ## Example Usage
+ * ### Create a new sync member
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const syncMember = new azurerm.sql.v20150501preview.SyncMember("syncMember", {
+ *     databaseName: "syncgroupcrud-4328",
+ *     databaseType: "AzureSqlDatabase",
+ *     resourceGroupName: "syncgroupcrud-65440",
+ *     serverName: "syncgroupcrud-8475",
+ *     syncDirection: "Bidirectional",
+ *     syncGroupName: "syncgroupcrud-3187",
+ *     syncMemberName: "syncgroupcrud-4879",
+ *     userName: "myUser",
+ * });
+ *
+ * ```
+ * ### Update a sync member
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const syncMember = new azurerm.sql.v20150501preview.SyncMember("syncMember", {
+ *     databaseName: "syncgroupcrud-7421",
+ *     databaseType: "AzureSqlDatabase",
+ *     resourceGroupName: "syncgroupcrud-65440",
+ *     serverName: "syncgroupcrud-3379.database.windows.net",
+ *     syncDirection: "Bidirectional",
+ *     syncGroupName: "syncgroupcrud-3187",
+ *     syncMemberName: "syncgroupcrud-4879",
+ *     userName: "myUser",
+ * });
+ *
+ * ```
  */
 export class SyncMember extends pulumi.CustomResource {
     /**

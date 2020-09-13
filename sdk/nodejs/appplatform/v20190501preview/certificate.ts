@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Certificate resource payload.
+ *
+ * ## Example Usage
+ * ### Certificates_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const certificate = new azurerm.appplatform.v20190501preview.Certificate("certificate", {
+ *     certificateName: "mycertificate",
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

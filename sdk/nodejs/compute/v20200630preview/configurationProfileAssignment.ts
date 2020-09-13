@@ -8,6 +8,21 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration profile assignment is an association between a VM and automanage profile configuration.
+ *
+ * ## Example Usage
+ * ### Create or update configuration profile assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const configurationProfileAssignment = new azurerm.compute.v20200630preview.ConfigurationProfileAssignment("configurationProfileAssignment", {
+ *     configurationProfileAssignmentName: "default",
+ *     resourceGroupName: "myResourceGroupName",
+ *     vmName: "myVMName",
+ * });
+ *
+ * ```
  */
 export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     /**

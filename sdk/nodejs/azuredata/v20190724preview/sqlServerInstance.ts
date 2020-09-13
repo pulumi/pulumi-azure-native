@@ -8,6 +8,29 @@ import * as utilities from "../../utilities";
 
 /**
  * A SqlServerInstance.
+ *
+ * ## Example Usage
+ * ### Updates a SQL Server Instance tags.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const sqlServerInstance = new azurerm.azuredata.v20190724preview.SqlServerInstance("sqlServerInstance", {
+ *     containerResourceId: "Arc Machine Name",
+ *     edition: "Developer",
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlServerInstanceName: "testsqlServerInstance",
+ *     status: "Connected",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ *     vCore: "4",
+ *     version: "SQL Server 2017",
+ * });
+ *
+ * ```
  */
 export class SqlServerInstance extends pulumi.CustomResource {
     /**

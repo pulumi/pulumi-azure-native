@@ -6,6 +6,52 @@ import * as utilities from "../../utilities";
 
 /**
  * The Get Storage Account ManagementPolicies operation response.
+ *
+ * ## Example Usage
+ * ### StorageAccountSetManagementPolicies
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const managementPolicy = new azurerm.storage.v20180301preview.ManagementPolicy("managementPolicy", {
+ *     accountName: "sto9699",
+ *     managementPolicyName: "default",
+ *     policy: {
+ *         rules: [{
+ *             definition: {
+ *                 actions: {
+ *                     baseBlob: {
+ *                         "delete": {
+ *                             daysAfterModificationGreaterThan: 1000,
+ *                         },
+ *                         tierToArchive: {
+ *                             daysAfterModificationGreaterThan: 90,
+ *                         },
+ *                         tierToCool: {
+ *                             daysAfterModificationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                     snapshot: {
+ *                         "delete": {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                 },
+ *                 filters: {
+ *                     blobTypes: ["blockBlob"],
+ *                     prefixMatch: ["olcmtestcontainer"],
+ *                 },
+ *             },
+ *             name: "olcmtest",
+ *             type: "Lifecycle",
+ *         }],
+ *         version: "0.5",
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
  */
 export class ManagementPolicy extends pulumi.CustomResource {
     /**

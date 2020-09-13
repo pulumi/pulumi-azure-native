@@ -8,6 +8,23 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the service.
+ *
+ * ## Example Usage
+ * ### ServicePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const service = new azurerm.healthcareapis.v20180820preview.Service("service", {
+ *     kind: "fhir",
+ *     location: "eastus",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "service1",
+ *     tags: {},
+ * });
+ *
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**
