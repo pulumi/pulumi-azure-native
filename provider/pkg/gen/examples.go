@@ -9,6 +9,7 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/hashicorp/hcl/v2"
 	"github.com/pulumi/pulumi-azurerm/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azurerm/provider/pkg/pcl"
 	"github.com/pulumi/pulumi-azurerm/provider/pkg/provider"
@@ -41,14 +42,19 @@ type resourceExamplesRenderData struct {
 func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, resExamples map[string][]provider.AzureApiExample, languages []string) error {
 	sortedKeys := codegen.SortedKeys(metadata.Resources) // To generate in deterministic order
 
-	pulumiOptions := []hcl2.BindOption{hcl2.Cache(hcl2.NewPackageCache())}
+	// Use a progress bar to show progress since this can be a long running process
 	bar := progressbar.Default(int64(len(metadata.Resources)), "Resources processed:")
+
+	// cache to speed up code generation
+	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
 	for _, pulumiToken := range sortedKeys {
 		bar.Add(1)
-		if excludeResources.Has(pulumiToken) {
-			debug.Log("Skipping '%s'", pulumiToken)
+
+		if shouldExclude(pulumiToken) {
+			log.Printf("Skipping '%s' since it matches exclusion pattern", pulumiToken)
 			continue
 		}
+
 		debug.Log("Processing '%s'", pulumiToken)
 		resource := metadata.Resources[pulumiToken]
 		seen := codegen.NewStringSet()
@@ -121,65 +127,10 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, 
 			}
 			body := &model.Body{Items: []model.BodyItem{&block}}
 			pcl.FormatBody(body)
-			programBody := fmt.Sprintf("%v", body)
-			debug.Log(example.Location)
-			debug.Log(programBody)
 
-			parser := syntax.NewParser()
-			if err := parser.ParseFile(strings.NewReader(programBody), "program.pp"); err != nil {
-				log.Fatalf("failed to parse IR - file: %s: %v", example, err)
-			}
-			if parser.Diagnostics.HasErrors() {
-				fmt.Print(programBody)
-				parser.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(parser.Diagnostics)
-				continue
-			}
-
-			program, diags, err := hcl2.BindProgram(parser.Files, pulumiOptions...)
+			languageExample, err := generateExamplePrograms(example, body, languages, hcl2Cache)
 			if err != nil {
-				log.Fatalf("failed to bind program: %v", err)
-			}
-			if diags.HasErrors() {
-				log.Printf(programBody)
-				program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
-				continue
-			}
-
-			languageExample := languageToExampleProgram{}
-			for _, lang := range languages {
-				var files map[string][]byte
-
-				switch lang {
-				case "dotnet":
-					files, diags, err = dotnet.GenerateProgram(program)
-				case "go":
-					files, diags, err = gogen.GenerateProgram(program)
-				case "nodejs":
-					files, diags, err = nodejs.GenerateProgram(program)
-				case "python":
-					files, diags, err = python.GenerateProgram(program)
-				case "schema":
-					continue
-				}
-				if err != nil {
-					log.Fatalf("failed to generate program: %v", err)
-				}
-				if diags.HasErrors() {
-					log.Printf(programBody)
-					program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
-					os.Exit(-1)
-				}
-
-				buf := strings.Builder{}
-				for _, f := range files {
-					_, err := buf.Write(f)
-					if err != nil {
-						return err
-					}
-				}
-				languageExample[language(lang)] = programText(buf.String())
-				debug.Log("Generated %s equivalent for %s", lang, example.Location)
-				debug.Log("%s", buf.String())
+				return err
 			}
 
 			examplesRenderData.Data = append(examplesRenderData.Data,
@@ -199,6 +150,86 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, 
 	}
 
 	return nil
+}
+
+type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
+
+func generateExamplePrograms(example provider.AzureApiExample, body *model.Body, languages []string, bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
+	programBody := fmt.Sprintf("%v", body)
+	debug.Log(programBody)
+	parser := syntax.NewParser()
+	if err := parser.ParseFile(strings.NewReader(programBody), "program.pp"); err != nil {
+		return nil, fmt.Errorf("failed to parse IR - file: %s: %v", example.Location, err)
+	}
+	if parser.Diagnostics.HasErrors() {
+		fmt.Print(programBody)
+		parser.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(parser.Diagnostics)
+
+	}
+
+	program, diags, err := hcl2.BindProgram(parser.Files, bindOptions...)
+	if err != nil {
+		log.Fatalf("failed to bind program: %v", err)
+	}
+	if diags.HasErrors() {
+		log.Printf(programBody)
+		program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
+	}
+
+	languageExample := languageToExampleProgram{}
+
+	for _, lang := range languages {
+		var files map[string][]byte
+
+		switch lang {
+		case "dotnet":
+			files, err = recoverableProgramGen(program, dotnet.GenerateProgram)
+		case "go":
+			files, err = recoverableProgramGen(program, gogen.GenerateProgram)
+		case "nodejs":
+			files, err = recoverableProgramGen(program, nodejs.GenerateProgram)
+		case "python":
+			files, err = recoverableProgramGen(program, python.GenerateProgram)
+		case "schema":
+			continue
+		}
+		if err != nil {
+			log.Printf("Program generation failed for language: %s for example %s, continuing", lang, example.Location)
+		}
+
+		buf := strings.Builder{}
+		for _, f := range files {
+			_, err := buf.Write(f)
+			if err != nil {
+				return nil, err
+			}
+		}
+		languageExample[language(lang)] = programText(buf.String())
+		debug.Log("Generated %s equivalent for %s", lang, example.Location)
+		debug.Log("%s", buf.String())
+	}
+
+	return languageExample, nil
+}
+
+func recoverableProgramGen(program *hcl2.Program, fn programGenFn) (files map[string][]byte, err error) {
+	defer func() {
+		if r := recover(); r != nil {
+			err = fmt.Errorf("panic recovered during generation: %v", r)
+		}
+	}()
+
+	var d hcl.Diagnostics
+	files, d, err = fn(program)
+
+	if err != nil {
+
+	}
+	if d.HasErrors() {
+		program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(d)
+		err = d.Errs()[0]
+	}
+	return
 }
 
 func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string, examplesRenderData *resourceExamplesRenderData) error {

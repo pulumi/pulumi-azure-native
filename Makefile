@@ -42,8 +42,8 @@ generate_schema:
 generate_sdk_with_examples::
 	echo "Generating Pulumi schema with examples..."
 	# not generating golang examples currently due to https://github.com/pulumi/pulumi-azurerm/issues/156
-	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -sdk=true "go"
-	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples -sdk -debug "nodejs,dotnet,python"
+	# $(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -sdk=true "go"
+	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples -sdk "nodejs,dotnet,python,go"
 	echo "Finished generating schema with examples."
 
 codegen::
