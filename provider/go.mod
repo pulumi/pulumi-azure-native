@@ -11,10 +11,12 @@ require (
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/protobuf v1.4.2
 	github.com/hashicorp/go-azure-helpers v0.10.0
+	github.com/mattn/go-runewidth v0.0.9 // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi/pkg/v2 v2.9.3-0.20200910001350-51c235352cef
 	github.com/pulumi/pulumi/sdk/v2 v2.9.3-0.20200910001350-51c235352cef
 	github.com/stretchr/testify v1.6.1
+	golang.org/x/sys v0.0.0-20200615200032-f1bc736245b1 // indirect
 )
 
 replace (

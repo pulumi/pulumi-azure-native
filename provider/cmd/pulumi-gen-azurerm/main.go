@@ -35,7 +35,7 @@ func main() {
 
 	azureProviders := openapi.Providers()
 
-	pkgSpec, meta, err := gen.PulumiSchema(azureProviders)
+	result, err := gen.PulumiSchema(azureProviders)
 	if err != nil {
 		panic(err)
 	}
@@ -44,15 +44,15 @@ func main() {
 		switch language {
 		case "schema":
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azurerm")
-			if err = emitSchema(*pkgSpec, version, outdir); err != nil {
+			if err = emitSchema(result.PkgSpec, result.DocsSpec, version, outdir); err != nil {
 				break
 			}
 			// Also, emit the resource metadata for the provider.
-			err = emitMetadata(meta, outdir)
+			err = emitMetadata(result.Metadata, outdir)
 		default:
 			outdir := path.Join(".", "sdk", language)
-			pkgSpec.Version = version
-			err = emitPackage(pkgSpec, language, outdir)
+			result.PkgSpec.Version = version
+			err = emitPackage(result.PkgSpec, language, outdir)
 		}
 		if err != nil {
 			panic(err)
@@ -61,8 +61,13 @@ func main() {
 }
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
-func emitSchema(pkgSpec schema.PackageSpec, version, outDir string) error {
+func emitSchema(pkgSpec *schema.PackageSpec, docsPkgSpec *schema.PackageSpec, version, outDir string) error {
 	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
+	if err != nil {
+		return errors.Wrap(err, "marshaling Pulumi schema")
+	}
+
+	docsJSON, err := json.MarshalIndent(docsPkgSpec, "", "    ")
 	if err != nil {
 		return errors.Wrap(err, "marshaling Pulumi schema")
 	}
@@ -87,6 +92,9 @@ var pulumiSchema = %#v
 		return errors.Wrap(err, "saving metadata")
 	}
 
+	if err = emitFile(outDir, "schema-docs.json", docsJSON); err != nil {
+		return err
+	}
 	return emitFile(outDir, "schema.json", schemaJSON)
 }
 
