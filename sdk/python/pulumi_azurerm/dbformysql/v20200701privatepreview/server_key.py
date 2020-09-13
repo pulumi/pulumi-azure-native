@@ -31,9 +31,9 @@ class ServerKey(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        server_key = .("serverKey",
+        server_key = azurerm.dbformysql.v20200701privatepreview.ServerKey("serverKey",
             key_name="someVault_someKey_01234567890123456789012345678901",
             resource_group_name="testrg",
             server_key_type="AzureKeyVault",

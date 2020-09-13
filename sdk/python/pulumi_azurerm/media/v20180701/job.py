@@ -32,33 +32,6 @@ class Job(pulumi.CustomResource):
         """
         A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
 
-        ## Example Usage
-        ### Create a Job
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        job = azurerm.media.v20180701.Job("job",
-            account_name="contosomedia",
-            correlation_data={
-                "Key 2": "Value 2",
-                "key1": "value1",
-            },
-            input={
-                "@odata.type": "#Microsoft.Media.JobInputAsset",
-                "assetName": "job1-InputAsset",
-            },
-            job_name="job1",
-            outputs=[{
-                "assetName": "job1-OutputAsset",
-                "odataType": "#Microsoft.Media.JobOutputAsset",
-            }],
-            resource_group_name="contosoresources",
-            transform_name="exampleTransform")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

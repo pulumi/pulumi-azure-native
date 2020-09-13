@@ -40,7 +40,7 @@ class Connector(pulumi.CustomResource):
             connector_name="testConnector",
             connector_properties={
                 "connectionKeyVaultUrl": {
-                    "organizationId": "XXX",
+                    "organization_id": "XXX",
                     "organizationUrl": "https://XXX.crmlivetie.com/",
                 },
             },

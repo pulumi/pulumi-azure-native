@@ -34,9 +34,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        private_endpoint_connection = .("privateEndpointConnection",
+        private_endpoint_connection = azurerm.servicebus.v20180101preview.PrivateEndpointConnection("privateEndpointConnection",
             namespace_name="sdk-Namespace-2924",
             private_endpoint={
                 "id": "/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-ServiceBus-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",

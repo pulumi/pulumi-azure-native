@@ -50,9 +50,9 @@ class ManagedCluster(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        managed_cluster = .("managedCluster",
+        managed_cluster = azurerm.containerservice.v20200901.ManagedCluster("managedCluster",
             addon_profiles={},
             agent_pool_profiles=[{
                 "count": 3,
@@ -115,9 +115,9 @@ class ManagedCluster(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        managed_cluster = .("managedCluster",
+        managed_cluster = azurerm.containerservice.v20200901.ManagedCluster("managedCluster",
             aad_profile={
                 "enableAzureRBAC": True,
                 "managed": True,
@@ -188,9 +188,9 @@ class ManagedCluster(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        managed_cluster = .("managedCluster",
+        managed_cluster = azurerm.containerservice.v20200901.ManagedCluster("managedCluster",
             addon_profiles={},
             agent_pool_profiles=[{
                 "availabilityZones": [
@@ -264,9 +264,9 @@ class ManagedCluster(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        managed_cluster = .("managedCluster",
+        managed_cluster = azurerm.containerservice.v20200901.ManagedCluster("managedCluster",
             addon_profiles={},
             agent_pool_profiles=[{
                 "availabilityZones": [

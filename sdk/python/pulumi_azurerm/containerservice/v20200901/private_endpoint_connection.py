@@ -33,9 +33,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        private_endpoint_connection = .("privateEndpointConnection",
+        private_endpoint_connection = azurerm.containerservice.v20200901.PrivateEndpointConnection("privateEndpointConnection",
             private_endpoint_connection_name="privateendpointconnection1",
             private_link_service_connection_state={
                 "status": "Approved",

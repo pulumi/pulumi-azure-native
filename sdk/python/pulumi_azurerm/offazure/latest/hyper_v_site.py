@@ -35,9 +35,9 @@ class HyperVSite(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        hyper_v_site = .("hyperVSite",
+        hyper_v_site = azurerm.offazure.latest.HyperVSite("hyperVSite",
             location="eastus",
             resource_group_name="pajindTest",
             site_name="appliance1e39site")

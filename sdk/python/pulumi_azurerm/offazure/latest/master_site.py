@@ -34,9 +34,9 @@ class MasterSite(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        master_site = .("masterSite",
+        master_site = azurerm.offazure.latest.MasterSite("masterSite",
             location="eastus",
             resource_group_name="poshukla",
             site_name="masterSite1")

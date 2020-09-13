@@ -64,7 +64,7 @@ class SyncMember(pulumi.CustomResource):
             database_name="syncgroupcrud-7421",
             database_type="AzureSqlDatabase",
             resource_group_name="syncgroupcrud-65440",
-            server_name="syncgroupcrud-8475",
+            server_name="syncgroupcrud-3379.database.windows.net",
             sync_direction="Bidirectional",
             sync_group_name="syncgroupcrud-3187",
             sync_member_azure_database_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",

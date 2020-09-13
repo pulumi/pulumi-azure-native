@@ -36,9 +36,9 @@ class PolicyExemption(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        policy_exemption = .("policyExemption",
+        policy_exemption = azurerm.authorization.v20200701preview.PolicyExemption("policyExemption",
             description="Exempt demo cluster from limit sku",
             display_name="Exempt demo cluster",
             exemption_category="Waiver",

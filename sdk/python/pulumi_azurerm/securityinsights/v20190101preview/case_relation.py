@@ -35,9 +35,9 @@ class CaseRelation(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        case_relation = .("caseRelation",
+        case_relation = azurerm.securityinsights.v20190101preview.CaseRelation("caseRelation",
             case_id="afbd324f-6c48-459c-8710-8d1e1cd03812",
             operational_insights_resource_provider="Microsoft.OperationalInsights",
             relation_name="4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",

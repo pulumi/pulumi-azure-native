@@ -46,9 +46,9 @@ class GalleryImage(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        gallery_image = .("galleryImage",
+        gallery_image = azurerm.compute.v20200930.GalleryImage("galleryImage",
             gallery_image_name="myGalleryImageName",
             gallery_name="myGalleryName",
             hyper_v_generation="V1",

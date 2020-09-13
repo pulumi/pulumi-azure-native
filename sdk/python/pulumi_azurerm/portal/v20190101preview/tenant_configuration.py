@@ -28,9 +28,9 @@ class TenantConfiguration(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        tenant_configuration = .("tenantConfiguration",
+        tenant_configuration = azurerm.portal.v20190101preview.TenantConfiguration("tenantConfiguration",
             configuration_name="default",
             enforce_private_markdown_storage=True)
 

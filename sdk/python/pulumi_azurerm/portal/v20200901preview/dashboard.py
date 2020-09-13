@@ -32,9 +32,9 @@ class Dashboard(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        dashboard = .("dashboard",
+        dashboard = azurerm.portal.v20200901preview.Dashboard("dashboard",
             dashboard_name="testDashboard",
             lenses=[
                 {
@@ -42,16 +42,16 @@ class Dashboard(pulumi.CustomResource):
                     "parts": [
                         {
                             "position": {
-                                "colSpan": 3,
-                                "rowSpan": 4,
+                                "col_span": 3,
+                                "row_span": 4,
                                 "x": 1,
                                 "y": 2,
                             },
                         },
                         {
                             "position": {
-                                "colSpan": 6,
-                                "rowSpan": 6,
+                                "col_span": 6,
+                                "row_span": 6,
                                 "x": 5,
                                 "y": 5,
                             },

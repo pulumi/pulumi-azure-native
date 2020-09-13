@@ -32,9 +32,9 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        iot_dps_resource_private_endpoint_connection = .("iotDpsResourcePrivateEndpointConnection",
+        iot_dps_resource_private_endpoint_connection = azurerm.devices.v20200901preview.IotDpsResourcePrivateEndpointConnection("iotDpsResourcePrivateEndpointConnection",
             private_endpoint_connection_name="myPrivateEndpointConnection",
             resource_group_name="myResourceGroup",
             resource_name="myFirstProvisioningService")

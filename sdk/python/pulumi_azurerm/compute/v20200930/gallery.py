@@ -34,9 +34,9 @@ class Gallery(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        gallery = .("gallery",
+        gallery = azurerm.compute.v20200930.Gallery("gallery",
             description="This is the gallery description.",
             gallery_name="myGalleryName",
             location="West US",
@@ -50,9 +50,9 @@ class Gallery(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        gallery = .("gallery",
+        gallery = azurerm.compute.v20200930.Gallery("gallery",
             description="This is the gallery description.",
             gallery_name="myGalleryName",
             location="West US",

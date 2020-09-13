@@ -31,9 +31,9 @@ class DpsCertificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        dps_certificate = .("dpsCertificate",
+        dps_certificate = azurerm.devices.v20200901preview.DpsCertificate("dpsCertificate",
             certificate="############################################",
             certificate_name="cert",
             provisioning_service_name="myFirstProvisioningService",

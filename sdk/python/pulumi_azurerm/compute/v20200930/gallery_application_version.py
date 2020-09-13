@@ -35,9 +35,9 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        gallery_application_version = .("galleryApplicationVersion",
+        gallery_application_version = azurerm.compute.v20200930.GalleryApplicationVersion("galleryApplicationVersion",
             gallery_application_name="myGalleryApplicationName",
             gallery_application_version_name="1.0.0",
             gallery_name="myGalleryName",

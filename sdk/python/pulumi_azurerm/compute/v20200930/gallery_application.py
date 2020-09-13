@@ -37,9 +37,9 @@ class GalleryApplication(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        gallery_application = .("galleryApplication",
+        gallery_application = azurerm.compute.v20200930.GalleryApplication("galleryApplication",
             description="This is the gallery application description.",
             eula="This is the gallery application EULA.",
             gallery_application_name="myGalleryApplicationName",

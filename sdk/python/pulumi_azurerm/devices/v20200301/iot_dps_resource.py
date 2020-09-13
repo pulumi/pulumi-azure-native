@@ -35,9 +35,9 @@ class IotDpsResource(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        iot_dps_resource = .("iotDpsResource",
+        iot_dps_resource = azurerm.devices.v20200301.IotDpsResource("iotDpsResource",
             location="East US",
             provisioning_service_name="myFirstProvisioningService",
             resource_group_name="myResourceGroup",

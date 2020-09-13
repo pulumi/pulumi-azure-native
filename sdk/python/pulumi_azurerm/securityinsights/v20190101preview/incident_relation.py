@@ -33,9 +33,9 @@ class IncidentRelation(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        incident_relation = .("incidentRelation",
+        incident_relation = azurerm.securityinsights.v20190101preview.IncidentRelation("incidentRelation",
             incident_id="afbd324f-6c48-459c-8710-8d1e1cd03812",
             operational_insights_resource_provider="Microsoft.OperationalInsights",
             related_resource_id="/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096",

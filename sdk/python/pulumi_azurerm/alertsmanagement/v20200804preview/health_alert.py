@@ -37,9 +37,9 @@ class HealthAlert(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        health_alert = .("healthAlert",
+        health_alert = azurerm.alertsmanagement.v20200804preview.HealthAlert("healthAlert",
             actions=[{
                 "actionGroupId": "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2",
                 "webHookProperties": {

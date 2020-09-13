@@ -36,9 +36,9 @@ class GalleryImageVersion(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        gallery_image_version = .("galleryImageVersion",
+        gallery_image_version = azurerm.compute.v20200930.GalleryImageVersion("galleryImageVersion",
             gallery_image_name="myGalleryImageName",
             gallery_image_version_name="1.0.0",
             gallery_name="myGalleryName",
@@ -83,9 +83,9 @@ class GalleryImageVersion(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        gallery_image_version = .("galleryImageVersion",
+        gallery_image_version = azurerm.compute.v20200930.GalleryImageVersion("galleryImageVersion",
             gallery_image_name="myGalleryImageName",
             gallery_image_version_name="1.0.0",
             gallery_name="myGalleryName",
@@ -134,9 +134,9 @@ class GalleryImageVersion(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        gallery_image_version = .("galleryImageVersion",
+        gallery_image_version = azurerm.compute.v20200930.GalleryImageVersion("galleryImageVersion",
             gallery_image_name="myGalleryImageName",
             gallery_image_version_name="1.0.0",
             gallery_name="myGalleryName",

@@ -54,9 +54,9 @@ class AgentPool(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        agent_pool = .("agentPool",
+        agent_pool = azurerm.containerservice.v20200901.AgentPool("agentPool",
             agent_pool_name="agentpool1",
             count=3,
             orchestrator_version="",
@@ -72,9 +72,9 @@ class AgentPool(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        agent_pool = .("agentPool",
+        agent_pool = azurerm.containerservice.v20200901.AgentPool("agentPool",
             agent_pool_name="agentpool1",
             count=3,
             orchestrator_version="",
@@ -89,9 +89,9 @@ class AgentPool(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        agent_pool = .("agentPool",
+        agent_pool = azurerm.containerservice.v20200901.AgentPool("agentPool",
             agent_pool_name="agentpool1",
             count=3,
             node_labels={
@@ -114,9 +114,9 @@ class AgentPool(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        agent_pool = .("agentPool",
+        agent_pool = azurerm.containerservice.v20200901.AgentPool("agentPool",
             agent_pool_name="agentpool1",
             count=3,
             mode="User",
@@ -140,9 +140,9 @@ class AgentPool(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import pulumi_ as 
+        import pulumi_azurerm as azurerm
 
-        agent_pool = .("agentPool",
+        agent_pool = azurerm.containerservice.v20200901.AgentPool("agentPool",
             agent_pool_name="agentpool1",
             count=3,
             enable_auto_scaling=True,
