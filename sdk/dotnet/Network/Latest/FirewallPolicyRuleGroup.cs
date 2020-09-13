@@ -89,9 +89,9 @@ namespace Pulumi.AzureRM.Network.Latest
     ///             {
     ///                 
     ///                 {
-    ///                     { "action", 
+    ///                     { "action", new AzureRM.Network.Latest.Inputs.FirewallPolicyFilterRuleActionArgs
     ///                     {
-    ///                         { "type", "Deny" },
+    ///                         Type = "Deny",
     ///                     } },
     ///                     { "name", "Example-Filter-Rule" },
     ///                     { "ruleConditions", 

@@ -30,9 +30,9 @@ namespace Pulumi.AzureRM.Network.Latest
     ///             RuleCollectionGroupName = "ruleCollectionGroup1",
     ///             RuleCollections = 
     ///             {
-    ///                 new AzureRM.Network.Latest.Inputs.FirewallPolicyFilterRuleCollectionArgs
+    ///                 new AzureRM.Network.Latest.Inputs.FirewallPolicyNatRuleCollectionArgs
     ///                 {
-    ///                     Action = new AzureRM.Network.Latest.Inputs.FirewallPolicyFilterRuleCollectionActionArgs
+    ///                     Action = new AzureRM.Network.Latest.Inputs.FirewallPolicyNatRuleCollectionActionArgs
     ///                     {
     ///                         Type = "Deny",
     ///                     },
