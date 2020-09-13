@@ -36,13 +36,11 @@ local_generate:: codegen generate_schema provider generate_sdk_with_examples
 
 generate_schema:
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -schema=true
+	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -schema
 	echo "Finished generating schema."
 
 generate_sdk_with_examples::
 	echo "Generating Pulumi schema with examples..."
-	# not generating golang examples currently due to https://github.com/pulumi/pulumi-azurerm/issues/156
-	# $(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -sdk=true "go"
 	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples -sdk "nodejs,dotnet,python,go"
 	echo "Finished generating schema with examples."
 
@@ -59,7 +57,7 @@ lint_provider:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 generate_nodejs::
-	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples=true -sdk=true nodejs
+	$(WORKING_DIR)/bin/$(CODEGEN) -version=${VERSION} -examples -sdk nodejs
 
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
@@ -69,7 +67,7 @@ build_nodejs::
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 generate_python::
-	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples=true -sdk=true python
+	$(WORKING_DIR)/bin/$(CODEGEN) -version=${VERSION} -examples -sdk python
 
 build_python::
 	cd sdk/python/ && \
@@ -81,7 +79,7 @@ build_python::
         cd ./bin && python3 setup.py build sdist
 
 generate_dotnet::
-	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples=true -sdk=true dotnet
+	$(WORKING_DIR)/bin/$(CODEGEN) -version=$(VERSION) -examples -sdk dotnet
 
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
@@ -89,7 +87,7 @@ build_dotnet::
 		dotnet build
 
 generate_go::
-	$(WORKING_DIR)/bin/$(CODEGEN) go
+	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}
 
 build_go::
 

@@ -8,7 +8,6 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"path"
@@ -59,7 +58,7 @@ func main() {
 	}
 
 	handleSchema := func() {
-		outdir := path.Join(".", "sdk", "schema")
+		outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azurerm")
 		if err = emitSchema(*pkgSpec, *version, outdir); err != nil {
 			panic(err)
 		}
@@ -85,16 +84,10 @@ func main() {
 	if *generateSDK {
 		for _, language := range langs {
 			outdir := path.Join(".", "sdk", language)
-			switch language {
-			case "schema":
-				// back-compat, should use -schema for this instead
-				*generateSchema = true
-			default:
-				log.Printf("Generating SDK for language: %s", language)
-				err = emitPackage(pkgSpec, language, outdir)
-				if err != nil {
-					panic(err)
-				}
+			log.Printf("Generating SDK for language: %s", language)
+			err = emitPackage(pkgSpec, language, outdir)
+			if err != nil {
+				panic(err)
 			}
 		}
 	}
@@ -102,6 +95,36 @@ func main() {
 	if *generateSchema {
 		handleSchema()
 	}
+}
+
+// emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
+func emitSchema(pkgSpec schema.PackageSpec, version, outDir string) error {
+	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
+	if err != nil {
+		return errors.Wrap(err, "marshaling Pulumi schema")
+	}
+
+	// Ensure the spec is stamped with a version.
+	pkgSpec.Version = version
+
+	compressedSchema := bytes.Buffer{}
+	compressedWriter := gzip.NewWriter(&compressedSchema)
+	err = json.NewEncoder(compressedWriter).Encode(pkgSpec)
+	if err != nil {
+		return errors.Wrap(err, "marshaling metadata")
+	}
+	if err = compressedWriter.Close(); err != nil {
+		return err
+	}
+
+	err = emitFile(outDir, "schema.go", []byte(fmt.Sprintf(`package main
+var pulumiSchema = %#v
+`, compressedSchema.Bytes())))
+	if err != nil {
+		return errors.Wrap(err, "saving metadata")
+	}
+
+	return emitFile(outDir, "schema.json", schemaJSON)
 }
 
 func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string) error {
@@ -121,44 +144,14 @@ func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string) error {
 		return errors.Wrap(err, "marshaling metadata")
 	}
 
-	err = ioutil.WriteFile("./provider/cmd/pulumi-resource-azurerm/metadata.go", []byte(fmt.Sprintf(`package main
+	err = emitFile(outDir, "metadata.go", []byte(fmt.Sprintf(`package main
 var azureApiResources = %#v
-`, compressedMeta.Bytes())), 0600)
+`, compressedMeta.Bytes())))
 	if err != nil {
 		return err
 	}
 
 	return emitFile(outDir, "metadata.json", formatted)
-}
-
-func emitSchema(pkgSpec schema.PackageSpec, version string, outdir string) error {
-	// Ensure the spec is stamped with a version.
-	pkgSpec.Version = version
-	log.Printf("Schema version: %s", pkgSpec.Version)
-
-	compressedSchema := bytes.Buffer{}
-	compressedWriter := gzip.NewWriter(&compressedSchema)
-	formatted, err := json.MarshalIndent(pkgSpec, "", "    ")
-	if err != nil {
-		return err
-	}
-
-	enc := json.NewEncoder(compressedWriter)
-	if err := enc.Encode(pkgSpec); err != nil {
-		return err
-	}
-	if err = compressedWriter.Close(); err != nil {
-		return err
-	}
-
-	if err = ioutil.WriteFile("./provider/cmd/pulumi-resource-azurerm/schema.go", []byte(fmt.Sprintf(`package main
-var pulumiSchema   = %#v
-`,
-		compressedSchema.Bytes(),
-	)), 0600); err != nil {
-		return err
-	}
-	return emitFile(outdir, "schema.json", formatted)
 }
 
 func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {
