@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * This type describes a volume resource.
- *
- * ## Example Usage
- * ### CreateOrUpdateVolume
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const volume = new azurerm.servicefabricmesh.v20180901preview.Volume("volume", {
- *     azureFileParameters: {
- *         accountKey: "provide-account-key-here",
- *         accountName: "sbzdemoaccount",
- *         shareName: "sharel",
- *     },
- *     description: "Service Fabric Mesh sample volume.",
- *     location: "EastUS",
- *     provider: "SFAzureFile",
- *     resourceGroupName: "sbz_demo",
- *     tags: {},
- *     volumeResourceName: "sampleVolume",
- * });
- *
- * ```
  */
 export class Volume extends pulumi.CustomResource {
     /**

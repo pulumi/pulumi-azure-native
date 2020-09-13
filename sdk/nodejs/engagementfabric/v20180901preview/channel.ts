@@ -6,30 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The EngagementFabric channel
- *
- * ## Example Usage
- * ### ChannelsCreateOrUpdateExample
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const channel = new azurerm.engagementfabric.v20180901preview.Channel("channel", {
- *     accountName: "ExampleAccount",
- *     channelFunctions: [
- *         "MockFunction1",
- *         "MockFunction2",
- *     ],
- *     channelName: "ExampleChannel",
- *     channelType: "MockChannel",
- *     credentials: {
- *         AppId: "exampleApp",
- *         AppKey: "exampleAppKey",
- *     },
- *     resourceGroupName: "ExampleRg",
- * });
- *
- * ```
  */
 export class Channel extends pulumi.CustomResource {
     /**

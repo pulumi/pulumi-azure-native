@@ -8,48 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Service resource
- *
- * ## Example Usage
- * ### Services_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const service = new azurerm.appplatform.v20200701.Service("service", {
- *     location: "eastus",
- *     resourceGroupName: "myResourceGroup",
- *     serviceName: "myservice",
- *     sku: {
- *         name: "S0",
- *         tier: "Standard",
- *     },
- *     tags: {
- *         key1: "value1",
- *     },
- * });
- *
- * ```
- * ### Services_CreateOrUpdate_VNetInjection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const service = new azurerm.appplatform.v20200701.Service("service", {
- *     location: "eastus",
- *     resourceGroupName: "myResourceGroup",
- *     serviceName: "myservice",
- *     sku: {
- *         name: "S0",
- *         tier: "Standard",
- *     },
- *     tags: {
- *         key1: "value1",
- *     },
- * });
- *
- * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

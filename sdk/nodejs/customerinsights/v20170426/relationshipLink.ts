@@ -8,37 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The relationship link resource format.
- *
- * ## Example Usage
- * ### RelationshipLinks_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const relationshipLink = new azurerm.customerinsights.v20170426.RelationshipLink("relationshipLink", {
- *     description: {
- *         "en-us": "Link Description",
- *     },
- *     displayName: {
- *         "en-us": "Link DisplayName",
- *     },
- *     hubName: "sdkTestHub",
- *     interactionType: "testInteraction4332",
- *     profilePropertyReferences: [{
- *         interactionPropertyName: "profile1",
- *         profilePropertyName: "ProfileId",
- *     }],
- *     relatedProfilePropertyReferences: [{
- *         interactionPropertyName: "profile1",
- *         profilePropertyName: "ProfileId",
- *     }],
- *     relationshipLinkName: "Somelink",
- *     relationshipName: "testProfile2326994",
- *     resourceGroupName: "TestHubRG",
- * });
- *
- * ```
  */
 export class RelationshipLink extends pulumi.CustomResource {
     /**

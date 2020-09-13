@@ -6,26 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Workspace connection.
- *
- * ## Example Usage
- * ### CreateWorkspaceConnection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const workspaceConnection = new azurerm.machinelearningservices.v20200601.WorkspaceConnection("workspaceConnection", {
- *     authType: "PAT",
- *     category: "ACR",
- *     connectionName: "connection-1",
- *     name: "connection-1",
- *     resourceGroupName: "resourceGroup-1",
- *     target: "www.facebook.com",
- *     value: "secrets",
- *     workspaceName: "workspace-1",
- * });
- *
- * ```
  */
 export class WorkspaceConnection extends pulumi.CustomResource {
     /**

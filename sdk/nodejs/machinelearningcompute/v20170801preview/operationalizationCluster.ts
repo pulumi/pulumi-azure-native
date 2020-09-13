@@ -8,44 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Instance of an Azure ML Operationalization Cluster resource.
- *
- * ## Example Usage
- * ### PUT Operationalization Cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const operationalizationCluster = new azurerm.machinelearningcompute.v20170801preview.OperationalizationCluster("operationalizationCluster", {
- *     clusterName: "myCluster",
- *     clusterType: "ACS",
- *     containerService: {
- *         orchestratorProperties: {
- *             servicePrincipal: {
- *                 clientId: "abcdefghijklmnopqrt",
- *                 secret: "uiuiwueiwuewiue",
- *             },
- *         },
- *         orchestratorType: "Kubernetes",
- *     },
- *     description: "My Operationalization Cluster",
- *     globalServiceConfiguration: {
- *         ssl: {
- *             cert: "afjdklq2131casfakld=",
- *             cname: "foo.bar.com",
- *             key: "flksdafkldsajf=",
- *             status: "Enabled",
- *         },
- *     },
- *     location: "West US",
- *     resourceGroupName: "myResourceGroup",
- *     tags: {
- *         key1: "alpha",
- *         key2: "beta",
- *     },
- * });
- *
- * ```
  */
 export class OperationalizationCluster extends pulumi.CustomResource {
     /**

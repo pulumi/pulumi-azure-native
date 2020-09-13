@@ -8,22 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Deployment resource payload
- *
- * ## Example Usage
- * ### Deployments_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const deployment = new azurerm.appplatform.v20200701.Deployment("deployment", {
- *     appName: "myapp",
- *     deploymentName: "mydeployment",
- *     resourceGroupName: "myResourceGroup",
- *     serviceName: "myservice",
- * });
- *
- * ```
  */
 export class Deployment extends pulumi.CustomResource {
     /**

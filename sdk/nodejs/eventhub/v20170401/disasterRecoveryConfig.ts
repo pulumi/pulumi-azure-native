@@ -6,22 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
- *
- * ## Example Usage
- * ### EHAliasCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const disasterRecoveryConfig = new azurerm.eventhub.v20170401.DisasterRecoveryConfig("disasterRecoveryConfig", {
- *     alias: "sdk-DisasterRecovery-3814",
- *     namespaceName: "sdk-Namespace-8859",
- *     partnerNamespace: "sdk-Namespace-37",
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
  */
 export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**

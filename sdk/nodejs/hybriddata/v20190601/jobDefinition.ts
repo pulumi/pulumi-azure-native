@@ -8,37 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Job Definition.
- *
- * ## Example Usage
- * ### JobDefinitions_CreateOrUpdatePUT83
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const jobDefinition = new azurerm.hybriddata.v20190601.JobDefinition("jobDefinition", {
- *     dataManagerName: "TestAzureSDKOperations",
- *     dataServiceInput: {
- *         AzureStorageType: "Blob",
- *         BackupChoice: "UseExistingLatest",
- *         ContainerName: "containerfromtest",
- *         DeviceName: "8600-SHG0997877L71FC",
- *         FileNameFilter: "*",
- *         IsDirectoryMode: false,
- *         RootDirectories: ["\\"],
- *         VolumeNames: ["TestAutomation"],
- *     },
- *     dataServiceName: "DataTransformation",
- *     dataSinkId: "/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestAzureStorage1",
- *     dataSourceId: "/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestStorSimpleSource1",
- *     jobDefinitionName: "jobdeffromtestcode1",
- *     resourceGroupName: "ResourceGroupForSDKTest",
- *     runLocation: "westus",
- *     state: "Enabled",
- *     userConfirmation: "Required",
- * });
- *
- * ```
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**

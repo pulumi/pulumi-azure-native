@@ -8,41 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the service.
- *
- * ## Example Usage
- * ### Create or Update a service with all parameters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const service = new azurerm.healthcareapis.v20190916.Service("service", {
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     kind: "fhir-R4",
- *     location: "westus2",
- *     resourceGroupName: "rg1",
- *     resourceName: "service1",
- *     tags: {},
- * });
- *
- * ```
- * ### Create or Update a service with minimum parameters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const service = new azurerm.healthcareapis.v20190916.Service("service", {
- *     kind: "fhir-R4",
- *     location: "westus2",
- *     resourceGroupName: "rg1",
- *     resourceName: "service2",
- *     tags: {},
- * });
- *
- * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

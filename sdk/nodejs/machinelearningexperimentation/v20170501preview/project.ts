@@ -6,28 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a machine learning project.
- *
- * ## Example Usage
- * ### CreateProject
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const project = new azurerm.machinelearningexperimentation.v20170501preview.Project("project", {
- *     accountName: "testaccount",
- *     friendlyName: "testName",
- *     gitrepo: "https://github/abc",
- *     location: "East US",
- *     projectName: "testProject",
- *     resourceGroupName: "myResourceGroup",
- *     tags: {
- *         tagKey1: "TagValue1",
- *     },
- *     workspaceName: "testworkspace",
- * });
- *
- * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

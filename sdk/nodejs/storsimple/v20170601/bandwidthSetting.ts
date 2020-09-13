@@ -8,38 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The bandwidth setting.
- *
- * ## Example Usage
- * ### BandwidthSettingsCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const bandwidthSetting = new azurerm.storsimple.v20170601.BandwidthSetting("bandwidthSetting", {
- *     bandwidthSettingName: "BWSForTest",
- *     managerName: "ManagerForSDKTest1",
- *     resourceGroupName: "ResourceGroupForSDKTest",
- *     schedules: [{
- *         days: [
- *             "Saturday",
- *             "Sunday",
- *         ],
- *         rateInMbps: 10,
- *         start: {
- *             hours: 10,
- *             minutes: 0,
- *             seconds: 0,
- *         },
- *         stop: {
- *             hours: 20,
- *             minutes: 0,
- *             seconds: 0,
- *         },
- *     }],
- * });
- *
- * ```
  */
 export class BandwidthSetting extends pulumi.CustomResource {
     /**

@@ -8,34 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The SourceControl Configuration object.
- *
- * ## Example Usage
- * ### Create Source Control Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const sourceControlConfiguration = new azurerm.kubernetesconfiguration.v20191101preview.SourceControlConfiguration("sourceControlConfiguration", {
- *     clusterName: "clusterName1",
- *     clusterResourceName: "connectedClusters",
- *     clusterRp: "Microsoft.Kubernetes",
- *     enableHelmOperator: "true",
- *     helmOperatorProperties: {
- *         chartValues: "--set git.ssh.secretName=flux-git-deploy --set tillerNamespace=kube-system",
- *         chartVersion: "0.3.0",
- *     },
- *     operatorInstanceName: "SRSGitHubFluxOp-01",
- *     operatorNamespace: "SRS_Namespace",
- *     operatorParams: "--git-email=xyzgituser@users.srs.github.com",
- *     operatorScope: "namespace",
- *     operatorType: "Flux",
- *     repositoryUrl: "git@github.com:k8sdeveloper425/flux-get-started",
- *     resourceGroupName: "rg1",
- *     sourceControlConfigurationName: "SRS_GitHubConfig",
- * });
- *
- * ```
  */
 export class SourceControlConfiguration extends pulumi.CustomResource {
     /**

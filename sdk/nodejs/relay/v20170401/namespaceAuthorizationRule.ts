@@ -6,25 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace authorization rule.
- *
- * ## Example Usage
- * ### RelayNameSpaceAuthorizationRuleCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const namespaceAuthorizationRule = new azurerm.relay.v20170401.NamespaceAuthorizationRule("namespaceAuthorizationRule", {
- *     authorizationRuleName: "sdk-RelayAuthRules-01",
- *     namespaceName: "sdk-RelayNamespace-01",
- *     resourceGroupName: "RG-eg",
- *     rights: [
- *         "Listen",
- *         "Send",
- *     ],
- * });
- *
- * ```
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**

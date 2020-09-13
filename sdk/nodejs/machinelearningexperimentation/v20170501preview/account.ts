@@ -8,30 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a machine learning team account.
- *
- * ## Example Usage
- * ### AccountCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const account = new azurerm.machinelearningexperimentation.v20170501preview.Account("account", {
- *     accountName: "accountcrud5678",
- *     keyVaultId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.KeyVault/vaults/testkv",
- *     location: "East US",
- *     resourceGroupName: "accountcrud-1234",
- *     storageAccount: {
- *         accessKey: "key",
- *         storageAccountId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
- *     },
- *     tags: {
- *         tagKey1: "TagValue1",
- *     },
- *     vsoAccountId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/microsoft.visualstudio/account/vsotest",
- * });
- *
- * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

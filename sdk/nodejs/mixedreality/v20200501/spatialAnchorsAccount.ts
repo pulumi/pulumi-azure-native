@@ -6,21 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * SpatialAnchorsAccount Response.
- *
- * ## Example Usage
- * ### Create spatial anchor account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const spatialAnchorsAccount = new azurerm.mixedreality.v20200501.SpatialAnchorsAccount("spatialAnchorsAccount", {
- *     accountName: "MyAccount",
- *     location: "eastus2euap",
- *     resourceGroupName: "MyResourceGroup",
- * });
- *
- * ```
  */
 export class SpatialAnchorsAccount extends pulumi.CustomResource {
     /**

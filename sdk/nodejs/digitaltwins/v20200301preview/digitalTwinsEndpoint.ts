@@ -8,21 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * DigitalTwinsInstance endpoint resource.
- *
- * ## Example Usage
- * ### Put a DigitalTwinsInstance resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const digitalTwinsEndpoint = new azurerm.digitaltwins.v20200301preview.DigitalTwinsEndpoint("digitalTwinsEndpoint", {
- *     endpointName: "myServiceBus",
- *     resourceGroupName: "resRg",
- *     resourceName: "myDigitalTwinsService",
- * });
- *
- * ```
  */
 export class DigitalTwinsEndpoint extends pulumi.CustomResource {
     /**

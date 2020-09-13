@@ -8,22 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Binding resource payload
- *
- * ## Example Usage
- * ### Bindings_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const binding = new azurerm.appplatform.v20200701.Binding("binding", {
- *     appName: "myapp",
- *     bindingName: "mybinding",
- *     resourceGroupName: "myResourceGroup",
- *     serviceName: "myservice",
- * });
- *
- * ```
  */
 export class Binding extends pulumi.CustomResource {
     /**

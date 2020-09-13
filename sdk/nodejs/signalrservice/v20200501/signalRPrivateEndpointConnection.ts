@@ -8,28 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection to SignalR resource
- *
- * ## Example Usage
- * ### SignalRPrivateEndpointConnections_Update
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const signalRPrivateEndpointConnection = new azurerm.signalrservice.v20200501.SignalRPrivateEndpointConnection("signalRPrivateEndpointConnection", {
- *     privateEndpoint: {
- *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
- *     },
- *     privateEndpointConnectionName: "mySignalRService.1fa229cd-bf3f-47f0-8c49-afb36723997e",
- *     privateLinkServiceConnectionState: {
- *         actionsRequired: "None",
- *         status: "Approved",
- *     },
- *     resourceGroupName: "myResourceGroup",
- *     resourceName: "mySignalRService",
- * });
- *
- * ```
  */
 export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     /**

@@ -8,30 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a machine learning workspace.
- *
- * ## Example Usage
- * ### WorkspaceCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const workspace = new azurerm.machinelearning.v20191001.Workspace("workspace", {
- *     location: "West Europe",
- *     ownerEmail: "abc@microsoft.com",
- *     resourceGroupName: "myResourceGroup",
- *     sku: {
- *         name: "Enterprise",
- *         tier: "Enterprise",
- *     },
- *     tags: {
- *         tagKey1: "TagValue1",
- *     },
- *     userStorageAccountId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/teststorage",
- *     workspaceName: "testworkspace",
- * });
- *
- * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

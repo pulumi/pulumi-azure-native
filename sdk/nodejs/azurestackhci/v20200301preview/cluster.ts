@@ -8,23 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Cluster details.
- *
- * ## Example Usage
- * ### GetClusters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const cluster = new azurerm.azurestackhci.v20200301preview.Cluster("cluster", {
- *     aadClientId: "24a6e53d-04e5-44d2-b7cc-1b732a847dfc",
- *     aadTenantId: "7e589cc1-a8b6-4dff-91bd-5ec0fa18db94",
- *     clusterName: "myCluster",
- *     location: "East US",
- *     resourceGroupName: "test-rg",
- * });
- *
- * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

@@ -6,48 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Snapshot policy information
- *
- * ## Example Usage
- * ### SnapshotPolicies_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const snapshotPolicy = new azurerm.netapp.v20200601.SnapshotPolicy("snapshotPolicy", {
- *     accountName: "account1",
- *     dailySchedule: {
- *         hour: 10,
- *         minute: 10,
- *         snapshotsToKeep: 10,
- *         usedBytes: 100000,
- *     },
- *     enabled: true,
- *     hourlySchedule: {
- *         minute: 10,
- *         snapshotsToKeep: 10,
- *         usedBytes: 100000,
- *     },
- *     location: "eastus",
- *     monthlySchedule: {
- *         DaysOfMonth: "1,5,11",
- *         hour: 10,
- *         minute: 10,
- *         snapshotsToKeep: 10,
- *         usedBytes: 100000,
- *     },
- *     resourceGroupName: "myRG",
- *     snapshotPolicyName: "snapshotPolicyName",
- *     weeklySchedule: {
- *         day: "Monday",
- *         hour: 10,
- *         minute: 10,
- *         snapshotsToKeep: 10,
- *         usedBytes: 100000,
- *     },
- * });
- *
- * ```
  */
 export class SnapshotPolicy extends pulumi.CustomResource {
     /**

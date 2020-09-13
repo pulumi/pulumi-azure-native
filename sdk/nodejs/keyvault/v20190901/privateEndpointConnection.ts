@@ -8,25 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Private endpoint connection resource.
- *
- * ## Example Usage
- * ### KeyVaultPutPrivateEndpointConnection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const privateEndpointConnection = new azurerm.keyvault.v20190901.PrivateEndpointConnection("privateEndpointConnection", {
- *     privateEndpointConnectionName: "sample-pec",
- *     privateLinkServiceConnectionState: {
- *         description: "My name is Joe and I'm approving this.",
- *         status: "Approved",
- *     },
- *     resourceGroupName: "sample-group",
- *     vaultName: "sample-vault",
- * });
- *
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

@@ -8,27 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The container for solution.
- *
- * ## Example Usage
- * ### SolutionCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const solution = new azurerm.operationsmanagement.v20151101preview.Solution("solution", {
- *     location: "East US",
- *     plan: {
- *         name: "name1",
- *         product: "product1",
- *         promotionCode: "promocode1",
- *         publisher: "publisher1",
- *     },
- *     resourceGroupName: "rg1",
- *     solutionName: "solution1",
- * });
- *
- * ```
  */
 export class Solution extends pulumi.CustomResource {
     /**

@@ -8,48 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
- *
- * ## Example Usage
- * ### Create Account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const account = new azurerm.cognitiveservices.v20170418.Account("account", {
- *     accountName: "testCreate1",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     kind: "Emotion",
- *     location: "West US",
- *     resourceGroupName: "myResourceGroup",
- *     sku: {
- *         name: "S0",
- *     },
- * });
- *
- * ```
- * ### Create Account Min
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const account = new azurerm.cognitiveservices.v20170418.Account("account", {
- *     accountName: "testCreate1",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     kind: "CognitiveServices",
- *     location: "West US",
- *     resourceGroupName: "myResourceGroup",
- *     sku: {
- *         name: "S0",
- *     },
- * });
- *
- * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

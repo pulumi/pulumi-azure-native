@@ -8,28 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An account data transfer object.
- *
- * ## Example Usage
- * ### Accounts_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const account = new azurerm.datashare.v20191101.Account("account", {
- *     accountName: "Account1",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     location: "West US 2",
- *     resourceGroupName: "SampleResourceGroup",
- *     tags: {
- *         tag1: "Red",
- *         tag2: "White",
- *     },
- * });
- *
- * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

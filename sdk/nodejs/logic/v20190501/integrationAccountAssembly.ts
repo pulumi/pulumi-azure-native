@@ -8,22 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The assembly definition.
- *
- * ## Example Usage
- * ### Create or update an account assembly
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const integrationAccountAssembly = new azurerm.logic.v20190501.IntegrationAccountAssembly("integrationAccountAssembly", {
- *     assemblyArtifactName: "testAssembly",
- *     integrationAccountName: "testIntegrationAccount",
- *     location: "westus",
- *     resourceGroupName: "testResourceGroup",
- * });
- *
- * ```
  */
 export class IntegrationAccountAssembly extends pulumi.CustomResource {
     /**

@@ -8,28 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Volume resource
- *
- * ## Example Usage
- * ### Volumes_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const volume = new azurerm.netapp.v20200601.Volume("volume", {
- *     accountName: "account1",
- *     creationToken: "my-unique-file-path",
- *     location: "eastus",
- *     poolName: "pool1",
- *     resourceGroupName: "myRG",
- *     serviceLevel: "Premium",
- *     subnetId: "/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
- *     throughputMibps: 128,
- *     usageThreshold: 107374182400,
- *     volumeName: "volume1",
- * });
- *
- * ```
  */
 export class Volume extends pulumi.CustomResource {
     /**

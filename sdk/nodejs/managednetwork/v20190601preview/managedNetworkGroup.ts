@@ -8,34 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The Managed Network Group resource
- *
- * ## Example Usage
- * ### ManagementNetworkGroupsPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const managedNetworkGroup = new azurerm.managednetwork.v20190601preview.ManagedNetworkGroup("managedNetworkGroup", {
- *     managedNetworkGroupName: "myManagedNetworkGroup1",
- *     managedNetworkName: "myManagedNetwork",
- *     managementGroups: [],
- *     resourceGroupName: "myResourceGroup",
- *     subnets: [{
- *         id: "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA/subnets/subnetA",
- *     }],
- *     subscriptions: [],
- *     virtualNetworks: [
- *         {
- *             id: "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
- *         },
- *         {
- *             id: "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
- *         },
- *     ],
- * });
- *
- * ```
  */
 export class ManagedNetworkGroup extends pulumi.CustomResource {
     /**

@@ -8,28 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Dedicated cloud node model
- *
- * ## Example Usage
- * ### CreateDedicatedCloudNode
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const dedicatedCloudNode = new azurerm.vmwarecloudsimple.v20190401.DedicatedCloudNode("dedicatedCloudNode", {
- *     availabilityZoneId: "az1",
- *     dedicatedCloudNodeName: "myNode",
- *     location: "westus",
- *     nodesCount: 1,
- *     placementGroupId: "n1",
- *     purchaseId: "56acbd46-3d36-4bbf-9b08-57c30fdf6932",
- *     resourceGroupName: "myResourceGroup",
- *     sku: {
- *         name: "VMware_CloudSimple_CS28",
- *     },
- * });
- *
- * ```
  */
 export class DedicatedCloudNode extends pulumi.CustomResource {
     /**

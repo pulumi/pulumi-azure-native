@@ -6,20 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The status of the Canonical support plan.
- *
- * ## Example Usage
- * ### SupportPlanTypes_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const supportPlanType = new azurerm.addons.v20180301.SupportPlanType("supportPlanType", {
- *     planTypeName: "Standard",
- *     providerName: "Canonical",
- * });
- *
- * ```
  */
 export class SupportPlanType extends pulumi.CustomResource {
     /**

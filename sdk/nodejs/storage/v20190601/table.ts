@@ -6,21 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the table, including Id, resource name, resource type.
- *
- * ## Example Usage
- * ### TableOperationPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const table = new azurerm.storage.v20190601.Table("table", {
- *     accountName: "sto328",
- *     resourceGroupName: "res3376",
- *     tableName: "table6185",
- * });
- *
- * ```
  */
 export class Table extends pulumi.CustomResource {
     /**

@@ -8,36 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Data Catalog.
- *
- * ## Example Usage
- * ### Create Azure Data Catalog Service
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const adcCatalog = new azurerm.datacatalog.v20160330.ADCCatalog("adcCatalog", {
- *     admins: [{
- *         objectId: "99999999-9999-9999-999999999999",
- *         upn: "myupn@microsoft.com",
- *     }],
- *     catalogName: "exampleCatalog",
- *     enableAutomaticUnitAdjustment: false,
- *     location: "North US",
- *     resourceGroupName: "exampleResourceGroup",
- *     sku: "Standard",
- *     tags: {
- *         mykey: "myvalue",
- *         mykey2: "myvalue2",
- *     },
- *     units: 1,
- *     users: [{
- *         objectId: "99999999-9999-9999-999999999999",
- *         upn: "myupn@microsoft.com",
- *     }],
- * });
- *
- * ```
  */
 export class ADCCatalog extends pulumi.CustomResource {
     /**

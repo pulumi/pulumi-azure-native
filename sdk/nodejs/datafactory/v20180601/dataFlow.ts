@@ -8,34 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Data flow resource type.
- *
- * ## Example Usage
- * ### DataFlows_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const dataFlow = new azurerm.datafactory.v20180601.DataFlow("dataFlow", {
- *     dataFlowName: "exampleDataFlow",
- *     factoryName: "exampleFactoryName",
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
- * ### DataFlows_Update
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const dataFlow = new azurerm.datafactory.v20180601.DataFlow("dataFlow", {
- *     dataFlowName: "exampleDataFlow",
- *     factoryName: "exampleFactoryName",
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
  */
 export class DataFlow extends pulumi.CustomResource {
     /**

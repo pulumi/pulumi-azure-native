@@ -8,24 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The container for solution.
- *
- * ## Example Usage
- * ### SolutionCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const managementAssociation = new azurerm.operationsmanagement.v20151101preview.ManagementAssociation("managementAssociation", {
- *     location: "East US",
- *     managementAssociationName: "managementAssociation1",
- *     providerName: "providerName",
- *     resourceGroupName: "rg1",
- *     resourceName: "resourceName",
- *     resourceType: "resourceType",
- * });
- *
- * ```
  */
 export class ManagementAssociation extends pulumi.CustomResource {
     /**

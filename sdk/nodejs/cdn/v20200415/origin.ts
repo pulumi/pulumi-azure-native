@@ -6,32 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
- *
- * ## Example Usage
- * ### Origins_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const origin = new azurerm.cdn.v20200415.Origin("origin", {
- *     enabled: true,
- *     endpointName: "endpoint1",
- *     hostName: "www.someDomain.net",
- *     httpPort: 80,
- *     httpsPort: 443,
- *     originHostHeader: "www.someDomain.net",
- *     originName: "www-someDomain-net",
- *     priority: 1,
- *     privateLinkApprovalMessage: "Please approve the connection request for this Private Link",
- *     privateLinkLocation: "eastus",
- *     privateLinkResourceId: "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
- *     profileName: "profile1",
- *     resourceGroupName: "RG",
- *     weight: 50,
- * });
- *
- * ```
  */
 export class Origin extends pulumi.CustomResource {
     /**

@@ -8,37 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource information with extended details.
- *
- * ## Example Usage
- * ### Create a new or update an existing dedicated HSM
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const dedicatedHsm = new azurerm.hardwaresecuritymodules.v20181031preview.DedicatedHsm("dedicatedHsm", {
- *     location: "westus",
- *     name: "hsm1",
- *     networkProfile: {
- *         networkInterfaces: [{
- *             privateIpAddress: "1.0.0.1",
- *         }],
- *         subnet: {
- *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
- *         },
- *     },
- *     resourceGroupName: "hsm-group",
- *     sku: {
- *         name: "SafeNet Luna Network HSM A790",
- *     },
- *     stampId: "stamp01",
- *     tags: {
- *         Dept: "hsm",
- *         Environment: "dogfood",
- *     },
- * });
- *
- * ```
  */
 export class DedicatedHsm extends pulumi.CustomResource {
     /**

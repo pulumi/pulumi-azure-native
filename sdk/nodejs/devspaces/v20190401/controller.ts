@@ -6,29 +6,6 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-/**
- * ## Example Usage
- * ### ControllersCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const controller = new azurerm.devspaces.v20190401.Controller("controller", {
- *     location: "eastus",
- *     name: "myControllerResource",
- *     resourceGroupName: "myResourceGroup",
- *     sku: {
- *         name: "S1",
- *         tier: "Standard",
- *     },
- *     tags: {},
- *     targetContainerHostCredentialsBase64: "QmFzZTY0IEVuY29kZWQgVmFsdWUK",
- *     targetContainerHostResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myCluster",
- * });
- *
- * ```
- */
 export class Controller extends pulumi.CustomResource {
     /**
      * Get an existing Controller resource's state with the given name, ID, and optional extra

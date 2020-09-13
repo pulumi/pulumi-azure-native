@@ -6,22 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Dedicated cloud service model
- *
- * ## Example Usage
- * ### CreateDedicatedCloudService
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const dedicatedCloudService = new azurerm.vmwarecloudsimple.v20190401.DedicatedCloudService("dedicatedCloudService", {
- *     dedicatedCloudServiceName: "myService",
- *     gatewaySubnet: "10.0.0.0",
- *     location: "westus",
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
  */
 export class DedicatedCloudService extends pulumi.CustomResource {
     /**

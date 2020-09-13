@@ -8,21 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The container for solution.
- *
- * ## Example Usage
- * ### ManagementConfigurationCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const managementConfiguration = new azurerm.operationsmanagement.v20151101preview.ManagementConfiguration("managementConfiguration", {
- *     location: "East US",
- *     managementConfigurationName: "managementConfiguration1",
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
  */
 export class ManagementConfiguration extends pulumi.CustomResource {
     /**

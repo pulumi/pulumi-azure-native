@@ -8,39 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the Shared Image Gallery that you want to create or update.
- *
- * ## Example Usage
- * ### Create or update a simple gallery with sharing profile.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const gallery = new azurerm.compute.v20200930.Gallery("gallery", {
- *     description: "This is the gallery description.",
- *     galleryName: "myGalleryName",
- *     location: "West US",
- *     resourceGroupName: "myResourceGroup",
- *     sharingProfile: {
- *         permissions: "Groups",
- *     },
- * });
- *
- * ```
- * ### Create or update a simple gallery.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const gallery = new azurerm.compute.v20200930.Gallery("gallery", {
- *     description: "This is the gallery description.",
- *     galleryName: "myGalleryName",
- *     location: "West US",
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
  */
 export class Gallery extends pulumi.CustomResource {
     /**

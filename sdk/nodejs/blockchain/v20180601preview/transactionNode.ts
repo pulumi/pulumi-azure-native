@@ -8,23 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Payload of the transaction node which is the request/response of the resource provider.
- *
- * ## Example Usage
- * ### TransactionNodes_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const transactionNode = new azurerm.blockchain.v20180601preview.TransactionNode("transactionNode", {
- *     blockchainMemberName: "contosemember1",
- *     location: "southeastasia",
- *     password: "1234abcdEFG1",
- *     resourceGroupName: "mygroup",
- *     transactionNodeName: "txnode2",
- * });
- *
- * ```
  */
 export class TransactionNode extends pulumi.CustomResource {
     /**

@@ -8,63 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of Rule Resource.
- *
- * ## Example Usage
- * ### RulesCreateCorrelationFilter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const rule = new azurerm.servicebus.v20170401.Rule("rule", {
- *     correlationFilter: {
- *         properties: {
- *             topicHint: "Crop",
- *         },
- *     },
- *     filterType: "CorrelationFilter",
- *     namespaceName: "sdk-Namespace-1319",
- *     resourceGroupName: "resourceGroupName",
- *     ruleName: "sdk-Rules-6571",
- *     subscriptionName: "sdk-Subscriptions-8691",
- *     topicName: "sdk-Topics-2081",
- * });
- *
- * ```
- * ### RulesCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const rule = new azurerm.servicebus.v20170401.Rule("rule", {
- *     namespaceName: "sdk-Namespace-1319",
- *     resourceGroupName: "resourceGroupName",
- *     ruleName: "sdk-Rules-6571",
- *     subscriptionName: "sdk-Subscriptions-8691",
- *     topicName: "sdk-Topics-2081",
- * });
- *
- * ```
- * ### RulesCreateSqlFilter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const rule = new azurerm.servicebus.v20170401.Rule("rule", {
- *     filterType: "SqlFilter",
- *     namespaceName: "sdk-Namespace-1319",
- *     resourceGroupName: "resourceGroupName",
- *     ruleName: "sdk-Rules-6571",
- *     sqlFilter: {
- *         sqlExpression: "myproperty=test",
- *     },
- *     subscriptionName: "sdk-Subscriptions-8691",
- *     topicName: "sdk-Topics-2081",
- * });
- *
- * ```
  */
 export class Rule extends pulumi.CustomResource {
     /**

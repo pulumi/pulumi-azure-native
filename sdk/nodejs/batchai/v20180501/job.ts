@@ -8,45 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about a Job.
- *
- * ## Example Usage
- * ### Create a job
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const job = new azurerm.batchai.v20180501.Job("job", {
- *     cluster: {
- *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo_resource_group/providers/Microsoft.BatchAI/workspace/demo_workspace/clusters/demo_cluster",
- *     },
- *     containerSettings: {
- *         imageSourceRegistry: {
- *             image: "ubuntu",
- *         },
- *     },
- *     customToolkitSettings: {
- *         commandLine: `echo hi | tee $AZ_BATCHAI_OUTPUT_OUTPUTS/hi.txt`,
- *     },
- *     experimentName: "demo_experiment",
- *     inputDirectories: [{
- *         id: "INPUT",
- *         path: `$AZ_BATCHAI_MOUNT_ROOT/azfiles/input`,
- *     }],
- *     jobName: "demo_job",
- *     nodeCount: 1,
- *     outputDirectories: [{
- *         id: "OUTPUTS",
- *         pathPrefix: `$AZ_BATCHAI_MOUNT_ROOT/azfiles/`,
- *         pathSuffix: "files",
- *     }],
- *     resourceGroupName: "demo_resource_group",
- *     schedulingPriority: "normal",
- *     stdOutErrPathPrefix: `$AZ_BATCHAI_MOUNT_ROOT/azfiles`,
- *     workspaceName: "demo_workspace",
- * });
- *
- * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

@@ -8,57 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Hybrid network virtual network function resource response.
- *
- * ## Example Usage
- * ### Create hybrid network virtual network function resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const virtualNetworkFunction = new azurerm.hybridnetwork.v20200101preview.VirtualNetworkFunction("virtualNetworkFunction", {
- *     device: {
- *         id: "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/devices/testDevice",
- *     },
- *     location: "eastus",
- *     managedApplicationParameters: {},
- *     resourceGroupName: "rg",
- *     skuName: "testSku",
- *     vendorName: "testVendor",
- *     virtualNetworkFunctionName: "testVnf",
- *     virtualNetworkFunctionUserConfigurations: [{
- *         networkInterfaces: [
- *             {
- *                 ipConfigurations: [{
- *                     gateway: "",
- *                     ipAddress: "",
- *                     ipAllocationMethod: "Dynamic",
- *                     ipVersion: "IPv4",
- *                     subnet: "",
- *                 }],
- *                 macAddress: "",
- *                 networkInterfaceName: "nic1",
- *                 vmSwitchType: "Management",
- *             },
- *             {
- *                 ipConfigurations: [{
- *                     gateway: "",
- *                     ipAddress: "",
- *                     ipAllocationMethod: "Dynamic",
- *                     ipVersion: "IPv4",
- *                     subnet: "",
- *                 }],
- *                 macAddress: "DC-97-F8-79-16-7D",
- *                 networkInterfaceName: "nic2",
- *                 vmSwitchType: "Wan",
- *             },
- *         ],
- *         roleName: "testRole",
- *         userDataParameters: {},
- *     }],
- * });
- *
- * ```
  */
 export class VirtualNetworkFunction extends pulumi.CustomResource {
     /**

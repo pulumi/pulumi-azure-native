@@ -8,56 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server.
- *
- * ## Example Usage
- * ### Create a database as a point in time restore
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const server = new azurerm.dbforpostgresql.v20200214privatepreview.Server("server", {
- *     createMode: "PointInTimeRestore",
- *     location: "westus",
- *     pointInTimeUTC: "2020-06-30T23:41:49.000Z",
- *     resourceGroupName: "TestGroup",
- *     serverName: "pgtestsvc4",
- *     sourceServerName: "sourcePgServerName",
- * });
- *
- * ```
- * ### Create a new server
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const server = new azurerm.dbforpostgresql.v20200214privatepreview.Server("server", {
- *     administratorLogin: "cloudsa",
- *     administratorLoginPassword: "password",
- *     availabilityZone: "1",
- *     delegatedSubnetArguments: {
- *         subnetArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
- *     },
- *     haEnabled: "Enabled",
- *     location: "westus",
- *     resourceGroupName: "testrg",
- *     serverName: "pgtestsvc4",
- *     sku: {
- *         name: "Standard_D4s_v3",
- *         tier: "GeneralPurpose",
- *     },
- *     storageProfile: {
- *         backupRetentionDays: 7,
- *         storageMB: 524288,
- *     },
- *     tags: {
- *         ElasticServer: "1",
- *     },
- *     version: "12",
- * });
- *
- * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

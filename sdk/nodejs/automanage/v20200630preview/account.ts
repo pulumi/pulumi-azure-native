@@ -8,27 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the Automanage account.
- *
- * ## Example Usage
- * ### Create or update Automanage account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const account = new azurerm.automanage.v20200630preview.Account("account", {
- *     accountName: "account",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     location: "East US",
- *     resourceGroupName: "resourceGroup",
- *     tags: {
- *         Organization: "Administration",
- *     },
- * });
- *
- * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

@@ -6,49 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the file share, including Id, resource name, resource type, Etag.
- *
- * ## Example Usage
- * ### Create NFS Shares
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const fileShare = new azurerm.storage.v20190601.FileShare("fileShare", {
- *     accountName: "sto666",
- *     enabledProtocols: "NFS",
- *     resourceGroupName: "res346",
- *     shareName: "share1235",
- * });
- *
- * ```
- * ### PutShares
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const fileShare = new azurerm.storage.v20190601.FileShare("fileShare", {
- *     accountName: "sto328",
- *     resourceGroupName: "res3376",
- *     shareName: "share6185",
- * });
- *
- * ```
- * ### PutShares with Access Tier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const fileShare = new azurerm.storage.v20190601.FileShare("fileShare", {
- *     accessTier: "Hot",
- *     accountName: "sto666",
- *     resourceGroupName: "res346",
- *     shareName: "share1235",
- * });
- *
- * ```
  */
 export class FileShare extends pulumi.CustomResource {
     /**

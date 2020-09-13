@@ -6,23 +6,6 @@ import * as inputs from "../../types/input";
 import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
-/**
- * ## Example Usage
- * ### HyperVCollectors_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const hyperVCollector = new azurerm.migrate.v20191001.HyperVCollector("hyperVCollector", {
- *     eTag: "\"00000981-0000-0300-0000-5d74cd5f0000\"",
- *     hyperVCollectorName: "migrateprojectce73collector",
- *     projectName: "migrateprojectce73project",
- *     resourceGroupName: "contosoithyperv",
- * });
- *
- * ```
- */
 export class HyperVCollector extends pulumi.CustomResource {
     /**
      * Get an existing HyperVCollector resource's state with the given name, ID, and optional extra

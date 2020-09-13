@@ -6,23 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A Synchronization Setting data transfer object.
- *
- * ## Example Usage
- * ### SynchronizationSettings_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const synchronizationSetting = new azurerm.datashare.v20191101.SynchronizationSetting("synchronizationSetting", {
- *     accountName: "Account1",
- *     kind: "ScheduleBased",
- *     resourceGroupName: "SampleResourceGroup",
- *     shareName: "Share1",
- *     synchronizationSettingName: "Dataset1",
- * });
- *
- * ```
  */
 export class SynchronizationSetting extends pulumi.CustomResource {
     /**

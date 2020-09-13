@@ -6,21 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A NotebookProxy resource.
- *
- * ## Example Usage
- * ### Create Notebook Proxy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const notebookProxy = new azurerm.notebooks.v20191011preview.NotebookProxy("notebookProxy", {
- *     hostname: "Azure Notebooks",
- *     resourceGroupName: "testRP",
- *     resourceName: "testResource",
- * });
- *
- * ```
  */
 export class NotebookProxy extends pulumi.CustomResource {
     /**

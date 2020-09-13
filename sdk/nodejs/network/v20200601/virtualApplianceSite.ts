@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Appliance Site resource.
- *
- * ## Example Usage
- * ### Create Network Virtual Appliance Site
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const virtualApplianceSite = new azurerm.network.v20200601.VirtualApplianceSite("virtualApplianceSite", {
- *     addressPrefix: "192.168.1.0/24",
- *     networkVirtualApplianceName: "nva",
- *     o365Policy: {
- *         breakOutCategories: {
- *             allow: true,
- *             "default": true,
- *             optimize: true,
- *         },
- *     },
- *     resourceGroupName: "rg1",
- *     siteName: "site1",
- * });
- *
- * ```
  */
 export class VirtualApplianceSite extends pulumi.CustomResource {
     /**

@@ -8,47 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Store account information.
- *
- * ## Example Usage
- * ### Creates the specified Data Lake Store account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const account = new azurerm.datalakestore.v20161101.Account("account", {
- *     accountName: "contosoadla",
- *     defaultGroup: "test_default_group",
- *     encryptionConfig: {
- *         keyVaultMetaInfo: {
- *             encryptionKeyName: "test_encryption_key_name",
- *             encryptionKeyVersion: "encryption_key_version",
- *             keyVaultResourceId: "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
- *         },
- *         type: "UserManaged",
- *     },
- *     encryptionState: "Enabled",
- *     firewallAllowAzureIps: "Enabled",
- *     firewallRules: [{
- *         name: "test_rule",
- *     }],
- *     firewallState: "Enabled",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     location: "eastus2",
- *     newTier: "Consumption",
- *     resourceGroupName: "contosorg",
- *     tags: {
- *         test_key: "test_value",
- *     },
- *     trustedIdProviderState: "Enabled",
- *     trustedIdProviders: [{
- *         name: "test_trusted_id_provider_name",
- *     }],
- * });
- *
- * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

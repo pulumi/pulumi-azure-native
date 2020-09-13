@@ -8,21 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The X509 Certificate.
- *
- * ## Example Usage
- * ### Certificates_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const certificate = new azurerm.devices.v20200801.Certificate("certificate", {
- *     certificateName: "cert",
- *     resourceGroupName: "myResourceGroup",
- *     resourceName: "iothub",
- * });
- *
- * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

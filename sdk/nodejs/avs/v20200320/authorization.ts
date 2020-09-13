@@ -6,21 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * ExpressRoute Circuit Authorization
- *
- * ## Example Usage
- * ### Authorizations_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const authorization = new azurerm.avs.v20200320.Authorization("authorization", {
- *     authorizationName: "authorization1",
- *     privateCloudName: "cloud1",
- *     resourceGroupName: "group1",
- * });
- *
- * ```
  */
 export class Authorization extends pulumi.CustomResource {
     /**

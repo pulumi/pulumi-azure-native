@@ -8,59 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * HubVirtualNetworkConnection Resource.
- *
- * ## Example Usage
- * ### HubVirtualNetworkConnectionPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const hubVirtualNetworkConnection = new azurerm.network.v20200601.HubVirtualNetworkConnection("hubVirtualNetworkConnection", {
- *     connectionName: "connection1",
- *     enableInternetSecurity: false,
- *     remoteVirtualNetwork: {
- *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/SpokeVnet1",
- *     },
- *     resourceGroupName: "rg1",
- *     routingConfiguration: {
- *         associatedRouteTable: {
- *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
- *         },
- *         propagatedRouteTables: {
- *             ids: [{
- *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
- *             }],
- *             labels: [
- *                 "label1",
- *                 "label2",
- *             ],
- *         },
- *         vnetRoutes: {
- *             staticRoutes: [
- *                 {
- *                     addressPrefixes: [
- *                         "10.1.0.0/16",
- *                         "10.2.0.0/16",
- *                     ],
- *                     name: "route1",
- *                     nextHopIpAddress: "10.0.0.68",
- *                 },
- *                 {
- *                     addressPrefixes: [
- *                         "10.3.0.0/16",
- *                         "10.4.0.0/16",
- *                     ],
- *                     name: "route2",
- *                     nextHopIpAddress: "10.0.0.65",
- *                 },
- *             ],
- *         },
- *     },
- *     virtualHubName: "virtualHub1",
- * });
- *
- * ```
  */
 export class HubVirtualNetworkConnection extends pulumi.CustomResource {
     /**

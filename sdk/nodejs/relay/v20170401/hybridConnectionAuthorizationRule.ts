@@ -6,26 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace authorization rule.
- *
- * ## Example Usage
- * ### RelayHybridConnectionAuthorizationRuleCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const hybridConnectionAuthorizationRule = new azurerm.relay.v20170401.HybridConnectionAuthorizationRule("hybridConnectionAuthorizationRule", {
- *     authorizationRuleName: "sdk-RelayAuthRules-01",
- *     hybridConnectionName: "sdk-Relay-Hybrid-01",
- *     namespaceName: "sdk-RelayNamespace-01",
- *     resourceGroupName: "RG-eg",
- *     rights: [
- *         "Listen",
- *         "Send",
- *     ],
- * });
- *
- * ```
  */
 export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     /**

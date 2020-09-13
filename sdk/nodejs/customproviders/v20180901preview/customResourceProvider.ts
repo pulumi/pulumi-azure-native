@@ -8,31 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A manifest file that defines the custom resource provider resources.
- *
- * ## Example Usage
- * ### Create or update the custom resource provider
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const customResourceProvider = new azurerm.customproviders.v20180901preview.CustomResourceProvider("customResourceProvider", {
- *     actions: [{
- *         endpoint: "https://mytestendpoint/",
- *         name: "TestAction",
- *         routingType: "Proxy",
- *     }],
- *     location: "eastus",
- *     resourceGroupName: "testRG",
- *     resourceProviderName: "newrp",
- *     resourceTypes: [{
- *         endpoint: "https://mytestendpoint2/",
- *         name: "TestResource",
- *         routingType: "Proxy,Cache",
- *     }],
- * });
- *
- * ```
  */
 export class CustomResourceProvider extends pulumi.CustomResource {
     /**

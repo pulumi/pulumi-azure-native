@@ -8,25 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * User details.
- *
- * ## Example Usage
- * ### ApiManagementCreateUser
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const user = new azurerm.apimanagement.v20191201.User("user", {
- *     confirmation: "signup",
- *     email: "foobar@outlook.com",
- *     firstName: "foo",
- *     lastName: "bar",
- *     resourceGroupName: "rg1",
- *     serviceName: "apimService1",
- *     userId: "5931a75ae4bbd512288c680b",
- * });
- *
- * ```
  */
 export class User extends pulumi.CustomResource {
     /**

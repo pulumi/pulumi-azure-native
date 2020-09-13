@@ -8,60 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
- *
- * ## Example Usage
- * ### Create a reference blob input with CSV serialization
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const input = new azurerm.streamanalytics.v20160301.Input("input", {
- *     inputName: "input7225",
- *     jobName: "sj9597",
- *     resourceGroupName: "sjrg8440",
- * });
- *
- * ```
- * ### Create a stream Event Hub input with JSON serialization
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const input = new azurerm.streamanalytics.v20160301.Input("input", {
- *     inputName: "input7425",
- *     jobName: "sj197",
- *     resourceGroupName: "sjrg3139",
- * });
- *
- * ```
- * ### Create a stream IoT Hub input with Avro serialization
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const input = new azurerm.streamanalytics.v20160301.Input("input", {
- *     inputName: "input7970",
- *     jobName: "sj9742",
- *     resourceGroupName: "sjrg3467",
- * });
- *
- * ```
- * ### Create a stream blob input with CSV serialization
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const input = new azurerm.streamanalytics.v20160301.Input("input", {
- *     inputName: "input8899",
- *     jobName: "sj6695",
- *     resourceGroupName: "sjrg8161",
- * });
- *
- * ```
  */
 export class Input extends pulumi.CustomResource {
     /**

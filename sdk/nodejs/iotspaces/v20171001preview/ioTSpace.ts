@@ -8,24 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the IoTSpaces service.
- *
- * ## Example Usage
- * ### Put an IoT spaces service
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const ioTSpace = new azurerm.iotspaces.v20171001preview.IoTSpace("ioTSpace", {
- *     location: "string",
- *     resourceGroupName: "resRg",
- *     resourceName: "myIoTSpacesService",
- *     sku: {
- *         name: "F1",
- *     },
- * });
- *
- * ```
  */
 export class IoTSpace extends pulumi.CustomResource {
     /**

@@ -8,29 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A flow log resource.
- *
- * ## Example Usage
- * ### Create or update flow log
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const flowLog = new azurerm.network.v20200601.FlowLog("flowLog", {
- *     enabled: true,
- *     flowLogName: "fl",
- *     format: {
- *         type: "JSON",
- *         version: 1,
- *     },
- *     location: "centraluseuap",
- *     networkWatcherName: "nw1",
- *     resourceGroupName: "rg1",
- *     storageId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/nwtest1mgvbfmqsigdxe",
- *     targetResourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/desmondcentral-nsg",
- * });
- *
- * ```
  */
 export class FlowLog extends pulumi.CustomResource {
     /**

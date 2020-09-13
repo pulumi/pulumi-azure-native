@@ -8,34 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a published blueprint.
- *
- * ## Example Usage
- * ### PublishedManagementGroupBlueprint_Publish
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const publishedBlueprint = new azurerm.blueprint.v20181101preview.PublishedBlueprint("publishedBlueprint", {
- *     blueprintName: "simpleBlueprint",
- *     resourceScope: "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
- *     versionId: "v2",
- * });
- *
- * ```
- * ### PublishedSubscriptionBlueprint_Publish
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const publishedBlueprint = new azurerm.blueprint.v20181101preview.PublishedBlueprint("publishedBlueprint", {
- *     blueprintName: "simpleBlueprint",
- *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
- *     versionId: "v2",
- * });
- *
- * ```
  */
 export class PublishedBlueprint extends pulumi.CustomResource {
     /**

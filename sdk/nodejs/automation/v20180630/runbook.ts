@@ -8,63 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the runbook type.
- *
- * ## Example Usage
- * ### Create or update runbook and publish it
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const runbook = new azurerm.automation.v20180630.Runbook("runbook", {
- *     automationAccountName: "ContoseAutomationAccount",
- *     description: "Description of the Runbook",
- *     location: "East US 2",
- *     logActivityTrace: 1,
- *     logProgress: true,
- *     logVerbose: false,
- *     name: "Get-AzureVMTutorial",
- *     publishContentLink: {
- *         contentHash: {
- *             algorithm: "SHA256",
- *             value: "115775B8FF2BE672D8A946BD0B489918C724DDE15A440373CA54461D53010A80",
- *         },
- *         uri: "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
- *     },
- *     resourceGroupName: "rg",
- *     runbookName: "Get-AzureVMTutorial",
- *     runbookType: "PowerShellWorkflow",
- *     tags: {
- *         tag01: "value01",
- *         tag02: "value02",
- *     },
- * });
- *
- * ```
- * ### Create runbook as draft
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const runbook = new azurerm.automation.v20180630.Runbook("runbook", {
- *     automationAccountName: "ContoseAutomationAccount",
- *     description: "Description of the Runbook",
- *     draft: {},
- *     location: "East US 2",
- *     logProgress: false,
- *     logVerbose: false,
- *     name: "Get-AzureVMTutorial",
- *     resourceGroupName: "rg",
- *     runbookName: "Get-AzureVMTutorial",
- *     runbookType: "PowerShellWorkflow",
- *     tags: {
- *         tag01: "value01",
- *         tag02: "value02",
- *     },
- * });
- *
- * ```
  */
 export class Runbook extends pulumi.CustomResource {
     /**

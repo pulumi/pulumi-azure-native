@@ -6,23 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server firewall rule.
- *
- * ## Example Usage
- * ### Create a firewall rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const firewallRule = new azurerm.dbformysql.v20200701privatepreview.FirewallRule("firewallRule", {
- *     endIpAddress: "255.255.255.255",
- *     firewallRuleName: "rule1",
- *     resourceGroupName: "TestGroup",
- *     serverName: "testserver",
- *     startIpAddress: "0.0.0.0",
- * });
- *
- * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

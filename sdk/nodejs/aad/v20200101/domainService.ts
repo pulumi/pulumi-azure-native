@@ -8,46 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Domain service.
- *
- * ## Example Usage
- * ### Create Domain Service
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const domainService = new azurerm.aad.v20200101.DomainService("domainService", {
- *     domainName: "TestDomainService.com",
- *     domainSecuritySettings: {
- *         ntlmV1: "Enabled",
- *         syncNtlmPasswords: "Enabled",
- *         tlsV1: "Disabled",
- *     },
- *     domainServiceName: "TestDomainService.com",
- *     filteredSync: "Enabled",
- *     ldapsSettings: {
- *         externalAccess: "Enabled",
- *         ldaps: "Enabled",
- *         pfxCertificate: "MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
- *         pfxCertificatePassword: "Password01",
- *     },
- *     location: "West US",
- *     notificationSettings: {
- *         additionalRecipients: [
- *             "jicha@microsoft.com",
- *             "caalmont@microsoft.com",
- *         ],
- *         notifyDcAdmins: "Enabled",
- *         notifyGlobalAdmins: "Enabled",
- *     },
- *     replicaSets: [{
- *         location: "West US",
- *         subnetId: "/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/TestVnetWUS/subnets/TestSubnetWUS",
- *     }],
- *     resourceGroupName: "TestResourceGroup",
- * });
- *
- * ```
  */
 export class DomainService extends pulumi.CustomResource {
     /**

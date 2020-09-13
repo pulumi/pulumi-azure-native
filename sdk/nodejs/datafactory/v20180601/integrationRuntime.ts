@@ -8,21 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Integration runtime resource type.
- *
- * ## Example Usage
- * ### IntegrationRuntimes_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const integrationRuntime = new azurerm.datafactory.v20180601.IntegrationRuntime("integrationRuntime", {
- *     factoryName: "exampleFactoryName",
- *     integrationRuntimeName: "exampleIntegrationRuntime",
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
  */
 export class IntegrationRuntime extends pulumi.CustomResource {
     /**

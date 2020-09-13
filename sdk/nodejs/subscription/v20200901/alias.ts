@@ -8,17 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Subscription Information with the alias.
- *
- * ## Example Usage
- * ### CreateAlias
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const alias = new azurerm.subscription.v20200901.Alias("alias", {aliasName: "aliasForNewSub"});
- *
- * ```
  */
 export class Alias extends pulumi.CustomResource {
     /**

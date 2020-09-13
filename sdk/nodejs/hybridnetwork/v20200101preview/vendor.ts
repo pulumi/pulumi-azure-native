@@ -8,17 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Vendor resource.
- *
- * ## Example Usage
- * ### Create or update Vendor resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const vendor = new azurerm.hybridnetwork.v20200101preview.Vendor("vendor", {vendorName: "TestVendor"});
- *
- * ```
  */
 export class Vendor extends pulumi.CustomResource {
     /**

@@ -8,34 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * FirewallPolicy Resource.
- *
- * ## Example Usage
- * ### Create FirewallPolicy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const firewallPolicy = new azurerm.network.v20200601.FirewallPolicy("firewallPolicy", {
- *     dnsSettings: {
- *         enableProxy: true,
- *         requireProxyForNetworkRules: false,
- *         servers: ["30.3.4.5"],
- *     },
- *     firewallPolicyName: "firewallPolicy",
- *     location: "West US",
- *     resourceGroupName: "rg1",
- *     tags: {
- *         key1: "value1",
- *     },
- *     threatIntelMode: "Alert",
- *     threatIntelWhitelist: {
- *         fqdns: ["*.microsoft.com"],
- *         ipAddresses: ["20.3.4.5"],
- *     },
- * });
- *
- * ```
  */
 export class FirewallPolicy extends pulumi.CustomResource {
     /**

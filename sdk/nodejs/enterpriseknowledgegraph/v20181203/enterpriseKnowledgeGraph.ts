@@ -8,25 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * EnterpriseKnowledgeGraph resource definition
- *
- * ## Example Usage
- * ### Create EnterpriseKnowledgeGraph
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const enterpriseKnowledgeGraph = new azurerm.enterpriseknowledgegraph.v20181203.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph", {
- *     location: "West US",
- *     resourceGroupName: "OneResourceGroupName",
- *     resourceName: "sampleekgname",
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value2",
- *     },
- * });
- *
- * ```
  */
 export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
     /**

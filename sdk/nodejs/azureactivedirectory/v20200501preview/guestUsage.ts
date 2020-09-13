@@ -6,20 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Guest Usages Resource
- *
- * ## Example Usage
- * ### GuestUsages_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const guestUsage = new azurerm.azureactivedirectory.v20200501preview.GuestUsage("guestUsage", {
- *     resourceGroupName: "contosoResourceGroup",
- *     resourceName: "contoso.onmicrosoft.com",
- * });
- *
- * ```
  */
 export class GuestUsage extends pulumi.CustomResource {
     /**

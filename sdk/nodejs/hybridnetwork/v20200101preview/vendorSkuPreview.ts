@@ -6,21 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Customer subscription which can use a sku.
- *
- * ## Example Usage
- * ### Creates or updates preview subscription of vendor sku sub resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const vendorSkuPreview = new azurerm.hybridnetwork.v20200101preview.VendorSkuPreview("vendorSkuPreview", {
- *     previewSubscription: "previewSub",
- *     skuName: "TestSku",
- *     vendorName: "TestVendor",
- * });
- *
- * ```
  */
 export class VendorSkuPreview extends pulumi.CustomResource {
     /**

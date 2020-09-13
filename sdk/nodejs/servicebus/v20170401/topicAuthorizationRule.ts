@@ -6,26 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace authorization rule.
- *
- * ## Example Usage
- * ### TopicAuthorizationRuleCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const topicAuthorizationRule = new azurerm.servicebus.v20170401.TopicAuthorizationRule("topicAuthorizationRule", {
- *     authorizationRuleName: "sdk-AuthRules-4310",
- *     namespaceName: "sdk-Namespace-6261",
- *     resourceGroupName: "ArunMonocle",
- *     rights: [
- *         "Listen",
- *         "Send",
- *     ],
- *     topicName: "sdk-Topics-1984",
- * });
- *
- * ```
  */
 export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**

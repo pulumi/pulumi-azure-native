@@ -6,25 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Backup of a Volume
- *
- * ## Example Usage
- * ### Backups_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const backup = new azurerm.netapp.v20200601.Backup("backup", {
- *     accountName: "account1",
- *     backupName: "backup1",
- *     label: "myLabel",
- *     location: "eastus",
- *     poolName: "pool1",
- *     resourceGroupName: "myRG",
- *     volumeName: "volume1",
- * });
- *
- * ```
  */
 export class Backup extends pulumi.CustomResource {
     /**

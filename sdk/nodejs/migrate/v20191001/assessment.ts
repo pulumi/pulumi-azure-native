@@ -8,23 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An assessment created for a group in the Migration project.
- *
- * ## Example Usage
- * ### Assessments_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const assessment = new azurerm.migrate.v20191001.Assessment("assessment", {
- *     assessmentName: "assessment_5_14_2019_16_48_47",
- *     eTag: "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
- *     groupName: "Group2",
- *     projectName: "abgoyalWEselfhostb72bproject",
- *     resourceGroupName: "abgoyal-westEurope",
- * });
- *
- * ```
  */
 export class Assessment extends pulumi.CustomResource {
     /**

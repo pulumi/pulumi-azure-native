@@ -8,38 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * NetworkVirtualAppliance Resource.
- *
- * ## Example Usage
- * ### Create NetworkVirtualAppliance
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const networkVirtualAppliance = new azurerm.network.v20200601.NetworkVirtualAppliance("networkVirtualAppliance", {
- *     bootStrapConfigurationBlobs: ["https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrbootstrapconfig"],
- *     cloudInitConfigurationBlobs: ["https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrcloudinitconfig"],
- *     identity: {
- *         type: "UserAssigned",
- *     },
- *     location: "West US",
- *     networkVirtualApplianceName: "nva",
- *     nvaSku: {
- *         bundledScaleUnit: "1",
- *         marketPlaceVersion: "12.1",
- *         vendor: "Cisco SDWAN",
- *     },
- *     resourceGroupName: "rg1",
- *     tags: {
- *         key1: "value1",
- *     },
- *     virtualApplianceAsn: 10000,
- *     virtualHub: {
- *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
- *     },
- * });
- *
- * ```
  */
 export class NetworkVirtualAppliance extends pulumi.CustomResource {
     /**
