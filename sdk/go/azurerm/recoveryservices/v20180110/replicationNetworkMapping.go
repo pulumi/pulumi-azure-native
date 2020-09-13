@@ -11,6 +11,35 @@ import (
 )
 
 // Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+//
+// ## Example Usage
+// ### Creates network mapping.
+//
+// ```go
+// package main
+//
+// import (
+// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/v20180110"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := recoveryservices.NewReplicationNetworkMapping(ctx, "replicationNetworkMapping", &recoveryservices.ReplicationNetworkMappingArgs{
+// 			FabricName:         pulumi.String("b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac"),
+// 			NetworkMappingName: pulumi.String("corpe2amap"),
+// 			NetworkName:        pulumi.String("e2267b5c-2650-49bd-ab3f-d66aae694c06"),
+// 			ResourceGroupName:  pulumi.String("srcBvte2a14C27"),
+// 			ResourceName:       pulumi.String("srce2avaultbvtaC27"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ReplicationNetworkMapping struct {
 	pulumi.CustomResourceState
 

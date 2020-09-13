@@ -11,6 +11,56 @@ import (
 )
 
 // Threat intelligence resource.
+//
+// ## Example Usage
+// ### Upsert the Threat Intelligence
+//
+// ```go
+// package main
+//
+// import (
+// 	securityinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/securityinsights/v20190101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := securityinsights.NewThreatIntelligenceIndicator(ctx, "threatIntelligenceIndicator", &securityinsights.ThreatIntelligenceIndicatorArgs{
+// 			Confidence:                          pulumi.Int(78),
+// 			CreatedByRef:                        pulumi.String("contoso@contoso.com"),
+// 			Description:                         pulumi.String("debugging indicators"),
+// 			DisplayName:                         pulumi.String("new schema"),
+// 			ExternalReferences:                  []interface{}{},
+// 			GranularMarkings:                    securityinsights.ThreatIntelligenceGranularMarkingModelArray{},
+// 			KillChainPhases:                     securityinsights.ThreatIntelligenceKillChainPhaseArray{},
+// 			Kind:                                pulumi.String("indicator"),
+// 			Labels:                              []interface{}{},
+// 			Modified:                            pulumi.String(""),
+// 			Name:                                pulumi.String("d9cd6f0b-96b9-3984-17cd-a779d1e15a93"),
+// 			OperationalInsightsResourceProvider: pulumi.String("Microsoft.OperationalIinsights"),
+// 			Pattern:                             pulumi.String("[url:value = 'https://www.contoso.com']"),
+// 			PatternType:                         pulumi.String("url"),
+// 			ResourceGroupName:                   pulumi.String("myRg"),
+// 			Revoked:                             pulumi.Bool(false),
+// 			Source:                              pulumi.String("Azure Sentinel"),
+// 			ThreatIntelligenceTags: pulumi.StringArray{
+// 				pulumi.String("new schema"),
+// 			},
+// 			ThreatTypes: pulumi.StringArray{
+// 				pulumi.String("compromised"),
+// 			},
+// 			ValidFrom:     pulumi.String("2020-04-15T17:44:00.114052Z"),
+// 			ValidUntil:    pulumi.String(""),
+// 			WorkspaceName: pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ThreatIntelligenceIndicator struct {
 	pulumi.CustomResourceState
 

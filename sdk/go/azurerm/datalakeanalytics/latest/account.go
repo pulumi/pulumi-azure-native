@@ -11,6 +11,65 @@ import (
 )
 
 // A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
+//
+// ## Example Usage
+// ### Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
+//
+// ```go
+// package main
+//
+// import (
+// 	datalakeanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datalakeanalytics/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datalakeanalytics.NewAccount(ctx, "account", &datalakeanalytics.AccountArgs{
+// 			AccountName: pulumi.String("contosoadla"),
+// 			ComputePolicies: datalakeanalytics.CreateComputePolicyWithAccountParametersArray{
+// 				&datalakeanalytics.CreateComputePolicyWithAccountParametersArgs{
+// 					Name: pulumi.String("test_policy"),
+// 				},
+// 			},
+// 			DataLakeStoreAccounts: datalakeanalytics.AddDataLakeStoreWithAccountParametersArray{
+// 				&datalakeanalytics.AddDataLakeStoreWithAccountParametersArgs{
+// 					Name: pulumi.String("test_adls"),
+// 				},
+// 			},
+// 			DefaultDataLakeStoreAccount: pulumi.String("test_adls"),
+// 			FirewallAllowAzureIps:       pulumi.String("Enabled"),
+// 			FirewallRules: datalakeanalytics.CreateFirewallRuleWithAccountParametersArray{
+// 				&datalakeanalytics.CreateFirewallRuleWithAccountParametersArgs{
+// 					Name: pulumi.String("test_rule"),
+// 				},
+// 			},
+// 			FirewallState:                pulumi.String("Enabled"),
+// 			Location:                     pulumi.String("eastus2"),
+// 			MaxDegreeOfParallelism:       pulumi.Int(30),
+// 			MaxDegreeOfParallelismPerJob: pulumi.Int(1),
+// 			MaxJobCount:                  pulumi.Int(3),
+// 			MinPriorityPerJob:            pulumi.Int(1),
+// 			NewTier:                      pulumi.String("Consumption"),
+// 			QueryStoreRetention:          pulumi.Int(30),
+// 			ResourceGroupName:            pulumi.String("contosorg"),
+// 			StorageAccounts: datalakeanalytics.AddStorageAccountWithAccountParametersArray{
+// 				&datalakeanalytics.AddStorageAccountWithAccountParametersArgs{
+// 					Name: pulumi.String("test_storage"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"test_key": pulumi.String("test_value"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 

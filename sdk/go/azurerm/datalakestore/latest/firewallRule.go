@@ -11,6 +11,35 @@ import (
 )
 
 // Data Lake Store firewall rule information.
+//
+// ## Example Usage
+// ### Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule
+//
+// ```go
+// package main
+//
+// import (
+// 	datalakestore "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datalakestore/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datalakestore.NewFirewallRule(ctx, "firewallRule", &datalakestore.FirewallRuleArgs{
+// 			AccountName:       pulumi.String("contosoadla"),
+// 			EndIpAddress:      pulumi.String("2.2.2.2"),
+// 			FirewallRuleName:  pulumi.String("test_rule"),
+// 			ResourceGroupName: pulumi.String("contosorg"),
+// 			StartIpAddress:    pulumi.String("1.1.1.1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type FirewallRule struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,48 @@ import (
 )
 
 // VpnGateway Resource.
+//
+// ## Example Usage
+// ### VpnGatewayPut
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20190701"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewVpnGateway(ctx, "vpnGateway", &network.VpnGatewayArgs{
+// 			BgpSettings: &network.BgpSettingsArgs{
+// 				Asn:        pulumi.Int(65515),
+// 				PeerWeight: pulumi.Int(0),
+// 			},
+// 			Connections: network.VpnConnectionArray{
+// 				&network.VpnConnectionArgs{
+// 					Name: pulumi.String("vpnConnection1"),
+// 				},
+// 			},
+// 			GatewayName:       pulumi.String("gateway1"),
+// 			Location:          pulumi.String("westcentralus"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			Tags: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			VirtualHub: &network.SubResourceArgs{
+// 				Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type VpnGateway struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,13 @@ import (
 )
 
 // The X509 Certificate.
+//
+// ## Example Usage
+// ### DPSCreateOrUpdateCertificate
+//
+// ```go
+//
+// ```
 type DpsCertificate struct {
 	pulumi.CustomResourceState
 

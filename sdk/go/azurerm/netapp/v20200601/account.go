@@ -11,6 +11,44 @@ import (
 )
 
 // NetApp account resource
+//
+// ## Example Usage
+// ### Accounts_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	netapp "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/netapp/v20200601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := netapp.NewAccount(ctx, "account", &netapp.AccountArgs{
+// 			AccountName: pulumi.String("account1"),
+// 			ActiveDirectories: netapp.ActiveDirectoryArray{
+// 				&netapp.ActiveDirectoryArgs{
+// 					Dns:                pulumi.String("10.10.10.3, 10.10.10.4"),
+// 					Domain:             pulumi.String("10.10.10.3"),
+// 					OrganizationalUnit: pulumi.String("Engineering"),
+// 					Password:           pulumi.String("ad_password"),
+// 					Site:               pulumi.String("SiteName"),
+// 					SmbServerName:      pulumi.String("SMBServer"),
+// 					Username:           pulumi.String("ad_user_name"),
+// 				},
+// 			},
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("myRG"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 

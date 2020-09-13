@@ -11,6 +11,64 @@ import (
 )
 
 // Describes a DNS zone.
+//
+// ## Example Usage
+// ### Create private zone
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewZone(ctx, "zone", &network.ZoneArgs{
+// 			Location:          pulumi.String("Global"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			Tags: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			ZoneName: pulumi.String("zone1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create zone
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewZone(ctx, "zone", &network.ZoneArgs{
+// 			Location:          pulumi.String("Global"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			Tags: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			ZoneName: pulumi.String("zone1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Zone struct {
 	pulumi.CustomResourceState
 

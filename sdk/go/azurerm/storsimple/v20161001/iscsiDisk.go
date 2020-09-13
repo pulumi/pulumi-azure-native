@@ -11,6 +11,41 @@ import (
 )
 
 // The iSCSI disk.
+//
+// ## Example Usage
+// ### IscsiDisksCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/v20161001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storsimple.NewIscsiDisk(ctx, "iscsiDisk", &storsimple.IscsiDiskArgs{
+// 			AccessControlRecords:       []interface{}{},
+// 			DataPolicy:                 pulumi.String("Tiered"),
+// 			Description:                pulumi.String("Demo IscsiDisk for SDK Test Tiered"),
+// 			DeviceName:                 pulumi.String("HSDK-0NZI14MDTF"),
+// 			DiskName:                   pulumi.String("Auto-TestIscsiDisk1"),
+// 			DiskStatus:                 pulumi.String("Online"),
+// 			IscsiServerName:            pulumi.String("HSDK-0NZI14MDTF"),
+// 			ManagerName:                pulumi.String("hAzureSDKOperations"),
+// 			MonitoringStatus:           pulumi.String("Enabled"),
+// 			ProvisionedCapacityInBytes: pulumi.Int(536870912000),
+// 			ResourceGroupName:          pulumi.String("ResourceGroupForSDKTest"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type IscsiDisk struct {
 	pulumi.CustomResourceState
 

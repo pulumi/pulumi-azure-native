@@ -11,6 +11,58 @@ import (
 )
 
 // Dataset resource type.
+//
+// ## Example Usage
+// ### Datasets_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	datafactory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datafactory/v20170901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datafactory.NewDataset(ctx, "dataset", &datafactory.DatasetArgs{
+// 			DatasetName:       pulumi.String("exampleDataset"),
+// 			FactoryName:       pulumi.String("exampleFactoryName"),
+// 			ResourceGroupName: pulumi.String("exampleResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Datasets_Update
+//
+// ```go
+// package main
+//
+// import (
+// 	datafactory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datafactory/v20170901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datafactory.NewDataset(ctx, "dataset", &datafactory.DatasetArgs{
+// 			DatasetName:       pulumi.String("exampleDataset"),
+// 			FactoryName:       pulumi.String("exampleFactoryName"),
+// 			ResourceGroupName: pulumi.String("exampleResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Dataset struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,48 @@ import (
 )
 
 // EventGrid Domain.
+//
+// ## Example Usage
+// ### Domains_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := eventgrid.NewDomain(ctx, "domain", &eventgrid.DomainArgs{
+// 			DomainName: pulumi.String("exampledomain1"),
+// 			InboundIpRules: eventgrid.InboundIpRuleArray{
+// 				&eventgrid.InboundIpRuleArgs{
+// 					Action: pulumi.String("Allow"),
+// 					IpMask: pulumi.String("12.18.30.15"),
+// 				},
+// 				&eventgrid.InboundIpRuleArgs{
+// 					Action: pulumi.String("Allow"),
+// 					IpMask: pulumi.String("12.18.176.1"),
+// 				},
+// 			},
+// 			Location:            pulumi.String("westus2"),
+// 			PublicNetworkAccess: pulumi.String("Enabled"),
+// 			ResourceGroupName:   pulumi.String("examplerg"),
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("value1"),
+// 				"tag2": pulumi.String("value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Domain struct {
 	pulumi.CustomResourceState
 

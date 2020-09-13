@@ -11,6 +11,13 @@ import (
 )
 
 // Site REST Resource.
+//
+// ## Example Usage
+// ### Create Hyper-V site
+//
+// ```go
+//
+// ```
 type HyperVSite struct {
 	pulumi.CustomResourceState
 

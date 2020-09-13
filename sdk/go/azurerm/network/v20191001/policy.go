@@ -11,6 +11,129 @@ import (
 )
 
 // Defines web application firewall policy.
+//
+// ## Example Usage
+// ### Creates specific policy
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20191001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewPolicy(ctx, "policy", &network.PolicyArgs{
+// 			CustomRules: &network.CustomRuleListArgs{
+// 				Rules: network.CustomRuleArray{
+// 					&network.CustomRuleArgs{
+// 						Action: pulumi.String("Block"),
+// 						MatchConditions: network.MatchConditionArray{
+// 							&network.MatchConditionArgs{
+// 								MatchValue: pulumi.StringArray{
+// 									pulumi.String("192.168.1.0/24"),
+// 									pulumi.String("10.0.0.0/24"),
+// 								},
+// 								MatchVariable: pulumi.String("RemoteAddr"),
+// 								Operator:      pulumi.String("IPMatch"),
+// 							},
+// 						},
+// 						Name:               pulumi.String("Rule1"),
+// 						Priority:           pulumi.Int(1),
+// 						RateLimitThreshold: pulumi.Int(1000),
+// 						RuleType:           pulumi.String("RateLimitRule"),
+// 					},
+// 					&network.CustomRuleArgs{
+// 						Action: pulumi.String("Block"),
+// 						MatchConditions: network.MatchConditionArray{
+// 							&network.MatchConditionArgs{
+// 								MatchValue: pulumi.StringArray{
+// 									pulumi.String("CH"),
+// 								},
+// 								MatchVariable: pulumi.String("RemoteAddr"),
+// 								Operator:      pulumi.String("GeoMatch"),
+// 							},
+// 							&network.MatchConditionArgs{
+// 								MatchValue: pulumi.StringArray{
+// 									pulumi.String("windows"),
+// 								},
+// 								MatchVariable: pulumi.String("RequestHeader"),
+// 								Operator:      pulumi.String("Contains"),
+// 								Selector:      pulumi.String("UserAgent"),
+// 								Transforms: pulumi.StringArray{
+// 									pulumi.String("Lowercase"),
+// 								},
+// 							},
+// 						},
+// 						Name:     pulumi.String("Rule2"),
+// 						Priority: pulumi.Int(2),
+// 						RuleType: pulumi.String("MatchRule"),
+// 					},
+// 				},
+// 			},
+// 			ManagedRules: &network.ManagedRuleSetListArgs{
+// 				ManagedRuleSets: network.ManagedRuleSetArray{
+// 					&network.ManagedRuleSetArgs{
+// 						Exclusions: network.ManagedRuleExclusionArray{
+// 							&network.ManagedRuleExclusionArgs{
+// 								MatchVariable:         pulumi.String("RequestHeaderNames"),
+// 								Selector:              pulumi.String("User-Agent"),
+// 								SelectorMatchOperator: pulumi.String("Equals"),
+// 							},
+// 						},
+// 						RuleGroupOverrides: network.ManagedRuleGroupOverrideArray{
+// 							&network.ManagedRuleGroupOverrideArgs{
+// 								Exclusions: network.ManagedRuleExclusionArray{
+// 									&network.ManagedRuleExclusionArgs{
+// 										MatchVariable:         pulumi.String("RequestCookieNames"),
+// 										Selector:              pulumi.String("token"),
+// 										SelectorMatchOperator: pulumi.String("StartsWith"),
+// 									},
+// 								},
+// 								RuleGroupName: pulumi.String("SQLI"),
+// 								Rules: network.ManagedRuleOverrideArray{
+// 									&network.ManagedRuleOverrideArgs{
+// 										Action:       pulumi.String("Redirect"),
+// 										EnabledState: pulumi.String("Enabled"),
+// 										Exclusions: network.ManagedRuleExclusionArray{
+// 											&network.ManagedRuleExclusionArgs{
+// 												MatchVariable:         pulumi.String("QueryStringArgNames"),
+// 												Selector:              pulumi.String("query"),
+// 												SelectorMatchOperator: pulumi.String("Equals"),
+// 											},
+// 										},
+// 										RuleId: pulumi.String("942100"),
+// 									},
+// 									&network.ManagedRuleOverrideArgs{
+// 										EnabledState: pulumi.String("Disabled"),
+// 										RuleId:       pulumi.String("942110"),
+// 									},
+// 								},
+// 							},
+// 						},
+// 						RuleSetType:    pulumi.String("DefaultRuleSet"),
+// 						RuleSetVersion: pulumi.String("1.0"),
+// 					},
+// 				},
+// 			},
+// 			PolicyName: pulumi.String("Policy1"),
+// 			PolicySettings: &network.PolicySettingsArgs{
+// 				CustomBlockResponseBody:       pulumi.String("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg=="),
+// 				CustomBlockResponseStatusCode: pulumi.Int(499),
+// 				RedirectUrl:                   pulumi.String("http://www.bing.com"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 

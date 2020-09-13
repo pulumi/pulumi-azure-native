@@ -11,6 +11,37 @@ import (
 )
 
 // An object that represents a replication for a container registry.
+//
+// ## Example Usage
+// ### ReplicationCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20170601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerregistry.NewReplication(ctx, "replication", &containerregistry.ReplicationArgs{
+// 			Location:          pulumi.String("eastus"),
+// 			RegistryName:      pulumi.String("myRegistry"),
+// 			ReplicationName:   pulumi.String("myReplication"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Tags: pulumi.StringMap{
+// 				"key": pulumi.String("value"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Replication struct {
 	pulumi.CustomResourceState
 

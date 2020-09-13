@@ -11,6 +11,50 @@ import (
 )
 
 // The essential information related to the peer's ASN.
+//
+// ## Example Usage
+// ### Create a peer ASN
+//
+// ```go
+// package main
+//
+// import (
+// 	peering "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/peering/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := peering.NewPeerAsn(ctx, "peerAsn", &peering.PeerAsnArgs{
+// 			PeerAsn:     pulumi.Int(65000),
+// 			PeerAsnName: pulumi.String("peerAsnName"),
+// 			PeerContactDetail: peering.ContactDetailArray{
+// 				&peering.ContactDetailArgs{
+// 					Email: pulumi.String("noc@contoso.com"),
+// 					Phone: pulumi.String("+1 (234) 567-8999"),
+// 					Role:  pulumi.String("Noc"),
+// 				},
+// 				&peering.ContactDetailArgs{
+// 					Email: pulumi.String("abc@contoso.com"),
+// 					Phone: pulumi.String("+1 (234) 567-8900"),
+// 					Role:  pulumi.String("Policy"),
+// 				},
+// 				&peering.ContactDetailArgs{
+// 					Email: pulumi.String("xyz@contoso.com"),
+// 					Phone: pulumi.String("+1 (234) 567-8900"),
+// 					Role:  pulumi.String("Technical"),
+// 				},
+// 			},
+// 			PeerName: pulumi.String("Contoso"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PeerAsn struct {
 	pulumi.CustomResourceState
 

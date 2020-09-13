@@ -11,6 +11,41 @@ import (
 )
 
 // Private endpoint connection resource.
+//
+// ## Example Usage
+// ### RelayPutPrivateEndpointConnection
+//
+// ```go
+// package main
+//
+// import (
+// 	relay "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/relay/v20180101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := relay.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &relay.PrivateEndpointConnectionArgs{
+// 			Location:      pulumi.String("South Central US"),
+// 			NamespaceName: pulumi.String("sdk-Namespace-5849"),
+// 			PrivateEndpoint: &relay.PrivateEndpointArgs{
+// 				Id: pulumi.String("/subscriptions/{subid}/resourceGroups/prod-by3-533-rg/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1"),
+// 			},
+// 			PrivateEndpointConnectionName: pulumi.String("{privateEndpointConnection name}"),
+// 			PrivateLinkServiceConnectionState: &relay.PrivateLinkServiceConnectionStateArgs{
+// 				Description: pulumi.String("You may pass"),
+// 				Status:      pulumi.String("Approved"),
+// 			},
+// 			ResourceGroupName: pulumi.String("ArunMonocle"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

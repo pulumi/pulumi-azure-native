@@ -11,6 +11,47 @@ import (
 )
 
 // Information about a partner registration.
+//
+// ## Example Usage
+// ### PartnerRegistrations_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200401preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := eventgrid.NewPartnerRegistration(ctx, "partnerRegistration", &eventgrid.PartnerRegistrationArgs{
+// 			AuthorizedAzureSubscriptionIds: pulumi.StringArray{
+// 				pulumi.String("d48566a8-2428-4a6c-8347-9675d09fb851"),
+// 			},
+// 			Location:                       pulumi.String("global"),
+// 			LogoUri:                        pulumi.String("https://www.example.com/logo.png"),
+// 			PartnerName:                    pulumi.String("ContosoCorp"),
+// 			PartnerRegistrationName:        pulumi.String("examplePartnerRegistrationName1"),
+// 			PartnerResourceTypeDescription: pulumi.String("ContocoCorp Accounts Description Text"),
+// 			PartnerResourceTypeDisplayName: pulumi.String("ContocoCorp Accounts DisplayName Text"),
+// 			PartnerResourceTypeName:        pulumi.String("ContosoCorp.Accounts"),
+// 			ResourceGroupName:              pulumi.String("examplerg"),
+// 			SetupUri:                       pulumi.String("https://www.example.com/setup.html"),
+// 			Tags: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 				"key2": pulumi.String("Value2"),
+// 				"key3": pulumi.String("Value3"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PartnerRegistration struct {
 	pulumi.CustomResourceState
 

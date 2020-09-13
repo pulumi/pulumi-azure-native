@@ -11,6 +11,35 @@ import (
 )
 
 // The application type name resource
+//
+// ## Example Usage
+// ### Put an application type
+//
+// ```go
+// package main
+//
+// import (
+// 	servicefabric "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicefabric/v20190301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicefabric.NewApplicationType(ctx, "applicationType", &servicefabric.ApplicationTypeArgs{
+// 			ApplicationTypeName: pulumi.String("myAppType"),
+// 			ClusterName:         pulumi.String("myCluster"),
+// 			Location:            pulumi.String("eastus"),
+// 			ResourceGroupName:   pulumi.String("resRg"),
+// 			Tags:                nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ApplicationType struct {
 	pulumi.CustomResourceState
 

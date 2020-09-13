@@ -11,6 +11,65 @@ import (
 )
 
 // The description of the service.
+//
+// ## Example Usage
+// ### Create or Update a service with all parameters
+//
+// ```go
+// package main
+//
+// import (
+// 	healthcareapis "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/healthcareapis/v20190916"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := healthcareapis.NewService(ctx, "service", &healthcareapis.ServiceArgs{
+// 			Identity: &healthcareapis.ResourceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Kind:              pulumi.String("fhir-R4"),
+// 			Location:          pulumi.String("westus2"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ResourceName:      pulumi.String("service1"),
+// 			Tags:              nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create or Update a service with minimum parameters
+//
+// ```go
+// package main
+//
+// import (
+// 	healthcareapis "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/healthcareapis/v20190916"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := healthcareapis.NewService(ctx, "service", &healthcareapis.ServiceArgs{
+// 			Kind:              pulumi.String("fhir-R4"),
+// 			Location:          pulumi.String("westus2"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ResourceName:      pulumi.String("service2"),
+// 			Tags:              nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Service struct {
 	pulumi.CustomResourceState
 

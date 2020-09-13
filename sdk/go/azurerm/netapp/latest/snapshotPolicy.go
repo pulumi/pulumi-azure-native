@@ -11,6 +11,60 @@ import (
 )
 
 // Snapshot policy information
+//
+// ## Example Usage
+// ### SnapshotPolicies_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	netapp "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/netapp/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := netapp.NewsnapshotPolicy(ctx, "snapshotPolicy", &netapp.snapshotPolicyArgs{
+// 			AccountName: pulumi.String("account1"),
+// 			DailySchedule: pulumi.Float64Map{
+// 				"hour":              pulumi.Float64(10),
+// 				"minute":            pulumi.Float64(10),
+// 				"snapshots_to_keep": pulumi.Float64(10),
+// 				"used_bytes":        pulumi.Float64(100000),
+// 			},
+// 			Enabled: pulumi.Bool(true),
+// 			HourlySchedule: pulumi.Float64Map{
+// 				"minute":            pulumi.Float64(10),
+// 				"snapshots_to_keep": pulumi.Float64(10),
+// 				"used_bytes":        pulumi.Float64(100000),
+// 			},
+// 			Location: pulumi.String("eastus"),
+// 			MonthlySchedule: pulumi.Map{
+// 				"DaysOfMonth":       pulumi.String("1,5,11"),
+// 				"hour":              pulumi.Float64(10),
+// 				"minute":            pulumi.Float64(10),
+// 				"snapshots_to_keep": pulumi.Float64(10),
+// 				"used_bytes":        pulumi.Float64(100000),
+// 			},
+// 			ResourceGroupName:  pulumi.String("myRG"),
+// 			SnapshotPolicyName: pulumi.String("snapshotPolicyName"),
+// 			WeeklySchedule: pulumi.Map{
+// 				"day":               pulumi.String("Monday"),
+// 				"hour":              pulumi.Float64(10),
+// 				"minute":            pulumi.Float64(10),
+// 				"snapshots_to_keep": pulumi.Float64(10),
+// 				"used_bytes":        pulumi.Float64(100000),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SnapshotPolicy struct {
 	pulumi.CustomResourceState
 

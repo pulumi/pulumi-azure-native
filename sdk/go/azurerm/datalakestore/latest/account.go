@@ -11,6 +11,63 @@ import (
 )
 
 // Data Lake Store account information.
+//
+// ## Example Usage
+// ### Creates the specified Data Lake Store account
+//
+// ```go
+// package main
+//
+// import (
+// 	datalakestore "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datalakestore/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datalakestore.NewAccount(ctx, "account", &datalakestore.AccountArgs{
+// 			AccountName:  pulumi.String("contosoadla"),
+// 			DefaultGroup: pulumi.String("test_default_group"),
+// 			EncryptionConfig: &datalakestore.EncryptionConfigArgs{
+// 				KeyVaultMetaInfo: &datalakestore.KeyVaultMetaInfoArgs{
+// 					EncryptionKeyName:    pulumi.String("test_encryption_key_name"),
+// 					EncryptionKeyVersion: pulumi.String("encryption_key_version"),
+// 					KeyVaultResourceId:   pulumi.String("34adfa4f-cedf-4dc0-ba29-b6d1a69ab345"),
+// 				},
+// 				Type: pulumi.String("UserManaged"),
+// 			},
+// 			EncryptionState:       pulumi.String("Enabled"),
+// 			FirewallAllowAzureIps: pulumi.String("Enabled"),
+// 			FirewallRules: datalakestore.CreateFirewallRuleWithAccountParametersArray{
+// 				&datalakestore.CreateFirewallRuleWithAccountParametersArgs{
+// 					Name: pulumi.String("test_rule"),
+// 				},
+// 			},
+// 			FirewallState: pulumi.String("Enabled"),
+// 			Identity: &datalakestore.EncryptionIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Location:          pulumi.String("eastus2"),
+// 			NewTier:           pulumi.String("Consumption"),
+// 			ResourceGroupName: pulumi.String("contosorg"),
+// 			Tags: pulumi.StringMap{
+// 				"test_key": pulumi.String("test_value"),
+// 			},
+// 			TrustedIdProviderState: pulumi.String("Enabled"),
+// 			TrustedIdProviders: datalakestore.CreateTrustedIdProviderWithAccountParametersArray{
+// 				&datalakestore.CreateTrustedIdProviderWithAccountParametersArgs{
+// 					Name: pulumi.String("test_trusted_id_provider_name"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 

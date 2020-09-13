@@ -11,6 +11,13 @@ import (
 )
 
 // A MySQL Server key.
+//
+// ## Example Usage
+// ### Creates or updates a MySQL Server key
+//
+// ```go
+//
+// ```
 type ServerKey struct {
 	pulumi.CustomResourceState
 

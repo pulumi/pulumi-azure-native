@@ -11,6 +11,33 @@ import (
 )
 
 // The Managed Network resource
+//
+// ## Example Usage
+// ### ScopeAssignmentsPut
+//
+// ```go
+// package main
+//
+// import (
+// 	managednetwork "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/managednetwork/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := managednetwork.NewScopeAssignment(ctx, "scopeAssignment", &managednetwork.ScopeAssignmentArgs{
+// 			AssignedManagedNetwork: pulumi.String("/subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork"),
+// 			Scope:                  pulumi.String("subscriptions/subscriptionC"),
+// 			ScopeAssignmentName:    pulumi.String("subscriptionCAssignment"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ScopeAssignment struct {
 	pulumi.CustomResourceState
 

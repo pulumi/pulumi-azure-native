@@ -11,6 +11,35 @@ import (
 )
 
 // Migrate Project REST Resource.
+//
+// ## Example Usage
+// ### MigrateProjects_Put
+//
+// ```go
+// package main
+//
+// import (
+// 	migrate "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/migrate/v20180901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := migrate.NewMigrateProject(ctx, "migrateProject", &migrate.MigrateProjectArgs{
+// 			ETag:               pulumi.String("\"b701c73a-0000-0000-0000-59c12ff00000\""),
+// 			Location:           pulumi.String("Southeast Asia"),
+// 			MigrateProjectName: pulumi.String("project01"),
+// 			ResourceGroupName:  pulumi.String("myResourceGroup"),
+// 			Tags:               nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type MigrateProject struct {
 	pulumi.CustomResourceState
 

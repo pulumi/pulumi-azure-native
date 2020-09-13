@@ -11,6 +11,41 @@ import (
 )
 
 // CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+//
+// ## Example Usage
+// ### Origins_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	cdn "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/cdn/v20191231"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cdn.NewOrigin(ctx, "origin", &cdn.OriginArgs{
+// 			Enabled:           pulumi.Bool(true),
+// 			EndpointName:      pulumi.String("endpoint1"),
+// 			HostName:          pulumi.String("www.someDomain.net"),
+// 			HttpPort:          pulumi.Int(80),
+// 			HttpsPort:         pulumi.Int(443),
+// 			OriginHostHeader:  pulumi.String("www.someDomain.net"),
+// 			OriginName:        pulumi.String("www-someDomain-net"),
+// 			Priority:          pulumi.Int(1),
+// 			ProfileName:       pulumi.String("profile1"),
+// 			ResourceGroupName: pulumi.String("RG"),
+// 			Weight:            pulumi.Int(50),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Origin struct {
 	pulumi.CustomResourceState
 

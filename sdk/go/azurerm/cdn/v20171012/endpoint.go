@@ -11,6 +11,39 @@ import (
 )
 
 // CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
+//
+// ## Example Usage
+// ### Endpoints_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	cdn "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/cdn/v20171012"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cdn.NewEndpoint(ctx, "endpoint", &cdn.EndpointArgs{
+// 			EndpointName: pulumi.String("endpoint1"),
+// 			Location:     pulumi.String("WestCentralUs"),
+// 			Origins: cdn.DeepCreatedOriginArray{
+// 				&cdn.DeepCreatedOriginArgs{
+// 					Name: pulumi.String("www-bing-com"),
+// 				},
+// 			},
+// 			ProfileName:       pulumi.String("profile1"),
+// 			ResourceGroupName: pulumi.String("RG"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 

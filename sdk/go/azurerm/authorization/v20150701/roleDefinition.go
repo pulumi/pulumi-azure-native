@@ -11,6 +11,32 @@ import (
 )
 
 // Role definition.
+//
+// ## Example Usage
+// ### GetConfigurations
+//
+// ```go
+// package main
+//
+// import (
+// 	authorization "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/authorization/v20150701"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := authorization.NewRoleDefinition(ctx, "roleDefinition", &authorization.RoleDefinitionArgs{
+// 			RoleDefinitionId: pulumi.String("roleDefinitionId"),
+// 			Scope:            pulumi.String("scope"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type RoleDefinition struct {
 	pulumi.CustomResourceState
 

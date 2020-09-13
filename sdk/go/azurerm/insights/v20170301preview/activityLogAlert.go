@@ -11,6 +11,61 @@ import (
 )
 
 // An activity log alert resource.
+//
+// ## Example Usage
+// ### Create or update an activity log alert
+//
+// ```go
+// package main
+//
+// import (
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20170301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewActivityLogAlert(ctx, "activityLogAlert", &insights.ActivityLogAlertArgs{
+// 			Actions: &insights.ActivityLogAlertActionListArgs{
+// 				ActionGroups: insights.ActivityLogAlertActionGroupArray{
+// 					&insights.ActivityLogAlertActionGroupArgs{
+// 						ActionGroupId: pulumi.String("/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActionGroups/providers/microsoft.insights/actionGroups/SampleActionGroup"),
+// 						WebhookProperties: pulumi.StringMap{
+// 							"sampleWebhookProperty": pulumi.String("samplePropertyValue"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			ActivityLogAlertName: pulumi.String("SampleActivityLogAlert"),
+// 			Condition: &insights.ActivityLogAlertAllOfConditionArgs{
+// 				AllOf: insights.ActivityLogAlertLeafConditionArray{
+// 					&insights.ActivityLogAlertLeafConditionArgs{
+// 						Equals: pulumi.String("Administrative"),
+// 						Field:  pulumi.String("Category"),
+// 					},
+// 					&insights.ActivityLogAlertLeafConditionArgs{
+// 						Equals: pulumi.String("Error"),
+// 						Field:  pulumi.String("Level"),
+// 					},
+// 				},
+// 			},
+// 			Description:       pulumi.String("Sample activity log alert description"),
+// 			Enabled:           pulumi.Bool(true),
+// 			Location:          pulumi.String("Global"),
+// 			ResourceGroupName: pulumi.String("Default-ActivityLogAlerts"),
+// 			Scopes: pulumi.StringArray{
+// 				pulumi.String("/subscriptions/187f412d-1758-44d9-b052-169e2564721d"),
+// 			},
+// 			Tags: nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ActivityLogAlert struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,34 @@ import (
 )
 
 // Tag Contract details.
+//
+// ## Example Usage
+// ### ApiManagementCreateTag
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20190101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewTag(ctx, "tag", &apimanagement.TagArgs{
+// 			DisplayName:       pulumi.String("tag1"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			TagId:             pulumi.String("tagId1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Tag struct {
 	pulumi.CustomResourceState
 

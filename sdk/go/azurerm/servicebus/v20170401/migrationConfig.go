@@ -11,6 +11,37 @@ import (
 )
 
 // Single item in List or Get Migration Config operation
+//
+// ## Example Usage
+// ### MigrationConfigurationsStartMigration
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	servicebus "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicebus/v20170401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicebus.NewMigrationConfig(ctx, "migrationConfig", &servicebus.MigrationConfigArgs{
+// 			ConfigName:        pulumi.String(fmt.Sprintf("%v%v", "$", "default")),
+// 			NamespaceName:     pulumi.String("sdk-Namespace-41"),
+// 			PostMigrationName: pulumi.String("sdk-PostMigration-5919"),
+// 			ResourceGroupName: pulumi.String("ResourceGroup"),
+// 			TargetNamespace:   pulumi.String("/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type MigrationConfig struct {
 	pulumi.CustomResourceState
 

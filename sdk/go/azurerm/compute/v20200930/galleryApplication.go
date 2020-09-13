@@ -11,6 +11,13 @@ import (
 )
 
 // Specifies information about the gallery Application Definition that you want to create or update.
+//
+// ## Example Usage
+// ### Create or update a simple gallery Application.
+//
+// ```go
+//
+// ```
 type GalleryApplication struct {
 	pulumi.CustomResourceState
 

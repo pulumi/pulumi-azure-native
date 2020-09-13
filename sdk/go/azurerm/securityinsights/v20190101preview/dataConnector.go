@@ -11,6 +11,36 @@ import (
 )
 
 // Data connector.
+//
+// ## Example Usage
+// ### Creates or updates an Office365 data connector.
+//
+// ```go
+// package main
+//
+// import (
+// 	securityinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/securityinsights/v20190101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := securityinsights.NewDataConnector(ctx, "dataConnector", &securityinsights.DataConnectorArgs{
+// 			DataConnectorId:                     pulumi.String("73e01a99-5cd7-4139-a149-9f2736ff2ab5"),
+// 			Etag:                                pulumi.String("\"0300bf09-0000-0000-0000-5c37296e0000\""),
+// 			Kind:                                pulumi.String("Office365"),
+// 			OperationalInsightsResourceProvider: pulumi.String("Microsoft.OperationalInsights"),
+// 			ResourceGroupName:                   pulumi.String("myRg"),
+// 			WorkspaceName:                       pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DataConnector struct {
 	pulumi.CustomResourceState
 

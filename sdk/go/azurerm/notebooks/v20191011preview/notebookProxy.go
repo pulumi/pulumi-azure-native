@@ -11,6 +11,33 @@ import (
 )
 
 // A NotebookProxy resource.
+//
+// ## Example Usage
+// ### Create Notebook Proxy
+//
+// ```go
+// package main
+//
+// import (
+// 	notebooks "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/notebooks/v20191011preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := notebooks.NewNotebookProxy(ctx, "notebookProxy", &notebooks.NotebookProxyArgs{
+// 			Hostname:          pulumi.String("Azure Notebooks"),
+// 			ResourceGroupName: pulumi.String("testRP"),
+// 			ResourceName:      pulumi.String("testResource"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type NotebookProxy struct {
 	pulumi.CustomResourceState
 

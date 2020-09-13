@@ -11,6 +11,28 @@ import (
 )
 
 // Managed cluster.
+//
+// ## Example Usage
+// ### Create Managed Cluster with PPG
+//
+// ```go
+//
+// ```
+// ### Create/Update AAD Managed Cluster with EnableAzureRBAC
+//
+// ```go
+//
+// ```
+// ### Create/Update Managed Cluster
+//
+// ```go
+//
+// ```
+// ### Create/Update Managed Cluster with EnableAHUB
+//
+// ```go
+//
+// ```
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 

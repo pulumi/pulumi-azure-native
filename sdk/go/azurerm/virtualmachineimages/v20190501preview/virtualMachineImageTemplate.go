@@ -11,6 +11,119 @@ import (
 )
 
 // Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+//
+// ## Example Usage
+// ### Create an Image Template with a user assigned identity configured
+//
+// ```go
+// package main
+//
+// import (
+// 	virtualmachineimages "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/virtualmachineimages/v20190501preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := virtualmachineimages.NewVirtualMachineImageTemplate(ctx, "virtualMachineImageTemplate", &virtualmachineimages.VirtualMachineImageTemplateArgs{
+// 			Customize: virtualmachineimages.ImageTemplateCustomizerArray{
+// 				&virtualmachineimages.ImageTemplateCustomizerArgs{
+// 					Name:      pulumi.String("Shell Customizer Example"),
+// 					ScriptUri: pulumi.String("https://example.com/path/to/script.sh"),
+// 					Type:      pulumi.String("Shell"),
+// 				},
+// 			},
+// 			Distribute: virtualmachineimages.ImageTemplateDistributorArray{
+// 				&virtualmachineimages.ImageTemplateDistributorArgs{
+// 					ArtifactTags: pulumi.StringMap{
+// 						"tagName": pulumi.String("value"),
+// 					},
+// 					ImageId:       pulumi.String("/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1"),
+// 					Location:      pulumi.String("1_location"),
+// 					RunOutputName: pulumi.String("image_it_pir_1"),
+// 					Type:          pulumi.String("ManagedImage"),
+// 				},
+// 			},
+// 			Identity: &virtualmachineimages.ImageTemplateIdentityArgs{
+// 				Type: pulumi.String("UserAssigned"),
+// 			},
+// 			ImageTemplateName: pulumi.String("myImageTemplate"),
+// 			Location:          pulumi.String("westus"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Source: &virtualmachineimages.ImageTemplateSourceArgs{
+// 				ImageId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image"),
+// 				Type:    pulumi.String("ManagedImage"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"imagetemplate_tag1": pulumi.String("IT_T1"),
+// 				"imagetemplate_tag2": pulumi.String("IT_T2"),
+// 			},
+// 			VmProfile: &virtualmachineimages.ImageTemplateVmProfileArgs{
+// 				VmSize: pulumi.String("Standard_D2s_v3"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create an Image Template.
+//
+// ```go
+// package main
+//
+// import (
+// 	virtualmachineimages "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/virtualmachineimages/v20190501preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := virtualmachineimages.NewVirtualMachineImageTemplate(ctx, "virtualMachineImageTemplate", &virtualmachineimages.VirtualMachineImageTemplateArgs{
+// 			Customize: virtualmachineimages.ImageTemplateCustomizerArray{
+// 				&virtualmachineimages.ImageTemplateCustomizerArgs{
+// 					Name:      pulumi.String("Shell Customizer Example"),
+// 					ScriptUri: pulumi.String("https://example.com/path/to/script.sh"),
+// 					Type:      pulumi.String("Shell"),
+// 				},
+// 			},
+// 			Distribute: virtualmachineimages.ImageTemplateDistributorArray{
+// 				&virtualmachineimages.ImageTemplateDistributorArgs{
+// 					ArtifactTags: pulumi.StringMap{
+// 						"tagName": pulumi.String("value"),
+// 					},
+// 					ImageId:       pulumi.String("/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1"),
+// 					Location:      pulumi.String("1_location"),
+// 					RunOutputName: pulumi.String("image_it_pir_1"),
+// 					Type:          pulumi.String("ManagedImage"),
+// 				},
+// 			},
+// 			ImageTemplateName: pulumi.String("myImageTemplate"),
+// 			Location:          pulumi.String("westus"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Source: &virtualmachineimages.ImageTemplateSourceArgs{
+// 				ImageId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image"),
+// 				Type:    pulumi.String("ManagedImage"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"imagetemplate_tag1": pulumi.String("IT_T1"),
+// 				"imagetemplate_tag2": pulumi.String("IT_T2"),
+// 			},
+// 			VmProfile: &virtualmachineimages.ImageTemplateVmProfileArgs{
+// 				VmSize: pulumi.String("Standard_D2s_v3"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type VirtualMachineImageTemplate struct {
 	pulumi.CustomResourceState
 

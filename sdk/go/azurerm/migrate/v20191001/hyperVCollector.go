@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Example Usage
+// ### HyperVCollectors_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	migrate "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/migrate/v20191001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := migrate.NewHyperVCollector(ctx, "hyperVCollector", &migrate.HyperVCollectorArgs{
+// 			ETag:                pulumi.String("\"00000981-0000-0300-0000-5d74cd5f0000\""),
+// 			HyperVCollectorName: pulumi.String("migrateprojectce73collector"),
+// 			ProjectName:         pulumi.String("migrateprojectce73project"),
+// 			ResourceGroupName:   pulumi.String("contosoithyperv"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type HyperVCollector struct {
 	pulumi.CustomResourceState
 

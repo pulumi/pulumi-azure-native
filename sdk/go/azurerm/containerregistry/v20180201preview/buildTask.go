@@ -11,6 +11,53 @@ import (
 )
 
 // The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+//
+// ## Example Usage
+// ### BuildTasks_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20180201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerregistry.NewBuildTask(ctx, "buildTask", &containerregistry.BuildTaskArgs{
+// 			Alias:         pulumi.String("myalias"),
+// 			BuildTaskName: pulumi.String("myBuildTask"),
+// 			Location:      pulumi.String("eastus"),
+// 			Platform: &containerregistry.PlatformPropertiesArgs{
+// 				Cpu:    pulumi.Int(2),
+// 				OsType: pulumi.String("Linux"),
+// 			},
+// 			RegistryName:      pulumi.String("myRegistry"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			SourceRepository: &containerregistry.SourceRepositoryPropertiesArgs{
+// 				IsCommitTriggerEnabled: pulumi.Bool(true),
+// 				RepositoryUrl:          pulumi.String("https://github.com/Azure/azure-rest-api-specs"),
+// 				SourceControlAuthProperties: &containerregistry.SourceControlAuthInfoArgs{
+// 					Scope:     pulumi.String("repo"),
+// 					Token:     pulumi.String("xxxxxx"),
+// 					TokenType: pulumi.String("OAuth"),
+// 				},
+// 				SourceControlType: pulumi.String("Github"),
+// 			},
+// 			Status: pulumi.String("Enabled"),
+// 			Tags: pulumi.StringMap{
+// 				"testkey": pulumi.String("value"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type BuildTask struct {
 	pulumi.CustomResourceState
 

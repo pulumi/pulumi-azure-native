@@ -11,6 +11,32 @@ import (
 )
 
 // The status of the Canonical support plan.
+//
+// ## Example Usage
+// ### SupportPlanTypes_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	addons "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/addons/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := addons.NewSupportPlanType(ctx, "supportPlanType", &addons.SupportPlanTypeArgs{
+// 			PlanTypeName: pulumi.String("Standard"),
+// 			ProviderName: pulumi.String("Canonical"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SupportPlanType struct {
 	pulumi.CustomResourceState
 

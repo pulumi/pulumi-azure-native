@@ -11,6 +11,33 @@ import (
 )
 
 // Protection profile details.
+//
+// ## Example Usage
+// ### Creates the policy.
+//
+// ```go
+// package main
+//
+// import (
+// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := recoveryservices.NewReplicationPolicy(ctx, "replicationPolicy", &recoveryservices.ReplicationPolicyArgs{
+// 			PolicyName:        pulumi.String("protectionprofile1"),
+// 			ResourceGroupName: pulumi.String("resourceGroupPS1"),
+// 			ResourceName:      pulumi.String("vault1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ReplicationPolicy struct {
 	pulumi.CustomResourceState
 

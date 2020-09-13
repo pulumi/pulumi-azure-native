@@ -11,6 +11,35 @@ import (
 )
 
 // Description of subscription resource.
+//
+// ## Example Usage
+// ### SubscriptionCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	servicebus "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicebus/v20150801"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicebus.NewSubscription(ctx, "subscription", &servicebus.SubscriptionArgs{
+// 			Location:          pulumi.String("West US"),
+// 			NamespaceName:     pulumi.String("sdk-Namespace2500"),
+// 			ResourceGroupName: pulumi.String("Default-ServiceBus-WestUS"),
+// 			SubscriptionName:  pulumi.String("sdk-Subscriptions3374"),
+// 			TopicName:         pulumi.String("sdk-Topics2565"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Subscription struct {
 	pulumi.CustomResourceState
 

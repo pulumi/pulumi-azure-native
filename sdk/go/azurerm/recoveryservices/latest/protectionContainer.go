@@ -11,6 +11,34 @@ import (
 )
 
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
+//
+// ## Example Usage
+// ### RegisterAzure Storage ProtectionContainers
+//
+// ```go
+// package main
+//
+// import (
+// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := recoveryservices.NewProtectionContainer(ctx, "protectionContainer", &recoveryservices.ProtectionContainerArgs{
+// 			ContainerName:     pulumi.String("VMAppContainer;Compute;testRG;testSQL"),
+// 			FabricName:        pulumi.String("Azure"),
+// 			ResourceGroupName: pulumi.String("test-rg"),
+// 			VaultName:         pulumi.String("testvault"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ProtectionContainer struct {
 	pulumi.CustomResourceState
 

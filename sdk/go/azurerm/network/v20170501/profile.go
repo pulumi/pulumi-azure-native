@@ -11,6 +11,86 @@ import (
 )
 
 // Class representing a Traffic Manager profile.
+//
+// ## Example Usage
+// ### Profile-PUT-NoEndpoints
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20170501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewProfile(ctx, "profile", &network.ProfileArgs{
+// 			DnsConfig: &network.DnsConfigArgs{
+// 				RelativeName: pulumi.String("azsmnet6386"),
+// 				Ttl:          pulumi.Int(35),
+// 			},
+// 			Location: pulumi.String("global"),
+// 			MonitorConfig: &network.MonitorConfigArgs{
+// 				Path:     pulumi.String("/testpath.aspx"),
+// 				Port:     pulumi.Int(80),
+// 				Protocol: pulumi.String("HTTP"),
+// 			},
+// 			ProfileName:          pulumi.String("azsmnet6386"),
+// 			ProfileStatus:        pulumi.String("Enabled"),
+// 			ResourceGroupName:    pulumi.String("azuresdkfornetautoresttrafficmanager1421"),
+// 			TrafficRoutingMethod: pulumi.String("Performance"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Profile-PUT-WithEndpoints
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20170501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewProfile(ctx, "profile", &network.ProfileArgs{
+// 			DnsConfig: &network.DnsConfigArgs{
+// 				RelativeName: pulumi.String("azuresdkfornetautoresttrafficmanager6192"),
+// 				Ttl:          pulumi.Int(35),
+// 			},
+// 			Endpoints: network.EndpointArray{
+// 				nil,
+// 			},
+// 			Location: pulumi.String("global"),
+// 			MonitorConfig: &network.MonitorConfigArgs{
+// 				IntervalInSeconds:         pulumi.Int(10),
+// 				Path:                      pulumi.String("/testpath.aspx"),
+// 				Port:                      pulumi.Int(80),
+// 				Protocol:                  pulumi.String("HTTP"),
+// 				TimeoutInSeconds:          pulumi.Int(5),
+// 				ToleratedNumberOfFailures: pulumi.Int(2),
+// 			},
+// 			ProfileName:          pulumi.String("azuresdkfornetautoresttrafficmanager6192"),
+// 			ProfileStatus:        pulumi.String("Enabled"),
+// 			ResourceGroupName:    pulumi.String("azuresdkfornetautoresttrafficmanager2583"),
+// 			TrafficRoutingMethod: pulumi.String("Performance"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Profile struct {
 	pulumi.CustomResourceState
 

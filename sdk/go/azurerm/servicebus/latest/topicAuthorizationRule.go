@@ -11,6 +11,38 @@ import (
 )
 
 // Description of a namespace authorization rule.
+//
+// ## Example Usage
+// ### TopicAuthorizationRuleCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	servicebus "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicebus/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicebus.NewTopicAuthorizationRule(ctx, "topicAuthorizationRule", &servicebus.TopicAuthorizationRuleArgs{
+// 			AuthorizationRuleName: pulumi.String("sdk-AuthRules-4310"),
+// 			NamespaceName:         pulumi.String("sdk-Namespace-6261"),
+// 			ResourceGroupName:     pulumi.String("ArunMonocle"),
+// 			Rights: pulumi.StringArray{
+// 				pulumi.String("Listen"),
+// 				pulumi.String("Send"),
+// 			},
+// 			TopicName: pulumi.String("sdk-Topics-1984"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type TopicAuthorizationRule struct {
 	pulumi.CustomResourceState
 

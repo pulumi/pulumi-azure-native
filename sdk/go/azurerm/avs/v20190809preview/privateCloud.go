@@ -11,6 +11,34 @@ import (
 )
 
 // A private cloud resource
+//
+// ## Example Usage
+// ### PrivateClouds_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	avs "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/avs/v20190809preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := avs.NewPrivateCloud(ctx, "privateCloud", &avs.PrivateCloudArgs{
+// 			Location:          pulumi.String("eastus2"),
+// 			PrivateCloudName:  pulumi.String("cloud1"),
+// 			ResourceGroupName: pulumi.String("group1"),
+// 			Tags:              nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateCloud struct {
 	pulumi.CustomResourceState
 

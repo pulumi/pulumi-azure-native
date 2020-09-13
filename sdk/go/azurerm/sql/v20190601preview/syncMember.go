@@ -11,6 +11,72 @@ import (
 )
 
 // An Azure SQL Database sync member.
+//
+// ## Example Usage
+// ### Create a new sync member
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewSyncMember(ctx, "syncMember", &sql.SyncMemberArgs{
+// 			DatabaseName:                      pulumi.String("syncgroupcrud-4328"),
+// 			DatabaseType:                      pulumi.String("AzureSqlDatabase"),
+// 			ResourceGroupName:                 pulumi.String("syncgroupcrud-65440"),
+// 			ServerName:                        pulumi.String("syncgroupcrud-8475"),
+// 			SyncDirection:                     pulumi.String("Bidirectional"),
+// 			SyncGroupName:                     pulumi.String("syncgroupcrud-3187"),
+// 			SyncMemberAzureDatabaseResourceId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328"),
+// 			SyncMemberName:                    pulumi.String("syncgroupcrud-4879"),
+// 			UsePrivateLinkConnection:          pulumi.Bool(true),
+// 			UserName:                          pulumi.String("myUser"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Update a sync member
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewSyncMember(ctx, "syncMember", &sql.SyncMemberArgs{
+// 			DatabaseName:                      pulumi.String("syncgroupcrud-7421"),
+// 			DatabaseType:                      pulumi.String("AzureSqlDatabase"),
+// 			ResourceGroupName:                 pulumi.String("syncgroupcrud-65440"),
+// 			ServerName:                        pulumi.String("syncgroupcrud-8475"),
+// 			SyncDirection:                     pulumi.String("Bidirectional"),
+// 			SyncGroupName:                     pulumi.String("syncgroupcrud-3187"),
+// 			SyncMemberAzureDatabaseResourceId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328"),
+// 			SyncMemberName:                    pulumi.String("syncgroupcrud-4879"),
+// 			UsePrivateLinkConnection:          pulumi.Bool(true),
+// 			UserName:                          pulumi.String("myUser"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SyncMember struct {
 	pulumi.CustomResourceState
 

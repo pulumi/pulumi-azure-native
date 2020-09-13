@@ -11,6 +11,37 @@ import (
 )
 
 // An application type version resource for the specified application type name resource.
+//
+// ## Example Usage
+// ### Put an application type version
+//
+// ```go
+// package main
+//
+// import (
+// 	servicefabric "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicefabric/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicefabric.NewApplicationTypeVersion(ctx, "applicationTypeVersion", &servicefabric.ApplicationTypeVersionArgs{
+// 			AppPackageUrl:       pulumi.String("http://fakelink.test.com/MyAppType"),
+// 			ApplicationTypeName: pulumi.String("myAppType"),
+// 			ClusterName:         pulumi.String("myCluster"),
+// 			Location:            pulumi.String("eastus"),
+// 			ResourceGroupName:   pulumi.String("resRg"),
+// 			Tags:                nil,
+// 			Version:             pulumi.String("1.0"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ApplicationTypeVersion struct {
 	pulumi.CustomResourceState
 

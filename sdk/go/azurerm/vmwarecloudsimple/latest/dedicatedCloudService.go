@@ -11,6 +11,34 @@ import (
 )
 
 // Dedicated cloud service model
+//
+// ## Example Usage
+// ### CreateDedicatedCloudService
+//
+// ```go
+// package main
+//
+// import (
+// 	vmwarecloudsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/vmwarecloudsimple/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := vmwarecloudsimple.NewDedicatedCloudService(ctx, "dedicatedCloudService", &vmwarecloudsimple.DedicatedCloudServiceArgs{
+// 			DedicatedCloudServiceName: pulumi.String("myService"),
+// 			GatewaySubnet:             pulumi.String("10.0.0.0"),
+// 			Location:                  pulumi.String("westus"),
+// 			ResourceGroupName:         pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DedicatedCloudService struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,33 @@ import (
 )
 
 // The Private Endpoint Connection resource.
+//
+// ## Example Usage
+// ### PutPrivateEndpointConnection
+//
+// ```go
+// package main
+//
+// import (
+// 	cognitiveservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/cognitiveservices/v20170418"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cognitiveservices.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &cognitiveservices.PrivateEndpointConnectionArgs{
+// 			AccountName:                   pulumi.String("sto9699"),
+// 			PrivateEndpointConnectionName: pulumi.String("{privateEndpointConnectionName}"),
+// 			ResourceGroupName:             pulumi.String("res7687"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

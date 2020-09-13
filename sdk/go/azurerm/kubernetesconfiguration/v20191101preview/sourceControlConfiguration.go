@@ -11,6 +11,46 @@ import (
 )
 
 // The SourceControl Configuration object.
+//
+// ## Example Usage
+// ### Create Source Control Configuration
+//
+// ```go
+// package main
+//
+// import (
+// 	kubernetesconfiguration "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/kubernetesconfiguration/v20191101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := kubernetesconfiguration.NewSourceControlConfiguration(ctx, "sourceControlConfiguration", &kubernetesconfiguration.SourceControlConfigurationArgs{
+// 			ClusterName:         pulumi.String("clusterName1"),
+// 			ClusterResourceName: pulumi.String("connectedClusters"),
+// 			ClusterRp:           pulumi.String("Microsoft.Kubernetes"),
+// 			EnableHelmOperator:  pulumi.String("true"),
+// 			HelmOperatorProperties: &kubernetesconfiguration.HelmOperatorPropertiesArgs{
+// 				ChartValues:  pulumi.String("--set git.ssh.secretName=flux-git-deploy --set tillerNamespace=kube-system"),
+// 				ChartVersion: pulumi.String("0.3.0"),
+// 			},
+// 			OperatorInstanceName:           pulumi.String("SRSGitHubFluxOp-01"),
+// 			OperatorNamespace:              pulumi.String("SRS_Namespace"),
+// 			OperatorParams:                 pulumi.String("--git-email=xyzgituser@users.srs.github.com"),
+// 			OperatorScope:                  pulumi.String("namespace"),
+// 			OperatorType:                   pulumi.String("Flux"),
+// 			RepositoryUrl:                  pulumi.String("git@github.com:k8sdeveloper425/flux-get-started"),
+// 			ResourceGroupName:              pulumi.String("rg1"),
+// 			SourceControlConfigurationName: pulumi.String("SRS_GitHubConfig"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SourceControlConfiguration struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,34 @@ import (
 )
 
 // An application package which represents a particular version of an application.
+//
+// ## Example Usage
+// ### ApplicationPackageCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	batch "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/batch/v20200301"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := batch.NewApplicationPackage(ctx, "applicationPackage", &batch.ApplicationPackageArgs{
+// 			AccountName:       pulumi.String("sampleacct"),
+// 			ApplicationName:   pulumi.String("app1"),
+// 			ResourceGroupName: pulumi.String("default-azurebatch-japaneast"),
+// 			VersionName:       pulumi.String("1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ApplicationPackage struct {
 	pulumi.CustomResourceState
 

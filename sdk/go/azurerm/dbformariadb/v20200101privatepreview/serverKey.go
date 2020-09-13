@@ -11,6 +11,35 @@ import (
 )
 
 // A MariaDB Server key.
+//
+// ## Example Usage
+// ### Creates or updates a MariaDB Server key
+//
+// ```go
+// package main
+//
+// import (
+// 	dbformariadb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbformariadb/v20200101privatepreview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbformariadb.NewServerKey(ctx, "serverKey", &dbformariadb.ServerKeyArgs{
+// 			KeyName:           pulumi.String("someVault_someKey_01234567890123456789012345678901"),
+// 			ResourceGroupName: pulumi.String("testrg"),
+// 			ServerKeyType:     pulumi.String("AzureKeyVault"),
+// 			ServerName:        pulumi.String("testserver"),
+// 			Uri:               pulumi.String("https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ServerKey struct {
 	pulumi.CustomResourceState
 

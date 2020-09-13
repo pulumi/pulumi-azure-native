@@ -11,6 +11,42 @@ import (
 )
 
 // Information about the connection monitor.
+//
+// ## Example Usage
+// ### Create connection monitor
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20190801"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewConnectionMonitor(ctx, "connectionMonitor", &network.ConnectionMonitorArgs{
+// 			ConnectionMonitorName: pulumi.String("cm1"),
+// 			Destination: &network.ConnectionMonitorDestinationArgs{
+// 				Address: pulumi.String("bing.com"),
+// 				Port:    pulumi.Int(80),
+// 			},
+// 			Location:                    pulumi.String("eastus"),
+// 			MonitoringIntervalInSeconds: pulumi.Int(60),
+// 			NetworkWatcherName:          pulumi.String("nw1"),
+// 			ResourceGroupName:           pulumi.String("rg1"),
+// 			Source: &network.ConnectionMonitorSourceArgs{
+// 				ResourceId: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ConnectionMonitor struct {
 	pulumi.CustomResourceState
 

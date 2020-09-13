@@ -11,6 +11,44 @@ import (
 )
 
 // A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+//
+// ## Example Usage
+// ### ReferenceDataSetsCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	timeseriesinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/timeseriesinsights/v20180815preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := timeseriesinsights.NewReferenceDataSet(ctx, "referenceDataSet", &timeseriesinsights.ReferenceDataSetArgs{
+// 			EnvironmentName: pulumi.String("env1"),
+// 			KeyProperties: timeseriesinsights.ReferenceDataSetKeyPropertyArray{
+// 				&timeseriesinsights.ReferenceDataSetKeyPropertyArgs{
+// 					Name: pulumi.String("DeviceId1"),
+// 					Type: pulumi.String("String"),
+// 				},
+// 				&timeseriesinsights.ReferenceDataSetKeyPropertyArgs{
+// 					Name: pulumi.String("DeviceFloor"),
+// 					Type: pulumi.String("Double"),
+// 				},
+// 			},
+// 			Location:             pulumi.String("West US"),
+// 			ReferenceDataSetName: pulumi.String("rds1"),
+// 			ResourceGroupName:    pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ReferenceDataSet struct {
 	pulumi.CustomResourceState
 

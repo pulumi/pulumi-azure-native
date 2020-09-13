@@ -11,6 +11,41 @@ import (
 )
 
 // Description of a Namespace resource.
+//
+// ## Example Usage
+// ### NameSpaceCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	notificationhubs "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/notificationhubs/v20170401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := notificationhubs.NewNamespace(ctx, "namespace", &notificationhubs.NamespaceArgs{
+// 			Location:          pulumi.String("South Central US"),
+// 			NamespaceName:     pulumi.String("nh-sdk-ns"),
+// 			ResourceGroupName: pulumi.String("5ktrial"),
+// 			Sku: &notificationhubs.SkuArgs{
+// 				Name: pulumi.String("Standard"),
+// 				Tier: pulumi.String("Standard"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("value1"),
+// 				"tag2": pulumi.String("value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Namespace struct {
 	pulumi.CustomResourceState
 

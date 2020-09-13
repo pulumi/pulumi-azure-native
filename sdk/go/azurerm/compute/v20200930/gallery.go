@@ -11,6 +11,18 @@ import (
 )
 
 // Specifies information about the Shared Image Gallery that you want to create or update.
+//
+// ## Example Usage
+// ### Create or update a simple gallery with sharing profile.
+//
+// ```go
+//
+// ```
+// ### Create or update a simple gallery.
+//
+// ```go
+//
+// ```
 type Gallery struct {
 	pulumi.CustomResourceState
 

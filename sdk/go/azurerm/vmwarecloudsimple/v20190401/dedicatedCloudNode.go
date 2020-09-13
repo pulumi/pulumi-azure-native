@@ -11,6 +11,40 @@ import (
 )
 
 // Dedicated cloud node model
+//
+// ## Example Usage
+// ### CreateDedicatedCloudNode
+//
+// ```go
+// package main
+//
+// import (
+// 	vmwarecloudsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/vmwarecloudsimple/v20190401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := vmwarecloudsimple.NewDedicatedCloudNode(ctx, "dedicatedCloudNode", &vmwarecloudsimple.DedicatedCloudNodeArgs{
+// 			AvailabilityZoneId:     pulumi.String("az1"),
+// 			DedicatedCloudNodeName: pulumi.String("myNode"),
+// 			Location:               pulumi.String("westus"),
+// 			NodesCount:             pulumi.Int(1),
+// 			PlacementGroupId:       pulumi.String("n1"),
+// 			PurchaseId:             pulumi.String("56acbd46-3d36-4bbf-9b08-57c30fdf6932"),
+// 			ResourceGroupName:      pulumi.String("myResourceGroup"),
+// 			Sku: &vmwarecloudsimple.SkuArgs{
+// 				Name: pulumi.String("VMware_CloudSimple_CS28"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DedicatedCloudNode struct {
 	pulumi.CustomResourceState
 

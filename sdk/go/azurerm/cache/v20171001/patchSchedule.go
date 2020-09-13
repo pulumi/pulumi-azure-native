@@ -11,6 +11,44 @@ import (
 )
 
 // Response to put/get patch schedules for Redis cache.
+//
+// ## Example Usage
+// ### RedisCachePatchSchedulesCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	cache "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/cache/v20171001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cache.NewPatchSchedule(ctx, "patchSchedule", &cache.PatchScheduleArgs{
+// 			Default:           pulumi.String("default"),
+// 			Name:              pulumi.String("cache1"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ScheduleEntries: cache.ScheduleEntryArray{
+// 				&cache.ScheduleEntryArgs{
+// 					DayOfWeek:         pulumi.String("Monday"),
+// 					MaintenanceWindow: pulumi.String("PT5H"),
+// 					StartHourUtc:      pulumi.Int(12),
+// 				},
+// 				&cache.ScheduleEntryArgs{
+// 					DayOfWeek:    pulumi.String("Tuesday"),
+// 					StartHourUtc: pulumi.Int(12),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PatchSchedule struct {
 	pulumi.CustomResourceState
 

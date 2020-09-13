@@ -11,6 +11,56 @@ import (
 )
 
 // The cost allocation rule model definition
+//
+// ## Example Usage
+// ### CostAllocationRulesCreateResourceGroup
+//
+// ```go
+// package main
+//
+// import (
+// 	billing "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/billing/v20200301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := billing.NewCostAllocationRule(ctx, "costAllocationRule", &billing.CostAllocationRuleArgs{
+// 			BillingAccountId: pulumi.String("100"),
+// 			RuleName:         pulumi.String("testRule"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### CostAllocationRulesCreateTag
+//
+// ```go
+// package main
+//
+// import (
+// 	billing "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/billing/v20200301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := billing.NewCostAllocationRule(ctx, "costAllocationRule", &billing.CostAllocationRuleArgs{
+// 			BillingAccountId: pulumi.String("100"),
+// 			RuleName:         pulumi.String("testRule"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type CostAllocationRule struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,35 @@ import (
 )
 
 // Single item in List or Get Consumer group operation
+//
+// ## Example Usage
+// ### ConsumerGroupCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	eventhub "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventhub/v20150801"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := eventhub.NewConsumerGroup(ctx, "consumerGroup", &eventhub.ConsumerGroupArgs{
+// 			ConsumerGroupName: pulumi.String("sdk-ConsumerGroup115"),
+// 			EventHubName:      pulumi.String("sdk-EventHub5290"),
+// 			Location:          pulumi.String("West US"),
+// 			NamespaceName:     pulumi.String("sdk-Namespace736"),
+// 			ResourceGroupName: pulumi.String("Default-ServiceBus-WestUS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ConsumerGroup struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,37 @@ import (
 )
 
 // A private endpoint connection
+//
+// ## Example Usage
+// ### Approve or reject a private endpoint connection with a given name.
+//
+// ```go
+// package main
+//
+// import (
+// 	dbformariadb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbformariadb/v20180601privatepreview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbformariadb.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &dbformariadb.PrivateEndpointConnectionArgs{
+// 			PrivateEndpointConnectionName: pulumi.String("private-endpoint-connection-name"),
+// 			PrivateLinkServiceConnectionState: &dbformariadb.PrivateLinkServiceConnectionStatePropertyArgs{
+// 				Description: pulumi.String("Approved by johndoe@contoso.com"),
+// 				Status:      pulumi.String("Approved"),
+// 			},
+// 			ResourceGroupName: pulumi.String("Default"),
+// 			ServerName:        pulumi.String("test-svr"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

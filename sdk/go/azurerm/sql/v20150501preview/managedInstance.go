@@ -11,6 +11,88 @@ import (
 )
 
 // An Azure SQL managed instance.
+//
+// ## Example Usage
+// ### Create managed instance with all properties
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20150501preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewManagedInstance(ctx, "managedInstance", &sql.ManagedInstanceArgs{
+// 			AdministratorLogin:         pulumi.String("dummylogin"),
+// 			AdministratorLoginPassword: pulumi.String("Un53cuRE!"),
+// 			Collation:                  pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
+// 			DnsZonePartner:             pulumi.String("/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance"),
+// 			InstancePoolId:             pulumi.String("/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/instancePools/pool1"),
+// 			LicenseType:                pulumi.String("LicenseIncluded"),
+// 			Location:                   pulumi.String("Japan East"),
+// 			MaintenanceConfigurationId: pulumi.String("/subscriptions/ab0e51c0-83c0-4380-8ae9-025516df392f/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_WestEurope_MI_Mon_Fri_10PM_6AM"),
+// 			ManagedInstanceName:        pulumi.String("testinstance"),
+// 			ProxyOverride:              pulumi.String("Redirect"),
+// 			PublicDataEndpointEnabled:  pulumi.Bool(false),
+// 			ResourceGroupName:          pulumi.String("testrg"),
+// 			Sku: &sql.SkuArgs{
+// 				Name: pulumi.String("GP_Gen5"),
+// 				Tier: pulumi.String("GeneralPurpose"),
+// 			},
+// 			StorageSizeInGB: pulumi.Int(1024),
+// 			SubnetId:        pulumi.String("/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1"),
+// 			Tags: pulumi.StringMap{
+// 				"tagKey1": pulumi.String("TagValue1"),
+// 			},
+// 			TimezoneId: pulumi.String("UTC"),
+// 			VCores:     pulumi.Int(8),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create managed instance with minimal properties
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20150501preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewManagedInstance(ctx, "managedInstance", &sql.ManagedInstanceArgs{
+// 			AdministratorLogin:         pulumi.String("dummylogin"),
+// 			AdministratorLoginPassword: pulumi.String("Un53cuRE!"),
+// 			LicenseType:                pulumi.String("LicenseIncluded"),
+// 			Location:                   pulumi.String("Japan East"),
+// 			ManagedInstanceName:        pulumi.String("testinstance"),
+// 			ResourceGroupName:          pulumi.String("testrg"),
+// 			Sku: &sql.SkuArgs{
+// 				Name: pulumi.String("GP_Gen4"),
+// 				Tier: pulumi.String("GeneralPurpose"),
+// 			},
+// 			StorageSizeInGB: pulumi.Int(1024),
+// 			SubnetId:        pulumi.String("/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1"),
+// 			VCores:          pulumi.Int(8),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ManagedInstance struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,72 @@ import (
 )
 
 // Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+//
+// ## Example Usage
+// ### Create Account
+//
+// ```go
+// package main
+//
+// import (
+// 	cognitiveservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/cognitiveservices/v20170418"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cognitiveservices.NewAccount(ctx, "account", &cognitiveservices.AccountArgs{
+// 			AccountName: pulumi.String("testCreate1"),
+// 			Identity: &cognitiveservices.IdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Kind:              pulumi.String("Emotion"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Sku: &cognitiveservices.SkuArgs{
+// 				Name: pulumi.String("S0"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create Account Min
+//
+// ```go
+// package main
+//
+// import (
+// 	cognitiveservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/cognitiveservices/v20170418"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cognitiveservices.NewAccount(ctx, "account", &cognitiveservices.AccountArgs{
+// 			AccountName: pulumi.String("testCreate1"),
+// 			Identity: &cognitiveservices.IdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Kind:              pulumi.String("CognitiveServices"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Sku: &cognitiveservices.SkuArgs{
+// 				Name: pulumi.String("S0"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 

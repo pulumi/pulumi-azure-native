@@ -11,6 +11,114 @@ import (
 )
 
 // Rule Group resource.
+//
+// ## Example Usage
+// ### Create FirewallPolicyRuleGroup
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20191201"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewFirewallPolicyRuleGroup(ctx, "firewallPolicyRuleGroup", &network.FirewallPolicyRuleGroupArgs{
+// 			FirewallPolicyName: pulumi.String("firewallPolicy"),
+// 			Priority:           pulumi.Int(110),
+// 			ResourceGroupName:  pulumi.String("rg1"),
+// 			RuleGroupName:      pulumi.String("ruleGroup1"),
+// 			Rules: network.FirewallPolicyRuleArray{
+// 				&network.FirewallPolicyRuleArgs{
+// 					Action: pulumi.StringMap{
+// 						"type": pulumi.String("Deny"),
+// 					},
+// 					Name: pulumi.String("Example-Filter-Rule"),
+// 					RuleConditions: pulumi.MapArray{
+// 						pulumi.Map{
+// 							"destinationAddresses": pulumi.StringArray{
+// 								pulumi.String("*"),
+// 							},
+// 							"destinationPorts": pulumi.StringArray{
+// 								pulumi.String("*"),
+// 							},
+// 							"ipProtocols": pulumi.StringArray{
+// 								pulumi.String("TCP"),
+// 							},
+// 							"name":              pulumi.String("network-condition1"),
+// 							"ruleConditionType": pulumi.String("NetworkRuleCondition"),
+// 							"sourceAddresses": pulumi.StringArray{
+// 								pulumi.String("10.1.25.0/24"),
+// 							},
+// 						},
+// 					},
+// 					RuleType: pulumi.String("FirewallPolicyFilterRule"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create FirewallPolicyRuleGroup With IpGroups
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20191201"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewFirewallPolicyRuleGroup(ctx, "firewallPolicyRuleGroup", &network.FirewallPolicyRuleGroupArgs{
+// 			FirewallPolicyName: pulumi.String("firewallPolicy"),
+// 			Priority:           pulumi.Int(110),
+// 			ResourceGroupName:  pulumi.String("rg1"),
+// 			RuleGroupName:      pulumi.String("ruleGroup1"),
+// 			Rules: network.FirewallPolicyRuleArray{
+// 				&network.FirewallPolicyRuleArgs{
+// 					Action: pulumi.StringMap{
+// 						"type": pulumi.String("Deny"),
+// 					},
+// 					Name: pulumi.String("Example-Filter-Rule"),
+// 					RuleConditions: pulumi.MapArray{
+// 						pulumi.Map{
+// 							"destinationIpGroups": pulumi.StringArray{
+// 								pulumi.String("/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups2"),
+// 							},
+// 							"destinationPorts": pulumi.StringArray{
+// 								pulumi.String("*"),
+// 							},
+// 							"ipProtocols": pulumi.StringArray{
+// 								pulumi.String("TCP"),
+// 							},
+// 							"name":              pulumi.String("network-condition1"),
+// 							"ruleConditionType": pulumi.String("NetworkRuleCondition"),
+// 							"sourceIpGroups": pulumi.StringArray{
+// 								pulumi.String("/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups1"),
+// 							},
+// 						},
+// 					},
+// 					RuleType: pulumi.String("FirewallPolicyFilterRule"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type FirewallPolicyRuleGroup struct {
 	pulumi.CustomResourceState
 

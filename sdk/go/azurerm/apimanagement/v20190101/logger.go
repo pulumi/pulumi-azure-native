@@ -11,6 +11,69 @@ import (
 )
 
 // Logger details.
+//
+// ## Example Usage
+// ### ApiManagementCreateAILogger
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20190101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewLogger(ctx, "logger", &apimanagement.LoggerArgs{
+// 			Credentials: pulumi.StringMap{
+// 				"instrumentation_key": pulumi.String("11................a1"),
+// 			},
+// 			Description:       pulumi.String("adding a new logger"),
+// 			LoggerId:          pulumi.String("loggerId"),
+// 			LoggerType:        pulumi.String("applicationInsights"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateEHLogger
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20190101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewLogger(ctx, "logger", &apimanagement.LoggerArgs{
+// 			Credentials: pulumi.StringMap{
+// 				"connection_string": pulumi.String("Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********="),
+// 				"name":              pulumi.String("hydraeventhub"),
+// 			},
+// 			Description:       pulumi.String("adding a new logger"),
+// 			LoggerId:          pulumi.String("loggerId"),
+// 			LoggerType:        pulumi.String("azureEventHub"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Logger struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,54 @@ import (
 )
 
 // Wrapper resource for tags API requests and responses.
+//
+// ## Example Usage
+// ### Update tags on a resource
+//
+// ```go
+// package main
+//
+// import (
+// 	resources "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/resources/v20200601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := resources.NewTagAtScope(ctx, "tagAtScope", &resources.TagAtScopeArgs{
+// 			Scope: pulumi.String("subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/myPRNameSpace/VM/myVm"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Update tags on a subscription
+//
+// ```go
+// package main
+//
+// import (
+// 	resources "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/resources/v20200601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := resources.NewTagAtScope(ctx, "tagAtScope", &resources.TagAtScopeArgs{
+// 			Scope: pulumi.String("subscriptions/00000000-0000-0000-0000-000000000000"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type TagAtScope struct {
 	pulumi.CustomResourceState
 

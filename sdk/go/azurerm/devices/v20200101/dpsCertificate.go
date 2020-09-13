@@ -11,6 +11,34 @@ import (
 )
 
 // The X509 Certificate.
+//
+// ## Example Usage
+// ### DPSCreateOrUpdateCertificate
+//
+// ```go
+// package main
+//
+// import (
+// 	devices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/devices/v20200101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := devices.NewDpsCertificate(ctx, "dpsCertificate", &devices.DpsCertificateArgs{
+// 			Certificate:             pulumi.String("############################################"),
+// 			CertificateName:         pulumi.String("cert"),
+// 			ProvisioningServiceName: pulumi.String("myFirstProvisioningService"),
+// 			ResourceGroupName:       pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DpsCertificate struct {
 	pulumi.CustomResourceState
 

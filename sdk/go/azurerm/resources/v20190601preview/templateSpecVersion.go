@@ -11,6 +11,13 @@ import (
 )
 
 // Template Spec Version object.
+//
+// ## Example Usage
+// ### TemplateSpecVersionsCreateUpdate
+//
+// ```go
+//
+// ```
 type TemplateSpecVersion struct {
 	pulumi.CustomResourceState
 

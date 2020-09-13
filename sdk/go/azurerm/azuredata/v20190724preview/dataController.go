@@ -11,6 +11,40 @@ import (
 )
 
 // Data controller resource
+//
+// ## Example Usage
+// ### Updates a dataControllers tags.
+//
+// ```go
+// package main
+//
+// import (
+// 	azuredata "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/azuredata/v20190724preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := azuredata.NewDataController(ctx, "dataController", &azuredata.DataControllerArgs{
+// 			DataControllerName: pulumi.String("testdataController"),
+// 			Location:           pulumi.String("northeurope"),
+// 			OnPremiseProperty: &azuredata.OnPremisePropertyArgs{
+// 				Id:               pulumi.String("12345678-1234-1234-ab12-1a2b3c4d5e6f"),
+// 				PublicSigningKey: pulumi.String("publicOnPremSigningKey"),
+// 			},
+// 			ResourceGroupName: pulumi.String("testrg"),
+// 			Tags: pulumi.StringMap{
+// 				"mytag": pulumi.String("myval"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DataController struct {
 	pulumi.CustomResourceState
 

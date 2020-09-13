@@ -11,6 +11,40 @@ import (
 )
 
 // The integration account map.
+//
+// ## Example Usage
+// ### Create or update a map
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	logic "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/logic/v20160601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := logic.NewMap(ctx, "_map", &logic.MapArgs{
+// 			Content: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" xmlns:msxsl=\"urn:schemas-microsoft-com:xslt\" xmlns:var=\"http://schemas.microsoft.com/BizTalk/2003/var\" exclude-result-prefixes=\"msxsl var s0 userCSharp\" version=\"1.0\" xmlns:ns0=\"http://BizTalk_Server_Project4.StringFunctoidsDestinationSchema\" xmlns:s0=\"http://BizTalk_Server_Project4.StringFunctoidsSourceSchema\" xmlns:userCSharp=\"http://schemas.microsoft.com/BizTalk/2003/userCSharp\">\n  <xsl:import href=\"http://btsfunctoids.blob.core.windows.net/functoids/functoids.xslt\" />\n  <xsl:output omit-xml-declaration=\"yes\" method=\"xml\" version=\"1.0\" />\n  <xsl:template match=\"/\">\n    <xsl:apply-templates select=\"/s0:Root\" />\n  </xsl:template>\n  <xsl:template match=\"/s0:Root\">\n    <xsl:variable name=\"var:v1\" select=\"userCSharp:StringFind(string(StringFindSource/text()) , &quot;SearchString&quot;)\" />\n    <xsl:variable name=\"var:v2\" select=\"userCSharp:StringLeft(string(StringLeftSource/text()) , &quot;2&quot;)\" />\n    <xsl:variable name=\"var:v3\" select=\"userCSharp:StringRight(string(StringRightSource/text()) , &quot;2&quot;)\" />\n    <xsl:variable name=\"var:v4\" select=\"userCSharp:StringUpperCase(string(UppercaseSource/text()))\" />\n    <xsl:variable name=\"var:v5\" select=\"userCSharp:StringLowerCase(string(LowercaseSource/text()))\" />\n    <xsl:variable name=\"var:v6\" select=\"userCSharp:StringSize(string(SizeSource/text()))\" />\n    <xsl:variable name=\"var:v7\" select=\"userCSharp:StringSubstring(string(StringExtractSource/text()) , &quot;0&quot; , &quot;2&quot;)\" />\n    <xsl:variable name=\"var:v8\" select=\"userCSharp:StringConcat(string(StringConcatSource/text()))\" />\n    <xsl:variable name=\"var:v9\" select=\"userCSharp:StringTrimLeft(string(StringLeftTrimSource/text()))\" />\n    <xsl:variable name=\"var:v10\" select=\"userCSharp:StringTrimRight(string(StringRightTrimSource/text()))\" />\n    <ns0:Root>\n      <StringFindDestination>\n        <xsl:value-of select=\"", "$", "var:v1\" />\n      </StringFindDestination>\n      <StringLeftDestination>\n        <xsl:value-of select=\"", "$", "var:v2\" />\n      </StringLeftDestination>\n      <StringRightDestination>\n        <xsl:value-of select=\"", "$", "var:v3\" />\n      </StringRightDestination>\n      <UppercaseDestination>\n        <xsl:value-of select=\"", "$", "var:v4\" />\n      </UppercaseDestination>\n      <LowercaseDestination>\n        <xsl:value-of select=\"", "$", "var:v5\" />\n      </LowercaseDestination>\n      <SizeDestination>\n        <xsl:value-of select=\"", "$", "var:v6\" />\n      </SizeDestination>\n      <StringExtractDestination>\n        <xsl:value-of select=\"", "$", "var:v7\" />\n      </StringExtractDestination>\n      <StringConcatDestination>\n        <xsl:value-of select=\"", "$", "var:v8\" />\n      </StringConcatDestination>\n      <StringLeftTrimDestination>\n        <xsl:value-of select=\"", "$", "var:v9\" />\n      </StringLeftTrimDestination>\n      <StringRightTrimDestination>\n        <xsl:value-of select=\"", "$", "var:v10\" />\n      </StringRightTrimDestination>\n    </ns0:Root>\n  </xsl:template>\n</xsl:stylesheet>")),
+// 			ContentType:            pulumi.String("application/xml"),
+// 			IntegrationAccountName: pulumi.String("testIntegrationAccount"),
+// 			Location:               pulumi.String("westus"),
+// 			MapName:                pulumi.String("testMap"),
+// 			MapType:                pulumi.String("Xslt"),
+// 			Metadata:               nil,
+// 			ResourceGroupName:      pulumi.String("testResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Map struct {
 	pulumi.CustomResourceState
 

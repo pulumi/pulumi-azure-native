@@ -11,6 +11,37 @@ import (
 )
 
 // Linked storage accounts top level resource container.
+//
+// ## Example Usage
+// ### LinkedStorageAccountsCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	operationalinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationalinsights/v20190801preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := operationalinsights.NewLinkedStorageAccount(ctx, "linkedStorageAccount", &operationalinsights.LinkedStorageAccountArgs{
+// 			DataSourceType:    pulumi.String("CustomLogs"),
+// 			ResourceGroupName: pulumi.String("mms-eus"),
+// 			StorageAccountIds: pulumi.StringArray{
+// 				pulumi.String("/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageA"),
+// 				pulumi.String("/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageB"),
+// 			},
+// 			WorkspaceName: pulumi.String("testLinkStorageAccountsWS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type LinkedStorageAccount struct {
 	pulumi.CustomResourceState
 

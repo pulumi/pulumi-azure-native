@@ -11,6 +11,70 @@ import (
 )
 
 // The Get Storage Account ManagementPolicies operation response.
+//
+// ## Example Usage
+// ### StorageAccountSetManagementPolicies
+//
+// ```go
+// package main
+//
+// import (
+// 	storage "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storage/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storage.NewStorageAccountManagementPolicies(ctx, "storageAccountManagementPolicies", &storage.StorageAccountManagementPoliciesArgs{
+// 			AccountName:          pulumi.String("sto9699"),
+// 			ManagementPolicyName: pulumi.String("default"),
+// 			Policy: pulumi.Map{
+// 				"rules": pulumi.MapArray{
+// 					pulumi.Map{
+// 						"definition": pulumi.Map{
+// 							"actions": pulumi.Float64MapMapMap{
+// 								"base_blob": pulumi.Float64MapMap{
+// 									"delete": pulumi.Float64Map{
+// 										"days_after_modification_greater_than": pulumi.Float64(1000),
+// 									},
+// 									"tier_to_archive": pulumi.Float64Map{
+// 										"days_after_modification_greater_than": pulumi.Float64(90),
+// 									},
+// 									"tier_to_cool": pulumi.Float64Map{
+// 										"days_after_modification_greater_than": pulumi.Float64(30),
+// 									},
+// 								},
+// 								"snapshot": pulumi.Float64MapMap{
+// 									"delete": pulumi.Float64Map{
+// 										"days_after_creation_greater_than": pulumi.Float64(30),
+// 									},
+// 								},
+// 							},
+// 							"filters": pulumi.StringArrayMap{
+// 								"blob_types": pulumi.StringArray{
+// 									pulumi.String("blockBlob"),
+// 								},
+// 								"prefix_match": pulumi.StringArray{
+// 									pulumi.String("olcmtestcontainer"),
+// 								},
+// 							},
+// 						},
+// 						"name": pulumi.String("olcmtest"),
+// 						"type": pulumi.String("Lifecycle"),
+// 					},
+// 				},
+// 				"version": pulumi.String("0.5"),
+// 			},
+// 			ResourceGroupName: pulumi.String("res7687"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type StorageAccountManagementPolicies struct {
 	pulumi.CustomResourceState
 

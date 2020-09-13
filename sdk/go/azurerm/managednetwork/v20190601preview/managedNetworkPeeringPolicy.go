@@ -11,6 +11,33 @@ import (
 )
 
 // The Managed Network Peering Policy resource
+//
+// ## Example Usage
+// ### ManagedNetworkPeeringPoliciesPut
+//
+// ```go
+// package main
+//
+// import (
+// 	managednetwork "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/managednetwork/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := managednetwork.NewManagedNetworkPeeringPolicy(ctx, "managedNetworkPeeringPolicy", &managednetwork.ManagedNetworkPeeringPolicyArgs{
+// 			ManagedNetworkName:              pulumi.String("myManagedNetwork"),
+// 			ManagedNetworkPeeringPolicyName: pulumi.String("myHubAndSpoke"),
+// 			ResourceGroupName:               pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ManagedNetworkPeeringPolicy struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,36 @@ import (
 )
 
 // Represents a and external administrator to be created.
+//
+// ## Example Usage
+// ### ServerAdministratorCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	dbformysql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbformysql/v20171201"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbformysql.NewServerAdministrator(ctx, "serverAdministrator", &dbformysql.ServerAdministratorArgs{
+// 			AdministratorType: pulumi.String("ActiveDirectory"),
+// 			Login:             pulumi.String("bob@contoso.com"),
+// 			ResourceGroupName: pulumi.String("testrg"),
+// 			ServerName:        pulumi.String("mysqltestsvc4"),
+// 			Sid:               pulumi.String("c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c"),
+// 			TenantId:          pulumi.String("c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ServerAdministrator struct {
 	pulumi.CustomResourceState
 

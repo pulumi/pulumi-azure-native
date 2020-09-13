@@ -11,6 +11,62 @@ import (
 )
 
 // Base class for backup items.
+//
+// ## Example Usage
+// ### Enable Protection on Azure IaasVm
+//
+// ```go
+// package main
+//
+// import (
+// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/v20190513"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := recoveryservices.NewProtectedItem(ctx, "protectedItem", &recoveryservices.ProtectedItemArgs{
+// 			ContainerName:     pulumi.String("IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1"),
+// 			FabricName:        pulumi.String("Azure"),
+// 			ProtectedItemName: pulumi.String("VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1"),
+// 			ResourceGroupName: pulumi.String("SwaggerTestRg"),
+// 			VaultName:         pulumi.String("NetSDKTestRsVault"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Stop Protection with retain data on Azure IaasVm
+//
+// ```go
+// package main
+//
+// import (
+// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/v20190513"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := recoveryservices.NewProtectedItem(ctx, "protectedItem", &recoveryservices.ProtectedItemArgs{
+// 			ContainerName:     pulumi.String("IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1"),
+// 			FabricName:        pulumi.String("Azure"),
+// 			ProtectedItemName: pulumi.String("VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1"),
+// 			ResourceGroupName: pulumi.String("SwaggerTestRg"),
+// 			VaultName:         pulumi.String("NetSDKTestRsVault"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ProtectedItem struct {
 	pulumi.CustomResourceState
 

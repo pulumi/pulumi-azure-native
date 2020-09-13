@@ -11,6 +11,87 @@ import (
 )
 
 // The service resource.
+//
+// ## Example Usage
+// ### Put a service with maximum parameters
+//
+// ```go
+// package main
+//
+// import (
+// 	servicefabric "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicefabric/v20170701preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicefabric.NewService(ctx, "service", &servicefabric.ServiceArgs{
+// 			ApplicationName: pulumi.String("myApp"),
+// 			ClusterName:     pulumi.String("myCluster"),
+// 			CorrelationScheme: servicefabric.ServiceCorrelationDescriptionArray{
+// 				&servicefabric.ServiceCorrelationDescriptionArgs{
+// 					Scheme:      pulumi.String("Affinity"),
+// 					ServiceName: pulumi.String("fabric:/app1/app1~svc1"),
+// 				},
+// 			},
+// 			DefaultMoveCost: pulumi.String("Medium"),
+// 			Location:        pulumi.String("eastus"),
+// 			PartitionDescription: &servicefabric.PartitionSchemeDescriptionArgs{
+// 				PartitionScheme: pulumi.String("Singleton"),
+// 			},
+// 			PlacementConstraints: pulumi.String("NodeType==frontend"),
+// 			ResourceGroupName:    pulumi.String("resRg"),
+// 			ServiceKind:          pulumi.String("Stateless"),
+// 			ServiceLoadMetrics: servicefabric.ServiceLoadMetricDescriptionArray{
+// 				&servicefabric.ServiceLoadMetricDescriptionArgs{
+// 					Name:   pulumi.String("metric1"),
+// 					Weight: pulumi.String("Low"),
+// 				},
+// 			},
+// 			ServiceName:              pulumi.String("myService"),
+// 			ServicePlacementPolicies: servicefabric.ServicePlacementPolicyDescriptionArray{},
+// 			ServiceTypeName:          pulumi.String("myServiceType"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Put a service with minimum parameters
+//
+// ```go
+// package main
+//
+// import (
+// 	servicefabric "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicefabric/v20170701preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicefabric.NewService(ctx, "service", &servicefabric.ServiceArgs{
+// 			ApplicationName: pulumi.String("myApp"),
+// 			ClusterName:     pulumi.String("myCluster"),
+// 			Location:        pulumi.String("eastus"),
+// 			PartitionDescription: &servicefabric.PartitionSchemeDescriptionArgs{
+// 				PartitionScheme: pulumi.String("Singleton"),
+// 			},
+// 			ResourceGroupName: pulumi.String("resRg"),
+// 			ServiceKind:       pulumi.String("Stateless"),
+// 			ServiceName:       pulumi.String("myService"),
+// 			ServiceTypeName:   pulumi.String("myServiceType"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Service struct {
 	pulumi.CustomResourceState
 

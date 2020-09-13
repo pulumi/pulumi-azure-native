@@ -11,6 +11,45 @@ import (
 )
 
 // Single item in List or Get Event Hub operation
+//
+// ## Example Usage
+// ### EventHubCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	eventhub "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventhub/v20170401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := eventhub.NewEventHub(ctx, "eventHub", &eventhub.EventHubArgs{
+// 			CaptureDescription: &eventhub.CaptureDescriptionArgs{
+// 				Destination: &eventhub.DestinationArgs{
+// 					Name: pulumi.String("EventHubArchive.AzureBlockBlob"),
+// 				},
+// 				Enabled:           pulumi.Bool(true),
+// 				Encoding:          pulumi.String("Avro"),
+// 				IntervalInSeconds: pulumi.Int(120),
+// 				SizeLimitInBytes:  pulumi.Int(10485763),
+// 			},
+// 			EventHubName:           pulumi.String("sdk-EventHub-6547"),
+// 			MessageRetentionInDays: pulumi.Int(4),
+// 			NamespaceName:          pulumi.String("sdk-Namespace-5357"),
+// 			PartitionCount:         pulumi.Int(4),
+// 			ResourceGroupName:      pulumi.String("Default-NotificationHubs-AustraliaEast"),
+// 			Status:                 pulumi.String("Active"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type EventHub struct {
 	pulumi.CustomResourceState
 

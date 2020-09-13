@@ -11,6 +11,40 @@ import (
 )
 
 // A SqlManagedInstance.
+//
+// ## Example Usage
+// ### Updates a SQL Managed Instance tags.
+//
+// ```go
+// package main
+//
+// import (
+// 	azuredata "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/azuredata/v20190724preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := azuredata.NewSqlManagedInstance(ctx, "sqlManagedInstance", &azuredata.SqlManagedInstanceArgs{
+// 			Admin:                  pulumi.String("Admin user"),
+// 			EndTime:                pulumi.String("Instance end time"),
+// 			InstanceEndpoint:       pulumi.String("The on premise instance endpoint"),
+// 			Location:               pulumi.String("northeurope"),
+// 			ResourceGroupName:      pulumi.String("testrg"),
+// 			SqlManagedInstanceName: pulumi.String("testsqlManagedInstance"),
+// 			StartTime:              pulumi.String("Instance start time"),
+// 			Tags: pulumi.StringMap{
+// 				"mytag": pulumi.String("myval"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SqlManagedInstance struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,41 @@ import (
 )
 
 // Enterprise Channel resource definition
+//
+// ## Example Usage
+// ### Create Enterprise Channel
+//
+// ```go
+// package main
+//
+// import (
+// 	botservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/botservice/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := botservice.NewEnterpriseChannel(ctx, "enterpriseChannel", &botservice.EnterpriseChannelArgs{
+// 			Etag:              pulumi.String("etag1"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("OneResourceGroupName"),
+// 			ResourceName:      pulumi.String("contoso-dl"),
+// 			Sku: &botservice.SkuArgs{
+// 				Name: pulumi.String("S1"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("value1"),
+// 				"tag2": pulumi.String("value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type EnterpriseChannel struct {
 	pulumi.CustomResourceState
 

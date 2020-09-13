@@ -11,6 +11,38 @@ import (
 )
 
 // Server Endpoint object.
+//
+// ## Example Usage
+// ### ServerEndpoints_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	storagesync "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storagesync/v20180402"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storagesync.NewServerEndpoint(ctx, "serverEndpoint", &storagesync.ServerEndpointArgs{
+// 			CloudTiering:           pulumi.String("off"),
+// 			ResourceGroupName:      pulumi.String("SampleResourceGroup_1"),
+// 			ServerEndpointName:     pulumi.String("SampleServerEndpoint_1"),
+// 			ServerLocalPath:        pulumi.String("D:\\SampleServerEndpoint_1"),
+// 			ServerResourceId:       pulumi.String("/subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncServer_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a"),
+// 			StorageSyncServiceName: pulumi.String("SampleStorageSyncService_1"),
+// 			SyncGroupName:          pulumi.String("SampleSyncGroup_1"),
+// 			VolumeFreeSpacePercent: pulumi.Int(100),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ServerEndpoint struct {
 	pulumi.CustomResourceState
 

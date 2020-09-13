@@ -11,6 +11,37 @@ import (
 )
 
 // An Azure Cosmos DB SQL database.
+//
+// ## Example Usage
+// ### CosmosDBSqlDatabaseCreateUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/v20160319"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := documentdb.NewDatabaseAccountSqlDatabase(ctx, "databaseAccountSqlDatabase", &documentdb.DatabaseAccountSqlDatabaseArgs{
+// 			AccountName:  pulumi.String("ddb1"),
+// 			DatabaseName: pulumi.String("databaseName"),
+// 			Options:      nil,
+// 			Resource: &documentdb.SqlDatabaseResourceArgs{
+// 				Id: pulumi.String("databaseName"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DatabaseAccountSqlDatabase struct {
 	pulumi.CustomResourceState
 

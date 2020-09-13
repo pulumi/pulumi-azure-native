@@ -11,6 +11,76 @@ import (
 )
 
 // PrivateLink Policy configuration object.
+//
+// ## Example Usage
+// ### privateLinkPolicyCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	aadiam "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/aadiam/v20200301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := aadiam.NewprivateLinkForAzureAd(ctx, "privateLinkForAzureAd", &aadiam.privateLinkForAzureAdArgs{
+// 			AllTenants:        pulumi.Bool(false),
+// 			Name:              pulumi.String("myOrgPrivateLinkPolicy"),
+// 			OwnerTenantId:     pulumi.String("950f8bca-bf4d-4a41-ad10-034e792a243d"),
+// 			PolicyName:        pulumi.String("ddb1"),
+// 			ResourceGroup:     pulumi.String("myOrgVnetRG"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ResourceName:      pulumi.String("myOrgVnetPrivateLink"),
+// 			SubscriptionId:    pulumi.String("57849194-ea1f-470b-abda-d195b25634c1"),
+// 			Tenants: pulumi.StringArray{
+// 				pulumi.String("3616657d-1c80-41ae-9d83-2a2776f2c9be"),
+// 				pulumi.String("727b6ef1-18ab-4627-ac95-3f9cd945ed87"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### privateLinkPolicyMinCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	aadiam "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/aadiam/v20200301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := aadiam.NewprivateLinkForAzureAd(ctx, "privateLinkForAzureAd", &aadiam.privateLinkForAzureAdArgs{
+// 			AllTenants:        pulumi.Bool(false),
+// 			Name:              pulumi.String("myOrgPrivateLinkPolicy"),
+// 			OwnerTenantId:     pulumi.String("950f8bca-bf4d-4a41-ad10-034e792a243d"),
+// 			PolicyName:        pulumi.String("ddb1"),
+// 			ResourceGroup:     pulumi.String("myOrgVnetRG"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ResourceName:      pulumi.String("myOrgVnetPrivateLink"),
+// 			SubscriptionId:    pulumi.String("57849194-ea1f-470b-abda-d195b25634c1"),
+// 			Tenants: pulumi.StringArray{
+// 				pulumi.String("3616657d-1c80-41ae-9d83-2a2776f2c9be"),
+// 				pulumi.String("727b6ef1-18ab-4627-ac95-3f9cd945ed87"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateLinkForAzureAd struct {
 	pulumi.CustomResourceState
 

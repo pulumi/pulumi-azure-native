@@ -11,6 +11,116 @@ import (
 )
 
 // Class representing a Traffic Manager endpoint.
+//
+// ## Example Usage
+// ### Endpoint-PUT-External-WithCustomHeaders
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewEndpoint(ctx, "endpoint", &network.EndpointArgs{
+// 			CustomHeaders: network.EndpointPropertiesCustomHeadersArray{
+// 				&network.EndpointPropertiesCustomHeadersArgs{
+// 					Name:  pulumi.String("header-1"),
+// 					Value: pulumi.String("value-1"),
+// 				},
+// 				&network.EndpointPropertiesCustomHeadersArgs{
+// 					Name:  pulumi.String("header-2"),
+// 					Value: pulumi.String("value-2"),
+// 				},
+// 			},
+// 			EndpointLocation:  pulumi.String("North Europe"),
+// 			EndpointName:      pulumi.String("azsmnet7187"),
+// 			EndpointStatus:    pulumi.String("Enabled"),
+// 			EndpointType:      pulumi.String("ExternalEndpoints"),
+// 			Name:              pulumi.String("azsmnet7187"),
+// 			ProfileName:       pulumi.String("azsmnet6386"),
+// 			ResourceGroupName: pulumi.String("azuresdkfornetautoresttrafficmanager1421"),
+// 			Target:            pulumi.String("foobar.contoso.com"),
+// 			Type:              pulumi.String("Microsoft.network/TrafficManagerProfiles/ExternalEndpoints"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Endpoint-PUT-External-WithGeoMapping
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewEndpoint(ctx, "endpoint", &network.EndpointArgs{
+// 			EndpointName:   pulumi.String(fmt.Sprintf("%v%v%v%v%v", "My", "%", "20external", "%", "20endpoint")),
+// 			EndpointStatus: pulumi.String("Enabled"),
+// 			EndpointType:   pulumi.String("ExternalEndpoints"),
+// 			GeoMapping: pulumi.StringArray{
+// 				pulumi.String("GEO-AS"),
+// 				pulumi.String("GEO-AF"),
+// 			},
+// 			Name:              pulumi.String("My external endpoint"),
+// 			ProfileName:       pulumi.String("azuresdkfornetautoresttrafficmanager8224"),
+// 			ResourceGroupName: pulumi.String("azuresdkfornetautoresttrafficmanager2191"),
+// 			Target:            pulumi.String("foobar.contoso.com"),
+// 			Type:              pulumi.String("Microsoft.network/TrafficManagerProfiles/ExternalEndpoints"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Endpoint-PUT-External-WithLocation
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewEndpoint(ctx, "endpoint", &network.EndpointArgs{
+// 			EndpointLocation:  pulumi.String("North Europe"),
+// 			EndpointName:      pulumi.String("azsmnet7187"),
+// 			EndpointStatus:    pulumi.String("Enabled"),
+// 			EndpointType:      pulumi.String("ExternalEndpoints"),
+// 			Name:              pulumi.String("azsmnet7187"),
+// 			ProfileName:       pulumi.String("azsmnet6386"),
+// 			ResourceGroupName: pulumi.String("azuresdkfornetautoresttrafficmanager1421"),
+// 			Target:            pulumi.String("foobar.contoso.com"),
+// 			Type:              pulumi.String("Microsoft.network/TrafficManagerProfiles/ExternalEndpoints"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 

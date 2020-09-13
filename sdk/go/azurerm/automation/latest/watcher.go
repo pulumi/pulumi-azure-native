@@ -11,6 +11,38 @@ import (
 )
 
 // Definition of the watcher type.
+//
+// ## Example Usage
+// ### Create or update watcher
+//
+// ```go
+// package main
+//
+// import (
+// 	automation "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/automation/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := automation.NewWatcher(ctx, "watcher", &automation.WatcherArgs{
+// 			AutomationAccountName:       pulumi.String("MyTestAutomationAccount"),
+// 			Description:                 pulumi.String("This is a test watcher."),
+// 			ExecutionFrequencyInSeconds: pulumi.Int(60),
+// 			ResourceGroupName:           pulumi.String("rg"),
+// 			ScriptName:                  pulumi.String("MyTestWatcherRunbook"),
+// 			ScriptRunOn:                 pulumi.String("MyTestHybridWorkerGroup"),
+// 			Tags:                        nil,
+// 			WatcherName:                 pulumi.String("MyTestWatcher"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Watcher struct {
 	pulumi.CustomResourceState
 

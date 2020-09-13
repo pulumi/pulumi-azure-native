@@ -11,6 +11,38 @@ import (
 )
 
 // The Backup Schedule Group
+//
+// ## Example Usage
+// ### BackupScheduleGroupsCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/v20161001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storsimple.NewBackupScheduleGroup(ctx, "backupScheduleGroup", &storsimple.BackupScheduleGroupArgs{
+// 			DeviceName:        pulumi.String("HSDK-4XY4FI2IVG"),
+// 			ManagerName:       pulumi.String("hAzureSDKOperations"),
+// 			ResourceGroupName: pulumi.String("ResourceGroupForSDKTest"),
+// 			ScheduleGroupName: pulumi.String("BackupSchGroupForSDKTest"),
+// 			StartTime: &storsimple.TimeArgs{
+// 				Hour:   pulumi.Int(17),
+// 				Minute: pulumi.Int(38),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type BackupScheduleGroup struct {
 	pulumi.CustomResourceState
 

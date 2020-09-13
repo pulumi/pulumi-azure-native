@@ -11,6 +11,35 @@ import (
 )
 
 // Policy Contract details.
+//
+// ## Example Usage
+// ### ApiManagementCreatePolicy
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewPolicy(ctx, "policy", &apimanagement.PolicyArgs{
+// 			Format:            pulumi.String("xml"),
+// 			PolicyId:          pulumi.String("policy"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			Value: pulumi.String("<policies>\n  <inbound />\n  <backend>\n    <forward-request />\n  </backend>\n  <outbound />\n</policies>"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 

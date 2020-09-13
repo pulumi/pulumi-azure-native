@@ -11,6 +11,80 @@ import (
 )
 
 // An Asset Filter.
+//
+// ## Example Usage
+// ### Create an Asset Filter
+//
+// ```go
+// package main
+//
+// import (
+// 	media "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/media/v20200501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := media.NewAssetFilter(ctx, "assetFilter", &media.AssetFilterArgs{
+// 			AccountName: pulumi.String("contosomedia"),
+// 			AssetName:   pulumi.String("ClimbingMountRainer"),
+// 			FilterName:  pulumi.String("newAssetFilter"),
+// 			FirstQuality: &media.FirstQualityArgs{
+// 				Bitrate: pulumi.Int(128000),
+// 			},
+// 			PresentationTimeRange: &media.PresentationTimeRangeArgs{
+// 				EndTimestamp:               pulumi.Int(170000000),
+// 				ForceEndTimestamp:          pulumi.Bool(false),
+// 				LiveBackoffDuration:        pulumi.Int(0),
+// 				PresentationWindowDuration: pulumi.Int(9.223372036854776e+18),
+// 				StartTimestamp:             pulumi.Int(0),
+// 				Timescale:                  pulumi.Int(10000000),
+// 			},
+// 			ResourceGroupName: pulumi.String("contoso"),
+// 			Tracks: media.FilterTrackSelectionArray{
+// 				&media.FilterTrackSelectionArgs{
+// 					TrackSelections: media.FilterTrackPropertyConditionArray{
+// 						&media.FilterTrackPropertyConditionArgs{
+// 							Operation: pulumi.String("Equal"),
+// 							Property:  pulumi.String("Type"),
+// 							Value:     pulumi.String("Audio"),
+// 						},
+// 						&media.FilterTrackPropertyConditionArgs{
+// 							Operation: pulumi.String("NotEqual"),
+// 							Property:  pulumi.String("Language"),
+// 							Value:     pulumi.String("en"),
+// 						},
+// 						&media.FilterTrackPropertyConditionArgs{
+// 							Operation: pulumi.String("NotEqual"),
+// 							Property:  pulumi.String("FourCC"),
+// 							Value:     pulumi.String("EC-3"),
+// 						},
+// 					},
+// 				},
+// 				&media.FilterTrackSelectionArgs{
+// 					TrackSelections: media.FilterTrackPropertyConditionArray{
+// 						&media.FilterTrackPropertyConditionArgs{
+// 							Operation: pulumi.String("Equal"),
+// 							Property:  pulumi.String("Type"),
+// 							Value:     pulumi.String("Video"),
+// 						},
+// 						&media.FilterTrackPropertyConditionArgs{
+// 							Operation: pulumi.String("Equal"),
+// 							Property:  pulumi.String("Bitrate"),
+// 							Value:     pulumi.String("3000000-5000000"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type AssetFilter struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,87 @@ import (
 )
 
 // Defines web application firewall policy.
+//
+// ## Example Usage
+// ### Creates specific policy
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20200401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewPolicy(ctx, "policy", &network.PolicyArgs{
+// 			CustomRules: &network.CustomRuleListArgs{
+// 				Rules: network.CustomRuleArray{
+// 					&network.CustomRuleArgs{
+// 						Action: pulumi.String("Block"),
+// 						MatchConditions: network.MatchConditionArray{
+// 							&network.MatchConditionArgs{
+// 								Operator: pulumi.String("IPMatch"),
+// 							},
+// 						},
+// 						Name:               pulumi.String("Rule1"),
+// 						Priority:           pulumi.Int(1),
+// 						RateLimitThreshold: pulumi.Int(1000),
+// 						RuleType:           pulumi.String("RateLimitRule"),
+// 					},
+// 					&network.CustomRuleArgs{
+// 						Action: pulumi.String("Block"),
+// 						MatchConditions: network.MatchConditionArray{
+// 							&network.MatchConditionArgs{
+// 								Operator: pulumi.String("GeoMatch"),
+// 							},
+// 							&network.MatchConditionArgs{
+// 								Operator: pulumi.String("Contains"),
+// 								Transforms: pulumi.StringArray{
+// 									pulumi.String("Lowercase"),
+// 								},
+// 							},
+// 						},
+// 						Name:     pulumi.String("Rule2"),
+// 						Priority: pulumi.Int(2),
+// 						RuleType: pulumi.String("MatchRule"),
+// 					},
+// 				},
+// 			},
+// 			ManagedRules: &network.ManagedRuleSetListArgs{
+// 				ManagedRuleSets: network.ManagedRuleSetArray{
+// 					&network.ManagedRuleSetArgs{
+// 						RuleGroupOverrides: network.ManagedRuleGroupOverrideArray{
+// 							&network.ManagedRuleGroupOverrideArgs{
+// 								RuleGroupName: pulumi.String("SQLI"),
+// 								Rules: network.ManagedRuleOverrideArray{
+// 									&network.ManagedRuleOverrideArgs{
+// 										RuleId: pulumi.String("942100"),
+// 									},
+// 									&network.ManagedRuleOverrideArgs{
+// 										RuleId: pulumi.String("942110"),
+// 									},
+// 								},
+// 							},
+// 						},
+// 						RuleSetType:    pulumi.String("DefaultRuleSet"),
+// 						RuleSetVersion: pulumi.String("1.0"),
+// 					},
+// 				},
+// 			},
+// 			PolicyName:        pulumi.String("Policy1"),
+// 			PolicySettings:    nil,
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 

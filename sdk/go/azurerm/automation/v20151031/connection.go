@@ -11,6 +11,42 @@ import (
 )
 
 // Definition of the connection.
+//
+// ## Example Usage
+// ### Create or update connection
+//
+// ```go
+// package main
+//
+// import (
+// 	automation "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/automation/v20151031"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := automation.NewConnection(ctx, "connection", &automation.ConnectionArgs{
+// 			AutomationAccountName: pulumi.String("myAutomationAccount28"),
+// 			ConnectionName:        pulumi.String("mysConnection"),
+// 			ConnectionType: &automation.ConnectionTypeAssociationPropertyArgs{
+// 				Name: pulumi.String("Azure"),
+// 			},
+// 			Description: pulumi.String("my description goes here"),
+// 			FieldDefinitionValues: pulumi.StringMap{
+// 				"AutomationCertificateName": pulumi.String("mysCertificateName"),
+// 				"SubscriptionID":            pulumi.String("subid"),
+// 			},
+// 			Name:              pulumi.String("mysConnection"),
+// 			ResourceGroupName: pulumi.String("rg"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Connection struct {
 	pulumi.CustomResourceState
 

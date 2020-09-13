@@ -11,6 +11,54 @@ import (
 )
 
 // Azure DevOps Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
+//
+// ## Example Usage
+// ### Create an Azure pipeline to deploy a sample ASP.Net application to Azure web-app
+//
+// ```go
+// package main
+//
+// import (
+// 	devops "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/devops/v20190701preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := devops.NewPipeline(ctx, "pipeline", &devops.PipelineArgs{
+// 			BootstrapConfiguration: &devops.BootstrapConfigurationArgs{
+// 				Template: &devops.PipelineTemplateArgs{
+// 					Id: pulumi.String("ms.vss-continuous-delivery-pipeline-templates.aspnet-windowswebapp"),
+// 					Parameters: pulumi.StringMap{
+// 						"appInsightLocation": pulumi.String("South India"),
+// 						"appServicePlan":     pulumi.String("S1 Standard"),
+// 						"azureAuth":          pulumi.String("{\"scheme\":\"ServicePrincipal\",\"parameters\":{\"tenantid\":\"{subscriptionTenantId}\",\"objectid\":\"{appObjectId}\",\"serviceprincipalid\":\"{appId}\",\"serviceprincipalkey\":\"{appSecret}\"}}"),
+// 						"location":           pulumi.String("South India"),
+// 						"resourceGroup":      pulumi.String("myAspNetWebAppPipeline-rg"),
+// 						"subscriptionId":     pulumi.String("{subscriptionId}"),
+// 						"webAppName":         pulumi.String("myAspNetWebApp"),
+// 					},
+// 				},
+// 			},
+// 			Location: pulumi.String("South India"),
+// 			Organization: &devops.OrganizationReferenceArgs{
+// 				Name: pulumi.String("myAspNetWebAppPipeline-org"),
+// 			},
+// 			PipelineName: pulumi.String("myAspNetWebAppPipeline"),
+// 			Project: &devops.ProjectReferenceArgs{
+// 				Name: pulumi.String("myAspNetWebAppPipeline-project"),
+// 			},
+// 			ResourceGroupName: pulumi.String("myAspNetWebAppPipeline-rg"),
+// 			Tags:              nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Pipeline struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,37 @@ import (
 )
 
 // Class representing a cluster principal assignment.
+//
+// ## Example Usage
+// ### KustoClusterPrincipalAssignmentsCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	kusto "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/kusto/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := kusto.NewClusterPrincipalAssignment(ctx, "clusterPrincipalAssignment", &kusto.ClusterPrincipalAssignmentArgs{
+// 			ClusterName:             pulumi.String("kustoclusterrptest4"),
+// 			PrincipalAssignmentName: pulumi.String("kustoprincipal1"),
+// 			PrincipalId:             pulumi.String("87654321-1234-1234-1234-123456789123"),
+// 			PrincipalType:           pulumi.String("App"),
+// 			ResourceGroupName:       pulumi.String("kustorptest"),
+// 			Role:                    pulumi.String("AllDatabasesAdmin"),
+// 			TenantId:                pulumi.String("12345678-1234-1234-1234-123456789123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ClusterPrincipalAssignment struct {
 	pulumi.CustomResourceState
 

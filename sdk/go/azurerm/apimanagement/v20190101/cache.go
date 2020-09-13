@@ -11,6 +11,36 @@ import (
 )
 
 // Cache details.
+//
+// ## Example Usage
+// ### ApiManagementCreateCache
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20190101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewCache(ctx, "cache", &apimanagement.CacheArgs{
+// 			CacheId:           pulumi.String("westindia"),
+// 			ConnectionString:  pulumi.String("contoso5.redis.cache.windows.net,ssl=true,password=..."),
+// 			Description:       pulumi.String("Redis cache instances in West India"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ResourceId:        pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/contoso5"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Cache struct {
 	pulumi.CustomResourceState
 

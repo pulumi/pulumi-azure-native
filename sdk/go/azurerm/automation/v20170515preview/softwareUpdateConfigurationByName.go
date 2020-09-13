@@ -11,6 +11,13 @@ import (
 )
 
 // Software update configuration properties.
+//
+// ## Example Usage
+// ### Create software update configuration
+//
+// ```go
+//
+// ```
 type SoftwareUpdateConfigurationByName struct {
 	pulumi.CustomResourceState
 

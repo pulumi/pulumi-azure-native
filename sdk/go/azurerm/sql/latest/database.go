@@ -11,6 +11,355 @@ import (
 )
 
 // Represents a database.
+//
+// ## Example Usage
+// ### Create a database as a copy
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			CreateMode:        pulumi.String("Copy"),
+// 			DatabaseName:      pulumi.String("testdb"),
+// 			Location:          pulumi.String("Japan East"),
+// 			ResourceGroupName: pulumi.String("sqlcrudtest-4799"),
+// 			ServerName:        pulumi.String("sqlcrudtest-6440"),
+// 			SourceDatabaseId:  pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a database as a dropped database restore to a specific point in time
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			CreateMode:         pulumi.String("Restore"),
+// 			DatabaseName:       pulumi.String("testdb"),
+// 			Location:           pulumi.String("Japan East"),
+// 			ResourceGroupName:  pulumi.String("sqlcrudtest-8412"),
+// 			RestorePointInTime: pulumi.String("2017-05-20T21:24:37.467Z"),
+// 			ServerName:         pulumi.String("sqlcrudtest-3584"),
+// 			SourceDatabaseId:   pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/restorableDroppedDatabases/sourcedb,131403269876900000"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a database as a dropped database restore to deletion time
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			CreateMode:                 pulumi.String("Restore"),
+// 			DatabaseName:               pulumi.String("testdb"),
+// 			Location:                   pulumi.String("Japan East"),
+// 			ResourceGroupName:          pulumi.String("sqlcrudtest-8412"),
+// 			ServerName:                 pulumi.String("sqlcrudtest-3584"),
+// 			SourceDatabaseDeletionDate: pulumi.String("2017-05-27T02:49:47.69Z"),
+// 			SourceDatabaseId:           pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/sourcedb"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a database as a geo restore
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			CreateMode:        pulumi.String("Recovery"),
+// 			DatabaseName:      pulumi.String("testdb"),
+// 			Location:          pulumi.String("Japan East"),
+// 			ResourceGroupName: pulumi.String("sqlcrudtest-8412"),
+// 			ServerName:        pulumi.String("sqlcrudtest-3584"),
+// 			SourceDatabaseId:  pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/recoverableDatabases/sourcedb"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a database as a non-readable secondary
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			CreateMode:        pulumi.String("NonReadableSecondary"),
+// 			DatabaseName:      pulumi.String("testdb"),
+// 			Location:          pulumi.String("Japan East"),
+// 			ResourceGroupName: pulumi.String("sqlcrudtest-4799"),
+// 			ServerName:        pulumi.String("sqlcrudtest-6440"),
+// 			SourceDatabaseId:  pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a database as a point in time restore
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			CreateMode:         pulumi.String("PointInTimeRestore"),
+// 			DatabaseName:       pulumi.String("testdb"),
+// 			Location:           pulumi.String("Japan East"),
+// 			ResourceGroupName:  pulumi.String("sqlcrudtest-8412"),
+// 			RestorePointInTime: pulumi.String("2017-02-16T21:24:37.467Z"),
+// 			ServerName:         pulumi.String("sqlcrudtest-3584"),
+// 			SourceDatabaseId:   pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a database as an online secondary
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			CreateMode:        pulumi.String("OnlineSecondary"),
+// 			DatabaseName:      pulumi.String("testdb"),
+// 			Location:          pulumi.String("Japan East"),
+// 			ResourceGroupName: pulumi.String("sqlcrudtest-4799"),
+// 			ServerName:        pulumi.String("sqlcrudtest-6440"),
+// 			SourceDatabaseId:  pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-3782/databases/testdb"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a database from a long term retention backup
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			CreateMode:                              pulumi.String("RestoreLongTermRetentionBackup"),
+// 			DatabaseName:                            pulumi.String("testdb"),
+// 			Location:                                pulumi.String("Japan East"),
+// 			RecoveryServicesRecoveryPointResourceId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444 /resourceGroups/sqlcrudtest-8412/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/AzureSqlContainer;Sql;sqlcrudtest-8412;testsvr/protectedItems/AzureSqlDb;dsName;testdb;9dafcc99-7c84-4727-88ee-1a4fdb89afd7/RecoveryPoints/16043455089734"),
+// 			ResourceGroupName:                       pulumi.String("sqlcrudtest-8412"),
+// 			ServerName:                              pulumi.String("sqlcrudtest-3584"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a database max
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			Collation:                     pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
+// 			CreateMode:                    pulumi.String("Default"),
+// 			DatabaseName:                  pulumi.String("testdb"),
+// 			Edition:                       pulumi.String("Standard"),
+// 			Location:                      pulumi.String("Japan East"),
+// 			MaxSizeBytes:                  pulumi.String("268435456000"),
+// 			ReadScale:                     pulumi.String("Disabled"),
+// 			RequestedServiceObjectiveId:   pulumi.String("f1173c43-91bd-4aaa-973c-54e79e15235b"),
+// 			RequestedServiceObjectiveName: pulumi.String("S0"),
+// 			ResourceGroupName:             pulumi.String("sqlcrudtest-4799"),
+// 			SampleName:                    pulumi.String("AdventureWorksLT"),
+// 			ServerName:                    pulumi.String("sqlcrudtest-6440"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a database min
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			DatabaseName:      pulumi.String("testdb"),
+// 			Location:          pulumi.String("Japan East"),
+// 			ResourceGroupName: pulumi.String("sqlcrudtest-4799"),
+// 			ServerName:        pulumi.String("sqlcrudtest-5961"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Update a database max
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			Collation:                     pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
+// 			CreateMode:                    pulumi.String("Default"),
+// 			DatabaseName:                  pulumi.String("testdb"),
+// 			Edition:                       pulumi.String("Standard"),
+// 			Location:                      pulumi.String("Japan East"),
+// 			MaxSizeBytes:                  pulumi.String("268435456000"),
+// 			ReadScale:                     pulumi.String("Disabled"),
+// 			RequestedServiceObjectiveId:   pulumi.String("f1173c43-91bd-4aaa-973c-54e79e15235b"),
+// 			RequestedServiceObjectiveName: pulumi.String("S0"),
+// 			ResourceGroupName:             pulumi.String("sqlcrudtest-4799"),
+// 			ServerName:                    pulumi.String("sqlcrudtest-5961"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Update a database's elastic pool'
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewDatabase(ctx, "database", &sql.DatabaseArgs{
+// 			DatabaseName:      pulumi.String("testdb"),
+// 			ElasticPoolName:   pulumi.String("7537"),
+// 			Location:          pulumi.String("Japan East"),
+// 			ResourceGroupName: pulumi.String("sqlcrudtest-4799"),
+// 			ServerName:        pulumi.String("sqlcrudtest-6440"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Database struct {
 	pulumi.CustomResourceState
 

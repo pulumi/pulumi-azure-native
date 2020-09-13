@@ -11,6 +11,33 @@ import (
 )
 
 // The private endpoint connection of an IotHub
+//
+// ## Example Usage
+// ### PrivateEndpointConnection_Update
+//
+// ```go
+// package main
+//
+// import (
+// 	devices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/devices/v20200801"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := devices.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &devices.PrivateEndpointConnectionArgs{
+// 			PrivateEndpointConnectionName: pulumi.String("myPrivateEndpointConnection"),
+// 			ResourceGroupName:             pulumi.String("myResourceGroup"),
+// 			ResourceName:                  pulumi.String("testHub"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

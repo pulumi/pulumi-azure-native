@@ -11,6 +11,37 @@ import (
 )
 
 // A private endpoint connection
+//
+// ## Example Usage
+// ### Approve or reject a private endpoint connection with a given name.
+//
+// ```go
+// package main
+//
+// import (
+// 	automation "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/automation/v20200113preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := automation.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &automation.PrivateEndpointConnectionArgs{
+// 			AutomationAccountName:         pulumi.String("ddb1"),
+// 			PrivateEndpointConnectionName: pulumi.String("privateEndpointConnectionName"),
+// 			PrivateLinkServiceConnectionState: &automation.PrivateLinkServiceConnectionStatePropertyArgs{
+// 				Description: pulumi.String("Approved by johndoe@contoso.com"),
+// 				Status:      pulumi.String("Approved"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

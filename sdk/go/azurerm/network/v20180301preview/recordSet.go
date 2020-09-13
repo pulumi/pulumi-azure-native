@@ -11,6 +11,369 @@ import (
 )
 
 // Describes a DNS record set (a collection of DNS records with the same name and type).
+//
+// ## Example Usage
+// ### Create A recordset
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewRecordSet(ctx, "recordSet", &network.RecordSetArgs{
+// 			ARecords: network.ARecordArray{
+// 				&network.ARecordArgs{
+// 					Ipv4Address: pulumi.String("127.0.0.1"),
+// 				},
+// 			},
+// 			Metadata: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			RecordType:            pulumi.String("A"),
+// 			RelativeRecordSetName: pulumi.String("record1"),
+// 			ResourceGroupName:     pulumi.String("rg1"),
+// 			Ttl:                   pulumi.Int(3600),
+// 			ZoneName:              pulumi.String("zone1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create AAAA recordset
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewRecordSet(ctx, "recordSet", &network.RecordSetArgs{
+// 			AaaaRecords: network.AaaaRecordArray{
+// 				&network.AaaaRecordArgs{
+// 					Ipv6Address: pulumi.String("::1"),
+// 				},
+// 			},
+// 			Metadata: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			RecordType:            pulumi.String("AAAA"),
+// 			RelativeRecordSetName: pulumi.String("record1"),
+// 			ResourceGroupName:     pulumi.String("rg1"),
+// 			Ttl:                   pulumi.Int(3600),
+// 			ZoneName:              pulumi.String("zone1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create CAA recordset
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewRecordSet(ctx, "recordSet", &network.RecordSetArgs{
+// 			CaaRecords: network.CaaRecordArray{
+// 				&network.CaaRecordArgs{
+// 					Flags: pulumi.Int(0),
+// 					Tag:   pulumi.String("issue"),
+// 					Value: pulumi.String("ca.contoso.com"),
+// 				},
+// 			},
+// 			Metadata: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			RecordType:            pulumi.String("CAA"),
+// 			RelativeRecordSetName: pulumi.String("record1"),
+// 			ResourceGroupName:     pulumi.String("rg1"),
+// 			Ttl:                   pulumi.Int(3600),
+// 			ZoneName:              pulumi.String("zone1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create CNAME recordset
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewRecordSet(ctx, "recordSet", &network.RecordSetArgs{
+// 			CnameRecord: &network.CnameRecordArgs{
+// 				Cname: pulumi.String("contoso.com"),
+// 			},
+// 			Metadata: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			RecordType:            pulumi.String("CNAME"),
+// 			RelativeRecordSetName: pulumi.String("record1"),
+// 			ResourceGroupName:     pulumi.String("rg1"),
+// 			Ttl:                   pulumi.Int(3600),
+// 			ZoneName:              pulumi.String("zone1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create MX recordset
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewRecordSet(ctx, "recordSet", &network.RecordSetArgs{
+// 			Metadata: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			MxRecords: network.MxRecordArray{
+// 				&network.MxRecordArgs{
+// 					Exchange:   pulumi.String("mail.contoso.com"),
+// 					Preference: pulumi.Int(0),
+// 				},
+// 			},
+// 			RecordType:            pulumi.String("MX"),
+// 			RelativeRecordSetName: pulumi.String("record1"),
+// 			ResourceGroupName:     pulumi.String("rg1"),
+// 			Ttl:                   pulumi.Int(3600),
+// 			ZoneName:              pulumi.String("zone1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create NS recordset
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewRecordSet(ctx, "recordSet", &network.RecordSetArgs{
+// 			Metadata: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			NsRecords: network.NsRecordArray{
+// 				&network.NsRecordArgs{
+// 					Nsdname: pulumi.String("ns1.contoso.com"),
+// 				},
+// 			},
+// 			RecordType:            pulumi.String("NS"),
+// 			RelativeRecordSetName: pulumi.String("record1"),
+// 			ResourceGroupName:     pulumi.String("rg1"),
+// 			Ttl:                   pulumi.Int(3600),
+// 			ZoneName:              pulumi.String("zone1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create PTR recordset
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewRecordSet(ctx, "recordSet", &network.RecordSetArgs{
+// 			Metadata: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			PtrRecords: network.PtrRecordArray{
+// 				&network.PtrRecordArgs{
+// 					Ptrdname: pulumi.String("localhost"),
+// 				},
+// 			},
+// 			RecordType:            pulumi.String("PTR"),
+// 			RelativeRecordSetName: pulumi.String("1"),
+// 			ResourceGroupName:     pulumi.String("rg1"),
+// 			Ttl:                   pulumi.Int(3600),
+// 			ZoneName:              pulumi.String("0.0.127.in-addr.arpa"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create SOA recordset
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewRecordSet(ctx, "recordSet", &network.RecordSetArgs{
+// 			Metadata: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			RecordType:            pulumi.String("SOA"),
+// 			RelativeRecordSetName: pulumi.String("@"),
+// 			ResourceGroupName:     pulumi.String("rg1"),
+// 			SoaRecord: &network.SoaRecordArgs{
+// 				Email:        pulumi.String("hostmaster.contoso.com"),
+// 				ExpireTime:   pulumi.Int(2419200),
+// 				Host:         pulumi.String("ns1.contoso.com"),
+// 				MinimumTtl:   pulumi.Int(300),
+// 				RefreshTime:  pulumi.Int(3600),
+// 				RetryTime:    pulumi.Int(300),
+// 				SerialNumber: pulumi.Int(1),
+// 			},
+// 			Ttl:      pulumi.Int(3600),
+// 			ZoneName: pulumi.String("zone1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create SRV recordset
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewRecordSet(ctx, "recordSet", &network.RecordSetArgs{
+// 			Metadata: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			RecordType:            pulumi.String("SRV"),
+// 			RelativeRecordSetName: pulumi.String("record1"),
+// 			ResourceGroupName:     pulumi.String("rg1"),
+// 			SrvRecords: network.SrvRecordArray{
+// 				&network.SrvRecordArgs{
+// 					Port:     pulumi.Int(80),
+// 					Priority: pulumi.Int(0),
+// 					Target:   pulumi.String("contoso.com"),
+// 					Weight:   pulumi.Int(10),
+// 				},
+// 			},
+// 			Ttl:      pulumi.Int(3600),
+// 			ZoneName: pulumi.String("zone1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create TXT recordset
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewRecordSet(ctx, "recordSet", &network.RecordSetArgs{
+// 			Metadata: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			RecordType:            pulumi.String("TXT"),
+// 			RelativeRecordSetName: pulumi.String("record1"),
+// 			ResourceGroupName:     pulumi.String("rg1"),
+// 			Ttl:                   pulumi.Int(3600),
+// 			TxtRecords: network.TxtRecordArray{
+// 				&network.TxtRecordArgs{
+// 					Value: pulumi.StringArray{
+// 						pulumi.String("string1"),
+// 						pulumi.String("string2"),
+// 					},
+// 				},
+// 			},
+// 			ZoneName: pulumi.String("zone1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type RecordSet struct {
 	pulumi.CustomResourceState
 

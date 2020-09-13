@@ -11,6 +11,141 @@ import (
 )
 
 // Represents a server.
+//
+// ## Example Usage
+// ### Create a database as a point in time restore
+//
+// ```go
+// package main
+//
+// import (
+// 	dbforpostgresql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbforpostgresql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbforpostgresql.NewServer(ctx, "server", &dbforpostgresql.ServerArgs{
+// 			Location:          pulumi.String("brazilsouth"),
+// 			ResourceGroupName: pulumi.String("TargetResourceGroup"),
+// 			ServerName:        pulumi.String("targetserver"),
+// 			Sku: &dbforpostgresql.SkuArgs{
+// 				Capacity: pulumi.Int(2),
+// 				Family:   pulumi.String("Gen5"),
+// 				Name:     pulumi.String("B_Gen5_2"),
+// 				Tier:     pulumi.String("Basic"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"ElasticServer": pulumi.String("1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a new server
+//
+// ```go
+// package main
+//
+// import (
+// 	dbforpostgresql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbforpostgresql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbforpostgresql.NewServer(ctx, "server", &dbforpostgresql.ServerArgs{
+// 			Location:          pulumi.String("westus"),
+// 			ResourceGroupName: pulumi.String("TestGroup"),
+// 			ServerName:        pulumi.String("pgtestsvc4"),
+// 			Sku: &dbforpostgresql.SkuArgs{
+// 				Capacity: pulumi.Int(2),
+// 				Family:   pulumi.String("Gen5"),
+// 				Name:     pulumi.String("B_Gen5_2"),
+// 				Tier:     pulumi.String("Basic"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"ElasticServer": pulumi.String("1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a replica server
+//
+// ```go
+// package main
+//
+// import (
+// 	dbforpostgresql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbforpostgresql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbforpostgresql.NewServer(ctx, "server", &dbforpostgresql.ServerArgs{
+// 			Location:          pulumi.String("westcentralus"),
+// 			ResourceGroupName: pulumi.String("TestGroup_WestCentralUS"),
+// 			ServerName:        pulumi.String("testserver-replica1"),
+// 			Sku: &dbforpostgresql.SkuArgs{
+// 				Capacity: pulumi.Int(2),
+// 				Family:   pulumi.String("Gen5"),
+// 				Name:     pulumi.String("GP_Gen5_2"),
+// 				Tier:     pulumi.String("GeneralPurpose"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a server as a geo restore
+//
+// ```go
+// package main
+//
+// import (
+// 	dbforpostgresql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbforpostgresql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbforpostgresql.NewServer(ctx, "server", &dbforpostgresql.ServerArgs{
+// 			Location:          pulumi.String("westus"),
+// 			ResourceGroupName: pulumi.String("TargetResourceGroup"),
+// 			ServerName:        pulumi.String("targetserver"),
+// 			Sku: &dbforpostgresql.SkuArgs{
+// 				Capacity: pulumi.Int(2),
+// 				Family:   pulumi.String("Gen5"),
+// 				Name:     pulumi.String("GP_Gen5_2"),
+// 				Tier:     pulumi.String("GeneralPurpose"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"ElasticServer": pulumi.String("1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Server struct {
 	pulumi.CustomResourceState
 

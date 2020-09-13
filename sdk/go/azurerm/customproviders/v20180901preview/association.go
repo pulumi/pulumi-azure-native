@@ -11,6 +11,33 @@ import (
 )
 
 // The resource definition of this association.
+//
+// ## Example Usage
+// ### Create or update an association
+//
+// ```go
+// package main
+//
+// import (
+// 	customproviders "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/customproviders/v20180901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := customproviders.NewAssociation(ctx, "association", &customproviders.AssociationArgs{
+// 			AssociationName:  pulumi.String("associationName"),
+// 			Scope:            pulumi.String("scope"),
+// 			TargetResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/appRG/providers/Microsoft.Solutions/applications/applicationName"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Association struct {
 	pulumi.CustomResourceState
 

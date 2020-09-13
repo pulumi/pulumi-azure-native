@@ -11,6 +11,36 @@ import (
 )
 
 // The description of the IoTSpaces service.
+//
+// ## Example Usage
+// ### Put an IoT spaces service
+//
+// ```go
+// package main
+//
+// import (
+// 	iotspaces "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/iotspaces/v20171001preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iotspaces.NewIoTSpace(ctx, "ioTSpace", &iotspaces.IoTSpaceArgs{
+// 			Location:          pulumi.String("string"),
+// 			ResourceGroupName: pulumi.String("resRg"),
+// 			ResourceName:      pulumi.String("myIoTSpacesService"),
+// 			Sku: &iotspaces.IoTSpacesSkuInfoArgs{
+// 				Name: pulumi.String("F1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type IoTSpace struct {
 	pulumi.CustomResourceState
 

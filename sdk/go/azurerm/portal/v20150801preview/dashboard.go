@@ -11,6 +11,13 @@ import (
 )
 
 // The shared dashboard resource definition.
+//
+// ## Example Usage
+// ### Create or update a Dashboard
+//
+// ```go
+//
+// ```
 type Dashboard struct {
 	pulumi.CustomResourceState
 

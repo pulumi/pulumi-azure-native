@@ -11,6 +11,33 @@ import (
 )
 
 // Definition of generic ARM proxy resource.
+//
+// ## Example Usage
+// ### Create or update association
+//
+// ```go
+// package main
+//
+// import (
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20191101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewDataCollectionRuleAssociation(ctx, "dataCollectionRuleAssociation", &insights.DataCollectionRuleAssociationArgs{
+// 			AssociationName:      pulumi.String("myAssociation"),
+// 			DataCollectionRuleId: pulumi.String("/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule"),
+// 			ResourceUri:          pulumi.String("subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DataCollectionRuleAssociation struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,38 @@ import (
 )
 
 // Description of a namespace authorization rule.
+//
+// ## Example Usage
+// ### NameSpaceAuthorizationRuleCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	servicebus "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicebus/v20150801"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicebus.NewNamespaceAuthorizationRule(ctx, "namespaceAuthorizationRule", &servicebus.NamespaceAuthorizationRuleArgs{
+// 			AuthorizationRuleName: pulumi.String("sdk-Authrules9875"),
+// 			Location:              pulumi.String("West US"),
+// 			NamespaceName:         pulumi.String("sdk-Namespace8341"),
+// 			ResourceGroupName:     pulumi.String("Default-ServiceBus-WestUS"),
+// 			Rights: pulumi.StringArray{
+// 				pulumi.String("Listen"),
+// 				pulumi.String("Send"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 

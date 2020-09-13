@@ -11,6 +11,35 @@ import (
 )
 
 // Guest configuration assignment is an association between a machine and guest configuration.
+//
+// ## Example Usage
+// ### Create or update guest configuration assignment
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200625"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewGuestConfigurationAssignment(ctx, "guestConfigurationAssignment", &compute.GuestConfigurationAssignmentArgs{
+// 			GuestConfigurationAssignmentName: pulumi.String("WhitelistedApplication"),
+// 			Location:                         pulumi.String("westcentralus"),
+// 			Name:                             pulumi.String("WhitelistedApplication"),
+// 			ResourceGroupName:                pulumi.String("myResourceGroupName"),
+// 			VmName:                           pulumi.String("myVMName"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type GuestConfigurationAssignment struct {
 	pulumi.CustomResourceState
 

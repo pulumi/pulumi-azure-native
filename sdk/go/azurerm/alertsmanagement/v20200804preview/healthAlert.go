@@ -11,6 +11,13 @@ import (
 )
 
 // The health alert resource.
+//
+// ## Example Usage
+// ### CreateResourceHealthAlertRule
+//
+// ```go
+//
+// ```
 type HealthAlert struct {
 	pulumi.CustomResourceState
 

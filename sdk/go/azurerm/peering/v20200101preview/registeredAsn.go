@@ -11,6 +11,34 @@ import (
 )
 
 // The customer's ASN that is registered by the peering service provider.
+//
+// ## Example Usage
+// ### Create or update a registered ASN for the peering
+//
+// ```go
+// package main
+//
+// import (
+// 	peering "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/peering/v20200101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := peering.NewRegisteredAsn(ctx, "registeredAsn", &peering.RegisteredAsnArgs{
+// 			Asn:               pulumi.Int(65000),
+// 			PeeringName:       pulumi.String("peeringName"),
+// 			RegisteredAsnName: pulumi.String("registeredAsnName"),
+// 			ResourceGroupName: pulumi.String("rgName"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type RegisteredAsn struct {
 	pulumi.CustomResourceState
 

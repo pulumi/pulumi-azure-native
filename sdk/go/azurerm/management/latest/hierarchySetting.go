@@ -11,6 +11,33 @@ import (
 )
 
 // Settings defined at the Management Group scope.
+//
+// ## Example Usage
+// ### GetGroupSettings
+//
+// ```go
+// package main
+//
+// import (
+// 	management "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/management/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := management.NewHierarchySetting(ctx, "hierarchySetting", &management.HierarchySettingArgs{
+// 			DefaultManagementGroup:               pulumi.String("/providers/Microsoft.Management/managementGroups/DefaultGroup"),
+// 			GroupId:                              pulumi.String("root"),
+// 			RequireAuthorizationForGroupCreation: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type HierarchySetting struct {
 	pulumi.CustomResourceState
 

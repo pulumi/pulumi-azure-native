@@ -11,6 +11,58 @@ import (
 )
 
 // Linked service resource type.
+//
+// ## Example Usage
+// ### LinkedServices_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	datafactory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datafactory/v20170901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datafactory.NewLinkedService(ctx, "linkedService", &datafactory.LinkedServiceArgs{
+// 			FactoryName:       pulumi.String("exampleFactoryName"),
+// 			LinkedServiceName: pulumi.String("exampleLinkedService"),
+// 			ResourceGroupName: pulumi.String("exampleResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### LinkedServices_Update
+//
+// ```go
+// package main
+//
+// import (
+// 	datafactory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datafactory/v20170901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datafactory.NewLinkedService(ctx, "linkedService", &datafactory.LinkedServiceArgs{
+// 			FactoryName:       pulumi.String("exampleFactoryName"),
+// 			LinkedServiceName: pulumi.String("exampleLinkedService"),
+// 			ResourceGroupName: pulumi.String("exampleResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type LinkedService struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,34 @@ import (
 )
 
 // Storage Sync Service object.
+//
+// ## Example Usage
+// ### StorageSyncServices_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	storagesync "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storagesync/v20181001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storagesync.NewStorageSyncService(ctx, "storageSyncService", &storagesync.StorageSyncServiceArgs{
+// 			Location:               pulumi.String("WestUS"),
+// 			ResourceGroupName:      pulumi.String("SampleResourceGroup_1"),
+// 			StorageSyncServiceName: pulumi.String("SampleStorageSyncService_1"),
+// 			Tags:                   nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type StorageSyncService struct {
 	pulumi.CustomResourceState
 

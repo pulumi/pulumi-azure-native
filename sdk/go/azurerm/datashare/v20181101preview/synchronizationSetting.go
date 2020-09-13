@@ -11,6 +11,35 @@ import (
 )
 
 // A Synchronization Setting data transfer object.
+//
+// ## Example Usage
+// ### SynchronizationSettings_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	datashare "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datashare/v20181101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datashare.NewSynchronizationSetting(ctx, "synchronizationSetting", &datashare.SynchronizationSettingArgs{
+// 			AccountName:                pulumi.String("Account1"),
+// 			Kind:                       pulumi.String("ScheduleBased"),
+// 			ResourceGroupName:          pulumi.String("SampleResourceGroup"),
+// 			ShareName:                  pulumi.String("Share1"),
+// 			SynchronizationSettingName: pulumi.String("Dataset1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SynchronizationSetting struct {
 	pulumi.CustomResourceState
 

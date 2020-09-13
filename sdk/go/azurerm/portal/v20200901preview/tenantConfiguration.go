@@ -11,6 +11,13 @@ import (
 )
 
 // Tenant configuration.
+//
+// ## Example Usage
+// ### Create or update Tenant configuration
+//
+// ```go
+//
+// ```
 type TenantConfiguration struct {
 	pulumi.CustomResourceState
 

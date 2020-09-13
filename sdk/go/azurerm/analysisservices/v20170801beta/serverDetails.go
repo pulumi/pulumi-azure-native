@@ -11,6 +11,47 @@ import (
 )
 
 // Represents an instance of an Analysis Services resource.
+//
+// ## Example Usage
+// ### Create a server.
+//
+// ```go
+// package main
+//
+// import (
+// 	analysisservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/analysisservices/v20170801beta"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := analysisservices.NewServerDetails(ctx, "serverDetails", &analysisservices.ServerDetailsArgs{
+// 			AsAdministrators: &analysisservices.ServerAdministratorsArgs{
+// 				Members: pulumi.StringArray{
+// 					pulumi.String("azsdktest@microsoft.com"),
+// 					pulumi.String("azsdktest2@microsoft.com"),
+// 				},
+// 			},
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("TestRG"),
+// 			ServerName:        pulumi.String("azsdktest"),
+// 			Sku: &analysisservices.ResourceSkuArgs{
+// 				Capacity: pulumi.Int(1),
+// 				Name:     pulumi.String("S1"),
+// 				Tier:     pulumi.String("Standard"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"testKey": pulumi.String("testValue"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ServerDetails struct {
 	pulumi.CustomResourceState
 

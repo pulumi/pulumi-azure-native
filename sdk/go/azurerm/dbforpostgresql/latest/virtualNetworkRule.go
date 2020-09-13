@@ -11,6 +11,35 @@ import (
 )
 
 // A virtual network rule.
+//
+// ## Example Usage
+// ### Create or update a virtual network rule
+//
+// ```go
+// package main
+//
+// import (
+// 	dbforpostgresql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbforpostgresql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbforpostgresql.NewVirtualNetworkRule(ctx, "virtualNetworkRule", &dbforpostgresql.VirtualNetworkRuleArgs{
+// 			IgnoreMissingVnetServiceEndpoint: pulumi.Bool(false),
+// 			ResourceGroupName:                pulumi.String("TestGroup"),
+// 			ServerName:                       pulumi.String("vnet-test-svr"),
+// 			VirtualNetworkRuleName:           pulumi.String("vnet-firewall-rule"),
+// 			VirtualNetworkSubnetId:           pulumi.String("/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 

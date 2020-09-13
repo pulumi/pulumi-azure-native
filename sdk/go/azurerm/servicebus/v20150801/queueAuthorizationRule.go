@@ -11,6 +11,38 @@ import (
 )
 
 // Description of a namespace authorization rule.
+//
+// ## Example Usage
+// ### QueueAuthorizationRuleCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	servicebus "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicebus/v20150801"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicebus.NewQueueAuthorizationRule(ctx, "queueAuthorizationRule", &servicebus.QueueAuthorizationRuleArgs{
+// 			AuthorizationRuleName: pulumi.String("sdk-Authrules7319"),
+// 			NamespaceName:         pulumi.String("sdk-Namespace6556"),
+// 			QueueName:             pulumi.String("sdk-Queues3136"),
+// 			ResourceGroupName:     pulumi.String("Default-ServiceBus-WestUS"),
+// 			Rights: pulumi.StringArray{
+// 				pulumi.String("Listen"),
+// 				pulumi.String("Send"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type QueueAuthorizationRule struct {
 	pulumi.CustomResourceState
 

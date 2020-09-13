@@ -11,6 +11,42 @@ import (
 )
 
 // Bot resource definition
+//
+// ## Example Usage
+// ### Create Bot
+//
+// ```go
+// package main
+//
+// import (
+// 	botservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/botservice/v20200602"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := botservice.NewBot(ctx, "bot", &botservice.BotArgs{
+// 			Etag:              pulumi.String("etag1"),
+// 			Kind:              pulumi.String("sdk"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("OneResourceGroupName"),
+// 			ResourceName:      pulumi.String("samplebotname"),
+// 			Sku: &botservice.SkuArgs{
+// 				Name: pulumi.String("S1"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("value1"),
+// 				"tag2": pulumi.String("value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Bot struct {
 	pulumi.CustomResourceState
 

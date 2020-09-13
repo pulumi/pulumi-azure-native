@@ -11,6 +11,35 @@ import (
 )
 
 // Role Assignments
+//
+// ## Example Usage
+// ### GetConfigurations
+//
+// ```go
+// package main
+//
+// import (
+// 	authorization "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/authorization/v20180101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := authorization.NewRoleAssignment(ctx, "roleAssignment", &authorization.RoleAssignmentArgs{
+// 			CanDelegate:        pulumi.Bool(false),
+// 			PrincipalId:        pulumi.String("d93a38bc-d029-4160-bfb0-fbda779ac214"),
+// 			RoleAssignmentName: pulumi.String("roleAssignmentName"),
+// 			RoleDefinitionId:   pulumi.String("/subscriptions/4004a9fd-d58e-48dc-aeb2-4a4aec58606f/providers/Microsoft.Authorization/roleDefinitions/de139f84-1756-47ae-9be6-808fbbe84772"),
+// 			Scope:              pulumi.String("scope"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 

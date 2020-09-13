@@ -11,6 +11,34 @@ import (
 )
 
 // Specifies information about the proximity placement group.
+//
+// ## Example Usage
+// ### Create or Update a proximity placement group.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20181001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewProximityPlacementGroup(ctx, "proximityPlacementGroup", &compute.ProximityPlacementGroupArgs{
+// 			Location:                    pulumi.String("westus"),
+// 			ProximityPlacementGroupName: pulumi.String("myProximityPlacementGroup"),
+// 			ProximityPlacementGroupType: pulumi.String("Standard"),
+// 			ResourceGroupName:           pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ProximityPlacementGroup struct {
 	pulumi.CustomResourceState
 

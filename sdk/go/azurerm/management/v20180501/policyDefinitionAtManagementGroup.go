@@ -11,6 +11,64 @@ import (
 )
 
 // The policy definition.
+//
+// ## Example Usage
+// ### Create or update a policy definition at management group level
+//
+// ```go
+// package main
+//
+// import (
+// 	management "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/management/v20180501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := management.NewPolicyDefinitionAtManagementGroup(ctx, "policyDefinitionAtManagementGroup", &management.PolicyDefinitionAtManagementGroupArgs{
+// 			Description:       pulumi.String("Force resource names to begin with given 'prefix' and/or end with given 'suffix'"),
+// 			DisplayName:       pulumi.String("Enforce resource naming convention"),
+// 			ManagementGroupId: pulumi.String("MyManagementGroup"),
+// 			Metadata: pulumi.StringMap{
+// 				"category": pulumi.String("Naming"),
+// 			},
+// 			Parameters: pulumi.MapMap{
+// 				"prefix": pulumi.Map{
+// 					"metadata": pulumi.StringMap{
+// 						"description":  pulumi.String("Resource name prefix"),
+// 						"display_name": pulumi.String("Prefix"),
+// 					},
+// 					"type": pulumi.String("String"),
+// 				},
+// 				"suffix": pulumi.Map{
+// 					"metadata": pulumi.StringMap{
+// 						"description":  pulumi.String("Resource name suffix"),
+// 						"display_name": pulumi.String("Suffix"),
+// 					},
+// 					"type": pulumi.String("String"),
+// 				},
+// 			},
+// 			PolicyDefinitionName: pulumi.String("ResourceNaming"),
+// 			PolicyRule: pulumi.Map{
+// 				"if": pulumi.StringMapMap{
+// 					"not_": pulumi.StringMap{
+// 						"field": pulumi.String("name"),
+// 						"like":  pulumi.String("[concat(parameters('prefix'), '*', parameters('suffix'))]"),
+// 					},
+// 				},
+// 				"then": pulumi.StringMap{
+// 					"effect": pulumi.String("deny"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PolicyDefinitionAtManagementGroup struct {
 	pulumi.CustomResourceState
 

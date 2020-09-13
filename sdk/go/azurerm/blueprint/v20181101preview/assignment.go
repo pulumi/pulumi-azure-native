@@ -11,6 +11,28 @@ import (
 )
 
 // Represents a blueprint assignment.
+//
+// ## Example Usage
+// ### Assignment with system-assigned managed identity at management group scope
+//
+// ```go
+//
+// ```
+// ### Assignment with system-assigned managed identity at subscription scope
+//
+// ```go
+//
+// ```
+// ### Assignment with user-assigned managed identity at management group scope
+//
+// ```go
+//
+// ```
+// ### Assignment with user-assigned managed identity at subscription scope
+//
+// ```go
+//
+// ```
 type Assignment struct {
 	pulumi.CustomResourceState
 

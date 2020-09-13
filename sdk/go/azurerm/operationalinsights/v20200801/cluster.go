@@ -11,6 +11,40 @@ import (
 )
 
 // The top level Log Analytics cluster resource container.
+//
+// ## Example Usage
+// ### ClustersCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	operationalinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationalinsights/v20200801"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := operationalinsights.NewCluster(ctx, "cluster", &operationalinsights.ClusterArgs{
+// 			ClusterName:       pulumi.String("oiautorest6685"),
+// 			Location:          pulumi.String("australiasoutheast"),
+// 			ResourceGroupName: pulumi.String("oiautorest6685"),
+// 			Sku: &operationalinsights.ClusterSkuArgs{
+// 				Capacity: pulumi.Int(1000),
+// 				Name:     pulumi.String("CapacityReservation"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("val1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,50 @@ import (
 )
 
 // The policy assignment.
+//
+// ## Example Usage
+// ### Put a policy assignment
+//
+// ```go
+// package main
+//
+// import (
+// 	authorization "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/authorization/v20170601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := authorization.NewPolicyAssignment(ctx, "policyAssignment", &authorization.PolicyAssignmentArgs{
+// 			Description: pulumi.String("Policies required to minimize the risk of accidental cost overruns"),
+// 			DisplayName: pulumi.String("Storage Cost Management"),
+// 			Metadata: pulumi.StringMap{
+// 				"category": pulumi.String("Cost Management"),
+// 			},
+// 			NotScopes: pulumi.StringArray{
+// 				pulumi.String("/subscriptions/subId/resourcegroups/testingResourceGroup"),
+// 			},
+// 			Parameters: pulumi.StringMapMap{
+// 				"allowedSkus": pulumi.StringMap{
+// 					"type": pulumi.String("Array"),
+// 				},
+// 			},
+// 			PolicyAssignmentName: pulumi.String("costManagement"),
+// 			PolicyDefinitionId:   pulumi.String("/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus"),
+// 			Scope:                pulumi.String("subscriptions/subId"),
+// 			Sku: &authorization.PolicySkuArgs{
+// 				Name: pulumi.String("A0"),
+// 				Tier: pulumi.String("Free"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PolicyAssignment struct {
 	pulumi.CustomResourceState
 

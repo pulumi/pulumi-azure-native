@@ -11,6 +11,37 @@ import (
 )
 
 // A sql database resource.
+//
+// ## Example Usage
+// ### Creates a sqldatabase.
+//
+// ```go
+// package main
+//
+// import (
+// 	synapse "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/synapse/v20200401preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := synapse.NewSqlDatabase(ctx, "sqlDatabase", &synapse.SqlDatabaseArgs{
+// 			Location:          pulumi.String("westus"),
+// 			ResourceGroupName: pulumi.String("rg_88eed28c-5243-4f02-8251-bfa1e69e7057"),
+// 			SqlDatabaseName:   pulumi.String("73164535-f22d-4daa-b014-1f23bbe361b7"),
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("val1"),
+// 			},
+// 			WorkspaceName: pulumi.String("srv_85d31a1e-718b-4bda-9e53-a91230dd4ce5"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SqlDatabase struct {
 	pulumi.CustomResourceState
 

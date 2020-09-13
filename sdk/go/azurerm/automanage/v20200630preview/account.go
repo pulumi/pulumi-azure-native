@@ -11,6 +11,39 @@ import (
 )
 
 // Definition of the Automanage account.
+//
+// ## Example Usage
+// ### Create or update Automanage account
+//
+// ```go
+// package main
+//
+// import (
+// 	automanage "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/automanage/v20200630preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := automanage.NewAccount(ctx, "account", &automanage.AccountArgs{
+// 			AccountName: pulumi.String("account"),
+// 			Identity: &automanage.AccountIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Location:          pulumi.String("East US"),
+// 			ResourceGroupName: pulumi.String("resourceGroup"),
+// 			Tags: pulumi.StringMap{
+// 				"Organization": pulumi.String("Administration"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 

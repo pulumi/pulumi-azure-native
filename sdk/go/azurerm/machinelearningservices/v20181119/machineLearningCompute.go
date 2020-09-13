@@ -11,6 +11,157 @@ import (
 )
 
 // Machine Learning compute object wrapped into ARM resource envelope.
+//
+// ## Example Usage
+// ### Create AKS Compute
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20181119"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
+// 			ComputeName:       pulumi.String("compute123"),
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			WorkspaceName:     pulumi.String("workspaces123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a AML Compute
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20181119"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
+// 			ComputeName: pulumi.String("compute123"),
+// 			Location:    pulumi.String("eastus"),
+// 			Properties: &machinelearningservices.ComputeArgs{
+// 				ScaleSettings: pulumi.Map{
+// 					"maxNodeCount":                pulumi.Float64(1),
+// 					"minNodeCount":                pulumi.Float64(0),
+// 					"nodeIdleTimeBeforeScaleDown": pulumi.String("PT5M"),
+// 				},
+// 				VmPriority: pulumi.String("Dedicated"),
+// 				VmSize:     pulumi.String("STANDARD_NC6"),
+// 			},
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			WorkspaceName:     pulumi.String("workspaces123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a DataFactory Compute
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20181119"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
+// 			ComputeName:       pulumi.String("compute123"),
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			WorkspaceName:     pulumi.String("workspaces123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Update a AKS Compute
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20181119"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
+// 			ComputeName: pulumi.String("compute123"),
+// 			Location:    pulumi.String("eastus"),
+// 			Properties: &machinelearningservices.ComputeArgs{
+// 				AgentCount: pulumi.Float64(4),
+// 			},
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			WorkspaceName:     pulumi.String("workspaces123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Update a AML Compute
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20181119"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
+// 			ComputeName: pulumi.String("compute123"),
+// 			Location:    pulumi.String("eastus"),
+// 			Properties: &machinelearningservices.ComputeArgs{
+// 				ScaleSettings: pulumi.Map{
+// 					"maxNodeCount":                pulumi.Float64(1),
+// 					"minNodeCount":                pulumi.Float64(0),
+// 					"nodeIdleTimeBeforeScaleDown": pulumi.String("PT5M"),
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			WorkspaceName:     pulumi.String("workspaces123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type MachineLearningCompute struct {
 	pulumi.CustomResourceState
 

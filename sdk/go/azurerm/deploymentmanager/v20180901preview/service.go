@@ -11,6 +11,37 @@ import (
 )
 
 // The resource representation of a service in a service topology.
+//
+// ## Example Usage
+// ### Create service
+//
+// ```go
+// package main
+//
+// import (
+// 	deploymentmanager "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/deploymentmanager/v20180901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := deploymentmanager.NewService(ctx, "service", &deploymentmanager.ServiceArgs{
+// 			Location:             pulumi.String("centralus"),
+// 			ResourceGroupName:    pulumi.String("myResourceGroup"),
+// 			ServiceName:          pulumi.String("myService"),
+// 			ServiceTopologyName:  pulumi.String("myTopology"),
+// 			Tags:                 nil,
+// 			TargetLocation:       pulumi.String("centralus"),
+// 			TargetSubscriptionId: pulumi.String("600c95c5-3ee5-44fe-b190-ca38a19adcd7"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Service struct {
 	pulumi.CustomResourceState
 

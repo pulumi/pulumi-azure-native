@@ -11,6 +11,33 @@ import (
 )
 
 // Agent Pool.
+//
+// ## Example Usage
+// ### Create Agent Pool with Ephemeral OS Disk
+//
+// ```go
+//
+// ```
+// ### Create Agent Pool with PPG
+//
+// ```go
+//
+// ```
+// ### Create Spot Agent Pool
+//
+// ```go
+//
+// ```
+// ### Create/Update Agent Pool
+//
+// ```go
+//
+// ```
+// ### Update Agent Pool
+//
+// ```go
+//
+// ```
 type AgentPool struct {
 	pulumi.CustomResourceState
 

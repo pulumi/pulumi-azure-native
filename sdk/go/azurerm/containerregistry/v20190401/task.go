@@ -12,6 +12,162 @@ import (
 
 // The task that has the ARM resource and task properties.
 // The task will have all information to schedule a run against it.
+//
+// ## Example Usage
+// ### Tasks_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20190401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerregistry.NewTask(ctx, "task", &containerregistry.TaskArgs{
+// 			AgentConfiguration: &containerregistry.AgentPropertiesArgs{
+// 				Cpu: pulumi.Int(2),
+// 			},
+// 			Identity: &containerregistry.IdentityPropertiesArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Location: pulumi.String("eastus"),
+// 			Platform: &containerregistry.PlatformPropertiesArgs{
+// 				Architecture: pulumi.String("amd64"),
+// 				Os:           pulumi.String("Linux"),
+// 			},
+// 			RegistryName:      pulumi.String("myRegistry"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Status:            pulumi.String("Enabled"),
+// 			Step: &containerregistry.TaskStepPropertiesArgs{
+// 				ContextPath: pulumi.String("src"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"testkey": pulumi.String("value"),
+// 			},
+// 			TaskName: pulumi.String("mytTask"),
+// 			Trigger: &containerregistry.TriggerPropertiesArgs{
+// 				BaseImageTrigger: &containerregistry.BaseImageTriggerArgs{
+// 					BaseImageTriggerType: pulumi.String("Runtime"),
+// 					Name:                 pulumi.String("myBaseImageTrigger"),
+// 				},
+// 				SourceTriggers: containerregistry.SourceTriggerArray{
+// 					&containerregistry.SourceTriggerArgs{
+// 						Name: pulumi.String("mySourceTrigger"),
+// 						SourceRepository: &containerregistry.SourcePropertiesArgs{
+// 							Branch:        pulumi.String("master"),
+// 							RepositoryUrl: pulumi.String("https://github.com/Azure/azure-rest-api-specs"),
+// 							SourceControlAuthProperties: &containerregistry.AuthInfoArgs{
+// 								Token:     pulumi.String("xxxxx"),
+// 								TokenType: pulumi.String("PAT"),
+// 							},
+// 							SourceControlType: pulumi.String("Github"),
+// 						},
+// 						SourceTriggerEvents: pulumi.StringArray{
+// 							pulumi.String("commit"),
+// 						},
+// 					},
+// 				},
+// 				TimerTriggers: containerregistry.TimerTriggerArray{
+// 					&containerregistry.TimerTriggerArgs{
+// 						Name:     pulumi.String("myTimerTrigger"),
+// 						Schedule: pulumi.String("30 9 * * 1-5"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Tasks_Create_WithSystemAndUserIdentities
+//
+// ```go
+//
+// ```
+// ### Tasks_Create_WithUserIdentities
+//
+// ```go
+//
+// ```
+// ### Tasks_Create_WithUserIdentities_WithSystemIdentity
+//
+// ```go
+// package main
+//
+// import (
+// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20190401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerregistry.NewTask(ctx, "task", &containerregistry.TaskArgs{
+// 			AgentConfiguration: &containerregistry.AgentPropertiesArgs{
+// 				Cpu: pulumi.Int(2),
+// 			},
+// 			Identity: &containerregistry.IdentityPropertiesArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Location: pulumi.String("eastus"),
+// 			Platform: &containerregistry.PlatformPropertiesArgs{
+// 				Architecture: pulumi.String("amd64"),
+// 				Os:           pulumi.String("Linux"),
+// 			},
+// 			RegistryName:      pulumi.String("myRegistry"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Status:            pulumi.String("Enabled"),
+// 			Step: &containerregistry.TaskStepPropertiesArgs{
+// 				ContextPath: pulumi.String("src"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"testkey": pulumi.String("value"),
+// 			},
+// 			TaskName: pulumi.String("mytTask"),
+// 			Trigger: &containerregistry.TriggerPropertiesArgs{
+// 				BaseImageTrigger: &containerregistry.BaseImageTriggerArgs{
+// 					BaseImageTriggerType: pulumi.String("Runtime"),
+// 					Name:                 pulumi.String("myBaseImageTrigger"),
+// 				},
+// 				SourceTriggers: containerregistry.SourceTriggerArray{
+// 					&containerregistry.SourceTriggerArgs{
+// 						Name: pulumi.String("mySourceTrigger"),
+// 						SourceRepository: &containerregistry.SourcePropertiesArgs{
+// 							Branch:        pulumi.String("master"),
+// 							RepositoryUrl: pulumi.String("https://github.com/Azure/azure-rest-api-specs"),
+// 							SourceControlAuthProperties: &containerregistry.AuthInfoArgs{
+// 								Token:     pulumi.String("xxxxx"),
+// 								TokenType: pulumi.String("PAT"),
+// 							},
+// 							SourceControlType: pulumi.String("Github"),
+// 						},
+// 						SourceTriggerEvents: pulumi.StringArray{
+// 							pulumi.String("commit"),
+// 						},
+// 					},
+// 				},
+// 				TimerTriggers: containerregistry.TimerTriggerArray{
+// 					&containerregistry.TimerTriggerArgs{
+// 						Name:     pulumi.String("myTimerTrigger"),
+// 						Schedule: pulumi.String("30 9 * * 1-5"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Task struct {
 	pulumi.CustomResourceState
 

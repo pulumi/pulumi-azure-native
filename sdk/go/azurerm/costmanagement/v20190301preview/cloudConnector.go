@@ -11,6 +11,35 @@ import (
 )
 
 // The Connector model definition
+//
+// ## Example Usage
+// ### CloudConnector_Put
+//
+// ```go
+// package main
+//
+// import (
+// 	costmanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/costmanagement/v20190301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := costmanagement.NewCloudConnector(ctx, "cloudConnector", &costmanagement.CloudConnectorArgs{
+// 			ConnectorName:     pulumi.String("aws-123456789012"),
+// 			CredentialsKey:    pulumi.String("arn:aws:iam::123456789012:role/AzureCostManagementRole"),
+// 			CredentialsSecret: pulumi.String("external-id"),
+// 			DisplayName:       pulumi.String("AWS-Consolidated-1"),
+// 			ReportId:          pulumi.String("HourlyWithResources"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type CloudConnector struct {
 	pulumi.CustomResourceState
 

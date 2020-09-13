@@ -11,6 +11,33 @@ import (
 )
 
 // A server DNS alias.
+//
+// ## Example Usage
+// ### Create server DNS alias
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20170301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewServerDnsAlias(ctx, "serverDnsAlias", &sql.ServerDnsAliasArgs{
+// 			DnsAliasName:      pulumi.String("dns-alias-name-1"),
+// 			ResourceGroupName: pulumi.String("Default"),
+// 			ServerName:        pulumi.String("dns-alias-server"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ServerDnsAlias struct {
 	pulumi.CustomResourceState
 

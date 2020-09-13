@@ -11,6 +11,71 @@ import (
 )
 
 // The connector mapping resource format.
+//
+// ## Example Usage
+// ### ConnectorMappings_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	customerinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/customerinsights/v20170101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := customerinsights.NewConnectorMapping(ctx, "connectorMapping", &customerinsights.ConnectorMappingArgs{
+// 			ConnectorName:  pulumi.String("testConnector8858"),
+// 			Description:    pulumi.String("Test mapping"),
+// 			DisplayName:    pulumi.String("testMapping12491"),
+// 			EntityType:     pulumi.String("Interaction"),
+// 			EntityTypeName: pulumi.String("TestInteractionType2967"),
+// 			HubName:        pulumi.String("sdkTestHub"),
+// 			MappingName:    pulumi.String("testMapping12491"),
+// 			MappingProperties: &customerinsights.ConnectorMappingPropertiesArgs{
+// 				Availability: &customerinsights.ConnectorMappingAvailabilityArgs{
+// 					Frequency: pulumi.String("Hour"),
+// 					Interval:  pulumi.Int(5),
+// 				},
+// 				CompleteOperation: &customerinsights.ConnectorMappingCompleteOperationArgs{
+// 					CompletionOperationType: pulumi.String("DeleteFile"),
+// 					DestinationFolder:       pulumi.String("fakePath"),
+// 				},
+// 				ErrorManagement: &customerinsights.ConnectorMappingErrorManagementArgs{
+// 					ErrorLimit:          pulumi.Int(10),
+// 					ErrorManagementType: pulumi.String("StopImport"),
+// 				},
+// 				FileFilter: pulumi.String("unknown"),
+// 				FolderPath: pulumi.String("http://sample.dne/file"),
+// 				Format: &customerinsights.ConnectorMappingFormatArgs{
+// 					ColumnDelimiter: pulumi.String("|"),
+// 					FormatType:      pulumi.String("TextFormat"),
+// 				},
+// 				HasHeader: pulumi.Bool(false),
+// 				Structure: customerinsights.ConnectorMappingStructureArray{
+// 					&customerinsights.ConnectorMappingStructureArgs{
+// 						ColumnName:   pulumi.String("unknown1"),
+// 						IsEncrypted:  pulumi.Bool(false),
+// 						PropertyName: pulumi.String("unknwon1"),
+// 					},
+// 					&customerinsights.ConnectorMappingStructureArgs{
+// 						ColumnName:   pulumi.String("unknown2"),
+// 						IsEncrypted:  pulumi.Bool(true),
+// 						PropertyName: pulumi.String("unknwon2"),
+// 					},
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("TestHubRG"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ConnectorMapping struct {
 	pulumi.CustomResourceState
 

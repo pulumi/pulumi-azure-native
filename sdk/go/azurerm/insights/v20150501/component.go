@@ -11,6 +11,67 @@ import (
 )
 
 // An Application Insights component definition.
+//
+// ## Example Usage
+// ### ComponentCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20150501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewComponent(ctx, "component", &insights.ComponentArgs{
+// 			ApplicationType:   pulumi.String("web"),
+// 			FlowType:          pulumi.String("Bluefield"),
+// 			Kind:              pulumi.String("web"),
+// 			Location:          pulumi.String("South Central US"),
+// 			RequestSource:     pulumi.String("rest"),
+// 			ResourceGroupName: pulumi.String("my-resource-group"),
+// 			ResourceName:      pulumi.String("my-component"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ComponentUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20150501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewComponent(ctx, "component", &insights.ComponentArgs{
+// 			Kind:              pulumi.String("web"),
+// 			Location:          pulumi.String("South Central US"),
+// 			ResourceGroupName: pulumi.String("my-resource-group"),
+// 			ResourceName:      pulumi.String("my-component"),
+// 			Tags: pulumi.StringMap{
+// 				"ApplicationGatewayType": pulumi.String("Internal-Only"),
+// 				"BillingEntity":          pulumi.String("Self"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Component struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,42 @@ import (
 )
 
 // A container group.
+//
+// ## Example Usage
+// ### ContainerGroupsCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	containerinstance "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerinstance/v20170801preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerinstance.NewContainerGroup(ctx, "containerGroup", &containerinstance.ContainerGroupArgs{
+// 			ContainerGroupName: pulumi.String("demo1"),
+// 			Containers: containerinstance.ContainerArray{
+// 				&containerinstance.ContainerArgs{
+// 					Name: pulumi.String("demo1"),
+// 				},
+// 			},
+// 			IpAddress: &containerinstance.IpAddressArgs{
+// 				Type: pulumi.String("Public"),
+// 			},
+// 			Location:          pulumi.String("west us"),
+// 			OsType:            pulumi.String("Linux"),
+// 			ResourceGroupName: pulumi.String("demo"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ContainerGroup struct {
 	pulumi.CustomResourceState
 

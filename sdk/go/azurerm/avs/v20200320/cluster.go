@@ -11,6 +11,37 @@ import (
 )
 
 // A cluster resource
+//
+// ## Example Usage
+// ### Clusters_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	avs "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/avs/v20200320"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := avs.NewCluster(ctx, "cluster", &avs.ClusterArgs{
+// 			ClusterName:       pulumi.String("cluster1"),
+// 			ClusterSize:       pulumi.Int(3),
+// 			PrivateCloudName:  pulumi.String("cloud1"),
+// 			ResourceGroupName: pulumi.String("group1"),
+// 			Sku: &avs.SkuArgs{
+// 				Name: pulumi.String("AV20"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

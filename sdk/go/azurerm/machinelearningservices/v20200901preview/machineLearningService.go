@@ -11,6 +11,94 @@ import (
 )
 
 // Machine Learning service object wrapped into ARM resource envelope.
+//
+// ## Example Usage
+// ### Create Or Update service
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20200901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewMachineLearningService(ctx, "machineLearningService", &machinelearningservices.MachineLearningServiceArgs{
+// 			ComputeType: pulumi.String("ACI"),
+// 			EnvironmentImageRequest: &machinelearningservices.CreateServiceRequestEnvironmentImageRequestArgs{
+// 				Assets: machinelearningservices.ImageAssetArray{
+// 					&machinelearningservices.ImageAssetArgs{
+// 						MimeType: pulumi.String("application/x-python"),
+// 						Unpack:   pulumi.Bool(false),
+// 						Url:      pulumi.String("aml://storage/azureml/score.py"),
+// 					},
+// 				},
+// 				DriverProgram: pulumi.String("score.py"),
+// 				Environment: &machinelearningservices.EnvironmentImageRequestEnvironmentArgs{
+// 					Docker: &machinelearningservices.ModelEnvironmentDefinitionDockerArgs{
+// 						BaseImage:         pulumi.String("mcr.microsoft.com/azureml/base:openmpi3.1.2-ubuntu16.04"),
+// 						BaseImageRegistry: nil,
+// 					},
+// 					EnvironmentVariables: pulumi.StringMap{
+// 						"EXAMPLE_ENV_VAR": pulumi.String("EXAMPLE_VALUE"),
+// 					},
+// 					Name: pulumi.String("AzureML-Scikit-learn-0.20.3"),
+// 					Python: &machinelearningservices.ModelEnvironmentDefinitionPythonArgs{
+// 						CondaDependencies: pulumi.Map{
+// 							"channels": pulumi.StringArray{
+// 								pulumi.String("conda-forge"),
+// 							},
+// 							"dependencies": pulumi.Array{
+// 								pulumi.String("python=3.6.2"),
+// 								pulumi.StringArrayMap{
+// 									"pip": pulumi.StringArray{
+// 										pulumi.String("azureml-core==1.0.69"),
+// 										pulumi.String("azureml-defaults==1.0.69"),
+// 										pulumi.String("azureml-telemetry==1.0.69"),
+// 										pulumi.String("azureml-train-restclients-hyperdrive==1.0.69"),
+// 										pulumi.String("azureml-train-core==1.0.69"),
+// 										pulumi.String("scikit-learn==0.20.3"),
+// 										pulumi.String("scipy==1.2.1"),
+// 										pulumi.String("numpy==1.16.2"),
+// 										pulumi.String("joblib==0.13.2"),
+// 									},
+// 								},
+// 							},
+// 							"name": pulumi.String("azureml_ae1acbe6e1e6aabbad900b53c491a17c"),
+// 						},
+// 						InterpreterPath:         pulumi.String("python"),
+// 						UserManagedDependencies: pulumi.Bool(false),
+// 					},
+// 					Spark: &machinelearningservices.ModelEnvironmentDefinitionSparkArgs{
+// 						Packages:         machinelearningservices.SparkMavenPackageArray{},
+// 						PrecachePackages: pulumi.Bool(true),
+// 						Repositories:     []interface{}{},
+// 					},
+// 					Version: pulumi.String("3"),
+// 				},
+// 				Models: machinelearningservices.ModelArray{
+// 					&machinelearningservices.ModelArgs{
+// 						MimeType: pulumi.String("application/x-python"),
+// 						Name:     pulumi.String("sklearn_regression_model.pkl"),
+// 						Url:      pulumi.String("aml://storage/azureml/sklearn_regression_model.pkl"),
+// 					},
+// 				},
+// 			},
+// 			Location:          pulumi.String("eastus2"),
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			ServiceName:       pulumi.String("service456"),
+// 			WorkspaceName:     pulumi.String("workspaces123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type MachineLearningService struct {
 	pulumi.CustomResourceState
 

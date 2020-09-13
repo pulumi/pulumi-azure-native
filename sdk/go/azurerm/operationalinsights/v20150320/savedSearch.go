@@ -11,6 +11,43 @@ import (
 )
 
 // Value object for saved search results.
+//
+// ## Example Usage
+// ### SavedSearchCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	operationalinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationalinsights/v20150320"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := operationalinsights.NewSavedSearch(ctx, "savedSearch", &operationalinsights.SavedSearchArgs{
+// 			Category:          pulumi.String("Saved Search Test Category"),
+// 			DisplayName:       pulumi.String("Create or Update Saved Search Test"),
+// 			Query:             pulumi.String("Heartbeat | summarize Count() by Computer"),
+// 			ResourceGroupName: pulumi.String("TestRG"),
+// 			SavedSearchId:     pulumi.String("00000000-0000-0000-0000-00000000000"),
+// 			Tags: operationalinsights.TagArray{
+// 				&operationalinsights.TagArgs{
+// 					Name:  pulumi.String("Group"),
+// 					Value: pulumi.String("Computer"),
+// 				},
+// 			},
+// 			Version:       pulumi.Int(2),
+// 			WorkspaceName: pulumi.String("TestWS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SavedSearch struct {
 	pulumi.CustomResourceState
 

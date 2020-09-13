@@ -11,6 +11,34 @@ import (
 )
 
 // Template Spec object.
+//
+// ## Example Usage
+// ### TemplateSpecsCreateUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	resources "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/resources/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := resources.NewTemplateSpec(ctx, "templateSpec", &resources.TemplateSpecArgs{
+// 			Description:       pulumi.String("A very simple Template Spec"),
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("templateSpecRG"),
+// 			TemplateSpecName:  pulumi.String("simpleTemplateSpec"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type TemplateSpec struct {
 	pulumi.CustomResourceState
 

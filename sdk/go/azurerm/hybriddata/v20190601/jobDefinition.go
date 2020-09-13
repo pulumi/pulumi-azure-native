@@ -11,6 +11,53 @@ import (
 )
 
 // Job Definition.
+//
+// ## Example Usage
+// ### JobDefinitions_CreateOrUpdatePUT83
+//
+// ```go
+// package main
+//
+// import (
+// 	hybriddata "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hybriddata/v20190601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := hybriddata.NewJobDefinition(ctx, "jobDefinition", &hybriddata.JobDefinitionArgs{
+// 			DataManagerName: pulumi.String("TestAzureSDKOperations"),
+// 			DataServiceInput: pulumi.Map{
+// 				"AzureStorageType": pulumi.String("Blob"),
+// 				"BackupChoice":     pulumi.String("UseExistingLatest"),
+// 				"ContainerName":    pulumi.String("containerfromtest"),
+// 				"DeviceName":       pulumi.String("8600-SHG0997877L71FC"),
+// 				"FileNameFilter":   pulumi.String("*"),
+// 				"IsDirectoryMode":  pulumi.Bool(false),
+// 				"RootDirectories": pulumi.StringArray{
+// 					pulumi.String("\\"),
+// 				},
+// 				"VolumeNames": pulumi.StringArray{
+// 					pulumi.String("TestAutomation"),
+// 				},
+// 			},
+// 			DataServiceName:   pulumi.String("DataTransformation"),
+// 			DataSinkId:        pulumi.String("/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestAzureStorage1"),
+// 			DataSourceId:      pulumi.String("/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestStorSimpleSource1"),
+// 			JobDefinitionName: pulumi.String("jobdeffromtestcode1"),
+// 			ResourceGroupName: pulumi.String("ResourceGroupForSDKTest"),
+// 			RunLocation:       pulumi.String("westus"),
+// 			State:             pulumi.String("Enabled"),
+// 			UserConfirmation:  pulumi.String("Required"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type JobDefinition struct {
 	pulumi.CustomResourceState
 

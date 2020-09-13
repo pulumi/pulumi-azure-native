@@ -11,6 +11,35 @@ import (
 )
 
 // IP firewall rule
+//
+// ## Example Usage
+// ### Create an IP firewall rule
+//
+// ```go
+// package main
+//
+// import (
+// 	synapse "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/synapse/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := synapse.NewIpFirewallRule(ctx, "ipFirewallRule", &synapse.IpFirewallRuleArgs{
+// 			EndIpAddress:      pulumi.String("10.0.0.254"),
+// 			ResourceGroupName: pulumi.String("ExampleResourceGroup"),
+// 			RuleName:          pulumi.String("ExampleIpFirewallRule"),
+// 			StartIpAddress:    pulumi.String("10.0.0.0"),
+// 			WorkspaceName:     pulumi.String("ExampleWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type IpFirewallRule struct {
 	pulumi.CustomResourceState
 

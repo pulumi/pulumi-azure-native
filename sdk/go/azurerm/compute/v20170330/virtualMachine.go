@@ -11,6 +11,617 @@ import (
 )
 
 // Describes a Virtual Machine.
+//
+// ## Example Usage
+// ### Create a custom-image vm from an unmanaged generalized os image.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20170330"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewVirtualMachine(ctx, "virtualMachine", &compute.VirtualMachineArgs{
+// 			HardwareProfile: &compute.HardwareProfileArgs{
+// 				VmSize: pulumi.String("Standard_D1_v2"),
+// 			},
+// 			Location: pulumi.String("westus"),
+// 			NetworkProfile: &compute.NetworkProfileArgs{
+// 				NetworkInterfaces: compute.NetworkInterfaceReferenceArray{
+// 					&compute.NetworkInterfaceReferenceArgs{
+// 						Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}"),
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.OSProfileArgs{
+// 				AdminPassword: pulumi.String("{your-password}"),
+// 				AdminUsername: pulumi.String("{your-username}"),
+// 				ComputerName:  pulumi.String("myVM"),
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.StorageProfileArgs{
+// 				OsDisk: &compute.OSDiskArgs{
+// 					Caching:      pulumi.String("ReadWrite"),
+// 					CreateOption: pulumi.String("FromImage"),
+// 					Image: &compute.VirtualHardDiskArgs{
+// 						Uri: pulumi.String("http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/{existing-generalized-os-image-blob-name}.vhd"),
+// 					},
+// 					Name:   pulumi.String("myVMosdisk"),
+// 					OsType: pulumi.String("Windows"),
+// 					Vhd: &compute.VirtualHardDiskArgs{
+// 						Uri: pulumi.String("http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd"),
+// 					},
+// 				},
+// 			},
+// 			VmName: pulumi.String("{vm-name}"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a platform-image vm with unmanaged os and data disks.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20170330"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewVirtualMachine(ctx, "virtualMachine", &compute.VirtualMachineArgs{
+// 			HardwareProfile: &compute.HardwareProfileArgs{
+// 				VmSize: pulumi.String("Standard_D2_v2"),
+// 			},
+// 			Location: pulumi.String("westus"),
+// 			NetworkProfile: &compute.NetworkProfileArgs{
+// 				NetworkInterfaces: compute.NetworkInterfaceReferenceArray{
+// 					&compute.NetworkInterfaceReferenceArgs{
+// 						Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}"),
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.OSProfileArgs{
+// 				AdminPassword: pulumi.String("{your-password}"),
+// 				AdminUsername: pulumi.String("{your-username}"),
+// 				ComputerName:  pulumi.String("myVM"),
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.StorageProfileArgs{
+// 				DataDisks: compute.DataDiskArray{
+// 					&compute.DataDiskArgs{
+// 						CreateOption: pulumi.String("Empty"),
+// 						DiskSizeGB:   pulumi.Int(1023),
+// 						Lun:          pulumi.Int(0),
+// 						Vhd: &compute.VirtualHardDiskArgs{
+// 							Uri: pulumi.String("http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk0.vhd"),
+// 						},
+// 					},
+// 					&compute.DataDiskArgs{
+// 						CreateOption: pulumi.String("Empty"),
+// 						DiskSizeGB:   pulumi.Int(1023),
+// 						Lun:          pulumi.Int(1),
+// 						Vhd: &compute.VirtualHardDiskArgs{
+// 							Uri: pulumi.String("http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk1.vhd"),
+// 						},
+// 					},
+// 				},
+// 				ImageReference: &compute.ImageReferenceArgs{
+// 					Offer:     pulumi.String("WindowsServer"),
+// 					Publisher: pulumi.String("MicrosoftWindowsServer"),
+// 					Sku:       pulumi.String("2016-Datacenter"),
+// 					Version:   pulumi.String("latest"),
+// 				},
+// 				OsDisk: &compute.OSDiskArgs{
+// 					Caching:      pulumi.String("ReadWrite"),
+// 					CreateOption: pulumi.String("FromImage"),
+// 					Name:         pulumi.String("myVMosdisk"),
+// 					Vhd: &compute.VirtualHardDiskArgs{
+// 						Uri: pulumi.String("http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd"),
+// 					},
+// 				},
+// 			},
+// 			VmName: pulumi.String("{vm-name}"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a vm from a custom image.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20170330"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewVirtualMachine(ctx, "virtualMachine", &compute.VirtualMachineArgs{
+// 			HardwareProfile: &compute.HardwareProfileArgs{
+// 				VmSize: pulumi.String("Standard_D1_v2"),
+// 			},
+// 			Location: pulumi.String("westus"),
+// 			NetworkProfile: &compute.NetworkProfileArgs{
+// 				NetworkInterfaces: compute.NetworkInterfaceReferenceArray{
+// 					&compute.NetworkInterfaceReferenceArgs{
+// 						Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}"),
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.OSProfileArgs{
+// 				AdminPassword: pulumi.String("{your-password}"),
+// 				AdminUsername: pulumi.String("{your-username}"),
+// 				ComputerName:  pulumi.String("myVM"),
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.StorageProfileArgs{
+// 				ImageReference: &compute.ImageReferenceArgs{
+// 					Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}"),
+// 				},
+// 				OsDisk: &compute.OSDiskArgs{
+// 					Caching:      pulumi.String("ReadWrite"),
+// 					CreateOption: pulumi.String("FromImage"),
+// 					ManagedDisk: &compute.ManagedDiskParametersArgs{
+// 						StorageAccountType: pulumi.String("Standard_LRS"),
+// 					},
+// 					Name: pulumi.String("myVMosdisk"),
+// 				},
+// 			},
+// 			VmName: pulumi.String("myVM"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a vm in an availability set.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20170330"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewVirtualMachine(ctx, "virtualMachine", &compute.VirtualMachineArgs{
+// 			AvailabilitySet: &compute.SubResourceArgs{
+// 				Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/availabilitySets/{existing-availability-set-name}"),
+// 			},
+// 			HardwareProfile: &compute.HardwareProfileArgs{
+// 				VmSize: pulumi.String("Standard_D1_v2"),
+// 			},
+// 			Location: pulumi.String("westus"),
+// 			NetworkProfile: &compute.NetworkProfileArgs{
+// 				NetworkInterfaces: compute.NetworkInterfaceReferenceArray{
+// 					&compute.NetworkInterfaceReferenceArgs{
+// 						Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}"),
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.OSProfileArgs{
+// 				AdminPassword: pulumi.String("{your-password}"),
+// 				AdminUsername: pulumi.String("{your-username}"),
+// 				ComputerName:  pulumi.String("myVM"),
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.StorageProfileArgs{
+// 				ImageReference: &compute.ImageReferenceArgs{
+// 					Offer:     pulumi.String("WindowsServer"),
+// 					Publisher: pulumi.String("MicrosoftWindowsServer"),
+// 					Sku:       pulumi.String("2016-Datacenter"),
+// 					Version:   pulumi.String("latest"),
+// 				},
+// 				OsDisk: &compute.OSDiskArgs{
+// 					Caching:      pulumi.String("ReadWrite"),
+// 					CreateOption: pulumi.String("FromImage"),
+// 					ManagedDisk: &compute.ManagedDiskParametersArgs{
+// 						StorageAccountType: pulumi.String("Standard_LRS"),
+// 					},
+// 					Name: pulumi.String("myVMosdisk"),
+// 				},
+// 			},
+// 			VmName: pulumi.String("myVM"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a vm with a marketplace image plan.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20170330"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewVirtualMachine(ctx, "virtualMachine", &compute.VirtualMachineArgs{
+// 			HardwareProfile: &compute.HardwareProfileArgs{
+// 				VmSize: pulumi.String("Standard_D1_v2"),
+// 			},
+// 			Location: pulumi.String("westus"),
+// 			NetworkProfile: &compute.NetworkProfileArgs{
+// 				NetworkInterfaces: compute.NetworkInterfaceReferenceArray{
+// 					&compute.NetworkInterfaceReferenceArgs{
+// 						Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}"),
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.OSProfileArgs{
+// 				AdminPassword: pulumi.String("{your-password}"),
+// 				AdminUsername: pulumi.String("{your-username}"),
+// 				ComputerName:  pulumi.String("myVM"),
+// 			},
+// 			Plan: &compute.PlanArgs{
+// 				Name:      pulumi.String("windows2016"),
+// 				Product:   pulumi.String("windows-data-science-vm"),
+// 				Publisher: pulumi.String("microsoft-ads"),
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.StorageProfileArgs{
+// 				ImageReference: &compute.ImageReferenceArgs{
+// 					Offer:     pulumi.String("windows-data-science-vm"),
+// 					Publisher: pulumi.String("microsoft-ads"),
+// 					Sku:       pulumi.String("windows2016"),
+// 					Version:   pulumi.String("latest"),
+// 				},
+// 				OsDisk: &compute.OSDiskArgs{
+// 					Caching:      pulumi.String("ReadWrite"),
+// 					CreateOption: pulumi.String("FromImage"),
+// 					ManagedDisk: &compute.ManagedDiskParametersArgs{
+// 						StorageAccountType: pulumi.String("Standard_LRS"),
+// 					},
+// 					Name: pulumi.String("myVMosdisk"),
+// 				},
+// 			},
+// 			VmName: pulumi.String("myVM"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a vm with boot diagnostics.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20170330"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewVirtualMachine(ctx, "virtualMachine", &compute.VirtualMachineArgs{
+// 			DiagnosticsProfile: &compute.DiagnosticsProfileArgs{
+// 				BootDiagnostics: &compute.BootDiagnosticsArgs{
+// 					Enabled:    pulumi.Bool(true),
+// 					StorageUri: pulumi.String("http://{existing-storage-account-name}.blob.core.windows.net"),
+// 				},
+// 			},
+// 			HardwareProfile: &compute.HardwareProfileArgs{
+// 				VmSize: pulumi.String("Standard_D1_v2"),
+// 			},
+// 			Location: pulumi.String("westus"),
+// 			NetworkProfile: &compute.NetworkProfileArgs{
+// 				NetworkInterfaces: compute.NetworkInterfaceReferenceArray{
+// 					&compute.NetworkInterfaceReferenceArgs{
+// 						Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}"),
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.OSProfileArgs{
+// 				AdminPassword: pulumi.String("{your-password}"),
+// 				AdminUsername: pulumi.String("{your-username}"),
+// 				ComputerName:  pulumi.String("myVM"),
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.StorageProfileArgs{
+// 				ImageReference: &compute.ImageReferenceArgs{
+// 					Offer:     pulumi.String("WindowsServer"),
+// 					Publisher: pulumi.String("MicrosoftWindowsServer"),
+// 					Sku:       pulumi.String("2016-Datacenter"),
+// 					Version:   pulumi.String("latest"),
+// 				},
+// 				OsDisk: &compute.OSDiskArgs{
+// 					Caching:      pulumi.String("ReadWrite"),
+// 					CreateOption: pulumi.String("FromImage"),
+// 					ManagedDisk: &compute.ManagedDiskParametersArgs{
+// 						StorageAccountType: pulumi.String("Standard_LRS"),
+// 					},
+// 					Name: pulumi.String("myVMosdisk"),
+// 				},
+// 			},
+// 			VmName: pulumi.String("myVM"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a vm with empty data disks.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20170330"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewVirtualMachine(ctx, "virtualMachine", &compute.VirtualMachineArgs{
+// 			HardwareProfile: &compute.HardwareProfileArgs{
+// 				VmSize: pulumi.String("Standard_D2_v2"),
+// 			},
+// 			Location: pulumi.String("westus"),
+// 			NetworkProfile: &compute.NetworkProfileArgs{
+// 				NetworkInterfaces: compute.NetworkInterfaceReferenceArray{
+// 					&compute.NetworkInterfaceReferenceArgs{
+// 						Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}"),
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.OSProfileArgs{
+// 				AdminPassword: pulumi.String("{your-password}"),
+// 				AdminUsername: pulumi.String("{your-username}"),
+// 				ComputerName:  pulumi.String("myVM"),
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.StorageProfileArgs{
+// 				DataDisks: compute.DataDiskArray{
+// 					&compute.DataDiskArgs{
+// 						CreateOption: pulumi.String("Empty"),
+// 						DiskSizeGB:   pulumi.Int(1023),
+// 						Lun:          pulumi.Int(0),
+// 					},
+// 					&compute.DataDiskArgs{
+// 						CreateOption: pulumi.String("Empty"),
+// 						DiskSizeGB:   pulumi.Int(1023),
+// 						Lun:          pulumi.Int(1),
+// 					},
+// 				},
+// 				ImageReference: &compute.ImageReferenceArgs{
+// 					Offer:     pulumi.String("WindowsServer"),
+// 					Publisher: pulumi.String("MicrosoftWindowsServer"),
+// 					Sku:       pulumi.String("2016-Datacenter"),
+// 					Version:   pulumi.String("latest"),
+// 				},
+// 				OsDisk: &compute.OSDiskArgs{
+// 					Caching:      pulumi.String("ReadWrite"),
+// 					CreateOption: pulumi.String("FromImage"),
+// 					ManagedDisk: &compute.ManagedDiskParametersArgs{
+// 						StorageAccountType: pulumi.String("Standard_LRS"),
+// 					},
+// 					Name: pulumi.String("myVMosdisk"),
+// 				},
+// 			},
+// 			VmName: pulumi.String("myVM"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a vm with password authentication.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20170330"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewVirtualMachine(ctx, "virtualMachine", &compute.VirtualMachineArgs{
+// 			HardwareProfile: &compute.HardwareProfileArgs{
+// 				VmSize: pulumi.String("Standard_D1_v2"),
+// 			},
+// 			Location: pulumi.String("westus"),
+// 			NetworkProfile: &compute.NetworkProfileArgs{
+// 				NetworkInterfaces: compute.NetworkInterfaceReferenceArray{
+// 					&compute.NetworkInterfaceReferenceArgs{
+// 						Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}"),
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.OSProfileArgs{
+// 				AdminPassword: pulumi.String("{your-password}"),
+// 				AdminUsername: pulumi.String("{your-username}"),
+// 				ComputerName:  pulumi.String("myVM"),
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.StorageProfileArgs{
+// 				ImageReference: &compute.ImageReferenceArgs{
+// 					Offer:     pulumi.String("WindowsServer"),
+// 					Publisher: pulumi.String("MicrosoftWindowsServer"),
+// 					Sku:       pulumi.String("2016-Datacenter"),
+// 					Version:   pulumi.String("latest"),
+// 				},
+// 				OsDisk: &compute.OSDiskArgs{
+// 					Caching:      pulumi.String("ReadWrite"),
+// 					CreateOption: pulumi.String("FromImage"),
+// 					ManagedDisk: &compute.ManagedDiskParametersArgs{
+// 						StorageAccountType: pulumi.String("Standard_LRS"),
+// 					},
+// 					Name: pulumi.String("myVMosdisk"),
+// 				},
+// 			},
+// 			VmName: pulumi.String("myVM"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a vm with premium storage.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20170330"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewVirtualMachine(ctx, "virtualMachine", &compute.VirtualMachineArgs{
+// 			HardwareProfile: &compute.HardwareProfileArgs{
+// 				VmSize: pulumi.String("Standard_D1_v2"),
+// 			},
+// 			Location: pulumi.String("westus"),
+// 			NetworkProfile: &compute.NetworkProfileArgs{
+// 				NetworkInterfaces: compute.NetworkInterfaceReferenceArray{
+// 					&compute.NetworkInterfaceReferenceArgs{
+// 						Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}"),
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.OSProfileArgs{
+// 				AdminPassword: pulumi.String("{your-password}"),
+// 				AdminUsername: pulumi.String("{your-username}"),
+// 				ComputerName:  pulumi.String("myVM"),
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.StorageProfileArgs{
+// 				ImageReference: &compute.ImageReferenceArgs{
+// 					Offer:     pulumi.String("WindowsServer"),
+// 					Publisher: pulumi.String("MicrosoftWindowsServer"),
+// 					Sku:       pulumi.String("2016-Datacenter"),
+// 					Version:   pulumi.String("latest"),
+// 				},
+// 				OsDisk: &compute.OSDiskArgs{
+// 					Caching:      pulumi.String("ReadWrite"),
+// 					CreateOption: pulumi.String("FromImage"),
+// 					ManagedDisk: &compute.ManagedDiskParametersArgs{
+// 						StorageAccountType: pulumi.String("Premium_LRS"),
+// 					},
+// 					Name: pulumi.String("myVMosdisk"),
+// 				},
+// 			},
+// 			VmName: pulumi.String("myVM"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a vm with ssh authentication.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20170330"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewVirtualMachine(ctx, "virtualMachine", &compute.VirtualMachineArgs{
+// 			HardwareProfile: &compute.HardwareProfileArgs{
+// 				VmSize: pulumi.String("Standard_D1_v2"),
+// 			},
+// 			Location: pulumi.String("westus"),
+// 			NetworkProfile: &compute.NetworkProfileArgs{
+// 				NetworkInterfaces: compute.NetworkInterfaceReferenceArray{
+// 					&compute.NetworkInterfaceReferenceArgs{
+// 						Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}"),
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &compute.OSProfileArgs{
+// 				AdminUsername: pulumi.String("{your-username}"),
+// 				ComputerName:  pulumi.String("myVM"),
+// 				LinuxConfiguration: &compute.LinuxConfigurationArgs{
+// 					DisablePasswordAuthentication: pulumi.Bool(true),
+// 					Ssh: &compute.SshConfigurationArgs{
+// 						PublicKeys: compute.SshPublicKeyArray{
+// 							&compute.SshPublicKeyArgs{
+// 								KeyData: pulumi.String("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeClRAk2ipUs/l5voIsDC5q9RI+YSRd1Bvd/O+axgY4WiBzG+4FwJWZm/mLLe5DoOdHQwmU2FrKXZSW4w2sYE70KeWnrFViCOX5MTVvJgPE8ClugNl8RWth/tU849DvM9sT7vFgfVSHcAS2yDRyDlueii+8nF2ym8XWAPltFVCyLHRsyBp5YPqK8JFYIa1eybKsY3hEAxRCA+/7bq8et+Gj3coOsuRmrehav7rE6N12Pb80I6ofa6SM5XNYq4Xk0iYNx7R3kdz0Jj9XgZYWjAHjJmT0gTRoOnt6upOuxK7xI/ykWrllgpXrCPu3Ymz+c+ujaqcxDopnAl2lmf69/J1"),
+// 								Path:    pulumi.String("/home/{your-username}/.ssh/authorized_keys"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.StorageProfileArgs{
+// 				ImageReference: &compute.ImageReferenceArgs{
+// 					Offer:     pulumi.String("{image_offer}"),
+// 					Publisher: pulumi.String("{image_publisher}"),
+// 					Sku:       pulumi.String("{image_sku}"),
+// 					Version:   pulumi.String("latest"),
+// 				},
+// 				OsDisk: &compute.OSDiskArgs{
+// 					Caching:      pulumi.String("ReadWrite"),
+// 					CreateOption: pulumi.String("FromImage"),
+// 					ManagedDisk: &compute.ManagedDiskParametersArgs{
+// 						StorageAccountType: pulumi.String("Standard_LRS"),
+// 					},
+// 					Name: pulumi.String("myVMosdisk"),
+// 				},
+// 			},
+// 			VmName: pulumi.String("myVM"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 

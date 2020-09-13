@@ -11,6 +11,35 @@ import (
 )
 
 // Azure Migrate Project.
+//
+// ## Example Usage
+// ### Projects_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	migrate "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/migrate/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := migrate.NewProject(ctx, "project", &migrate.ProjectArgs{
+// 			ETag:              pulumi.String(""),
+// 			Location:          pulumi.String("West Europe"),
+// 			ProjectName:       pulumi.String("abGoyalProject2"),
+// 			ResourceGroupName: pulumi.String("abgoyal-westEurope"),
+// 			Tags:              nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Project struct {
 	pulumi.CustomResourceState
 

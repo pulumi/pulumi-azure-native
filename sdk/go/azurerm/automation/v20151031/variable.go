@@ -11,6 +11,37 @@ import (
 )
 
 // Definition of the variable.
+//
+// ## Example Usage
+// ### Create or update a variable
+//
+// ```go
+// package main
+//
+// import (
+// 	automation "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/automation/v20151031"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := automation.NewVariable(ctx, "variable", &automation.VariableArgs{
+// 			AutomationAccountName: pulumi.String("sampleAccount9"),
+// 			Description:           pulumi.String("my description"),
+// 			IsEncrypted:           pulumi.Bool(false),
+// 			Name:                  pulumi.String("sampleVariable"),
+// 			ResourceGroupName:     pulumi.String("rg"),
+// 			Value:                 pulumi.String("\"ComputerName.domain.com\""),
+// 			VariableName:          pulumi.String("sampleVariable"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Variable struct {
 	pulumi.CustomResourceState
 

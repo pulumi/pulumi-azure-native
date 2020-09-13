@@ -11,6 +11,41 @@ import (
 )
 
 // The device security group resource
+//
+// ## Example Usage
+// ### Create or update a device security group for the specified IoT hub resource
+//
+// ```go
+// package main
+//
+// import (
+// 	security "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/security/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := security.NewDeviceSecurityGroup(ctx, "deviceSecurityGroup", &security.DeviceSecurityGroupArgs{
+// 			DeviceSecurityGroupName: pulumi.String("samplesecuritygroup"),
+// 			ResourceId:              pulumi.String("subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub"),
+// 			TimeWindowRules: security.TimeWindowCustomAlertRuleArray{
+// 				&security.TimeWindowCustomAlertRuleArgs{
+// 					IsEnabled:      pulumi.Bool(true),
+// 					MaxThreshold:   pulumi.Int(30),
+// 					MinThreshold:   pulumi.Int(0),
+// 					RuleType:       pulumi.String("ActiveConnectionsNotInAllowedRange"),
+// 					TimeWindowSize: pulumi.String("PT05M"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DeviceSecurityGroup struct {
 	pulumi.CustomResourceState
 

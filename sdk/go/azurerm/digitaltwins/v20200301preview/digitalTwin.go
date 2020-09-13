@@ -11,6 +11,33 @@ import (
 )
 
 // The description of the DigitalTwins service.
+//
+// ## Example Usage
+// ### Put a DigitalTwinsInstance resource
+//
+// ```go
+// package main
+//
+// import (
+// 	digitaltwins "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/digitaltwins/v20200301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := digitaltwins.NewDigitalTwin(ctx, "digitalTwin", &digitaltwins.DigitalTwinArgs{
+// 			Location:          pulumi.String("WestUS"),
+// 			ResourceGroupName: pulumi.String("resRg"),
+// 			ResourceName:      pulumi.String("myDigitalTwinsService"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DigitalTwin struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,376 @@ import (
 )
 
 // Api details.
+//
+// ## Example Usage
+// ### ApiManagementCreateApi
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
+// 			ApiId: pulumi.String("tempgroup"),
+// 			AuthenticationSettings: &apimanagement.AuthenticationSettingsContractArgs{
+// 				OAuth2: &apimanagement.OAuth2AuthenticationSettingsContractArgs{
+// 					AuthorizationServerId: pulumi.String("authorizationServerId2283"),
+// 					Scope:                 pulumi.String("oauth2scope2580"),
+// 				},
+// 			},
+// 			Description: pulumi.String("apidescription5200"),
+// 			DisplayName: pulumi.String("apiname1463"),
+// 			Path:        pulumi.String("newapiPath"),
+// 			Protocols: pulumi.StringArray{
+// 				pulumi.String("https"),
+// 				pulumi.String("http"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			ServiceUrl:        pulumi.String("http://newechoapi.cloudapp.net/api"),
+// 			SubscriptionKeyParameterNames: &apimanagement.SubscriptionKeyParameterNamesContractArgs{
+// 				Header: pulumi.String("header4520"),
+// 				Query:  pulumi.String("query3037"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateApiClone
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
+// 			ApiId:       pulumi.String("echo-api2"),
+// 			Description: pulumi.String("Copy of Existing Echo Api including Operations."),
+// 			DisplayName: pulumi.String("Echo API2"),
+// 			IsCurrent:   pulumi.Bool(true),
+// 			Path:        pulumi.String("echo2"),
+// 			Protocols: pulumi.StringArray{
+// 				pulumi.String("http"),
+// 				pulumi.String("https"),
+// 			},
+// 			ResourceGroupName:    pulumi.String("rg1"),
+// 			ServiceName:          pulumi.String("apimService1"),
+// 			ServiceUrl:           pulumi.String("http://echoapi.cloudapp.net/api"),
+// 			SourceApiId:          pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/58a4aeac497000007d040001"),
+// 			SubscriptionRequired: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateApiNewVersionUsingExistingApi
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
+// 			ApiId:           pulumi.String("echoapiv3"),
+// 			ApiVersion:      pulumi.String("v4"),
+// 			ApiVersionSetId: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apiVersionSets/aa9c59e6-c0cd-4258-9356-9ca7d2f0b458"),
+// 			Description:     pulumi.String("Create Echo API into a new Version using Existing Version Set and Copy all Operations."),
+// 			DisplayName:     pulumi.String("Echo API2"),
+// 			IsCurrent:       pulumi.Bool(true),
+// 			Path:            pulumi.String("echo2"),
+// 			Protocols: pulumi.StringArray{
+// 				pulumi.String("http"),
+// 				pulumi.String("https"),
+// 			},
+// 			ResourceGroupName:    pulumi.String("rg1"),
+// 			ServiceName:          pulumi.String("apimService1"),
+// 			ServiceUrl:           pulumi.String("http://echoapi.cloudapp.net/api"),
+// 			SourceApiId:          pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echoPath"),
+// 			SubscriptionRequired: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateApiRevisionFromExistingApi
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
+// 			ApiId:                  pulumi.String("echo-api;rev=3"),
+// 			ApiRevisionDescription: pulumi.String("Creating a Revision of an existing API"),
+// 			Path:                   pulumi.String("echo"),
+// 			ResourceGroupName:      pulumi.String("rg1"),
+// 			ServiceName:            pulumi.String("apimService1"),
+// 			ServiceUrl:             pulumi.String("http://echoapi.cloudapp.net/apiv3"),
+// 			SourceApiId:            pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echo-api"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateApiUsingImportOverrideServiceUrl
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
+// 			ApiId:             pulumi.String("apidocs"),
+// 			Format:            pulumi.String("swagger-link"),
+// 			Path:              pulumi.String("petstoreapi123"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			ServiceUrl:        pulumi.String("http://petstore.swagger.wordnik.com/api"),
+// 			Value:             pulumi.String("http://apimpimportviaurl.azurewebsites.net/api/apidocs/"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateApiUsingOai3Import
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
+// 			ApiId:             pulumi.String("petstore"),
+// 			Format:            pulumi.String("openapi-link"),
+// 			Path:              pulumi.String("petstore"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			Value:             pulumi.String("https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateApiUsingSwaggerImport
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
+// 			ApiId:             pulumi.String("petstore"),
+// 			Format:            pulumi.String("swagger-link-json"),
+// 			Path:              pulumi.String("petstore"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			Value:             pulumi.String("http://petstore.swagger.io/v2/swagger.json"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateApiUsingWadlImport
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
+// 			ApiId:             pulumi.String("petstore"),
+// 			Format:            pulumi.String("wadl-link-json"),
+// 			Path:              pulumi.String("collector"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			Value:             pulumi.String("https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateApiWithOpenIdConnect
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
+// 			ApiId: pulumi.String("tempgroup"),
+// 			AuthenticationSettings: &apimanagement.AuthenticationSettingsContractArgs{
+// 				Openid: &apimanagement.OpenIdAuthenticationSettingsContractArgs{
+// 					BearerTokenSendingMethods: pulumi.StringArray{
+// 						pulumi.String("authorizationHeader"),
+// 					},
+// 					OpenidProviderId: pulumi.String("testopenid"),
+// 				},
+// 			},
+// 			Description: pulumi.String("This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters."),
+// 			DisplayName: pulumi.String("Swagger Petstore"),
+// 			Path:        pulumi.String("petstore"),
+// 			Protocols: pulumi.StringArray{
+// 				pulumi.String("https"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			ServiceUrl:        pulumi.String("http://petstore.swagger.io/v2"),
+// 			SubscriptionKeyParameterNames: &apimanagement.SubscriptionKeyParameterNamesContractArgs{
+// 				Header: pulumi.String("Ocp-Apim-Subscription-Key"),
+// 				Query:  pulumi.String("subscription-key"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateSoapPassThroughApiUsingWsdlImport
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
+// 			ApiId:             pulumi.String("soapApi"),
+// 			Format:            pulumi.String("wsdl-link"),
+// 			Path:              pulumi.String("currency"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			SoapApiType:       pulumi.String("soap"),
+// 			Value:             pulumi.String("http://www.webservicex.net/CurrencyConvertor.asmx?WSDL"),
+// 			WsdlSelector: &apimanagement.ApiCreateOrUpdatePropertiesWsdlSelectorArgs{
+// 				WsdlEndpointName: pulumi.String("CurrencyConvertorSoap"),
+// 				WsdlServiceName:  pulumi.String("CurrencyConvertor"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateSoapToRestApiUsingWsdlImport
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
+// 			ApiId:             pulumi.String("soapApi"),
+// 			Format:            pulumi.String("wsdl-link"),
+// 			Path:              pulumi.String("currency"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			Value:             pulumi.String("http://www.webservicex.net/CurrencyConvertor.asmx?WSDL"),
+// 			WsdlSelector: &apimanagement.ApiCreateOrUpdatePropertiesWsdlSelectorArgs{
+// 				WsdlEndpointName: pulumi.String("CurrencyConvertorSoap"),
+// 				WsdlServiceName:  pulumi.String("CurrencyConvertor"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Api struct {
 	pulumi.CustomResourceState
 

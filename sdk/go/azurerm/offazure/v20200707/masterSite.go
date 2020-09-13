@@ -11,6 +11,13 @@ import (
 )
 
 // Site REST Resource.
+//
+// ## Example Usage
+// ### Create Master site
+//
+// ```go
+//
+// ```
 type MasterSite struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,37 @@ import (
 )
 
 // Private endpoint connection resource.
+//
+// ## Example Usage
+// ### KeyVaultPutPrivateEndpointConnection
+//
+// ```go
+// package main
+//
+// import (
+// 	keyvault "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/keyvault/v20180214"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := keyvault.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &keyvault.PrivateEndpointConnectionArgs{
+// 			PrivateEndpointConnectionName: pulumi.String("sample-pec"),
+// 			PrivateLinkServiceConnectionState: &keyvault.PrivateLinkServiceConnectionStateArgs{
+// 				Description: pulumi.String("My name is Joe and I'm approving this."),
+// 				Status:      pulumi.String("Approved"),
+// 			},
+// 			ResourceGroupName: pulumi.String("sample-group"),
+// 			VaultName:         pulumi.String("sample-vault"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

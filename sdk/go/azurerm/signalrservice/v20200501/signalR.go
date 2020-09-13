@@ -11,6 +11,91 @@ import (
 )
 
 // A class represent a SignalR service resource.
+//
+// ## Example Usage
+// ### SignalR_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	signalrservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/signalrservice/v20200501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := signalrservice.NewSignalR(ctx, "signalR", &signalrservice.SignalRArgs{
+// 			Cors: &signalrservice.SignalRCorsSettingsArgs{
+// 				AllowedOrigins: pulumi.StringArray{
+// 					pulumi.String("https://foo.com"),
+// 					pulumi.String("https://bar.com"),
+// 				},
+// 			},
+// 			Features: signalrservice.SignalRFeatureArray{
+// 				&signalrservice.SignalRFeatureArgs{
+// 					Flag:       pulumi.String("ServiceMode"),
+// 					Properties: nil,
+// 					Value:      pulumi.String("Serverless"),
+// 				},
+// 				&signalrservice.SignalRFeatureArgs{
+// 					Flag:       pulumi.String("EnableConnectivityLogs"),
+// 					Properties: nil,
+// 					Value:      pulumi.String("True"),
+// 				},
+// 				&signalrservice.SignalRFeatureArgs{
+// 					Flag:       pulumi.String("EnableMessagingLogs"),
+// 					Properties: nil,
+// 					Value:      pulumi.String("False"),
+// 				},
+// 			},
+// 			Kind:     pulumi.String("SignalR"),
+// 			Location: pulumi.String("eastus"),
+// 			NetworkACLs: &signalrservice.SignalRNetworkACLsArgs{
+// 				DefaultAction: pulumi.String("Deny"),
+// 				PrivateEndpoints: signalrservice.PrivateEndpointACLArray{
+// 					&signalrservice.PrivateEndpointACLArgs{
+// 						Allow: pulumi.StringArray{
+// 							pulumi.String("ServerConnection"),
+// 						},
+// 						Name: pulumi.String("mySignalRService.1fa229cd-bf3f-47f0-8c49-afb36723997e"),
+// 					},
+// 				},
+// 				PublicNetwork: &signalrservice.NetworkACLArgs{
+// 					Allow: pulumi.StringArray{
+// 						pulumi.String("ClientConnection"),
+// 					},
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			ResourceName:      pulumi.String("mySignalRService"),
+// 			Sku: &signalrservice.ResourceSkuArgs{
+// 				Capacity: pulumi.Int(1),
+// 				Name:     pulumi.String("Standard_S1"),
+// 				Tier:     pulumi.String("Standard"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			Upstream: &signalrservice.ServerlessUpstreamSettingsArgs{
+// 				Templates: signalrservice.UpstreamTemplateArray{
+// 					&signalrservice.UpstreamTemplateArgs{
+// 						CategoryPattern: pulumi.String("*"),
+// 						EventPattern:    pulumi.String("connect,disconnect"),
+// 						HubPattern:      pulumi.String("*"),
+// 						UrlTemplate:     pulumi.String("https://example.com/chat/api/connect"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SignalR struct {
 	pulumi.CustomResourceState
 

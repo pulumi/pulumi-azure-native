@@ -11,6 +11,18 @@ import (
 )
 
 // Pipeline resource type.
+//
+// ## Example Usage
+// ### Pipelines_Create
+//
+// ```go
+//
+// ```
+// ### Pipelines_Update
+//
+// ```go
+//
+// ```
 type Pipeline struct {
 	pulumi.CustomResourceState
 

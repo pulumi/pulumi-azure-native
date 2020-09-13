@@ -11,6 +11,33 @@ import (
 )
 
 // disk access resource.
+//
+// ## Example Usage
+// ### Create a disk access resource.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDiskAccess(ctx, "diskAccess", &compute.DiskAccessArgs{
+// 			DiskAccessName:    pulumi.String("myDiskAccess"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DiskAccess struct {
 	pulumi.CustomResourceState
 

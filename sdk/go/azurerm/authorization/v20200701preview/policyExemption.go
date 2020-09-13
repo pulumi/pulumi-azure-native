@@ -11,6 +11,13 @@ import (
 )
 
 // The policy exemption.
+//
+// ## Example Usage
+// ### Create or update a policy exemption
+//
+// ```go
+//
+// ```
 type PolicyExemption struct {
 	pulumi.CustomResourceState
 

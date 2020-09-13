@@ -11,6 +11,258 @@ import (
 )
 
 // The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+//
+// ## Example Usage
+// ### Create a virtual machine image from a blob.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20160430preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewImage(ctx, "image", &compute.ImageArgs{
+// 			ImageName:         pulumi.String("myImage"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.ImageStorageProfileArgs{
+// 				OsDisk: &compute.ImageOSDiskArgs{
+// 					BlobUri: pulumi.String("https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd"),
+// 					OsState: pulumi.String("Generalized"),
+// 					OsType:  pulumi.String("Linux"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a virtual machine image from a managed disk.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20160430preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewImage(ctx, "image", &compute.ImageArgs{
+// 			ImageName:         pulumi.String("myImage"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.ImageStorageProfileArgs{
+// 				OsDisk: &compute.ImageOSDiskArgs{
+// 					ManagedDisk: &compute.SubResourceArgs{
+// 						Id: pulumi.String("subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk"),
+// 					},
+// 					OsState: pulumi.String("Generalized"),
+// 					OsType:  pulumi.String("Linux"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a virtual machine image from a snapshot.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20160430preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewImage(ctx, "image", &compute.ImageArgs{
+// 			ImageName:         pulumi.String("myImage"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.ImageStorageProfileArgs{
+// 				OsDisk: &compute.ImageOSDiskArgs{
+// 					OsState: pulumi.String("Generalized"),
+// 					OsType:  pulumi.String("Linux"),
+// 					Snapshot: &compute.SubResourceArgs{
+// 						Id: pulumi.String("subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a virtual machine image from an existing virtual machine.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20160430preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewImage(ctx, "image", &compute.ImageArgs{
+// 			ImageName:         pulumi.String("myImage"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			SourceVirtualMachine: &compute.SubResourceArgs{
+// 				Id: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a virtual machine image that includes a data disk from a blob.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20160430preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewImage(ctx, "image", &compute.ImageArgs{
+// 			ImageName:         pulumi.String("myImage"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.ImageStorageProfileArgs{
+// 				DataDisks: compute.ImageDataDiskArray{
+// 					&compute.ImageDataDiskArgs{
+// 						BlobUri: pulumi.String("https://mystorageaccount.blob.core.windows.net/dataimages/dataimage.vhd"),
+// 						Lun:     pulumi.Int(1),
+// 					},
+// 				},
+// 				OsDisk: &compute.ImageOSDiskArgs{
+// 					BlobUri: pulumi.String("https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd"),
+// 					OsState: pulumi.String("Generalized"),
+// 					OsType:  pulumi.String("Linux"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a virtual machine image that includes a data disk from a managed disk.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20160430preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewImage(ctx, "image", &compute.ImageArgs{
+// 			ImageName:         pulumi.String("myImage"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.ImageStorageProfileArgs{
+// 				DataDisks: compute.ImageDataDiskArray{
+// 					&compute.ImageDataDiskArgs{
+// 						Lun: pulumi.Int(1),
+// 						ManagedDisk: &compute.SubResourceArgs{
+// 							Id: pulumi.String("subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk2"),
+// 						},
+// 					},
+// 				},
+// 				OsDisk: &compute.ImageOSDiskArgs{
+// 					ManagedDisk: &compute.SubResourceArgs{
+// 						Id: pulumi.String("subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk"),
+// 					},
+// 					OsState: pulumi.String("Generalized"),
+// 					OsType:  pulumi.String("Linux"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a virtual machine image that includes a data disk from a snapshot.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20160430preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewImage(ctx, "image", &compute.ImageArgs{
+// 			ImageName:         pulumi.String("myImage"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.ImageStorageProfileArgs{
+// 				DataDisks: compute.ImageDataDiskArray{
+// 					&compute.ImageDataDiskArgs{
+// 						Lun: pulumi.Int(1),
+// 						Snapshot: &compute.SubResourceArgs{
+// 							Id: pulumi.String("subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot2"),
+// 						},
+// 					},
+// 				},
+// 				OsDisk: &compute.ImageOSDiskArgs{
+// 					OsState: pulumi.String("Generalized"),
+// 					OsType:  pulumi.String("Linux"),
+// 					Snapshot: &compute.SubResourceArgs{
+// 						Id: pulumi.String("subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Image struct {
 	pulumi.CustomResourceState
 

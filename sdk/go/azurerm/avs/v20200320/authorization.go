@@ -11,6 +11,33 @@ import (
 )
 
 // ExpressRoute Circuit Authorization
+//
+// ## Example Usage
+// ### Authorizations_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	avs "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/avs/v20200320"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := avs.NewAuthorization(ctx, "authorization", &avs.AuthorizationArgs{
+// 			AuthorizationName: pulumi.String("authorization1"),
+// 			PrivateCloudName:  pulumi.String("cloud1"),
+// 			ResourceGroupName: pulumi.String("group1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Authorization struct {
 	pulumi.CustomResourceState
 

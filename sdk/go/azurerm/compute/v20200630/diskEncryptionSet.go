@@ -11,6 +11,43 @@ import (
 )
 
 // disk encryption set resource.
+//
+// ## Example Usage
+// ### Create a disk encryption set.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDiskEncryptionSet(ctx, "diskEncryptionSet", &compute.DiskEncryptionSetArgs{
+// 			ActiveKey: &compute.KeyVaultAndKeyReferenceArgs{
+// 				KeyUrl: pulumi.String("https://myvmvault.vault-int.azure-int.net/keys/{key}"),
+// 				SourceVault: &compute.SourceVaultArgs{
+// 					Id: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault"),
+// 				},
+// 			},
+// 			DiskEncryptionSetName: pulumi.String("myDiskEncryptionSet"),
+// 			EncryptionType:        pulumi.String("EncryptionAtRestWithCustomerKey"),
+// 			Identity: &compute.EncryptionSetIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DiskEncryptionSet struct {
 	pulumi.CustomResourceState
 

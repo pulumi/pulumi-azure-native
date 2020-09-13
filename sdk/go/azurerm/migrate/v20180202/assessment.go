@@ -11,6 +11,47 @@ import (
 )
 
 // An assessment created for a group in the Migration project.
+//
+// ## Example Usage
+// ### Assessments_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	migrate "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/migrate/v20180202"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := migrate.NewAssessment(ctx, "assessment", &migrate.AssessmentArgs{
+// 			AssessmentName:         pulumi.String("assessment01"),
+// 			AzureHybridUseBenefit:  pulumi.String("Yes"),
+// 			AzureLocation:          pulumi.String("WestUs"),
+// 			AzureOfferCode:         pulumi.String("MSAZR0003P"),
+// 			AzurePricingTier:       pulumi.String("Standard"),
+// 			AzureStorageRedundancy: pulumi.String("LocallyRedundant"),
+// 			Currency:               pulumi.String("USD"),
+// 			DiscountPercentage:     pulumi.Float64(100),
+// 			ETag:                   pulumi.String("\"1100637e-0000-0000-0000-59f6ed1f0000\""),
+// 			GroupName:              pulumi.String("group01"),
+// 			Percentile:             pulumi.String("Percentile50"),
+// 			ProjectName:            pulumi.String("project01"),
+// 			ResourceGroupName:      pulumi.String("myResourceGroup"),
+// 			ScalingFactor:          pulumi.Float64(1.2),
+// 			SizingCriterion:        pulumi.String("PerformanceBased"),
+// 			Stage:                  pulumi.String("InProgress"),
+// 			TimeRange:              pulumi.String("Day"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Assessment struct {
 	pulumi.CustomResourceState
 

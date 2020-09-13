@@ -11,6 +11,13 @@ import (
 )
 
 // Properties of the PrivateEndpointConnection.
+//
+// ## Example Usage
+// ### NameSpacePrivateEndPointConnectionCreate
+//
+// ```go
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

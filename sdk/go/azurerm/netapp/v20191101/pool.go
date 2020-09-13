@@ -11,6 +11,36 @@ import (
 )
 
 // Capacity pool resource
+//
+// ## Example Usage
+// ### Pools_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	netapp "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/netapp/v20191101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := netapp.NewPool(ctx, "pool", &netapp.PoolArgs{
+// 			AccountName:       pulumi.String("account1"),
+// 			Location:          pulumi.String("eastus"),
+// 			PoolName:          pulumi.String("pool1"),
+// 			ResourceGroupName: pulumi.String("myRG"),
+// 			ServiceLevel:      pulumi.String("Premium"),
+// 			Size:              pulumi.Int(4398046511104),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Pool struct {
 	pulumi.CustomResourceState
 

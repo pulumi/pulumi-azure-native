@@ -11,6 +11,44 @@ import (
 )
 
 // Definition of the source control.
+//
+// ## Example Usage
+// ### Create or update a source control
+//
+// ```go
+// package main
+//
+// import (
+// 	automation "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/automation/v20170515preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := automation.NewSourceControl(ctx, "sourceControl", &automation.SourceControlArgs{
+// 			AutoSync:              pulumi.Bool(true),
+// 			AutomationAccountName: pulumi.String("sampleAccount9"),
+// 			Branch:                pulumi.String("master"),
+// 			Description:           pulumi.String("my description"),
+// 			FolderPath:            pulumi.String("/folderOne/folderTwo"),
+// 			PublishRunbook:        pulumi.Bool(true),
+// 			RepoUrl:               pulumi.String("https://sampleUser.visualstudio.com/myProject/_git/myRepository"),
+// 			ResourceGroupName:     pulumi.String("rg"),
+// 			SecurityToken: &automation.SourceControlSecurityTokenPropertiesArgs{
+// 				AccessToken: pulumi.String("3a326f7a0dcd343ea58fee21f2fd5fb4c1234567"),
+// 				TokenType:   pulumi.String("PersonalAccessToken"),
+// 			},
+// 			SourceControlName: pulumi.String("sampleSourceControl"),
+// 			SourceType:        pulumi.String("VsoGit"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SourceControl struct {
 	pulumi.CustomResourceState
 

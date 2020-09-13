@@ -11,6 +11,38 @@ import (
 )
 
 // Workspace connection.
+//
+// ## Example Usage
+// ### CreateWorkspaceConnection
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewWorkspaceConnection(ctx, "workspaceConnection", &machinelearningservices.WorkspaceConnectionArgs{
+// 			AuthType:          pulumi.String("PAT"),
+// 			Category:          pulumi.String("ACR"),
+// 			ConnectionName:    pulumi.String("connection-1"),
+// 			Name:              pulumi.String("connection-1"),
+// 			ResourceGroupName: pulumi.String("resourceGroup-1"),
+// 			Target:            pulumi.String("www.facebook.com"),
+// 			Value:             pulumi.String("secrets"),
+// 			WorkspaceName:     pulumi.String("workspace-1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type WorkspaceConnection struct {
 	pulumi.CustomResourceState
 

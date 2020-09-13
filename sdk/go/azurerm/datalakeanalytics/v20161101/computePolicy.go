@@ -11,6 +11,37 @@ import (
 )
 
 // Data Lake Analytics compute policy information.
+//
+// ## Example Usage
+// ### Creates or updates the specified compute policy
+//
+// ```go
+// package main
+//
+// import (
+// 	datalakeanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datalakeanalytics/v20161101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datalakeanalytics.NewComputePolicy(ctx, "computePolicy", &datalakeanalytics.ComputePolicyArgs{
+// 			AccountName:                  pulumi.String("contosoadla"),
+// 			ComputePolicyName:            pulumi.String("test_policy"),
+// 			MaxDegreeOfParallelismPerJob: pulumi.Int(10),
+// 			MinPriorityPerJob:            pulumi.Int(30),
+// 			ObjectId:                     pulumi.String("776b9091-8916-4638-87f7-9c989a38da98"),
+// 			ObjectType:                   pulumi.String("User"),
+// 			ResourceGroupName:            pulumi.String("contosorg"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ComputePolicy struct {
 	pulumi.CustomResourceState
 

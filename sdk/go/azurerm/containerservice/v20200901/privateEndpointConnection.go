@@ -11,6 +11,13 @@ import (
 )
 
 // A private endpoint connection
+//
+// ## Example Usage
+// ### Update Private Endpoint Connection
+//
+// ```go
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

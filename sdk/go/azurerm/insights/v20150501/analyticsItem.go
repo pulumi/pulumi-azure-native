@@ -11,6 +11,37 @@ import (
 )
 
 // Properties that define an Analytics item that is associated to an Application Insights component.
+//
+// ## Example Usage
+// ### AnalyticsItemPut
+//
+// ```go
+// package main
+//
+// import (
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20150501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewAnalyticsItem(ctx, "analyticsItem", &insights.AnalyticsItemArgs{
+// 			Content:           pulumi.String("let newExceptionsTimeRange = 1d;\nlet timeRangeToCheckBefore = 7d;\nexceptions\n| where timestamp < ago(timeRangeToCheckBefore)\n| summarize count() by problemId\n| join kind= rightanti (\nexceptions\n| where timestamp >= ago(newExceptionsTimeRange)\n| extend stack = tostring(details[0].rawStack)\n| summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  \n) on problemId \n| order by  count_ desc\n"),
+// 			Name:              pulumi.String("Exceptions - New in the last 24 hours"),
+// 			ResourceGroupName: pulumi.String("my-resource-group"),
+// 			ResourceName:      pulumi.String("my-component"),
+// 			Scope:             pulumi.String("shared"),
+// 			ScopePath:         pulumi.String("analyticsItems"),
+// 			Type:              pulumi.String("query"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type AnalyticsItem struct {
 	pulumi.CustomResourceState
 

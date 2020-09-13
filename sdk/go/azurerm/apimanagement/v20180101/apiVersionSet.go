@@ -11,6 +11,36 @@ import (
 )
 
 // Api Version Set Contract details.
+//
+// ## Example Usage
+// ### ApiManagementCreateApiVersionSet
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20180101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApiVersionSet(ctx, "apiVersionSet", &apimanagement.ApiVersionSetArgs{
+// 			Description:       pulumi.String("Version configuration"),
+// 			DisplayName:       pulumi.String("api set 1"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			VersionSetId:      pulumi.String("api1"),
+// 			VersioningScheme:  pulumi.String("Segment"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ApiVersionSet struct {
 	pulumi.CustomResourceState
 

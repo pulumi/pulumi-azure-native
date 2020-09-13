@@ -11,6 +11,37 @@ import (
 )
 
 // EnterpriseKnowledgeGraph resource definition
+//
+// ## Example Usage
+// ### Create EnterpriseKnowledgeGraph
+//
+// ```go
+// package main
+//
+// import (
+// 	enterpriseknowledgegraph "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/enterpriseknowledgegraph/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := enterpriseknowledgegraph.NewEnterpriseKnowledgeGraph(ctx, "enterpriseKnowledgeGraph", &enterpriseknowledgegraph.EnterpriseKnowledgeGraphArgs{
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("OneResourceGroupName"),
+// 			ResourceName:      pulumi.String("sampleekgname"),
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("value1"),
+// 				"tag2": pulumi.String("value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type EnterpriseKnowledgeGraph struct {
 	pulumi.CustomResourceState
 

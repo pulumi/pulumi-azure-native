@@ -11,6 +11,36 @@ import (
 )
 
 // The integration account.
+//
+// ## Example Usage
+// ### Create or update an integration account
+//
+// ```go
+// package main
+//
+// import (
+// 	logic "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/logic/v20190501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := logic.NewIntegrationAccount(ctx, "integrationAccount", &logic.IntegrationAccountArgs{
+// 			IntegrationAccountName: pulumi.String("testIntegrationAccount"),
+// 			Location:               pulumi.String("westus"),
+// 			ResourceGroupName:      pulumi.String("testResourceGroup"),
+// 			Sku: &logic.IntegrationAccountSkuArgs{
+// 				Name: pulumi.String("Standard"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type IntegrationAccount struct {
 	pulumi.CustomResourceState
 

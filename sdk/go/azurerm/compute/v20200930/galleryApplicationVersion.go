@@ -11,6 +11,13 @@ import (
 )
 
 // Specifies information about the gallery Application Version that you want to create or update.
+//
+// ## Example Usage
+// ### Create or update a simple gallery Application Version.
+//
+// ```go
+//
+// ```
 type GalleryApplicationVersion struct {
 	pulumi.CustomResourceState
 

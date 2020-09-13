@@ -11,6 +11,36 @@ import (
 )
 
 // Policy Contract details.
+//
+// ## Example Usage
+// ### ApiManagementCreateProductPolicy
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20190101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewProductPolicy(ctx, "productPolicy", &apimanagement.ProductPolicyArgs{
+// 			Format:            pulumi.String("xml"),
+// 			PolicyId:          pulumi.String("policy"),
+// 			ProductId:         pulumi.String("5702e97e5157a50f48dce801"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			Value: pulumi.String("<policies>\n  <inbound>\n    <rate-limit calls=\"{{call-count}}\" renewal-period=\"15\"></rate-limit>\n    <log-to-eventhub logger-id=\"16\">\n                      @( string.Join(\",\", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) \n                  </log-to-eventhub>\n    <quota-by-key calls=\"40\" counter-key=\"cc\" renewal-period=\"3600\" increment-count=\"@(context.Request.Method == &quot;POST&quot; ? 1:2)\" />\n    <base />\n  </inbound>\n  <backend>\n    <base />\n  </backend>\n  <outbound>\n    <base />\n  </outbound>\n</policies>"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ProductPolicy struct {
 	pulumi.CustomResourceState
 

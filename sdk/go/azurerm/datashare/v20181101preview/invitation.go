@@ -11,6 +11,35 @@ import (
 )
 
 // A Invitation data transfer object.
+//
+// ## Example Usage
+// ### Invitations_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	datashare "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datashare/v20181101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datashare.NewInvitation(ctx, "invitation", &datashare.InvitationArgs{
+// 			AccountName:       pulumi.String("Account1"),
+// 			InvitationName:    pulumi.String("Invitation1"),
+// 			ResourceGroupName: pulumi.String("SampleResourceGroup"),
+// 			ShareName:         pulumi.String("Share1"),
+// 			TargetEmail:       pulumi.String("receiver@microsoft.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Invitation struct {
 	pulumi.CustomResourceState
 

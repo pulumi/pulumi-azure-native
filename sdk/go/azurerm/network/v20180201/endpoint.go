@@ -11,6 +11,71 @@ import (
 )
 
 // Class representing a Traffic Manager endpoint.
+//
+// ## Example Usage
+// ### Endpoint-PUT-External-WithGeoMapping
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180201"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewEndpoint(ctx, "endpoint", &network.EndpointArgs{
+// 			EndpointName:   pulumi.String(fmt.Sprintf("%v%v%v%v%v", "My", "%", "20external", "%", "20endpoint")),
+// 			EndpointStatus: pulumi.String("Enabled"),
+// 			EndpointType:   pulumi.String("ExternalEndpoints"),
+// 			GeoMapping: pulumi.StringArray{
+// 				pulumi.String("GEO-AS"),
+// 				pulumi.String("GEO-AF"),
+// 			},
+// 			ProfileName:       pulumi.String("azuresdkfornetautoresttrafficmanager8224"),
+// 			ResourceGroupName: pulumi.String("azuresdkfornetautoresttrafficmanager2191"),
+// 			Target:            pulumi.String("foobar.contoso.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Endpoint-PUT-External-WithLocation
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180201"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewEndpoint(ctx, "endpoint", &network.EndpointArgs{
+// 			EndpointLocation:  pulumi.String("North Europe"),
+// 			EndpointName:      pulumi.String("azsmnet7187"),
+// 			EndpointStatus:    pulumi.String("Enabled"),
+// 			EndpointType:      pulumi.String("ExternalEndpoints"),
+// 			ProfileName:       pulumi.String("azsmnet6386"),
+// 			ResourceGroupName: pulumi.String("azuresdkfornetautoresttrafficmanager1421"),
+// 			Target:            pulumi.String("foobar.contoso.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 

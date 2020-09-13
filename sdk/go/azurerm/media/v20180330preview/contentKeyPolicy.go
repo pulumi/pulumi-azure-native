@@ -11,6 +11,28 @@ import (
 )
 
 // A Content Key Policy resource.
+//
+// ## Example Usage
+// ### Creates a Content Key Policy with ClearKey option and Token Restriction
+//
+// ```go
+//
+// ```
+// ### Creates a Content Key Policy with PlayReady option and Open Restriction
+//
+// ```go
+//
+// ```
+// ### Creates a Content Key Policy with Widevine option and Token Restriction
+//
+// ```go
+//
+// ```
+// ### Creates a Content Key Policy with multiple options
+//
+// ```go
+//
+// ```
 type ContentKeyPolicy struct {
 	pulumi.CustomResourceState
 

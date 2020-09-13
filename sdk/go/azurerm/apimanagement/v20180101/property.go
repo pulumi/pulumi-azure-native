@@ -11,6 +11,40 @@ import (
 )
 
 // Property details.
+//
+// ## Example Usage
+// ### ApiManagementCreateProperty
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20180101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewProperty(ctx, "property", &apimanagement.PropertyArgs{
+// 			DisplayName:       pulumi.String("prop3name"),
+// 			PropId:            pulumi.String("testprop2"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			Secret:            pulumi.Bool(true),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			Tags: pulumi.StringArray{
+// 				pulumi.String("foo"),
+// 				pulumi.String("bar"),
+// 			},
+// 			Value: pulumi.String("propValue"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Property struct {
 	pulumi.CustomResourceState
 

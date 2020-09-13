@@ -11,6 +11,36 @@ import (
 )
 
 // Information about appliance.
+//
+// ## Example Usage
+// ### Create or update appliance
+//
+// ```go
+// package main
+//
+// import (
+// 	solutions "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/solutions/v20160901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := solutions.NewAppliance(ctx, "appliance", &solutions.ApplianceArgs{
+// 			ApplianceDefinitionId:  pulumi.String("/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myAppDef"),
+// 			ApplianceName:          pulumi.String("myAppliance"),
+// 			Kind:                   pulumi.String("ServiceCatalog"),
+// 			Location:               pulumi.String("East US 2"),
+// 			ManagedResourceGroupId: pulumi.String("/subscriptions/subid/resourceGroups/myManagedRG"),
+// 			ResourceGroupName:      pulumi.String("rg"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Appliance struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,49 @@ import (
 )
 
 // Represents a HostPool definition.
+//
+// ## Example Usage
+// ### HostPool_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	desktopvirtualization "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/desktopvirtualization/v20191210preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := desktopvirtualization.NewHostPool(ctx, "hostPool", &desktopvirtualization.HostPoolArgs{
+// 			Description:                   pulumi.String("des1"),
+// 			FriendlyName:                  pulumi.String("friendly"),
+// 			HostPoolName:                  pulumi.String("hostPool1"),
+// 			HostPoolType:                  pulumi.String("Pooled"),
+// 			LoadBalancerType:              pulumi.String("BreadthFirst"),
+// 			Location:                      pulumi.String("centralus"),
+// 			MaxSessionLimit:               pulumi.Int(999999),
+// 			PersonalDesktopAssignmentType: pulumi.String("Automatic"),
+// 			PreferredAppGroupType:         pulumi.String("Desktop"),
+// 			RegistrationInfo: &desktopvirtualization.RegistrationInfoArgs{
+// 				ExpirationTime:             pulumi.String("2020-10-01T14:01:54.9571247Z"),
+// 				RegistrationTokenOperation: pulumi.String("Update"),
+// 			},
+// 			ResourceGroupName: pulumi.String("resourceGroup1"),
+// 			SsoContext:        pulumi.String("KeyVaultPath"),
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("value1"),
+// 				"tag2": pulumi.String("value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type HostPool struct {
 	pulumi.CustomResourceState
 

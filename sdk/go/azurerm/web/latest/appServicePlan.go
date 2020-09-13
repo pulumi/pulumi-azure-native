@@ -11,6 +11,41 @@ import (
 )
 
 // App Service plan.
+//
+// ## Example Usage
+// ### Create Or Update App Service plan
+//
+// ```go
+// package main
+//
+// import (
+// 	web "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/web/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := web.NewAppServicePlan(ctx, "appServicePlan", &web.AppServicePlanArgs{
+// 			Kind:              pulumi.String("app"),
+// 			Location:          pulumi.String("East US"),
+// 			Name:              pulumi.String("testsf6141"),
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			Sku: &web.SkuDescriptionArgs{
+// 				Capacity: pulumi.Int(1),
+// 				Family:   pulumi.String("P"),
+// 				Name:     pulumi.String("P1"),
+// 				Size:     pulumi.String("P1"),
+// 				Tier:     pulumi.String("Premium"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type AppServicePlan struct {
 	pulumi.CustomResourceState
 

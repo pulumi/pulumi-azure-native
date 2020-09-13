@@ -11,6 +11,80 @@ import (
 )
 
 // Represents a server.
+//
+// ## Example Usage
+// ### Create a database as a point in time restore
+//
+// ```go
+// package main
+//
+// import (
+// 	dbforpostgresql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbforpostgresql/v20200214privatepreview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbforpostgresql.NewServer(ctx, "server", &dbforpostgresql.ServerArgs{
+// 			CreateMode:        pulumi.String("PointInTimeRestore"),
+// 			Location:          pulumi.String("westus"),
+// 			PointInTimeUTC:    pulumi.String("2020-06-30T23:41:49.000Z"),
+// 			ResourceGroupName: pulumi.String("TestGroup"),
+// 			ServerName:        pulumi.String("pgtestsvc4"),
+// 			SourceServerName:  pulumi.String("sourcePgServerName"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a new server
+//
+// ```go
+// package main
+//
+// import (
+// 	dbforpostgresql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbforpostgresql/v20200214privatepreview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbforpostgresql.NewServer(ctx, "server", &dbforpostgresql.ServerArgs{
+// 			AdministratorLogin:         pulumi.String("cloudsa"),
+// 			AdministratorLoginPassword: pulumi.String("password"),
+// 			AvailabilityZone:           pulumi.String("1"),
+// 			DelegatedSubnetArguments: pulumi.StringMap{
+// 				"subnetArmResourceId": pulumi.String("/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet"),
+// 			},
+// 			HaEnabled:         pulumi.String("Enabled"),
+// 			Location:          pulumi.String("westus"),
+// 			ResourceGroupName: pulumi.String("testrg"),
+// 			ServerName:        pulumi.String("pgtestsvc4"),
+// 			Sku: &dbforpostgresql.SkuArgs{
+// 				Name: pulumi.String("Standard_D4s_v3"),
+// 				Tier: pulumi.String("GeneralPurpose"),
+// 			},
+// 			StorageProfile: &dbforpostgresql.StorageProfileArgs{
+// 				BackupRetentionDays: pulumi.Int(7),
+// 				StorageMB:           pulumi.Int(524288),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"ElasticServer": pulumi.String("1"),
+// 			},
+// 			Version: pulumi.String("12"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Server struct {
 	pulumi.CustomResourceState
 

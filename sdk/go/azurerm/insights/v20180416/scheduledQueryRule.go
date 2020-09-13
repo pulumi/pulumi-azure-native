@@ -11,6 +11,23 @@ import (
 )
 
 // The Log Search Rule resource.
+//
+// ## Example Usage
+// ### Create or Update rule - AlertingAction
+//
+// ```go
+//
+// ```
+// ### Create or Update rule - AlertingAction with Cross-Resource
+//
+// ```go
+//
+// ```
+// ### Create or Update rule - LogToMetricAction
+//
+// ```go
+//
+// ```
 type ScheduledQueryRule struct {
 	pulumi.CustomResourceState
 

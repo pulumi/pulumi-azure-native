@@ -11,6 +11,36 @@ import (
 )
 
 // The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+//
+// ## Example Usage
+// ### ConfigurationStores_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	appconfiguration "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/appconfiguration/v20190201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appconfiguration.NewConfigurationStore(ctx, "configurationStore", &appconfiguration.ConfigurationStoreArgs{
+// 			ConfigStoreName:   pulumi.String("fayeh"),
+// 			Location:          pulumi.String("westus"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Tags: pulumi.StringMap{
+// 				"myTag": pulumi.String("myTagValue"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
 

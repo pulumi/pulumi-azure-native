@@ -11,6 +11,34 @@ import (
 )
 
 // Data Lake Store virtual network rule information.
+//
+// ## Example Usage
+// ### Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
+//
+// ```go
+// package main
+//
+// import (
+// 	datalakestore "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datalakestore/v20161101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datalakestore.NewVirtualNetworkRule(ctx, "virtualNetworkRule", &datalakestore.VirtualNetworkRuleArgs{
+// 			AccountName:            pulumi.String("contosoadla"),
+// 			ResourceGroupName:      pulumi.String("contosorg"),
+// 			SubnetId:               pulumi.String("test_subnetId"),
+// 			VirtualNetworkRuleName: pulumi.String("test_virtual_network_rules_name"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 

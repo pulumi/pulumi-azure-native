@@ -11,6 +11,38 @@ import (
 )
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+//
+// ## Example Usage
+// ### EnvironmentsCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	timeseriesinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/timeseriesinsights/v20170228preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := timeseriesinsights.NewEnvironment(ctx, "environment", &timeseriesinsights.EnvironmentArgs{
+// 			DataRetentionTime: pulumi.String("P31D"),
+// 			EnvironmentName:   pulumi.String("env1"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			Sku: &timeseriesinsights.SkuArgs{
+// 				Capacity: pulumi.Int(1),
+// 				Name:     pulumi.String("S1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Environment struct {
 	pulumi.CustomResourceState
 

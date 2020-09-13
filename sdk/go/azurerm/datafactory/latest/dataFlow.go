@@ -11,6 +11,58 @@ import (
 )
 
 // Data flow resource type.
+//
+// ## Example Usage
+// ### DataFlows_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	datafactory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datafactory/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datafactory.NewDataFlow(ctx, "dataFlow", &datafactory.DataFlowArgs{
+// 			DataFlowName:      pulumi.String("exampleDataFlow"),
+// 			FactoryName:       pulumi.String("exampleFactoryName"),
+// 			ResourceGroupName: pulumi.String("exampleResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### DataFlows_Update
+//
+// ```go
+// package main
+//
+// import (
+// 	datafactory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datafactory/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datafactory.NewDataFlow(ctx, "dataFlow", &datafactory.DataFlowArgs{
+// 			DataFlowName:      pulumi.String("exampleDataFlow"),
+// 			FactoryName:       pulumi.String("exampleFactoryName"),
+// 			ResourceGroupName: pulumi.String("exampleResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DataFlow struct {
 	pulumi.CustomResourceState
 

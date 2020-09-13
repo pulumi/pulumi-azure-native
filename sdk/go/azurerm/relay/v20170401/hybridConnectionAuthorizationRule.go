@@ -11,6 +11,38 @@ import (
 )
 
 // Description of a namespace authorization rule.
+//
+// ## Example Usage
+// ### RelayHybridConnectionAuthorizationRuleCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	relay "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/relay/v20170401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := relay.NewHybridConnectionAuthorizationRule(ctx, "hybridConnectionAuthorizationRule", &relay.HybridConnectionAuthorizationRuleArgs{
+// 			AuthorizationRuleName: pulumi.String("sdk-RelayAuthRules-01"),
+// 			HybridConnectionName:  pulumi.String("sdk-Relay-Hybrid-01"),
+// 			NamespaceName:         pulumi.String("sdk-RelayNamespace-01"),
+// 			ResourceGroupName:     pulumi.String("RG-eg"),
+// 			Rights: pulumi.StringArray{
+// 				pulumi.String("Listen"),
+// 				pulumi.String("Send"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type HybridConnectionAuthorizationRule struct {
 	pulumi.CustomResourceState
 

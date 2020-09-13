@@ -11,6 +11,113 @@ import (
 )
 
 // Represents a server.
+//
+// ## Example Usage
+// ### Create a new server
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	dbformysql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbformysql/v20200701privatepreview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbformysql.NewServer(ctx, "server", &dbformysql.ServerArgs{
+// 			AdministratorLogin:         pulumi.String("cloudsa"),
+// 			AdministratorLoginPassword: pulumi.String(fmt.Sprintf("%v%v%v", "pass", "$", "w0rd")),
+// 			CreateMode:                 pulumi.String("Default"),
+// 			Location:                   pulumi.String("westus"),
+// 			ResourceGroupName:          pulumi.String("testrg"),
+// 			ServerName:                 pulumi.String("mysqltestsvc4"),
+// 			Sku: &dbformysql.SkuArgs{
+// 				Name: pulumi.String("Standard_D14_v2"),
+// 				Tier: pulumi.String("GeneralPurpose"),
+// 			},
+// 			SslEnforcement: pulumi.String("Enabled"),
+// 			StorageProfile: &dbformysql.StorageProfileArgs{
+// 				BackupRetentionDays: pulumi.Int(7),
+// 				StorageIops:         pulumi.Int(200),
+// 				StorageMB:           pulumi.Int(128000),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"ElasticServer": pulumi.String("1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a replica server
+//
+// ```go
+// package main
+//
+// import (
+// 	dbformysql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbformysql/v20200701privatepreview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbformysql.NewServer(ctx, "server", &dbformysql.ServerArgs{
+// 			CreateMode:        pulumi.String("Replica"),
+// 			Location:          pulumi.String("westus"),
+// 			ResourceGroupName: pulumi.String("TargetResourceGroup"),
+// 			ServerName:        pulumi.String("targetserver"),
+// 			SourceServerId:    pulumi.String("/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/PrimaryResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/primaryserver"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a server as a point in time restore
+//
+// ```go
+// package main
+//
+// import (
+// 	dbformysql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbformysql/v20200701privatepreview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbformysql.NewServer(ctx, "server", &dbformysql.ServerArgs{
+// 			CreateMode:         pulumi.String("PointInTimeRestore"),
+// 			Location:           pulumi.String("brazilsouth"),
+// 			ResourceGroupName:  pulumi.String("TargetResourceGroup"),
+// 			RestorePointInTime: pulumi.String("2017-12-14T00:00:37.467Z"),
+// 			ServerName:         pulumi.String("targetserver"),
+// 			Sku: &dbformysql.SkuArgs{
+// 				Name: pulumi.String("Standard_D14_v2"),
+// 				Tier: pulumi.String("GeneralPurpose"),
+// 			},
+// 			SourceServerId: pulumi.String("/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver"),
+// 			Tags: pulumi.StringMap{
+// 				"ElasticServer": pulumi.String("1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Server struct {
 	pulumi.CustomResourceState
 

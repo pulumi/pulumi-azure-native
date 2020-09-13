@@ -11,6 +11,52 @@ import (
 )
 
 // The bandwidth setting.
+//
+// ## Example Usage
+// ### BandwidthSettingsCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storsimple.NewBandwidthSetting(ctx, "bandwidthSetting", &storsimple.BandwidthSettingArgs{
+// 			BandwidthSettingName: pulumi.String("BWSForTest"),
+// 			ManagerName:          pulumi.String("ManagerForSDKTest1"),
+// 			ResourceGroupName:    pulumi.String("ResourceGroupForSDKTest"),
+// 			Schedules: storsimple.BandwidthScheduleArray{
+// 				&storsimple.BandwidthScheduleArgs{
+// 					Days: pulumi.StringArray{
+// 						pulumi.String("Saturday"),
+// 						pulumi.String("Sunday"),
+// 					},
+// 					RateInMbps: pulumi.Int(10),
+// 					Start: &storsimple.TimeArgs{
+// 						Hours:   pulumi.Int(10),
+// 						Minutes: pulumi.Int(0),
+// 						Seconds: pulumi.Int(0),
+// 					},
+// 					Stop: &storsimple.TimeArgs{
+// 						Hours:   pulumi.Int(20),
+// 						Minutes: pulumi.Int(0),
+// 						Seconds: pulumi.Int(0),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type BandwidthSetting struct {
 	pulumi.CustomResourceState
 

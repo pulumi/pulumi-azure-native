@@ -11,6 +11,32 @@ import (
 )
 
 // The privateStore offer data structure.
+//
+// ## Example Usage
+// ### UpdatePrivateStoreOffer
+//
+// ```go
+// package main
+//
+// import (
+// 	marketplace "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/marketplace/v20200101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := marketplace.NewPrivateStoreOffer(ctx, "privateStoreOffer", &marketplace.PrivateStoreOfferArgs{
+// 			OfferId:        pulumi.String("marketplacetestthirdparty.md-test-third-party-2"),
+// 			PrivateStoreId: pulumi.String("a0e28e55-90c4-41d8-8e34-bb7ef7775406"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateStoreOffer struct {
 	pulumi.CustomResourceState
 

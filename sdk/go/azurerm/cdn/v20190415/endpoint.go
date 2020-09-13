@@ -11,6 +11,104 @@ import (
 )
 
 // CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
+//
+// ## Example Usage
+// ### Endpoints_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	cdn "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/cdn/v20190415"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cdn.NewEndpoint(ctx, "endpoint", &cdn.EndpointArgs{
+// 			ContentTypesToCompress: pulumi.StringArray{
+// 				pulumi.String("text/html"),
+// 				pulumi.String("application/octet-stream"),
+// 			},
+// 			DeliveryPolicy: &cdn.EndpointPropertiesUpdateParametersDeliveryPolicyArgs{
+// 				Description: pulumi.String("Test description for a policy."),
+// 				Rules: cdn.DeliveryRuleArray{
+// 					&cdn.DeliveryRuleArgs{
+// 						Actions: cdn.DeliveryRuleActionArray{
+// 							&cdn.DeliveryRuleActionArgs{
+// 								Name: pulumi.String("CacheExpiration"),
+// 								Parameters: pulumi.StringMap{
+// 									"@odata.type":   pulumi.String("#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters"),
+// 									"cacheBehavior": pulumi.String("Override"),
+// 									"cacheDuration": pulumi.String("10:10:09"),
+// 									"cacheType":     pulumi.String("All"),
+// 								},
+// 							},
+// 							&cdn.DeliveryRuleActionArgs{
+// 								Name: pulumi.String("ModifyResponseHeader"),
+// 								Parameters: pulumi.StringMap{
+// 									"@odata.type":  pulumi.String("#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters"),
+// 									"headerAction": pulumi.String("Overwrite"),
+// 									"headerName":   pulumi.String("Access-Control-Allow-Origin"),
+// 									"value":        pulumi.String("*"),
+// 								},
+// 							},
+// 							&cdn.DeliveryRuleActionArgs{
+// 								Name: pulumi.String("ModifyRequestHeader"),
+// 								Parameters: pulumi.StringMap{
+// 									"@odata.type":  pulumi.String("#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters"),
+// 									"headerAction": pulumi.String("Overwrite"),
+// 									"headerName":   pulumi.String("Accept-Encoding"),
+// 									"value":        pulumi.String("gzip"),
+// 								},
+// 							},
+// 						},
+// 						Conditions: cdn.DeliveryRuleConditionArray{
+// 							&cdn.DeliveryRuleConditionArgs{
+// 								Name: pulumi.String("RemoteAddress"),
+// 								Parameters: pulumi.Map{
+// 									"@odata.type": pulumi.String("#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters"),
+// 									"matchValues": pulumi.StringArray{
+// 										pulumi.String("192.168.1.0/24"),
+// 										pulumi.String("10.0.0.0/24"),
+// 									},
+// 									"negateCondition": pulumi.Bool(true),
+// 									"operator":        pulumi.String("IPMatch"),
+// 								},
+// 							},
+// 						},
+// 						Name:  pulumi.String("rule1"),
+// 						Order: pulumi.Int(1),
+// 					},
+// 				},
+// 			},
+// 			EndpointName:         pulumi.String("endpoint1"),
+// 			IsCompressionEnabled: pulumi.Bool(true),
+// 			IsHttpAllowed:        pulumi.Bool(true),
+// 			IsHttpsAllowed:       pulumi.Bool(true),
+// 			Location:             pulumi.String("WestUs"),
+// 			OriginHostHeader:     pulumi.String("www.bing.com"),
+// 			OriginPath:           pulumi.String("/photos"),
+// 			Origins: cdn.DeepCreatedOriginArray{
+// 				&cdn.DeepCreatedOriginArgs{
+// 					Name: pulumi.String("origin1"),
+// 				},
+// 			},
+// 			ProfileName:                pulumi.String("profile1"),
+// 			QueryStringCachingBehavior: pulumi.String("BypassCaching"),
+// 			ResourceGroupName:          pulumi.String("RG"),
+// 			Tags: pulumi.StringMap{
+// 				"kay1": pulumi.String("value1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 

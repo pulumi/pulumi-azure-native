@@ -11,6 +11,34 @@ import (
 )
 
 // The X509 Certificate.
+//
+// ## Example Usage
+// ### Certificates_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	devices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/devices/v20200401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := devices.NewCertificate(ctx, "certificate", &devices.CertificateArgs{
+// 			Certificate:       pulumi.String("############################################"),
+// 			CertificateName:   pulumi.String("cert"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			ResourceName:      pulumi.String("iothub"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 

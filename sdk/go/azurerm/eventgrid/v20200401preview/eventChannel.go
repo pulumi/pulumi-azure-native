@@ -11,6 +11,41 @@ import (
 )
 
 // Event Channel.
+//
+// ## Example Usage
+// ### EventChannels_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200401preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := eventgrid.NewEventChannel(ctx, "eventChannel", &eventgrid.EventChannelArgs{
+// 			Destination: &eventgrid.EventChannelDestinationArgs{
+// 				AzureSubscriptionId: pulumi.String("5b4b650e-28b9-4790-b3ab-ddbd88d727c4"),
+// 				PartnerTopicName:    pulumi.String("examplePartnerTopic1"),
+// 				ResourceGroup:       pulumi.String("examplerg2"),
+// 			},
+// 			EventChannelName:     pulumi.String("exampleEventChannelName1"),
+// 			PartnerNamespaceName: pulumi.String("examplePartnerNamespaceName1"),
+// 			ResourceGroupName:    pulumi.String("examplerg"),
+// 			Source: &eventgrid.EventChannelSourceArgs{
+// 				Source: pulumi.String("ContosoCorp.Accounts.User1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type EventChannel struct {
 	pulumi.CustomResourceState
 

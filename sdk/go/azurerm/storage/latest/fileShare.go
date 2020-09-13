@@ -11,6 +11,85 @@ import (
 )
 
 // Properties of the file share, including Id, resource name, resource type, Etag.
+//
+// ## Example Usage
+// ### Create NFS Shares
+//
+// ```go
+// package main
+//
+// import (
+// 	storage "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storage/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storage.NewFileShare(ctx, "fileShare", &storage.FileShareArgs{
+// 			AccountName:       pulumi.String("sto666"),
+// 			EnabledProtocols:  pulumi.String("NFS"),
+// 			ResourceGroupName: pulumi.String("res346"),
+// 			ShareName:         pulumi.String("share1235"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### PutShares
+//
+// ```go
+// package main
+//
+// import (
+// 	storage "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storage/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storage.NewFileShare(ctx, "fileShare", &storage.FileShareArgs{
+// 			AccountName:       pulumi.String("sto328"),
+// 			ResourceGroupName: pulumi.String("res3376"),
+// 			ShareName:         pulumi.String("share6185"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### PutShares with Access Tier
+//
+// ```go
+// package main
+//
+// import (
+// 	storage "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storage/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storage.NewFileShare(ctx, "fileShare", &storage.FileShareArgs{
+// 			AccessTier:        pulumi.String("Hot"),
+// 			AccountName:       pulumi.String("sto666"),
+// 			ResourceGroupName: pulumi.String("res346"),
+// 			ShareName:         pulumi.String("share1235"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type FileShare struct {
 	pulumi.CustomResourceState
 

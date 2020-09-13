@@ -11,6 +11,13 @@ import (
 )
 
 // The private endpoint connection of a provisioning service
+//
+// ## Example Usage
+// ### PrivateEndpointConnection_CreateOrUpdate
+//
+// ```go
+//
+// ```
 type IotDpsResourcePrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

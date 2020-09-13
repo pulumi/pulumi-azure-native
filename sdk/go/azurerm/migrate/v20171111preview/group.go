@@ -11,6 +11,39 @@ import (
 )
 
 // A group created in a Migration project.
+//
+// ## Example Usage
+// ### Groups_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	migrate "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/migrate/v20171111preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := migrate.NewGroup(ctx, "group", &migrate.GroupArgs{
+// 			ETag:      pulumi.String("\"1100637e-0000-0000-0000-59f6ed1f0000\""),
+// 			GroupName: pulumi.String("group01"),
+// 			Machines: pulumi.StringArray{
+// 				pulumi.String("/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm1"),
+// 				pulumi.String("/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm2"),
+// 				pulumi.String("/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm3"),
+// 			},
+// 			ProjectName:       pulumi.String("project01"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Group struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,40 @@ import (
 )
 
 // An Azure Cosmos DB userDefinedFunction.
+//
+// ## Example Usage
+// ### CosmosDBSqlUserDefinedFunctionCreateUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := documentdb.NewSqlResourceSqlUserDefinedFunction(ctx, "sqlResourceSqlUserDefinedFunction", &documentdb.SqlResourceSqlUserDefinedFunctionArgs{
+// 			AccountName:   pulumi.String("ddb1"),
+// 			ContainerName: pulumi.String("containerName"),
+// 			DatabaseName:  pulumi.String("databaseName"),
+// 			Options:       nil,
+// 			Resource: &documentdb.SqlUserDefinedFunctionResourceArgs{
+// 				Body: pulumi.String("body"),
+// 				Id:   pulumi.String("userDefinedFunctionName"),
+// 			},
+// 			ResourceGroupName:       pulumi.String("rg1"),
+// 			UserDefinedFunctionName: pulumi.String("userDefinedFunctionName"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SqlResourceSqlUserDefinedFunction struct {
 	pulumi.CustomResourceState
 

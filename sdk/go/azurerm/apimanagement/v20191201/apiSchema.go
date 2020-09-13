@@ -11,6 +11,35 @@ import (
 )
 
 // Schema Contract details.
+//
+// ## Example Usage
+// ### ApiManagementCreateApiSchema
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewApiSchema(ctx, "apiSchema", &apimanagement.ApiSchemaArgs{
+// 			ApiId:             pulumi.String("59d6bb8f1f7fab13dc67ec9b"),
+// 			ContentType:       pulumi.String("application/vnd.ms-azure-apim.xsd+xml"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			SchemaId:          pulumi.String("ec12520d-9d48-4e7b-8f39-698ca2ac63f1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ApiSchema struct {
 	pulumi.CustomResourceState
 

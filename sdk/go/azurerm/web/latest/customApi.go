@@ -11,6 +11,32 @@ import (
 )
 
 // A custom API
+//
+// ## Example Usage
+// ### Replace a custom API
+//
+// ```go
+// package main
+//
+// import (
+// 	web "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/web/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := web.NewCustomApi(ctx, "customApi", &web.CustomApiArgs{
+// 			ApiName:           pulumi.String("testCustomApi"),
+// 			ResourceGroupName: pulumi.String("testResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type CustomApi struct {
 	pulumi.CustomResourceState
 

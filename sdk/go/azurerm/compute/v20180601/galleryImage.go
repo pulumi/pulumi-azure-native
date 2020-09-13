@@ -11,6 +11,41 @@ import (
 )
 
 // Specifies information about the gallery Image Definition that you want to create or update.
+//
+// ## Example Usage
+// ### Create or update a simple gallery image.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20180601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewGalleryImage(ctx, "galleryImage", &compute.GalleryImageArgs{
+// 			GalleryImageName: pulumi.String("myGalleryImageName"),
+// 			GalleryName:      pulumi.String("myGalleryName"),
+// 			Identifier: &compute.GalleryImageIdentifierArgs{
+// 				Offer:     pulumi.String("myOfferName"),
+// 				Publisher: pulumi.String("myPublisherName"),
+// 				Sku:       pulumi.String("mySkuName"),
+// 			},
+// 			Location:          pulumi.String("West US"),
+// 			OsState:           pulumi.String("Generalized"),
+// 			OsType:            pulumi.String("Windows"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type GalleryImage struct {
 	pulumi.CustomResourceState
 

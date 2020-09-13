@@ -11,6 +11,69 @@ import (
 )
 
 // ExpressRoutePort resource definition.
+//
+// ## Example Usage
+// ### ExpressRoutePortCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20181201"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewExpressRoutePort(ctx, "expressRoutePort", &network.ExpressRoutePortArgs{
+// 			BandwidthInGbps:      pulumi.Int(100),
+// 			Encapsulation:        pulumi.String("QinQ"),
+// 			ExpressRoutePortName: pulumi.String("portName"),
+// 			Location:             pulumi.String("westus"),
+// 			PeeringLocation:      pulumi.String("peeringLocationName"),
+// 			ResourceGroupName:    pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ExpressRoutePortUpdateLink
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20181201"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewExpressRoutePort(ctx, "expressRoutePort", &network.ExpressRoutePortArgs{
+// 			BandwidthInGbps:      pulumi.Int(100),
+// 			Encapsulation:        pulumi.String("QinQ"),
+// 			ExpressRoutePortName: pulumi.String("portName"),
+// 			Links: network.ExpressRouteLinkArray{
+// 				&network.ExpressRouteLinkArgs{
+// 					Name: pulumi.String("link1"),
+// 				},
+// 			},
+// 			Location:          pulumi.String("westus"),
+// 			PeeringLocation:   pulumi.String("peeringLocationName"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ExpressRoutePort struct {
 	pulumi.CustomResourceState
 

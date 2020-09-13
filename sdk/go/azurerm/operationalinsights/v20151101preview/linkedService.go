@@ -11,6 +11,34 @@ import (
 )
 
 // The top level Linked service resource container.
+//
+// ## Example Usage
+// ### LinkedServicesCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	operationalinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationalinsights/v20151101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := operationalinsights.NewLinkedService(ctx, "linkedService", &operationalinsights.LinkedServiceArgs{
+// 			LinkedServiceName: pulumi.String("TestLinkWS/Automation"),
+// 			ResourceGroupName: pulumi.String("mms-eus"),
+// 			ResourceId:        pulumi.String("/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Automation/automationAccounts/testAccount"),
+// 			WorkspaceName:     pulumi.String("TestLinkWS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type LinkedService struct {
 	pulumi.CustomResourceState
 

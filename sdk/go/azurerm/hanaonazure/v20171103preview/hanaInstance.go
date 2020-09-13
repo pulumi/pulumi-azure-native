@@ -11,6 +11,46 @@ import (
 )
 
 // HANA instance info on Azure (ARM properties and HANA properties)
+//
+// ## Example Usage
+// ### Get properties of a HANA instance
+//
+// ```go
+// package main
+//
+// import (
+// 	hanaonazure "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hanaonazure/v20171103preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := hanaonazure.NewHanaInstance(ctx, "hanaInstance", &hanaonazure.HanaInstanceArgs{
+// 			HanaInstanceName: pulumi.String("myHanaInstance"),
+// 			Location:         pulumi.String("westus"),
+// 			NetworkProfile: &hanaonazure.NetworkProfileArgs{
+// 				NetworkInterfaces: hanaonazure.IpAddressArray{
+// 					&hanaonazure.IpAddressArgs{
+// 						IpAddress: pulumi.String("100.100.100.100"),
+// 					},
+// 				},
+// 			},
+// 			OsProfile: &hanaonazure.OSProfileArgs{
+// 				ComputerName: pulumi.String("myComputerName"),
+// 				SshPublicKey: pulumi.String("AAAAB3NzaC1yc2EAAAABJQAAAQB/nAmOjTmezNUDKYvEeIRf2YnwM9/uUG1d0BYsc8/tRtx+RGi7N2lUbp728MXGwdnL9od4cItzky/zVdLZE2cycOa18xBK9cOWmcKS0A8FYBxEQWJ/q9YVUgZbFKfYGaGQxsER+A0w/fX8ALuk78ktP31K69LcQgxIsl7rNzxsoOQKJ/CIxOGMMxczYTiEoLvQhapFQMs3FL96didKr/QbrfB1WT6s3838SEaXfgZvLef1YB2xmfhbT9OXFE3FXvh2UPBfN+ffE7iiayQf/2XR+8j4N4bW30DiPtOQLGUrH1y5X/rpNZNlWW2+jGIxqZtgWg7lTy3mXy5x836Sj/6L"),
+// 			},
+// 			PartnerNodeId:     pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance2"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile:    nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type HanaInstance struct {
 	pulumi.CustomResourceState
 

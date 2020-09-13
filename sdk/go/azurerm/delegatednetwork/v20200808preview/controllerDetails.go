@@ -11,6 +11,41 @@ import (
 )
 
 // Represents an instance of a DNC controller.
+//
+// ## Example Usage
+// ### Create controller
+//
+// ```go
+// package main
+//
+// import (
+// 	delegatednetwork "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/delegatednetwork/v20200808preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := delegatednetwork.NewControllerDetails(ctx, "controllerDetails", &delegatednetwork.ControllerDetailsArgs{
+// 			ControllerType: pulumi.String("Kubernetes"),
+// 			KubernetesProperties: delegatednetwork.KubernetesPropertiesArray{
+// 				&delegatednetwork.KubernetesPropertiesArgs{
+// 					ApiServerEndpoint: pulumi.String("https://testk8s.cloudapp.net"),
+// 					ClusterRootCA:     pulumi.String("ddsadsad344mfdsfdl"),
+// 					ServerAppID:       pulumi.String("546192d7-503f-477a-9cfe-4efc3ee2b6e1"),
+// 					ServerTenantID:    pulumi.String("da6192d7-503f-477a-9cfe-4efc3ee2b6c3"),
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("TestRG"),
+// 			ResourceName:      pulumi.String("dnctestcontroller"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ControllerDetails struct {
 	pulumi.CustomResourceState
 

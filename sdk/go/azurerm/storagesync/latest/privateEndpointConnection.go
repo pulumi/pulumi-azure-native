@@ -11,6 +11,37 @@ import (
 )
 
 // The Private Endpoint Connection resource.
+//
+// ## Example Usage
+// ### PrivateEndpointConnections_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	storagesync "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storagesync/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storagesync.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &storagesync.PrivateEndpointConnectionArgs{
+// 			PrivateEndpointConnectionName: pulumi.String("{privateEndpointConnectionName}"),
+// 			PrivateLinkServiceConnectionState: &storagesync.PrivateLinkServiceConnectionStateArgs{
+// 				Description: pulumi.String("Auto-Approved"),
+// 				Status:      pulumi.String("Approved"),
+// 			},
+// 			ResourceGroupName:      pulumi.String("res7687"),
+// 			StorageSyncServiceName: pulumi.String("sss2527"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

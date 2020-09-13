@@ -11,6 +11,35 @@ import (
 )
 
 // Migration item.
+//
+// ## Example Usage
+// ### Enables migration.
+//
+// ```go
+// package main
+//
+// import (
+// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/v20180710"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := recoveryservices.NewReplicationMigrationItem(ctx, "replicationMigrationItem", &recoveryservices.ReplicationMigrationItemArgs{
+// 			FabricName:              pulumi.String("vmwarefabric1"),
+// 			MigrationItemName:       pulumi.String("virtualmachine1"),
+// 			ProtectionContainerName: pulumi.String("vmwareContainer1"),
+// 			ResourceGroupName:       pulumi.String("resourcegroup1"),
+// 			ResourceName:            pulumi.String("migrationvault"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ReplicationMigrationItem struct {
 	pulumi.CustomResourceState
 

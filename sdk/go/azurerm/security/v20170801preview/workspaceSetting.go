@@ -11,6 +11,33 @@ import (
 )
 
 // Configures where to store the OMS agent data for workspaces under a scope
+//
+// ## Example Usage
+// ### Create a workspace setting data for subscription
+//
+// ```go
+// package main
+//
+// import (
+// 	security "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/security/v20170801preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := security.NewWorkspaceSetting(ctx, "workspaceSetting", &security.WorkspaceSettingArgs{
+// 			Scope:                pulumi.String("/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23"),
+// 			WorkspaceId:          pulumi.String("/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"),
+// 			WorkspaceSettingName: pulumi.String("default"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type WorkspaceSetting struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,13 @@ import (
 )
 
 // Represents a relation between two resources
+//
+// ## Example Usage
+// ### Creates or updates a bookmark relation.
+//
+// ```go
+//
+// ```
 type BookmarkRelation struct {
 	pulumi.CustomResourceState
 

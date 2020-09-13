@@ -11,6 +11,37 @@ import (
 )
 
 // The Private Endpoint Connection resource.
+//
+// ## Example Usage
+// ### Update private endpoint connection.
+//
+// ```go
+// package main
+//
+// import (
+// 	media "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/media/v20200501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := media.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &media.PrivateEndpointConnectionArgs{
+// 			AccountName: pulumi.String("contososports"),
+// 			Name:        pulumi.String("connectionName1"),
+// 			PrivateLinkServiceConnectionState: &media.PrivateLinkServiceConnectionStateArgs{
+// 				Description: pulumi.String("Test description."),
+// 				Status:      pulumi.String("Approved"),
+// 			},
+// 			ResourceGroupName: pulumi.String("contoso"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

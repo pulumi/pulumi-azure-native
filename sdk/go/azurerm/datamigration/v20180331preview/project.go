@@ -11,6 +11,36 @@ import (
 )
 
 // A project resource
+//
+// ## Example Usage
+// ### Projects_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	datamigration "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datamigration/v20180331preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datamigration.NewProject(ctx, "project", &datamigration.ProjectArgs{
+// 			GroupName:      pulumi.String("DmsSdkRg"),
+// 			Location:       pulumi.String("southcentralus"),
+// 			ProjectName:    pulumi.String("DmsSdkProject"),
+// 			ServiceName:    pulumi.String("DmsSdkService"),
+// 			SourcePlatform: pulumi.String("SQL"),
+// 			TargetPlatform: pulumi.String("SQLDB"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Project struct {
 	pulumi.CustomResourceState
 

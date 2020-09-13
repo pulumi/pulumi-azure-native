@@ -11,6 +11,37 @@ import (
 )
 
 // The integration service environment.
+//
+// ## Example Usage
+// ### Create or update an integration service environment
+//
+// ```go
+// package main
+//
+// import (
+// 	logic "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/logic/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := logic.NewIntegrationServiceEnvironment(ctx, "integrationServiceEnvironment", &logic.IntegrationServiceEnvironmentArgs{
+// 			IntegrationServiceEnvironmentName: pulumi.String("testIntegrationServiceEnvironment"),
+// 			Location:                          pulumi.String("brazilsouth"),
+// 			ResourceGroup:                     pulumi.String("testResourceGroup"),
+// 			Sku: &logic.IntegrationServiceEnvironmentSkuArgs{
+// 				Capacity: pulumi.Int(2),
+// 				Name:     pulumi.String("Premium"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type IntegrationServiceEnvironment struct {
 	pulumi.CustomResourceState
 

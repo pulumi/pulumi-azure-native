@@ -11,6 +11,38 @@ import (
 )
 
 // The file server.
+//
+// ## Example Usage
+// ### FileServersCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/v20161001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storsimple.NewFileServer(ctx, "fileServer", &storsimple.FileServerArgs{
+// 			BackupScheduleGroupId: pulumi.String("/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/backupScheduleGroups/BackupSchGroupForSDKTest"),
+// 			Description:           pulumi.String("Demo FileServer for SDK Test"),
+// 			DeviceName:            pulumi.String("HSDK-4XY4FI2IVG"),
+// 			DomainName:            pulumi.String("fareast.corp.microsoft.com"),
+// 			FileServerName:        pulumi.String("HSDK-4XY4FI2IVG"),
+// 			ManagerName:           pulumi.String("hAzureSDKOperations"),
+// 			ResourceGroupName:     pulumi.String("ResourceGroupForSDKTest"),
+// 			StorageDomainId:       pulumi.String("/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/sd-fs-HSDK-4XY4FI2IVG"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type FileServer struct {
 	pulumi.CustomResourceState
 

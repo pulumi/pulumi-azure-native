@@ -11,6 +11,42 @@ import (
 )
 
 // Definition of the module type.
+//
+// ## Example Usage
+// ### Create or update a python 2 package
+//
+// ```go
+// package main
+//
+// import (
+// 	automation "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/automation/v20180630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := automation.NewPython2Package(ctx, "python2Package", &automation.Python2PackageArgs{
+// 			AutomationAccountName: pulumi.String("myAutomationAccount33"),
+// 			ContentLink: &automation.ContentLinkArgs{
+// 				ContentHash: &automation.ContentHashArgs{
+// 					Algorithm: pulumi.String("sha265"),
+// 					Value:     pulumi.String("07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A"),
+// 				},
+// 				Uri:     pulumi.String("https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip"),
+// 				Version: pulumi.String("1.0.0.0"),
+// 			},
+// 			PackageName:       pulumi.String("OmsCompositeResources"),
+// 			ResourceGroupName: pulumi.String("rg"),
+// 			Tags:              nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Python2Package struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,34 @@ import (
 )
 
 // Managed private endpoint resource type.
+//
+// ## Example Usage
+// ### ManagedVirtualNetworks_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	datafactory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datafactory/v20180601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datafactory.NewManagedPrivateEndpoint(ctx, "managedPrivateEndpoint", &datafactory.ManagedPrivateEndpointArgs{
+// 			FactoryName:                pulumi.String("exampleFactoryName"),
+// 			ManagedPrivateEndpointName: pulumi.String("exampleManagedPrivateEndpointName"),
+// 			ManagedVirtualNetworkName:  pulumi.String("exampleManagedVirtualNetworkName"),
+// 			ResourceGroupName:          pulumi.String("exampleResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ManagedPrivateEndpoint struct {
 	pulumi.CustomResourceState
 

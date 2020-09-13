@@ -11,6 +11,38 @@ import (
 )
 
 // An object that represents a scope map for a container registry.
+//
+// ## Example Usage
+// ### ScopeMapCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20190501preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerregistry.NewScopeMap(ctx, "scopeMap", &containerregistry.ScopeMapArgs{
+// 			Actions: pulumi.StringArray{
+// 				pulumi.String("repositories/myrepository/contentWrite"),
+// 				pulumi.String("repositories/myrepository/delete"),
+// 			},
+// 			Description:       pulumi.String("Developer Scopes"),
+// 			RegistryName:      pulumi.String("myRegistry"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			ScopeMapName:      pulumi.String("myScopeMap"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ScopeMap struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,33 @@ import (
 )
 
 // Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+//
+// ## Example Usage
+// ### SharedPrivateLinkResourceCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	search "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/search/v20200801"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := search.NewSharedPrivateLinkResource(ctx, "sharedPrivateLinkResource", &search.SharedPrivateLinkResourceArgs{
+// 			ResourceGroupName:             pulumi.String("rg1"),
+// 			SearchServiceName:             pulumi.String("mysearchservice"),
+// 			SharedPrivateLinkResourceName: pulumi.String("testResource"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
 

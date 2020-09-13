@@ -11,6 +11,34 @@ import (
 )
 
 // Compute role.
+//
+// ## Example Usage
+// ### RolePut
+//
+// ```go
+// package main
+//
+// import (
+// 	databoxedge "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/databoxedge/v20190301"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := databoxedge.NewRole(ctx, "role", &databoxedge.RoleArgs{
+// 			DeviceName:        pulumi.String("testedgedevice"),
+// 			Kind:              pulumi.String("IOT"),
+// 			Name:              pulumi.String("IoTRole1"),
+// 			ResourceGroupName: pulumi.String("GroupForEdgeAutomation"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Role struct {
 	pulumi.CustomResourceState
 

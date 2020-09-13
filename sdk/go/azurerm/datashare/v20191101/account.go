@@ -11,6 +11,40 @@ import (
 )
 
 // An account data transfer object.
+//
+// ## Example Usage
+// ### Accounts_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	datashare "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datashare/v20191101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datashare.NewAccount(ctx, "account", &datashare.AccountArgs{
+// 			AccountName: pulumi.String("Account1"),
+// 			Identity: &datashare.IdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Location:          pulumi.String("West US 2"),
+// 			ResourceGroupName: pulumi.String("SampleResourceGroup"),
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("Red"),
+// 				"tag2": pulumi.String("White"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 

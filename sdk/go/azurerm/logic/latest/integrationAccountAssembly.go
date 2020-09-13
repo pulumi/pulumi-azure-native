@@ -11,6 +11,34 @@ import (
 )
 
 // The assembly definition.
+//
+// ## Example Usage
+// ### Create or update an account assembly
+//
+// ```go
+// package main
+//
+// import (
+// 	logic "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/logic/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := logic.NewIntegrationAccountAssembly(ctx, "integrationAccountAssembly", &logic.IntegrationAccountAssemblyArgs{
+// 			AssemblyArtifactName:   pulumi.String("testAssembly"),
+// 			IntegrationAccountName: pulumi.String("testIntegrationAccount"),
+// 			Location:               pulumi.String("westus"),
+// 			ResourceGroupName:      pulumi.String("testResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type IntegrationAccountAssembly struct {
 	pulumi.CustomResourceState
 

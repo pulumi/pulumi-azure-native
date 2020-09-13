@@ -11,6 +11,33 @@ import (
 )
 
 // Site REST Resource.
+//
+// ## Example Usage
+// ### Create VMware site
+//
+// ```go
+// package main
+//
+// import (
+// 	offazure "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/offazure/v20200101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := offazure.NewSite(ctx, "site", &offazure.SiteArgs{
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("pajindTest"),
+// 			SiteName:          pulumi.String("appliance1e39site"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Site struct {
 	pulumi.CustomResourceState
 

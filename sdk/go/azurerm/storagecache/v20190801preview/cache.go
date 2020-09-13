@@ -11,6 +11,41 @@ import (
 )
 
 // A cache instance.  Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+//
+// ## Example Usage
+// ### Caches_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	storagecache "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storagecache/v20190801preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storagecache.NewCache(ctx, "cache", &storagecache.CacheArgs{
+// 			CacheName:         pulumi.String("sc1"),
+// 			CacheSizeGB:       pulumi.Int(3072),
+// 			Location:          pulumi.String("westus"),
+// 			ResourceGroupName: pulumi.String("scgroup"),
+// 			Sku: &storagecache.CacheSkuArgs{
+// 				Name: pulumi.String("Standard_2G"),
+// 			},
+// 			Subnet: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1"),
+// 			Tags: pulumi.StringMap{
+// 				"Dept": pulumi.String("Initech"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Cache struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,34 @@ import (
 )
 
 // Description of a Namespace AuthorizationRules.
+//
+// ## Example Usage
+// ### NotificationHubAuthorizationRuleCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	notificationhubs "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/notificationhubs/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := notificationhubs.NewNotificationHubAuthorizationRule(ctx, "notificationHubAuthorizationRule", &notificationhubs.NotificationHubAuthorizationRuleArgs{
+// 			AuthorizationRuleName: pulumi.String("DefaultListenSharedAccessSignature"),
+// 			NamespaceName:         pulumi.String("nh-sdk-ns"),
+// 			NotificationHubName:   pulumi.String("nh-sdk-hub"),
+// 			ResourceGroupName:     pulumi.String("5ktrial"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type NotificationHubAuthorizationRule struct {
 	pulumi.CustomResourceState
 

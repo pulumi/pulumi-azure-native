@@ -11,6 +11,112 @@ import (
 )
 
 // An Azure Cosmos DB database account.
+//
+// ## Example Usage
+// ### CosmosDBDatabaseAccountCreateMax
+//
+// ```go
+// package main
+//
+// import (
+// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/v20200401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := documentdb.NewDatabaseAccount(ctx, "databaseAccount", &documentdb.DatabaseAccountArgs{
+// 			AccountName: pulumi.String("ddb1"),
+// 			ApiProperties: &documentdb.ApiPropertiesArgs{
+// 				ServerVersion: pulumi.String("3.2"),
+// 			},
+// 			ConsistencyPolicy: &documentdb.ConsistencyPolicyArgs{
+// 				DefaultConsistencyLevel: pulumi.String("BoundedStaleness"),
+// 				MaxIntervalInSeconds:    pulumi.Int(10),
+// 				MaxStalenessPrefix:      pulumi.Int(200),
+// 			},
+// 			Cors: documentdb.CorsPolicyArray{
+// 				&documentdb.CorsPolicyArgs{
+// 					AllowedOrigins: pulumi.String("https://test"),
+// 				},
+// 			},
+// 			DatabaseAccountOfferType: pulumi.String("Standard"),
+// 			EnableAnalyticalStorage:  pulumi.Bool(true),
+// 			EnableFreeTier:           pulumi.Bool(false),
+// 			IpRules: documentdb.IpAddressOrRangeArray{
+// 				&documentdb.IpAddressOrRangeArgs{
+// 					IpAddressOrRange: pulumi.String("23.43.230.120"),
+// 				},
+// 				&documentdb.IpAddressOrRangeArgs{
+// 					IpAddressOrRange: pulumi.String("110.12.240.0/12"),
+// 				},
+// 			},
+// 			IsVirtualNetworkFilterEnabled: pulumi.Bool(true),
+// 			KeyVaultKeyUri:                pulumi.String("https://myKeyVault.vault.azure.net"),
+// 			Kind:                          pulumi.String("MongoDB"),
+// 			Location:                      pulumi.String("westus"),
+// 			Locations: documentdb.LocationArray{
+// 				&documentdb.LocationArgs{
+// 					FailoverPriority: pulumi.Int(0),
+// 					IsZoneRedundant:  pulumi.Bool(false),
+// 					LocationName:     pulumi.String("southcentralus"),
+// 				},
+// 				&documentdb.LocationArgs{
+// 					FailoverPriority: pulumi.Int(1),
+// 					IsZoneRedundant:  pulumi.Bool(false),
+// 					LocationName:     pulumi.String("eastus"),
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			Tags:              nil,
+// 			VirtualNetworkRules: documentdb.VirtualNetworkRuleArray{
+// 				&documentdb.VirtualNetworkRuleArgs{
+// 					Id:                               pulumi.String("/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1"),
+// 					IgnoreMissingVNetServiceEndpoint: pulumi.Bool(false),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### CosmosDBDatabaseAccountCreateMin
+//
+// ```go
+// package main
+//
+// import (
+// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/v20200401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := documentdb.NewDatabaseAccount(ctx, "databaseAccount", &documentdb.DatabaseAccountArgs{
+// 			AccountName:              pulumi.String("ddb1"),
+// 			DatabaseAccountOfferType: pulumi.String("Standard"),
+// 			Location:                 pulumi.String("westus"),
+// 			Locations: documentdb.LocationArray{
+// 				&documentdb.LocationArgs{
+// 					FailoverPriority: pulumi.Int(0),
+// 					IsZoneRedundant:  pulumi.Bool(false),
+// 					LocationName:     pulumi.String("southcentralus"),
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DatabaseAccount struct {
 	pulumi.CustomResourceState
 

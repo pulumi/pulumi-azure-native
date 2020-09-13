@@ -11,6 +11,32 @@ import (
 )
 
 // Resource group information.
+//
+// ## Example Usage
+// ### Create or update a resource group
+//
+// ```go
+// package main
+//
+// import (
+// 	resources "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/resources/v20191001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := resources.NewResourceGroup(ctx, "resourceGroup", &resources.ResourceGroupArgs{
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ResourceGroup struct {
 	pulumi.CustomResourceState
 

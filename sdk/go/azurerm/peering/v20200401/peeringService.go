@@ -11,6 +11,35 @@ import (
 )
 
 // Peering Service
+//
+// ## Example Usage
+// ### Create a  peering service
+//
+// ```go
+// package main
+//
+// import (
+// 	peering "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/peering/v20200401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := peering.NewPeeringService(ctx, "peeringService", &peering.PeeringServiceArgs{
+// 			Location:               pulumi.String("eastus"),
+// 			PeeringServiceLocation: pulumi.String("state1"),
+// 			PeeringServiceName:     pulumi.String("peeringServiceName"),
+// 			PeeringServiceProvider: pulumi.String("serviceProvider1"),
+// 			ResourceGroupName:      pulumi.String("rgName"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PeeringService struct {
 	pulumi.CustomResourceState
 

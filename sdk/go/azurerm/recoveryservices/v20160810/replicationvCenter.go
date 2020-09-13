@@ -11,6 +11,34 @@ import (
 )
 
 // vCenter definition.
+//
+// ## Example Usage
+// ### Add vCenter.
+//
+// ```go
+// package main
+//
+// import (
+// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/v20160810"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := recoveryservices.NewReplicationvCenter(ctx, "replicationvCenter", &recoveryservices.ReplicationvCenterArgs{
+// 			FabricName:        pulumi.String("MadhaviFabric"),
+// 			ResourceGroupName: pulumi.String("MadhaviVRG"),
+// 			ResourceName:      pulumi.String("MadhaviVault"),
+// 			VCenterName:       pulumi.String("esx-78"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ReplicationvCenter struct {
 	pulumi.CustomResourceState
 

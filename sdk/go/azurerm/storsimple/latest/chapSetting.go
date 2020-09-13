@@ -11,6 +11,38 @@ import (
 )
 
 // Challenge-Handshake Authentication Protocol (CHAP) setting
+//
+// ## Example Usage
+// ### ChapSettingsCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storsimple.NewChapSetting(ctx, "chapSetting", &storsimple.ChapSettingArgs{
+// 			ChapUserName: pulumi.String("ChapSettingForSDK"),
+// 			DeviceName:   pulumi.String("HSDK-WSJQERQW3F"),
+// 			ManagerName:  pulumi.String("hAzureSDKOperations"),
+// 			Password: &storsimple.AsymmetricEncryptedSecretArgs{
+// 				EncryptionAlgorithm: pulumi.String("RSAES_PKCS1_v_1_5"),
+// 				Value:               pulumi.String("W4xL3maActbzoehB9Ny1nr16uyjZZfvuJ70f8yBQgtS3vU4SLrOpoggmutOsbcgOgmgNHZnKe73WRZxzJFxzUQqcFNrAV+dReDkO5I/L1GxDjT5rsWn+74dRl8ditTew4z6OcwrT6RXtjG0njkUNsxXuawuylXsdHdvgQtSWbXBSao6KVhSbGQ57/V++CXqBbG2zoGLlHMdZF9OQccvCgh7qwD4ua7FLwqvQ8vYYVXryKm+XDmmT+GYWDqxPly0M2mJl/GLB/c6rNem4oRHBsf/vKfEKm8WGLWNsRZGcbxZKGiGsKC8QsxDHou6Ci3rfphVJE2R/9TxL+/1lUu2poQ=="),
+// 			},
+// 			ResourceGroupName: pulumi.String("ResourceGroupForSDKTest"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ChapSetting struct {
 	pulumi.CustomResourceState
 

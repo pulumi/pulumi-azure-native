@@ -11,6 +11,73 @@ import (
 )
 
 // HubVirtualNetworkConnection Resource.
+//
+// ## Example Usage
+// ### HubVirtualNetworkConnectionPut
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20200501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewHubVirtualNetworkConnection(ctx, "hubVirtualNetworkConnection", &network.HubVirtualNetworkConnectionArgs{
+// 			ConnectionName:         pulumi.String("connection1"),
+// 			EnableInternetSecurity: pulumi.Bool(false),
+// 			RemoteVirtualNetwork: &network.SubResourceArgs{
+// 				Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/SpokeVnet1"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			RoutingConfiguration: &network.RoutingConfigurationArgs{
+// 				AssociatedRouteTable: &network.SubResourceArgs{
+// 					Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1"),
+// 				},
+// 				PropagatedRouteTables: &network.PropagatedRouteTableArgs{
+// 					Ids: network.SubResourceArray{
+// 						&network.SubResourceArgs{
+// 							Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1"),
+// 						},
+// 					},
+// 					Labels: pulumi.StringArray{
+// 						pulumi.String("label1"),
+// 						pulumi.String("label2"),
+// 					},
+// 				},
+// 				VnetRoutes: &network.VnetRouteArgs{
+// 					StaticRoutes: network.StaticRouteArray{
+// 						&network.StaticRouteArgs{
+// 							AddressPrefixes: pulumi.StringArray{
+// 								pulumi.String("10.1.0.0/16"),
+// 								pulumi.String("10.2.0.0/16"),
+// 							},
+// 							Name:             pulumi.String("route1"),
+// 							NextHopIpAddress: pulumi.String("10.0.0.68"),
+// 						},
+// 						&network.StaticRouteArgs{
+// 							AddressPrefixes: pulumi.StringArray{
+// 								pulumi.String("10.3.0.0/16"),
+// 								pulumi.String("10.4.0.0/16"),
+// 							},
+// 							Name:             pulumi.String("route2"),
+// 							NextHopIpAddress: pulumi.String("10.0.0.65"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			VirtualHubName: pulumi.String("virtualHub1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type HubVirtualNetworkConnection struct {
 	pulumi.CustomResourceState
 

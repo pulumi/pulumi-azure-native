@@ -11,6 +11,70 @@ import (
 )
 
 // P2SVpnServerConfiguration Resource.
+//
+// ## Example Usage
+// ### P2SVpnServerConfigurationPut
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20181201"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewP2sVpnServerConfiguration(ctx, "p2sVpnServerConfiguration", &network.P2sVpnServerConfigurationArgs{
+// 			P2SVpnServerConfigRadiusClientRootCertificates: network.P2SVpnServerConfigRadiusClientRootCertificateArray{
+// 				&network.P2SVpnServerConfigRadiusClientRootCertificateArgs{
+// 					Name: pulumi.String("p2sVpnServerConfigRadiusClientRootCert1"),
+// 				},
+// 			},
+// 			P2SVpnServerConfigRadiusServerRootCertificates: network.P2SVpnServerConfigRadiusServerRootCertificateArray{
+// 				&network.P2SVpnServerConfigRadiusServerRootCertificateArgs{
+// 					Name: pulumi.String("p2sVpnServerConfigRadiusServerRootCert1"),
+// 				},
+// 			},
+// 			P2SVpnServerConfigVpnClientRevokedCertificates: network.P2SVpnServerConfigVpnClientRevokedCertificateArray{
+// 				&network.P2SVpnServerConfigVpnClientRevokedCertificateArgs{
+// 					Name: pulumi.String("p2sVpnServerConfigVpnClientRevokedCert1"),
+// 				},
+// 			},
+// 			P2SVpnServerConfigVpnClientRootCertificates: network.P2SVpnServerConfigVpnClientRootCertificateArray{
+// 				&network.P2SVpnServerConfigVpnClientRootCertificateArgs{
+// 					Name: pulumi.String("p2sVpnServerConfigVpnClientRootCert1"),
+// 				},
+// 			},
+// 			P2SVpnServerConfigurationName: pulumi.String("p2sVpnServerConfiguration1"),
+// 			RadiusServerAddress:           pulumi.String("8.9.9.9"),
+// 			RadiusServerSecret:            pulumi.String("123_abc"),
+// 			ResourceGroupName:             pulumi.String("rg1"),
+// 			VirtualWanName:                pulumi.String("virtualWan1"),
+// 			VpnClientIpsecPolicies: network.IpsecPolicyArray{
+// 				&network.IpsecPolicyArgs{
+// 					DhGroup:             pulumi.String("DHGroup14"),
+// 					IkeEncryption:       pulumi.String("AES256"),
+// 					IkeIntegrity:        pulumi.String("SHA384"),
+// 					IpsecEncryption:     pulumi.String("AES256"),
+// 					IpsecIntegrity:      pulumi.String("SHA256"),
+// 					PfsGroup:            pulumi.String("PFS14"),
+// 					SaDataSizeKilobytes: pulumi.Int(429497),
+// 					SaLifeTimeSeconds:   pulumi.Int(86472),
+// 				},
+// 			},
+// 			VpnProtocols: pulumi.StringArray{
+// 				pulumi.String("IkeV2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type P2sVpnServerConfiguration struct {
 	pulumi.CustomResourceState
 

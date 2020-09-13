@@ -11,6 +11,41 @@ import (
 )
 
 // A class represent a SignalR service resource.
+//
+// ## Example Usage
+// ### CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	signalrservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/signalrservice/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := signalrservice.NewSignalR(ctx, "signalR", &signalrservice.SignalRArgs{
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			ResourceName:      pulumi.String("mySignalRService"),
+// 			Sku: &signalrservice.ResourceSkuArgs{
+// 				Capacity: pulumi.Int(1),
+// 				Name:     pulumi.String("Standard_S1"),
+// 				Tier:     pulumi.String("Standard"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SignalR struct {
 	pulumi.CustomResourceState
 

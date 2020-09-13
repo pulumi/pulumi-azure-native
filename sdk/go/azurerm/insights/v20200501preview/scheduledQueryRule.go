@@ -11,6 +11,226 @@ import (
 )
 
 // The scheduled query rule resource.
+//
+// ## Example Usage
+// ### Create or update a scheduled query rule for Single Resource
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20200501preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewScheduledQueryRule(ctx, "scheduledQueryRule", &insights.ScheduledQueryRuleArgs{
+// 			Actions: insights.ActionArray{
+// 				&insights.ActionArgs{
+// 					ActionGroupId: pulumi.String("/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup"),
+// 					WebHookProperties: pulumi.StringMap{
+// 						"key11": pulumi.String("value11"),
+// 						"key12": pulumi.String("value12"),
+// 					},
+// 				},
+// 			},
+// 			Criteria: &insights.ScheduledQueryRuleCriteriaArgs{
+// 				AllOf: insights.ConditionArray{
+// 					&insights.ConditionArgs{
+// 						Dimensions: insights.DimensionArray{
+// 							&insights.DimensionArgs{
+// 								Name:     pulumi.String("ComputerIp"),
+// 								Operator: pulumi.String("Exclude"),
+// 								Values: pulumi.StringArray{
+// 									pulumi.String("192.168.1.1"),
+// 								},
+// 							},
+// 							&insights.DimensionArgs{
+// 								Name:     pulumi.String("OSType"),
+// 								Operator: pulumi.String("Include"),
+// 								Values: pulumi.StringArray{
+// 									pulumi.String("*"),
+// 								},
+// 							},
+// 						},
+// 						FailingPeriods: &insights.ConditionFailingPeriodsArgs{
+// 							MinFailingPeriodsToAlert:  pulumi.Float64(1),
+// 							NumberOfEvaluationPeriods: pulumi.Float64(1),
+// 						},
+// 						MetricMeasureColumn: pulumi.String(fmt.Sprintf("%v%v", "%", " Processor Time")),
+// 						Operator:            pulumi.String("GreaterThan"),
+// 						Query:               pulumi.String("Perf | where ObjectName == \"Processor\""),
+// 						ResourceIdColumn:    pulumi.String("resourceId"),
+// 						Threshold:           pulumi.Float64(70),
+// 						TimeAggregation:     pulumi.String("Average"),
+// 					},
+// 				},
+// 			},
+// 			Description:         pulumi.String("Performance rule"),
+// 			Enabled:             pulumi.Bool(true),
+// 			EvaluationFrequency: pulumi.String("PT5M"),
+// 			Location:            pulumi.String("eastus"),
+// 			MuteActionsDuration: pulumi.String("PT30M"),
+// 			ResourceGroupName:   pulumi.String("QueryResourceGroupName"),
+// 			RuleName:            pulumi.String("perf"),
+// 			Scopes: pulumi.StringArray{
+// 				pulumi.String("/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1/providers/Microsoft.Compute/virtualMachines/vm1"),
+// 			},
+// 			Severity:   pulumi.Float64(4),
+// 			WindowSize: pulumi.String("PT10M"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create or update a scheduled query rule on Resource group(s)
+//
+// ```go
+// package main
+//
+// import (
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20200501preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewScheduledQueryRule(ctx, "scheduledQueryRule", &insights.ScheduledQueryRuleArgs{
+// 			Actions: insights.ActionArray{
+// 				&insights.ActionArgs{
+// 					ActionGroupId: pulumi.String("/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup"),
+// 					WebHookProperties: pulumi.StringMap{
+// 						"key11": pulumi.String("value11"),
+// 						"key12": pulumi.String("value12"),
+// 					},
+// 				},
+// 			},
+// 			Criteria: &insights.ScheduledQueryRuleCriteriaArgs{
+// 				AllOf: insights.ConditionArray{
+// 					&insights.ConditionArgs{
+// 						Dimensions: insights.DimensionArray{},
+// 						FailingPeriods: &insights.ConditionFailingPeriodsArgs{
+// 							MinFailingPeriodsToAlert:  pulumi.Float64(1),
+// 							NumberOfEvaluationPeriods: pulumi.Float64(1),
+// 						},
+// 						Operator:        pulumi.String("GreaterThan"),
+// 						Query:           pulumi.String("Heartbeat"),
+// 						Threshold:       pulumi.Float64(360),
+// 						TimeAggregation: pulumi.String("Count"),
+// 					},
+// 				},
+// 			},
+// 			Description:         pulumi.String("Health check rule"),
+// 			Enabled:             pulumi.Bool(true),
+// 			EvaluationFrequency: pulumi.String("PT5M"),
+// 			Location:            pulumi.String("eastus"),
+// 			MuteActionsDuration: pulumi.String("PT30M"),
+// 			ResourceGroupName:   pulumi.String("QueryResourceGroupName"),
+// 			RuleName:            pulumi.String("heartbeat"),
+// 			Scopes: pulumi.StringArray{
+// 				pulumi.String("/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1"),
+// 			},
+// 			Severity: pulumi.Float64(4),
+// 			TargetResourceTypes: pulumi.StringArray{
+// 				pulumi.String("Microsoft.Compute/virtualMachines"),
+// 			},
+// 			WindowSize: pulumi.String("PT10M"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create or update a scheduled query rule on Subscription
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20200501preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewScheduledQueryRule(ctx, "scheduledQueryRule", &insights.ScheduledQueryRuleArgs{
+// 			Actions: insights.ActionArray{
+// 				&insights.ActionArgs{
+// 					ActionGroupId: pulumi.String("/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup"),
+// 					WebHookProperties: pulumi.StringMap{
+// 						"key11": pulumi.String("value11"),
+// 						"key12": pulumi.String("value12"),
+// 					},
+// 				},
+// 			},
+// 			Criteria: &insights.ScheduledQueryRuleCriteriaArgs{
+// 				AllOf: insights.ConditionArray{
+// 					&insights.ConditionArgs{
+// 						Dimensions: insights.DimensionArray{
+// 							&insights.DimensionArgs{
+// 								Name:     pulumi.String("ComputerIp"),
+// 								Operator: pulumi.String("Exclude"),
+// 								Values: pulumi.StringArray{
+// 									pulumi.String("192.168.1.1"),
+// 								},
+// 							},
+// 							&insights.DimensionArgs{
+// 								Name:     pulumi.String("OSType"),
+// 								Operator: pulumi.String("Include"),
+// 								Values: pulumi.StringArray{
+// 									pulumi.String("*"),
+// 								},
+// 							},
+// 						},
+// 						FailingPeriods: &insights.ConditionFailingPeriodsArgs{
+// 							MinFailingPeriodsToAlert:  pulumi.Float64(1),
+// 							NumberOfEvaluationPeriods: pulumi.Float64(1),
+// 						},
+// 						MetricMeasureColumn: pulumi.String(fmt.Sprintf("%v%v", "%", " Processor Time")),
+// 						Operator:            pulumi.String("GreaterThan"),
+// 						Query:               pulumi.String("Perf | where ObjectName == \"Processor\""),
+// 						ResourceIdColumn:    pulumi.String("resourceId"),
+// 						Threshold:           pulumi.Float64(70),
+// 						TimeAggregation:     pulumi.String("Average"),
+// 					},
+// 				},
+// 			},
+// 			Description:         pulumi.String("Performance rule"),
+// 			Enabled:             pulumi.Bool(true),
+// 			EvaluationFrequency: pulumi.String("PT5M"),
+// 			Location:            pulumi.String("eastus"),
+// 			MuteActionsDuration: pulumi.String("PT30M"),
+// 			ResourceGroupName:   pulumi.String("QueryResourceGroupName"),
+// 			RuleName:            pulumi.String("perf"),
+// 			Scopes: pulumi.StringArray{
+// 				pulumi.String("/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147"),
+// 			},
+// 			Severity: pulumi.Float64(4),
+// 			TargetResourceTypes: pulumi.StringArray{
+// 				pulumi.String("Microsoft.Compute/virtualMachines"),
+// 			},
+// 			WindowSize: pulumi.String("PT10M"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ScheduledQueryRule struct {
 	pulumi.CustomResourceState
 

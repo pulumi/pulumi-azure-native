@@ -11,6 +11,39 @@ import (
 )
 
 // An Azure Cosmos DB Table.
+//
+// ## Example Usage
+// ### CosmosDBTableReplace
+//
+// ```go
+// package main
+//
+// import (
+// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/v20200301"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := documentdb.NewTableResourceTable(ctx, "tableResourceTable", &documentdb.TableResourceTableArgs{
+// 			AccountName: pulumi.String("ddb1"),
+// 			Location:    pulumi.String("West US"),
+// 			Options:     nil,
+// 			Resource: &documentdb.TableResourceArgs{
+// 				Id: pulumi.String("tableName"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			TableName:         pulumi.String("tableName"),
+// 			Tags:              nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type TableResourceTable struct {
 	pulumi.CustomResourceState
 

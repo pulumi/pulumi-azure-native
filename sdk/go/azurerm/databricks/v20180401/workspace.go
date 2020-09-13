@@ -11,6 +11,174 @@ import (
 )
 
 // Information about workspace.
+//
+// ## Example Usage
+// ### Create a workspace which is ready for Customer-Managed Key (CMK) encryption
+//
+// ```go
+// package main
+//
+// import (
+// 	databricks "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/databricks/v20180401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := databricks.NewWorkspace(ctx, "workspace", &databricks.WorkspaceArgs{
+// 			Location:               pulumi.String("westus"),
+// 			ManagedResourceGroupId: pulumi.String("/subscriptions/subid/resourceGroups/myManagedRG"),
+// 			Parameters: &databricks.WorkspaceCustomParametersArgs{
+// 				PrepareEncryption: &databricks.WorkspaceCustomBooleanParameterArgs{
+// 					Value: pulumi.Bool(true),
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("rg"),
+// 			WorkspaceName:     pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create or update workspace
+//
+// ```go
+// package main
+//
+// import (
+// 	databricks "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/databricks/v20180401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := databricks.NewWorkspace(ctx, "workspace", &databricks.WorkspaceArgs{
+// 			Location:               pulumi.String("westus"),
+// 			ManagedResourceGroupId: pulumi.String("/subscriptions/subid/resourceGroups/myManagedRG"),
+// 			ResourceGroupName:      pulumi.String("rg"),
+// 			WorkspaceName:          pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create or update workspace with custom parameters
+//
+// ```go
+// package main
+//
+// import (
+// 	databricks "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/databricks/v20180401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := databricks.NewWorkspace(ctx, "workspace", &databricks.WorkspaceArgs{
+// 			Location:               pulumi.String("westus"),
+// 			ManagedResourceGroupId: pulumi.String("/subscriptions/subid/resourceGroups/myManagedRG"),
+// 			Parameters: &databricks.WorkspaceCustomParametersArgs{
+// 				CustomPrivateSubnetName: &databricks.WorkspaceCustomStringParameterArgs{
+// 					Value: pulumi.String("myPrivateSubnet"),
+// 				},
+// 				CustomPublicSubnetName: &databricks.WorkspaceCustomStringParameterArgs{
+// 					Value: pulumi.String("myPublicSubnet"),
+// 				},
+// 				CustomVirtualNetworkId: &databricks.WorkspaceCustomStringParameterArgs{
+// 					Value: pulumi.String("/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/myNetwork"),
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("rg"),
+// 			WorkspaceName:     pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Enable Customer-Managed Key (CMK) encryption on a workspace which is prepared for encryption
+//
+// ```go
+// package main
+//
+// import (
+// 	databricks "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/databricks/v20180401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := databricks.NewWorkspace(ctx, "workspace", &databricks.WorkspaceArgs{
+// 			Location:               pulumi.String("westus"),
+// 			ManagedResourceGroupId: pulumi.String("/subscriptions/subid/resourceGroups/myManagedRG"),
+// 			Parameters: &databricks.WorkspaceCustomParametersArgs{
+// 				Encryption: &databricks.WorkspaceEncryptionParameterArgs{
+// 					Value: &databricks.EncryptionArgs{
+// 						KeyName:     pulumi.String("myKeyName"),
+// 						KeySource:   pulumi.String("Microsoft.Keyvault"),
+// 						KeyVaultUri: pulumi.String("https://myKeyVault.vault.azure.net/"),
+// 						KeyVersion:  pulumi.String("00000000000000000000000000000000"),
+// 					},
+// 				},
+// 				PrepareEncryption: &databricks.WorkspaceCustomBooleanParameterArgs{
+// 					Value: pulumi.Bool(true),
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("rg"),
+// 			WorkspaceName:     pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Revert Customer-Managed Key (CMK) encryption to Microsoft Managed Keys encryption on a workspace
+//
+// ```go
+// package main
+//
+// import (
+// 	databricks "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/databricks/v20180401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := databricks.NewWorkspace(ctx, "workspace", &databricks.WorkspaceArgs{
+// 			Location:               pulumi.String("westus"),
+// 			ManagedResourceGroupId: pulumi.String("/subscriptions/subid/resourceGroups/myManagedRG"),
+// 			Parameters: &databricks.WorkspaceCustomParametersArgs{
+// 				Encryption: &databricks.WorkspaceEncryptionParameterArgs{
+// 					Value: &databricks.EncryptionArgs{
+// 						KeySource: pulumi.String("Default"),
+// 					},
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("rg"),
+// 			WorkspaceName:     pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Workspace struct {
 	pulumi.CustomResourceState
 

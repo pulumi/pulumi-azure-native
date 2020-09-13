@@ -11,6 +11,38 @@ import (
 )
 
 // An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
+//
+// ## Example Usage
+// ### AccessPoliciesCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	timeseriesinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/timeseriesinsights/v20171115"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := timeseriesinsights.NewAccessPolicy(ctx, "accessPolicy", &timeseriesinsights.AccessPolicyArgs{
+// 			AccessPolicyName:  pulumi.String("ap1"),
+// 			Description:       pulumi.String("some description"),
+// 			EnvironmentName:   pulumi.String("env1"),
+// 			PrincipalObjectId: pulumi.String("aGuid"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String("Reader"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type AccessPolicy struct {
 	pulumi.CustomResourceState
 

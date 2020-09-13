@@ -11,6 +11,35 @@ import (
 )
 
 // An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
+//
+// ## Example Usage
+// ### CreateEventHubEventSource
+//
+// ```go
+// package main
+//
+// import (
+// 	timeseriesinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/timeseriesinsights/v20171115"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := timeseriesinsights.NewEventSource(ctx, "eventSource", &timeseriesinsights.EventSourceArgs{
+// 			EnvironmentName:   pulumi.String("env1"),
+// 			EventSourceName:   pulumi.String("es1"),
+// 			Kind:              pulumi.String("Microsoft.EventHub"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type EventSource struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,36 @@ import (
 )
 
 // Single item in a List or Get IpFilterRules operation
+//
+// ## Example Usage
+// ### NameSpaceIpFilterRuleCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	servicebus "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicebus/v20180101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicebus.NewNamespaceIpFilterRule(ctx, "namespaceIpFilterRule", &servicebus.NamespaceIpFilterRuleArgs{
+// 			Action:            pulumi.String("Accept"),
+// 			FilterName:        pulumi.String("sdk-IPFilterRules-7337"),
+// 			IpFilterRuleName:  pulumi.String("sdk-IPFilterRules-7337"),
+// 			IpMask:            pulumi.String("13.78.143.246/32"),
+// 			NamespaceName:     pulumi.String("sdk-Namespace-5232"),
+// 			ResourceGroupName: pulumi.String("ResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type NamespaceIpFilterRule struct {
 	pulumi.CustomResourceState
 

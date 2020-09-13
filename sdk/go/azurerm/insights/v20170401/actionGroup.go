@@ -11,6 +11,91 @@ import (
 )
 
 // An action group resource.
+//
+// ## Example Usage
+// ### Create or update an action group
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20170401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewActionGroup(ctx, "actionGroup", &insights.ActionGroupArgs{
+// 			ActionGroupName: pulumi.String("SampleActionGroup"),
+// 			AutomationRunbookReceivers: insights.AutomationRunbookReceiverArray{
+// 				&insights.AutomationRunbookReceiverArgs{
+// 					AutomationAccountId: pulumi.String("/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/runbookTest/providers/Microsoft.Automation/automationAccounts/runbooktest"),
+// 					IsGlobalRunbook:     pulumi.Bool(false),
+// 					Name:                pulumi.String("testRunbook"),
+// 					RunbookName:         pulumi.String("Sample runbook"),
+// 					ServiceUri:          pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "https://s13events.azure-automation.net/webhooks?token=iimE", "%", "2fD19Eg", "%", "2bvDy22yUMecIZY6Uiz", "%", "2bHfuQ67r8r1wY", "%", "2fI", "%", "3d")),
+// 					WebhookResourceId:   pulumi.String("/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/runbookTest/providers/Microsoft.Automation/automationAccounts/runbooktest/webhooks/Alert1510184037084"),
+// 				},
+// 			},
+// 			AzureAppPushReceivers: insights.AzureAppPushReceiverArray{
+// 				&insights.AzureAppPushReceiverArgs{
+// 					EmailAddress: pulumi.String("johndoe@email.com"),
+// 					Name:         pulumi.String("Sample azureAppPush"),
+// 				},
+// 			},
+// 			EmailReceivers: insights.EmailReceiverArray{
+// 				&insights.EmailReceiverArgs{
+// 					EmailAddress: pulumi.String("johndoe@email.com"),
+// 					Name:         pulumi.String("John Doe's email"),
+// 				},
+// 				&insights.EmailReceiverArgs{
+// 					EmailAddress: pulumi.String("janesmith@email.com"),
+// 					Name:         pulumi.String("Jane Smith's email"),
+// 				},
+// 			},
+// 			Enabled:        pulumi.Bool(true),
+// 			GroupShortName: pulumi.String("sample"),
+// 			ItsmReceivers: insights.ItsmReceiverArray{
+// 				&insights.ItsmReceiverArgs{
+// 					ConnectionId:        pulumi.String("a3b9076c-ce8e-434e-85b4-aff10cb3c8f1"),
+// 					Name:                pulumi.String("Sample itsm"),
+// 					Region:              pulumi.String("westcentralus"),
+// 					TicketConfiguration: pulumi.String("{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{}\",\"CreateOneWIPerCI\":false}"),
+// 					WorkspaceId:         pulumi.String("5def922a-3ed4-49c1-b9fd-05ec533819a3|55dfd1f8-7e59-4f89-bf56-4c82f5ace23c"),
+// 				},
+// 			},
+// 			Location:          pulumi.String("Global"),
+// 			ResourceGroupName: pulumi.String("Default-NotificationRules"),
+// 			SmsReceivers: insights.SmsReceiverArray{
+// 				&insights.SmsReceiverArgs{
+// 					CountryCode: pulumi.String("1"),
+// 					Name:        pulumi.String("John Doe's mobile"),
+// 					PhoneNumber: pulumi.String("1234567890"),
+// 				},
+// 				&insights.SmsReceiverArgs{
+// 					CountryCode: pulumi.String("1"),
+// 					Name:        pulumi.String("Jane Smith's mobile"),
+// 					PhoneNumber: pulumi.String("0987654321"),
+// 				},
+// 			},
+// 			Tags: nil,
+// 			WebhookReceivers: insights.WebhookReceiverArray{
+// 				&insights.WebhookReceiverArgs{
+// 					Name:       pulumi.String("Sample webhook"),
+// 					ServiceUri: pulumi.String("http://www.example.com/webhook"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ActionGroup struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,35 @@ import (
 )
 
 // An Asset.
+//
+// ## Example Usage
+// ### Create an Asset
+//
+// ```go
+// package main
+//
+// import (
+// 	media "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/media/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := media.NewAsset(ctx, "asset", &media.AssetArgs{
+// 			AccountName:        pulumi.String("contosomedia"),
+// 			AssetName:          pulumi.String("ClimbingMountLogan"),
+// 			Description:        pulumi.String("A documentary showing the ascent of Mount Logan"),
+// 			ResourceGroupName:  pulumi.String("contoso"),
+// 			StorageAccountName: pulumi.String("storage0"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Asset struct {
 	pulumi.CustomResourceState
 

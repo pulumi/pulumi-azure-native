@@ -11,6 +11,37 @@ import (
 )
 
 // The integration account session.
+//
+// ## Example Usage
+// ### Create or update an integration account session
+//
+// ```go
+// package main
+//
+// import (
+// 	logic "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/logic/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := logic.NewIntegrationAccountSession(ctx, "integrationAccountSession", &logic.IntegrationAccountSessionArgs{
+// 			Content: pulumi.StringMap{
+// 				"controlNumber":            pulumi.String("1234"),
+// 				"controlNumberChangedTime": pulumi.String("2017-02-21T22:30:11.9923759Z"),
+// 			},
+// 			IntegrationAccountName: pulumi.String("testia123"),
+// 			ResourceGroupName:      pulumi.String("testrg123"),
+// 			SessionName:            pulumi.String("testsession123-ICN"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type IntegrationAccountSession struct {
 	pulumi.CustomResourceState
 

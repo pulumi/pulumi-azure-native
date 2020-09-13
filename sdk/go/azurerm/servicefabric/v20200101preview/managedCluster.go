@@ -11,6 +11,53 @@ import (
 )
 
 // The manged cluster resource
+//
+// ## Example Usage
+// ### Put a cluster with maximum parameters
+//
+// ```go
+//
+// ```
+// ### Put a cluster with minimum parameters
+//
+// ```go
+// package main
+//
+// import (
+// 	servicefabric "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicefabric/v20200101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicefabric.NewManagedCluster(ctx, "managedCluster", &servicefabric.ManagedClusterArgs{
+// 			AdminPassword:      pulumi.String("{vm-password}"),
+// 			AdminUserName:      pulumi.String("vmadmin"),
+// 			ClusterCodeVersion: pulumi.String("7.1.168.9494"),
+// 			ClusterName:        pulumi.String("myCluster"),
+// 			DnsName:            pulumi.String("myCluster"),
+// 			FabricSettings: servicefabric.SettingsSectionDescriptionArray{
+// 				&servicefabric.SettingsSectionDescriptionArgs{
+// 					Name: pulumi.String("ManagedIdentityTokenService"),
+// 					Parameters: servicefabric.SettingsParameterDescriptionArray{
+// 						&servicefabric.SettingsParameterDescriptionArgs{
+// 							Name:  pulumi.String("IsEnabled"),
+// 							Value: pulumi.String("true"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("resRg"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 

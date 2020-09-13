@@ -11,6 +11,36 @@ import (
 )
 
 // RemoteRenderingAccount Response.
+//
+// ## Example Usage
+// ### Create remote rendering account
+//
+// ```go
+// package main
+//
+// import (
+// 	mixedreality "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/mixedreality/v20200406preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := mixedreality.NewRemoteRenderingAccount(ctx, "remoteRenderingAccount", &mixedreality.RemoteRenderingAccountArgs{
+// 			AccountName: pulumi.String("MyAccount"),
+// 			Identity: &mixedreality.RemoteRenderingAccountIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Location:          pulumi.String("eastus2euap"),
+// 			ResourceGroupName: pulumi.String("MyResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type RemoteRenderingAccount struct {
 	pulumi.CustomResourceState
 

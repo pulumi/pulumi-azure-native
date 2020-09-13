@@ -11,6 +11,133 @@ import (
 )
 
 // Bot channel resource definition
+//
+// ## Example Usage
+// ### Create Alexa Bot
+//
+// ```go
+// package main
+//
+// import (
+// 	botservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/botservice/v20200602"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := botservice.NewChannel(ctx, "channel", &botservice.ChannelArgs{
+// 			ChannelName: pulumi.String("AlexaChannel"),
+// 			Location:    pulumi.String("global"),
+// 			Properties: &botservice.ChannelArgs{
+// 				AlexaSkillId: pulumi.String("XAlexaSkillIdX"),
+// 				IsEnabled:    pulumi.Bool(true),
+// 			},
+// 			ResourceGroupName: pulumi.String("OneResourceGroupName"),
+// 			ResourceName:      pulumi.String("samplebotname"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create Bot
+//
+// ```go
+// package main
+//
+// import (
+// 	botservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/botservice/v20200602"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := botservice.NewChannel(ctx, "channel", &botservice.ChannelArgs{
+// 			ChannelName: pulumi.String("EmailChannel"),
+// 			Location:    pulumi.String("global"),
+// 			Properties: &botservice.ChannelArgs{
+// 				EmailAddress: pulumi.String("a@b.com"),
+// 				IsEnabled:    pulumi.Bool(true),
+// 				Password:     pulumi.String("pwd"),
+// 			},
+// 			ResourceGroupName: pulumi.String("OneResourceGroupName"),
+// 			ResourceName:      pulumi.String("samplebotname"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create DirectLine Speech Bot
+//
+// ```go
+// package main
+//
+// import (
+// 	botservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/botservice/v20200602"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := botservice.NewChannel(ctx, "channel", &botservice.ChannelArgs{
+// 			ChannelName: pulumi.String("DirectLineSpeechChannel"),
+// 			Location:    pulumi.String("global"),
+// 			Properties: &botservice.ChannelArgs{
+// 				CognitiveServicesSubscriptionId: pulumi.String("XcognitiveServicesSubscriptionIdX"),
+// 				IsEnabled:                       pulumi.Bool(true),
+// 			},
+// 			ResourceGroupName: pulumi.String("OneResourceGroupName"),
+// 			ResourceName:      pulumi.String("samplebotname"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create Line Bot
+//
+// ```go
+// package main
+//
+// import (
+// 	botservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/botservice/v20200602"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := botservice.NewChannel(ctx, "channel", &botservice.ChannelArgs{
+// 			ChannelName: pulumi.String("LineChannel"),
+// 			Location:    pulumi.String("global"),
+// 			Properties: &botservice.ChannelArgs{
+// 				LineRegistrations: pulumi.StringMapArray{
+// 					pulumi.StringMap{
+// 						"channelAccessToken": pulumi.String("channelAccessToken"),
+// 						"channelSecret":      pulumi.String("channelSecret"),
+// 					},
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("OneResourceGroupName"),
+// 			ResourceName:      pulumi.String("samplebotname"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Channel struct {
 	pulumi.CustomResourceState
 

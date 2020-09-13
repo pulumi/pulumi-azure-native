@@ -11,6 +11,148 @@ import (
 )
 
 // Machine Learning compute object wrapped into ARM resource envelope.
+//
+// ## Example Usage
+// ### Create AKS Compute
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
+// 			ComputeName:       pulumi.String("compute123"),
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			WorkspaceName:     pulumi.String("workspaces123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a BatchAI Compute
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
+// 			ComputeName:       pulumi.String("compute123"),
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			WorkspaceName:     pulumi.String("workspaces123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a DataFactory Compute
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
+// 			ComputeName:       pulumi.String("compute123"),
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			WorkspaceName:     pulumi.String("workspaces123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Update a AKS Compute
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
+// 			ComputeName: pulumi.String("compute123"),
+// 			Location:    pulumi.String("eastus"),
+// 			Properties: &machinelearningservices.ComputeArgs{
+// 				AgentCount: pulumi.Float64(4),
+// 			},
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			WorkspaceName:     pulumi.String("workspaces123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Update a BatchAI Compute
+//
+// ```go
+// package main
+//
+// import (
+// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20180301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := machinelearningservices.NewMachineLearningCompute(ctx, "machineLearningCompute", &machinelearningservices.MachineLearningComputeArgs{
+// 			ComputeName: pulumi.String("compute123"),
+// 			Location:    pulumi.String("eastus"),
+// 			Properties: &machinelearningservices.ComputeArgs{
+// 				ScaleSettings: pulumi.Map{
+// 					"autoScaleEnabled": pulumi.Bool(false),
+// 					"maxNodeCount":     pulumi.Float64(4),
+// 					"minNodeCount":     pulumi.Float64(4),
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("testrg123"),
+// 			WorkspaceName:     pulumi.String("workspaces123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type MachineLearningCompute struct {
 	pulumi.CustomResourceState
 

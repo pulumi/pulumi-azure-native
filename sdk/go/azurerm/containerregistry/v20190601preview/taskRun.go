@@ -12,6 +12,45 @@ import (
 
 // The task run that has the ARM resource and properties.
 // The task run will have the information of request and result of a run.
+//
+// ## Example Usage
+// ### TaskRuns_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerregistry.NewTaskRun(ctx, "taskRun", &containerregistry.TaskRunArgs{
+// 			ForceUpdateTag:    pulumi.String("test"),
+// 			RegistryName:      pulumi.String("myRegistry"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			RunRequest: &containerregistry.RunRequestArgs{
+// 				Credentials:          nil,
+// 				EncodedTaskContent:   pulumi.String("c3RlcHM6IAogIC0gY21kOiB7eyAuVmFsdWVzLmNvbW1hbmQgfX0K"),
+// 				EncodedValuesContent: pulumi.String("Y29tbWFuZDogYmFzaCBlY2hvIHt7LlJ1bi5SZWdpc3RyeX19Cg=="),
+// 				Platform: pulumi.StringMap{
+// 					"architecture": pulumi.String("amd64"),
+// 					"os":           pulumi.String("Linux"),
+// 				},
+// 				Type:   pulumi.String("EncodedTaskRunRequest"),
+// 				Values: []interface{}{},
+// 			},
+// 			TaskRunName: pulumi.String("myRun"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type TaskRun struct {
 	pulumi.CustomResourceState
 

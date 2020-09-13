@@ -11,6 +11,37 @@ import (
 )
 
 // EventGrid System Topic.
+//
+// ## Example Usage
+// ### SystemTopics_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200401preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := eventgrid.NewSystemTopic(ctx, "systemTopic", &eventgrid.SystemTopicArgs{
+// 			Location:          pulumi.String("westus2"),
+// 			ResourceGroupName: pulumi.String("examplerg"),
+// 			SystemTopicName:   pulumi.String("exampleSystemTopic1"),
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("value1"),
+// 				"tag2": pulumi.String("value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SystemTopic struct {
 	pulumi.CustomResourceState
 

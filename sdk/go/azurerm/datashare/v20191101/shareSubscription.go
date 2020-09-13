@@ -11,6 +11,35 @@ import (
 )
 
 // A share subscription data transfer object.
+//
+// ## Example Usage
+// ### ShareSubscriptions_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	datashare "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datashare/v20191101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datashare.NewShareSubscription(ctx, "shareSubscription", &datashare.ShareSubscriptionArgs{
+// 			AccountName:           pulumi.String("Account1"),
+// 			InvitationId:          pulumi.String("12345678-1234-1234-12345678abd"),
+// 			ResourceGroupName:     pulumi.String("SampleResourceGroup"),
+// 			ShareSubscriptionName: pulumi.String("ShareSubscription1"),
+// 			SourceShareLocation:   pulumi.String("eastus2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ShareSubscription struct {
 	pulumi.CustomResourceState
 

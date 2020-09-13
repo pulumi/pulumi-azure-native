@@ -11,6 +11,40 @@ import (
 )
 
 // Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+//
+// ## Example Usage
+// ### Create or update a dedicated host group.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20190701"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDedicatedHostGroup(ctx, "dedicatedHostGroup", &compute.DedicatedHostGroupArgs{
+// 			HostGroupName:            pulumi.String("myDedicatedHostGroup"),
+// 			Location:                 pulumi.String("westus"),
+// 			PlatformFaultDomainCount: pulumi.Int(3),
+// 			ResourceGroupName:        pulumi.String("myResourceGroup"),
+// 			Tags: pulumi.StringMap{
+// 				"department": pulumi.String("finance"),
+// 			},
+// 			Zones: pulumi.StringArray{
+// 				pulumi.String("1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DedicatedHostGroup struct {
 	pulumi.CustomResourceState
 

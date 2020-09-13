@@ -11,6 +11,35 @@ import (
 )
 
 // Single item in List or Get Alias(Disaster Recovery configuration) operation
+//
+// ## Example Usage
+// ### SBAliasCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	servicebus "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicebus/v20170401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicebus.NewDisasterRecoveryConfig(ctx, "disasterRecoveryConfig", &servicebus.DisasterRecoveryConfigArgs{
+// 			Alias:             pulumi.String("sdk-Namespace-8860"),
+// 			AlternateName:     pulumi.String("alternameforAlias-Namespace-8860"),
+// 			NamespaceName:     pulumi.String("sdk-Namespace-8860"),
+// 			PartnerNamespace:  pulumi.String("sdk-Namespace-37"),
+// 			ResourceGroupName: pulumi.String("ardsouzatestRG"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,13 @@ import (
 )
 
 // Represents a case relation
+//
+// ## Example Usage
+// ### Creates or updates a case relation.
+//
+// ```go
+//
+// ```
 type CaseRelation struct {
 	pulumi.CustomResourceState
 

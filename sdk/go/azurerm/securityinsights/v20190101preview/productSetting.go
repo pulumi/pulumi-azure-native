@@ -11,6 +11,36 @@ import (
 )
 
 // The Setting.
+//
+// ## Example Usage
+// ### Update EyesOn settings.
+//
+// ```go
+// package main
+//
+// import (
+// 	securityinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/securityinsights/v20190101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := securityinsights.NewProductSetting(ctx, "productSetting", &securityinsights.ProductSettingArgs{
+// 			Etag:                                pulumi.String("\"0300bf09-0000-0000-0000-5c37296e0000\""),
+// 			Kind:                                pulumi.String("EyesOn"),
+// 			OperationalInsightsResourceProvider: pulumi.String("Microsoft.OperationalInsights"),
+// 			ResourceGroupName:                   pulumi.String("myRg"),
+// 			SettingsName:                        pulumi.String("EyesOn"),
+// 			WorkspaceName:                       pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ProductSetting struct {
 	pulumi.CustomResourceState
 

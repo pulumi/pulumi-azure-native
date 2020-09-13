@@ -11,6 +11,47 @@ import (
 )
 
 // A workspace
+//
+// ## Example Usage
+// ### Create or update a workspace
+//
+// ```go
+// package main
+//
+// import (
+// 	synapse "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/synapse/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := synapse.NewWorkspace(ctx, "workspace", &synapse.WorkspaceArgs{
+// 			DefaultDataLakeStorage: &synapse.DataLakeStorageAccountDetailsArgs{
+// 				AccountUrl: pulumi.String("https://accountname.dfs.core.windows.net"),
+// 				Filesystem: pulumi.String("default"),
+// 			},
+// 			Identity: &synapse.ManagedIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Location:                      pulumi.String("East US"),
+// 			ManagedResourceGroupName:      pulumi.String("workspaceManagedResourceGroupUnique"),
+// 			ManagedVirtualNetwork:         pulumi.String("default"),
+// 			ResourceGroupName:             pulumi.String("resourceGroup1"),
+// 			SqlAdministratorLogin:         pulumi.String("login"),
+// 			SqlAdministratorLoginPassword: pulumi.String("password"),
+// 			Tags: pulumi.StringMap{
+// 				"key": pulumi.String("value"),
+// 			},
+// 			WorkspaceName: pulumi.String("workspace1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Workspace struct {
 	pulumi.CustomResourceState
 

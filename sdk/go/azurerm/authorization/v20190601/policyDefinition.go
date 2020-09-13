@@ -11,6 +11,64 @@ import (
 )
 
 // The policy definition.
+//
+// ## Example Usage
+// ### Create or update a policy definition
+//
+// ```go
+// package main
+//
+// import (
+// 	authorization "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/authorization/v20190601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := authorization.NewPolicyDefinition(ctx, "policyDefinition", &authorization.PolicyDefinitionArgs{
+// 			Description: pulumi.String("Force resource names to begin with given 'prefix' and/or end with given 'suffix'"),
+// 			DisplayName: pulumi.String("Enforce resource naming convention"),
+// 			Metadata: pulumi.StringMap{
+// 				"category": pulumi.String("Naming"),
+// 			},
+// 			Mode: pulumi.String("All"),
+// 			Parameters: pulumi.MapMap{
+// 				"prefix": pulumi.Map{
+// 					"metadata": pulumi.StringMap{
+// 						"description":  pulumi.String("Resource name prefix"),
+// 						"display_name": pulumi.String("Prefix"),
+// 					},
+// 					"type": pulumi.String("String"),
+// 				},
+// 				"suffix": pulumi.Map{
+// 					"metadata": pulumi.StringMap{
+// 						"description":  pulumi.String("Resource name suffix"),
+// 						"display_name": pulumi.String("Suffix"),
+// 					},
+// 					"type": pulumi.String("String"),
+// 				},
+// 			},
+// 			PolicyDefinitionName: pulumi.String("ResourceNaming"),
+// 			PolicyRule: pulumi.Map{
+// 				"if": pulumi.StringMapMap{
+// 					"not_": pulumi.StringMap{
+// 						"field": pulumi.String("name"),
+// 						"like":  pulumi.String("[concat(parameters('prefix'), '*', parameters('suffix'))]"),
+// 					},
+// 				},
+// 				"then": pulumi.StringMap{
+// 					"effect": pulumi.String("deny"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PolicyDefinition struct {
 	pulumi.CustomResourceState
 

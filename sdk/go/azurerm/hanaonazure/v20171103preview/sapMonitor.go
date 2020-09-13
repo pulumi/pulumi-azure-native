@@ -11,6 +11,41 @@ import (
 )
 
 // SAP monitor info on Azure (ARM properties and SAP monitor properties)
+//
+// ## Example Usage
+// ### Create a SAP Monitor
+//
+// ```go
+// package main
+//
+// import (
+// 	hanaonazure "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hanaonazure/v20171103preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := hanaonazure.NewSapMonitor(ctx, "sapMonitor", &hanaonazure.SapMonitorArgs{
+// 			EnableCustomerAnalytics:        pulumi.Bool(true),
+// 			HanaDbName:                     pulumi.String(""),
+// 			HanaDbPassword:                 pulumi.String(""),
+// 			HanaDbSqlPort:                  pulumi.Int(1234),
+// 			HanaDbUsername:                 pulumi.String(""),
+// 			HanaHostname:                   pulumi.String(""),
+// 			HanaSubnet:                     pulumi.String(""),
+// 			Location:                       pulumi.String("westus"),
+// 			LogAnalyticsWorkspaceSharedKey: pulumi.String(""),
+// 			ResourceGroupName:              pulumi.String("myResourceGroup"),
+// 			SapMonitorName:                 pulumi.String("mySapMonitor"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SapMonitor struct {
 	pulumi.CustomResourceState
 

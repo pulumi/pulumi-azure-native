@@ -11,6 +11,86 @@ import (
 )
 
 // OpenShift Managed cluster.
+//
+// ## Example Usage
+// ### Create/Update OpenShift Managed Cluster
+//
+// ```go
+// package main
+//
+// import (
+// 	containerservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerservice/v20180930preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerservice.NewOpenShiftManagedCluster(ctx, "openShiftManagedCluster", &containerservice.OpenShiftManagedClusterArgs{
+// 			AgentPoolProfiles: containerservice.OpenShiftManagedClusterAgentPoolProfileArray{
+// 				&containerservice.OpenShiftManagedClusterAgentPoolProfileArgs{
+// 					Count:      pulumi.Int(2),
+// 					Name:       pulumi.String("infra"),
+// 					OsType:     pulumi.String("Linux"),
+// 					Role:       pulumi.String("infra"),
+// 					SubnetCidr: pulumi.String("10.0.0.0/24"),
+// 					VmSize:     pulumi.String("Standard_D4s_v3"),
+// 				},
+// 				&containerservice.OpenShiftManagedClusterAgentPoolProfileArgs{
+// 					Count:      pulumi.Int(4),
+// 					Name:       pulumi.String("compute"),
+// 					OsType:     pulumi.String("Linux"),
+// 					Role:       pulumi.String("compute"),
+// 					SubnetCidr: pulumi.String("10.0.0.0/24"),
+// 					VmSize:     pulumi.String("Standard_D4s_v3"),
+// 				},
+// 			},
+// 			AuthProfile: &containerservice.OpenShiftManagedClusterAuthProfileArgs{
+// 				IdentityProviders: containerservice.OpenShiftManagedClusterIdentityProviderArray{
+// 					&containerservice.OpenShiftManagedClusterIdentityProviderArgs{
+// 						Name: pulumi.String("Azure AD"),
+// 						Provider: &containerservice.OpenShiftManagedClusterBaseIdentityProviderArgs{
+// 							ClientId:             pulumi.String("{clientId}"),
+// 							CustomerAdminGroupId: pulumi.String("{customerAdminGroupId}"),
+// 							Kind:                 pulumi.String("AADIdentityProvider"),
+// 							Secret:               pulumi.String("secret"),
+// 							TenantId:             pulumi.String("{tenantId}"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Fqdn:     pulumi.String("clustername1.location1.cloudapp.azure.com"),
+// 			Location: pulumi.String("location1"),
+// 			MasterPoolProfile: &containerservice.OpenShiftManagedClusterMasterPoolProfileArgs{
+// 				Count:      pulumi.Int(3),
+// 				Name:       pulumi.String("master"),
+// 				OsType:     pulumi.String("Linux"),
+// 				SubnetCidr: pulumi.String("10.0.0.0/24"),
+// 				VmSize:     pulumi.String("Standard_D4s_v3"),
+// 			},
+// 			NetworkProfile: &containerservice.NetworkProfileArgs{
+// 				VnetCidr: pulumi.String("10.0.0.0/8"),
+// 			},
+// 			OpenShiftVersion:  pulumi.String("v3.10"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ResourceName:      pulumi.String("clustername1"),
+// 			RouterProfiles: containerservice.OpenShiftRouterProfileArray{
+// 				&containerservice.OpenShiftRouterProfileArgs{
+// 					Name: pulumi.String("default"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"archv2": pulumi.String(""),
+// 				"tier":   pulumi.String("production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type OpenShiftManagedCluster struct {
 	pulumi.CustomResourceState
 

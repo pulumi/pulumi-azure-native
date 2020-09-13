@@ -11,6 +11,51 @@ import (
 )
 
 // Represents a bookmark in Azure Security Insights.
+//
+// ## Example Usage
+// ### Creates or updates a bookmark.
+//
+// ```go
+// package main
+//
+// import (
+// 	securityinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/securityinsights/v20190101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := securityinsights.NewBookmark(ctx, "bookmark", &securityinsights.BookmarkArgs{
+// 			BookmarkId: pulumi.String("73e01a99-5cd7-4139-a149-9f2736ff2ab5"),
+// 			Created:    pulumi.String("2019-01-01T13:15:30Z"),
+// 			CreatedBy: &securityinsights.UserInfoArgs{
+// 				ObjectId: pulumi.String("2046feea-040d-4a46-9e2b-91c2941bfa70"),
+// 			},
+// 			DisplayName: pulumi.String("My bookmark"),
+// 			Etag:        pulumi.String("\"0300bf09-0000-0000-0000-5c37296e0000\""),
+// 			Labels: pulumi.StringArray{
+// 				pulumi.String("Tag1"),
+// 				pulumi.String("Tag2"),
+// 			},
+// 			Notes:                               pulumi.String("Found a suspicious activity"),
+// 			OperationalInsightsResourceProvider: pulumi.String("Microsoft.OperationalInsights"),
+// 			Query:                               pulumi.String("SecurityEvent | where TimeGenerated > ago(1d) and TimeGenerated < ago(2d)"),
+// 			QueryResult:                         pulumi.String("Security Event query result"),
+// 			ResourceGroupName:                   pulumi.String("myRg"),
+// 			Updated:                             pulumi.String("2019-01-01T13:15:30Z"),
+// 			UpdatedBy: &securityinsights.UserInfoArgs{
+// 				ObjectId: pulumi.String("2046feea-040d-4a46-9e2b-91c2941bfa70"),
+// 			},
+// 			WorkspaceName: pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Bookmark struct {
 	pulumi.CustomResourceState
 

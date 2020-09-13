@@ -11,6 +11,34 @@ import (
 )
 
 // Content type contract details.
+//
+// ## Example Usage
+// ### ApiManagementCreateContentItem
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewContentItem(ctx, "contentItem", &apimanagement.ContentItemArgs{
+// 			ContentItemId:     pulumi.String("4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8"),
+// 			ContentTypeId:     pulumi.String("page"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ContentItem struct {
 	pulumi.CustomResourceState
 

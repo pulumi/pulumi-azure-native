@@ -11,6 +11,37 @@ import (
 )
 
 // A virtual network.
+//
+// ## Example Usage
+// ### VirtualNetworks_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	devtestlab "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/devtestlab/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := devtestlab.NewVirtualNetwork(ctx, "virtualNetwork", &devtestlab.VirtualNetworkArgs{
+// 			LabName:           pulumi.String("{devtestlab-name}"),
+// 			Location:          pulumi.String("{azure-location}"),
+// 			Name:              pulumi.String("{virtualnetwork-name}"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Tags: pulumi.StringMap{
+// 				"MyTag": pulumi.String("MyValue"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 

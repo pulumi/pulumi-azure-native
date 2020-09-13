@@ -10,6 +10,29 @@ import (
 )
 
 // Class representing Traffic Manager User Metrics.
+//
+// ## Example Usage
+// ### TrafficManagerUserMetricsKeys-PUT
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewTrafficManagerUserMetricsKey(ctx, "trafficManagerUserMetricsKey", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type TrafficManagerUserMetricsKey struct {
 	pulumi.CustomResourceState
 

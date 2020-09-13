@@ -11,6 +11,54 @@ import (
 )
 
 // A profile object that contains change analysis configuration, such as notification settings, for this subscription
+//
+// ## Example Usage
+// ### ConfigurationProfile_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	changeanalysis "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/changeanalysis/v20200401preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := changeanalysis.NewConfigurationProfile(ctx, "configurationProfile", &changeanalysis.ConfigurationProfileArgs{
+// 			ProfileName: pulumi.String("default"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ConfigurationProfile_CreateWithIdentity
+//
+// ```go
+// package main
+//
+// import (
+// 	changeanalysis "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/changeanalysis/v20200401preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := changeanalysis.NewConfigurationProfile(ctx, "configurationProfile", &changeanalysis.ConfigurationProfileArgs{
+// 			ProfileName: pulumi.String("default"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ConfigurationProfile struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,39 @@ import (
 )
 
 // The IoT Central application.
+//
+// ## Example Usage
+// ### Apps_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	iotcentral "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/iotcentral/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iotcentral.NewApp(ctx, "app", &iotcentral.AppArgs{
+// 			DisplayName:       pulumi.String("My IoT Central App"),
+// 			Location:          pulumi.String("westus"),
+// 			ResourceGroupName: pulumi.String("resRg"),
+// 			ResourceName:      pulumi.String("myIoTCentralApp"),
+// 			Sku: &iotcentral.AppSkuInfoArgs{
+// 				Name: pulumi.String("F1"),
+// 			},
+// 			Subdomain: pulumi.String("my-iot-central-app"),
+// 			Template:  pulumi.String("iotc-default@1.0.0"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type App struct {
 	pulumi.CustomResourceState
 

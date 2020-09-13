@@ -11,6 +11,49 @@ import (
 )
 
 // A Log Analytics QueryPack-Query definition.
+//
+// ## Example Usage
+// ### QueryPut
+//
+// ```go
+// package main
+//
+// import (
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20190901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewQuery(ctx, "query", &insights.QueryArgs{
+// 			Body:          pulumi.String("let newExceptionsTimeRange = 1d;\nlet timeRangeToCheckBefore = 7d;\nexceptions\n| where timestamp < ago(timeRangeToCheckBefore)\n| summarize count() by problemId\n| join kind= rightanti (\nexceptions\n| where timestamp >= ago(newExceptionsTimeRange)\n| extend stack = tostring(details[0].rawStack)\n| summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  \n) on problemId \n| order by  count_ desc\n"),
+// 			Description:   pulumi.String("my description"),
+// 			DisplayName:   pulumi.String("Exceptions - New in the last 24 hours"),
+// 			Id:            pulumi.String("a449f8af-8e64-4b3a-9b16-5a7165ff98c4"),
+// 			QueryPackName: pulumi.String("my-querypack"),
+// 			Related: &insights.LogAnalyticsQueryPackQueryPropertiesRelatedArgs{
+// 				Categories: pulumi.StringArray{
+// 					pulumi.String("analytics"),
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("my-resource-group"),
+// 			Tags: pulumi.StringArrayMap{
+// 				"my-label": pulumi.StringArray{
+// 					pulumi.String("label1"),
+// 				},
+// 				"my-other-label": pulumi.StringArray{
+// 					pulumi.String("label2"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Query struct {
 	pulumi.CustomResourceState
 

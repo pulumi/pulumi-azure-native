@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Example Usage
+// ### VMwareCollectors_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	migrate "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/migrate/v20191001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := migrate.NewVMwareCollector(ctx, "vMwareCollector", &migrate.VMwareCollectorArgs{
+// 			ETag:                pulumi.String("\"01003d32-0000-0d00-0000-5d74d2e50000\""),
+// 			ProjectName:         pulumi.String("abgoyalWEselfhostb72bproject"),
+// 			ResourceGroupName:   pulumi.String("abgoyal-westEurope"),
+// 			VmWareCollectorName: pulumi.String("PortalvCenterbc2fcollector"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type VMwareCollector struct {
 	pulumi.CustomResourceState
 

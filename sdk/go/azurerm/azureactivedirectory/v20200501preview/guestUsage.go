@@ -11,6 +11,32 @@ import (
 )
 
 // Guest Usages Resource
+//
+// ## Example Usage
+// ### GuestUsages_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	azureactivedirectory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/azureactivedirectory/v20200501preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := azureactivedirectory.NewGuestUsage(ctx, "guestUsage", &azureactivedirectory.GuestUsageArgs{
+// 			ResourceGroupName: pulumi.String("contosoResourceGroup"),
+// 			ResourceName:      pulumi.String("contoso.onmicrosoft.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type GuestUsage struct {
 	pulumi.CustomResourceState
 

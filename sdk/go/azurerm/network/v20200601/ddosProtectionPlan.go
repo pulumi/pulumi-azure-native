@@ -11,6 +11,33 @@ import (
 )
 
 // A DDoS protection plan in a resource group.
+//
+// ## Example Usage
+// ### Create DDoS protection plan
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20200601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewDdosProtectionPlan(ctx, "ddosProtectionPlan", &network.DdosProtectionPlanArgs{
+// 			DdosProtectionPlanName: pulumi.String("test-plan"),
+// 			Location:               pulumi.String("westus"),
+// 			ResourceGroupName:      pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DdosProtectionPlan struct {
 	pulumi.CustomResourceState
 

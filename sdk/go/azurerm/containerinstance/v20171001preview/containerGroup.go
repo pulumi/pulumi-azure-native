@@ -11,6 +11,63 @@ import (
 )
 
 // A container group.
+//
+// ## Example Usage
+// ### ContainerGroupsCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	containerinstance "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerinstance/v20171001preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerinstance.NewContainerGroup(ctx, "containerGroup", &containerinstance.ContainerGroupArgs{
+// 			ContainerGroupName: pulumi.String("mycontainers"),
+// 			Containers: containerinstance.ContainerArray{
+// 				&containerinstance.ContainerArgs{
+// 					Name: pulumi.String("mycontainers"),
+// 				},
+// 			},
+// 			ImageRegistryCredentials: containerinstance.ImageRegistryCredentialArray{},
+// 			IpAddress: &containerinstance.IpAddressArgs{
+// 				Ports: containerinstance.PortArray{
+// 					&containerinstance.PortArgs{
+// 						Port:     pulumi.Int(80),
+// 						Protocol: pulumi.String("TCP"),
+// 					},
+// 				},
+// 				Type: pulumi.String("Public"),
+// 			},
+// 			Location:          pulumi.String("westus"),
+// 			OsType:            pulumi.String("Linux"),
+// 			ResourceGroupName: pulumi.String("demo"),
+// 			Volumes: containerinstance.VolumeArray{
+// 				&containerinstance.VolumeArgs{
+// 					AzureFile: &containerinstance.AzureFileVolumeArgs{
+// 						ShareName:          pulumi.String("shareName"),
+// 						StorageAccountKey:  pulumi.String(""),
+// 						StorageAccountName: pulumi.String("accountName"),
+// 					},
+// 					Name: pulumi.String("volume1"),
+// 				},
+// 				&containerinstance.VolumeArgs{
+// 					EmptyDir: nil,
+// 					Name:     pulumi.String("volume2"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ContainerGroup struct {
 	pulumi.CustomResourceState
 

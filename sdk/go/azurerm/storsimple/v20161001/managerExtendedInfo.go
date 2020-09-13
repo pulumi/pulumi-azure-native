@@ -11,6 +11,35 @@ import (
 )
 
 // The extended info of the manager.
+//
+// ## Example Usage
+// ### ManagersCreateExtendedInfo
+//
+// ```go
+// package main
+//
+// import (
+// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/v20161001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storsimple.NewManagerExtendedInfo(ctx, "managerExtendedInfo", &storsimple.ManagerExtendedInfoArgs{
+// 			Algorithm:         pulumi.String("SHA256"),
+// 			Etag:              pulumi.String("6531d5d7-3ced-4f78-83b6-804368f2ca0c"),
+// 			IntegrityKey:      pulumi.String("e6501980-7efe-4602-bb0e-3cb9a08a6003"),
+// 			ManagerName:       pulumi.String("ManagerForSDKTest2"),
+// 			ResourceGroupName: pulumi.String("ResourceGroupForSDKTest"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ManagerExtendedInfo struct {
 	pulumi.CustomResourceState
 

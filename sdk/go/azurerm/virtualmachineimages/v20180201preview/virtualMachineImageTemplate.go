@@ -10,6 +10,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Example Usage
+// ### Create an Image Template.
+//
+// ```go
+// package main
+//
+// import (
+// 	virtualmachineimages "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/virtualmachineimages/v20180201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := virtualmachineimages.NewVirtualMachineImageTemplate(ctx, "virtualMachineImageTemplate", &virtualmachineimages.VirtualMachineImageTemplateArgs{
+// 			Customize: virtualmachineimages.ImageTemplateCustomizerArray{
+// 				&virtualmachineimages.ImageTemplateCustomizerArgs{
+// 					Name:   pulumi.String("Shell Customizer Example"),
+// 					Script: pulumi.String("https://example.com/path/to/script.sh"),
+// 					Type:   pulumi.String("shell"),
+// 				},
+// 			},
+// 			Distribute: virtualmachineimages.ImageTemplateDistributorArray{
+// 				&virtualmachineimages.ImageTemplateDistributorArgs{
+// 					ImageId:       pulumi.String("/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1"),
+// 					Location:      pulumi.String("1_location"),
+// 					RunOutputName: pulumi.String("image_it_pir_1"),
+// 					Tags: pulumi.StringMap{
+// 						"tagName": pulumi.String("value"),
+// 					},
+// 					Type: pulumi.String("managedImage"),
+// 				},
+// 			},
+// 			ImageTemplateName: pulumi.String("myImageTemplate"),
+// 			Location:          pulumi.String("westus"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Source: &virtualmachineimages.ImageTemplateSourceArgs{
+// 				Sha256Checksum: pulumi.String("120acbca7b3d55465eb9f8ef53ad7365f2997d42d4f83d7cc285bf5c71e1131f"),
+// 				SourceURI:      pulumi.String("http://redhat.com/path/to/installation.iso"),
+// 				Type:           pulumi.String("ISO"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"imagetemplate_tag1": pulumi.String("IT_T1"),
+// 				"imagetemplate_tag2": pulumi.String("IT_T2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type VirtualMachineImageTemplate struct {
 	pulumi.CustomResourceState
 

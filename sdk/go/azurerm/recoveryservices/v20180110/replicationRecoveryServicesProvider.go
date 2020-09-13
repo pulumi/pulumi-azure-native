@@ -11,6 +11,34 @@ import (
 )
 
 // Provider details.
+//
+// ## Example Usage
+// ### Adds a recovery services provider.
+//
+// ```go
+// package main
+//
+// import (
+// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/v20180110"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := recoveryservices.NewReplicationRecoveryServicesProvider(ctx, "replicationRecoveryServicesProvider", &recoveryservices.ReplicationRecoveryServicesProviderArgs{
+// 			FabricName:        pulumi.String("vmwarefabric1"),
+// 			ProviderName:      pulumi.String("vmwareprovider1"),
+// 			ResourceGroupName: pulumi.String("resourcegroup1"),
+// 			ResourceName:      pulumi.String("migrationvault"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ReplicationRecoveryServicesProvider struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,36 @@ import (
 )
 
 // A SQL server registration.
+//
+// ## Example Usage
+// ### Creates or updates a SQL Server registration.
+//
+// ```go
+// package main
+//
+// import (
+// 	azuredata "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/azuredata/v20190724preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := azuredata.NewSqlServerRegistration(ctx, "sqlServerRegistration", &azuredata.SqlServerRegistrationArgs{
+// 			Location:                  pulumi.String("northeurope"),
+// 			ResourceGroupName:         pulumi.String("testrg"),
+// 			SqlServerRegistrationName: pulumi.String("testsqlregistration"),
+// 			Tags: pulumi.StringMap{
+// 				"mytag": pulumi.String("myval"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SqlServerRegistration struct {
 	pulumi.CustomResourceState
 

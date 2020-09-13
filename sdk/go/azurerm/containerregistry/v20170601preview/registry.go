@@ -11,6 +11,40 @@ import (
 )
 
 // An object that represents a container registry.
+//
+// ## Example Usage
+// ### RegistryCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20170601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerregistry.NewRegistry(ctx, "registry", &containerregistry.RegistryArgs{
+// 			AdminUserEnabled:  pulumi.Bool(true),
+// 			Location:          pulumi.String("westus"),
+// 			RegistryName:      pulumi.String("myRegistry"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Sku: &containerregistry.SkuArgs{
+// 				Name: pulumi.String("Managed_Standard"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"key": pulumi.String("value"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Registry struct {
 	pulumi.CustomResourceState
 

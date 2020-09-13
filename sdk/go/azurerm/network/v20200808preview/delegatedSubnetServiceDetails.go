@@ -11,6 +11,35 @@ import (
 )
 
 // Delegated subnet details
+//
+// ## Example Usage
+// ### put delegated subnet
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20200808preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewDelegatedSubnetServiceDetails(ctx, "delegatedSubnetServiceDetails", &network.DelegatedSubnetServiceDetailsArgs{
+// 			ControllerID:      pulumi.String("a182cbcf-e8ea-4175-ac2b-ad36a73f9801"),
+// 			ResourceGroupName: pulumi.String("TestRG"),
+// 			ResourceName:      pulumi.String("delegated1"),
+// 			SubnetName:        pulumi.String("testsubnet"),
+// 			VnetName:          pulumi.String("testvnet"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DelegatedSubnetServiceDetails struct {
 	pulumi.CustomResourceState
 

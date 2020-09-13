@@ -11,6 +11,34 @@ import (
 )
 
 // A private link scoped resource
+//
+// ## Example Usage
+// ### Update a scoped resource in a private link scope.
+//
+// ```go
+// package main
+//
+// import (
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20191017preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewPrivateLinkScopedResource(ctx, "privateLinkScopedResource", &insights.PrivateLinkScopedResourceArgs{
+// 			LinkedResourceId:  pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/components/my-component"),
+// 			Name:              pulumi.String("scoped-resource-name"),
+// 			ResourceGroupName: pulumi.String("MyResourceGroup"),
+// 			ScopeName:         pulumi.String("MyPrivateLinkScope"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateLinkScopedResource struct {
 	pulumi.CustomResourceState
 

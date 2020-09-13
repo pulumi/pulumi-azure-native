@@ -11,6 +11,39 @@ import (
 )
 
 // An Azure resource which represents access to a suite of Maps REST APIs.
+//
+// ## Example Usage
+// ### CreateAccount
+//
+// ```go
+// package main
+//
+// import (
+// 	maps "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/maps/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := maps.NewAccount(ctx, "account", &maps.AccountArgs{
+// 			AccountName:       pulumi.String("myMapsAccount"),
+// 			Location:          pulumi.String("global"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Sku: &maps.SkuArgs{
+// 				Name: pulumi.String("S0"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"test": pulumi.String("true"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,38 @@ import (
 )
 
 // Private Endpoint Connection ARM resource.
+//
+// ## Example Usage
+// ### Approves or rejects a private endpoint connection for a site.
+//
+// ```go
+// package main
+//
+// import (
+// 	web "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/web/v20190801"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := web.NewWebAppPrivateEndpointConnection(ctx, "webAppPrivateEndpointConnection", &web.WebAppPrivateEndpointConnectionArgs{
+// 			Name:                          pulumi.String("testSite"),
+// 			PrivateEndpointConnectionName: pulumi.String("connection"),
+// 			PrivateLinkServiceConnectionState: &web.PrivateLinkConnectionStateArgs{
+// 				ActionsRequired: pulumi.String(""),
+// 				Description:     pulumi.String("Approved by admin."),
+// 				Status:          pulumi.String("Approved"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type WebAppPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

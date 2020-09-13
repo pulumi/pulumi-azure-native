@@ -11,6 +11,48 @@ import (
 )
 
 // P2SVpnGateway Resource.
+//
+// ## Example Usage
+// ### P2SVpnGatewayPut
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180801"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewP2sVpnGateway(ctx, "p2sVpnGateway", &network.P2sVpnGatewayArgs{
+// 			GatewayName: pulumi.String("p2sVpnGateway1"),
+// 			Location:    pulumi.String("West US"),
+// 			P2SVpnServerConfiguration: &network.SubResourceArgs{
+// 				Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1/p2sVpnServerConfigurations/p2sVpnServerConfiguration1"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			Tags: pulumi.StringMap{
+// 				"key1": pulumi.String("value1"),
+// 			},
+// 			VirtualHub: &network.SubResourceArgs{
+// 				Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1"),
+// 			},
+// 			VpnClientAddressPool: &network.AddressSpaceArgs{
+// 				AddressPrefixes: pulumi.StringArray{
+// 					pulumi.String("101.3.0.0/16"),
+// 				},
+// 			},
+// 			VpnGatewayScaleUnit: pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type P2sVpnGateway struct {
 	pulumi.CustomResourceState
 

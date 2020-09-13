@@ -11,6 +11,35 @@ import (
 )
 
 // Represents a container on the  Data Box Edge/Gateway device.
+//
+// ## Example Usage
+// ### ContainerPut
+//
+// ```go
+// package main
+//
+// import (
+// 	databoxedge "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/databoxedge/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := databoxedge.NewContainer(ctx, "container", &databoxedge.ContainerArgs{
+// 			ContainerName:      pulumi.String("blobcontainer1"),
+// 			DataFormat:         pulumi.String("BlockBlob"),
+// 			DeviceName:         pulumi.String("testedgedevice"),
+// 			ResourceGroupName:  pulumi.String("GroupForEdgeAutomation"),
+// 			StorageAccountName: pulumi.String("storageaccount1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Container struct {
 	pulumi.CustomResourceState
 

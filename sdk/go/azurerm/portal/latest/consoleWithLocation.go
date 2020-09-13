@@ -11,6 +11,32 @@ import (
 )
 
 // Cloud shell console
+//
+// ## Example Usage
+// ### PutConsole
+//
+// ```go
+// package main
+//
+// import (
+// 	portal "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/portal/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := portal.NewConsoleWithLocation(ctx, "consoleWithLocation", &portal.ConsoleWithLocationArgs{
+// 			ConsoleName: pulumi.String("default"),
+// 			Location:    pulumi.String("eastus"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ConsoleWithLocation struct {
 	pulumi.CustomResourceState
 

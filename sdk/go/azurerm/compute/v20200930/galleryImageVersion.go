@@ -11,6 +11,23 @@ import (
 )
 
 // Specifies information about the gallery image version that you want to create or update.
+//
+// ## Example Usage
+// ### Create or update a simple Gallery Image Version (Managed Image as source).
+//
+// ```go
+//
+// ```
+// ### Create or update a simple Gallery Image Version using snapshots as a source.
+//
+// ```go
+//
+// ```
+// ### Create or update a simple Gallery Image Version using vhd as a source.
+//
+// ```go
+//
+// ```
 type GalleryImageVersion struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,109 @@ import (
 )
 
 // A Streaming Locator resource
+//
+// ## Example Usage
+// ### Creates a Streaming Locator with clear streaming
+//
+// ```go
+// package main
+//
+// import (
+// 	media "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/media/v20200501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := media.NewStreamingLocator(ctx, "streamingLocator", &media.StreamingLocatorArgs{
+// 			AccountName:          pulumi.String("contosomedia"),
+// 			AssetName:            pulumi.String("ClimbingMountRainier"),
+// 			ResourceGroupName:    pulumi.String("contoso"),
+// 			StreamingLocatorName: pulumi.String("UserCreatedClearStreamingLocator"),
+// 			StreamingPolicyName:  pulumi.String("clearStreamingPolicy"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Creates a Streaming Locator with secure streaming
+//
+// ```go
+// package main
+//
+// import (
+// 	media "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/media/v20200501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := media.NewStreamingLocator(ctx, "streamingLocator", &media.StreamingLocatorArgs{
+// 			AccountName:          pulumi.String("contosomedia"),
+// 			AssetName:            pulumi.String("ClimbingMountRainier"),
+// 			EndTime:              pulumi.String("2028-12-31T23:59:59.9999999Z"),
+// 			ResourceGroupName:    pulumi.String("contoso"),
+// 			StartTime:            pulumi.String("2018-03-01T00:00:00Z"),
+// 			StreamingLocatorName: pulumi.String("UserCreatedSecureStreamingLocator"),
+// 			StreamingPolicyName:  pulumi.String("secureStreamingPolicy"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Creates a Streaming Locator with user defined content keys
+//
+// ```go
+// package main
+//
+// import (
+// 	media "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/media/v20200501"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := media.NewStreamingLocator(ctx, "streamingLocator", &media.StreamingLocatorArgs{
+// 			AccountName: pulumi.String("contosomedia"),
+// 			AssetName:   pulumi.String("ClimbingMountRainier"),
+// 			ContentKeys: media.StreamingLocatorContentKeyArray{
+// 				&media.StreamingLocatorContentKeyArgs{
+// 					Id:                              pulumi.String("60000000-0000-0000-0000-000000000001"),
+// 					LabelReferenceInStreamingPolicy: pulumi.String("aesDefaultKey"),
+// 					Value:                           pulumi.String("1UqLohAfWsEGkULYxHjYZg=="),
+// 				},
+// 				&media.StreamingLocatorContentKeyArgs{
+// 					Id:                              pulumi.String("60000000-0000-0000-0000-000000000004"),
+// 					LabelReferenceInStreamingPolicy: pulumi.String("cencDefaultKey"),
+// 					Value:                           pulumi.String("4UqLohAfWsEGkULYxHjYZg=="),
+// 				},
+// 				&media.StreamingLocatorContentKeyArgs{
+// 					Id:                              pulumi.String("60000000-0000-0000-0000-000000000007"),
+// 					LabelReferenceInStreamingPolicy: pulumi.String("cbcsDefaultKey"),
+// 					Value:                           pulumi.String("7UqLohAfWsEGkULYxHjYZg=="),
+// 				},
+// 			},
+// 			ResourceGroupName:    pulumi.String("contoso"),
+// 			StreamingLocatorId:   pulumi.String("90000000-0000-0000-0000-00000000000A"),
+// 			StreamingLocatorName: pulumi.String("UserCreatedSecureStreamingLocatorWithUserDefinedContentKeys"),
+// 			StreamingPolicyName:  pulumi.String("secureStreamingPolicy"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type StreamingLocator struct {
 	pulumi.CustomResourceState
 

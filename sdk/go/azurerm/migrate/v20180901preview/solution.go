@@ -11,6 +11,33 @@ import (
 )
 
 // Solution REST Resource.
+//
+// ## Example Usage
+// ### Solutions_Put
+//
+// ```go
+// package main
+//
+// import (
+// 	migrate "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/migrate/v20180901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := migrate.NewSolution(ctx, "solution", &migrate.SolutionArgs{
+// 			MigrateProjectName: pulumi.String("project01"),
+// 			ResourceGroupName:  pulumi.String("myResourceGroup"),
+// 			SolutionName:       pulumi.String("dbsolution"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Solution struct {
 	pulumi.CustomResourceState
 

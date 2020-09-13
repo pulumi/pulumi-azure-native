@@ -11,6 +11,193 @@ import (
 )
 
 // Specifies information about the gallery image version that you want to create or update.
+//
+// ## Example Usage
+// ### Create or update a simple Gallery Image Version (Managed Image as source).
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewGalleryImageVersion(ctx, "galleryImageVersion", &compute.GalleryImageVersionArgs{
+// 			GalleryImageName:        pulumi.String("myGalleryImageName"),
+// 			GalleryImageVersionName: pulumi.String("1.0.0"),
+// 			GalleryName:             pulumi.String("myGalleryName"),
+// 			Location:                pulumi.String("West US"),
+// 			PublishingProfile: &compute.GalleryImageVersionPublishingProfileArgs{
+// 				TargetRegions: compute.TargetRegionArray{
+// 					&compute.TargetRegionArgs{
+// 						Encryption: &compute.EncryptionImagesArgs{
+// 							DataDiskImages: compute.DataDiskImageEncryptionArray{
+// 								&compute.DataDiskImageEncryptionArgs{
+// 									DiskEncryptionSetId: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet"),
+// 									Lun:                 pulumi.Int(0),
+// 								},
+// 								&compute.DataDiskImageEncryptionArgs{
+// 									DiskEncryptionSetId: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet"),
+// 									Lun:                 pulumi.Int(1),
+// 								},
+// 							},
+// 							OsDiskImage: &compute.OSDiskImageEncryptionArgs{
+// 								DiskEncryptionSetId: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet"),
+// 							},
+// 						},
+// 						Name:                 pulumi.String("West US"),
+// 						RegionalReplicaCount: pulumi.Int(1),
+// 					},
+// 					&compute.TargetRegionArgs{
+// 						Name:                 pulumi.String("East US"),
+// 						RegionalReplicaCount: pulumi.Int(2),
+// 						StorageAccountType:   pulumi.String("Standard_ZRS"),
+// 					},
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.GalleryImageVersionStorageProfileArgs{
+// 				Source: &compute.GalleryArtifactVersionSourceArgs{
+// 					Id: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create or update a simple Gallery Image Version using snapshots as a source.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewGalleryImageVersion(ctx, "galleryImageVersion", &compute.GalleryImageVersionArgs{
+// 			GalleryImageName:        pulumi.String("myGalleryImageName"),
+// 			GalleryImageVersionName: pulumi.String("1.0.0"),
+// 			GalleryName:             pulumi.String("myGalleryName"),
+// 			Location:                pulumi.String("West US"),
+// 			PublishingProfile: &compute.GalleryImageVersionPublishingProfileArgs{
+// 				TargetRegions: compute.TargetRegionArray{
+// 					&compute.TargetRegionArgs{
+// 						Encryption: &compute.EncryptionImagesArgs{
+// 							DataDiskImages: compute.DataDiskImageEncryptionArray{
+// 								&compute.DataDiskImageEncryptionArgs{
+// 									DiskEncryptionSetId: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet"),
+// 									Lun:                 pulumi.Int(1),
+// 								},
+// 							},
+// 							OsDiskImage: &compute.OSDiskImageEncryptionArgs{
+// 								DiskEncryptionSetId: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet"),
+// 							},
+// 						},
+// 						Name:                 pulumi.String("West US"),
+// 						RegionalReplicaCount: pulumi.Int(1),
+// 					},
+// 					&compute.TargetRegionArgs{
+// 						Name:                 pulumi.String("East US"),
+// 						RegionalReplicaCount: pulumi.Int(2),
+// 						StorageAccountType:   pulumi.String("Standard_ZRS"),
+// 					},
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.GalleryImageVersionStorageProfileArgs{
+// 				DataDiskImages: compute.GalleryDataDiskImageArray{
+// 					&compute.GalleryDataDiskImageArgs{
+// 						HostCaching: pulumi.String("None"),
+// 						Lun:         pulumi.Int(1),
+// 						Source: &compute.GalleryArtifactVersionSourceArgs{
+// 							Id: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/snapshots/{diskSnapshotName}"),
+// 						},
+// 					},
+// 				},
+// 				OsDiskImage: &compute.GalleryOSDiskImageArgs{
+// 					HostCaching: pulumi.String("ReadOnly"),
+// 					Source: &compute.GalleryArtifactVersionSourceArgs{
+// 						Id: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/snapshots/{snapshotName}"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create or update a simple Gallery Image Version using vhd as a source.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewGalleryImageVersion(ctx, "galleryImageVersion", &compute.GalleryImageVersionArgs{
+// 			GalleryImageName:        pulumi.String("myGalleryImageName"),
+// 			GalleryImageVersionName: pulumi.String("1.0.0"),
+// 			GalleryName:             pulumi.String("myGalleryName"),
+// 			Location:                pulumi.String("West US"),
+// 			PublishingProfile: &compute.GalleryImageVersionPublishingProfileArgs{
+// 				TargetRegions: compute.TargetRegionArray{
+// 					&compute.TargetRegionArgs{
+// 						Encryption: &compute.EncryptionImagesArgs{
+// 							DataDiskImages: compute.DataDiskImageEncryptionArray{
+// 								&compute.DataDiskImageEncryptionArgs{
+// 									DiskEncryptionSetId: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet"),
+// 									Lun:                 pulumi.Int(1),
+// 								},
+// 							},
+// 							OsDiskImage: &compute.OSDiskImageEncryptionArgs{
+// 								DiskEncryptionSetId: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet"),
+// 							},
+// 						},
+// 						Name:                 pulumi.String("West US"),
+// 						RegionalReplicaCount: pulumi.Int(1),
+// 					},
+// 					&compute.TargetRegionArgs{
+// 						Name:                 pulumi.String("East US"),
+// 						RegionalReplicaCount: pulumi.Int(2),
+// 						StorageAccountType:   pulumi.String("Standard_ZRS"),
+// 					},
+// 				},
+// 			},
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			StorageProfile: &compute.GalleryImageVersionStorageProfileArgs{
+// 				Source: &compute.GalleryArtifactVersionSourceArgs{
+// 					Id:  pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Storage/storageAccounts/{storageAccount}"),
+// 					Uri: pulumi.String("https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type GalleryImageVersion struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,39 @@ import (
 )
 
 // An Azure Cosmos DB MongoDB database.
+//
+// ## Example Usage
+// ### CosmosDBMongoDBDatabaseCreateUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/v20200401"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := documentdb.NewMongoDBResourceMongoDBDatabase(ctx, "mongoDBResourceMongoDBDatabase", &documentdb.MongoDBResourceMongoDBDatabaseArgs{
+// 			AccountName:  pulumi.String("ddb1"),
+// 			DatabaseName: pulumi.String("databaseName"),
+// 			Location:     pulumi.String("West US"),
+// 			Options:      nil,
+// 			Resource: &documentdb.MongoDBDatabaseResourceArgs{
+// 				Id: pulumi.String("databaseName"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			Tags:              nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type MongoDBResourceMongoDBDatabase struct {
 	pulumi.CustomResourceState
 

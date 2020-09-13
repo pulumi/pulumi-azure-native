@@ -11,6 +11,107 @@ import (
 )
 
 // Backend details.
+//
+// ## Example Usage
+// ### ApiManagementCreateBackendProxyBackend
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewBackend(ctx, "backend", &apimanagement.BackendArgs{
+// 			BackendId: pulumi.String("proxybackend"),
+// 			Credentials: &apimanagement.BackendCredentialsContractArgs{
+// 				Authorization: &apimanagement.BackendAuthorizationHeaderCredentialsArgs{
+// 					Parameter: pulumi.String("opensesma"),
+// 					Scheme:    pulumi.String("Basic"),
+// 				},
+// 				Header: pulumi.StringArrayMap{
+// 					"x-my-1": pulumi.StringArray{
+// 						pulumi.String("val1"),
+// 						pulumi.String("val2"),
+// 					},
+// 				},
+// 				Query: pulumi.StringArrayMap{
+// 					"sv": pulumi.StringArray{
+// 						pulumi.String("xx"),
+// 						pulumi.String("bb"),
+// 						pulumi.String("cc"),
+// 					},
+// 				},
+// 			},
+// 			Description: pulumi.String("description5308"),
+// 			Protocol:    pulumi.String("http"),
+// 			Proxy: &apimanagement.BackendProxyContractArgs{
+// 				Password: pulumi.String("opensesame"),
+// 				Url:      pulumi.String("http://192.168.1.1:8080"),
+// 				Username: pulumi.String("Contoso\\admin"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			Tls: &apimanagement.BackendTlsPropertiesArgs{
+// 				ValidateCertificateChain: pulumi.Bool(true),
+// 				ValidateCertificateName:  pulumi.Bool(true),
+// 			},
+// 			Url: pulumi.String("https://backendname2644/"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### ApiManagementCreateBackendServiceFabric
+//
+// ```go
+// package main
+//
+// import (
+// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apimanagement.NewBackend(ctx, "backend", &apimanagement.BackendArgs{
+// 			BackendId:   pulumi.String("sfbackend"),
+// 			Description: pulumi.String("Service Fabric Test App 1"),
+// 			Properties: &apimanagement.BackendPropertiesArgs{
+// 				ServiceFabricCluster: &apimanagement.BackendServiceFabricClusterPropertiesArgs{
+// 					ClientCertificatethumbprint: pulumi.String("EBA029198AA3E76EF0D70482626E5BCF148594A6"),
+// 					ManagementEndpoints: pulumi.StringArray{
+// 						pulumi.String("https://somecluster.com"),
+// 					},
+// 					MaxPartitionResolutionRetries: pulumi.Int(5),
+// 					ServerX509Names: apimanagement.X509CertificateNameArray{
+// 						&apimanagement.X509CertificateNameArgs{
+// 							IssuerCertificateThumbprint: pulumi.String("IssuerCertificateThumbprint1"),
+// 							Name:                        pulumi.String("ServerCommonName1"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Protocol:          pulumi.String("http"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ServiceName:       pulumi.String("apimService1"),
+// 			Url:               pulumi.String("fabric:/mytestapp/mytestservice"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Backend struct {
 	pulumi.CustomResourceState
 

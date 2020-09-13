@@ -11,6 +11,147 @@ import (
 )
 
 // A SQL virtual machine.
+//
+// ## Example Usage
+// ### Creates or updates a SQL virtual machine and joins it to a SQL virtual machine group.
+//
+// ```go
+// package main
+//
+// import (
+// 	sqlvirtualmachine "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sqlvirtualmachine/v20170301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sqlvirtualmachine.NewSqlVirtualMachine(ctx, "sqlVirtualMachine", &sqlvirtualmachine.SqlVirtualMachineArgs{
+// 			Location:                         pulumi.String("northeurope"),
+// 			ResourceGroupName:                pulumi.String("testrg"),
+// 			SqlVirtualMachineGroupResourceId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/testvmgroup"),
+// 			SqlVirtualMachineName:            pulumi.String("testvm"),
+// 			VirtualMachineResourceId:         pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm2"),
+// 			WsfcDomainCredentials: &sqlvirtualmachine.WsfcDomainCredentialsArgs{
+// 				ClusterBootstrapAccountPassword: pulumi.String("<Password>"),
+// 				ClusterOperatorAccountPassword:  pulumi.String("<Password>"),
+// 				SqlServiceAccountPassword:       pulumi.String("<Password>"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Creates or updates a SQL virtual machine for Storage Configuration Settings to EXTEND Data, Log or TempDB storage pool.
+//
+// ```go
+//
+// ```
+// ### Creates or updates a SQL virtual machine for Storage Configuration Settings to NEW Data, Log and TempDB storage pool.
+//
+// ```go
+//
+// ```
+// ### Creates or updates a SQL virtual machine with max parameters.
+//
+// ```go
+// package main
+//
+// import (
+// 	sqlvirtualmachine "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sqlvirtualmachine/v20170301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sqlvirtualmachine.NewSqlVirtualMachine(ctx, "sqlVirtualMachine", &sqlvirtualmachine.SqlVirtualMachineArgs{
+// 			AutoBackupSettings: &sqlvirtualmachine.AutoBackupSettingsArgs{
+// 				BackupScheduleType:    pulumi.String("Manual"),
+// 				BackupSystemDbs:       pulumi.Bool(true),
+// 				Enable:                pulumi.Bool(true),
+// 				EnableEncryption:      pulumi.Bool(true),
+// 				FullBackupFrequency:   pulumi.String("Daily"),
+// 				FullBackupStartTime:   pulumi.Int(6),
+// 				FullBackupWindowHours: pulumi.Int(11),
+// 				LogBackupFrequency:    pulumi.Int(10),
+// 				Password:              pulumi.String("<Password>"),
+// 				RetentionPeriod:       pulumi.Int(17),
+// 				StorageAccessKey:      pulumi.String("<primary storage access key>"),
+// 				StorageAccountUrl:     pulumi.String("https://teststorage.blob.core.windows.net/"),
+// 			},
+// 			AutoPatchingSettings: &sqlvirtualmachine.AutoPatchingSettingsArgs{
+// 				DayOfWeek:                     pulumi.String("Sunday"),
+// 				Enable:                        pulumi.Bool(true),
+// 				MaintenanceWindowDuration:     pulumi.Int(60),
+// 				MaintenanceWindowStartingHour: pulumi.Int(2),
+// 			},
+// 			KeyVaultCredentialSettings: &sqlvirtualmachine.KeyVaultCredentialSettingsArgs{
+// 				Enable: pulumi.Bool(false),
+// 			},
+// 			Location:          pulumi.String("northeurope"),
+// 			ResourceGroupName: pulumi.String("testrg"),
+// 			ServerConfigurationsManagementSettings: &sqlvirtualmachine.ServerConfigurationsManagementSettingsArgs{
+// 				AdditionalFeaturesServerConfigurations: &sqlvirtualmachine.AdditionalFeaturesServerConfigurationsArgs{
+// 					IsRServicesEnabled: pulumi.Bool(false),
+// 				},
+// 				SqlConnectivityUpdateSettings: &sqlvirtualmachine.SqlConnectivityUpdateSettingsArgs{
+// 					ConnectivityType:      pulumi.String("PRIVATE"),
+// 					Port:                  pulumi.Int(1433),
+// 					SqlAuthUpdatePassword: pulumi.String("<password>"),
+// 					SqlAuthUpdateUserName: pulumi.String("sqllogin"),
+// 				},
+// 				SqlStorageUpdateSettings: &sqlvirtualmachine.SqlStorageUpdateSettingsArgs{
+// 					DiskConfigurationType: pulumi.String("NEW"),
+// 					DiskCount:             pulumi.Int(1),
+// 					StartingDeviceId:      pulumi.Int(2),
+// 				},
+// 				SqlWorkloadTypeUpdateSettings: &sqlvirtualmachine.SqlWorkloadTypeUpdateSettingsArgs{
+// 					SqlWorkloadType: pulumi.String("OLTP"),
+// 				},
+// 			},
+// 			SqlImageSku:              pulumi.String("Enterprise"),
+// 			SqlManagement:            pulumi.String("Full"),
+// 			SqlServerLicenseType:     pulumi.String("PAYG"),
+// 			SqlVirtualMachineName:    pulumi.String("testvm"),
+// 			VirtualMachineResourceId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Creates or updates a SQL virtual machine with min parameters.
+//
+// ```go
+// package main
+//
+// import (
+// 	sqlvirtualmachine "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sqlvirtualmachine/v20170301preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sqlvirtualmachine.NewSqlVirtualMachine(ctx, "sqlVirtualMachine", &sqlvirtualmachine.SqlVirtualMachineArgs{
+// 			Location:                 pulumi.String("northeurope"),
+// 			ResourceGroupName:        pulumi.String("testrg"),
+// 			SqlVirtualMachineName:    pulumi.String("testvm"),
+// 			VirtualMachineResourceId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SqlVirtualMachine struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,33 @@ import (
 )
 
 // Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+//
+// ## Example Usage
+// ### PrivateEndpointConnectionUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	search "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/search/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := search.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &search.PrivateEndpointConnectionArgs{
+// 			PrivateEndpointConnectionName: pulumi.String("testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546"),
+// 			ResourceGroupName:             pulumi.String("rg1"),
+// 			SearchServiceName:             pulumi.String("mysearchservice"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

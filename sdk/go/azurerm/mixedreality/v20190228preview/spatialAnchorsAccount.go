@@ -11,6 +11,33 @@ import (
 )
 
 // SpatialAnchorsAccount Response.
+//
+// ## Example Usage
+// ### ResourceCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	mixedreality "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/mixedreality/v20190228preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := mixedreality.NewSpatialAnchorsAccount(ctx, "spatialAnchorsAccount", &mixedreality.SpatialAnchorsAccountArgs{
+// 			Location:                  pulumi.String("eastus2euap"),
+// 			ResourceGroupName:         pulumi.String("MyResourceGroup"),
+// 			SpatialAnchorsAccountName: pulumi.String("MyAccount"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,13 @@ import (
 )
 
 // Specifies information about the gallery image definition that you want to create or update.
+//
+// ## Example Usage
+// ### Create or update a simple gallery image.
+//
+// ```go
+//
+// ```
 type GalleryImage struct {
 	pulumi.CustomResourceState
 

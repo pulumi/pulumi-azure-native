@@ -10,6 +10,29 @@ import (
 )
 
 // IoT Defender settings
+//
+// ## Example Usage
+// ### Create or update IoT Defender settings
+//
+// ```go
+// package main
+//
+// import (
+// 	security "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/security/v20200806preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := security.NewIotDefenderSetting(ctx, "iotDefenderSetting", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type IotDefenderSetting struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,40 @@ import (
 )
 
 // Payload of the blockchain member which is exposed in the request/response of the resource provider.
+//
+// ## Example Usage
+// ### BlockchainMembers_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	blockchain "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/blockchain/v20180601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := blockchain.NewBlockchainMember(ctx, "blockchainMember", &blockchain.BlockchainMemberArgs{
+// 			BlockchainMemberName:                pulumi.String("contosemember1"),
+// 			Consortium:                          pulumi.String("ContoseConsortium"),
+// 			ConsortiumManagementAccountPassword: pulumi.String("1234abcdEFG1"),
+// 			Location:                            pulumi.String("southeastasia"),
+// 			Password:                            pulumi.String("1234abcdEFG1"),
+// 			Protocol:                            pulumi.String("Quorum"),
+// 			ResourceGroupName:                   pulumi.String("mygroup"),
+// 			ValidatorNodesSku: &blockchain.BlockchainMemberNodesSkuArgs{
+// 				Capacity: pulumi.Int(2),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type BlockchainMember struct {
 	pulumi.CustomResourceState
 

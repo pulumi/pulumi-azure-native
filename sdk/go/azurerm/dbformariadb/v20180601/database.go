@@ -11,6 +11,35 @@ import (
 )
 
 // Represents a Database.
+//
+// ## Example Usage
+// ### DatabaseCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	dbformariadb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbformariadb/v20180601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dbformariadb.NewDatabase(ctx, "database", &dbformariadb.DatabaseArgs{
+// 			Charset:           pulumi.String("utf8"),
+// 			Collation:         pulumi.String("utf8_general_ci"),
+// 			DatabaseName:      pulumi.String("db1"),
+// 			ResourceGroupName: pulumi.String("TestGroup"),
+// 			ServerName:        pulumi.String("testserver"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Database struct {
 	pulumi.CustomResourceState
 

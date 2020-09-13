@@ -11,6 +11,35 @@ import (
 )
 
 // An assessment created for a group in the Migration project.
+//
+// ## Example Usage
+// ### Assessments_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	migrate "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/migrate/v20191001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := migrate.NewAssessment(ctx, "assessment", &migrate.AssessmentArgs{
+// 			AssessmentName:    pulumi.String("assessment_5_14_2019_16_48_47"),
+// 			ETag:              pulumi.String("\"1e000c2c-0000-0d00-0000-5cdaa4190000\""),
+// 			GroupName:         pulumi.String("Group2"),
+// 			ProjectName:       pulumi.String("abgoyalWEselfhostb72bproject"),
+// 			ResourceGroupName: pulumi.String("abgoyal-westEurope"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Assessment struct {
 	pulumi.CustomResourceState
 

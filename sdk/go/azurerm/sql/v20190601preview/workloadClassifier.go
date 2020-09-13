@@ -11,6 +11,69 @@ import (
 )
 
 // Workload classifier operations for a data warehouse
+//
+// ## Example Usage
+// ### Create a workload group with all properties specified.
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewWorkloadClassifier(ctx, "workloadClassifier", &sql.WorkloadClassifierArgs{
+// 			Context:                pulumi.String("test_context"),
+// 			DatabaseName:           pulumi.String("testdb"),
+// 			EndTime:                pulumi.String("14:00"),
+// 			Importance:             pulumi.String("high"),
+// 			Label:                  pulumi.String("test_label"),
+// 			MemberName:             pulumi.String("dbo"),
+// 			ResourceGroupName:      pulumi.String("Default-SQL-SouthEastAsia"),
+// 			ServerName:             pulumi.String("testsvr"),
+// 			StartTime:              pulumi.String("12:00"),
+// 			WorkloadClassifierName: pulumi.String("wlm_workloadclassifier"),
+// 			WorkloadGroupName:      pulumi.String("wlm_workloadgroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a workload group with the required properties specified.
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewWorkloadClassifier(ctx, "workloadClassifier", &sql.WorkloadClassifierArgs{
+// 			DatabaseName:           pulumi.String("testdb"),
+// 			MemberName:             pulumi.String("dbo"),
+// 			ResourceGroupName:      pulumi.String("Default-SQL-SouthEastAsia"),
+// 			ServerName:             pulumi.String("testsvr"),
+// 			WorkloadClassifierName: pulumi.String("wlm_workloadclassifier"),
+// 			WorkloadGroupName:      pulumi.String("wlm_workloadgroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type WorkloadClassifier struct {
 	pulumi.CustomResourceState
 

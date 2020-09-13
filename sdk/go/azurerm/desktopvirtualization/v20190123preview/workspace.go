@@ -11,6 +11,39 @@ import (
 )
 
 // Represents a Workspace definition.
+//
+// ## Example Usage
+// ### Workspace_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	desktopvirtualization "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/desktopvirtualization/v20190123preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := desktopvirtualization.NewWorkspace(ctx, "workspace", &desktopvirtualization.WorkspaceArgs{
+// 			Description:       pulumi.String("des1"),
+// 			FriendlyName:      pulumi.String("friendly"),
+// 			Location:          pulumi.String("centralus"),
+// 			ResourceGroupName: pulumi.String("resourceGroup1"),
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("value1"),
+// 				"tag2": pulumi.String("value2"),
+// 			},
+// 			WorkspaceName: pulumi.String("workspace1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Workspace struct {
 	pulumi.CustomResourceState
 

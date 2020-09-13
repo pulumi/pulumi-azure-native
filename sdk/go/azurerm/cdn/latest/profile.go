@@ -11,6 +11,36 @@ import (
 )
 
 // CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+//
+// ## Example Usage
+// ### Profiles_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	cdn "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/cdn/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cdn.NewProfile(ctx, "profile", &cdn.ProfileArgs{
+// 			Location:          pulumi.String("WestCentralUs"),
+// 			ProfileName:       pulumi.String("profile1"),
+// 			ResourceGroupName: pulumi.String("RG"),
+// 			Sku: &cdn.SkuArgs{
+// 				Name: pulumi.String("Standard_Verizon"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Profile struct {
 	pulumi.CustomResourceState
 

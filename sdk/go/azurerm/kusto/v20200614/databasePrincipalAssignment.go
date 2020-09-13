@@ -11,6 +11,38 @@ import (
 )
 
 // Class representing a database principal assignment.
+//
+// ## Example Usage
+// ### KustoDatabasePrincipalAssignmentsCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	kusto "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/kusto/v20200614"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := kusto.NewDatabasePrincipalAssignment(ctx, "databasePrincipalAssignment", &kusto.DatabasePrincipalAssignmentArgs{
+// 			ClusterName:             pulumi.String("kustoclusterrptest4"),
+// 			DatabaseName:            pulumi.String("Kustodatabase8"),
+// 			PrincipalAssignmentName: pulumi.String("kustoprincipal1"),
+// 			PrincipalId:             pulumi.String("87654321-1234-1234-1234-123456789123"),
+// 			PrincipalType:           pulumi.String("App"),
+// 			ResourceGroupName:       pulumi.String("kustorptest"),
+// 			Role:                    pulumi.String("Admin"),
+// 			TenantId:                pulumi.String("12345678-1234-1234-1234-123456789123"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DatabasePrincipalAssignment struct {
 	pulumi.CustomResourceState
 

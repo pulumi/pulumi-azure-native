@@ -11,6 +11,57 @@ import (
 )
 
 // Represents a Blueprint assignment.
+//
+// ## Example Usage
+// ### Assignment
+//
+// ```go
+// package main
+//
+// import (
+// 	blueprint "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/blueprint/v20171111preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := blueprint.NewAssignment(ctx, "assignment", &blueprint.AssignmentArgs{
+// 			AssignmentName: pulumi.String("assignSimpleBlueprint"),
+// 			BlueprintId:    pulumi.String("/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint"),
+// 			Description:    pulumi.String("enforce pre-defined simpleBlueprint to this XXXXXXXX subscription."),
+// 			Identity: &blueprint.ManagedServiceIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 			Location: pulumi.String("eastus"),
+// 			Parameters: blueprint.ParameterValueBaseArgsMap{
+// 				"costCenter": &blueprint.ParameterValueBaseArgs{
+// 					Value: pulumi.String("Contoso/Online/Shopping/Production"),
+// 				},
+// 				"owners": &blueprint.ParameterValueBaseArgs{
+// 					Value: pulumi.StringArray{
+// 						pulumi.String("johnDoe@contoso.com"),
+// 						pulumi.String("johnsteam@contoso.com"),
+// 					},
+// 				},
+// 				"storage_account_type": &blueprint.ParameterValueBaseArgs{
+// 					Value: pulumi.String("Standard_LRS"),
+// 				},
+// 			},
+// 			ResourceGroups: blueprint.ResourceGroupValueArgsMap{
+// 				"storageRG": &blueprint.ResourceGroupValueArgs{
+// 					Location: pulumi.String("eastus"),
+// 					Name:     pulumi.String("defaultRG"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Assignment struct {
 	pulumi.CustomResourceState
 

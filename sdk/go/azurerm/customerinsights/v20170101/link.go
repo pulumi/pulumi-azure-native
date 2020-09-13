@@ -11,6 +11,55 @@ import (
 )
 
 // The link resource format.
+//
+// ## Example Usage
+// ### Links_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	customerinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/customerinsights/v20170101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := customerinsights.NewLink(ctx, "link", &customerinsights.LinkArgs{
+// 			Description: pulumi.StringMap{
+// 				"en-us": pulumi.String("Link Description"),
+// 			},
+// 			DisplayName: pulumi.StringMap{
+// 				"en-us": pulumi.String("Link DisplayName"),
+// 			},
+// 			HubName:  pulumi.String("sdkTestHub"),
+// 			LinkName: pulumi.String("linkTest4806"),
+// 			Mappings: customerinsights.TypePropertiesMappingArray{
+// 				&customerinsights.TypePropertiesMappingArgs{
+// 					InteractionTypePropertyName: pulumi.String("testInteraction1949"),
+// 					IsProfileTypeId:             pulumi.Bool(true),
+// 					LinkType:                    pulumi.String("UpdateAlways"),
+// 					ProfileTypePropertyName:     pulumi.String("testProfile1446"),
+// 				},
+// 			},
+// 			ParticipantPropertyReferences: customerinsights.ParticipantPropertyReferenceArray{
+// 				&customerinsights.ParticipantPropertyReferenceArgs{
+// 					InteractionPropertyName: pulumi.String("testInteraction1949"),
+// 					ProfilePropertyName:     pulumi.String("ProfileId"),
+// 				},
+// 			},
+// 			ResourceGroupName:     pulumi.String("TestHubRG"),
+// 			SourceInteractionType: pulumi.String("testInteraction1949"),
+// 			TargetProfileType:     pulumi.String("testProfile1446"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Link struct {
 	pulumi.CustomResourceState
 

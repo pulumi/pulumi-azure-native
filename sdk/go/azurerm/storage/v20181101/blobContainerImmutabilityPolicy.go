@@ -11,6 +11,35 @@ import (
 )
 
 // The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+//
+// ## Example Usage
+// ### CreateOrUpdateImmutabilityPolicy
+//
+// ```go
+// package main
+//
+// import (
+// 	storage "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storage/v20181101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storage.NewBlobContainerImmutabilityPolicy(ctx, "blobContainerImmutabilityPolicy", &storage.BlobContainerImmutabilityPolicyArgs{
+// 			AccountName:                           pulumi.String("sto7069"),
+// 			ContainerName:                         pulumi.String("container6397"),
+// 			ImmutabilityPeriodSinceCreationInDays: pulumi.Int(3),
+// 			ImmutabilityPolicyName:                pulumi.String("default"),
+// 			ResourceGroupName:                     pulumi.String("res1782"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type BlobContainerImmutabilityPolicy struct {
 	pulumi.CustomResourceState
 

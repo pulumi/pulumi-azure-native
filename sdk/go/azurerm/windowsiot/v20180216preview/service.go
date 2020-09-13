@@ -11,6 +11,35 @@ import (
 )
 
 // The description of the Windows IoT Device Service.
+//
+// ## Example Usage
+// ### Service_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	windowsiot "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/windowsiot/v20180216preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := windowsiot.NewService(ctx, "service", &windowsiot.ServiceArgs{
+// 			AdminDomainName:   pulumi.String("d.e.f"),
+// 			DeviceName:        pulumi.String("service4445"),
+// 			Notes:             pulumi.String("blah"),
+// 			Quantity:          pulumi.Int(1000000),
+// 			ResourceGroupName: pulumi.String("res9101"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Service struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,34 @@ import (
 )
 
 // Binding resource payload
+//
+// ## Example Usage
+// ### Bindings_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	appplatform "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/appplatform/v20200701"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appplatform.NewBinding(ctx, "binding", &appplatform.BindingArgs{
+// 			AppName:           pulumi.String("myapp"),
+// 			BindingName:       pulumi.String("mybinding"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			ServiceName:       pulumi.String("myservice"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Binding struct {
 	pulumi.CustomResourceState
 

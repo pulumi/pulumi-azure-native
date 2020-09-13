@@ -11,6 +11,34 @@ import (
 )
 
 // Information about managed application.
+//
+// ## Example Usage
+// ### Create or update managed application
+//
+// ```go
+// package main
+//
+// import (
+// 	solutions "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/solutions/v20170901"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := solutions.NewApplication(ctx, "application", &solutions.ApplicationArgs{
+// 			Kind:                   pulumi.String("ServiceCatalog"),
+// 			Location:               pulumi.String("East US 2"),
+// 			ManagedResourceGroupId: pulumi.String("/subscriptions/subid/resourceGroups/myManagedRG"),
+// 			ResourceGroupName:      pulumi.String("rg"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Application struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,34 @@ import (
 )
 
 // Custom domain resource payload.
+//
+// ## Example Usage
+// ### CustomDomains_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	appplatform "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/appplatform/v20190501preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appplatform.NewCustomDomain(ctx, "customDomain", &appplatform.CustomDomainArgs{
+// 			AppName:           pulumi.String("myapp"),
+// 			DomainName:        pulumi.String("mydomain.com"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			ServiceName:       pulumi.String("myservice"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type CustomDomain struct {
 	pulumi.CustomResourceState
 

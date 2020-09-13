@@ -11,6 +11,37 @@ import (
 )
 
 // An object that represents a private endpoint connection for a container registry.
+//
+// ## Example Usage
+// ### PrivateEndpointConnectionCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20191201preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerregistry.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &containerregistry.PrivateEndpointConnectionArgs{
+// 			PrivateEndpointConnectionName: pulumi.String("myConnection"),
+// 			PrivateLinkServiceConnectionState: &containerregistry.PrivateLinkServiceConnectionStateArgs{
+// 				Description: pulumi.String("Auto-Approved"),
+// 				Status:      pulumi.String("Approved"),
+// 			},
+// 			RegistryName:      pulumi.String("myRegistry"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,42 @@ import (
 )
 
 // Describes a Virtual Machine Extension.
+//
+// ## Example Usage
+// ### Create VirtualMachineScaleSet VM extension.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20190701"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewVirtualMachineScaleSetVMExtension(ctx, "virtualMachineScaleSetVMExtension", &compute.VirtualMachineScaleSetVMExtensionArgs{
+// 			AutoUpgradeMinorVersion: pulumi.Bool(true),
+// 			InstanceId:              pulumi.String("0"),
+// 			Location:                pulumi.String("westus"),
+// 			Publisher:               pulumi.String("extPublisher"),
+// 			ResourceGroupName:       pulumi.String("myResourceGroup"),
+// 			Settings: pulumi.StringMap{
+// 				"UserName": pulumi.String("xyz@microsoft.com"),
+// 			},
+// 			Type:               pulumi.String("extType"),
+// 			TypeHandlerVersion: pulumi.String("1.2"),
+// 			VmExtensionName:    pulumi.String("myVMExtension"),
+// 			VmScaleSetName:     pulumi.String("myvmScaleSet"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type VirtualMachineScaleSetVMExtension struct {
 	pulumi.CustomResourceState
 

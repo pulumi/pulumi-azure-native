@@ -11,6 +11,34 @@ import (
 )
 
 // This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+//
+// ## Example Usage
+// ### CreateSecretValue
+//
+// ```go
+// package main
+//
+// import (
+// 	servicefabricmesh "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicefabricmesh/v20180901preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicefabricmesh.NewSecretValue(ctx, "secretValue", &servicefabricmesh.SecretValueArgs{
+// 			ResourceGroupName:       pulumi.String("sbz_demo"),
+// 			SecretResourceName:      pulumi.String("dbConnectionString"),
+// 			SecretValueResourceName: pulumi.String("v1"),
+// 			Value:                   pulumi.String("mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type SecretValue struct {
 	pulumi.CustomResourceState
 

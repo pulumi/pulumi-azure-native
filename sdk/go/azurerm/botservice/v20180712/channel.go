@@ -11,6 +11,39 @@ import (
 )
 
 // Bot channel resource definition
+//
+// ## Example Usage
+// ### Create Bot
+//
+// ```go
+// package main
+//
+// import (
+// 	botservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/botservice/v20180712"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := botservice.NewChannel(ctx, "channel", &botservice.ChannelArgs{
+// 			ChannelName: pulumi.String("EmailChannel"),
+// 			Location:    pulumi.String("global"),
+// 			Properties: &botservice.ChannelArgs{
+// 				EmailAddress: pulumi.String("a@b.com"),
+// 				IsEnabled:    pulumi.Bool(true),
+// 				Password:     pulumi.String("pwd"),
+// 			},
+// 			ResourceGroupName: pulumi.String("OneResourceGroupName"),
+// 			ResourceName:      pulumi.String("samplebotname"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Channel struct {
 	pulumi.CustomResourceState
 

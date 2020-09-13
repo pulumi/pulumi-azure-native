@@ -11,6 +11,35 @@ import (
 )
 
 // An Azure SQL Database server.
+//
+// ## Example Usage
+// ### Create server
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20190601preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewServer(ctx, "server", &sql.ServerArgs{
+// 			AdministratorLogin:         pulumi.String("dummylogin"),
+// 			AdministratorLoginPassword: pulumi.String("Un53cuRE!"),
+// 			Location:                   pulumi.String("Japan East"),
+// 			ResourceGroupName:          pulumi.String("sqlcrudtest-7398"),
+// 			ServerName:                 pulumi.String("sqlcrudtest-4645"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Server struct {
 	pulumi.CustomResourceState
 

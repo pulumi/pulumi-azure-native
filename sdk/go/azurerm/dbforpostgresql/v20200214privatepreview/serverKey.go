@@ -11,6 +11,13 @@ import (
 )
 
 // A PostgreSQL Server key.
+//
+// ## Example Usage
+// ### Creates or updates a PostgreSQL Server key
+//
+// ```go
+//
+// ```
 type ServerKey struct {
 	pulumi.CustomResourceState
 

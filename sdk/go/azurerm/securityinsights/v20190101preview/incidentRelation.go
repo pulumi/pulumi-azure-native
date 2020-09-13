@@ -11,6 +11,13 @@ import (
 )
 
 // Represents a relation between two resources
+//
+// ## Example Usage
+// ### Creates or updates an incident relation.
+//
+// ```go
+//
+// ```
 type IncidentRelation struct {
 	pulumi.CustomResourceState
 

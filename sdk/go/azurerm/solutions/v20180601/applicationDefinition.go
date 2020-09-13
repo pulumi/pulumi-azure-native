@@ -11,6 +11,42 @@ import (
 )
 
 // Information about managed application definition.
+//
+// ## Example Usage
+// ### Create or update managed application definition
+//
+// ```go
+// package main
+//
+// import (
+// 	solutions "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/solutions/v20180601"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := solutions.NewApplicationDefinition(ctx, "applicationDefinition", &solutions.ApplicationDefinitionArgs{
+// 			Authorizations: solutions.ApplicationProviderAuthorizationArray{
+// 				&solutions.ApplicationProviderAuthorizationArgs{
+// 					PrincipalId:      pulumi.String("validprincipalguid"),
+// 					RoleDefinitionId: pulumi.String("validroleguid"),
+// 				},
+// 			},
+// 			Description:       pulumi.String("myManagedApplicationDef description"),
+// 			DisplayName:       pulumi.String("myManagedApplicationDef"),
+// 			Location:          pulumi.String("East US 2"),
+// 			LockLevel:         pulumi.String("None"),
+// 			PackageFileUri:    pulumi.String("https://path/to/packagezipfile"),
+// 			ResourceGroupName: pulumi.String("rg"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ApplicationDefinition struct {
 	pulumi.CustomResourceState
 

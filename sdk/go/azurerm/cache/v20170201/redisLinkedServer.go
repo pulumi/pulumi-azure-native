@@ -11,6 +11,36 @@ import (
 )
 
 // Response to put/get linked server (with properties) for Redis cache.
+//
+// ## Example Usage
+// ### RedisLinkedServer_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	cache "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/cache/v20170201"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cache.NewRedisLinkedServer(ctx, "redisLinkedServer", &cache.RedisLinkedServerArgs{
+// 			LinkedRedisCacheId:       pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2"),
+// 			LinkedRedisCacheLocation: pulumi.String("West US"),
+// 			LinkedServerName:         pulumi.String("cache2"),
+// 			Name:                     pulumi.String("cache1"),
+// 			ResourceGroupName:        pulumi.String("rg1"),
+// 			ServerRole:               pulumi.String("Secondary"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type RedisLinkedServer struct {
 	pulumi.CustomResourceState
 

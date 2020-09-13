@@ -11,6 +11,36 @@ import (
 )
 
 // Definition of the configuration profile preference.
+//
+// ## Example Usage
+// ### Create or update configuration profile preference
+//
+// ```go
+// package main
+//
+// import (
+// 	automanage "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/automanage/v20200630preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := automanage.NewConfigurationProfilePreference(ctx, "configurationProfilePreference", &automanage.ConfigurationProfilePreferenceArgs{
+// 			ConfigurationProfilePreferenceName: pulumi.String("defaultProfilePreference"),
+// 			Location:                           pulumi.String("East US"),
+// 			ResourceGroupName:                  pulumi.String("myResourceGroupName"),
+// 			Tags: pulumi.StringMap{
+// 				"Organization": pulumi.String("Administration"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ConfigurationProfilePreference struct {
 	pulumi.CustomResourceState
 

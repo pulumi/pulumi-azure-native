@@ -11,6 +11,13 @@ import (
 )
 
 // The description of the provisioning service.
+//
+// ## Example Usage
+// ### DPSCreate
+//
+// ```go
+//
+// ```
 type IotDpsResource struct {
 	pulumi.CustomResourceState
 

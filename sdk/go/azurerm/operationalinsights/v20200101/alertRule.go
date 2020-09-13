@@ -11,6 +11,89 @@ import (
 )
 
 // Alert rule.
+//
+// ## Example Usage
+// ### Creates or updates a Fusion alert rule.
+//
+// ```go
+// package main
+//
+// import (
+// 	operationalinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationalinsights/v20200101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := operationalinsights.NewAlertRule(ctx, "alertRule", &operationalinsights.AlertRuleArgs{
+// 			Etag:              pulumi.String("3d00c3ca-0000-0100-0000-5d42d5010000"),
+// 			Kind:              pulumi.String("Fusion"),
+// 			ResourceGroupName: pulumi.String("myRg"),
+// 			RuleId:            pulumi.String("myFirstFusionRule"),
+// 			WorkspaceName:     pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+//
+// ```go
+// package main
+//
+// import (
+// 	operationalinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationalinsights/v20200101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := operationalinsights.NewAlertRule(ctx, "alertRule", &operationalinsights.AlertRuleArgs{
+// 			Etag:              pulumi.String("\"260097e0-0000-0d00-0000-5d6fa88f0000\""),
+// 			Kind:              pulumi.String("MicrosoftSecurityIncidentCreation"),
+// 			ResourceGroupName: pulumi.String("myRg"),
+// 			RuleId:            pulumi.String("microsoftSecurityIncidentCreationRuleExample"),
+// 			WorkspaceName:     pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Creates or updates a Scheduled alert rule.
+//
+// ```go
+// package main
+//
+// import (
+// 	operationalinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationalinsights/v20200101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := operationalinsights.NewAlertRule(ctx, "alertRule", &operationalinsights.AlertRuleArgs{
+// 			Etag:              pulumi.String("\"0300bf09-0000-0000-0000-5c37296e0000\""),
+// 			Kind:              pulumi.String("Scheduled"),
+// 			ResourceGroupName: pulumi.String("myRg"),
+// 			RuleId:            pulumi.String("73e01a99-5cd7-4139-a149-9f2736ff2ab5"),
+// 			WorkspaceName:     pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type AlertRule struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,311 @@ import (
 )
 
 // Disk resource.
+//
+// ## Example Usage
+// ### Create a managed disk and associate with disk access resource.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
+// 			CreationData: &compute.CreationDataArgs{
+// 				CreateOption: pulumi.String("Empty"),
+// 			},
+// 			DiskAccessId:        pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/{existing-diskAccess-name}"),
+// 			DiskName:            pulumi.String("myDisk"),
+// 			DiskSizeGB:          pulumi.Int(200),
+// 			Location:            pulumi.String("West US"),
+// 			NetworkAccessPolicy: pulumi.String("AllowPrivate"),
+// 			ResourceGroupName:   pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a managed disk and associate with disk encryption set.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
+// 			CreationData: &compute.CreationDataArgs{
+// 				CreateOption: pulumi.String("Empty"),
+// 			},
+// 			DiskName:   pulumi.String("myDisk"),
+// 			DiskSizeGB: pulumi.Int(200),
+// 			Encryption: &compute.EncryptionArgs{
+// 				DiskEncryptionSetId: pulumi.String("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}"),
+// 			},
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a managed disk by copying a snapshot.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
+// 			CreationData: &compute.CreationDataArgs{
+// 				CreateOption:     pulumi.String("Copy"),
+// 				SourceResourceId: pulumi.String("subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot"),
+// 			},
+// 			DiskName:          pulumi.String("myDisk"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a managed disk by importing an unmanaged blob from a different subscription.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
+// 			CreationData: &compute.CreationDataArgs{
+// 				CreateOption:     pulumi.String("Import"),
+// 				SourceUri:        pulumi.String("https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd"),
+// 				StorageAccountId: pulumi.String("subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount"),
+// 			},
+// 			DiskName:          pulumi.String("myDisk"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a managed disk by importing an unmanaged blob from the same subscription.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
+// 			CreationData: &compute.CreationDataArgs{
+// 				CreateOption: pulumi.String("Import"),
+// 				SourceUri:    pulumi.String("https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd"),
+// 			},
+// 			DiskName:          pulumi.String("myDisk"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a managed disk from a platform image.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
+// 			CreationData: &compute.CreationDataArgs{
+// 				CreateOption: pulumi.String("FromImage"),
+// 				ImageReference: &compute.ImageDiskReferenceArgs{
+// 					Id: pulumi.String("/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/uswest/Publishers/Microsoft/ArtifactTypes/VMImage/Offers/{offer}"),
+// 				},
+// 			},
+// 			DiskName:          pulumi.String("myDisk"),
+// 			Location:          pulumi.String("West US"),
+// 			OsType:            pulumi.String("Windows"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a managed disk from an existing managed disk in the same or different subscription.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
+// 			CreationData: &compute.CreationDataArgs{
+// 				CreateOption:     pulumi.String("Copy"),
+// 				SourceResourceId: pulumi.String("subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myDisk1"),
+// 			},
+// 			DiskName:          pulumi.String("myDisk2"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create a managed upload disk.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
+// 			CreationData: &compute.CreationDataArgs{
+// 				CreateOption:    pulumi.String("Upload"),
+// 				UploadSizeBytes: pulumi.Int(10737418752),
+// 			},
+// 			DiskName:          pulumi.String("myDisk"),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create an empty managed disk.
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
+// 			CreationData: &compute.CreationDataArgs{
+// 				CreateOption: pulumi.String("Empty"),
+// 			},
+// 			DiskName:          pulumi.String("myDisk"),
+// 			DiskSizeGB:        pulumi.Int(200),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create an ultra managed disk with logicalSectorSize 512E
+//
+// ```go
+// package main
+//
+// import (
+// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
+// 			CreationData: &compute.CreationDataArgs{
+// 				CreateOption:      pulumi.String("Empty"),
+// 				LogicalSectorSize: pulumi.Int(512),
+// 			},
+// 			DiskName:          pulumi.String("myDisk"),
+// 			DiskSizeGB:        pulumi.Int(200),
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Sku: &compute.DiskSkuArgs{
+// 				Name: pulumi.String("UltraSSD_LRS"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Disk struct {
 	pulumi.CustomResourceState
 

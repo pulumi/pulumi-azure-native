@@ -11,6 +11,49 @@ import (
 )
 
 // Definition of the dsc node configuration.
+//
+// ## Example Usage
+// ### Get a DSC node configuration
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	automation "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/automation/v20151031"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := automation.NewDscNodeConfiguration(ctx, "dscNodeConfiguration", &automation.DscNodeConfigurationArgs{
+// 			AutomationAccountName: pulumi.String("myAutomationAccount20"),
+// 			Configuration: &automation.DscConfigurationAssociationPropertyArgs{
+// 				Name: pulumi.String("configName"),
+// 			},
+// 			IncrementNodeConfigurationBuild: pulumi.Bool(true),
+// 			Name:                            pulumi.String("configName.nodeConfigName"),
+// 			NodeConfigurationName:           pulumi.String("configName.nodeConfigName"),
+// 			ResourceGroupName:               pulumi.String("rg"),
+// 			Source: &automation.ContentSourceArgs{
+// 				Hash: &automation.ContentHashArgs{
+// 					Algorithm: pulumi.String("sha256"),
+// 					Value:     pulumi.String("6DE256A57F01BFA29B88696D5E77A383D6E61484C7686E8DB955FA10ACE9FFE5"),
+// 				},
+// 				Type: pulumi.String("embeddedContent"),
+// 				Value: pulumi.String(fmt.Sprintf("%v%v%v", "\ninstance of MSFT_RoleResource as ", "$", "MSFT_RoleResource1ref\n{\nResourceID = \"[WindowsFeature]IIS\";\n Ensure = \"Present\";\n SourceInfo = \"::3::32::WindowsFeature\";\n Name = \"Web-Server\";\n ModuleName = \"PsDesiredStateConfiguration\";\n\nModuleVersion = \"1.0\";\n ConfigurationName = \"configName\";\n};\ninstance of OMI_ConfigurationDocument\n\n                    {\n Version=\"2.0.0\";\n \n                        MinimumCompatibleVersion = \"1.0.0\";\n \n                        CompatibleVersionAdditionalProperties= {\"Omi_BaseResource:ConfigurationName\"};\n \n                        Author=\"weijiel\";\n \n                        GenerationDate=\"03/30/2017 13:40:25\";\n \n                        GenerationHost=\"TEST-BACKEND\";\n \n                        Name=\"configName\";\n\n                    };\n")),
+// 				Version: pulumi.String("1.0"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DscNodeConfiguration struct {
 	pulumi.CustomResourceState
 

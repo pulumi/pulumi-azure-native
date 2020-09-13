@@ -11,6 +11,18 @@ import (
 )
 
 // The policy set definition.
+//
+// ## Example Usage
+// ### Create or update a policy set definition at management group level
+//
+// ```go
+//
+// ```
+// ### Create or update a policy set definition with groups at management group level
+//
+// ```go
+//
+// ```
 type PolicySetDefinitionAtManagementGroup struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,36 @@ import (
 )
 
 // Class representing an data connection.
+//
+// ## Example Usage
+// ### KustoDataConnectionsCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	kusto "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/kusto/v20190121"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := kusto.NewDataConnection(ctx, "dataConnection", &kusto.DataConnectionArgs{
+// 			ClusterName:        pulumi.String("KustoClusterRPTest4"),
+// 			DataConnectionName: pulumi.String("DataConnections8"),
+// 			DatabaseName:       pulumi.String("KustoDatabase8"),
+// 			Kind:               pulumi.String("EventHub"),
+// 			Location:           pulumi.String("westus"),
+// 			ResourceGroupName:  pulumi.String("kustorptest"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type DataConnection struct {
 	pulumi.CustomResourceState
 

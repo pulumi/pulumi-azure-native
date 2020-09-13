@@ -11,6 +11,18 @@ import (
 )
 
 // The policy set definition.
+//
+// ## Example Usage
+// ### Create or update a policy set definition
+//
+// ```go
+//
+// ```
+// ### Create or update a policy set definition with groups
+//
+// ```go
+//
+// ```
 type PolicySetDefinition struct {
 	pulumi.CustomResourceState
 

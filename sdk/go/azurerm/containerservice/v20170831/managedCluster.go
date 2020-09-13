@@ -11,6 +11,42 @@ import (
 )
 
 // Managed cluster.
+//
+// ## Example Usage
+// ### Create/Update Managed Cluster
+//
+// ```go
+// package main
+//
+// import (
+// 	containerservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerservice/v20170831"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := containerservice.NewManagedCluster(ctx, "managedCluster", &containerservice.ManagedClusterArgs{
+// 			AgentPoolProfiles: containerservice.ContainerServiceAgentPoolProfileArray{
+// 				&containerservice.ContainerServiceAgentPoolProfileArgs{
+// 					Count:  pulumi.Int(1),
+// 					Name:   pulumi.String("agentpool1"),
+// 					VmSize: pulumi.String("Standard_D2_v2"),
+// 				},
+// 			},
+// 			DnsPrefix:         pulumi.String("dnsprefix1"),
+// 			KubernetesVersion: pulumi.String("1.7.7"),
+// 			Location:          pulumi.String("location1"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			ResourceName:      pulumi.String("clustername1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 

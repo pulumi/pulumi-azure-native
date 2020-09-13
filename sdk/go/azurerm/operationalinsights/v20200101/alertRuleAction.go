@@ -11,6 +11,39 @@ import (
 )
 
 // Action for alert rule.
+//
+// ## Example Usage
+// ### Creates or updates an action of alert rule.
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	operationalinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationalinsights/v20200101"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := operationalinsights.NewAlertRuleAction(ctx, "alertRuleAction", &operationalinsights.AlertRuleActionArgs{
+// 			ActionId:           pulumi.String("912bec42-cb66-4c03-ac63-1761b6898c3e"),
+// 			Etag:               pulumi.String("\"0300bf09-0000-0000-0000-5c37296e0000\""),
+// 			LogicAppResourceId: pulumi.String("/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.Logic/workflows/MyAlerts"),
+// 			ResourceGroupName:  pulumi.String("myRg"),
+// 			RuleId:             pulumi.String("73e01a99-5cd7-4139-a149-9f2736ff2ab5"),
+// 			TriggerUri:         pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "https://prod-31.northcentralus.logic.azure.com:443/workflows/cd3765391efd48549fd7681ded1d48d7/triggers/manual/paths/invoke?api-version=2016-10-01&sp=", "%", "2Ftriggers", "%", "2Fmanual", "%", "2Frun&sv=1.0&sig=signature")),
+// 			WorkspaceName:      pulumi.String("myWorkspace"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type AlertRuleAction struct {
 	pulumi.CustomResourceState
 

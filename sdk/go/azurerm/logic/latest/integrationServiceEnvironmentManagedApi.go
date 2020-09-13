@@ -11,6 +11,33 @@ import (
 )
 
 // The managed api definition.
+//
+// ## Example Usage
+// ### Gets the integration service environment managed Apis
+//
+// ```go
+// package main
+//
+// import (
+// 	logic "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/logic/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := logic.NewIntegrationServiceEnvironmentManagedApi(ctx, "integrationServiceEnvironmentManagedApi", &logic.IntegrationServiceEnvironmentManagedApiArgs{
+// 			ApiName:                           pulumi.String("servicebus"),
+// 			IntegrationServiceEnvironmentName: pulumi.String("testIntegrationServiceEnvironment"),
+// 			ResourceGroup:                     pulumi.String("testResourceGroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type IntegrationServiceEnvironmentManagedApi struct {
 	pulumi.CustomResourceState
 

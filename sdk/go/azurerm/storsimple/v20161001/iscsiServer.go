@@ -11,6 +11,38 @@ import (
 )
 
 // The iSCSI server.
+//
+// ## Example Usage
+// ### IscsiServersCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/v20161001"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := storsimple.NewIscsiServer(ctx, "iscsiServer", &storsimple.IscsiServerArgs{
+// 			BackupScheduleGroupId: pulumi.String("/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-WSJQERQW3F/backupScheduleGroups/Default-HSDK-WSJQERQW3F-BackupScheduleGroup"),
+// 			ChapId:                pulumi.String("/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-WSJQERQW3F/chapSettings/ChapSettingForSDK"),
+// 			DeviceName:            pulumi.String("HSDK-WSJQERQW3F"),
+// 			IscsiServerName:       pulumi.String("HSDK-WSJQERQW3F"),
+// 			ManagerName:           pulumi.String("hAzureSDKOperations"),
+// 			ResourceGroupName:     pulumi.String("ResourceGroupForSDKTest"),
+// 			ReverseChapId:         pulumi.String(""),
+// 			StorageDomainId:       pulumi.String("/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/Default-HSDK-WSJQERQW3F-StorageDomain"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type IscsiServer struct {
 	pulumi.CustomResourceState
 

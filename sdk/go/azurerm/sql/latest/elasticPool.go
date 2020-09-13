@@ -11,6 +11,65 @@ import (
 )
 
 // Represents a database elastic pool.
+//
+// ## Example Usage
+// ### Create elastic pool max
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewElasticPool(ctx, "elasticPool", &sql.ElasticPoolArgs{
+// 			DatabaseDtuMax:    pulumi.Int(5),
+// 			DatabaseDtuMin:    pulumi.Int(0),
+// 			Dtu:               pulumi.Int(50),
+// 			Edition:           pulumi.String("Basic"),
+// 			ElasticPoolName:   pulumi.String("sqlcrudtest-8102"),
+// 			Location:          pulumi.String("Japan East"),
+// 			ResourceGroupName: pulumi.String("sqlcrudtest-2369"),
+// 			ServerName:        pulumi.String("sqlcrudtest-8069"),
+// 			StorageMB:         pulumi.Int(5000),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### Create elastic pool min
+//
+// ```go
+// package main
+//
+// import (
+// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sql.NewElasticPool(ctx, "elasticPool", &sql.ElasticPoolArgs{
+// 			ElasticPoolName:   pulumi.String("sqlcrudtest-8102"),
+// 			Location:          pulumi.String("Japan East"),
+// 			ResourceGroupName: pulumi.String("sqlcrudtest-2369"),
+// 			ServerName:        pulumi.String("sqlcrudtest-8069"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type ElasticPool struct {
 	pulumi.CustomResourceState
 

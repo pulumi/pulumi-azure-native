@@ -11,6 +11,34 @@ import (
 )
 
 // The properties of the EventHubConsumerGroupInfo object.
+//
+// ## Example Usage
+// ### IotHubResource_CreateEventHubConsumerGroup
+//
+// ```go
+// package main
+//
+// import (
+// 	devices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/devices/v20200301"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := devices.NewIotHubResourceEventHubConsumerGroup(ctx, "iotHubResourceEventHubConsumerGroup", &devices.IotHubResourceEventHubConsumerGroupArgs{
+// 			EventHubEndpointName: pulumi.String("events"),
+// 			Name:                 pulumi.String("test"),
+// 			ResourceGroupName:    pulumi.String("myResourceGroup"),
+// 			ResourceName:         pulumi.String("testHub"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type IotHubResourceEventHubConsumerGroup struct {
 	pulumi.CustomResourceState
 

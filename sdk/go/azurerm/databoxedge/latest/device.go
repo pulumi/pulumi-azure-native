@@ -11,6 +11,38 @@ import (
 )
 
 // The Data Box Edge/Gateway device.
+//
+// ## Example Usage
+// ### DataBoxEdgeDevicePut
+//
+// ```go
+// package main
+//
+// import (
+// 	databoxedge "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/databoxedge/latest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := databoxedge.NewDevice(ctx, "device", &databoxedge.DeviceArgs{
+// 			DeviceName:        pulumi.String("testedgedevice"),
+// 			Location:          pulumi.String("eastus"),
+// 			ResourceGroupName: pulumi.String("GroupForEdgeAutomation"),
+// 			Sku: &databoxedge.SkuArgs{
+// 				Name: pulumi.String("Edge"),
+// 				Tier: pulumi.String("Standard"),
+// 			},
+// 			Tags: nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Device struct {
 	pulumi.CustomResourceState
 

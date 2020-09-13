@@ -11,6 +11,36 @@ import (
 )
 
 // Private dns zone group resource.
+//
+// ## Example Usage
+// ### Create private dns zone group
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20200301"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewPrivateDnsZoneGroup(ctx, "privateDnsZoneGroup", &network.PrivateDnsZoneGroupArgs{
+// 			PrivateDnsZoneConfigs: network.PrivateDnsZoneConfigArray{
+// 				nil,
+// 			},
+// 			PrivateDnsZoneGroupName: pulumi.String("testPdnsgroup"),
+// 			PrivateEndpointName:     pulumi.String("testPe"),
+// 			ResourceGroupName:       pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PrivateDnsZoneGroup struct {
 	pulumi.CustomResourceState
 

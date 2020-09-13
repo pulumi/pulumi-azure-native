@@ -11,6 +11,39 @@ import (
 )
 
 // The container for solution.
+//
+// ## Example Usage
+// ### SolutionCreate
+//
+// ```go
+// package main
+//
+// import (
+// 	operationsmanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationsmanagement/v20151101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := operationsmanagement.NewSolution(ctx, "solution", &operationsmanagement.SolutionArgs{
+// 			Location: pulumi.String("East US"),
+// 			Plan: &operationsmanagement.SolutionPlanArgs{
+// 				Name:          pulumi.String("name1"),
+// 				Product:       pulumi.String("product1"),
+// 				PromotionCode: pulumi.String("promocode1"),
+// 				Publisher:     pulumi.String("publisher1"),
+// 			},
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 			SolutionName:      pulumi.String("solution1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Solution struct {
 	pulumi.CustomResourceState
 

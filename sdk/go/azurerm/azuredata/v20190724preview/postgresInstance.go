@@ -11,6 +11,32 @@ import (
 )
 
 // A Postgres Instance.
+//
+// ## Example Usage
+// ### Creates or updates a postgres Instance.
+//
+// ```go
+// package main
+//
+// import (
+// 	azuredata "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/azuredata/v20190724preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := azuredata.NewPostgresInstance(ctx, "postgresInstance", &azuredata.PostgresInstanceArgs{
+// 			PostgresInstanceName: pulumi.String("testpostgresInstance"),
+// 			ResourceGroupName:    pulumi.String("testrg"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type PostgresInstance struct {
 	pulumi.CustomResourceState
 

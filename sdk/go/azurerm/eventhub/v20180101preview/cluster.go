@@ -11,6 +11,41 @@ import (
 )
 
 // Single Event Hubs Cluster resource in List or Get operations.
+//
+// ## Example Usage
+// ### ClusterPut
+//
+// ```go
+// package main
+//
+// import (
+// 	eventhub "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventhub/v20180101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := eventhub.NewCluster(ctx, "cluster", &eventhub.ClusterArgs{
+// 			ClusterName:       pulumi.String("testCluster"),
+// 			Location:          pulumi.String("South Central US"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			Sku: &eventhub.ClusterSkuArgs{
+// 				Capacity: pulumi.Int(1),
+// 				Name:     pulumi.String("Dedicated"),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"tag1": pulumi.String("value1"),
+// 				"tag2": pulumi.String("value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

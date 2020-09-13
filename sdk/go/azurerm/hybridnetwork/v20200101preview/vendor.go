@@ -11,6 +11,31 @@ import (
 )
 
 // Vendor resource.
+//
+// ## Example Usage
+// ### Create or update Vendor resource
+//
+// ```go
+// package main
+//
+// import (
+// 	hybridnetwork "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hybridnetwork/v20200101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := hybridnetwork.NewVendor(ctx, "vendor", &hybridnetwork.VendorArgs{
+// 			VendorName: pulumi.String("TestVendor"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Vendor struct {
 	pulumi.CustomResourceState
 

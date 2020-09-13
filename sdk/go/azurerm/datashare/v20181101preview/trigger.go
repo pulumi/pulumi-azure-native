@@ -11,6 +11,35 @@ import (
 )
 
 // A Trigger data transfer object.
+//
+// ## Example Usage
+// ### Triggers_Create
+//
+// ```go
+// package main
+//
+// import (
+// 	datashare "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datashare/v20181101preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datashare.NewTrigger(ctx, "trigger", &datashare.TriggerArgs{
+// 			AccountName:           pulumi.String("Account1"),
+// 			Kind:                  pulumi.String("ScheduleBased"),
+// 			ResourceGroupName:     pulumi.String("SampleResourceGroup"),
+// 			ShareSubscriptionName: pulumi.String("ShareSubscription1"),
+// 			TriggerName:           pulumi.String("Trigger1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Trigger struct {
 	pulumi.CustomResourceState
 

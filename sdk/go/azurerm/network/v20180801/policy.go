@@ -11,6 +11,94 @@ import (
 )
 
 // Defines web application firewall policy.
+//
+// ## Example Usage
+// ### Creates specific policy
+//
+// ```go
+// package main
+//
+// import (
+// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180801"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := network.NewPolicy(ctx, "policy", &network.PolicyArgs{
+// 			CustomRules: &network.CustomRulesArgs{
+// 				Rules: network.CustomRuleArray{
+// 					&network.CustomRuleArgs{
+// 						Action: pulumi.String("Block"),
+// 						MatchConditions: network.MatchConditionArray{
+// 							&network.MatchConditionArgs{
+// 								MatchValue: pulumi.StringArray{
+// 									pulumi.String("192.168.1.0/24"),
+// 									pulumi.String("10.0.0.0/24"),
+// 								},
+// 								MatchVariable: pulumi.String("RemoteAddr"),
+// 								Operator:      pulumi.String("IPMatch"),
+// 							},
+// 						},
+// 						Name:               pulumi.String("Rule1"),
+// 						Priority:           pulumi.Int(1),
+// 						RateLimitThreshold: pulumi.Int(1000),
+// 						RuleType:           pulumi.String("RateLimitRule"),
+// 					},
+// 					&network.CustomRuleArgs{
+// 						Action: pulumi.String("Block"),
+// 						MatchConditions: network.MatchConditionArray{
+// 							&network.MatchConditionArgs{
+// 								MatchValue: pulumi.StringArray{
+// 									pulumi.String("CH"),
+// 								},
+// 								MatchVariable: pulumi.String("RemoteAddr"),
+// 								Operator:      pulumi.String("GeoMatch"),
+// 							},
+// 							&network.MatchConditionArgs{
+// 								MatchValue: pulumi.StringArray{
+// 									pulumi.String("Windows"),
+// 								},
+// 								MatchVariable: pulumi.String("RequestHeader"),
+// 								Operator:      pulumi.String("Contains"),
+// 								Selector:      pulumi.String("UserAgent"),
+// 							},
+// 						},
+// 						Name:     pulumi.String("Rule2"),
+// 						Priority: pulumi.Int(2),
+// 						RuleType: pulumi.String("MatchRule"),
+// 					},
+// 				},
+// 			},
+// 			ManagedRules: &network.ManagedRuleSetsArgs{
+// 				RuleSets: network.ManagedRuleSetArray{
+// 					&network.ManagedRuleSetArgs{
+// 						Priority: pulumi.Int(1),
+// 						RuleGroupOverrides: pulumi.StringMapArray{
+// 							pulumi.StringMap{
+// 								"action":            pulumi.String("Block"),
+// 								"ruleGroupOverride": pulumi.String("SqlInjection"),
+// 							},
+// 							pulumi.StringMap{
+// 								"action":            pulumi.String("Log"),
+// 								"ruleGroupOverride": pulumi.String("XSS"),
+// 							},
+// 						},
+// 						RuleSetType: pulumi.String("AzureManagedRuleSet"),
+// 					},
+// 				},
+// 			},
+// 			PolicyName:        pulumi.String("Policy1"),
+// 			ResourceGroupName: pulumi.String("rg1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,69 @@ import (
 )
 
 // Contains information about an Azure Batch account.
+//
+// ## Example Usage
+// ### BatchAccountCreate_BYOS
+//
+// ```go
+// package main
+//
+// import (
+// 	batch "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/batch/v20170901"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := batch.NewBatchAccount(ctx, "batchAccount", &batch.BatchAccountArgs{
+// 			AccountName: pulumi.String("sampleacct"),
+// 			AutoStorage: &batch.AutoStorageBasePropertiesArgs{
+// 				StorageAccountId: pulumi.String("/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage"),
+// 			},
+// 			KeyVaultReference: &batch.KeyVaultReferenceArgs{
+// 				Id:  pulumi.String("/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample"),
+// 				Url: pulumi.String("http://sample.vault.azure.net/"),
+// 			},
+// 			Location:           pulumi.String("japaneast"),
+// 			PoolAllocationMode: pulumi.String("UserSubscription"),
+// 			ResourceGroupName:  pulumi.String("default-azurebatch-japaneast"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
+// ### BatchAccountCreate_Default
+//
+// ```go
+// package main
+//
+// import (
+// 	batch "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/batch/v20170901"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := batch.NewBatchAccount(ctx, "batchAccount", &batch.BatchAccountArgs{
+// 			AccountName: pulumi.String("sampleacct"),
+// 			AutoStorage: &batch.AutoStorageBasePropertiesArgs{
+// 				StorageAccountId: pulumi.String("/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage"),
+// 			},
+// 			Location:          pulumi.String("japaneast"),
+// 			ResourceGroupName: pulumi.String("default-azurebatch-japaneast"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type BatchAccount struct {
 	pulumi.CustomResourceState
 

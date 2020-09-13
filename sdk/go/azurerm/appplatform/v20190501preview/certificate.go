@@ -11,6 +11,33 @@ import (
 )
 
 // Certificate resource payload.
+//
+// ## Example Usage
+// ### Certificates_CreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	appplatform "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/appplatform/v20190501preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appplatform.NewCertificate(ctx, "certificate", &appplatform.CertificateArgs{
+// 			CertificateName:   pulumi.String("mycertificate"),
+// 			ResourceGroupName: pulumi.String("myResourceGroup"),
+// 			ServiceName:       pulumi.String("myservice"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,45 @@ import (
 )
 
 // An Application Insights workbook template definition.
+//
+// ## Example Usage
+// ### WorkbookTemplateAdd
+//
+// ```go
+// package main
+//
+// import (
+// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20191017preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := insights.NewWorkbookTemplate(ctx, "workbookTemplate", &insights.WorkbookTemplateArgs{
+// 			Author: pulumi.String("Contoso"),
+// 			Galleries: insights.WorkbookTemplateGalleryArray{
+// 				&insights.WorkbookTemplateGalleryArgs{
+// 					Category:     pulumi.String("Failures"),
+// 					Name:         pulumi.String("Simple Template"),
+// 					Order:        pulumi.Int(100),
+// 					ResourceType: pulumi.String("microsoft.insights/components"),
+// 					Type:         pulumi.String("tsg"),
+// 				},
+// 			},
+// 			Location:          pulumi.String("west us"),
+// 			Priority:          pulumi.Int(1),
+// 			ResourceGroupName: pulumi.String("my-resource-group"),
+// 			ResourceName:      pulumi.String("testtemplate2"),
+// 			TemplateData:      nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type WorkbookTemplate struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,40 @@ import (
 )
 
 // This type describes an application resource.
+//
+// ## Example Usage
+// ### ApplicationCreateOrUpdate
+//
+// ```go
+// package main
+//
+// import (
+// 	servicefabricmesh "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicefabricmesh/v20180701preview"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := servicefabricmesh.NewApplication(ctx, "application", &servicefabricmesh.ApplicationArgs{
+// 			ApplicationName:   pulumi.String("helloWorldApp"),
+// 			Description:       pulumi.String("SeaBreeze HelloWorld Application!"),
+// 			Location:          pulumi.String("EastUS"),
+// 			ResourceGroupName: pulumi.String("sbz_demo"),
+// 			Services: servicefabricmesh.ServiceResourceDescriptionArray{
+// 				&servicefabricmesh.ServiceResourceDescriptionArgs{
+// 					Name: pulumi.String("helloWorldService"),
+// 				},
+// 			},
+// 			Tags: nil,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+//
+// ```
 type Application struct {
 	pulumi.CustomResourceState
 
