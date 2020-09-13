@@ -36,6 +36,8 @@ var excludeResourcePatterns = []string{
 
 	"azurerm:machinelearning/.*:WebService",
 
+	"azurerm:media/.*:Job",
+
 	"azurerm:management/.*:DeploymentAtManagementGroupScope",
 	"azurerm:management/.*:ManagementGroup",
 
