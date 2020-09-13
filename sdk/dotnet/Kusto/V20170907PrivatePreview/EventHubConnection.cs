@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.Kusto.V20170907PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var eventHubConnection = new AzureRM.Kusto.V20170907privatePreview.EventHubConnection("eventHubConnection", new AzureRM.Kusto.V20170907privatePreview.EventHubConnectionArgs
+    ///         var eventHubConnection = new AzureRM.Kusto.V20170907PrivatePreview.EventHubConnection("eventHubConnection", new AzureRM.Kusto.V20170907PrivatePreview.EventHubConnectionArgs
     ///         {
     ///             ClusterName = "KustoClusterRPTest4",
     ///             ConsumerGroup = "testConsumerGroup1",

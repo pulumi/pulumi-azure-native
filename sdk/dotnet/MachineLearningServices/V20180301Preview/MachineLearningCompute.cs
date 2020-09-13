@@ -89,9 +89,9 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20180301Preview
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = new AzureRM.MachineLearningServices.V20180301Preview.Inputs.ComputeArgs
+    ///             Properties = 
     ///             {
-    ///                 AgentCount = 4,
+    ///                 { "agentCount", 4 },
     ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
@@ -114,14 +114,14 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20180301Preview
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = new AzureRM.MachineLearningServices.V20180301Preview.Inputs.ComputeArgs
+    ///             Properties = 
     ///             {
-    ///                 ScaleSettings = 
+    ///                 { "scaleSettings", 
     ///                 {
     ///                     { "autoScaleEnabled", false },
     ///                     { "maxNodeCount", 4 },
     ///                     { "minNodeCount", 4 },
-    ///                 },
+    ///                 } },
     ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",

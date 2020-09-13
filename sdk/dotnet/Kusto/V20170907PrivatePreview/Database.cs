@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.Kusto.V20170907PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var database = new AzureRM.Kusto.V20170907privatePreview.Database("database", new AzureRM.Kusto.V20170907privatePreview.DatabaseArgs
+    ///         var database = new AzureRM.Kusto.V20170907PrivatePreview.Database("database", new AzureRM.Kusto.V20170907PrivatePreview.DatabaseArgs
     ///         {
     ///             ClusterName = "KustoClusterRPTest4",
     ///             DatabaseName = "KustoDatabase8",

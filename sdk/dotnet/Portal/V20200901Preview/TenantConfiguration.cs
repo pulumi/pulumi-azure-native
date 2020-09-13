@@ -15,6 +15,21 @@ namespace Pulumi.AzureRM.Portal.V20200901Preview
     /// ## Example Usage
     /// ### Create or update Tenant configuration
     /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var tenantConfiguration = new AzureRM.Portal.V20200901Preview.TenantConfiguration("tenantConfiguration", new AzureRM.Portal.V20200901Preview.TenantConfigurationArgs
+    ///         {
+    ///             ConfigurationName = "default",
+    ///             EnforcePrivateMarkdownStorage = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
     /// 
     /// ```
     /// </summary>

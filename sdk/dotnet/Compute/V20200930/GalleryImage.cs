@@ -15,6 +15,32 @@ namespace Pulumi.AzureRM.Compute.V20200930
     /// ## Example Usage
     /// ### Create or update a simple gallery image.
     /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var galleryImage = new AzureRM.Compute.V20200930.GalleryImage("galleryImage", new AzureRM.Compute.V20200930.GalleryImageArgs
+    ///         {
+    ///             GalleryImageName = "myGalleryImageName",
+    ///             GalleryName = "myGalleryName",
+    ///             HyperVGeneration = "V1",
+    ///             Identifier = new AzureRM.Compute.V20200930.Inputs.GalleryImageIdentifierArgs
+    ///             {
+    ///                 Offer = "myOfferName",
+    ///                 Publisher = "myPublisherName",
+    ///                 Sku = "mySkuName",
+    ///             },
+    ///             Location = "West US",
+    ///             OsState = "Generalized",
+    ///             OsType = "Windows",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
     /// 
     /// ```
     /// </summary>

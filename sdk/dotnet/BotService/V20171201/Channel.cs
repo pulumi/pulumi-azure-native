@@ -26,11 +26,11 @@ namespace Pulumi.AzureRM.BotService.V20171201
     ///         {
     ///             ChannelName = "EmailChannel",
     ///             Location = "global",
-    ///             Properties = new AzureRM.BotService.V20171201.Inputs.ChannelArgs
+    ///             Properties = 
     ///             {
-    ///                 EmailAddress = "a@b.com",
-    ///                 IsEnabled = true,
-    ///                 Password = "pwd",
+    ///                 { "emailAddress", "a@b.com" },
+    ///                 { "isEnabled", true },
+    ///                 { "password", "pwd" },
     ///             },
     ///             ResourceGroupName = "OneResourceGroupName",
     ///             ResourceName = "samplebotname",

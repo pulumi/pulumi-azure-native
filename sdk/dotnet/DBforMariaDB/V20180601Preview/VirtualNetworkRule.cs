@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var virtualNetworkRule = new AzureRM.DBforMariaDB.V20180601Preview.VirtualNetworkRule("virtualNetworkRule", new AzureRM.DBforMariaDB.V20180601Preview.VirtualNetworkRuleArgs
+    ///         var virtualNetworkRule = new AzureRM.DBForMariaDB.V20180601Preview.VirtualNetworkRule("virtualNetworkRule", new AzureRM.DBForMariaDB.V20180601Preview.VirtualNetworkRuleArgs
     ///         {
     ///             IgnoreMissingVnetServiceEndpoint = false,
     ///             ResourceGroupName = "TestGroup",

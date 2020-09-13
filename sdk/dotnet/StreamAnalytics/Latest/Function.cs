@@ -26,7 +26,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///         {
     ///             FunctionName = "function8197",
     ///             JobName = "sj8653",
-    ///             Properties = new AzureRM.StreamAnalytics.Latest.Inputs.FunctionPropertiesArgs
+    ///             Properties = new AzureRM.StreamAnalytics.Latest.Inputs.ScalarFunctionPropertiesArgs
     ///             {
     ///                 Binding = 
     ///                 {
@@ -38,14 +38,14 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///                 },
     ///                 Inputs = 
     ///                 {
-    ///                     
+    ///                     new AzureRM.StreamAnalytics.Latest.Inputs.FunctionInputArgs
     ///                     {
-    ///                         { "dataType", "Any" },
+    ///                         DataType = "Any",
     ///                     },
     ///                 },
-    ///                 Output = 
+    ///                 Output = new AzureRM.StreamAnalytics.Latest.Inputs.FunctionOutputArgs
     ///                 {
-    ///                     { "dataType", "Any" },
+    ///                     DataType = "Any",
     ///                 },
     ///             },
     ///             ResourceGroupName = "sjrg1637",
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///         {
     ///             FunctionName = "function588",
     ///             JobName = "sj9093",
-    ///             Properties = new AzureRM.StreamAnalytics.Latest.Inputs.FunctionPropertiesArgs
+    ///             Properties = new AzureRM.StreamAnalytics.Latest.Inputs.ScalarFunctionPropertiesArgs
     ///             {
     ///                 Binding = 
     ///                 {
@@ -103,14 +103,14 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
     ///                 },
     ///                 Inputs = 
     ///                 {
-    ///                     
+    ///                     new AzureRM.StreamAnalytics.Latest.Inputs.FunctionInputArgs
     ///                     {
-    ///                         { "dataType", "nvarchar(max)" },
+    ///                         DataType = "nvarchar(max)",
     ///                     },
     ///                 },
-    ///                 Output = 
+    ///                 Output = new AzureRM.StreamAnalytics.Latest.Inputs.FunctionOutputArgs
     ///                 {
-    ///                     { "dataType", "nvarchar(max)" },
+    ///                     DataType = "nvarchar(max)",
     ///                 },
     ///             },
     ///             ResourceGroupName = "sjrg7",

@@ -22,10 +22,10 @@ namespace Pulumi.AzureRM.DBforMySQL.V20180601PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var privateEndpointConnection = new AzureRM.DBforMySQL.V20180601privatePreview.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.DBforMySQL.V20180601privatePreview.PrivateEndpointConnectionArgs
+    ///         var privateEndpointConnection = new AzureRM.DBforMySQL.V20180601PrivatePreview.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.DBforMySQL.V20180601PrivatePreview.PrivateEndpointConnectionArgs
     ///         {
     ///             PrivateEndpointConnectionName = "private-endpoint-connection-name",
-    ///             PrivateLinkServiceConnectionState = new AzureRM.DBforMySQL.V20180601privatePreview.Inputs.PrivateLinkServiceConnectionStatePropertyArgs
+    ///             PrivateLinkServiceConnectionState = new AzureRM.DBforMySQL.V20180601PrivatePreview.Inputs.PrivateLinkServiceConnectionStatePropertyArgs
     ///             {
     ///                 Description = "Approved by johndoe@contoso.com",
     ///                 Status = "Approved",

@@ -26,11 +26,11 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
     ///         {
     ///             Activities = 
     ///             {
-    ///                 new AzureRM.DataFactory.V20170901Preview.Inputs.ActivityArgs
+    ///                 
     ///                 {
-    ///                     Name = "ExampleForeachActivity",
-    ///                     Type = "ForEach",
-    ///                     TypeProperties = 
+    ///                     { "name", "ExampleForeachActivity" },
+    ///                     { "type", "ForEach" },
+    ///                     { "typeProperties", 
     ///                     {
     ///                         { "activities", 
     ///                         {
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
     ///                             { "type", "Expression" },
     ///                             { "value", "@pipeline().parameters.OutputBlobNameList" },
     ///                         } },
-    ///                     },
+    ///                     } },
     ///                 },
     ///             },
     ///             FactoryName = "exampleFactoryName",
@@ -119,11 +119,11 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
     ///         {
     ///             Activities = 
     ///             {
-    ///                 new AzureRM.DataFactory.V20170901Preview.Inputs.ActivityArgs
+    ///                 
     ///                 {
-    ///                     Name = "ExampleForeachActivity",
-    ///                     Type = "ForEach",
-    ///                     TypeProperties = 
+    ///                     { "name", "ExampleForeachActivity" },
+    ///                     { "type", "ForEach" },
+    ///                     { "typeProperties", 
     ///                     {
     ///                         { "activities", 
     ///                         {
@@ -180,7 +180,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
     ///                             { "type", "Expression" },
     ///                             { "value", "@pipeline().parameters.OutputBlobNameList" },
     ///                         } },
-    ///                     },
+    ///                     } },
     ///                 },
     ///             },
     ///             Description = "Example description",

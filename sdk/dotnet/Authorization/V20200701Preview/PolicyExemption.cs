@@ -15,6 +15,33 @@ namespace Pulumi.AzureRM.Authorization.V20200701Preview
     /// ## Example Usage
     /// ### Create or update a policy exemption
     /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policyExemption = new AzureRM.Authorization.V20200701Preview.PolicyExemption("policyExemption", new AzureRM.Authorization.V20200701Preview.PolicyExemptionArgs
+    ///         {
+    ///             Description = "Exempt demo cluster from limit sku",
+    ///             DisplayName = "Exempt demo cluster",
+    ///             ExemptionCategory = "Waiver",
+    ///             Metadata = 
+    ///             {
+    ///                 { "reason", "Temporary exemption for a expensive VM demo" },
+    ///             },
+    ///             PolicyAssignmentId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+    ///             PolicyDefinitionReferenceIds = 
+    ///             {
+    ///                 "Limit_Skus",
+    ///             },
+    ///             PolicyExemptionName = "DemoExpensiveVM",
+    ///             Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster",
+    ///         });
+    ///     }
+    /// 
+    /// }
     /// 
     /// ```
     /// </summary>

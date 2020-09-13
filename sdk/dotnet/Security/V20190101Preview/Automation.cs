@@ -26,11 +26,11 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
     ///         {
     ///             Actions = 
     ///             {
-    ///                 new AzureRM.Security.V20190101Preview.Inputs.AutomationActionArgs
+    ///                 
     ///                 {
-    ///                     ActionType = "LogicApp",
-    ///                     LogicAppResourceId = "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
-    ///                     Uri = "https://exampleTriggerUri1.com",
+    ///                     { "actionType", "LogicApp" },
+    ///                     { "logicAppResourceId", "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1" },
+    ///                     { "uri", "https://exampleTriggerUri1.com" },
     ///                 },
     ///             },
     ///             AutomationName = "exampleAutomation",
@@ -74,11 +74,11 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
     ///         {
     ///             Actions = 
     ///             {
-    ///                 new AzureRM.Security.V20190101Preview.Inputs.AutomationActionArgs
+    ///                 
     ///                 {
-    ///                     ActionType = "LogicApp",
-    ///                     LogicAppResourceId = "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
-    ///                     Uri = "https://exampleTriggerUri1.com",
+    ///                     { "actionType", "LogicApp" },
+    ///                     { "logicAppResourceId", "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1" },
+    ///                     { "uri", "https://exampleTriggerUri1.com" },
     ///                 },
     ///             },
     ///             AutomationName = "exampleAutomation",
@@ -138,11 +138,11 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
     ///         {
     ///             Actions = 
     ///             {
-    ///                 new AzureRM.Security.V20190101Preview.Inputs.AutomationActionArgs
+    ///                 
     ///                 {
-    ///                     ActionType = "LogicApp",
-    ///                     LogicAppResourceId = "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
-    ///                     Uri = "https://exampleTriggerUri1.com",
+    ///                     { "actionType", "LogicApp" },
+    ///                     { "logicAppResourceId", "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1" },
+    ///                     { "uri", "https://exampleTriggerUri1.com" },
     ///                 },
     ///             },
     ///             AutomationName = "exampleAutomation",

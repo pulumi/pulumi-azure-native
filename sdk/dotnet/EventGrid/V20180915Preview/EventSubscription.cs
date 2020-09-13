@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.EventGrid.V20180915Preview
     ///     {
     ///         var eventSubscription = new AzureRM.EventGrid.V20180915Preview.EventSubscription("eventSubscription", new AzureRM.EventGrid.V20180915Preview.EventSubscriptionArgs
     ///         {
-    ///             Destination = new AzureRM.EventGrid.V20180915Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             Destination = 
     ///             {
-    ///                 EndpointType = "EventHub",
-    ///                 Properties = 
+    ///                 { "endpointType", "EventHub" },
+    ///                 { "properties", 
     ///                 {
     ///                     { "resourceId", "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1" },
-    ///                 },
+    ///                 } },
     ///             },
     ///             EventSubscriptionName = "examplesubscription1",
     ///             Filter = new AzureRM.EventGrid.V20180915Preview.Inputs.EventSubscriptionFilterArgs
@@ -57,13 +57,13 @@ namespace Pulumi.AzureRM.EventGrid.V20180915Preview
     ///     {
     ///         var eventSubscription = new AzureRM.EventGrid.V20180915Preview.EventSubscription("eventSubscription", new AzureRM.EventGrid.V20180915Preview.EventSubscriptionArgs
     ///         {
-    ///             Destination = new AzureRM.EventGrid.V20180915Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             Destination = 
     ///             {
-    ///                 EndpointType = "WebHook",
-    ///                 Properties = 
+    ///                 { "endpointType", "WebHook" },
+    ///                 { "properties", 
     ///                 {
     ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
-    ///                 },
+    ///                 } },
     ///             },
     ///             EventSubscriptionName = "examplesubscription10",
     ///             Filter = new AzureRM.EventGrid.V20180915Preview.Inputs.EventSubscriptionFilterArgs
@@ -90,13 +90,13 @@ namespace Pulumi.AzureRM.EventGrid.V20180915Preview
     ///     {
     ///         var eventSubscription = new AzureRM.EventGrid.V20180915Preview.EventSubscription("eventSubscription", new AzureRM.EventGrid.V20180915Preview.EventSubscriptionArgs
     ///         {
-    ///             Destination = new AzureRM.EventGrid.V20180915Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             Destination = 
     ///             {
-    ///                 EndpointType = "WebHook",
-    ///                 Properties = 
+    ///                 { "endpointType", "WebHook" },
+    ///                 { "properties", 
     ///                 {
     ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
-    ///                 },
+    ///                 } },
     ///             },
     ///             EventSubscriptionName = "examplesubscription2",
     ///             Filter = new AzureRM.EventGrid.V20180915Preview.Inputs.EventSubscriptionFilterArgs
@@ -123,13 +123,13 @@ namespace Pulumi.AzureRM.EventGrid.V20180915Preview
     ///     {
     ///         var eventSubscription = new AzureRM.EventGrid.V20180915Preview.EventSubscription("eventSubscription", new AzureRM.EventGrid.V20180915Preview.EventSubscriptionArgs
     ///         {
-    ///             Destination = new AzureRM.EventGrid.V20180915Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             Destination = 
     ///             {
-    ///                 EndpointType = "WebHook",
-    ///                 Properties = 
+    ///                 { "endpointType", "WebHook" },
+    ///                 { "properties", 
     ///                 {
     ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
-    ///                 },
+    ///                 } },
     ///             },
     ///             EventSubscriptionName = "examplesubscription3",
     ///             Filter = new AzureRM.EventGrid.V20180915Preview.Inputs.EventSubscriptionFilterArgs

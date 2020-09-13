@@ -30,14 +30,14 @@ namespace Pulumi.AzureRM.Network.V20190601
     ///             RuleGroupName = "ruleGroup1",
     ///             Rules = 
     ///             {
-    ///                 new AzureRM.Network.V20190601.Inputs.FirewallPolicyRuleArgs
+    ///                 
     ///                 {
-    ///                     Action = 
+    ///                     { "action", new AzureRM.Network.V20190601.Inputs.FirewallPolicyNatRuleActionArgs
     ///                     {
-    ///                         { "type", "Deny" },
-    ///                     },
-    ///                     Name = "Example-Filter-Rule",
-    ///                     RuleConditions = 
+    ///                         Type = "Deny",
+    ///                     } },
+    ///                     { "name", "Example-Filter-Rule" },
+    ///                     { "ruleConditions", 
     ///                     {
     ///                         
     ///                         {
@@ -60,8 +60,8 @@ namespace Pulumi.AzureRM.Network.V20190601
     ///                                 "10.1.25.0/24",
     ///                             } },
     ///                         },
-    ///                     },
-    ///                     RuleType = "FirewallPolicyFilterRule",
+    ///                     } },
+    ///                     { "ruleType", "FirewallPolicyFilterRule" },
     ///                 },
     ///             },
     ///         });

@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var serverAdministrator = new AzureRM.DBforMySQL.V20171201Preview.ServerAdministrator("serverAdministrator", new AzureRM.DBforMySQL.V20171201Preview.ServerAdministratorArgs
+    ///         var serverAdministrator = new AzureRM.DBForMySQL.V20171201Preview.ServerAdministrator("serverAdministrator", new AzureRM.DBForMySQL.V20171201Preview.ServerAdministratorArgs
     ///         {
     ///             AdministratorType = "ActiveDirectory",
     ///             Login = "bob@contoso.com",

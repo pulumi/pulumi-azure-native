@@ -15,6 +15,22 @@ namespace Pulumi.AzureRM.OffAzure.V20200707
     /// ## Example Usage
     /// ### Create Master site
     /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var masterSite = new AzureRM.OffAzure.V20200707.MasterSite("masterSite", new AzureRM.OffAzure.V20200707.MasterSiteArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "poshukla",
+    ///             SiteName = "masterSite1",
+    ///         });
+    ///     }
+    /// 
+    /// }
     /// 
     /// ```
     /// </summary>

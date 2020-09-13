@@ -22,13 +22,13 @@ namespace Pulumi.AzureRM.IoTCentral.V20170701PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var app = new AzureRM.IoTCentral.V20170701privatePreview.App("app", new AzureRM.IoTCentral.V20170701privatePreview.AppArgs
+    ///         var app = new AzureRM.IoTCentral.V20170701PrivatePreview.App("app", new AzureRM.IoTCentral.V20170701PrivatePreview.AppArgs
     ///         {
     ///             DisplayName = "My IoT Central App",
     ///             Location = "westus",
     ///             ResourceGroupName = "resRg",
     ///             ResourceName = "myIoTCentralApp",
-    ///             Sku = new AzureRM.IoTCentral.V20170701privatePreview.Inputs.AppSkuInfoArgs
+    ///             Sku = new AzureRM.IoTCentral.V20170701PrivatePreview.Inputs.AppSkuInfoArgs
     ///             {
     ///                 Name = "F1",
     ///             },

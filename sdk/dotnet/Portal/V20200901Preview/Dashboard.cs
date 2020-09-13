@@ -15,6 +15,72 @@ namespace Pulumi.AzureRM.Portal.V20200901Preview
     /// ## Example Usage
     /// ### Create or update a Dashboard
     /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dashboard = new AzureRM.Portal.V20200901Preview.Dashboard("dashboard", new AzureRM.Portal.V20200901Preview.DashboardArgs
+    ///         {
+    ///             DashboardName = "testDashboard",
+    ///             Lenses = 
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "order", 1 },
+    ///                     { "parts", 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "position", 
+    ///                             {
+    ///                                 { "colSpan", 3 },
+    ///                                 { "rowSpan", 4 },
+    ///                                 { "x", 1 },
+    ///                                 { "y", 2 },
+    ///                             } },
+    ///                         },
+    ///                         
+    ///                         {
+    ///                             { "position", 
+    ///                             {
+    ///                                 { "colSpan", 6 },
+    ///                                 { "rowSpan", 6 },
+    ///                                 { "x", 5 },
+    ///                                 { "y", 5 },
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///                 
+    ///                 {
+    ///                     { "order", 2 },
+    ///                     { "parts", {} },
+    ///                 },
+    ///             },
+    ///             Location = "eastus",
+    ///             Metadata = 
+    ///             {
+    ///                 { "metadata", 
+    ///                 {
+    ///                     { "ColSpan", 2 },
+    ///                     { "RowSpan", 1 },
+    ///                     { "X", 4 },
+    ///                     { "Y", 3 },
+    ///                 } },
+    ///             },
+    ///             ResourceGroupName = "testRG",
+    ///             Tags = 
+    ///             {
+    ///                 { "aKey", "aValue" },
+    ///                 { "anotherKey", "anotherValue" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
     /// 
     /// ```
     /// </summary>

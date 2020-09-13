@@ -25,9 +25,9 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
     ///         var assessment = new AzureRM.Security.V20190101Preview.Assessment("assessment", new AzureRM.Security.V20190101Preview.AssessmentArgs
     ///         {
     ///             AssessmentName = "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
-    ///             ResourceDetails = new AzureRM.Security.V20190101Preview.Inputs.ResourceDetailsArgs
+    ///             ResourceDetails = 
     ///             {
-    ///                 Source = "Azure",
+    ///                 { "source", "Azure" },
     ///             },
     ///             ResourceId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss2",
     ///             Status = new AzureRM.Security.V20190101Preview.Inputs.AssessmentStatusArgs

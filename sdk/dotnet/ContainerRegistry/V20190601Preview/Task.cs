@@ -44,32 +44,32 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
     ///             RegistryName = "myRegistry",
     ///             ResourceGroupName = "myResourceGroup",
     ///             Status = "Enabled",
-    ///             Step = new AzureRM.ContainerRegistry.V20190601Preview.Inputs.TaskStepPropertiesArgs
+    ///             Step = 
     ///             {
-    ///                 Arguments = 
+    ///                 { "arguments", 
     ///                 {
-    ///                     
+    ///                     new AzureRM.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
     ///                     {
-    ///                         { "isSecret", false },
-    ///                         { "name", "mytestargument" },
-    ///                         { "value", "mytestvalue" },
+    ///                         IsSecret = false,
+    ///                         Name = "mytestargument",
+    ///                         Value = "mytestvalue",
     ///                     },
-    ///                     
+    ///                     new AzureRM.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
     ///                     {
-    ///                         { "isSecret", true },
-    ///                         { "name", "mysecrettestargument" },
-    ///                         { "value", "mysecrettestvalue" },
+    ///                         IsSecret = true,
+    ///                         Name = "mysecrettestargument",
+    ///                         Value = "mysecrettestvalue",
     ///                     },
-    ///                 },
-    ///                 ContextPath = "src",
-    ///                 DockerFilePath = "src/DockerFile",
-    ///                 ImageNames = 
+    ///                 } },
+    ///                 { "contextPath", "src" },
+    ///                 { "dockerFilePath", "src/DockerFile" },
+    ///                 { "imageNames", 
     ///                 {
     ///                     "azurerest:testtag",
-    ///                 },
-    ///                 IsPushEnabled = true,
-    ///                 NoCache = false,
-    ///                 Type = "Docker",
+    ///                 } },
+    ///                 { "isPushEnabled", true },
+    ///                 { "noCache", false },
+    ///                 { "type", "Docker" },
     ///             },
     ///             Tags = 
     ///             {
@@ -183,32 +183,32 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
     ///             RegistryName = "myRegistry",
     ///             ResourceGroupName = "myResourceGroup",
     ///             Status = "Enabled",
-    ///             Step = new AzureRM.ContainerRegistry.V20190601Preview.Inputs.TaskStepPropertiesArgs
+    ///             Step = 
     ///             {
-    ///                 Arguments = 
+    ///                 { "arguments", 
     ///                 {
-    ///                     
+    ///                     new AzureRM.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
     ///                     {
-    ///                         { "isSecret", false },
-    ///                         { "name", "mytestargument" },
-    ///                         { "value", "mytestvalue" },
+    ///                         IsSecret = false,
+    ///                         Name = "mytestargument",
+    ///                         Value = "mytestvalue",
     ///                     },
-    ///                     
+    ///                     new AzureRM.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
     ///                     {
-    ///                         { "isSecret", true },
-    ///                         { "name", "mysecrettestargument" },
-    ///                         { "value", "mysecrettestvalue" },
+    ///                         IsSecret = true,
+    ///                         Name = "mysecrettestargument",
+    ///                         Value = "mysecrettestvalue",
     ///                     },
-    ///                 },
-    ///                 ContextPath = "src",
-    ///                 DockerFilePath = "src/DockerFile",
-    ///                 ImageNames = 
+    ///                 } },
+    ///                 { "contextPath", "src" },
+    ///                 { "dockerFilePath", "src/DockerFile" },
+    ///                 { "imageNames", 
     ///                 {
     ///                     "azurerest:testtag",
-    ///                 },
-    ///                 IsPushEnabled = true,
-    ///                 NoCache = false,
-    ///                 Type = "Docker",
+    ///                 } },
+    ///                 { "isPushEnabled", true },
+    ///                 { "noCache", false },
+    ///                 { "type", "Docker" },
     ///             },
     ///             Tags = 
     ///             {
@@ -295,32 +295,32 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
     ///             RegistryName = "myRegistry",
     ///             ResourceGroupName = "myResourceGroup",
     ///             Status = "Enabled",
-    ///             Step = new AzureRM.ContainerRegistry.V20190601Preview.Inputs.TaskStepPropertiesArgs
+    ///             Step = 
     ///             {
-    ///                 Arguments = 
+    ///                 { "arguments", 
     ///                 {
-    ///                     
+    ///                     new AzureRM.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
     ///                     {
-    ///                         { "isSecret", false },
-    ///                         { "name", "mytestargument" },
-    ///                         { "value", "mytestvalue" },
+    ///                         IsSecret = false,
+    ///                         Name = "mytestargument",
+    ///                         Value = "mytestvalue",
     ///                     },
-    ///                     
+    ///                     new AzureRM.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
     ///                     {
-    ///                         { "isSecret", true },
-    ///                         { "name", "mysecrettestargument" },
-    ///                         { "value", "mysecrettestvalue" },
+    ///                         IsSecret = true,
+    ///                         Name = "mysecrettestargument",
+    ///                         Value = "mysecrettestvalue",
     ///                     },
-    ///                 },
-    ///                 ContextPath = "src",
-    ///                 DockerFilePath = "src/DockerFile",
-    ///                 ImageNames = 
+    ///                 } },
+    ///                 { "contextPath", "src" },
+    ///                 { "dockerFilePath", "src/DockerFile" },
+    ///                 { "imageNames", 
     ///                 {
     ///                     "azurerest:testtag",
-    ///                 },
-    ///                 IsPushEnabled = true,
-    ///                 NoCache = false,
-    ///                 Type = "Docker",
+    ///                 } },
+    ///                 { "isPushEnabled", true },
+    ///                 { "noCache", false },
+    ///                 { "type", "Docker" },
     ///             },
     ///             Tags = 
     ///             {
@@ -402,32 +402,32 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
     ///             RegistryName = "myRegistry",
     ///             ResourceGroupName = "myResourceGroup",
     ///             Status = "Enabled",
-    ///             Step = new AzureRM.ContainerRegistry.V20190601Preview.Inputs.TaskStepPropertiesArgs
+    ///             Step = 
     ///             {
-    ///                 Arguments = 
+    ///                 { "arguments", 
     ///                 {
-    ///                     
+    ///                     new AzureRM.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
     ///                     {
-    ///                         { "isSecret", false },
-    ///                         { "name", "mytestargument" },
-    ///                         { "value", "mytestvalue" },
+    ///                         IsSecret = false,
+    ///                         Name = "mytestargument",
+    ///                         Value = "mytestvalue",
     ///                     },
-    ///                     
+    ///                     new AzureRM.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
     ///                     {
-    ///                         { "isSecret", true },
-    ///                         { "name", "mysecrettestargument" },
-    ///                         { "value", "mysecrettestvalue" },
+    ///                         IsSecret = true,
+    ///                         Name = "mysecrettestargument",
+    ///                         Value = "mysecrettestvalue",
     ///                     },
-    ///                 },
-    ///                 ContextPath = "src",
-    ///                 DockerFilePath = "src/DockerFile",
-    ///                 ImageNames = 
+    ///                 } },
+    ///                 { "contextPath", "src" },
+    ///                 { "dockerFilePath", "src/DockerFile" },
+    ///                 { "imageNames", 
     ///                 {
     ///                     "azurerest:testtag",
-    ///                 },
-    ///                 IsPushEnabled = true,
-    ///                 NoCache = false,
-    ///                 Type = "Docker",
+    ///                 } },
+    ///                 { "isPushEnabled", true },
+    ///                 { "noCache", false },
+    ///                 { "type", "Docker" },
     ///             },
     ///             Tags = 
     ///             {

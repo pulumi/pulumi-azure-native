@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
     ///     {
     ///         var systemTopicEventSubscription = new AzureRM.EventGrid.V20200401Preview.SystemTopicEventSubscription("systemTopicEventSubscription", new AzureRM.EventGrid.V20200401Preview.SystemTopicEventSubscriptionArgs
     ///         {
-    ///             Destination = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionDestinationArgs
+    ///             Destination = 
     ///             {
-    ///                 EndpointType = "WebHook",
-    ///                 Properties = 
+    ///                 { "endpointType", "WebHook" },
+    ///                 { "properties", 
     ///                 {
     ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
-    ///                 },
+    ///                 } },
     ///             },
     ///             EventSubscriptionName = "exampleEventSubscriptionName1",
     ///             Filter = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionFilterArgs

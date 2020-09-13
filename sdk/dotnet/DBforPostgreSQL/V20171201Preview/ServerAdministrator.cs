@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var serverAdministrator = new AzureRM.DBforPostgreSQL.V20171201Preview.ServerAdministrator("serverAdministrator", new AzureRM.DBforPostgreSQL.V20171201Preview.ServerAdministratorArgs
+    ///         var serverAdministrator = new AzureRM.DBForPostgreSQL.V20171201Preview.ServerAdministrator("serverAdministrator", new AzureRM.DBForPostgreSQL.V20171201Preview.ServerAdministratorArgs
     ///         {
     ///             AdministratorType = "ActiveDirectory",
     ///             Login = "bob@contoso.com",

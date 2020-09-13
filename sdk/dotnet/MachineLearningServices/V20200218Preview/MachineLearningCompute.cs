@@ -47,17 +47,17 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = new AzureRM.MachineLearningServices.V20200218Preview.Inputs.ComputeArgs
+    ///             Properties = 
     ///             {
-    ///                 RemoteLoginPortPublicAccess = "NotSpecified",
-    ///                 ScaleSettings = 
+    ///                 { "remoteLoginPortPublicAccess", "NotSpecified" },
+    ///                 { "scaleSettings", 
     ///                 {
     ///                     { "maxNodeCount", 1 },
     ///                     { "minNodeCount", 0 },
     ///                     { "nodeIdleTimeBeforeScaleDown", "PT5M" },
-    ///                 },
-    ///                 VmPriority = "Dedicated",
-    ///                 VmSize = "STANDARD_NC6",
+    ///                 } },
+    ///                 { "vmPriority", "Dedicated" },
+    ///                 { "vmSize", "STANDARD_NC6" },
     ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
@@ -80,24 +80,24 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = new AzureRM.MachineLearningServices.V20200218Preview.Inputs.ComputeArgs
+    ///             Properties = 
     ///             {
-    ///                 ApplicationSharingPolicy = "Personal",
-    ///                 ComputeInstanceAuthorizationType = "personal",
-    ///                 PersonalComputeInstanceSettings = 
+    ///                 { "applicationSharingPolicy", "Personal" },
+    ///                 { "computeInstanceAuthorizationType", "personal" },
+    ///                 { "personalComputeInstanceSettings", 
     ///                 {
     ///                     { "assignedUser", 
     ///                     {
     ///                         { "objectId", "00000000-0000-0000-0000-000000000000" },
     ///                         { "tenantId", "00000000-0000-0000-0000-000000000000" },
     ///                     } },
-    ///                 },
-    ///                 SshSettings = 
+    ///                 } },
+    ///                 { "sshSettings", 
     ///                 {
     ///                     { "sshPublicAccess", "Disabled" },
-    ///                 },
-    ///                 Subnet = "test-subnet-resource-id",
-    ///                 VmSize = "STANDARD_NC6",
+    ///                 } },
+    ///                 { "subnet", "test-subnet-resource-id" },
+    ///                 { "vmSize", "STANDARD_NC6" },
     ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
@@ -120,9 +120,9 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = new AzureRM.MachineLearningServices.V20200218Preview.Inputs.ComputeArgs
+    ///             Properties = 
     ///             {
-    ///                 VmSize = "STANDARD_NC6",
+    ///                 { "vmSize", "STANDARD_NC6" },
     ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
@@ -166,9 +166,9 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = new AzureRM.MachineLearningServices.V20200218Preview.Inputs.ComputeArgs
+    ///             Properties = 
     ///             {
-    ///                 AgentCount = 4,
+    ///                 { "agentCount", 4 },
     ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
@@ -191,14 +191,14 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = new AzureRM.MachineLearningServices.V20200218Preview.Inputs.ComputeArgs
+    ///             Properties = 
     ///             {
-    ///                 ScaleSettings = 
+    ///                 { "scaleSettings", 
     ///                 {
     ///                     { "maxNodeCount", 1 },
     ///                     { "minNodeCount", 0 },
     ///                     { "nodeIdleTimeBeforeScaleDown", "PT5M" },
-    ///                 },
+    ///                 } },
     ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",

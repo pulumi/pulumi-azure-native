@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var database = new AzureRM.DBForMySql.V20200701privatePreview.Database("database", new AzureRM.DBForMySql.V20200701privatePreview.DatabaseArgs
+    ///         var database = new AzureRM.DBForMySql.V20200701PrivatePreview.Database("database", new AzureRM.DBForMySql.V20200701PrivatePreview.DatabaseArgs
     ///         {
     ///             Charset = "utf8",
     ///             Collation = "utf8_general_ci",

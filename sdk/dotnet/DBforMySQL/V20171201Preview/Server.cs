@@ -22,12 +22,12 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforMySQL.V20171201Preview.Server("server", new AzureRM.DBforMySQL.V20171201Preview.ServerArgs
+    ///         var server = new AzureRM.DBForMySQL.V20171201Preview.Server("server", new AzureRM.DBForMySQL.V20171201Preview.ServerArgs
     ///         {
     ///             Location = "brazilsouth",
     ///             ResourceGroupName = "TargetResourceGroup",
     ///             ServerName = "targetserver",
-    ///             Sku = new AzureRM.DBforMySQL.V20171201Preview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForMySQL.V20171201Preview.Inputs.SkuArgs
     ///             {
     ///                 Capacity = 2,
     ///                 Family = "Gen5",
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforMySQL.V20171201Preview.Server("server", new AzureRM.DBforMySQL.V20171201Preview.ServerArgs
+    ///         var server = new AzureRM.DBForMySQL.V20171201Preview.Server("server", new AzureRM.DBForMySQL.V20171201Preview.ServerArgs
     ///         {
     ///             Location = "westus",
     ///             ResourceGroupName = "testrg",
     ///             ServerName = "mysqltestsvc4",
-    ///             Sku = new AzureRM.DBforMySQL.V20171201Preview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForMySQL.V20171201Preview.Inputs.SkuArgs
     ///             {
     ///                 Capacity = 2,
     ///                 Family = "Gen5",
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforMySQL.V20171201Preview.Server("server", new AzureRM.DBforMySQL.V20171201Preview.ServerArgs
+    ///         var server = new AzureRM.DBForMySQL.V20171201Preview.Server("server", new AzureRM.DBForMySQL.V20171201Preview.ServerArgs
     ///         {
     ///             Location = "westus",
     ///             ResourceGroupName = "TargetResourceGroup",
@@ -104,12 +104,12 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforMySQL.V20171201Preview.Server("server", new AzureRM.DBforMySQL.V20171201Preview.ServerArgs
+    ///         var server = new AzureRM.DBForMySQL.V20171201Preview.Server("server", new AzureRM.DBForMySQL.V20171201Preview.ServerArgs
     ///         {
     ///             Location = "westus",
     ///             ResourceGroupName = "TargetResourceGroup",
     ///             ServerName = "targetserver",
-    ///             Sku = new AzureRM.DBforMySQL.V20171201Preview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForMySQL.V20171201Preview.Inputs.SkuArgs
     ///             {
     ///                 Capacity = 2,
     ///                 Family = "Gen5",

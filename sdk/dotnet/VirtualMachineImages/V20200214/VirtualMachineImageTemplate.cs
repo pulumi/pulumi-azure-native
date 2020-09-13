@@ -26,25 +26,25 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
     ///         {
     ///             Customize = 
     ///             {
-    ///                 new AzureRM.VirtualMachineImages.V20200214.Inputs.ImageTemplateCustomizerArgs
+    ///                 
     ///                 {
-    ///                     Name = "Shell Customizer Example",
-    ///                     ScriptUri = "https://example.com/path/to/script.sh",
-    ///                     Type = "Shell",
+    ///                     { "name", "Shell Customizer Example" },
+    ///                     { "scriptUri", "https://example.com/path/to/script.sh" },
+    ///                     { "type", "Shell" },
     ///                 },
     ///             },
     ///             Distribute = 
     ///             {
-    ///                 new AzureRM.VirtualMachineImages.V20200214.Inputs.ImageTemplateDistributorArgs
+    ///                 
     ///                 {
-    ///                     ArtifactTags = 
+    ///                     { "artifactTags", 
     ///                     {
     ///                         { "tagName", "value" },
-    ///                     },
-    ///                     ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
-    ///                     Location = "1_location",
-    ///                     RunOutputName = "image_it_pir_1",
-    ///                     Type = "ManagedImage",
+    ///                     } },
+    ///                     { "imageId", "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1" },
+    ///                     { "location", "1_location" },
+    ///                     { "runOutputName", "image_it_pir_1" },
+    ///                     { "type", "ManagedImage" },
     ///                 },
     ///             },
     ///             Identity = new AzureRM.VirtualMachineImages.V20200214.Inputs.ImageTemplateIdentityArgs
@@ -54,10 +54,10 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
     ///             ImageTemplateName = "myImageTemplate",
     ///             Location = "westus",
     ///             ResourceGroupName = "myResourceGroup",
-    ///             Source = new AzureRM.VirtualMachineImages.V20200214.Inputs.ImageTemplateSourceArgs
+    ///             Source = 
     ///             {
-    ///                 ImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
-    ///                 Type = "ManagedImage",
+    ///                 { "imageId", "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image" },
+    ///                 { "type", "ManagedImage" },
     ///             },
     ///             Tags = 
     ///             {
@@ -92,60 +92,60 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
     ///         {
     ///             Customize = 
     ///             {
-    ///                 new AzureRM.VirtualMachineImages.V20200214.Inputs.ImageTemplateCustomizerArgs
+    ///                 
     ///                 {
-    ///                     Inline = 
+    ///                     { "inline", 
     ///                     {
     ///                         "Powershell command-1",
     ///                         "Powershell command-2",
     ///                         "Powershell command-3",
-    ///                     },
-    ///                     Name = "PowerShell (inline) Customizer Example",
-    ///                     Type = "PowerShell",
+    ///                     } },
+    ///                     { "name", "PowerShell (inline) Customizer Example" },
+    ///                     { "type", "PowerShell" },
     ///                 },
-    ///                 new AzureRM.VirtualMachineImages.V20200214.Inputs.ImageTemplateCustomizerArgs
+    ///                 
     ///                 {
-    ///                     Name = "PowerShell (script) Customizer Example",
-    ///                     ScriptUri = "https://example.com/path/to/script.ps1",
-    ///                     Type = "PowerShell",
-    ///                     ValidExitCodes = 
+    ///                     { "name", "PowerShell (script) Customizer Example" },
+    ///                     { "scriptUri", "https://example.com/path/to/script.ps1" },
+    ///                     { "type", "PowerShell" },
+    ///                     { "validExitCodes", 
     ///                     {
     ///                         0,
     ///                         1,
-    ///                     },
+    ///                     } },
     ///                 },
-    ///                 new AzureRM.VirtualMachineImages.V20200214.Inputs.ImageTemplateCustomizerArgs
+    ///                 
     ///                 {
-    ///                     Name = "Restart Customizer Example",
-    ///                     RestartCheckCommand = "powershell -command \"&amp; {Write-Output 'restarted.'}\"",
-    ///                     RestartCommand = "shutdown /f /r /t 0 /c \"packer restart\"",
-    ///                     RestartTimeout = "10m",
-    ///                     Type = "WindowsRestart",
+    ///                     { "name", "Restart Customizer Example" },
+    ///                     { "restartCheckCommand", "powershell -command \"&amp; {Write-Output 'restarted.'}\"" },
+    ///                     { "restartCommand", "shutdown /f /r /t 0 /c \"packer restart\"" },
+    ///                     { "restartTimeout", "10m" },
+    ///                     { "type", "WindowsRestart" },
     ///                 },
-    ///                 new AzureRM.VirtualMachineImages.V20200214.Inputs.ImageTemplateCustomizerArgs
+    ///                 
     ///                 {
-    ///                     Filters = 
+    ///                     { "filters", 
     ///                     {
     ///                         "$_.BrowseOnly",
-    ///                     },
-    ///                     Name = "Windows Update Customizer Example",
-    ///                     SearchCriteria = "BrowseOnly=0 and IsInstalled=0",
-    ///                     Type = "WindowsUpdate",
-    ///                     UpdateLimit = 100,
+    ///                     } },
+    ///                     { "name", "Windows Update Customizer Example" },
+    ///                     { "searchCriteria", "BrowseOnly=0 and IsInstalled=0" },
+    ///                     { "type", "WindowsUpdate" },
+    ///                     { "updateLimit", 100 },
     ///                 },
     ///             },
     ///             Distribute = 
     ///             {
-    ///                 new AzureRM.VirtualMachineImages.V20200214.Inputs.ImageTemplateDistributorArgs
+    ///                 
     ///                 {
-    ///                     ArtifactTags = 
+    ///                     { "artifactTags", 
     ///                     {
     ///                         { "tagName", "value" },
-    ///                     },
-    ///                     ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
-    ///                     Location = "1_location",
-    ///                     RunOutputName = "image_it_pir_1",
-    ///                     Type = "ManagedImage",
+    ///                     } },
+    ///                     { "imageId", "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1" },
+    ///                     { "location", "1_location" },
+    ///                     { "runOutputName", "image_it_pir_1" },
+    ///                     { "type", "ManagedImage" },
     ///                 },
     ///             },
     ///             Identity = new AzureRM.VirtualMachineImages.V20200214.Inputs.ImageTemplateIdentityArgs
@@ -155,10 +155,10 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
     ///             ImageTemplateName = "myImageTemplate",
     ///             Location = "westus",
     ///             ResourceGroupName = "myResourceGroup",
-    ///             Source = new AzureRM.VirtualMachineImages.V20200214.Inputs.ImageTemplateSourceArgs
+    ///             Source = 
     ///             {
-    ///                 ImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
-    ///                 Type = "ManagedImage",
+    ///                 { "imageId", "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image" },
+    ///                 { "type", "ManagedImage" },
     ///             },
     ///             Tags = 
     ///             {

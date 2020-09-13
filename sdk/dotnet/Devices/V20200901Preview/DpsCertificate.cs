@@ -15,6 +15,23 @@ namespace Pulumi.AzureRM.Devices.V20200901Preview
     /// ## Example Usage
     /// ### DPSCreateOrUpdateCertificate
     /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dpsCertificate = new AzureRM.Devices.V20200901Preview.DpsCertificate("dpsCertificate", new AzureRM.Devices.V20200901Preview.DpsCertificateArgs
+    ///         {
+    ///             Certificate = "############################################",
+    ///             CertificateName = "cert",
+    ///             ProvisioningServiceName = "myFirstProvisioningService",
+    ///             ResourceGroupName = "myResourceGroup",
+    ///         });
+    ///     }
+    /// 
+    /// }
     /// 
     /// ```
     /// </summary>

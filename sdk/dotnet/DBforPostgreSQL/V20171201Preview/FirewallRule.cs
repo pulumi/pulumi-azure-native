@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var firewallRule = new AzureRM.DBforPostgreSQL.V20171201Preview.FirewallRule("firewallRule", new AzureRM.DBforPostgreSQL.V20171201Preview.FirewallRuleArgs
+    ///         var firewallRule = new AzureRM.DBForPostgreSQL.V20171201Preview.FirewallRule("firewallRule", new AzureRM.DBForPostgreSQL.V20171201Preview.FirewallRuleArgs
     ///         {
     ///             EndIpAddress = "255.255.255.255",
     ///             FirewallRuleName = "rule1",

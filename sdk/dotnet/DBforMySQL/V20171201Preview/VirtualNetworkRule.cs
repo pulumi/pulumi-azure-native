@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var virtualNetworkRule = new AzureRM.DBforMySQL.V20171201Preview.VirtualNetworkRule("virtualNetworkRule", new AzureRM.DBforMySQL.V20171201Preview.VirtualNetworkRuleArgs
+    ///         var virtualNetworkRule = new AzureRM.DBForMySQL.V20171201Preview.VirtualNetworkRule("virtualNetworkRule", new AzureRM.DBForMySQL.V20171201Preview.VirtualNetworkRuleArgs
     ///         {
     ///             IgnoreMissingVnetServiceEndpoint = false,
     ///             ResourceGroupName = "TestGroup",

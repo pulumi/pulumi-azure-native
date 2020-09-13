@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var database = new AzureRM.DBforPostgreSQL.V20171201Preview.Database("database", new AzureRM.DBforPostgreSQL.V20171201Preview.DatabaseArgs
+    ///         var database = new AzureRM.DBForPostgreSQL.V20171201Preview.Database("database", new AzureRM.DBForPostgreSQL.V20171201Preview.DatabaseArgs
     ///         {
     ///             Charset = "UTF8",
     ///             Collation = "English_United States.1252",

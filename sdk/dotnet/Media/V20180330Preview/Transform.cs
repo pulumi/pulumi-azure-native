@@ -30,15 +30,17 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
     ///             {
     ///                 new AzureRM.Media.V20180330Preview.Inputs.TransformOutputArgs
     ///                 {
-    ///                     Preset = new AzureRM.Media.V20180330Preview.Inputs.PresetArgs
+    ///                     Preset = 
     ///                     {
-    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
+    ///                         { "@odata.type", "#Microsoft.Media.BuiltInStandardEncoderPreset" },
+    ///                         { "presetName", "AdaptiveStreaming" },
     ///                     },
     ///                 },
-    ///                 ResourceGroupName = "contosoresources",
-    ///                 TransformName = "CreatedTransform",
-    ///             });
-    ///         }
+    ///             },
+    ///             ResourceGroupName = "contosoresources",
+    ///             TransformName = "CreatedTransform",
+    ///         });
+    ///     }
     /// 
     /// }
     /// 

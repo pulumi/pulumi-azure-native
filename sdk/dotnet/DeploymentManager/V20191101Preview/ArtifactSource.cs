@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
     ///         var artifactSource = new AzureRM.DeploymentManager.V20191101Preview.ArtifactSource("artifactSource", new AzureRM.DeploymentManager.V20191101Preview.ArtifactSourceArgs
     ///         {
     ///             ArtifactSourceName = "myArtifactSource",
-    ///             Authentication = new AzureRM.DeploymentManager.V20191101Preview.Inputs.AuthenticationArgs
+    ///             Authentication = new AzureRM.DeploymentManager.V20191101Preview.Inputs.SasAuthenticationArgs
     ///             {
     ///                 Type = "Sas",
     ///             },
@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
     ///         {
     ///             ArtifactRoot = "1.0.0.0",
     ///             ArtifactSourceName = "myArtifactSource",
-    ///             Authentication = new AzureRM.DeploymentManager.V20191101Preview.Inputs.AuthenticationArgs
+    ///             Authentication = new AzureRM.DeploymentManager.V20191101Preview.Inputs.SasAuthenticationArgs
     ///             {
     ///                 Type = "Sas",
     ///             },

@@ -26,10 +26,10 @@ namespace Pulumi.AzureRM.BotService.V20200602
     ///         {
     ///             ChannelName = "AlexaChannel",
     ///             Location = "global",
-    ///             Properties = new AzureRM.BotService.V20200602.Inputs.ChannelArgs
+    ///             Properties = 
     ///             {
-    ///                 AlexaSkillId = "XAlexaSkillIdX",
-    ///                 IsEnabled = true,
+    ///                 { "alexaSkillId", "XAlexaSkillIdX" },
+    ///                 { "isEnabled", true },
     ///             },
     ///             ResourceGroupName = "OneResourceGroupName",
     ///             ResourceName = "samplebotname",
@@ -52,11 +52,11 @@ namespace Pulumi.AzureRM.BotService.V20200602
     ///         {
     ///             ChannelName = "EmailChannel",
     ///             Location = "global",
-    ///             Properties = new AzureRM.BotService.V20200602.Inputs.ChannelArgs
+    ///             Properties = 
     ///             {
-    ///                 EmailAddress = "a@b.com",
-    ///                 IsEnabled = true,
-    ///                 Password = "pwd",
+    ///                 { "emailAddress", "a@b.com" },
+    ///                 { "isEnabled", true },
+    ///                 { "password", "pwd" },
     ///             },
     ///             ResourceGroupName = "OneResourceGroupName",
     ///             ResourceName = "samplebotname",
@@ -79,10 +79,10 @@ namespace Pulumi.AzureRM.BotService.V20200602
     ///         {
     ///             ChannelName = "DirectLineSpeechChannel",
     ///             Location = "global",
-    ///             Properties = new AzureRM.BotService.V20200602.Inputs.ChannelArgs
+    ///             Properties = 
     ///             {
-    ///                 CognitiveServicesSubscriptionId = "XcognitiveServicesSubscriptionIdX",
-    ///                 IsEnabled = true,
+    ///                 { "cognitiveServicesSubscriptionId", "XcognitiveServicesSubscriptionIdX" },
+    ///                 { "isEnabled", true },
     ///             },
     ///             ResourceGroupName = "OneResourceGroupName",
     ///             ResourceName = "samplebotname",
@@ -105,16 +105,16 @@ namespace Pulumi.AzureRM.BotService.V20200602
     ///         {
     ///             ChannelName = "LineChannel",
     ///             Location = "global",
-    ///             Properties = new AzureRM.BotService.V20200602.Inputs.ChannelArgs
+    ///             Properties = 
     ///             {
-    ///                 LineRegistrations = 
+    ///                 { "lineRegistrations", 
     ///                 {
     ///                     
     ///                     {
     ///                         { "channelAccessToken", "channelAccessToken" },
     ///                         { "channelSecret", "channelSecret" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///             ResourceGroupName = "OneResourceGroupName",
     ///             ResourceName = "samplebotname",

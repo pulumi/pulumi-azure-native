@@ -84,20 +84,20 @@ namespace Pulumi.AzureRM.Network.V20180801
     ///             {
     ///                 RuleSets = 
     ///                 {
-    ///                     new AzureRM.Network.V20180801.Inputs.ManagedRuleSetArgs
+    ///                     new AzureRM.Network.V20180801.Inputs.AzureManagedRuleSetArgs
     ///                     {
     ///                         Priority = 1,
     ///                         RuleGroupOverrides = 
     ///                         {
-    ///                             
+    ///                             new AzureRM.Network.V20180801.Inputs.AzureManagedOverrideRuleGroupArgs
     ///                             {
-    ///                                 { "action", "Block" },
-    ///                                 { "ruleGroupOverride", "SqlInjection" },
+    ///                                 Action = "Block",
+    ///                                 RuleGroupOverride = "SqlInjection",
     ///                             },
-    ///                             
+    ///                             new AzureRM.Network.V20180801.Inputs.AzureManagedOverrideRuleGroupArgs
     ///                             {
-    ///                                 { "action", "Log" },
-    ///                                 { "ruleGroupOverride", "XSS" },
+    ///                                 Action = "Log",
+    ///                                 RuleGroupOverride = "XSS",
     ///                             },
     ///                         },
     ///                         RuleSetType = "AzureManagedRuleSet",

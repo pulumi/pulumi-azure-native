@@ -28,9 +28,9 @@ namespace Pulumi.AzureRM.Compute.Latest
     ///             GalleryName = "myGalleryName",
     ///             Location = "West US",
     ///             ResourceGroupName = "myResourceGroup",
-    ///             SharingProfile = 
+    ///             SharingProfile = new AzureRM.Compute.Latest.Inputs.SharingProfileArgs
     ///             {
-    ///                 { "permissions", "Groups" },
+    ///                 Permissions = "Groups",
     ///             },
     ///         });
     ///     }

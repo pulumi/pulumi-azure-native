@@ -36,9 +36,9 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
     ///             },
     ///             DefaultMoveCost = "Medium",
     ///             Location = "eastus",
-    ///             PartitionDescription = new AzureRM.ServiceFabric.V20170701Preview.Inputs.PartitionSchemeDescriptionArgs
+    ///             PartitionDescription = 
     ///             {
-    ///                 PartitionScheme = "Singleton",
+    ///                 { "PartitionScheme", "Singleton" },
     ///             },
     ///             PlacementConstraints = "NodeType==frontend",
     ///             ResourceGroupName = "resRg",
@@ -74,9 +74,9 @@ namespace Pulumi.AzureRM.ServiceFabric.V20170701Preview
     ///             ApplicationName = "myApp",
     ///             ClusterName = "myCluster",
     ///             Location = "eastus",
-    ///             PartitionDescription = new AzureRM.ServiceFabric.V20170701Preview.Inputs.PartitionSchemeDescriptionArgs
+    ///             PartitionDescription = 
     ///             {
-    ///                 PartitionScheme = "Singleton",
+    ///                 { "PartitionScheme", "Singleton" },
     ///             },
     ///             ResourceGroupName = "resRg",
     ///             ServiceKind = "Stateless",

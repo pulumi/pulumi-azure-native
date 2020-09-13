@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20200101PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var serverKey = new AzureRM.DBforMariaDB.V20200101privatePreview.ServerKey("serverKey", new AzureRM.DBforMariaDB.V20200101privatePreview.ServerKeyArgs
+    ///         var serverKey = new AzureRM.DBforMariaDB.V20200101PrivatePreview.ServerKey("serverKey", new AzureRM.DBforMariaDB.V20200101PrivatePreview.ServerKeyArgs
     ///         {
     ///             KeyName = "someVault_someKey_01234567890123456789012345678901",
     ///             ResourceGroupName = "testrg",

@@ -25,22 +25,29 @@ namespace Pulumi.AzureRM.Insights.Latest
     ///         var alertRule = new AzureRM.Insights.Latest.AlertRule("alertRule", new AzureRM.Insights.Latest.AlertRuleArgs
     ///         {
     ///             Actions = {},
-    ///             Condition = new AzureRM.Insights.Latest.Inputs.RuleConditionArgs
+    ///             Condition = 
     ///             {
-    ///                 DataSource = new AzureRM.Insights.Latest.Inputs.RuleDataSourceArgs
+    ///                 { "dataSource", 
     ///                 {
-    ///                     MetricName = "Requests",
-    ///                     %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                     %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                     Description = "Pura Vida",
-    ///                     IsEnabled = true,
-    ///                     Location = "West US",
-    ///                     Name = "chiricutin",
-    ///                     ResourceGroupName = "Rac46PostSwapRG",
-    ///                     RuleName = "chiricutin",
-    ///                     Tags = ,
-    ///                 });
-    ///             }
+    ///                     { "metricName", "Requests" },
+    ///                     { "odata.type", "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource" },
+    ///                     { "resourceUri", "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest" },
+    ///                 } },
+    ///                 { "odata.type", "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition" },
+    ///                 { "operator", "GreaterThan" },
+    ///                 { "threshold", 3 },
+    ///                 { "timeAggregation", "Total" },
+    ///                 { "windowSize", "PT5M" },
+    ///             },
+    ///             Description = "Pura Vida",
+    ///             IsEnabled = true,
+    ///             Location = "West US",
+    ///             Name = "chiricutin",
+    ///             ResourceGroupName = "Rac46PostSwapRG",
+    ///             RuleName = "chiricutin",
+    ///             Tags = ,
+    ///         });
+    ///     }
     /// 
     /// }
     /// 

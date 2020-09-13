@@ -42,46 +42,46 @@ namespace Pulumi.AzureRM.Cdn.V20191231
     ///                     {
     ///                         Actions = 
     ///                         {
-    ///                             new AzureRM.Cdn.V20191231.Inputs.DeliveryRuleActionArgs
+    ///                             
     ///                             {
-    ///                                 Name = "CacheExpiration",
-    ///                                 Parameters = 
+    ///                                 { "name", "CacheExpiration" },
+    ///                                 { "parameters", 
     ///                                 {
     ///                                     { "@odata.type", "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters" },
     ///                                     { "cacheBehavior", "Override" },
     ///                                     { "cacheDuration", "10:10:09" },
     ///                                     { "cacheType", "All" },
-    ///                                 },
+    ///                                 } },
     ///                             },
-    ///                             new AzureRM.Cdn.V20191231.Inputs.DeliveryRuleActionArgs
+    ///                             
     ///                             {
-    ///                                 Name = "ModifyResponseHeader",
-    ///                                 Parameters = 
+    ///                                 { "name", "ModifyResponseHeader" },
+    ///                                 { "parameters", 
     ///                                 {
     ///                                     { "@odata.type", "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters" },
     ///                                     { "headerAction", "Overwrite" },
     ///                                     { "headerName", "Access-Control-Allow-Origin" },
     ///                                     { "value", "*" },
-    ///                                 },
+    ///                                 } },
     ///                             },
-    ///                             new AzureRM.Cdn.V20191231.Inputs.DeliveryRuleActionArgs
+    ///                             
     ///                             {
-    ///                                 Name = "ModifyRequestHeader",
-    ///                                 Parameters = 
+    ///                                 { "name", "ModifyRequestHeader" },
+    ///                                 { "parameters", 
     ///                                 {
     ///                                     { "@odata.type", "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters" },
     ///                                     { "headerAction", "Overwrite" },
     ///                                     { "headerName", "Accept-Encoding" },
     ///                                     { "value", "gzip" },
-    ///                                 },
+    ///                                 } },
     ///                             },
     ///                         },
     ///                         Conditions = 
     ///                         {
-    ///                             new AzureRM.Cdn.V20191231.Inputs.DeliveryRuleConditionArgs
+    ///                             
     ///                             {
-    ///                                 Name = "RemoteAddress",
-    ///                                 Parameters = 
+    ///                                 { "name", "RemoteAddress" },
+    ///                                 { "parameters", 
     ///                                 {
     ///                                     { "@odata.type", "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters" },
     ///                                     { "matchValues", 
@@ -91,7 +91,7 @@ namespace Pulumi.AzureRM.Cdn.V20191231
     ///                                     } },
     ///                                     { "negateCondition", true },
     ///                                     { "operator", "IPMatch" },
-    ///                                 },
+    ///                                 } },
     ///                             },
     ///                         },
     ///                         Name = "rule1",

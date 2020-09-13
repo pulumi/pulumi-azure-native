@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var firewallRule = new AzureRM.DBForMySql.V20200701privatePreview.FirewallRule("firewallRule", new AzureRM.DBForMySql.V20200701privatePreview.FirewallRuleArgs
+    ///         var firewallRule = new AzureRM.DBForMySql.V20200701PrivatePreview.FirewallRule("firewallRule", new AzureRM.DBForMySql.V20200701PrivatePreview.FirewallRuleArgs
     ///         {
     ///             EndIpAddress = "255.255.255.255",
     ///             FirewallRuleName = "rule1",

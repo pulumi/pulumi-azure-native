@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBForMySql.V20200701privatePreview.Server("server", new AzureRM.DBForMySql.V20200701privatePreview.ServerArgs
+    ///         var server = new AzureRM.DBForMySql.V20200701PrivatePreview.Server("server", new AzureRM.DBForMySql.V20200701PrivatePreview.ServerArgs
     ///         {
     ///             AdministratorLogin = "cloudsa",
     ///             AdministratorLoginPassword = "pass$w0rd",
@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
     ///             Location = "westus",
     ///             ResourceGroupName = "testrg",
     ///             ServerName = "mysqltestsvc4",
-    ///             Sku = new AzureRM.DBForMySql.V20200701privatePreview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForMySql.V20200701PrivatePreview.Inputs.SkuArgs
     ///             {
     ///                 Name = "Standard_D14_v2",
     ///                 Tier = "GeneralPurpose",
     ///             },
     ///             SslEnforcement = "Enabled",
-    ///             StorageProfile = new AzureRM.DBForMySql.V20200701privatePreview.Inputs.StorageProfileArgs
+    ///             StorageProfile = new AzureRM.DBForMySql.V20200701PrivatePreview.Inputs.StorageProfileArgs
     ///             {
     ///                 BackupRetentionDays = 7,
     ///                 StorageIops = 200,
@@ -61,7 +61,7 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBForMySql.V20200701privatePreview.Server("server", new AzureRM.DBForMySql.V20200701privatePreview.ServerArgs
+    ///         var server = new AzureRM.DBForMySql.V20200701PrivatePreview.Server("server", new AzureRM.DBForMySql.V20200701PrivatePreview.ServerArgs
     ///         {
     ///             CreateMode = "Replica",
     ///             Location = "westus",
@@ -83,14 +83,14 @@ namespace Pulumi.AzureRM.DBForMySql.V20200701PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBForMySql.V20200701privatePreview.Server("server", new AzureRM.DBForMySql.V20200701privatePreview.ServerArgs
+    ///         var server = new AzureRM.DBForMySql.V20200701PrivatePreview.Server("server", new AzureRM.DBForMySql.V20200701PrivatePreview.ServerArgs
     ///         {
     ///             CreateMode = "PointInTimeRestore",
     ///             Location = "brazilsouth",
     ///             ResourceGroupName = "TargetResourceGroup",
     ///             RestorePointInTime = "2017-12-14T00:00:37.467Z",
     ///             ServerName = "targetserver",
-    ///             Sku = new AzureRM.DBForMySql.V20200701privatePreview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForMySql.V20200701PrivatePreview.Inputs.SkuArgs
     ///             {
     ///                 Name = "Standard_D14_v2",
     ///                 Tier = "GeneralPurpose",

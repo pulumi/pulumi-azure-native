@@ -31,18 +31,28 @@ namespace Pulumi.AzureRM.Media.V20180701
     ///             {
     ///                 new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyOptionArgs
     ///                 {
-    ///                     Configuration = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     Configuration = 
     ///                     {
-    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                         Name = "ClearKeyOption",
-    ///                         Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
-    ///                         {
-    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                         },
+    ///                         { "@odata.type", "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration" },
     ///                     },
-    ///                     ResourceGroupName = "contoso",
-    ///                 });
-    ///             }
+    ///                     Name = "ClearKeyOption",
+    ///                     Restriction = 
+    ///                     {
+    ///                         { "@odata.type", "#Microsoft.Media.ContentKeyPolicyTokenRestriction" },
+    ///                         { "audience", "urn:audience" },
+    ///                         { "issuer", "urn:issuer" },
+    ///                         { "primaryVerificationKey", 
+    ///                         {
+    ///                             { "@odata.type", "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey" },
+    ///                             { "keyValue", "AAAAAAAAAAAAAAAAAAAAAA==" },
+    ///                         } },
+    ///                         { "restrictionTokenType", "Swt" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///         });
+    ///     }
     /// 
     /// }
     /// 
@@ -65,18 +75,42 @@ namespace Pulumi.AzureRM.Media.V20180701
     ///             {
     ///                 new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyOptionArgs
     ///                 {
-    ///                     Configuration = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     Configuration = 
     ///                     {
-    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                         Name = "ArmPolicyOptionName",
-    ///                         Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                         { "@odata.type", "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration" },
+    ///                         { "licenses", 
     ///                         {
-    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                         },
+    ///                             new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyPlayReadyLicenseArgs
+    ///                             {
+    ///                                 AllowTestDevices = true,
+    ///                                 BeginDate = "2017-10-16T18:22:53.46Z",
+    ///                                 ContentKeyLocation = 
+    ///                                 {
+    ///                                     { "@odata.type", "#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader" },
+    ///                                 },
+    ///                                 ContentType = "UltraVioletDownload",
+    ///                                 LicenseType = "Persistent",
+    ///                                 PlayRight = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyPlayReadyPlayRightArgs
+    ///                                 {
+    ///                                     AllowPassingVideoContentToUnknownOutput = "NotAllowed",
+    ///                                     DigitalVideoOnlyContentRestriction = false,
+    ///                                     ImageConstraintForAnalogComponentVideoRestriction = true,
+    ///                                     ImageConstraintForAnalogComputerMonitorRestriction = false,
+    ///                                     ScmsRestriction = 2,
+    ///                                 },
+    ///                             },
+    ///                         } },
     ///                     },
-    ///                     ResourceGroupName = "contoso",
-    ///                 });
-    ///             }
+    ///                     Name = "ArmPolicyOptionName",
+    ///                     Restriction = 
+    ///                     {
+    ///                         { "@odata.type", "#Microsoft.Media.ContentKeyPolicyOpenRestriction" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///         });
+    ///     }
     /// 
     /// }
     /// 
@@ -99,18 +133,38 @@ namespace Pulumi.AzureRM.Media.V20180701
     ///             {
     ///                 new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyOptionArgs
     ///                 {
-    ///                     Configuration = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     Configuration = 
     ///                     {
-    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                         Name = "widevineoption",
-    ///                         Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
-    ///                         {
-    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                         },
+    ///                         { "@odata.type", "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration" },
+    ///                         { "widevineTemplate", "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}" },
     ///                     },
-    ///                     ResourceGroupName = "contoso",
-    ///                 });
-    ///             }
+    ///                     Name = "widevineoption",
+    ///                     Restriction = 
+    ///                     {
+    ///                         { "@odata.type", "#Microsoft.Media.ContentKeyPolicyTokenRestriction" },
+    ///                         { "alternateVerificationKeys", 
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "@odata.type", "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey" },
+    ///                                 { "keyValue", "AAAAAAAAAAAAAAAAAAAAAA==" },
+    ///                             },
+    ///                         } },
+    ///                         { "audience", "urn:audience" },
+    ///                         { "issuer", "urn:issuer" },
+    ///                         { "primaryVerificationKey", 
+    ///                         {
+    ///                             { "@odata.type", "#Microsoft.Media.ContentKeyPolicyRsaTokenKey" },
+    ///                             { "exponent", "AQAB" },
+    ///                             { "modulus", "AQAD" },
+    ///                         } },
+    ///                         { "restrictionTokenType", "Jwt" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///         });
+    ///     }
     /// 
     /// }
     /// 
@@ -133,28 +187,41 @@ namespace Pulumi.AzureRM.Media.V20180701
     ///             {
     ///                 new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyOptionArgs
     ///                 {
-    ///                     Configuration = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyConfigurationArgs
+    ///                     Configuration = 
     ///                     {
-    ///                         %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                         Name = "ClearKeyOption",
-    ///                         Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
+    ///                         { "@odata.type", "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration" },
+    ///                     },
+    ///                     Name = "ClearKeyOption",
+    ///                     Restriction = 
+    ///                     {
+    ///                         { "@odata.type", "#Microsoft.Media.ContentKeyPolicyTokenRestriction" },
+    ///                         { "audience", "urn:audience" },
+    ///                         { "issuer", "urn:issuer" },
+    ///                         { "primaryVerificationKey", 
     ///                         {
-    ///                             %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                         },
-    ///                         new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyOptionArgs
-    ///                         {
-    ///                             Configuration = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyConfigurationArgs
-    ///                             {
-    ///                                 %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                                 Name = "widevineoption",
-    ///                                 Restriction = new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyRestrictionArgs
-    ///                                 {
-    ///                                     %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression),
-    ///                                 },
-    ///                             },
-    ///                             ResourceGroupName = "contoso",
-    ///                         });
-    ///                     }
+    ///                             { "@odata.type", "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey" },
+    ///                             { "keyValue", "AAAAAAAAAAAAAAAAAAAAAA==" },
+    ///                         } },
+    ///                         { "restrictionTokenType", "Swt" },
+    ///                     },
+    ///                 },
+    ///                 new AzureRM.Media.V20180701.Inputs.ContentKeyPolicyOptionArgs
+    ///                 {
+    ///                     Configuration = 
+    ///                     {
+    ///                         { "@odata.type", "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration" },
+    ///                         { "widevineTemplate", "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}" },
+    ///                     },
+    ///                     Name = "widevineoption",
+    ///                     Restriction = 
+    ///                     {
+    ///                         { "@odata.type", "#Microsoft.Media.ContentKeyPolicyOpenRestriction" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = "contoso",
+    ///         });
+    ///     }
     /// 
     /// }
     /// 

@@ -26,11 +26,11 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     ///         {
     ///             Activities = 
     ///             {
-    ///                 new AzureRM.DataFactory.Latest.Inputs.ActivityArgs
+    ///                 
     ///                 {
-    ///                     Name = "ExampleForeachActivity",
-    ///                     Type = "ForEach",
-    ///                     TypeProperties = 
+    ///                     { "name", "ExampleForeachActivity" },
+    ///                     { "type", "ForEach" },
+    ///                     { "typeProperties", 
     ///                     {
     ///                         { "activities", 
     ///                         {
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     ///                             { "type", "Expression" },
     ///                             { "value", "@pipeline().parameters.OutputBlobNameList" },
     ///                         } },
-    ///                     },
+    ///                     } },
     ///                 },
     ///             },
     ///             FactoryName = "exampleFactoryName",
@@ -139,11 +139,11 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     ///         {
     ///             Activities = 
     ///             {
-    ///                 new AzureRM.DataFactory.Latest.Inputs.ActivityArgs
+    ///                 
     ///                 {
-    ///                     Name = "ExampleForeachActivity",
-    ///                     Type = "ForEach",
-    ///                     TypeProperties = 
+    ///                     { "name", "ExampleForeachActivity" },
+    ///                     { "type", "ForEach" },
+    ///                     { "typeProperties", 
     ///                     {
     ///                         { "activities", 
     ///                         {
@@ -201,7 +201,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
     ///                             { "type", "Expression" },
     ///                             { "value", "@pipeline().parameters.OutputBlobNameList" },
     ///                         } },
-    ///                     },
+    ///                     } },
     ///                 },
     ///             },
     ///             Description = "Example description",

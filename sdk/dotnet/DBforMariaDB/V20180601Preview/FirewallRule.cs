@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var firewallRule = new AzureRM.DBforMariaDB.V20180601Preview.FirewallRule("firewallRule", new AzureRM.DBforMariaDB.V20180601Preview.FirewallRuleArgs
+    ///         var firewallRule = new AzureRM.DBForMariaDB.V20180601Preview.FirewallRule("firewallRule", new AzureRM.DBForMariaDB.V20180601Preview.FirewallRuleArgs
     ///         {
     ///             EndIpAddress = "255.255.255.255",
     ///             FirewallRuleName = "rule1",

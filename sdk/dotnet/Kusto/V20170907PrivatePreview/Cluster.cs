@@ -22,12 +22,12 @@ namespace Pulumi.AzureRM.Kusto.V20170907PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var cluster = new AzureRM.Kusto.V20170907privatePreview.Cluster("cluster", new AzureRM.Kusto.V20170907privatePreview.ClusterArgs
+    ///         var cluster = new AzureRM.Kusto.V20170907PrivatePreview.Cluster("cluster", new AzureRM.Kusto.V20170907PrivatePreview.ClusterArgs
     ///         {
     ///             ClusterName = "KustoClusterRPTest4",
     ///             Location = "westus",
     ///             ResourceGroupName = "kustorptest",
-    ///             Sku = new AzureRM.Kusto.V20170907privatePreview.Inputs.AzureSkuArgs
+    ///             Sku = new AzureRM.Kusto.V20170907PrivatePreview.Inputs.AzureSkuArgs
     ///             {
     ///                 Capacity = 2,
     ///                 Name = "L8",

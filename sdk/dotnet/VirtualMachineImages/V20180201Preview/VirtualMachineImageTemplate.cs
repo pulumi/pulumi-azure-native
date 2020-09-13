@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
     ///         {
     ///             Customize = 
     ///             {
-    ///                 new AzureRM.VirtualMachineImages.V20180201Preview.Inputs.ImageTemplateCustomizerArgs
+    ///                 new AzureRM.VirtualMachineImages.V20180201Preview.Inputs.ImageTemplateShellCustomizerArgs
     ///                 {
     ///                     Name = "Shell Customizer Example",
     ///                     Script = "https://example.com/path/to/script.sh",
@@ -33,26 +33,26 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
     ///             },
     ///             Distribute = 
     ///             {
-    ///                 new AzureRM.VirtualMachineImages.V20180201Preview.Inputs.ImageTemplateDistributorArgs
+    ///                 
     ///                 {
-    ///                     ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
-    ///                     Location = "1_location",
-    ///                     RunOutputName = "image_it_pir_1",
-    ///                     Tags = 
+    ///                     { "imageId", "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1" },
+    ///                     { "location", "1_location" },
+    ///                     { "runOutputName", "image_it_pir_1" },
+    ///                     { "tags", 
     ///                     {
     ///                         { "tagName", "value" },
-    ///                     },
-    ///                     Type = "managedImage",
+    ///                     } },
+    ///                     { "type", "managedImage" },
     ///                 },
     ///             },
     ///             ImageTemplateName = "myImageTemplate",
     ///             Location = "westus",
     ///             ResourceGroupName = "myResourceGroup",
-    ///             Source = new AzureRM.VirtualMachineImages.V20180201Preview.Inputs.ImageTemplateSourceArgs
+    ///             Source = 
     ///             {
-    ///                 Sha256Checksum = "120acbca7b3d55465eb9f8ef53ad7365f2997d42d4f83d7cc285bf5c71e1131f",
-    ///                 SourceURI = "http://redhat.com/path/to/installation.iso",
-    ///                 Type = "ISO",
+    ///                 { "sha256Checksum", "120acbca7b3d55465eb9f8ef53ad7365f2997d42d4f83d7cc285bf5c71e1131f" },
+    ///                 { "sourceURI", "http://redhat.com/path/to/installation.iso" },
+    ///                 { "type", "ISO" },
     ///             },
     ///             Tags = 
     ///             {

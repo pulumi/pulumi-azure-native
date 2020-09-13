@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBForPostgreSql.V20200214privatePreview.Server("server", new AzureRM.DBForPostgreSql.V20200214privatePreview.ServerArgs
+    ///         var server = new AzureRM.DBForPostgreSql.V20200214PrivatePreview.Server("server", new AzureRM.DBForPostgreSql.V20200214PrivatePreview.ServerArgs
     ///         {
     ///             CreateMode = "PointInTimeRestore",
     ///             Location = "westus",
@@ -45,25 +45,25 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBForPostgreSql.V20200214privatePreview.Server("server", new AzureRM.DBForPostgreSql.V20200214privatePreview.ServerArgs
+    ///         var server = new AzureRM.DBForPostgreSql.V20200214PrivatePreview.Server("server", new AzureRM.DBForPostgreSql.V20200214PrivatePreview.ServerArgs
     ///         {
     ///             AdministratorLogin = "cloudsa",
     ///             AdministratorLoginPassword = "password",
     ///             AvailabilityZone = "1",
-    ///             DelegatedSubnetArguments = 
+    ///             DelegatedSubnetArguments = new AzureRM.DBForPostgreSql.V20200214PrivatePreview.Inputs.ServerPropertiesDelegatedSubnetArgumentsArgs
     ///             {
-    ///                 { "subnetArmResourceId", "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet" },
+    ///                 SubnetArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
     ///             },
     ///             HaEnabled = "Enabled",
     ///             Location = "westus",
     ///             ResourceGroupName = "testrg",
     ///             ServerName = "pgtestsvc4",
-    ///             Sku = new AzureRM.DBForPostgreSql.V20200214privatePreview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForPostgreSql.V20200214PrivatePreview.Inputs.SkuArgs
     ///             {
     ///                 Name = "Standard_D4s_v3",
     ///                 Tier = "GeneralPurpose",
     ///             },
-    ///             StorageProfile = new AzureRM.DBForPostgreSql.V20200214privatePreview.Inputs.StorageProfileArgs
+    ///             StorageProfile = new AzureRM.DBForPostgreSql.V20200214PrivatePreview.Inputs.StorageProfileArgs
     ///             {
     ///                 BackupRetentionDays = 7,
     ///                 StorageMB = 524288,

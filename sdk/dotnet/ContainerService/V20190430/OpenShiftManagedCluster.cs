@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.ContainerService.V20190430
     ///                     new AzureRM.ContainerService.V20190430.Inputs.OpenShiftManagedClusterIdentityProviderArgs
     ///                     {
     ///                         Name = "Azure AD",
-    ///                         Provider = new AzureRM.ContainerService.V20190430.Inputs.OpenShiftManagedClusterBaseIdentityProviderArgs
+    ///                         Provider = new AzureRM.ContainerService.V20190430.Inputs.OpenShiftManagedClusterAADIdentityProviderArgs
     ///                         {
     ///                             ClientId = "clientId",
     ///                             CustomerAdminGroupId = "customerAdminGroupId",

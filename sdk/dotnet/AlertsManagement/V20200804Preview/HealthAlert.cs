@@ -15,6 +15,51 @@ namespace Pulumi.AzureRM.AlertsManagement.V20200804Preview
     /// ## Example Usage
     /// ### CreateResourceHealthAlertRule
     /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var healthAlert = new AzureRM.AlertsManagement.V20200804Preview.HealthAlert("healthAlert", new AzureRM.AlertsManagement.V20200804Preview.HealthAlertArgs
+    ///         {
+    ///             Actions = 
+    ///             {
+    ///                 new AzureRM.AlertsManagement.V20200804Preview.Inputs.HealthAlertActionArgs
+    ///                 {
+    ///                     ActionGroupId = "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2",
+    ///                     WebHookProperties = 
+    ///                     {
+    ///                         { "key11", "value11" },
+    ///                         { "key12", "value12" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Criteria = new AzureRM.AlertsManagement.V20200804Preview.Inputs.HealthAlertCriteriaArgs
+    ///             {
+    ///                 AllOf = 
+    ///                 {
+    ///                     new AzureRM.AlertsManagement.V20200804Preview.Inputs.VmGuestHealthAlertCriterionArgs
+    ///                     {
+    ///                         HealthMonitorName = "root",
+    ///                         Namespace = "VmGuestHealth",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Description = "This is the description of the rule1",
+    ///             Enabled = true,
+    ///             Location = "global",
+    ///             ResourceGroupName = "gigtest",
+    ///             RuleName = "highcpu",
+    ///             Scopes = 
+    ///             {
+    ///                 "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
     /// 
     /// ```
     /// </summary>

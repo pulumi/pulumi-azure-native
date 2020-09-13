@@ -35,9 +35,9 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     ///                 new AzureRM.StreamAnalytics.V20160301.Inputs.InputArgs
     ///                 {
     ///                     Name = "inputtest",
-    ///                     Properties = new AzureRM.StreamAnalytics.V20160301.Inputs.InputPropertiesArgs
+    ///                     Properties = 
     ///                     {
-    ///                         Datasource = 
+    ///                         { "datasource", 
     ///                         {
     ///                             { "properties", 
     ///                             {
@@ -53,16 +53,16 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     ///                                 } },
     ///                             } },
     ///                             { "type", "Microsoft.Storage/Blob" },
-    ///                         },
-    ///                         Serialization = new AzureRM.StreamAnalytics.V20160301.Inputs.SerializationArgs
+    ///                         } },
+    ///                         { "serialization", 
     ///                         {
-    ///                             Properties = 
+    ///                             { "properties", 
     ///                             {
     ///                                 { "encoding", "UTF8" },
-    ///                             },
-    ///                             Type = "Json",
-    ///                         },
-    ///                         Type = "Stream",
+    ///                             } },
+    ///                             { "type", "Json" },
+    ///                         } },
+    ///                         { "type", "Stream" },
     ///                     },
     ///                 },
     ///             },

@@ -26,25 +26,25 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190501Preview
     ///         {
     ///             Customize = 
     ///             {
-    ///                 new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateCustomizerArgs
+    ///                 
     ///                 {
-    ///                     Name = "Shell Customizer Example",
-    ///                     ScriptUri = "https://example.com/path/to/script.sh",
-    ///                     Type = "Shell",
+    ///                     { "name", "Shell Customizer Example" },
+    ///                     { "scriptUri", "https://example.com/path/to/script.sh" },
+    ///                     { "type", "Shell" },
     ///                 },
     ///             },
     ///             Distribute = 
     ///             {
-    ///                 new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateDistributorArgs
+    ///                 
     ///                 {
-    ///                     ArtifactTags = 
+    ///                     { "artifactTags", 
     ///                     {
     ///                         { "tagName", "value" },
-    ///                     },
-    ///                     ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
-    ///                     Location = "1_location",
-    ///                     RunOutputName = "image_it_pir_1",
-    ///                     Type = "ManagedImage",
+    ///                     } },
+    ///                     { "imageId", "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1" },
+    ///                     { "location", "1_location" },
+    ///                     { "runOutputName", "image_it_pir_1" },
+    ///                     { "type", "ManagedImage" },
     ///                 },
     ///             },
     ///             Identity = new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateIdentityArgs
@@ -54,10 +54,10 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190501Preview
     ///             ImageTemplateName = "myImageTemplate",
     ///             Location = "westus",
     ///             ResourceGroupName = "myResourceGroup",
-    ///             Source = new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateSourceArgs
+    ///             Source = 
     ///             {
-    ///                 ImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
-    ///                 Type = "ManagedImage",
+    ///                 { "imageId", "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image" },
+    ///                 { "type", "ManagedImage" },
     ///             },
     ///             Tags = 
     ///             {
@@ -87,34 +87,34 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20190501Preview
     ///         {
     ///             Customize = 
     ///             {
-    ///                 new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateCustomizerArgs
+    ///                 
     ///                 {
-    ///                     Name = "Shell Customizer Example",
-    ///                     ScriptUri = "https://example.com/path/to/script.sh",
-    ///                     Type = "Shell",
+    ///                     { "name", "Shell Customizer Example" },
+    ///                     { "scriptUri", "https://example.com/path/to/script.sh" },
+    ///                     { "type", "Shell" },
     ///                 },
     ///             },
     ///             Distribute = 
     ///             {
-    ///                 new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateDistributorArgs
+    ///                 
     ///                 {
-    ///                     ArtifactTags = 
+    ///                     { "artifactTags", 
     ///                     {
     ///                         { "tagName", "value" },
-    ///                     },
-    ///                     ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
-    ///                     Location = "1_location",
-    ///                     RunOutputName = "image_it_pir_1",
-    ///                     Type = "ManagedImage",
+    ///                     } },
+    ///                     { "imageId", "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1" },
+    ///                     { "location", "1_location" },
+    ///                     { "runOutputName", "image_it_pir_1" },
+    ///                     { "type", "ManagedImage" },
     ///                 },
     ///             },
     ///             ImageTemplateName = "myImageTemplate",
     ///             Location = "westus",
     ///             ResourceGroupName = "myResourceGroup",
-    ///             Source = new AzureRM.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateSourceArgs
+    ///             Source = 
     ///             {
-    ///                 ImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
-    ///                 Type = "ManagedImage",
+    ///                 { "imageId", "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image" },
+    ///                 { "type", "ManagedImage" },
     ///             },
     ///             Tags = 
     ///             {

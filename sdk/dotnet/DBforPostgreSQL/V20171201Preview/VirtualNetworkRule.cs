@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var virtualNetworkRule = new AzureRM.DBforPostgreSQL.V20171201Preview.VirtualNetworkRule("virtualNetworkRule", new AzureRM.DBforPostgreSQL.V20171201Preview.VirtualNetworkRuleArgs
+    ///         var virtualNetworkRule = new AzureRM.DBForPostgreSQL.V20171201Preview.VirtualNetworkRule("virtualNetworkRule", new AzureRM.DBForPostgreSQL.V20171201Preview.VirtualNetworkRuleArgs
     ///         {
     ///             IgnoreMissingVnetServiceEndpoint = false,
     ///             ResourceGroupName = "TestGroup",

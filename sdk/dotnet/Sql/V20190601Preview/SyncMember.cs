@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
     ///             DatabaseName = "syncgroupcrud-7421",
     ///             DatabaseType = "AzureSqlDatabase",
     ///             ResourceGroupName = "syncgroupcrud-65440",
-    ///             ServerName = "syncgroupcrud-8475",
+    ///             ServerName = "syncgroupcrud-3379.database.windows.net",
     ///             SyncDirection = "Bidirectional",
     ///             SyncGroupName = "syncgroupcrud-3187",
     ///             SyncMemberAzureDatabaseResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",

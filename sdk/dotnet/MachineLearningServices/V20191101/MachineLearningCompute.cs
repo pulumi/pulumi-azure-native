@@ -47,17 +47,17 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20191101
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = new AzureRM.MachineLearningServices.V20191101.Inputs.ComputeArgs
+    ///             Properties = 
     ///             {
-    ///                 RemoteLoginPortPublicAccess = "NotSpecified",
-    ///                 ScaleSettings = 
+    ///                 { "remoteLoginPortPublicAccess", "NotSpecified" },
+    ///                 { "scaleSettings", 
     ///                 {
     ///                     { "maxNodeCount", 1 },
     ///                     { "minNodeCount", 0 },
     ///                     { "nodeIdleTimeBeforeScaleDown", "PT5M" },
-    ///                 },
-    ///                 VmPriority = "Dedicated",
-    ///                 VmSize = "STANDARD_NC6",
+    ///                 } },
+    ///                 { "vmPriority", "Dedicated" },
+    ///                 { "vmSize", "STANDARD_NC6" },
     ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
@@ -101,9 +101,9 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20191101
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = new AzureRM.MachineLearningServices.V20191101.Inputs.ComputeArgs
+    ///             Properties = 
     ///             {
-    ///                 AgentCount = 4,
+    ///                 { "agentCount", 4 },
     ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",
@@ -126,14 +126,14 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20191101
     ///         {
     ///             ComputeName = "compute123",
     ///             Location = "eastus",
-    ///             Properties = new AzureRM.MachineLearningServices.V20191101.Inputs.ComputeArgs
+    ///             Properties = 
     ///             {
-    ///                 ScaleSettings = 
+    ///                 { "scaleSettings", 
     ///                 {
     ///                     { "maxNodeCount", 1 },
     ///                     { "minNodeCount", 0 },
     ///                     { "nodeIdleTimeBeforeScaleDown", "PT5M" },
-    ///                 },
+    ///                 } },
     ///             },
     ///             ResourceGroupName = "testrg123",
     ///             WorkspaceName = "workspaces123",

@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.ContainerService.V20191027Preview
     ///                     new AzureRM.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterIdentityProviderArgs
     ///                     {
     ///                         Name = "Azure AD",
-    ///                         Provider = new AzureRM.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterBaseIdentityProviderArgs
+    ///                         Provider = new AzureRM.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterAADIdentityProviderArgs
     ///                         {
     ///                             ClientId = "clientId",
     ///                             CustomerAdminGroupId = "customerAdminGroupId",
@@ -143,7 +143,7 @@ namespace Pulumi.AzureRM.ContainerService.V20191027Preview
     ///                     new AzureRM.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterIdentityProviderArgs
     ///                     {
     ///                         Name = "Azure AD",
-    ///                         Provider = new AzureRM.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterBaseIdentityProviderArgs
+    ///                         Provider = new AzureRM.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterAADIdentityProviderArgs
     ///                         {
     ///                             ClientId = "clientId",
     ///                             CustomerAdminGroupId = "customerAdminGroupId",

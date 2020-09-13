@@ -15,6 +15,22 @@ namespace Pulumi.AzureRM.OffAzure.V20200101
     /// ## Example Usage
     /// ### Create Hyper-V site
     /// ```csharp
+    /// using Pulumi;
+    /// using AzureRM = Pulumi.AzureRM;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var hyperVSite = new AzureRM.OffAzure.V20200101.HyperVSite("hyperVSite", new AzureRM.OffAzure.V20200101.HyperVSiteArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             ResourceGroupName = "pajindTest",
+    ///             SiteName = "appliance1e39site",
+    ///         });
+    ///     }
+    /// 
+    /// }
     /// 
     /// ```
     /// </summary>

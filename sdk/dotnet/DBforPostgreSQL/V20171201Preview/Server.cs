@@ -22,12 +22,12 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforPostgreSQL.V20171201Preview.Server("server", new AzureRM.DBforPostgreSQL.V20171201Preview.ServerArgs
+    ///         var server = new AzureRM.DBForPostgreSQL.V20171201Preview.Server("server", new AzureRM.DBForPostgreSQL.V20171201Preview.ServerArgs
     ///         {
     ///             Location = "brazilsouth",
     ///             ResourceGroupName = "TargetResourceGroup",
     ///             ServerName = "targetserver",
-    ///             Sku = new AzureRM.DBforPostgreSQL.V20171201Preview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForPostgreSQL.V20171201Preview.Inputs.SkuArgs
     ///             {
     ///                 Capacity = 2,
     ///                 Family = "Gen4",
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforPostgreSQL.V20171201Preview.Server("server", new AzureRM.DBforPostgreSQL.V20171201Preview.ServerArgs
+    ///         var server = new AzureRM.DBForPostgreSQL.V20171201Preview.Server("server", new AzureRM.DBForPostgreSQL.V20171201Preview.ServerArgs
     ///         {
     ///             Location = "westus",
     ///             ResourceGroupName = "TestGroup",
     ///             ServerName = "pgtestsvc4",
-    ///             Sku = new AzureRM.DBforPostgreSQL.V20171201Preview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForPostgreSQL.V20171201Preview.Inputs.SkuArgs
     ///             {
     ///                 Capacity = 2,
     ///                 Family = "Gen5",
@@ -84,12 +84,12 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforPostgreSQL.V20171201Preview.Server("server", new AzureRM.DBforPostgreSQL.V20171201Preview.ServerArgs
+    ///         var server = new AzureRM.DBForPostgreSQL.V20171201Preview.Server("server", new AzureRM.DBForPostgreSQL.V20171201Preview.ServerArgs
     ///         {
     ///             Location = "westcentralus",
     ///             ResourceGroupName = "TestGroup_WestCentralUS",
     ///             ServerName = "testserver-replica1",
-    ///             Sku = new AzureRM.DBforPostgreSQL.V20171201Preview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForPostgreSQL.V20171201Preview.Inputs.SkuArgs
     ///             {
     ///                 Capacity = 2,
     ///                 Family = "Gen5",
@@ -111,12 +111,12 @@ namespace Pulumi.AzureRM.DBForPostgreSQL.V20171201Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforPostgreSQL.V20171201Preview.Server("server", new AzureRM.DBforPostgreSQL.V20171201Preview.ServerArgs
+    ///         var server = new AzureRM.DBForPostgreSQL.V20171201Preview.Server("server", new AzureRM.DBForPostgreSQL.V20171201Preview.ServerArgs
     ///         {
     ///             Location = "Japan West",
     ///             ResourceGroupName = "TargetResourceGroup",
     ///             ServerName = "targetserver",
-    ///             Sku = new AzureRM.DBforPostgreSQL.V20171201Preview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForPostgreSQL.V20171201Preview.Inputs.SkuArgs
     ///             {
     ///                 Capacity = 2,
     ///                 Family = "Gen4",

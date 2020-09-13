@@ -30,11 +30,11 @@ namespace Pulumi.AzureRM.Network.V20200601
     ///             RuleCollectionGroupName = "ruleCollectionGroup1",
     ///             RuleCollections = 
     ///             {
-    ///                 new AzureRM.Network.V20200601.Inputs.FirewallPolicyRuleCollectionArgs
+    ///                 new AzureRM.Network.V20200601.Inputs.FirewallPolicyFilterRuleCollectionArgs
     ///                 {
-    ///                     Action = 
+    ///                     Action = new AzureRM.Network.V20200601.Inputs.FirewallPolicyFilterRuleCollectionActionArgs
     ///                     {
-    ///                         { "type", "Deny" },
+    ///                         Type = "Deny",
     ///                     },
     ///                     Name = "Example-Filter-Rule-Collection",
     ///                     RuleCollectionType = "FirewallPolicyFilterRuleCollection",
@@ -87,11 +87,11 @@ namespace Pulumi.AzureRM.Network.V20200601
     ///             RuleCollectionGroupName = "ruleCollectionGroup1",
     ///             RuleCollections = 
     ///             {
-    ///                 new AzureRM.Network.V20200601.Inputs.FirewallPolicyRuleCollectionArgs
+    ///                 new AzureRM.Network.V20200601.Inputs.FirewallPolicyNatRuleCollectionArgs
     ///                 {
-    ///                     Action = 
+    ///                     Action = new AzureRM.Network.V20200601.Inputs.FirewallPolicyNatRuleCollectionActionArgs
     ///                     {
-    ///                         { "type", "Deny" },
+    ///                         Type = "Deny",
     ///                     },
     ///                     Name = "Example-Filter-Rule-Collection",
     ///                     RuleCollectionType = "FirewallPolicyFilterRuleCollection",

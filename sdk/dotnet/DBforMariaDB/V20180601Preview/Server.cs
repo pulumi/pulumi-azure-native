@@ -22,12 +22,12 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforMariaDB.V20180601Preview.Server("server", new AzureRM.DBforMariaDB.V20180601Preview.ServerArgs
+    ///         var server = new AzureRM.DBForMariaDB.V20180601Preview.Server("server", new AzureRM.DBForMariaDB.V20180601Preview.ServerArgs
     ///         {
     ///             Location = "brazilsouth",
     ///             ResourceGroupName = "TargetResourceGroup",
     ///             ServerName = "targetserver",
-    ///             Sku = new AzureRM.DBforMariaDB.V20180601Preview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForMariaDB.V20180601Preview.Inputs.SkuArgs
     ///             {
     ///                 Capacity = 2,
     ///                 Family = "Gen5",
@@ -53,12 +53,12 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforMariaDB.V20180601Preview.Server("server", new AzureRM.DBforMariaDB.V20180601Preview.ServerArgs
+    ///         var server = new AzureRM.DBForMariaDB.V20180601Preview.Server("server", new AzureRM.DBForMariaDB.V20180601Preview.ServerArgs
     ///         {
     ///             Location = "westus",
     ///             ResourceGroupName = "testrg",
     ///             ServerName = "mariadbtestsvc4",
-    ///             Sku = new AzureRM.DBforMariaDB.V20180601Preview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForMariaDB.V20180601Preview.Inputs.SkuArgs
     ///             {
     ///                 Capacity = 2,
     ///                 Family = "Gen5",
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforMariaDB.V20180601Preview.Server("server", new AzureRM.DBforMariaDB.V20180601Preview.ServerArgs
+    ///         var server = new AzureRM.DBForMariaDB.V20180601Preview.Server("server", new AzureRM.DBForMariaDB.V20180601Preview.ServerArgs
     ///         {
     ///             Location = "westus",
     ///             ResourceGroupName = "TargetResourceGroup",
@@ -104,12 +104,12 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var server = new AzureRM.DBforMariaDB.V20180601Preview.Server("server", new AzureRM.DBforMariaDB.V20180601Preview.ServerArgs
+    ///         var server = new AzureRM.DBForMariaDB.V20180601Preview.Server("server", new AzureRM.DBForMariaDB.V20180601Preview.ServerArgs
     ///         {
     ///             Location = "westus",
     ///             ResourceGroupName = "TargetResourceGroup",
     ///             ServerName = "targetserver",
-    ///             Sku = new AzureRM.DBforMariaDB.V20180601Preview.Inputs.SkuArgs
+    ///             Sku = new AzureRM.DBForMariaDB.V20180601Preview.Inputs.SkuArgs
     ///             {
     ///                 Capacity = 2,
     ///                 Family = "Gen5",

@@ -24,11 +24,11 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
     ///     {
     ///         var connector = new AzureRM.Security.V20200101Preview.Connector("connector", new AzureRM.Security.V20200101Preview.ConnectorArgs
     ///         {
-    ///             AuthenticationDetails = new AzureRM.Security.V20200101Preview.Inputs.AuthenticationDetailsPropertiesArgs
+    ///             AuthenticationDetails = 
     ///             {
-    ///                 AuthenticationType = "awsAssumeRole",
-    ///                 AwsAssumeRoleArn = "arn:aws:iam::81231569658:role/AscConnector",
-    ///                 AwsExternalId = "20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+    ///                 { "authenticationType", "awsAssumeRole" },
+    ///                 { "awsAssumeRoleArn", "arn:aws:iam::81231569658:role/AscConnector" },
+    ///                 { "awsExternalId", "20ff7fc3-e762-44dd-bd96-b71116dcdc23" },
     ///             },
     ///             ConnectorName = "aws_dev2",
     ///             HybridComputeSettings = new AzureRM.Security.V20200101Preview.Inputs.HybridComputeSettingsPropertiesArgs
@@ -64,11 +64,11 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
     ///     {
     ///         var connector = new AzureRM.Security.V20200101Preview.Connector("connector", new AzureRM.Security.V20200101Preview.ConnectorArgs
     ///         {
-    ///             AuthenticationDetails = new AzureRM.Security.V20200101Preview.Inputs.AuthenticationDetailsPropertiesArgs
+    ///             AuthenticationDetails = 
     ///             {
-    ///                 AuthenticationType = "awsCreds",
-    ///                 AwsAccessKeyId = "AKIARPZCNODDNAEQFSOE",
-    ///                 AwsSecretAccessKey = "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",
+    ///                 { "authenticationType", "awsCreds" },
+    ///                 { "awsAccessKeyId", "AKIARPZCNODDNAEQFSOE" },
+    ///                 { "awsSecretAccessKey", "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" },
     ///             },
     ///             ConnectorName = "aws_dev1",
     ///             HybridComputeSettings = new AzureRM.Security.V20200101Preview.Inputs.HybridComputeSettingsPropertiesArgs
@@ -104,16 +104,16 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
     ///     {
     ///         var connector = new AzureRM.Security.V20200101Preview.Connector("connector", new AzureRM.Security.V20200101Preview.ConnectorArgs
     ///         {
-    ///             AuthenticationDetails = new AzureRM.Security.V20200101Preview.Inputs.AuthenticationDetailsPropertiesArgs
+    ///             AuthenticationDetails = 
     ///             {
-    ///                 AuthProviderX509CertUrl = "https://www.googleapis.com/oauth2/v1/certs",
-    ///                 AuthUri = "https://accounts.google.com/o/oauth2/auth",
-    ///                 AuthenticationType = "gcpCredentials",
-    ///                 ClientEmail = "asc-135@asc-project-1234.iam.gserviceaccount.com",
-    ///                 ClientId = "105889053725632919854",
-    ///                 ClientX509CertUrl = "https://www.googleapis.com/robot/v1/metadata/x509/asc-135%40asc-project-1234.iam.gserviceaccount.com",
-    ///                 OrganizationId = "AscDemoOrg",
-    ///                 PrivateKey = @"-----BEGIN PRIVATE KEY-----
+    ///                 { "authProviderX509CertUrl", "https://www.googleapis.com/oauth2/v1/certs" },
+    ///                 { "authUri", "https://accounts.google.com/o/oauth2/auth" },
+    ///                 { "authenticationType", "gcpCredentials" },
+    ///                 { "clientEmail", "asc-135@asc-project-1234.iam.gserviceaccount.com" },
+    ///                 { "clientId", "105889053725632919854" },
+    ///                 { "clientX509CertUrl", "https://www.googleapis.com/robot/v1/metadata/x509/asc-135%40asc-project-1234.iam.gserviceaccount.com" },
+    ///                 { "organizationId", "AscDemoOrg" },
+    ///                 { "privateKey", @"-----BEGIN PRIVATE KEY-----
     /// MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCpxYHcLzcDZ6/Q
     /// AeQZnQXM5GTb3p09Xsbjo2T2F61b6I7FZiQXBrbw3Zf0CUCkkqTTpD5xifl82yQ6
     /// 89V7SAe8hxI7esAcVDhm/aJMqzVjHLISAU2L3li1sn0jjY2oYtndwN6bRivP8O6t
@@ -141,11 +141,11 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
     /// 3b6MvaUqdNhNnWodJXLhgtmGEHDKmTppz2JSTx/tVzCfhFdcOC79StZvcKLhtoFQ
     /// +/3lEw6NCIXzm5E4+dtJG4k=
     /// -----END PRIVATE KEY-----
-    /// ",
-    ///                 PrivateKeyId = "6efg587hra2568as34d22326b044cc20dc2af",
-    ///                 ProjectId = "asc-project-1234",
-    ///                 TokenUri = "https://oauth2.googleapis.com/token",
-    ///                 Type = "service_account",
+    /// " },
+    ///                 { "privateKeyId", "6efg587hra2568as34d22326b044cc20dc2af" },
+    ///                 { "projectId", "asc-project-1234" },
+    ///                 { "tokenUri", "https://oauth2.googleapis.com/token" },
+    ///                 { "type", "service_account" },
     ///             },
     ///             ConnectorName = "gcp_dev",
     ///             HybridComputeSettings = new AzureRM.Security.V20200101Preview.Inputs.HybridComputeSettingsPropertiesArgs

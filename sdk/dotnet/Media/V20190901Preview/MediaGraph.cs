@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Media.V20190901Preview
     ///             ResourceGroupName = "contoso",
     ///             Sinks = 
     ///             {
-    ///                 new AzureRM.Media.V20190901Preview.Inputs.MediaGraphSinkArgs
+    ///                 new AzureRM.Media.V20190901Preview.Inputs.MediaGraphAssetSinkArgs
     ///                 {
     ///                     AssetName = "SampleAsset",
     ///                     Inputs = 
@@ -43,12 +43,12 @@ namespace Pulumi.AzureRM.Media.V20190901Preview
     ///             },
     ///             Sources = 
     ///             {
-    ///                 new AzureRM.Media.V20190901Preview.Inputs.MediaGraphSourceArgs
+    ///                 new AzureRM.Media.V20190901Preview.Inputs.MediaGraphRtspSourceArgs
     ///                 {
-    ///                     Credentials = 
+    ///                     Credentials = new AzureRM.Media.V20190901Preview.Inputs.MediaGraphUserCredentialsArgs
     ///                     {
-    ///                         { "password", "examplepassword" },
-    ///                         { "username", "exampleusername" },
+    ///                         Password = "examplepassword",
+    ///                         Username = "exampleusername",
     ///                     },
     ///                     Name = "rtspSource",
     ///                     OdataType = "#Microsoft.Media.MediaGraphRtspSource",

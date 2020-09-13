@@ -22,7 +22,7 @@ namespace Pulumi.AzureRM.DBForMariaDB.V20180601Preview
     /// {
     ///     public MyStack()
     ///     {
-    ///         var database = new AzureRM.DBforMariaDB.V20180601Preview.Database("database", new AzureRM.DBforMariaDB.V20180601Preview.DatabaseArgs
+    ///         var database = new AzureRM.DBForMariaDB.V20180601Preview.Database("database", new AzureRM.DBForMariaDB.V20180601Preview.DatabaseArgs
     ///         {
     ///             Charset = "utf8",
     ///             Collation = "utf8_general_ci",
