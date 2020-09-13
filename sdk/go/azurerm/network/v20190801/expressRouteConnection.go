@@ -11,40 +11,6 @@ import (
 )
 
 // ExpressRouteConnection resource.
-//
-// ## Example Usage
-// ### ExpressRouteConnectionCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20190801"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewExpressRouteConnection(ctx, "expressRouteConnection", &network.ExpressRouteConnectionArgs{
-// 			AuthorizationKey: pulumi.String("authorizationKey"),
-// 			ConnectionName:   pulumi.String("connectionName"),
-// 			ExpressRouteCircuitPeering: &network.ExpressRouteCircuitPeeringIdArgs{
-// 				Id: pulumi.String("/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering"),
-// 			},
-// 			ExpressRouteGatewayName: pulumi.String("gateway-2"),
-// 			Id:                      pulumi.String("/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName"),
-// 			Name:                    pulumi.String("connectionName"),
-// 			ResourceGroupName:       pulumi.String("resourceGroupName"),
-// 			RoutingWeight:           pulumi.Int(2),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ExpressRouteConnection struct {
 	pulumi.CustomResourceState
 

@@ -11,34 +11,6 @@ import (
 )
 
 // Trigger details.
-//
-// ## Example Usage
-// ### TriggerPut
-//
-// ```go
-// package main
-//
-// import (
-// 	databoxedge "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/databoxedge/v20190701"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := databoxedge.NewTrigger(ctx, "trigger", &databoxedge.TriggerArgs{
-// 			DeviceName:        pulumi.String("testedgedevice"),
-// 			Kind:              pulumi.String("FileEvent"),
-// 			Name:              pulumi.String("trigger1"),
-// 			ResourceGroupName: pulumi.String("GroupForEdgeAutomation"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Trigger struct {
 	pulumi.CustomResourceState
 

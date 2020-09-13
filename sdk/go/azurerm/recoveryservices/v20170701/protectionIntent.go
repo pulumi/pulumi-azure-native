@@ -11,34 +11,6 @@ import (
 )
 
 // Base class for backup ProtectionIntent.
-//
-// ## Example Usage
-// ### Create or Update Azure Vm Protection Intent
-//
-// ```go
-// package main
-//
-// import (
-// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/v20170701"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := recoveryservices.NewProtectionIntent(ctx, "protectionIntent", &recoveryservices.ProtectionIntentArgs{
-// 			FabricName:        pulumi.String("Azure"),
-// 			IntentObjectName:  pulumi.String("vm;iaasvmcontainerv2;chamsrgtest;chamscandel"),
-// 			ResourceGroupName: pulumi.String("myRG"),
-// 			VaultName:         pulumi.String("myVault"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ProtectionIntent struct {
 	pulumi.CustomResourceState
 

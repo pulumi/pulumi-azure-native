@@ -11,41 +11,6 @@ import (
 )
 
 // Single Namespace item in List or Get Operation
-//
-// ## Example Usage
-// ### NamespaceCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	eventhub "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventhub/v20180101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventhub.NewNamespace(ctx, "namespace", &eventhub.NamespaceArgs{
-// 			Location:          pulumi.String("South Central US"),
-// 			NamespaceName:     pulumi.String("sdk-Namespace-5849"),
-// 			ResourceGroupName: pulumi.String("ArunMonocle"),
-// 			Sku: &eventhub.SkuArgs{
-// 				Name: pulumi.String("Standard"),
-// 				Tier: pulumi.String("Standard"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"tag1": pulumi.String("value1"),
-// 				"tag2": pulumi.String("value2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Namespace struct {
 	pulumi.CustomResourceState
 

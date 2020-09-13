@@ -10,12 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// ## Example Usage
-// ### Create an Image Template.
-//
-// ```go
-//
-// ```
 type VirtualMachineImageTemplate struct {
 	pulumi.CustomResourceState
 

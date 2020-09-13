@@ -11,31 +11,6 @@ import (
 )
 
 // Contact details and configurations for notifications coming from Azure Security Center.
-//
-// ## Example Usage
-// ### Create security contact data
-//
-// ```go
-// package main
-//
-// import (
-// 	security "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/security/v20200101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := security.NewSecurityContact(ctx, "securityContact", &security.SecurityContactArgs{
-// 			SecurityContactName: pulumi.String("default"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type SecurityContact struct {
 	pulumi.CustomResourceState
 

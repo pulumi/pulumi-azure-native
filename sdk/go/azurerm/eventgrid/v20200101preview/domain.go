@@ -11,37 +11,6 @@ import (
 )
 
 // EventGrid Domain
-//
-// ## Example Usage
-// ### Domains_CreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20200101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventgrid.NewDomain(ctx, "domain", &eventgrid.DomainArgs{
-// 			DomainName:        pulumi.String("exampledomain1"),
-// 			Location:          pulumi.String("westus2"),
-// 			ResourceGroupName: pulumi.String("examplerg"),
-// 			Tags: pulumi.StringMap{
-// 				"tag1": pulumi.String("value1"),
-// 				"tag2": pulumi.String("value2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Domain struct {
 	pulumi.CustomResourceState
 

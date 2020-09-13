@@ -11,35 +11,6 @@ import (
 )
 
 // Bot channel resource definition
-//
-// ## Example Usage
-// ### Create Connection Setting
-//
-// ```go
-// package main
-//
-// import (
-// 	botservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/botservice/v20171201"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := botservice.NewBotConnection(ctx, "botConnection", &botservice.BotConnectionArgs{
-// 			ConnectionName:    pulumi.String("sampleConnection"),
-// 			Etag:              pulumi.String("etag1"),
-// 			Location:          pulumi.String("West US"),
-// 			ResourceGroupName: pulumi.String("OneResourceGroupName"),
-// 			ResourceName:      pulumi.String("samplebotname"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type BotConnection struct {
 	pulumi.CustomResourceState
 

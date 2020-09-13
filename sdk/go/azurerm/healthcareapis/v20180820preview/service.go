@@ -11,35 +11,6 @@ import (
 )
 
 // The description of the service.
-//
-// ## Example Usage
-// ### ServicePut
-//
-// ```go
-// package main
-//
-// import (
-// 	healthcareapis "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/healthcareapis/v20180820preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := healthcareapis.NewService(ctx, "service", &healthcareapis.ServiceArgs{
-// 			Kind:              pulumi.String("fhir"),
-// 			Location:          pulumi.String("eastus"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			ResourceName:      pulumi.String("service1"),
-// 			Tags:              nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Service struct {
 	pulumi.CustomResourceState
 

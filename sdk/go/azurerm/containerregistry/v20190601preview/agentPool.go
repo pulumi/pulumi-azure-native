@@ -12,40 +12,6 @@ import (
 
 // The agentpool that has the ARM resource and properties.
 // The agentpool will have all information to create an agent pool.
-//
-// ## Example Usage
-// ### AgentPools_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20190601preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := containerregistry.NewAgentPool(ctx, "agentPool", &containerregistry.AgentPoolArgs{
-// 			AgentPoolName:     pulumi.String("myAgentPool"),
-// 			Count:             pulumi.Int(1),
-// 			Location:          pulumi.String("WESTUS"),
-// 			Os:                pulumi.String("Linux"),
-// 			RegistryName:      pulumi.String("myRegistry"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			Tags: pulumi.StringMap{
-// 				"key": pulumi.String("value"),
-// 			},
-// 			Tier: pulumi.String("S1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type AgentPool struct {
 	pulumi.CustomResourceState
 

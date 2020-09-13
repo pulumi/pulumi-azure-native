@@ -11,38 +11,6 @@ import (
 )
 
 // The Connector model definition
-//
-// ## Example Usage
-// ### Connector_Put
-//
-// ```go
-// package main
-//
-// import (
-// 	costmanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/costmanagement/v20180801preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := costmanagement.NewConnector(ctx, "connector", &costmanagement.ConnectorArgs{
-// 			ConnectorName:     pulumi.String("AWSBillingAccount"),
-// 			CredentialsKey:    pulumi.String("arn:aws:iam::123456789012:role/AzureCostManagementRole"),
-// 			CredentialsSecret: pulumi.String("external-id"),
-// 			DisplayName:       pulumi.String("AWS-Consolidated-1"),
-// 			Location:          pulumi.String("westus"),
-// 			ReportId:          pulumi.String("HourlyWithResources"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			Status:            pulumi.String("active"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Connector struct {
 	pulumi.CustomResourceState
 

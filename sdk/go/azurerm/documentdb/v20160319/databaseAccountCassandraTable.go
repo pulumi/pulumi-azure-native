@@ -11,58 +11,6 @@ import (
 )
 
 // An Azure Cosmos DB Cassandra table.
-//
-// ## Example Usage
-// ### CosmosDBCassandraTableCreateUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/v20160319"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := documentdb.NewDatabaseAccountCassandraTable(ctx, "databaseAccountCassandraTable", &documentdb.DatabaseAccountCassandraTableArgs{
-// 			AccountName:  pulumi.String("ddb1"),
-// 			KeyspaceName: pulumi.String("tableName"),
-// 			Options:      nil,
-// 			Resource: &documentdb.CassandraTableResourceArgs{
-// 				DefaultTtl: pulumi.Int(100),
-// 				Id:         pulumi.String("tableName"),
-// 				Schema: &documentdb.CassandraSchemaArgs{
-// 					ClusterKeys: documentdb.ClusterKeyArray{
-// 						&documentdb.ClusterKeyArgs{
-// 							Name:    pulumi.String("columnA"),
-// 							OrderBy: pulumi.String("Asc"),
-// 						},
-// 					},
-// 					Columns: documentdb.ColumnArray{
-// 						&documentdb.ColumnArgs{
-// 							Name: pulumi.String("columnA"),
-// 							Type: pulumi.String("Ascii"),
-// 						},
-// 					},
-// 					PartitionKeys: documentdb.CassandraPartitionKeyArray{
-// 						&documentdb.CassandraPartitionKeyArgs{
-// 							Name: pulumi.String("columnA"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			TableName:         pulumi.String("tableName"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type DatabaseAccountCassandraTable struct {
 	pulumi.CustomResourceState
 

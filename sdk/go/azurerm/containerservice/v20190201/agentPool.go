@@ -11,37 +11,6 @@ import (
 )
 
 // Agent Pool.
-//
-// ## Example Usage
-// ### Create/Update Agent Pool
-//
-// ```go
-// package main
-//
-// import (
-// 	containerservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerservice/v20190201"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := containerservice.NewAgentPool(ctx, "agentPool", &containerservice.AgentPoolArgs{
-// 			AgentPoolName:       pulumi.String("agentpool1"),
-// 			Count:               pulumi.Int(3),
-// 			ManagedClusterName:  pulumi.String("clustername1"),
-// 			OrchestratorVersion: pulumi.String(""),
-// 			OsType:              pulumi.String("Linux"),
-// 			ResourceGroupName:   pulumi.String("rg1"),
-// 			VmSize:              pulumi.String("Standard_DS1_v2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type AgentPool struct {
 	pulumi.CustomResourceState
 

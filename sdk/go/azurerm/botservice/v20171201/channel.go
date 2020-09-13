@@ -11,13 +11,6 @@ import (
 )
 
 // Bot channel resource definition
-//
-// ## Example Usage
-// ### Create Bot
-//
-// ```go
-//
-// ```
 type Channel struct {
 	pulumi.CustomResourceState
 

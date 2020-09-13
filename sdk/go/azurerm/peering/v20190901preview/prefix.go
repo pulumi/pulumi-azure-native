@@ -11,34 +11,6 @@ import (
 )
 
 // The peering service prefix class.
-//
-// ## Example Usage
-// ### Create or update a prefix for the peering service
-//
-// ```go
-// package main
-//
-// import (
-// 	peering "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/peering/v20190901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := peering.NewPrefix(ctx, "prefix", &peering.PrefixArgs{
-// 			PeeringServiceName: pulumi.String("MyPeeringService"),
-// 			Prefix:             pulumi.String("192.168.1.0/24"),
-// 			PrefixName:         pulumi.String("MyPeeringServicePrefix"),
-// 			ResourceGroupName:  pulumi.String("MyResourceGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Prefix struct {
 	pulumi.CustomResourceState
 

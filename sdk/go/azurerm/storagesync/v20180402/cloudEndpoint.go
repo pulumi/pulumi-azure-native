@@ -11,37 +11,6 @@ import (
 )
 
 // Cloud Endpoint object.
-//
-// ## Example Usage
-// ### CloudEndpoints_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	storagesync "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storagesync/v20180402"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagesync.NewCloudEndpoint(ctx, "cloudEndpoint", &storagesync.CloudEndpointArgs{
-// 			CloudEndpointName:        pulumi.String("SampleCloudEndpoint_1"),
-// 			ResourceGroupName:        pulumi.String("SampleResourceGroup_1"),
-// 			StorageAccountResourceId: pulumi.String(""),
-// 			StorageAccountShareName:  pulumi.String(""),
-// 			StorageAccountTenantId:   pulumi.String("\"a4d1b191-c1af-4cef-a14b-f670e0beea52\""),
-// 			StorageSyncServiceName:   pulumi.String("SampleStorageSyncService_1"),
-// 			SyncGroupName:            pulumi.String("SampleSyncGroup_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type CloudEndpoint struct {
 	pulumi.CustomResourceState
 

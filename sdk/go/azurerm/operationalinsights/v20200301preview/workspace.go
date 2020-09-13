@@ -11,40 +11,6 @@ import (
 )
 
 // The top level Workspace resource container.
-//
-// ## Example Usage
-// ### WorkspacesCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	operationalinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationalinsights/v20200301preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := operationalinsights.NewWorkspace(ctx, "workspace", &operationalinsights.WorkspaceArgs{
-// 			Location:          pulumi.String("australiasoutheast"),
-// 			ResourceGroupName: pulumi.String("oiautorest6685"),
-// 			RetentionInDays:   pulumi.Int(30),
-// 			Sku: &operationalinsights.WorkspaceSkuArgs{
-// 				Name: pulumi.String("PerGB2018"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"tag1": pulumi.String("val1"),
-// 			},
-// 			WorkspaceName: pulumi.String("oiautorest6685"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Workspace struct {
 	pulumi.CustomResourceState
 

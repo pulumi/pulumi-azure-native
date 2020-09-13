@@ -11,33 +11,6 @@ import (
 )
 
 // A private endpoint connection
-//
-// ## Example Usage
-// ### Approve private endpoint connection
-//
-// ```go
-// package main
-//
-// import (
-// 	synapse "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/synapse/v20190601preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := synapse.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &synapse.PrivateEndpointConnectionArgs{
-// 			PrivateEndpointConnectionName: pulumi.String("ExamplePrivateEndpointConnection"),
-// 			ResourceGroupName:             pulumi.String("ExampleResourceGroup"),
-// 			WorkspaceName:                 pulumi.String("ExampleWorkspace"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

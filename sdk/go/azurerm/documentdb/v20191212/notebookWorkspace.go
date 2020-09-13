@@ -11,33 +11,6 @@ import (
 )
 
 // A notebook workspace resource
-//
-// ## Example Usage
-// ### CosmosDBNotebookWorkspaceCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/v20191212"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := documentdb.NewNotebookWorkspace(ctx, "notebookWorkspace", &documentdb.NotebookWorkspaceArgs{
-// 			AccountName:           pulumi.String("ddb1"),
-// 			NotebookWorkspaceName: pulumi.String("default"),
-// 			ResourceGroupName:     pulumi.String("rg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type NotebookWorkspace struct {
 	pulumi.CustomResourceState
 

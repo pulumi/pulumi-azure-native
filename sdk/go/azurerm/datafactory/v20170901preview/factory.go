@@ -11,42 +11,6 @@ import (
 )
 
 // Factory resource type.
-//
-// ## Example Usage
-// ### Factories_CreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	datafactory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datafactory/v20170901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datafactory.NewFactory(ctx, "factory", &datafactory.FactoryArgs{
-// 			FactoryName:       pulumi.String("exampleFactoryName"),
-// 			Location:          pulumi.String("East US"),
-// 			ResourceGroupName: pulumi.String("exampleResourceGroup"),
-// 			VstsConfiguration: &datafactory.FactoryVSTSConfigurationArgs{
-// 				AccountName:         pulumi.String("msdata"),
-// 				CollaborationBranch: pulumi.String("master"),
-// 				LastCommitId:        pulumi.String(""),
-// 				ProjectName:         pulumi.String("datafactory"),
-// 				RepositoryName:      pulumi.String("exampleRepo"),
-// 				RootFolder:          pulumi.String("/"),
-// 				TenantId:            pulumi.String("12f988bf-86d1-41af-91ab-2d7cd011db49"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Factory struct {
 	pulumi.CustomResourceState
 

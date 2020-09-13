@@ -11,36 +11,6 @@ import (
 )
 
 // Snapshot of a Volume
-//
-// ## Example Usage
-// ### Snapshots_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	netapp "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/netapp/v20190501"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := netapp.NewSnapshot(ctx, "snapshot", &netapp.SnapshotArgs{
-// 			AccountName:       pulumi.String("accountName"),
-// 			Location:          pulumi.String("eastus"),
-// 			PoolName:          pulumi.String("poolName"),
-// 			ResourceGroupName: pulumi.String("resourceGroup"),
-// 			SnapshotName:      pulumi.String("snapshotName"),
-// 			VolumeName:        pulumi.String("volumeName"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 

@@ -11,37 +11,6 @@ import (
 )
 
 // A private endpoint connection
-//
-// ## Example Usage
-// ### Approve or reject a private endpoint connection with a given name.
-//
-// ```go
-// package main
-//
-// import (
-// 	hybridcompute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hybridcompute/v20200815preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hybridcompute.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &hybridcompute.PrivateEndpointConnectionArgs{
-// 			PrivateEndpointConnectionName: pulumi.String("private-endpoint-connection-name"),
-// 			PrivateLinkServiceConnectionState: &hybridcompute.PrivateLinkServiceConnectionStatePropertyArgs{
-// 				Description: pulumi.String("Approved by johndoe@contoso.com"),
-// 				Status:      pulumi.String("Approved"),
-// 			},
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			ScopeName:         pulumi.String("myPrivateLinkScope"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

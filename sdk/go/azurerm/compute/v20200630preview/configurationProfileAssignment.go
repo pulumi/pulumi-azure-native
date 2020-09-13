@@ -11,33 +11,6 @@ import (
 )
 
 // Configuration profile assignment is an association between a VM and automanage profile configuration.
-//
-// ## Example Usage
-// ### Create or update configuration profile assignment
-//
-// ```go
-// package main
-//
-// import (
-// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200630preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := compute.NewConfigurationProfileAssignment(ctx, "configurationProfileAssignment", &compute.ConfigurationProfileAssignmentArgs{
-// 			ConfigurationProfileAssignmentName: pulumi.String("default"),
-// 			ResourceGroupName:                  pulumi.String("myResourceGroupName"),
-// 			VmName:                             pulumi.String("myVMName"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ConfigurationProfileAssignment struct {
 	pulumi.CustomResourceState
 

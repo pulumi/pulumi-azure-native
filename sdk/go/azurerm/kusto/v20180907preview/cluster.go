@@ -11,38 +11,6 @@ import (
 )
 
 // Class representing a Kusto cluster.
-//
-// ## Example Usage
-// ### KustoClustersCreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	kusto "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/kusto/v20180907preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kusto.NewCluster(ctx, "cluster", &kusto.ClusterArgs{
-// 			ClusterName:       pulumi.String("KustoClusterRPTest4"),
-// 			Location:          pulumi.String("westus"),
-// 			ResourceGroupName: pulumi.String("kustorptest"),
-// 			Sku: &kusto.AzureSkuArgs{
-// 				Capacity: pulumi.Int(2),
-// 				Name:     pulumi.String("L8"),
-// 				Tier:     pulumi.String("Standard"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

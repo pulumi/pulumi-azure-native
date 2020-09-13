@@ -11,37 +11,6 @@ import (
 )
 
 // Azure Migrate Project.
-//
-// ## Example Usage
-// ### Projects_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	migrate "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/migrate/v20180202"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := migrate.NewProject(ctx, "project", &migrate.ProjectArgs{
-// 			CustomerWorkspaceId:       pulumi.String("url-to-customers-service-map"),
-// 			CustomerWorkspaceLocation: pulumi.String("West Us"),
-// 			ETag:                      pulumi.String("\"b701c73a-0000-0000-0000-59c12ff00000\""),
-// 			Location:                  pulumi.String("West Us"),
-// 			ProjectName:               pulumi.String("project01"),
-// 			ResourceGroupName:         pulumi.String("myResourceGroup"),
-// 			Tags:                      nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Project struct {
 	pulumi.CustomResourceState
 

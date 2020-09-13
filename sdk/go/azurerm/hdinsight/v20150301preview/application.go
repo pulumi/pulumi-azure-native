@@ -11,33 +11,6 @@ import (
 )
 
 // The HDInsight cluster application
-//
-// ## Example Usage
-// ### Create Application
-//
-// ```go
-// package main
-//
-// import (
-// 	hdinsight "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hdinsight/v20150301preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hdinsight.NewApplication(ctx, "application", &hdinsight.ApplicationArgs{
-// 			ApplicationName:   pulumi.String("hue"),
-// 			ClusterName:       pulumi.String("cluster1"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Application struct {
 	pulumi.CustomResourceState
 

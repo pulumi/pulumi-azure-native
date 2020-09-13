@@ -11,43 +11,6 @@ import (
 )
 
 // Defines the properties of an Experiment
-//
-// ## Example Usage
-// ### Creates an Experiment
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20191101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewExperiment(ctx, "experiment", &network.ExperimentArgs{
-// 			Description:  pulumi.String("this is my first experiment!"),
-// 			EnabledState: pulumi.String("Enabled"),
-// 			EndpointA: &network.EndpointArgs{
-// 				Endpoint: pulumi.String("endpointA.net"),
-// 				Name:     pulumi.String("endpoint A"),
-// 			},
-// 			EndpointB: &network.EndpointArgs{
-// 				Endpoint: pulumi.String("endpointB.net"),
-// 				Name:     pulumi.String("endpoint B"),
-// 			},
-// 			ExperimentName:    pulumi.String("MyExperiment"),
-// 			ProfileName:       pulumi.String("MyProfile"),
-// 			ResourceGroupName: pulumi.String("MyResourceGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Experiment struct {
 	pulumi.CustomResourceState
 

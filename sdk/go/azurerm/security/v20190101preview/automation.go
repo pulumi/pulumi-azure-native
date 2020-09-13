@@ -11,23 +11,6 @@ import (
 )
 
 // The security automation resource.
-//
-// ## Example Usage
-// ### Create or update a security automation for all assessments
-//
-// ```go
-//
-// ```
-// ### Create or update a security automation for all high severity assessments
-//
-// ```go
-//
-// ```
-// ### Disable or enable a security automation
-//
-// ```go
-//
-// ```
 type Automation struct {
 	pulumi.CustomResourceState
 

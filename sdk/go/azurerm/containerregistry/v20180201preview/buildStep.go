@@ -11,34 +11,6 @@ import (
 )
 
 // Build step resource properties
-//
-// ## Example Usage
-// ### BuildSteps_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20180201preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := containerregistry.NewBuildStep(ctx, "buildStep", &containerregistry.BuildStepArgs{
-// 			BuildTaskName:     pulumi.String("myBuildTask"),
-// 			RegistryName:      pulumi.String("myRegistry"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			StepName:          pulumi.String("myStep"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type BuildStep struct {
 	pulumi.CustomResourceState
 

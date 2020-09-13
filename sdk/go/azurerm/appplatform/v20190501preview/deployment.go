@@ -11,34 +11,6 @@ import (
 )
 
 // Deployment resource payload
-//
-// ## Example Usage
-// ### Deployments_CreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	appplatform "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/appplatform/v20190501preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appplatform.NewDeployment(ctx, "deployment", &appplatform.DeploymentArgs{
-// 			AppName:           pulumi.String("myapp"),
-// 			DeploymentName:    pulumi.String("mydeployment"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			ServiceName:       pulumi.String("myservice"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Deployment struct {
 	pulumi.CustomResourceState
 

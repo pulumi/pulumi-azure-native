@@ -11,36 +11,6 @@ import (
 )
 
 // The response to an account resource GET request.
-//
-// ## Example Usage
-// ### Create an account resource
-//
-// ```go
-// package main
-//
-// import (
-// 	visualstudio "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/visualstudio/v20171101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := visualstudio.NewAccount(ctx, "account", &visualstudio.AccountArgs{
-// 			AccountName:       pulumi.String("Example"),
-// 			Location:          pulumi.String("Central US"),
-// 			OperationType:     "create",
-// 			ResourceGroupName: pulumi.String("VS-Example-Group"),
-// 			ResourceName:      pulumi.String("Example"),
-// 			Tags:              nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Account struct {
 	pulumi.CustomResourceState
 

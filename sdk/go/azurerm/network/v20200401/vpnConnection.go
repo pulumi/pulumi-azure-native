@@ -11,41 +11,6 @@ import (
 )
 
 // VpnConnection Resource.
-//
-// ## Example Usage
-// ### VpnConnectionPut
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20200401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewVpnConnection(ctx, "vpnConnection", &network.VpnConnectionArgs{
-// 			ConnectionName: pulumi.String("vpnConnection1"),
-// 			GatewayName:    pulumi.String("gateway1"),
-// 			RemoteVpnSite: &network.SubResourceArgs{
-// 				Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1"),
-// 			},
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			VpnLinkConnections: network.VpnSiteLinkConnectionArray{
-// 				&network.VpnSiteLinkConnectionArgs{
-// 					Name: pulumi.String("Connection-Link1"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type VpnConnection struct {
 	pulumi.CustomResourceState
 

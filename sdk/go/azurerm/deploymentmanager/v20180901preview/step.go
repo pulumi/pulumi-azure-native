@@ -11,34 +11,6 @@ import (
 )
 
 // The resource representation of a rollout step.
-//
-// ## Example Usage
-// ### Create deployment step
-//
-// ```go
-// package main
-//
-// import (
-// 	deploymentmanager "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/deploymentmanager/v20180901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := deploymentmanager.NewStep(ctx, "step", &deploymentmanager.StepArgs{
-// 			Location:          pulumi.String("centralus"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			StepName:          pulumi.String("deploymentStep1"),
-// 			Tags:              nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Step struct {
 	pulumi.CustomResourceState
 

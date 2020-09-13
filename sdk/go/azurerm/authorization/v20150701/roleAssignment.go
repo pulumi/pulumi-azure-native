@@ -11,32 +11,6 @@ import (
 )
 
 // Role Assignments
-//
-// ## Example Usage
-// ### GetConfigurations
-//
-// ```go
-// package main
-//
-// import (
-// 	authorization "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/authorization/v20150701"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := authorization.NewRoleAssignment(ctx, "roleAssignment", &authorization.RoleAssignmentArgs{
-// 			RoleAssignmentName: pulumi.String("roleAssignmentName"),
-// 			Scope:              pulumi.String("scope"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 

@@ -11,38 +11,6 @@ import (
 )
 
 // A DDoS custom policy in a resource group.
-//
-// ## Example Usage
-// ### Create DDoS custom policy
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20191101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewDdosCustomPolicy(ctx, "ddosCustomPolicy", &network.DdosCustomPolicyArgs{
-// 			DdosCustomPolicyName: pulumi.String("test-ddos-custom-policy"),
-// 			Location:             pulumi.String("centraluseuap"),
-// 			ProtocolCustomSettings: network.ProtocolCustomSettingsFormatArray{
-// 				&network.ProtocolCustomSettingsFormatArgs{
-// 					Protocol: pulumi.String("Tcp"),
-// 				},
-// 			},
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type DdosCustomPolicy struct {
 	pulumi.CustomResourceState
 

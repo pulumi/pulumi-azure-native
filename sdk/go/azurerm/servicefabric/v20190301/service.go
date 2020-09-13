@@ -11,18 +11,6 @@ import (
 )
 
 // The service resource.
-//
-// ## Example Usage
-// ### Put a service with maximum parameters
-//
-// ```go
-//
-// ```
-// ### Put a service with minimum parameters
-//
-// ```go
-//
-// ```
 type Service struct {
 	pulumi.CustomResourceState
 

@@ -11,43 +11,6 @@ import (
 )
 
 // Information about appliance definition.
-//
-// ## Example Usage
-// ### Create or update appliance definition
-//
-// ```go
-// package main
-//
-// import (
-// 	solutions "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/solutions/v20160901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := solutions.NewApplianceDefinition(ctx, "applianceDefinition", &solutions.ApplianceDefinitionArgs{
-// 			ApplianceDefinitionName: pulumi.String("myApplianceDef"),
-// 			Authorizations: solutions.ApplianceProviderAuthorizationArray{
-// 				&solutions.ApplianceProviderAuthorizationArgs{
-// 					PrincipalId:      pulumi.String("validprincipalguid"),
-// 					RoleDefinitionId: pulumi.String("validroleguid"),
-// 				},
-// 			},
-// 			Description:       pulumi.String("myApplianceDef description"),
-// 			DisplayName:       pulumi.String("myApplianceDef"),
-// 			Location:          pulumi.String("East US 2"),
-// 			LockLevel:         pulumi.String("None"),
-// 			PackageFileUri:    pulumi.String("https://path/to/packagezipfile"),
-// 			ResourceGroupName: pulumi.String("rg"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ApplianceDefinition struct {
 	pulumi.CustomResourceState
 

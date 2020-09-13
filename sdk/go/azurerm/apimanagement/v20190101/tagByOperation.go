@@ -11,35 +11,6 @@ import (
 )
 
 // Tag Contract details.
-//
-// ## Example Usage
-// ### ApiManagementCreateApiOperationTag
-//
-// ```go
-// package main
-//
-// import (
-// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20190101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apimanagement.NewTagByOperation(ctx, "tagByOperation", &apimanagement.TagByOperationArgs{
-// 			ApiId:             pulumi.String("5931a75ae4bbd512a88c680b"),
-// 			OperationId:       pulumi.String("5931a75ae4bbd512a88c680a"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			ServiceName:       pulumi.String("apimService1"),
-// 			TagId:             pulumi.String("tagId1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type TagByOperation struct {
 	pulumi.CustomResourceState
 

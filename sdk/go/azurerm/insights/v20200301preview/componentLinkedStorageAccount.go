@@ -11,34 +11,6 @@ import (
 )
 
 // An Application Insights component linked storage accounts
-//
-// ## Example Usage
-// ### ComponentLinkedStorageAccountsCreateAndUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20200301preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := insights.NewComponentLinkedStorageAccount(ctx, "componentLinkedStorageAccount", &insights.ComponentLinkedStorageAccountArgs{
-// 			LinkedStorageAccount: pulumi.String("/subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupName/providers/Microsoft.Storage/storageAccounts/storageaccountname"),
-// 			ResourceGroupName:    pulumi.String("someResourceGroupName"),
-// 			ResourceName:         pulumi.String("myComponent"),
-// 			StorageType:          pulumi.String("ServiceProfiler"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ComponentLinkedStorageAccount struct {
 	pulumi.CustomResourceState
 

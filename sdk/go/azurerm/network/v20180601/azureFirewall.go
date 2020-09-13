@@ -11,50 +11,6 @@ import (
 )
 
 // Azure Firewall resource
-//
-// ## Example Usage
-// ### Create Azure Firewall
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20180601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewAzureFirewall(ctx, "azureFirewall", &network.AzureFirewallArgs{
-// 			ApplicationRuleCollections: network.AzureFirewallApplicationRuleCollectionArray{
-// 				&network.AzureFirewallApplicationRuleCollectionArgs{
-// 					Name: pulumi.String("apprulecoll"),
-// 				},
-// 			},
-// 			AzureFirewallName: pulumi.String("azurefirewall"),
-// 			IpConfigurations: network.AzureFirewallIPConfigurationArray{
-// 				&network.AzureFirewallIPConfigurationArgs{
-// 					Name: pulumi.String("azureFirewallIpConfiguration"),
-// 				},
-// 			},
-// 			NetworkRuleCollections: network.AzureFirewallNetworkRuleCollectionArray{
-// 				&network.AzureFirewallNetworkRuleCollectionArgs{
-// 					Name: pulumi.String("netrulecoll"),
-// 				},
-// 			},
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			Tags: pulumi.StringMap{
-// 				"key1": pulumi.String("value1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type AzureFirewall struct {
 	pulumi.CustomResourceState
 

@@ -11,18 +11,6 @@ import (
 )
 
 // The Media Graph.
-//
-// ## Example Usage
-// ### Create or update a Media Graph with a clear RTSP Source
-//
-// ```go
-//
-// ```
-// ### Create or update a Media Graph with an encrypted RTSP Source
-//
-// ```go
-//
-// ```
 type MediaGraph struct {
 	pulumi.CustomResourceState
 

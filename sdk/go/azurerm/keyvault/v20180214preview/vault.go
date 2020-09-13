@@ -11,58 +11,6 @@ import (
 )
 
 // Resource information with extended details.
-//
-// ## Example Usage
-// ### Create a new vault or update an existing vault
-//
-// ```go
-// package main
-//
-// import (
-// 	keyvault "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/keyvault/v20180214preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := keyvault.NewVault(ctx, "vault", &keyvault.VaultArgs{
-// 			Location:          pulumi.String("westus"),
-// 			ResourceGroupName: pulumi.String("sample-resource-group"),
-// 			VaultName:         pulumi.String("sample-vault"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### Create or update a vault with network acls
-//
-// ```go
-// package main
-//
-// import (
-// 	keyvault "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/keyvault/v20180214preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := keyvault.NewVault(ctx, "vault", &keyvault.VaultArgs{
-// 			Location:          pulumi.String("westus"),
-// 			ResourceGroupName: pulumi.String("sample-resource-group"),
-// 			VaultName:         pulumi.String("sample-vault"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Vault struct {
 	pulumi.CustomResourceState
 

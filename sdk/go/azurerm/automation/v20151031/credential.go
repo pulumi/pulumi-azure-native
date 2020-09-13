@@ -11,37 +11,6 @@ import (
 )
 
 // Definition of the credential.
-//
-// ## Example Usage
-// ### Create a credential
-//
-// ```go
-// package main
-//
-// import (
-// 	automation "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/automation/v20151031"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := automation.NewCredential(ctx, "credential", &automation.CredentialArgs{
-// 			AutomationAccountName: pulumi.String("myAutomationAccount18"),
-// 			CredentialName:        pulumi.String("myCredential"),
-// 			Description:           pulumi.String("my description goes here"),
-// 			Name:                  pulumi.String("myCredential"),
-// 			Password:              pulumi.String("myPassw0rd"),
-// 			ResourceGroupName:     pulumi.String("rg"),
-// 			UserName:              pulumi.String("mylingaiah"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Credential struct {
 	pulumi.CustomResourceState
 

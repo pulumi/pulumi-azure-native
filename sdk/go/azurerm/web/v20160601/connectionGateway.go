@@ -11,32 +11,6 @@ import (
 )
 
 // The gateway definition
-//
-// ## Example Usage
-// ### Replace a connection gateway definition
-//
-// ```go
-// package main
-//
-// import (
-// 	web "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/web/v20160601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := web.NewConnectionGateway(ctx, "connectionGateway", &web.ConnectionGatewayArgs{
-// 			ConnectionGatewayName: pulumi.String("test123"),
-// 			ResourceGroupName:     pulumi.String("testResourceGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ConnectionGateway struct {
 	pulumi.CustomResourceState
 

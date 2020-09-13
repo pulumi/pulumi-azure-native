@@ -11,37 +11,6 @@ import (
 )
 
 // User details.
-//
-// ## Example Usage
-// ### ApiManagementCreateUserBasic
-//
-// ```go
-// package main
-//
-// import (
-// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20170301"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apimanagement.NewUser(ctx, "user", &apimanagement.UserArgs{
-// 			Confirmation:      pulumi.String("signup"),
-// 			Email:             pulumi.String("foobar@outlook.com"),
-// 			FirstName:         pulumi.String("foo"),
-// 			LastName:          pulumi.String("bar"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			ServiceName:       pulumi.String("apimService1"),
-// 			Uid:               pulumi.String("5931a75ae4bbd512288c680b"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type User struct {
 	pulumi.CustomResourceState
 

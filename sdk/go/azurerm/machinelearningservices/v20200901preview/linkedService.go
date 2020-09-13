@@ -11,38 +11,6 @@ import (
 )
 
 // Linked service.
-//
-// ## Example Usage
-// ### CreateLinkedService
-//
-// ```go
-// package main
-//
-// import (
-// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20200901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := machinelearningservices.NewLinkedService(ctx, "linkedService", &machinelearningservices.LinkedServiceArgs{
-// 			Identity: &machinelearningservices.IdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			LinkName:          pulumi.String("link-1"),
-// 			Location:          pulumi.String("westus"),
-// 			Name:              pulumi.String("link-1"),
-// 			ResourceGroupName: pulumi.String("resourceGroup-1"),
-// 			WorkspaceName:     pulumi.String("workspace-1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type LinkedService struct {
 	pulumi.CustomResourceState
 

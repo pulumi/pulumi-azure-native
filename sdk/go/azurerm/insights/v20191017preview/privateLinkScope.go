@@ -11,61 +11,6 @@ import (
 )
 
 // An Azure Monitor PrivateLinkScope definition.
-//
-// ## Example Usage
-// ### PrivateLinkScopeCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20191017preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := insights.NewPrivateLinkScope(ctx, "privateLinkScope", &insights.PrivateLinkScopeArgs{
-// 			Location:          pulumi.String("Global"),
-// 			ResourceGroupName: pulumi.String("my-resource-group"),
-// 			ScopeName:         pulumi.String("my-privatelinkscope"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### PrivateLinkScopeUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20191017preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := insights.NewPrivateLinkScope(ctx, "privateLinkScope", &insights.PrivateLinkScopeArgs{
-// 			Location:          pulumi.String("Global"),
-// 			ResourceGroupName: pulumi.String("my-resource-group"),
-// 			ScopeName:         pulumi.String("my-privatelinkscope"),
-// 			Tags: pulumi.StringMap{
-// 				"Tag1": pulumi.String("Value1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type PrivateLinkScope struct {
 	pulumi.CustomResourceState
 

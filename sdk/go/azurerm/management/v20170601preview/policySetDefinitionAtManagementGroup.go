@@ -11,50 +11,6 @@ import (
 )
 
 // The policy set definition.
-//
-// ## Example Usage
-// ### Put a policy set definition
-//
-// ```go
-// package main
-//
-// import (
-// 	management "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/management/v20170601preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := management.NewPolicySetDefinitionAtManagementGroup(ctx, "policySetDefinitionAtManagementGroup", &management.PolicySetDefinitionAtManagementGroupArgs{
-// 			Description:       pulumi.String("Policies required to minimize the risk of accidental cost overruns"),
-// 			DisplayName:       pulumi.String("VM and Storage Cost Management"),
-// 			ManagementGroupId: pulumi.String("mgid"),
-// 			Metadata: pulumi.StringMap{
-// 				"category": pulumi.String("Cost Management"),
-// 			},
-// 			PolicyDefinitions: management.PolicyDefinitionReferenceArray{
-// 				&management.PolicyDefinitionReferenceArgs{
-// 					Parameters: pulumi.StringArrayMapMap{
-// 						"listOfAllowedSKUs": pulumi.StringArrayMap{
-// 							"value": pulumi.StringArray{
-// 								pulumi.String("Standard_GRS"),
-// 								pulumi.String("Standard_LRS"),
-// 							},
-// 						},
-// 					},
-// 					PolicyDefinitionId: pulumi.String("/subscriptions/subId/providers/Microsoft.Authorization/policyDefinitions/storageSkus"),
-// 				},
-// 			},
-// 			PolicySetDefinitionName: pulumi.String("costManagement"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type PolicySetDefinitionAtManagementGroup struct {
 	pulumi.CustomResourceState
 

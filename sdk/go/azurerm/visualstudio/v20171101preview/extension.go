@@ -11,42 +11,6 @@ import (
 )
 
 // The response to an extension resource GET request.
-//
-// ## Example Usage
-// ### Create an extension resource
-//
-// ```go
-// package main
-//
-// import (
-// 	visualstudio "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/visualstudio/v20171101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := visualstudio.NewExtension(ctx, "extension", &visualstudio.ExtensionArgs{
-// 			AccountResourceName:   pulumi.String("ExampleAccount"),
-// 			ExtensionResourceName: pulumi.String("ms.example"),
-// 			Location:              pulumi.String("Central US"),
-// 			Plan: &visualstudio.ExtensionResourcePlanArgs{
-// 				Name:          pulumi.String("ExamplePlan"),
-// 				Product:       pulumi.String("ExampleExtensionName"),
-// 				PromotionCode: pulumi.String(""),
-// 				Publisher:     pulumi.String("ExampleExtensionPublisher"),
-// 				Version:       pulumi.String("1.0"),
-// 			},
-// 			ResourceGroupName: pulumi.String("VS-Example-Group"),
-// 			Tags:              nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Extension struct {
 	pulumi.CustomResourceState
 

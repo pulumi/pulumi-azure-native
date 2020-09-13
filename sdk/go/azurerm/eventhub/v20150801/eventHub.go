@@ -11,37 +11,6 @@ import (
 )
 
 // Single item in List or Get Event Hub operation
-//
-// ## Example Usage
-// ### EventHubCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	eventhub "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventhub/v20150801"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventhub.NewEventHub(ctx, "eventHub", &eventhub.EventHubArgs{
-// 			EventHubName:           pulumi.String("sdk-EventHub6448"),
-// 			Location:               pulumi.String("West US"),
-// 			MessageRetentionInDays: pulumi.Int(7),
-// 			NamespaceName:          pulumi.String("sdk-Namespace7834"),
-// 			PartitionCount:         pulumi.Int(4),
-// 			ResourceGroupName:      pulumi.String("Default-ServiceBus-WestUS"),
-// 			Status:                 pulumi.String("Active"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type EventHub struct {
 	pulumi.CustomResourceState
 

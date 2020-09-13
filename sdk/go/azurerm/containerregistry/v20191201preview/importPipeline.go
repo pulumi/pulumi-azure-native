@@ -11,13 +11,6 @@ import (
 )
 
 // An object that represents an import pipeline for a container registry.
-//
-// ## Example Usage
-// ### ImportPipelineCreate
-//
-// ```go
-//
-// ```
 type ImportPipeline struct {
 	pulumi.CustomResourceState
 

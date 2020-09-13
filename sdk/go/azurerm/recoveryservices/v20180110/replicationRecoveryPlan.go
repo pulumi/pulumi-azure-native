@@ -11,33 +11,6 @@ import (
 )
 
 // Recovery plan details.
-//
-// ## Example Usage
-// ### Creates a recovery plan with the given details.
-//
-// ```go
-// package main
-//
-// import (
-// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/v20180110"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := recoveryservices.NewReplicationRecoveryPlan(ctx, "replicationRecoveryPlan", &recoveryservices.ReplicationRecoveryPlanArgs{
-// 			RecoveryPlanName:  pulumi.String("RPtest1"),
-// 			ResourceGroupName: pulumi.String("resourceGroupPS1"),
-// 			ResourceName:      pulumi.String("vault1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ReplicationRecoveryPlan struct {
 	pulumi.CustomResourceState
 

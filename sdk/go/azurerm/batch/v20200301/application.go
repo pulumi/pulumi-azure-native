@@ -11,35 +11,6 @@ import (
 )
 
 // Contains information about an application in a Batch account.
-//
-// ## Example Usage
-// ### ApplicationCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	batch "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/batch/v20200301"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := batch.NewApplication(ctx, "application", &batch.ApplicationArgs{
-// 			AccountName:       pulumi.String("sampleacct"),
-// 			AllowUpdates:      pulumi.Bool(false),
-// 			ApplicationName:   pulumi.String("app1"),
-// 			DisplayName:       pulumi.String("myAppName"),
-// 			ResourceGroupName: pulumi.String("default-azurebatch-japaneast"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Application struct {
 	pulumi.CustomResourceState
 

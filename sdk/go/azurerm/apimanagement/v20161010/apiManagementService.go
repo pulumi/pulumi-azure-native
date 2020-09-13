@@ -11,39 +11,6 @@ import (
 )
 
 // A single API Management service resource in List or Get response.
-//
-// ## Example Usage
-// ### ApiManagementCreateService
-//
-// ```go
-// package main
-//
-// import (
-// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20161010"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apimanagement.NewApiManagementService(ctx, "apiManagementService", &apimanagement.ApiManagementServiceArgs{
-// 			Location:          pulumi.String("West US"),
-// 			PublisherEmail:    pulumi.String("admin@live.com"),
-// 			PublisherName:     pulumi.String("contoso"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			ServiceName:       pulumi.String("apimService1"),
-// 			Sku: &apimanagement.ApiManagementServiceSkuPropertiesArgs{
-// 				Capacity: pulumi.Int(1),
-// 				Name:     pulumi.String("Premium"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ApiManagementService struct {
 	pulumi.CustomResourceState
 

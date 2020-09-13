@@ -11,39 +11,6 @@ import (
 )
 
 // An Azure Cosmos DB Gremlin database.
-//
-// ## Example Usage
-// ### CosmosDBGremlinDatabaseCreateUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/v20191212"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := documentdb.NewGremlinResourceGremlinDatabase(ctx, "gremlinResourceGremlinDatabase", &documentdb.GremlinResourceGremlinDatabaseArgs{
-// 			AccountName:  pulumi.String("ddb1"),
-// 			DatabaseName: pulumi.String("databaseName"),
-// 			Location:     pulumi.String("West US"),
-// 			Options:      nil,
-// 			Resource: &documentdb.GremlinDatabaseResourceArgs{
-// 				Id: pulumi.String("databaseName"),
-// 			},
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			Tags:              nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type GremlinResourceGremlinDatabase struct {
 	pulumi.CustomResourceState
 

@@ -11,45 +11,6 @@ import (
 )
 
 // FirewallPolicy Resource.
-//
-// ## Example Usage
-// ### Create FirewallPolicy
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20200401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewFirewallPolicy(ctx, "firewallPolicy", &network.FirewallPolicyArgs{
-// 			FirewallPolicyName: pulumi.String("firewallPolicy"),
-// 			Location:           pulumi.String("West US"),
-// 			ResourceGroupName:  pulumi.String("rg1"),
-// 			Tags: pulumi.StringMap{
-// 				"key1": pulumi.String("value1"),
-// 			},
-// 			ThreatIntelMode: pulumi.String("Alert"),
-// 			ThreatIntelWhitelist: &network.FirewallPolicyThreatIntelWhitelistArgs{
-// 				Fqdns: pulumi.StringArray{
-// 					pulumi.String("*.microsoft.com"),
-// 				},
-// 				IpAddresses: pulumi.StringArray{
-// 					pulumi.String("20.3.4.5"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 

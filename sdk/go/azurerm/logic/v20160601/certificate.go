@@ -11,42 +11,6 @@ import (
 )
 
 // The integration account certificate.
-//
-// ## Example Usage
-// ### Create or update a certificate
-//
-// ```go
-// package main
-//
-// import (
-// 	logic "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/logic/v20160601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := logic.NewCertificate(ctx, "certificate", &logic.CertificateArgs{
-// 			CertificateName:        pulumi.String("testCertificate"),
-// 			IntegrationAccountName: pulumi.String("testIntegrationAccount"),
-// 			Key: &logic.KeyVaultKeyReferenceArgs{
-// 				KeyName: pulumi.String("<keyName>"),
-// 				KeyVault: &logic.KeyVaultKeyReferenceKeyVaultArgs{
-// 					Id: pulumi.String("/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/<keyVaultName>"),
-// 				},
-// 				KeyVersion: pulumi.String("87d9764197604449b9b8eb7bd8710868"),
-// 			},
-// 			Location:          pulumi.String("brazilsouth"),
-// 			PublicCertificate: pulumi.String("<publicCertificateValue>"),
-// 			ResourceGroupName: pulumi.String("testResourceGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 

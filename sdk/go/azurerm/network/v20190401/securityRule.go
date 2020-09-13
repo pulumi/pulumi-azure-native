@@ -11,41 +11,6 @@ import (
 )
 
 // Network security rule.
-//
-// ## Example Usage
-// ### Create security rule
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20190401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewSecurityRule(ctx, "securityRule", &network.SecurityRuleArgs{
-// 			Access:                   pulumi.String("Deny"),
-// 			DestinationAddressPrefix: pulumi.String("11.0.0.0/8"),
-// 			DestinationPortRange:     pulumi.String("8080"),
-// 			Direction:                pulumi.String("Outbound"),
-// 			NetworkSecurityGroupName: pulumi.String("testnsg"),
-// 			Priority:                 pulumi.Int(100),
-// 			Protocol:                 pulumi.String("*"),
-// 			ResourceGroupName:        pulumi.String("rg1"),
-// 			SecurityRuleName:         pulumi.String("rule1"),
-// 			SourceAddressPrefix:      pulumi.String("10.0.0.0/8"),
-// 			SourcePortRange:          pulumi.String("*"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type SecurityRule struct {
 	pulumi.CustomResourceState
 

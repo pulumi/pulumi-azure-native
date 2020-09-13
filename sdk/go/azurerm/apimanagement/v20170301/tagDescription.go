@@ -11,37 +11,6 @@ import (
 )
 
 // Contract details.
-//
-// ## Example Usage
-// ### ApiManagementCreateApiTagDescription
-//
-// ```go
-// package main
-//
-// import (
-// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20170301"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apimanagement.NewTagDescription(ctx, "tagDescription", &apimanagement.TagDescriptionArgs{
-// 			ApiId:                   pulumi.String("5931a75ae4bbd512a88c680b"),
-// 			Description:             pulumi.String("Some description that will be displayed for operation's tag if the tag is assigned to operation of the API"),
-// 			ExternalDocsDescription: pulumi.String("Description of the external docs resource"),
-// 			ExternalDocsUrl:         pulumi.String("http://some.url/additionaldoc"),
-// 			ResourceGroupName:       pulumi.String("rg1"),
-// 			ServiceName:             pulumi.String("apimService1"),
-// 			TagId:                   pulumi.String("tagId1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type TagDescription struct {
 	pulumi.CustomResourceState
 

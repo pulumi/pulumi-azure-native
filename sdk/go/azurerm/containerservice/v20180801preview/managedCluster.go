@@ -11,63 +11,6 @@ import (
 )
 
 // Managed cluster.
-//
-// ## Example Usage
-// ### Create/Update Managed Cluster
-//
-// ```go
-// package main
-//
-// import (
-// 	containerservice "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerservice/v20180801preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := containerservice.NewManagedCluster(ctx, "managedCluster", &containerservice.ManagedClusterArgs{
-// 			AddonProfiles: nil,
-// 			AgentPoolProfiles: containerservice.ManagedClusterAgentPoolProfileArray{
-// 				&containerservice.ManagedClusterAgentPoolProfileArgs{
-// 					Count:  pulumi.Int(3),
-// 					Name:   pulumi.String("nodepool1"),
-// 					OsType: pulumi.String("Linux"),
-// 					VmSize: pulumi.String("Standard_DS1_v2"),
-// 				},
-// 			},
-// 			DnsPrefix:         pulumi.String("dnsprefix1"),
-// 			EnableRBAC:        pulumi.Bool(false),
-// 			KubernetesVersion: pulumi.String(""),
-// 			LinuxProfile: &containerservice.ContainerServiceLinuxProfileArgs{
-// 				AdminUsername: pulumi.String("azureuser"),
-// 				Ssh: &containerservice.ContainerServiceSshConfigurationArgs{
-// 					PublicKeys: containerservice.ContainerServiceSshPublicKeyArray{
-// 						&containerservice.ContainerServiceSshPublicKeyArgs{
-// 							KeyData: pulumi.String("keydata"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Location:          pulumi.String("location1"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			ResourceName:      pulumi.String("clustername1"),
-// 			ServicePrincipalProfile: &containerservice.ManagedClusterServicePrincipalProfileArgs{
-// 				ClientId: pulumi.String("clientid"),
-// 				Secret:   pulumi.String("secret"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"archv2": pulumi.String(""),
-// 				"tier":   pulumi.String("production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 

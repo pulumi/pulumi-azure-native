@@ -11,13 +11,6 @@ import (
 )
 
 // Represents a Blueprint definition.
-//
-// ## Example Usage
-// ### Blueprint
-//
-// ```go
-//
-// ```
 type Blueprint struct {
 	pulumi.CustomResourceState
 

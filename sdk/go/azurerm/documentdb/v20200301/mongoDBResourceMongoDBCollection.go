@@ -11,56 +11,6 @@ import (
 )
 
 // An Azure Cosmos DB MongoDB collection.
-//
-// ## Example Usage
-// ### CosmosDBMongoDBCollectionCreateUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/v20200301"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := documentdb.NewMongoDBResourceMongoDBCollection(ctx, "mongoDBResourceMongoDBCollection", &documentdb.MongoDBResourceMongoDBCollectionArgs{
-// 			AccountName:    pulumi.String("ddb1"),
-// 			CollectionName: pulumi.String("collectionName"),
-// 			DatabaseName:   pulumi.String("databaseName"),
-// 			Location:       pulumi.String("West US"),
-// 			Options:        nil,
-// 			Resource: &documentdb.MongoDBCollectionResourceArgs{
-// 				Id: pulumi.String("collectionName"),
-// 				Indexes: documentdb.MongoIndexArray{
-// 					&documentdb.MongoIndexArgs{
-// 						Key: &documentdb.MongoIndexKeysArgs{
-// 							Keys: pulumi.StringArray{
-// 								pulumi.String("testKey"),
-// 							},
-// 						},
-// 						Options: &documentdb.MongoIndexOptionsArgs{
-// 							ExpireAfterSeconds: pulumi.Int(100),
-// 							Unique:             pulumi.Bool(true),
-// 						},
-// 					},
-// 				},
-// 				ShardKey: pulumi.StringMap{
-// 					"testKey": pulumi.String("Hash"),
-// 				},
-// 			},
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			Tags:              nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type MongoDBResourceMongoDBCollection struct {
 	pulumi.CustomResourceState
 

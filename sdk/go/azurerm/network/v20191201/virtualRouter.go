@@ -11,39 +11,6 @@ import (
 )
 
 // VirtualRouter Resource.
-//
-// ## Example Usage
-// ### Create VirtualRouter
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20191201"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewVirtualRouter(ctx, "virtualRouter", &network.VirtualRouterArgs{
-// 			HostedGateway: &network.SubResourceArgs{
-// 				Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vnetGateway"),
-// 			},
-// 			Location:          pulumi.String("West US"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			Tags: pulumi.StringMap{
-// 				"key1": pulumi.String("value1"),
-// 			},
-// 			VirtualRouterName: pulumi.String("virtualRouter"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type VirtualRouter struct {
 	pulumi.CustomResourceState
 

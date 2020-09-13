@@ -11,32 +11,6 @@ import (
 )
 
 // Tenant configuration.
-//
-// ## Example Usage
-// ### Create or update Tenant configuration
-//
-// ```go
-// package main
-//
-// import (
-// 	portal "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/portal/v20200901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := portal.NewTenantConfiguration(ctx, "tenantConfiguration", &portal.TenantConfigurationArgs{
-// 			ConfigurationName:             pulumi.String("default"),
-// 			EnforcePrivateMarkdownStorage: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type TenantConfiguration struct {
 	pulumi.CustomResourceState
 

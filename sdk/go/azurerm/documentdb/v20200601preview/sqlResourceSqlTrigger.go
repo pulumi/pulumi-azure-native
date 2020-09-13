@@ -11,42 +11,6 @@ import (
 )
 
 // An Azure Cosmos DB trigger.
-//
-// ## Example Usage
-// ### CosmosDBSqlTriggerCreateUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/v20200601preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := documentdb.NewSqlResourceSqlTrigger(ctx, "sqlResourceSqlTrigger", &documentdb.SqlResourceSqlTriggerArgs{
-// 			AccountName:   pulumi.String("ddb1"),
-// 			ContainerName: pulumi.String("containerName"),
-// 			DatabaseName:  pulumi.String("databaseName"),
-// 			Options:       nil,
-// 			Resource: &documentdb.SqlTriggerResourceArgs{
-// 				Body:             pulumi.String("body"),
-// 				Id:               pulumi.String("triggerName"),
-// 				TriggerOperation: pulumi.String("triggerOperation"),
-// 				TriggerType:      pulumi.String("triggerType"),
-// 			},
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			TriggerName:       pulumi.String("triggerName"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type SqlResourceSqlTrigger struct {
 	pulumi.CustomResourceState
 

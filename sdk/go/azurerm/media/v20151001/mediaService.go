@@ -11,39 +11,6 @@ import (
 )
 
 // The properties of a Media Service resource.
-//
-// ## Example Usage
-// ### MediaServiceCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	media "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/media/v20151001"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := media.NewMediaService(ctx, "mediaService", &media.MediaServiceArgs{
-// 			Location:          pulumi.String("West US"),
-// 			MediaServiceName:  pulumi.String("contosmedia"),
-// 			ResourceGroupName: pulumi.String("contosoresources"),
-// 			StorageAccounts: media.StorageAccountArray{
-// 				&media.StorageAccountArgs{
-// 					Id:        pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Storage/storageAccounts/contosostore"),
-// 					IsPrimary: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type MediaService struct {
 	pulumi.CustomResourceState
 

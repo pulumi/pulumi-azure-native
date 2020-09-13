@@ -11,13 +11,6 @@ import (
 )
 
 // Event Subscription
-//
-// ## Example Usage
-// ### SystemTopicEventSubscriptions_CreateOrUpdate
-//
-// ```go
-//
-// ```
 type SystemTopicEventSubscription struct {
 	pulumi.CustomResourceState
 

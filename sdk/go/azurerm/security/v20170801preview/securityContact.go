@@ -11,61 +11,6 @@ import (
 )
 
 // Contact details for security issues
-//
-// ## Example Usage
-// ### Create security contact data full
-//
-// ```go
-// package main
-//
-// import (
-// 	security "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/security/v20170801preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := security.NewSecurityContact(ctx, "securityContact", &security.SecurityContactArgs{
-// 			AlertNotifications:  pulumi.String("On"),
-// 			AlertsToAdmins:      pulumi.String("On"),
-// 			Email:               pulumi.String("john@contoso.com"),
-// 			Phone:               pulumi.String("(214)275-4038"),
-// 			SecurityContactName: pulumi.String("default1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### Create security contact data minimal
-//
-// ```go
-// package main
-//
-// import (
-// 	security "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/security/v20170801preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := security.NewSecurityContact(ctx, "securityContact", &security.SecurityContactArgs{
-// 			AlertNotifications:  pulumi.String("On"),
-// 			AlertsToAdmins:      pulumi.String("On"),
-// 			Email:               pulumi.String("chen@contoso.com"),
-// 			SecurityContactName: pulumi.String("default2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type SecurityContact struct {
 	pulumi.CustomResourceState
 

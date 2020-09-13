@@ -11,33 +11,6 @@ import (
 )
 
 // An application security group in a resource group.
-//
-// ## Example Usage
-// ### Create application security group
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20171001"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewApplicationSecurityGroup(ctx, "applicationSecurityGroup", &network.ApplicationSecurityGroupArgs{
-// 			ApplicationSecurityGroupName: pulumi.String("test-asg"),
-// 			Location:                     pulumi.String("westus"),
-// 			ResourceGroupName:            pulumi.String("rg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ApplicationSecurityGroup struct {
 	pulumi.CustomResourceState
 

@@ -11,64 +11,6 @@ import (
 )
 
 // Contains information about the job.
-//
-// ## Example Usage
-// ### Create or update job
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	batchai "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/batchai/v20180301"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := batchai.NewJob(ctx, "job", &batchai.JobArgs{
-// 			Cluster: &batchai.ResourceIdArgs{
-// 				Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo_resource_group/providers/Microsoft.BatchAI/clusters/demo_cluster"),
-// 			},
-// 			ContainerSettings: &batchai.ContainerSettingsArgs{
-// 				ImageSourceRegistry: &batchai.ImageSourceRegistryArgs{
-// 					Image: pulumi.String("ubuntu"),
-// 				},
-// 			},
-// 			CustomToolkitSettings: &batchai.CustomToolkitSettingsArgs{
-// 				CommandLine: pulumi.String(fmt.Sprintf("%v%v%v", "echo hi | tee ", "$", "AZ_BATCHAI_OUTPUT_OUTPUTS/hi.txt")),
-// 			},
-// 			InputDirectories: batchai.InputDirectoryArray{
-// 				&batchai.InputDirectoryArgs{
-// 					Id:   pulumi.String("INPUT"),
-// 					Path: pulumi.String(fmt.Sprintf("%v%v", "$", "AZ_BATCHAI_MOUNT_ROOT/azfiles/input")),
-// 				},
-// 			},
-// 			JobName:   pulumi.String("demo_job"),
-// 			Location:  pulumi.String("eastus"),
-// 			NodeCount: pulumi.Int(1),
-// 			OutputDirectories: batchai.OutputDirectoryArray{
-// 				&batchai.OutputDirectoryArgs{
-// 					CreateNew:  pulumi.Bool(true),
-// 					Id:         pulumi.String("OUTPUTS"),
-// 					PathPrefix: pulumi.String(fmt.Sprintf("%v%v", "$", "AZ_BATCHAI_MOUNT_ROOT/azfiles/")),
-// 					PathSuffix: pulumi.String("files"),
-// 					Type:       pulumi.String("custom"),
-// 				},
-// 			},
-// 			Priority:            pulumi.Int(0),
-// 			ResourceGroupName:   pulumi.String("demo_resource_group"),
-// 			StdOutErrPathPrefix: pulumi.String(fmt.Sprintf("%v%v", "$", "AZ_BATCHAI_MOUNT_ROOT/azfiles")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Job struct {
 	pulumi.CustomResourceState
 

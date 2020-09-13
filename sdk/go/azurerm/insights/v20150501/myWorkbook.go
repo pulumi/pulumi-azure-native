@@ -11,13 +11,6 @@ import (
 )
 
 // An Application Insights private workbook definition.
-//
-// ## Example Usage
-// ### WorkbookAdd
-//
-// ```go
-//
-// ```
 type MyWorkbook struct {
 	pulumi.CustomResourceState
 

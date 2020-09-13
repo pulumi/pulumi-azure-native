@@ -12,60 +12,6 @@ import (
 
 // The task that has the ARM resource and task properties.
 // The task will have all information to schedule a run against it.
-//
-// ## Example Usage
-// ### Tasks_Create
-//
-// ```go
-//
-// ```
-// ### Tasks_Create_QuickTask
-//
-// ```go
-// package main
-//
-// import (
-// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20190601preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := containerregistry.NewTask(ctx, "task", &containerregistry.TaskArgs{
-// 			IsSystemTask:      pulumi.Bool(true),
-// 			Location:          pulumi.String("eastus"),
-// 			LogTemplate:       pulumi.String("acr/tasks:{{.Run.OS}}"),
-// 			RegistryName:      pulumi.String("myRegistry"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			Status:            pulumi.String("Enabled"),
-// 			Tags: pulumi.StringMap{
-// 				"testkey": pulumi.String("value"),
-// 			},
-// 			TaskName: pulumi.String("quicktask"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### Tasks_Create_WithSystemAndUserIdentities
-//
-// ```go
-//
-// ```
-// ### Tasks_Create_WithUserIdentities
-//
-// ```go
-//
-// ```
-// ### Tasks_Create_WithUserIdentities_WithSystemIdentity
-//
-// ```go
-//
-// ```
 type Task struct {
 	pulumi.CustomResourceState
 

@@ -11,46 +11,6 @@ import (
 )
 
 // An object that represents a webhook for a container registry.
-//
-// ## Example Usage
-// ### WebhookCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20170601preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := containerregistry.NewWebhook(ctx, "webhook", &containerregistry.WebhookArgs{
-// 			Actions: pulumi.StringArray{
-// 				pulumi.String("push"),
-// 			},
-// 			CustomHeaders: pulumi.StringMap{
-// 				"Authorization": pulumi.String("Basic 000000000000000000000000000000000000000000000000000"),
-// 			},
-// 			Location:          pulumi.String("westus"),
-// 			RegistryName:      pulumi.String("myRegistry"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			Scope:             pulumi.String("myRepository"),
-// 			ServiceUri:        pulumi.String("http://myservice.com"),
-// 			Status:            pulumi.String("enabled"),
-// 			Tags: pulumi.StringMap{
-// 				"key": pulumi.String("value"),
-// 			},
-// 			WebhookName: pulumi.String("myWebhook"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Webhook struct {
 	pulumi.CustomResourceState
 

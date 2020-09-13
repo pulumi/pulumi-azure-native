@@ -11,18 +11,6 @@ import (
 )
 
 // Rule Group resource.
-//
-// ## Example Usage
-// ### Create FirewallPolicyRuleGroup
-//
-// ```go
-//
-// ```
-// ### Create FirewallPolicyRuleGroup With IpGroups
-//
-// ```go
-//
-// ```
 type FirewallPolicyRuleGroup struct {
 	pulumi.CustomResourceState
 

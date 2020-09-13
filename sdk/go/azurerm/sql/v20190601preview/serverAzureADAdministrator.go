@@ -11,37 +11,6 @@ import (
 )
 
 // Azure Active Directory administrator.
-//
-// ## Example Usage
-// ### Creates or updates an existing Azure Active Directory administrator.
-//
-// ```go
-// package main
-//
-// import (
-// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20190601preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewServerAzureADAdministrator(ctx, "serverAzureADAdministrator", &sql.ServerAzureADAdministratorArgs{
-// 			AdministratorName: pulumi.String("ActiveDirectory"),
-// 			AdministratorType: pulumi.String("ActiveDirectory"),
-// 			Login:             pulumi.String("bob@contoso.com"),
-// 			ResourceGroupName: pulumi.String("sqlcrudtest-4799"),
-// 			ServerName:        pulumi.String("sqlcrudtest-6440"),
-// 			Sid:               pulumi.String("c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c"),
-// 			TenantId:          pulumi.String("c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ServerAzureADAdministrator struct {
 	pulumi.CustomResourceState
 

@@ -11,33 +11,6 @@ import (
 )
 
 // Private Endpoint Connection Response Properties
-//
-// ## Example Usage
-// ### Update PrivateEndpointConnection
-//
-// ```go
-// package main
-//
-// import (
-// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/v20200202"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := recoveryservices.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &recoveryservices.PrivateEndpointConnectionArgs{
-// 			PrivateEndpointConnectionName: pulumi.String("gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b"),
-// 			ResourceGroupName:             pulumi.String("gaallaRG"),
-// 			VaultName:                     pulumi.String("gaallavaultbvtd2msi"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

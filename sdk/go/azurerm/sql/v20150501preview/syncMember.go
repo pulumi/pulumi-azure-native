@@ -11,68 +11,6 @@ import (
 )
 
 // An Azure SQL Database sync member.
-//
-// ## Example Usage
-// ### Create a new sync member
-//
-// ```go
-// package main
-//
-// import (
-// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20150501preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewSyncMember(ctx, "syncMember", &sql.SyncMemberArgs{
-// 			DatabaseName:      pulumi.String("syncgroupcrud-4328"),
-// 			DatabaseType:      pulumi.String("AzureSqlDatabase"),
-// 			ResourceGroupName: pulumi.String("syncgroupcrud-65440"),
-// 			ServerName:        pulumi.String("syncgroupcrud-8475"),
-// 			SyncDirection:     pulumi.String("Bidirectional"),
-// 			SyncGroupName:     pulumi.String("syncgroupcrud-3187"),
-// 			SyncMemberName:    pulumi.String("syncgroupcrud-4879"),
-// 			UserName:          pulumi.String("myUser"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### Update a sync member
-//
-// ```go
-// package main
-//
-// import (
-// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20150501preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewSyncMember(ctx, "syncMember", &sql.SyncMemberArgs{
-// 			DatabaseName:      pulumi.String("syncgroupcrud-7421"),
-// 			DatabaseType:      pulumi.String("AzureSqlDatabase"),
-// 			ResourceGroupName: pulumi.String("syncgroupcrud-65440"),
-// 			ServerName:        pulumi.String("syncgroupcrud-3379.database.windows.net"),
-// 			SyncDirection:     pulumi.String("Bidirectional"),
-// 			SyncGroupName:     pulumi.String("syncgroupcrud-3187"),
-// 			SyncMemberName:    pulumi.String("syncgroupcrud-4879"),
-// 			UserName:          pulumi.String("myUser"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type SyncMember struct {
 	pulumi.CustomResourceState
 

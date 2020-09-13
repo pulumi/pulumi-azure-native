@@ -11,69 +11,6 @@ import (
 )
 
 // An Azure SQL job agent.
-//
-// ## Example Usage
-// ### Create or update a job agent with all properties
-//
-// ```go
-// package main
-//
-// import (
-// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20170301preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewJobAgent(ctx, "jobAgent", &sql.JobAgentArgs{
-// 			DatabaseId:        pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/db1"),
-// 			JobAgentName:      pulumi.String("agent1"),
-// 			Location:          pulumi.String("southeastasia"),
-// 			ResourceGroupName: pulumi.String("group1"),
-// 			ServerName:        pulumi.String("server1"),
-// 			Sku: &sql.SkuArgs{
-// 				Capacity: pulumi.Int(100),
-// 				Name:     pulumi.String("Agent"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"octopus": pulumi.String("agent"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### Create or update a job agent with minimum properties
-//
-// ```go
-// package main
-//
-// import (
-// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20170301preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewJobAgent(ctx, "jobAgent", &sql.JobAgentArgs{
-// 			DatabaseId:        pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/db1"),
-// 			JobAgentName:      pulumi.String("agent1"),
-// 			Location:          pulumi.String("southeastasia"),
-// 			ResourceGroupName: pulumi.String("group1"),
-// 			ServerName:        pulumi.String("server1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type JobAgent struct {
 	pulumi.CustomResourceState
 

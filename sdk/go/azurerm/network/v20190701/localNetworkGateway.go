@@ -11,39 +11,6 @@ import (
 )
 
 // A common class for general resource information.
-//
-// ## Example Usage
-// ### CreateLocalNetworkGateway
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20190701"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewLocalNetworkGateway(ctx, "localNetworkGateway", &network.LocalNetworkGatewayArgs{
-// 			GatewayIpAddress: pulumi.String("11.12.13.14"),
-// 			LocalNetworkAddressSpace: &network.AddressSpaceArgs{
-// 				AddressPrefixes: pulumi.StringArray{
-// 					pulumi.String("10.1.0.0/16"),
-// 				},
-// 			},
-// 			LocalNetworkGatewayName: pulumi.String("localgw"),
-// 			Location:                pulumi.String("Central US"),
-// 			ResourceGroupName:       pulumi.String("rg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type LocalNetworkGateway struct {
 	pulumi.CustomResourceState
 

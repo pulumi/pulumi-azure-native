@@ -11,36 +11,6 @@ import (
 )
 
 // OpenId Connect Provider details.
-//
-// ## Example Usage
-// ### ApiManagementCreateOpenIdConnectProvider
-//
-// ```go
-// package main
-//
-// import (
-// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20180101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apimanagement.NewOpenIdConnectProvider(ctx, "openIdConnectProvider", &apimanagement.OpenIdConnectProviderArgs{
-// 			ClientId:          pulumi.String("oidprovidertemplate3"),
-// 			DisplayName:       pulumi.String("templateoidprovider3"),
-// 			MetadataEndpoint:  pulumi.String("https://oidprovider-template3.net"),
-// 			Opid:              pulumi.String("templateOpenIdConnect3"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			ServiceName:       pulumi.String("apimService1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type OpenIdConnectProvider struct {
 	pulumi.CustomResourceState
 

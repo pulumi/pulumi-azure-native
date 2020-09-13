@@ -11,35 +11,6 @@ import (
 )
 
 // Virtual Router Peering resource.
-//
-// ## Example Usage
-// ### Create Virtual Router Peering
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20191201"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewVirtualRouterPeering(ctx, "virtualRouterPeering", &network.VirtualRouterPeeringArgs{
-// 			PeerAsn:           pulumi.Int(20000),
-// 			PeerIp:            pulumi.String("192.168.1.5"),
-// 			PeeringName:       pulumi.String("peering1"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			VirtualRouterName: pulumi.String("virtualRouter"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type VirtualRouterPeering struct {
 	pulumi.CustomResourceState
 

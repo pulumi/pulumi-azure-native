@@ -11,38 +11,6 @@ import (
 )
 
 // Registration definition.
-//
-// ## Example Usage
-// ### Put Registration Definition
-//
-// ```go
-// package main
-//
-// import (
-// 	managedservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/managedservices/v20180601preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := managedservices.NewRegistrationDefinition(ctx, "registrationDefinition", &managedservices.RegistrationDefinitionArgs{
-// 			Plan: &managedservices.PlanArgs{
-// 				Name:      pulumi.String("addesai-plan"),
-// 				Product:   pulumi.String("test"),
-// 				Publisher: pulumi.String("marketplace-test"),
-// 				Version:   pulumi.String("1.0.0"),
-// 			},
-// 			RegistrationDefinitionId: pulumi.String("26c128c2-fefa-4340-9bb1-6e081c90ada2"),
-// 			Scope:                    pulumi.String("subscription/0afefe50-734e-4610-8a82-a144ahf49dea"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type RegistrationDefinition struct {
 	pulumi.CustomResourceState
 

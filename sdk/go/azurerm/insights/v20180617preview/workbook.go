@@ -11,40 +11,6 @@ import (
 )
 
 // An Application Insights workbook definition.
-//
-// ## Example Usage
-// ### WorkbookAdd
-//
-// ```go
-// package main
-//
-// import (
-// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20180617preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := insights.NewWorkbook(ctx, "workbook", &insights.WorkbookArgs{
-// 			Category:          pulumi.String("workbook"),
-// 			DisplayName:       pulumi.String("Blah Blah Blah"),
-// 			Kind:              pulumi.String("shared"),
-// 			Location:          pulumi.String("west us"),
-// 			ResourceGroupName: pulumi.String("my-resource-group"),
-// 			ResourceName:      pulumi.String("deadb33f-8bee-4d3b-a059-9be8dac93960"),
-// 			SerializedData:    pulumi.String("{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":\"{\"json\":\"## New workbook\\r\\n---\\r\\n\\r\\nWelcome to your new workbook.  This area will display text formatted as markdown.\\r\\n\\r\\n\\r\\nWe've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections.\"}\",\"halfWidth\":null,\"conditionalVisibility\":null},{\"type\":3,\"content\":\"{\"version\":\"KqlItem/1.0\",\"query\":\"union withsource=TableName *\\n| summarize Count=count() by TableName\\n| render barchart\",\"showQuery\":false,\"size\":1,\"aggregation\":0,\"showAnnotations\":false}\",\"halfWidth\":null,\"conditionalVisibility\":null}],\"isLocked\":false}"),
-// 			SourceId:          pulumi.String("/subscriptions/ad2f1a83-caac-4e21-9d2a-9ca3f87105e2/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/MyTestApp-CodeLens1"),
-// 			UserId:            pulumi.String("userId"),
-// 			Version:           pulumi.String("ME"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Workbook struct {
 	pulumi.CustomResourceState
 

@@ -11,33 +11,6 @@ import (
 )
 
 // Represents a disaster recovery configuration.
-//
-// ## Example Usage
-// ### Update a disaster recovery configuration
-//
-// ```go
-// package main
-//
-// import (
-// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20140401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewDisasterRecoveryConfiguration(ctx, "disasterRecoveryConfiguration", &sql.DisasterRecoveryConfigurationArgs{
-// 			DisasterRecoveryConfigurationName: pulumi.String("Default"),
-// 			ResourceGroupName:                 pulumi.String("sqlcrudtest-4799"),
-// 			ServerName:                        pulumi.String("sqlcrudtest-5961"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type DisasterRecoveryConfiguration struct {
 	pulumi.CustomResourceState
 

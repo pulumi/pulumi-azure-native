@@ -11,55 +11,6 @@ import (
 )
 
 // The health alert resource.
-//
-// ## Example Usage
-// ### CreateResourceHealthAlertRule
-//
-// ```go
-// package main
-//
-// import (
-// 	alertsmanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/alertsmanagement/v20200804preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := alertsmanagement.NewHealthAlert(ctx, "healthAlert", &alertsmanagement.HealthAlertArgs{
-// 			Actions: alertsmanagement.HealthAlertActionArray{
-// 				&alertsmanagement.HealthAlertActionArgs{
-// 					ActionGroupId: pulumi.String("/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2"),
-// 					WebHookProperties: pulumi.StringMap{
-// 						"key11": pulumi.String("value11"),
-// 						"key12": pulumi.String("value12"),
-// 					},
-// 				},
-// 			},
-// 			Criteria: &alertsmanagement.HealthAlertCriteriaArgs{
-// 				AllOf: alertsmanagement.VmGuestHealthAlertCriterionArray{
-// 					&alertsmanagement.VmGuestHealthAlertCriterionArgs{
-// 						HealthMonitorName: pulumi.String("root"),
-// 						Namespace:         pulumi.String("VmGuestHealth"),
-// 					},
-// 				},
-// 			},
-// 			Description:       pulumi.String("This is the description of the rule1"),
-// 			Enabled:           pulumi.Bool(true),
-// 			Location:          pulumi.String("global"),
-// 			ResourceGroupName: pulumi.String("gigtest"),
-// 			RuleName:          pulumi.String("highcpu"),
-// 			Scopes: pulumi.StringArray{
-// 				pulumi.String("/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type HealthAlert struct {
 	pulumi.CustomResourceState
 

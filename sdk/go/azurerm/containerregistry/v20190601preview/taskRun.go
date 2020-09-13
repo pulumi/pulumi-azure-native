@@ -12,13 +12,6 @@ import (
 
 // The task run that has the ARM resource and properties.
 // The task run will have the information of request and result of a run.
-//
-// ## Example Usage
-// ### TaskRuns_Create
-//
-// ```go
-//
-// ```
 type TaskRun struct {
 	pulumi.CustomResourceState
 

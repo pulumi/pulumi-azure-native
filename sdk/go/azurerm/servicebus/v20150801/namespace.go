@@ -11,41 +11,6 @@ import (
 )
 
 // Description of a namespace resource.
-//
-// ## Example Usage
-// ### NameSpaceCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	servicebus "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicebus/v20150801"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicebus.NewNamespace(ctx, "namespace", &servicebus.NamespaceArgs{
-// 			Location:          pulumi.String("West US"),
-// 			NamespaceName:     pulumi.String("sdk-Namespace7816"),
-// 			ResourceGroupName: pulumi.String("Default-ServiceBus-WestUS"),
-// 			Sku: &servicebus.SkuArgs{
-// 				Name: pulumi.String("Standard"),
-// 				Tier: pulumi.String("Standard"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"tag1": pulumi.String("value1"),
-// 				"tag2": pulumi.String("value2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Namespace struct {
 	pulumi.CustomResourceState
 

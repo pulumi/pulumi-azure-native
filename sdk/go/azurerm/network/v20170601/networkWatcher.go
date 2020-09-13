@@ -11,33 +11,6 @@ import (
 )
 
 // Network watcher in a resource group.
-//
-// ## Example Usage
-// ### Create Network Watcher
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20170601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewNetworkWatcher(ctx, "networkWatcher", &network.NetworkWatcherArgs{
-// 			Location:           pulumi.String("eastus"),
-// 			NetworkWatcherName: pulumi.String("nw1"),
-// 			ResourceGroupName:  pulumi.String("rg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type NetworkWatcher struct {
 	pulumi.CustomResourceState
 

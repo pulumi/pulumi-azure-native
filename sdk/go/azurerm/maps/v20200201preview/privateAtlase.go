@@ -11,37 +11,6 @@ import (
 )
 
 // An Azure resource which represents which will provision the ability to create private location data.
-//
-// ## Example Usage
-// ### CreatePrivateAtlas
-//
-// ```go
-// package main
-//
-// import (
-// 	maps "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/maps/v20200201preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := maps.NewPrivateAtlase(ctx, "privateAtlase", &maps.PrivateAtlaseArgs{
-// 			AccountName:       pulumi.String("myMapsAccount"),
-// 			Location:          pulumi.String("unitedstates"),
-// 			PrivateAtlasName:  pulumi.String("myPrivateAtlas"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			Tags: pulumi.StringMap{
-// 				"test": pulumi.String("true"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type PrivateAtlase struct {
 	pulumi.CustomResourceState
 

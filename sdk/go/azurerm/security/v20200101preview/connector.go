@@ -11,23 +11,6 @@ import (
 )
 
 // The connector setting
-//
-// ## Example Usage
-// ### AwsAssumeRole - Create a cloud account connector for a subscription
-//
-// ```go
-//
-// ```
-// ### AwsCred -  Create a cloud account connector for a subscription
-//
-// ```go
-//
-// ```
-// ### gcpCredentials - Create a cloud account connector for a subscription
-//
-// ```go
-//
-// ```
 type Connector struct {
 	pulumi.CustomResourceState
 

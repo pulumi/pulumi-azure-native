@@ -11,34 +11,6 @@ import (
 )
 
 // Datasources under OMS Workspace.
-//
-// ## Example Usage
-// ### DataSourcesCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	operationalinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationalinsights/v20151101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := operationalinsights.NewDataSource(ctx, "dataSource", &operationalinsights.DataSourceArgs{
-// 			DataSourceName:    pulumi.String("AzTestDS774"),
-// 			Kind:              pulumi.String("AzureActivityLog"),
-// 			ResourceGroupName: pulumi.String("OIAutoRest5123"),
-// 			WorkspaceName:     pulumi.String("AzTest9724"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type DataSource struct {
 	pulumi.CustomResourceState
 

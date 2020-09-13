@@ -11,60 +11,6 @@ import (
 )
 
 // The policy set definition.
-//
-// ## Example Usage
-// ### Create or update a policy set definition
-//
-// ```go
-// package main
-//
-// import (
-// 	authorization "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/authorization/v20190101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := authorization.NewPolicySetDefinition(ctx, "policySetDefinition", &authorization.PolicySetDefinitionArgs{
-// 			Description: pulumi.String("Policies to enforce low cost storage SKUs"),
-// 			DisplayName: pulumi.String("Cost Management"),
-// 			Metadata: pulumi.StringMap{
-// 				"category": pulumi.String("Cost Management"),
-// 			},
-// 			PolicyDefinitions: authorization.PolicyDefinitionReferenceArray{
-// 				&authorization.PolicyDefinitionReferenceArgs{
-// 					Parameters: pulumi.StringArrayMapMap{
-// 						"listOfAllowedSKUs": pulumi.StringArrayMap{
-// 							"value": pulumi.StringArray{
-// 								pulumi.String("Standard_GRS"),
-// 								pulumi.String("Standard_LRS"),
-// 							},
-// 						},
-// 					},
-// 					PolicyDefinitionId: pulumi.String("/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"),
-// 				},
-// 				&authorization.PolicyDefinitionReferenceArgs{
-// 					Parameters: pulumi.StringMapMap{
-// 						"prefix": pulumi.StringMap{
-// 							"value": pulumi.String("DeptA"),
-// 						},
-// 						"suffix": pulumi.StringMap{
-// 							"value": pulumi.String("-LC"),
-// 						},
-// 					},
-// 					PolicyDefinitionId: pulumi.String("/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"),
-// 				},
-// 			},
-// 			PolicySetDefinitionName: pulumi.String("CostManagement"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type PolicySetDefinition struct {
 	pulumi.CustomResourceState
 

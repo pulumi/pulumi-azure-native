@@ -11,52 +11,6 @@ import (
 )
 
 // Specifies information about the gallery Image Version that you want to create or update.
-//
-// ## Example Usage
-// ### Create or update a simple gallery Image Version.
-//
-// ```go
-// package main
-//
-// import (
-// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20180601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := compute.NewGalleryImageVersion(ctx, "galleryImageVersion", &compute.GalleryImageVersionArgs{
-// 			GalleryImageName:        pulumi.String("myGalleryImageName"),
-// 			GalleryImageVersionName: pulumi.String("1.0.0"),
-// 			GalleryName:             pulumi.String("myGalleryName"),
-// 			Location:                pulumi.String("West US"),
-// 			PublishingProfile: &compute.GalleryImageVersionPublishingProfileArgs{
-// 				Source: &compute.GalleryArtifactSourceArgs{
-// 					ManagedImage: &compute.ManagedArtifactArgs{
-// 						Id: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}"),
-// 					},
-// 				},
-// 				TargetRegions: compute.TargetRegionArray{
-// 					&compute.TargetRegionArgs{
-// 						Name:                 pulumi.String("West US"),
-// 						RegionalReplicaCount: pulumi.Int(1),
-// 					},
-// 					&compute.TargetRegionArgs{
-// 						Name:                 pulumi.String("East US"),
-// 						RegionalReplicaCount: pulumi.Int(2),
-// 					},
-// 				},
-// 			},
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type GalleryImageVersion struct {
 	pulumi.CustomResourceState
 

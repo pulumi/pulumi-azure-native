@@ -11,13 +11,6 @@ import (
 )
 
 // The workflow type.
-//
-// ## Example Usage
-// ### Create or update a workflow
-//
-// ```go
-//
-// ```
 type Workflow struct {
 	pulumi.CustomResourceState
 

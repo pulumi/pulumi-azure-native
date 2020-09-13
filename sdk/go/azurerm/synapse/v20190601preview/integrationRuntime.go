@@ -11,33 +11,6 @@ import (
 )
 
 // Integration runtime resource type.
-//
-// ## Example Usage
-// ### Create integration runtime
-//
-// ```go
-// package main
-//
-// import (
-// 	synapse "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/synapse/v20190601preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := synapse.NewIntegrationRuntime(ctx, "integrationRuntime", &synapse.IntegrationRuntimeArgs{
-// 			IntegrationRuntimeName: pulumi.String("exampleIntegrationRuntime"),
-// 			ResourceGroupName:      pulumi.String("exampleResourceGroup"),
-// 			WorkspaceName:          pulumi.String("exampleWorkspace"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type IntegrationRuntime struct {
 	pulumi.CustomResourceState
 

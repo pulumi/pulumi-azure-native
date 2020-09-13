@@ -11,13 +11,6 @@ import (
 )
 
 // Event Subscription
-//
-// ## Example Usage
-// ### PartnerTopicEventSubscriptions_CreateOrUpdate
-//
-// ```go
-//
-// ```
 type PartnerTopicEventSubscription struct {
 	pulumi.CustomResourceState
 

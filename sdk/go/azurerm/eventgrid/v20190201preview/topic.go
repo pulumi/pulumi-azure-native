@@ -11,37 +11,6 @@ import (
 )
 
 // EventGrid Topic
-//
-// ## Example Usage
-// ### Topics_CreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	eventgrid "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventgrid/v20190201preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventgrid.NewTopic(ctx, "topic", &eventgrid.TopicArgs{
-// 			Location:          pulumi.String("westus2"),
-// 			ResourceGroupName: pulumi.String("examplerg"),
-// 			Tags: pulumi.StringMap{
-// 				"tag1": pulumi.String("value1"),
-// 				"tag2": pulumi.String("value2"),
-// 			},
-// 			TopicName: pulumi.String("exampletopic1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Topic struct {
 	pulumi.CustomResourceState
 

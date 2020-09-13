@@ -11,62 +11,6 @@ import (
 )
 
 // Represents a server firewall rule.
-//
-// ## Example Usage
-// ### Create a firewall rule max/min
-//
-// ```go
-// package main
-//
-// import (
-// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20140401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewFirewallRule(ctx, "firewallRule", &sql.FirewallRuleArgs{
-// 			EndIpAddress:      pulumi.String("0.0.0.3"),
-// 			FirewallRuleName:  pulumi.String("firewallrulecrudtest-5370"),
-// 			ResourceGroupName: pulumi.String("firewallrulecrudtest-12"),
-// 			ServerName:        pulumi.String("firewallrulecrudtest-6285"),
-// 			StartIpAddress:    pulumi.String("0.0.0.3"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### Update a firewall rule max/min
-//
-// ```go
-// package main
-//
-// import (
-// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20140401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewFirewallRule(ctx, "firewallRule", &sql.FirewallRuleArgs{
-// 			EndIpAddress:      pulumi.String("0.0.0.1"),
-// 			FirewallRuleName:  pulumi.String("firewallrulecrudtest-3927"),
-// 			ResourceGroupName: pulumi.String("firewallrulecrudtest-12"),
-// 			ServerName:        pulumi.String("firewallrulecrudtest-6285"),
-// 			StartIpAddress:    pulumi.String("0.0.0.1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type FirewallRule struct {
 	pulumi.CustomResourceState
 

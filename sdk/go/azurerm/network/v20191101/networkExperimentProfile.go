@@ -11,34 +11,6 @@ import (
 )
 
 // Defines an Network Experiment Profile and lists of Experiments
-//
-// ## Example Usage
-// ### Creates an NetworkExperiment Profile in a Resource Group
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20191101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewNetworkExperimentProfile(ctx, "networkExperimentProfile", &network.NetworkExperimentProfileArgs{
-// 			EnabledState:      pulumi.String("Enabled"),
-// 			Location:          pulumi.String("WestUs"),
-// 			ProfileName:       pulumi.String("MyProfile"),
-// 			ResourceGroupName: pulumi.String("MyResourceGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type NetworkExperimentProfile struct {
 	pulumi.CustomResourceState
 

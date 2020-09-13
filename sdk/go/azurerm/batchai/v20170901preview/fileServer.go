@@ -11,45 +11,6 @@ import (
 )
 
 // Contains information about the File Server.
-//
-// ## Example Usage
-// ### Create or update file server
-//
-// ```go
-// package main
-//
-// import (
-// 	batchai "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/batchai/v20170901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := batchai.NewFileServer(ctx, "fileServer", &batchai.FileServerArgs{
-// 			DataDisks: &batchai.DataDisksArgs{
-// 				DiskCount:          pulumi.Int(2),
-// 				DiskSizeInGB:       pulumi.Int(10),
-// 				StorageAccountType: pulumi.String("Standard_LRS"),
-// 			},
-// 			FileServerName:    pulumi.String("demo_nfs"),
-// 			Location:          pulumi.String("eastus"),
-// 			ResourceGroupName: pulumi.String("demo_resource_group"),
-// 			SshConfiguration: &batchai.SshConfigurationArgs{
-// 				UserAccountSettings: &batchai.UserAccountSettingsArgs{
-// 					AdminUserName:     pulumi.String("admin_user_name"),
-// 					AdminUserPassword: pulumi.String("admin_user_password"),
-// 				},
-// 			},
-// 			VmSize: pulumi.String("STANDARD_NC6"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type FileServer struct {
 	pulumi.CustomResourceState
 

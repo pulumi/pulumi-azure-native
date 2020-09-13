@@ -11,38 +11,6 @@ import (
 )
 
 // Single item in a List or Get AuthorizationRule operation
-//
-// ## Example Usage
-// ### EventHubAuthorizationRuleCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	eventhub "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventhub/v20150801"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventhub.NewEventHubAuthorizationRule(ctx, "eventHubAuthorizationRule", &eventhub.EventHubAuthorizationRuleArgs{
-// 			AuthorizationRuleName: pulumi.String("sdk-Authrules9261"),
-// 			EventHubName:          pulumi.String("sdk-EventHub8887"),
-// 			NamespaceName:         pulumi.String("sdk-Namespace2290"),
-// 			ResourceGroupName:     pulumi.String("Default-ServiceBus-WestUS"),
-// 			Rights: pulumi.StringArray{
-// 				pulumi.String("Listen"),
-// 				pulumi.String("Send"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type EventHubAuthorizationRule struct {
 	pulumi.CustomResourceState
 

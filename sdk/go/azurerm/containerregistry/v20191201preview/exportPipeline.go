@@ -11,45 +11,6 @@ import (
 )
 
 // An object that represents an export pipeline for a container registry.
-//
-// ## Example Usage
-// ### ExportPipelineCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	containerregistry "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/containerregistry/v20191201preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := containerregistry.NewExportPipeline(ctx, "exportPipeline", &containerregistry.ExportPipelineArgs{
-// 			ExportPipelineName: pulumi.String("myExportPipeline"),
-// 			Identity: &containerregistry.IdentityPropertiesArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			Location: pulumi.String("westus"),
-// 			Options: pulumi.StringArray{
-// 				pulumi.String("OverwriteBlobs"),
-// 			},
-// 			RegistryName:      pulumi.String("myRegistry"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			Target: &containerregistry.ExportPipelineTargetPropertiesArgs{
-// 				KeyVaultUri: pulumi.String("https://myvault.vault.azure.net/secrets/acrexportsas"),
-// 				Type:        pulumi.String("AzureStorageBlobContainer"),
-// 				Uri:         pulumi.String("https://accountname.blob.core.windows.net/containername"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ExportPipeline struct {
 	pulumi.CustomResourceState
 

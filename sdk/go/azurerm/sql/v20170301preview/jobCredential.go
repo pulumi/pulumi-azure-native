@@ -11,36 +11,6 @@ import (
 )
 
 // A stored credential that can be used by a job to connect to target databases.
-//
-// ## Example Usage
-// ### Create or update a credential
-//
-// ```go
-// package main
-//
-// import (
-// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20170301preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewJobCredential(ctx, "jobCredential", &sql.JobCredentialArgs{
-// 			CredentialName:    pulumi.String("cred1"),
-// 			JobAgentName:      pulumi.String("agent1"),
-// 			Password:          pulumi.String("<password>"),
-// 			ResourceGroupName: pulumi.String("group1"),
-// 			ServerName:        pulumi.String("server1"),
-// 			Username:          pulumi.String("myuser"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type JobCredential struct {
 	pulumi.CustomResourceState
 

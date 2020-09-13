@@ -11,63 +11,6 @@ import (
 )
 
 // Contract details.
-//
-// ## Example Usage
-// ### ApiManagementCreateGroup
-//
-// ```go
-// package main
-//
-// import (
-// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20190101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apimanagement.NewGroup(ctx, "group", &apimanagement.GroupArgs{
-// 			DisplayName:       pulumi.String("temp group"),
-// 			GroupId:           pulumi.String("tempgroup"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			ServiceName:       pulumi.String("apimService1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### ApiManagementCreateGroupExternal
-//
-// ```go
-// package main
-//
-// import (
-// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20190101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apimanagement.NewGroup(ctx, "group", &apimanagement.GroupArgs{
-// 			Description:       pulumi.String("new group to test"),
-// 			DisplayName:       pulumi.String("NewGroup (samiraad.onmicrosoft.com)"),
-// 			ExternalId:        pulumi.String("aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d"),
-// 			GroupId:           pulumi.String("aadGroup"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			ServiceName:       pulumi.String("apimService1"),
-// 			Type:              pulumi.String("external"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Group struct {
 	pulumi.CustomResourceState
 

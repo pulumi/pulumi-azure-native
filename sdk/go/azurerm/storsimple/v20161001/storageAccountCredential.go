@@ -11,43 +11,6 @@ import (
 )
 
 // The storage account credential
-//
-// ## Example Usage
-// ### StorageAccountCredentialsCreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/v20161001"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storsimple.NewStorageAccountCredential(ctx, "storageAccountCredential", &storsimple.StorageAccountCredentialArgs{
-// 			AccessKey: &storsimple.AsymmetricEncryptedSecretArgs{
-// 				EncryptionAlgorithm:             pulumi.String("RSAES_PKCS1_v_1_5"),
-// 				EncryptionCertificateThumbprint: pulumi.String("D73DB57C4CDD6761E159F8D1E8A7D759424983FD"),
-// 				Value:                           pulumi.String("Ev1tm0QBmpGGm4a58GkqLqx8veJEEgQtg5K3Jizpmy7JdSv9dlcRwk59THw6KIdMDlEHcS8mPyneBtOEQsh4wkcFB7qrmQz+KsRAyIhEm6bwPEm3qN8+aDDzNcXn/6vu/sqV0AP7zit9/s7SxXGxjKrz4zKnOy16/DbzRRmUHNO+HO6JUM0cUfHXTX0mEecbsXqBq0A8IEG8z+bJgXX1EhoGkzE6yVsObm4S1AcKrLiwWjqmSLji5Q8gGO+y4KTTmC3p45h5GHHXjJyOccHhySWDAffxnTzUD/sOoh+aD2VkAYrL3DdnkVzhAdfcZfVI4soONx7tYMloZIVsfW1M2Q=="),
-// 			},
-// 			CloudType:         pulumi.String("Azure"),
-// 			CredentialName:    pulumi.String("DummySacForSDKTest"),
-// 			EnableSSL:         pulumi.String("Enabled"),
-// 			EndPoint:          pulumi.String("blob.core.windows.net"),
-// 			Location:          pulumi.String("West US"),
-// 			Login:             pulumi.String("SacForSDKTest"),
-// 			ManagerName:       pulumi.String("hAzureSDKOperations"),
-// 			ResourceGroupName: pulumi.String("ResourceGroupForSDKTest"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type StorageAccountCredential struct {
 	pulumi.CustomResourceState
 

@@ -11,34 +11,6 @@ import (
 )
 
 // AzureADMetrics resource.
-//
-// ## Example Usage
-// ### azureADMetricsCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	aadiam "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/aadiam/v20200701preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aadiam.NewazureADMetric(ctx, "azureADMetric", &aadiam.azureADMetricArgs{
-// 			AzureADMetricsName: pulumi.String("ddb1"),
-// 			Location:           pulumi.String("West US"),
-// 			ResourceGroupName:  pulumi.String("rg1"),
-// 			Tags:               nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type AzureADMetric struct {
 	pulumi.CustomResourceState
 

@@ -11,33 +11,6 @@ import (
 )
 
 // Represents a published Blueprint.
-//
-// ## Example Usage
-// ### PublishedBlueprint_Publish
-//
-// ```go
-// package main
-//
-// import (
-// 	management "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/management/v20171111preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := management.NewPublishedBlueprint(ctx, "publishedBlueprint", &management.PublishedBlueprintArgs{
-// 			BlueprintName:       pulumi.String("simpleBlueprint"),
-// 			ManagementGroupName: pulumi.String("ContosoOnlineGroup"),
-// 			VersionId:           pulumi.String("v2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type PublishedBlueprint struct {
 	pulumi.CustomResourceState
 

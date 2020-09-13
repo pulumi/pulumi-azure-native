@@ -11,34 +11,6 @@ import (
 )
 
 // The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-//
-// ## Example Usage
-// ### CreateSuppression
-//
-// ```go
-// package main
-//
-// import (
-// 	advisor "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/advisor/v20160712preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := advisor.NewSuppression(ctx, "suppression", &advisor.SuppressionArgs{
-// 			Name:             pulumi.String("suppressionName1"),
-// 			RecommendationId: pulumi.String("recommendationId"),
-// 			ResourceUri:      pulumi.String("resourceUri"),
-// 			Ttl:              pulumi.String("07:00:00:00"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Suppression struct {
 	pulumi.CustomResourceState
 

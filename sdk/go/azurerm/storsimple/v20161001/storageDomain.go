@@ -11,37 +11,6 @@ import (
 )
 
 // The storage domain.
-//
-// ## Example Usage
-// ### StorageDomainsCreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/v20161001"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storsimple.NewStorageDomain(ctx, "storageDomain", &storsimple.StorageDomainArgs{
-// 			EncryptionStatus:  pulumi.String("Disabled"),
-// 			ManagerName:       pulumi.String("hAzureSDKOperations"),
-// 			ResourceGroupName: pulumi.String("ResourceGroupForSDKTest"),
-// 			StorageAccountCredentialIds: pulumi.StringArray{
-// 				pulumi.String("/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageAccountCredentials/sacforsdktest"),
-// 			},
-// 			StorageDomainName: pulumi.String("sd-fs-HSDK-4XY4FI2IVG"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type StorageDomain struct {
 	pulumi.CustomResourceState
 

@@ -11,53 +11,6 @@ import (
 )
 
 // The relationship link resource format.
-//
-// ## Example Usage
-// ### RelationshipLinks_CreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	customerinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/customerinsights/v20170101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := customerinsights.NewRelationshipLink(ctx, "relationshipLink", &customerinsights.RelationshipLinkArgs{
-// 			Description: pulumi.StringMap{
-// 				"en-us": pulumi.String("Link Description"),
-// 			},
-// 			DisplayName: pulumi.StringMap{
-// 				"en-us": pulumi.String("Link DisplayName"),
-// 			},
-// 			HubName:         pulumi.String("sdkTestHub"),
-// 			InteractionType: pulumi.String("testInteraction4332"),
-// 			ProfilePropertyReferences: customerinsights.ParticipantPropertyReferenceArray{
-// 				&customerinsights.ParticipantPropertyReferenceArgs{
-// 					InteractionPropertyName: pulumi.String("profile1"),
-// 					ProfilePropertyName:     pulumi.String("ProfileId"),
-// 				},
-// 			},
-// 			RelatedProfilePropertyReferences: customerinsights.ParticipantPropertyReferenceArray{
-// 				&customerinsights.ParticipantPropertyReferenceArgs{
-// 					InteractionPropertyName: pulumi.String("profile1"),
-// 					ProfilePropertyName:     pulumi.String("ProfileId"),
-// 				},
-// 			},
-// 			RelationshipLinkName: pulumi.String("Somelink"),
-// 			RelationshipName:     pulumi.String("testProfile2326994"),
-// 			ResourceGroupName:    pulumi.String("TestHubRG"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type RelationshipLink struct {
 	pulumi.CustomResourceState
 

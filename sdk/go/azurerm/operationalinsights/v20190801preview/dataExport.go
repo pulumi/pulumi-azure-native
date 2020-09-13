@@ -11,36 +11,6 @@ import (
 )
 
 // The top level data export resource container.
-//
-// ## Example Usage
-// ### DataExportCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	operationalinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationalinsights/v20190801preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := operationalinsights.NewDataExport(ctx, "dataExport", &operationalinsights.DataExportArgs{
-// 			DataExportName:    pulumi.String("export1"),
-// 			ResourceGroupName: pulumi.String("RgTest1"),
-// 			TableNames: pulumi.StringArray{
-// 				pulumi.String("Heartbeat"),
-// 			},
-// 			WorkspaceName: pulumi.String("DeWnTest1234"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type DataExport struct {
 	pulumi.CustomResourceState
 

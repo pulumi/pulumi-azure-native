@@ -11,42 +11,6 @@ import (
 )
 
 // The storage account.
-//
-// ## Example Usage
-// ### StorageAccountCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	storage "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storage/v20180201"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storage.NewStorageAccount(ctx, "storageAccount", &storage.StorageAccountArgs{
-// 			AccountName:       pulumi.String("sto4445"),
-// 			IsHnsEnabled:      pulumi.Bool(true),
-// 			Kind:              pulumi.String("Storage"),
-// 			Location:          pulumi.String("eastus2euap"),
-// 			ResourceGroupName: pulumi.String("res9101"),
-// 			Sku: &storage.SkuArgs{
-// 				Name: pulumi.String("Standard_GRS"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"key1": pulumi.String("value1"),
-// 				"key2": pulumi.String("value2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type StorageAccount struct {
 	pulumi.CustomResourceState
 

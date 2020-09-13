@@ -11,18 +11,6 @@ import (
 )
 
 // Data store.
-//
-// ## Example Usage
-// ### DataStores_CreateOrUpdate_DataSinkPUT162
-//
-// ```go
-//
-// ```
-// ### DataStores_CreateOrUpdate_DataSourcePUT162
-//
-// ```go
-//
-// ```
 type DataStore struct {
 	pulumi.CustomResourceState
 

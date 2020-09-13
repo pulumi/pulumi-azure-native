@@ -11,54 +11,6 @@ import (
 )
 
 // Represents a Watchlist in Azure Security Insights.
-//
-// ## Example Usage
-// ### Creates a watchlist.
-//
-// ```go
-// package main
-//
-// import (
-// 	securityinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/securityinsights/v20190101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := securityinsights.NewWatchlist(ctx, "watchlist", &securityinsights.WatchlistArgs{
-// 			CreatedBy: &securityinsights.UserInfoArgs{
-// 				ObjectId: pulumi.String("2046feea-040d-4a46-9e2b-91c2941bfa70"),
-// 			},
-// 			CreatedTimeUtc:  pulumi.String("2019-01-01T13:15:30Z"),
-// 			DefaultDuration: pulumi.String("P1D2H3M4S"),
-// 			Description:     pulumi.String("Watchlist Description"),
-// 			DisplayName:     pulumi.String("High Value Assets Watchlist"),
-// 			Etag:            pulumi.String("\"0300bf09-0000-0000-0000-5c37296e0000\""),
-// 			Labels: pulumi.StringArray{
-// 				pulumi.String("Tag1"),
-// 				pulumi.String("Tag2"),
-// 			},
-// 			LastUpdatedTimeUtc:                  pulumi.String("2019-01-01T13:15:30Z"),
-// 			Notes:                               pulumi.String("A note for the watchlist"),
-// 			OperationalInsightsResourceProvider: pulumi.String("Microsoft.OperationalInsights"),
-// 			Provider:                            pulumi.String("Azure Sentinel"),
-// 			ResourceGroupName:                   pulumi.String("myRg"),
-// 			Source:                              pulumi.String("Local file"),
-// 			UpdatedBy: &securityinsights.UserInfoArgs{
-// 				ObjectId: pulumi.String("2046feea-040d-4a46-9e2b-91c2941bfa70"),
-// 			},
-// 			WatchlistAlias: pulumi.String("highValueAsset"),
-// 			WatchlistType:  pulumi.String("watchlist"),
-// 			WorkspaceName:  pulumi.String("myWorkspace"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Watchlist struct {
 	pulumi.CustomResourceState
 

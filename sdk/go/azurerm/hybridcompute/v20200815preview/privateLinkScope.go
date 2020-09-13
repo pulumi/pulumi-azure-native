@@ -11,61 +11,6 @@ import (
 )
 
 // An Azure Arc PrivateLinkScope definition.
-//
-// ## Example Usage
-// ### PrivateLinkScopeCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	hybridcompute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hybridcompute/v20200815preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hybridcompute.NewPrivateLinkScope(ctx, "privateLinkScope", &hybridcompute.PrivateLinkScopeArgs{
-// 			Location:          pulumi.String("westus"),
-// 			ResourceGroupName: pulumi.String("my-resource-group"),
-// 			ScopeName:         pulumi.String("my-privatelinkscope"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### PrivateLinkScopeUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	hybridcompute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hybridcompute/v20200815preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hybridcompute.NewPrivateLinkScope(ctx, "privateLinkScope", &hybridcompute.PrivateLinkScopeArgs{
-// 			Location:          pulumi.String("westus"),
-// 			ResourceGroupName: pulumi.String("my-resource-group"),
-// 			ScopeName:         pulumi.String("my-privatelinkscope"),
-// 			Tags: pulumi.StringMap{
-// 				"Tag1": pulumi.String("Value1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type PrivateLinkScope struct {
 	pulumi.CustomResourceState
 

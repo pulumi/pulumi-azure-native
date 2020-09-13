@@ -11,39 +11,6 @@ import (
 )
 
 // SSL certificate for an app.
-//
-// ## Example Usage
-// ### Create Or Update Certificate
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	web "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/web/v20181101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := web.NewCertificate(ctx, "certificate", &web.CertificateArgs{
-// 			HostNames: pulumi.StringArray{
-// 				pulumi.String("ServerCert"),
-// 			},
-// 			Location:          pulumi.String("East US"),
-// 			Name:              pulumi.String("testc6282"),
-// 			Password:          pulumi.String(fmt.Sprintf("%v%v%v%v%v", "SWsSsd__233", "$", "Sdsds#", "%", "Sd!")),
-// 			ResourceGroupName: pulumi.String("testrg123"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 

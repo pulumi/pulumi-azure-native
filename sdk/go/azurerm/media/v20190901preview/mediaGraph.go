@@ -11,55 +11,6 @@ import (
 )
 
 // The Media Graph.
-//
-// ## Example Usage
-// ### Create or update a Media Graph
-//
-// ```go
-// package main
-//
-// import (
-// 	media "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/media/v20190901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := media.NewMediaGraph(ctx, "mediaGraph", &media.MediaGraphArgs{
-// 			AccountName:       pulumi.String("contosomedia"),
-// 			Description:       pulumi.String("updated description"),
-// 			MediaGraphName:    pulumi.String("SampleMediaGraph"),
-// 			ResourceGroupName: pulumi.String("contoso"),
-// 			Sinks: media.MediaGraphAssetSinkArray{
-// 				&media.MediaGraphAssetSinkArgs{
-// 					AssetName: pulumi.String("SampleAsset"),
-// 					Inputs: pulumi.StringArray{
-// 						pulumi.String("rtspSource"),
-// 					},
-// 					Name:      pulumi.String("AssetSink"),
-// 					OdataType: pulumi.String("#Microsoft.Media.MediaGraphAssetSink"),
-// 				},
-// 			},
-// 			Sources: media.MediaGraphRtspSourceArray{
-// 				&media.MediaGraphRtspSourceArgs{
-// 					Credentials: &media.MediaGraphUserCredentialsArgs{
-// 						Password: pulumi.String("examplepassword"),
-// 						Username: pulumi.String("exampleusername"),
-// 					},
-// 					Name:      pulumi.String("rtspSource"),
-// 					OdataType: pulumi.String("#Microsoft.Media.MediaGraphRtspSource"),
-// 					RtspUrl:   pulumi.String("rtsp://contoso.com:554/stream1"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type MediaGraph struct {
 	pulumi.CustomResourceState
 

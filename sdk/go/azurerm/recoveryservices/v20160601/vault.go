@@ -11,39 +11,6 @@ import (
 )
 
 // Resource information, as returned by the resource provider.
-//
-// ## Example Usage
-// ### Create of Update Recovery Services vault
-//
-// ```go
-// package main
-//
-// import (
-// 	recoveryservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/recoveryservices/v20160601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Identity: &recoveryservices.IdentityDataArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			Location:          pulumi.String("West US"),
-// 			ResourceGroupName: pulumi.String("Default-RecoveryServices-ResourceGroup"),
-// 			Sku: &recoveryservices.SkuArgs{
-// 				Name: pulumi.String("Standard"),
-// 			},
-// 			VaultName: pulumi.String("swaggerExample"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Vault struct {
 	pulumi.CustomResourceState
 

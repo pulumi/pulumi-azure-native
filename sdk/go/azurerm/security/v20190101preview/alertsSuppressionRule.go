@@ -11,46 +11,6 @@ import (
 )
 
 // Describes the suppression rule
-//
-// ## Example Usage
-// ### Update or create suppression rule for subscription
-//
-// ```go
-// package main
-//
-// import (
-// 	security "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/security/v20190101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := security.NewAlertsSuppressionRule(ctx, "alertsSuppressionRule", &security.AlertsSuppressionRuleArgs{
-// 			AlertType:                 pulumi.String("IpAnomaly"),
-// 			AlertsSuppressionRuleName: pulumi.String("dismissIpAnomalyAlerts"),
-// 			Comment:                   pulumi.String("Test VM"),
-// 			ExpirationDateUtc:         pulumi.String("2019-12-01T19:50:47.083633Z"),
-// 			Reason:                    pulumi.String("FalsePositive"),
-// 			State:                     pulumi.String("Enabled"),
-// 			SuppressionAlertsScope: &security.SuppressionAlertsScopeArgs{
-// 				AllOf: security.ScopeElementArray{
-// 					&security.ScopeElementArgs{
-// 						Field: pulumi.String("entities.ip.address"),
-// 					},
-// 					&security.ScopeElementArgs{
-// 						Field: pulumi.String("entities.process.commandline"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type AlertsSuppressionRule struct {
 	pulumi.CustomResourceState
 

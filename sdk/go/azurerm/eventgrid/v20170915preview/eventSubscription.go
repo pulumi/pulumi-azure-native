@@ -11,28 +11,6 @@ import (
 )
 
 // Event Subscription
-//
-// ## Example Usage
-// ### EventSubscriptions_CreateForCustomTopic
-//
-// ```go
-//
-// ```
-// ### EventSubscriptions_CreateForResource
-//
-// ```go
-//
-// ```
-// ### EventSubscriptions_CreateForResourceGroup
-//
-// ```go
-//
-// ```
-// ### EventSubscriptions_CreateForSubscription
-//
-// ```go
-//
-// ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

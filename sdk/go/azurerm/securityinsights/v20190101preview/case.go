@@ -11,49 +11,6 @@ import (
 )
 
 // Represents a case in Azure Security Insights.
-//
-// ## Example Usage
-// ### Creates or updates a case.
-//
-// ```go
-// package main
-//
-// import (
-// 	securityinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/securityinsights/v20190101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := securityinsights.NewCase(ctx, "_case", &securityinsights.CaseArgs{
-// 			CaseId:      pulumi.String("73e01a99-5cd7-4139-a149-9f2736ff2ab5"),
-// 			CloseReason: pulumi.String("Resolved"),
-// 			Description: pulumi.String("This is a demo case"),
-// 			EndTimeUtc:  pulumi.String("2019-01-01T13:05:30Z"),
-// 			Etag:        pulumi.String("\"0300bf09-0000-0000-0000-5c37296e0000\""),
-// 			Labels: pulumi.StringArray{
-// 				pulumi.String("Tag1"),
-// 				pulumi.String("Tag2"),
-// 			},
-// 			OperationalInsightsResourceProvider: pulumi.String("Microsoft.OperationalInsights"),
-// 			Owner: &securityinsights.UserInfoArgs{
-// 				ObjectId: pulumi.String("2046feea-040d-4a46-9e2b-91c2941bfa70"),
-// 			},
-// 			ResourceGroupName: pulumi.String("myRg"),
-// 			Severity:          pulumi.String("High"),
-// 			StartTimeUtc:      pulumi.String("2019-01-01T13:00:30Z"),
-// 			Status:            pulumi.String("Closed"),
-// 			Title:             pulumi.String("My case"),
-// 			WorkspaceName:     pulumi.String("myWorkspace"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Case struct {
 	pulumi.CustomResourceState
 

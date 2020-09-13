@@ -11,43 +11,6 @@ import (
 )
 
 // The metric alert resource.
-//
-// ## Example Usage
-// ### Create or update a dynamic alert rule for Multiple Resources
-//
-// ```go
-//
-// ```
-// ### Create or update a dynamic alert rule for Single Resource
-//
-// ```go
-//
-// ```
-// ### Create or update a web test alert rule
-//
-// ```go
-//
-// ```
-// ### Create or update an alert rule for Multiple Resource
-//
-// ```go
-//
-// ```
-// ### Create or update an alert rule for Single Resource
-//
-// ```go
-//
-// ```
-// ### Create or update an alert rule on Resource group(s)
-//
-// ```go
-//
-// ```
-// ### Create or update an alert rule on Subscription
-//
-// ```go
-//
-// ```
 type MetricAlert struct {
 	pulumi.CustomResourceState
 

@@ -11,42 +11,6 @@ import (
 )
 
 // An object that represents a machine learning workspace.
-//
-// ## Example Usage
-// ### Create Workspace
-//
-// ```go
-// package main
-//
-// import (
-// 	machinelearningservices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningservices/v20190501"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := machinelearningservices.NewWorkspace(ctx, "workspace", &machinelearningservices.WorkspaceArgs{
-// 			ApplicationInsights: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights"),
-// 			ContainerRegistry:   pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry"),
-// 			Description:         pulumi.String("test description"),
-// 			FriendlyName:        pulumi.String("HelloName"),
-// 			Identity: &machinelearningservices.IdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			KeyVault:          pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv"),
-// 			Location:          pulumi.String("eastus2euap"),
-// 			ResourceGroupName: pulumi.String("workspace-1234"),
-// 			StorageAccount:    pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount"),
-// 			WorkspaceName:     pulumi.String("testworkspace"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Workspace struct {
 	pulumi.CustomResourceState
 

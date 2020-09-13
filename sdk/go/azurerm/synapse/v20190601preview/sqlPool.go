@@ -11,46 +11,6 @@ import (
 )
 
 // A SQL Analytics pool
-//
-// ## Example Usage
-// ### Create a SQL Analytics pool
-//
-// ```go
-// package main
-//
-// import (
-// 	synapse "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/synapse/v20190601preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := synapse.NewSqlPool(ctx, "sqlPool", &synapse.SqlPoolArgs{
-// 			Collation:             pulumi.String(""),
-// 			CreateMode:            pulumi.String(""),
-// 			CreationDate:          pulumi.String("1970-01-01T00:00:00.000Z"),
-// 			Location:              pulumi.String("West US 2"),
-// 			MaxSizeBytes:          pulumi.Int(0),
-// 			RecoverableDatabaseId: pulumi.String(""),
-// 			ResourceGroupName:     pulumi.String("ExampleResourceGroup"),
-// 			RestorePointInTime:    pulumi.String("1970-01-01T00:00:00.000Z"),
-// 			Sku: &synapse.SkuArgs{
-// 				Name: pulumi.String(""),
-// 				Tier: pulumi.String(""),
-// 			},
-// 			SourceDatabaseId: pulumi.String(""),
-// 			SqlPoolName:      pulumi.String("ExampleSqlPool"),
-// 			Tags:             nil,
-// 			WorkspaceName:    pulumi.String("ExampleWorkspace"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type SqlPool struct {
 	pulumi.CustomResourceState
 

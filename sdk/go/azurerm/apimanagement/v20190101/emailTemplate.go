@@ -11,36 +11,6 @@ import (
 )
 
 // Email Template details.
-//
-// ## Example Usage
-// ### ApiManagementCreateEmailTemplate
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20190101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apimanagement.NewEmailTemplate(ctx, "emailTemplate", &apimanagement.EmailTemplateArgs{
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			ServiceName:       pulumi.String("apimService1"),
-// 			Subject:           pulumi.String(fmt.Sprintf("%v%v%v", "Your request for ", "$", "IssueName was successfully received.")),
-// 			TemplateName:      pulumi.String("newIssueNotificationMessage"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type EmailTemplate struct {
 	pulumi.CustomResourceState
 

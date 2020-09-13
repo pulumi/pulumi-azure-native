@@ -11,39 +11,6 @@ import (
 )
 
 // The description of the IoT hub.
-//
-// ## Example Usage
-// ### IotHubResource_CreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	devices "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/devices/v20200301"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := devices.NewIotHubResource(ctx, "iotHubResource", &devices.IotHubResourceArgs{
-// 			Etag:              pulumi.String("AAAAAAFD6M4="),
-// 			Location:          pulumi.String("centraluseuap"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			ResourceName:      pulumi.String("testHub"),
-// 			Sku: &devices.IotHubSkuInfoArgs{
-// 				Capacity: pulumi.Int(1),
-// 				Name:     pulumi.String("S1"),
-// 			},
-// 			Tags: nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type IotHubResource struct {
 	pulumi.CustomResourceState
 

@@ -11,13 +11,6 @@ import (
 )
 
 // The alert rule resource.
-//
-// ## Example Usage
-// ### Create or update an alert rule
-//
-// ```go
-//
-// ```
 type AlertRule struct {
 	pulumi.CustomResourceState
 

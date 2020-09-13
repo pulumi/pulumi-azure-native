@@ -11,35 +11,6 @@ import (
 )
 
 // Represents a Database.
-//
-// ## Example Usage
-// ### DatabaseCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	dbforpostgresql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbforpostgresql/v20171201preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := dbforpostgresql.NewDatabase(ctx, "database", &dbforpostgresql.DatabaseArgs{
-// 			Charset:           pulumi.String("UTF8"),
-// 			Collation:         pulumi.String("English_United States.1252"),
-// 			DatabaseName:      pulumi.String("db1"),
-// 			ResourceGroupName: pulumi.String("TestGroup"),
-// 			ServerName:        pulumi.String("testserver"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Database struct {
 	pulumi.CustomResourceState
 

@@ -11,38 +11,6 @@ import (
 )
 
 // Hub resource.
-//
-// ## Example Usage
-// ### Hubs_CreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	customerinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/customerinsights/v20170101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := customerinsights.NewHub(ctx, "hub", &customerinsights.HubArgs{
-// 			HubBillingInfo: &customerinsights.HubBillingInfoFormatArgs{
-// 				MaxUnits: pulumi.Int(5),
-// 				MinUnits: pulumi.Int(1),
-// 				SkuName:  pulumi.String("B0"),
-// 			},
-// 			HubName:           pulumi.String("sdkTestHub"),
-// 			Location:          pulumi.String("West US"),
-// 			ResourceGroupName: pulumi.String("TestHubRG"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Hub struct {
 	pulumi.CustomResourceState
 

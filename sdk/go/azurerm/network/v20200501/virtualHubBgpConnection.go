@@ -11,35 +11,6 @@ import (
 )
 
 // Virtual Appliance Site resource.
-//
-// ## Example Usage
-// ### VirtualHubRouteTableV2Put
-//
-// ```go
-// package main
-//
-// import (
-// 	network "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/network/v20200501"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewVirtualHubBgpConnection(ctx, "virtualHubBgpConnection", &network.VirtualHubBgpConnectionArgs{
-// 			ConnectionName:    pulumi.String("conn1"),
-// 			PeerAsn:           pulumi.Int(20000),
-// 			PeerIp:            pulumi.String("192.168.1.5"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			VirtualHubName:    pulumi.String("hub1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type VirtualHubBgpConnection struct {
 	pulumi.CustomResourceState
 

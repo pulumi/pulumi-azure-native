@@ -11,61 +11,6 @@ import (
 )
 
 // The policy set definition.
-//
-// ## Example Usage
-// ### Create or update a policy set definition at management group level
-//
-// ```go
-// package main
-//
-// import (
-// 	management "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/management/v20180301"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := management.NewPolicySetDefinitionAtManagementGroup(ctx, "policySetDefinitionAtManagementGroup", &management.PolicySetDefinitionAtManagementGroupArgs{
-// 			Description:       pulumi.String("Policies to enforce low cost storage SKUs"),
-// 			DisplayName:       pulumi.String("Cost Management"),
-// 			ManagementGroupId: pulumi.String("MyManagementGroup"),
-// 			Metadata: pulumi.StringMap{
-// 				"category": pulumi.String("Cost Management"),
-// 			},
-// 			PolicyDefinitions: management.PolicyDefinitionReferenceArray{
-// 				&management.PolicyDefinitionReferenceArgs{
-// 					Parameters: pulumi.StringArrayMapMap{
-// 						"listOfAllowedSKUs": pulumi.StringArrayMap{
-// 							"value": pulumi.StringArray{
-// 								pulumi.String("Standard_GRS"),
-// 								pulumi.String("Standard_LRS"),
-// 							},
-// 						},
-// 					},
-// 					PolicyDefinitionId: pulumi.String("/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"),
-// 				},
-// 				&management.PolicyDefinitionReferenceArgs{
-// 					Parameters: pulumi.StringMapMap{
-// 						"prefix": pulumi.StringMap{
-// 							"value": pulumi.String("DeptA"),
-// 						},
-// 						"suffix": pulumi.StringMap{
-// 							"value": pulumi.String("-LC"),
-// 						},
-// 					},
-// 					PolicyDefinitionId: pulumi.String("/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming"),
-// 				},
-// 			},
-// 			PolicySetDefinitionName: pulumi.String("CostManagement"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type PolicySetDefinitionAtManagementGroup struct {
 	pulumi.CustomResourceState
 

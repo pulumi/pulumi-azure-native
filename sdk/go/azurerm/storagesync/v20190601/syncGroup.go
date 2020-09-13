@@ -11,33 +11,6 @@ import (
 )
 
 // Sync Group object.
-//
-// ## Example Usage
-// ### SyncGroups_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	storagesync "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storagesync/v20190601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagesync.NewSyncGroup(ctx, "syncGroup", &storagesync.SyncGroupArgs{
-// 			ResourceGroupName:      pulumi.String("SampleResourceGroup_1"),
-// 			StorageSyncServiceName: pulumi.String("SampleStorageSyncService_1"),
-// 			SyncGroupName:          pulumi.String("SampleSyncGroup_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type SyncGroup struct {
 	pulumi.CustomResourceState
 

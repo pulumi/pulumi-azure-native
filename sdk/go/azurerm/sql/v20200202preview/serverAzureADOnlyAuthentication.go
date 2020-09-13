@@ -11,34 +11,6 @@ import (
 )
 
 // Azure Active Directory only authentication.
-//
-// ## Example Usage
-// ### Creates or updates Azure Active Directory only authentication object.
-//
-// ```go
-// package main
-//
-// import (
-// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20200202preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewServerAzureADOnlyAuthentication(ctx, "serverAzureADOnlyAuthentication", &sql.ServerAzureADOnlyAuthenticationArgs{
-// 			AuthenticationName:        pulumi.String("Default"),
-// 			AzureADOnlyAuthentication: pulumi.Bool(false),
-// 			ResourceGroupName:         pulumi.String("sqlcrudtest-4799"),
-// 			ServerName:                pulumi.String("sqlcrudtest-6440"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ServerAzureADOnlyAuthentication struct {
 	pulumi.CustomResourceState
 

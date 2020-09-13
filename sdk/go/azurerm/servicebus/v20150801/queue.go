@@ -11,36 +11,6 @@ import (
 )
 
 // Description of queue Resource.
-//
-// ## Example Usage
-// ### QueueCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	servicebus "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicebus/v20150801"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicebus.NewQueue(ctx, "queue", &servicebus.QueueArgs{
-// 			EnableExpress:      pulumi.Bool(false),
-// 			EnablePartitioning: pulumi.Bool(false),
-// 			Location:           pulumi.String("West US"),
-// 			NamespaceName:      pulumi.String("sdk-Namespace3082"),
-// 			QueueName:          pulumi.String("sdk-Queues8544"),
-// 			ResourceGroupName:  pulumi.String("Default-ServiceBus-WestUS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Queue struct {
 	pulumi.CustomResourceState
 

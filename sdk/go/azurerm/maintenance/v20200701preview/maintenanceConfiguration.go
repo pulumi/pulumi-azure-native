@@ -11,36 +11,6 @@ import (
 )
 
 // Maintenance configuration record type
-//
-// ## Example Usage
-// ### MaintenanceConfigurations_CreateOrUpdateForResource
-//
-// ```go
-// package main
-//
-// import (
-// 	maintenance "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/maintenance/v20200701preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := maintenance.NewMaintenanceConfiguration(ctx, "maintenanceConfiguration", &maintenance.MaintenanceConfigurationArgs{
-// 			Location:          pulumi.String("westus2"),
-// 			MaintenanceScope:  pulumi.String("OSImage"),
-// 			Namespace:         pulumi.String("Microsoft.Maintenance"),
-// 			ResourceGroupName: pulumi.String("examplerg"),
-// 			ResourceName:      pulumi.String("configuration1"),
-// 			Visibility:        pulumi.String("Custom"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 

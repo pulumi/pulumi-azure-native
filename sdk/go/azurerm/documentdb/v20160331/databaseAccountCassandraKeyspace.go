@@ -11,37 +11,6 @@ import (
 )
 
 // An Azure Cosmos DB Cassandra keyspace.
-//
-// ## Example Usage
-// ### CosmosDBCassandraKeyspaceCreateUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	documentdb "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/documentdb/v20160331"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := documentdb.NewDatabaseAccountCassandraKeyspace(ctx, "databaseAccountCassandraKeyspace", &documentdb.DatabaseAccountCassandraKeyspaceArgs{
-// 			AccountName:  pulumi.String("ddb1"),
-// 			KeyspaceName: pulumi.String("keyspaceName"),
-// 			Options:      nil,
-// 			Resource: &documentdb.CassandraKeyspaceResourceArgs{
-// 				Id: pulumi.String("keyspaceName"),
-// 			},
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type DatabaseAccountCassandraKeyspace struct {
 	pulumi.CustomResourceState
 

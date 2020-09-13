@@ -11,33 +11,6 @@ import (
 )
 
 // Integration runtime resource type.
-//
-// ## Example Usage
-// ### IntegrationRuntimes_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	datafactory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datafactory/v20170901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datafactory.NewIntegrationRuntime(ctx, "integrationRuntime", &datafactory.IntegrationRuntimeArgs{
-// 			FactoryName:            pulumi.String("exampleFactoryName"),
-// 			IntegrationRuntimeName: pulumi.String("exampleIntegrationRuntime"),
-// 			ResourceGroupName:      pulumi.String("exampleResourceGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type IntegrationRuntime struct {
 	pulumi.CustomResourceState
 

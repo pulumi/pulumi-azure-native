@@ -11,36 +11,6 @@ import (
 )
 
 // A share data transfer object.
-//
-// ## Example Usage
-// ### Shares_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	datashare "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datashare/v20181101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datashare.NewShare(ctx, "share", &datashare.ShareArgs{
-// 			AccountName:       pulumi.String("Account1"),
-// 			Description:       pulumi.String("share description"),
-// 			ResourceGroupName: pulumi.String("SampleResourceGroup"),
-// 			ShareKind:         pulumi.String("CopyBased"),
-// 			ShareName:         pulumi.String("Share1"),
-// 			Terms:             pulumi.String("Confidential"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Share struct {
 	pulumi.CustomResourceState
 

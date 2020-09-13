@@ -11,35 +11,6 @@ import (
 )
 
 // Class representing a Kusto database.
-//
-// ## Example Usage
-// ### KustoDatabasesCreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	kusto "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/kusto/v20190515"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kusto.NewDatabase(ctx, "database", &kusto.DatabaseArgs{
-// 			ClusterName:       pulumi.String("KustoClusterRPTest4"),
-// 			DatabaseName:      pulumi.String("KustoDatabase8"),
-// 			Location:          pulumi.String("westus"),
-// 			ResourceGroupName: pulumi.String("kustorptest"),
-// 			SoftDeletePeriod:  pulumi.String("P1D"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Database struct {
 	pulumi.CustomResourceState
 

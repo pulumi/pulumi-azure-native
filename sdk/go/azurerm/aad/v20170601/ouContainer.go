@@ -11,36 +11,6 @@ import (
 )
 
 // Resource for OuContainer.
-//
-// ## Example Usage
-// ### Create Domain Service
-//
-// ```go
-// package main
-//
-// import (
-// 	aad "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/aad/v20170601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aad.NewOuContainer(ctx, "ouContainer", &aad.OuContainerArgs{
-// 			AccountName:       pulumi.String("AccountName1"),
-// 			DomainServiceName: pulumi.String("OuContainer.com"),
-// 			OuContainerName:   pulumi.String("OuContainer1"),
-// 			Password:          pulumi.String("Password1"),
-// 			ResourceGroupName: pulumi.String("OuContainerResourceGroup"),
-// 			Spn:               pulumi.String("Spn1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type OuContainer struct {
 	pulumi.CustomResourceState
 

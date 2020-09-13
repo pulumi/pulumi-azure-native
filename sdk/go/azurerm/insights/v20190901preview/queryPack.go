@@ -11,61 +11,6 @@ import (
 )
 
 // An Log Analytics QueryPack definition.
-//
-// ## Example Usage
-// ### QueryPackCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20190901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := insights.NewQueryPack(ctx, "queryPack", &insights.QueryPackArgs{
-// 			Location:          pulumi.String("South Central US"),
-// 			QueryPackName:     pulumi.String("my-querypack"),
-// 			ResourceGroupName: pulumi.String("my-resource-group"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### QueryPackUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	insights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/insights/v20190901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := insights.NewQueryPack(ctx, "queryPack", &insights.QueryPackArgs{
-// 			Location:          pulumi.String("South Central US"),
-// 			QueryPackName:     pulumi.String("my-querypack"),
-// 			ResourceGroupName: pulumi.String("my-resource-group"),
-// 			Tags: pulumi.StringMap{
-// 				"Tag1": pulumi.String("Value1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type QueryPack struct {
 	pulumi.CustomResourceState
 

@@ -11,34 +11,6 @@ import (
 )
 
 // Server communication link.
-//
-// ## Example Usage
-// ### Create a server communication link
-//
-// ```go
-// package main
-//
-// import (
-// 	sql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/sql/v20140401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sql.NewServerCommunicationLink(ctx, "serverCommunicationLink", &sql.ServerCommunicationLinkArgs{
-// 			CommunicationLinkName: pulumi.String("link1"),
-// 			PartnerServer:         pulumi.String("sqldcrudtest-test"),
-// 			ResourceGroupName:     pulumi.String("sqlcrudtest-7398"),
-// 			ServerName:            pulumi.String("sqlcrudtest-4645"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ServerCommunicationLink struct {
 	pulumi.CustomResourceState
 

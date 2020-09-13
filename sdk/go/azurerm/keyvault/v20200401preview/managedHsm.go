@@ -11,41 +11,6 @@ import (
 )
 
 // Resource information with extended details.
-//
-// ## Example Usage
-// ### Create a new managed HSM Pool or update an existing managed HSM Pool
-//
-// ```go
-// package main
-//
-// import (
-// 	keyvault "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/keyvault/v20200401preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := keyvault.NewManagedHsm(ctx, "managedHsm", &keyvault.ManagedHsmArgs{
-// 			Location:          pulumi.String("westus"),
-// 			Name:              pulumi.String("hsm1"),
-// 			ResourceGroupName: pulumi.String("hsm-group"),
-// 			Sku: &keyvault.ManagedHsmSkuArgs{
-// 				Family: pulumi.String("B"),
-// 				Name:   pulumi.String("Standard_B1"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Dept":        pulumi.String("hsm"),
-// 				"Environment": pulumi.String("dogfood"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ManagedHsm struct {
 	pulumi.CustomResourceState
 

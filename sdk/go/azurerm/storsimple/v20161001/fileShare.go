@@ -11,41 +11,6 @@ import (
 )
 
 // The File Share.
-//
-// ## Example Usage
-// ### FileSharesCreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/v20161001"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storsimple.NewFileShare(ctx, "fileShare", &storsimple.FileShareArgs{
-// 			AdminUser:                  pulumi.String("fareast\\idcdlslb"),
-// 			DataPolicy:                 pulumi.String("Tiered"),
-// 			Description:                pulumi.String("Demo FileShare for SDK Test Tiered"),
-// 			DeviceName:                 pulumi.String("HSDK-4XY4FI2IVG"),
-// 			FileServerName:             pulumi.String("HSDK-4XY4FI2IVG"),
-// 			ManagerName:                pulumi.String("hAzureSDKOperations"),
-// 			MonitoringStatus:           pulumi.String("Enabled"),
-// 			ProvisionedCapacityInBytes: pulumi.Int(536870912000),
-// 			ResourceGroupName:          pulumi.String("ResourceGroupForSDKTest"),
-// 			ShareName:                  pulumi.String("Auto-TestFileShare1"),
-// 			ShareStatus:                pulumi.String("Online"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type FileShare struct {
 	pulumi.CustomResourceState
 

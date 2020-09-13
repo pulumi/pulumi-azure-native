@@ -11,32 +11,6 @@ import (
 )
 
 // Define the move collection.
-//
-// ## Example Usage
-// ### MoveCollections_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	migrate "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/migrate/v20191001preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := migrate.NewMoveCollection(ctx, "moveCollection", &migrate.MoveCollectionArgs{
-// 			MoveCollectionName: pulumi.String("movecollection1"),
-// 			ResourceGroupName:  pulumi.String("rg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type MoveCollection struct {
 	pulumi.CustomResourceState
 

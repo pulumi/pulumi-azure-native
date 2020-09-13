@@ -11,32 +11,6 @@ import (
 )
 
 // API connection
-//
-// ## Example Usage
-// ### Replace a connection
-//
-// ```go
-// package main
-//
-// import (
-// 	web "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/web/v20160601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := web.NewConnection(ctx, "connection", &web.ConnectionArgs{
-// 			ConnectionName:    pulumi.String("testManagedApi"),
-// 			ResourceGroupName: pulumi.String("testResourceGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Connection struct {
 	pulumi.CustomResourceState
 

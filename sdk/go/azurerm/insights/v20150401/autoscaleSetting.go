@@ -11,13 +11,6 @@ import (
 )
 
 // The autoscale setting resource.
-//
-// ## Example Usage
-// ### Create or update an autoscale setting
-//
-// ```go
-//
-// ```
 type AutoscaleSetting struct {
 	pulumi.CustomResourceState
 
