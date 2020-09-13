@@ -85,6 +85,7 @@ func main() {
 		for _, language := range langs {
 			outdir := path.Join(".", "sdk", language)
 			log.Printf("Generating SDK for language: %s", language)
+			pkgSpec.Version = *version
 			err = emitPackage(pkgSpec, language, outdir)
 			if err != nil {
 				panic(err)
