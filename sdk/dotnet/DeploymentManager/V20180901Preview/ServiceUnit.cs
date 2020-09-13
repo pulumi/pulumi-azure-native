@@ -11,68 +11,6 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
 {
     /// <summary>
     /// Represents the response of a service unit resource.
-    /// 
-    /// ## Example Usage
-    /// ### Create service unit using SAS URIs
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var serviceUnit = new AzureRM.DeploymentManager.V20180901Preview.ServiceUnit("serviceUnit", new AzureRM.DeploymentManager.V20180901Preview.ServiceUnitArgs
-    ///         {
-    ///             Artifacts = new AzureRM.DeploymentManager.V20180901Preview.Inputs.ServiceUnitArtifactsArgs
-    ///             {
-    ///                 ParametersUri = "https://mystorageaccount.blob.core.windows.net/myartifactsource/parameter/myTopologyUnit.parameters.json?st=2018-07-07T14%3A10%3A00Z&amp;se=2019-12-31T15%3A10%3A00Z&amp;sp=rl&amp;sv=2017-04-17&amp;sr=c&amp;sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D",
-    ///                 TemplateUri = "https://mystorageaccount.blob.core.windows.net/myartifactsource/templates/myTopologyUnit.template.json?st=2018-07-07T14%3A10%3A00Z&amp;se=2019-12-31T15%3A10%3A00Z&amp;sp=rl&amp;sv=2017-04-17&amp;sr=c&amp;sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D",
-    ///             },
-    ///             DeploymentMode = "Incremental",
-    ///             Location = "centralus",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             ServiceName = "myService",
-    ///             ServiceTopologyName = "myTopology",
-    ///             ServiceUnitName = "myServiceUnit",
-    ///             Tags = ,
-    ///             TargetResourceGroup = "myDeploymentResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Create service unit using relative paths into the artifact source
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var serviceUnit = new AzureRM.DeploymentManager.V20180901Preview.ServiceUnit("serviceUnit", new AzureRM.DeploymentManager.V20180901Preview.ServiceUnitArgs
-    ///         {
-    ///             Artifacts = new AzureRM.DeploymentManager.V20180901Preview.Inputs.ServiceUnitArtifactsArgs
-    ///             {
-    ///                 ParametersArtifactSourceRelativePath = "parameter/myTopologyUnit.parameters.json",
-    ///                 TemplateArtifactSourceRelativePath = "templates/myTopologyUnit.template.json",
-    ///             },
-    ///             DeploymentMode = "Incremental",
-    ///             Location = "centralus",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             ServiceName = "myService",
-    ///             ServiceTopologyName = "myTopology",
-    ///             ServiceUnitName = "myServiceUnit",
-    ///             Tags = ,
-    ///             TargetResourceGroup = "myDeploymentResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ServiceUnit : Pulumi.CustomResource
     {

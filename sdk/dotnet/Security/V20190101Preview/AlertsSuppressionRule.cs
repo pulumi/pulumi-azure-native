@@ -11,45 +11,6 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
 {
     /// <summary>
     /// Describes the suppression rule
-    /// 
-    /// ## Example Usage
-    /// ### Update or create suppression rule for subscription
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var alertsSuppressionRule = new AzureRM.Security.V20190101Preview.AlertsSuppressionRule("alertsSuppressionRule", new AzureRM.Security.V20190101Preview.AlertsSuppressionRuleArgs
-    ///         {
-    ///             AlertType = "IpAnomaly",
-    ///             AlertsSuppressionRuleName = "dismissIpAnomalyAlerts",
-    ///             Comment = "Test VM",
-    ///             ExpirationDateUtc = "2019-12-01T19:50:47.083633Z",
-    ///             Reason = "FalsePositive",
-    ///             State = "Enabled",
-    ///             SuppressionAlertsScope = new AzureRM.Security.V20190101Preview.Inputs.SuppressionAlertsScopeArgs
-    ///             {
-    ///                 AllOf = 
-    ///                 {
-    ///                     new AzureRM.Security.V20190101Preview.Inputs.ScopeElementArgs
-    ///                     {
-    ///                         Field = "entities.ip.address",
-    ///                     },
-    ///                     new AzureRM.Security.V20190101Preview.Inputs.ScopeElementArgs
-    ///                     {
-    ///                         Field = "entities.process.commandline",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class AlertsSuppressionRule : Pulumi.CustomResource
     {

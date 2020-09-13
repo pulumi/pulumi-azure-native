@@ -11,36 +11,6 @@ namespace Pulumi.AzureRM.Network.V20190201
 {
     /// <summary>
     /// A common class for general resource information
-    /// 
-    /// ## Example Usage
-    /// ### CreateLocalNetworkGateway
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var localNetworkGateway = new AzureRM.Network.V20190201.LocalNetworkGateway("localNetworkGateway", new AzureRM.Network.V20190201.LocalNetworkGatewayArgs
-    ///         {
-    ///             GatewayIpAddress = "x.x.x.x",
-    ///             LocalNetworkAddressSpace = new AzureRM.Network.V20190201.Inputs.AddressSpaceArgs
-    ///             {
-    ///                 AddressPrefixes = 
-    ///                 {
-    ///                     "10.1.0.0/16",
-    ///                 },
-    ///             },
-    ///             LocalNetworkGatewayName = "localgw",
-    ///             Location = "Central US",
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class LocalNetworkGateway : Pulumi.CustomResource
     {

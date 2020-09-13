@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
 {
     /// <summary>
     /// Deployment resource payload
-    /// 
-    /// ## Example Usage
-    /// ### Deployments_CreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var deployment = new AzureRM.AppPlatform.V20190501Preview.Deployment("deployment", new AzureRM.AppPlatform.V20190501Preview.DeploymentArgs
-    ///         {
-    ///             AppName = "myapp",
-    ///             DeploymentName = "mydeployment",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             ServiceName = "myservice",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Deployment : Pulumi.CustomResource
     {

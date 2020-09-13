@@ -11,34 +11,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
 {
     /// <summary>
     /// Description of a namespace authorization rule.
-    /// 
-    /// ## Example Usage
-    /// ### QueueAuthorizationRuleCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var queueAuthorizationRule = new AzureRM.ServiceBus.V20150801.QueueAuthorizationRule("queueAuthorizationRule", new AzureRM.ServiceBus.V20150801.QueueAuthorizationRuleArgs
-    ///         {
-    ///             AuthorizationRuleName = "sdk-Authrules7319",
-    ///             NamespaceName = "sdk-Namespace6556",
-    ///             QueueName = "sdk-Queues3136",
-    ///             ResourceGroupName = "Default-ServiceBus-WestUS",
-    ///             Rights = 
-    ///             {
-    ///                 "Listen",
-    ///                 "Send",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class QueueAuthorizationRule : Pulumi.CustomResource
     {

@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.DataShare.V20181101Preview
 {
     /// <summary>
     /// A Synchronization Setting data transfer object.
-    /// 
-    /// ## Example Usage
-    /// ### SynchronizationSettings_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var synchronizationSetting = new AzureRM.DataShare.V20181101Preview.SynchronizationSetting("synchronizationSetting", new AzureRM.DataShare.V20181101Preview.SynchronizationSettingArgs
-    ///         {
-    ///             AccountName = "Account1",
-    ///             Kind = "ScheduleBased",
-    ///             ResourceGroupName = "SampleResourceGroup",
-    ///             ShareName = "Share1",
-    ///             SynchronizationSettingName = "Dataset1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SynchronizationSetting : Pulumi.CustomResource
     {

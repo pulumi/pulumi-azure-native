@@ -11,34 +11,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
 {
     /// <summary>
     /// Description of a namespace authorization rule.
-    /// 
-    /// ## Example Usage
-    /// ### NameSpaceAuthorizationRuleCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var namespaceAuthorizationRule = new AzureRM.ServiceBus.V20150801.NamespaceAuthorizationRule("namespaceAuthorizationRule", new AzureRM.ServiceBus.V20150801.NamespaceAuthorizationRuleArgs
-    ///         {
-    ///             AuthorizationRuleName = "sdk-Authrules9875",
-    ///             Location = "West US",
-    ///             NamespaceName = "sdk-Namespace8341",
-    ///             ResourceGroupName = "Default-ServiceBus-WestUS",
-    ///             Rights = 
-    ///             {
-    ///                 "Listen",
-    ///                 "Send",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {

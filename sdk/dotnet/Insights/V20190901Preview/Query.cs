@@ -11,61 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20190901Preview
 {
     /// <summary>
     /// A Log Analytics QueryPack-Query definition.
-    /// 
-    /// ## Example Usage
-    /// ### QueryPut
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var query = new AzureRM.Insights.V20190901Preview.Query("query", new AzureRM.Insights.V20190901Preview.QueryArgs
-    ///         {
-    ///             Body = @"let newExceptionsTimeRange = 1d;
-    /// let timeRangeToCheckBefore = 7d;
-    /// exceptions
-    /// | where timestamp &lt; ago(timeRangeToCheckBefore)
-    /// | summarize count() by problemId
-    /// | join kind= rightanti (
-    /// exceptions
-    /// | where timestamp &gt;= ago(newExceptionsTimeRange)
-    /// | extend stack = tostring(details[0].rawStack)
-    /// | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
-    /// ) on problemId 
-    /// | order by  count_ desc
-    /// ",
-    ///             Description = "my description",
-    ///             DisplayName = "Exceptions - New in the last 24 hours",
-    ///             Id = "a449f8af-8e64-4b3a-9b16-5a7165ff98c4",
-    ///             QueryPackName = "my-querypack",
-    ///             Related = new AzureRM.Insights.V20190901Preview.Inputs.LogAnalyticsQueryPackQueryPropertiesRelatedArgs
-    ///             {
-    ///                 Categories = 
-    ///                 {
-    ///                     "analytics",
-    ///                 },
-    ///             },
-    ///             ResourceGroupName = "my-resource-group",
-    ///             Tags = 
-    ///             {
-    ///                 { "my-label", 
-    ///                 {
-    ///                     "label1",
-    ///                 } },
-    ///                 { "my-other-label", 
-    ///                 {
-    ///                     "label2",
-    ///                 } },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Query : Pulumi.CustomResource
     {

@@ -11,36 +11,6 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
 {
     /// <summary>
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
-    /// 
-    /// ## Example Usage
-    /// ### Create a SAP Monitor
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sapMonitor = new AzureRM.HanaOnAzure.V20171103Preview.SapMonitor("sapMonitor", new AzureRM.HanaOnAzure.V20171103Preview.SapMonitorArgs
-    ///         {
-    ///             EnableCustomerAnalytics = true,
-    ///             HanaDbName = "",
-    ///             HanaDbPassword = "",
-    ///             HanaDbSqlPort = 1234,
-    ///             HanaDbUsername = "",
-    ///             HanaHostname = "",
-    ///             HanaSubnet = "",
-    ///             Location = "westus",
-    ///             LogAnalyticsWorkspaceSharedKey = "",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             SapMonitorName = "mySapMonitor",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SapMonitor : Pulumi.CustomResource
     {

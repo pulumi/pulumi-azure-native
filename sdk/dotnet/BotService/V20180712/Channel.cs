@@ -11,35 +11,6 @@ namespace Pulumi.AzureRM.BotService.V20180712
 {
     /// <summary>
     /// Bot channel resource definition
-    /// 
-    /// ## Example Usage
-    /// ### Create Bot
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var channel = new AzureRM.BotService.V20180712.Channel("channel", new AzureRM.BotService.V20180712.ChannelArgs
-    ///         {
-    ///             ChannelName = "EmailChannel",
-    ///             Location = "global",
-    ///             Properties = 
-    ///             {
-    ///                 { "emailAddress", "a@b.com" },
-    ///                 { "isEnabled", true },
-    ///                 { "password", "pwd" },
-    ///             },
-    ///             ResourceGroupName = "OneResourceGroupName",
-    ///             ResourceName = "samplebotname",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Channel : Pulumi.CustomResource
     {

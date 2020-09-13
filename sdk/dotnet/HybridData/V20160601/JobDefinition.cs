@@ -11,51 +11,6 @@ namespace Pulumi.AzureRM.HybridData.V20160601
 {
     /// <summary>
     /// Job Definition.
-    /// 
-    /// ## Example Usage
-    /// ### JobDefinitions_CreateOrUpdatePUT83
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var jobDefinition = new AzureRM.HybridData.V20160601.JobDefinition("jobDefinition", new AzureRM.HybridData.V20160601.JobDefinitionArgs
-    ///         {
-    ///             DataManagerName = "TestAzureSDKOperations",
-    ///             DataServiceInput = 
-    ///             {
-    ///                 { "AzureStorageType", "Blob" },
-    ///                 { "BackupChoice", "UseExistingLatest" },
-    ///                 { "ContainerName", "containerfromtest" },
-    ///                 { "DeviceName", "dmsdatasource" },
-    ///                 { "FileNameFilter", "*" },
-    ///                 { "IsDirectoryMode", false },
-    ///                 { "RootDirectories", 
-    ///                 {
-    ///                     "\\",
-    ///                 } },
-    ///                 { "VolumeNames", 
-    ///                 {
-    ///                     "dmsbvtvol",
-    ///                 } },
-    ///             },
-    ///             DataServiceName = "DataTransformation",
-    ///             DataSinkId = "/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestAzureStorage1",
-    ///             DataSourceId = "/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestStorSimpleSource1",
-    ///             JobDefinitionName = "jobdeffromtestcode1",
-    ///             ResourceGroupName = "ResourceGroupForSDKTest",
-    ///             RunLocation = "westus",
-    ///             State = "Enabled",
-    ///             UserConfirmation = "Required",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class JobDefinition : Pulumi.CustomResource
     {

@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.AzureData.V20170301Preview
 {
     /// <summary>
     /// A SQL server registration.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates a SQL Server registration.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sqlServerRegistration = new AzureRM.AzureData.V20170301Preview.SqlServerRegistration("sqlServerRegistration", new AzureRM.AzureData.V20170301Preview.SqlServerRegistrationArgs
-    ///         {
-    ///             Location = "northeurope",
-    ///             ResourceGroupName = "testrg",
-    ///             SqlServerRegistrationName = "testsqlregistration",
-    ///             Tags = 
-    ///             {
-    ///                 { "mytag", "myval" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SqlServerRegistration : Pulumi.CustomResource
     {

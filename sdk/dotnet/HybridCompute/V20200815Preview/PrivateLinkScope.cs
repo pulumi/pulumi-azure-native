@@ -11,52 +11,6 @@ namespace Pulumi.AzureRM.HybridCompute.V20200815Preview
 {
     /// <summary>
     /// An Azure Arc PrivateLinkScope definition.
-    /// 
-    /// ## Example Usage
-    /// ### PrivateLinkScopeCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateLinkScope = new AzureRM.HybridCompute.V20200815Preview.PrivateLinkScope("privateLinkScope", new AzureRM.HybridCompute.V20200815Preview.PrivateLinkScopeArgs
-    ///         {
-    ///             Location = "westus",
-    ///             ResourceGroupName = "my-resource-group",
-    ///             ScopeName = "my-privatelinkscope",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### PrivateLinkScopeUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateLinkScope = new AzureRM.HybridCompute.V20200815Preview.PrivateLinkScope("privateLinkScope", new AzureRM.HybridCompute.V20200815Preview.PrivateLinkScopeArgs
-    ///         {
-    ///             Location = "westus",
-    ///             ResourceGroupName = "my-resource-group",
-    ///             ScopeName = "my-privatelinkscope",
-    ///             Tags = 
-    ///             {
-    ///                 { "Tag1", "Value1" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PrivateLinkScope : Pulumi.CustomResource
     {

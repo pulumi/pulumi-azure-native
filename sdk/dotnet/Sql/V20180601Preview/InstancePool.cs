@@ -11,68 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20180601Preview
 {
     /// <summary>
     /// An Azure SQL instance pool.
-    /// 
-    /// ## Example Usage
-    /// ### Create an instance pool with all properties.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var instancePool = new AzureRM.Sql.V20180601Preview.InstancePool("instancePool", new AzureRM.Sql.V20180601Preview.InstancePoolArgs
-    ///         {
-    ///             InstancePoolName = "testIP",
-    ///             LicenseType = "LicenseIncluded",
-    ///             ResourceGroupName = "group1",
-    ///             Sku = new AzureRM.Sql.V20180601Preview.Inputs.SkuArgs
-    ///             {
-    ///                 Family = "Gen5",
-    ///                 Name = "GP_Gen5",
-    ///                 Tier = "GeneralPurpose",
-    ///             },
-    ///             SubnetId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetwork/myvnet/subnets/mysubnet1",
-    ///             Tags = 
-    ///             {
-    ///                 { "a", "b" },
-    ///             },
-    ///             VCores = 8,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Create an instance pool with min properties.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var instancePool = new AzureRM.Sql.V20180601Preview.InstancePool("instancePool", new AzureRM.Sql.V20180601Preview.InstancePoolArgs
-    ///         {
-    ///             InstancePoolName = "testIP",
-    ///             LicenseType = "LicenseIncluded",
-    ///             ResourceGroupName = "group1",
-    ///             Sku = new AzureRM.Sql.V20180601Preview.Inputs.SkuArgs
-    ///             {
-    ///                 Family = "Gen5",
-    ///                 Name = "GP_Gen5",
-    ///                 Tier = "GeneralPurpose",
-    ///             },
-    ///             SubnetId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetwork/myvnet/subnets/mysubnet1",
-    ///             VCores = 8,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class InstancePool : Pulumi.CustomResource
     {

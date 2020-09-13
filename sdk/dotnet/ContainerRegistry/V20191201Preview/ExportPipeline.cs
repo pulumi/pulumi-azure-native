@@ -11,43 +11,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 {
     /// <summary>
     /// An object that represents an export pipeline for a container registry.
-    /// 
-    /// ## Example Usage
-    /// ### ExportPipelineCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exportPipeline = new AzureRM.ContainerRegistry.V20191201Preview.ExportPipeline("exportPipeline", new AzureRM.ContainerRegistry.V20191201Preview.ExportPipelineArgs
-    ///         {
-    ///             ExportPipelineName = "myExportPipeline",
-    ///             Identity = new AzureRM.ContainerRegistry.V20191201Preview.Inputs.IdentityPropertiesArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             Location = "westus",
-    ///             Options = 
-    ///             {
-    ///                 "OverwriteBlobs",
-    ///             },
-    ///             RegistryName = "myRegistry",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Target = new AzureRM.ContainerRegistry.V20191201Preview.Inputs.ExportPipelineTargetPropertiesArgs
-    ///             {
-    ///                 KeyVaultUri = "https://myvault.vault.azure.net/secrets/acrexportsas",
-    ///                 Type = "AzureStorageBlobContainer",
-    ///                 Uri = "https://accountname.blob.core.windows.net/containername",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ExportPipeline : Pulumi.CustomResource
     {

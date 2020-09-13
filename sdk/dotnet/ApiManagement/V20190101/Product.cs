@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
 {
     /// <summary>
     /// Product details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateProduct
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var product = new AzureRM.ApiManagement.V20190101.Product("product", new AzureRM.ApiManagement.V20190101.ProductArgs
-    ///         {
-    ///             DisplayName = "Test Template ProductName 4",
-    ///             ProductId = "testproduct",
-    ///             ResourceGroupName = "rg1",
-    ///             ServiceName = "apimService1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Product : Pulumi.CustomResource
     {

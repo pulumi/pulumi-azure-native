@@ -11,34 +11,6 @@ namespace Pulumi.AzureRM.MachineLearning.V20160401
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
-    /// 
-    /// ## Example Usage
-    /// ### WorkspaceCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var workspace = new AzureRM.MachineLearning.V20160401.Workspace("workspace", new AzureRM.MachineLearning.V20160401.WorkspaceArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///             OwnerEmail = "abc@microsoft.com",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Tags = 
-    ///             {
-    ///                 { "tagKey1", "TagValue1" },
-    ///             },
-    ///             UserStorageAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/teststorage",
-    ///             WorkspaceName = "testworkspace",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

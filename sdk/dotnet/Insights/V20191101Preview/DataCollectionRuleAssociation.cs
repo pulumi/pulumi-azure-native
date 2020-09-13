@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20191101Preview
 {
     /// <summary>
     /// Definition of generic ARM proxy resource.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update association
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var dataCollectionRuleAssociation = new AzureRM.Insights.V20191101Preview.DataCollectionRuleAssociation("dataCollectionRuleAssociation", new AzureRM.Insights.V20191101Preview.DataCollectionRuleAssociationArgs
-    ///         {
-    ///             AssociationName = "myAssociation",
-    ///             DataCollectionRuleId = "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule",
-    ///             ResourceUri = "subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DataCollectionRuleAssociation : Pulumi.CustomResource
     {

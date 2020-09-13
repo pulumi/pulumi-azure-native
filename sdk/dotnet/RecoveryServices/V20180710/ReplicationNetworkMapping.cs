@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
 {
     /// <summary>
     /// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-    /// 
-    /// ## Example Usage
-    /// ### Creates network mapping.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var replicationNetworkMapping = new AzureRM.RecoveryServices.V20180710.ReplicationNetworkMapping("replicationNetworkMapping", new AzureRM.RecoveryServices.V20180710.ReplicationNetworkMappingArgs
-    ///         {
-    ///             FabricName = "b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac",
-    ///             NetworkMappingName = "corpe2amap",
-    ///             NetworkName = "e2267b5c-2650-49bd-ab3f-d66aae694c06",
-    ///             ResourceGroupName = "srcBvte2a14C27",
-    ///             ResourceName = "srce2avaultbvtaC27",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ReplicationNetworkMapping : Pulumi.CustomResource
     {

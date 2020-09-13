@@ -11,34 +11,6 @@ namespace Pulumi.AzureRM.StorageSync.V20170605Preview
 {
     /// <summary>
     /// Server Endpoint object.
-    /// 
-    /// ## Example Usage
-    /// ### ServerEndpoints_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var serverEndpoint = new AzureRM.StorageSync.V20170605Preview.ServerEndpoint("serverEndpoint", new AzureRM.StorageSync.V20170605Preview.ServerEndpointArgs
-    ///         {
-    ///             CloudTiering = "off",
-    ///             ProvisioningState = "Created",
-    ///             ResourceGroupName = "SampleResourceGroup_1",
-    ///             ServerEndpointName = "SampleServerEndpoint_1",
-    ///             ServerLocalPath = "D:\\SampleServerEndpoint_1",
-    ///             ServerResourceId = "/subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncServer_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a",
-    ///             StorageSyncServiceName = "SampleStorageSyncService_1",
-    ///             SyncGroupName = "SampleSyncGroup_1",
-    ///             VolumeFreeSpacePercent = 100,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ServerEndpoint : Pulumi.CustomResource
     {

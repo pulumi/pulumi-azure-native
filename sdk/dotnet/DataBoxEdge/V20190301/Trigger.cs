@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
 {
     /// <summary>
     /// Trigger details.
-    /// 
-    /// ## Example Usage
-    /// ### TriggerPut
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var trigger = new AzureRM.DataBoxEdge.V20190301.Trigger("trigger", new AzureRM.DataBoxEdge.V20190301.TriggerArgs
-    ///         {
-    ///             DeviceName = "testedgedevice",
-    ///             Kind = "FileEvent",
-    ///             Name = "trigger1",
-    ///             ResourceGroupName = "GroupForEdgeAutomation",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Trigger : Pulumi.CustomResource
     {

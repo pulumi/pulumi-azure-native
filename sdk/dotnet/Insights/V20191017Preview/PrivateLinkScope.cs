@@ -11,52 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20191017Preview
 {
     /// <summary>
     /// An Azure Monitor PrivateLinkScope definition.
-    /// 
-    /// ## Example Usage
-    /// ### PrivateLinkScopeCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateLinkScope = new AzureRM.Insights.V20191017Preview.PrivateLinkScope("privateLinkScope", new AzureRM.Insights.V20191017Preview.PrivateLinkScopeArgs
-    ///         {
-    ///             Location = "Global",
-    ///             ResourceGroupName = "my-resource-group",
-    ///             ScopeName = "my-privatelinkscope",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### PrivateLinkScopeUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateLinkScope = new AzureRM.Insights.V20191017Preview.PrivateLinkScope("privateLinkScope", new AzureRM.Insights.V20191017Preview.PrivateLinkScopeArgs
-    ///         {
-    ///             Location = "Global",
-    ///             ResourceGroupName = "my-resource-group",
-    ///             ScopeName = "my-privatelinkscope",
-    ///             Tags = 
-    ///             {
-    ///                 { "Tag1", "Value1" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PrivateLinkScope : Pulumi.CustomResource
     {

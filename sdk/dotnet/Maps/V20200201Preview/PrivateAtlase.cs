@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
 {
     /// <summary>
     /// An Azure resource which represents which will provision the ability to create private location data.
-    /// 
-    /// ## Example Usage
-    /// ### CreatePrivateAtlas
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateAtlase = new AzureRM.Maps.V20200201Preview.PrivateAtlase("privateAtlase", new AzureRM.Maps.V20200201Preview.PrivateAtlaseArgs
-    ///         {
-    ///             AccountName = "myMapsAccount",
-    ///             Location = "unitedstates",
-    ///             PrivateAtlasName = "myPrivateAtlas",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Tags = 
-    ///             {
-    ///                 { "test", "true" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PrivateAtlase : Pulumi.CustomResource
     {

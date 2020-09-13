@@ -11,66 +11,6 @@ namespace Pulumi.AzureRM.Management.V20190601
 {
     /// <summary>
     /// The policy set definition.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a policy set definition at management group level
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var policySetDefinitionAtManagementGroup = new AzureRM.Management.V20190601.PolicySetDefinitionAtManagementGroup("policySetDefinitionAtManagementGroup", new AzureRM.Management.V20190601.PolicySetDefinitionAtManagementGroupArgs
-    ///         {
-    ///             Description = "Policies to enforce low cost storage SKUs",
-    ///             DisplayName = "Cost Management",
-    ///             ManagementGroupId = "MyManagementGroup",
-    ///             Metadata = 
-    ///             {
-    ///                 { "category", "Cost Management" },
-    ///             },
-    ///             PolicyDefinitions = 
-    ///             {
-    ///                 new AzureRM.Management.V20190601.Inputs.PolicyDefinitionReferenceArgs
-    ///                 {
-    ///                     Parameters = 
-    ///                     {
-    ///                         { "listOfAllowedSKUs", 
-    ///                         {
-    ///                             { "value", 
-    ///                             {
-    ///                                 "Standard_GRS",
-    ///                                 "Standard_LRS",
-    ///                             } },
-    ///                         } },
-    ///                     },
-    ///                     PolicyDefinitionId = "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
-    ///                 },
-    ///                 new AzureRM.Management.V20190601.Inputs.PolicyDefinitionReferenceArgs
-    ///                 {
-    ///                     Parameters = 
-    ///                     {
-    ///                         { "prefix", 
-    ///                         {
-    ///                             { "value", "DeptA" },
-    ///                         } },
-    ///                         { "suffix", 
-    ///                         {
-    ///                             { "value", "-LC" },
-    ///                         } },
-    ///                     },
-    ///                     PolicyDefinitionId = "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
-    ///                 },
-    ///             },
-    ///             PolicySetDefinitionName = "CostManagement",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PolicySetDefinitionAtManagementGroup : Pulumi.CustomResource
     {

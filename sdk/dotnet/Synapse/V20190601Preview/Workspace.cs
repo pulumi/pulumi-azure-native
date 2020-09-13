@@ -11,45 +11,6 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 {
     /// <summary>
     /// A workspace
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a workspace
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var workspace = new AzureRM.Synapse.V20190601Preview.Workspace("workspace", new AzureRM.Synapse.V20190601Preview.WorkspaceArgs
-    ///         {
-    ///             DefaultDataLakeStorage = new AzureRM.Synapse.V20190601Preview.Inputs.DataLakeStorageAccountDetailsArgs
-    ///             {
-    ///                 AccountUrl = "https://accountname.dfs.core.windows.net",
-    ///                 Filesystem = "default",
-    ///             },
-    ///             Identity = new AzureRM.Synapse.V20190601Preview.Inputs.ManagedIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             Location = "East US",
-    ///             ManagedResourceGroupName = "workspaceManagedResourceGroupUnique",
-    ///             ManagedVirtualNetwork = "default",
-    ///             ResourceGroupName = "resourceGroup1",
-    ///             SqlAdministratorLogin = "login",
-    ///             SqlAdministratorLoginPassword = "password",
-    ///             Tags = 
-    ///             {
-    ///                 { "key", "value" },
-    ///             },
-    ///             WorkspaceName = "workspace1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

@@ -11,31 +11,6 @@ namespace Pulumi.AzureRM.Solutions.V20160901Preview
 {
     /// <summary>
     /// Information about appliance.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update appliance
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var appliance = new AzureRM.Solutions.V20160901Preview.Appliance("appliance", new AzureRM.Solutions.V20160901Preview.ApplianceArgs
-    ///         {
-    ///             ApplianceDefinitionId = "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myAppDef",
-    ///             ApplianceName = "myAppliance",
-    ///             Kind = "ServiceCatalog",
-    ///             Location = "East US 2",
-    ///             ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
-    ///             ResourceGroupName = "rg",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Appliance : Pulumi.CustomResource
     {

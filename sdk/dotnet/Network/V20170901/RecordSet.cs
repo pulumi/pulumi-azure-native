@@ -11,43 +11,6 @@ namespace Pulumi.AzureRM.Network.V20170901
 {
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type).
-    /// 
-    /// ## Example Usage
-    /// ### Create CAA recordset
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var recordSet = new AzureRM.Network.V20170901.RecordSet("recordSet", new AzureRM.Network.V20170901.RecordSetArgs
-    ///         {
-    ///             CaaRecords = 
-    ///             {
-    ///                 new AzureRM.Network.V20170901.Inputs.CaaRecordArgs
-    ///                 {
-    ///                     Flags = 0,
-    ///                     Tag = "issue",
-    ///                     Value = "ca.contoso.com",
-    ///                 },
-    ///             },
-    ///             Metadata = 
-    ///             {
-    ///                 { "key1", "value1" },
-    ///             },
-    ///             RecordType = "CAA",
-    ///             RelativeRecordSetName = "record1",
-    ///             ResourceGroupName = "rg1",
-    ///             Ttl = 3600,
-    ///             ZoneName = "zone1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class RecordSet : Pulumi.CustomResource
     {

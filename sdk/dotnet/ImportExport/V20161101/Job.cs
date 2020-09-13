@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.ImportExport.V20161101
 {
     /// <summary>
     /// Contains the job information.
-    /// 
-    /// ## Example Usage
-    /// ### Create job
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var job = new AzureRM.ImportExport.V20161101.Job("job", new AzureRM.ImportExport.V20161101.JobArgs
-    ///         {
-    ///             JobName = "myJob",
-    ///             Location = "West US",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {

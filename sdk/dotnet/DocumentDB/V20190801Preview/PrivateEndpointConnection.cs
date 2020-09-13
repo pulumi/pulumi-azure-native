@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801Preview
 {
     /// <summary>
     /// A private endpoint connection
-    /// 
-    /// ## Example Usage
-    /// ### Approve or reject a private endpoint connection with a given name.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateEndpointConnection = new AzureRM.DocumentDB.V20190801Preview.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.DocumentDB.V20190801Preview.PrivateEndpointConnectionArgs
-    ///         {
-    ///             AccountName = "ddb1",
-    ///             PrivateEndpointConnectionName = "privateEndpointConnectionName",
-    ///             PrivateLinkServiceConnectionState = new AzureRM.DocumentDB.V20190801Preview.Inputs.PrivateLinkServiceConnectionStatePropertyArgs
-    ///             {
-    ///                 Description = "Approved by johndoe@contoso.com",
-    ///                 Status = "Approved",
-    ///             },
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

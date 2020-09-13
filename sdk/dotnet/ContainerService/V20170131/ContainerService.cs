@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.ContainerService.V20170131
 {
     /// <summary>
     /// Container service.
-    /// 
-    /// ## Example Usage
-    /// ### Create/Update Container Service
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var containerService = new AzureRM.ContainerService.V20170131.ContainerService("containerService", new AzureRM.ContainerService.V20170131.ContainerServiceArgs
-    ///         {
-    ///             ContainerServiceName = "acs1",
-    ///             Location = "location1",
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ContainerService : Pulumi.CustomResource
     {

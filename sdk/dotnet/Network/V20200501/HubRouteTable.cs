@@ -11,49 +11,6 @@ namespace Pulumi.AzureRM.Network.V20200501
 {
     /// <summary>
     /// RouteTable resource in a virtual hub.
-    /// 
-    /// ## Example Usage
-    /// ### RouteTablePut
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var hubRouteTable = new AzureRM.Network.V20200501.HubRouteTable("hubRouteTable", new AzureRM.Network.V20200501.HubRouteTableArgs
-    ///         {
-    ///             Labels = 
-    ///             {
-    ///                 "label1",
-    ///                 "label2",
-    ///             },
-    ///             ResourceGroupName = "rg1",
-    ///             RouteTableName = "hubRouteTable1",
-    ///             Routes = 
-    ///             {
-    ///                 new AzureRM.Network.V20200501.Inputs.HubRouteArgs
-    ///                 {
-    ///                     DestinationType = "CIDR",
-    ///                     Destinations = 
-    ///                     {
-    ///                         "10.0.0.0/8",
-    ///                         "20.0.0.0/8",
-    ///                         "30.0.0.0/8",
-    ///                     },
-    ///                     Name = "route1",
-    ///                     NextHop = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azureFirewall1",
-    ///                     NextHopType = "ResourceId",
-    ///                 },
-    ///             },
-    ///             VirtualHubName = "virtualHub1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class HubRouteTable : Pulumi.CustomResource
     {

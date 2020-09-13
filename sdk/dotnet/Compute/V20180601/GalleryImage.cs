@@ -11,37 +11,6 @@ namespace Pulumi.AzureRM.Compute.V20180601
 {
     /// <summary>
     /// Specifies information about the gallery Image Definition that you want to create or update.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a simple gallery image.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var galleryImage = new AzureRM.Compute.V20180601.GalleryImage("galleryImage", new AzureRM.Compute.V20180601.GalleryImageArgs
-    ///         {
-    ///             GalleryImageName = "myGalleryImageName",
-    ///             GalleryName = "myGalleryName",
-    ///             Identifier = new AzureRM.Compute.V20180601.Inputs.GalleryImageIdentifierArgs
-    ///             {
-    ///                 Offer = "myOfferName",
-    ///                 Publisher = "myPublisherName",
-    ///                 Sku = "mySkuName",
-    ///             },
-    ///             Location = "West US",
-    ///             OsState = "Generalized",
-    ///             OsType = "Windows",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class GalleryImage : Pulumi.CustomResource
     {

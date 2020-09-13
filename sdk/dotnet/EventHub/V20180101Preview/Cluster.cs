@@ -11,38 +11,6 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
 {
     /// <summary>
     /// Single Event Hubs Cluster resource in List or Get operations.
-    /// 
-    /// ## Example Usage
-    /// ### ClusterPut
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var cluster = new AzureRM.EventHub.V20180101Preview.Cluster("cluster", new AzureRM.EventHub.V20180101Preview.ClusterArgs
-    ///         {
-    ///             ClusterName = "testCluster",
-    ///             Location = "South Central US",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Sku = new AzureRM.EventHub.V20180101Preview.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Capacity = 1,
-    ///                 Name = "Dedicated",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "tag1", "value1" },
-    ///                 { "tag2", "value2" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

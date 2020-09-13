@@ -11,27 +11,6 @@ namespace Pulumi.AzureRM.Authorization.V20150701
 {
     /// <summary>
     /// Role Assignments
-    /// 
-    /// ## Example Usage
-    /// ### GetConfigurations
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var roleAssignment = new AzureRM.Authorization.V20150701.RoleAssignment("roleAssignment", new AzureRM.Authorization.V20150701.RoleAssignmentArgs
-    ///         {
-    ///             RoleAssignmentName = "roleAssignmentName",
-    ///             Scope = "scope",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class RoleAssignment : Pulumi.CustomResource
     {

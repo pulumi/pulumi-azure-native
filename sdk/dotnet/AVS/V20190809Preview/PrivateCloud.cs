@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.AVS.V20190809Preview
 {
     /// <summary>
     /// A private cloud resource
-    /// 
-    /// ## Example Usage
-    /// ### PrivateClouds_CreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateCloud = new AzureRM.AVS.V20190809Preview.PrivateCloud("privateCloud", new AzureRM.AVS.V20190809Preview.PrivateCloudArgs
-    ///         {
-    ///             Location = "eastus2",
-    ///             PrivateCloudName = "cloud1",
-    ///             ResourceGroupName = "group1",
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PrivateCloud : Pulumi.CustomResource
     {

@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.DBforMySQL.V20180601PrivatePreview
 {
     /// <summary>
     /// A private endpoint connection
-    /// 
-    /// ## Example Usage
-    /// ### Approve or reject a private endpoint connection with a given name.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateEndpointConnection = new AzureRM.DBforMySQL.V20180601PrivatePreview.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.DBforMySQL.V20180601PrivatePreview.PrivateEndpointConnectionArgs
-    ///         {
-    ///             PrivateEndpointConnectionName = "private-endpoint-connection-name",
-    ///             PrivateLinkServiceConnectionState = new AzureRM.DBforMySQL.V20180601PrivatePreview.Inputs.PrivateLinkServiceConnectionStatePropertyArgs
-    ///             {
-    ///                 Description = "Approved by johndoe@contoso.com",
-    ///                 Status = "Approved",
-    ///             },
-    ///             ResourceGroupName = "Default",
-    ///             ServerName = "test-svr",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

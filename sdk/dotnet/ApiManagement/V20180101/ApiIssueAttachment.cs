@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 {
     /// <summary>
     /// Issue Attachment Contract details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateApiIssueAttachment
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var apiIssueAttachment = new AzureRM.ApiManagement.V20180101.ApiIssueAttachment("apiIssueAttachment", new AzureRM.ApiManagement.V20180101.ApiIssueAttachmentArgs
-    ///         {
-    ///             ApiId = "57d1f7558aa04f15146d9d8a",
-    ///             AttachmentId = "57d2ef278aa04f0888cba3f3",
-    ///             Content = "IEJhc2U2NA==",
-    ///             ContentFormat = "image/jpeg",
-    ///             IssueId = "57d2ef278aa04f0ad01d6cdc",
-    ///             ResourceGroupName = "rg1",
-    ///             ServiceName = "apimService1",
-    ///             Title = "Issue attachment.",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ApiIssueAttachment : Pulumi.CustomResource
     {

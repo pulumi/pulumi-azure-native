@@ -11,38 +11,6 @@ namespace Pulumi.AzureRM.EventHub.V20150801
 {
     /// <summary>
     /// Single Namespace item in List or Get Operation
-    /// 
-    /// ## Example Usage
-    /// ### NamespaceCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var @namespace = new AzureRM.EventHub.V20150801.Namespace("namespace", new AzureRM.EventHub.V20150801.NamespaceArgs
-    ///         {
-    ///             Location = "South Central US",
-    ///             NamespaceName = "sdk-Namespace8107",
-    ///             ResourceGroupName = "Default-ServiceBus-WestUS",
-    ///             Sku = new AzureRM.EventHub.V20150801.Inputs.SkuArgs
-    ///             {
-    ///                 Name = "Standard",
-    ///                 Tier = "Standard",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "tag1", "value1" },
-    ///                 { "tag2", "value2" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Namespace : Pulumi.CustomResource
     {

@@ -11,55 +11,6 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 {
     /// <summary>
     /// A Big Data pool
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a Big Data pool
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var bigDataPool = new AzureRM.Synapse.V20190601Preview.BigDataPool("bigDataPool", new AzureRM.Synapse.V20190601Preview.BigDataPoolArgs
-    ///         {
-    ///             AutoPause = new AzureRM.Synapse.V20190601Preview.Inputs.AutoPausePropertiesArgs
-    ///             {
-    ///                 DelayInMinutes = 15,
-    ///                 Enabled = true,
-    ///             },
-    ///             AutoScale = new AzureRM.Synapse.V20190601Preview.Inputs.AutoScalePropertiesArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 MaxNodeCount = 50,
-    ///                 MinNodeCount = 3,
-    ///             },
-    ///             BigDataPoolName = "ExamplePool",
-    ///             DefaultSparkLogFolder = "/logs",
-    ///             LibraryRequirements = new AzureRM.Synapse.V20190601Preview.Inputs.LibraryRequirementsArgs
-    ///             {
-    ///                 Content = "",
-    ///                 Filename = "requirements.txt",
-    ///             },
-    ///             Location = "West US 2",
-    ///             NodeCount = 4,
-    ///             NodeSize = "Medium",
-    ///             NodeSizeFamily = "MemoryOptimized",
-    ///             ResourceGroupName = "ExampleResourceGroup",
-    ///             SparkEventsFolder = "/events",
-    ///             SparkVersion = "2.4",
-    ///             Tags = 
-    ///             {
-    ///                 { "key", "value" },
-    ///             },
-    ///             WorkspaceName = "ExampleWorkspace",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class BigDataPool : Pulumi.CustomResource
     {

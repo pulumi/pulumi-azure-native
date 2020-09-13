@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.KeyVault.V20161001
 {
     /// <summary>
     /// Resource information with extended details.
-    /// 
-    /// ## Example Usage
-    /// ### Create a new vault or update an existing vault
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var vault = new AzureRM.KeyVault.V20161001.Vault("vault", new AzureRM.KeyVault.V20161001.VaultArgs
-    ///         {
-    ///             Location = "westus",
-    ///             ResourceGroupName = "sample-resource-group",
-    ///             VaultName = "sample-vault",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Vault : Pulumi.CustomResource
     {

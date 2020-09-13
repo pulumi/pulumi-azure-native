@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.EventHub.V20150801
 {
     /// <summary>
     /// Single item in List or Get Event Hub operation
-    /// 
-    /// ## Example Usage
-    /// ### EventHubCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var eventHub = new AzureRM.EventHub.V20150801.EventHub("eventHub", new AzureRM.EventHub.V20150801.EventHubArgs
-    ///         {
-    ///             EventHubName = "sdk-EventHub6448",
-    ///             Location = "West US",
-    ///             MessageRetentionInDays = 7,
-    ///             NamespaceName = "sdk-Namespace7834",
-    ///             PartitionCount = 4,
-    ///             ResourceGroupName = "Default-ServiceBus-WestUS",
-    ///             Status = "Active",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class EventHub : Pulumi.CustomResource
     {

@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
 {
     /// <summary>
     /// A server key.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates a server key
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var serverKey = new AzureRM.Sql.V20150501Preview.ServerKey("serverKey", new AzureRM.Sql.V20150501Preview.ServerKeyArgs
-    ///         {
-    ///             KeyName = "someVault_someKey_01234567890123456789012345678901",
-    ///             ResourceGroupName = "sqlcrudtest-7398",
-    ///             ServerKeyType = "AzureKeyVault",
-    ///             ServerName = "sqlcrudtest-4645",
-    ///             Uri = "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ServerKey : Pulumi.CustomResource
     {

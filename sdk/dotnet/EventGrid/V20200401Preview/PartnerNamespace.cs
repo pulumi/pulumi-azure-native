@@ -11,34 +11,6 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
 {
     /// <summary>
     /// EventGrid Partner Namespace.
-    /// 
-    /// ## Example Usage
-    /// ### PartnerNamespaces_CreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var partnerNamespace = new AzureRM.EventGrid.V20200401Preview.PartnerNamespace("partnerNamespace", new AzureRM.EventGrid.V20200401Preview.PartnerNamespaceArgs
-    ///         {
-    ///             Location = "westus",
-    ///             PartnerNamespaceName = "examplePartnerNamespaceName1",
-    ///             PartnerRegistrationFullyQualifiedId = "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerRegistrations/ContosoCorpAccount1",
-    ///             ResourceGroupName = "examplerg",
-    ///             Tags = 
-    ///             {
-    ///                 { "tag1", "value1" },
-    ///                 { "tag2", "value2" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PartnerNamespace : Pulumi.CustomResource
     {

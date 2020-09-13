@@ -11,42 +11,6 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 {
     /// <summary>
     /// A SQL Analytics pool
-    /// 
-    /// ## Example Usage
-    /// ### Create a SQL Analytics pool
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sqlPool = new AzureRM.Synapse.V20190601Preview.SqlPool("sqlPool", new AzureRM.Synapse.V20190601Preview.SqlPoolArgs
-    ///         {
-    ///             Collation = "",
-    ///             CreateMode = "",
-    ///             CreationDate = "1970-01-01T00:00:00.000Z",
-    ///             Location = "West US 2",
-    ///             MaxSizeBytes = 0,
-    ///             RecoverableDatabaseId = "",
-    ///             ResourceGroupName = "ExampleResourceGroup",
-    ///             RestorePointInTime = "1970-01-01T00:00:00.000Z",
-    ///             Sku = new AzureRM.Synapse.V20190601Preview.Inputs.SkuArgs
-    ///             {
-    ///                 Name = "",
-    ///                 Tier = "",
-    ///             },
-    ///             SourceDatabaseId = "",
-    ///             SqlPoolName = "ExampleSqlPool",
-    ///             Tags = ,
-    ///             WorkspaceName = "ExampleWorkspace",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SqlPool : Pulumi.CustomResource
     {

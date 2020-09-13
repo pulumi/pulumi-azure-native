@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
 {
     /// <summary>
     /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-    /// 
-    /// ## Example Usage
-    /// ### CreatePrivateAtlas
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var creator = new AzureRM.Maps.V20200201Preview.Creator("creator", new AzureRM.Maps.V20200201Preview.CreatorArgs
-    ///         {
-    ///             AccountName = "myMapsAccount",
-    ///             CreatorName = "myCreator",
-    ///             Location = "unitedstates",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Tags = 
-    ///             {
-    ///                 { "test", "true" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Creator : Pulumi.CustomResource
     {

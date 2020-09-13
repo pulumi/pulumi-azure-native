@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.Kusto.V20200215
 {
     /// <summary>
     /// Class representing a database principal assignment.
-    /// 
-    /// ## Example Usage
-    /// ### KustoDatabasePrincipalAssignmentsCreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var databasePrincipalAssignment = new AzureRM.Kusto.V20200215.DatabasePrincipalAssignment("databasePrincipalAssignment", new AzureRM.Kusto.V20200215.DatabasePrincipalAssignmentArgs
-    ///         {
-    ///             ClusterName = "kustoclusterrptest4",
-    ///             DatabaseName = "Kustodatabase8",
-    ///             PrincipalAssignmentName = "kustoprincipal1",
-    ///             PrincipalId = "87654321-1234-1234-1234-123456789123",
-    ///             PrincipalType = "App",
-    ///             ResourceGroupName = "kustorptest",
-    ///             Role = "Admin",
-    ///             TenantId = "12345678-1234-1234-1234-123456789123",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DatabasePrincipalAssignment : Pulumi.CustomResource
     {

@@ -11,38 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20170501Preview
 {
     /// <summary>
     /// The subscription diagnostic setting resource.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or Updates the subscription diagnostic setting
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var subscriptionDiagnosticSetting = new AzureRM.Insights.V20170501Preview.SubscriptionDiagnosticSetting("subscriptionDiagnosticSetting", new AzureRM.Insights.V20170501Preview.SubscriptionDiagnosticSettingArgs
-    ///         {
-    ///             EventHubAuthorizationRuleId = "/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
-    ///             EventHubName = "myeventhub",
-    ///             Logs = 
-    ///             {
-    ///                 new AzureRM.Insights.V20170501Preview.Inputs.SubscriptionLogSettingsArgs
-    ///                 {
-    ///                     Category = "Security",
-    ///                     Enabled = true,
-    ///                 },
-    ///             },
-    ///             Name = "ds4",
-    ///             StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
-    ///             WorkspaceId = "",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SubscriptionDiagnosticSetting : Pulumi.CustomResource
     {

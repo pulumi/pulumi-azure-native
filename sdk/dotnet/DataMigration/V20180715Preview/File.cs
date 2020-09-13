@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.DataMigration.V20180715Preview
 {
     /// <summary>
     /// A file resource
-    /// 
-    /// ## Example Usage
-    /// ### Files_CreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var file = new AzureRM.DataMigration.V20180715Preview.File("file", new AzureRM.DataMigration.V20180715Preview.FileArgs
-    ///         {
-    ///             FileName = "x114d023d8",
-    ///             GroupName = "DmsSdkRg",
-    ///             ProjectName = "DmsSdkProject",
-    ///             ServiceName = "DmsSdkService",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class File : Pulumi.CustomResource
     {

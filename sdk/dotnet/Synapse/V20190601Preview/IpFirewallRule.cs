@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 {
     /// <summary>
     /// IP firewall rule
-    /// 
-    /// ## Example Usage
-    /// ### Create an IP firewall rule
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var ipFirewallRule = new AzureRM.Synapse.V20190601Preview.IpFirewallRule("ipFirewallRule", new AzureRM.Synapse.V20190601Preview.IpFirewallRuleArgs
-    ///         {
-    ///             EndIpAddress = "10.0.0.254",
-    ///             ResourceGroupName = "ExampleResourceGroup",
-    ///             RuleName = "ExampleIpFirewallRule",
-    ///             StartIpAddress = "10.0.0.0",
-    ///             WorkspaceName = "ExampleWorkspace",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class IpFirewallRule : Pulumi.CustomResource
     {

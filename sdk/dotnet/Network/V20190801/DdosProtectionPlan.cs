@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.Network.V20190801
 {
     /// <summary>
     /// A DDoS protection plan in a resource group.
-    /// 
-    /// ## Example Usage
-    /// ### Create DDoS protection plan
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var ddosProtectionPlan = new AzureRM.Network.V20190801.DdosProtectionPlan("ddosProtectionPlan", new AzureRM.Network.V20190801.DdosProtectionPlanArgs
-    ///         {
-    ///             DdosProtectionPlanName = "test-plan",
-    ///             Location = "westus",
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DdosProtectionPlan : Pulumi.CustomResource
     {

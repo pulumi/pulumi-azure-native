@@ -11,37 +11,6 @@ namespace Pulumi.AzureRM.Network.V20191101
 {
     /// <summary>
     /// A flow log resource.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update flow log
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var flowLog = new AzureRM.Network.V20191101.FlowLog("flowLog", new AzureRM.Network.V20191101.FlowLogArgs
-    ///         {
-    ///             Enabled = true,
-    ///             FlowLogName = "fl",
-    ///             Format = new AzureRM.Network.V20191101.Inputs.FlowLogFormatParametersArgs
-    ///             {
-    ///                 Type = "JSON",
-    ///                 Version = 1,
-    ///             },
-    ///             Location = "centraluseuap",
-    ///             NetworkWatcherName = "nw1",
-    ///             ResourceGroupName = "rg1",
-    ///             StorageId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/nwtest1mgvbfmqsigdxe",
-    ///             TargetResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/desmondcentral-nsg",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class FlowLog : Pulumi.CustomResource
     {

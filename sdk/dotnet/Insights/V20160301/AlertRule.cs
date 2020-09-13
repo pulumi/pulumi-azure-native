@@ -11,47 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20160301
 {
     /// <summary>
     /// The alert rule resource.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update an alert rule
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var alertRule = new AzureRM.Insights.V20160301.AlertRule("alertRule", new AzureRM.Insights.V20160301.AlertRuleArgs
-    ///         {
-    ///             Actions = {},
-    ///             Condition = 
-    ///             {
-    ///                 { "dataSource", 
-    ///                 {
-    ///                     { "metricName", "Requests" },
-    ///                     { "odata.type", "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource" },
-    ///                     { "resourceUri", "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest" },
-    ///                 } },
-    ///                 { "odata.type", "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition" },
-    ///                 { "operator", "GreaterThan" },
-    ///                 { "threshold", 3 },
-    ///                 { "timeAggregation", "Total" },
-    ///                 { "windowSize", "PT5M" },
-    ///             },
-    ///             Description = "Pura Vida",
-    ///             IsEnabled = true,
-    ///             Location = "West US",
-    ///             Name = "chiricutin",
-    ///             ResourceGroupName = "Rac46PostSwapRG",
-    ///             RuleName = "chiricutin",
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class AlertRule : Pulumi.CustomResource
     {

@@ -11,58 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
 {
     /// <summary>
     /// An Azure SQL Database sync member.
-    /// 
-    /// ## Example Usage
-    /// ### Create a new sync member
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var syncMember = new AzureRM.Sql.V20150501Preview.SyncMember("syncMember", new AzureRM.Sql.V20150501Preview.SyncMemberArgs
-    ///         {
-    ///             DatabaseName = "syncgroupcrud-4328",
-    ///             DatabaseType = "AzureSqlDatabase",
-    ///             ResourceGroupName = "syncgroupcrud-65440",
-    ///             ServerName = "syncgroupcrud-8475",
-    ///             SyncDirection = "Bidirectional",
-    ///             SyncGroupName = "syncgroupcrud-3187",
-    ///             SyncMemberName = "syncgroupcrud-4879",
-    ///             UserName = "myUser",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Update a sync member
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var syncMember = new AzureRM.Sql.V20150501Preview.SyncMember("syncMember", new AzureRM.Sql.V20150501Preview.SyncMemberArgs
-    ///         {
-    ///             DatabaseName = "syncgroupcrud-7421",
-    ///             DatabaseType = "AzureSqlDatabase",
-    ///             ResourceGroupName = "syncgroupcrud-65440",
-    ///             ServerName = "syncgroupcrud-3379.database.windows.net",
-    ///             SyncDirection = "Bidirectional",
-    ///             SyncGroupName = "syncgroupcrud-3187",
-    ///             SyncMemberName = "syncgroupcrud-4879",
-    ///             UserName = "myUser",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SyncMember : Pulumi.CustomResource
     {

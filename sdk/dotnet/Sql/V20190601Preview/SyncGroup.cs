@@ -11,60 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20190601Preview
 {
     /// <summary>
     /// An Azure SQL Database sync group.
-    /// 
-    /// ## Example Usage
-    /// ### Create a sync group
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var syncGroup = new AzureRM.Sql.V20190601Preview.SyncGroup("syncGroup", new AzureRM.Sql.V20190601Preview.SyncGroupArgs
-    ///         {
-    ///             ConflictResolutionPolicy = "HubWin",
-    ///             DatabaseName = "syncgroupcrud-4328",
-    ///             HubDatabaseUserName = "hubUser",
-    ///             Interval = -1,
-    ///             ResourceGroupName = "syncgroupcrud-65440",
-    ///             ServerName = "syncgroupcrud-8475",
-    ///             SyncDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
-    ///             SyncGroupName = "syncgroupcrud-3187",
-    ///             UsePrivateLinkConnection = false,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Update a sync group
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var syncGroup = new AzureRM.Sql.V20190601Preview.SyncGroup("syncGroup", new AzureRM.Sql.V20190601Preview.SyncGroupArgs
-    ///         {
-    ///             ConflictResolutionPolicy = "HubWin",
-    ///             DatabaseName = "syncgroupcrud-4328",
-    ///             HubDatabaseUserName = "hubUser",
-    ///             Interval = -1,
-    ///             ResourceGroupName = "syncgroupcrud-65440",
-    ///             ServerName = "syncgroupcrud-8475",
-    ///             SyncDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
-    ///             SyncGroupName = "syncgroupcrud-3187",
-    ///             UsePrivateLinkConnection = false,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SyncGroup : Pulumi.CustomResource
     {

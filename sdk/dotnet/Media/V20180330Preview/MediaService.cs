@@ -11,41 +11,6 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
 {
     /// <summary>
     /// A Media Services account.
-    /// 
-    /// ## Example Usage
-    /// ### Create a Media Services account
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var mediaService = new AzureRM.Media.V20180330Preview.MediaService("mediaService", new AzureRM.Media.V20180330Preview.MediaServiceArgs
-    ///         {
-    ///             AccountName = "contososports",
-    ///             Location = "South Central US",
-    ///             ResourceGroupName = "contoso",
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new AzureRM.Media.V20180330Preview.Inputs.StorageAccountArgs
-    ///                 {
-    ///                     Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contososportsstore",
-    ///                     Type = "Primary",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "key1", "value1" },
-    ///                 { "key2", "value2" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class MediaService : Pulumi.CustomResource
     {

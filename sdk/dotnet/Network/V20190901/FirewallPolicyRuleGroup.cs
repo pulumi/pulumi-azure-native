@@ -11,65 +11,6 @@ namespace Pulumi.AzureRM.Network.V20190901
 {
     /// <summary>
     /// Rule Group resource.
-    /// 
-    /// ## Example Usage
-    /// ### Create FirewallPolicyRuleGroup
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var firewallPolicyRuleGroup = new AzureRM.Network.V20190901.FirewallPolicyRuleGroup("firewallPolicyRuleGroup", new AzureRM.Network.V20190901.FirewallPolicyRuleGroupArgs
-    ///         {
-    ///             FirewallPolicyName = "firewallPolicy",
-    ///             Priority = 110,
-    ///             ResourceGroupName = "rg1",
-    ///             RuleGroupName = "ruleGroup1",
-    ///             Rules = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "action", new AzureRM.Network.V20190901.Inputs.FirewallPolicyFilterRuleActionArgs
-    ///                     {
-    ///                         Type = "Deny",
-    ///                     } },
-    ///                     { "name", "Example-Filter-Rule" },
-    ///                     { "ruleConditions", 
-    ///                     {
-    ///                         
-    ///                         {
-    ///                             { "destinationAddresses", 
-    ///                             {
-    ///                                 "*",
-    ///                             } },
-    ///                             { "destinationPorts", 
-    ///                             {
-    ///                                 "*",
-    ///                             } },
-    ///                             { "ipProtocols", 
-    ///                             {
-    ///                                 "TCP",
-    ///                             } },
-    ///                             { "name", "network-condition1" },
-    ///                             { "ruleConditionType", "NetworkRuleCondition" },
-    ///                             { "sourceAddresses", 
-    ///                             {
-    ///                                 "10.1.25.0/24",
-    ///                             } },
-    ///                         },
-    ///                     } },
-    ///                     { "ruleType", "FirewallPolicyFilterRule" },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class FirewallPolicyRuleGroup : Pulumi.CustomResource
     {

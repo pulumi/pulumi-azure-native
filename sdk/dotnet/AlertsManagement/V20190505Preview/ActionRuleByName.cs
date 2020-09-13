@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190505Preview
 {
     /// <summary>
     /// Action rule object containing target scope, conditions and suppression logic
-    /// 
-    /// ## Example Usage
-    /// ### PutActionRule
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var actionRuleByName = new AzureRM.AlertsManagement.V20190505Preview.ActionRuleByName("actionRuleByName", new AzureRM.AlertsManagement.V20190505Preview.ActionRuleByNameArgs
-    ///         {
-    ///             ActionRuleName = "DailySuppression",
-    ///             Location = "Global",
-    ///             ResourceGroupName = "alertscorrelationrg",
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ActionRuleByName : Pulumi.CustomResource
     {

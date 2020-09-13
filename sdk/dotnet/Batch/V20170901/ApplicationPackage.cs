@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.Batch.V20170901
 {
     /// <summary>
     /// An application package which represents a particular version of an application.
-    /// 
-    /// ## Example Usage
-    /// ### ApplicationPackageCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var applicationPackage = new AzureRM.Batch.V20170901.ApplicationPackage("applicationPackage", new AzureRM.Batch.V20170901.ApplicationPackageArgs
-    ///         {
-    ///             AccountName = "sampleacct",
-    ///             ApplicationId = "app1",
-    ///             ResourceGroupName = "default-azurebatch-japaneast",
-    ///             Version = "1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ApplicationPackage : Pulumi.CustomResource
     {

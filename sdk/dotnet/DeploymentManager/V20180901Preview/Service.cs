@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
 {
     /// <summary>
     /// The resource representation of a service in a service topology.
-    /// 
-    /// ## Example Usage
-    /// ### Create service
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var service = new AzureRM.DeploymentManager.V20180901Preview.Service("service", new AzureRM.DeploymentManager.V20180901Preview.ServiceArgs
-    ///         {
-    ///             Location = "centralus",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             ServiceName = "myService",
-    ///             ServiceTopologyName = "myTopology",
-    ///             Tags = ,
-    ///             TargetLocation = "centralus",
-    ///             TargetSubscriptionId = "600c95c5-3ee5-44fe-b190-ca38a19adcd7",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

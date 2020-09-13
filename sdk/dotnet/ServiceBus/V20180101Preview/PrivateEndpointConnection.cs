@@ -11,38 +11,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
 {
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
-    /// 
-    /// ## Example Usage
-    /// ### NameSpacePrivateEndPointConnectionCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateEndpointConnection = new AzureRM.ServiceBus.V20180101Preview.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.ServiceBus.V20180101Preview.PrivateEndpointConnectionArgs
-    ///         {
-    ///             NamespaceName = "sdk-Namespace-2924",
-    ///             PrivateEndpoint = new AzureRM.ServiceBus.V20180101Preview.Inputs.PrivateEndpointArgs
-    ///             {
-    ///                 Id = "/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-ServiceBus-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",
-    ///             },
-    ///             PrivateEndpointConnectionName = "privateEndpointConnectionName",
-    ///             PrivateLinkServiceConnectionState = new AzureRM.ServiceBus.V20180101Preview.Inputs.ConnectionStateArgs
-    ///             {
-    ///                 Description = "testing",
-    ///                 Status = "Rejected",
-    ///             },
-    ///             ProvisioningState = "Succeeded",
-    ///             ResourceGroupName = "ArunMonocle",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

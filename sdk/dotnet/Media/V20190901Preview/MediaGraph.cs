@@ -11,56 +11,6 @@ namespace Pulumi.AzureRM.Media.V20190901Preview
 {
     /// <summary>
     /// The Media Graph.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a Media Graph
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var mediaGraph = new AzureRM.Media.V20190901Preview.MediaGraph("mediaGraph", new AzureRM.Media.V20190901Preview.MediaGraphArgs
-    ///         {
-    ///             AccountName = "contosomedia",
-    ///             Description = "updated description",
-    ///             MediaGraphName = "SampleMediaGraph",
-    ///             ResourceGroupName = "contoso",
-    ///             Sinks = 
-    ///             {
-    ///                 new AzureRM.Media.V20190901Preview.Inputs.MediaGraphAssetSinkArgs
-    ///                 {
-    ///                     AssetName = "SampleAsset",
-    ///                     Inputs = 
-    ///                     {
-    ///                         "rtspSource",
-    ///                     },
-    ///                     Name = "AssetSink",
-    ///                     OdataType = "#Microsoft.Media.MediaGraphAssetSink",
-    ///                 },
-    ///             },
-    ///             Sources = 
-    ///             {
-    ///                 new AzureRM.Media.V20190901Preview.Inputs.MediaGraphRtspSourceArgs
-    ///                 {
-    ///                     Credentials = new AzureRM.Media.V20190901Preview.Inputs.MediaGraphUserCredentialsArgs
-    ///                     {
-    ///                         Password = "examplepassword",
-    ///                         Username = "exampleusername",
-    ///                     },
-    ///                     Name = "rtspSource",
-    ///                     OdataType = "#Microsoft.Media.MediaGraphRtspSource",
-    ///                     RtspUrl = "rtsp://contoso.com:554/stream1",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class MediaGraph : Pulumi.CustomResource
     {

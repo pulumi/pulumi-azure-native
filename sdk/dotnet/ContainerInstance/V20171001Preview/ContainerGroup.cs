@@ -11,67 +11,6 @@ namespace Pulumi.AzureRM.ContainerInstance.V20171001Preview
 {
     /// <summary>
     /// A container group.
-    /// 
-    /// ## Example Usage
-    /// ### ContainerGroupsCreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var containerGroup = new AzureRM.ContainerInstance.V20171001Preview.ContainerGroup("containerGroup", new AzureRM.ContainerInstance.V20171001Preview.ContainerGroupArgs
-    ///         {
-    ///             ContainerGroupName = "mycontainers",
-    ///             Containers = 
-    ///             {
-    ///                 new AzureRM.ContainerInstance.V20171001Preview.Inputs.ContainerArgs
-    ///                 {
-    ///                     Name = "mycontainers",
-    ///                 },
-    ///             },
-    ///             ImageRegistryCredentials = {},
-    ///             IpAddress = new AzureRM.ContainerInstance.V20171001Preview.Inputs.IpAddressArgs
-    ///             {
-    ///                 Ports = 
-    ///                 {
-    ///                     new AzureRM.ContainerInstance.V20171001Preview.Inputs.PortArgs
-    ///                     {
-    ///                         Port = 80,
-    ///                         Protocol = "TCP",
-    ///                     },
-    ///                 },
-    ///                 Type = "Public",
-    ///             },
-    ///             Location = "westus",
-    ///             OsType = "Linux",
-    ///             ResourceGroupName = "demo",
-    ///             Volumes = 
-    ///             {
-    ///                 new AzureRM.ContainerInstance.V20171001Preview.Inputs.VolumeArgs
-    ///                 {
-    ///                     AzureFile = new AzureRM.ContainerInstance.V20171001Preview.Inputs.AzureFileVolumeArgs
-    ///                     {
-    ///                         ShareName = "shareName",
-    ///                         StorageAccountKey = "",
-    ///                         StorageAccountName = "accountName",
-    ///                     },
-    ///                     Name = "volume1",
-    ///                 },
-    ///                 new AzureRM.ContainerInstance.V20171001Preview.Inputs.VolumeArgs
-    ///                 {
-    ///                     EmptyDir = ,
-    ///                     Name = "volume2",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ContainerGroup : Pulumi.CustomResource
     {

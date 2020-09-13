@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.BotService.V20180712
 {
     /// <summary>
     /// Bot channel resource definition
-    /// 
-    /// ## Example Usage
-    /// ### Create Connection Setting
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var botConnection = new AzureRM.BotService.V20180712.BotConnection("botConnection", new AzureRM.BotService.V20180712.BotConnectionArgs
-    ///         {
-    ///             ConnectionName = "sampleConnection",
-    ///             Etag = "etag1",
-    ///             Location = "West US",
-    ///             ResourceGroupName = "OneResourceGroupName",
-    ///             ResourceName = "samplebotname",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class BotConnection : Pulumi.CustomResource
     {

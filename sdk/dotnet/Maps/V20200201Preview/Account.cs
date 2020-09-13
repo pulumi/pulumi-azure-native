@@ -11,36 +11,6 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
 {
     /// <summary>
     /// An Azure resource which represents access to a suite of Maps REST APIs.
-    /// 
-    /// ## Example Usage
-    /// ### CreateAccount
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var account = new AzureRM.Maps.V20200201Preview.Account("account", new AzureRM.Maps.V20200201Preview.AccountArgs
-    ///         {
-    ///             AccountName = "myMapsAccount",
-    ///             Location = "global",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Sku = new AzureRM.Maps.V20200201Preview.Inputs.SkuArgs
-    ///             {
-    ///                 Name = "S0",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "test", "true" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

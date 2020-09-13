@@ -11,35 +11,6 @@ namespace Pulumi.AzureRM.Migrate.V20171111Preview
 {
     /// <summary>
     /// A group created in a Migration project.
-    /// 
-    /// ## Example Usage
-    /// ### Groups_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var @group = new AzureRM.Migrate.V20171111Preview.Group("group", new AzureRM.Migrate.V20171111Preview.GroupArgs
-    ///         {
-    ///             ETag = "\"1100637e-0000-0000-0000-59f6ed1f0000\"",
-    ///             GroupName = "group01",
-    ///             Machines = 
-    ///             {
-    ///                 "/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm1",
-    ///                 "/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm2",
-    ///                 "/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm3",
-    ///             },
-    ///             ProjectName = "project01",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {

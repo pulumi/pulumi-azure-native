@@ -11,36 +11,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20200501Preview
 {
     /// <summary>
     /// The bandwidth schedule details.
-    /// 
-    /// ## Example Usage
-    /// ### BandwidthSchedulePut
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var bandwidthSchedule = new AzureRM.DataBoxEdge.V20200501Preview.BandwidthSchedule("bandwidthSchedule", new AzureRM.DataBoxEdge.V20200501Preview.BandwidthScheduleArgs
-    ///         {
-    ///             Days = 
-    ///             {
-    ///                 "Sunday",
-    ///                 "Monday",
-    ///             },
-    ///             DeviceName = "testedgedevice",
-    ///             Name = "bandwidth-1",
-    ///             RateInMbps = 100,
-    ///             ResourceGroupName = "GroupForEdgeAutomation",
-    ///             Start = "0:0:0",
-    ///             Stop = "13:59:0",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class BandwidthSchedule : Pulumi.CustomResource
     {

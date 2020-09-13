@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.Migrate.V20180202
 {
     /// <summary>
     /// Azure Migrate Project.
-    /// 
-    /// ## Example Usage
-    /// ### Projects_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var project = new AzureRM.Migrate.V20180202.Project("project", new AzureRM.Migrate.V20180202.ProjectArgs
-    ///         {
-    ///             CustomerWorkspaceId = "url-to-customers-service-map",
-    ///             CustomerWorkspaceLocation = "West Us",
-    ///             ETag = "\"b701c73a-0000-0000-0000-59c12ff00000\"",
-    ///             Location = "West Us",
-    ///             ProjectName = "project01",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Project : Pulumi.CustomResource
     {

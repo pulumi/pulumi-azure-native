@@ -11,52 +11,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// External OAuth authorization server settings.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateAuthorizationServer
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var authorizationServer = new AzureRM.ApiManagement.V20180601Preview.AuthorizationServer("authorizationServer", new AzureRM.ApiManagement.V20180601Preview.AuthorizationServerArgs
-    ///         {
-    ///             AuthorizationEndpoint = "https://www.contoso.com/oauth2/auth",
-    ///             AuthorizationMethods = 
-    ///             {
-    ///                 "GET",
-    ///             },
-    ///             Authsid = "newauthServer",
-    ///             BearerTokenSendingMethods = 
-    ///             {
-    ///                 "authorizationHeader",
-    ///             },
-    ///             ClientId = "1",
-    ///             ClientRegistrationEndpoint = "https://www.contoso.com/apps",
-    ///             ClientSecret = "2",
-    ///             DefaultScope = "read write",
-    ///             Description = "test server",
-    ///             DisplayName = "test2",
-    ///             GrantTypes = 
-    ///             {
-    ///                 "authorizationCode",
-    ///                 "implicit",
-    ///             },
-    ///             ResourceGroupName = "rg1",
-    ///             ResourceOwnerPassword = "pwd",
-    ///             ResourceOwnerUsername = "un",
-    ///             ServiceName = "apimService1",
-    ///             SupportState = true,
-    ///             TokenEndpoint = "https://www.contoso.com/oauth2/token",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class AuthorizationServer : Pulumi.CustomResource
     {

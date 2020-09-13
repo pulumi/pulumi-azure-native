@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20200202
 {
     /// <summary>
     /// Private Endpoint Connection Response Properties
-    /// 
-    /// ## Example Usage
-    /// ### Update PrivateEndpointConnection
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateEndpointConnection = new AzureRM.RecoveryServices.V20200202.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.RecoveryServices.V20200202.PrivateEndpointConnectionArgs
-    ///         {
-    ///             PrivateEndpointConnectionName = "gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b",
-    ///             ResourceGroupName = "gaallaRG",
-    ///             VaultName = "gaallavaultbvtd2msi",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

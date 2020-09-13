@@ -11,31 +11,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 {
     /// <summary>
     /// Subscription details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateSubscription
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var subscription = new AzureRM.ApiManagement.V20170301.Subscription("subscription", new AzureRM.ApiManagement.V20170301.SubscriptionArgs
-    ///         {
-    ///             DisplayName = "testsub",
-    ///             ProductId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5600b59475ff190048060002",
-    ///             ResourceGroupName = "rg1",
-    ///             ServiceName = "apimService1",
-    ///             Sid = "testsub",
-    ///             UserId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57127d485157a511ace86ae7",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Subscription : Pulumi.CustomResource
     {

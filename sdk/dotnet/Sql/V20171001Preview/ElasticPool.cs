@@ -11,61 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
 {
     /// <summary>
     /// An elastic pool.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update elastic pool with all parameter
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var elasticPool = new AzureRM.Sql.V20171001Preview.ElasticPool("elasticPool", new AzureRM.Sql.V20171001Preview.ElasticPoolArgs
-    ///         {
-    ///             ElasticPoolName = "sqlcrudtest-8102",
-    ///             Location = "Japan East",
-    ///             PerDatabaseSettings = new AzureRM.Sql.V20171001Preview.Inputs.ElasticPoolPerDatabaseSettingsArgs
-    ///             {
-    ///                 MaxCapacity = 2,
-    ///                 MinCapacity = 0.25,
-    ///             },
-    ///             ResourceGroupName = "sqlcrudtest-2369",
-    ///             ServerName = "sqlcrudtest-8069",
-    ///             Sku = new AzureRM.Sql.V20171001Preview.Inputs.SkuArgs
-    ///             {
-    ///                 Capacity = 2,
-    ///                 Name = "GP_Gen4_2",
-    ///                 Tier = "GeneralPurpose",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Create or update elastic pool with minimum parameters
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var elasticPool = new AzureRM.Sql.V20171001Preview.ElasticPool("elasticPool", new AzureRM.Sql.V20171001Preview.ElasticPoolArgs
-    ///         {
-    ///             ElasticPoolName = "sqlcrudtest-8102",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-2369",
-    ///             ServerName = "sqlcrudtest-8069",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ElasticPool : Pulumi.CustomResource
     {

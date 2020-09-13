@@ -11,34 +11,6 @@ namespace Pulumi.AzureRM.ManagedServices.V20190401Preview
 {
     /// <summary>
     /// Registration definition.
-    /// 
-    /// ## Example Usage
-    /// ### Put Registration Definition
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var registrationDefinition = new AzureRM.ManagedServices.V20190401Preview.RegistrationDefinition("registrationDefinition", new AzureRM.ManagedServices.V20190401Preview.RegistrationDefinitionArgs
-    ///         {
-    ///             Plan = new AzureRM.ManagedServices.V20190401Preview.Inputs.PlanArgs
-    ///             {
-    ///                 Name = "addesai-plan",
-    ///                 Product = "test",
-    ///                 Publisher = "marketplace-test",
-    ///                 Version = "1.0.0",
-    ///             },
-    ///             RegistrationDefinitionId = "26c128c2-fefa-4340-9bb1-6e081c90ada2",
-    ///             Scope = "subscription/0afefe50-734e-4610-8a82-a144ahf49dea",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class RegistrationDefinition : Pulumi.CustomResource
     {

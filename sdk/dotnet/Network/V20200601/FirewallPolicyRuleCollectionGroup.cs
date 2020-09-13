@@ -87,9 +87,9 @@ namespace Pulumi.AzureRM.Network.V20200601
     ///             RuleCollectionGroupName = "ruleCollectionGroup1",
     ///             RuleCollections = 
     ///             {
-    ///                 new AzureRM.Network.V20200601.Inputs.FirewallPolicyNatRuleCollectionArgs
+    ///                 new AzureRM.Network.V20200601.Inputs.FirewallPolicyFilterRuleCollectionArgs
     ///                 {
-    ///                     Action = new AzureRM.Network.V20200601.Inputs.FirewallPolicyNatRuleCollectionActionArgs
+    ///                     Action = new AzureRM.Network.V20200601.Inputs.FirewallPolicyFilterRuleCollectionActionArgs
     ///                     {
     ///                         Type = "Deny",
     ///                     },

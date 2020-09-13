@@ -11,47 +11,6 @@ namespace Pulumi.AzureRM.Network.V20190201
 {
     /// <summary>
     /// Information about packet capture session.
-    /// 
-    /// ## Example Usage
-    /// ### Create packet capture
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var packetCapture = new AzureRM.Network.V20190201.PacketCapture("packetCapture", new AzureRM.Network.V20190201.PacketCaptureArgs
-    ///         {
-    ///             BytesToCapturePerPacket = 10000,
-    ///             Filters = 
-    ///             {
-    ///                 new AzureRM.Network.V20190201.Inputs.PacketCaptureFilterArgs
-    ///                 {
-    ///                     LocalIPAddress = "10.0.0.4",
-    ///                     LocalPort = "80",
-    ///                     Protocol = "TCP",
-    ///                 },
-    ///             },
-    ///             NetworkWatcherName = "nw1",
-    ///             PacketCaptureName = "pc1",
-    ///             ResourceGroupName = "rg1",
-    ///             StorageLocation = new AzureRM.Network.V20190201.Inputs.PacketCaptureStorageLocationArgs
-    ///             {
-    ///                 FilePath = "D:\\capture\\pc1.cap",
-    ///                 StorageId = "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/pcstore",
-    ///                 StoragePath = "https://mytestaccountname.blob.core.windows.net/capture/pc1.cap",
-    ///             },
-    ///             Target = "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1",
-    ///             TimeLimitInSeconds = 100,
-    ///             TotalBytesPerSession = 100000,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PacketCapture : Pulumi.CustomResource
     {

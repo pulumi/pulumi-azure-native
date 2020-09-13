@@ -11,55 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20140401
 {
     /// <summary>
     /// Represents a database elastic pool.
-    /// 
-    /// ## Example Usage
-    /// ### Create elastic pool max
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var elasticPool = new AzureRM.Sql.V20140401.ElasticPool("elasticPool", new AzureRM.Sql.V20140401.ElasticPoolArgs
-    ///         {
-    ///             DatabaseDtuMax = 5,
-    ///             DatabaseDtuMin = 0,
-    ///             Dtu = 50,
-    ///             Edition = "Basic",
-    ///             ElasticPoolName = "sqlcrudtest-8102",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-2369",
-    ///             ServerName = "sqlcrudtest-8069",
-    ///             StorageMB = 5000,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Create elastic pool min
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var elasticPool = new AzureRM.Sql.V20140401.ElasticPool("elasticPool", new AzureRM.Sql.V20140401.ElasticPoolArgs
-    ///         {
-    ///             ElasticPoolName = "sqlcrudtest-8102",
-    ///             Location = "Japan East",
-    ///             ResourceGroupName = "sqlcrudtest-2369",
-    ///             ServerName = "sqlcrudtest-8069",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ElasticPool : Pulumi.CustomResource
     {

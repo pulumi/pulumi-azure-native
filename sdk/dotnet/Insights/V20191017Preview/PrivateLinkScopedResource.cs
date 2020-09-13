@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20191017Preview
 {
     /// <summary>
     /// A private link scoped resource
-    /// 
-    /// ## Example Usage
-    /// ### Update a scoped resource in a private link scope.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateLinkScopedResource = new AzureRM.Insights.V20191017Preview.PrivateLinkScopedResource("privateLinkScopedResource", new AzureRM.Insights.V20191017Preview.PrivateLinkScopedResourceArgs
-    ///         {
-    ///             LinkedResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/components/my-component",
-    ///             Name = "scoped-resource-name",
-    ///             ResourceGroupName = "MyResourceGroup",
-    ///             ScopeName = "MyPrivateLinkScope",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PrivateLinkScopedResource : Pulumi.CustomResource
     {

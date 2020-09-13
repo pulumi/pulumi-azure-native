@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20140401
 {
     /// <summary>
     /// An server Active Directory Administrator.
-    /// 
-    /// ## Example Usage
-    /// ### Create/Update a server administrator
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var serverAzureADAdministrator = new AzureRM.Sql.V20140401.ServerAzureADAdministrator("serverAzureADAdministrator", new AzureRM.Sql.V20140401.ServerAzureADAdministratorArgs
-    ///         {
-    ///             AdministratorName = "activeDirectory",
-    ///             AdministratorType = "ActiveDirectory",
-    ///             Login = "bob@contoso.com",
-    ///             ResourceGroupName = "sqlcrudtest-4799",
-    ///             ServerName = "sqlcrudtest-6440",
-    ///             Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-    ///             TenantId = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ServerAzureADAdministrator : Pulumi.CustomResource
     {

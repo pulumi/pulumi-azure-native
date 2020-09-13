@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.EventHub.V20150801
 {
     /// <summary>
     /// Single item in List or Get Consumer group operation
-    /// 
-    /// ## Example Usage
-    /// ### ConsumerGroupCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var consumerGroup = new AzureRM.EventHub.V20150801.ConsumerGroup("consumerGroup", new AzureRM.EventHub.V20150801.ConsumerGroupArgs
-    ///         {
-    ///             ConsumerGroupName = "sdk-ConsumerGroup115",
-    ///             EventHubName = "sdk-EventHub5290",
-    ///             Location = "West US",
-    ///             NamespaceName = "sdk-Namespace736",
-    ///             ResourceGroupName = "Default-ServiceBus-WestUS",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ConsumerGroup : Pulumi.CustomResource
     {

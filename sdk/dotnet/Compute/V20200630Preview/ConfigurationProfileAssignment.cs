@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.Compute.V20200630Preview
 {
     /// <summary>
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update configuration profile assignment
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var configurationProfileAssignment = new AzureRM.Compute.V20200630Preview.ConfigurationProfileAssignment("configurationProfileAssignment", new AzureRM.Compute.V20200630Preview.ConfigurationProfileAssignmentArgs
-    ///         {
-    ///             ConfigurationProfileAssignmentName = "default",
-    ///             ResourceGroupName = "myResourceGroupName",
-    ///             VmName = "myVMName",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ConfigurationProfileAssignment : Pulumi.CustomResource
     {

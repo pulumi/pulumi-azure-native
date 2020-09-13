@@ -11,67 +11,6 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
 {
     /// <summary>
     /// Managed cluster.
-    /// 
-    /// ## Example Usage
-    /// ### Create/Update Managed Cluster
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var managedCluster = new AzureRM.ContainerService.V20190201.ManagedCluster("managedCluster", new AzureRM.ContainerService.V20190201.ManagedClusterArgs
-    ///         {
-    ///             AddonProfiles = ,
-    ///             AgentPoolProfiles = 
-    ///             {
-    ///                 new AzureRM.ContainerService.V20190201.Inputs.ManagedClusterAgentPoolProfileArgs
-    ///                 {
-    ///                     Count = 3,
-    ///                     Name = "nodepool1",
-    ///                     OsType = "Linux",
-    ///                     VmSize = "Standard_DS1_v2",
-    ///                 },
-    ///             },
-    ///             DnsPrefix = "dnsprefix1",
-    ///             EnablePodSecurityPolicy = true,
-    ///             EnableRBAC = true,
-    ///             KubernetesVersion = "",
-    ///             LinuxProfile = new AzureRM.ContainerService.V20190201.Inputs.ContainerServiceLinuxProfileArgs
-    ///             {
-    ///                 AdminUsername = "azureuser",
-    ///                 Ssh = new AzureRM.ContainerService.V20190201.Inputs.ContainerServiceSshConfigurationArgs
-    ///                 {
-    ///                     PublicKeys = 
-    ///                     {
-    ///                         new AzureRM.ContainerService.V20190201.Inputs.ContainerServiceSshPublicKeyArgs
-    ///                         {
-    ///                             KeyData = "keydata",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Location = "location1",
-    ///             ResourceGroupName = "rg1",
-    ///             ResourceName = "clustername1",
-    ///             ServicePrincipalProfile = new AzureRM.ContainerService.V20190201.Inputs.ManagedClusterServicePrincipalProfileArgs
-    ///             {
-    ///                 ClientId = "clientid",
-    ///                 Secret = "secret",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "archv2", "" },
-    ///                 { "tier", "production" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ManagedCluster : Pulumi.CustomResource
     {

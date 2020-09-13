@@ -11,44 +11,6 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
 {
     /// <summary>
     /// Information about a partner registration.
-    /// 
-    /// ## Example Usage
-    /// ### PartnerRegistrations_CreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var partnerRegistration = new AzureRM.EventGrid.V20200401Preview.PartnerRegistration("partnerRegistration", new AzureRM.EventGrid.V20200401Preview.PartnerRegistrationArgs
-    ///         {
-    ///             AuthorizedAzureSubscriptionIds = 
-    ///             {
-    ///                 "d48566a8-2428-4a6c-8347-9675d09fb851",
-    ///             },
-    ///             Location = "global",
-    ///             LogoUri = "https://www.example.com/logo.png",
-    ///             PartnerName = "ContosoCorp",
-    ///             PartnerRegistrationName = "examplePartnerRegistrationName1",
-    ///             PartnerResourceTypeDescription = "ContocoCorp Accounts Description Text",
-    ///             PartnerResourceTypeDisplayName = "ContocoCorp Accounts DisplayName Text",
-    ///             PartnerResourceTypeName = "ContosoCorp.Accounts",
-    ///             ResourceGroupName = "examplerg",
-    ///             SetupUri = "https://www.example.com/setup.html",
-    ///             Tags = 
-    ///             {
-    ///                 { "key1", "value1" },
-    ///                 { "key2", "Value2" },
-    ///                 { "key3", "Value3" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PartnerRegistration : Pulumi.CustomResource
     {

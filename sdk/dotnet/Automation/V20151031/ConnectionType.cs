@@ -11,51 +11,6 @@ namespace Pulumi.AzureRM.Automation.V20151031
 {
     /// <summary>
     /// Definition of the connection type.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update connection type
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var connectionType = new AzureRM.Automation.V20151031.ConnectionType("connectionType", new AzureRM.Automation.V20151031.ConnectionTypeArgs
-    ///         {
-    ///             AutomationAccountName = "myAutomationAccount22",
-    ///             ConnectionTypeName = "myCT",
-    ///             FieldDefinitions = 
-    ///             {
-    ///                 { "myBoolField", new AzureRM.Automation.V20151031.Inputs.FieldDefinitionArgs
-    ///                 {
-    ///                     IsEncrypted = false,
-    ///                     IsOptional = false,
-    ///                     Type = "bool",
-    ///                 } },
-    ///                 { "myStringField", new AzureRM.Automation.V20151031.Inputs.FieldDefinitionArgs
-    ///                 {
-    ///                     IsEncrypted = false,
-    ///                     IsOptional = false,
-    ///                     Type = "string",
-    ///                 } },
-    ///                 { "myStringFieldEncrypted", new AzureRM.Automation.V20151031.Inputs.FieldDefinitionArgs
-    ///                 {
-    ///                     IsEncrypted = true,
-    ///                     IsOptional = false,
-    ///                     Type = "string",
-    ///                 } },
-    ///             },
-    ///             IsGlobal = false,
-    ///             Name = "myCT",
-    ///             ResourceGroupName = "rg",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ConnectionType : Pulumi.CustomResource
     {

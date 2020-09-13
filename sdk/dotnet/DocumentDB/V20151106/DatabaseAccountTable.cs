@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
 {
     /// <summary>
     /// An Azure Cosmos DB Table.
-    /// 
-    /// ## Example Usage
-    /// ### CosmosDBTableReplace
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var databaseAccountTable = new AzureRM.DocumentDB.V20151106.DatabaseAccountTable("databaseAccountTable", new AzureRM.DocumentDB.V20151106.DatabaseAccountTableArgs
-    ///         {
-    ///             AccountName = "ddb1",
-    ///             Options = ,
-    ///             Resource = new AzureRM.DocumentDB.V20151106.Inputs.TableResourceArgs
-    ///             {
-    ///                 Id = "tableName",
-    ///             },
-    ///             ResourceGroupName = "rg1",
-    ///             TableName = "tableName",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DatabaseAccountTable : Pulumi.CustomResource
     {

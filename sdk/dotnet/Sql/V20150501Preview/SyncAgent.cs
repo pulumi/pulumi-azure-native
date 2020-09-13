@@ -11,50 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
 {
     /// <summary>
     /// An Azure SQL Database sync agent.
-    /// 
-    /// ## Example Usage
-    /// ### Create a new sync agent
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var syncAgent = new AzureRM.Sql.V20150501Preview.SyncAgent("syncAgent", new AzureRM.Sql.V20150501Preview.SyncAgentArgs
-    ///         {
-    ///             ResourceGroupName = "syncagentcrud-65440",
-    ///             ServerName = "syncagentcrud-8475",
-    ///             SyncAgentName = "syncagentcrud-3187",
-    ///             SyncDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Update a sync agent
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var syncAgent = new AzureRM.Sql.V20150501Preview.SyncAgent("syncAgent", new AzureRM.Sql.V20150501Preview.SyncAgentArgs
-    ///         {
-    ///             ResourceGroupName = "syncagentcrud-65440",
-    ///             ServerName = "syncagentcrud-8475",
-    ///             SyncAgentName = "syncagentcrud-3187",
-    ///             SyncDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SyncAgent : Pulumi.CustomResource
     {

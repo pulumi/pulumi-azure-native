@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.Compute.V20200501
 {
     /// <summary>
     /// disk access resource.
-    /// 
-    /// ## Example Usage
-    /// ### Create a disk access resource.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var diskAccess = new AzureRM.Compute.V20200501.DiskAccess("diskAccess", new AzureRM.Compute.V20200501.DiskAccessArgs
-    ///         {
-    ///             DiskAccessName = "myDiskAccess",
-    ///             Location = "West US",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DiskAccess : Pulumi.CustomResource
     {

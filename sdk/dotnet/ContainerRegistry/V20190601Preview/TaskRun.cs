@@ -12,42 +12,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190601Preview
     /// <summary>
     /// The task run that has the ARM resource and properties.
     /// The task run will have the information of request and result of a run.
-    /// 
-    /// ## Example Usage
-    /// ### TaskRuns_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var taskRun = new AzureRM.ContainerRegistry.V20190601Preview.TaskRun("taskRun", new AzureRM.ContainerRegistry.V20190601Preview.TaskRunArgs
-    ///         {
-    ///             ForceUpdateTag = "test",
-    ///             RegistryName = "myRegistry",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             RunRequest = 
-    ///             {
-    ///                 { "credentials",  },
-    ///                 { "encodedTaskContent", "c3RlcHM6IAogIC0gY21kOiB7eyAuVmFsdWVzLmNvbW1hbmQgfX0K" },
-    ///                 { "encodedValuesContent", "Y29tbWFuZDogYmFzaCBlY2hvIHt7LlJ1bi5SZWdpc3RyeX19Cg==" },
-    ///                 { "platform", new AzureRM.ContainerRegistry.V20190601Preview.Inputs.PlatformPropertiesArgs
-    ///                 {
-    ///                     Architecture = "amd64",
-    ///                     Os = "Linux",
-    ///                 } },
-    ///                 { "type", "EncodedTaskRunRequest" },
-    ///                 { "values", {} },
-    ///             },
-    ///             TaskRunName = "myRun",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class TaskRun : Pulumi.CustomResource
     {

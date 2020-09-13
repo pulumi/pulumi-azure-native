@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20200202Preview
 {
     /// <summary>
     /// Azure Active Directory only authentication.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates Azure Active Directory only authentication object.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var managedInstanceAzureADOnlyAuthentication = new AzureRM.Sql.V20200202Preview.ManagedInstanceAzureADOnlyAuthentication("managedInstanceAzureADOnlyAuthentication", new AzureRM.Sql.V20200202Preview.ManagedInstanceAzureADOnlyAuthenticationArgs
-    ///         {
-    ///             AuthenticationName = "Default",
-    ///             AzureADOnlyAuthentication = false,
-    ///             ManagedInstanceName = "managedInstance",
-    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ManagedInstanceAzureADOnlyAuthentication : Pulumi.CustomResource
     {

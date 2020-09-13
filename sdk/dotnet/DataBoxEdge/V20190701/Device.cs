@@ -11,34 +11,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
 {
     /// <summary>
     /// The Data Box Edge/Gateway device.
-    /// 
-    /// ## Example Usage
-    /// ### DataBoxEdgeDevicePut
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var device = new AzureRM.DataBoxEdge.V20190701.Device("device", new AzureRM.DataBoxEdge.V20190701.DeviceArgs
-    ///         {
-    ///             DeviceName = "testedgedevice",
-    ///             Location = "WUS",
-    ///             ResourceGroupName = "GroupForEdgeAutomation",
-    ///             Sku = new AzureRM.DataBoxEdge.V20190701.Inputs.SkuArgs
-    ///             {
-    ///                 Name = "Edge",
-    ///                 Tier = "Standard",
-    ///             },
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Device : Pulumi.CustomResource
     {

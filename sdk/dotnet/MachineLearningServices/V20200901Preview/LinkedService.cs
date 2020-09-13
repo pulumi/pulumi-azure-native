@@ -11,34 +11,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200901Preview
 {
     /// <summary>
     /// Linked service.
-    /// 
-    /// ## Example Usage
-    /// ### CreateLinkedService
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var linkedService = new AzureRM.MachineLearningServices.V20200901Preview.LinkedService("linkedService", new AzureRM.MachineLearningServices.V20200901Preview.LinkedServiceArgs
-    ///         {
-    ///             Identity = new AzureRM.MachineLearningServices.V20200901Preview.Inputs.IdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             LinkName = "link-1",
-    ///             Location = "westus",
-    ///             Name = "link-1",
-    ///             ResourceGroupName = "resourceGroup-1",
-    ///             WorkspaceName = "workspace-1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class LinkedService : Pulumi.CustomResource
     {

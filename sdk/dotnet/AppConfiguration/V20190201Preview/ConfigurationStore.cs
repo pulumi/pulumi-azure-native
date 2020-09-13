@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.AppConfiguration.V20190201Preview
 {
     /// <summary>
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-    /// 
-    /// ## Example Usage
-    /// ### ConfigurationStores_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var configurationStore = new AzureRM.AppConfiguration.V20190201Preview.ConfigurationStore("configurationStore", new AzureRM.AppConfiguration.V20190201Preview.ConfigurationStoreArgs
-    ///         {
-    ///             ConfigStoreName = "fayeh",
-    ///             Location = "westus",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Tags = 
-    ///             {
-    ///                 { "myTag", "myTagValue" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ConfigurationStore : Pulumi.CustomResource
     {

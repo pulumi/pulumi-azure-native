@@ -11,42 +11,6 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
 {
     /// <summary>
     /// This type describes a network resource.
-    /// 
-    /// ## Example Usage
-    /// ### Network_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var network = new AzureRM.ServiceFabricMesh.V20180701Preview.Network("network", new AzureRM.ServiceFabricMesh.V20180701Preview.NetworkArgs
-    ///         {
-    ///             AddressPrefix = "10.0.0.4/22",
-    ///             IngressConfig = new AzureRM.ServiceFabricMesh.V20180701Preview.Inputs.IngressConfigArgs
-    ///             {
-    ///                 Layer4 = 
-    ///                 {
-    ///                     new AzureRM.ServiceFabricMesh.V20180701Preview.Inputs.Layer4IngressConfigArgs
-    ///                     {
-    ///                         ApplicationName = "helloWorldAppWindows",
-    ///                         EndpointName = "helloWorldListener",
-    ///                         PublicPort = 80,
-    ///                         ServiceName = "helloWorldService",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Location = "eastus",
-    ///             NetworkName = "helloWorldNetworkWindows",
-    ///             ResourceGroupName = "sbz_demo",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Network : Pulumi.CustomResource
     {

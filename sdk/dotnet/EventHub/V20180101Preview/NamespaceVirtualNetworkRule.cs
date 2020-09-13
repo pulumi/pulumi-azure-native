@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
 {
     /// <summary>
     /// Single item in a List or Get VirtualNetworkRules operation
-    /// 
-    /// ## Example Usage
-    /// ### NameSpaceVirtualNetworkRuleCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var namespaceVirtualNetworkRule = new AzureRM.EventHub.V20180101Preview.NamespaceVirtualNetworkRule("namespaceVirtualNetworkRule", new AzureRM.EventHub.V20180101Preview.NamespaceVirtualNetworkRuleArgs
-    ///         {
-    ///             NamespaceName = "sdk-Namespace-6019",
-    ///             ResourceGroupName = "ResourceGroup",
-    ///             VirtualNetworkRuleName = "sdk-VirtualNetworkRules-9191",
-    ///             VirtualNetworkSubnetId = "/subscriptions/Subscription/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class NamespaceVirtualNetworkRule : Pulumi.CustomResource
     {

@@ -11,27 +11,6 @@ namespace Pulumi.AzureRM.Migrate.V20191001Preview
 {
     /// <summary>
     /// Define the move collection.
-    /// 
-    /// ## Example Usage
-    /// ### MoveCollections_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var moveCollection = new AzureRM.Migrate.V20191001Preview.MoveCollection("moveCollection", new AzureRM.Migrate.V20191001Preview.MoveCollectionArgs
-    ///         {
-    ///             MoveCollectionName = "movecollection1",
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class MoveCollection : Pulumi.CustomResource
     {

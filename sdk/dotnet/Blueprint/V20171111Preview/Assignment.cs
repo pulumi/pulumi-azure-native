@@ -11,60 +11,6 @@ namespace Pulumi.AzureRM.Blueprint.V20171111Preview
 {
     /// <summary>
     /// Represents a Blueprint assignment.
-    /// 
-    /// ## Example Usage
-    /// ### Assignment
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var assignment = new AzureRM.Blueprint.V20171111Preview.Assignment("assignment", new AzureRM.Blueprint.V20171111Preview.AssignmentArgs
-    ///         {
-    ///             AssignmentName = "assignSimpleBlueprint",
-    ///             BlueprintId = "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
-    ///             Description = "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
-    ///             Identity = new AzureRM.Blueprint.V20171111Preview.Inputs.ManagedServiceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             Location = "eastus",
-    ///             Parameters = 
-    ///             {
-    ///                 { "costCenter", new AzureRM.Blueprint.V20171111Preview.Inputs.ParameterValueBaseArgs
-    ///                 {
-    ///                     Value = "Contoso/Online/Shopping/Production",
-    ///                 } },
-    ///                 { "owners", new AzureRM.Blueprint.V20171111Preview.Inputs.ParameterValueBaseArgs
-    ///                 {
-    ///                     Value = 
-    ///                     {
-    ///                         "johnDoe@contoso.com",
-    ///                         "johnsteam@contoso.com",
-    ///                     },
-    ///                 } },
-    ///                 { "storageAccountType", new AzureRM.Blueprint.V20171111Preview.Inputs.ParameterValueBaseArgs
-    ///                 {
-    ///                     Value = "Standard_LRS",
-    ///                 } },
-    ///             },
-    ///             ResourceGroups = 
-    ///             {
-    ///                 { "storageRG", new AzureRM.Blueprint.V20171111Preview.Inputs.ResourceGroupValueArgs
-    ///                 {
-    ///                     Location = "eastus",
-    ///                     Name = "defaultRG",
-    ///                 } },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Assignment : Pulumi.CustomResource
     {

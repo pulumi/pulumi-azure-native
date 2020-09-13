@@ -11,46 +11,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201Preview
 {
     /// <summary>
     /// Policy Contract details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateProductPolicy
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var productPolicy = new AzureRM.ApiManagement.V20191201Preview.ProductPolicy("productPolicy", new AzureRM.ApiManagement.V20191201Preview.ProductPolicyArgs
-    ///         {
-    ///             Format = "xml",
-    ///             PolicyId = "policy",
-    ///             ProductId = "5702e97e5157a50f48dce801",
-    ///             ResourceGroupName = "rg1",
-    ///             ServiceName = "apimService1",
-    ///             Value = @"&lt;policies&gt;
-    ///   &lt;inbound&gt;
-    ///     &lt;rate-limit calls=""{{call-count}}"" renewal-period=""15""&gt;&lt;/rate-limit&gt;
-    ///     &lt;log-to-eventhub logger-id=""16""&gt;
-    ///                       @( string.Join("","", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) 
-    ///                   &lt;/log-to-eventhub&gt;
-    ///     &lt;quota-by-key calls=""40"" counter-key=""cc"" renewal-period=""3600"" increment-count=""@(context.Request.Method == &amp;quot;POST&amp;quot; ? 1:2)"" /&gt;
-    ///     &lt;base /&gt;
-    ///   &lt;/inbound&gt;
-    ///   &lt;backend&gt;
-    ///     &lt;base /&gt;
-    ///   &lt;/backend&gt;
-    ///   &lt;outbound&gt;
-    ///     &lt;base /&gt;
-    ///   &lt;/outbound&gt;
-    /// &lt;/policies&gt;",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ProductPolicy : Pulumi.CustomResource
     {

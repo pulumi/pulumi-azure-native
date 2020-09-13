@@ -11,59 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
 {
     /// <summary>
     /// A job.
-    /// 
-    /// ## Example Usage
-    /// ### Create a job with all properties specified
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var job = new AzureRM.Sql.V20170301Preview.Job("job", new AzureRM.Sql.V20170301Preview.JobArgs
-    ///         {
-    ///             Description = "my favourite job",
-    ///             JobAgentName = "agent1",
-    ///             JobName = "job1",
-    ///             ResourceGroupName = "group1",
-    ///             Schedule = new AzureRM.Sql.V20170301Preview.Inputs.JobScheduleArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 EndTime = "2015-09-24T23:59:59Z",
-    ///                 Interval = "PT5M",
-    ///                 StartTime = "2015-09-24T18:30:01Z",
-    ///                 Type = "Recurring",
-    ///             },
-    ///             ServerName = "server1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Create a job with default properties
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var job = new AzureRM.Sql.V20170301Preview.Job("job", new AzureRM.Sql.V20170301Preview.JobArgs
-    ///         {
-    ///             JobAgentName = "agent1",
-    ///             JobName = "job1",
-    ///             ResourceGroupName = "group1",
-    ///             ServerName = "server1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {

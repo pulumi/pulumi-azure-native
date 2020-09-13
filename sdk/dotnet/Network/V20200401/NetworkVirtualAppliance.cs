@@ -11,55 +11,6 @@ namespace Pulumi.AzureRM.Network.V20200401
 {
     /// <summary>
     /// NetworkVirtualAppliance Resource.
-    /// 
-    /// ## Example Usage
-    /// ### Create NetworkVirtualAppliance
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var networkVirtualAppliance = new AzureRM.Network.V20200401.NetworkVirtualAppliance("networkVirtualAppliance", new AzureRM.Network.V20200401.NetworkVirtualApplianceArgs
-    ///         {
-    ///             BootStrapConfigurationBlob = 
-    ///             {
-    ///                 "https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrbootstrapconfig",
-    ///             },
-    ///             CloudInitConfigurationBlob = 
-    ///             {
-    ///                 "https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrcloudinitconfig",
-    ///             },
-    ///             Identity = new AzureRM.Network.V20200401.Inputs.ManagedServiceIdentityArgs
-    ///             {
-    ///                 Type = "UserAssigned",
-    ///             },
-    ///             Location = "West US",
-    ///             NetworkVirtualApplianceName = "nva",
-    ///             ResourceGroupName = "rg1",
-    ///             Sku = new AzureRM.Network.V20200401.Inputs.VirtualApplianceSkuPropertiesArgs
-    ///             {
-    ///                 BundledScaleUnit = "1",
-    ///                 MarketPlaceVersion = "12.1",
-    ///                 Vendor = "Cisco SDWAN",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "key1", "value1" },
-    ///             },
-    ///             VirtualApplianceAsn = 10000,
-    ///             VirtualHub = new AzureRM.Network.V20200401.Inputs.SubResourceArgs
-    ///             {
-    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class NetworkVirtualAppliance : Pulumi.CustomResource
     {

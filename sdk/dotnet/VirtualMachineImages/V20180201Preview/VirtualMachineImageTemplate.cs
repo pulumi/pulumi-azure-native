@@ -9,63 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
 {
-    /// <summary>
-    /// ## Example Usage
-    /// ### Create an Image Template.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var virtualMachineImageTemplate = new AzureRM.VirtualMachineImages.V20180201Preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", new AzureRM.VirtualMachineImages.V20180201Preview.VirtualMachineImageTemplateArgs
-    ///         {
-    ///             Customize = 
-    ///             {
-    ///                 new AzureRM.VirtualMachineImages.V20180201Preview.Inputs.ImageTemplateShellCustomizerArgs
-    ///                 {
-    ///                     Name = "Shell Customizer Example",
-    ///                     Script = "https://example.com/path/to/script.sh",
-    ///                     Type = "shell",
-    ///                 },
-    ///             },
-    ///             Distribute = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "imageId", "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1" },
-    ///                     { "location", "1_location" },
-    ///                     { "runOutputName", "image_it_pir_1" },
-    ///                     { "tags", 
-    ///                     {
-    ///                         { "tagName", "value" },
-    ///                     } },
-    ///                     { "type", "managedImage" },
-    ///                 },
-    ///             },
-    ///             ImageTemplateName = "myImageTemplate",
-    ///             Location = "westus",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Source = 
-    ///             {
-    ///                 { "sha256Checksum", "120acbca7b3d55465eb9f8ef53ad7365f2997d42d4f83d7cc285bf5c71e1131f" },
-    ///                 { "sourceURI", "http://redhat.com/path/to/installation.iso" },
-    ///                 { "type", "ISO" },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "imagetemplate_tag1", "IT_T1" },
-    ///                 { "imagetemplate_tag2", "IT_T2" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// </summary>
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {
         /// <summary>

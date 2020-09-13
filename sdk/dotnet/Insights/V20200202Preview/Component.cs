@@ -11,59 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20200202Preview
 {
     /// <summary>
     /// An Application Insights component definition.
-    /// 
-    /// ## Example Usage
-    /// ### ComponentCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var component = new AzureRM.Insights.V20200202Preview.Component("component", new AzureRM.Insights.V20200202Preview.ComponentArgs
-    ///         {
-    ///             ApplicationType = "web",
-    ///             FlowType = "Bluefield",
-    ///             Kind = "web",
-    ///             Location = "South Central US",
-    ///             RequestSource = "rest",
-    ///             ResourceGroupName = "my-resource-group",
-    ///             ResourceName = "my-component",
-    ///             WorkspaceResourceId = "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### ComponentUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var component = new AzureRM.Insights.V20200202Preview.Component("component", new AzureRM.Insights.V20200202Preview.ComponentArgs
-    ///         {
-    ///             Kind = "web",
-    ///             Location = "South Central US",
-    ///             ResourceGroupName = "my-resource-group",
-    ///             ResourceName = "my-component",
-    ///             Tags = 
-    ///             {
-    ///                 { "ApplicationGatewayType", "Internal-Only" },
-    ///                 { "BillingEntity", "Self" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Component : Pulumi.CustomResource
     {

@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.Kusto.V20191109
 {
     /// <summary>
     /// Class representing a cluster principal assignment.
-    /// 
-    /// ## Example Usage
-    /// ### KustoClusterPrincipalAssignmentsCreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var clusterPrincipalAssignment = new AzureRM.Kusto.V20191109.ClusterPrincipalAssignment("clusterPrincipalAssignment", new AzureRM.Kusto.V20191109.ClusterPrincipalAssignmentArgs
-    ///         {
-    ///             ClusterName = "kustoclusterrptest4",
-    ///             PrincipalAssignmentName = "kustoprincipal1",
-    ///             PrincipalId = "87654321-1234-1234-1234-123456789123",
-    ///             PrincipalType = "App",
-    ///             ResourceGroupName = "kustorptest",
-    ///             Role = "Admin",
-    ///             TenantId = "12345678-1234-1234-1234-123456789123",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ClusterPrincipalAssignment : Pulumi.CustomResource
     {

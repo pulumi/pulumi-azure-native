@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.MixedReality.V20200406Preview
 {
     /// <summary>
     /// RemoteRenderingAccount Response.
-    /// 
-    /// ## Example Usage
-    /// ### Create remote rendering account
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var remoteRenderingAccount = new AzureRM.MixedReality.V20200406Preview.RemoteRenderingAccount("remoteRenderingAccount", new AzureRM.MixedReality.V20200406Preview.RemoteRenderingAccountArgs
-    ///         {
-    ///             AccountName = "MyAccount",
-    ///             Identity = new AzureRM.MixedReality.V20200406Preview.Inputs.RemoteRenderingAccountIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             Location = "eastus2euap",
-    ///             ResourceGroupName = "MyResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class RemoteRenderingAccount : Pulumi.CustomResource
     {

@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
 {
     /// <summary>
     /// An object that represents a replication for a container registry.
-    /// 
-    /// ## Example Usage
-    /// ### ReplicationCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var replication = new AzureRM.ContainerRegistry.V20171001.Replication("replication", new AzureRM.ContainerRegistry.V20171001.ReplicationArgs
-    ///         {
-    ///             Location = "eastus",
-    ///             RegistryName = "myRegistry",
-    ///             ReplicationName = "myReplication",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Tags = 
-    ///             {
-    ///                 { "key", "value" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Replication : Pulumi.CustomResource
     {

@@ -11,34 +11,6 @@ namespace Pulumi.AzureRM.Kusto.V20170907PrivatePreview
 {
     /// <summary>
     /// Class representing a Kusto cluster.
-    /// 
-    /// ## Example Usage
-    /// ### KustoClustersCreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var cluster = new AzureRM.Kusto.V20170907PrivatePreview.Cluster("cluster", new AzureRM.Kusto.V20170907PrivatePreview.ClusterArgs
-    ///         {
-    ///             ClusterName = "KustoClusterRPTest4",
-    ///             Location = "westus",
-    ///             ResourceGroupName = "kustorptest",
-    ///             Sku = new AzureRM.Kusto.V20170907PrivatePreview.Inputs.AzureSkuArgs
-    ///             {
-    ///                 Capacity = 2,
-    ///                 Name = "L8",
-    ///                 Tier = "Standard",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

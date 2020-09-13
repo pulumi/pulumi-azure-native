@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.HDInsight.V20150301Preview
 {
     /// <summary>
     /// The HDInsight cluster application
-    /// 
-    /// ## Example Usage
-    /// ### Create Application
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var application = new AzureRM.HDInsight.V20150301Preview.Application("application", new AzureRM.HDInsight.V20150301Preview.ApplicationArgs
-    ///         {
-    ///             ApplicationName = "hue",
-    ///             ClusterName = "cluster1",
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

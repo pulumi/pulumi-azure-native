@@ -11,36 +11,6 @@ namespace Pulumi.AzureRM.Automation.V20151031
 {
     /// <summary>
     /// Definition of the webhook type.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update webhook
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var webhook = new AzureRM.Automation.V20151031.Webhook("webhook", new AzureRM.Automation.V20151031.WebhookArgs
-    ///         {
-    ///             AutomationAccountName = "myAutomationAccount33",
-    ///             ExpiryTime = "2018-03-29T22:18:13.7002872Z",
-    ///             IsEnabled = true,
-    ///             Name = "TestWebhook",
-    ///             ResourceGroupName = "rg",
-    ///             Runbook = new AzureRM.Automation.V20151031.Inputs.RunbookAssociationPropertyArgs
-    ///             {
-    ///                 Name = "TestRunbook",
-    ///             },
-    ///             Uri = "https://s1events.azure-automation.net/webhooks?token=7u3KfQvM1vUPWaDMFRv2%2fAA4Jqx8QwS8aBuyO6Xsdcw%3d",
-    ///             WebhookName = "TestWebhook",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Webhook : Pulumi.CustomResource
     {

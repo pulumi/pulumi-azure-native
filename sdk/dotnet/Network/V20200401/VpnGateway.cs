@@ -11,48 +11,6 @@ namespace Pulumi.AzureRM.Network.V20200401
 {
     /// <summary>
     /// VpnGateway Resource.
-    /// 
-    /// ## Example Usage
-    /// ### VpnGatewayPut
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var vpnGateway = new AzureRM.Network.V20200401.VpnGateway("vpnGateway", new AzureRM.Network.V20200401.VpnGatewayArgs
-    ///         {
-    ///             BgpSettings = new AzureRM.Network.V20200401.Inputs.BgpSettingsArgs
-    ///             {
-    ///                 Asn = 65515,
-    ///                 PeerWeight = 0,
-    ///             },
-    ///             Connections = 
-    ///             {
-    ///                 new AzureRM.Network.V20200401.Inputs.VpnConnectionArgs
-    ///                 {
-    ///                     Name = "vpnConnection1",
-    ///                 },
-    ///             },
-    ///             GatewayName = "gateway1",
-    ///             Location = "westcentralus",
-    ///             ResourceGroupName = "rg1",
-    ///             Tags = 
-    ///             {
-    ///                 { "key1", "value1" },
-    ///             },
-    ///             VirtualHub = new AzureRM.Network.V20200401.Inputs.SubResourceArgs
-    ///             {
-    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class VpnGateway : Pulumi.CustomResource
     {

@@ -11,61 +11,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 {
     /// <summary>
     /// Logger details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateAILogger
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var logger = new AzureRM.ApiManagement.V20170301.Logger("logger", new AzureRM.ApiManagement.V20170301.LoggerArgs
-    ///         {
-    ///             Credentials = 
-    ///             {
-    ///                 { "instrumentationKey", "11................a1" },
-    ///             },
-    ///             Description = "adding a new logger",
-    ///             LoggerType = "applicationInsights",
-    ///             Loggerid = "loggerId",
-    ///             ResourceGroupName = "rg1",
-    ///             ServiceName = "apimService1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### ApiManagementCreateEHLogger
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var logger = new AzureRM.ApiManagement.V20170301.Logger("logger", new AzureRM.ApiManagement.V20170301.LoggerArgs
-    ///         {
-    ///             Credentials = 
-    ///             {
-    ///                 { "connectionString", "Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********=" },
-    ///                 { "name", "hydraeventhub" },
-    ///             },
-    ///             Description = "adding a new logger",
-    ///             LoggerType = "azureEventHub",
-    ///             Loggerid = "loggerId",
-    ///             ResourceGroupName = "rg1",
-    ///             ServiceName = "apimService1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Logger : Pulumi.CustomResource
     {

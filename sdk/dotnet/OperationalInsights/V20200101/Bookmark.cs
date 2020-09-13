@@ -11,48 +11,6 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
 {
     /// <summary>
     /// Represents a bookmark in Azure Security Insights.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates a bookmark.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var bookmark = new AzureRM.OperationalInsights.V20200101.Bookmark("bookmark", new AzureRM.OperationalInsights.V20200101.BookmarkArgs
-    ///         {
-    ///             BookmarkId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
-    ///             Created = "2019-01-01T13:15:30Z",
-    ///             CreatedBy = new AzureRM.OperationalInsights.V20200101.Inputs.UserInfoArgs
-    ///             {
-    ///                 ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
-    ///             },
-    ///             DisplayName = "My bookmark",
-    ///             Etag = "\"0300bf09-0000-0000-0000-5c37296e0000\"",
-    ///             Labels = 
-    ///             {
-    ///                 "Tag1",
-    ///                 "Tag2",
-    ///             },
-    ///             Notes = "Found a suspicious activity",
-    ///             Query = "SecurityEvent | where TimeGenerated &gt; ago(1d) and TimeGenerated &lt; ago(2d)",
-    ///             QueryResult = "Security Event query result",
-    ///             ResourceGroupName = "myRg",
-    ///             Updated = "2019-01-01T13:15:30Z",
-    ///             UpdatedBy = new AzureRM.OperationalInsights.V20200101.Inputs.UserInfoArgs
-    ///             {
-    ///                 ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
-    ///             },
-    ///             WorkspaceName = "myWorkspace",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Bookmark : Pulumi.CustomResource
     {

@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
 {
     /// <summary>
     /// A managed instance key.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates a managed instance key
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var managedInstanceKey = new AzureRM.Sql.V20171001Preview.ManagedInstanceKey("managedInstanceKey", new AzureRM.Sql.V20171001Preview.ManagedInstanceKeyArgs
-    ///         {
-    ///             KeyName = "someVault_someKey_01234567890123456789012345678901",
-    ///             ManagedInstanceName = "sqlcrudtest-4645",
-    ///             ResourceGroupName = "sqlcrudtest-7398",
-    ///             ServerKeyType = "AzureKeyVault",
-    ///             Uri = "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ManagedInstanceKey : Pulumi.CustomResource
     {

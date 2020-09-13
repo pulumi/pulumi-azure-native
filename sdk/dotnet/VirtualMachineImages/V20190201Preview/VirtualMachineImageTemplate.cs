@@ -9,62 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.VirtualMachineImages.V20190201Preview
 {
-    /// <summary>
-    /// ## Example Usage
-    /// ### Create an Image Template.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var virtualMachineImageTemplate = new AzureRM.VirtualMachineImages.V20190201Preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", new AzureRM.VirtualMachineImages.V20190201Preview.VirtualMachineImageTemplateArgs
-    ///         {
-    ///             Customize = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "name", "Shell Customizer Example" },
-    ///                     { "script", "https://example.com/path/to/script.sh" },
-    ///                     { "type", "Shell" },
-    ///                 },
-    ///             },
-    ///             Distribute = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "imageId", "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1" },
-    ///                     { "location", "1_location" },
-    ///                     { "runOutputName", "image_it_pir_1" },
-    ///                     { "tags", 
-    ///                     {
-    ///                         { "tagName", "value" },
-    ///                     } },
-    ///                     { "type", "ManagedImage" },
-    ///                 },
-    ///             },
-    ///             ImageTemplateName = "myImageTemplate",
-    ///             Location = "westus",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Source = 
-    ///             {
-    ///                 { "imageId", "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image" },
-    ///                 { "type", "ManagedImage" },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "imagetemplate_tag1", "IT_T1" },
-    ///                 { "imagetemplate_tag2", "IT_T2" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// </summary>
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {
         /// <summary>

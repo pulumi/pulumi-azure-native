@@ -11,61 +11,6 @@ namespace Pulumi.AzureRM.Network.V20191101
 {
     /// <summary>
     /// ExpressRoutePort resource definition.
-    /// 
-    /// ## Example Usage
-    /// ### ExpressRoutePortCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var expressRoutePort = new AzureRM.Network.V20191101.ExpressRoutePort("expressRoutePort", new AzureRM.Network.V20191101.ExpressRoutePortArgs
-    ///         {
-    ///             BandwidthInGbps = 100,
-    ///             Encapsulation = "QinQ",
-    ///             ExpressRoutePortName = "portName",
-    ///             Location = "westus",
-    ///             PeeringLocation = "peeringLocationName",
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### ExpressRoutePortUpdateLink
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var expressRoutePort = new AzureRM.Network.V20191101.ExpressRoutePort("expressRoutePort", new AzureRM.Network.V20191101.ExpressRoutePortArgs
-    ///         {
-    ///             BandwidthInGbps = 100,
-    ///             Encapsulation = "QinQ",
-    ///             ExpressRoutePortName = "portName",
-    ///             Links = 
-    ///             {
-    ///                 new AzureRM.Network.V20191101.Inputs.ExpressRouteLinkArgs
-    ///                 {
-    ///                     Name = "link1",
-    ///                 },
-    ///             },
-    ///             Location = "westus",
-    ///             PeeringLocation = "peeringLocationName",
-    ///             ResourceGroupName = "rg1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ExpressRoutePort : Pulumi.CustomResource
     {

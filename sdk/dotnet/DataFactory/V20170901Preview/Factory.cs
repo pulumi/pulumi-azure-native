@@ -11,38 +11,6 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
 {
     /// <summary>
     /// Factory resource type.
-    /// 
-    /// ## Example Usage
-    /// ### Factories_CreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var factory = new AzureRM.DataFactory.V20170901Preview.Factory("factory", new AzureRM.DataFactory.V20170901Preview.FactoryArgs
-    ///         {
-    ///             FactoryName = "exampleFactoryName",
-    ///             Location = "East US",
-    ///             ResourceGroupName = "exampleResourceGroup",
-    ///             VstsConfiguration = new AzureRM.DataFactory.V20170901Preview.Inputs.FactoryVSTSConfigurationArgs
-    ///             {
-    ///                 AccountName = "msdata",
-    ///                 CollaborationBranch = "master",
-    ///                 LastCommitId = "",
-    ///                 ProjectName = "datafactory",
-    ///                 RepositoryName = "exampleRepo",
-    ///                 RootFolder = "/",
-    ///                 TenantId = "12f988bf-86d1-41af-91ab-2d7cd011db49",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Factory : Pulumi.CustomResource
     {

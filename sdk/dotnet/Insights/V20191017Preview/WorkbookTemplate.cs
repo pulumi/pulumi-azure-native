@@ -11,42 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20191017Preview
 {
     /// <summary>
     /// An Application Insights workbook template definition.
-    /// 
-    /// ## Example Usage
-    /// ### WorkbookTemplateAdd
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var workbookTemplate = new AzureRM.Insights.V20191017Preview.WorkbookTemplate("workbookTemplate", new AzureRM.Insights.V20191017Preview.WorkbookTemplateArgs
-    ///         {
-    ///             Author = "Contoso",
-    ///             Galleries = 
-    ///             {
-    ///                 new AzureRM.Insights.V20191017Preview.Inputs.WorkbookTemplateGalleryArgs
-    ///                 {
-    ///                     Category = "Failures",
-    ///                     Name = "Simple Template",
-    ///                     Order = 100,
-    ///                     ResourceType = "microsoft.insights/components",
-    ///                     Type = "tsg",
-    ///                 },
-    ///             },
-    ///             Location = "west us",
-    ///             Priority = 1,
-    ///             ResourceGroupName = "my-resource-group",
-    ///             ResourceName = "testtemplate2",
-    ///             TemplateData = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class WorkbookTemplate : Pulumi.CustomResource
     {

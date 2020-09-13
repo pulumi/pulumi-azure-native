@@ -11,31 +11,6 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
 {
     /// <summary>
     /// Single item in a List or Get IpFilterRules operation
-    /// 
-    /// ## Example Usage
-    /// ### NameSpaceIpFilterRuleCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var namespaceIpFilterRule = new AzureRM.EventHub.V20180101Preview.NamespaceIpFilterRule("namespaceIpFilterRule", new AzureRM.EventHub.V20180101Preview.NamespaceIpFilterRuleArgs
-    ///         {
-    ///             Action = "Accept",
-    ///             FilterName = "sdk-IPFilterRules-7337",
-    ///             IpFilterRuleName = "sdk-IPFilterRules-7337",
-    ///             IpMask = "13.78.143.246/32",
-    ///             NamespaceName = "sdk-Namespace-5232",
-    ///             ResourceGroupName = "ResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class NamespaceIpFilterRule : Pulumi.CustomResource
     {

@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// Tag Contract details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateTag
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var tag = new AzureRM.ApiManagement.V20180601Preview.Tag("tag", new AzureRM.ApiManagement.V20180601Preview.TagArgs
-    ///         {
-    ///             DisplayName = "tag1",
-    ///             ResourceGroupName = "rg1",
-    ///             ServiceName = "apimService1",
-    ///             TagId = "tagId1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Tag : Pulumi.CustomResource
     {

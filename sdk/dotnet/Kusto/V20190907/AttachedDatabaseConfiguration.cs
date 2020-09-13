@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.Kusto.V20190907
 {
     /// <summary>
     /// Class representing an attached database configuration.
-    /// 
-    /// ## Example Usage
-    /// ### AttachedDatabaseConfigurationsCreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var attachedDatabaseConfiguration = new AzureRM.Kusto.V20190907.AttachedDatabaseConfiguration("attachedDatabaseConfiguration", new AzureRM.Kusto.V20190907.AttachedDatabaseConfigurationArgs
-    ///         {
-    ///             AttachedDatabaseConfigurationName = "attachedDatabaseConfigurations1",
-    ///             ClusterName = "KustoClusterRPTest4",
-    ///             ClusterResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterLeader",
-    ///             DatabaseName = "db1",
-    ///             DefaultPrincipalsModificationKind = "Union",
-    ///             Location = "westus",
-    ///             ResourceGroupName = "kustorptest",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class AttachedDatabaseConfiguration : Pulumi.CustomResource
     {

@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.Network.V20180701
 {
     /// <summary>
     /// VpnConnection Resource.
-    /// 
-    /// ## Example Usage
-    /// ### VpnConnectionPut
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var vpnConnection = new AzureRM.Network.V20180701.VpnConnection("vpnConnection", new AzureRM.Network.V20180701.VpnConnectionArgs
-    ///         {
-    ///             ConnectionName = "vpnConnection1",
-    ///             GatewayName = "gateway1",
-    ///             RemoteVpnSite = new AzureRM.Network.V20180701.Inputs.SubResourceArgs
-    ///             {
-    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
-    ///             },
-    ///             ResourceGroupName = "rg1",
-    ///             SharedKey = "key",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class VpnConnection : Pulumi.CustomResource
     {

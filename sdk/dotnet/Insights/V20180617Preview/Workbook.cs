@@ -11,35 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20180617Preview
 {
     /// <summary>
     /// An Application Insights workbook definition.
-    /// 
-    /// ## Example Usage
-    /// ### WorkbookAdd
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var workbook = new AzureRM.Insights.V20180617Preview.Workbook("workbook", new AzureRM.Insights.V20180617Preview.WorkbookArgs
-    ///         {
-    ///             Category = "workbook",
-    ///             DisplayName = "Blah Blah Blah",
-    ///             Kind = "shared",
-    ///             Location = "west us",
-    ///             ResourceGroupName = "my-resource-group",
-    ///             ResourceName = "deadb33f-8bee-4d3b-a059-9be8dac93960",
-    ///             SerializedData = "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":\"{\"json\":\"## New workbook\\r\\n---\\r\\n\\r\\nWelcome to your new workbook.  This area will display text formatted as markdown.\\r\\n\\r\\n\\r\\nWe've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections.\"}\",\"halfWidth\":null,\"conditionalVisibility\":null},{\"type\":3,\"content\":\"{\"version\":\"KqlItem/1.0\",\"query\":\"union withsource=TableName *\\n| summarize Count=count() by TableName\\n| render barchart\",\"showQuery\":false,\"size\":1,\"aggregation\":0,\"showAnnotations\":false}\",\"halfWidth\":null,\"conditionalVisibility\":null}],\"isLocked\":false}",
-    ///             SourceId = "/subscriptions/ad2f1a83-caac-4e21-9d2a-9ca3f87105e2/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/MyTestApp-CodeLens1",
-    ///             UserId = "userId",
-    ///             Version = "ME",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Workbook : Pulumi.CustomResource
     {

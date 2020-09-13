@@ -11,31 +11,6 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Represents a relation between two resources
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates an incident relation.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var incidentRelation = new AzureRM.SecurityInsights.V20190101Preview.IncidentRelation("incidentRelation", new AzureRM.SecurityInsights.V20190101Preview.IncidentRelationArgs
-    ///         {
-    ///             IncidentId = "afbd324f-6c48-459c-8710-8d1e1cd03812",
-    ///             OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
-    ///             RelatedResourceId = "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096",
-    ///             RelationName = "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
-    ///             ResourceGroupName = "myRg",
-    ///             WorkspaceName = "myWorkspace",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class IncidentRelation : Pulumi.CustomResource
     {

@@ -11,49 +11,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 {
     /// <summary>
     /// An object that represents an import pipeline for a container registry.
-    /// 
-    /// ## Example Usage
-    /// ### ImportPipelineCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var importPipeline = new AzureRM.ContainerRegistry.V20191201Preview.ImportPipeline("importPipeline", new AzureRM.ContainerRegistry.V20191201Preview.ImportPipelineArgs
-    ///         {
-    ///             Identity = new AzureRM.ContainerRegistry.V20191201Preview.Inputs.IdentityPropertiesArgs
-    ///             {
-    ///                 Type = "UserAssigned",
-    ///                 UserAssignedIdentities = 
-    ///                 {
-    ///                     { "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2",  },
-    ///                 },
-    ///             },
-    ///             ImportPipelineName = "myImportPipeline",
-    ///             Location = "westus",
-    ///             Options = 
-    ///             {
-    ///                 "OverwriteTags",
-    ///                 "DeleteSourceBlobOnSuccess",
-    ///                 "ContinueOnErrors",
-    ///             },
-    ///             RegistryName = "myRegistry",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Source = new AzureRM.ContainerRegistry.V20191201Preview.Inputs.ImportPipelineSourcePropertiesArgs
-    ///             {
-    ///                 KeyVaultUri = "https://myvault.vault.azure.net/secrets/acrimportsas",
-    ///                 Type = "AzureStorageBlobContainer",
-    ///                 Uri = "https://accountname.blob.core.windows.net/containername",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ImportPipeline : Pulumi.CustomResource
     {

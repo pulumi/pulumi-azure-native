@@ -11,42 +11,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20170301
 {
     /// <summary>
     /// An object that represents a container registry.
-    /// 
-    /// ## Example Usage
-    /// ### RegistryCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var registry = new AzureRM.ContainerRegistry.V20170301.Registry("registry", new AzureRM.ContainerRegistry.V20170301.RegistryArgs
-    ///         {
-    ///             AdminUserEnabled = true,
-    ///             Location = "westus",
-    ///             RegistryName = "myRegistry",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Sku = new AzureRM.ContainerRegistry.V20170301.Inputs.SkuArgs
-    ///             {
-    ///                 Name = "Basic",
-    ///             },
-    ///             StorageAccount = new AzureRM.ContainerRegistry.V20170301.Inputs.StorageAccountParametersArgs
-    ///             {
-    ///                 AccessKey = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-    ///                 Name = "mystorageaccount",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "key", "value" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Registry : Pulumi.CustomResource
     {

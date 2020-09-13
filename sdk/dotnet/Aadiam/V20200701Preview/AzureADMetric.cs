@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.Aadiam.V20200701Preview
 {
     /// <summary>
     /// AzureADMetrics resource.
-    /// 
-    /// ## Example Usage
-    /// ### azureADMetricsCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var azureADMetric = new AzureRM.Aadiam.V20200701Preview.AzureADMetric("azureADMetric", new AzureRM.Aadiam.V20200701Preview.AzureADMetricArgs
-    ///         {
-    ///             AzureADMetricsName = "ddb1",
-    ///             Location = "West US",
-    ///             ResourceGroupName = "rg1",
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class AzureADMetric : Pulumi.CustomResource
     {

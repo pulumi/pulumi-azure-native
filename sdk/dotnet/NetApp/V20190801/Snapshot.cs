@@ -11,31 +11,6 @@ namespace Pulumi.AzureRM.NetApp.V20190801
 {
     /// <summary>
     /// Snapshot of a Volume
-    /// 
-    /// ## Example Usage
-    /// ### Snapshots_Create
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var snapshot = new AzureRM.NetApp.V20190801.Snapshot("snapshot", new AzureRM.NetApp.V20190801.SnapshotArgs
-    ///         {
-    ///             AccountName = "account1",
-    ///             Location = "eastus",
-    ///             PoolName = "pool1",
-    ///             ResourceGroupName = "myRG",
-    ///             SnapshotName = "snapshot1",
-    ///             VolumeName = "volume1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Snapshot : Pulumi.CustomResource
     {

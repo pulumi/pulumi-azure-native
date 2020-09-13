@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.DBForMySQL.V20171201Preview
 {
     /// <summary>
     /// A virtual network rule.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a virtual network rule
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var virtualNetworkRule = new AzureRM.DBForMySQL.V20171201Preview.VirtualNetworkRule("virtualNetworkRule", new AzureRM.DBForMySQL.V20171201Preview.VirtualNetworkRuleArgs
-    ///         {
-    ///             IgnoreMissingVnetServiceEndpoint = false,
-    ///             ResourceGroupName = "TestGroup",
-    ///             ServerName = "vnet-test-svr",
-    ///             VirtualNetworkRuleName = "vnet-firewall-rule",
-    ///             VirtualNetworkSubnetId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {

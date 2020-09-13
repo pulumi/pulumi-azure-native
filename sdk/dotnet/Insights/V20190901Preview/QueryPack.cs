@@ -11,52 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20190901Preview
 {
     /// <summary>
     /// An Log Analytics QueryPack definition.
-    /// 
-    /// ## Example Usage
-    /// ### QueryPackCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var queryPack = new AzureRM.Insights.V20190901Preview.QueryPack("queryPack", new AzureRM.Insights.V20190901Preview.QueryPackArgs
-    ///         {
-    ///             Location = "South Central US",
-    ///             QueryPackName = "my-querypack",
-    ///             ResourceGroupName = "my-resource-group",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### QueryPackUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var queryPack = new AzureRM.Insights.V20190901Preview.QueryPack("queryPack", new AzureRM.Insights.V20190901Preview.QueryPackArgs
-    ///         {
-    ///             Location = "South Central US",
-    ///             QueryPackName = "my-querypack",
-    ///             ResourceGroupName = "my-resource-group",
-    ///             Tags = 
-    ///             {
-    ///                 { "Tag1", "Value1" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class QueryPack : Pulumi.CustomResource
     {

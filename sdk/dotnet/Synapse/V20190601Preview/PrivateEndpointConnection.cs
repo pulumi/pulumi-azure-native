@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 {
     /// <summary>
     /// A private endpoint connection
-    /// 
-    /// ## Example Usage
-    /// ### Approve private endpoint connection
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateEndpointConnection = new AzureRM.Synapse.V20190601Preview.PrivateEndpointConnection("privateEndpointConnection", new AzureRM.Synapse.V20190601Preview.PrivateEndpointConnectionArgs
-    ///         {
-    ///             PrivateEndpointConnectionName = "ExamplePrivateEndpointConnection",
-    ///             ResourceGroupName = "ExampleResourceGroup",
-    ///             WorkspaceName = "ExampleWorkspace",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

@@ -11,32 +11,6 @@ namespace Pulumi.AzureRM.Kusto.V20170907PrivatePreview
 {
     /// <summary>
     /// Class representing an event hub connection.
-    /// 
-    /// ## Example Usage
-    /// ### KustoEventHubConnectionsCreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var eventHubConnection = new AzureRM.Kusto.V20170907PrivatePreview.EventHubConnection("eventHubConnection", new AzureRM.Kusto.V20170907PrivatePreview.EventHubConnectionArgs
-    ///         {
-    ///             ClusterName = "KustoClusterRPTest4",
-    ///             ConsumerGroup = "testConsumerGroup1",
-    ///             DatabaseName = "KustoDatabase8",
-    ///             EventHubConnectionName = "kustoeventhubconnection1",
-    ///             EventHubResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
-    ///             Location = "westus",
-    ///             ResourceGroupName = "kustorptest",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class EventHubConnection : Pulumi.CustomResource
     {

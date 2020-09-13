@@ -11,68 +11,6 @@ namespace Pulumi.AzureRM.Aadiam.V20200301Preview
 {
     /// <summary>
     /// PrivateLink Policy configuration object.
-    /// 
-    /// ## Example Usage
-    /// ### privateLinkPolicyCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateLinkForAzureAd = new AzureRM.Aadiam.V20200301Preview.PrivateLinkForAzureAd("privateLinkForAzureAd", new AzureRM.Aadiam.V20200301Preview.PrivateLinkForAzureAdArgs
-    ///         {
-    ///             AllTenants = false,
-    ///             Name = "myOrgPrivateLinkPolicy",
-    ///             OwnerTenantId = "950f8bca-bf4d-4a41-ad10-034e792a243d",
-    ///             PolicyName = "ddb1",
-    ///             ResourceGroup = "myOrgVnetRG",
-    ///             ResourceGroupName = "rg1",
-    ///             ResourceName = "myOrgVnetPrivateLink",
-    ///             SubscriptionId = "57849194-ea1f-470b-abda-d195b25634c1",
-    ///             Tenants = 
-    ///             {
-    ///                 "3616657d-1c80-41ae-9d83-2a2776f2c9be",
-    ///                 "727b6ef1-18ab-4627-ac95-3f9cd945ed87",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### privateLinkPolicyMinCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var privateLinkForAzureAd = new AzureRM.Aadiam.V20200301Preview.PrivateLinkForAzureAd("privateLinkForAzureAd", new AzureRM.Aadiam.V20200301Preview.PrivateLinkForAzureAdArgs
-    ///         {
-    ///             AllTenants = false,
-    ///             Name = "myOrgPrivateLinkPolicy",
-    ///             OwnerTenantId = "950f8bca-bf4d-4a41-ad10-034e792a243d",
-    ///             PolicyName = "ddb1",
-    ///             ResourceGroup = "myOrgVnetRG",
-    ///             ResourceGroupName = "rg1",
-    ///             ResourceName = "myOrgVnetPrivateLink",
-    ///             SubscriptionId = "57849194-ea1f-470b-abda-d195b25634c1",
-    ///             Tenants = 
-    ///             {
-    ///                 "3616657d-1c80-41ae-9d83-2a2776f2c9be",
-    ///                 "727b6ef1-18ab-4627-ac95-3f9cd945ed87",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class PrivateLinkForAzureAd : Pulumi.CustomResource
     {

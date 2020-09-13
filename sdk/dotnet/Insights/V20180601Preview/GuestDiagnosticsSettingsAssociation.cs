@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20180601Preview
 {
     /// <summary>
     /// Virtual machine guest diagnostic settings resource.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update an guest diagnostic settings association
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var guestDiagnosticsSettingsAssociation = new AzureRM.Insights.V20180601Preview.GuestDiagnosticsSettingsAssociation("guestDiagnosticsSettingsAssociation", new AzureRM.Insights.V20180601Preview.GuestDiagnosticsSettingsAssociationArgs
-    ///         {
-    ///             AssociationName = "healthSystemMachineConfigAssociation",
-    ///             GuestDiagnosticSettingsName = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-Association-ResourceGroup/providers/providers/microsoft.insights/guestDiagnosticSettings/vmSettingForSecurity",
-    ///             Location = "Global",
-    ///             ResourceUri = "subscriptions/8498f01b-8064-4e37-856e-318f3c6c685f/resourceGroups/healthsystem/providers/Microsoft.Compute/virtualMachines/eastussojai",
-    ///             Tags = ,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class GuestDiagnosticsSettingsAssociation : Pulumi.CustomResource
     {

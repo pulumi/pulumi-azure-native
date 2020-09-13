@@ -11,43 +11,6 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
 {
     /// <summary>
     /// Security assessment metadata
-    /// 
-    /// ## Example Usage
-    /// ### Create security assessment metadata for subscription
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var assessmentsMetadataSubscription = new AzureRM.Security.V20190101Preview.AssessmentsMetadataSubscription("assessmentsMetadataSubscription", new AzureRM.Security.V20190101Preview.AssessmentsMetadataSubscriptionArgs
-    ///         {
-    ///             AssessmentMetadataName = "ca039e75-a276-4175-aebc-bcd41e4b14b7",
-    ///             AssessmentType = "CustomerManaged",
-    ///             Category = 
-    ///             {
-    ///                 "Compute",
-    ///             },
-    ///             Description = "Install an endpoint protection solution on your virtual machines scale sets, to protect them from threats and vulnerabilities.",
-    ///             DisplayName = "Install endpoint protection solution on virtual machine scale sets",
-    ///             ImplementationEffort = "Low",
-    ///             RemediationDescription = "To install an endpoint protection solution: 1.  &lt;a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set\"&gt;Follow the instructions in How do I turn on antimalware in my virtual machine scale set&lt;/a&gt;",
-    ///             Severity = "Medium",
-    ///             Threats = 
-    ///             {
-    ///                 "dataExfiltration",
-    ///                 "dataSpillage",
-    ///                 "maliciousInsider",
-    ///             },
-    ///             UserImpact = "Low",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class AssessmentsMetadataSubscription : Pulumi.CustomResource
     {

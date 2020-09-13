@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.Peering.V20190901Preview
 {
     /// <summary>
     /// The peering service prefix class.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a prefix for the peering service
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var prefix = new AzureRM.Peering.V20190901Preview.Prefix("prefix", new AzureRM.Peering.V20190901Preview.PrefixArgs
-    ///         {
-    ///             PeeringServiceName = "MyPeeringService",
-    ///             Prefix = "192.168.1.0/24",
-    ///             PrefixName = "MyPeeringServicePrefix",
-    ///             ResourceGroupName = "MyResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Prefix : Pulumi.CustomResource
     {

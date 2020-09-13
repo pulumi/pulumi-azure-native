@@ -11,31 +11,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 {
     /// <summary>
     /// OpenId Connect Provider details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateOpenIdConnectProvider
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var openIdConnectProvider = new AzureRM.ApiManagement.V20170301.OpenIdConnectProvider("openIdConnectProvider", new AzureRM.ApiManagement.V20170301.OpenIdConnectProviderArgs
-    ///         {
-    ///             ClientId = "oidprovidertemplate3",
-    ///             DisplayName = "templateoidprovider3",
-    ///             MetadataEndpoint = "https://oidprovider-template3.net",
-    ///             Opid = "templateOpenIdConnect3",
-    ///             ResourceGroupName = "rg1",
-    ///             ServiceName = "apimService1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class OpenIdConnectProvider : Pulumi.CustomResource
     {

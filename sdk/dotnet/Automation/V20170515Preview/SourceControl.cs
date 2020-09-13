@@ -11,40 +11,6 @@ namespace Pulumi.AzureRM.Automation.V20170515Preview
 {
     /// <summary>
     /// Definition of the source control.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a source control
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sourceControl = new AzureRM.Automation.V20170515Preview.SourceControl("sourceControl", new AzureRM.Automation.V20170515Preview.SourceControlArgs
-    ///         {
-    ///             AutoSync = true,
-    ///             AutomationAccountName = "sampleAccount9",
-    ///             Branch = "master",
-    ///             Description = "my description",
-    ///             FolderPath = "/folderOne/folderTwo",
-    ///             PublishRunbook = true,
-    ///             RepoUrl = "https://sampleUser.visualstudio.com/myProject/_git/myRepository",
-    ///             ResourceGroupName = "rg",
-    ///             SecurityToken = new AzureRM.Automation.V20170515Preview.Inputs.SourceControlSecurityTokenPropertiesArgs
-    ///             {
-    ///                 AccessToken = "3a326f7a0dcd343ea58fee21f2fd5fb4c1234567",
-    ///                 TokenType = "PersonalAccessToken",
-    ///             },
-    ///             SourceControlName = "sampleSourceControl",
-    ///             SourceType = "VsoGit",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SourceControl : Pulumi.CustomResource
     {

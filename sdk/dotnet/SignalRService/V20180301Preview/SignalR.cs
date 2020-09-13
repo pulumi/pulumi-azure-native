@@ -11,38 +11,6 @@ namespace Pulumi.AzureRM.SignalRService.V20180301Preview
 {
     /// <summary>
     /// A class represent a SignalR service resource.
-    /// 
-    /// ## Example Usage
-    /// ### CreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var signalR = new AzureRM.SignalRService.V20180301Preview.SignalR("signalR", new AzureRM.SignalRService.V20180301Preview.SignalRArgs
-    ///         {
-    ///             Location = "eastus",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             ResourceName = "mySignalRService",
-    ///             Sku = new AzureRM.SignalRService.V20180301Preview.Inputs.ResourceSkuArgs
-    ///             {
-    ///                 Capacity = 1,
-    ///                 Name = "Standard_S1",
-    ///                 Tier = "Standard",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "key1", "value1" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SignalR : Pulumi.CustomResource
     {

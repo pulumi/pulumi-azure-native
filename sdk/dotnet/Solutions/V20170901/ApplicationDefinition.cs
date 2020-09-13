@@ -11,39 +11,6 @@ namespace Pulumi.AzureRM.Solutions.V20170901
 {
     /// <summary>
     /// Information about managed application definition.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update managed application definition
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var applicationDefinition = new AzureRM.Solutions.V20170901.ApplicationDefinition("applicationDefinition", new AzureRM.Solutions.V20170901.ApplicationDefinitionArgs
-    ///         {
-    ///             Authorizations = 
-    ///             {
-    ///                 new AzureRM.Solutions.V20170901.Inputs.ApplicationProviderAuthorizationArgs
-    ///                 {
-    ///                     PrincipalId = "validprincipalguid",
-    ///                     RoleDefinitionId = "validroleguid",
-    ///                 },
-    ///             },
-    ///             Description = "myManagedApplicationDef description",
-    ///             DisplayName = "myManagedApplicationDef",
-    ///             Location = "East US 2",
-    ///             LockLevel = "None",
-    ///             PackageFileUri = "https://path/to/packagezipfile",
-    ///             ResourceGroupName = "rg",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ApplicationDefinition : Pulumi.CustomResource
     {

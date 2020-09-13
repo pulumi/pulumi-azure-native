@@ -11,33 +11,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 {
     /// <summary>
     /// Issue Comment Contract details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateApiIssueComment
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var apiIssueComment = new AzureRM.ApiManagement.V20170301.ApiIssueComment("apiIssueComment", new AzureRM.ApiManagement.V20170301.ApiIssueCommentArgs
-    ///         {
-    ///             ApiId = "57d1f7558aa04f15146d9d8a",
-    ///             CommentId = "599e29ab193c3c0bd0b3e2fb",
-    ///             CreatedDate = "2018-02-01T22:21:20.467Z",
-    ///             IssueId = "57d2ef278aa04f0ad01d6cdc",
-    ///             ResourceGroupName = "rg1",
-    ///             ServiceName = "apimService1",
-    ///             Text = "Issue comment.",
-    ///             UserId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ApiIssueComment : Pulumi.CustomResource
     {

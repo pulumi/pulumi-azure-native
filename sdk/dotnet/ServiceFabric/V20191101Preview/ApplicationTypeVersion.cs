@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20191101Preview
 {
     /// <summary>
     /// An application type version resource for the specified application type name resource.
-    /// 
-    /// ## Example Usage
-    /// ### Put an application type version
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var applicationTypeVersion = new AzureRM.ServiceFabric.V20191101Preview.ApplicationTypeVersion("applicationTypeVersion", new AzureRM.ServiceFabric.V20191101Preview.ApplicationTypeVersionArgs
-    ///         {
-    ///             AppPackageUrl = "http://fakelink.test.com/MyAppType",
-    ///             ApplicationTypeName = "myAppType",
-    ///             ClusterName = "myCluster",
-    ///             ResourceGroupName = "resRg",
-    ///             Version = "1.0",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ApplicationTypeVersion : Pulumi.CustomResource
     {

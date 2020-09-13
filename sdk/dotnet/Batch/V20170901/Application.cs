@@ -11,30 +11,6 @@ namespace Pulumi.AzureRM.Batch.V20170901
 {
     /// <summary>
     /// Contains information about an application in a Batch account.
-    /// 
-    /// ## Example Usage
-    /// ### ApplicationCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var application = new AzureRM.Batch.V20170901.Application("application", new AzureRM.Batch.V20170901.ApplicationArgs
-    ///         {
-    ///             AccountName = "sampleacct",
-    ///             AllowUpdates = false,
-    ///             ApplicationId = "app1",
-    ///             DisplayName = "myAppName",
-    ///             ResourceGroupName = "default-azurebatch-japaneast",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

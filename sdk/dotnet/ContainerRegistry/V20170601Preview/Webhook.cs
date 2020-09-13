@@ -11,44 +11,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20170601Preview
 {
     /// <summary>
     /// An object that represents a webhook for a container registry.
-    /// 
-    /// ## Example Usage
-    /// ### WebhookCreate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var webhook = new AzureRM.ContainerRegistry.V20170601Preview.Webhook("webhook", new AzureRM.ContainerRegistry.V20170601Preview.WebhookArgs
-    ///         {
-    ///             Actions = 
-    ///             {
-    ///                 "push",
-    ///             },
-    ///             CustomHeaders = 
-    ///             {
-    ///                 { "Authorization", "Basic 000000000000000000000000000000000000000000000000000" },
-    ///             },
-    ///             Location = "westus",
-    ///             RegistryName = "myRegistry",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Scope = "myRepository",
-    ///             ServiceUri = "http://myservice.com",
-    ///             Status = "enabled",
-    ///             Tags = 
-    ///             {
-    ///                 { "key", "value" },
-    ///             },
-    ///             WebhookName = "myWebhook",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Webhook : Pulumi.CustomResource
     {

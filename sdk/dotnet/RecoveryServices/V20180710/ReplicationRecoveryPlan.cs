@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
 {
     /// <summary>
     /// Recovery plan details.
-    /// 
-    /// ## Example Usage
-    /// ### Creates a recovery plan with the given details.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var replicationRecoveryPlan = new AzureRM.RecoveryServices.V20180710.ReplicationRecoveryPlan("replicationRecoveryPlan", new AzureRM.RecoveryServices.V20180710.ReplicationRecoveryPlanArgs
-    ///         {
-    ///             RecoveryPlanName = "RPtest1",
-    ///             ResourceGroupName = "resourceGroupPS1",
-    ///             ResourceName = "vault1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ReplicationRecoveryPlan : Pulumi.CustomResource
     {

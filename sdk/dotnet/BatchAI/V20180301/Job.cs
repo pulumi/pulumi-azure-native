@@ -11,65 +11,6 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
 {
     /// <summary>
     /// Contains information about the job.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update job
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var job = new AzureRM.BatchAI.V20180301.Job("job", new AzureRM.BatchAI.V20180301.JobArgs
-    ///         {
-    ///             Cluster = new AzureRM.BatchAI.V20180301.Inputs.ResourceIdArgs
-    ///             {
-    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo_resource_group/providers/Microsoft.BatchAI/clusters/demo_cluster",
-    ///             },
-    ///             ContainerSettings = new AzureRM.BatchAI.V20180301.Inputs.ContainerSettingsArgs
-    ///             {
-    ///                 ImageSourceRegistry = new AzureRM.BatchAI.V20180301.Inputs.ImageSourceRegistryArgs
-    ///                 {
-    ///                     Image = "ubuntu",
-    ///                 },
-    ///             },
-    ///             CustomToolkitSettings = new AzureRM.BatchAI.V20180301.Inputs.CustomToolkitSettingsArgs
-    ///             {
-    ///                 CommandLine = "echo hi | tee $AZ_BATCHAI_OUTPUT_OUTPUTS/hi.txt",
-    ///             },
-    ///             InputDirectories = 
-    ///             {
-    ///                 new AzureRM.BatchAI.V20180301.Inputs.InputDirectoryArgs
-    ///                 {
-    ///                     Id = "INPUT",
-    ///                     Path = "$AZ_BATCHAI_MOUNT_ROOT/azfiles/input",
-    ///                 },
-    ///             },
-    ///             JobName = "demo_job",
-    ///             Location = "eastus",
-    ///             NodeCount = 1,
-    ///             OutputDirectories = 
-    ///             {
-    ///                 new AzureRM.BatchAI.V20180301.Inputs.OutputDirectoryArgs
-    ///                 {
-    ///                     CreateNew = true,
-    ///                     Id = "OUTPUTS",
-    ///                     PathPrefix = "$AZ_BATCHAI_MOUNT_ROOT/azfiles/",
-    ///                     PathSuffix = "files",
-    ///                     Type = "custom",
-    ///                 },
-    ///             },
-    ///             Priority = 0,
-    ///             ResourceGroupName = "demo_resource_group",
-    ///             StdOutErrPathPrefix = "$AZ_BATCHAI_MOUNT_ROOT/azfiles",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {

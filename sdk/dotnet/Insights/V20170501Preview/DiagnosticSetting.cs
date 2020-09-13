@@ -11,58 +11,6 @@ namespace Pulumi.AzureRM.Insights.V20170501Preview
 {
     /// <summary>
     /// The diagnostic setting resource.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or Updates the diagnostic setting
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var diagnosticSetting = new AzureRM.Insights.V20170501Preview.DiagnosticSetting("diagnosticSetting", new AzureRM.Insights.V20170501Preview.DiagnosticSettingArgs
-    ///         {
-    ///             EventHubAuthorizationRuleId = "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
-    ///             EventHubName = "myeventhub",
-    ///             LogAnalyticsDestinationType = "Dedicated",
-    ///             Logs = 
-    ///             {
-    ///                 new AzureRM.Insights.V20170501Preview.Inputs.LogSettingsArgs
-    ///                 {
-    ///                     Category = "WorkflowRuntime",
-    ///                     Enabled = true,
-    ///                     RetentionPolicy = new AzureRM.Insights.V20170501Preview.Inputs.RetentionPolicyArgs
-    ///                     {
-    ///                         Days = 0,
-    ///                         Enabled = false,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Metrics = 
-    ///             {
-    ///                 new AzureRM.Insights.V20170501Preview.Inputs.MetricSettingsArgs
-    ///                 {
-    ///                     Category = "WorkflowMetrics",
-    ///                     Enabled = true,
-    ///                     RetentionPolicy = new AzureRM.Insights.V20170501Preview.Inputs.RetentionPolicyArgs
-    ///                     {
-    ///                         Days = 0,
-    ///                         Enabled = false,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Name = "mysetting",
-    ///             ResourceUri = "subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6",
-    ///             StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
-    ///             WorkspaceId = "",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {

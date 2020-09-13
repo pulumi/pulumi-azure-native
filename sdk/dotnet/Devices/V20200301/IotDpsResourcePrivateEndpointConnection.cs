@@ -11,28 +11,6 @@ namespace Pulumi.AzureRM.Devices.V20200301
 {
     /// <summary>
     /// The private endpoint connection of a provisioning service
-    /// 
-    /// ## Example Usage
-    /// ### PrivateEndpointConnection_CreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var iotDpsResourcePrivateEndpointConnection = new AzureRM.Devices.V20200301.IotDpsResourcePrivateEndpointConnection("iotDpsResourcePrivateEndpointConnection", new AzureRM.Devices.V20200301.IotDpsResourcePrivateEndpointConnectionArgs
-    ///         {
-    ///             PrivateEndpointConnectionName = "myPrivateEndpointConnection",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             ResourceName = "myFirstProvisioningService",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class IotDpsResourcePrivateEndpointConnection : Pulumi.CustomResource
     {

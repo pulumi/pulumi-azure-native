@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.Compute.V20200601
 {
     /// <summary>
     /// Specifies information about the SSH public key.
-    /// 
-    /// ## Example Usage
-    /// ### Create a new SSH public key resource.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sshPublicKey = new AzureRM.Compute.V20200601.SshPublicKey("sshPublicKey", new AzureRM.Compute.V20200601.SshPublicKeyArgs
-    ///         {
-    ///             Location = "westus",
-    ///             PublicKey = "{ssh-rsa public key}",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             SshPublicKeyName = "mySshPublicKeyName",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SshPublicKey : Pulumi.CustomResource
     {

@@ -11,42 +11,6 @@ namespace Pulumi.AzureRM.EventGrid.V20200401Preview
 {
     /// <summary>
     /// Event Subscription
-    /// 
-    /// ## Example Usage
-    /// ### SystemTopicEventSubscriptions_CreateOrUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var systemTopicEventSubscription = new AzureRM.EventGrid.V20200401Preview.SystemTopicEventSubscription("systemTopicEventSubscription", new AzureRM.EventGrid.V20200401Preview.SystemTopicEventSubscriptionArgs
-    ///         {
-    ///             Destination = 
-    ///             {
-    ///                 { "endpointType", "WebHook" },
-    ///                 { "properties", 
-    ///                 {
-    ///                     { "endpointUrl", "https://requestb.in/15ksip71" },
-    ///                 } },
-    ///             },
-    ///             EventSubscriptionName = "exampleEventSubscriptionName1",
-    ///             Filter = new AzureRM.EventGrid.V20200401Preview.Inputs.EventSubscriptionFilterArgs
-    ///             {
-    ///                 IsSubjectCaseSensitive = false,
-    ///                 SubjectBeginsWith = "ExamplePrefix",
-    ///                 SubjectEndsWith = "ExampleSuffix",
-    ///             },
-    ///             ResourceGroupName = "examplerg",
-    ///             SystemTopicName = "exampleSystemTopic1",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class SystemTopicEventSubscription : Pulumi.CustomResource
     {

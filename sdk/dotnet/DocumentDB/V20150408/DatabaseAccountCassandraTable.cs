@@ -11,61 +11,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20150408
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra table.
-    /// 
-    /// ## Example Usage
-    /// ### CosmosDBCassandraTableCreateUpdate
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var databaseAccountCassandraTable = new AzureRM.DocumentDB.V20150408.DatabaseAccountCassandraTable("databaseAccountCassandraTable", new AzureRM.DocumentDB.V20150408.DatabaseAccountCassandraTableArgs
-    ///         {
-    ///             AccountName = "ddb1",
-    ///             KeyspaceName = "tableName",
-    ///             Options = ,
-    ///             Resource = new AzureRM.DocumentDB.V20150408.Inputs.CassandraTableResourceArgs
-    ///             {
-    ///                 DefaultTtl = 100,
-    ///                 Id = "tableName",
-    ///                 Schema = new AzureRM.DocumentDB.V20150408.Inputs.CassandraSchemaArgs
-    ///                 {
-    ///                     ClusterKeys = 
-    ///                     {
-    ///                         new AzureRM.DocumentDB.V20150408.Inputs.ClusterKeyArgs
-    ///                         {
-    ///                             Name = "columnA",
-    ///                             OrderBy = "Asc",
-    ///                         },
-    ///                     },
-    ///                     Columns = 
-    ///                     {
-    ///                         new AzureRM.DocumentDB.V20150408.Inputs.ColumnArgs
-    ///                         {
-    ///                             Name = "columnA",
-    ///                             Type = "Ascii",
-    ///                         },
-    ///                     },
-    ///                     PartitionKeys = 
-    ///                     {
-    ///                         new AzureRM.DocumentDB.V20150408.Inputs.CassandraPartitionKeyArgs
-    ///                         {
-    ///                             Name = "columnA",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ResourceGroupName = "rg1",
-    ///             TableName = "tableName",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class DatabaseAccountCassandraTable : Pulumi.CustomResource
     {

@@ -11,29 +11,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
 {
     /// <summary>
     /// Provider details.
-    /// 
-    /// ## Example Usage
-    /// ### Adds a recovery services provider.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var replicationRecoveryServicesProvider = new AzureRM.RecoveryServices.V20180710.ReplicationRecoveryServicesProvider("replicationRecoveryServicesProvider", new AzureRM.RecoveryServices.V20180710.ReplicationRecoveryServicesProviderArgs
-    ///         {
-    ///             FabricName = "vmwarefabric1",
-    ///             ProviderName = "vmwareprovider1",
-    ///             ResourceGroupName = "resourcegroup1",
-    ///             ResourceName = "migrationvault",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ReplicationRecoveryServicesProvider : Pulumi.CustomResource
     {

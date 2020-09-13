@@ -11,46 +11,6 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Represents a case in Azure Security Insights.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates a case.
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var @case = new AzureRM.SecurityInsights.V20190101Preview.Case("case", new AzureRM.SecurityInsights.V20190101Preview.CaseArgs
-    ///         {
-    ///             CaseId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
-    ///             CloseReason = "Resolved",
-    ///             Description = "This is a demo case",
-    ///             EndTimeUtc = "2019-01-01T13:05:30Z",
-    ///             Etag = "\"0300bf09-0000-0000-0000-5c37296e0000\"",
-    ///             Labels = 
-    ///             {
-    ///                 "Tag1",
-    ///                 "Tag2",
-    ///             },
-    ///             OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
-    ///             Owner = new AzureRM.SecurityInsights.V20190101Preview.Inputs.UserInfoArgs
-    ///             {
-    ///                 ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
-    ///             },
-    ///             ResourceGroupName = "myRg",
-    ///             Severity = "High",
-    ///             StartTimeUtc = "2019-01-01T13:00:30Z",
-    ///             Status = "Closed",
-    ///             Title = "My case",
-    ///             WorkspaceName = "myWorkspace",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class Case : Pulumi.CustomResource
     {

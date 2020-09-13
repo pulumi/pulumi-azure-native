@@ -11,52 +11,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20190513
 {
     /// <summary>
     /// Base class for backup items.
-    /// 
-    /// ## Example Usage
-    /// ### Enable Protection on Azure IaasVm
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var protectedItem = new AzureRM.RecoveryServices.V20190513.ProtectedItem("protectedItem", new AzureRM.RecoveryServices.V20190513.ProtectedItemArgs
-    ///         {
-    ///             ContainerName = "IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-    ///             FabricName = "Azure",
-    ///             ProtectedItemName = "VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-    ///             ResourceGroupName = "SwaggerTestRg",
-    ///             VaultName = "NetSDKTestRsVault",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Stop Protection with retain data on Azure IaasVm
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var protectedItem = new AzureRM.RecoveryServices.V20190513.ProtectedItem("protectedItem", new AzureRM.RecoveryServices.V20190513.ProtectedItemArgs
-    ///         {
-    ///             ContainerName = "IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-    ///             FabricName = "Azure",
-    ///             ProtectedItemName = "VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-    ///             ResourceGroupName = "SwaggerTestRg",
-    ///             VaultName = "NetSDKTestRsVault",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ProtectedItem : Pulumi.CustomResource
     {

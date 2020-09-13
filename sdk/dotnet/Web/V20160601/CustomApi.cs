@@ -11,27 +11,6 @@ namespace Pulumi.AzureRM.Web.V20160601
 {
     /// <summary>
     /// A custom API
-    /// 
-    /// ## Example Usage
-    /// ### Replace a custom API
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var customApi = new AzureRM.Web.V20160601.CustomApi("customApi", new AzureRM.Web.V20160601.CustomApiArgs
-    ///         {
-    ///             ApiName = "testCustomApi",
-    ///             ResourceGroupName = "testResourceGroup",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class CustomApi : Pulumi.CustomResource
     {

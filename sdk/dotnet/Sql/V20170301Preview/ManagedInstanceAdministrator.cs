@@ -11,56 +11,6 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
 {
     /// <summary>
     /// An Azure SQL managed instance administrator.
-    /// 
-    /// ## Example Usage
-    /// ### Create administrator of managed instance
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var managedInstanceAdministrator = new AzureRM.Sql.V20170301Preview.ManagedInstanceAdministrator("managedInstanceAdministrator", new AzureRM.Sql.V20170301Preview.ManagedInstanceAdministratorArgs
-    ///         {
-    ///             AdministratorName = "ActiveDirectory",
-    ///             AdministratorType = "ActiveDirectory",
-    ///             Login = "bob@contoso.com",
-    ///             ManagedInstanceName = "managedInstance",
-    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
-    ///             Sid = "44444444-3333-2222-1111-000000000000",
-    ///             TenantId = "55555555-4444-3333-2222-111111111111",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
-    /// ### Update administrator of managed instance
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureRM = Pulumi.AzureRM;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var managedInstanceAdministrator = new AzureRM.Sql.V20170301Preview.ManagedInstanceAdministrator("managedInstanceAdministrator", new AzureRM.Sql.V20170301Preview.ManagedInstanceAdministratorArgs
-    ///         {
-    ///             AdministratorName = "ActiveDirectory",
-    ///             AdministratorType = "ActiveDirectory",
-    ///             Login = "bob@contoso.com",
-    ///             ManagedInstanceName = "managedInstance",
-    ///             ResourceGroupName = "Default-SQL-SouthEastAsia",
-    ///             Sid = "44444444-3333-2222-1111-000000000000",
-    ///             TenantId = "55555555-4444-3333-2222-111111111111",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// 
-    /// ```
     /// </summary>
     public partial class ManagedInstanceAdministrator : Pulumi.CustomResource
     {
