@@ -72,7 +72,7 @@ func main() {
 
 	if *generateExamples {
 		// Note - Requires a provider executable in PATH
-		err = gen.Examples(result.PkgSpec, result.Metadata, result.Examples, langs)
+		err = gen.Examples(result.PkgSpec, result.DocsSpec, result.Metadata, result.Examples, langs)
 		if err != nil {
 			panic(err)
 		}

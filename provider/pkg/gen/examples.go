@@ -39,7 +39,7 @@ type resourceExamplesRenderData struct {
 }
 
 // Examples renders Azure API examples to the pkgSpec for the specified list of languages.
-func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, resExamples map[string][]provider.AzureAPIExample, languages []string) error {
+func Examples(pkgSpec *schema.PackageSpec, docsSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, resExamples map[string][]provider.AzureAPIExample, languages []string) error {
 	sortedKeys := codegen.SortedKeys(resExamples) // To generate in deterministic order
 
 	// Use a progress bar to show progress since this can be a long running process
@@ -140,7 +140,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, 
 				})
 		}
 		if len(examplesRenderData.Data) > 0 {
-			err := renderExampleToSchema(pkgSpec, pulumiToken, &examplesRenderData)
+			err := renderExampleToSchema(pkgSpec, docsSpec, pulumiToken, &examplesRenderData)
 			if err != nil {
 				return err
 			}
@@ -232,7 +232,7 @@ func recoverableProgramGen(program *hcl2.Program, fn programGenFn) (files map[st
 	return
 }
 
-func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string, examplesRenderData *resourceExamplesRenderData) error {
+func renderExampleToSchema(pkgSpec *schema.PackageSpec, docsSpec *schema.PackageSpec, resourceName string, examplesRenderData *resourceExamplesRenderData) error {
 	const tmpl = `
 
 {{"{{% examples %}}"}}
@@ -279,6 +279,7 @@ func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string, exa
 	}
 	res.Description += b.String()
 	pkgSpec.Resources[resourceName] = res
+	docsSpec.Resources[resourceName] = res
 	return nil
 }
 
