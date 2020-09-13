@@ -33,6 +33,65 @@ class VendorSkus(pulumi.CustomResource):
         """
         Sku sub resource.
 
+        ## Example Usage
+        ### Create or update the sku of Vendor resource
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        vendor_skus = azurerm.hybridnetwork.v20200101preview.VendorSkus("vendorSkus",
+            deployment_mode="PrivateEdgeZone",
+            managed_application_template={},
+            preview=True,
+            sku_name="TestSku",
+            vendor_name="TestVendor",
+            virtual_network_function_template={
+                "virutalNetworkFunctionRoleConfigurations": [{
+                    "imageReference": {
+                        "osType": "Linux",
+                        "sasUri": "https://<yourstorage>.blob.core.windows.net/<yourcontainer>/<yourfile>?sp=rl&st=st>Z&se=<se>Z&sv=<sv>&sr=b&sig=<signature>",
+                        "vhdName": "vhdName",
+                        "vhdType": "VHD",
+                    },
+                    "networkInterfaces": [
+                        {
+                            "ipConfigurations": [{
+                                "gateway": "",
+                                "ipAddress": "",
+                                "ipAllocationMethod": "Dynamic",
+                                "ipVersion": "IPv4",
+                                "subnet": "",
+                            }],
+                            "macAddress": "",
+                            "networkInterfaceName": "nic1",
+                            "vmSwitchType": "Wan",
+                        },
+                        {
+                            "ipConfigurations": [{
+                                "gateway": "",
+                                "ipAddress": "",
+                                "ipAllocationMethod": "Dynamic",
+                                "ipVersion": "IPv4",
+                                "subnet": "",
+                            }],
+                            "macAddress": "",
+                            "networkInterfaceName": "nic2",
+                            "vmSwitchType": "Management",
+                        },
+                    ],
+                    "osProfile": {
+                        "adminPassword": "dummypassword",
+                        "adminUsername": "dummyuser",
+                    },
+                    "roleName": "test",
+                    "roleType": "VirtualMachine",
+                    "virtualMachineSize": "Standard_D3_v2",
+                }],
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_mode: Sku deployment mode.

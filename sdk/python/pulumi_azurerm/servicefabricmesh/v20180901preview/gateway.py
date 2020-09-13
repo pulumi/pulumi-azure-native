@@ -32,6 +32,64 @@ class Gateway(pulumi.CustomResource):
         """
         This type describes a gateway resource.
 
+        ## Example Usage
+        ### CreateOrUpdateGateway
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        gateway = azurerm.servicefabricmesh.v20180901preview.Gateway("gateway",
+            description="Service Fabric Mesh sample gateway.",
+            destination_network={
+                "name": "helloWorldNetwork",
+            },
+            gateway_resource_name="sampleGateway",
+            http=[{
+                "hosts": [{
+                    "name": "contoso.com",
+                    "routes": [{
+                        "destination": {
+                            "applicationName": "httpHelloWorldApp",
+                            "endpointName": "indexHttpEndpoint",
+                            "serviceName": "indexService",
+                        },
+                        "match": {
+                            "headers": [{
+                                "name": "accept",
+                                "type": "exact",
+                                "value": "application/json",
+                            }],
+                            "path": {
+                                "rewrite": "/",
+                                "type": "prefix",
+                                "value": "/index",
+                            },
+                        },
+                        "name": "index",
+                    }],
+                }],
+                "name": "contosoWebsite",
+                "port": 8081,
+            }],
+            location="EastUS",
+            resource_group_name="sbz_demo",
+            source_network={
+                "name": "Open",
+            },
+            tags={},
+            tcp=[{
+                "destination": {
+                    "applicationName": "helloWorldApp",
+                    "endpointName": "helloWorldListener",
+                    "serviceName": "helloWorldService",
+                },
+                "name": "web",
+                "port": 80,
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: User readable description of the gateway.

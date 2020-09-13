@@ -27,6 +27,20 @@ class ManagementConfiguration(pulumi.CustomResource):
         """
         The container for solution.
 
+        ## Example Usage
+        ### ManagementConfigurationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        management_configuration = azurerm.operationsmanagement.v20151101preview.ManagementConfiguration("managementConfiguration",
+            location="East US",
+            management_configuration_name="managementConfiguration1",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location

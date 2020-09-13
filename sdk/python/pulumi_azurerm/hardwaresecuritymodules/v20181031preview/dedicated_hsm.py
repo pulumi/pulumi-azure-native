@@ -31,6 +31,36 @@ class DedicatedHsm(pulumi.CustomResource):
         """
         Resource information with extended details.
 
+        ## Example Usage
+        ### Create a new or update an existing dedicated HSM
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        dedicated_hsm = azurerm.hardwaresecuritymodules.v20181031preview.DedicatedHsm("dedicatedHsm",
+            location="westus",
+            name="hsm1",
+            network_profile={
+                "networkInterfaces": [{
+                    "privateIpAddress": "1.0.0.1",
+                }],
+                "subnet": {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+                },
+            },
+            resource_group_name="hsm-group",
+            sku={
+                "name": "SafeNet Luna Network HSM A790",
+            },
+            stamp_id="stamp01",
+            tags={
+                "Dept": "hsm",
+                "Environment": "dogfood",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the dedicated HSM should be created.

@@ -25,20 +25,6 @@ class Workspace(pulumi.CustomResource):
         """
         Batch AI Workspace information.
 
-        ## Example Usage
-        ### Create a workspace
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        workspace = azurerm.batchai.v20180501.Workspace("workspace",
-            location="eastus",
-            resource_group_name="demo_resource_group",
-            workspace_name="demo_workspace")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The region in which to create the Workspace.

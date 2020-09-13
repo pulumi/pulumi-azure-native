@@ -32,6 +32,31 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
         """
         Security assessment metadata
 
+        ## Example Usage
+        ### Create security assessment metadata for subscription
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        assessments_metadata_subscription = azurerm.security.v20190101preview.AssessmentsMetadataSubscription("assessmentsMetadataSubscription",
+            assessment_metadata_name="ca039e75-a276-4175-aebc-bcd41e4b14b7",
+            assessment_type="CustomerManaged",
+            category=["Compute"],
+            description="Install an endpoint protection solution on your virtual machines scale sets, to protect them from threats and vulnerabilities.",
+            display_name="Install endpoint protection solution on virtual machine scale sets",
+            implementation_effort="Low",
+            remediation_description="To install an endpoint protection solution: 1.  <a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set\">Follow the instructions in How do I turn on antimalware in my virtual machine scale set</a>",
+            severity="Medium",
+            threats=[
+                "dataExfiltration",
+                "dataSpillage",
+                "maliciousInsider",
+            ],
+            user_impact="Low")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assessment_metadata_name: The Assessment Key - Unique key for the assessment type

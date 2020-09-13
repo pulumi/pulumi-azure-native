@@ -46,6 +46,62 @@ class ManagedInstance(pulumi.CustomResource):
         """
         An Azure SQL managed instance.
 
+        ## Example Usage
+        ### Create managed instance with all properties
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_instance = azurerm.sql.v20180601preview.ManagedInstance("managedInstance",
+            administrator_login="dummylogin",
+            administrator_login_password="Un53cuRE!",
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            dns_zone_partner="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance",
+            instance_pool_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/instancePools/pool1",
+            license_type="LicenseIncluded",
+            location="Japan East",
+            maintenance_configuration_id="/subscriptions/ab0e51c0-83c0-4380-8ae9-025516df392f/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_WestEurope_MI_Mon_Fri_10PM_6AM",
+            managed_instance_name="testinstance",
+            proxy_override="Redirect",
+            public_data_endpoint_enabled=False,
+            resource_group_name="testrg",
+            sku={
+                "name": "GP_Gen5",
+                "tier": "GeneralPurpose",
+            },
+            storage_size_in_gb=1024,
+            subnet_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            timezone_id="UTC",
+            v_cores=8)
+
+        ```
+        ### Create managed instance with minimal properties
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_instance = azurerm.sql.v20180601preview.ManagedInstance("managedInstance",
+            administrator_login="dummylogin",
+            administrator_login_password="Un53cuRE!",
+            license_type="LicenseIncluded",
+            location="Japan East",
+            managed_instance_name="testinstance",
+            resource_group_name="testrg",
+            sku={
+                "name": "GP_Gen4",
+                "tier": "GeneralPurpose",
+            },
+            storage_size_in_gb=1024,
+            subnet_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+            v_cores=8)
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).

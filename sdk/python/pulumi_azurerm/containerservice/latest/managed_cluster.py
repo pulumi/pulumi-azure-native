@@ -207,8 +207,12 @@ class ManagedCluster(pulumi.CustomResource):
                 "vmSize": "Standard_DS1_v2",
             }],
             auto_scaler_profile={
+                "balanceSimilarNodeGroups": "true",
+                "expander": "most-pods",
+                "newPodScaleUpDelay": "1m",
                 "scaleDownDelayAfterAdd": "15m",
                 "scanInterval": "20s",
+                "skipNodesWithSystemPods": "false",
             },
             disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
             dns_prefix="dnsprefix1",

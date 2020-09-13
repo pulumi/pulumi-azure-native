@@ -39,6 +39,51 @@ class StreamingEndpoint(pulumi.CustomResource):
         """
         The StreamingEndpoint.
 
+        ## Example Usage
+        ### Create a StreamingEndpoint
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        streaming_endpoint = azurerm.media.v20190501preview.StreamingEndpoint("streamingEndpoint",
+            access_control={
+                "akamai": {
+                    "akamaiSignatureHeaderAuthenticationKeyList": [
+                        {
+                            "base64Key": "dGVzdGlkMQ==",
+                            "expiration": "2029-12-31T16:00:00-08:00",
+                            "identifier": "id1",
+                        },
+                        {
+                            "base64Key": "dGVzdGlkMQ==",
+                            "expiration": "2030-12-31T16:00:00-08:00",
+                            "identifier": "id2",
+                        },
+                    ],
+                },
+                "ip": {
+                    "allow": [{
+                        "address": "192.168.1.1",
+                        "name": "AllowedIp",
+                    }],
+                },
+            },
+            account_name="slitestmedia10",
+            availability_set_name="availableset",
+            cdn_enabled=False,
+            description="test event 1",
+            location="West US",
+            resource_group_name="mediaresources",
+            scale_units=1,
+            streaming_endpoint_name="myStreamingEndpoint1",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']] access_control: The access control definition of the StreamingEndpoint.

@@ -31,6 +31,28 @@ class EnterpriseChannel(pulumi.CustomResource):
         """
         Enterprise Channel resource definition
 
+        ## Example Usage
+        ### Create Enterprise Channel
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        enterprise_channel = azurerm.botservice.latest.EnterpriseChannel("enterpriseChannel",
+            etag="etag1",
+            location="West US",
+            resource_group_name="OneResourceGroupName",
+            resource_name="contoso-dl",
+            sku={
+                "name": "S1",
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Entity Tag

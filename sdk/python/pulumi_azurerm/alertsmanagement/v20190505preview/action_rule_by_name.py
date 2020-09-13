@@ -28,6 +28,21 @@ class ActionRuleByName(pulumi.CustomResource):
         """
         Action rule object containing target scope, conditions and suppression logic
 
+        ## Example Usage
+        ### PutActionRule
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        action_rule_by_name = azurerm.alertsmanagement.v20190505preview.ActionRuleByName("actionRuleByName",
+            action_rule_name="DailySuppression",
+            location="Global",
+            resource_group_name="alertscorrelationrg",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_rule_name: The name of action rule that needs to be created/updated

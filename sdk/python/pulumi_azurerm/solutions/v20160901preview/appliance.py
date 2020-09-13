@@ -36,6 +36,23 @@ class Appliance(pulumi.CustomResource):
         """
         Information about appliance.
 
+        ## Example Usage
+        ### Create or update appliance
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        appliance = azurerm.solutions.v20160901preview.Appliance("appliance",
+            appliance_definition_id="/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myAppDef",
+            appliance_name="myAppliance",
+            kind="ServiceCatalog",
+            location="East US 2",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] appliance_definition_id: The fully qualified path of appliance definition Id.

@@ -30,6 +30,24 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection
 
+        ## Example Usage
+        ### Approve or reject a private endpoint connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.documentdb.v20190801preview.PrivateEndpointConnection("privateEndpointConnection",
+            account_name="ddb1",
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            private_link_service_connection_state={
+                "description": "Approved by johndoe@contoso.com",
+                "status": "Approved",
+            },
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.

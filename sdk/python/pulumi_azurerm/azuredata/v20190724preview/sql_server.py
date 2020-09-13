@@ -29,6 +29,25 @@ class SqlServer(pulumi.CustomResource):
         """
         A SQL server.
 
+        ## Example Usage
+        ### Creates or updates a SQL Server in a Registration group.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        sql_server = azurerm.azuredata.v20190724preview.SqlServer("sqlServer",
+            cores=8,
+            edition="Latin",
+            property_bag="",
+            registration_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration",
+            resource_group_name="testrg",
+            sql_server_name="testsqlserver",
+            sql_server_registration_name="testsqlregistration",
+            version="2008")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] cores: Cores of the Sql Server.

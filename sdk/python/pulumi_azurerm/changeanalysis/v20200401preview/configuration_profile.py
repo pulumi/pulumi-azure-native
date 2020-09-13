@@ -26,6 +26,26 @@ class ConfigurationProfile(pulumi.CustomResource):
         """
         A profile object that contains change analysis configuration, such as notification settings, for this subscription
 
+        ## Example Usage
+        ### ConfigurationProfile_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        configuration_profile = azurerm.changeanalysis.v20200401preview.ConfigurationProfile("configurationProfile", profile_name="default")
+
+        ```
+        ### ConfigurationProfile_CreateWithIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        configuration_profile = azurerm.changeanalysis.v20200401preview.ConfigurationProfile("configurationProfile", profile_name="default")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The identity block returned by ARM resource that supports managed identity.

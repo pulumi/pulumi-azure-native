@@ -30,6 +30,34 @@ class InstanceFailoverGroup(pulumi.CustomResource):
         """
         An instance failover group.
 
+        ## Example Usage
+        ### Create failover group
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        instance_failover_group = azurerm.sql.v20171001preview.InstanceFailoverGroup("instanceFailoverGroup",
+            failover_group_name="failover-group-test-3",
+            location_name="Japan East",
+            managed_instance_pairs=[{
+                "partnerManagedInstanceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-secondary-mngdInstance",
+                "primaryManagedInstanceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-primary-mngdInstance",
+            }],
+            partner_regions=[{
+                "location": "Japan West",
+            }],
+            read_only_endpoint={
+                "failoverPolicy": "Disabled",
+            },
+            read_write_endpoint={
+                "failoverPolicy": "Automatic",
+                "failoverWithDataLossGracePeriodMinutes": 480,
+            },
+            resource_group_name="Default")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] failover_group_name: The name of the failover group.

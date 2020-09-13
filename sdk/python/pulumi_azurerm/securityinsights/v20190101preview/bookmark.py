@@ -38,6 +38,38 @@ class Bookmark(pulumi.CustomResource):
         """
         Represents a bookmark in Azure Security Insights.
 
+        ## Example Usage
+        ### Creates or updates a bookmark.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        bookmark = azurerm.securityinsights.v20190101preview.Bookmark("bookmark",
+            bookmark_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            created="2019-01-01T13:15:30Z",
+            created_by={
+                "objectId": "2046feea-040d-4a46-9e2b-91c2941bfa70",
+            },
+            display_name="My bookmark",
+            etag="\"0300bf09-0000-0000-0000-5c37296e0000\"",
+            labels=[
+                "Tag1",
+                "Tag2",
+            ],
+            notes="Found a suspicious activity",
+            operational_insights_resource_provider="Microsoft.OperationalInsights",
+            query="SecurityEvent | where TimeGenerated > ago(1d) and TimeGenerated < ago(2d)",
+            query_result="Security Event query result",
+            resource_group_name="myRg",
+            updated="2019-01-01T13:15:30Z",
+            updated_by={
+                "objectId": "2046feea-040d-4a46-9e2b-91c2941bfa70",
+            },
+            workspace_name="myWorkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bookmark_id: Bookmark ID

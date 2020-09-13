@@ -32,6 +32,42 @@ class SyncMember(pulumi.CustomResource):
         """
         An Azure SQL Database sync member.
 
+        ## Example Usage
+        ### Create a new sync member
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        sync_member = azurerm.sql.v20150501preview.SyncMember("syncMember",
+            database_name="syncgroupcrud-4328",
+            database_type="AzureSqlDatabase",
+            resource_group_name="syncgroupcrud-65440",
+            server_name="syncgroupcrud-8475",
+            sync_direction="Bidirectional",
+            sync_group_name="syncgroupcrud-3187",
+            sync_member_name="syncgroupcrud-4879",
+            user_name="myUser")
+
+        ```
+        ### Update a sync member
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        sync_member = azurerm.sql.v20150501preview.SyncMember("syncMember",
+            database_name="syncgroupcrud-7421",
+            database_type="AzureSqlDatabase",
+            resource_group_name="syncgroupcrud-65440",
+            server_name="syncgroupcrud-3379.database.windows.net",
+            sync_direction="Bidirectional",
+            sync_group_name="syncgroupcrud-3187",
+            sync_member_name="syncgroupcrud-4879",
+            user_name="myUser")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: Database name of the member database in the sync member.

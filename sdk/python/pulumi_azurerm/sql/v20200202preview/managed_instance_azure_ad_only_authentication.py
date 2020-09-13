@@ -25,6 +25,21 @@ class ManagedInstanceAzureADOnlyAuthentication(pulumi.CustomResource):
         """
         Azure Active Directory only authentication.
 
+        ## Example Usage
+        ### Creates or updates Azure Active Directory only authentication object.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_instance_azure_ad_only_authentication = azurerm.sql.v20200202preview.ManagedInstanceAzureADOnlyAuthentication("managedInstanceAzureADOnlyAuthentication",
+            authentication_name="Default",
+            azure_ad_only_authentication=False,
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_name: The name of server azure active directory only authentication.

@@ -50,6 +50,24 @@ class AgentPool(pulumi.CustomResource):
         Agent Pool.
 
         ## Example Usage
+        ### Create Agent Pool with Ephemeral OS Disk
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        agent_pool = azurerm.containerservice.latest.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            orchestrator_version="",
+            os_disk_size_gb=64,
+            os_disk_type="Ephemeral",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
         ### Create Agent Pool with PPG
 
         ```python

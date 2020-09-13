@@ -28,6 +28,19 @@ class Account(pulumi.CustomResource):
         """
         NetApp account resource
 
+        ## Example Usage
+        ### Accounts_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        account = azurerm.netapp.v20170815.Account("account",
+            account_name="accountName",
+            resource_group_name="resourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account

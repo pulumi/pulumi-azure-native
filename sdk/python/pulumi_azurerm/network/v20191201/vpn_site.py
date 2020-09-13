@@ -36,33 +36,6 @@ class VpnSite(pulumi.CustomResource):
         """
         VpnSite Resource.
 
-        ## Example Usage
-        ### VpnSiteCreate
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        vpn_site = azurerm.network.v20191201.VpnSite("vpnSite",
-            address_space={
-                "addressPrefixes": ["10.0.0.0/16"],
-            },
-            is_security_site=False,
-            location="West US",
-            resource_group_name="rg1",
-            tags={
-                "key1": "value1",
-            },
-            virtual_wan={
-                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1",
-            },
-            vpn_site_links=[{
-                "name": "vpnSiteLink1",
-            }],
-            vpn_site_name="vpnSite1")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] address_space: The AddressSpace that contains an array of IP address ranges.

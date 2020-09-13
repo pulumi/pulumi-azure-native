@@ -22,6 +22,17 @@ class Partner(pulumi.CustomResource):
         """
         this is the management partner operations response
 
+        ## Example Usage
+        ### PutPartnerDetails
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        partner = azurerm.managementpartner.latest.Partner("partner", partner_id="123456")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] partner_id: Id of the Partner

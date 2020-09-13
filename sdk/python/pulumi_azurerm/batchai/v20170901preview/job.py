@@ -44,6 +44,45 @@ class Job(pulumi.CustomResource):
         """
         Contains information about the job.
 
+        ## Example Usage
+        ### Create or update job
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        job = azurerm.batchai.v20170901preview.Job("job",
+            cluster={
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demo_resource_group/providers/Microsoft.BatchAI/clusters/demo_cluster",
+            },
+            container_settings={
+                "imageSourceRegistry": {
+                    "image": "ubuntu",
+                },
+            },
+            custom_toolkit_settings={
+                "commandLine": "echo hi | tee $AZ_BATCHAI_OUTPUT_OUTPUTS/hi.txt",
+            },
+            input_directories=[{
+                "id": "INPUT",
+                "path": "$AZ_BATCHAI_MOUNT_ROOT/azfiles/input",
+            }],
+            job_name="demo_job",
+            location="eastus",
+            node_count=1,
+            output_directories=[{
+                "createNew": True,
+                "id": "OUTPUTS",
+                "pathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/azfiles/",
+                "pathSuffix": "files",
+                "type": "custom",
+            }],
+            priority=0,
+            resource_group_name="demo_resource_group",
+            std_out_err_path_prefix="$AZ_BATCHAI_MOUNT_ROOT/azfiles")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['Caffe2SettingsArgs']] caffe2_settings: Specifies the settings for Caffe2 job.

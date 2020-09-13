@@ -36,6 +36,28 @@ class ApplianceDefinition(pulumi.CustomResource):
         """
         Information about appliance definition.
 
+        ## Example Usage
+        ### Create or update appliance definition
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        appliance_definition = azurerm.solutions.v20160901preview.ApplianceDefinition("applianceDefinition",
+            appliance_definition_name="myApplianceDef",
+            authorizations=[{
+                "principalId": "validprincipalguid",
+                "roleDefinitionId": "validroleguid",
+            }],
+            description="myApplianceDef description",
+            display_name="myApplianceDef",
+            location="East US 2",
+            lock_level="None",
+            package_file_uri="https://path/to/packagezipfile",
+            resource_group_name="rg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] appliance_definition_name: The name of the appliance definition.

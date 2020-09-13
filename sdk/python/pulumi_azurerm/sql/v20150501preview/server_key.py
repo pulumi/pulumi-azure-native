@@ -29,6 +29,22 @@ class ServerKey(pulumi.CustomResource):
         """
         A server key.
 
+        ## Example Usage
+        ### Creates or updates a server key
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        server_key = azurerm.sql.v20150501preview.ServerKey("serverKey",
+            key_name="someVault_someKey_01234567890123456789012345678901",
+            resource_group_name="sqlcrudtest-7398",
+            server_key_type="AzureKeyVault",
+            server_name="sqlcrudtest-4645",
+            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] creation_date: The server key creation date.

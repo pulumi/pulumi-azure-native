@@ -29,6 +29,21 @@ class App(pulumi.CustomResource):
         """
         App resource payload
 
+        ## Example Usage
+        ### Apps_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        app = azurerm.appplatform.v20190501preview.App("app",
+            app_name="myapp",
+            location="eastus",
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.

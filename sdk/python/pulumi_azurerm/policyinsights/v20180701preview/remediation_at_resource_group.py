@@ -29,6 +29,20 @@ class RemediationAtResourceGroup(pulumi.CustomResource):
         """
         The remediation definition.
 
+        ## Example Usage
+        ### Create remediation at resource group scope
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        remediation_at_resource_group = azurerm.policyinsights.v20180701preview.RemediationAtResourceGroup("remediationAtResourceGroup",
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/rg1/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            remediation_name="storageRemediation",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RemediationDeploymentSummaryArgs']] deployment_status: The deployment status summary for all deployments created by the remediation.

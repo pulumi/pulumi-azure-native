@@ -28,6 +28,26 @@ class Account(pulumi.CustomResource):
         """
         Definition of the Automanage account.
 
+        ## Example Usage
+        ### Create or update Automanage account
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        account = azurerm.automanage.v20200630preview.Account("account",
+            account_name="account",
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="East US",
+            resource_group_name="resourceGroup",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of the Automanage account.

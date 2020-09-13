@@ -31,6 +31,26 @@ class App(pulumi.CustomResource):
         """
         The IoT Central application.
 
+        ## Example Usage
+        ### Apps_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        app = azurerm.iotcentral.v20170701privatepreview.App("app",
+            display_name="My IoT Central App",
+            location="westus",
+            resource_group_name="resRg",
+            resource_name="myIoTCentralApp",
+            sku={
+                "name": "F1",
+            },
+            subdomain="my-iot-central-app",
+            template="iotc-default@1.0.0")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The display name of the application.

@@ -24,6 +24,20 @@ class VendorSkuPreview(pulumi.CustomResource):
         """
         Customer subscription which can use a sku.
 
+        ## Example Usage
+        ### Creates or updates preview subscription of vendor sku sub resource
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        vendor_sku_preview = azurerm.hybridnetwork.v20200101preview.VendorSkuPreview("vendorSkuPreview",
+            preview_subscription="previewSub",
+            sku_name="TestSku",
+            vendor_name="TestVendor")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] preview_subscription: Preview subscription id.

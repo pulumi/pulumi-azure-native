@@ -27,6 +27,20 @@ class IntegrationRuntime(pulumi.CustomResource):
         """
         Integration runtime resource type.
 
+        ## Example Usage
+        ### Create integration runtime
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        integration_runtime = azurerm.synapse.v20190601preview.IntegrationRuntime("integrationRuntime",
+            integration_runtime_name="exampleIntegrationRuntime",
+            resource_group_name="exampleResourceGroup",
+            workspace_name="exampleWorkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] integration_runtime_name: Integration runtime name

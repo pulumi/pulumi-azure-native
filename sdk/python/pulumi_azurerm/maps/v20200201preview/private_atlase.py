@@ -27,6 +27,24 @@ class PrivateAtlase(pulumi.CustomResource):
         """
         An Azure resource which represents which will provision the ability to create private location data.
 
+        ## Example Usage
+        ### CreatePrivateAtlas
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_atlase = azurerm.maps.v20200201preview.PrivateAtlase("privateAtlase",
+            account_name="myMapsAccount",
+            location="unitedstates",
+            private_atlas_name="myPrivateAtlas",
+            resource_group_name="myResourceGroup",
+            tags={
+                "test": "true",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Maps Account.

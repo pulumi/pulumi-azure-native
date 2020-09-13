@@ -28,6 +28,82 @@ class EventSubscription(pulumi.CustomResource):
         """
         Event Subscription
 
+        ## Example Usage
+        ### EventSubscriptions_CreateForCustomTopic
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        event_subscription = azurerm.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination={
+                "endpointType": "WebHook",
+            },
+            event_subscription_name="examplesubscription1",
+            filter={
+                "isSubjectCaseSensitive": False,
+                "subjectBeginsWith": "ExamplePrefix",
+                "subjectEndsWith": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateForResource
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        event_subscription = azurerm.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination={
+                "endpointType": "WebHook",
+            },
+            event_subscription_name="examplesubscription10",
+            filter={
+                "isSubjectCaseSensitive": False,
+                "subjectBeginsWith": "ExamplePrefix",
+                "subjectEndsWith": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventHub/namespaces/examplenamespace1")
+
+        ```
+        ### EventSubscriptions_CreateForResourceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        event_subscription = azurerm.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination={
+                "endpointType": "WebHook",
+            },
+            event_subscription_name="examplesubscription2",
+            filter={
+                "isSubjectCaseSensitive": False,
+                "subjectBeginsWith": "ExamplePrefix",
+                "subjectEndsWith": "ExampleSuffix",
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg")
+
+        ```
+        ### EventSubscriptions_CreateForSubscription
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        event_subscription = azurerm.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination={
+                "endpointType": "WebHook",
+            },
+            event_subscription_name="examplesubscription3",
+            filter={
+                "isSubjectCaseSensitive": False,
+            },
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.

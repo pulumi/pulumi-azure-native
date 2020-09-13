@@ -28,6 +28,21 @@ class DataSource(pulumi.CustomResource):
         """
         Datasources under OMS Workspace.
 
+        ## Example Usage
+        ### DataSourcesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        data_source = azurerm.operationalinsights.v20151101preview.DataSource("dataSource",
+            data_source_name="AzTestDS774",
+            kind="AzureActivityLog",
+            resource_group_name="OIAutoRest5123",
+            workspace_name="AzTest9724")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_source_name: The name of the datasource resource.

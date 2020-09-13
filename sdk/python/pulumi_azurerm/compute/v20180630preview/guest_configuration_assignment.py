@@ -29,6 +29,22 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
         """
         Guest configuration assignment is an association between a VM and guest configuration.
 
+        ## Example Usage
+        ### Create or update guest configuration assignment
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        guest_configuration_assignment = azurerm.compute.v20180630preview.GuestConfigurationAssignment("guestConfigurationAssignment",
+            guest_configuration_assignment_name="SecureProtocol",
+            location="westcentralus",
+            name="multiconfigassignment2",
+            resource_group_name="myResourceGroupName",
+            vm_name="myVMName")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] guest_configuration_assignment_name: Name of the guest configuration assignment.

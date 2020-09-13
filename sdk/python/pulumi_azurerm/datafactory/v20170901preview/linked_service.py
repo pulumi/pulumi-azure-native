@@ -27,6 +27,32 @@ class LinkedService(pulumi.CustomResource):
         """
         Linked service resource type.
 
+        ## Example Usage
+        ### LinkedServices_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        linked_service = azurerm.datafactory.v20170901preview.LinkedService("linkedService",
+            factory_name="exampleFactoryName",
+            linked_service_name="exampleLinkedService",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+        ### LinkedServices_Update
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        linked_service = azurerm.datafactory.v20170901preview.LinkedService("linkedService",
+            factory_name="exampleFactoryName",
+            linked_service_name="exampleLinkedService",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.

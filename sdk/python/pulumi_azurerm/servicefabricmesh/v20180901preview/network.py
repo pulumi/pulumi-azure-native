@@ -28,6 +28,21 @@ class Network(pulumi.CustomResource):
         """
         This type describes a network resource.
 
+        ## Example Usage
+        ### CreateOrUpdateNetwork
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        network = azurerm.servicefabricmesh.v20180901preview.Network("network",
+            location="EastUS",
+            network_resource_name="sampleNetwork",
+            resource_group_name="sbz_demo",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives

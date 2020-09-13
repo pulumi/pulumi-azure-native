@@ -29,6 +29,29 @@ class Factory(pulumi.CustomResource):
         """
         Factory resource type.
 
+        ## Example Usage
+        ### Factories_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        factory = azurerm.datafactory.v20170901preview.Factory("factory",
+            factory_name="exampleFactoryName",
+            location="East US",
+            resource_group_name="exampleResourceGroup",
+            vsts_configuration={
+                "accountName": "msdata",
+                "collaborationBranch": "master",
+                "lastCommitId": "",
+                "projectName": "datafactory",
+                "repositoryName": "exampleRepo",
+                "rootFolder": "/",
+                "tenantId": "12f988bf-86d1-41af-91ab-2d7cd011db49",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.

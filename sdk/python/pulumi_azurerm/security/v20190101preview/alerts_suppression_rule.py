@@ -30,6 +30,33 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         """
         Describes the suppression rule
 
+        ## Example Usage
+        ### Update or create suppression rule for subscription
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        alerts_suppression_rule = azurerm.security.v20190101preview.AlertsSuppressionRule("alertsSuppressionRule",
+            alert_type="IpAnomaly",
+            alerts_suppression_rule_name="dismissIpAnomalyAlerts",
+            comment="Test VM",
+            expiration_date_utc="2019-12-01T19:50:47.083633Z",
+            reason="FalsePositive",
+            state="Enabled",
+            suppression_alerts_scope={
+                "allOf": [
+                    {
+                        "field": "entities.ip.address",
+                    },
+                    {
+                        "field": "entities.process.commandline",
+                    },
+                ],
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_type: Type of the alert to automatically suppress. For all alert types, use '*'

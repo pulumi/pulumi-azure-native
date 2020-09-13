@@ -27,6 +27,24 @@ class SystemTopic(pulumi.CustomResource):
         """
         EventGrid System Topic.
 
+        ## Example Usage
+        ### SystemTopics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        system_topic = azurerm.eventgrid.v20200401preview.SystemTopic("systemTopic",
+            location="westus2",
+            resource_group_name="examplerg",
+            system_topic_name="exampleSystemTopic1",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the resource.

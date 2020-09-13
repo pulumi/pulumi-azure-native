@@ -26,6 +26,35 @@ class PrivateLinkScope(pulumi.CustomResource):
         """
         An Azure Monitor PrivateLinkScope definition.
 
+        ## Example Usage
+        ### PrivateLinkScopeCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_link_scope = azurerm.insights.v20191017preview.PrivateLinkScope("privateLinkScope",
+            location="Global",
+            resource_group_name="my-resource-group",
+            scope_name="my-privatelinkscope")
+
+        ```
+        ### PrivateLinkScopeUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_link_scope = azurerm.insights.v20191017preview.PrivateLinkScope("privateLinkScope",
+            location="Global",
+            resource_group_name="my-resource-group",
+            scope_name="my-privatelinkscope",
+            tags={
+                "Tag1": "Value1",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location

@@ -29,6 +29,20 @@ class MasterSite(pulumi.CustomResource):
         """
         Site REST Resource.
 
+        ## Example Usage
+        ### Create Master site
+
+        ```python
+        import pulumi
+        import pulumi_ as 
+
+        master_site = .("masterSite",
+            location="eastus",
+            resource_group_name="poshukla",
+            site_name="masterSite1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: eTag for concurrency control.

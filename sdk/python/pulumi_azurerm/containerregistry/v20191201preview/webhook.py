@@ -31,6 +31,31 @@ class Webhook(pulumi.CustomResource):
         """
         An object that represents a webhook for a container registry.
 
+        ## Example Usage
+        ### WebhookCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        webhook = azurerm.containerregistry.v20191201preview.Webhook("webhook",
+            actions=["push"],
+            custom_headers={
+                "Authorization": "Basic 000000000000000000000000000000000000000000000000000",
+            },
+            location="westus",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            scope="myRepository",
+            service_uri="http://myservice.com",
+            status="enabled",
+            tags={
+                "key": "value",
+            },
+            webhook_name="myWebhook")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] actions: The list of actions that trigger the webhook to post notifications.

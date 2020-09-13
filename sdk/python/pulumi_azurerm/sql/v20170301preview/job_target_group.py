@@ -28,6 +28,64 @@ class JobTargetGroup(pulumi.CustomResource):
         """
         A group of job targets.
 
+        ## Example Usage
+        ### Create or update a target group with all properties.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        job_target_group = azurerm.sql.v20170301preview.JobTargetGroup("jobTargetGroup",
+            job_agent_name="agent1",
+            members=[
+                {
+                    "databaseName": "database1",
+                    "membershipType": "Exclude",
+                    "serverName": "server1",
+                    "type": "SqlDatabase",
+                },
+                {
+                    "membershipType": "Include",
+                    "refreshCredential": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+                    "serverName": "server1",
+                    "type": "SqlServer",
+                },
+                {
+                    "elasticPoolName": "pool1",
+                    "membershipType": "Include",
+                    "refreshCredential": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+                    "serverName": "server2",
+                    "type": "SqlElasticPool",
+                },
+                {
+                    "databaseName": "database1",
+                    "membershipType": "Include",
+                    "refreshCredential": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+                    "serverName": "server3",
+                    "shardMapName": "shardMap1",
+                    "type": "SqlShardMap",
+                },
+            ],
+            resource_group_name="group1",
+            server_name="server1",
+            target_group_name="targetGroup1")
+
+        ```
+        ### Create or update a target group with minimal properties.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        job_target_group = azurerm.sql.v20170301preview.JobTargetGroup("jobTargetGroup",
+            job_agent_name="agent1",
+            members=[],
+            resource_group_name="group1",
+            server_name="server1",
+            target_group_name="targetGroup1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_agent_name: The name of the job agent.

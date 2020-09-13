@@ -23,6 +23,17 @@ class SecurityContact(pulumi.CustomResource):
         """
         Contact details and configurations for notifications coming from Azure Security Center.
 
+        ## Example Usage
+        ### Create security contact data
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        security_contact = azurerm.security.v20200101preview.SecurityContact("securityContact", security_contact_name="default")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] security_contact_name: Name of the security contact object

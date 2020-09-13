@@ -30,6 +30,34 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
         """
         A SQL virtual machine group.
 
+        ## Example Usage
+        ### Creates or updates a SQL virtual machine group.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        sql_virtual_machine_group = azurerm.sqlvirtualmachine.v20170301preview.SqlVirtualMachineGroup("sqlVirtualMachineGroup",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_image_offer="SQL2016-WS2016",
+            sql_image_sku="Enterprise",
+            sql_virtual_machine_group_name="testvmgroup",
+            tags={
+                "mytag": "myval",
+            },
+            wsfc_domain_profile={
+                "clusterBootstrapAccount": "testrpadmin",
+                "clusterOperatorAccount": "testrp@testdomain.com",
+                "domainFqdn": "testdomain.com",
+                "ouPath": "OU=WSCluster,DC=testdomain,DC=com",
+                "sqlServiceAccount": "sqlservice@testdomain.com",
+                "storageAccountPrimaryKey": "<primary storage access key>",
+                "storageAccountUrl": "https://storgact.blob.core.windows.net/",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location.

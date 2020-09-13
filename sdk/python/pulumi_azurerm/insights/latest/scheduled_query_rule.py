@@ -41,7 +41,23 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
         scheduled_query_rule = azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule",
             action={
-                "odataType": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                "aznsAction": {
+                    "actionGroup": [],
+                    "customWebhookPayload": "{}",
+                    "emailSubject": "Email Header",
+                },
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                "severity": "1",
+                "trigger": {
+                    "metricTrigger": {
+                        "metricColumn": "Computer",
+                        "metricTriggerType": "Consecutive",
+                        "threshold": 5,
+                        "thresholdOperator": "GreaterThan",
+                    },
+                    "threshold": 3,
+                    "thresholdOperator": "GreaterThan",
+                },
             },
             description="log alert description",
             enabled="true",
@@ -68,7 +84,16 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
         scheduled_query_rule = azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule",
             action={
-                "odataType": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                "aznsAction": {
+                    "actionGroup": ["/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/actiongroups/test-ag"],
+                    "emailSubject": "Cross Resource Mail!!",
+                },
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+                "severity": "3",
+                "trigger": {
+                    "threshold": 5000,
+                    "thresholdOperator": "GreaterThan",
+                },
             },
             description="Sample Cross Resource alert",
             enabled="true",
@@ -99,7 +124,11 @@ class ScheduledQueryRule(pulumi.CustomResource):
 
         scheduled_query_rule = azurerm.insights.latest.ScheduledQueryRule("scheduledQueryRule",
             action={
-                "odataType": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
+                "criteria": [{
+                    "dimensions": [],
+                    "metricName": "Average_% Idle Time",
+                }],
+                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
             },
             description="log to metric description",
             enabled="true",

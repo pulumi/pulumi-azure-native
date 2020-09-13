@@ -28,6 +28,27 @@ class NamedValue(pulumi.CustomResource):
         """
         NamedValue details.
 
+        ## Example Usage
+        ### ApiManagementCreateNamedValue
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        named_value = azurerm.apimanagement.v20191201preview.NamedValue("namedValue",
+            display_name="prop3name",
+            named_value_id="testprop2",
+            resource_group_name="rg1",
+            secret=False,
+            service_name="apimService1",
+            tags=[
+                "foo",
+                "bar",
+            ],
+            value="propValue")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.

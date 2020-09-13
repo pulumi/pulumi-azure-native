@@ -43,10 +43,15 @@ class AlertRule(pulumi.CustomResource):
             actions=[],
             condition={
                 "dataSource": {
-                    "odataType": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                    "metricName": "Requests",
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                     "resourceUri": "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest",
                 },
-                "odataType": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                "operator": "GreaterThan",
+                "threshold": 3,
+                "timeAggregation": "Total",
+                "windowSize": "PT5M",
             },
             description="Pura Vida",
             is_enabled=True,

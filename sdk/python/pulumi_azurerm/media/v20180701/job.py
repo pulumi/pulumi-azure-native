@@ -46,10 +46,12 @@ class Job(pulumi.CustomResource):
                 "key1": "value1",
             },
             input={
-                "odataType": "#Microsoft.Media.JobInputAsset",
+                "@odata.type": "#Microsoft.Media.JobInputAsset",
+                "assetName": "job1-InputAsset",
             },
             job_name="job1",
             outputs=[{
+                "assetName": "job1-OutputAsset",
                 "odataType": "#Microsoft.Media.JobOutputAsset",
             }],
             resource_group_name="contosoresources",

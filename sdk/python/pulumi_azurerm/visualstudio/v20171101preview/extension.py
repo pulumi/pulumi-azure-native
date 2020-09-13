@@ -29,6 +29,29 @@ class Extension(pulumi.CustomResource):
         """
         The response to an extension resource GET request.
 
+        ## Example Usage
+        ### Create an extension resource
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        extension = azurerm.visualstudio.v20171101preview.Extension("extension",
+            account_resource_name="ExampleAccount",
+            extension_resource_name="ms.example",
+            location="Central US",
+            plan={
+                "name": "ExamplePlan",
+                "product": "ExampleExtensionName",
+                "promotionCode": "",
+                "publisher": "ExampleExtensionPublisher",
+                "version": "1.0",
+            },
+            resource_group_name="VS-Example-Group",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_resource_name: The name of the Visual Studio Team Services account resource.

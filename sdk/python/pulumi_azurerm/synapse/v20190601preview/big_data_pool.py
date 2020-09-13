@@ -40,6 +40,43 @@ class BigDataPool(pulumi.CustomResource):
         """
         A Big Data pool
 
+        ## Example Usage
+        ### Create or update a Big Data pool
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        big_data_pool = azurerm.synapse.v20190601preview.BigDataPool("bigDataPool",
+            auto_pause={
+                "delayInMinutes": 15,
+                "enabled": True,
+            },
+            auto_scale={
+                "enabled": True,
+                "maxNodeCount": 50,
+                "minNodeCount": 3,
+            },
+            big_data_pool_name="ExamplePool",
+            default_spark_log_folder="/logs",
+            library_requirements={
+                "content": "",
+                "filename": "requirements.txt",
+            },
+            location="West US 2",
+            node_count=4,
+            node_size="Medium",
+            node_size_family="MemoryOptimized",
+            resource_group_name="ExampleResourceGroup",
+            spark_events_folder="/events",
+            spark_version="2.4",
+            tags={
+                "key": "value",
+            },
+            workspace_name="ExampleWorkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AutoPausePropertiesArgs']] auto_pause: Auto-pausing properties

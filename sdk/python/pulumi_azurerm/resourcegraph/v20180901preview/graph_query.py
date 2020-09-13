@@ -28,6 +28,22 @@ class GraphQuery(pulumi.CustomResource):
         """
         Graph Query entity definition.
 
+        ## Example Usage
+        ### Create Graph Query
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        graph_query = azurerm.resourcegraph.v20180901preview.GraphQuery("graphQuery",
+            description="Docker VMs in PROD",
+            query="where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
+            resource_group_name="my-resource-group",
+            resource_name="MyDockerVMs",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of a graph query.

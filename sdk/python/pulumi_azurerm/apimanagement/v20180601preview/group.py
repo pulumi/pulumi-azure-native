@@ -28,6 +28,37 @@ class Group(pulumi.CustomResource):
         """
         Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateGroup
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        group = azurerm.apimanagement.v20180601preview.Group("group",
+            display_name="temp group",
+            group_id="tempgroup",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateGroupExternal
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        group = azurerm.apimanagement.v20180601preview.Group("group",
+            description="new group to test",
+            display_name="NewGroup (samiraad.onmicrosoft.com)",
+            external_id="aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d",
+            group_id="aadGroup",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            type="external")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Group description.

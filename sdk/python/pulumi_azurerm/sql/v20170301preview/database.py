@@ -43,6 +43,157 @@ class Database(pulumi.CustomResource):
         """
         A database resource.
 
+        ## Example Usage
+        ### Creates a database as a copy.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.v20170301preview.Database("database",
+            create_mode="Copy",
+            database_name="dbcopy",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
+
+        ```
+        ### Creates a database as an on-line secondary.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.v20170301preview.Database("database",
+            create_mode="Secondary",
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/testdb")
+
+        ```
+        ### Creates a database from PointInTimeRestore.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.v20170301preview.Database("database",
+            create_mode="PointInTimeRestore",
+            database_name="dbpitr",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restore_point_in_time="2017-07-14T05:35:31.503Z",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
+
+        ```
+        ### Creates a database from recoverable DatabaseId.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.v20170301preview.Database("database",
+            create_mode="Restore",
+            database_name="dbrestore",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restorable_dropped_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/restorableDroppedDatabases/testdb2,131444841315030000",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            })
+
+        ```
+        ### Creates a database from restore with database deletion time.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.v20170301preview.Database("database",
+            create_mode="Restore",
+            database_name="dbrestore",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_deletion_date="2017-07-14T06:41:06.613Z",
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
+
+        ```
+        ### Creates a database from restore with restorableDroppedDatabaseId.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.v20170301preview.Database("database",
+            create_mode="Copy",
+            database_name="dbcopy",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
+
+        ```
+        ### Creates a database with default mode.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.v20170301preview.Database("database",
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode="Default",
+            database_name="testdb",
+            location="southeastasia",
+            max_size_bytes=1073741824,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            })
+
+        ```
+        ### Creates a database with minimum number of parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.sql.v20170301preview.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_collation: Collation of the metadata catalog.

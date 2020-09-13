@@ -33,6 +33,25 @@ class Device(pulumi.CustomResource):
         """
         The Data Box Edge/Gateway device.
 
+        ## Example Usage
+        ### DataBoxEdgeDevicePut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        device = azurerm.databoxedge.v20200501preview.Device("device",
+            device_name="testedgedevice",
+            location="WUS",
+            resource_group_name="GroupForEdgeAutomation",
+            sku={
+                "name": "Edge",
+                "tier": "Standard",
+            },
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_box_edge_device_status: The status of the Data Box Edge/Gateway device.

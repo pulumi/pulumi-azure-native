@@ -27,6 +27,21 @@ class PeeringServicePrefix(pulumi.CustomResource):
         """
         The peering service prefix class.
 
+        ## Example Usage
+        ### Create or update a prefix for the peering service
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        peering_service_prefix = azurerm.peering.v20190801preview.PeeringServicePrefix("peeringServicePrefix",
+            peering_service_name="MyPeeringService",
+            prefix="192.168.1.0/24",
+            prefix_name="MyPeeringServicePrefix",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] learned_type: The prefix learned type

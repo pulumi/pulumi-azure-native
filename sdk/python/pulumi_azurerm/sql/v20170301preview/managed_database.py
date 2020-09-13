@@ -36,6 +36,100 @@ class ManagedDatabase(pulumi.CustomResource):
         """
         A managed database resource.
 
+        ## Example Usage
+        ### Creates a new managed database by restoring from an external backup
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_database = azurerm.sql.v20170301preview.ManagedDatabase("managedDatabase",
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode="RestoreExternalBackup",
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            storage_container_sas_token="sv=2015-12-11&sr=c&sp=rl&sig=1234",
+            storage_container_uri="https://myaccountname.blob.core.windows.net/backups")
+
+        ```
+        ### Creates a new managed database from restoring a geo-replicated backup
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_database = azurerm.sql.v20170301preview.ManagedDatabase("managedDatabase",
+            create_mode="Recovery",
+            database_name="testdb_recovered",
+            location="southeastasia",
+            managed_instance_name="server1",
+            recoverable_database_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/Default-SQL-WestEurope/providers/Microsoft.Sql/managedInstances/testsvr/recoverableDatabases/testdb",
+            resource_group_name="Default-SQL-SouthEastAsia")
+
+        ```
+        ### Creates a new managed database from restoring a long term retention backup
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_database = azurerm.sql.v20170301preview.ManagedDatabase("managedDatabase",
+            create_mode="RestoreLongTermRetentionBackup",
+            database_name="testdatabase",
+            location="southeastasia",
+            long_term_retention_backup_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/locations/southeastasia/longTermRetentionManagedInstances/testInstance/databases/testDatabase/longTermRetentionManagedInstanceBackups/00000000-1111-2222-3333-444444444444;131637960820000000",
+            managed_instance_name="testinstance",
+            resource_group_name="Default-SQL-SouthEastAsia")
+
+        ```
+        ### Creates a new managed database using point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_database = azurerm.sql.v20170301preview.ManagedDatabase("managedDatabase",
+            create_mode="PointInTimeRestore",
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restore_point_in_time="2017-07-14T05:35:31.503Z",
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr/databases/testdb")
+
+        ```
+        ### Creates a new managed database with maximal properties
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_database = azurerm.sql.v20170301preview.ManagedDatabase("managedDatabase",
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            tags={
+                "tagKey1": "TagValue1",
+            })
+
+        ```
+        ### Creates a new managed database with minimal properties
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_database = azurerm.sql.v20170301preview.ManagedDatabase("managedDatabase",
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_collation: Collation of the metadata catalog.

@@ -32,6 +32,30 @@ class WorkbookTemplate(pulumi.CustomResource):
         """
         An Application Insights workbook template definition.
 
+        ## Example Usage
+        ### WorkbookTemplateAdd
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        workbook_template = azurerm.insights.v20191017preview.WorkbookTemplate("workbookTemplate",
+            author="Contoso",
+            galleries=[{
+                "category": "Failures",
+                "name": "Simple Template",
+                "order": 100,
+                "resourceType": "microsoft.insights/components",
+                "type": "tsg",
+            }],
+            location="west us",
+            priority=1,
+            resource_group_name="my-resource-group",
+            resource_name="testtemplate2",
+            template_data={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] author: Information about the author of the workbook template.

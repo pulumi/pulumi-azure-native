@@ -27,6 +27,20 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
         """
         Configuration profile assignment is an association between a VM and automanage profile configuration.
 
+        ## Example Usage
+        ### Create or update configuration profile assignment
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        configuration_profile_assignment = azurerm.compute.v20200630preview.ConfigurationProfileAssignment("configurationProfileAssignment",
+            configuration_profile_assignment_name="default",
+            resource_group_name="myResourceGroupName",
+            vm_name="myVMName")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_profile_assignment_name: Name of the configuration profile assignment. Only default is supported.

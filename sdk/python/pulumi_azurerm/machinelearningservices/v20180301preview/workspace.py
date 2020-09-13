@@ -36,6 +36,30 @@ class Workspace(pulumi.CustomResource):
         """
         An object that represents a machine learning workspace.
 
+        ## Example Usage
+        ### Create Workspace
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        workspace = azurerm.machinelearningservices.v20180301preview.Workspace("workspace",
+            application_insights="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+            batchai_workspace="/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/workspace-1234/providers/Microsoft.BatchAI/workspaces/testBatchAIWorkspace",
+            container_registry="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+            description="test description",
+            friendly_name="HelloName",
+            identity={
+                "type": "SystemAssigned",
+            },
+            key_vault="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+            location="eastus2euap",
+            resource_group_name="workspace-1234",
+            storage_account="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            workspace_name="testworkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights: ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created

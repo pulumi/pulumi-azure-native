@@ -25,6 +25,34 @@ class SyncAgent(pulumi.CustomResource):
         """
         An Azure SQL Database sync agent.
 
+        ## Example Usage
+        ### Create a new sync agent
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        sync_agent = azurerm.sql.v20150501preview.SyncAgent("syncAgent",
+            resource_group_name="syncagentcrud-65440",
+            server_name="syncagentcrud-8475",
+            sync_agent_name="syncagentcrud-3187",
+            sync_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync")
+
+        ```
+        ### Update a sync agent
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        sync_agent = azurerm.sql.v20150501preview.SyncAgent("syncAgent",
+            resource_group_name="syncagentcrud-65440",
+            server_name="syncagentcrud-8475",
+            sync_agent_name="syncagentcrud-3187",
+            sync_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

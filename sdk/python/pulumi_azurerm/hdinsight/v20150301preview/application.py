@@ -29,6 +29,20 @@ class Application(pulumi.CustomResource):
         """
         The HDInsight cluster application
 
+        ## Example Usage
+        ### Create Application
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        application = azurerm.hdinsight.v20150301preview.Application("application",
+            application_name="hue",
+            cluster_name="cluster1",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The constant value for the application name.

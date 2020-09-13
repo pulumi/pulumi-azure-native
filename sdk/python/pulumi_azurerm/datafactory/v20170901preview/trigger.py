@@ -27,6 +27,32 @@ class Trigger(pulumi.CustomResource):
         """
         Trigger resource type.
 
+        ## Example Usage
+        ### Triggers_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        trigger = azurerm.datafactory.v20170901preview.Trigger("trigger",
+            factory_name="exampleFactoryName",
+            resource_group_name="exampleResourceGroup",
+            trigger_name="exampleTrigger")
+
+        ```
+        ### Triggers_Update
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        trigger = azurerm.datafactory.v20170901preview.Trigger("trigger",
+            factory_name="exampleFactoryName",
+            resource_group_name="exampleResourceGroup",
+            trigger_name="exampleTrigger")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.

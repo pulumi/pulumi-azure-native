@@ -31,6 +31,27 @@ class Workspace(pulumi.CustomResource):
         """
         The top level Workspace resource container.
 
+        ## Example Usage
+        ### WorkspacesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        workspace = azurerm.operationalinsights.v20151101preview.Workspace("workspace",
+            location="australiasoutheast",
+            resource_group_name="oiautorest6685",
+            retention_in_days=30,
+            sku={
+                "name": "PerNode",
+            },
+            tags={
+                "tag1": "val1",
+            },
+            workspace_name="oiautorest6685")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: The ETag of the workspace.

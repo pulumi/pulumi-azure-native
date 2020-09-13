@@ -26,6 +26,21 @@ class BuildStep(pulumi.CustomResource):
         """
         Build step resource properties
 
+        ## Example Usage
+        ### BuildSteps_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        build_step = azurerm.containerregistry.v20180201preview.BuildStep("buildStep",
+            build_task_name="myBuildTask",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            step_name="myStep")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] build_task_name: The name of the container registry build task.

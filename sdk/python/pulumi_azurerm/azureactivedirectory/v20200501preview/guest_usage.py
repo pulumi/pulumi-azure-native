@@ -26,6 +26,19 @@ class GuestUsage(pulumi.CustomResource):
         """
         Guest Usages Resource
 
+        ## Example Usage
+        ### GuestUsages_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        guest_usage = azurerm.azureactivedirectory.v20200501preview.GuestUsage("guestUsage",
+            resource_group_name="contosoResourceGroup",
+            resource_name="contoso.onmicrosoft.com")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the Guest Usages resource.

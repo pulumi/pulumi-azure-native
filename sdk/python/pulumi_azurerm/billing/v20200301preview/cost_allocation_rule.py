@@ -26,6 +26,30 @@ class CostAllocationRule(pulumi.CustomResource):
         """
         The cost allocation rule model definition
 
+        ## Example Usage
+        ### CostAllocationRulesCreateResourceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cost_allocation_rule = azurerm.billing.v20200301preview.CostAllocationRule("costAllocationRule",
+            billing_account_id="100",
+            rule_name="testRule")
+
+        ```
+        ### CostAllocationRulesCreateTag
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cost_allocation_rule = azurerm.billing.v20200301preview.CostAllocationRule("costAllocationRule",
+            billing_account_id="100",
+            rule_name="testRule")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_id: BillingAccount ID

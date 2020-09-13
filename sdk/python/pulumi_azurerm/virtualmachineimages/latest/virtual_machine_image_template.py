@@ -43,12 +43,15 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         virtual_machine_image_template = azurerm.virtualmachineimages.latest.VirtualMachineImageTemplate("virtualMachineImageTemplate",
             customize=[{
                 "name": "Shell Customizer Example",
+                "scriptUri": "https://example.com/path/to/script.sh",
                 "type": "Shell",
             }],
             distribute=[{
                 "artifactTags": {
                     "tagName": "value",
                 },
+                "imageId": "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+                "location": "1_location",
                 "runOutputName": "image_it_pir_1",
                 "type": "ManagedImage",
             }],
@@ -59,6 +62,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             location="westus",
             resource_group_name="myResourceGroup",
             source={
+                "imageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
                 "type": "ManagedImage",
             },
             tags={
@@ -83,26 +87,44 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         virtual_machine_image_template = azurerm.virtualmachineimages.latest.VirtualMachineImageTemplate("virtualMachineImageTemplate",
             customize=[
                 {
+                    "inline": [
+                        "Powershell command-1",
+                        "Powershell command-2",
+                        "Powershell command-3",
+                    ],
                     "name": "PowerShell (inline) Customizer Example",
                     "type": "PowerShell",
                 },
                 {
                     "name": "PowerShell (script) Customizer Example",
+                    "scriptUri": "https://example.com/path/to/script.ps1",
                     "type": "PowerShell",
+                    "validExitCodes": [
+                        0,
+                        1,
+                    ],
                 },
                 {
                     "name": "Restart Customizer Example",
+                    "restartCheckCommand": "powershell -command \"& {Write-Output 'restarted.'}\"",
+                    "restartCommand": "shutdown /f /r /t 0 /c \"packer restart\"",
+                    "restartTimeout": "10m",
                     "type": "WindowsRestart",
                 },
                 {
+                    "filters": ["$_.BrowseOnly"],
                     "name": "Windows Update Customizer Example",
+                    "searchCriteria": "BrowseOnly=0 and IsInstalled=0",
                     "type": "WindowsUpdate",
+                    "updateLimit": 100,
                 },
             ],
             distribute=[{
                 "artifactTags": {
                     "tagName": "value",
                 },
+                "imageId": "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+                "location": "1_location",
                 "runOutputName": "image_it_pir_1",
                 "type": "ManagedImage",
             }],
@@ -113,6 +135,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             location="westus",
             resource_group_name="myResourceGroup",
             source={
+                "imageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
                 "type": "ManagedImage",
             },
             tags={

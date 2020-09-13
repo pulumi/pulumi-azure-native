@@ -30,6 +30,76 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
         """
         Virtual machine guest diagnostics settings resource.
 
+        ## Example Usage
+        ### Create or update a guest diagnostic settings
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        guest_diagnostics_setting = azurerm.insights.v20180601preview.GuestDiagnosticsSetting("guestDiagnosticsSetting",
+            data_sources=[
+                {
+                    "configuration": {
+                        "perfCounters": [
+                            {
+                                "name": "\\Process(_Total)\\%Processor Time",
+                                "samplingPeriod": "PT1M",
+                            },
+                            {
+                                "name": "\\Process(_Total)\\Working Set",
+                                "samplingPeriod": "PT1M",
+                            },
+                        ],
+                    },
+                    "kind": "PerformanceCounter",
+                    "sinks": [{
+                        "kind": "LogAnalytics",
+                    }],
+                },
+                {
+                    "configuration": {
+                        "providers": [
+                            {
+                                "id": "1",
+                            },
+                            {
+                                "id": "2",
+                            },
+                        ],
+                    },
+                    "kind": "ETWProviders",
+                    "sinks": [{
+                        "kind": "LogAnalytics",
+                    }],
+                },
+                {
+                    "configuration": {
+                        "eventLogs": [
+                            {
+                                "filter": "SourceName == Xyz AND EventId = \"100\" AND  $Xpath/Column=\"DCName\" = \"CatWoman\"",
+                                "logName": "Application",
+                            },
+                            {
+                                "filter": "SourceName == Xyz AND EventId = \"100\" AND  $Xpath/Column=\"DCName\" = \"BatMan\"",
+                                "logName": "Application",
+                            },
+                        ],
+                    },
+                    "kind": "WindowsEventLogs",
+                    "sinks": [{
+                        "kind": "LogAnalytics",
+                    }],
+                },
+            ],
+            diagnostic_settings_name="SampleDiagSetting",
+            location="Global",
+            os_type="Windows",
+            resource_group_name="Default-ResourceGroup",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DataSourceArgs']]]] data_sources: the array of data source object which are configured to collect and send data

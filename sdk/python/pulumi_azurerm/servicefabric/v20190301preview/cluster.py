@@ -45,6 +45,179 @@ class Cluster(pulumi.CustomResource):
         """
         The cluster resource
 
+        ## Example Usage
+        ### Put a cluster with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster = azurerm.servicefabric.v20190301preview.Cluster("cluster",
+            add_on_features=[
+                "RepairManager",
+                "DnsService",
+                "BackupRestoreService",
+                "ResourceMonitorService",
+            ],
+            azure_active_directory={
+                "clientApplication": "d151ad89-4bce-4ae8-b3d1-1dc79679fa75",
+                "clusterApplication": "5886372e-7bf4-4878-a497-8098aba608ae",
+                "tenantId": "6abcc6a0-8666-43f1-87b8-172cf86a9f9c",
+            },
+            certificate_common_names={
+                "commonNames": [{
+                    "certificateCommonName": "abc.com",
+                    "certificateIssuerThumbprint": "12599211F8F14C90AFA9532AD79A6F2CA1C00622",
+                }],
+                "x509StoreName": "My",
+            },
+            client_certificate_common_names=[{
+                "certificateCommonName": "abc.com",
+                "certificateIssuerThumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "isAdmin": True,
+            }],
+            client_certificate_thumbprints=[{
+                "certificateThumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "isAdmin": True,
+            }],
+            cluster_code_version="6.1.480.9494",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config={
+                "blobEndpoint": "https://diag.blob.core.windows.net/",
+                "protectedAccountKeyName": "StorageAccountKey1",
+                "queueEndpoint": "https://diag.queue.core.windows.net/",
+                "storageAccountName": "diag",
+                "tableEndpoint": "https://diag.table.core.windows.net/",
+            },
+            event_store_service_enabled=True,
+            fabric_settings=[{
+                "name": "UpgradeService",
+                "parameters": [{
+                    "name": "AppPollIntervalInSeconds",
+                    "value": "60",
+                }],
+            }],
+            location="eastus",
+            management_endpoint="https://myCluster.eastus.cloudapp.azure.com:19080",
+            node_types=[{
+                "applicationPorts": {
+                    "endPort": 30000,
+                    "startPort": 20000,
+                },
+                "clientConnectionEndpointPort": 19000,
+                "durabilityLevel": "Bronze",
+                "ephemeralPorts": {
+                    "endPort": 64000,
+                    "startPort": 49000,
+                },
+                "httpGatewayEndpointPort": 19007,
+                "isPrimary": True,
+                "name": "nt1vm",
+                "vmInstanceCount": 5,
+            }],
+            reliability_level="Silver",
+            resource_group_name="resRg",
+            reverse_proxy_certificate_common_names={
+                "commonNames": [{
+                    "certificateCommonName": "abc.com",
+                    "certificateIssuerThumbprint": "12599211F8F14C90AFA9532AD79A6F2CA1C00622",
+                }],
+                "x509StoreName": "My",
+            },
+            tags={},
+            upgrade_description={
+                "deltaHealthPolicy": {
+                    "applicationDeltaHealthPolicies": {
+                        "fabric:/myApp1": {
+                            "defaultServiceTypeDeltaHealthPolicy": {
+                                "maxPercentDeltaUnhealthyServices": 0,
+                            },
+                            "serviceTypeDeltaHealthPolicies": {
+                                "myServiceType1": {
+                                    "maxPercentDeltaUnhealthyServices": 0,
+                                },
+                            },
+                        },
+                    },
+                    "maxPercentDeltaUnhealthyApplications": 0,
+                    "maxPercentDeltaUnhealthyNodes": 0,
+                    "maxPercentUpgradeDomainDeltaUnhealthyNodes": 0,
+                },
+                "forceRestart": False,
+                "healthCheckRetryTimeout": "00:05:00",
+                "healthCheckStableDuration": "00:00:30",
+                "healthCheckWaitDuration": "00:00:30",
+                "healthPolicy": {
+                    "applicationHealthPolicies": {
+                        "fabric:/myApp1": {
+                            "defaultServiceTypeHealthPolicy": {
+                                "maxPercentUnhealthyServices": 0,
+                            },
+                            "serviceTypeHealthPolicies": {
+                                "myServiceType1": {
+                                    "maxPercentUnhealthyServices": 100,
+                                },
+                            },
+                        },
+                    },
+                    "maxPercentUnhealthyApplications": 0,
+                    "maxPercentUnhealthyNodes": 0,
+                },
+                "upgradeDomainTimeout": "00:15:00",
+                "upgradeReplicaSetCheckTimeout": "00:10:00",
+                "upgradeTimeout": "01:00:00",
+            },
+            upgrade_mode="Manual",
+            vm_image="Windows")
+
+        ```
+        ### Put a cluster with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster = azurerm.servicefabric.v20190301preview.Cluster("cluster",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config={
+                "blobEndpoint": "https://diag.blob.core.windows.net/",
+                "protectedAccountKeyName": "StorageAccountKey1",
+                "queueEndpoint": "https://diag.queue.core.windows.net/",
+                "storageAccountName": "diag",
+                "tableEndpoint": "https://diag.table.core.windows.net/",
+            },
+            fabric_settings=[{
+                "name": "UpgradeService",
+                "parameters": [{
+                    "name": "AppPollIntervalInSeconds",
+                    "value": "60",
+                }],
+            }],
+            location="eastus",
+            management_endpoint="http://myCluster.eastus.cloudapp.azure.com:19080",
+            node_types=[{
+                "applicationPorts": {
+                    "endPort": 30000,
+                    "startPort": 20000,
+                },
+                "clientConnectionEndpointPort": 19000,
+                "durabilityLevel": "Bronze",
+                "ephemeralPorts": {
+                    "endPort": 64000,
+                    "startPort": 49000,
+                },
+                "httpGatewayEndpointPort": 19007,
+                "isPrimary": True,
+                "name": "nt1vm",
+                "vmInstanceCount": 5,
+            }],
+            reliability_level="Silver",
+            resource_group_name="resRg",
+            tags={},
+            upgrade_mode="Automatic")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] add_on_features: The list of add-on features to enable in the cluster.

@@ -29,6 +29,34 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         """
         The batch configuration resource definition.
 
+        ## Example Usage
+        ### Create or update a batch configuration
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        integration_account_batch_configuration = azurerm.logic.v20180701preview.IntegrationAccountBatchConfiguration("integrationAccountBatchConfiguration",
+            batch_configuration_name="testBatchConfiguration",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            properties={
+                "batchGroupName": "DEFAULT",
+                "releaseCriteria": {
+                    "batchSize": 234567,
+                    "messageCount": 10,
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 1,
+                        "startTime": "2017-03-24T11:43:00",
+                        "timeZone": "India Standard Time",
+                    },
+                },
+            },
+            resource_group_name="testResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] batch_configuration_name: The batch configuration name.

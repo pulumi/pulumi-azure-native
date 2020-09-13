@@ -33,6 +33,43 @@ class ElasticPool(pulumi.CustomResource):
         """
         An elastic pool.
 
+        ## Example Usage
+        ### Create or update elastic pool with all parameter
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        elastic_pool = azurerm.sql.v20171001preview.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            per_database_settings={
+                "maxCapacity": 2,
+                "minCapacity": 0.25,
+            },
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "capacity": 2,
+                "name": "GP_Gen4_2",
+                "tier": "GeneralPurpose",
+            })
+
+        ```
+        ### Create or update elastic pool with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        elastic_pool = azurerm.sql.v20171001preview.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool.

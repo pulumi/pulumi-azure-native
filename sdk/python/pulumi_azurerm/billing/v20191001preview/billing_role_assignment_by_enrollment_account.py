@@ -29,6 +29,23 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
         """
         The role assignment
 
+        ## Example Usage
+        ### PutEnrollmentAccountSubscriptionCreatorRoleAssignment
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        billing_role_assignment_by_enrollment_account = azurerm.billing.v20191001preview.BillingRoleAssignmentByEnrollmentAccount("billingRoleAssignmentByEnrollmentAccount",
+            billing_account_name="{billingAccountName}",
+            billing_role_assignment_name="{billingRoleAssignmentName}",
+            enrollment_account_name="{enrollmentAccountName}",
+            principal_id="99a1a759-30dd-42c2-828c-db398826bb67",
+            principal_tenant_id="7ca289b9-c32d-4f01-8566-7ff93261d76f",
+            role_definition_id="/providers/Microsoft.Billing/billingAccounts/7898901/enrollmentAccounts/225314/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.

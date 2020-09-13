@@ -28,6 +28,23 @@ class ConfigurationProfilePreference(pulumi.CustomResource):
         """
         Definition of the configuration profile preference.
 
+        ## Example Usage
+        ### Create or update configuration profile preference
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        configuration_profile_preference = azurerm.automanage.v20200630preview.ConfigurationProfilePreference("configurationProfilePreference",
+            configuration_profile_preference_name="defaultProfilePreference",
+            location="East US",
+            resource_group_name="myResourceGroupName",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_profile_preference_name: Name of the configuration profile preference.

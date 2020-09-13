@@ -31,6 +31,203 @@ class StreamingPolicy(pulumi.CustomResource):
         """
         A Streaming Policy resource
 
+        ## Example Usage
+        ### Creates a Streaming Policy with clear streaming
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        streaming_policy = azurerm.media.v20180330preview.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            no_encryption={
+                "enabledProtocols": {
+                    "dash": True,
+                    "download": True,
+                    "hls": True,
+                    "smoothStreaming": True,
+                },
+            },
+            resource_group_name="contoso",
+            streaming_policy_name="UserCreatedClearStreamingPolicy")
+
+        ```
+        ### Creates a Streaming Policy with commonEncryptionCbcs only
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        streaming_policy = azurerm.media.v20180330preview.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cbcs={
+                "contentKeys": {
+                    "defaultKey": {
+                        "label": "cbcsDefaultKey",
+                    },
+                },
+                "drm": {
+                    "fairPlay": {
+                        "allowPersistentLicense": True,
+                        "customLicenseAcquisitionUrlTemplate": "https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+                    },
+                },
+                "enabledProtocols": {
+                    "dash": False,
+                    "download": False,
+                    "hls": True,
+                    "smoothStreaming": False,
+                },
+            },
+            default_content_key_policy_name="PolicyWithMultipleOptions",
+            resource_group_name="contoso",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCbcsOnly")
+
+        ```
+        ### Creates a Streaming Policy with commonEncryptionCenc only
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        streaming_policy = azurerm.media.v20180330preview.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cenc={
+                "clearTracks": [{
+                    "trackSelections": [{
+                        "operation": "Equal",
+                        "property": "FourCC",
+                        "value": "hev1",
+                    }],
+                }],
+                "contentKeys": {
+                    "defaultKey": {
+                        "label": "cencDefaultKey",
+                    },
+                },
+                "drm": {
+                    "playReady": {
+                        "customLicenseAcquisitionUrlTemplate": "https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+                        "playReadyCustomAttributes": "PlayReady CustomAttributes",
+                    },
+                    "widevine": {
+                        "customLicenseAcquisitionUrlTemplate": "https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId",
+                    },
+                },
+                "enabledProtocols": {
+                    "dash": True,
+                    "download": False,
+                    "hls": False,
+                    "smoothStreaming": True,
+                },
+            },
+            default_content_key_policy_name="PolicyWithPlayReadyOptionAndOpenRestriction",
+            resource_group_name="contoso",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCencOnly")
+
+        ```
+        ### Creates a Streaming Policy with envelopeEncryption only
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        streaming_policy = azurerm.media.v20180330preview.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            default_content_key_policy_name="PolicyWithClearKeyOptionAndTokenRestriction",
+            envelope_encryption={
+                "contentKeys": {
+                    "defaultKey": {
+                        "label": "aesDefaultKey",
+                    },
+                },
+                "customLicenseAcquisitionUrlTemplate": "https://contoso.com/{AssetAlternativeId}/envelope/{ContentKeyId}",
+                "enabledProtocols": {
+                    "dash": True,
+                    "hls": True,
+                    "smoothStreaming": True,
+                },
+            },
+            resource_group_name="contoso",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithEnvelopeEncryptionOnly")
+
+        ```
+        ### Creates a Streaming Policy with secure streaming
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        streaming_policy = azurerm.media.v20180330preview.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cbcs={
+                "contentKeys": {
+                    "defaultKey": {
+                        "label": "cbcsDefaultKey",
+                    },
+                },
+                "drm": {
+                    "fairPlay": {
+                        "allowPersistentLicense": True,
+                        "customLicenseAcquisitionUrlTemplate": "https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+                    },
+                },
+                "enabledProtocols": {
+                    "dash": False,
+                    "download": False,
+                    "hls": True,
+                    "smoothStreaming": False,
+                },
+            },
+            common_encryption_cenc={
+                "clearTracks": [{
+                    "trackSelections": [{
+                        "operation": "Equal",
+                        "property": "FourCC",
+                        "value": "hev1",
+                    }],
+                }],
+                "contentKeys": {
+                    "defaultKey": {
+                        "label": "cencDefaultKey",
+                    },
+                },
+                "drm": {
+                    "playReady": {
+                        "customLicenseAcquisitionUrlTemplate": "https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+                        "playReadyCustomAttributes": "PlayReady CustomAttributes",
+                    },
+                    "widevine": {
+                        "customLicenseAcquisitionUrlTemplate": "https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId",
+                    },
+                },
+                "enabledProtocols": {
+                    "dash": True,
+                    "download": False,
+                    "hls": False,
+                    "smoothStreaming": True,
+                },
+            },
+            default_content_key_policy_name="PolicyWithMultipleOptions",
+            envelope_encryption={
+                "contentKeys": {
+                    "defaultKey": {
+                        "label": "aesDefaultKey",
+                    },
+                },
+                "customLicenseAcquisitionUrlTemplate": "https://contoso.com/{AssetAlternativeId}/envelope/{ContentKeyId}",
+                "enabledProtocols": {
+                    "dash": True,
+                    "download": False,
+                    "hls": True,
+                    "smoothStreaming": True,
+                },
+            },
+            resource_group_name="contoso",
+            streaming_policy_name="UserCreatedSecureStreamingPolicy")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

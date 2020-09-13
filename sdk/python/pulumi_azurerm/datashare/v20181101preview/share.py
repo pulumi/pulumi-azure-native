@@ -27,6 +27,23 @@ class Share(pulumi.CustomResource):
         """
         A share data transfer object.
 
+        ## Example Usage
+        ### Shares_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        share = azurerm.datashare.v20181101preview.Share("share",
+            account_name="Account1",
+            description="share description",
+            resource_group_name="SampleResourceGroup",
+            share_kind="CopyBased",
+            share_name="Share1",
+            terms="Confidential")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.

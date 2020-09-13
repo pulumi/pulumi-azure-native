@@ -36,6 +36,27 @@ class BlockchainMember(pulumi.CustomResource):
         """
         Payload of the blockchain member which is exposed in the request/response of the resource provider.
 
+        ## Example Usage
+        ### BlockchainMembers_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        blockchain_member = azurerm.blockchain.v20180601preview.BlockchainMember("blockchainMember",
+            blockchain_member_name="contosemember1",
+            consortium="ContoseConsortium",
+            consortium_management_account_password="1234abcdEFG1",
+            location="southeastasia",
+            password="1234abcdEFG1",
+            protocol="Quorum",
+            resource_group_name="mygroup",
+            validator_nodes_sku={
+                "capacity": 2,
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blockchain_member_name: Blockchain member name.

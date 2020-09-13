@@ -32,6 +32,28 @@ class MachineGroup(pulumi.CustomResource):
         """
         A user-defined logical grouping of machines.
 
+        ## Example Usage
+        ### SMMachineGroupsUpdatePut
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        machine_group = azurerm.operationalinsights.v20151101preview.MachineGroup("machineGroup",
+            count=1,
+            display_name="Foo",
+            etag="8cd3a8a1-4b1f-43fc-ae3c-b2c092561444",
+            kind="machineGroup",
+            machine_group_name="ccfbf4bf-dc08-4371-9e9b-00a8d875d45a",
+            machines=[{
+                "id": "/subscriptions/63BE4E24-FDF0-4E9C-9342-6A5D5A359722/resourceGroups/rg-sm/providers/Microsoft.OperationalInsights/workspaces/D6F79F14-E563-469B-84B5-9286D2803B2F/machines/m-0fe4b501-7ac9-41d7-a4e1-1591a0789519",
+                "kind": "ref:machinewithhints",
+            }],
+            resource_group_name="rg-sm",
+            workspace_name="D6F79F14-E563-469B-84B5-9286D2803B2F")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] count: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.

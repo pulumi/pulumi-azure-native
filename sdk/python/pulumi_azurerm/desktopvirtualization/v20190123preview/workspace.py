@@ -28,6 +28,26 @@ class Workspace(pulumi.CustomResource):
         """
         Represents a Workspace definition.
 
+        ## Example Usage
+        ### Workspace_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        workspace = azurerm.desktopvirtualization.v20190123preview.Workspace("workspace",
+            description="des1",
+            friendly_name="friendly",
+            location="centralus",
+            resource_group_name="resourceGroup1",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            workspace_name="workspace1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] application_group_references: List of applicationGroup resource Ids.

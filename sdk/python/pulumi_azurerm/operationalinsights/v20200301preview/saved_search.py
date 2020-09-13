@@ -34,6 +34,30 @@ class SavedSearch(pulumi.CustomResource):
         """
         Value object for saved search results.
 
+        ## Example Usage
+        ### SavedSearchCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        saved_search = azurerm.operationalinsights.v20200301preview.SavedSearch("savedSearch",
+            category="Saved Search Test Category",
+            display_name="Create or Update Saved Search Test",
+            function_alias="heartbeat_func",
+            function_parameters="a:int=1",
+            query="Heartbeat | summarize Count() by Computer | take a",
+            resource_group_name="TestRG",
+            saved_search_id="00000000-0000-0000-0000-00000000000",
+            tags=[{
+                "name": "Group",
+                "value": "Computer",
+            }],
+            version=2,
+            workspace_name="TestWS")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: The category of the saved search. This helps the user to find a saved search faster. 

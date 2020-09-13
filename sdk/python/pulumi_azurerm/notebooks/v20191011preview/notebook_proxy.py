@@ -24,6 +24,20 @@ class NotebookProxy(pulumi.CustomResource):
         """
         A NotebookProxy resource.
 
+        ## Example Usage
+        ### Create Notebook Proxy
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        notebook_proxy = azurerm.notebooks.v20191011preview.NotebookProxy("notebookProxy",
+            hostname="Azure Notebooks",
+            resource_group_name="testRP",
+            resource_name="testResource")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hostname: The friendly string identifier of the creator of the NotebookProxy resource.

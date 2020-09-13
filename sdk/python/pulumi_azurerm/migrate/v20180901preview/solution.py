@@ -28,6 +28,20 @@ class Solution(pulumi.CustomResource):
         """
         Solution REST Resource.
 
+        ## Example Usage
+        ### Solutions_Put
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        solution = azurerm.migrate.v20180901preview.Solution("solution",
+            migrate_project_name="project01",
+            resource_group_name="myResourceGroup",
+            solution_name="dbsolution")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Gets or sets the ETAG for optimistic concurrency control.

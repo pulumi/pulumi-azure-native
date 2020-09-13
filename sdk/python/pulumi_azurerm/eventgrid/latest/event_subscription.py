@@ -45,6 +45,9 @@ class EventSubscription(pulumi.CustomResource):
             },
             destination={
                 "endpointType": "EventHub",
+                "properties": {
+                    "resourceId": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1",
+                },
             },
             event_subscription_name="examplesubscription1",
             filter={
@@ -67,6 +70,9 @@ class EventSubscription(pulumi.CustomResource):
             },
             destination={
                 "endpointType": "HybridConnection",
+                "properties": {
+                    "resourceId": "/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Relay/namespaces/ContosoNamespace/hybridConnections/HC1",
+                },
             },
             event_subscription_name="examplesubscription1",
             filter={
@@ -89,6 +95,10 @@ class EventSubscription(pulumi.CustomResource):
             },
             destination={
                 "endpointType": "StorageQueue",
+                "properties": {
+                    "queueName": "queue1",
+                    "resourceId": "/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+                },
             },
             event_subscription_name="examplesubscription1",
             filter={
@@ -108,6 +118,9 @@ class EventSubscription(pulumi.CustomResource):
         event_subscription = azurerm.eventgrid.latest.EventSubscription("eventSubscription",
             destination={
                 "endpointType": "EventHub",
+                "properties": {
+                    "resourceId": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1",
+                },
             },
             event_subscription_name="examplesubscription1",
             filter={
@@ -127,6 +140,9 @@ class EventSubscription(pulumi.CustomResource):
         event_subscription = azurerm.eventgrid.latest.EventSubscription("eventSubscription",
             destination={
                 "endpointType": "WebHook",
+                "properties": {
+                    "endpointUrl": "https://requestb.in/15ksip71",
+                },
             },
             event_subscription_name="examplesubscription10",
             filter={
@@ -146,6 +162,9 @@ class EventSubscription(pulumi.CustomResource):
         event_subscription = azurerm.eventgrid.latest.EventSubscription("eventSubscription",
             destination={
                 "endpointType": "WebHook",
+                "properties": {
+                    "endpointUrl": "https://requestb.in/15ksip71",
+                },
             },
             event_subscription_name="examplesubscription2",
             filter={
@@ -165,6 +184,9 @@ class EventSubscription(pulumi.CustomResource):
         event_subscription = azurerm.eventgrid.latest.EventSubscription("eventSubscription",
             destination={
                 "endpointType": "WebHook",
+                "properties": {
+                    "endpointUrl": "https://requestb.in/15ksip71",
+                },
             },
             event_subscription_name="examplesubscription3",
             filter={

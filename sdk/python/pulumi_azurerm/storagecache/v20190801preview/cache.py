@@ -31,6 +31,28 @@ class Cache(pulumi.CustomResource):
         """
         A cache instance.  Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 
+        ## Example Usage
+        ### Caches_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cache = azurerm.storagecache.v20190801preview.Cache("cache",
+            cache_name="sc1",
+            cache_size_gb=3072,
+            location="westus",
+            resource_group_name="scgroup",
+            sku={
+                "name": "Standard_2G",
+            },
+            subnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+            tags={
+                "Dept": "Initech",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: Name of cache.

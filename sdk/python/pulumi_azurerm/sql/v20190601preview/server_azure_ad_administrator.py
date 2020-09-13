@@ -28,6 +28,24 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
         """
         Azure Active Directory administrator.
 
+        ## Example Usage
+        ### Creates or updates an existing Azure Active Directory administrator.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        server_azure_ad_administrator = azurerm.sql.v20190601preview.ServerAzureADAdministrator("serverAzureADAdministrator",
+            administrator_name="ActiveDirectory",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            resource_group_name="sqlcrudtest-4799",
+            server_name="sqlcrudtest-6440",
+            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_name: The name of server active directory administrator.

@@ -38,6 +38,14 @@ class Output(pulumi.CustomResource):
 
         output = azurerm.streamanalytics.latest.Output("output",
             datasource={
+                "properties": {
+                    "accountId": "someAccountId",
+                    "accountKey": "accountKey==",
+                    "collectionNamePattern": "collection",
+                    "database": "db01",
+                    "documentId": "documentId",
+                    "partitionKey": "key",
+                },
                 "type": "Microsoft.Storage/DocumentDB",
             },
             job_name="sj2331",
@@ -53,6 +61,15 @@ class Output(pulumi.CustomResource):
 
         output = azurerm.streamanalytics.latest.Output("output",
             datasource={
+                "properties": {
+                    "dataset": "someDataset",
+                    "groupId": "ac40305e-3e8d-43ac-8161-c33799f43e95",
+                    "groupName": "MyPowerBIGroup",
+                    "refreshToken": "someRefreshToken==",
+                    "table": "someTable",
+                    "tokenUserDisplayName": "Bob Smith",
+                    "tokenUserPrincipalName": "bobsmith@contoso.com",
+                },
                 "type": "PowerBI",
             },
             job_name="sj2331",
@@ -68,6 +85,16 @@ class Output(pulumi.CustomResource):
 
         output = azurerm.streamanalytics.latest.Output("output",
             datasource={
+                "properties": {
+                    "propertyColumns": [
+                        "column1",
+                        "column2",
+                    ],
+                    "queueName": "sdkqueue",
+                    "serviceBusNamespace": "sdktest",
+                    "sharedAccessPolicyKey": "sharedAccessPolicyKey=",
+                    "sharedAccessPolicyName": "RootManageSharedAccessKey",
+                },
                 "type": "Microsoft.ServiceBus/Queue",
             },
             job_name="sj5095",
@@ -86,12 +113,26 @@ class Output(pulumi.CustomResource):
 
         output = azurerm.streamanalytics.latest.Output("output",
             datasource={
+                "properties": {
+                    "propertyColumns": [
+                        "column1",
+                        "column2",
+                    ],
+                    "serviceBusNamespace": "sdktest",
+                    "sharedAccessPolicyKey": "sharedAccessPolicyKey=",
+                    "sharedAccessPolicyName": "RootManageSharedAccessKey",
+                    "topicName": "sdktopic",
+                },
                 "type": "Microsoft.ServiceBus/Topic",
             },
             job_name="sj7094",
             output_name="output7886",
             resource_group_name="sjrg6450",
             serialization={
+                "properties": {
+                    "encoding": "UTF8",
+                    "fieldDelimiter": ",",
+                },
                 "type": "Csv",
             })
 
@@ -104,12 +145,26 @@ class Output(pulumi.CustomResource):
 
         output = azurerm.streamanalytics.latest.Output("output",
             datasource={
+                "properties": {
+                    "container": "state",
+                    "dateFormat": "yyyy/MM/dd",
+                    "pathPattern": "{date}/{time}",
+                    "storageAccounts": [{
+                        "accountKey": "accountKey==",
+                        "accountName": "someAccountName",
+                    }],
+                    "timeFormat": "HH",
+                },
                 "type": "Microsoft.Storage/Blob",
             },
             job_name="sj900",
             output_name="output1623",
             resource_group_name="sjrg5023",
             serialization={
+                "properties": {
+                    "encoding": "UTF8",
+                    "fieldDelimiter": ",",
+                },
                 "type": "Csv",
             })
 
@@ -122,12 +177,26 @@ class Output(pulumi.CustomResource):
 
         output = azurerm.streamanalytics.latest.Output("output",
             datasource={
+                "properties": {
+                    "accountName": "someaccount",
+                    "dateFormat": "yyyy/MM/dd",
+                    "filePathPrefix": "{date}/{time}",
+                    "refreshToken": "someRefreshToken==",
+                    "tenantId": "cea4e98b-c798-49e7-8c40-4a2b3beb47dd",
+                    "timeFormat": "HH",
+                    "tokenUserDisplayName": "Bob Smith",
+                    "tokenUserPrincipalName": "bobsmith@contoso.com",
+                },
                 "type": "Microsoft.DataLake/Accounts",
             },
             job_name="sj3310",
             output_name="output5195",
             resource_group_name="sjrg6912",
             serialization={
+                "properties": {
+                    "encoding": "UTF8",
+                    "format": "Array",
+                },
                 "type": "Json",
             })
 
@@ -140,6 +209,13 @@ class Output(pulumi.CustomResource):
 
         output = azurerm.streamanalytics.latest.Output("output",
             datasource={
+                "properties": {
+                    "database": "someDatabase",
+                    "password": "somePassword",
+                    "server": "someServer",
+                    "table": "someTable",
+                    "user": "someUser",
+                },
                 "type": "Microsoft.Sql/Server/Database",
             },
             job_name="sj6458",
@@ -155,6 +231,18 @@ class Output(pulumi.CustomResource):
 
         output = azurerm.streamanalytics.latest.Output("output",
             datasource={
+                "properties": {
+                    "accountKey": "accountKey==",
+                    "accountName": "someAccountName",
+                    "batchSize": 25,
+                    "columnsToRemove": [
+                        "column1",
+                        "column2",
+                    ],
+                    "partitionKey": "partitionKey",
+                    "rowKey": "rowKey",
+                    "table": "samples",
+                },
                 "type": "Microsoft.Storage/Table",
             },
             job_name="sj2790",
@@ -170,12 +258,23 @@ class Output(pulumi.CustomResource):
 
         output = azurerm.streamanalytics.latest.Output("output",
             datasource={
+                "properties": {
+                    "eventHubName": "sdkeventhub",
+                    "partitionKey": "partitionKey",
+                    "serviceBusNamespace": "sdktest",
+                    "sharedAccessPolicyKey": "sharedAccessPolicyKey=",
+                    "sharedAccessPolicyName": "RootManageSharedAccessKey",
+                },
                 "type": "Microsoft.ServiceBus/EventHub",
             },
             job_name="sj3310",
             output_name="output5195",
             resource_group_name="sjrg6912",
             serialization={
+                "properties": {
+                    "encoding": "UTF8",
+                    "format": "Array",
+                },
                 "type": "Json",
             })
 

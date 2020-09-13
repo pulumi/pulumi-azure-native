@@ -25,6 +25,21 @@ class RegisteredAsn(pulumi.CustomResource):
         """
         The customer's ASN that is registered by the peering service provider.
 
+        ## Example Usage
+        ### Create or update a registered ASN for the peering
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        registered_asn = azurerm.peering.v20200101preview.RegisteredAsn("registeredAsn",
+            asn=65000,
+            peering_name="peeringName",
+            registered_asn_name="registeredAsnName",
+            resource_group_name="rgName")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] asn: The customer's ASN from which traffic originates.

@@ -32,6 +32,43 @@ class WorkloadClassifier(pulumi.CustomResource):
         """
         Workload classifier operations for a data warehouse
 
+        ## Example Usage
+        ### Create a workload group with all properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        workload_classifier = azurerm.sql.v20190601preview.WorkloadClassifier("workloadClassifier",
+            context="test_context",
+            database_name="testdb",
+            end_time="14:00",
+            importance="high",
+            label="test_label",
+            member_name="dbo",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            start_time="12:00",
+            workload_classifier_name="wlm_workloadclassifier",
+            workload_group_name="wlm_workloadgroup")
+
+        ```
+        ### Create a workload group with the required properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        workload_classifier = azurerm.sql.v20190601preview.WorkloadClassifier("workloadClassifier",
+            database_name="testdb",
+            member_name="dbo",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            workload_classifier_name="wlm_workloadclassifier",
+            workload_group_name="wlm_workloadgroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] context: The workload classifier context.

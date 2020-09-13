@@ -28,6 +28,22 @@ class Cluster(pulumi.CustomResource):
         """
         Cluster details.
 
+        ## Example Usage
+        ### GetClusters
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        cluster = azurerm.azurestackhci.v20200301preview.Cluster("cluster",
+            aad_client_id="24a6e53d-04e5-44d2-b7cc-1b732a847dfc",
+            aad_tenant_id="7e589cc1-a8b6-4dff-91bd-5ec0fa18db94",
+            cluster_name="myCluster",
+            location="East US",
+            resource_group_name="test-rg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aad_client_id: App id of cluster AAD identity.

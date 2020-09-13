@@ -43,7 +43,18 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
             resource_group_name="rg1",
             rule_group_name="ruleGroup1",
             rules=[{
+                "action": {
+                    "type": "Deny",
+                },
                 "name": "Example-Filter-Rule",
+                "ruleConditions": [{
+                    "destinationAddresses": ["*"],
+                    "destinationPorts": ["*"],
+                    "ipProtocols": ["TCP"],
+                    "name": "network-condition1",
+                    "ruleConditionType": "NetworkRuleCondition",
+                    "sourceAddresses": ["10.1.25.0/24"],
+                }],
                 "ruleType": "FirewallPolicyFilterRule",
             }])
 
@@ -60,7 +71,18 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
             resource_group_name="rg1",
             rule_group_name="ruleGroup1",
             rules=[{
+                "action": {
+                    "type": "Deny",
+                },
                 "name": "Example-Filter-Rule",
+                "ruleConditions": [{
+                    "destinationIpGroups": ["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups2"],
+                    "destinationPorts": ["*"],
+                    "ipProtocols": ["TCP"],
+                    "name": "network-condition1",
+                    "ruleConditionType": "NetworkRuleCondition",
+                    "sourceIpGroups": ["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups1"],
+                }],
                 "ruleType": "FirewallPolicyFilterRule",
             }])
 

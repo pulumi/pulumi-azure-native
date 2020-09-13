@@ -130,6 +130,48 @@ class GalleryImageVersion(pulumi.CustomResource):
             })
 
         ```
+        ### Create or update a simple Gallery Image Version using vhd as a source.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        gallery_image_version = azurerm.compute.latest.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile={
+                "targetRegions": [
+                    {
+                        "encryption": {
+                            "dataDiskImages": [{
+                                "diskEncryptionSetId": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet",
+                                "lun": 1,
+                            }],
+                            "osDiskImage": {
+                                "diskEncryptionSetId": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet",
+                            },
+                        },
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "source": {
+                    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
+                    "uri": "https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
+                },
+            })
+
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

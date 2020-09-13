@@ -30,6 +30,43 @@ class ArtifactSource(pulumi.CustomResource):
         """
         The resource that defines the source location where the artifacts are located.
 
+        ## Example Usage
+        ### Create artifact source
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        artifact_source = azurerm.deploymentmanager.v20191101preview.ArtifactSource("artifactSource",
+            artifact_source_name="myArtifactSource",
+            authentication={
+                "type": "Sas",
+            },
+            location="centralus",
+            resource_group_name="myResourceGroup",
+            source_type="AzureStorage",
+            tags={})
+
+        ```
+        ### Create artifact source with artifact root, an offset into the storage container
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        artifact_source = azurerm.deploymentmanager.v20191101preview.ArtifactSource("artifactSource",
+            artifact_root="1.0.0.0",
+            artifact_source_name="myArtifactSource",
+            authentication={
+                "type": "Sas",
+            },
+            location="centralus",
+            resource_group_name="myResourceGroup",
+            source_type="AzureStorage",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_root: The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.

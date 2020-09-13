@@ -45,6 +45,45 @@ class Pipeline(pulumi.CustomResource):
             activities=[{
                 "name": "ExampleForeachActivity",
                 "type": "ForEach",
+                "typeProperties": {
+                    "activities": [{
+                        "inputs": [{
+                            "parameters": {
+                                "MyFileName": "examplecontainer.csv",
+                                "MyFolderPath": "examplecontainer",
+                            },
+                            "referenceName": "exampleDataset",
+                            "type": "DatasetReference",
+                        }],
+                        "name": "ExampleCopyActivity",
+                        "outputs": [{
+                            "parameters": {
+                                "MyFileName": {
+                                    "type": "Expression",
+                                    "value": "@item()",
+                                },
+                                "MyFolderPath": "examplecontainer",
+                            },
+                            "referenceName": "exampleDataset",
+                            "type": "DatasetReference",
+                        }],
+                        "type": "Copy",
+                        "typeProperties": {
+                            "dataIntegrationUnits": 32,
+                            "sink": {
+                                "type": "BlobSink",
+                            },
+                            "source": {
+                                "type": "BlobSource",
+                            },
+                        },
+                    }],
+                    "isSequential": True,
+                    "items": {
+                        "type": "Expression",
+                        "value": "@pipeline().parameters.OutputBlobNameList",
+                    },
+                },
             }],
             factory_name="exampleFactoryName",
             parameters={
@@ -80,6 +119,45 @@ class Pipeline(pulumi.CustomResource):
             activities=[{
                 "name": "ExampleForeachActivity",
                 "type": "ForEach",
+                "typeProperties": {
+                    "activities": [{
+                        "inputs": [{
+                            "parameters": {
+                                "MyFileName": "examplecontainer.csv",
+                                "MyFolderPath": "examplecontainer",
+                            },
+                            "referenceName": "exampleDataset",
+                            "type": "DatasetReference",
+                        }],
+                        "name": "ExampleCopyActivity",
+                        "outputs": [{
+                            "parameters": {
+                                "MyFileName": {
+                                    "type": "Expression",
+                                    "value": "@item()",
+                                },
+                                "MyFolderPath": "examplecontainer",
+                            },
+                            "referenceName": "exampleDataset",
+                            "type": "DatasetReference",
+                        }],
+                        "type": "Copy",
+                        "typeProperties": {
+                            "dataIntegrationUnits": 32,
+                            "sink": {
+                                "type": "BlobSink",
+                            },
+                            "source": {
+                                "type": "BlobSource",
+                            },
+                        },
+                    }],
+                    "isSequential": True,
+                    "items": {
+                        "type": "Expression",
+                        "value": "@pipeline().parameters.OutputBlobNameList",
+                    },
+                },
             }],
             description="Example description",
             factory_name="exampleFactoryName",

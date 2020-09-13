@@ -28,6 +28,32 @@ class Vault(pulumi.CustomResource):
         """
         Resource information with extended details.
 
+        ## Example Usage
+        ### Create a new vault or update an existing vault
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        vault = azurerm.keyvault.v20180214preview.Vault("vault",
+            location="westus",
+            resource_group_name="sample-resource-group",
+            vault_name="sample-vault")
+
+        ```
+        ### Create or update a vault with network acls
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        vault = azurerm.keyvault.v20180214preview.Vault("vault",
+            location="westus",
+            resource_group_name="sample-resource-group",
+            vault_name="sample-vault")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the key vault should be created.

@@ -26,6 +26,28 @@ class Policy(pulumi.CustomResource):
         """
         Policy Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreatePolicy
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        policy = azurerm.apimanagement.v20191201preview.Policy("policy",
+            format="xml",
+            policy_id="policy",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value=\"\"\"<policies>
+          <inbound />
+          <backend>
+            <forward-request />
+          </backend>
+          <outbound />
+        </policies>\"\"\")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] format: Format of the policyContent.

@@ -33,6 +33,28 @@ class SensitivityLabel(pulumi.CustomResource):
         """
         A sensitivity label.
 
+        ## Example Usage
+        ### Updates the sensitivity label of a given column with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        sensitivity_label = azurerm.sql.v20170301preview.SensitivityLabel("sensitivityLabel",
+            column_name="myColumn",
+            database_name="myDatabase",
+            information_type="PhoneNumber",
+            information_type_id="d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
+            label_id="bf91e08c-f4f0-478a-b016-25164b2a65ff",
+            label_name="PII",
+            resource_group_name="myRG",
+            schema_name="dbo",
+            sensitivity_label_source="current",
+            server_name="myServer",
+            table_name="myTable")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] column_name: The name of the column.

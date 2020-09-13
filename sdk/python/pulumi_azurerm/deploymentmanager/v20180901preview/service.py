@@ -28,6 +28,24 @@ class Service(pulumi.CustomResource):
         """
         The resource representation of a service in a service topology.
 
+        ## Example Usage
+        ### Create service
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        service = azurerm.deploymentmanager.v20180901preview.Service("service",
+            location="centralus",
+            resource_group_name="myResourceGroup",
+            service_name="myService",
+            service_topology_name="myTopology",
+            tags={},
+            target_location="centralus",
+            target_subscription_id="600c95c5-3ee5-44fe-b190-ca38a19adcd7")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives

@@ -26,6 +26,25 @@ class ScopeMap(pulumi.CustomResource):
         """
         An object that represents a scope map for a container registry.
 
+        ## Example Usage
+        ### ScopeMapCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        scope_map = azurerm.containerregistry.v20190501preview.ScopeMap("scopeMap",
+            actions=[
+                "repositories/myrepository/contentWrite",
+                "repositories/myrepository/delete",
+            ],
+            description="Developer Scopes",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            scope_map_name="myScopeMap")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[str]]] actions: The list of scoped permissions for registry artifacts.

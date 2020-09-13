@@ -27,6 +27,25 @@ class RegistrationDefinition(pulumi.CustomResource):
         """
         Registration definition.
 
+        ## Example Usage
+        ### Put Registration Definition
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        registration_definition = azurerm.managedservices.v20200201preview.RegistrationDefinition("registrationDefinition",
+            plan={
+                "name": "addesai-plan",
+                "product": "test",
+                "publisher": "marketplace-test",
+                "version": "1.0.0",
+            },
+            registration_definition_id="26c128c2-fefa-4340-9bb1-6e081c90ada2",
+            scope="subscription/0afefe50-734e-4610-8a82-a144ahf49dea")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Plan details for the managed services.

@@ -52,6 +52,7 @@ class Redis(pulumi.CustomResource):
             redis_configuration={
                 "maxmemory-policy": "allkeys-lru",
             },
+            replicas_per_master=2,
             resource_group_name="rg1",
             shard_count=2,
             sku={

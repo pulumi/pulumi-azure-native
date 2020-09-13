@@ -32,6 +32,44 @@ class Assignment(pulumi.CustomResource):
         """
         Represents a Blueprint assignment.
 
+        ## Example Usage
+        ### Assignment
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        assignment = azurerm.blueprint.v20171111preview.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="eastus",
+            parameters={
+                "costCenter": {
+                    "value": "Contoso/Online/Shopping/Production",
+                },
+                "owners": {
+                    "value": [
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                },
+                "storage_account_type": {
+                    "value": "Standard_LRS",
+                },
+            },
+            resource_groups={
+                "storageRG": {
+                    "location": "eastus",
+                    "name": "defaultRG",
+                },
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assignment_name: name of the assignment.

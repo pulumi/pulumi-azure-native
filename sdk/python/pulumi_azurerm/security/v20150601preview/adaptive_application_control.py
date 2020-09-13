@@ -27,7 +27,104 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a AdaptiveApplicationControl resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Update an application control VM/server group by adding a new file
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        adaptive_application_control = azurerm.security.v20150601preview.AdaptiveApplicationControl("adaptiveApplicationControl",
+            asc_location="centralus",
+            enforcement_mode="Audit",
+            group_name="ERELGROUP1",
+            path_recommendations=[
+                {
+                    "action": "Recommended",
+                    "common": True,
+                    "configurationStatus": "Configured",
+                    "fileType": "Exe",
+                    "path": "[Exe] O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US\\*\\*\\0.0.0.0",
+                    "publisherInfo": {
+                        "binaryName": "*",
+                        "productName": "*",
+                        "publisherName": "O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US",
+                        "version": "0.0.0.0",
+                    },
+                    "type": "PublisherSignature",
+                    "userSids": ["S-1-1-0"],
+                    "usernames": [{
+                        "recommendationAction": "Recommended",
+                        "username": "Everyone",
+                    }],
+                },
+                {
+                    "action": "Recommended",
+                    "common": True,
+                    "configurationStatus": "Configured",
+                    "fileType": "Exe",
+                    "path": "%OSDRIVE%\\WINDOWSAZURE\\SECAGENT\\WASECAGENTPROV.EXE",
+                    "publisherInfo": {
+                        "binaryName": "*",
+                        "productName": "MICROSOFT® COREXT",
+                        "publisherName": "CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+                        "version": "0.0.0.0",
+                    },
+                    "type": "ProductSignature",
+                    "userSids": ["S-1-1-0"],
+                    "usernames": [{
+                        "recommendationAction": "Recommended",
+                        "username": "NT AUTHORITY\\SYSTEM",
+                    }],
+                },
+                {
+                    "action": "Recommended",
+                    "common": True,
+                    "configurationStatus": "Configured",
+                    "fileType": "Exe",
+                    "path": "%OSDRIVE%\\WINDOWSAZURE\\PACKAGES_201973_7415\\COLLECTGUESTLOGS.EXE",
+                    "publisherInfo": {
+                        "binaryName": "*",
+                        "productName": "*",
+                        "publisherName": "CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+                        "version": "0.0.0.0",
+                    },
+                    "type": "PublisherSignature",
+                    "userSids": ["S-1-1-0"],
+                    "usernames": [{
+                        "recommendationAction": "Recommended",
+                        "username": "NT AUTHORITY\\SYSTEM",
+                    }],
+                },
+                {
+                    "action": "Add",
+                    "common": True,
+                    "path": "C:\\directory\\file.exe",
+                    "type": "File",
+                },
+            ],
+            protection_mode={
+                "exe": "Audit",
+                "msi": "None",
+                "script": "None",
+            },
+            vm_recommendations=[
+                {
+                    "configurationStatus": "Configured",
+                    "enforcementSupport": "Supported",
+                    "recommendationAction": "Recommended",
+                    "resourceId": "/subscriptions/3eeab341-f466-499c-a8be-85427e154baf/resourcegroups/erelh-stable/providers/microsoft.compute/virtualmachines/erelh-16090",
+                },
+                {
+                    "configurationStatus": "Configured",
+                    "enforcementSupport": "Supported",
+                    "recommendationAction": "Recommended",
+                    "resourceId": "/subscriptions/3eeab341-f466-499c-a8be-85427e154baf/resourcegroups/matanvs/providers/microsoft.compute/virtualmachines/matanvs19",
+                },
+            ])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations

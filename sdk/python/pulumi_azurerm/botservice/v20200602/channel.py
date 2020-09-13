@@ -42,7 +42,10 @@ class Channel(pulumi.CustomResource):
         channel = azurerm.botservice.v20200602.Channel("channel",
             channel_name="AlexaChannel",
             location="global",
-            properties={},
+            properties={
+                "alexaSkillId": "XAlexaSkillIdX",
+                "isEnabled": True,
+            },
             resource_group_name="OneResourceGroupName",
             resource_name="samplebotname")
 
@@ -56,7 +59,11 @@ class Channel(pulumi.CustomResource):
         channel = azurerm.botservice.v20200602.Channel("channel",
             channel_name="EmailChannel",
             location="global",
-            properties={},
+            properties={
+                "emailAddress": "a@b.com",
+                "isEnabled": True,
+                "password": "pwd",
+            },
             resource_group_name="OneResourceGroupName",
             resource_name="samplebotname")
 
@@ -70,7 +77,10 @@ class Channel(pulumi.CustomResource):
         channel = azurerm.botservice.v20200602.Channel("channel",
             channel_name="DirectLineSpeechChannel",
             location="global",
-            properties={},
+            properties={
+                "cognitiveServicesSubscriptionId": "XcognitiveServicesSubscriptionIdX",
+                "isEnabled": True,
+            },
             resource_group_name="OneResourceGroupName",
             resource_name="samplebotname")
 
@@ -84,7 +94,12 @@ class Channel(pulumi.CustomResource):
         channel = azurerm.botservice.v20200602.Channel("channel",
             channel_name="LineChannel",
             location="global",
-            properties={},
+            properties={
+                "lineRegistrations": [{
+                    "channelAccessToken": "channelAccessToken",
+                    "channelSecret": "channelSecret",
+                }],
+            },
             resource_group_name="OneResourceGroupName",
             resource_name="samplebotname")
 

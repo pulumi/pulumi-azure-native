@@ -30,6 +30,91 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         """
         Software update configuration properties.
 
+        ## Example Usage
+        ### Create software update configuration
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        software_update_configuration_by_name = azurerm.automation.v20170515preview.SoftwareUpdateConfigurationByName("softwareUpdateConfigurationByName",
+            automation_account_name="myaccount",
+            resource_group_name="mygroup",
+            schedule_info={
+                "advancedSchedule": {
+                    "weekDays": [
+                        "Monday",
+                        "Thursday",
+                    ],
+                },
+                "expiryTime": "2018-11-09T11:22:57+00:00",
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-10-19T12:22:57+00:00",
+                "timeZone": "America/Los_Angeles",
+            },
+            software_update_configuration_name="testpatch",
+            tasks={
+                "postTask": {
+                    "source": "GetCache",
+                },
+                "preTask": {
+                    "parameters": {
+                        "COMPUTERNAME": "Computer1",
+                    },
+                    "source": "HelloWorld",
+                },
+            },
+            update_configuration={
+                "azureVirtualMachines": [
+                    "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+                    "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+                    "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03",
+                ],
+                "duration": "PT2H0M",
+                "nonAzureComputerNames": [
+                    "box1.contoso.com",
+                    "box2.contoso.com",
+                ],
+                "operatingSystem": "Windows",
+                "targets": {
+                    "azureQueries": [{
+                        "locations": [
+                            "Japan East",
+                            "UK South",
+                        ],
+                        "scope": [
+                            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources",
+                            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067",
+                        ],
+                        "tagSettings": {
+                            "filterOperator": "All",
+                            "tags": [],
+                        },
+                    }],
+                    "nonAzureQueries": [
+                        {
+                            "functionAlias": "SavedSearch1",
+                            "workspaceId": "WorkspaceId1",
+                        },
+                        {
+                            "functionAlias": "SavedSearch2",
+                            "workspaceId": "WorkspaceId2",
+                        },
+                    ],
+                },
+                "windows": {
+                    "excludedKbNumbers": [
+                        "168934",
+                        "168973",
+                    ],
+                    "includedUpdateClassifications": "Critical",
+                    "rebootSetting": "IfRequired",
+                },
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.

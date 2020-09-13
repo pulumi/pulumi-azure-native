@@ -29,6 +29,21 @@ class PrivateCloud(pulumi.CustomResource):
         """
         A private cloud resource
 
+        ## Example Usage
+        ### PrivateClouds_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_cloud = azurerm.avs.v20190809preview.PrivateCloud("privateCloud",
+            location="eastus2",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location

@@ -30,6 +30,25 @@ class MultipleActivationKey(pulumi.CustomResource):
         """
         MAK key details.
 
+        ## Example Usage
+        ### CreateMultipleActivationKey
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        multiple_activation_key = azurerm.windowsesu.v20190916preview.MultipleActivationKey("multipleActivationKey",
+            agreement_number="1a2b45ag",
+            installed_server_number=100,
+            is_eligible=True,
+            location="East US",
+            multiple_activation_key_name="server08-key-2019",
+            os_type="WindowsServer2008",
+            resource_group_name="testgr1",
+            support_type="SupplementalServicing")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agreement_number: Agreement number under which the key is requested.

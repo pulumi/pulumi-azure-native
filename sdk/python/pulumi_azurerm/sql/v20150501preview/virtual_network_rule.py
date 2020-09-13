@@ -26,6 +26,22 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         A virtual network rule.
 
+        ## Example Usage
+        ### Create or update a virtual network rule
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_network_rule = azurerm.sql.v20150501preview.VirtualNetworkRule("virtualNetworkRule",
+            ignore_missing_vnet_service_endpoint=False,
+            resource_group_name="Default",
+            server_name="vnet-test-svr",
+            virtual_network_rule_name="vnet-firewall-rule",
+            virtual_network_subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.

@@ -35,6 +35,77 @@ class Backend(pulumi.CustomResource):
         """
         Backend details.
 
+        ## Example Usage
+        ### ApiManagementCreateBackendProxyBackend
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        backend = azurerm.apimanagement.v20180601preview.Backend("backend",
+            backend_id="proxybackend",
+            credentials={
+                "authorization": {
+                    "parameter": "opensesma",
+                    "scheme": "Basic",
+                },
+                "header": {
+                    "x-my-1": [
+                        "val1",
+                        "val2",
+                    ],
+                },
+                "query": {
+                    "sv": [
+                        "xx",
+                        "bb",
+                        "cc",
+                    ],
+                },
+            },
+            description="description5308",
+            protocol="http",
+            proxy={
+                "password": "opensesame",
+                "url": "http://192.168.1.1:8080",
+                "username": "Contoso\\admin",
+            },
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tls={
+                "validateCertificateChain": True,
+                "validateCertificateName": True,
+            },
+            url="https://backendname2644/")
+
+        ```
+        ### ApiManagementCreateBackendServiceFabric
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        backend = azurerm.apimanagement.v20180601preview.Backend("backend",
+            backend_id="sfbackend",
+            description="Service Fabric Test App 1",
+            properties={
+                "serviceFabricCluster": {
+                    "clientCertificatethumbprint": "EBA029198AA3E76EF0D70482626E5BCF148594A6",
+                    "managementEndpoints": ["https://somecluster.com"],
+                    "maxPartitionResolutionRetries": 5,
+                    "serverX509Names": [{
+                        "issuerCertificateThumbprint": "IssuerCertificateThumbprint1",
+                        "name": "ServerCommonName1",
+                    }],
+                },
+            },
+            protocol="http",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            url="fabric:/mytestapp/mytestservice")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.

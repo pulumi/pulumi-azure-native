@@ -57,7 +57,21 @@ class StreamingJob(pulumi.CustomResource):
             inputs=[{
                 "name": "inputtest",
                 "properties": {
+                    "datasource": {
+                        "properties": {
+                            "container": "containerName",
+                            "pathPattern": "",
+                            "storageAccounts": [{
+                                "accountKey": "yourAccountKey==",
+                                "accountName": "yourAccountName",
+                            }],
+                        },
+                        "type": "Microsoft.Storage/Blob",
+                    },
                     "serialization": {
+                        "properties": {
+                            "encoding": "UTF8",
+                        },
                         "type": "Json",
                     },
                     "type": "Stream",

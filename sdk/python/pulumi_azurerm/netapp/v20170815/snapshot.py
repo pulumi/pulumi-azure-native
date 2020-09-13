@@ -28,6 +28,22 @@ class Snapshot(pulumi.CustomResource):
         """
         Snapshot of a Volume
 
+        ## Example Usage
+        ### Snapshots_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        snapshot = azurerm.netapp.v20170815.Snapshot("snapshot",
+            account_name="accountName",
+            pool_name="poolName",
+            resource_group_name="resourceGroup",
+            snapshot_name="snapshotName",
+            volume_name="volumeName")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account

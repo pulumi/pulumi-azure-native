@@ -29,6 +29,24 @@ class Domain(pulumi.CustomResource):
         """
         EventGrid Domain
 
+        ## Example Usage
+        ### Domains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        domain = azurerm.eventgrid.v20200101preview.Domain("domain",
+            domain_name="exampledomain1",
+            location="westus2",
+            resource_group_name="examplerg",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: Name of the domain

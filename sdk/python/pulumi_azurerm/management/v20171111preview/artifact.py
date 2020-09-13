@@ -25,6 +25,47 @@ class Artifact(pulumi.CustomResource):
         """
         Represents a Blueprint artifact.
 
+        ## Example Usage
+        ### ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        artifact = azurerm.management.v20171111preview.Artifact("artifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            kind="template",
+            management_group_name="ContosoOnlineGroup")
+
+        ```
+        ### PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        artifact = azurerm.management.v20171111preview.Artifact("artifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            kind="policyAssignment",
+            management_group_name="ContosoOnlineGroup")
+
+        ```
+        ### RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        artifact = azurerm.management.v20171111preview.Artifact("artifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            kind="roleAssignment",
+            management_group_name="ContosoOnlineGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_name: name of the artifact.

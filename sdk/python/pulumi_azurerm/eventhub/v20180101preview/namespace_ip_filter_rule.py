@@ -27,6 +27,23 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
         """
         Single item in a List or Get IpFilterRules operation
 
+        ## Example Usage
+        ### NameSpaceIpFilterRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        namespace_ip_filter_rule = azurerm.eventhub.v20180101preview.NamespaceIpFilterRule("namespaceIpFilterRule",
+            action="Accept",
+            filter_name="sdk-IPFilterRules-7337",
+            ip_filter_rule_name="sdk-IPFilterRules-7337",
+            ip_mask="13.78.143.246/32",
+            namespace_name="sdk-Namespace-5232",
+            resource_group_name="ResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The IP Filter Action

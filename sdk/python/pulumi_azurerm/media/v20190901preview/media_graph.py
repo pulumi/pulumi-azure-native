@@ -29,6 +29,36 @@ class MediaGraph(pulumi.CustomResource):
         """
         The Media Graph.
 
+        ## Example Usage
+        ### Create or update a Media Graph
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        media_graph = azurerm.media.v20190901preview.MediaGraph("mediaGraph",
+            account_name="contosomedia",
+            description="updated description",
+            media_graph_name="SampleMediaGraph",
+            resource_group_name="contoso",
+            sinks=[{
+                "assetName": "SampleAsset",
+                "inputs": ["rtspSource"],
+                "name": "AssetSink",
+                "odataType": "#Microsoft.Media.MediaGraphAssetSink",
+            }],
+            sources=[{
+                "credentials": {
+                    "password": "examplepassword",
+                    "username": "exampleusername",
+                },
+                "name": "rtspSource",
+                "odataType": "#Microsoft.Media.MediaGraphRtspSource",
+                "rtspUrl": "rtsp://contoso.com:554/stream1",
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.

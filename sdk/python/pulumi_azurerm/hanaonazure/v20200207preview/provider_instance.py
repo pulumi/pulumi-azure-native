@@ -27,6 +27,23 @@ class ProviderInstance(pulumi.CustomResource):
         """
         A provider instance associated with a SAP monitor.
 
+        ## Example Usage
+        ### Create a SAP Monitor
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        provider_instance = azurerm.hanaonazure.v20200207preview.ProviderInstance("providerInstance",
+            metadata="{\"key\":\"value\"}",
+            properties="{\"hostname\":\"10.0.0.10\",\"dbName\":\"SYSTEMDB\",\"sqlPort\":30015,\"dbUsername\":\"SYSTEM\",\"dbPassword\":\"PASSWORD\"}",
+            provider_instance_name="myProviderInstance",
+            resource_group_name="myResourceGroup",
+            sap_monitor_name="mySapMonitor",
+            type="hana")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metadata: A JSON string containing metadata of the provider instance.

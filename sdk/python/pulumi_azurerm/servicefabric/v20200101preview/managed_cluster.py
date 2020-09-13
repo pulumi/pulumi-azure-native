@@ -40,6 +40,123 @@ class ManagedCluster(pulumi.CustomResource):
         """
         The manged cluster resource
 
+        ## Example Usage
+        ### Put a cluster with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_cluster = azurerm.servicefabric.v20200101preview.ManagedCluster("managedCluster",
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            client_connection_port=19000,
+            cluster_code_version="7.1.168.9494",
+            cluster_name="myCluster",
+            cluster_upgrade_description={
+                "deltaHealthPolicy": {
+                    "applicationDeltaHealthPolicies": {
+                        "fabric:/myApp1": {
+                            "defaultServiceTypeDeltaHealthPolicy": {
+                                "maxPercentDeltaUnhealthyServices": 0,
+                            },
+                            "serviceTypeDeltaHealthPolicies": {
+                                "myServiceType1": {
+                                    "maxPercentDeltaUnhealthyServices": 0,
+                                },
+                            },
+                        },
+                    },
+                    "maxPercentDeltaUnhealthyApplications": 0,
+                    "maxPercentDeltaUnhealthyNodes": 0,
+                    "maxPercentUpgradeDomainDeltaUnhealthyNodes": 0,
+                },
+                "forceRestart": False,
+                "healthCheckRetryTimeout": "00:05:00",
+                "healthCheckStableDuration": "00:00:30",
+                "healthCheckWaitDuration": "00:00:30",
+                "healthPolicy": {
+                    "applicationHealthPolicies": {
+                        "fabric:/myApp1": {
+                            "defaultServiceTypeHealthPolicy": {
+                                "maxPercentUnhealthyServices": 0,
+                            },
+                            "serviceTypeHealthPolicies": {
+                                "myServiceType1": {
+                                    "maxPercentUnhealthyServices": 100,
+                                },
+                            },
+                        },
+                    },
+                    "maxPercentUnhealthyApplications": 0,
+                    "maxPercentUnhealthyNodes": 0,
+                },
+                "upgradeDomainTimeout": "00:15:00",
+                "upgradeReplicaSetCheckTimeout": "00:10:00",
+                "upgradeTimeout": "01:00:00",
+            },
+            cluster_upgrade_mode="Manual",
+            dns_name="myCluster",
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            http_gateway_connection_port=19080,
+            load_balancing_rules=[
+                {
+                    "backendPort": 80,
+                    "frontendPort": 80,
+                    "probeProtocol": "http",
+                    "protocol": "http",
+                },
+                {
+                    "backendPort": 443,
+                    "frontendPort": 443,
+                    "probeProtocol": "http",
+                    "protocol": "http",
+                },
+                {
+                    "backendPort": 10000,
+                    "frontendPort": 10000,
+                    "probeProtocol": "http",
+                    "protocol": "tcp",
+                },
+            ],
+            location="eastus",
+            resource_group_name="resRg",
+            sku={
+                "name": "Basic",
+            },
+            tags={})
+
+        ```
+        ### Put a cluster with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_cluster = azurerm.servicefabric.v20200101preview.ManagedCluster("managedCluster",
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            cluster_code_version="7.1.168.9494",
+            cluster_name="myCluster",
+            dns_name="myCluster",
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            location="eastus",
+            resource_group_name="resRg")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_password: vm admin user password.

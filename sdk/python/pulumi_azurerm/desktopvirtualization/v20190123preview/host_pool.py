@@ -40,6 +40,36 @@ class HostPool(pulumi.CustomResource):
         """
         Represents a HostPool definition.
 
+        ## Example Usage
+        ### HostPool_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        host_pool = azurerm.desktopvirtualization.v20190123preview.HostPool("hostPool",
+            description="des1",
+            friendly_name="friendly",
+            host_pool_name="hostPool1",
+            host_pool_type="Shared",
+            load_balancer_type="BreadthFirst",
+            location="centralus",
+            max_session_limit=999999,
+            personal_desktop_assignment_type="Automatic",
+            preferred_app_group_type="Desktop",
+            registration_info={
+                "expirationTime": "2008-09-22T14:01:54.9571247Z",
+                "resetToken": True,
+            },
+            resource_group_name="resourceGroup1",
+            sso_context="KeyVaultPath",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_rdp_property: Custom rdp property of HostPool.

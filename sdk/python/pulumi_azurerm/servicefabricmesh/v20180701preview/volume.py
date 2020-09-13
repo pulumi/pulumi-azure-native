@@ -30,6 +30,27 @@ class Volume(pulumi.CustomResource):
         """
         This type describes a volume resource.
 
+        ## Example Usage
+        ### VolumeCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        volume = azurerm.servicefabricmesh.v20180701preview.Volume("volume",
+            azure_file_parameters={
+                "accountKey": "provide-account-key-here",
+                "accountName": "sbzdemoaccount",
+                "shareName": "sharel",
+            },
+            description="File share backed by Azure Files storage.",
+            location="eastus",
+            provider="SFAzureFile",
+            resource_group_name="sbz_demo",
+            volume_name="sbzDemoVolume")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VolumeProviderParametersAzureFileArgs']] azure_file_parameters: This type describes a volume provided by an Azure Files file share.

@@ -26,6 +26,35 @@ class SecurityContact(pulumi.CustomResource):
         """
         Contact details for security issues
 
+        ## Example Usage
+        ### Create security contact data full
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        security_contact = azurerm.security.v20170801preview.SecurityContact("securityContact",
+            alert_notifications="On",
+            alerts_to_admins="On",
+            email="john@contoso.com",
+            phone="(214)275-4038",
+            security_contact_name="default1")
+
+        ```
+        ### Create security contact data minimal
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        security_contact = azurerm.security.v20170801preview.SecurityContact("securityContact",
+            alert_notifications="On",
+            alerts_to_admins="On",
+            email="chen@contoso.com",
+            security_contact_name="default2")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_notifications: Whether to send security alerts notifications to the security contact

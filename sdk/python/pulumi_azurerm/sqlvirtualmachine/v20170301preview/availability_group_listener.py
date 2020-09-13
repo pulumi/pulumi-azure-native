@@ -30,6 +30,34 @@ class AvailabilityGroupListener(pulumi.CustomResource):
         """
         A SQL Server availability group listener.
 
+        ## Example Usage
+        ### Creates or updates an availability group listener.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        availability_group_listener = azurerm.sqlvirtualmachine.v20170301preview.AvailabilityGroupListener("availabilityGroupListener",
+            availability_group_listener_name="agl-test",
+            availability_group_name="ag-test",
+            load_balancer_configurations=[{
+                "loadBalancerResourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb-test",
+                "privateIpAddress": {
+                    "ipAddress": "10.1.0.112",
+                    "subnetResourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+                },
+                "probePort": 59983,
+                "sqlVirtualMachineInstances": [
+                    "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm2",
+                    "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm3",
+                ],
+            }],
+            port=1433,
+            resource_group_name="testrg",
+            sql_virtual_machine_group_name="testvmgroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_group_listener_name: Name of the availability group listener.

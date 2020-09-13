@@ -28,6 +28,21 @@ class LinkedWorkspace(pulumi.CustomResource):
         """
         Linked workspace.
 
+        ## Example Usage
+        ### CreateLinkedWorkspace
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        linked_workspace = azurerm.machinelearningservices.v20200301.LinkedWorkspace("linkedWorkspace",
+            link_name="link-1",
+            name="link-1",
+            resource_group_name="resourceGroup-1",
+            workspace_name="workspace-1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] link_name: Friendly name of the linked workspace

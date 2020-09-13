@@ -29,6 +29,23 @@ class SqlServerRegistration(pulumi.CustomResource):
         """
         A SQL server registration.
 
+        ## Example Usage
+        ### Creates or updates a SQL Server registration.
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        sql_server_registration = azurerm.azuredata.v20190724preview.SqlServerRegistration("sqlServerRegistration",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_server_registration_name="testsqlregistration",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives

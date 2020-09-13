@@ -31,6 +31,73 @@ class Policy(pulumi.CustomResource):
         """
         Defines web application firewall policy.
 
+        ## Example Usage
+        ### Creates specific policy
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        policy = azurerm.network.v20180801.Policy("policy",
+            custom_rules={
+                "rules": [
+                    {
+                        "action": "Block",
+                        "matchConditions": [{
+                            "matchValue": [
+                                "192.168.1.0/24",
+                                "10.0.0.0/24",
+                            ],
+                            "matchVariable": "RemoteAddr",
+                            "operator": "IPMatch",
+                        }],
+                        "name": "Rule1",
+                        "priority": 1,
+                        "rateLimitThreshold": 1000,
+                        "ruleType": "RateLimitRule",
+                    },
+                    {
+                        "action": "Block",
+                        "matchConditions": [
+                            {
+                                "matchValue": ["CH"],
+                                "matchVariable": "RemoteAddr",
+                                "operator": "GeoMatch",
+                            },
+                            {
+                                "matchValue": ["Windows"],
+                                "matchVariable": "RequestHeader",
+                                "operator": "Contains",
+                                "selector": "UserAgent",
+                            },
+                        ],
+                        "name": "Rule2",
+                        "priority": 2,
+                        "ruleType": "MatchRule",
+                    },
+                ],
+            },
+            managed_rules={
+                "ruleSets": [{
+                    "priority": 1,
+                    "ruleGroupOverrides": [
+                        {
+                            "action": "Block",
+                            "ruleGroupOverride": "SqlInjection",
+                        },
+                        {
+                            "action": "Log",
+                            "ruleGroupOverride": "XSS",
+                        },
+                    ],
+                    "ruleSetType": "AzureManagedRuleSet",
+                }],
+            },
+            policy_name="Policy1",
+            resource_group_name="rg1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CustomRulesArgs']] custom_rules: Describes custom rules inside the policy

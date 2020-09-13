@@ -31,6 +31,28 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         Private endpoint connection resource.
 
+        ## Example Usage
+        ### RelayPutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        private_endpoint_connection = azurerm.relay.v20180101preview.PrivateEndpointConnection("privateEndpointConnection",
+            location="South Central US",
+            namespace_name="sdk-Namespace-5849",
+            private_endpoint={
+                "id": "/subscriptions/{subid}/resourceGroups/prod-by3-533-rg/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1",
+            },
+            private_endpoint_connection_name="{privateEndpointConnection name}",
+            private_link_service_connection_state={
+                "description": "You may pass",
+                "status": "Approved",
+            },
+            resource_group_name="ArunMonocle")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location.

@@ -29,6 +29,28 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         Properties of the PrivateEndpointConnection.
 
+        ## Example Usage
+        ### NameSpacePrivateEndPointConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_ as 
+
+        private_endpoint_connection = .("privateEndpointConnection",
+            namespace_name="sdk-Namespace-2924",
+            private_endpoint={
+                "id": "/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-EventHub-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",
+            },
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            private_link_service_connection_state={
+                "description": "testing",
+                "status": "Rejected",
+            },
+            provisioning_state="Succeeded",
+            resource_group_name="ArunMonocle")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] namespace_name: The Namespace name

@@ -43,8 +43,19 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             resource_group_name="rg1",
             rule_collection_group_name="ruleCollectionGroup1",
             rule_collections=[{
+                "action": {
+                    "type": "Deny",
+                },
                 "name": "Example-Filter-Rule-Collection",
                 "ruleCollectionType": "FirewallPolicyFilterRuleCollection",
+                "rules": [{
+                    "destinationAddresses": ["*"],
+                    "destinationPorts": ["*"],
+                    "ipProtocols": ["TCP"],
+                    "name": "network-rule1",
+                    "ruleType": "NetworkRule",
+                    "sourceAddresses": ["10.1.25.0/24"],
+                }],
             }])
 
         ```
@@ -60,8 +71,19 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             resource_group_name="rg1",
             rule_collection_group_name="ruleCollectionGroup1",
             rule_collections=[{
+                "action": {
+                    "type": "Deny",
+                },
                 "name": "Example-Filter-Rule-Collection",
                 "ruleCollectionType": "FirewallPolicyFilterRuleCollection",
+                "rules": [{
+                    "destinationIpGroups": ["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups2"],
+                    "destinationPorts": ["*"],
+                    "ipProtocols": ["TCP"],
+                    "name": "network-1",
+                    "ruleType": "NetworkRule",
+                    "sourceIpGroups": ["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups1"],
+                }],
             }])
 
         ```

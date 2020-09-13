@@ -33,6 +33,56 @@ class VirtualNetworkFunction(pulumi.CustomResource):
         """
         Hybrid network virtual network function resource response.
 
+        ## Example Usage
+        ### Create hybrid network virtual network function resource
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        virtual_network_function = azurerm.hybridnetwork.v20200101preview.VirtualNetworkFunction("virtualNetworkFunction",
+            device={
+                "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/devices/testDevice",
+            },
+            location="eastus",
+            managed_application_parameters={},
+            resource_group_name="rg",
+            sku_name="testSku",
+            vendor_name="testVendor",
+            virtual_network_function_name="testVnf",
+            virtual_network_function_user_configurations=[{
+                "networkInterfaces": [
+                    {
+                        "ipConfigurations": [{
+                            "gateway": "",
+                            "ipAddress": "",
+                            "ipAllocationMethod": "Dynamic",
+                            "ipVersion": "IPv4",
+                            "subnet": "",
+                        }],
+                        "macAddress": "",
+                        "networkInterfaceName": "nic1",
+                        "vmSwitchType": "Management",
+                    },
+                    {
+                        "ipConfigurations": [{
+                            "gateway": "",
+                            "ipAddress": "",
+                            "ipAllocationMethod": "Dynamic",
+                            "ipVersion": "IPv4",
+                            "subnet": "",
+                        }],
+                        "macAddress": "DC-97-F8-79-16-7D",
+                        "networkInterfaceName": "nic2",
+                        "vmSwitchType": "Wan",
+                    },
+                ],
+                "roleName": "testRole",
+                "userDataParameters": {},
+            }])
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] device: The reference to the hybrid network device.

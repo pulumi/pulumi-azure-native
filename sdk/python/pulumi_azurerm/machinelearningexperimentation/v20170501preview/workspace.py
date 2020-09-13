@@ -28,6 +28,25 @@ class Workspace(pulumi.CustomResource):
         """
         An object that represents a machine learning team account workspace.
 
+        ## Example Usage
+        ### WorkspaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        workspace = azurerm.machinelearningexperimentation.v20170501preview.Workspace("workspace",
+            account_name="testaccount",
+            friendly_name="testName",
+            location="East US",
+            resource_group_name="myResourceGroup",
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            workspace_name="testworkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the machine learning team account.

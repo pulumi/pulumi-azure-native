@@ -27,6 +27,20 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         """
         Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 
+        ## Example Usage
+        ### SharedPrivateLinkResourceCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        shared_private_link_resource = azurerm.search.v20200801preview.SharedPrivateLinkResource("sharedPrivateLinkResource",
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            shared_private_link_resource_name="testResource")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']] properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.

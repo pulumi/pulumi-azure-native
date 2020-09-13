@@ -26,6 +26,21 @@ class AzureADMetric(pulumi.CustomResource):
         """
         AzureADMetrics resource.
 
+        ## Example Usage
+        ### azureADMetricsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        azure_ad_metric = azurerm.aadiam.v20200701preview.AzureADMetric("azureADMetric",
+            azure_ad_metrics_name="ddb1",
+            location="West US",
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_ad_metrics_name: Name of the azureADMetrics instance.

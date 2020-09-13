@@ -28,6 +28,21 @@ class TemplateSpec(pulumi.CustomResource):
         """
         Template Spec object.
 
+        ## Example Usage
+        ### TemplateSpecsCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        template_spec = azurerm.resources.v20190601preview.TemplateSpec("templateSpec",
+            description="A very simple Template Spec",
+            location="eastus",
+            resource_group_name="templateSpecRG",
+            template_spec_name="simpleTemplateSpec")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Template Spec description.

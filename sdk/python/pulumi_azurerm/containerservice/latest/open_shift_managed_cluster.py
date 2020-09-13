@@ -64,7 +64,11 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
                 "identityProviders": [{
                     "name": "Azure AD",
                     "provider": {
+                        "clientId": "clientId",
+                        "customerAdminGroupId": "customerAdminGroupId",
                         "kind": "AADIdentityProvider",
+                        "secret": "secret",
+                        "tenantId": "tenantId",
                     },
                 }],
             },

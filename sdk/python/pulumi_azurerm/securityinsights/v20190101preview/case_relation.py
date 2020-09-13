@@ -30,6 +30,28 @@ class CaseRelation(pulumi.CustomResource):
         """
         Represents a case relation
 
+        ## Example Usage
+        ### Creates or updates a case relation.
+
+        ```python
+        import pulumi
+        import pulumi_ as 
+
+        case_relation = .("caseRelation",
+            case_id="afbd324f-6c48-459c-8710-8d1e1cd03812",
+            operational_insights_resource_provider="Microsoft.OperationalInsights",
+            relation_name="4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+            resource_group_name="myRg",
+            source_relation_node={
+                "relationNodeId": "afbd324f-6c48-459c-8710-8d1e1cd03812",
+            },
+            target_relation_node={
+                "relationNodeId": "2216d0e1-91e3-4902-89fd-d2df8c535096",
+            },
+            workspace_name="myWorkspace")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] case_id: Case ID

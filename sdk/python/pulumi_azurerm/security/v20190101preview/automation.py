@@ -34,6 +34,108 @@ class Automation(pulumi.CustomResource):
         """
         The security automation resource.
 
+        ## Example Usage
+        ### Create or update a security automation for all assessments
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        automation = azurerm.security.v20190101preview.Automation("automation",
+            actions=[{
+                "actionType": "LogicApp",
+                "logicAppResourceId": "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
+                "uri": "https://exampleTriggerUri1.com",
+            }],
+            automation_name="exampleAutomation",
+            description="An example of a security automation that triggers one LogicApp resource (myTest1) on any security assessment",
+            etag="etag value (must be supplied for update)",
+            is_enabled=True,
+            location="Central US",
+            resource_group_name="exampleResourceGroup",
+            scopes=[{
+                "description": "A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5",
+                "scopePath": "/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup",
+            }],
+            sources=[{
+                "eventSource": "Assessments",
+            }],
+            tags={})
+
+        ```
+        ### Create or update a security automation for all high severity assessments
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        automation = azurerm.security.v20190101preview.Automation("automation",
+            actions=[{
+                "actionType": "LogicApp",
+                "logicAppResourceId": "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
+                "uri": "https://exampleTriggerUri1.com",
+            }],
+            automation_name="exampleAutomation",
+            description="An example of a security automation that triggers one LogicApp resource (myTest1) on any high severity security assessment",
+            etag="etag value (must be supplied for update)",
+            is_enabled=True,
+            location="Central US",
+            resource_group_name="exampleResourceGroup",
+            scopes=[{
+                "description": "A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5",
+                "scopePath": "/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup",
+            }],
+            sources=[{
+                "eventSource": "Assessments",
+                "ruleSets": [{
+                    "rules": [{
+                        "expectedValue": "High",
+                        "operator": "Equals",
+                        "propertyJPath": "properties.metadata.severity",
+                        "propertyType": "String",
+                    }],
+                }],
+            }],
+            tags={})
+
+        ```
+        ### Disable or enable a security automation
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        automation = azurerm.security.v20190101preview.Automation("automation",
+            actions=[{
+                "actionType": "LogicApp",
+                "logicAppResourceId": "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
+                "uri": "https://exampleTriggerUri1.com",
+            }],
+            automation_name="exampleAutomation",
+            description="An example of a security automation that triggers one LogicApp resource (myTest1) on any security assessment of type customAssessment",
+            etag="etag value (must be supplied for update)",
+            is_enabled=False,
+            location="Central US",
+            resource_group_name="exampleResourceGroup",
+            scopes=[{
+                "description": "A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5",
+                "scopePath": "/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup",
+            }],
+            sources=[{
+                "eventSource": "Assessments",
+                "ruleSets": [{
+                    "rules": [{
+                        "expectedValue": "customAssessment",
+                        "operator": "Equals",
+                        "propertyJPath": "$.Entity.AssessmentType",
+                        "propertyType": "String",
+                    }],
+                }],
+            }],
+            tags={})
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['AutomationActionEventHubArgs'], pulumi.InputType['AutomationActionLogicAppArgs'], pulumi.InputType['AutomationActionWorkspaceArgs']]]]] actions: A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.

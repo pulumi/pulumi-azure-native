@@ -31,6 +31,37 @@ class ImportPipeline(pulumi.CustomResource):
         """
         An object that represents an import pipeline for a container registry.
 
+        ## Example Usage
+        ### ImportPipelineCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        import_pipeline = azurerm.containerregistry.v20191201preview.ImportPipeline("importPipeline",
+            identity={
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
+                },
+            },
+            import_pipeline_name="myImportPipeline",
+            location="westus",
+            options=[
+                "OverwriteTags",
+                "DeleteSourceBlobOnSuccess",
+                "ContinueOnErrors",
+            ],
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            source={
+                "keyVaultUri": "https://myvault.vault.azure.net/secrets/acrimportsas",
+                "type": "AzureStorageBlobContainer",
+                "uri": "https://accountname.blob.core.windows.net/containername",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: The identity of the import pipeline.

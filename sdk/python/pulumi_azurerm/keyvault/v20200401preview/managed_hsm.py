@@ -29,6 +29,28 @@ class ManagedHsm(pulumi.CustomResource):
         """
         Resource information with extended details.
 
+        ## Example Usage
+        ### Create a new managed HSM Pool or update an existing managed HSM Pool
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_hsm = azurerm.keyvault.v20200401preview.ManagedHsm("managedHsm",
+            location="westus",
+            name="hsm1",
+            resource_group_name="hsm-group",
+            sku={
+                "family": "B",
+                "name": "Standard_B1",
+            },
+            tags={
+                "Dept": "hsm",
+                "Environment": "dogfood",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the managed HSM Pool should be created.

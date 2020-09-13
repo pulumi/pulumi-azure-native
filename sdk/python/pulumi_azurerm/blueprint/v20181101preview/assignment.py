@@ -34,6 +34,164 @@ class Assignment(pulumi.CustomResource):
         """
         Represents a blueprint assignment.
 
+        ## Example Usage
+        ### Assignment with system-assigned managed identity at management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        assignment = azurerm.blueprint.v20181101preview.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="eastus",
+            parameters={
+                "costCenter": {
+                    "value": "Contoso/Online/Shopping/Production",
+                },
+                "owners": {
+                    "value": [
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                },
+                "storage_account_type": {
+                    "value": "Standard_LRS",
+                },
+            },
+            resource_groups={
+                "storageRG": {
+                    "location": "eastus",
+                    "name": "defaultRG",
+                },
+            },
+            resource_scope="managementGroups/ContosoOnlineGroup",
+            scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Assignment with system-assigned managed identity at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        assignment = azurerm.blueprint.v20181101preview.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity={
+                "type": "SystemAssigned",
+            },
+            location="eastus",
+            parameters={
+                "costCenter": {
+                    "value": "Contoso/Online/Shopping/Production",
+                },
+                "owners": {
+                    "value": [
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                },
+                "storage_account_type": {
+                    "value": "Standard_LRS",
+                },
+            },
+            resource_groups={
+                "storageRG": {
+                    "location": "eastus",
+                    "name": "defaultRG",
+                },
+            },
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Assignment with user-assigned managed identity at management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        assignment = azurerm.blueprint.v20181101preview.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity={
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity": {},
+                },
+            },
+            location="eastus",
+            parameters={
+                "costCenter": {
+                    "value": "Contoso/Online/Shopping/Production",
+                },
+                "owners": {
+                    "value": [
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                },
+                "storage_account_type": {
+                    "value": "Standard_LRS",
+                },
+            },
+            resource_groups={
+                "storageRG": {
+                    "location": "eastus",
+                    "name": "defaultRG",
+                },
+            },
+            resource_scope="managementGroups/ContosoOnlineGroup",
+            scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Assignment with user-assigned managed identity at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        assignment = azurerm.blueprint.v20181101preview.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity={
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity": {},
+                },
+            },
+            location="eastus",
+            parameters={
+                "costCenter": {
+                    "value": "Contoso/Online/Shopping/Production",
+                },
+                "owners": {
+                    "value": [
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                },
+                "storage_account_type": {
+                    "value": "Standard_LRS",
+                },
+            },
+            resource_groups={
+                "storageRG": {
+                    "location": "eastus",
+                    "name": "defaultRG",
+                },
+            },
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assignment_name: Name of the blueprint assignment.

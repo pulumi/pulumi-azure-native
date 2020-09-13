@@ -31,6 +31,32 @@ class TaskRun(pulumi.CustomResource):
         The task run that has the ARM resource and properties.
         The task run will have the information of request and result of a run.
 
+        ## Example Usage
+        ### TaskRuns_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        task_run = azurerm.containerregistry.v20190601preview.TaskRun("taskRun",
+            force_update_tag="test",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            run_request={
+                "credentials": {},
+                "encodedTaskContent": "c3RlcHM6IAogIC0gY21kOiB7eyAuVmFsdWVzLmNvbW1hbmQgfX0K",
+                "encodedValuesContent": "Y29tbWFuZDogYmFzaCBlY2hvIHt7LlJ1bi5SZWdpc3RyeX19Cg==",
+                "platform": {
+                    "architecture": "amd64",
+                    "os": "Linux",
+                },
+                "type": "EncodedTaskRunRequest",
+                "values": [],
+            },
+            task_run_name="myRun")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] force_update_tag: How the run should be forced to rerun even if the run request configuration has not changed

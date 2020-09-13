@@ -26,6 +26,22 @@ class Database(pulumi.CustomResource):
         """
         Represents a Database.
 
+        ## Example Usage
+        ### DatabaseCreate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        database = azurerm.dbformariadb.v20180601preview.Database("database",
+            charset="utf8",
+            collation="utf8_general_ci",
+            database_name="db1",
+            resource_group_name="TestGroup",
+            server_name="testserver")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] charset: The charset of the database.

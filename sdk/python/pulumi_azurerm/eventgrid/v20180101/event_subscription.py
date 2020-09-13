@@ -38,6 +38,9 @@ class EventSubscription(pulumi.CustomResource):
         event_subscription = azurerm.eventgrid.v20180101.EventSubscription("eventSubscription",
             destination={
                 "endpointType": "EventHub",
+                "properties": {
+                    "resourceId": "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1",
+                },
             },
             event_subscription_name="examplesubscription1",
             filter={
@@ -57,6 +60,9 @@ class EventSubscription(pulumi.CustomResource):
         event_subscription = azurerm.eventgrid.v20180101.EventSubscription("eventSubscription",
             destination={
                 "endpointType": "WebHook",
+                "properties": {
+                    "endpointUrl": "https://requestb.in/15ksip71",
+                },
             },
             event_subscription_name="examplesubscription10",
             filter={
@@ -76,6 +82,9 @@ class EventSubscription(pulumi.CustomResource):
         event_subscription = azurerm.eventgrid.v20180101.EventSubscription("eventSubscription",
             destination={
                 "endpointType": "WebHook",
+                "properties": {
+                    "endpointUrl": "https://requestb.in/15ksip71",
+                },
             },
             event_subscription_name="examplesubscription2",
             filter={
@@ -95,6 +104,9 @@ class EventSubscription(pulumi.CustomResource):
         event_subscription = azurerm.eventgrid.v20180101.EventSubscription("eventSubscription",
             destination={
                 "endpointType": "WebHook",
+                "properties": {
+                    "endpointUrl": "https://requestb.in/15ksip71",
+                },
             },
             event_subscription_name="examplesubscription3",
             filter={

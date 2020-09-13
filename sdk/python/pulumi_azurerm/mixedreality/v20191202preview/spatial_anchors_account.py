@@ -25,6 +25,20 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         """
         SpatialAnchorsAccount Response.
 
+        ## Example Usage
+        ### Create spatial anchor account
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        spatial_anchors_account = azurerm.mixedreality.v20191202preview.SpatialAnchorsAccount("spatialAnchorsAccount",
+            account_name="MyAccount",
+            location="eastus2euap",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of an Mixed Reality Account.

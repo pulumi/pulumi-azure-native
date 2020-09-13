@@ -30,6 +30,29 @@ class Network(pulumi.CustomResource):
         """
         This type describes a network resource.
 
+        ## Example Usage
+        ### Network_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        network = azurerm.servicefabricmesh.v20180701preview.Network("network",
+            address_prefix="10.0.0.4/22",
+            ingress_config={
+                "layer4": [{
+                    "applicationName": "helloWorldAppWindows",
+                    "endpointName": "helloWorldListener",
+                    "publicPort": 80,
+                    "serviceName": "helloWorldService",
+                }],
+            },
+            location="eastus",
+            network_name="helloWorldNetworkWindows",
+            resource_group_name="sbz_demo")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: the address prefix for this network.

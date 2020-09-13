@@ -27,30 +27,6 @@ class Deployment(pulumi.CustomResource):
         """
         Deployment information.
 
-        ## Example Usage
-        ### Create a deployment that will redeploy another deployment on failure
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        deployment = azurerm.resources.v20190510.Deployment("deployment",
-            deployment_name="exampleDeploymentName",
-            resource_group_name="myResourceGroup")
-
-        ```
-        ### Create a deployment that will redeploy the last successful deployment on failure
-
-        ```python
-        import pulumi
-        import pulumi_azurerm as azurerm
-
-        deployment = azurerm.resources.v20190510.Deployment("deployment",
-            deployment_name="exampleDeploymentName",
-            resource_group_name="myResourceGroup")
-
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_name: The name of the deployment.

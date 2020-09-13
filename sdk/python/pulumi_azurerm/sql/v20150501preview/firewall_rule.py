@@ -27,6 +27,36 @@ class FirewallRule(pulumi.CustomResource):
         """
         A server firewall rule.
 
+        ## Example Usage
+        ### Create a firewall rule max/min
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        firewall_rule = azurerm.sql.v20150501preview.FirewallRule("firewallRule",
+            end_ip_address="0.0.0.3",
+            firewall_rule_name="firewallrulecrudtest-5370",
+            resource_group_name="firewallrulecrudtest-12",
+            server_name="firewallrulecrudtest-6285",
+            start_ip_address="0.0.0.3")
+
+        ```
+        ### Update a firewall rule max/min
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        firewall_rule = azurerm.sql.v20150501preview.FirewallRule("firewallRule",
+            end_ip_address="0.0.0.1",
+            firewall_rule_name="firewallrulecrudtest-3927",
+            resource_group_name="firewallrulecrudtest-12",
+            server_name="firewallrulecrudtest-6285",
+            start_ip_address="0.0.0.1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.

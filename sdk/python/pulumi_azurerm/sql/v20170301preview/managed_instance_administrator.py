@@ -28,6 +28,40 @@ class ManagedInstanceAdministrator(pulumi.CustomResource):
         """
         An Azure SQL managed instance administrator.
 
+        ## Example Usage
+        ### Create administrator of managed instance
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_instance_administrator = azurerm.sql.v20170301preview.ManagedInstanceAdministrator("managedInstanceAdministrator",
+            administrator_name="ActiveDirectory",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            sid="44444444-3333-2222-1111-000000000000",
+            tenant_id="55555555-4444-3333-2222-111111111111")
+
+        ```
+        ### Update administrator of managed instance
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        managed_instance_administrator = azurerm.sql.v20170301preview.ManagedInstanceAdministrator("managedInstanceAdministrator",
+            administrator_name="ActiveDirectory",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            sid="44444444-3333-2222-1111-000000000000",
+            tenant_id="55555555-4444-3333-2222-111111111111")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_name: The requested administrator name.

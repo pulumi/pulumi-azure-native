@@ -57,7 +57,16 @@ class MachineLearningCompute(pulumi.CustomResource):
                 "type": "SystemAssigned,UserAssigned",
             },
             location="eastus",
-            properties={},
+            properties={
+                "remoteLoginPortPublicAccess": "NotSpecified",
+                "scaleSettings": {
+                    "maxNodeCount": 1,
+                    "minNodeCount": 0,
+                    "nodeIdleTimeBeforeScaleDown": "PT5M",
+                },
+                "vmPriority": "Dedicated",
+                "vmSize": "STANDARD_NC6",
+            },
             resource_group_name="testrg123",
             workspace_name="workspaces123")
 
@@ -84,7 +93,9 @@ class MachineLearningCompute(pulumi.CustomResource):
         machine_learning_compute = azurerm.machinelearningservices.v20200401.MachineLearningCompute("machineLearningCompute",
             compute_name="compute123",
             location="eastus",
-            properties={},
+            properties={
+                "agentCount": 4,
+            },
             resource_group_name="testrg123",
             workspace_name="workspaces123")
 
@@ -101,7 +112,13 @@ class MachineLearningCompute(pulumi.CustomResource):
                 "type": "SystemAssigned,UserAssigned",
             },
             location="eastus",
-            properties={},
+            properties={
+                "scaleSettings": {
+                    "maxNodeCount": 1,
+                    "minNodeCount": 0,
+                    "nodeIdleTimeBeforeScaleDown": "PT5M",
+                },
+            },
             resource_group_name="testrg123",
             workspace_name="workspaces123")
 

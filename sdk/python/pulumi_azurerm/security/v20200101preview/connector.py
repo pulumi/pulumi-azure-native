@@ -26,6 +26,119 @@ class Connector(pulumi.CustomResource):
         """
         The connector setting
 
+        ## Example Usage
+        ### AwsAssumeRole - Create a cloud account connector for a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        connector = azurerm.security.v20200101preview.Connector("connector",
+            authentication_details={
+                "authenticationType": "awsAssumeRole",
+                "awsAssumeRoleArn": "arn:aws:iam::81231569658:role/AscConnector",
+                "awsExternalId": "20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+            },
+            connector_name="aws_dev2",
+            hybrid_compute_settings={
+                "autoProvision": "On",
+                "proxyServer": {
+                    "ip": "167.220.197.140",
+                    "port": "34",
+                },
+                "region": "West US 2",
+                "resourceGroupName": "AwsConnectorRG",
+                "servicePrincipal": {
+                    "applicationId": "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+                    "secret": "x2yS:FnCHssRkH0@CJY5pATzlEs@r5m.",
+                },
+            })
+
+        ```
+        ### AwsCred -  Create a cloud account connector for a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        connector = azurerm.security.v20200101preview.Connector("connector",
+            authentication_details={
+                "authenticationType": "awsCreds",
+                "awsAccessKeyId": "AKIARPZCNODDNAEQFSOE",
+                "awsSecretAccessKey": "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",
+            },
+            connector_name="aws_dev1",
+            hybrid_compute_settings={
+                "autoProvision": "On",
+                "proxyServer": {
+                    "ip": "167.220.197.140",
+                    "port": "34",
+                },
+                "region": "West US 2",
+                "resourceGroupName": "AwsConnectorRG",
+                "servicePrincipal": {
+                    "applicationId": "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+                    "secret": "x2yS:FnCHssRkH0@CJY5pATzlEs@r5m.",
+                },
+            })
+
+        ```
+        ### gcpCredentials - Create a cloud account connector for a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        connector = azurerm.security.v20200101preview.Connector("connector",
+            authentication_details={
+                "authProviderX509CertUrl": "https://www.googleapis.com/oauth2/v1/certs",
+                "authUri": "https://accounts.google.com/o/oauth2/auth",
+                "authenticationType": "gcpCredentials",
+                "clientEmail": "asc-135@asc-project-1234.iam.gserviceaccount.com",
+                "clientId": "105889053725632919854",
+                "clientX509CertUrl": "https://www.googleapis.com/robot/v1/metadata/x509/asc-135%40asc-project-1234.iam.gserviceaccount.com",
+                "organizationId": "AscDemoOrg",
+                "privateKey": \"\"\"-----BEGIN PRIVATE KEY-----
+        MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCpxYHcLzcDZ6/Q
+        AeQZnQXM5GTb3p09Xsbjo2T2F61b6I7FZiQXBrbw3Zf0CUCkkqTTpD5xifl82yQ6
+        89V7SAe8hxI7esAcVDhm/aJMqzVjHLISAU2L3li1sn0jjY2oYtndwN6bRivP8O6t
+        9F+W6E0zMlbCxtpZEHLbb6WxlJJrwEQ0MPH2yOCwZUQi6NHksAtEzX2nNKJNyUC7
+        QyBVHHMm34H2bmZwsuQp3y2otpcJ9tJnVmYfC3k/w4x2L+DIK7JnQP/C1wQqu2du
+        c0w6sydF6RhLoHButrVdYRJTdfK4k03SsSTyMqZ+f7LNnKw3xenzw1VmEpk8mvoQ
+        t08tCBOrAgMBAAECggEAByzz6iyMtLYjNjV+QJ7kad6VbL2iA8AHxANZ9xTVHPdd
+        YXaJu/dqsA+NpqDlfI8+LDva782XH/HbPCqmMUnAGfXTjXQIvqnIoIHD5F2wKfpC
+        hIRNlMXXFgbvRxtqi11yO+80+XcjzuwuCmgzyhsTeEB+bkkdXXpWgHPdmv3emnM6
+        MQM9Zgrug0UndPmiUwKOcJSU4PlmlTpHEV4vA6JfA4bvphy9m1jxO5qWeah5yym2
+        6FP5BRIDF98kFrDnSXJjajwgLCQ+MypFQXyax6XkxDxuKXbng1bv7eZDjqazIChk
+        m0y14X0s0jnWc+AX8vfeSf7d+EsGdVinEwR1aAawEQKBgQDqDB0qxcIQ1oI1Kww8
+        9vXefTiuWsf47F+fJ/DIOEbiRfE8IdCgmOABvcqJIoxW/DFMBEdLCcx73Km7pOmd
+        Kg1ddScnaO8cOj2v/Ub+fAqVrA4ki4ViYP0A7/Nogga3Jr/x3ey5bitrIfFImteS
+        CgBHBzZvoQpvO4lB2tKVgo2P9wKBgQC5sgTEq4sasRGSAY6lIoJno0I8w28a/16D
+        es60XQeY1ger8uTGwlT02v/u/arDUmRLPClpujXq6gK29KvtRCHy7JkpGbqW2bZs
+        PFKKWR7Tk3XPKYyjv94AIi5/xoFeDhS4lpAvy3Z5tQhYS6wqWKvT6yZQ3kM+Hfxs
+        pHgvu3mU7QKBgQC9/E1k3hj1cBtMK4CIsHPPQljTd4+iacYJPPPAo6YuoVX8WPqw
+        ksgrwbN59Fh1d8xQh5yTtgWOegYx8uFMGcm1lpbM7+pBQKm4hWGuzGQPMRZd5f/F
+        ZzOZIi61I+9tlv/yxxIVR+/ozCm/pSneO04UWi9/F/uPZYW6tnWAtfRR6wKBgGsZ
+        8MQaCK4JaI/klAhMghgSQnbXZXKVzUZaA3Rln6cX8u7KtgapOOTMlwaZie8Dy1LV
+        TTFstAJcm9o3/h1nyYjZy3C4JTUyNpPwqs6enjf7edxVI4eidwFutZD+xcigqHTa
+        aikW2atSrZB3fMIjyF7+5meH+hKOqvNiXOty3qn1AoGAZuVxYQy5FVq3YZxzr3Aa
+        Am0ShoXTF6QYIbsaUiUGoa/NlHcw9V/lj4AqBRbxbaYMD+hz2J/od9cb268eJKY8
+        3b6MvaUqdNhNnWodJXLhgtmGEHDKmTppz2JSTx/tVzCfhFdcOC79StZvcKLhtoFQ
+        +/3lEw6NCIXzm5E4+dtJG4k=
+        -----END PRIVATE KEY-----
+        \"\"\",
+                "privateKeyId": "6efg587hra2568as34d22326b044cc20dc2af",
+                "projectId": "asc-project-1234",
+                "tokenUri": "https://oauth2.googleapis.com/token",
+                "type": "service_account",
+            },
+            connector_name="gcp_dev",
+            hybrid_compute_settings={
+                "autoProvision": "Off",
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AwAssumeRoleAuthenticationDetailsPropertiesArgs'], pulumi.InputType['AwsCredsAuthenticationDetailsPropertiesArgs'], pulumi.InputType['GcpCredentialsDetailsPropertiesArgs']]] authentication_details: Settings for authentication management, these settings are relevant only for the cloud connector.

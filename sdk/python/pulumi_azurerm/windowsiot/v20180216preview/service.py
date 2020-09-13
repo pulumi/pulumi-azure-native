@@ -29,6 +29,22 @@ class Service(pulumi.CustomResource):
         """
         The description of the Windows IoT Device Service.
 
+        ## Example Usage
+        ### Service_Create
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        service = azurerm.windowsiot.v20180216preview.Service("service",
+            admin_domain_name="d.e.f",
+            device_name="service4445",
+            notes="blah",
+            quantity=1000000,
+            resource_group_name="res9101")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_domain_name: Windows IoT Device Service OEM AAD domain

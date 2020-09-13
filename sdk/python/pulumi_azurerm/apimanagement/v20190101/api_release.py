@@ -34,7 +34,7 @@ class ApiRelease(pulumi.CustomResource):
         import pulumi_azurerm as azurerm
 
         api_release = azurerm.apimanagement.v20190101.ApiRelease("apiRelease",
-            api_id="a1",
+            api_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/a1",
             notes="yahooagain",
             release_id="testrev",
             resource_group_name="rg1",

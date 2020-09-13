@@ -35,6 +35,31 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         """
         Event Subscription
 
+        ## Example Usage
+        ### SystemTopicEventSubscriptions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azurerm as azurerm
+
+        system_topic_event_subscription = azurerm.eventgrid.v20200401preview.SystemTopicEventSubscription("systemTopicEventSubscription",
+            destination={
+                "endpointType": "WebHook",
+                "properties": {
+                    "endpointUrl": "https://requestb.in/15ksip71",
+                },
+            },
+            event_subscription_name="exampleEventSubscriptionName1",
+            filter={
+                "isSubjectCaseSensitive": False,
+                "subjectBeginsWith": "ExamplePrefix",
+                "subjectEndsWith": "ExampleSuffix",
+            },
+            resource_group_name="examplerg",
+            system_topic_name="exampleSystemTopic1")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['StorageBlobDeadLetterDestinationArgs']] dead_letter_destination: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
