@@ -195,6 +195,7 @@ func generateExamplePrograms(example provider.AzureAPIExample, body *model.Body,
 		}
 		if err != nil {
 			log.Printf("Program generation failed for language: %s for example %s, continuing", lang, example.Location)
+			continue
 		}
 
 		buf := strings.Builder{}

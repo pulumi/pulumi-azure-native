@@ -388,14 +388,16 @@ func mergePackageSpec(dst, src *pschema.PackageSpec) {
 }
 
 // getLatestVersions finds the versions to include in docs/examples.
-// Docs will only have 'latest' and the newest stable version or if
-// there are no stable versions, the newest preview
+// Docs will only have the newest stable version or if there are no
+// stable versions, the newest preview
 func getLatestVersions(sortedVersions []string, versionMap openapi.ProviderVersions) codegen.StringSet {
 
 	latestVersions := codegen.NewStringSet()
 	var latestPreview string
-	for i := len(sortedVersions) - 1; i >= 0; i-- {
-		if sortedVersions[i] != "latest" {
+	if _, hasLatest := versionMap["latest"]; hasLatest {
+		latestVersions.Add("latest")
+	} else {
+		for i := len(sortedVersions) - 1; i >= 0; i-- {
 			if !strings.HasSuffix(sortedVersions[i], "preview") {
 				latestVersions.Add(sortedVersions[i])
 				break
@@ -404,11 +406,8 @@ func getLatestVersions(sortedVersions []string, versionMap openapi.ProviderVersi
 			}
 		}
 	}
-	if len(latestVersions) == 0 {
+	if len(latestVersions) == 0 && latestPreview != "" {
 		latestVersions.Add(latestPreview)
-	}
-	if _, hasLatest := versionMap["latest"]; hasLatest {
-		latestVersions.Add("latest")
 	}
 	return latestVersions
 }
