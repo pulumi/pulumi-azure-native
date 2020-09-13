@@ -12,9 +12,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const tenantConfiguration = new .("tenantConfiguration", {
+ * const tenantConfiguration = new azurerm.portal.v20190101preview.TenantConfiguration("tenantConfiguration", {
  *     configurationName: "default",
  *     enforcePrivateMarkdownStorage: true,
  * });

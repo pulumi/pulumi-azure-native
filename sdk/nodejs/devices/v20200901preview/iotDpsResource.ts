@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const iotDpsResource = new .("iotDpsResource", {
+ * const iotDpsResource = new azurerm.devices.v20200901preview.IotDpsResource("iotDpsResource", {
  *     location: "East US",
  *     provisioningServiceName: "myFirstProvisioningService",
  *     resourceGroupName: "myResourceGroup",

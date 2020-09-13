@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const managedCluster = new .("managedCluster", {
+ * const managedCluster = new azurerm.containerservice.v20200901.ManagedCluster("managedCluster", {
  *     addonProfiles: {},
  *     agentPoolProfiles: [{
  *         count: 3,
@@ -80,9 +80,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const managedCluster = new .("managedCluster", {
+ * const managedCluster = new azurerm.containerservice.v20200901.ManagedCluster("managedCluster", {
  *     aadProfile: {
  *         enableAzureRBAC: true,
  *         managed: true,
@@ -154,9 +154,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const managedCluster = new .("managedCluster", {
+ * const managedCluster = new azurerm.containerservice.v20200901.ManagedCluster("managedCluster", {
  *     addonProfiles: {},
  *     agentPoolProfiles: [{
  *         availabilityZones: [
@@ -231,9 +231,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const managedCluster = new .("managedCluster", {
+ * const managedCluster = new azurerm.containerservice.v20200901.ManagedCluster("managedCluster", {
  *     addonProfiles: {},
  *     agentPoolProfiles: [{
  *         availabilityZones: [

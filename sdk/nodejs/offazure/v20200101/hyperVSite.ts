@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const hyperVSite = new .("hyperVSite", {
+ * const hyperVSite = new azurerm.offazure.v20200101.HyperVSite("hyperVSite", {
  *     location: "eastus",
  *     resourceGroupName: "pajindTest",
  *     siteName: "appliance1e39site",

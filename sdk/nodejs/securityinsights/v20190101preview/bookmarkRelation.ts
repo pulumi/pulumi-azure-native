@@ -12,9 +12,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const bookmarkRelation = new .("bookmarkRelation", {
+ * const bookmarkRelation = new azurerm.securityinsights.v20190101preview.BookmarkRelation("bookmarkRelation", {
  *     bookmarkId: "2216d0e1-91e3-4902-89fd-d2df8c535096",
  *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
  *     relatedResourceId: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/afbd324f-6c48-459c-8710-8d1e1cd03812",

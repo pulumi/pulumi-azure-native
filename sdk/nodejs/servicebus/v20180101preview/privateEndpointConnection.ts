@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const privateEndpointConnection = new .("privateEndpointConnection", {
+ * const privateEndpointConnection = new azurerm.servicebus.v20180101preview.PrivateEndpointConnection("privateEndpointConnection", {
  *     namespaceName: "sdk-Namespace-2924",
  *     privateEndpoint: {
  *         id: "/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-ServiceBus-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",

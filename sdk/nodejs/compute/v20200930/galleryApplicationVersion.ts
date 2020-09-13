@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const galleryApplicationVersion = new .("galleryApplicationVersion", {
+ * const galleryApplicationVersion = new azurerm.compute.v20200930.GalleryApplicationVersion("galleryApplicationVersion", {
  *     galleryApplicationName: "myGalleryApplicationName",
  *     galleryApplicationVersionName: "1.0.0",
  *     galleryName: "myGalleryName",

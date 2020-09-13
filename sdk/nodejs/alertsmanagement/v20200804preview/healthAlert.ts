@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const healthAlert = new .("healthAlert", {
+ * const healthAlert = new azurerm.alertsmanagement.v20200804preview.HealthAlert("healthAlert", {
  *     actions: [{
  *         actionGroupId: "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/notificationgroups/group2",
  *         webHookProperties: {

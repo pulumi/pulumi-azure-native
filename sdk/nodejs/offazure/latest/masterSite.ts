@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const masterSite = new .("masterSite", {
+ * const masterSite = new azurerm.offazure.latest.MasterSite("masterSite", {
  *     location: "eastus",
  *     resourceGroupName: "poshukla",
  *     siteName: "masterSite1",

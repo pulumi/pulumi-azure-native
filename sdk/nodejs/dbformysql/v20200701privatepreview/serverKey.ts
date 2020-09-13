@@ -12,9 +12,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const serverKey = new .("serverKey", {
+ * const serverKey = new azurerm.dbformysql.v20200701privatepreview.ServerKey("serverKey", {
  *     keyName: "someVault_someKey_01234567890123456789012345678901",
  *     resourceGroupName: "testrg",
  *     serverKeyType: "AzureKeyVault",

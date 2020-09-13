@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const privateEndpointConnection = new .("privateEndpointConnection", {
+ * const privateEndpointConnection = new azurerm.containerservice.v20200901.PrivateEndpointConnection("privateEndpointConnection", {
  *     privateEndpointConnectionName: "privateendpointconnection1",
  *     privateLinkServiceConnectionState: {
  *         status: "Approved",

@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const gallery = new .("gallery", {
+ * const gallery = new azurerm.compute.v20200930.Gallery("gallery", {
  *     description: "This is the gallery description.",
  *     galleryName: "myGalleryName",
  *     location: "West US",
@@ -31,9 +31,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const gallery = new .("gallery", {
+ * const gallery = new azurerm.compute.v20200930.Gallery("gallery", {
  *     description: "This is the gallery description.",
  *     galleryName: "myGalleryName",
  *     location: "West US",

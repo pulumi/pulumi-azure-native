@@ -8,30 +8,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
- *
- * ## Example Usage
- * ### Create a Job
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azurerm from "@pulumi/azurerm";
- *
- * const job = new azurerm.media.v20180601preview.Job("job", {
- *     accountName: "contosomedia",
- *     input: {
- *         "@odata.type": "#Microsoft.Media.JobInputAsset",
- *         assetName: "job1-InputAsset",
- *     },
- *     jobName: "job1",
- *     outputs: [{
- *         assetName: "job1-OutputAsset",
- *         odataType: "#Microsoft.Media.JobOutputAsset",
- *     }],
- *     resourceGroupName: "contosoresources",
- *     transformName: "ExampleTransform",
- * });
- *
- * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

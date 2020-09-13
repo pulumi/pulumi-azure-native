@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const dpsCertificate = new .("dpsCertificate", {
+ * const dpsCertificate = new azurerm.devices.v20200901preview.DpsCertificate("dpsCertificate", {
  *     certificate: "############################################",
  *     certificateName: "cert",
  *     provisioningServiceName: "myFirstProvisioningService",

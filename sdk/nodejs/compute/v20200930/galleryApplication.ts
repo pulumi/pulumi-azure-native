@@ -12,9 +12,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const galleryApplication = new .("galleryApplication", {
+ * const galleryApplication = new azurerm.compute.v20200930.GalleryApplication("galleryApplication", {
  *     description: "This is the gallery application description.",
  *     eula: "This is the gallery application EULA.",
  *     galleryApplicationName: "myGalleryApplicationName",

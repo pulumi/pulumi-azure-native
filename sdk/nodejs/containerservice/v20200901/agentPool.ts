@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const agentPool = new .("agentPool", {
+ * const agentPool = new azurerm.containerservice.v20200901.AgentPool("agentPool", {
  *     agentPoolName: "agentpool1",
  *     count: 3,
  *     orchestratorVersion: "",
@@ -33,9 +33,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const agentPool = new .("agentPool", {
+ * const agentPool = new azurerm.containerservice.v20200901.AgentPool("agentPool", {
  *     agentPoolName: "agentpool1",
  *     count: 3,
  *     orchestratorVersion: "",
@@ -51,9 +51,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const agentPool = new .("agentPool", {
+ * const agentPool = new azurerm.containerservice.v20200901.AgentPool("agentPool", {
  *     agentPoolName: "agentpool1",
  *     count: 3,
  *     nodeLabels: {
@@ -77,9 +77,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const agentPool = new .("agentPool", {
+ * const agentPool = new azurerm.containerservice.v20200901.AgentPool("agentPool", {
  *     agentPoolName: "agentpool1",
  *     count: 3,
  *     mode: "User",
@@ -104,9 +104,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const agentPool = new .("agentPool", {
+ * const agentPool = new azurerm.containerservice.v20200901.AgentPool("agentPool", {
  *     agentPoolName: "agentpool1",
  *     count: 3,
  *     enableAutoScaling: true,

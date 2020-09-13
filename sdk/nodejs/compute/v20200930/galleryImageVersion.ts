@@ -14,9 +14,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const galleryImageVersion = new .("galleryImageVersion", {
+ * const galleryImageVersion = new azurerm.compute.v20200930.GalleryImageVersion("galleryImageVersion", {
  *     galleryImageName: "myGalleryImageName",
  *     galleryImageVersionName: "1.0.0",
  *     galleryName: "myGalleryName",
@@ -62,9 +62,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const galleryImageVersion = new .("galleryImageVersion", {
+ * const galleryImageVersion = new azurerm.compute.v20200930.GalleryImageVersion("galleryImageVersion", {
  *     galleryImageName: "myGalleryImageName",
  *     galleryImageVersionName: "1.0.0",
  *     galleryName: "myGalleryName",
@@ -114,9 +114,9 @@ import * as utilities from "../../utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as @pulumi from "@pulumi/";
+ * import * as azurerm from "@pulumi/azurerm";
  *
- * const galleryImageVersion = new .("galleryImageVersion", {
+ * const galleryImageVersion = new azurerm.compute.v20200930.GalleryImageVersion("galleryImageVersion", {
  *     galleryImageName: "myGalleryImageName",
  *     galleryImageVersionName: "1.0.0",
  *     galleryName: "myGalleryName",
