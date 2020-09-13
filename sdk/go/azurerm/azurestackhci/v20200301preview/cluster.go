@@ -11,35 +11,6 @@ import (
 )
 
 // Cluster details.
-//
-// ## Example Usage
-// ### GetClusters
-//
-// ```go
-// package main
-//
-// import (
-// 	azurestackhci "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/azurestackhci/v20200301preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azurestackhci.NewCluster(ctx, "cluster", &azurestackhci.ClusterArgs{
-// 			AadClientId:       pulumi.String("24a6e53d-04e5-44d2-b7cc-1b732a847dfc"),
-// 			AadTenantId:       pulumi.String("7e589cc1-a8b6-4dff-91bd-5ec0fa18db94"),
-// 			ClusterName:       pulumi.String("myCluster"),
-// 			Location:          pulumi.String("East US"),
-// 			ResourceGroupName: pulumi.String("test-rg"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

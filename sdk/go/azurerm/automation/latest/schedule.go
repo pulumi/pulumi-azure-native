@@ -13,11 +13,6 @@ import (
 // Definition of the schedule.
 //
 // ## Example Usage
-// ### Create or update a schedule
-//
-// ```go
-//
-// ```
 type Schedule struct {
 	pulumi.CustomResourceState
 

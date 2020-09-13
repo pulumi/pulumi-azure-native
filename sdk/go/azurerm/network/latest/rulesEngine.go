@@ -13,11 +13,6 @@ import (
 // A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 //
 // ## Example Usage
-// ### Create or update a specific Rules Engine Configuration
-//
-// ```go
-//
-// ```
 type RulesEngine struct {
 	pulumi.CustomResourceState
 

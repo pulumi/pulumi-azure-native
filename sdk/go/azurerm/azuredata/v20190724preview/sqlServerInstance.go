@@ -11,41 +11,6 @@ import (
 )
 
 // A SqlServerInstance.
-//
-// ## Example Usage
-// ### Updates a SQL Server Instance tags.
-//
-// ```go
-// package main
-//
-// import (
-// 	azuredata "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/azuredata/v20190724preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredata.NewSqlServerInstance(ctx, "sqlServerInstance", &azuredata.SqlServerInstanceArgs{
-// 			ContainerResourceId:   pulumi.String("Arc Machine Name"),
-// 			Edition:               pulumi.String("Developer"),
-// 			Location:              pulumi.String("northeurope"),
-// 			ResourceGroupName:     pulumi.String("testrg"),
-// 			SqlServerInstanceName: pulumi.String("testsqlServerInstance"),
-// 			Status:                pulumi.String("Connected"),
-// 			Tags: pulumi.StringMap{
-// 				"mytag": pulumi.String("myval"),
-// 			},
-// 			VCore:   pulumi.String("4"),
-// 			Version: pulumi.String("SQL Server 2017"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type SqlServerInstance struct {
 	pulumi.CustomResourceState
 

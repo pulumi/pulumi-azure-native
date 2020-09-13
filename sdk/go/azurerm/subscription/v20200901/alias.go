@@ -11,31 +11,6 @@ import (
 )
 
 // Subscription Information with the alias.
-//
-// ## Example Usage
-// ### CreateAlias
-//
-// ```go
-// package main
-//
-// import (
-// 	subscription "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/subscription/v20200901"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := subscription.NewAlias(ctx, "alias", &subscription.AliasArgs{
-// 			AliasName: pulumi.String("aliasForNewSub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Alias struct {
 	pulumi.CustomResourceState
 

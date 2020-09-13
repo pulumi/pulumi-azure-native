@@ -11,18 +11,6 @@ import (
 )
 
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-//
-// ## Example Usage
-// ### Create a JavaScript function
-//
-// ```go
-//
-// ```
-// ### Create an Azure ML function
-//
-// ```go
-//
-// ```
 type Function struct {
 	pulumi.CustomResourceState
 

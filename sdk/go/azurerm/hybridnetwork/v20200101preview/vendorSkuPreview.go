@@ -11,33 +11,6 @@ import (
 )
 
 // Customer subscription which can use a sku.
-//
-// ## Example Usage
-// ### Creates or updates preview subscription of vendor sku sub resource
-//
-// ```go
-// package main
-//
-// import (
-// 	hybridnetwork "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hybridnetwork/v20200101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hybridnetwork.NewVendorSkuPreview(ctx, "vendorSkuPreview", &hybridnetwork.VendorSkuPreviewArgs{
-// 			PreviewSubscription: pulumi.String("previewSub"),
-// 			SkuName:             pulumi.String("TestSku"),
-// 			VendorName:          pulumi.String("TestVendor"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type VendorSkuPreview struct {
 	pulumi.CustomResourceState
 

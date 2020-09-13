@@ -11,37 +11,6 @@ import (
 )
 
 // Single item in a List or Get AuthorizationRule operation
-//
-// ## Example Usage
-// ### NameSpaceAuthorizationRuleCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	eventhub "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/eventhub/v20170401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eventhub.NewNamespaceAuthorizationRule(ctx, "namespaceAuthorizationRule", &eventhub.NamespaceAuthorizationRuleArgs{
-// 			AuthorizationRuleName: pulumi.String("sdk-Authrules-1746"),
-// 			NamespaceName:         pulumi.String("sdk-Namespace-2702"),
-// 			ResourceGroupName:     pulumi.String("ArunMonocle"),
-// 			Rights: pulumi.StringArray{
-// 				pulumi.String("Listen"),
-// 				pulumi.String("Send"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 

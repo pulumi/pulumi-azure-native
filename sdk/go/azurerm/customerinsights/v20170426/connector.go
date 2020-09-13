@@ -11,42 +11,6 @@ import (
 )
 
 // The connector resource format.
-//
-// ## Example Usage
-// ### Connectors_CreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	customerinsights "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/customerinsights/v20170426"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := customerinsights.NewConnector(ctx, "connector", &customerinsights.ConnectorArgs{
-// 			ConnectorName: pulumi.String("testConnector"),
-// 			ConnectorProperties: pulumi.StringMapMap{
-// 				"connectionKeyVaultUrl": pulumi.StringMap{
-// 					"organization_id": pulumi.String("XXX"),
-// 					"organizationUrl": pulumi.String("https://XXX.crmlivetie.com/"),
-// 				},
-// 			},
-// 			ConnectorType:     pulumi.String("AzureBlob"),
-// 			Description:       pulumi.String("Test connector"),
-// 			DisplayName:       pulumi.String("testConnector"),
-// 			HubName:           pulumi.String("sdkTestHub"),
-// 			ResourceGroupName: pulumi.String("TestHubRG"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Connector struct {
 	pulumi.CustomResourceState
 

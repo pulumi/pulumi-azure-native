@@ -11,60 +11,6 @@ import (
 )
 
 // The resource representation of a rollout step.
-//
-// ## Example Usage
-// ### Create health check step
-//
-// ```go
-// package main
-//
-// import (
-// 	deploymentmanager "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/deploymentmanager/v20191101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := deploymentmanager.NewStep(ctx, "step", &deploymentmanager.StepArgs{
-// 			Location:          pulumi.String("centralus"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			StepName:          pulumi.String("healthCheckStep"),
-// 			Tags:              nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### Create wait step
-//
-// ```go
-// package main
-//
-// import (
-// 	deploymentmanager "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/deploymentmanager/v20191101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := deploymentmanager.NewStep(ctx, "step", &deploymentmanager.StepArgs{
-// 			Location:          pulumi.String("centralus"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			StepName:          pulumi.String("waitStep"),
-// 			Tags:              nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Step struct {
 	pulumi.CustomResourceState
 

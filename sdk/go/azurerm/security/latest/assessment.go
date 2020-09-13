@@ -13,11 +13,6 @@ import (
 // Security assessment on a resource
 //
 // ## Example Usage
-// ### Create security recommendation task on a resource
-//
-// ```go
-//
-// ```
 type Assessment struct {
 	pulumi.CustomResourceState
 

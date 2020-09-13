@@ -11,42 +11,6 @@ import (
 )
 
 // The volume.
-//
-// ## Example Usage
-// ### VolumesCreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/v20170601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storsimple.NewVolume(ctx, "volume", &storsimple.VolumeArgs{
-// 			AccessControlRecordIds: pulumi.StringArray{
-// 				pulumi.String("/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACR2"),
-// 			},
-// 			DeviceName:          pulumi.String("Device05ForSDKTest"),
-// 			ManagerName:         pulumi.String("ManagerForSDKTest1"),
-// 			MonitoringStatus:    pulumi.String("Enabled"),
-// 			ResourceGroupName:   pulumi.String("ResourceGroupForSDKTest"),
-// 			SizeInBytes:         pulumi.Int(5368709120),
-// 			VolumeContainerName: pulumi.String("VolumeContainerForSDKTest"),
-// 			VolumeName:          pulumi.String("Volume1ForSDKTest"),
-// 			VolumeStatus:        pulumi.String("Offline"),
-// 			VolumeType:          pulumi.String("Tiered"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Volume struct {
 	pulumi.CustomResourceState
 

@@ -11,34 +11,6 @@ import (
 )
 
 // App resource payload
-//
-// ## Example Usage
-// ### Apps_CreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	appplatform "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/appplatform/v20200701"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appplatform.NewApp(ctx, "app", &appplatform.AppArgs{
-// 			AppName:           pulumi.String("myapp"),
-// 			Location:          pulumi.String("eastus"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			ServiceName:       pulumi.String("myservice"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type App struct {
 	pulumi.CustomResourceState
 

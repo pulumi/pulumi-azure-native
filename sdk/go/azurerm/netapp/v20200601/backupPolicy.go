@@ -11,38 +11,6 @@ import (
 )
 
 // Backup policy information
-//
-// ## Example Usage
-// ### BackupPolicies_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	netapp "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/netapp/v20200601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := netapp.NewbackupPolicy(ctx, "backupPolicy", &netapp.backupPolicyArgs{
-// 			AccountName:          pulumi.String("account1"),
-// 			BackupPolicyName:     pulumi.String("backupPolicyName"),
-// 			DailyBackupsToKeep:   pulumi.Int(10),
-// 			Enabled:              pulumi.Bool(true),
-// 			Location:             pulumi.String("westus"),
-// 			MonthlyBackupsToKeep: pulumi.Int(10),
-// 			ResourceGroupName:    pulumi.String("myRG"),
-// 			WeeklyBackupsToKeep:  pulumi.Int(10),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 

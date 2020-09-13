@@ -11,61 +11,6 @@ import (
 )
 
 // The resource representation of a service topology.
-//
-// ## Example Usage
-// ### Create a topology with Artifact Source
-//
-// ```go
-// package main
-//
-// import (
-// 	deploymentmanager "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/deploymentmanager/v20191101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := deploymentmanager.NewServiceTopology(ctx, "serviceTopology", &deploymentmanager.ServiceTopologyArgs{
-// 			ArtifactSourceId:    pulumi.String("Microsoft.DeploymentManager/artifactSources/myArtifactSource"),
-// 			Location:            pulumi.String("centralus"),
-// 			ResourceGroupName:   pulumi.String("myResourceGroup"),
-// 			ServiceTopologyName: pulumi.String("myTopology"),
-// 			Tags:                nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### Create a topology without Artifact Source
-//
-// ```go
-// package main
-//
-// import (
-// 	deploymentmanager "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/deploymentmanager/v20191101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := deploymentmanager.NewServiceTopology(ctx, "serviceTopology", &deploymentmanager.ServiceTopologyArgs{
-// 			Location:            pulumi.String("centralus"),
-// 			ResourceGroupName:   pulumi.String("myResourceGroup"),
-// 			ServiceTopologyName: pulumi.String("myTopology"),
-// 			Tags:                nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ServiceTopology struct {
 	pulumi.CustomResourceState
 

@@ -11,33 +11,6 @@ import (
 )
 
 // Site REST Resource.
-//
-// ## Example Usage
-// ### Create Hyper-V site
-//
-// ```go
-// package main
-//
-// import (
-// 	offazure "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/offazure/v20200707"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := offazure.NewHyperVSite(ctx, "hyperVSite", &offazure.HyperVSiteArgs{
-// 			Location:          pulumi.String("eastus"),
-// 			ResourceGroupName: pulumi.String("pajindTest"),
-// 			SiteName:          pulumi.String("appliance1e39site"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type HyperVSite struct {
 	pulumi.CustomResourceState
 

@@ -11,36 +11,6 @@ import (
 )
 
 // A provider instance associated with a SAP monitor.
-//
-// ## Example Usage
-// ### Create a SAP Monitor
-//
-// ```go
-// package main
-//
-// import (
-// 	hanaonazure "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hanaonazure/v20200207preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hanaonazure.NewProviderInstance(ctx, "providerInstance", &hanaonazure.ProviderInstanceArgs{
-// 			Metadata:             pulumi.String("{\"key\":\"value\"}"),
-// 			Properties:           pulumi.String("{\"hostname\":\"10.0.0.10\",\"dbName\":\"SYSTEMDB\",\"sqlPort\":30015,\"dbUsername\":\"SYSTEM\",\"dbPassword\":\"PASSWORD\"}"),
-// 			ProviderInstanceName: pulumi.String("myProviderInstance"),
-// 			ResourceGroupName:    pulumi.String("myResourceGroup"),
-// 			SapMonitorName:       pulumi.String("mySapMonitor"),
-// 			Type:                 pulumi.String("hana"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ProviderInstance struct {
 	pulumi.CustomResourceState
 

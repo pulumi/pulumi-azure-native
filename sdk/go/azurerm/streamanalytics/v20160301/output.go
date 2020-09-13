@@ -11,53 +11,6 @@ import (
 )
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-//
-// ## Example Usage
-// ### Create a DocumentDB output
-//
-// ```go
-//
-// ```
-// ### Create a Power BI output
-//
-// ```go
-//
-// ```
-// ### Create a Service Bus Queue output with Avro serialization
-//
-// ```go
-//
-// ```
-// ### Create a Service Bus Topic output with CSV serialization
-//
-// ```go
-//
-// ```
-// ### Create a blob output with CSV serialization
-//
-// ```go
-//
-// ```
-// ### Create an Azure Data Lake Store output with JSON serialization
-//
-// ```go
-//
-// ```
-// ### Create an Azure SQL database output
-//
-// ```go
-//
-// ```
-// ### Create an Azure Table output
-//
-// ```go
-//
-// ```
-// ### Create an Event Hub output with JSON serialization
-//
-// ```go
-//
-// ```
 type Output struct {
 	pulumi.CustomResourceState
 

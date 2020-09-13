@@ -11,58 +11,6 @@ import (
 )
 
 // Contains the job information.
-//
-// ## Example Usage
-// ### Create export job
-//
-// ```go
-// package main
-//
-// import (
-// 	importexport "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/importexport/v20200801"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := importexport.NewJob(ctx, "job", &importexport.JobArgs{
-// 			JobName:           pulumi.String("myExportJob"),
-// 			Location:          pulumi.String("West US"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### Create import job
-//
-// ```go
-// package main
-//
-// import (
-// 	importexport "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/importexport/v20200801"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := importexport.NewJob(ctx, "job", &importexport.JobArgs{
-// 			JobName:           pulumi.String("myJob"),
-// 			Location:          pulumi.String("West US"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Job struct {
 	pulumi.CustomResourceState
 

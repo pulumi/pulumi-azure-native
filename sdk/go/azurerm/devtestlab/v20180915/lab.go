@@ -11,37 +11,6 @@ import (
 )
 
 // A lab.
-//
-// ## Example Usage
-// ### Labs_CreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	devtestlab "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/devtestlab/v20180915"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := devtestlab.NewLab(ctx, "lab", &devtestlab.LabArgs{
-// 			LabStorageType:    pulumi.String("{Standard|Premium}"),
-// 			Location:          pulumi.String("{azure-location}"),
-// 			Name:              pulumi.String("{devtestlab-name}"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			Tags: pulumi.StringMap{
-// 				"MyTag": pulumi.String("MyValue"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Lab struct {
 	pulumi.CustomResourceState
 

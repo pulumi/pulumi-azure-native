@@ -11,49 +11,6 @@ import (
 )
 
 // The backup schedule.
-//
-// ## Example Usage
-// ### BackupSchedulesCreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/v20170601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storsimple.NewBackupSchedule(ctx, "backupSchedule", &storsimple.BackupScheduleArgs{
-// 			BackupPolicyName:   pulumi.String("BkUpPolicy01ForSDKTest"),
-// 			BackupScheduleName: pulumi.String("schedule2"),
-// 			BackupType:         pulumi.String("CloudSnapshot"),
-// 			DeviceName:         pulumi.String("Device05ForSDKTest"),
-// 			Kind:               pulumi.String("Series8000"),
-// 			ManagerName:        pulumi.String("ManagerForSDKTest1"),
-// 			ResourceGroupName:  pulumi.String("ResourceGroupForSDKTest"),
-// 			RetentionCount:     pulumi.Int(1),
-// 			ScheduleRecurrence: &storsimple.ScheduleRecurrenceArgs{
-// 				RecurrenceType:  pulumi.String("Weekly"),
-// 				RecurrenceValue: pulumi.Int(1),
-// 				WeeklyDaysList: pulumi.StringArray{
-// 					pulumi.String("Friday"),
-// 					pulumi.String("Thursday"),
-// 					pulumi.String("Monday"),
-// 				},
-// 			},
-// 			ScheduleStatus: pulumi.String("Enabled"),
-// 			StartTime:      pulumi.String("2017-06-24T01:00:00Z"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type BackupSchedule struct {
 	pulumi.CustomResourceState
 

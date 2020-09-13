@@ -13,11 +13,6 @@ import (
 // An Application Insights workbook definition.
 //
 // ## Example Usage
-// ### WorkbookAdd
-//
-// ```go
-//
-// ```
 type Workbook struct {
 	pulumi.CustomResourceState
 

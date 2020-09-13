@@ -13,11 +13,6 @@ import (
 // A budget resource.
 //
 // ## Example Usage
-// ### CreateOrUpdateBudget
-//
-// ```go
-//
-// ```
 type Budget struct {
 	pulumi.CustomResourceState
 

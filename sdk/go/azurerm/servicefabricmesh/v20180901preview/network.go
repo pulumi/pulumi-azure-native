@@ -11,34 +11,6 @@ import (
 )
 
 // This type describes a network resource.
-//
-// ## Example Usage
-// ### CreateOrUpdateNetwork
-//
-// ```go
-// package main
-//
-// import (
-// 	servicefabricmesh "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicefabricmesh/v20180901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicefabricmesh.NewNetwork(ctx, "network", &servicefabricmesh.NetworkArgs{
-// 			Location:            pulumi.String("EastUS"),
-// 			NetworkResourceName: pulumi.String("sampleNetwork"),
-// 			ResourceGroupName:   pulumi.String("sbz_demo"),
-// 			Tags:                nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Network struct {
 	pulumi.CustomResourceState
 

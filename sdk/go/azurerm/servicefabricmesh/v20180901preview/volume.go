@@ -11,41 +11,6 @@ import (
 )
 
 // This type describes a volume resource.
-//
-// ## Example Usage
-// ### CreateOrUpdateVolume
-//
-// ```go
-// package main
-//
-// import (
-// 	servicefabricmesh "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicefabricmesh/v20180901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicefabricmesh.NewVolume(ctx, "volume", &servicefabricmesh.VolumeArgs{
-// 			AzureFileParameters: &servicefabricmesh.VolumeProviderParametersAzureFileArgs{
-// 				AccountKey:  pulumi.String("provide-account-key-here"),
-// 				AccountName: pulumi.String("sbzdemoaccount"),
-// 				ShareName:   pulumi.String("sharel"),
-// 			},
-// 			Description:        pulumi.String("Service Fabric Mesh sample volume."),
-// 			Location:           pulumi.String("EastUS"),
-// 			Provider:           pulumi.String("SFAzureFile"),
-// 			ResourceGroupName:  pulumi.String("sbz_demo"),
-// 			Tags:               nil,
-// 			VolumeResourceName: pulumi.String("sampleVolume"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Volume struct {
 	pulumi.CustomResourceState
 

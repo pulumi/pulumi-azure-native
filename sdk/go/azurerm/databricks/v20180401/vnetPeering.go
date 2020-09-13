@@ -11,40 +11,6 @@ import (
 )
 
 // Peerings in a VirtualNetwork resource
-//
-// ## Example Usage
-// ### Create vNet Peering for Workspace
-//
-// ```go
-// package main
-//
-// import (
-// 	databricks "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/databricks/v20180401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := databricks.NewvNetPeering(ctx, "vNetPeering", &databricks.vNetPeeringArgs{
-// 			AllowForwardedTraffic:     pulumi.Bool(false),
-// 			AllowGatewayTransit:       pulumi.Bool(false),
-// 			AllowVirtualNetworkAccess: pulumi.Bool(true),
-// 			PeeringName:               pulumi.String("vNetPeeringTest"),
-// 			RemoteVirtualNetwork: &databricks.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs{
-// 				Id: pulumi.String("/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet"),
-// 			},
-// 			ResourceGroupName: pulumi.String("rg"),
-// 			UseRemoteGateways: pulumi.Bool(false),
-// 			WorkspaceName:     pulumi.String("myWorkspace"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type VNetPeering struct {
 	pulumi.CustomResourceState
 

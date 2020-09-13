@@ -11,32 +11,6 @@ import (
 )
 
 // Response to get user settings
-//
-// ## Example Usage
-// ### PutUserSettings
-//
-// ```go
-// package main
-//
-// import (
-// 	portal "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/portal/v20181001"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := portal.NewUserSettingsWithLocation(ctx, "userSettingsWithLocation", &portal.UserSettingsWithLocationArgs{
-// 			Location:         pulumi.String("eastus"),
-// 			UserSettingsName: pulumi.String("cloudconsole"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type UserSettingsWithLocation struct {
 	pulumi.CustomResourceState
 

@@ -11,37 +11,6 @@ import (
 )
 
 // Gateway hostname configuration details.
-//
-// ## Example Usage
-// ### ApiManagementCreateGatewayHostnameConfiguration
-//
-// ```go
-// package main
-//
-// import (
-// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apimanagement.NewGatewayHostnameConfiguration(ctx, "gatewayHostnameConfiguration", &apimanagement.GatewayHostnameConfigurationArgs{
-// 			CertificateId:              pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1"),
-// 			GatewayId:                  pulumi.String("gw1"),
-// 			HcId:                       pulumi.String("default"),
-// 			Hostname:                   pulumi.String("*"),
-// 			NegotiateClientCertificate: pulumi.Bool(false),
-// 			ResourceGroupName:          pulumi.String("rg1"),
-// 			ServiceName:                pulumi.String("apimService1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type GatewayHostnameConfiguration struct {
 	pulumi.CustomResourceState
 

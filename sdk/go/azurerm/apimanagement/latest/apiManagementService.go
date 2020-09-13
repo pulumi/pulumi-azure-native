@@ -201,11 +201,6 @@ import (
 // }
 //
 // ```
-// ### ApiManagementCreateServiceWithUserAssignedIdentity
-//
-// ```go
-//
-// ```
 type ApiManagementService struct {
 	pulumi.CustomResourceState
 

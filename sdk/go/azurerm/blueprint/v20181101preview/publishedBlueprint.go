@@ -11,58 +11,6 @@ import (
 )
 
 // Represents a published blueprint.
-//
-// ## Example Usage
-// ### PublishedManagementGroupBlueprint_Publish
-//
-// ```go
-// package main
-//
-// import (
-// 	blueprint "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/blueprint/v20181101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := blueprint.NewPublishedBlueprint(ctx, "publishedBlueprint", &blueprint.PublishedBlueprintArgs{
-// 			BlueprintName: pulumi.String("simpleBlueprint"),
-// 			ResourceScope: pulumi.String("providers/Microsoft.Management/managementGroups/ContosoOnlineGroup"),
-// 			VersionId:     pulumi.String("v2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### PublishedSubscriptionBlueprint_Publish
-//
-// ```go
-// package main
-//
-// import (
-// 	blueprint "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/blueprint/v20181101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := blueprint.NewPublishedBlueprint(ctx, "publishedBlueprint", &blueprint.PublishedBlueprintArgs{
-// 			BlueprintName: pulumi.String("simpleBlueprint"),
-// 			ResourceScope: pulumi.String("subscriptions/00000000-0000-0000-0000-000000000000"),
-// 			VersionId:     pulumi.String("v2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type PublishedBlueprint struct {
 	pulumi.CustomResourceState
 

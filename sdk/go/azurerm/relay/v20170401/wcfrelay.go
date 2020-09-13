@@ -11,36 +11,6 @@ import (
 )
 
 // Description of the WCF relay resource.
-//
-// ## Example Usage
-// ### RelayCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	relay "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/relay/v20170401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := relay.NewWCFRelay(ctx, "wcfRelay", &relay.WCFRelayArgs{
-// 			NamespaceName:               pulumi.String("sdk-RelayNamespace-9953"),
-// 			RelayName:                   pulumi.String("sdk-Relay-Wcf-1194"),
-// 			RelayType:                   pulumi.String("NetTcp"),
-// 			RequiresClientAuthorization: pulumi.Bool(true),
-// 			RequiresTransportSecurity:   pulumi.Bool(true),
-// 			ResourceGroupName:           pulumi.String("RG-eg"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type WCFRelay struct {
 	pulumi.CustomResourceState
 

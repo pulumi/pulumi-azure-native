@@ -13,16 +13,6 @@ import (
 // Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
 //
 // ## Example Usage
-// ### Create an Image Template for Linux.
-//
-// ```go
-//
-// ```
-// ### Create an Image Template for Windows.
-//
-// ```go
-//
-// ```
 type VirtualMachineImageTemplate struct {
 	pulumi.CustomResourceState
 

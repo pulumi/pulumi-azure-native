@@ -11,33 +11,6 @@ import (
 )
 
 // Experiment information.
-//
-// ## Example Usage
-// ### Create an experiment
-//
-// ```go
-// package main
-//
-// import (
-// 	batchai "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/batchai/v20180501"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := batchai.NewExperiment(ctx, "experiment", &batchai.ExperimentArgs{
-// 			ExperimentName:    pulumi.String("demo_experiment"),
-// 			ResourceGroupName: pulumi.String("demo_resource_group"),
-// 			WorkspaceName:     pulumi.String("demo_workspace"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Experiment struct {
 	pulumi.CustomResourceState
 

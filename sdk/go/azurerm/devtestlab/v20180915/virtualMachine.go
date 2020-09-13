@@ -11,53 +11,6 @@ import (
 )
 
 // A virtual machine.
-//
-// ## Example Usage
-// ### VirtualMachines_CreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	devtestlab "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/devtestlab/v20180915"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := devtestlab.NewVirtualMachine(ctx, "virtualMachine", &devtestlab.VirtualMachineArgs{
-// 			AllowClaim:              pulumi.Bool(true),
-// 			DisallowPublicIpAddress: pulumi.Bool(true),
-// 			GalleryImageReference: &devtestlab.GalleryImageReferenceArgs{
-// 				Offer:     pulumi.String("UbuntuServer"),
-// 				OsType:    pulumi.String("Linux"),
-// 				Publisher: pulumi.String("Canonical"),
-// 				Sku:       pulumi.String("16.04-LTS"),
-// 				Version:   pulumi.String("Latest"),
-// 			},
-// 			LabName:             pulumi.String("{devtestlab-name}"),
-// 			LabSubnetName:       pulumi.String("{virtualnetwork-name}Subnet"),
-// 			LabVirtualNetworkId: pulumi.String("/subscriptions/{subscription-id}/resourcegroups/myResourceGroup/providers/microsoft.devtestlab/labs/{devtestlab-name}/virtualnetworks/{virtualnetwork-name}"),
-// 			Location:            pulumi.String("{azure-location}"),
-// 			Name:                pulumi.String("{virtualmachine-name}"),
-// 			OsType:              pulumi.String("Linux"),
-// 			Password:            pulumi.String("{user-password}"),
-// 			ResourceGroupName:   pulumi.String("myResourceGroup"),
-// 			Size:                pulumi.String("Standard_A2_v2"),
-// 			StorageType:         pulumi.String("Standard"),
-// 			Tags: pulumi.StringMap{
-// 				"MyTag": pulumi.String("MyValue"),
-// 			},
-// 			UserName: pulumi.String("{user-name}"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 

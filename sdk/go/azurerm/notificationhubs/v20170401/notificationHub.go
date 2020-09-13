@@ -11,34 +11,6 @@ import (
 )
 
 // Description of a NotificationHub Resource.
-//
-// ## Example Usage
-// ### NotificationHubCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	notificationhubs "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/notificationhubs/v20170401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := notificationhubs.NewNotificationHub(ctx, "notificationHub", &notificationhubs.NotificationHubArgs{
-// 			Location:            pulumi.String("eastus"),
-// 			NamespaceName:       pulumi.String("nh-sdk-ns"),
-// 			NotificationHubName: pulumi.String("nh-sdk-hub"),
-// 			ResourceGroupName:   pulumi.String("5ktrial"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type NotificationHub struct {
 	pulumi.CustomResourceState
 

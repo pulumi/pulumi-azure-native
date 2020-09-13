@@ -11,34 +11,6 @@ import (
 )
 
 // The access control record.
-//
-// ## Example Usage
-// ### AccessControlRecordsCreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	storsimple "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storsimple/v20170601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storsimple.NewAccessControlRecord(ctx, "accessControlRecord", &storsimple.AccessControlRecordArgs{
-// 			AccessControlRecordName: pulumi.String("ACRForTest"),
-// 			InitiatorName:           pulumi.String("iqn.2017-06.com.contoso:ForTest"),
-// 			ManagerName:             pulumi.String("ManagerForSDKTest1"),
-// 			ResourceGroupName:       pulumi.String("ResourceGroupForSDKTest"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type AccessControlRecord struct {
 	pulumi.CustomResourceState
 

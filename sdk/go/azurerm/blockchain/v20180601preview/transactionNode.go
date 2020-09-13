@@ -11,35 +11,6 @@ import (
 )
 
 // Payload of the transaction node which is the request/response of the resource provider.
-//
-// ## Example Usage
-// ### TransactionNodes_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	blockchain "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/blockchain/v20180601preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := blockchain.NewTransactionNode(ctx, "transactionNode", &blockchain.TransactionNodeArgs{
-// 			BlockchainMemberName: pulumi.String("contosemember1"),
-// 			Location:             pulumi.String("southeastasia"),
-// 			Password:             pulumi.String("1234abcdEFG1"),
-// 			ResourceGroupName:    pulumi.String("mygroup"),
-// 			TransactionNodeName:  pulumi.String("txnode2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type TransactionNode struct {
 	pulumi.CustomResourceState
 

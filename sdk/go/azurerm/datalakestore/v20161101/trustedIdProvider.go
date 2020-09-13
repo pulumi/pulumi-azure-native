@@ -11,34 +11,6 @@ import (
 )
 
 // Data Lake Store trusted identity provider information.
-//
-// ## Example Usage
-// ### Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider
-//
-// ```go
-// package main
-//
-// import (
-// 	datalakestore "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datalakestore/v20161101"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datalakestore.NewTrustedIdProvider(ctx, "trustedIdProvider", &datalakestore.TrustedIdProviderArgs{
-// 			AccountName:           pulumi.String("contosoadla"),
-// 			IdProvider:            pulumi.String("https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1"),
-// 			ResourceGroupName:     pulumi.String("contosorg"),
-// 			TrustedIdProviderName: pulumi.String("test_trusted_id_provider_name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type TrustedIdProvider struct {
 	pulumi.CustomResourceState
 

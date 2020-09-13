@@ -11,33 +11,6 @@ import (
 )
 
 // The DataManager resource.
-//
-// ## Example Usage
-// ### DataManagers_CreatePUT41
-//
-// ```go
-// package main
-//
-// import (
-// 	hybriddata "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hybriddata/v20190601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hybriddata.NewDataManager(ctx, "dataManager", &hybriddata.DataManagerArgs{
-// 			DataManagerName:   pulumi.String("TestAzureSDKOperations"),
-// 			Location:          pulumi.String("westus"),
-// 			ResourceGroupName: pulumi.String("ResourceGroupForSDKTest"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type DataManager struct {
 	pulumi.CustomResourceState
 

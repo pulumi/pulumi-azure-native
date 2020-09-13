@@ -11,69 +11,6 @@ import (
 )
 
 // The resource that defines the source location where the artifacts are located.
-//
-// ## Example Usage
-// ### Create artifact source
-//
-// ```go
-// package main
-//
-// import (
-// 	deploymentmanager "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/deploymentmanager/v20191101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := deploymentmanager.NewArtifactSource(ctx, "artifactSource", &deploymentmanager.ArtifactSourceArgs{
-// 			ArtifactSourceName: pulumi.String("myArtifactSource"),
-// 			Authentication: &deploymentmanager.SasAuthenticationArgs{
-// 				Type: pulumi.String("Sas"),
-// 			},
-// 			Location:          pulumi.String("centralus"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			SourceType:        pulumi.String("AzureStorage"),
-// 			Tags:              nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### Create artifact source with artifact root, an offset into the storage container
-//
-// ```go
-// package main
-//
-// import (
-// 	deploymentmanager "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/deploymentmanager/v20191101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := deploymentmanager.NewArtifactSource(ctx, "artifactSource", &deploymentmanager.ArtifactSourceArgs{
-// 			ArtifactRoot:       pulumi.String("1.0.0.0"),
-// 			ArtifactSourceName: pulumi.String("myArtifactSource"),
-// 			Authentication: &deploymentmanager.SasAuthenticationArgs{
-// 				Type: pulumi.String("Sas"),
-// 			},
-// 			Location:          pulumi.String("centralus"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			SourceType:        pulumi.String("AzureStorage"),
-// 			Tags:              nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ArtifactSource struct {
 	pulumi.CustomResourceState
 

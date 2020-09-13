@@ -11,18 +11,6 @@ import (
 )
 
 // The policy definition.
-//
-// ## Example Usage
-// ### Create or update a policy definition
-//
-// ```go
-//
-// ```
-// ### Create or update a policy definition with advanced parameters
-//
-// ```go
-//
-// ```
 type PolicyDefinition struct {
 	pulumi.CustomResourceState
 

@@ -11,41 +11,6 @@ import (
 )
 
 // A sql pool resource.
-//
-// ## Example Usage
-// ### Creates a sqlpool.
-//
-// ```go
-// package main
-//
-// import (
-// 	synapse "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/synapse/v20200401preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := synapse.NewSqlPoolsV3(ctx, "sqlPoolsV3", &synapse.SqlPoolsV3Args{
-// 			Location:          pulumi.String("westus"),
-// 			ResourceGroupName: pulumi.String("rg_fb5ce457-3576-425e-b22d-7300689fbea0"),
-// 			Sku: &synapse.SkuArgs{
-// 				Name: pulumi.String("DW1000f"),
-// 				Tier: pulumi.String("Synapse"),
-// 			},
-// 			SqlPoolName: pulumi.String("22c317e3-97a3-4ae3-9e91-a3456a5fff31"),
-// 			Tags: pulumi.StringMap{
-// 				"tag1": pulumi.String("val1"),
-// 			},
-// 			WorkspaceName: pulumi.String("srv_1e04aaa9-b30e-46ad-af06-7a21202bcc6c"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type SqlPoolsV3 struct {
 	pulumi.CustomResourceState
 

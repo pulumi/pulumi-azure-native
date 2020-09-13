@@ -86,16 +86,6 @@ import (
 // }
 //
 // ```
-// ### Tasks_Create_WithSystemAndUserIdentities
-//
-// ```go
-//
-// ```
-// ### Tasks_Create_WithUserIdentities
-//
-// ```go
-//
-// ```
 // ### Tasks_Create_WithUserIdentities_WithSystemIdentity
 //
 // ```go

@@ -11,35 +11,6 @@ import (
 )
 
 // A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
-//
-// ## Example Usage
-// ### RedisCacheFirewallRuleCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	cache "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/cache/v20190701"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cache.NewFirewallRule(ctx, "firewallRule", &cache.FirewallRuleArgs{
-// 			CacheName:         pulumi.String("cache1"),
-// 			EndIP:             pulumi.String("192.168.1.4"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			RuleName:          pulumi.String("rule1"),
-// 			StartIP:           pulumi.String("192.168.1.1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type FirewallRule struct {
 	pulumi.CustomResourceState
 

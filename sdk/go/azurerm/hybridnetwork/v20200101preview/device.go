@@ -11,37 +11,6 @@ import (
 )
 
 // Hybrid network device resource.
-//
-// ## Example Usage
-// ### Create or update hybrid network device
-//
-// ```go
-// package main
-//
-// import (
-// 	hybridnetwork "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/hybridnetwork/v20200101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := hybridnetwork.NewDevice(ctx, "device", &hybridnetwork.DeviceArgs{
-// 			AzureStackEdge: &hybridnetwork.SubResourceArgs{
-// 				Id: pulumi.String("/subscriptions/subid1/resourcegroups/rg2/providers/Microsoft.DataboxEdge/DataboxEdgeDevices/TestDataboxEdgeDeviceName"),
-// 			},
-// 			DeviceName:        pulumi.String("TestDevice"),
-// 			DeviceType:        pulumi.String("AzureStackEdge"),
-// 			Location:          pulumi.String("eastus"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Device struct {
 	pulumi.CustomResourceState
 

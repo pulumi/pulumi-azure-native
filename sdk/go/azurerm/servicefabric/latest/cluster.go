@@ -13,11 +13,6 @@ import (
 // The cluster resource
 //
 // ## Example Usage
-// ### Put a cluster with maximum parameters
-//
-// ```go
-//
-// ```
 // ### Put a cluster with minimum parameters
 //
 // ```go

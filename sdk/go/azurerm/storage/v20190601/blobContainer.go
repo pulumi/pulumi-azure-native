@@ -11,60 +11,6 @@ import (
 )
 
 // Properties of the blob container, including Id, resource name, resource type, Etag.
-//
-// ## Example Usage
-// ### PutContainerWithDefaultEncryptionScope
-//
-// ```go
-// package main
-//
-// import (
-// 	storage "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storage/v20190601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storage.NewBlobContainer(ctx, "blobContainer", &storage.BlobContainerArgs{
-// 			AccountName:                 pulumi.String("sto328"),
-// 			ContainerName:               pulumi.String("container6185"),
-// 			DefaultEncryptionScope:      pulumi.String("encryptionscope185"),
-// 			DenyEncryptionScopeOverride: pulumi.Bool(true),
-// 			ResourceGroupName:           pulumi.String("res3376"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### PutContainers
-//
-// ```go
-// package main
-//
-// import (
-// 	storage "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/storage/v20190601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storage.NewBlobContainer(ctx, "blobContainer", &storage.BlobContainerArgs{
-// 			AccountName:       pulumi.String("sto328"),
-// 			ContainerName:     pulumi.String("container6185"),
-// 			ResourceGroupName: pulumi.String("res3376"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type BlobContainer struct {
 	pulumi.CustomResourceState
 

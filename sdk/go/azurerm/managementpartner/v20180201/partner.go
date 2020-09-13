@@ -11,31 +11,6 @@ import (
 )
 
 // this is the management partner operations response
-//
-// ## Example Usage
-// ### PutPartnerDetails
-//
-// ```go
-// package main
-//
-// import (
-// 	managementpartner "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/managementpartner/v20180201"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := managementpartner.NewPartner(ctx, "partner", &managementpartner.PartnerArgs{
-// 			PartnerId: pulumi.String("123456"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Partner struct {
 	pulumi.CustomResourceState
 

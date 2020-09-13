@@ -11,34 +11,6 @@ import (
 )
 
 // A group created in a Migration project.
-//
-// ## Example Usage
-// ### Groups_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	migrate "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/migrate/v20191001"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := migrate.NewGroup(ctx, "group", &migrate.GroupArgs{
-// 			ETag:              pulumi.String("\"1e000c2c-0000-0d00-0000-5cdaa4190000\""),
-// 			GroupName:         pulumi.String("Group2"),
-// 			ProjectName:       pulumi.String("abgoyalWEselfhostb72bproject"),
-// 			ResourceGroupName: pulumi.String("abgoyal-westEurope"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Group struct {
 	pulumi.CustomResourceState
 

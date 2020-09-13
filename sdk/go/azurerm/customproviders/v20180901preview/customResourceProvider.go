@@ -11,47 +11,6 @@ import (
 )
 
 // A manifest file that defines the custom resource provider resources.
-//
-// ## Example Usage
-// ### Create or update the custom resource provider
-//
-// ```go
-// package main
-//
-// import (
-// 	customproviders "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/customproviders/v20180901preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := customproviders.NewCustomResourceProvider(ctx, "customResourceProvider", &customproviders.CustomResourceProviderArgs{
-// 			Actions: customproviders.CustomRPActionRouteDefinitionArray{
-// 				&customproviders.CustomRPActionRouteDefinitionArgs{
-// 					Endpoint:    pulumi.String("https://mytestendpoint/"),
-// 					Name:        pulumi.String("TestAction"),
-// 					RoutingType: pulumi.String("Proxy"),
-// 				},
-// 			},
-// 			Location:             pulumi.String("eastus"),
-// 			ResourceGroupName:    pulumi.String("testRG"),
-// 			ResourceProviderName: pulumi.String("newrp"),
-// 			ResourceTypes: customproviders.CustomRPResourceTypeRouteDefinitionArray{
-// 				&customproviders.CustomRPResourceTypeRouteDefinitionArgs{
-// 					Endpoint:    pulumi.String("https://mytestendpoint2/"),
-// 					Name:        pulumi.String("TestResource"),
-// 					RoutingType: pulumi.String("Proxy,Cache"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type CustomResourceProvider struct {
 	pulumi.CustomResourceState
 

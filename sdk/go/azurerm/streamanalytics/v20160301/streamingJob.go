@@ -11,55 +11,6 @@ import (
 )
 
 // A streaming job object, containing all information associated with the named streaming job.
-//
-// ## Example Usage
-// ### Create a complete streaming job (a streaming job with a transformation, at least 1 input and at least 1 output)
-//
-// ```go
-//
-// ```
-// ### Create a streaming job shell (a streaming job with no inputs, outputs, transformation, or functions)
-//
-// ```go
-// package main
-//
-// import (
-// 	streamanalytics "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/streamanalytics/v20160301"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := streamanalytics.NewStreamingJob(ctx, "streamingJob", &streamanalytics.StreamingJobArgs{
-// 			CompatibilityLevel:                 pulumi.String("1.0"),
-// 			DataLocale:                         pulumi.String("en-US"),
-// 			EventsLateArrivalMaxDelayInSeconds: pulumi.Int(16),
-// 			EventsOutOfOrderMaxDelayInSeconds:  pulumi.Int(5),
-// 			EventsOutOfOrderPolicy:             pulumi.String("Drop"),
-// 			Functions:                          streamanalytics.FunctionArray{},
-// 			Inputs:                             streamanalytics.InputArray{},
-// 			JobName:                            pulumi.String("sj59"),
-// 			Location:                           pulumi.String("West US"),
-// 			OutputErrorPolicy:                  pulumi.String("Drop"),
-// 			Outputs:                            streamanalytics.OutputArray{},
-// 			ResourceGroupName:                  pulumi.String("sjrg6936"),
-// 			Sku: &streamanalytics.SkuArgs{
-// 				Name: pulumi.String("Standard"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"key1":      pulumi.String("value1"),
-// 				"key3":      pulumi.String("value3"),
-// 				"randomKey": pulumi.String("randomValue"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type StreamingJob struct {
 	pulumi.CustomResourceState
 

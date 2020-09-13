@@ -39,21 +39,6 @@ import (
 // }
 //
 // ```
-// ### Create a AML Compute
-//
-// ```go
-//
-// ```
-// ### Create a ComputeInstance Compute
-//
-// ```go
-//
-// ```
-// ### Create a ComputeInstance Compute with minimal inputs
-//
-// ```go
-//
-// ```
 // ### Create a DataFactory Compute
 //
 // ```go
@@ -78,16 +63,6 @@ import (
 // 		return nil
 // 	})
 // }
-//
-// ```
-// ### Update a AKS Compute
-//
-// ```go
-//
-// ```
-// ### Update a AML Compute
-//
-// ```go
 //
 // ```
 type MachineLearningCompute struct {

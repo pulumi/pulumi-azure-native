@@ -11,56 +11,6 @@ import (
 )
 
 // Instance of an Azure ML Operationalization Cluster resource.
-//
-// ## Example Usage
-// ### PUT Operationalization Cluster
-//
-// ```go
-// package main
-//
-// import (
-// 	machinelearningcompute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/machinelearningcompute/v20170801preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := machinelearningcompute.NewOperationalizationCluster(ctx, "operationalizationCluster", &machinelearningcompute.OperationalizationClusterArgs{
-// 			ClusterName: pulumi.String("myCluster"),
-// 			ClusterType: pulumi.String("ACS"),
-// 			ContainerService: &machinelearningcompute.AcsClusterPropertiesArgs{
-// 				OrchestratorProperties: &machinelearningcompute.KubernetesClusterPropertiesArgs{
-// 					ServicePrincipal: &machinelearningcompute.ServicePrincipalPropertiesArgs{
-// 						ClientId: pulumi.String("abcdefghijklmnopqrt"),
-// 						Secret:   pulumi.String("uiuiwueiwuewiue"),
-// 					},
-// 				},
-// 				OrchestratorType: pulumi.String("Kubernetes"),
-// 			},
-// 			Description: pulumi.String("My Operationalization Cluster"),
-// 			GlobalServiceConfiguration: &machinelearningcompute.GlobalServiceConfigurationArgs{
-// 				Ssl: &machinelearningcompute.SslConfigurationArgs{
-// 					Cert:   pulumi.String("afjdklq2131casfakld="),
-// 					Cname:  pulumi.String("foo.bar.com"),
-// 					Key:    pulumi.String("flksdafkldsajf="),
-// 					Status: pulumi.String("Enabled"),
-// 				},
-// 			},
-// 			Location:          pulumi.String("West US"),
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 			Tags: pulumi.StringMap{
-// 				"key1": pulumi.String("alpha"),
-// 				"key2": pulumi.String("beta"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type OperationalizationCluster struct {
 	pulumi.CustomResourceState
 

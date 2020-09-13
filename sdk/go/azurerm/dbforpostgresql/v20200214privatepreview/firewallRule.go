@@ -11,35 +11,6 @@ import (
 )
 
 // Represents a server firewall rule.
-//
-// ## Example Usage
-// ### FirewallRuleCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	dbforpostgresql "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/dbforpostgresql/v20200214privatepreview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := dbforpostgresql.NewFirewallRule(ctx, "firewallRule", &dbforpostgresql.FirewallRuleArgs{
-// 			EndIpAddress:      pulumi.String("255.255.255.255"),
-// 			FirewallRuleName:  pulumi.String("rule1"),
-// 			ResourceGroupName: pulumi.String("TestGroup"),
-// 			ServerName:        pulumi.String("testserver"),
-// 			StartIpAddress:    pulumi.String("0.0.0.0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type FirewallRule struct {
 	pulumi.CustomResourceState
 

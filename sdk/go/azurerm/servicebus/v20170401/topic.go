@@ -11,34 +11,6 @@ import (
 )
 
 // Description of topic resource.
-//
-// ## Example Usage
-// ### TopicCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	servicebus "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/servicebus/v20170401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicebus.NewTopic(ctx, "topic", &servicebus.TopicArgs{
-// 			EnableExpress:     pulumi.Bool(true),
-// 			NamespaceName:     pulumi.String("sdk-Namespace-1617"),
-// 			ResourceGroupName: pulumi.String("ArunMonocle"),
-// 			TopicName:         pulumi.String("sdk-Topics-5488"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Topic struct {
 	pulumi.CustomResourceState
 

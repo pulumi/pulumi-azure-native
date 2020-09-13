@@ -11,58 +11,6 @@ import (
 )
 
 // Trigger resource type.
-//
-// ## Example Usage
-// ### Triggers_Create
-//
-// ```go
-// package main
-//
-// import (
-// 	datafactory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datafactory/v20180601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datafactory.NewTrigger(ctx, "trigger", &datafactory.TriggerArgs{
-// 			FactoryName:       pulumi.String("exampleFactoryName"),
-// 			ResourceGroupName: pulumi.String("exampleResourceGroup"),
-// 			TriggerName:       pulumi.String("exampleTrigger"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
-// ### Triggers_Update
-//
-// ```go
-// package main
-//
-// import (
-// 	datafactory "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/datafactory/v20180601"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datafactory.NewTrigger(ctx, "trigger", &datafactory.TriggerArgs{
-// 			FactoryName:       pulumi.String("exampleFactoryName"),
-// 			ResourceGroupName: pulumi.String("exampleResourceGroup"),
-// 			TriggerName:       pulumi.String("exampleTrigger"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Trigger struct {
 	pulumi.CustomResourceState
 

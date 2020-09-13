@@ -11,47 +11,6 @@ import (
 )
 
 // The integration account partner.
-//
-// ## Example Usage
-// ### Create or update a partner
-//
-// ```go
-// package main
-//
-// import (
-// 	logic "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/logic/v20190501"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := logic.NewIntegrationAccountPartner(ctx, "integrationAccountPartner", &logic.IntegrationAccountPartnerArgs{
-// 			Content: &logic.PartnerContentArgs{
-// 				B2b: &logic.B2BPartnerContentArgs{
-// 					BusinessIdentities: logic.BusinessIdentityArray{
-// 						&logic.BusinessIdentityArgs{
-// 							Qualifier: pulumi.String("AA"),
-// 							Value:     pulumi.String("ZZ"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			IntegrationAccountName: pulumi.String("testIntegrationAccount"),
-// 			Location:               pulumi.String("westus"),
-// 			Metadata:               nil,
-// 			PartnerName:            pulumi.String("testPartner"),
-// 			PartnerType:            pulumi.String("B2B"),
-// 			ResourceGroupName:      pulumi.String("testResourceGroup"),
-// 			Tags:                   nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type IntegrationAccountPartner struct {
 	pulumi.CustomResourceState
 

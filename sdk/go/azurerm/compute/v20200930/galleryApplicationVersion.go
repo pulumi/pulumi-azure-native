@@ -11,51 +11,6 @@ import (
 )
 
 // Specifies information about the gallery Application Version that you want to create or update.
-//
-// ## Example Usage
-// ### Create or update a simple gallery Application Version.
-//
-// ```go
-// package main
-//
-// import (
-// 	compute "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/compute/v20200930"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := compute.NewGalleryApplicationVersion(ctx, "galleryApplicationVersion", &compute.GalleryApplicationVersionArgs{
-// 			GalleryApplicationName:        pulumi.String("myGalleryApplicationName"),
-// 			GalleryApplicationVersionName: pulumi.String("1.0.0"),
-// 			GalleryName:                   pulumi.String("myGalleryName"),
-// 			Location:                      pulumi.String("West US"),
-// 			PublishingProfile: &compute.GalleryApplicationVersionPublishingProfileArgs{
-// 				EndOfLifeDate: pulumi.String("2019-07-01T07:00:00Z"),
-// 				ReplicaCount:  pulumi.Int(1),
-// 				Source: &compute.UserArtifactSourceArgs{
-// 					FileName:  pulumi.String("package.zip"),
-// 					MediaLink: pulumi.String("https://mystorageaccount.blob.core.windows.net/mycontainer/package.zip?{sasKey}"),
-// 				},
-// 				StorageAccountType: pulumi.String("Standard_LRS"),
-// 				TargetRegions: compute.TargetRegionArray{
-// 					&compute.TargetRegionArgs{
-// 						Name:                 pulumi.String("West US"),
-// 						RegionalReplicaCount: pulumi.Int(1),
-// 						StorageAccountType:   pulumi.String("Standard_LRS"),
-// 					},
-// 				},
-// 			},
-// 			ResourceGroupName: pulumi.String("myResourceGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type GalleryApplicationVersion struct {
 	pulumi.CustomResourceState
 

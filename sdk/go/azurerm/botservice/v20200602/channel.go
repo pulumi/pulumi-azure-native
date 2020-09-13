@@ -11,28 +11,6 @@ import (
 )
 
 // Bot channel resource definition
-//
-// ## Example Usage
-// ### Create Alexa Bot
-//
-// ```go
-//
-// ```
-// ### Create Bot
-//
-// ```go
-//
-// ```
-// ### Create DirectLine Speech Bot
-//
-// ```go
-//
-// ```
-// ### Create Line Bot
-//
-// ```go
-//
-// ```
 type Channel struct {
 	pulumi.CustomResourceState
 

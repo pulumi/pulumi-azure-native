@@ -11,36 +11,6 @@ import (
 )
 
 // The container for solution.
-//
-// ## Example Usage
-// ### SolutionCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	operationsmanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/operationsmanagement/v20151101preview"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := operationsmanagement.NewManagementAssociation(ctx, "managementAssociation", &operationsmanagement.ManagementAssociationArgs{
-// 			Location:                  pulumi.String("East US"),
-// 			ManagementAssociationName: pulumi.String("managementAssociation1"),
-// 			ProviderName:              pulumi.String("providerName"),
-// 			ResourceGroupName:         pulumi.String("rg1"),
-// 			ResourceName:              pulumi.String("resourceName"),
-// 			ResourceType:              pulumi.String("resourceType"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type ManagementAssociation struct {
 	pulumi.CustomResourceState
 

@@ -11,34 +11,6 @@ import (
 )
 
 // Description of hybrid connection resource.
-//
-// ## Example Usage
-// ### RelayHybridConnectionCreate
-//
-// ```go
-// package main
-//
-// import (
-// 	relay "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/relay/v20170401"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := relay.NewHybridConnection(ctx, "hybridConnection", &relay.HybridConnectionArgs{
-// 			HybridConnectionName:        pulumi.String("sdk-Relay-Hybrid-01"),
-// 			NamespaceName:               pulumi.String("sdk-RelayNamespace-01"),
-// 			RequiresClientAuthorization: pulumi.Bool(true),
-// 			ResourceGroupName:           pulumi.String("RG-eg"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type HybridConnection struct {
 	pulumi.CustomResourceState
 

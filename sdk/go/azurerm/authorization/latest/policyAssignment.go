@@ -13,21 +13,6 @@ import (
 // The policy assignment.
 //
 // ## Example Usage
-// ### Create or update a policy assignment
-//
-// ```go
-//
-// ```
-// ### Create or update a policy assignment with a managed identity
-//
-// ```go
-//
-// ```
-// ### Create or update a policy assignment without enforcing policy effect during resource creation or update.
-//
-// ```go
-//
-// ```
 type PolicyAssignment struct {
 	pulumi.CustomResourceState
 

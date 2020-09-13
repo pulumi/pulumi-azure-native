@@ -11,37 +11,6 @@ import (
 )
 
 // Class representing an attached database configuration.
-//
-// ## Example Usage
-// ### AttachedDatabaseConfigurationsCreateOrUpdate
-//
-// ```go
-// package main
-//
-// import (
-// 	kusto "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/kusto/v20200614"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kusto.NewAttachedDatabaseConfiguration(ctx, "attachedDatabaseConfiguration", &kusto.AttachedDatabaseConfigurationArgs{
-// 			AttachedDatabaseConfigurationName: pulumi.String("attachedDatabaseConfigurations1"),
-// 			ClusterName:                       pulumi.String("kustoclusterrptest4"),
-// 			ClusterResourceId:                 pulumi.String("/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterLeader"),
-// 			DatabaseName:                      pulumi.String("kustodatabase"),
-// 			DefaultPrincipalsModificationKind: pulumi.String("Union"),
-// 			Location:                          pulumi.String("westus"),
-// 			ResourceGroupName:                 pulumi.String("kustorptest"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type AttachedDatabaseConfiguration struct {
 	pulumi.CustomResourceState
 

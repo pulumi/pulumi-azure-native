@@ -11,34 +11,6 @@ import (
 )
 
 // Product details.
-//
-// ## Example Usage
-// ### ApiManagementCreateProduct
-//
-// ```go
-// package main
-//
-// import (
-// 	apimanagement "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm/apimanagement/v20191201"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apimanagement.NewProduct(ctx, "product", &apimanagement.ProductArgs{
-// 			DisplayName:       pulumi.String("Test Template ProductName 4"),
-// 			ProductId:         pulumi.String("testproduct"),
-// 			ResourceGroupName: pulumi.String("rg1"),
-// 			ServiceName:       pulumi.String("apimService1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-//
-// ```
 type Product struct {
 	pulumi.CustomResourceState
 
