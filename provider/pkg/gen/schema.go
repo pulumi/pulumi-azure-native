@@ -379,14 +379,13 @@ func mergePackageSpec(dst, src *pschema.PackageSpec) {
 // Docs will only have the newest stable version or if there are no
 // stable versions, the newest preview
 func getLatestVersions(sortedVersions []string, versionMap openapi.ProviderVersions) codegen.StringSet {
-
 	latestVersions := codegen.NewStringSet()
 	var latestPreview string
 	if _, hasLatest := versionMap["latest"]; hasLatest {
 		latestVersions.Add("latest")
 	} else {
 		for i := len(sortedVersions) - 1; i >= 0; i-- {
-			if !strings.HasSuffix(sortedVersions[i], "preview") {
+			if !strings.Contains(sortedVersions[i], "preview") {
 				latestVersions.Add(sortedVersions[i])
 				break
 			} else if latestPreview == "" {

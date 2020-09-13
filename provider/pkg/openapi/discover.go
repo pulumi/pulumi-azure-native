@@ -64,9 +64,11 @@ func Providers() AzureProviders {
 		// Add a `latest` (stable) version for each resource and invoke.
 		latestResources := calculateLatestVersions(versionMap, false /* invokes */, false /* preview */)
 		latestInvokes := calculateLatestVersions(versionMap, true /* invokes */, false /* preview */)
-		versionMap["latest"] = VersionResources{
-			Resources: latestResources,
-			Invokes:   latestInvokes,
+		if len(latestResources) > 0 || len(latestInvokes) > 0 {
+			versionMap["latest"] = VersionResources{
+				Resources: latestResources,
+				Invokes:   latestInvokes,
+			}
 		}
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
