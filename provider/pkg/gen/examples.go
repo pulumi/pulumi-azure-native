@@ -39,11 +39,11 @@ type resourceExamplesRenderData struct {
 }
 
 // Examples renders Azure API examples to the pkgSpec for the specified list of languages.
-func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, resExamples map[string][]provider.AzureApiExample, languages []string) error {
-	sortedKeys := codegen.SortedKeys(metadata.Resources) // To generate in deterministic order
+func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, resExamples map[string][]provider.AzureAPIExample, languages []string) error {
+	sortedKeys := codegen.SortedKeys(resExamples) // To generate in deterministic order
 
 	// Use a progress bar to show progress since this can be a long running process
-	bar := progressbar.Default(int64(len(metadata.Resources)), "Resources processed:")
+	bar := progressbar.Default(int64(len(sortedKeys)), "Resources processed:")
 
 	// cache to speed up code generation
 	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
@@ -154,7 +154,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, 
 
 type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
 
-func generateExamplePrograms(example provider.AzureApiExample, body *model.Body, languages []string, bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
+func generateExamplePrograms(example provider.AzureAPIExample, body *model.Body, languages []string, bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
 	programBody := fmt.Sprintf("%v", body)
 	debug.Log(programBody)
 	parser := syntax.NewParser()

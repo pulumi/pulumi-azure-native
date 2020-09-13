@@ -37,9 +37,155 @@ import (
 // Note - this needs to be kept in sync with the layout in the SDK package
 const goBasePath = "github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 
+// PulumiSchemaGenResult is a convenience wrapper around return type from PulumiSchema
+type PulumiSchemaGenResult struct {
+	// PkgSpec is the complete schema
+	PkgSpec *pschema.PackageSpec
+	// Metadata is the complete metadata
+	Metadata *provider.AzureAPIMetadata
+	// DocsSpec is the docs relevant subset of PkgSpec
+	DocsSpec *pschema.PackageSpec
+	// Examples contains mapping from resource tokens to api examples
+	Examples map[string][]provider.AzureAPIExample
+}
+
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureAPIMetadata, map[string][]provider.AzureApiExample, error) {
-	pkg := pschema.PackageSpec{
+func PulumiSchema(providerMap openapi.AzureProviders) (PulumiSchemaGenResult, error) {
+	pkg := newPackageSpec()
+	docsPkg := newPackageSpec()
+
+	metadata := provider.AzureAPIMetadata{
+		Types:     map[string]provider.AzureAPIType{},
+		Resources: map[string]provider.AzureAPIResource{},
+		Invokes:   map[string]provider.AzureAPIInvoke{},
+	}
+
+	csharpVersionReplacer := strings.NewReplacer("privatepreview", "PrivatePreview", "preview", "Preview")
+	csharpNamespaces := map[string]string{
+		"azurerm": "AzureRM",
+	}
+	pythonModuleNames := map[string]string{}
+	golangImportAliases := map[string]string{}
+
+	var providers []string
+	for prov := range providerMap {
+		providers = append(providers, prov)
+	}
+	sort.Strings(providers)
+
+	exampleMap := make(map[string][]provider.AzureAPIExample)
+	for _, providerName := range providers {
+		versionMap := providerMap[providerName]
+		var versions []string
+		for version := range versionMap {
+			versions = append(versions, version)
+		}
+		sort.Strings(versions)
+
+		latestVersions := getLatestVersions(versions, versionMap)
+		for _, version := range versions {
+			// Only want package spec and examples for latest versions in docs
+			pkgForVersion := newPackageSpec()
+			examplesForVersion := make(map[string][]provider.AzureAPIExample)
+			gen := packageGenerator{
+				pkg:        pkgForVersion,
+				metadata:   &metadata,
+				apiVersion: version,
+				examples:   examplesForVersion,
+			}
+
+			// Populate C#, Python and Go module mapping.
+			module := gen.providerToModule(providerName)
+			csVersion := strings.Title(csharpVersionReplacer.Replace(version))
+			csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
+			pythonModuleNames[module] = module
+			golangImportAliases[filepath.Join(goBasePath, module)] = strings.ToLower(providerName)
+
+			// Populate resources and get invokes.
+			items := versionMap[version]
+			var resources []string
+			for resource := range items.Resources {
+				resources = append(resources, resource)
+			}
+			sort.Strings(resources)
+
+			for _, typeName := range resources {
+				resource := items.Resources[typeName]
+				gen.genResources(providerName, typeName, resource.Path, resource.PathItem, resource.Swagger, resource.CompatibleVersions)
+			}
+
+			// Populate list invokes.
+			var invokes []string
+			for invoke := range items.Invokes {
+				invokes = append(invokes, invoke)
+			}
+			sort.Strings(invokes)
+
+			for _, typeName := range invokes {
+				invoke := items.Invokes[typeName]
+				gen.genListFunctions(providerName, typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
+			}
+
+			mergePackageSpec(pkg, pkgForVersion)
+			if latestVersions.Has(version) {
+				mergePackageSpec(docsPkg, pkgForVersion)
+				// Also only generate examples for latest versions
+				for k, v := range examplesForVersion {
+					exampleMap[k] = v
+				}
+			}
+		}
+	}
+
+	pkg.Language["go"] = rawMessage(map[string]interface{}{
+		"importBasePath":       goBasePath,
+		"packageImportAliases": golangImportAliases,
+	})
+	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
+		"dependencies": map[string]string{
+			"@pulumi/pulumi": "^2.0.0",
+		},
+		"readme": `The AzureRM provider package offers support for all Azure Resource Manager (ARM)
+resources and their properties. Resources are exposed as types from modules based on Azure Resource
+Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
+allows you to programmatically declare instances of any Azure resource and any supported resource
+version using infrastructure as code, which Pulumi then uses to drive the ARM API.`,
+	})
+
+	pkg.Language["python"] = rawMessage(map[string]interface{}{
+		"moduleNameOverrides": pythonModuleNames,
+		"requires": map[string]string{
+			"pulumi": ">=2.0.0,<3.0.0",
+		},
+		"readme": `The AzureRM provider package offers support for all Azure Resource Manager (ARM)
+resources and their properties. Resources are exposed as types from modules based on Azure Resource
+Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
+allows you to programmatically declare instances of any Azure resource and any supported resource
+version using infrastructure as code, which Pulumi then uses to drive the ARM API.`,
+	})
+
+	pkg.Language["csharp"] = rawMessage(map[string]interface{}{
+		"packageReferences": map[string]string{
+			"Pulumi":                       "2.*",
+			"System.Collections.Immutable": "1.6.0",
+		},
+		"namespaces": csharpNamespaces,
+	})
+
+	for k, v := range pkg.Language {
+		docsPkg.Language[k] = v
+	}
+
+	return PulumiSchemaGenResult{
+		PkgSpec:  pkg,
+		DocsSpec: docsPkg,
+		Metadata: &metadata,
+		Examples: exampleMap,
+	}, nil
+}
+
+func newPackageSpec() *pschema.PackageSpec {
+	return &pschema.PackageSpec{
 		Name:        "azurerm",
 		Description: "A Pulumi package for creating and managing Azure resources.",
 		License:     "Apache-2.0",
@@ -221,112 +367,50 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]json.RawMessage{},
 	}
-	metadata := provider.AzureAPIMetadata{
-		Types:     map[string]provider.AzureAPIType{},
-		Resources: map[string]provider.AzureAPIResource{},
-		Invokes:   map[string]provider.AzureAPIInvoke{},
+}
+
+func mergePackageSpec(dst, src *pschema.PackageSpec) {
+	for k, v := range src.Types {
+		dst.Types[k] = v
 	}
 
-	csharpVersionReplacer := strings.NewReplacer("privatepreview", "PrivatePreview", "preview", "Preview")
-	csharpNamespaces := map[string]string{
-		"azurerm": "AzureRM",
+	for k, v := range src.Resources {
+		dst.Resources[k] = v
 	}
-	pythonModuleNames := map[string]string{}
-	golangImportAliases := map[string]string{}
 
-	var providers []string
-	for prov := range providerMap {
-		providers = append(providers, prov)
+	for k, v := range src.Functions {
+		dst.Functions[k] = v
 	}
-	sort.Strings(providers)
 
-	exampleMap := make(map[string][]provider.AzureApiExample)
-	for _, providerName := range providers {
-		versionMap := providerMap[providerName]
-		var versions []string
-		for version := range versionMap {
-			versions = append(versions, version)
-		}
-		sort.Strings(versions)
+	for k, v := range src.Language {
+		dst.Language[k] = v
+	}
+}
 
-		for _, version := range versions {
-			gen := packageGenerator{
-				pkg:        &pkg,
-				metadata:   &metadata,
-				apiVersion: version,
-				examples:   exampleMap,
-			}
+// getLatestVersions finds the versions to include in docs/examples.
+// Docs will only have 'latest' and the newest stable version or if
+// there are no stable versions, the newest preview
+func getLatestVersions(sortedVersions []string, versionMap openapi.ProviderVersions) codegen.StringSet {
 
-			// Populate C#, Python and Go module mapping.
-			module := gen.providerToModule(providerName)
-			csVersion := strings.Title(csharpVersionReplacer.Replace(version))
-			csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
-			pythonModuleNames[module] = module
-			golangImportAliases[filepath.Join(goBasePath, module)] = strings.ToLower(providerName)
-
-			// Populate resources and get invokes.
-			items := versionMap[version]
-			var resources []string
-			for resource := range items.Resources {
-				resources = append(resources, resource)
-			}
-			sort.Strings(resources)
-
-			for _, typeName := range resources {
-				resource := items.Resources[typeName]
-				gen.genResources(providerName, typeName, resource.Path, resource.PathItem, resource.Swagger, resource.CompatibleVersions)
-			}
-
-			// Populate list invokes.
-			var invokes []string
-			for invoke := range items.Invokes {
-				invokes = append(invokes, invoke)
-			}
-			sort.Strings(invokes)
-
-			for _, typeName := range invokes {
-				invoke := items.Invokes[typeName]
-				gen.genListFunctions(providerName, typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
+	latestVersions := codegen.NewStringSet()
+	var latestPreview string
+	for i := len(sortedVersions) - 1; i >= 0; i-- {
+		if sortedVersions[i] != "latest" {
+			if !strings.HasSuffix(sortedVersions[i], "preview") {
+				latestVersions.Add(sortedVersions[i])
+				break
+			} else if latestPreview == "" {
+				latestPreview = sortedVersions[i]
 			}
 		}
 	}
-
-	pkg.Language["go"] = rawMessage(map[string]interface{}{
-		"importBasePath":       goBasePath,
-		"packageImportAliases": golangImportAliases,
-	})
-	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
-		"dependencies": map[string]string{
-			"@pulumi/pulumi": "^2.0.0",
-		},
-		"readme": `The AzureRM provider package offers support for all Azure Resource Manager (ARM)
-resources and their properties. Resources are exposed as types from modules based on Azure Resource
-Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
-allows you to programmatically declare instances of any Azure resource and any supported resource
-version using infrastructure as code, which Pulumi then uses to drive the ARM API.`,
-	})
-
-	pkg.Language["python"] = rawMessage(map[string]interface{}{
-		"moduleNameOverrides": pythonModuleNames,
-		"requires": map[string]string{
-			"pulumi": ">=2.0.0,<3.0.0",
-		},
-		"readme": `The AzureRM provider package offers support for all Azure Resource Manager (ARM)
-resources and their properties. Resources are exposed as types from modules based on Azure Resource
-Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
-allows you to programmatically declare instances of any Azure resource and any supported resource
-version using infrastructure as code, which Pulumi then uses to drive the ARM API.`,
-	})
-
-	pkg.Language["csharp"] = rawMessage(map[string]interface{}{
-		"packageReferences": map[string]string{
-			"Pulumi":                       "2.*",
-			"System.Collections.Immutable": "1.6.0",
-		},
-		"namespaces": csharpNamespaces,
-	})
-
-	return &pkg, &metadata, exampleMap, nil
+	if len(latestVersions) == 0 {
+		latestVersions.Add(latestPreview)
+	}
+	if _, hasLatest := versionMap["latest"]; hasLatest {
+		latestVersions.Add("latest")
+	}
+	return latestVersions
 }
 
 // Microsoft-specific API extension constants.
@@ -343,7 +427,7 @@ const (
 type packageGenerator struct {
 	pkg        *pschema.PackageSpec
 	metadata   *provider.AzureAPIMetadata
-	examples   map[string][]provider.AzureApiExample
+	examples   map[string][]provider.AzureAPIExample
 	apiVersion string
 }
 
@@ -462,7 +546,7 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 
 	examples := raw.(map[string]interface{})
 
-	result := make([]provider.AzureApiExample, 0, len(examples))
+	result := make([]provider.AzureAPIExample, 0, len(examples))
 	for k, v := range examples {
 		resolved := v.(map[string]interface{})
 		if _, ok := resolved["$ref"]; !ok {
@@ -491,7 +575,7 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 		if _, err := os.Stat(url); err != nil {
 			return err
 		}
-		result = append(result, provider.AzureApiExample{
+		result = append(result, provider.AzureAPIExample{
 			Description: k,
 			Location:    url,
 		})

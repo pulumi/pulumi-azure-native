@@ -3,20 +3,21 @@
 package openapi
 
 import (
-	"github.com/go-openapi/spec"
-	"github.com/pulumi/pulumi-azurerm/provider/pkg/provider"
-	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/go-openapi/spec"
+	"github.com/pulumi/pulumi-azurerm/provider/pkg/provider"
+	"github.com/pulumi/pulumi/pkg/v2/codegen"
 )
 
 // AzureProviders maps provider names (e.g. Compute) to versions in that providers and resources therein.
-type AzureProviders = map[string]ProviderVersions
+type AzureProviders map[string]ProviderVersions
 
 // ProviderVersions maps API Versions (e.g. 2020-08-01) to resources and invokes in that version.
-type ProviderVersions = map[string]VersionResources
+type ProviderVersions map[string]VersionResources
 
 // VersionResources contains all resources and invokes in a given API version.
 type VersionResources struct {

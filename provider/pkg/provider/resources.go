@@ -52,8 +52,8 @@ type AzureAPIType struct {
 	RequiredProperties []string                    `json:"required,omitempty"`
 }
 
-// AzureApiExample provides a pointer to examples relevant to a resource from the Azure REST API spec.
-type AzureApiExample struct {
+// AzureAPIExample provides a pointer to examples relevant to a resource from the Azure REST API spec.
+type AzureAPIExample struct {
 	Description string `json:"description"`
 	Location    string `json:"location"`
 }

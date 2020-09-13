@@ -52,18 +52,18 @@ func main() {
 
 	azureProviders := openapi.Providers()
 
-	pkgSpec, meta, examples, err := gen.PulumiSchema(azureProviders)
+	result, err := gen.PulumiSchema(azureProviders)
 	if err != nil {
 		panic(err)
 	}
 
 	handleSchema := func() {
 		outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azurerm")
-		if err = emitSchema(*pkgSpec, *version, outdir); err != nil {
+		if err = emitSchema(result.PkgSpec, result.DocsSpec, *version, outdir); err != nil {
 			panic(err)
 		}
 		// Also, emit the resource metadata and embeddable schema for the provider.
-		if err = emitMetadata(meta, outdir); err != nil {
+		if err = emitMetadata(result.Metadata, outdir); err != nil {
 			panic(err)
 		}
 	}
@@ -72,7 +72,7 @@ func main() {
 
 	if *generateExamples {
 		// Note - Requires a provider executable in PATH
-		err = gen.Examples(pkgSpec, meta, examples, langs)
+		err = gen.Examples(result.PkgSpec, result.Metadata, result.Examples, langs)
 		if err != nil {
 			panic(err)
 		}
@@ -82,6 +82,7 @@ func main() {
 
 	// Generate SDK after examples so they get rendered as part of the SDK
 	if *generateSDK {
+		pkgSpec := result.PkgSpec
 		for _, language := range langs {
 			outdir := path.Join(".", "sdk", language)
 			log.Printf("Generating SDK for language: %s", language)
@@ -99,10 +100,15 @@ func main() {
 }
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
-func emitSchema(pkgSpec schema.PackageSpec, version, outDir string) error {
+func emitSchema(pkgSpec *schema.PackageSpec, docSpec *schema.PackageSpec, version, outDir string) error {
 	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 	if err != nil {
 		return errors.Wrap(err, "marshaling Pulumi schema")
+	}
+
+	docsJSON, err := json.MarshalIndent(docSpec, "", "    ")
+	if err != nil {
+		return errors.Wrap(err, "marshaling Pulumi schema for docs")
 	}
 
 	// Ensure the spec is stamped with a version.
@@ -125,6 +131,9 @@ var pulumiSchema = %#v
 		return errors.Wrap(err, "saving metadata")
 	}
 
+	if err := emitFile(outDir, "schema-docs.json", docsJSON); err != nil {
+		return err
+	}
 	return emitFile(outDir, "schema.json", schemaJSON)
 }
 
